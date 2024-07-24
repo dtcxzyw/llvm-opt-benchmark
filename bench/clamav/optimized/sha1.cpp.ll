@@ -1108,7 +1108,7 @@ define void @_Z12sha1_processP12sha1_contextPKhm(ptr nocapture noundef %0, ptr n
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   %24 = getelementptr inbounds i8, ptr %23, i64 %.0
   %25 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %26 = sub i64 %2, %.1
+  %26 = sub nuw i64 %2, %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %25, i64 %26, i1 false)
   br label %27
 
@@ -1158,7 +1158,7 @@ define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr nocapture noundef %0,
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = getelementptr inbounds i8, ptr %22, i64 %.030
   %24 = getelementptr inbounds i8, ptr %1, i64 %.1
-  %25 = sub i64 %2, %.1
+  %25 = sub nuw i64 %2, %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %24, i64 %25, i1 false)
   br label %26
 

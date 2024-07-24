@@ -456,7 +456,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %158
-  %162 = sub i32 %156, %159
+  %162 = sub nuw i32 %156, %159
   %163 = tail call ptr @skb_put(ptr noundef nonnull %26, i32 noundef %162) #11
   br label %164
 

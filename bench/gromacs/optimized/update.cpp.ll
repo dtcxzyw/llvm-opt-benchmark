@@ -707,7 +707,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %9
   br i1 %.not.i, label %97, label %95
 
 95:                                               ; preds = %84
-  %96 = sub i64 %91, %94
+  %96 = sub nuw i64 %91, %94
   br label %99
 
 97:                                               ; preds = %84
@@ -888,7 +888,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %37, %51, 
   br i1 %.not.i, label %89, label %87
 
 87:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
-  %88 = sub i64 %84, %86
+  %88 = sub nuw i64 %84, %86
   br label %91
 
 89:                                               ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
@@ -1357,7 +1357,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %51
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %62)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit48 unwind label %17
 
@@ -1447,7 +1447,7 @@ define linkonce_odr void @_ZNSt6vectorI14gmx_sd_const_tSaIS0_EE6resizeEm(ptr nou
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -1546,7 +1546,7 @@ define linkonce_odr void @_ZNSt6vectorI14gmx_sd_sigma_tSaIS0_EE6resizeEm(ptr nou
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -2321,7 +2321,7 @@ _ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit: ; preds = %2, %
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %_ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit
-  %19 = sub i64 %1, %16
+  %19 = sub nuw i64 %1, %16
   tail call void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %19)
   %.pre = load ptr, ptr %10, align 8
   %.pre5 = load ptr, ptr %0, align 8
@@ -2614,7 +2614,7 @@ _ZSt13move_backwardIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit: ; preds = %26, 
   br i1 %.not.i.i.i, label %_ZSt4fillIPN3gmx11BasicVectorIfEES2_EvT_S4_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !48
 
 32:                                               ; preds = %14
-  %33 = sub i64 %2, %17
+  %33 = sub nuw i64 %2, %17
   %.not8.i = icmp eq i64 %33, 0
   br i1 %.not8.i, label %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_23AlignedAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit, label %.lr.ph.i
 
@@ -2817,7 +2817,7 @@ define void @_Z14init_ekinstateP11ekinstate_tPK10t_inputrec(ptr noundef %0, ptr 
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %2
-  %29 = sub nsw i64 %19, %26
+  %29 = sub nuw nsw i64 %19, %26
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %29)
   %.pre = load i32, ptr %5, align 4
   %.pre22 = sext i32 %.pre to i64
@@ -2850,7 +2850,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %28, %30, %32, %34
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %45 = sub nsw i64 %.pre-phi, %42
+  %45 = sub nuw nsw i64 %.pre-phi, %42
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %45)
   %.pre21 = load i32, ptr %5, align 4
   %.pre23 = sext i32 %.pre21 to i64
@@ -2883,7 +2883,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit18:             ; preds = %44, %46, %48, %50
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit18
-  %61 = sub nsw i64 %.pre-phi24, %58
+  %61 = sub nuw nsw i64 %.pre-phi24, %58
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %61)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit20
 

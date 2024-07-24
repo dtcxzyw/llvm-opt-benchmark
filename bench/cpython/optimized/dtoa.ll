@@ -2473,7 +2473,7 @@ if.end31:                                         ; preds = %if.then23, %if.then
   br i1 %tobool32.not, label %if.end48thread-pre-split, label %if.then33
 
 if.then33:                                        ; preds = %if.end31
-  %scale.addr.0 = sub nsw i32 %.pn, %sub
+  %scale.addr.0 = sub nuw nsw i32 %.pn, %sub
   %14 = load i32, ptr %x, align 8
   %shr36 = lshr i32 %14, %scale.addr.0
   %15 = load i32, ptr %arrayidx4, align 4

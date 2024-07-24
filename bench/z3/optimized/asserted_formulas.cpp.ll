@@ -4374,12 +4374,12 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sub = sub i32 %0, %num_scopes
+  %sub = sub nuw i32 %0, %num_scopes
   store i32 %sub, ptr %m_lazy_scopes, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sub4 = sub i32 %num_scopes, %0
+  %sub4 = sub nuw i32 %num_scopes, %0
   store i32 0, ptr %m_lazy_scopes, align 8
   %m_cfg.i = getelementptr inbounds i8, ptr %this, i64 2064
   tail call void @_ZN19maximize_ac_sharing9pop_scopeEj(ptr noundef nonnull align 8 dereferenceable(112) %m_cfg.i, i32 noundef %sub4)

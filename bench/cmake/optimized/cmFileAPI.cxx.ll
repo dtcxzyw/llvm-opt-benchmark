@@ -2713,7 +2713,7 @@ define dso_local noundef zeroext i1 @_ZN9cmFileAPI12ReadJsonFileERKNSt7__cxx1112
   br i1 %32, label %33, label %62
 
 33:                                               ; preds = %25
-  %34 = sub nsw i64 %23, %31
+  %34 = sub nuw nsw i64 %23, %31
   %35 = getelementptr inbounds i8, ptr %5, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64

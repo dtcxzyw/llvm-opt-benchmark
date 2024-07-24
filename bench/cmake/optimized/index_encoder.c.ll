@@ -328,7 +328,7 @@ define dso_local range(i32 0, 12) i32 @lzma_index_buffer_encode(ptr noundef %0, 
   br i1 %11, label %25, label %12
 
 12:                                               ; preds = %9
-  %13 = sub i64 %3, %10
+  %13 = sub nuw i64 %3, %10
   %14 = tail call i64 @lzma_index_size(ptr noundef nonnull %0) #5
   %15 = icmp ult i64 %13, %14
   br i1 %15, label %25, label %16

@@ -464,7 +464,7 @@ define void @_ZN5faiss18BlockInvertedLists6resizeEmm(ptr nocapture noundef nonnu
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = sub i64 %2, %13
+  %16 = sub nuw i64 %2, %13
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %16)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
@@ -504,7 +504,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %15, %17, %19, %21
   %38 = getelementptr inbounds %"struct.faiss::AlignedTable", ptr %37, i64 %1
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 %26
-  %41 = sub i64 %34, %26
+  %41 = sub nuw i64 %34, %26
   tail call void @llvm.memset.p0.i64(ptr align 1 %40, i8 0, i64 %41, i1 false)
   br label %42
 
@@ -1299,7 +1299,7 @@ define noundef ptr @_ZNK5faiss24BlockInvertedListsIOHook4readEPNS_8IOReaderEi(pt
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %139
-  %151 = sub i64 %141, %148
+  %151 = sub nuw i64 %141, %148
   tail call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %140, i64 noundef %151)
   br label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
 
@@ -1345,7 +1345,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %150, %152, %154, %_
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
-  %170 = sub i64 %160, %167
+  %170 = sub nuw i64 %160, %167
   tail call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %159, i64 noundef %170)
   br label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit
 
@@ -1494,7 +1494,7 @@ _ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit: ; preds = %16
   br i1 %239, label %240, label %242
 
 240:                                              ; preds = %229
-  %241 = sub nsw i64 %211, %238
+  %241 = sub nuw nsw i64 %211, %238
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %231, i64 noundef %241)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
@@ -1805,7 +1805,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %4, %._ZNSt6vectorIS
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
-  %20 = sub i64 %1, %17
+  %20 = sub nuw i64 %1, %17
   invoke void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %20)
           to label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit unwind label %27
 
@@ -2336,7 +2336,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %3, %._ZNSt6vectorIS
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
-  %23 = sub i64 %1, %20
+  %23 = sub nuw i64 %1, %20
   invoke void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %23)
           to label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit unwind label %30
 

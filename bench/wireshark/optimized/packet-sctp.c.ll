@@ -8388,7 +8388,7 @@ define internal fastcc void @sctp_ack_block(ptr nocapture noundef readonly %0, p
   br i1 %or.cond84, label %.loopexit, label %49
 
 49:                                               ; preds = %42
-  %50 = sub i32 %18, %.059
+  %50 = sub nuw i32 %18, %.059
   %51 = icmp ugt i32 %50, -65536
   br i1 %51, label %.loopexit, label %52
 

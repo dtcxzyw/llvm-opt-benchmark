@@ -84,7 +84,7 @@ define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef 
   br i1 %17, label %18, label %43
 
 18:                                               ; preds = %13
-  %19 = sub i64 %10, %11
+  %19 = sub nuw i64 %10, %11
   %20 = lshr i64 %19, 12
   %21 = and i64 %20, 4294967295
   %22 = getelementptr [19 x %struct.estack_pages], ptr @estack_pages, i64 0, i64 %21

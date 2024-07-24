@@ -1884,7 +1884,7 @@ if.end35:                                         ; preds = %if.then33, %_ZNVSt1
   br i1 %call10, label %return, label %if.end12, !llvm.loop !9
 
 if.end36:                                         ; preds = %if.end20
-  %sub37 = sub i32 %sub, %size.0.ph
+  %sub37 = sub nuw i32 %sub, %size.0.ph
   %cmp39 = icmp ult i32 %sub37, 24
   %spec.select97 = select i1 %cmp39, i32 %sub, i32 %size.0.ph
   %add43 = add i32 %spec.select97, %freeptr.0121

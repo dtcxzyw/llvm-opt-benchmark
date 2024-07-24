@@ -294,7 +294,7 @@ gv_calloc.exit223.i:                              ; preds = %gv_calloc.exit.i
 
 138:                                              ; preds = %136
   %139 = getelementptr inbounds i8, ptr %131, i64 %128
-  %140 = sub i64 %129, %128
+  %140 = sub nuw i64 %129, %128
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %139, i8 0, i64 %140, i1 false)
   br label %gv_recalloc.exit115
 
@@ -387,7 +387,7 @@ gv_recalloc.exit115:                              ; preds = %138, %136, %115
 
 184:                                              ; preds = %182
   %185 = getelementptr inbounds i8, ptr %177, i64 %174
-  %186 = sub i64 %175, %174
+  %186 = sub nuw i64 %175, %174
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %185, i8 0, i64 %186, i1 false)
   br label %gv_recalloc.exit113
 
@@ -447,7 +447,7 @@ gv_recalloc.exit113:                              ; preds = %184, %182, %161
 
 214:                                              ; preds = %212
   %215 = getelementptr inbounds i8, ptr %207, i64 %204
-  %216 = sub i64 %205, %204
+  %216 = sub nuw i64 %205, %204
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %215, i8 0, i64 %216, i1 false)
   br label %gv_recalloc.exit111
 
@@ -570,7 +570,7 @@ gv_recalloc.exit111:                              ; preds = %214, %212, %.crited
 
 266:                                              ; preds = %264
   %267 = getelementptr inbounds i8, ptr %259, i64 %254
-  %268 = sub i64 %255, %254
+  %268 = sub nuw i64 %255, %254
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %267, i8 0, i64 %268, i1 false)
   br label %gv_recalloc.exit109
 
@@ -633,7 +633,7 @@ gv_recalloc.exit109:                              ; preds = %266, %264, %257, %2
 
 297:                                              ; preds = %295
   %298 = getelementptr inbounds i8, ptr %290, i64 %287
-  %299 = sub i64 %288, %287
+  %299 = sub nuw i64 %288, %287
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %298, i8 0, i64 %299, i1 false)
   br label %gv_recalloc.exit
 

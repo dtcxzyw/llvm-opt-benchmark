@@ -12748,7 +12748,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc314be3d1e72129a
   br i1 %5, label %"_ZN4core3ptr104drop_in_place$LT$$u5b$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$u5d$$GT$17h6110d649ce4e24b8E.llvm.17313098904469548336.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !16, !noundef !16
   %10 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %9, i64 %1

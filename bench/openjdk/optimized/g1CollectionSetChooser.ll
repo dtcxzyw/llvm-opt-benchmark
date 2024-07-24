@@ -746,7 +746,7 @@ define linkonce_odr hidden void @_ZN27G1BuildCandidateRegionsTask5pruneEP28G1Col
 
 .lr.ph.preheader:                                 ; preds = %2
   %9 = tail call noundef i64 @_ZNK8G1Policy31allowed_waste_in_collection_setEv(ptr noundef nonnull align 8 dereferenceable(552) %5) #13
-  %10 = sub i32 %7, %8
+  %10 = sub nuw i32 %7, %8
   %11 = add i32 %7, -1
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %1, i64 %12

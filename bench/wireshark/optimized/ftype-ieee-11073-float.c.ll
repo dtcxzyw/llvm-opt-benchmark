@@ -1070,7 +1070,7 @@ switch.lookup:                                    ; preds = %4
   %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.float_ieee_11073_val_to_repr, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %switch.load) #8
-  br label %85
+  br label %84
 
 12:                                               ; preds = %4
   %13 = lshr i32 %8, 24
@@ -1085,7 +1085,7 @@ switch.lookup:                                    ; preds = %4
 
 18:                                               ; preds = %12
   %19 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull @.str.9) #8
-  br label %85
+  br label %84
 
 20:                                               ; preds = %12
   br i1 %.not, label %22, label %21
@@ -1108,7 +1108,7 @@ switch.lookup:                                    ; preds = %4
   %29 = zext nneg i32 %.mask79 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr nonnull align 1 %5, i64 %29, i1 false)
   %30 = add nuw nsw i32 %.mask79, %.070
-  br label %81
+  br label %80
 
 31:                                               ; preds = %22
   %32 = icmp sgt i32 %24, 0
@@ -1127,7 +1127,7 @@ switch.lookup:                                    ; preds = %4
   %40 = ashr exact i64 %sext, 56
   call void @llvm.memset.p0.i64(ptr align 1 %39, i8 48, i64 %40, i1 false)
   %41 = add nuw nsw i32 %37, %24
-  br label %81
+  br label %80
 
 42:                                               ; preds = %31
   %43 = sub nsw i32 0, %24
@@ -1155,7 +1155,7 @@ switch.lookup:                                    ; preds = %4
   %61 = zext nneg i32 %43 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %60, i64 %61, i1 false)
   %62 = sub nsw i32 %54, %24
-  br label %81
+  br label %80
 
 63:                                               ; preds = %42
   %64 = getelementptr [136 x i8], ptr %6, i64 0, i64 %46
@@ -1165,37 +1165,37 @@ switch.lookup:                                    ; preds = %4
   %67 = getelementptr [136 x i8], ptr %6, i64 0, i64 %66
   store i8 46, ptr %67, align 1
   %68 = or disjoint i32 %.070, 2
-  %69 = sub nsw i32 %43, %44
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %71, label %76
+  %.not80 = icmp eq i32 %44, %43
+  br i1 %.not80, label %75, label %69
 
-71:                                               ; preds = %63
-  %72 = zext nneg i32 %68 to i64
-  %73 = getelementptr i8, ptr %6, i64 %72
-  %74 = zext nneg i32 %69 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %73, i8 48, i64 %74, i1 false)
-  %75 = add nuw nsw i32 %69, %68
-  br label %76
+69:                                               ; preds = %63
+  %70 = sub nuw nsw i32 %43, %44
+  %71 = zext nneg i32 %68 to i64
+  %72 = getelementptr i8, ptr %6, i64 %71
+  %73 = zext nneg i32 %70 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %72, i8 48, i64 %73, i1 false)
+  %74 = add nuw nsw i32 %70, %68
+  br label %75
 
-76:                                               ; preds = %71, %63
-  %.1 = phi i32 [ %75, %71 ], [ %68, %63 ]
-  %77 = zext nneg i32 %.1 to i64
-  %78 = getelementptr i8, ptr %6, i64 %77
-  %79 = zext nneg i32 %44 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr nonnull align 1 %5, i64 %79, i1 false)
-  %80 = add nuw nsw i32 %.1, %44
-  br label %81
+75:                                               ; preds = %69, %63
+  %.1 = phi i32 [ %74, %69 ], [ %68, %63 ]
+  %76 = zext nneg i32 %.1 to i64
+  %77 = getelementptr i8, ptr %6, i64 %76
+  %78 = zext nneg i32 %44 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull align 1 %5, i64 %78, i1 false)
+  %79 = add nuw nsw i32 %.1, %44
+  br label %80
 
-81:                                               ; preds = %33, %76, %47, %26
-  %.2 = phi i32 [ %30, %26 ], [ %41, %33 ], [ %62, %47 ], [ %80, %76 ]
-  %82 = zext i32 %.2 to i64
-  %83 = getelementptr [136 x i8], ptr %6, i64 0, i64 %82
-  store i8 0, ptr %83, align 1
-  %84 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %6) #8
-  br label %85
+80:                                               ; preds = %33, %75, %47, %26
+  %.2 = phi i32 [ %30, %26 ], [ %41, %33 ], [ %62, %47 ], [ %79, %75 ]
+  %81 = zext i32 %.2 to i64
+  %82 = getelementptr [136 x i8], ptr %6, i64 0, i64 %81
+  store i8 0, ptr %82, align 1
+  %83 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %6) #8
+  br label %84
 
-85:                                               ; preds = %81, %18, %switch.lookup
-  %.068 = phi ptr [ %11, %switch.lookup ], [ %19, %18 ], [ %84, %81 ]
+84:                                               ; preds = %80, %18, %switch.lookup
+  %.068 = phi ptr [ %11, %switch.lookup ], [ %19, %18 ], [ %83, %80 ]
   ret ptr %.068
 }
 

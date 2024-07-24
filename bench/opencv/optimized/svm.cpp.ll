@@ -1371,7 +1371,7 @@ _ZNK2cv3Mat8elemSizeEv.exit87:                    ; preds = %164, %174
   br i1 %223, label %224, label %226
 
 224:                                              ; preds = %205
-  %225 = sub nsw i64 %216, %222
+  %225 = sub nuw nsw i64 %216, %222
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %225)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -1399,7 +1399,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %224, %226, %228, %2
   br i1 %237, label %238, label %240
 
 238:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %239 = sub nsw i64 %216, %236
+  %239 = sub nuw nsw i64 %216, %236
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %48, i64 noundef %239)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -1586,7 +1586,7 @@ _ZNSt6vectorIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE9push_backERKS3_.exit: ; pred
   br i1 %307, label %308, label %310
 
 308:                                              ; preds = %299
-  %309 = sub nsw i64 %300, %306
+  %309 = sub nuw nsw i64 %300, %306
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %309)
   br label %.lr.ph.i.preheader
 
@@ -2532,7 +2532,7 @@ _ZNSt6vectorIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE9push_backEOS3_.exit: ; preds
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %._crit_edge105
-  %162 = sub nsw i64 %152, %159
+  %162 = sub nuw nsw i64 %152, %159
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %151, i64 noundef %162)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i unwind label %.loopexit.split-lp
 
@@ -10753,7 +10753,7 @@ _ZNSt6vectorIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE5clearEv.exit: ; preds = %55,
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %111
-  %123 = sub nsw i64 %113, %120
+  %123 = sub nuw nsw i64 %113, %120
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %112, i64 noundef %123)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -10783,7 +10783,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %128, %126, %124, %1
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %139 = sub nsw i64 %113, %136
+  %139 = sub nuw nsw i64 %113, %136
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %129, i64 noundef %139)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -11657,7 +11657,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %.loopexit456, %408
   br i1 %460, label %461, label %492
 
 461:                                              ; preds = %454
-  %462 = sub nsw i64 %455, %459
+  %462 = sub nuw nsw i64 %455, %459
   %463 = ptrtoint ptr %.sroa.13413.1506 to i64
   %464 = sub i64 %463, %456
   %465 = ashr exact i64 %464, 2
@@ -11754,7 +11754,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit270:            ; preds = %492, %_ZNSt12_Vecto
   br i1 %500, label %501, label %530
 
 501:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit270
-  %502 = sub i64 %455, %499
+  %502 = sub nuw i64 %455, %499
   %503 = load ptr, ptr %419, align 8
   %504 = ptrtoint ptr %503 to i64
   %505 = sub i64 %504, %497
@@ -12637,7 +12637,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIaSaI
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %.loopexit
-  %44 = sub nsw i64 %17, %41
+  %44 = sub nuw nsw i64 %17, %41
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %44)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %57
 
@@ -13077,7 +13077,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv2ml7SVMImpl6Solver12solve_n
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %42
-  %54 = sub nsw i64 %44, %51
+  %54 = sub nuw nsw i64 %44, %51
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %54)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -13308,7 +13308,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIaSaIaEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -13559,7 +13559,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv2ml7SVMImpl6Solver12solve_n
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %8
-  %27 = sub nsw i64 %17, %24
+  %27 = sub nuw nsw i64 %17, %24
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %27)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -14167,7 +14167,7 @@ _ZN2cv3PtrINS_2ml3SVM6KernelEEaSERKS4_.exit:      ; preds = %60, %_ZNSt16_Sp_cou
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %_ZN2cv3PtrINS_2ml3SVM6KernelEEaSERKS4_.exit
-  %129 = sub nsw i64 %119, %126
+  %129 = sub nuw nsw i64 %119, %126
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %129)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %171
 
@@ -14209,7 +14209,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIdSaId
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %135
-  %148 = sub nsw i64 %138, %145
+  %148 = sub nuw nsw i64 %138, %145
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.ptr42, i64 noundef %148)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %171
 
@@ -14246,7 +14246,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %164 = sub nsw i64 %.pre-phi103, %161
+  %164 = sub nuw nsw i64 %.pre-phi103, %161
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %154, i64 noundef %164)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit68 unwind label %171
 
@@ -14415,7 +14415,7 @@ _ZNSt6vectorIN2cv2ml7SVMImpl6Solver9KernelRowESaIS4_EE5clearEv.exit: ; preds = %
   br i1 %228, label %229, label %231
 
 229:                                              ; preds = %_ZNSt6vectorIN2cv2ml7SVMImpl6Solver9KernelRowESaIS4_EE5clearEv.exit
-  %230 = sub nsw i64 %221, %227
+  %230 = sub nuw nsw i64 %221, %227
   invoke void @_ZNSt6vectorIN2cv2ml7SVMImpl6Solver9KernelRowESaIS4_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS4_S6_EEmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr %219, i64 noundef %230, ptr noundef nonnull align 4 dereferenceable(12) %19)
           to label %._ZNSt6vectorIN2cv2ml7SVMImpl6Solver9KernelRowESaIS4_EE6resizeEmRKS4_.exit_crit_edge unwind label %171
 
@@ -15599,7 +15599,7 @@ _ZSt13move_backwardIPN2cv2ml7SVMImpl6Solver9KernelRowES5_ET0_T_S7_S6_.exit: ; pr
   br i1 %.not.i.i.i, label %_ZSt4fillIPN2cv2ml7SVMImpl6Solver9KernelRowES4_EvT_S6_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !136
 
 32:                                               ; preds = %14
-  %33 = sub i64 %2, %17
+  %33 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN2cv2ml7SVMImpl6Solver9KernelRowEmS4_S4_ET_S6_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

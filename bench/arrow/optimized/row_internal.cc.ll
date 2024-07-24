@@ -154,7 +154,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %column_metadatas, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE6resizeEm.exit
 
@@ -215,7 +215,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   br i1 %cmp.i59, label %if.then.i66, label %if.else.i60
 
 if.then.i66:                                      ; preds = %for.end
-  %sub.i67 = sub nsw i64 %conv7, %sub.ptr.div.i.i58
+  %sub.i67 = sub nuw nsw i64 %conv7, %sub.ptr.div.i.i58
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %column_order, i64 noundef %sub.i67)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -390,7 +390,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp.i75, label %if.then.i82, label %if.else.i76
 
 if.then.i82:                                      ; preds = %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEZN5arrow7compute16RowTableMetadata24FromColumnMetadataVectorERKS3_INS8_17KeyColumnMetadataESaISA_EEiiE3$_0EvT_SG_T0_.exit"
-  %sub.i83 = sub nsw i64 %conv7, %sub.ptr.div.i.i74
+  %sub.i83 = sub nuw nsw i64 %conv7, %sub.ptr.div.i.i74
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %inverse_column_order, i64 noundef %sub.i83)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit84
 
@@ -447,7 +447,7 @@ for.end41:                                        ; preds = %for.body32, %_ZNSt6
   br i1 %cmp.i92, label %if.then.i99, label %if.else.i93
 
 if.then.i99:                                      ; preds = %for.end41
-  %sub.i100 = sub nsw i64 %conv7, %sub.ptr.div.i.i91
+  %sub.i100 = sub nuw nsw i64 %conv7, %sub.ptr.div.i.i91
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %column_offsets, i64 noundef %sub.i100)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit101
 

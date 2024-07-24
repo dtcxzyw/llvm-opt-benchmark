@@ -5832,7 +5832,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit877:         ; preds = %_ZN2cv10AutoBufferI
   br i1 %1669, label %1670, label %1684
 
 1670:                                             ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit877
-  %1671 = sub nsw i32 %272, %1668
+  %1671 = sub nuw nsw i32 %272, %1668
   %1672 = shl nuw i32 1, %1671
   %1673 = sitofp i32 %1672 to double
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
@@ -11027,7 +11027,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64

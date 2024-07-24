@@ -73,42 +73,41 @@ define internal fastcc noundef ptr @bpchar_input(ptr noundef %0, i64 noundef %1,
 
 19:                                               ; preds = %.lr.ph
   %20 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #12
-  br i1 %20, label %21, label %38
+  br i1 %20, label %21, label %36
 
 21:                                               ; preds = %19
   %22 = tail call i32 @errcode(i32 noundef 16777346) #12
   %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %7) #12
   tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 163, ptr noundef nonnull @__func__.bpchar_input) #12
-  br label %38
+  br label %36
 
 24:                                               ; preds = %6
-  %25 = zext nneg i32 %7 to i64
-  %26 = zext nneg i32 %9 to i64
-  %27 = add i64 %25, %1
-  %28 = sub i64 %27, %26
+  %narrow = sub nuw nsw i32 %7, %9
+  %25 = zext nneg i32 %narrow to i64
+  %26 = add i64 %25, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %11, %4, %24
-  %.040 = phi i64 [ %28, %24 ], [ %1, %4 ], [ %13, %11 ], [ %13, %15 ]
+  %.040 = phi i64 [ %26, %24 ], [ %1, %4 ], [ %13, %11 ], [ %13, %15 ]
   %.039 = phi i64 [ %1, %24 ], [ %1, %4 ], [ %13, %11 ], [ %13, %15 ]
-  %29 = add i64 %.040, 4
-  %30 = tail call ptr @palloc(i64 noundef %29) #12
-  %31 = trunc i64 %29 to i32
-  %32 = shl i32 %31, 2
-  store i32 %32, ptr %30, align 4
-  %33 = getelementptr inbounds i8, ptr %30, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %0, i64 %.039, i1 false)
-  %34 = icmp ugt i64 %.040, %.039
-  br i1 %34, label %35, label %38
+  %27 = add i64 %.040, 4
+  %28 = tail call ptr @palloc(i64 noundef %27) #12
+  %29 = trunc i64 %27 to i32
+  %30 = shl i32 %29, 2
+  store i32 %30, ptr %28, align 4
+  %31 = getelementptr inbounds i8, ptr %28, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %0, i64 %.039, i1 false)
+  %32 = icmp ugt i64 %.040, %.039
+  br i1 %32, label %33, label %36
 
-35:                                               ; preds = %.loopexit
-  %36 = getelementptr i8, ptr %33, i64 %.039
-  %37 = sub i64 %.040, %.039
-  tail call void @llvm.memset.p0.i64(ptr align 1 %36, i8 32, i64 %37, i1 false)
-  br label %38
+33:                                               ; preds = %.loopexit
+  %34 = getelementptr i8, ptr %31, i64 %.039
+  %35 = sub nuw i64 %.040, %.039
+  tail call void @llvm.memset.p0.i64(ptr align 1 %34, i8 32, i64 %35, i1 false)
+  br label %36
 
-38:                                               ; preds = %.loopexit, %35, %21, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %21 ], [ %30, %35 ], [ %30, %.loopexit ]
+36:                                               ; preds = %.loopexit, %33, %21, %19
+  %.0 = phi ptr [ null, %19 ], [ null, %21 ], [ %28, %33 ], [ %28, %.loopexit ]
   ret ptr %.0
 }
 

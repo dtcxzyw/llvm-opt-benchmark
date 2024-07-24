@@ -20521,7 +20521,7 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit.i:              ; preds = %invoke.cont.i.i.i, 
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIhSaIhEE5clearEv.exit.i
-  %sub.i.i = sub i64 %buf_len, %sub.ptr.sub.i.i.i
+  %sub.i.i = sub nuw i64 %buf_len, %sub.ptr.sub.i.i.i
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %reuse_tracker, ptr %2, i64 noundef %sub.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   br label %_ZN11flexbuffers8VerifierC2EPKhmPSt6vectorIhSaIhEEbm.exit
 
@@ -24675,7 +24675,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__n, %sub.ptr.sub.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i8, ptr %1, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 %2, i64 %sub, i1 false)
   br label %invoke.cont27
@@ -24913,9 +24913,9 @@ if.end17:                                         ; preds = %_ZNK11flexbuffers9R
 
 sw.bb:                                            ; preds = %if.end17, %if.end17, %if.end17
   %cmp.i.i23 = icmp ugt i64 %10, %conv
-  %sub.i.i = sub i64 %10, %conv
+  %sub.i.i = sub nuw i64 %10, %conv
   %cmp3.i.i = icmp uge i64 %sub.i.i, %sub.ptr.sub.i18
-  %17 = and i1 %cmp.i.i23, %cmp3.i.i
+  %17 = select i1 %cmp.i.i23, i1 %cmp3.i.i, i1 false
   br label %return
 
 sw.bb22:                                          ; preds = %if.end17
@@ -25030,9 +25030,9 @@ _ZN11flexbuffers6StringC2EPKhh.exit:              ; preds = %cond.true3.i.i.i.i.
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i16, %sub.ptr.rhs.cast.i.i
   %32 = load i64, ptr %size_.i, align 8
   %cmp.i.i.i = icmp ugt i64 %32, %add.i
-  %sub.i.i.i = sub i64 %32, %add.i
+  %sub.i.i.i = sub nuw i64 %32, %add.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.ptr.sub.i.i
-  %33 = and i1 %cmp.i.i.i, %cmp3.i.i.i
+  %33 = select i1 %cmp.i.i.i, i1 %cmp3.i.i.i, i1 false
   br label %return
 
 sw.bb56:                                          ; preds = %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17
@@ -25043,9 +25043,9 @@ sw.bb56:                                          ; preds = %if.end17, %if.end17
   %conv64 = zext nneg i8 %conv.i to i64
   %mul = mul nuw nsw i64 %conv, %conv64
   %cmp.i.i31 = icmp ugt i64 %10, %mul
-  %sub.i.i32 = sub i64 %10, %mul
+  %sub.i.i32 = sub nuw i64 %10, %mul
   %cmp3.i.i33 = icmp uge i64 %sub.i.i32, %sub.ptr.sub.i18
-  %35 = and i1 %cmp.i.i31, %cmp3.i.i33
+  %35 = select i1 %cmp.i.i31, i1 %cmp3.i.i33, i1 false
   br label %return
 
 switch.hole_check:                                ; preds = %if.end
@@ -25236,9 +25236,9 @@ if.end47:                                         ; preds = %_ZN11flexbuffers5Si
   %size_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %19 = load i64, ptr %size_.i.i, align 8
   %cmp.i.i36 = icmp ugt i64 %19, %mul
-  %sub.i.i = sub i64 %19, %mul
+  %sub.i.i = sub nuw i64 %19, %mul
   %cmp3.i.i = icmp uge i64 %sub.i.i, %sub.ptr.sub.i35
-  %20 = and i1 %cmp.i.i36, %cmp3.i.i
+  %20 = select i1 %cmp.i.i36, i1 %cmp3.i.i, i1 false
   br i1 %20, label %if.end51, label %return
 
 if.end51:                                         ; preds = %if.end47
@@ -25252,9 +25252,9 @@ if.then53:                                        ; preds = %if.end51
   %sub.ptr.lhs.cast.i37 = ptrtoint ptr %add.ptr54 to i64
   %sub.ptr.sub.i39 = sub i64 %sub.ptr.lhs.cast.i37, %sub.ptr.rhs.cast.i34
   %cmp.i.i41 = icmp ugt i64 %19, %cond18.i.i.i.i
-  %sub.i.i42 = sub i64 %19, %cond18.i.i.i.i
+  %sub.i.i42 = sub nuw i64 %19, %cond18.i.i.i.i
   %cmp3.i.i43 = icmp uge i64 %sub.i.i42, %sub.ptr.sub.i39
-  %21 = and i1 %cmp.i.i41, %cmp3.i.i43
+  %21 = select i1 %cmp.i.i41, i1 %cmp3.i.i43, i1 false
   br i1 %21, label %if.end57, label %return
 
 if.end57:                                         ; preds = %if.then53
@@ -25698,7 +25698,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKPKcSt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPKcSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPKcSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds ptr, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i35 = icmp eq ptr %1, %__position.coerce

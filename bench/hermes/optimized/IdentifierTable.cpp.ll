@@ -2523,7 +2523,7 @@ for.end.i:                                        ; preds = %for.end.i.loopexit,
   br i1 %cmp.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end.i
-  %sub.i7.i.i.i = sub i64 %14, %conv.i.i.pre-phi.i
+  %sub.i7.i.i.i = sub nuw i64 %14, %conv.i.i.pre-phi.i
   %15 = load ptr, ptr %markedSymbols_, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %15, i64 %conv.i.i.pre-phi.i
   %mul.i.i.i.i = shl i64 %sub.i7.i.i.i, 3
@@ -3582,7 +3582,7 @@ _ZN4llvh12safe_reallocEPvm.exit.i:                ; preds = %if.then.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4llvh12safe_reallocEPvm.exit.i
-  %sub.i7.i.i.i = sub i64 %.sroa.speculated.i, %conv.i.i.i
+  %sub.i7.i.i.i = sub nuw i64 %.sroa.speculated.i, %conv.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %call.i.i, i64 %conv.i.i.i
   %mul.i.i.i.i = shl i64 %sub.i7.i.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, i8 0, i64 %mul.i.i.i.i, i1 false)
@@ -3633,7 +3633,7 @@ if.then8:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then.i.i16, label %if.end.i
 
 if.then.i.i16:                                    ; preds = %if.then8
-  %sub.i7.i = sub i64 %5, %conv.i14
+  %sub.i7.i = sub nuw i64 %5, %conv.i14
   %7 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %7, i64 %conv.i14
   %8 = sext i1 %t to i8
@@ -3692,7 +3692,7 @@ if.then15:                                        ; preds = %if.end10.thread, %i
   br i1 %cmp.i.i, label %if.then.i.i.i, label %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then15
-  %sub.i7.i.i = sub i64 %15, %conv.i.i
+  %sub.i7.i.i = sub nuw i64 %15, %conv.i.i
   %16 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %16, i64 %conv.i.i
   %mul.i.i.i = shl i64 %sub.i7.i.i, 3

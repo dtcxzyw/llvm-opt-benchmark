@@ -63,7 +63,7 @@ define dso_local noundef range(i32 -22, 1) i32 @crypto_authenc_extractkeys(ptr n
 26:                                               ; preds = %17
   %27 = zext i16 %22 to i64
   %28 = getelementptr i8, ptr %1, i64 %27
-  %29 = sub i32 %24, %20
+  %29 = sub nuw i32 %24, %20
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %29, ptr %30, align 8
   store ptr %28, ptr %0, align 8
@@ -352,7 +352,7 @@ define internal i32 @crypto_authenc_setkey(ptr nocapture noundef readonly %0, pt
 
 28:                                               ; preds = %22
   %29 = getelementptr i8, ptr %1, i64 8
-  %30 = sub i32 %26, %25
+  %30 = sub nuw i32 %26, %25
   %31 = getelementptr inbounds i8, ptr %6, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, -1048321

@@ -2918,7 +2918,7 @@ if.end:                                           ; preds = %if.then6, %_ZN9grpc
 if.else:                                          ; preds = %if.end
   %add = add i64 %scaled_size_over_min.0, %request.coerce0
   %cmp17 = icmp ugt i64 %add, %div207.sink.i54
-  %sub20 = sub nsw i64 %div207.sink.i54, %request.coerce0
+  %sub20 = sub nuw nsw i64 %div207.sink.i54, %request.coerce0
   %spec.select = select i1 %cmp17, i64 %sub20, i64 %scaled_size_over_min.0
   br label %if.end23
 
@@ -2935,7 +2935,7 @@ while.body:                                       ; preds = %if.end29, %if.end23
   br i1 %cmp27, label %return, label %if.end29
 
 if.end29:                                         ; preds = %while.body
-  %sub31 = sub i64 %available.0, %add25
+  %sub31 = sub nuw i64 %available.0, %add25
   %12 = cmpxchg weak ptr %free_bytes_, i64 %available.0, i64 %sub31 acq_rel acquire, align 8
   %13 = extractvalue { i64, i1 } %12, 1
   %14 = extractvalue { i64, i1 } %12, 0
@@ -5392,13 +5392,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %new_size, %0
+  %sub = sub nuw i64 %new_size, %0
   %free_bytes_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = atomicrmw add ptr %free_bytes_.i, i64 %sub monotonic, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %sub2 = sub i64 %0, %new_size
+  %sub2 = sub nuw i64 %0, %new_size
   tail call void @_ZN9grpc_core16BasicMemoryQuota4TakeEPNS_23GrpcMemoryAllocatorImplEm(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef null, i64 noundef %sub2)
   br label %if.end
 

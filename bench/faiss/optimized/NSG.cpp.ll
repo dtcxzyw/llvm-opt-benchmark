@@ -665,7 +665,7 @@ define linkonce_odr void @_ZNK5faiss3NSG15search_on_graphILb0EiEEvRKNS_3nsg5Grap
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %8
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   call void @_ZNSt6vectorIN5faiss8NeighborESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %21)
   br label %_ZNSt6vectorIN5faiss8NeighborESaIS1_EE6resizeEm.exit
 
@@ -3098,7 +3098,7 @@ define linkonce_odr void @_ZNK5faiss3NSG15search_on_graphILb0ElEEvRKNS_3nsg5Grap
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %8
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   call void @_ZNSt6vectorIN5faiss8NeighborESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %21)
   br label %_ZNSt6vectorIN5faiss8NeighborESaIS1_EE6resizeEm.exit
 
@@ -3816,7 +3816,7 @@ define linkonce_odr void @_ZNK5faiss3NSG15search_on_graphILb1ElEEvRKNS_3nsg5Grap
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %8
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   call void @_ZNSt6vectorIN5faiss8NeighborESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %21)
   br label %_ZNSt6vectorIN5faiss8NeighborESaIS1_EE6resizeEm.exit
 
@@ -7179,7 +7179,7 @@ define linkonce_odr void @_ZNK5faiss3NSG15search_on_graphILb1EiEEvRKNS_3nsg5Grap
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %8
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   call void @_ZNSt6vectorIN5faiss8NeighborESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %21)
   br label %_ZNSt6vectorIN5faiss8NeighborESaIS1_EE6resizeEm.exit
 

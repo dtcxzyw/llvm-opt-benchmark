@@ -545,7 +545,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingAux(ptr noundef %0
   br i1 %46, label %42, label %47, !llvm.loop !19
 
 47:                                               ; preds = %42
-  %48 = sub nsw i32 %.0338, %45
+  %48 = sub nuw nsw i32 %.0338, %45
   %49 = tail call fastcc ptr @cuddZddSymmSifting_down(ptr noundef nonnull %0, i32 noundef %.0338, i32 noundef %3, i32 noundef %6)
   %magicptr395 = ptrtoint ptr %49 to i64
   switch i64 %magicptr395, label %50 [

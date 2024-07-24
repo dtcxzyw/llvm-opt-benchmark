@@ -2440,7 +2440,7 @@ _ZN9CodeCache12max_capacityEv.exit:               ; preds = %28, %8, %_ZN9CodeCa
   br label %86
 
 48:                                               ; preds = %43
-  %49 = sub i64 %37, %9
+  %49 = sub nuw i64 %37, %9
   %50 = uitofp i64 %49 to double
   %51 = fdiv double %50, %38
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) @_ZN9CodeCache27_unloading_allocation_ratesE, double noundef %51) #20
@@ -2467,7 +2467,7 @@ _ZN9CodeCache12max_capacityEv.exit:               ; preds = %28, %8, %_ZN9CodeCa
 62:                                               ; preds = %48
   %63 = tail call noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN9CodeCache23_unloading_gc_intervalsE) #20
   %64 = tail call noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN9CodeCache27_unloading_allocation_ratesE) #20
-  %65 = sub i64 %.0.lcssa.i56, %57
+  %65 = sub nuw i64 %.0.lcssa.i56, %57
   %66 = uitofp i64 %65 to double
   %67 = fdiv double %66, %64
   %68 = load i64, ptr @NmethodSweepActivity, align 8
@@ -2667,7 +2667,7 @@ _ZN9CodeCache12max_capacityEv.exit:               ; preds = %19, %2, %_ZN9CodeCa
   br i1 %.not, label %48, label %78
 
 48:                                               ; preds = %46
-  %49 = sub i64 %28, %47
+  %49 = sub nuw i64 %28, %47
   %50 = uitofp i64 %49 to double
   %51 = fdiv double %50, %29
   %52 = load double, ptr @SweeperThreshold, align 8

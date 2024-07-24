@@ -1882,7 +1882,7 @@ common.resume:                                    ; preds = %33, %.body
   %59 = add i64 %58, %57
   %.not.i = icmp ult i64 %59, %56
   %60 = select i1 %.not.i, i64 0, i64 %56
-  %.0.i = sub i64 %59, %60
+  %.0.i = sub nuw i64 %59, %60
   %61 = load ptr, ptr %8, align 8, !alias.scope !439, !noalias !442, !nonnull !10, !noundef !10
   %62 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %61, i64 %.0.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)

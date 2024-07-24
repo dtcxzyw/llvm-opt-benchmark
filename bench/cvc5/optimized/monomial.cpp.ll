@@ -8376,7 +8376,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br label %eh.resume
 
 if.else:                                          ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE16_Temporary_valueC2IJRKS3_EEEPS5_DpOT_.exit
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %call.i.i.i67 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN4cvc58internal12NodeTemplateILb1EEEmS3_ET_S5_T0_RKT1_(ptr noundef %4, i64 noundef %sub, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i)
           to label %invoke.cont27 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

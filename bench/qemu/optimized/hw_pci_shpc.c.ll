@@ -604,7 +604,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.not.i.i, label %if.end.i.i, label %shpc_cap_update_dword.exit
 
 if.end.i.i:                                       ; preds = %for.end
-  %sub.i.i = sub i32 %add.i.i, %mul.i
+  %sub.i.i = sub nuw i32 %add.i.i, %mul.i
   %cond.i.i = tail call i32 @llvm.umin.i32(i32 %sub.i.i, i32 4)
   %config.i.i = getelementptr inbounds i8, ptr %d.val39, i64 8
   %27 = load ptr, ptr %config.i.i, align 8
@@ -769,7 +769,7 @@ if.end19:                                         ; preds = %if.then10, %if.end
   br i1 %cmp.not.i.i, label %if.end.i.i, label %shpc_cap_update_dword.exit
 
 if.end.i.i:                                       ; preds = %if.end19
-  %sub.i.i21 = sub i32 %add.i.i20, %mul.i
+  %sub.i.i21 = sub nuw i32 %add.i.i20, %mul.i
   %cond.i.i = tail call i32 @llvm.umin.i32(i32 %sub.i.i21, i32 4)
   %config.i.i = getelementptr inbounds i8, ptr %d.val11, i64 8
   %6 = load ptr, ptr %config.i.i, align 8
@@ -805,7 +805,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i32 %add, %addr
+  %sub = sub nuw i32 %add, %addr
   %cond = tail call i32 @llvm.umin.i32(i32 %sub, i32 %l)
   %cmp831 = icmp sgt i32 %cond, 0
   br i1 %cmp831, label %for.body.lr.ph, label %for.end
@@ -1311,7 +1311,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %shpc_read.exit
 
 if.end.i:                                         ; preds = %entry
-  %sub.i = sub i32 %add.i, %conv
+  %sub.i = sub nuw i32 %add.i, %conv
   %cond.i = tail call i32 @llvm.umin.i32(i32 %sub.i, i32 %size)
   %config.i = getelementptr inbounds i8, ptr %opaque.val, i64 8
   %2 = load ptr, ptr %config.i, align 8

@@ -318,7 +318,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnu
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %29
-  %41 = sub nsw i64 %33, %38
+  %41 = sub nuw nsw i64 %33, %38
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %41)
   %.pre18 = load i8, ptr %12, align 4
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -539,7 +539,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeE
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -716,7 +716,7 @@ define void @_ZN3gmx25AbstractAnalysisArrayData13setXAxisValueEif(ptr noundef no
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26
-  %31 = sub nsw i64 %28, %25
+  %31 = sub nuw nsw i64 %28, %25
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %31)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 

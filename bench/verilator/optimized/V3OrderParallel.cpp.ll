@@ -20704,7 +20704,7 @@ _ZN11PairingHeapI7EdgeKeyE11increaseKeyIjEEvPNS1_4NodeET_.exit: ; preds = %37, %
   br i1 %.not51, label %43, label %_ZN11PairingHeapIN11PropagateCpILN8GraphWay2enE0EE10PendingKeyEE11increaseKeyIjEEvPNS5_4NodeET_.exit
 
 43:                                               ; preds = %_ZN11PairingHeapI7EdgeKeyE11increaseKeyIjEEvPNS1_4NodeET_.exit
-  %44 = sub i32 %2, %42
+  %44 = sub nuw i32 %2, %42
   %45 = getelementptr inbounds i8, ptr %9, i64 72
   %46 = load ptr, ptr %45, align 8
   %.not52 = icmp eq ptr %46, null
@@ -20920,7 +20920,7 @@ _ZN11PairingHeapI7EdgeKeyE11increaseKeyIjEEvPNS1_4NodeET_.exit: ; preds = %37, %
   br i1 %.not51, label %43, label %_ZN11PairingHeapIN11PropagateCpILN8GraphWay2enE1EE10PendingKeyEE11increaseKeyIjEEvPNS5_4NodeET_.exit
 
 43:                                               ; preds = %_ZN11PairingHeapI7EdgeKeyE11increaseKeyIjEEvPNS1_4NodeET_.exit
-  %44 = sub i32 %2, %42
+  %44 = sub nuw i32 %2, %42
   %45 = getelementptr inbounds i8, ptr %9, i64 72
   %46 = load ptr, ptr %45, align 8
   %.not52 = icmp eq ptr %46, null
@@ -26114,7 +26114,7 @@ _ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %43
-  %53 = sub nsw i64 %50, %49
+  %53 = sub nuw nsw i64 %50, %49
   invoke void @_ZNSt6vectorIPK7AstNodeSaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %53)
           to label %._ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_bENKUlmE_clEm.exit20_crit_edge unwind label %.loopexit
 

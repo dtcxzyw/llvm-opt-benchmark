@@ -34203,7 +34203,7 @@ if.then.i7.i.i.i:                                 ; preds = %_ZNSt3mapImSt6vecto
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNSt3mapImSt6vectorIbSaIbEESt4lessImESaISt4pairIKmS2_EEEixERS6_.exit.i.i.i
-  %sub.i.i.i.i = sub i64 %10, %add.i.i.i.i.i.i
+  %sub.i.i.i.i = sub nuw i64 %10, %add.i.i.i.i.i.i
   call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %second.i.i.i.i, ptr %11, i32 %12, i64 noundef %sub.i.i.i.i, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit.i.i.i
 

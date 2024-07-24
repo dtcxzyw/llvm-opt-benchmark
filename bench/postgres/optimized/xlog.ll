@@ -8706,7 +8706,7 @@ XLogGetReplicationSlotMinimumLSN.exit:            ; preds = %2, %9
 
 48:                                               ; preds = %41
   %.not35 = icmp ugt i64 %5, %45
-  %49 = sub i64 %5, %45
+  %49 = sub nuw i64 %5, %45
   %spec.select37 = select i1 %.not35, i64 %49, i64 1
   br label %50
 
@@ -9059,7 +9059,7 @@ XLogGetLastRemovedSegno.exit:                     ; preds = %GetXLogWriteRecPtr.
   %41 = add i32 %40, 1
   %42 = sext i32 %41 to i64
   %43 = icmp ugt i64 %37, %42
-  %44 = sub i64 %37, %42
+  %44 = sub nuw i64 %37, %42
   %.015 = select i1 %43, i64 %44, i64 1
   %.not21 = icmp ult i64 %34, %.015
   %. = select i1 %.not21, i32 2, i32 1

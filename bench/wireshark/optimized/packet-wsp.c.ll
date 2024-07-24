@@ -1859,7 +1859,7 @@ define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 113:                                              ; preds = %110, %113
   %.2137173 = phi i32 [ %.1136, %110 ], [ %115, %113 ]
-  %114 = sub i32 %52, %.2137173
+  %114 = sub nuw i32 %52, %.2137173
   %115 = call fastcc i32 @parameter(ptr noundef %112, ptr noundef %1, ptr noundef %.2, ptr noundef %2, i32 noundef %.2137173, i32 noundef %114)
   %116 = icmp ult i32 %115, %52
   br i1 %116, label %113, label %.thread169, !llvm.loop !4
@@ -2869,7 +2869,7 @@ define internal fastcc void @add_post_variable(ptr noundef %0, ptr noundef %1, i
   br label %18
 
 14:                                               ; preds = %6
-  %15 = sub i32 %5, %4
+  %15 = sub nuw i32 %5, %4
   %16 = tail call ptr @wmem_packet_scope() #4
   %17 = tail call ptr @tvb_get_string_enc(ptr noundef %16, ptr noundef %1, i32 noundef %4, i32 noundef %15, i32 noundef 0) #4
   br label %18
@@ -6048,7 +6048,7 @@ switch.lookup:                                    ; preds = %38
 
 70:                                               ; preds = %67, %70
   %.185103 = phi i32 [ %.084, %67 ], [ %72, %70 ]
-  %71 = sub i32 %36, %.185103
+  %71 = sub nuw i32 %36, %.185103
   %72 = call fastcc i32 @parameter(ptr noundef %69, ptr noundef %3, ptr noundef %.2, ptr noundef %1, i32 noundef %.185103, i32 noundef %71)
   %73 = icmp ult i32 %72, %36
   br i1 %73, label %70, label %.loopexit, !llvm.loop !17
@@ -7141,7 +7141,7 @@ define internal fastcc i32 @wkh_content_type_header(ptr noundef %0, ptr noundef 
 
 94:                                               ; preds = %91, %94
   %.1108138 = phi i32 [ %89, %91 ], [ %96, %94 ]
-  %95 = sub i32 %54, %.1108138
+  %95 = sub nuw i32 %54, %.1108138
   %96 = call fastcc i32 @parameter(ptr noundef %93, ptr noundef %3, ptr noundef %88, ptr noundef %1, i32 noundef %.1108138, i32 noundef %95)
   %97 = icmp ult i32 %96, %54
   br i1 %97, label %94, label %.thread134, !llvm.loop !19
@@ -7478,7 +7478,7 @@ define internal fastcc i32 @wkh_credentials_value_header_func(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %90, %.lr.ph
   %.0118140 = phi i32 [ %102, %.lr.ph ], [ %99, %90 ]
-  %101 = sub i32 %43, %.0118140
+  %101 = sub nuw i32 %43, %.0118140
   %102 = call fastcc i32 @parameter(ptr noundef %96, ptr noundef %3, ptr noundef %94, ptr noundef %1, i32 noundef %.0118140, i32 noundef %101)
   %103 = icmp ult i32 %102, %43
   br i1 %103, label %.lr.ph, label %.loopexit, !llvm.loop !20
@@ -8024,7 +8024,7 @@ define internal fastcc i32 @wkh_challenge_value_header_func(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %92, %.lr.ph
   %.0118140 = phi i32 [ %101, %.lr.ph ], [ %98, %92 ]
-  %100 = sub i32 %42, %.0118140
+  %100 = sub nuw i32 %42, %.0118140
   %101 = call fastcc i32 @parameter(ptr noundef %80, ptr noundef %3, ptr noundef %78, ptr noundef %1, i32 noundef %.0118140, i32 noundef %100)
   %102 = icmp ult i32 %101, %42
   br i1 %102, label %.lr.ph, label %.loopexit, !llvm.loop !21

@@ -6959,7 +6959,7 @@ _ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit: ; preds = %_ZSt4findIPiiET_
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %_ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit
-  %88 = sub nsw i64 %78, %85
+  %88 = sub nuw nsw i64 %78, %85
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %74, i64 noundef %88)
   %.pre = load ptr, ptr %79, align 8
   %.pre134 = load ptr, ptr %74, align 8
@@ -7205,7 +7205,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef no
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -7681,7 +7681,7 @@ _ZN9Stockfish12_GLOBAL__N_16numberImLi0EEET_Pv.exit: ; preds = %._crit_edge, %_Z
 
 72:                                               ; preds = %68
   %73 = trunc nuw nsw i64 %indvars.iv to i32
-  %74 = sub i64 %.076, %70
+  %74 = sub nuw i64 %.076, %70
   %75 = add nuw i32 %73, %62
   %76 = sub i32 64, %75
   %77 = zext nneg i32 %76 to i64

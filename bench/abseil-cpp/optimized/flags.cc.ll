@@ -677,7 +677,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont7.i
 
 invoke.cont11.i:                                  ; preds = %invoke.cont7.i
   %5 = extractvalue { i64, ptr } %call10.i, 1
-  %sub.i.i = sub i64 %4, %add.i
+  %sub.i.i = sub nuw i64 %4, %add.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %add.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i)
   %call.i.i7.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %sub.i.i, ptr nonnull %add.ptr.i.i, ptr noundef nonnull %val.i.i.i, i32 noundef 10)

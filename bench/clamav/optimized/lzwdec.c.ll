@@ -703,7 +703,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit513
 
 .loopexit513.loopexit:                            ; preds = %293
-  %302 = sub i32 %.5360, %271
+  %302 = sub nuw i32 %.5360, %271
   br label %.loopexit513
 
 .loopexit513:                                     ; preds = %.loopexit513.loopexit, %298

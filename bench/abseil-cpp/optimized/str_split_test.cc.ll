@@ -11385,7 +11385,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %435, i64 %438
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %434, %438
+  %sub.i.i.i.i = sub nuw i64 %434, %438
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !118
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin2, i64 24
@@ -11590,7 +11590,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %458
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %458
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %458
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -11953,7 +11953,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i1534: ; preds = %
   %add.ptr15.i1536 = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i1527, i64 %489
   %sub.ptr.rhs.cast.i1537 = ptrtoint ptr %add.ptr15.i1536 to i64
   %sub.ptr.sub.i1538 = sub i64 %sub.ptr.lhs.cast.i1535, %sub.ptr.rhs.cast.i1537
-  %sub.i.i1539 = sub i64 %retval.sroa.0.0.copyload.i.i1525, %489
+  %sub.i.i1539 = sub nuw i64 %retval.sroa.0.0.copyload.i.i1525, %489
   %.sroa.speculated.i.i1540 = call i64 @llvm.umin.i64(i64 %sub.i.i1539, i64 %sub.ptr.sub.i1538)
   store i64 %.sroa.speculated.i.i1540, ptr %curr_.i.i1474, align 8
   store ptr %add.ptr15.i1536, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i1494, align 8
@@ -15272,7 +15272,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end
   %add.ptr15 = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i, i64 %5
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr15 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.i = sub i64 %retval.sroa.0.0.copyload.i, %5
+  %sub.i = sub nuw i64 %retval.sroa.0.0.copyload.i, %5
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub.ptr.sub)
   store i64 %.sroa.speculated.i, ptr %curr_, align 8
   store ptr %add.ptr15, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx, align 8
@@ -15476,7 +15476,7 @@ do.cond:                                          ; preds = %if.end10.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %8
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %8
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i, align 8
   store ptr %add.ptr15.i, ptr %_M_str.i, align 8
@@ -15597,7 +15597,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i, i64 %6
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i, %6
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i, %6
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -15719,7 +15719,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_8ByStringE
 
 _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_8ByStringENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_8ByStringENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_8ByStringENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit
   %7 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_8ByStringENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_8ByStringENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
@@ -20729,7 +20729,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %27
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %27
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %27
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i42, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -20811,7 +20811,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i78: ; preds = %if
   %add.ptr15.i80 = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i71, i64 %39
   %sub.ptr.rhs.cast.i81 = ptrtoint ptr %add.ptr15.i80 to i64
   %sub.ptr.sub.i82 = sub i64 %sub.ptr.lhs.cast.i79, %sub.ptr.rhs.cast.i81
-  %sub.i.i83 = sub i64 %retval.sroa.0.0.copyload.i.i69, %39
+  %sub.i.i83 = sub nuw i64 %retval.sroa.0.0.copyload.i.i69, %39
   %.sroa.speculated.i.i84 = call i64 @llvm.umin.i64(i64 %sub.i.i83, i64 %sub.ptr.sub.i82)
   store i64 %.sroa.speculated.i.i84, ptr %curr_.i42, align 8
   store ptr %add.ptr15.i80, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -21469,7 +21469,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %10
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %10
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %10
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i, align 8
   store ptr %add.ptr15.i, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i, align 8
@@ -21711,7 +21711,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !291
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -21793,7 +21793,7 @@ do.cond:                                          ; preds = %if.end10.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %12
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %12
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %12
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %_M_str.i, align 8
@@ -21954,7 +21954,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS
 
 _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit
   %7 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
@@ -24636,7 +24636,7 @@ _ZNK4absl16strings_internal8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !372
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -24695,7 +24695,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %7
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %7
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %7
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %first.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -24997,7 +24997,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !397
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -25089,7 +25089,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %18
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %18
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %18
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %agg.tmp3.sroa.2.0..sroa_idx.i, align 8
@@ -27545,7 +27545,7 @@ do.cond:                                          ; preds = %if.end10.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %8
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %8
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i, align 8
   store ptr %add.ptr15.i, ptr %_M_str.i, align 8
@@ -27666,7 +27666,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i, i64 %6
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i, %6
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i, %6
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -27785,7 +27785,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_9ByAnyChar
 
 _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_9ByAnyCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_9ByAnyCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_9ByAnyCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit
   %7 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_9ByAnyCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_9ByAnyCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
@@ -28100,7 +28100,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %9
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %9
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %9
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %_M_str.i, align 8
@@ -28248,7 +28248,7 @@ if.then.i.i.i24.cont:                             ; preds = %if.then.i.i.i24.inv
   unreachable
 
 call.i.i.i.noexc:                                 ; preds = %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i
-  %sub.i.i23 = sub i64 %.sroa.speculated.i.i, %sub.ptr.sub.i20
+  %sub.i.i23 = sub nuw i64 %.sroa.speculated.i.i, %sub.ptr.sub.i20
   %add.ptr.i4.i = getelementptr inbounds i8, ptr %add.ptr15.i, i64 %sub.ptr.sub.i20
   %call2.i.i.i12 = invoke { i64, ptr } @_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %sub.i.i23, ptr %add.ptr.i4.i)
           to label %call2.i.i.i.noexc unwind label %lpad.loopexit
@@ -28413,7 +28413,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS
 
 _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit
   %7 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
@@ -28944,7 +28944,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !456
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -29026,7 +29026,7 @@ do.cond:                                          ; preds = %if.end10.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %12
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %12
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %12
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %_M_str.i, align 8
@@ -29189,7 +29189,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_8ByLengthE
 
 _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_8ByLengthENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_8ByLengthENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_8ByLengthENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit
   %7 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_8ByLengthENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_8ByLengthENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
@@ -29399,7 +29399,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !463
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -29525,7 +29525,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %20
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %20
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %20
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -30325,7 +30325,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !487
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -30450,7 +30450,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %19
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %19
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %19
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -30932,7 +30932,7 @@ if.then.i.i:                                      ; preds = %_ZSt11find_if_notIP
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
-  %sub.i = sub i64 %str.coerce0, %sub.ptr.sub
+  %sub.i = sub nuw i64 %str.coerce0, %sub.ptr.sub
   %add.ptr.i4 = getelementptr inbounds i8, ptr %str.coerce1, i64 %sub.ptr.sub
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %sub.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %add.ptr.i4, 1
@@ -31152,7 +31152,7 @@ _ZNK4absl16strings_internal8SplitterINS0_13MaxSplitsImplINS_6ByCharEEENS_10Allow
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !520
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -31230,7 +31230,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %10
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %10
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %10
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %first.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -31867,7 +31867,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %30
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %30
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %30
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i, align 8
@@ -32164,7 +32164,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %if
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i121, i64 %64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr15.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i119, %64
+  %sub.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i119, %64
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.ptr.sub.i.i)
   store i64 %.sroa.speculated.i.i.i, ptr %curr_.i.i, align 8, !noalias !588
   store ptr %add.ptr15.i.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i, align 8, !noalias !588
@@ -34441,7 +34441,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr15 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.i = sub i64 %.val, %6
+  %sub.i = sub nuw i64 %.val, %6
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub.ptr.sub)
   store i64 %.sroa.speculated.i, ptr %curr_, align 8
   store ptr %add.ptr15, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx, align 8
@@ -35608,7 +35608,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %71, i64 %74
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %70, %74
+  %sub.i.i.i.i = sub nuw i64 %70, %74
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !695
   store ptr %add.ptr15.i.i.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i, align 8, !alias.scope !695
@@ -36208,7 +36208,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %if
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i275, i64 %120
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr15.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i273, %120
+  %sub.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i273, %120
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.ptr.sub.i.i)
   store i64 %.sroa.speculated.i.i.i, ptr %curr_.i.i, align 8, !noalias !704
   store ptr %add.ptr15.i.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i, align 8, !noalias !704
@@ -38259,7 +38259,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %7
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %7
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %7
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !752
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -38473,7 +38473,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %28
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %28
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %28
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -38558,7 +38558,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i88: ; preds = %if
   %add.ptr15.i90 = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i81, i64 %38
   %sub.ptr.rhs.cast.i91 = ptrtoint ptr %add.ptr15.i90 to i64
   %sub.ptr.sub.i92 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i91
-  %sub.i.i93 = sub i64 %retval.sroa.0.0.copyload.i.i79, %38
+  %sub.i.i93 = sub nuw i64 %retval.sroa.0.0.copyload.i.i79, %38
   %.sroa.speculated.i.i94 = call i64 @llvm.umin.i64(i64 %sub.i.i93, i64 %sub.ptr.sub.i92)
   store i64 %.sroa.speculated.i.i94, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i90, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i96, align 8
@@ -39150,7 +39150,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !763
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -39235,7 +39235,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %10
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %10
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %10
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i, align 8
@@ -40520,7 +40520,7 @@ _ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmp
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %8
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %8
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   %curr_.i = getelementptr inbounds i8, ptr %it2, i64 16
   store i64 %.sroa.speculated.i.i, ptr %curr_.i, align 8
@@ -40570,7 +40570,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i23: ; preds = %if
   %add.ptr15.i25 = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i16, i64 %13
   %sub.ptr.rhs.cast.i26 = ptrtoint ptr %add.ptr15.i25 to i64
   %sub.ptr.sub.i27 = sub i64 %sub.ptr.lhs.cast.i24, %sub.ptr.rhs.cast.i26
-  %sub.i.i28 = sub i64 %retval.sroa.0.0.copyload.i.i14, %13
+  %sub.i.i28 = sub nuw i64 %retval.sroa.0.0.copyload.i.i14, %13
   %.sroa.speculated.i.i29 = call i64 @llvm.umin.i64(i64 %sub.i.i28, i64 %sub.ptr.sub.i27)
   %curr_.i30 = getelementptr inbounds i8, ptr %it2, i64 16
   store i64 %.sroa.speculated.i.i29, ptr %curr_.i30, align 8
@@ -40831,7 +40831,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i71: ; preds = %if
   %add.ptr15.i73 = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i64, i64 %39
   %sub.ptr.rhs.cast.i74 = ptrtoint ptr %add.ptr15.i73 to i64
   %sub.ptr.sub.i75 = sub i64 %sub.ptr.lhs.cast.i72, %sub.ptr.rhs.cast.i74
-  %sub.i.i76 = sub i64 %retval.sroa.0.0.copyload.i.i62, %39
+  %sub.i.i76 = sub nuw i64 %retval.sroa.0.0.copyload.i.i62, %39
   %.sroa.speculated.i.i77 = call i64 @llvm.umin.i64(i64 %sub.i.i76, i64 %sub.ptr.sub.i75)
   store i64 %.sroa.speculated.i.i77, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i73, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i, align 8
@@ -41810,7 +41810,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %17
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %17
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %17
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i, align 8
@@ -52169,7 +52169,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !982
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -52246,7 +52246,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %14
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %14
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %14
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -54115,7 +54115,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1003
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -54210,7 +54210,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %19
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %19
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %19
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %agg.tmp3.sroa.2.0..sroa_idx.i, align 8
@@ -56097,7 +56097,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %7
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %7
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %7
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1027
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -56204,7 +56204,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %17
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %17
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %17
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -59835,7 +59835,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %7
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %7
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %7
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1133
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -59959,7 +59959,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %22
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %22
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %22
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %agg.tmp3.sroa.2.0..sroa_idx.i, align 8
@@ -63635,7 +63635,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %5
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %5
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %5
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1227
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -63705,7 +63705,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %14
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %14
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %14
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -67159,7 +67159,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1265
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -67234,7 +67234,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %13
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %13
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %13
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -69509,7 +69509,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1288
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -69601,7 +69601,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %18
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %18
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %18
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %agg.tmp3.sroa.2.0..sroa_idx.i, align 8
@@ -71741,7 +71741,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1311
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -71871,7 +71871,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i13, i64 %22
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i12, %22
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i12, %22
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -72229,7 +72229,7 @@ entry:
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %arrayidx.i.i3.phi.trans.insert = getelementptr i8, ptr %iter.coerce0, i64 10
-  %.pre17 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
+  %.pre16 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
   br label %if.end
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -72269,7 +72269,7 @@ _ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsIS
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb0EEEEERKS7_PSD_EmmEv.exit
   %7 = phi i32 [ %conv36.i.i.i, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb0EEEEERKS7_PSD_EmmEv.exit ], [ %iter.coerce1, %entry.if.end_crit_edge ]
-  %8 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb0EEEEERKS7_PSD_EmmEv.exit ], [ %.pre17, %entry.if.end_crit_edge ]
+  %8 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb0EEEEERKS7_PSD_EmmEv.exit ], [ %.pre16, %entry.if.end_crit_edge ]
   %9 = phi i8 [ %.pre, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb0EEEEERKS7_PSD_EmmEv.exit ], [ %1, %entry.if.end_crit_edge ]
   %10 = phi ptr [ %storemerge.lcssa.i.i.i, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb0EEEEERKS7_PSD_EmmEv.exit ], [ %iter.coerce0, %entry.if.end_crit_edge ]
   %arrayidx.i.i3 = getelementptr i8, ptr %10, i64 10
@@ -72323,44 +72323,34 @@ _ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11
 
 if.else:                                          ; preds = %if.then9
   call void @_ZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb0EEEE18rebalance_or_splitEPNS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSF_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %iter)
-  %.pre18 = load ptr, ptr %iter, align 8
-  %.pre19 = load i32, ptr %0, align 8
+  %.pre17 = load ptr, ptr %iter, align 8
+  %.pre18 = load i32, ptr %0, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb0EEEE16internal_emplaceIJS6_EEENS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSG_EESJ_DpOT_ENKUlhE_clEh.exit, %if.else, %if.end
-  %15 = phi i32 [ %7, %_ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb0EEEE16internal_emplaceIJS6_EEENS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSG_EESJ_DpOT_ENKUlhE_clEh.exit ], [ %.pre19, %if.else ], [ %7, %if.end ]
-  %16 = phi ptr [ %call5.i.i2.i.i.i.i, %_ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb0EEEE16internal_emplaceIJS6_EEENS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSG_EESJ_DpOT_ENKUlhE_clEh.exit ], [ %.pre18, %if.else ], [ %10, %if.end ]
+  %15 = phi i32 [ %7, %_ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb0EEEE16internal_emplaceIJS6_EEENS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSG_EESJ_DpOT_ENKUlhE_clEh.exit ], [ %.pre18, %if.else ], [ %7, %if.end ]
+  %16 = phi ptr [ %call5.i.i2.i.i.i.i, %_ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb0EEEE16internal_emplaceIJS6_EEENS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSG_EESJ_DpOT_ENKUlhE_clEh.exit ], [ %.pre17, %if.else ], [ %10, %if.end ]
   %conv21 = trunc i32 %15 to i8
   %conv.i = and i32 %15, 255
   %arrayidx.i.i7 = getelementptr i8, ptr %16, i64 10
   %17 = load i8, ptr %arrayidx.i.i7, align 1
   %cmp.i8 = icmp ugt i8 %17, %conv21
-  br i1 %cmp.i8, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %if.end18
-  %.pre25.i = zext nneg i32 %conv.i to i64
-  br label %if.end.i
+  %conv9.i = zext nneg i32 %conv.i to i64
+  br i1 %cmp.i8, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end18
-  %conv4.i = zext i8 %17 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext nneg i32 %conv.i to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 16
   %18 = getelementptr %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 1152921504606846975
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %17, %conv21
+  %conv6.i = zext i8 %narrow.i to i64
   %19 = getelementptr i8, ptr %18, i64 16
   %arrayidx.i8.i.i = getelementptr %"class.std::basic_string_view", ptr %19, i64 %conv6.i
   %arrayidx.i.i.i12 = getelementptr %"class.std::basic_string_view", ptr %18, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i12, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i12, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -16
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr4.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, i64 16, i1 false)
@@ -72371,11 +72361,10 @@ if.end.loopexit.i:                                ; preds = %for.body.i.i
   %.pre.i = load i8, ptr %arrayidx.i.i7, align 1
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.loopexit.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre25.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.end.loopexit.i ], [ %conv9.i, %if.then.i ]
-  %20 = phi i8 [ %17, %entry.if.end_crit_edge.i ], [ %.pre.i, %if.end.loopexit.i ], [ %17, %if.then.i ]
+if.end.i:                                         ; preds = %if.end.loopexit.i, %if.end18
+  %20 = phi i8 [ %.pre.i, %if.end.loopexit.i ], [ %17, %if.end18 ]
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %16, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %args, i64 16, i1 false)
   %add12.i = add i8 %20, 1
   store i8 %add12.i, ptr %arrayidx.i.i7, align 1
@@ -73103,32 +73092,22 @@ _ZN4absl18container_internal10btree_nodeINS0_10set_paramsISt17basic_string_viewI
   %arrayidx.i.i34 = getelementptr i8, ptr %6, i64 10
   %8 = load i8, ptr %arrayidx.i.i34, align 1
   %cmp.i = icmp ugt i8 %8, %7
-  br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb0EEEE10transfer_nEmmmPSB_PS9_.exit
-  %.pre25.i = zext i8 %7 to i64
-  br label %if.end.i
+  %conv9.i = zext i8 %7 to i64
+  br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb0EEEE10transfer_nEmmmPSB_PS9_.exit
-  %conv4.i = zext i8 %8 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i33
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext i8 %7 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 1152921504606846975
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %8, %7
+  %conv6.i = zext i8 %narrow.i to i64
   %10 = getelementptr i8, ptr %9, i64 16
   %arrayidx.i8.i.i = getelementptr %"class.std::basic_string_view", ptr %10, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"class.std::basic_string_view", ptr %9, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -16
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr4.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, i64 16, i1 false)
@@ -73139,11 +73118,10 @@ if.end.loopexit.i:                                ; preds = %for.body.i.i
   %.pre.i = load i8, ptr %arrayidx.i.i34, align 1
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.loopexit.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre25.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.end.loopexit.i ], [ %conv9.i, %if.then.i ]
-  %11 = phi i8 [ %8, %entry.if.end_crit_edge.i ], [ %.pre.i, %if.end.loopexit.i ], [ %8, %if.then.i ]
+if.end.i:                                         ; preds = %if.end.loopexit.i, %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb0EEEE10transfer_nEmmmPSB_PS9_.exit
+  %11 = phi i8 [ %.pre.i, %if.end.loopexit.i ], [ %8, %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb0EEEE10transfer_nEmmmPSB_PS9_.exit ]
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %6, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i1.i, i64 16, i1 false)
   %add12.i = add i8 %11, 1
   store i8 %add12.i, ptr %arrayidx.i.i34, align 1
@@ -75297,7 +75275,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1355
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -75444,7 +75422,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i17, i64 %27
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i16, %27
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i16, %27
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %agg.tmp3.sroa.2.0..sroa_idx.i, align 8
@@ -75822,7 +75800,7 @@ entry:
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %arrayidx.i.i3.phi.trans.insert = getelementptr i8, ptr %iter.coerce0, i64 10
-  %.pre19 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
+  %.pre18 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
   br label %if.end
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -75861,7 +75839,7 @@ _ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsIN
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEEERKS9_PSF_EmmEv.exit
-  %7 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEEERKS9_PSF_EmmEv.exit ], [ %.pre19, %entry.if.end_crit_edge ]
+  %7 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEEERKS9_PSF_EmmEv.exit ], [ %.pre18, %entry.if.end_crit_edge ]
   %8 = phi i8 [ %.pre, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEEERKS9_PSF_EmmEv.exit ], [ %1, %entry.if.end_crit_edge ]
   %9 = phi ptr [ %storemerge.lcssa.i.i.i, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEEERKS9_PSF_EmmEv.exit ], [ %iter.coerce0, %entry.if.end_crit_edge ]
   %rightmost_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -75936,32 +75914,22 @@ if.end18:                                         ; preds = %_ZZN4absl18containe
   %arrayidx.i.i9 = getelementptr i8, ptr %16, i64 10
   %18 = load i8, ptr %arrayidx.i.i9, align 1
   %cmp.i10 = icmp ugt i8 %18, %conv21
-  br i1 %cmp.i10, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %if.end18
-  %.pre.i = zext nneg i32 %conv.i to i64
-  br label %if.end.i
+  %conv9.i = zext nneg i32 %conv.i to i64
+  br i1 %cmp.i10, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end18
-  %conv4.i = zext i8 %18 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext nneg i32 %conv.i to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 16
   %19 = getelementptr %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 576460752303423487
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %18, %conv21
+  %conv6.i = zext i8 %narrow.i to i64
   %20 = getelementptr i8, ptr %19, i64 32
   %arrayidx.i8.i.i = getelementptr %"class.std::__cxx11::basic_string", ptr %20, i64 %conv6.i
   %arrayidx.i.i.i14 = getelementptr %"class.std::__cxx11::basic_string", ptr %19, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i14, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i14, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -32
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr5.i.i) #23
@@ -75969,10 +75937,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp.not.i.i = icmp eq ptr %add.ptr5.i.i, %19
   br i1 %cmp.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !1366
 
-if.end.i:                                         ; preds = %for.body.i.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.then.i ], [ %conv9.i, %for.body.i.i ]
+if.end.i:                                         ; preds = %for.body.i.i, %if.end18
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %16, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %args) #23
   %21 = load i8, ptr %arrayidx.i.i9, align 1
   %add12.i = add i8 %21, 1
@@ -76869,32 +76836,22 @@ _ZN4absl18container_internal10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_str
   %arrayidx.i.i34 = getelementptr i8, ptr %6, i64 10
   %8 = load i8, ptr %arrayidx.i.i34, align 1
   %cmp.i = icmp ugt i8 %8, %7
-  br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_ELi256ELb0EEEE10transfer_nEmmmPSD_PSB_.exit
-  %.pre.i = zext i8 %7 to i64
-  br label %if.end.i
+  %conv9.i = zext i8 %7 to i64
+  br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_ELi256ELb0EEEE10transfer_nEmmmPSD_PSB_.exit
-  %conv4.i = zext i8 %8 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i33
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext i8 %7 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 576460752303423487
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %8, %7
+  %conv6.i = zext i8 %narrow.i to i64
   %10 = getelementptr i8, ptr %9, i64 32
   %arrayidx.i8.i.i = getelementptr %"class.std::__cxx11::basic_string", ptr %10, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"class.std::__cxx11::basic_string", ptr %9, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -32
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr5.i.i) #23
@@ -76902,10 +76859,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp.not.i.i = icmp eq ptr %add.ptr5.i.i, %9
   br i1 %cmp.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !1366
 
-if.end.i:                                         ; preds = %for.body.i.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.then.i ], [ %conv9.i, %for.body.i.i ]
+if.end.i:                                         ; preds = %for.body.i.i, %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_ELi256ELb0EEEE10transfer_nEmmmPSD_PSB_.exit
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %6, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i1.i) #23
   %11 = load i8, ptr %arrayidx.i.i34, align 1
   %add12.i = add i8 %11, 1
@@ -78910,7 +78866,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1400
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -79037,7 +78993,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %24
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %24
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %24
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -79355,7 +79311,7 @@ entry:
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %arrayidx.i.i3.phi.trans.insert = getelementptr i8, ptr %iter.coerce0, i64 10
-  %.pre17 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
+  %.pre16 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
   br label %if.end
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -79395,7 +79351,7 @@ _ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsIS
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb1EEEEERKS7_PSD_EmmEv.exit
   %7 = phi i32 [ %conv36.i.i.i, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb1EEEEERKS7_PSD_EmmEv.exit ], [ %iter.coerce1, %entry.if.end_crit_edge ]
-  %8 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb1EEEEERKS7_PSD_EmmEv.exit ], [ %.pre17, %entry.if.end_crit_edge ]
+  %8 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb1EEEEERKS7_PSD_EmmEv.exit ], [ %.pre16, %entry.if.end_crit_edge ]
   %9 = phi i8 [ %.pre, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb1EEEEERKS7_PSD_EmmEv.exit ], [ %1, %entry.if.end_crit_edge ]
   %10 = phi ptr [ %storemerge.lcssa.i.i.i, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS7_ESaIS7_ELi256ELb1EEEEERKS7_PSD_EmmEv.exit ], [ %iter.coerce0, %entry.if.end_crit_edge ]
   %arrayidx.i.i3 = getelementptr i8, ptr %10, i64 10
@@ -79449,44 +79405,34 @@ _ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11
 
 if.else:                                          ; preds = %if.then9
   call void @_ZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb1EEEE18rebalance_or_splitEPNS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSF_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %iter)
-  %.pre18 = load ptr, ptr %iter, align 8
-  %.pre19 = load i32, ptr %0, align 8
+  %.pre17 = load ptr, ptr %iter, align 8
+  %.pre18 = load i32, ptr %0, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb1EEEE16internal_emplaceIJS6_EEENS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSG_EESJ_DpOT_ENKUlhE_clEh.exit, %if.else, %if.end
-  %15 = phi i32 [ %7, %_ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb1EEEE16internal_emplaceIJS6_EEENS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSG_EESJ_DpOT_ENKUlhE_clEh.exit ], [ %.pre19, %if.else ], [ %7, %if.end ]
-  %16 = phi ptr [ %call5.i.i2.i.i.i.i, %_ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb1EEEE16internal_emplaceIJS6_EEENS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSG_EESJ_DpOT_ENKUlhE_clEh.exit ], [ %.pre18, %if.else ], [ %10, %if.end ]
+  %15 = phi i32 [ %7, %_ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb1EEEE16internal_emplaceIJS6_EEENS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSG_EESJ_DpOT_ENKUlhE_clEh.exit ], [ %.pre18, %if.else ], [ %7, %if.end ]
+  %16 = phi ptr [ %call5.i.i2.i.i.i.i, %_ZZN4absl18container_internal5btreeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb1EEEE16internal_emplaceIJS6_EEENS0_14btree_iteratorINS0_10btree_nodeISA_EERKS6_PSG_EESJ_DpOT_ENKUlhE_clEh.exit ], [ %.pre17, %if.else ], [ %10, %if.end ]
   %conv21 = trunc i32 %15 to i8
   %conv.i = and i32 %15, 255
   %arrayidx.i.i7 = getelementptr i8, ptr %16, i64 10
   %17 = load i8, ptr %arrayidx.i.i7, align 1
   %cmp.i8 = icmp ugt i8 %17, %conv21
-  br i1 %cmp.i8, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %if.end18
-  %.pre25.i = zext nneg i32 %conv.i to i64
-  br label %if.end.i
+  %conv9.i = zext nneg i32 %conv.i to i64
+  br i1 %cmp.i8, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end18
-  %conv4.i = zext i8 %17 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext nneg i32 %conv.i to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 16
   %18 = getelementptr %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 1152921504606846975
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %17, %conv21
+  %conv6.i = zext i8 %narrow.i to i64
   %19 = getelementptr i8, ptr %18, i64 16
   %arrayidx.i8.i.i = getelementptr %"class.std::basic_string_view", ptr %19, i64 %conv6.i
   %arrayidx.i.i.i12 = getelementptr %"class.std::basic_string_view", ptr %18, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i12, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i12, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -16
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr4.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, i64 16, i1 false)
@@ -79497,11 +79443,10 @@ if.end.loopexit.i:                                ; preds = %for.body.i.i
   %.pre.i = load i8, ptr %arrayidx.i.i7, align 1
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.loopexit.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre25.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.end.loopexit.i ], [ %conv9.i, %if.then.i ]
-  %20 = phi i8 [ %17, %entry.if.end_crit_edge.i ], [ %.pre.i, %if.end.loopexit.i ], [ %17, %if.then.i ]
+if.end.i:                                         ; preds = %if.end.loopexit.i, %if.end18
+  %20 = phi i8 [ %.pre.i, %if.end.loopexit.i ], [ %17, %if.end18 ]
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %16, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %args, i64 16, i1 false)
   %add12.i = add i8 %20, 1
   store i8 %add12.i, ptr %arrayidx.i.i7, align 1
@@ -80112,32 +80057,22 @@ _ZN4absl18container_internal10btree_nodeINS0_10set_paramsISt17basic_string_viewI
   %arrayidx.i.i34 = getelementptr i8, ptr %6, i64 10
   %8 = load i8, ptr %arrayidx.i.i34, align 1
   %cmp.i = icmp ugt i8 %8, %7
-  br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb1EEEE10transfer_nEmmmPSB_PS9_.exit
-  %.pre25.i = zext i8 %7 to i64
-  br label %if.end.i
+  %conv9.i = zext i8 %7 to i64
+  br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb1EEEE10transfer_nEmmmPSB_PS9_.exit
-  %conv4.i = zext i8 %8 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i33
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext i8 %7 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 1152921504606846975
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %8, %7
+  %conv6.i = zext i8 %narrow.i to i64
   %10 = getelementptr i8, ptr %9, i64 16
   %arrayidx.i8.i.i = getelementptr %"class.std::basic_string_view", ptr %10, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"class.std::basic_string_view", ptr %9, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -16
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr4.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, i64 16, i1 false)
@@ -80148,11 +80083,10 @@ if.end.loopexit.i:                                ; preds = %for.body.i.i
   %.pre.i = load i8, ptr %arrayidx.i.i34, align 1
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.loopexit.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre25.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.end.loopexit.i ], [ %conv9.i, %if.then.i ]
-  %11 = phi i8 [ %8, %entry.if.end_crit_edge.i ], [ %.pre.i, %if.end.loopexit.i ], [ %8, %if.then.i ]
+if.end.i:                                         ; preds = %if.end.loopexit.i, %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb1EEEE10transfer_nEmmmPSB_PS9_.exit
+  %11 = phi i8 [ %.pre.i, %if.end.loopexit.i ], [ %8, %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS6_ESaIS6_ELi256ELb1EEEE10transfer_nEmmmPSB_PS9_.exit ]
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %6, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i1.i, i64 16, i1 false)
   %add12.i = add i8 %11, 1
   store i8 %add12.i, ptr %arrayidx.i.i34, align 1
@@ -82427,7 +82361,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1442
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -82571,7 +82505,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %29
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %29
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %29
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %agg.tmp3.sroa.2.0..sroa_idx.i, align 8
@@ -82934,7 +82868,7 @@ entry:
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %arrayidx.i.i3.phi.trans.insert = getelementptr i8, ptr %iter.coerce0, i64 10
-  %.pre19 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
+  %.pre18 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
   br label %if.end
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -82973,7 +82907,7 @@ _ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsIN
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb1EEEEERKS9_PSF_EmmEv.exit
-  %7 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb1EEEEERKS9_PSF_EmmEv.exit ], [ %.pre19, %entry.if.end_crit_edge ]
+  %7 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb1EEEEERKS9_PSF_EmmEv.exit ], [ %.pre18, %entry.if.end_crit_edge ]
   %8 = phi i8 [ %.pre, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb1EEEEERKS9_PSF_EmmEv.exit ], [ %1, %entry.if.end_crit_edge ]
   %9 = phi ptr [ %storemerge.lcssa.i.i.i, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb1EEEEERKS9_PSF_EmmEv.exit ], [ %iter.coerce0, %entry.if.end_crit_edge ]
   %rightmost_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -83048,32 +82982,22 @@ if.end18:                                         ; preds = %_ZZN4absl18containe
   %arrayidx.i.i9 = getelementptr i8, ptr %16, i64 10
   %18 = load i8, ptr %arrayidx.i.i9, align 1
   %cmp.i10 = icmp ugt i8 %18, %conv21
-  br i1 %cmp.i10, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %if.end18
-  %.pre.i = zext nneg i32 %conv.i to i64
-  br label %if.end.i
+  %conv9.i = zext nneg i32 %conv.i to i64
+  br i1 %cmp.i10, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end18
-  %conv4.i = zext i8 %18 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext nneg i32 %conv.i to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 16
   %19 = getelementptr %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 576460752303423487
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %18, %conv21
+  %conv6.i = zext i8 %narrow.i to i64
   %20 = getelementptr i8, ptr %19, i64 32
   %arrayidx.i8.i.i = getelementptr %"class.std::__cxx11::basic_string", ptr %20, i64 %conv6.i
   %arrayidx.i.i.i14 = getelementptr %"class.std::__cxx11::basic_string", ptr %19, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i14, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i14, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -32
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr5.i.i) #23
@@ -83081,10 +83005,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp.not.i.i = icmp eq ptr %add.ptr5.i.i, %19
   br i1 %cmp.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !1453
 
-if.end.i:                                         ; preds = %for.body.i.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.then.i ], [ %conv9.i, %for.body.i.i ]
+if.end.i:                                         ; preds = %for.body.i.i, %if.end18
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %16, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %args) #23
   %21 = load i8, ptr %arrayidx.i.i9, align 1
   %add12.i = add i8 %21, 1
@@ -83864,32 +83787,22 @@ _ZN4absl18container_internal10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_str
   %arrayidx.i.i34 = getelementptr i8, ptr %6, i64 10
   %8 = load i8, ptr %arrayidx.i.i34, align 1
   %cmp.i = icmp ugt i8 %8, %7
-  br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_ELi256ELb1EEEE10transfer_nEmmmPSD_PSB_.exit
-  %.pre.i = zext i8 %7 to i64
-  br label %if.end.i
+  %conv9.i = zext i8 %7 to i64
+  br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_ELi256ELb1EEEE10transfer_nEmmmPSD_PSB_.exit
-  %conv4.i = zext i8 %8 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i33
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext i8 %7 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 576460752303423487
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %8, %7
+  %conv6.i = zext i8 %narrow.i to i64
   %10 = getelementptr i8, ptr %9, i64 32
   %arrayidx.i8.i.i = getelementptr %"class.std::__cxx11::basic_string", ptr %10, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"class.std::__cxx11::basic_string", ptr %9, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -32
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr5.i.i) #23
@@ -83897,10 +83810,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp.not.i.i = icmp eq ptr %add.ptr5.i.i, %9
   br i1 %cmp.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !1453
 
-if.end.i:                                         ; preds = %for.body.i.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.then.i ], [ %conv9.i, %for.body.i.i ]
+if.end.i:                                         ; preds = %for.body.i.i, %_ZN4absl18container_internal10btree_nodeINS0_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_ELi256ELb1EEEE10transfer_nEmmmPSD_PSB_.exit
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %6, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i1.i) #23
   %11 = load i8, ptr %arrayidx.i.i34, align 1
   %add12.i = add i8 %11, 1
@@ -86049,7 +85961,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1485
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -86139,7 +86051,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %17
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %17
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %17
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %agg.tmp3.sroa.2.0..sroa_idx.i, align 8
@@ -88395,7 +88307,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1509
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -88508,7 +88420,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %15
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %15
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %15
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call4.sroa_idx, align 8
@@ -92033,7 +91945,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1563
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -92159,7 +92071,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %20
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %20
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %20
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -95705,7 +95617,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1617
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -95818,7 +95730,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %15
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %15
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %15
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call4.sroa_idx, align 8
@@ -102518,7 +102430,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1717
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -102630,7 +102542,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %14
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %14
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %14
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call4.sroa_idx, align 8
@@ -104553,7 +104465,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1736
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -104678,7 +104590,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %19
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %19
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %19
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -106607,7 +106519,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1755
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -106719,7 +106631,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %14
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %14
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %14
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call4.sroa_idx, align 8
@@ -110302,7 +110214,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1786
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -110439,7 +110351,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %15
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %15
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %15
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call5.sroa_idx, align 8
@@ -110592,7 +110504,7 @@ entry:
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %arrayidx.i.i3.phi.trans.insert = getelementptr i8, ptr %iter.coerce0, i64 10
-  %.pre18 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
+  %.pre17 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
   br label %if.end
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -110632,7 +110544,7 @@ _ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsIS
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb0EEEEERSC_PSC_EmmEv.exit
   %7 = phi i32 [ %conv36.i.i.i, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb0EEEEERSC_PSC_EmmEv.exit ], [ %iter.coerce1, %entry.if.end_crit_edge ]
-  %8 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb0EEEEERSC_PSC_EmmEv.exit ], [ %.pre18, %entry.if.end_crit_edge ]
+  %8 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb0EEEEERSC_PSC_EmmEv.exit ], [ %.pre17, %entry.if.end_crit_edge ]
   %9 = phi i8 [ %.pre, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb0EEEEERSC_PSC_EmmEv.exit ], [ %1, %entry.if.end_crit_edge ]
   %10 = phi ptr [ %storemerge.lcssa.i.i.i, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb0EEEEERSC_PSC_EmmEv.exit ], [ %iter.coerce0, %entry.if.end_crit_edge ]
   %arrayidx.i.i3 = getelementptr i8, ptr %10, i64 10
@@ -110689,44 +110601,34 @@ _ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11
 
 if.else:                                          ; preds = %if.then9
   call void @_ZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb0EEEE18rebalance_or_splitEPNS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %iter)
-  %.pre19 = load ptr, ptr %iter, align 8
-  %.pre20 = load i32, ptr %0, align 8
+  %.pre18 = load ptr, ptr %iter, align 8
+  %.pre19 = load i32, ptr %0, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb0EEEE16internal_emplaceIJRPNS0_13map_slot_typeIS6_S6_EEEEENS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EESP_DpOT_ENKUlhE_clEh.exit, %if.else, %if.end
-  %16 = phi i32 [ %7, %_ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb0EEEE16internal_emplaceIJRPNS0_13map_slot_typeIS6_S6_EEEEENS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EESP_DpOT_ENKUlhE_clEh.exit ], [ %.pre20, %if.else ], [ %7, %if.end ]
-  %17 = phi ptr [ %call5.i.i2.i.i.i.i, %_ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb0EEEE16internal_emplaceIJRPNS0_13map_slot_typeIS6_S6_EEEEENS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EESP_DpOT_ENKUlhE_clEh.exit ], [ %.pre19, %if.else ], [ %10, %if.end ]
+  %16 = phi i32 [ %7, %_ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb0EEEE16internal_emplaceIJRPNS0_13map_slot_typeIS6_S6_EEEEENS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EESP_DpOT_ENKUlhE_clEh.exit ], [ %.pre19, %if.else ], [ %7, %if.end ]
+  %17 = phi ptr [ %call5.i.i2.i.i.i.i, %_ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb0EEEE16internal_emplaceIJRPNS0_13map_slot_typeIS6_S6_EEEEENS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EESP_DpOT_ENKUlhE_clEh.exit ], [ %.pre18, %if.else ], [ %10, %if.end ]
   %conv21 = trunc i32 %16 to i8
   %conv.i = and i32 %16, 255
   %arrayidx.i.i8 = getelementptr i8, ptr %17, i64 10
   %18 = load i8, ptr %arrayidx.i.i8, align 1
   %cmp.i9 = icmp ugt i8 %18, %conv21
-  br i1 %cmp.i9, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %if.end18
-  %.pre25.i = zext nneg i32 %conv.i to i64
-  br label %if.end.i
+  %conv9.i = zext nneg i32 %conv.i to i64
+  br i1 %cmp.i9, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end18
-  %conv4.i = zext i8 %18 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext nneg i32 %conv.i to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
   %19 = getelementptr %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 576460752303423487
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %18, %conv21
+  %conv6.i = zext i8 %narrow.i to i64
   %20 = getelementptr i8, ptr %19, i64 32
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type", ptr %20, i64 %conv6.i
   %arrayidx.i.i.i13 = getelementptr %"union.absl::container_internal::map_slot_type", ptr %19, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i13, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i13, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -32
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr4.i.i, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr5.i.i, i64 32, i1 false)
@@ -110737,11 +110639,10 @@ if.end.loopexit.i:                                ; preds = %for.body.i.i
   %.pre.i = load i8, ptr %arrayidx.i.i8, align 1
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.loopexit.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre25.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.end.loopexit.i ], [ %conv9.i, %if.then.i ]
-  %21 = phi i8 [ %18, %entry.if.end_crit_edge.i ], [ %.pre.i, %if.end.loopexit.i ], [ %18, %if.then.i ]
+if.end.i:                                         ; preds = %if.end.loopexit.i, %if.end18
+  %21 = phi i8 [ %.pre.i, %if.end.loopexit.i ], [ %18, %if.end18 ]
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %17, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   %22 = load ptr, ptr %args, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false)
   %add12.i = add i8 %21, 1
@@ -111357,32 +111258,22 @@ _ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewI
   %arrayidx.i.i34 = getelementptr i8, ptr %6, i64 10
   %8 = load i8, ptr %arrayidx.i.i34, align 1
   %cmp.i = icmp ugt i8 %8, %7
-  br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit
-  %.pre25.i = zext i8 %7 to i64
-  br label %if.end.i
+  %conv9.i = zext i8 %7 to i64
+  br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit
-  %conv4.i = zext i8 %8 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i33
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext i8 %7 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 576460752303423487
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %8, %7
+  %conv6.i = zext i8 %narrow.i to i64
   %10 = getelementptr i8, ptr %9, i64 32
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type", ptr %10, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"union.absl::container_internal::map_slot_type", ptr %9, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -32
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr4.i.i, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr5.i.i, i64 32, i1 false)
@@ -111393,11 +111284,10 @@ if.end.loopexit.i:                                ; preds = %for.body.i.i
   %.pre.i = load i8, ptr %arrayidx.i.i34, align 1
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.loopexit.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre25.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.end.loopexit.i ], [ %conv9.i, %if.then.i ]
-  %11 = phi i8 [ %8, %entry.if.end_crit_edge.i ], [ %.pre.i, %if.end.loopexit.i ], [ %8, %if.then.i ]
+if.end.i:                                         ; preds = %if.end.loopexit.i, %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit
+  %11 = phi i8 [ %.pre.i, %if.end.loopexit.i ], [ %8, %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit ]
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %6, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i1.i, i64 32, i1 false)
   %add12.i = add i8 %11, 1
   store i8 %add12.i, ptr %arrayidx.i.i34, align 1
@@ -113538,7 +113428,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1830
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -113700,7 +113590,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %23
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %23
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %23
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -113982,9 +113872,8 @@ if.end18:                                         ; preds = %_ZZN4absl18containe
 if.then.i:                                        ; preds = %if.end18
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %17 = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %conv4.i = zext i8 %16 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i
-  %conv6.i = sext i32 %sub.i to i64
+  %narrow.i = sub nuw i8 %16, %conv21
+  %conv6.i = zext i8 %narrow.i to i64
   %18 = getelementptr i8, ptr %17, i64 48
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %18, i64 %conv6.i
   %arrayidx.i.i.i14 = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %17, i64 %conv6.i
@@ -114825,9 +114714,8 @@ _ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewI
 if.then.i:                                        ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEESt4lessIS6_ESaISt4pairIKS6_SA_EELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %conv4.i = zext i8 %8 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i33
-  %conv6.i = sext i32 %sub.i to i64
+  %narrow.i = sub nuw i8 %8, %7
+  %conv6.i = zext i8 %narrow.i to i64
   %10 = getelementptr i8, ptr %9, i64 48
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %10, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %9, i64 %conv6.i
@@ -116872,7 +116760,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1875
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -116983,7 +116871,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %15
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %15
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %15
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call5.sroa_idx, align 8
@@ -117338,9 +117226,8 @@ if.end18:                                         ; preds = %_ZZN4absl18containe
 if.then.i:                                        ; preds = %if.end18
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %17 = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %conv4.i = zext i8 %16 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i
-  %conv6.i = sext i32 %sub.i to i64
+  %narrow.i = sub nuw i8 %16, %conv21
+  %conv6.i = zext i8 %narrow.i to i64
   %18 = getelementptr i8, ptr %17, i64 48
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %18, i64 %conv6.i
   %arrayidx.i.i.i14 = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %17, i64 %conv6.i
@@ -118178,9 +118065,8 @@ _ZN4absl18container_internal10btree_nodeINS0_10map_paramsINSt7__cxx1112basic_str
 if.then.i:                                        ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ESt4lessIS8_ESaISt4pairIKS8_SA_EELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %conv4.i = zext i8 %8 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i33
-  %conv6.i = sext i32 %sub.i to i64
+  %narrow.i = sub nuw i8 %8, %7
+  %conv6.i = zext i8 %narrow.i to i64
   %10 = getelementptr i8, ptr %9, i64 48
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %10, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %9, i64 %conv6.i
@@ -120233,7 +120119,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1917
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -120399,7 +120285,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %21
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %21
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %21
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -120988,32 +120874,22 @@ entry:
   %arrayidx.i = getelementptr i8, ptr %this, i64 10
   %0 = load i8, ptr %arrayidx.i, align 1
   %cmp = icmp ugt i8 %0, %i
-  br i1 %cmp, label %if.then, label %entry.if.end_crit_edge
-
-entry.if.end_crit_edge:                           ; preds = %entry
-  %.pre = zext i8 %i to i64
-  br label %if.end
+  %conv9 = zext i8 %i to i64
+  br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %conv4 = zext i8 %0 to i32
-  %sub = sub nsw i32 %conv4, %conv
-  %conv6 = sext i32 %sub to i64
-  %conv9 = zext i8 %i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = getelementptr %"union.absl::container_internal::map_slot_type.1314", ptr %add.ptr.i.i.i.i, i64 %conv9
-  %arrayidx.i.idx.mask.i = and i64 %conv6, 288230376151711743
-  %cmp.not9.i = icmp eq i64 %arrayidx.i.idx.mask.i, 0
-  br i1 %cmp.not9.i, label %if.end, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %if.then
+  %narrow = sub nuw i8 %0, %i
+  %conv6 = zext i8 %narrow to i64
   %2 = getelementptr i8, ptr %1, i64 64
   %arrayidx.i8.i = getelementptr %"union.absl::container_internal::map_slot_type.1314", ptr %2, i64 %conv6
   %arrayidx.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1314", ptr %1, i64 %conv6
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %dest.011.i = phi ptr [ %add.ptr4.i, %for.body.i ], [ %arrayidx.i8.i, %for.body.preheader.i ]
-  %src.010.i = phi ptr [ %add.ptr5.i, %for.body.i ], [ %arrayidx.i.i, %for.body.preheader.i ]
+for.body.i:                                       ; preds = %for.body.i, %if.then
+  %dest.011.i = phi ptr [ %add.ptr4.i, %for.body.i ], [ %arrayidx.i8.i, %if.then ]
+  %src.010.i = phi ptr [ %add.ptr5.i, %for.body.i ], [ %arrayidx.i.i, %if.then ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %dest.011.i, i64 -64
   %add.ptr5.i = getelementptr inbounds i8, ptr %src.010.i, i64 -64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr5.i) #23
@@ -121025,10 +120901,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.not.i = icmp eq ptr %add.ptr5.i, %1
   br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !1937
 
-if.end:                                           ; preds = %for.body.i, %entry.if.end_crit_edge, %if.then
-  %conv.i.pre-phi = phi i64 [ %.pre, %entry.if.end_crit_edge ], [ %conv9, %if.then ], [ %conv9, %for.body.i ]
+if.end:                                           ; preds = %for.body.i, %entry
   %add.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx.i3.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type.1314", ptr %add.ptr.i.i.i.i13, i64 %conv.i.pre-phi
+  %arrayidx.i3.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type.1314", ptr %add.ptr.i.i.i.i13, i64 %conv9
   %3 = load ptr, ptr %args, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i3.i, ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i, i64 32
@@ -121683,32 +121558,22 @@ entry:
   %arrayidx.i = getelementptr i8, ptr %this, i64 10
   %0 = load i8, ptr %arrayidx.i, align 1
   %cmp = icmp ugt i8 %0, %i
-  br i1 %cmp, label %if.then, label %entry.if.end_crit_edge
-
-entry.if.end_crit_edge:                           ; preds = %entry
-  %.pre = zext i8 %i to i64
-  br label %if.end
+  %conv9 = zext i8 %i to i64
+  br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %conv4 = zext i8 %0 to i32
-  %sub = sub nsw i32 %conv4, %conv
-  %conv6 = sext i32 %sub to i64
-  %conv9 = zext i8 %i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = getelementptr %"union.absl::container_internal::map_slot_type.1314", ptr %add.ptr.i.i.i.i, i64 %conv9
-  %arrayidx.i.idx.mask.i = and i64 %conv6, 288230376151711743
-  %cmp.not9.i = icmp eq i64 %arrayidx.i.idx.mask.i, 0
-  br i1 %cmp.not9.i, label %if.end, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %if.then
+  %narrow = sub nuw i8 %0, %i
+  %conv6 = zext i8 %narrow to i64
   %2 = getelementptr i8, ptr %1, i64 64
   %arrayidx.i8.i = getelementptr %"union.absl::container_internal::map_slot_type.1314", ptr %2, i64 %conv6
   %arrayidx.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1314", ptr %1, i64 %conv6
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %dest.011.i = phi ptr [ %add.ptr4.i, %for.body.i ], [ %arrayidx.i8.i, %for.body.preheader.i ]
-  %src.010.i = phi ptr [ %add.ptr5.i, %for.body.i ], [ %arrayidx.i.i, %for.body.preheader.i ]
+for.body.i:                                       ; preds = %for.body.i, %if.then
+  %dest.011.i = phi ptr [ %add.ptr4.i, %for.body.i ], [ %arrayidx.i8.i, %if.then ]
+  %src.010.i = phi ptr [ %add.ptr5.i, %for.body.i ], [ %arrayidx.i.i, %if.then ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %dest.011.i, i64 -64
   %add.ptr5.i = getelementptr inbounds i8, ptr %src.010.i, i64 -64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr5.i) #23
@@ -121720,10 +121585,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.not.i = icmp eq ptr %add.ptr5.i, %1
   br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !1937
 
-if.end:                                           ; preds = %for.body.i, %entry.if.end_crit_edge, %if.then
-  %conv.i.pre-phi = phi i64 [ %.pre, %entry.if.end_crit_edge ], [ %conv9, %if.then ], [ %conv9, %for.body.i ]
+if.end:                                           ; preds = %for.body.i, %entry
   %add.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx.i3.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type.1314", ptr %add.ptr.i.i.i.i13, i64 %conv.i.pre-phi
+  %arrayidx.i3.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type.1314", ptr %add.ptr.i.i.i.i13, i64 %conv9
   %3 = load ptr, ptr %args, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i3.i, ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i, i64 32
@@ -123677,7 +123541,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !1963
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -123811,7 +123675,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %17
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %17
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %17
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call5.sroa_idx, align 8
@@ -123969,7 +123833,7 @@ entry:
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %arrayidx.i.i3.phi.trans.insert = getelementptr i8, ptr %iter.coerce0, i64 10
-  %.pre18 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
+  %.pre17 = load i8, ptr %arrayidx.i.i3.phi.trans.insert, align 1
   br label %if.end
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -124009,7 +123873,7 @@ _ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsIS
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb1EEEEERSC_PSC_EmmEv.exit
   %7 = phi i32 [ %conv36.i.i.i, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb1EEEEERSC_PSC_EmmEv.exit ], [ %iter.coerce1, %entry.if.end_crit_edge ]
-  %8 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb1EEEEERSC_PSC_EmmEv.exit ], [ %.pre18, %entry.if.end_crit_edge ]
+  %8 = phi i8 [ %6, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb1EEEEERSC_PSC_EmmEv.exit ], [ %.pre17, %entry.if.end_crit_edge ]
   %9 = phi i8 [ %.pre, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb1EEEEERSC_PSC_EmmEv.exit ], [ %1, %entry.if.end_crit_edge ]
   %10 = phi ptr [ %storemerge.lcssa.i.i.i, %_ZN4absl18container_internal14btree_iteratorINS0_10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES7_St4lessIS7_ESaISt4pairIKS7_S7_EELi256ELb1EEEEERSC_PSC_EmmEv.exit ], [ %iter.coerce0, %entry.if.end_crit_edge ]
   %arrayidx.i.i3 = getelementptr i8, ptr %10, i64 10
@@ -124066,44 +123930,34 @@ _ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11
 
 if.else:                                          ; preds = %if.then9
   call void @_ZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb1EEEE18rebalance_or_splitEPNS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %iter)
-  %.pre19 = load ptr, ptr %iter, align 8
-  %.pre20 = load i32, ptr %0, align 8
+  %.pre18 = load ptr, ptr %iter, align 8
+  %.pre19 = load i32, ptr %0, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb1EEEE16internal_emplaceIJPNS0_13map_slot_typeIS6_S6_EEEEENS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EESO_DpOT_ENKUlhE_clEh.exit, %if.else, %if.end
-  %16 = phi i32 [ %7, %_ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb1EEEE16internal_emplaceIJPNS0_13map_slot_typeIS6_S6_EEEEENS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EESO_DpOT_ENKUlhE_clEh.exit ], [ %.pre20, %if.else ], [ %7, %if.end ]
-  %17 = phi ptr [ %call5.i.i2.i.i.i.i, %_ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb1EEEE16internal_emplaceIJPNS0_13map_slot_typeIS6_S6_EEEEENS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EESO_DpOT_ENKUlhE_clEh.exit ], [ %.pre19, %if.else ], [ %10, %if.end ]
+  %16 = phi i32 [ %7, %_ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb1EEEE16internal_emplaceIJPNS0_13map_slot_typeIS6_S6_EEEEENS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EESO_DpOT_ENKUlhE_clEh.exit ], [ %.pre19, %if.else ], [ %7, %if.end ]
+  %17 = phi ptr [ %call5.i.i2.i.i.i.i, %_ZZN4absl18container_internal5btreeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb1EEEE16internal_emplaceIJPNS0_13map_slot_typeIS6_S6_EEEEENS0_14btree_iteratorINS0_10btree_nodeISD_EERSB_PSB_EESO_DpOT_ENKUlhE_clEh.exit ], [ %.pre18, %if.else ], [ %10, %if.end ]
   %conv21 = trunc i32 %16 to i8
   %conv.i = and i32 %16, 255
   %arrayidx.i.i8 = getelementptr i8, ptr %17, i64 10
   %18 = load i8, ptr %arrayidx.i.i8, align 1
   %cmp.i9 = icmp ugt i8 %18, %conv21
-  br i1 %cmp.i9, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %if.end18
-  %.pre25.i = zext nneg i32 %conv.i to i64
-  br label %if.end.i
+  %conv9.i = zext nneg i32 %conv.i to i64
+  br i1 %cmp.i9, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end18
-  %conv4.i = zext i8 %18 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext nneg i32 %conv.i to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
   %19 = getelementptr %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 576460752303423487
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %18, %conv21
+  %conv6.i = zext i8 %narrow.i to i64
   %20 = getelementptr i8, ptr %19, i64 32
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type", ptr %20, i64 %conv6.i
   %arrayidx.i.i.i13 = getelementptr %"union.absl::container_internal::map_slot_type", ptr %19, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i13, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i13, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -32
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr4.i.i, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr5.i.i, i64 32, i1 false)
@@ -124114,11 +123968,10 @@ if.end.loopexit.i:                                ; preds = %for.body.i.i
   %.pre.i = load i8, ptr %arrayidx.i.i8, align 1
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.loopexit.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre25.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.end.loopexit.i ], [ %conv9.i, %if.then.i ]
-  %21 = phi i8 [ %18, %entry.if.end_crit_edge.i ], [ %.pre.i, %if.end.loopexit.i ], [ %18, %if.then.i ]
+if.end.i:                                         ; preds = %if.end.loopexit.i, %if.end18
+  %21 = phi i8 [ %.pre.i, %if.end.loopexit.i ], [ %18, %if.end18 ]
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %17, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   %22 = load ptr, ptr %args, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false)
   %add12.i = add i8 %21, 1
@@ -124734,32 +124587,22 @@ _ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewI
   %arrayidx.i.i34 = getelementptr i8, ptr %6, i64 10
   %8 = load i8, ptr %arrayidx.i.i34, align 1
   %cmp.i = icmp ugt i8 %8, %7
-  br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
-
-entry.if.end_crit_edge.i:                         ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb1EEEE10transfer_nEmmmPSE_PSC_.exit
-  %.pre25.i = zext i8 %7 to i64
-  br label %if.end.i
+  %conv9.i = zext i8 %7 to i64
+  br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb1EEEE10transfer_nEmmmPSE_PSC_.exit
-  %conv4.i = zext i8 %8 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i33
-  %conv6.i = sext i32 %sub.i to i64
-  %conv9.i = zext i8 %7 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %arrayidx.i.idx.mask.i.i = and i64 %conv6.i, 576460752303423487
-  %cmp.not9.i.i = icmp eq i64 %arrayidx.i.idx.mask.i.i, 0
-  br i1 %cmp.not9.i.i, label %if.end.i, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %if.then.i
+  %narrow.i = sub nuw i8 %8, %7
+  %conv6.i = zext i8 %narrow.i to i64
   %10 = getelementptr i8, ptr %9, i64 32
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type", ptr %10, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"union.absl::container_internal::map_slot_type", ptr %9, i64 %conv6.i
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %for.body.preheader.i.i ]
-  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %for.body.preheader.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
+  %dest.011.i.i = phi ptr [ %add.ptr4.i.i, %for.body.i.i ], [ %arrayidx.i8.i.i, %if.then.i ]
+  %src.010.i.i = phi ptr [ %add.ptr5.i.i, %for.body.i.i ], [ %arrayidx.i.i.i, %if.then.i ]
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %dest.011.i.i, i64 -32
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.010.i.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr4.i.i, ptr noundef nonnull align 1 dereferenceable(32) %add.ptr5.i.i, i64 32, i1 false)
@@ -124770,11 +124613,10 @@ if.end.loopexit.i:                                ; preds = %for.body.i.i
   %.pre.i = load i8, ptr %arrayidx.i.i34, align 1
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.loopexit.i, %if.then.i, %entry.if.end_crit_edge.i
-  %conv.i.pre-phi.i = phi i64 [ %.pre25.i, %entry.if.end_crit_edge.i ], [ %conv9.i, %if.end.loopexit.i ], [ %conv9.i, %if.then.i ]
-  %11 = phi i8 [ %8, %entry.if.end_crit_edge.i ], [ %.pre.i, %if.end.loopexit.i ], [ %8, %if.then.i ]
+if.end.i:                                         ; preds = %if.end.loopexit.i, %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb1EEEE10transfer_nEmmmPSE_PSC_.exit
+  %11 = phi i8 [ %.pre.i, %if.end.loopexit.i ], [ %8, %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEES6_St4lessIS6_ESaISt4pairIKS6_S6_EELi256ELb1EEEE10transfer_nEmmmPSE_PSC_.exit ]
   %add.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %6, i64 16
-  %arrayidx.i3.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i13.i, i64 %conv.i.pre-phi.i
+  %arrayidx.i3.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i13.i, i64 %conv9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i1.i, i64 32, i1 false)
   %add12.i = add i8 %11, 1
   store i8 %add12.i, ptr %arrayidx.i.i34, align 1
@@ -126914,7 +126756,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2001
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -127073,7 +126915,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %25
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %25
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %25
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -127360,9 +127202,8 @@ if.end18:                                         ; preds = %_ZZN4absl18containe
 if.then.i:                                        ; preds = %if.end18
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %17 = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %conv4.i = zext i8 %16 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i
-  %conv6.i = sext i32 %sub.i to i64
+  %narrow.i = sub nuw i8 %16, %conv21
+  %conv6.i = zext i8 %narrow.i to i64
   %18 = getelementptr i8, ptr %17, i64 48
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %18, i64 %conv6.i
   %arrayidx.i.i.i14 = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %17, i64 %conv6.i
@@ -128203,9 +128044,8 @@ _ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewI
 if.then.i:                                        ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEESt4lessIS6_ESaISt4pairIKS6_SA_EELi256ELb1EEEE10transfer_nEmmmPSI_PSG_.exit
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %conv4.i = zext i8 %8 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i33
-  %conv6.i = sext i32 %sub.i to i64
+  %narrow.i = sub nuw i8 %8, %7
+  %conv6.i = zext i8 %narrow.i to i64
   %10 = getelementptr i8, ptr %9, i64 48
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %10, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1192", ptr %9, i64 %conv6.i
@@ -130252,7 +130092,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2040
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -130370,7 +130210,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %15
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %15
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %15
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call5.sroa_idx, align 8
@@ -130760,9 +130600,8 @@ if.end18:                                         ; preds = %_ZZN4absl18containe
 if.then.i:                                        ; preds = %if.end18
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %17 = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %conv4.i = zext i8 %16 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i
-  %conv6.i = sext i32 %sub.i to i64
+  %narrow.i = sub nuw i8 %16, %conv21
+  %conv6.i = zext i8 %narrow.i to i64
   %18 = getelementptr i8, ptr %17, i64 48
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %18, i64 %conv6.i
   %arrayidx.i.i.i14 = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %17, i64 %conv6.i
@@ -131600,9 +131439,8 @@ _ZN4absl18container_internal10btree_nodeINS0_10map_paramsINSt7__cxx1112basic_str
 if.then.i:                                        ; preds = %_ZN4absl18container_internal10btree_nodeINS0_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ESt4lessIS8_ESaISt4pairIKS8_SA_EELi256ELb1EEEE10transfer_nEmmmPSI_PSG_.exit
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %conv4.i = zext i8 %8 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i33
-  %conv6.i = sext i32 %sub.i to i64
+  %narrow.i = sub nuw i8 %8, %7
+  %conv6.i = zext i8 %narrow.i to i64
   %10 = getelementptr i8, ptr %9, i64 48
   %arrayidx.i8.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %10, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1253", ptr %9, i64 %conv6.i
@@ -133652,7 +133490,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2076
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -133784,7 +133622,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %21
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %21
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %21
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -134405,32 +134243,22 @@ entry:
   %arrayidx.i = getelementptr i8, ptr %this, i64 10
   %0 = load i8, ptr %arrayidx.i, align 1
   %cmp = icmp ugt i8 %0, %i
-  br i1 %cmp, label %if.then, label %entry.if.end_crit_edge
-
-entry.if.end_crit_edge:                           ; preds = %entry
-  %.pre = zext i8 %i to i64
-  br label %if.end
+  %conv9 = zext i8 %i to i64
+  br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %conv4 = zext i8 %0 to i32
-  %sub = sub nsw i32 %conv4, %conv
-  %conv6 = sext i32 %sub to i64
-  %conv9 = zext i8 %i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = getelementptr %"union.absl::container_internal::map_slot_type.1314", ptr %add.ptr.i.i.i.i, i64 %conv9
-  %arrayidx.i.idx.mask.i = and i64 %conv6, 288230376151711743
-  %cmp.not9.i = icmp eq i64 %arrayidx.i.idx.mask.i, 0
-  br i1 %cmp.not9.i, label %if.end, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %if.then
+  %narrow = sub nuw i8 %0, %i
+  %conv6 = zext i8 %narrow to i64
   %2 = getelementptr i8, ptr %1, i64 64
   %arrayidx.i8.i = getelementptr %"union.absl::container_internal::map_slot_type.1314", ptr %2, i64 %conv6
   %arrayidx.i.i = getelementptr %"union.absl::container_internal::map_slot_type.1314", ptr %1, i64 %conv6
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %dest.011.i = phi ptr [ %add.ptr4.i, %for.body.i ], [ %arrayidx.i8.i, %for.body.preheader.i ]
-  %src.010.i = phi ptr [ %add.ptr5.i, %for.body.i ], [ %arrayidx.i.i, %for.body.preheader.i ]
+for.body.i:                                       ; preds = %for.body.i, %if.then
+  %dest.011.i = phi ptr [ %add.ptr4.i, %for.body.i ], [ %arrayidx.i8.i, %if.then ]
+  %src.010.i = phi ptr [ %add.ptr5.i, %for.body.i ], [ %arrayidx.i.i, %if.then ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %dest.011.i, i64 -64
   %add.ptr5.i = getelementptr inbounds i8, ptr %src.010.i, i64 -64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr5.i) #23
@@ -134442,10 +134270,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.not.i = icmp eq ptr %add.ptr5.i, %1
   br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !2090
 
-if.end:                                           ; preds = %for.body.i, %entry.if.end_crit_edge, %if.then
-  %conv.i.pre-phi = phi i64 [ %.pre, %entry.if.end_crit_edge ], [ %conv9, %if.then ], [ %conv9, %for.body.i ]
+if.end:                                           ; preds = %for.body.i, %entry
   %add.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx.i3.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type.1314", ptr %add.ptr.i.i.i.i13, i64 %conv.i.pre-phi
+  %arrayidx.i3.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type.1314", ptr %add.ptr.i.i.i.i13, i64 %conv9
   %3 = load ptr, ptr %args, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i3.i, ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i, i64 32
@@ -137051,7 +136878,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2115
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -137177,7 +137004,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %19
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %19
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %19
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -139460,7 +139287,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2136
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -139592,7 +139419,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %18
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %18
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %18
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call5.sroa_idx, align 8
@@ -142076,7 +141903,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2172
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -142221,7 +142048,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %23
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %23
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %23
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -144495,7 +144322,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2208
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -144629,7 +144456,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %19
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %19
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %19
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call5.sroa_idx, align 8
@@ -146889,7 +146716,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2251
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -147030,7 +146857,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %20
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %20
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %20
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call5.sroa_idx, align 8
@@ -149371,7 +149198,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2287
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -149510,7 +149337,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %22
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %22
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %22
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -151876,7 +151703,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2324
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
@@ -151998,7 +151825,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %14
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %14
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %14
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %sv.sroa.3.0.call5.sroa_idx, align 8
@@ -154047,7 +153874,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2364
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -154103,7 +153930,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %8
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %8
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -154318,7 +154145,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2370
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -154380,7 +154207,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %8
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %8
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -154659,7 +154486,7 @@ _ZNK4absl16strings_internal8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2376
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -154718,7 +154545,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %7
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %7
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %7
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %first.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -157495,7 +157322,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i.i, i64 %6
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i, %6
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i.i, %6
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !2479
   store ptr %add.ptr15.i.i.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i, align 8, !alias.scope !2479
@@ -157570,7 +157397,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %17
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %17
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %17
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %_M_str.i, align 8
@@ -157740,7 +157567,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS
 
 _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit
   %7 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
@@ -160051,7 +159878,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %35, i64 %39
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %34, %39
+  %sub.i.i = sub nuw i64 %34, %39
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -160437,7 +160264,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i175: ; preds = %i
   %add.ptr15.i177 = getelementptr inbounds i8, ptr %76, i64 %80
   %sub.ptr.rhs.cast.i178 = ptrtoint ptr %add.ptr15.i177 to i64
   %sub.ptr.sub.i179 = sub i64 %sub.ptr.lhs.cast.i176, %sub.ptr.rhs.cast.i178
-  %sub.i.i180 = sub i64 %75, %80
+  %sub.i.i180 = sub nuw i64 %75, %80
   %.sroa.speculated.i.i181 = call i64 @llvm.umin.i64(i64 %sub.i.i180, i64 %sub.ptr.sub.i179)
   store i64 %.sroa.speculated.i.i181, ptr %curr_.i128, align 8
   store ptr %add.ptr15.i177, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i183, align 8
@@ -160676,7 +160503,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %9, i64 %13
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %8, %13
+  %sub.i.i = sub nuw i64 %8, %13
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -161460,7 +161287,7 @@ do.cond:                                          ; preds = %if.end10.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %6, i64 %10
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %5, %10
+  %sub.i.i = sub nuw i64 %5, %10
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i, align 8
   store ptr %add.ptr15.i, ptr %_M_str.i, align 8
@@ -161621,7 +161448,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS
 
 _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18ConvertToContainerISt6vectorISt17basic_string_viewIcS8_ESaISF_EESF_Lb0EEclERKSB_E8raw_viewPSF_SF_ET0_T_SP_SO_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18ConvertToContainerISt6vectorISt17basic_string_viewIcS8_ESaISF_EESF_Lb0EEclERKSB_E8raw_viewPSF_SF_ET0_T_SP_SO_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18ConvertToContainerISt6vectorISt17basic_string_viewIcS8_ESaISF_EESF_Lb0EEclERKSB_E8raw_viewmEvRT_T0_.exit
   %7 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18ConvertToContainerISt6vectorISt17basic_string_viewIcS8_ESaISF_EESF_Lb0EEclERKSB_E8raw_viewPSF_SF_ET0_T_SP_SO_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18ConvertToContainerISt6vectorISt17basic_string_viewIcS8_ESaISF_EESF_Lb0EEclERKSB_E8raw_viewmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce

@@ -1655,7 +1655,7 @@ cli_bcomp_chk_hex.exit128.thread:                 ; preds = %sub_0.i120, %.tail.
 
 .lr.ph146:                                        ; preds = %.lr.ph146.preheader, %105
   %.1145 = phi i32 [ %106, %105 ], [ 0, %.lr.ph146.preheader ]
-  %69 = sub nsw i32 %34, %.1145
+  %69 = sub nuw nsw i32 %34, %.1145
   %70 = icmp sgt i32 %69, 1
   br i1 %70, label %71, label %.lr.ph146._crit_edge
 

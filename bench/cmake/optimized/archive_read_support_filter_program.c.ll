@@ -300,7 +300,7 @@ define internal i64 @program_filter_read(ptr nocapture noundef readonly %0, ptr 
   br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %12
-  %16 = sub i64 %13, %.01848
+  %16 = sub nuw i64 %13, %.01848
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %17 = load ptr, ptr %4, align 8
   %18 = call i64 @llvm.umin.i64(i64 %16, i64 9223372036854775807)

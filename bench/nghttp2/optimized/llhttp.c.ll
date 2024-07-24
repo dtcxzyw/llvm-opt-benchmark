@@ -1248,7 +1248,7 @@ if.then25:                                        ; preds = %s_n_llhttp__interna
   br i1 %cmp2744.not, label %s_n_llhttp__internal__n_chunk_data_almost_done, label %if.then2746
 
 if.end27:                                         ; preds = %s_n_llhttp__internal__n_consume_content_length
-  %sub = sub i64 %14, %sub.ptr.sub
+  %sub = sub nuw i64 %14, %sub.ptr.sub
   store i64 %sub, ptr %content_length, align 8
   br label %return
 
@@ -1762,7 +1762,7 @@ if.then297:                                       ; preds = %s_n_llhttp__interna
   br i1 %cmp2984.not, label %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete_2, label %if.then2986
 
 if.end300:                                        ; preds = %s_n_llhttp__internal__n_consume_content_length_1
-  %sub302 = sub i64 %31, %sub.ptr.sub293
+  %sub302 = sub nuw i64 %31, %sub.ptr.sub293
   store i64 %sub302, ptr %content_length294, align 8
   br label %return
 

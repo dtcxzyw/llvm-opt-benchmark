@@ -1426,7 +1426,7 @@ _ZN6casadi13BSplineCommon14get_coeff_sizeExRKSt6vectorIxSaIxEES5_.exit: ; preds 
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %_ZN6casadi13BSplineCommon14get_coeff_sizeExRKSt6vectorIxSaIxEES5_.exit
-  %36 = sub nsw i64 %26, %33
+  %36 = sub nuw nsw i64 %26, %33
   tail call void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %36)
   %.pre = load ptr, ptr %4, align 8
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit
@@ -1482,7 +1482,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %._crit_edge
-  %67 = sub nsw i64 %13, %64
+  %67 = sub nuw nsw i64 %13, %64
   tail call void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %67)
   %.pre41 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit35
@@ -3149,7 +3149,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
-  %94 = sub i64 %84, %91
+  %94 = sub nuw i64 %84, %91
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %94)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre11.i = load ptr, ptr %85, align 8
@@ -3438,7 +3438,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
-  %94 = sub i64 %84, %91
+  %94 = sub nuw i64 %84, %91
   call void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %94)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre11.i = load ptr, ptr %85, align 8
@@ -20843,7 +20843,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEmEvRT_T0_.exit:
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES2_dET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds double, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
@@ -20999,7 +20999,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit:
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES2_xET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i64, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
@@ -21152,7 +21152,7 @@ _ZSt13move_backwardIPxS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPxmxxET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

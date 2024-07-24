@@ -2158,7 +2158,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %18, -1
   store ptr %20, ptr %9, align 8, !alias.scope !451
   store ptr %19, ptr %3, align 8, !alias.scope !451
-  %11 = sub i16 -2, %18
+  %11 = sub nuw i16 -2, %18
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !452
   %13 = add i64 %5, -1
@@ -4323,7 +4323,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h99a080
   %13 = xor i16 %21, -1
   store ptr %23, ptr %7, align 8, !alias.scope !834
   store ptr %22, ptr %0, align 8, !alias.scope !834
-  %14 = sub i16 -2, %21
+  %14 = sub nuw i16 -2, %21
   %15 = and i16 %14, %13
   store i16 %15, ptr %6, align 8, !alias.scope !841
   %16 = add i64 %12, -1

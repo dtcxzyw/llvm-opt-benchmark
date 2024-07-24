@@ -4853,7 +4853,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hac01af0ecd0cef48E.exit.i: ; pr
   %141 = getelementptr inbounds i8, ptr %2, i64 %135
   %142 = load i8, ptr %141, align 1, !alias.scope !976, !noundef !7
   %143 = icmp sgt i8 %142, -65
-  %144 = sub i64 %3, %135
+  %144 = sub nuw i64 %3, %135
   br i1 %143, label %146, label %145
 
 .loopexit:                                        ; preds = %299
@@ -4895,7 +4895,7 @@ default.unreachable1597:                          ; preds = %"_ZN4core3num22_$LT
   %150 = load ptr, ptr %149, align 8, !noundef !7
   %.not = icmp ne ptr %150, null
   %151 = icmp eq i64 %147, 0
-  %or.cond362 = and i1 %151, %.not
+  %or.cond362 = select i1 %.not, i1 %151, i1 false
   %152 = getelementptr inbounds i8, ptr %1, i64 24
   %153 = load i64, ptr %152, align 8
   %.sroa.72.0 = select i1 %or.cond362, i64 %153, i64 %147

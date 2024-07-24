@@ -706,7 +706,7 @@ _ZN4llvh12safe_reallocEPvm.exit.i:                ; preds = %if.then.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4llvh12safe_reallocEPvm.exit.i
-  %sub.i7.i.i.i = sub i64 %.sroa.speculated.i, %conv.i.i.i
+  %sub.i7.i.i.i = sub nuw i64 %.sroa.speculated.i, %conv.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %call.i.i, i64 %conv.i.i.i
   %mul.i.i.i.i = shl i64 %sub.i7.i.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, i8 0, i64 %mul.i.i.i.i, i1 false)
@@ -757,7 +757,7 @@ if.then8:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then.i.i16, label %if.end.i
 
 if.then.i.i16:                                    ; preds = %if.then8
-  %sub.i7.i = sub i64 %5, %conv.i14
+  %sub.i7.i = sub nuw i64 %5, %conv.i14
   %7 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %7, i64 %conv.i14
   %8 = sext i1 %t to i8
@@ -816,7 +816,7 @@ if.then15:                                        ; preds = %if.end10.thread, %i
   br i1 %cmp.i.i, label %if.then.i.i.i, label %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then15
-  %sub.i7.i.i = sub i64 %15, %conv.i.i
+  %sub.i7.i.i = sub nuw i64 %15, %conv.i.i
   %16 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %16, i64 %conv.i.i
   %mul.i.i.i = shl i64 %sub.i7.i.i, 3
@@ -2968,7 +2968,7 @@ _ZN4llvh12safe_reallocEPvm.exit.i.i:              ; preds = %if.then.i.i.i222, %
   br i1 %cmp.i.i.i.i218, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i219
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh12safe_reallocEPvm.exit.i.i
-  %sub.i7.i.i.i.i = sub i64 %.sroa.speculated.i.i, %conv.i.i.i.i
+  %sub.i7.i.i.i.i = sub nuw i64 %.sroa.speculated.i.i, %conv.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %call.i.i.i217, i64 %conv.i.i.i.i
   %mul.i.i.i.i.i = shl i64 %sub.i7.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i, i8 0, i64 %mul.i.i.i.i.i, i1 false)
@@ -3017,7 +3017,7 @@ if.then8.i:                                       ; preds = %if.end.i191
   br i1 %cmp.i.i213, label %if.then.i.i16.i, label %if.end.i.i214
 
 if.then.i.i16.i:                                  ; preds = %if.then8.i
-  %sub.i7.i.i = sub i64 %55, %conv.i14.i
+  %sub.i7.i.i = sub nuw i64 %55, %conv.i14.i
   %57 = load ptr, ptr %liveOut_, align 8
   %add.ptr.i.i.i.i215 = getelementptr inbounds i64, ptr %57, i64 %conv.i14.i
   %mul.i.i.i = shl i64 %sub.i7.i.i, 3
@@ -3058,7 +3058,7 @@ if.then15.i:                                      ; preds = %if.end10.i
   br i1 %cmp.i.i.i196, label %if.then.i.i.i.i208, label %if.end.i.i.i197
 
 if.then.i.i.i.i208:                               ; preds = %if.then15.i
-  %sub.i7.i.i.i209 = sub i64 %62, %conv.i.i.i195
+  %sub.i7.i.i.i209 = sub nuw i64 %62, %conv.i.i.i195
   %63 = load ptr, ptr %liveOut_, align 8
   %add.ptr.i.i.i.i.i210 = getelementptr inbounds i64, ptr %63, i64 %conv.i.i.i195
   %mul.i.i.i.i211 = shl i64 %sub.i7.i.i.i209, 3
@@ -3158,7 +3158,7 @@ if.end14.i:                                       ; preds = %if.then9.i, %if.the
   br i1 %cmp.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end14.i
-  %sub.i7.i.i.i = sub i64 %76, %conv.i.i.i
+  %sub.i7.i.i.i = sub nuw i64 %76, %conv.i.i.i
   %78 = load ptr, ptr %liveIn_36, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %78, i64 %conv.i.i.i
   %mul.i.i.i.i = shl i64 %sub.i7.i.i.i, 3
@@ -3246,7 +3246,7 @@ _ZN4llvh12safe_reallocEPvm.exit.i.i287:           ; preds = %if.then.i.i.i315, %
   br i1 %cmp.i.i.i.i292, label %if.then.i.i.i.i.i311, label %if.end.i.i.i.i293
 
 if.then.i.i.i.i.i311:                             ; preds = %_ZN4llvh12safe_reallocEPvm.exit.i.i287
-  %sub.i7.i.i.i.i312 = sub i64 %.sroa.speculated.i.i283, %conv.i.i.i.i291
+  %sub.i7.i.i.i.i312 = sub nuw i64 %.sroa.speculated.i.i283, %conv.i.i.i.i291
   %add.ptr.i.i.i.i.i.i313 = getelementptr inbounds i64, ptr %call.i.i.i285, i64 %conv.i.i.i.i291
   %mul.i.i.i.i.i314 = shl i64 %sub.i7.i.i.i.i312, 3
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i313, i8 0, i64 %mul.i.i.i.i.i314, i1 false)
@@ -3295,7 +3295,7 @@ if.then8.i256:                                    ; preds = %if.end.i230
   br i1 %cmp.i.i260, label %if.then.i.i16.i273, label %if.end.i.i261
 
 if.then.i.i16.i273:                               ; preds = %if.then8.i256
-  %sub.i7.i.i274 = sub i64 %90, %conv.i14.i259
+  %sub.i7.i.i274 = sub nuw i64 %90, %conv.i14.i259
   %92 = load ptr, ptr %liveIn_36, align 8
   %add.ptr.i.i.i.i275 = getelementptr inbounds i64, ptr %92, i64 %conv.i14.i259
   %mul.i.i.i276 = shl i64 %sub.i7.i.i274, 3
@@ -3338,7 +3338,7 @@ if.then15.i235:                                   ; preds = %if.end10.i233
   br i1 %cmp.i.i.i239, label %if.then.i.i.i.i251, label %if.end.i.i.i240
 
 if.then.i.i.i.i251:                               ; preds = %if.then15.i235
-  %sub.i7.i.i.i252 = sub i64 %97, %conv.i.i.i238
+  %sub.i7.i.i.i252 = sub nuw i64 %97, %conv.i.i.i238
   %98 = load ptr, ptr %liveIn_36, align 8
   %add.ptr.i.i.i.i.i253 = getelementptr inbounds i64, ptr %98, i64 %conv.i.i.i238
   %mul.i.i.i.i254 = shl i64 %sub.i7.i.i.i252, 3
@@ -6098,7 +6098,7 @@ _ZN4llvh12safe_reallocEPvm.exit.i.i:              ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i.i.i.i218, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh12safe_reallocEPvm.exit.i.i
-  %sub.i7.i.i.i.i = sub i64 %.sroa.speculated.i.i, %conv.i.i.i.i
+  %sub.i7.i.i.i.i = sub nuw i64 %.sroa.speculated.i.i, %conv.i.i.i.i
   %add.ptr.i.i.i.i.i.i222 = getelementptr inbounds i64, ptr %call.i.i.i, i64 %conv.i.i.i.i
   %mul.i.i.i.i.i = shl i64 %sub.i7.i.i.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i222, i8 0, i64 %mul.i.i.i.i.i, i1 false)
@@ -6147,7 +6147,7 @@ if.then8.i:                                       ; preds = %if.end.i199
   br i1 %cmp.i.i, label %if.then.i.i16.i, label %if.end.i.i
 
 if.then.i.i16.i:                                  ; preds = %if.then8.i
-  %sub.i7.i.i = sub i64 %12, %conv.i14.i
+  %sub.i7.i.i = sub nuw i64 %12, %conv.i14.i
   %14 = load ptr, ptr %file, align 8
   %add.ptr.i.i.i.i211 = getelementptr inbounds i64, ptr %14, i64 %conv.i14.i
   %mul.i.i.i212 = shl i64 %sub.i7.i.i, 3
@@ -6190,7 +6190,7 @@ if.then15.i:                                      ; preds = %if.end10.i
   br i1 %cmp.i.i.i203, label %if.then.i.i.i.i, label %if.end.i.i.i204
 
 if.then.i.i.i.i:                                  ; preds = %if.then15.i
-  %sub.i7.i.i.i = sub i64 %19, %conv.i.i.i
+  %sub.i7.i.i.i = sub nuw i64 %19, %conv.i.i.i
   %20 = load ptr, ptr %file, align 8
   %add.ptr.i.i.i.i.i205 = getelementptr inbounds i64, ptr %20, i64 %conv.i.i.i
   %mul.i.i.i.i = shl i64 %sub.i7.i.i.i, 3
@@ -7355,7 +7355,7 @@ _ZN4llvh12safe_reallocEPvm.exit.i.i399:           ; preds = %if.then.i.i.i427, %
   br i1 %cmp.i.i.i.i404, label %if.then.i.i.i.i.i423, label %if.end.i.i.i.i405
 
 if.then.i.i.i.i.i423:                             ; preds = %_ZN4llvh12safe_reallocEPvm.exit.i.i399
-  %sub.i7.i.i.i.i424 = sub i64 %.sroa.speculated.i.i395, %conv.i.i.i.i403
+  %sub.i7.i.i.i.i424 = sub nuw i64 %.sroa.speculated.i.i395, %conv.i.i.i.i403
   %add.ptr.i.i.i.i.i.i425 = getelementptr inbounds i64, ptr %call.i.i.i397, i64 %conv.i.i.i.i403
   %mul.i.i.i.i.i426 = shl i64 %sub.i7.i.i.i.i424, 3
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i425, i8 0, i64 %mul.i.i.i.i.i426, i1 false)
@@ -7404,7 +7404,7 @@ if.then8.i368:                                    ; preds = %if.end.i342
   br i1 %cmp.i.i372, label %if.then.i.i16.i385, label %if.end.i.i373
 
 if.then.i.i16.i385:                               ; preds = %if.then8.i368
-  %sub.i7.i.i386 = sub i64 %133, %conv.i14.i371
+  %sub.i7.i.i386 = sub nuw i64 %133, %conv.i14.i371
   %135 = load ptr, ptr %file53, align 8
   %add.ptr.i.i.i.i387 = getelementptr inbounds i64, ptr %135, i64 %conv.i14.i371
   %mul.i.i.i388 = shl i64 %sub.i7.i.i386, 3
@@ -7447,7 +7447,7 @@ if.then15.i347:                                   ; preds = %if.end10.i345
   br i1 %cmp.i.i.i351, label %if.then.i.i.i.i363, label %if.end.i.i.i352
 
 if.then.i.i.i.i363:                               ; preds = %if.then15.i347
-  %sub.i7.i.i.i364 = sub i64 %140, %conv.i.i.i350
+  %sub.i7.i.i.i364 = sub nuw i64 %140, %conv.i.i.i350
   %141 = load ptr, ptr %file53, align 8
   %add.ptr.i.i.i.i.i365 = getelementptr inbounds i64, ptr %141, i64 %conv.i.i.i350
   %mul.i.i.i.i366 = shl i64 %sub.i7.i.i.i364, 3

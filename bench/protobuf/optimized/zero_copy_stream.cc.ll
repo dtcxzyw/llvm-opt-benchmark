@@ -335,7 +335,7 @@ while.body:                                       ; preds = %if.end14, %invoke.c
   %out.sroa.0.2101 = phi ptr [ %48, %invoke.cont21 ], [ %out.sroa.0.1, %if.end14 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.sroa.0.2101, ptr align 1 %in.sroa.0.0104, i64 %out.sroa.9.2102, i1 false)
   %add.ptr.i7.i = getelementptr inbounds i8, ptr %in.sroa.0.0104, i64 %out.sroa.9.2102
-  %sub.i9.i = sub i64 %in.sroa.7.0103, %out.sroa.9.2102
+  %sub.i9.i = sub nuw i64 %in.sroa.7.0103, %out.sroa.9.2102
   %42 = load i32, ptr %count.addr, align 4
   %43 = trunc i64 %out.sroa.9.2102 to i32
   %conv3.i = sub i32 %42, %43
@@ -376,7 +376,7 @@ while.end:                                        ; preds = %invoke.cont21, %if.
   %in.sroa.0.0.lcssa = phi ptr [ %25, %if.end14 ], [ %add.ptr.i7.i, %invoke.cont21 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.sroa.0.2.lcssa, ptr align 1 %in.sroa.0.0.lcssa, i64 %in.sroa.7.0.lcssa, i1 false)
   %add.ptr.i.i27 = getelementptr inbounds i8, ptr %out.sroa.0.2.lcssa, i64 %in.sroa.7.0.lcssa
-  %sub.i.i29 = sub i64 %out.sroa.9.2.lcssa, %in.sroa.7.0.lcssa
+  %sub.i.i29 = sub nuw i64 %out.sroa.9.2.lcssa, %in.sroa.7.0.lcssa
   %50 = load i32, ptr %count.addr, align 4
   %51 = trunc i64 %in.sroa.7.0.lcssa to i32
   %conv3.i33 = sub i32 %50, %51

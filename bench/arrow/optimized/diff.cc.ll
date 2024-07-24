@@ -8798,7 +8798,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %div.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIlSaIlEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPlS1_EEmRKl(ptr noundef nonnull align 8 dereferenceable(24) %endpoint_base_, ptr %1, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %base_begin_)
   %.pre = load i64, ptr %edit_count_, align 8
   br label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit
@@ -8851,7 +8851,7 @@ if.then.i26:                                      ; preds = %_ZNSt6vectorIlSaIlE
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 if.else.i24:                                      ; preds = %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit
-  %sub.i25 = sub i64 %div.i22, %add.i.i.i
+  %sub.i25 = sub nuw i64 %div.i22, %add.i.i.i
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %insert_, ptr %4, i32 %5, i64 noundef %sub.i25, i1 noundef zeroext false)
   %.pre117 = load i64, ptr %edit_count_, align 8
   %.pre118 = add nsw i64 %.pre117, 1
@@ -20540,7 +20540,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 

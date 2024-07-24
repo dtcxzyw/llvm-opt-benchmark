@@ -5680,7 +5680,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal11ProblemImpl8EvaluateERKNS_
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %54
-  %64 = sub nsw i64 %42, %61
+  %64 = sub nuw nsw i64 %42, %61
   invoke void @_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %64)
           to label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE6resizeEm.exit unwind label %52
 
@@ -6213,7 +6213,7 @@ _ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit113: ; preds = %
   br i1 %261, label %262, label %264
 
 262:                                              ; preds = %252
-  %263 = sub nsw i64 %253, %260
+  %263 = sub nuw nsw i64 %253, %260
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %263)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %271
 
@@ -6264,7 +6264,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %268, %266, %264, %2
   br i1 %287, label %288, label %290
 
 288:                                              ; preds = %278
-  %289 = sub nsw i64 %279, %286
+  %289 = sub nuw nsw i64 %279, %286
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %289)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit120 unwind label %271
 
@@ -6791,7 +6791,7 @@ _ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_delete
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.noexc16
-  %35 = sub nsw i64 %25, %32
+  %35 = sub nuw nsw i64 %25, %32
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %35)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i unwind label %84
 
@@ -7852,7 +7852,7 @@ define hidden void @_ZNK5ceres8internal11ProblemImpl34GetParameterBlocksForResid
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.critedge
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   tail call void @_ZNSt6vectorIPdSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %32)
   br label %_ZNSt6vectorIPdSaIS0_EE6resizeEm.exit
 
@@ -8024,7 +8024,7 @@ _ZN5ceres15FindWithDefaultISt3mapIPdPNS_8internal14ParameterBlockESt4lessIS2_ESa
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %.critedge
-  %57 = sub i64 %47, %54
+  %57 = sub nuw i64 %47, %54
   tail call void @_ZNSt6vectorIPN5ceres8internal13ResidualBlockESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %57)
   %.pre = load ptr, ptr %2, align 8
   br label %_ZNSt6vectorIPN5ceres8internal13ResidualBlockESaIS3_EE6resizeEm.exit

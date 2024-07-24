@@ -1193,7 +1193,7 @@ common.resume:                                    ; preds = %136, %"_ZN4core3ptr
   br i1 %61, label %62, label %"_ZN9itertools11lazy_buffer19LazyBuffer$LT$I$GT$7prefill17h7b593b8e7b7d6a3dE.exit"
 
 62:                                               ; preds = %58
-  %63 = sub i64 %20, %60
+  %63 = sub nuw i64 %20, %60
   %64 = getelementptr inbounds i8, ptr %1, i64 64
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1a12d6c22a8f7604E.llvm.12748775874117282400"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16, ptr noalias noundef nonnull align 8 dereferenceable(32) %64, i64 noundef %63)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 56

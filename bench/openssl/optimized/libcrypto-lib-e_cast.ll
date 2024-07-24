@@ -131,7 +131,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @CAST_cfb64_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3) #4
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #4
-  %sub = sub i64 %inl.addr.023, %chunk.124
+  %sub = sub nuw i64 %inl.addr.023, %chunk.124
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.022, i64 %chunk.124
   %add.ptr5 = getelementptr inbounds i8, ptr %out.addr.021, i64 %chunk.124
   %spec.select19 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.124)
@@ -210,7 +210,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %inl, %conv
+  %sub = sub nuw i64 %inl, %conv
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body

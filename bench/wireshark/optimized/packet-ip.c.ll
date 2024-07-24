@@ -2336,7 +2336,7 @@ dissect_ip_options.exit:                          ; preds = %492, %479, %471, %4
   br i1 %510, label %511, label %555
 
 511:                                              ; preds = %508
-  %512 = sub i32 %509, %16
+  %512 = sub nuw i32 %509, %16
   %513 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %16, i32 noundef %512) #8
   %514 = icmp ne i32 %513, 0
   %or.cond5 = and i1 %.0438, %514

@@ -188,7 +188,7 @@ _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_45KeypointResponseGreaterThanOrEqualToThresholdEET_SA_SA_T0_.exit
-  %60 = sub nsw i64 %53, %57
+  %60 = sub nuw nsw i64 %53, %57
   tail call void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %60)
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
 
@@ -996,7 +996,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN2cv17KeyPoint_Les
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %._crit_edge103
-  %100 = sub nsw i64 %91, %97
+  %100 = sub nuw nsw i64 %91, %97
   invoke void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %100)
           to label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.thread unwind label %.thread
 
@@ -1151,7 +1151,7 @@ define void @_ZN2cv15KeyPointsFilter22removeDuplicatedSortedERSt6vectorINS_8KeyP
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %._crit_edge
-  %56 = sub nsw i64 %47, %53
+  %56 = sub nuw nsw i64 %47, %53
   tail call void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %56)
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit
 

@@ -1512,7 +1512,7 @@ define hidden { i64, ptr } @"_ZN16tokio_native_tls18TlsStream$LT$S$GT$12with_con
   br i1 %20, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h01df5a959001c177E.exit.i.i", label %._crit_edge.i.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h01df5a959001c177E.exit.i.i": ; preds = %3
-  %22 = sub i64 %14, %19
+  %22 = sub nuw i64 %14, %19
   %23 = getelementptr inbounds i8, ptr %21, i64 %19
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %23, i8 0, i64 %22, i1 false), !noalias !166
   store i64 %14, ptr %18, align 8, !alias.scope !163, !noalias !160

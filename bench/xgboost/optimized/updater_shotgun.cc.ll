@@ -6739,7 +6739,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %37
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %49 = sub nsw i64 %35, %46
+  %49 = sub nuw nsw i64 %35, %46
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %49)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -6770,7 +6770,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %48, %50, %52, %54
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %66 = sub nsw i64 %56, %63
+  %66 = sub nuw nsw i64 %56, %63
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %66)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -6800,7 +6800,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %65, %67, %69, %71
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %82 = sub nsw i64 %35, %79
+  %82 = sub nuw nsw i64 %35, %79
   tail call void @_ZNSt6vectorISt4pairIddESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %72, i64 noundef %82)
   br label %_ZNSt6vectorISt4pairIddESaIS1_EE6resizeEm.exit
 
@@ -9779,7 +9779,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %24, %27
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %44 = sub nsw i64 %34, %41
+  %44 = sub nuw nsw i64 %34, %41
   tail call void @_ZNSt6vectorISt4pairIddESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %44)
   br label %_ZNSt6vectorISt4pairIddESaIS1_EE6resizeEm.exit
 

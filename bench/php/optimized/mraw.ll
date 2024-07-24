@@ -276,7 +276,7 @@ define hidden ptr @lexbor_mraw_realloc(ptr nocapture noundef %0, ptr noundef %1,
   br i1 %.not, label %47, label %11
 
 11:                                               ; preds = %3
-  %12 = sub i64 %10, %.0.copyload
+  %12 = sub nuw i64 %10, %.0.copyload
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 %12
   %15 = icmp eq ptr %14, %1

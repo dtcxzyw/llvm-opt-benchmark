@@ -172,7 +172,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$crossbeam_channel..flavors.
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -210,7 +210,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$crossbeam_channel..flavors.
   %33 = add i64 %.sroa.01.016.i, %8
   %34 = icmp ult i64 %33, %29
   %35 = select i1 %34, i64 0, i64 %29
-  %.0.i = sub i64 %33, %35
+  %.0.i = sub nuw i64 %33, %35
   %36 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %31, i64 %.0.i
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17h4b53b69a8630c46aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %36)
           to label %.noexc unwind label %38
@@ -917,7 +917,7 @@ define hidden void @"_ZN4core3ptr120drop_in_place$LT$alloc..collections..vec_deq
   %11 = add i64 %10, %5
   %.not.i.i.i.i = icmp ult i64 %11, %.pre
   %12 = select i1 %.not.i.i.i.i, i64 0, i64 %.pre
-  %.0.i.i.i.i = sub i64 %11, %12
+  %.0.i.i.i.i = sub nuw i64 %11, %12
   %13 = sub i64 %.pre, %.0.i.i.i.i
   %.not.i.i.i = icmp ult i64 %13, %8
   %14 = add i64 %.0.i.i.i.i, %8
@@ -1011,7 +1011,7 @@ define hidden void @"_ZN4core3ptr120drop_in_place$LT$alloc..collections..vec_deq
   %11 = add i64 %10, %5
   %.not.i.i.i.i = icmp ult i64 %11, %.pre
   %12 = select i1 %.not.i.i.i.i, i64 0, i64 %.pre
-  %.0.i.i.i.i = sub i64 %11, %12
+  %.0.i.i.i.i = sub nuw i64 %11, %12
   %13 = sub i64 %.pre, %.0.i.i.i.i
   %.not.i.i.i = icmp ult i64 %13, %8
   %14 = add i64 %.0.i.i.i.i, %8
@@ -9209,13 +9209,13 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as
   %14 = load i64, ptr %1, align 8, !alias.scope !3550, !noalias !3558, !noundef !4
   %.not.i.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i.i, i64 0, i64 %14
-  %.0.i.i = sub i64 %13, %15
+  %.0.i.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.0.i.i
   %.not.i = icmp ult i64 %16, %8
   br i1 %.not.i, label %17, label %19
 
 17:                                               ; preds = %10
-  %18 = sub i64 %8, %16
+  %18 = sub nuw i64 %8, %16
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h93f3a8a00ecd925aE.exit"
 
 19:                                               ; preds = %10
@@ -9259,13 +9259,13 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as
   %14 = load i64, ptr %1, align 8, !alias.scope !3559, !noalias !3567, !noundef !4
   %.not.i.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i.i, i64 0, i64 %14
-  %.0.i.i = sub i64 %13, %15
+  %.0.i.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.0.i.i
   %.not.i = icmp ult i64 %16, %8
   br i1 %.not.i, label %17, label %19
 
 17:                                               ; preds = %10
-  %18 = sub i64 %8, %16
+  %18 = sub nuw i64 %8, %16
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h8c731a28a1ac211aE.exit"
 
 19:                                               ; preds = %10
@@ -11755,7 +11755,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -11797,7 +11797,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   %34 = add i64 %.sroa.01.016, %8
   %35 = icmp ult i64 %34, %29
   %36 = select i1 %35, i64 0, i64 %29
-  %.0 = sub i64 %34, %36
+  %.0 = sub nuw i64 %34, %36
   %37 = getelementptr inbounds { { i64 }, { { [7 x i64] } } }, ptr %31, i64 %.0, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4047)
   %38 = load i64, ptr %37, align 8, !range !3309, !alias.scope !4047, !noundef !4
@@ -11887,7 +11887,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -11929,7 +11929,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   %34 = add i64 %.sroa.01.016, %8
   %35 = icmp ult i64 %34, %29
   %36 = select i1 %35, i64 0, i64 %29
-  %.0 = sub i64 %34, %36
+  %.0 = sub nuw i64 %34, %36
   %37 = getelementptr inbounds { { { [6 x i64] } }, { i64 } }, ptr %31, i64 %.0
   tail call fastcc void @"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17h4b53b69a8630c46aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %37)
   %exitcond.not = icmp eq i64 %33, %.07
@@ -11954,7 +11954,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -11996,7 +11996,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   %34 = add i64 %.sroa.01.016, %8
   %35 = icmp ult i64 %34, %29
   %36 = select i1 %35, i64 0, i64 %29
-  %.0 = sub i64 %34, %36
+  %.0 = sub nuw i64 %34, %36
   %37 = getelementptr inbounds { { i64 }, { { [7 x i64] } } }, ptr %31, i64 %.0, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4100)
   %38 = load i64, ptr %37, align 8, !range !3309, !alias.scope !4100, !noundef !4
@@ -12088,7 +12088,7 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   %12 = load i64, ptr %0, align 8, !alias.scope !4167, !noalias !4166, !noundef !4
   %.not.i.i.i = icmp ult i64 %11, %12
   %13 = select i1 %.not.i.i.i, i64 0, i64 %12
-  %.0.i.i.i = sub i64 %11, %13
+  %.0.i.i.i = sub nuw i64 %11, %13
   %14 = sub i64 %12, %.0.i.i.i
   %.not.i.i = icmp ult i64 %14, %8
   %15 = add i64 %.0.i.i.i, %8
@@ -12149,7 +12149,7 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   %12 = load i64, ptr %0, align 8, !alias.scope !4194, !noalias !4193, !noundef !4
   %.not.i.i.i = icmp ult i64 %11, %12
   %13 = select i1 %.not.i.i.i, i64 0, i64 %12
-  %.0.i.i.i = sub i64 %11, %13
+  %.0.i.i.i = sub nuw i64 %11, %13
   %14 = sub i64 %12, %.0.i.i.i
   %.not.i.i = icmp ult i64 %14, %8
   %15 = add i64 %.0.i.i.i, %8

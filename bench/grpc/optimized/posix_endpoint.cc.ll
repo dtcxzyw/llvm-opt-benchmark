@@ -486,13 +486,13 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
   br i1 %cmp4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %sub5 = sub i64 %cond.i.i, %trailing.08
+  %sub5 = sub nuw i64 %cond.i.i, %trailing.08
   %byte_idx = getelementptr inbounds i8, ptr %this, i64 280
   store i64 %sub5, ptr %byte_idx, align 8
   br label %while.end
 
 if.else:                                          ; preds = %invoke.cont
-  %sub7 = sub i64 %trailing.08, %cond.i.i
+  %sub7 = sub nuw i64 %trailing.08, %cond.i.i
   %cmp.not = icmp eq i64 %sub7, 0
   br i1 %cmp.not, label %while.end, label %invoke.cont, !llvm.loop !6
 
@@ -1185,7 +1185,7 @@ for.body110:                                      ; preds = %for.cond108.prehead
   br i1 %cmp113.not, label %if.end117, label %if.then114
 
 if.then114:                                       ; preds = %for.body110
-  %sub = sub i64 %remaining.0134, %52
+  %sub = sub nuw i64 %remaining.0134, %52
   br label %for.inc140
 
 if.end117:                                        ; preds = %for.body110
@@ -1309,7 +1309,7 @@ if.end168:                                        ; preds = %_ZN4absl12lts_20230
   br i1 %cmp171, label %if.then172, label %return
 
 if.then172:                                       ; preds = %if.end168
-  %sub176 = sub i64 %65, %total_read_bytes.1117
+  %sub176 = sub nuw i64 %65, %total_read_bytes.1117
   %last_read_buffer_177 = getelementptr inbounds i8, ptr %this, i64 80
   call void @grpc_slice_buffer_trim_end(ptr noundef nonnull %64, i64 noundef %sub176, ptr noundef nonnull %last_read_buffer_177)
   br label %return
@@ -4213,12 +4213,12 @@ invoke.cont.i67:                                  ; preds = %if.end55, %if.else.
   br i1 %cmp4.i, label %if.then.i74, label %if.else.i72
 
 if.then.i74:                                      ; preds = %invoke.cont.i67
-  %sub5.i = sub i64 %cond.i.i.i71, %trailing.08.i
+  %sub5.i = sub nuw i64 %cond.i.i.i71, %trailing.08.i
   store i64 %sub5.i, ptr %byte_idx.i, align 8
   br label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit
 
 if.else.i72:                                      ; preds = %invoke.cont.i67
-  %sub7.i = sub i64 %trailing.08.i, %cond.i.i.i71
+  %sub7.i = sub nuw i64 %trailing.08.i, %cond.i.i.i71
   %cmp.not.i73 = icmp eq i64 %sub7.i, 0
   br i1 %cmp.not.i73, label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, label %invoke.cont.i67, !llvm.loop !6
 
@@ -4855,12 +4855,12 @@ invoke.cont68:                                    ; preds = %do.end58, %if.else7
   br i1 %cmp71, label %if.then72, label %if.else75
 
 if.then72:                                        ; preds = %invoke.cont68
-  %sub73 = sub i64 %cond.i.i68, %trailing.0111
+  %sub73 = sub nuw i64 %cond.i.i68, %trailing.0111
   store i64 %sub73, ptr %outgoing_byte_idx_, align 16
   br label %while.end
 
 if.else75:                                        ; preds = %invoke.cont68
-  %sub76 = sub i64 %trailing.0111, %cond.i.i68
+  %sub76 = sub nuw i64 %trailing.0111, %cond.i.i68
   %cmp63.not = icmp eq i64 %sub76, 0
   br i1 %cmp63.not, label %while.end, label %invoke.cont68, !llvm.loop !75
 

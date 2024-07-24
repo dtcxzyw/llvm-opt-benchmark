@@ -2907,7 +2907,7 @@ _ZN3std4path4Path4join17heee76c98e9934e10E.exit:  ; preds = %302
   %422 = getelementptr inbounds i8, ptr %.val178, i64 %211
   %423 = load i8, ptr %422, align 1, !alias.scope !473, !noundef !5
   %424 = icmp sgt i8 %423, -65
-  %425 = sub i64 %.val179, %211
+  %425 = sub nuw i64 %.val179, %211
   br i1 %424, label %429, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i209", %419

@@ -3860,7 +3860,7 @@ define hidden void @png_combine_row(ptr noalias noundef %0, ptr noundef %1, i32 
   br i1 %.not301, label %123, label %.loopexit
 
 123:                                              ; preds = %122
-  %124 = sub i64 %.0238, %107
+  %124 = sub nuw nsw i64 %.0238, %107
   %125 = getelementptr inbounds i8, ptr %.0221, i64 1
   %126 = getelementptr inbounds i8, ptr %.0231, i64 1
   br label %108
@@ -3939,7 +3939,7 @@ select.unfold:                                    ; preds = %139, %130
   %.1239338 = phi i64 [ %162, %.lr.ph341 ], [ %136, %.preheader316 ]
   %160 = getelementptr inbounds i8, ptr %.1340, i64 %158
   %161 = getelementptr inbounds i8, ptr %.1232339, i64 %158
-  %162 = sub i64 %.1239338, %158
+  %162 = sub nuw i64 %.1239338, %158
   %163 = load i8, ptr %161, align 1
   store i8 %163, ptr %160, align 1
   %.not285 = icmp ugt i64 %162, %158
@@ -3961,7 +3961,7 @@ select.unfold:                                    ; preds = %139, %130
 169:                                              ; preds = %164
   %170 = getelementptr inbounds i8, ptr %.2233, i64 %157
   %171 = getelementptr inbounds i8, ptr %.2, i64 %157
-  %172 = sub i64 %.2240, %157
+  %172 = sub nuw i64 %.2240, %157
   %173 = icmp ugt i64 %172, 1
   br i1 %173, label %164, label %174, !llvm.loop !46
 
@@ -3976,7 +3976,7 @@ select.unfold:                                    ; preds = %139, %130
   %.3241334 = phi i64 [ %178, %.lr.ph ], [ %136, %.preheader320 ]
   %176 = getelementptr inbounds i8, ptr %.3234335, i64 %149
   %177 = getelementptr inbounds i8, ptr %.3336, i64 %149
-  %178 = sub i64 %.3241334, %149
+  %178 = sub nuw i64 %.3241334, %149
   %179 = load i8, ptr %176, align 1
   store i8 %179, ptr %177, align 1
   %180 = getelementptr inbounds i8, ptr %176, i64 1
@@ -4057,7 +4057,7 @@ select.unfold:                                    ; preds = %139, %130
 220:                                              ; preds = %219
   %221 = getelementptr i32, ptr %217, i64 %212
   %222 = getelementptr i32, ptr %215, i64 %212
-  %223 = sub i64 %.4242, %201
+  %223 = sub nuw i64 %.4242, %201
   %.not293 = icmp ult i64 %223, %197
   br i1 %.not293, label %.preheader, label %213, !llvm.loop !48
 
@@ -4103,7 +4103,7 @@ select.unfold:                                    ; preds = %139, %130
 238:                                              ; preds = %237
   %239 = getelementptr i16, ptr %235, i64 %230
   %240 = getelementptr i16, ptr %233, i64 %230
-  %241 = sub i64 %.6244, %201
+  %241 = sub nuw i64 %.6244, %201
   %.not289 = icmp ult i64 %241, %197
   br i1 %.not289, label %.preheader312, label %231, !llvm.loop !51
 
@@ -4134,7 +4134,7 @@ select.unfold:                                    ; preds = %139, %130
   %.1246343 = phi i32 [ %spec.select309, %.lr.ph347 ], [ %.0245, %246 ]
   %250 = getelementptr inbounds i8, ptr %.6237345, i64 %247
   %251 = getelementptr inbounds i8, ptr %.6346, i64 %247
-  %252 = sub i64 %.8344, %247
+  %252 = sub nuw i64 %.8344, %247
   %253 = icmp ult i64 %252, %249
   %254 = trunc nuw nsw i64 %252 to i32
   %spec.select309 = select i1 %253, i32 %254, i32 %.1246343

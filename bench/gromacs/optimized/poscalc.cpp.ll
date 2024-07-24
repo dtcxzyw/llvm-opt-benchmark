@@ -2074,7 +2074,7 @@ _ZSt11max_elementIPiET_S1_S1_.exit:               ; preds = %.lr.ph.i.i, %20
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %_ZSt11max_elementIPiET_S1_S1_.exit
-  %46 = sub nsw i64 %36, %43
+  %46 = sub nuw nsw i64 %36, %43
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %46)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -3555,7 +3555,7 @@ define void @_Z22gmx_ana_poscalc_updateP17gmx_ana_poscalc_tP13gmx_ana_pos_tP15gm
   br i1 %284, label %285, label %287
 
 285:                                              ; preds = %274
-  %286 = sub nsw i64 %276, %283
+  %286 = sub nuw nsw i64 %276, %283
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %275, i64 noundef %286)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 

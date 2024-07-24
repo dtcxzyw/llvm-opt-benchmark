@@ -373,7 +373,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   unreachable
 
 82:                                               ; preds = %76
-  %83 = sub i64 %77, %69
+  %83 = sub nuw i64 %77, %69
   br label %84
 
 84:                                               ; preds = %82, %78
@@ -549,7 +549,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   unreachable
 
 143:                                              ; preds = %137
-  %144 = sub i64 %138, %130
+  %144 = sub nuw i64 %138, %130
   br label %145
 
 145:                                              ; preds = %143, %139
@@ -1179,7 +1179,7 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit: ; preds = %15
   unreachable
 
 29:                                               ; preds = %23
-  %30 = sub i64 %24, %.01634
+  %30 = sub nuw i64 %24, %.01634
   br label %31
 
 31:                                               ; preds = %29, %25
@@ -1363,7 +1363,7 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit6.i.i: ; preds = %_Z
   unreachable
 
 59:                                               ; preds = %53
-  %60 = sub i64 %54, %45
+  %60 = sub nuw i64 %54, %45
   br label %61
 
 61:                                               ; preds = %59, %55
@@ -1443,7 +1443,7 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit6.i.i27: ; preds = %
   unreachable
 
 97:                                               ; preds = %91
-  %98 = sub i64 %92, %83
+  %98 = sub nuw i64 %92, %83
   br label %99
 
 99:                                               ; preds = %97, %93
@@ -2638,7 +2638,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit.thread:   ; preds = %_ZNSt10shared_ptrIN
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %93
-  %104 = sub nsw i64 %94, %101
+  %104 = sub nuw nsw i64 %94, %101
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %104)
           to label %._ZNSt6vectorIlSaIlEE6resizeEm.exit_crit_edge unwind label %204
 
@@ -3142,7 +3142,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit.thread:   ; preds = %_ZNSt10shared_ptrIN
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %92
-  %103 = sub nsw i64 %93, %100
+  %103 = sub nuw nsw i64 %93, %100
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %103)
           to label %._ZNSt6vectorIlSaIlEE6resizeEm.exit_crit_edge unwind label %202
 
@@ -5038,7 +5038,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEPccET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEmEvRT_T0_.exit, %28
   %31 = phi ptr [ %12, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEmEvRT_T0_.exit ], [ %.pre, %28 ]
-  %32 = sub i64 %8, %18
+  %32 = sub nuw i64 %8, %18
   %33 = getelementptr inbounds i8, ptr %31, i64 %32
   store ptr %33, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %12, %1

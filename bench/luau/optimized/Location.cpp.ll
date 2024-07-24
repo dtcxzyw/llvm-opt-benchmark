@@ -132,7 +132,7 @@ _ZNK4Luau8PositiongeERKS0_.exit.thread:           ; preds = %4, %_ZNK4Luau8Posit
   br i1 %17, label %19, label %22
 
 19:                                               ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.thread
-  %20 = sub i32 %10, %16
+  %20 = sub nuw i32 %10, %16
   %21 = add i32 %20, %18
   store i32 %21, ptr %0, align 4
   br label %29
@@ -492,7 +492,7 @@ _ZNK4Luau8PositiongeERKS0_.exit.thread.i:         ; preds = %_ZNK4Luau8Positiong
   br i1 %17, label %19, label %22
 
 19:                                               ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.thread.i
-  %20 = sub i32 %10, %16
+  %20 = sub nuw i32 %10, %16
   %21 = add i32 %20, %18
   store i32 %21, ptr %0, align 4
   br label %_ZN4Luau8Position5shiftERKS0_S2_S2_.exit
@@ -533,7 +533,7 @@ _ZNK4Luau8PositiongeERKS0_.exit.thread.i9:        ; preds = %_ZNK4Luau8Positiong
   br i1 %41, label %43, label %46
 
 43:                                               ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.thread.i9
-  %44 = sub i32 %34, %40
+  %44 = sub nuw i32 %34, %40
   %45 = add i32 %44, %42
   store i32 %45, ptr %29, align 4
   br label %_ZN4Luau8Position5shiftERKS0_S2_S2_.exit10

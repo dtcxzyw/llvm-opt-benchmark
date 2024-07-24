@@ -58,7 +58,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -563,7 +563,7 @@ define void @_ZN12colvarmodule13memory_stream11read_objectINS_8vector1dIdEEEEvRT
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %22
-  %32 = sub i64 %.0.copyload.i, %29
+  %32 = sub nuw i64 %.0.copyload.i, %29
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %32)
   %.pre.i = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
@@ -748,7 +748,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZrsIN12colvarmodule8vec
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %22
-  %32 = sub i64 %.0.copyload.i, %29
+  %32 = sub nuw i64 %.0.copyload.i, %29
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %32)
   %.pre.i = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i

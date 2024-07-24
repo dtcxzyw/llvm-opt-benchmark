@@ -3297,7 +3297,7 @@ define noundef range(i32 0, 2) i32 @_ZN2cv8Stitcher11matchImagesEv(ptr noundef n
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %28
-  %42 = sub nsw i64 %23, %39
+  %42 = sub nuw nsw i64 %23, %39
   tail call void @_ZNSt6vectorIN2cv6detail13ImageFeaturesESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %42)
   br label %_ZNSt6vectorIN2cv6detail13ImageFeaturesESaIS2_EE6resizeEm.exit
 
@@ -3351,7 +3351,7 @@ _ZNSt6vectorIN2cv6detail13ImageFeaturesESaIS2_EE6resizeEm.exit: ; preds = %41, %
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %_ZNSt6vectorIN2cv6detail13ImageFeaturesESaIS2_EE6resizeEm.exit
-  %68 = sub nsw i64 %58, %65
+  %68 = sub nuw nsw i64 %58, %65
   tail call void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %52, i64 noundef %68)
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 
@@ -4818,7 +4818,7 @@ define noundef i32 @_ZN2cv8Stitcher15composePanoramaERKNS_11_InputArrayERKNS_12_
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %117
-  %134 = sub nsw i64 %124, %131
+  %134 = sub nuw nsw i64 %124, %131
   invoke void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %118, i64 noundef %134)
           to label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp423
 
@@ -7696,7 +7696,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv5Size_IiEESaIS2_EE6resizeEm(pt
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -8138,7 +8138,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit:     ; preds = %4, %_ZSt8_DestroyIP
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %27
-  %41 = sub nsw i64 %22, %38
+  %41 = sub nuw nsw i64 %22, %38
   tail call void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %41)
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 

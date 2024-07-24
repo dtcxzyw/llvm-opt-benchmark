@@ -6557,7 +6557,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %820, label %821, label %823
 
 821:                                              ; preds = %818
-  %822 = sub i32 %819, %812
+  %822 = sub nuw i32 %819, %812
   br label %885
 
 823:                                              ; preds = %818
@@ -9103,7 +9103,7 @@ define dso_local i32 @ext4_convert_unwritten_extents(ptr noundef %0, ptr noundef
   %41 = load i32, ptr %12, align 8
   %42 = add i32 %41, %38
   store i32 %42, ptr %12, align 8
-  %43 = sub i32 %37, %38
+  %43 = sub nuw i32 %37, %38
   store i32 %43, ptr %36, align 4
   %44 = call i32 @ext4_map_blocks(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 19) #16
   %45 = icmp slt i32 %44, 1
@@ -9133,7 +9133,7 @@ define dso_local i32 @ext4_convert_unwritten_extents(ptr noundef %0, ptr noundef
   %57 = load i32, ptr %12, align 8
   %58 = add i32 %57, %54
   store i32 %58, ptr %12, align 8
-  %59 = sub i32 %53, %54
+  %59 = sub nuw i32 %53, %54
   store i32 %59, ptr %30, align 4
   %60 = load ptr, ptr %32, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 872
@@ -9302,7 +9302,7 @@ define dso_local i32 @ext4_fiemap(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %36 = sub i64 %30, %3
   %37 = icmp ult i64 %36, %2
   %38 = or i1 %35, %37
-  %39 = sub i64 %30, %2
+  %39 = sub nuw i64 %30, %2
   %40 = select i1 %38, i64 %39, i64 %3
   %41 = and i32 %15, 2
   %42 = icmp eq i32 %41, 0
@@ -9849,10 +9849,10 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.thread33
 
 212:                                              ; preds = %.thread62
-  %213 = sub i32 %66, %36
+  %213 = sub nuw i32 %66, %36
   %214 = add i32 %213, %74
   %215 = call i32 @llvm.umin.i32(i32 %38, i32 %214)
-  %216 = sub i32 %67, %37
+  %216 = sub nuw i32 %67, %37
   %217 = add i32 %216, %81
   %218 = call i32 @llvm.umin.i32(i32 %215, i32 %217)
   %219 = icmp eq i32 %218, %74

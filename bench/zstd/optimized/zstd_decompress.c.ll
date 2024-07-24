@@ -1162,7 +1162,7 @@ if.then21:                                        ; preds = %if.end18
 
 if.end22:                                         ; preds = %if.end18
   %add.ptr24 = getelementptr inbounds i8, ptr %ip.0, i64 %add
-  %sub26 = sub i64 %remainingSize.0, %add
+  %sub26 = sub nuw i64 %remainingSize.0, %add
   %inc = add i64 %nbBlocks.0, 1
   %2 = load i32, ptr %lastBlock, align 4
   %tobool27.not = icmp eq i32 %2, 0

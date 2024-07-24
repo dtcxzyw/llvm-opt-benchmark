@@ -924,7 +924,7 @@ add_rms_values.exit:                              ; preds = %.lr.ph.i126, %.lr.p
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %.cont.i
-  %223 = sub nsw i64 %220, %217
+  %223 = sub nuw nsw i64 %220, %217
   br label %228
 
 224:                                              ; preds = %.cont.i
@@ -932,7 +932,7 @@ add_rms_values.exit:                              ; preds = %.lr.ph.i126, %.lr.p
   br i1 %225, label %226, label %.thread.i.i
 
 226:                                              ; preds = %224
-  %227 = sub nsw i64 %217, %220
+  %227 = sub nuw nsw i64 %217, %220
   br label %228
 
 228:                                              ; preds = %226, %222
@@ -940,7 +940,7 @@ add_rms_values.exit:                              ; preds = %.lr.ph.i126, %.lr.p
   %.0108.i.i = phi i64 [ %227, %226 ], [ %223, %222 ]
   store i8 %storemerge.i.i, ptr %9, align 2
   %.not116.i.i = icmp eq i64 %.0108.i.i, 0
-  %229 = uitofp i64 %.0108.i.i to double
+  %229 = uitofp nneg i64 %.0108.i.i to double
   %230 = fmul double %229, 1.000000e-09
   %231 = fdiv double 1.000000e+00, %230
   br i1 %.not116.i.i, label %232, label %.thread.i.i

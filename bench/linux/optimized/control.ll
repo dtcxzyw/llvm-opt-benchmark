@@ -3683,7 +3683,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @snd_ctl_elem_list(ptr noun
   br label %36
 
 30:                                               ; preds = %20
-  %31 = sub i32 %23, %26
+  %31 = sub nuw i32 %23, %26
   br label %.loopexit8
 
 32:                                               ; preds = %49

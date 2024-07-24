@@ -2291,7 +2291,7 @@ if.end119:                                        ; preds = %if.end110.thread, %
   %cmp122 = icmp ugt i64 %84, %85
   %len132.phi.trans.insert = getelementptr inbounds i8, ptr %request, i64 16
   %.pre = load i64, ptr %len132.phi.trans.insert, align 8
-  %sub = sub i64 %85, %84
+  %sub = sub nuw i64 %85, %84
   %cmp128 = icmp ugt i64 %.pre, %sub
   %or.cond = select i1 %cmp122, i1 true, i1 %cmp128
   br i1 %or.cond, label %if.then130, label %if.end143
@@ -4071,7 +4071,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %progress.052 = phi i64 [ 0, %while.body.lr.ph ], [ %add48, %if.end47 ]
   %1 = load ptr, ptr %blk, align 8
   %add = add i64 %progress.052, %offset
-  %sub = sub i64 %size, %progress.052
+  %sub = sub nuw i64 %size, %progress.052
   %call = call i32 @blk_co_block_status_above(ptr noundef %1, ptr noundef null, i64 noundef %add, i64 noundef %sub, ptr noundef nonnull %pnum, ptr noundef null, ptr noundef null) #19
   %cmp3 = icmp slt i32 %call, 0
   br i1 %cmp3, label %if.then4, label %if.end10
@@ -6548,7 +6548,7 @@ trace_nbd_negotiate_meta_query_skip.exit.i.i:     ; preds = %if.else.i.i.i.i275,
 
 if.end.i14.i.i:                                   ; preds = %trace_nbd_negotiate_meta_query_skip.exit.i.i
   %conv.i74.i = zext i32 %190 to i64
-  %conv5.i15.i.i = sub i32 %191, %190
+  %conv5.i15.i.i = sub nuw i32 %191, %190
   store i32 %conv5.i15.i.i, ptr %optlen, align 4
   %192 = load ptr, ptr %ioc, align 8
   %call6.i17.i.i = call i32 @nbd_drop(ptr noundef %192, i64 noundef %conv.i74.i, ptr noundef %errp) #19
@@ -6566,7 +6566,7 @@ if.end5.i.i:                                      ; preds = %if.end.i73.i
   br i1 %cmp.i22.i.i, label %nbd_opt_read.exit34.i.i, label %if.end.i23.i.i
 
 if.end.i23.i.i:                                   ; preds = %if.end5.i.i
-  %conv5.i24.i.i = sub i32 %194, %193
+  %conv5.i24.i.i = sub nuw i32 %194, %193
   store i32 %conv5.i24.i.i, ptr %optlen, align 4
   %195 = load ptr, ptr %ioc, align 8
   %call6.i26.i.i = call i32 @qio_channel_read_all(ptr noundef %195, ptr noundef %call7.i.i, i64 noundef %conv8.i.i, ptr noundef %errp) #19
@@ -7987,7 +7987,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp.i12, label %nbd_opt_read.exit24, label %if.end.i13
 
 if.end.i13:                                       ; preds = %if.end5
-  %conv5.i14 = sub i32 %6, %5
+  %conv5.i14 = sub nuw i32 %6, %5
   store i32 %conv5.i14, ptr %optlen.i, align 4
   %ioc.i15 = getelementptr inbounds i8, ptr %client, i64 48
   %7 = load ptr, ptr %ioc.i15, align 8

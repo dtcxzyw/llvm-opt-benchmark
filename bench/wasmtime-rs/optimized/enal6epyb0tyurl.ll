@@ -1605,7 +1605,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.46.0.copyload = load ptr, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.05.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 }, { ptr, [5 x i64] }, { ptr, [2 x i64] } }, ptr %.sroa.46.0.copyload, i64 %2
-  %6 = sub i64 %.sroa.57.0.copyload, %2
+  %6 = sub nuw i64 %.sroa.57.0.copyload, %2
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !162, !noundef !4
   store ptr %.sroa.05.0.copyload, ptr %0, align 8
@@ -1678,7 +1678,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.46.0.copyload = load ptr, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.05.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %5 = sub i64 %.sroa.57.0.copyload, %2
+  %5 = sub nuw i64 %.sroa.57.0.copyload, %2
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !162, !noundef !4
   store ptr %.sroa.05.0.copyload, ptr %0, align 8
@@ -1750,7 +1750,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.46.0.copyload = load ptr, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.05.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 }, { ptr, [5 x i64] }, { ptr, [2 x i64] } }, ptr %.sroa.46.0.copyload, i64 %2
-  %6 = sub i64 %.sroa.57.0.copyload, %2
+  %6 = sub nuw i64 %.sroa.57.0.copyload, %2
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !162, !noundef !4
   store ptr %.sroa.05.0.copyload, ptr %0, align 8
@@ -1791,7 +1791,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.46.0.copyload = load ptr, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.05.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 }, { ptr, [5 x i64] }, { ptr, [2 x i64] } }, ptr %.sroa.46.0.copyload, i64 %2
-  %6 = sub i64 %.sroa.57.0.copyload, %2
+  %6 = sub nuw i64 %.sroa.57.0.copyload, %2
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !162, !noundef !4
   store ptr %.sroa.05.0.copyload, ptr %0, align 8
@@ -1828,7 +1828,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.46.0.copyload = load ptr, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.05.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %5 = sub i64 %.sroa.57.0.copyload, %2
+  %5 = sub nuw i64 %.sroa.57.0.copyload, %2
   store ptr %.sroa.05.0.copyload, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.46.0.copyload, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -20206,9 +20206,9 @@ define hidden noundef zeroext i1 @"_ZN5gimli4read4unit28UnitHeader$LT$R$C$Offset
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = sub i64 %7, %9
   %11 = icmp ule i64 %10, %1
-  %12 = sub i64 %1, %10
+  %12 = sub nuw i64 %1, %10
   %13 = icmp ult i64 %12, %9
-  %.0 = and i1 %11, %13
+  %.0 = select i1 %11, i1 %13, i1 false
   ret i1 %.0
 }
 
@@ -33167,7 +33167,7 @@ define internal fastcc void @"_ZN9addr2line16Context$LT$R$GT$9find_unit17hf147e8
   br i1 %.not.i, label %"_ZN5gimli4read4unit57_$LT$impl$u20$gimli..common..DebugInfoOffset$LT$T$GT$$GT$14to_unit_offset17he250e4be2877730aE.exit.thread", label %"_ZN5gimli4read4unit57_$LT$impl$u20$gimli..common..DebugInfoOffset$LT$T$GT$$GT$14to_unit_offset17he250e4be2877730aE.exit"
 
 "_ZN5gimli4read4unit57_$LT$impl$u20$gimli..common..DebugInfoOffset$LT$T$GT$$GT$14to_unit_offset17he250e4be2877730aE.exit": ; preds = %47
-  %50 = sub i64 %2, %49
+  %50 = sub nuw i64 %2, %49
   %51 = getelementptr inbounds i8, ptr %.0, i64 73
   %52 = load i8, ptr %51, align 1, !range !3461, !alias.scope !6244, !noalias !6242, !noundef !4
   %switch.i.i.i.i = icmp eq i8 %52, 8
@@ -33179,9 +33179,9 @@ define internal fastcc void @"_ZN9addr2line16Context$LT$R$GT$9find_unit17hf147e8
   %57 = load i64, ptr %56, align 8, !alias.scope !6251, !noalias !6242, !noundef !4
   %58 = sub i64 %55, %57
   %59 = icmp ule i64 %58, %50
-  %60 = sub i64 %50, %58
+  %60 = sub nuw i64 %50, %58
   %61 = icmp ult i64 %60, %57
-  %.0.i.i = and i1 %59, %61
+  %.0.i.i = select i1 %59, i1 %61, i1 false
   br i1 %.0.i.i, label %.thread, label %"_ZN5gimli4read4unit57_$LT$impl$u20$gimli..common..DebugInfoOffset$LT$T$GT$$GT$14to_unit_offset17he250e4be2877730aE.exit.thread"
 
 .thread:                                          ; preds = %"_ZN5gimli4read4unit57_$LT$impl$u20$gimli..common..DebugInfoOffset$LT$T$GT$$GT$14to_unit_offset17he250e4be2877730aE.exit"
@@ -38458,7 +38458,7 @@ define internal fastcc void @_ZN9addr2line8function9name_attr17hfa2ca513e3613299
   br i1 %.not.i.i, label %"_ZN5gimli4read4unit57_$LT$impl$u20$gimli..common..DebugInfoOffset$LT$T$GT$$GT$14to_unit_offset17he250e4be2877730aE.exit.thread.i", label %"_ZN5gimli4read4unit57_$LT$impl$u20$gimli..common..DebugInfoOffset$LT$T$GT$$GT$14to_unit_offset17he250e4be2877730aE.exit.i"
 
 "_ZN5gimli4read4unit57_$LT$impl$u20$gimli..common..DebugInfoOffset$LT$T$GT$$GT$14to_unit_offset17he250e4be2877730aE.exit.i": ; preds = %40
-  %43 = sub i64 %.8.val, %42
+  %43 = sub nuw i64 %.8.val, %42
   %44 = getelementptr inbounds i8, ptr %57, i64 73
   %45 = load i8, ptr %44, align 1, !range !3461, !alias.scope !6865, !noalias !6863, !noundef !4
   %switch.i.i.i.i.i = icmp eq i8 %45, 8
@@ -38470,9 +38470,9 @@ define internal fastcc void @_ZN9addr2line8function9name_attr17hfa2ca513e3613299
   %50 = load i64, ptr %49, align 8, !alias.scope !6872, !noalias !6863, !noundef !4
   %51 = sub i64 %48, %50
   %52 = icmp ule i64 %51, %43
-  %53 = sub i64 %43, %51
+  %53 = sub nuw i64 %43, %51
   %54 = icmp ult i64 %53, %50
-  %.0.i.i.i = and i1 %52, %54
+  %.0.i.i.i = select i1 %52, i1 %54, i1 false
   br i1 %.0.i.i.i, label %60, label %"_ZN5gimli4read4unit57_$LT$impl$u20$gimli..common..DebugInfoOffset$LT$T$GT$$GT$14to_unit_offset17he250e4be2877730aE.exit.thread.i"
 
 55:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h8a6ec93761552782E.exit.i"

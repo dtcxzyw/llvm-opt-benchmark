@@ -219,7 +219,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit: ; preds = %4
   %.sink13.i = phi ptr [ %20, %18 ], [ %24, %21 ]
   %25 = getelementptr inbounds i8, ptr %.sink13.i, i64 %1
   %26 = getelementptr inbounds i8, ptr %25, i64 %3
-  %27 = sub i64 %.sink7.i1416, %1
+  %27 = sub nuw i64 %.sink7.i1416, %1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %25, i64 %27, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %2, i64 %3, i1 false)
   %28 = load i64, ptr %10, align 8, !alias.scope !23, !noalias !26, !noundef !4
@@ -541,7 +541,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %_ZN5ropey4tree9n
   %.sink13.i.i = phi ptr [ %39, %37 ], [ %43, %40 ]
   %44 = getelementptr inbounds i8, ptr %.sink13.i.i, i64 %1
   %45 = getelementptr inbounds i8, ptr %44, i64 %3
-  %46 = sub i64 %.sink7.i1416.i, %1
+  %46 = sub nuw i64 %.sink7.i1416.i, %1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %44, i64 %46, i1 false), !noalias !75
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
   %47 = load i64, ptr %5, align 8, !alias.scope !94, !noalias !97, !noundef !4
@@ -1489,7 +1489,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %"_ZN8smallvec17S
   %.sink13.i.i = phi ptr [ %26, %24 ], [ %30, %27 ]
   %31 = getelementptr inbounds i8, ptr %.sink13.i.i, i64 %.sink7.i
   %32 = getelementptr inbounds i8, ptr %31, i64 %2
-  %33 = sub i64 %.sink7.i1416.i, %.sink7.i
+  %33 = sub nuw i64 %.sink7.i1416.i, %.sink7.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %31, i64 %33, i1 false), !noalias !251
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %34 = load i64, ptr %4, align 8, !alias.scope !270, !noalias !273, !noundef !4
@@ -2049,7 +2049,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %.noexc16
   %.sink13.i.i = phi ptr [ %79, %77 ], [ %83, %80 ]
   %84 = getelementptr inbounds i8, ptr %.sink13.i.i, i64 %.sink7.i12
   %85 = getelementptr inbounds i8, ptr %84, i64 %54
-  %86 = sub i64 %.sink7.i1416.i, %.sink7.i12
+  %86 = sub nuw i64 %.sink7.i1416.i, %.sink7.i12
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull align 1 %84, i64 %86, i1 false), !noalias !382
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull readonly align 1 %55, i64 %54, i1 false)
   %87 = load i64, ptr %56, align 8, !alias.scope !398, !noalias !401, !noundef !4
@@ -3128,7 +3128,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %"_ZN4core3str21_
   %.sink13.i.i = phi ptr [ %39, %37 ], [ %43, %40 ]
   %44 = getelementptr inbounds i8, ptr %.sink13.i.i, i64 %1
   %45 = getelementptr inbounds i8, ptr %44, i64 %3
-  %46 = sub i64 %.sink7.i1416.i, %1
+  %46 = sub nuw i64 %.sink7.i1416.i, %1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %44, i64 %46, i1 false), !noalias !641
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
   %47 = load i64, ptr %5, align 8, !alias.scope !660, !noalias !663, !noundef !4
@@ -3536,7 +3536,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %.noexc12
   %.sink13.i.i = phi ptr [ %78, %76 ], [ %82, %79 ]
   %83 = getelementptr inbounds i8, ptr %.sink13.i.i, i64 %.sink7.i8
   %84 = getelementptr inbounds i8, ptr %83, i64 %53
-  %85 = sub i64 %.sink7.i1416.i, %.sink7.i8
+  %85 = sub nuw i64 %.sink7.i1416.i, %.sink7.i8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull align 1 %83, i64 %85, i1 false), !noalias !726
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr nonnull readonly align 1 %54, i64 %53, i1 false)
   %86 = load i64, ptr %55, align 8, !alias.scope !742, !noalias !745, !noundef !4

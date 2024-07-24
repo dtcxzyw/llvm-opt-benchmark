@@ -1675,7 +1675,7 @@ HUF_readDTable.exit.i.i.i:                        ; preds = %for.end150.i.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %HUF_readDTable.exit.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr14.i.i, i64 %add157.i.i.i.i
-  %sub.i.i.i = sub nsw i64 %sub.i.i, %add157.i.i.i.i
+  %sub.i.i.i = sub nuw nsw i64 %sub.i.i, %add157.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %bitD2.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %bitD4.i.i.i.i)
   %cmp.i12.i.i.i = icmp ult i64 %sub.i.i.i, 6

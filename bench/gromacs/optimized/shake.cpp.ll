@@ -503,7 +503,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit79:         ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %178, label %179, label %181
 
 179:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit79
-  %180 = sub nsw i64 %32, %177
+  %180 = sub nuw nsw i64 %32, %177
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %170, i64 noundef %180)
           to label %_ZN3gmxL20resizeLagrangianDataEPNS_9shakedataEi.exit unwind label %51
 
@@ -978,7 +978,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit32:         ; preds = %65, %_ZNSt6vectorIi
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit32
-  %102 = sub nsw i64 %92, %99
+  %102 = sub nuw nsw i64 %92, %99
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %91, i64 noundef %102)
   br label %_ZN3gmxL20resizeLagrangianDataEPNS_9shakedataEi.exit
 
@@ -1403,7 +1403,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL7bshakefEP8_IO_FILEPNS_9shake
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %90
-  %116 = sub nsw i64 %107, %113
+  %116 = sub nuw nsw i64 %107, %113
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %74, i64 noundef %116)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
@@ -1431,7 +1431,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %121, %119, %117, %1
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
-  %130 = sub nsw i64 %107, %127
+  %130 = sub nuw nsw i64 %107, %127
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %76, i64 noundef %130)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit144.i
 
@@ -1459,7 +1459,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit144.i:          ; preds = %135, %133, %131, %1
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit144.i
-  %144 = sub nsw i64 %107, %141
+  %144 = sub nuw nsw i64 %107, %141
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %144)
   %.pre.i = load ptr, ptr %78, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit146.i
@@ -2409,7 +2409,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -2430,7 +2430,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23

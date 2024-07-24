@@ -4376,7 +4376,7 @@ sub_21707:                                        ; preds = %sub_11706
   br i1 %866, label %867, label %869
 
 867:                                              ; preds = %842
-  %868 = sub nsw i64 %858, %865
+  %868 = sub nuw nsw i64 %858, %865
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %849, i64 noundef %868)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %.loopexit1832
 
@@ -4972,7 +4972,7 @@ _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE5clearEv.exit787: ; preds = %_ZNSt6
   br i1 %1089, label %1090, label %1092
 
 1090:                                             ; preds = %_ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE5clearEv.exit787
-  %1091 = sub nsw i64 %1081, %1088
+  %1091 = sub nuw nsw i64 %1081, %1088
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1079, i64 noundef %1091)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit790 unwind label %.loopexit.split-lp1814.loopexit.split-lp.loopexit
 
@@ -5004,7 +5004,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit790:            ; preds = %1096, %1094, %1092,
   br i1 %1107, label %1108, label %1110
 
 1108:                                             ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit790
-  %1109 = sub nsw i64 %1099, %1106
+  %1109 = sub nuw nsw i64 %1099, %1106
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1097, i64 noundef %1109)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit793 unwind label %.loopexit.split-lp1814.loopexit.split-lp.loopexit
 

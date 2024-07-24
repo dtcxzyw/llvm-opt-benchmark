@@ -19,7 +19,7 @@ define { i64, i64 } @"_ZN90_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$
   br i1 %.not.i, label %"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit", label %7
 
 7:                                                ; preds = %1
-  %8 = sub nsw i32 %4, %2
+  %8 = sub nuw nsw i32 %4, %2
   %9 = icmp ult i32 %2, 55296
   %10 = icmp ugt i32 %4, 57343
   %or.cond.i = and i1 %9, %10
@@ -48,7 +48,7 @@ define noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$rayon..range_inclusive..
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %1
-  %8 = sub nsw i32 %4, %2
+  %8 = sub nuw nsw i32 %4, %2
   %9 = icmp ult i32 %2, 55296
   %10 = icmp ugt i32 %4, 57343
   %or.cond = and i1 %9, %10
@@ -78,7 +78,7 @@ define noundef i64 @"_ZN5rayon15range_inclusive85_$LT$impl$u20$rayon..range_incl
   br i1 %.not.i.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h17811fb508d3f4d3E.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = sub i8 %8, %7
+  %10 = sub nuw i8 %8, %7
   %11 = zext i8 %10 to i64
   %12 = add nuw nsw i64 %11, 1
   br label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h17811fb508d3f4d3E.exit
@@ -148,7 +148,7 @@ define noundef i64 @"_ZN5rayon15range_inclusive86_$LT$impl$u20$rayon..range_incl
   br i1 %.not.i.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha688b3e7a2bb5a4bE.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = sub i16 %8, %7
+  %10 = sub nuw i16 %8, %7
   %11 = zext i16 %10 to i64
   %12 = add nuw nsw i64 %11, 1
   br label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha688b3e7a2bb5a4bE.exit

@@ -618,7 +618,7 @@ define dso_local void @netfs_readahead(ptr noundef %0) #0 align 16 {
 .lr.ph:                                           ; preds = %42, %80
   %54 = phi i32 [ %82, %80 ], [ %52, %42 ]
   %55 = phi i32 [ %81, %80 ], [ %51, %42 ]
-  %56 = sub i32 %54, %55
+  %56 = sub nuw i32 %54, %55
   store i32 %56, ptr %3, align 8
   %57 = zext i32 %55 to i64
   %58 = load i64, ptr %9, align 8
@@ -1559,7 +1559,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
 .lr.ph:                                           ; preds = %257, %296
   %270 = phi i32 [ %298, %296 ], [ %268, %257 ]
   %271 = phi i32 [ %297, %296 ], [ %267, %257 ]
-  %272 = sub i32 %270, %271
+  %272 = sub nuw i32 %270, %271
   store i32 %272, ptr %15, align 8
   %273 = zext i32 %271 to i64
   %274 = load i64, ptr %14, align 8

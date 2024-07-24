@@ -366,7 +366,7 @@ _ZL9get_entryPK16NetworkInterface.exit:           ; preds = %_ZL9new_entryPK16Ne
   br i1 %.not.i21, label %105, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
 
 105:                                              ; preds = %_ZL9get_entryPK16NetworkInterface.exit
-  %106 = sub i64 %100, %104
+  %106 = sub nuw i64 %100, %104
   %107 = mul i64 %106, 1000000000
   %108 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %31) #12
   %109 = udiv i64 %107, %108
@@ -380,7 +380,7 @@ _ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedEla
   br i1 %.not.i23, label %112, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25
 
 112:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
-  %113 = sub i64 %102, %111
+  %113 = sub nuw i64 %102, %111
   %114 = mul i64 %113, 1000000000
   %115 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %31) #12
   %116 = udiv i64 %114, %115

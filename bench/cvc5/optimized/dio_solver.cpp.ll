@@ -15264,7 +15264,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %add12.i.i
+  %sub = sub nuw i64 %__new_size, %add12.i.i
   tail call void @_ZNSt5dequeImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub)
   br label %if.end4
 
@@ -23418,7 +23418,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub4.i = sub i64 %__n, %sub.i
+  %sub4.i = sub nuw i64 %__n, %sub.i
   tail call void @_ZNSt5dequeImSaImEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !204
   %.pre.i = load ptr, ptr %_M_finish.i, align 8
   %.pre4.i = load ptr, ptr %_M_last.i, align 8

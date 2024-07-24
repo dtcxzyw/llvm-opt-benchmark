@@ -119,7 +119,7 @@ define hidden noundef i32 @mbedtls_poly1305_update(ptr nocapture noundef %0, ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %1, i64 %8, i1 false)
   store i64 0, ptr %5, align 8
   tail call fastcc void @poly1305_process(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %10, i32 noundef 1)
-  %16 = sub i64 %2, %8
+  %16 = sub nuw i64 %2, %8
   br label %17
 
 17:                                               ; preds = %15, %4

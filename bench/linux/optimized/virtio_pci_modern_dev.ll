@@ -580,7 +580,7 @@ define internal fastcc ptr @vp_modern_map_capability(ptr nocapture noundef reado
   br label %96
 
 33:                                               ; preds = %28
-  %34 = sub i32 %29, %4
+  %34 = sub nuw i32 %29, %4
   %35 = zext i32 %34 to i64
   %36 = icmp ult i64 %35, %2
   br i1 %36, label %37, label %39

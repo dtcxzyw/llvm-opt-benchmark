@@ -16257,7 +16257,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i55 = sub i64 %inc.i, %sub.ptr.div.i.i49
+  %sub.i55 = sub nuw i64 %inc.i, %sub.ptr.div.i.i49
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i55)
   %.pre = load ptr, ptr %this, align 8, !tbaa !58
   %.pre76 = load ptr, ptr %_M_finish.i.i45, align 8, !tbaa !58
@@ -17355,7 +17355,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i55 = sub i64 %inc.i, %sub.ptr.div.i.i49
+  %sub.i55 = sub nuw i64 %inc.i, %sub.ptr.div.i.i49
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i55)
   %.pre = load ptr, ptr %this, align 8, !tbaa !58
   %.pre76 = load ptr, ptr %_M_finish.i.i45, align 8, !tbaa !58
@@ -17505,7 +17505,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i55 = sub i64 %inc.i, %sub.ptr.div.i.i49
+  %sub.i55 = sub nuw i64 %inc.i, %sub.ptr.div.i.i49
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i55)
   %.pre = load ptr, ptr %this, align 8, !tbaa !58
   %.pre76 = load ptr, ptr %_M_finish.i.i45, align 8, !tbaa !58
@@ -17655,7 +17655,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i55 = sub i64 %inc.i, %sub.ptr.div.i.i49
+  %sub.i55 = sub nuw i64 %inc.i, %sub.ptr.div.i.i49
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i55)
   %.pre = load ptr, ptr %this, align 8, !tbaa !58
   %.pre76 = load ptr, ptr %_M_finish.i.i45, align 8, !tbaa !58
@@ -17805,7 +17805,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i55 = sub i64 %inc.i, %sub.ptr.div.i.i49
+  %sub.i55 = sub nuw i64 %inc.i, %sub.ptr.div.i.i49
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i55)
   %.pre = load ptr, ptr %this, align 8, !tbaa !58
   %.pre76 = load ptr, ptr %_M_finish.i.i45, align 8, !tbaa !58
@@ -18193,7 +18193,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i55 = sub i64 %inc.i, %sub.ptr.div.i.i49
+  %sub.i55 = sub nuw i64 %inc.i, %sub.ptr.div.i.i49
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i55)
   %.pre = load ptr, ptr %this, align 8, !tbaa !58
   %.pre76 = load ptr, ptr %_M_finish.i.i45, align 8, !tbaa !58
@@ -18520,7 +18520,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i55 = sub i64 %inc.i, %sub.ptr.div.i.i49
+  %sub.i55 = sub nuw i64 %inc.i, %sub.ptr.div.i.i49
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i55)
   %.pre = load ptr, ptr %this, align 8, !tbaa !58
   %.pre76 = load ptr, ptr %_M_finish.i.i45, align 8, !tbaa !58

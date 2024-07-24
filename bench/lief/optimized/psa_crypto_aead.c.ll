@@ -287,7 +287,7 @@ define hidden i32 @mbedtls_psa_aead_decrypt(ptr nocapture noundef readonly %0, p
   br i1 %20, label %psa_aead_unpadded_locate_tag.exit.thread, label %21
 
 21:                                               ; preds = %16
-  %22 = sub i64 %9, %19
+  %22 = sub nuw i64 %9, %19
   %23 = icmp ugt i64 %22, %11
   br i1 %23, label %psa_aead_unpadded_locate_tag.exit.thread, label %24
 

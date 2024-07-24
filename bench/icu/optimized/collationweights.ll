@@ -345,7 +345,7 @@ if.then14:                                        ; preds = %for.body
   store i32 %or.i, ptr %end, align 4
   %length26 = getelementptr inbounds i8, ptr %arrayidx17, i64 8
   store i32 %4, ptr %length26, align 8
-  %sub = sub i32 %6, %and.i101
+  %sub = sub nuw i32 %6, %and.i101
   %count = getelementptr inbounds i8, ptr %arrayidx17, i64 12
   store i32 %sub, ptr %count, align 4
   br label %if.end32
@@ -407,7 +407,7 @@ if.then52:                                        ; preds = %for.body46
   store i32 %conv2.i, ptr %end63, align 4
   %length66 = getelementptr inbounds i8, ptr %arrayidx58, i64 8
   store i32 %14, ptr %length66, align 8
-  %sub70 = sub nsw i32 %and.i116, %16
+  %sub70 = sub nuw nsw i32 %and.i116, %16
   %count73 = getelementptr inbounds i8, ptr %arrayidx58, i64 12
   store i32 %sub70, ptr %count73, align 4
   br label %if.end74
@@ -583,7 +583,7 @@ if.end178.thread:                                 ; preds = %for.inc175, %while.
   br label %if.end184
 
 if.end178:                                        ; preds = %for.end79
-  %sub91 = sub i32 %conv2.i130, %middle.sroa.0.0
+  %sub91 = sub nuw i32 %conv2.i130, %middle.sroa.0.0
   %shr = lshr i32 %sub91, %mul.i110
   %rangeCount = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %rangeCount, align 4

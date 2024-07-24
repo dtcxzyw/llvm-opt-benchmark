@@ -1968,7 +1968,7 @@ _ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread: ; preds = %38, %_ZNK1
 
 49:                                               ; preds = %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread
   %50 = getelementptr inbounds i8, ptr %0, i64 %40
-  %51 = sub i64 %1, %40
+  %51 = sub nuw i64 %1, %40
   store ptr %50, ptr %4, align 8
   %52 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %51, ptr %52, align 8

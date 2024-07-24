@@ -1477,7 +1477,7 @@ define hidden zeroext i16 @bssmap_dissect_cause(ptr noundef %0, ptr noundef %1, 
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
-  %43 = sub i32 %4, %40
+  %43 = sub nuw i32 %4, %40
   %44 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %43) #3
   %45 = add i32 %43, %.0
   %.pre = sub i32 %45, %3
@@ -1767,7 +1767,7 @@ switch.lookup198:                                 ; preds = %87
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %.loopexit
-  %133 = sub i32 %4, %130
+  %133 = sub nuw i32 %4, %130
   %134 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %133) #3
   %135 = add i32 %133, %.1
   %.pre = sub i32 %135, %3
@@ -2199,7 +2199,7 @@ define internal noundef zeroext i16 @be_field_element_dissect(ptr noundef %0, pt
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %38
-  %46 = sub nsw i32 %.057, %42
+  %46 = sub nuw nsw i32 %.057, %42
   %47 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %43, i32 noundef %46) #3
   %48 = add i32 %.1, %.057
   br label %49
@@ -2741,7 +2741,7 @@ define internal noundef zeroext i16 @be_trace_transaction_id(ptr noundef %0, ptr
 
 12:                                               ; preds = %7
   %13 = add i32 %., %3
-  %14 = sub i32 %4, %.
+  %14 = sub nuw i32 %4, %.
   %15 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %13, i32 noundef %14) #3
   br label %16
 

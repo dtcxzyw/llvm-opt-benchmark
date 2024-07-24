@@ -818,7 +818,7 @@ if.then9:                                         ; preds = %if.end4
   br i1 %cmp.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.then9
-  %sub.i = sub i64 %add.i22, %decay.val
+  %sub.i = sub nuw i64 %add.i22, %decay.val
   call fastcc void @pac_decay_to_limit(ptr noundef %tsdn, ptr noundef %pac, ptr noundef nonnull %decay, ptr noundef %decay_stats, ptr noundef %ecache, i1 noundef zeroext false, i64 noundef %decay.val, i64 noundef %sub.i)
   br label %return
 

@@ -647,14 +647,14 @@ if.then14.i:                                      ; preds = %lor.lhs.false.i39, 
 if.end15.i:                                       ; preds = %lor.lhs.false.i39
   %idx.ext.i40 = zext nneg i32 %call12.i to i64
   %add.ptr.i41 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i40
-  %sub.i = sub nsw i32 %sub, %call12.i
+  %sub.i = sub nuw nsw i32 %sub, %call12.i
   %conversionType.i = getelementptr inbounds i8, ptr %add.ptr, i64 69
   %78 = load i8, ptr %conversionType.i, align 1
   %cmp17.i = icmp eq i8 %78, 2
   br i1 %cmp17.i, label %if.then18.i, label %_ZN6icu_75L21ucnv_enumDependenciesEPK12UDataSwapperPKcPK9UDataInfoPKhiPFvPvS4_S4_ESA_P10UErrorCode.exit
 
 if.then18.i:                                      ; preds = %if.end15.i
-  %cmp19.i = icmp slt i32 %sub.i, 40
+  %cmp19.i = icmp ult i32 %sub.i, 40
   br i1 %cmp19.i, label %if.then20.i, label %if.end21.i
 
 if.then20.i:                                      ; preds = %if.then18.i

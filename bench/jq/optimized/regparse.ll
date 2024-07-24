@@ -2756,7 +2756,7 @@ bbuf_init.exit.i:                                 ; preds = %9
   %63 = or disjoint i32 %62, 4
   %64 = shl i32 %44, 3
   %65 = or disjoint i32 %64, 4
-  %66 = sub i32 %.0166227, %.0160.lcssa
+  %66 = sub nuw i32 %.0166227, %.0160.lcssa
   %67 = shl i32 %66, 3
   %68 = icmp sgt i32 %45, 0
   br i1 %68, label %69, label %92
@@ -11392,7 +11392,7 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
   %scevgep = getelementptr i8, ptr %20, i64 %132
   %narrow = xor i32 %.0215.lcssa460467, 7
   %133 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %133, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %133, i1 false)
   br label %._crit_edge406
 
 ._crit_edge406:                                   ; preds = %.lr.ph405.preheader, %.preheader362

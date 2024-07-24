@@ -3061,7 +3061,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %78 = icmp ule i64 %73, %77
   %79 = zext i1 %78 to i32
   %80 = select i1 %78, i64 %73, i64 0
-  %spec.select = sub i64 %77, %80
+  %spec.select = sub nuw i64 %77, %80
   br label %115
 
 81:                                               ; preds = %64

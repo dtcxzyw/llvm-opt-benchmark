@@ -297,7 +297,7 @@ define void @PHP_MD5Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
 25:                                               ; preds = %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %19, i1 false)
   %26 = getelementptr inbounds i8, ptr %1, i64 %19
-  %27 = sub i64 %2, %19
+  %27 = sub nuw i64 %2, %19
   %28 = tail call fastcc ptr @body(ptr noundef nonnull %0, ptr noundef nonnull %21, i64 noundef 64)
   br label %29
 
@@ -617,7 +617,7 @@ thread-pre-split:                                 ; preds = %18
 68:                                               ; preds = %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull align 16 dereferenceable(1) %5, i64 %63, i1 false)
   %69 = getelementptr inbounds i8, ptr %5, i64 %63
-  %70 = sub nsw i64 %48, %63
+  %70 = sub nuw nsw i64 %48, %63
   %71 = call fastcc ptr @body(ptr noundef nonnull %7, ptr noundef nonnull %46, i64 noundef 64)
   br label %72
 

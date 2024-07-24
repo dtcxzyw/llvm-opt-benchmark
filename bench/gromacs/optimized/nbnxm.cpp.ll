@@ -484,7 +484,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %4, %8, %2
   br i1 %.not.i, label %62, label %60
 
 60:                                               ; preds = %49
-  %61 = sub i64 %56, %59
+  %61 = sub nuw i64 %56, %59
   br label %64
 
 62:                                               ; preds = %49
@@ -610,7 +610,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %4, %8, %2
   br i1 %.not.i, label %62, label %60
 
 60:                                               ; preds = %49
-  %61 = sub i64 %56, %59
+  %61 = sub nuw i64 %56, %59
   br label %64
 
 62:                                               ; preds = %49
@@ -831,7 +831,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %26, %30, 
   br i1 %.not.i, label %84, label %82
 
 82:                                               ; preds = %71
-  %83 = sub i64 %78, %81
+  %83 = sub nuw i64 %78, %81
   br label %86
 
 84:                                               ; preds = %71

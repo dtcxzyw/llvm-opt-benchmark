@@ -1823,7 +1823,7 @@ define internal fastcc i32 @filename_trans_read(ptr noundef %0, ptr noundef %1) 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr align 1 %55, i64 %50, i1 false)
   %56 = getelementptr i8, ptr %55, i64 %50
   store ptr %56, ptr %1, align 8
-  %57 = sub i64 %51, %50
+  %57 = sub nuw i64 %51, %50
   store i64 %57, ptr %9, align 8
   %58 = getelementptr i8, ptr %47, i64 %50
   store i8 0, ptr %58, align 1
@@ -2056,7 +2056,7 @@ policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %184, ptr align 1 %192, i64 %187, i1 false)
   %193 = getelementptr i8, ptr %192, i64 %187
   store ptr %193, ptr %1, align 8
-  %194 = sub i64 %188, %187
+  %194 = sub nuw i64 %188, %187
   store i64 %194, ptr %9, align 8
   %195 = getelementptr i8, ptr %184, i64 %187
   store i8 0, ptr %195, align 1
@@ -2380,7 +2380,7 @@ define internal fastcc i32 @ocontext_read(ptr noundef %0, ptr nocapture noundef 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr align 1 %66, i64 %62, i1 false)
   %67 = getelementptr i8, ptr %66, i64 %62
   store ptr %67, ptr %2, align 8
-  %68 = sub i64 %63, %62
+  %68 = sub nuw i64 %63, %62
   store i64 %68, ptr %9, align 8
   %69 = getelementptr i8, ptr %59, i64 %62
   store i8 0, ptr %69, align 1
@@ -2498,7 +2498,7 @@ define internal fastcc i32 @ocontext_read(ptr noundef %0, ptr nocapture noundef 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %134, ptr align 1 %141, i64 %137, i1 false)
   %142 = getelementptr i8, ptr %141, i64 %137
   store ptr %142, ptr %2, align 8
-  %143 = sub i64 %138, %137
+  %143 = sub nuw i64 %138, %137
   store i64 %143, ptr %9, align 8
   %144 = getelementptr i8, ptr %134, i64 %137
   store i8 0, ptr %144, align 1
@@ -2611,7 +2611,7 @@ define internal fastcc i32 @ocontext_read(ptr noundef %0, ptr nocapture noundef 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %205, ptr align 1 %212, i64 %208, i1 false)
   %213 = getelementptr i8, ptr %212, i64 %208
   store ptr %213, ptr %2, align 8
-  %214 = sub i64 %209, %208
+  %214 = sub nuw i64 %209, %208
   store i64 %214, ptr %9, align 8
   %215 = getelementptr i8, ptr %205, i64 %208
   store i8 0, ptr %215, align 1
@@ -2719,7 +2719,7 @@ thread-pre-split:                                 ; preds = %.loopexit68
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr align 1 %38, i64 %33, i1 false)
   %39 = getelementptr i8, ptr %38, i64 %33
   store ptr %39, ptr %1, align 8
-  %40 = sub i64 %34, %33
+  %40 = sub nuw i64 %34, %33
   store i64 %40, ptr %3, align 8
   %41 = getelementptr i8, ptr %30, i64 %33
   store i8 0, ptr %41, align 1
@@ -2819,7 +2819,7 @@ thread-pre-split38:                               ; preds = %.loopexit
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %87, ptr align 1 %95, i64 %90, i1 false)
   %96 = getelementptr i8, ptr %95, i64 %90
   store ptr %96, ptr %1, align 8
-  %97 = sub i64 %91, %90
+  %97 = sub nuw i64 %91, %90
   store i64 %97, ptr %3, align 8
   %98 = getelementptr i8, ptr %87, i64 %90
   store i8 0, ptr %98, align 1
@@ -5530,7 +5530,7 @@ define internal i32 @common_read(ptr nocapture readnone %0, ptr noundef %1, ptr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr align 1 %39, i64 %34, i1 false)
   %40 = getelementptr i8, ptr %39, i64 %34
   store ptr %40, ptr %2, align 8
-  %41 = sub i64 %35, %34
+  %41 = sub nuw i64 %35, %34
   store i64 %41, ptr %8, align 8
   %42 = getelementptr i8, ptr %31, i64 %34
   store i8 0, ptr %42, align 1
@@ -5632,7 +5632,7 @@ define internal i32 @class_read(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr align 1 %43, i64 %38, i1 false)
   %44 = getelementptr i8, ptr %43, i64 %38
   store ptr %44, ptr %2, align 8
-  %45 = sub i64 %39, %38
+  %45 = sub nuw i64 %39, %38
   store i64 %45, ptr %8, align 8
   %46 = getelementptr i8, ptr %35, i64 %38
   store i8 0, ptr %46, align 1
@@ -5666,7 +5666,7 @@ define internal i32 @class_read(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr align 1 %62, i64 %57, i1 false)
   %63 = getelementptr i8, ptr %62, i64 %57
   store ptr %63, ptr %2, align 8
-  %64 = sub i64 %58, %57
+  %64 = sub nuw i64 %58, %57
   store i64 %64, ptr %8, align 8
   %65 = getelementptr i8, ptr %54, i64 %57
   store i8 0, ptr %65, align 1
@@ -5817,7 +5817,7 @@ define internal i32 @role_read(ptr nocapture noundef readonly %0, ptr noundef %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef align 1 dereferenceable(8) %17, i64 %12, i1 false)
   %18 = getelementptr i8, ptr %17, i64 %12
   store ptr %18, ptr %2, align 8
-  %19 = sub i64 %14, %12
+  %19 = sub nuw i64 %14, %12
   store i64 %19, ptr %13, align 8
   %.0..0..0..0. = load i32, ptr %4, align 4
   %.4..4..4..4..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
@@ -5860,7 +5860,7 @@ define internal i32 @role_read(ptr nocapture noundef readonly %0, ptr noundef %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr align 1 %37, i64 %32, i1 false)
   %38 = getelementptr i8, ptr %37, i64 %32
   store ptr %38, ptr %2, align 8
-  %39 = sub i64 %33, %32
+  %39 = sub nuw i64 %33, %32
   store i64 %39, ptr %13, align 8
   %40 = getelementptr i8, ptr %29, i64 %32
   store i8 0, ptr %40, align 1
@@ -5936,7 +5936,7 @@ define internal i32 @type_read(ptr nocapture noundef readonly %0, ptr noundef %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %4, ptr noundef align 1 dereferenceable(12) %17, i64 %12, i1 false)
   %18 = getelementptr i8, ptr %17, i64 %12
   store ptr %18, ptr %2, align 8
-  %19 = sub i64 %14, %12
+  %19 = sub nuw i64 %14, %12
   store i64 %19, ptr %13, align 8
   %.0..0..0..0. = load i32, ptr %4, align 16
   %.4..4..4..4..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
@@ -6007,7 +6007,7 @@ define internal i32 @type_read(ptr nocapture noundef readonly %0, ptr noundef %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr align 1 %50, i64 %45, i1 false)
   %51 = getelementptr i8, ptr %50, i64 %45
   store ptr %51, ptr %2, align 8
-  %52 = sub i64 %46, %45
+  %52 = sub nuw i64 %46, %45
   store i64 %52, ptr %13, align 8
   %53 = getelementptr i8, ptr %42, i64 %45
   store i8 0, ptr %53, align 1
@@ -6053,7 +6053,7 @@ define internal i32 @user_read(ptr nocapture noundef readonly %0, ptr noundef %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef align 1 dereferenceable(8) %17, i64 %12, i1 false)
   %18 = getelementptr i8, ptr %17, i64 %12
   store ptr %18, ptr %2, align 8
-  %19 = sub i64 %14, %12
+  %19 = sub nuw i64 %14, %12
   store i64 %19, ptr %13, align 8
   %.0..0..0..0. = load i32, ptr %4, align 4
   %.4..4..4..4..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
@@ -6096,7 +6096,7 @@ define internal i32 @user_read(ptr nocapture noundef readonly %0, ptr noundef %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr align 1 %37, i64 %32, i1 false)
   %38 = getelementptr i8, ptr %37, i64 %32
   store ptr %38, ptr %2, align 8
-  %39 = sub i64 %33, %32
+  %39 = sub nuw i64 %33, %32
   store i64 %39, ptr %13, align 8
   %40 = getelementptr i8, ptr %29, i64 %32
   store i8 0, ptr %40, align 1
@@ -6201,7 +6201,7 @@ define internal i32 @sens_read(ptr nocapture readnone %0, ptr noundef %1, ptr no
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %32, i64 %27, i1 false)
   %33 = getelementptr i8, ptr %32, i64 %27
   store ptr %33, ptr %2, align 8
-  %34 = sub i64 %28, %27
+  %34 = sub nuw i64 %28, %27
   store i64 %34, ptr %8, align 8
   %35 = getelementptr i8, ptr %24, i64 %27
   store i8 0, ptr %35, align 1
@@ -6319,7 +6319,7 @@ define internal i32 @cat_read(ptr nocapture readnone %0, ptr noundef %1, ptr noc
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr align 1 %34, i64 %29, i1 false)
   %35 = getelementptr i8, ptr %34, i64 %29
   store ptr %35, ptr %2, align 8
-  %36 = sub i64 %30, %29
+  %36 = sub nuw i64 %30, %29
   store i64 %36, ptr %8, align 8
   %37 = getelementptr i8, ptr %26, i64 %29
   store i8 0, ptr %37, align 1
@@ -6387,7 +6387,7 @@ define internal fastcc i32 @perm_read(ptr noundef %0, ptr nocapture noundef %1) 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %29, i64 %24, i1 false)
   %30 = getelementptr i8, ptr %29, i64 %24
   store ptr %30, ptr %1, align 8
-  %31 = sub i64 %25, %24
+  %31 = sub nuw i64 %25, %24
   store i64 %31, ptr %7, align 8
   %32 = getelementptr i8, ptr %21, i64 %24
   store i8 0, ptr %32, align 1
@@ -6635,7 +6635,7 @@ define internal fastcc i32 @mls_read_range_helper(ptr noundef %0, ptr noundef %1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %10, i64 %17, i1 false)
   %22 = getelementptr i8, ptr %10, i64 %17
   store ptr %22, ptr %1, align 8
-  %23 = sub i64 %11, %17
+  %23 = sub nuw i64 %11, %17
   store i64 %23, ptr %4, align 8
   %.0..0..0..0.1 = load i32, ptr %3, align 8
   store i32 %.0..0..0..0.1, ptr %0, align 8

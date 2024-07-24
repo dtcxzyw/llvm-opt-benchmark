@@ -170,8 +170,8 @@ while.body34:                                     ; preds = %while.body34.lr.ph,
   %cmp41 = icmp ugt i64 %spec.store.select, %conv40
   %spec.select = select i1 %cmp41, i32 0, i32 %add
   %sub45 = select i1 %cmp41, i64 %conv40, i64 0
-  %spec.select58 = sub nsw i64 %spec.store.select, %sub45
-  %mul = shl nsw i64 %spec.select58, 6
+  %spec.select58 = sub nuw nsw i64 %spec.store.select, %sub45
+  %mul = shl nuw nsw i64 %spec.select58, 6
   tail call void @ChaCha20_ctr32(ptr noundef %out.addr.271, ptr noundef %inp.addr.269, i64 noundef %mul, ptr noundef nonnull %0, ptr noundef nonnull %counter29) #9
   %sub50 = sub i64 %len.addr.270, %mul
   %add.ptr = getelementptr inbounds i8, ptr %inp.addr.269, i64 %mul

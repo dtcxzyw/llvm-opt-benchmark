@@ -396,7 +396,7 @@ h1_tunnel_go_state.exit.thread.i:                 ; preds = %h1_tunnel_go_state.
   br i1 %.not.i135.i, label %155, label %172
 
 155:                                              ; preds = %151
-  %156 = sub i64 %153, %154
+  %156 = sub nuw i64 %153, %154
   %157 = getelementptr inbounds i8, ptr %152, i64 %154
   %158 = load ptr, ptr %29, align 8
   %159 = load ptr, ptr %158, align 8

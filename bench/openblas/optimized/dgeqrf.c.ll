@@ -133,7 +133,7 @@ define void @dgeqrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %77, label %78, label %.loopexit
 
 78:                                               ; preds = %68
-  %79 = sub nsw i32 %48, %71
+  %79 = sub nuw nsw i32 %48, %71
   store i32 %79, ptr %9, align 4, !tbaa !3
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %81, label %.loopexit

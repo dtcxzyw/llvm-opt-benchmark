@@ -1856,7 +1856,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %14 = load ptr, ptr %8, align 8, !alias.scope !539, !nonnull !24, !noundef !24
   %15 = shl i64 %12, 3
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %16 = sub i64 %2, %1
+  %16 = sub nuw i64 %2, %1
   %17 = shl i64 %16, 3
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i.i.i, i8 0, i64 %17, i1 false), !noalias !544
   %18 = add i64 %12, %16
@@ -1959,10 +1959,11 @@ define hidden { i64, i64 } @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$
   %3 = load i64, ptr %0, align 8, !noundef !24
   %4 = load i64, ptr %1, align 8, !noundef !24
   %.not = icmp ule i64 %3, %4
-  %5 = sub i64 %4, %3
+  %5 = sub nuw i64 %4, %3
+  %.sroa.3.0 = select i1 %.not, i64 %5, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %7 = insertvalue { i64, i64 } %6, i64 %5, 1
+  %7 = insertvalue { i64, i64 } %6, i64 %.sroa.3.0, 1
   ret { i64, i64 } %7
 }
 
@@ -4505,7 +4506,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h44163f97e7c0664e
   br i1 %5, label %"_ZN4core3ptr60drop_in_place$LT$$u5b$std..sync..mpmc..waker..Entry$u5d$$GT$17h2b417da8632627d5E.llvm.12946352342990680951.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !24, !noundef !24
   %10 = getelementptr inbounds { ptr, i64, ptr }, ptr %9, i64 %1
@@ -5715,7 +5716,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %14 = load ptr, ptr %8, align 8, !alias.scope !1018, !noalias !1015, !nonnull !24, !noundef !24
   %15 = shl i64 %12, 3
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %16 = sub i64 %2, %1
+  %16 = sub nuw i64 %2, %1
   %17 = shl i64 %16, 3
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i.i.i.i, i8 0, i64 %17, i1 false), !noalias !1023
   %18 = add i64 %12, %16

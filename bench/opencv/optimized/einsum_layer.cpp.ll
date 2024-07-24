@@ -4802,7 +4802,7 @@ define hidden void @_ZN2cv3dnn15LayerEinsumImpl20calculateOutputShapeEv(ptr noun
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %1
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %11, i64 noundef %19, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -10983,7 +10983,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEPiiET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i32, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
@@ -11136,7 +11136,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -12391,7 +12391,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -12675,7 +12675,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit:
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_mET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i64, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
@@ -12859,7 +12859,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEE
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEPiiET0_T_S9_S8_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEPiiET0_T_S9_S8_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit
   %49 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEPiiET0_T_S9_S8_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit ]
-  %50 = sub nsw i64 %9, %21
+  %50 = sub nuw nsw i64 %9, %21
   %51 = getelementptr inbounds i32, ptr %49, i64 %50
   store ptr %51, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %13, %1

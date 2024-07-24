@@ -52,7 +52,7 @@ define noundef zeroext i1 @_ZN5draco16SymbolBitDecoder13StartDecodingEPNS_13Deco
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %8
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   %.pre = load ptr, ptr %0, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit

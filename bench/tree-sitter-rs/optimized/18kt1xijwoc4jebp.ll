@@ -3152,7 +3152,7 @@ select.unfold574.cont.i:                          ; preds = %select.unfold574.in
 
 903:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h89d3108868429eabE.llvm.1408760718162522189.exit.i.i"
   %904 = getelementptr inbounds i8, ptr %898, i64 32
-  %905 = sub i64 %893, %.019.lcssa.i216.i
+  %905 = sub nuw i64 %893, %.019.lcssa.i216.i
   %906 = shl i64 %905, 5
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %904, ptr nonnull align 8 %898, i64 %906, i1 false), !noalias !542
   br label %911
@@ -3669,7 +3669,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit258.i: ; preds = %934
 
 1040:                                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h83c78a5fba3e9615E.exit.i.i"
   %1041 = getelementptr inbounds i8, ptr %1035, i64 24
-  %1042 = sub i64 %1024, %.019.lcssa.i.i
+  %1042 = sub nuw i64 %1024, %.019.lcssa.i.i
   %1043 = mul i64 %1042, 24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1041, ptr nonnull align 8 %1035, i64 %1043, i1 false), !noalias !709
   br label %1048
@@ -16009,7 +16009,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
 
 4688:                                             ; preds = %.noexc260.i871
   %4689 = getelementptr inbounds i8, ptr %4686, i64 8
-  %4690 = sub i64 %4656, %.019.lcssa.i.i870
+  %4690 = sub nuw i64 %4656, %.019.lcssa.i.i870
   %4691 = shl i64 %4690, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %4689, ptr nonnull align 8 %4686, i64 %4691, i1 false), !noalias !2998
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h0043225690b64eefE.exit.i"

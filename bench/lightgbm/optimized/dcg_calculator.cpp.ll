@@ -435,7 +435,7 @@ define void @_ZN8LightGBM13DCGCalculator4InitERKSt6vectorIdSaIdEE(ptr nocapture 
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %1
-  %17 = sub nsw i64 %8, %14
+  %17 = sub nuw nsw i64 %8, %14
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8LightGBM13DCGCalculator11label_gain_E, i64 noundef %17)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 

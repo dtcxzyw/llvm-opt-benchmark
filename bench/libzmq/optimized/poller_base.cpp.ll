@@ -254,7 +254,7 @@ do.body:                                          ; preds = %if.end9, %if.end
   br i1 %cmp, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %do.body
-  %sub = sub i64 %2, %call2
+  %sub = sub nuw i64 %2, %call2
   br label %return
 
 if.end9:                                          ; preds = %do.body

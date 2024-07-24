@@ -160,7 +160,7 @@ if.end24:                                         ; preds = %if.then21
 
 if.then.i:                                        ; preds = %if.end24
   %14 = getelementptr i8, ptr %memory_mapping.091, i64 8
-  %sub.i52 = sub i64 %memory_mapping.0.val35, %virt_addr
+  %sub.i52 = sub nuw i64 %memory_mapping.0.val35, %virt_addr
   %add.i54 = add i64 %sub.i52, %11
   store i64 %add.i54, ptr %length.i37.le, align 8
   store i64 %virt_addr, ptr %14, align 8

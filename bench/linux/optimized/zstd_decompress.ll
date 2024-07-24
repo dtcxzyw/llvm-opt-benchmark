@@ -871,7 +871,7 @@ define internal fastcc { i64, i64 } @ZSTD_findFrameSizeInfo(ptr noundef %0, i64 
 
 39:                                               ; preds = %.lr.ph
   %40 = getelementptr i8, ptr %36, i64 %37
-  %41 = sub i64 %35, %37
+  %41 = sub nuw i64 %35, %37
   %42 = add i64 %34, 1
   %43 = load i32, ptr %30, align 4
   %44 = icmp eq i32 %43, 0
@@ -1072,7 +1072,7 @@ define internal fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef %0, ptr nounde
 
 77:                                               ; preds = %73
   %78 = getelementptr i8, ptr %63, i64 %75
-  %79 = sub i64 %62, %75
+  %79 = sub nuw i64 %62, %75
   %80 = icmp ult i64 %79, %55
   br i1 %80, label %._crit_edge, label %61
 

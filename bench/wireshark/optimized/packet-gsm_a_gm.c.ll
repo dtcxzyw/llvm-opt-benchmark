@@ -7006,7 +7006,7 @@ switch.lookup4384:                                ; preds = %254
   br i1 %2573, label %2574, label %2578
 
 2574:                                             ; preds = %._crit_edge
-  %2575 = sub i32 %4, %2572
+  %2575 = sub nuw i32 %4, %2572
   %2576 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %2571, i32 noundef %2575) #5
   %2577 = add i32 %2575, %2571
   %.pre = sub i32 %2577, %3
@@ -7839,7 +7839,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %19, %22
 
 311:                                              ; preds = %307
   %312 = load i32, ptr @hf_gsm_a_gm_sm_pco_ecs_addr_spatial_valid_cond_cont, align 4
-  %313 = sub i32 %309, %308
+  %313 = sub nuw i32 %309, %308
   %314 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %312, ptr noundef %0, i32 noundef %.0450, i32 noundef %313, i32 noundef 0) #5
   br label %421
 
@@ -8051,7 +8051,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %19, %22
   br i1 %431, label %432, label %435
 
 432:                                              ; preds = %429
-  %433 = sub i32 %4, %430
+  %433 = sub nuw i32 %4, %430
   %434 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %433) #5
   br label %435
 
@@ -8209,7 +8209,7 @@ switch.lookup:                                    ; preds = %17
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %57
-  %61 = sub i32 %4, %58
+  %61 = sub nuw i32 %4, %58
   %62 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %.085, i32 noundef %61) #5
   %63 = add i32 %61, %.085
   %.pre = sub i32 %63, %3
@@ -9350,7 +9350,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   br i1 %214, label %215, label %218
 
 215:                                              ; preds = %.loopexit347
-  %216 = sub i32 %4, %213
+  %216 = sub nuw i32 %4, %213
   %217 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %.5, i32 noundef %216) #5
   br label %218
 
@@ -9374,7 +9374,7 @@ define hidden zeroext i16 @de_sm_tmgi(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %11
-  %17 = sub i32 %4, %14
+  %17 = sub nuw i32 %4, %14
   %18 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %13, i32 noundef %17) #5
   %19 = add i32 %17, %13
   %.pre = sub i32 %19, %3
@@ -9626,7 +9626,7 @@ define internal zeroext i16 @de_gmm_rec_npdu_lst(ptr noundef %0, ptr noundef %1,
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %37
-  %41 = sub i32 %4, %38
+  %41 = sub nuw i32 %4, %38
   %42 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %.151, i32 noundef %41) #5
   %43 = add i32 %41, %.151
   %.pre = sub i32 %43, %3
@@ -10017,7 +10017,7 @@ define internal noundef zeroext i16 @de_sm_linked_ti(ptr noundef %0, ptr noundef
 
 29:                                               ; preds = %27
   %30 = add i32 %.sink, %3
-  %31 = sub i32 %4, %.sink
+  %31 = sub nuw i32 %4, %.sink
   %32 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %30, i32 noundef %31) #5
   br label %33
 
@@ -10276,7 +10276,7 @@ define internal noundef zeroext i16 @de_gc_context_stat(ptr noundef %0, ptr noun
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %23
-  %28 = sub i32 %4, %25
+  %28 = sub nuw i32 %4, %25
   %29 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %24, i32 noundef %28) #5
   %30 = add i32 %28, %24
   %.pre = sub i32 %30, %3

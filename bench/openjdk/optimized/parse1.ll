@@ -5256,7 +5256,7 @@ _ZNK5Parse5Block15is_SEL_backedgeEPS0_.exit:      ; preds = %354, %_ZNK8GraphKit
   br i1 %425, label %426, label %441
 
 426:                                              ; preds = %417
-  %427 = sub i32 %406, %419
+  %427 = sub nuw i32 %406, %419
   %428 = and i32 %427, 1
   %429 = icmp eq i32 %428, 0
   br i1 %429, label %430, label %441
@@ -9805,7 +9805,7 @@ define hidden noundef ptr @_ZN5Parse10ensure_phiEib(ptr nocapture noundef nonnul
 39:                                               ; preds = %28
   %40 = getelementptr inbounds i8, ptr %0, i64 256
   %41 = load ptr, ptr %40, align 8
-  %42 = sub i32 %1, %34
+  %42 = sub nuw i32 %1, %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %43 = getelementptr inbounds i8, ptr %41, i64 32
   %44 = getelementptr inbounds i8, ptr %41, i64 40
@@ -9873,7 +9873,7 @@ _ZNK5Parse5Block13local_type_atEi.exit:           ; preds = %66, %68
 82:                                               ; preds = %77
   %83 = getelementptr inbounds i8, ptr %0, i64 256
   %84 = load ptr, ptr %83, align 8
-  %85 = sub i32 %1, %36
+  %85 = sub nuw i32 %1, %36
   %86 = load ptr, ptr %84, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 56
   %88 = load ptr, ptr %87, align 8

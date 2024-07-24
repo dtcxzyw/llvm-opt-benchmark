@@ -318,7 +318,7 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
 46:                                               ; preds = %43
   %47 = ptrtoint ptr %27 to i64
   %48 = getelementptr i8, ptr %27, i64 %storemerge.i.i
-  %49 = sub i64 %44, %storemerge.i.i
+  %49 = sub nuw i64 %44, %storemerge.i.i
   %50 = ptrtoint ptr %48 to i64
   %51 = and i64 %50, 7
   %52 = icmp eq i64 %51, 0
@@ -445,7 +445,7 @@ define dso_local void @set_ps_display_suffix(ptr nocapture noundef readonly %0) 
 36:                                               ; preds = %32
   %37 = ptrtoint ptr %7 to i64
   %38 = getelementptr i8, ptr %7, i64 %33
-  %39 = sub i64 %34, %33
+  %39 = sub nuw i64 %34, %33
   %40 = ptrtoint ptr %38 to i64
   %41 = and i64 %40, 7
   %42 = icmp eq i64 %41, 0
@@ -521,7 +521,7 @@ update_ps_display_precheck.exit:                  ; preds = %3
 
 13:                                               ; preds = %9
   %14 = ptrtoint ptr %6 to i64
-  %15 = sub i64 %11, %7
+  %15 = sub nuw i64 %11, %7
   %16 = ptrtoint ptr %10 to i64
   %17 = and i64 %16, 7
   %18 = icmp eq i64 %17, 0
@@ -612,7 +612,7 @@ define dso_local void @set_ps_display_with_len(ptr nocapture noundef readonly %0
 25:                                               ; preds = %22
   %26 = ptrtoint ptr %8 to i64
   %27 = getelementptr i8, ptr %8, i64 %storemerge
-  %28 = sub i64 %23, %storemerge
+  %28 = sub nuw i64 %23, %storemerge
   %29 = ptrtoint ptr %27 to i64
   %30 = and i64 %29, 7
   %31 = icmp eq i64 %30, 0

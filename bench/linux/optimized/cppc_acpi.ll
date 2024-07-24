@@ -1467,7 +1467,7 @@ define internal fastcc i32 @send_pcc_cmd(i32 noundef %0, i16 noundef zeroext %1)
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %24
-  %34 = sub i32 %31, %30
+  %34 = sub nuw i32 %31, %30
   %35 = zext i32 %34 to i64
   tail call void @__udelay(i64 noundef %35) #13
   br label %36

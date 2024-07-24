@@ -960,7 +960,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !9
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.0.i = sub i64 %13, %15
+  %.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.0.i, ptr %0, align 8
@@ -972,7 +972,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1006,7 +1006,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !9
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.0.i = sub i64 %13, %15
+  %.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.0.i, ptr %0, align 8
@@ -1018,7 +1018,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1040,7 +1040,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !9
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.0 = sub i64 %5, %7
+  %.0 = sub nuw i64 %5, %7
   ret i64 %.0
 }
 
@@ -1052,7 +1052,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !9
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.0 = sub i64 %5, %7
+  %.0 = sub nuw i64 %5, %7
   ret i64 %.0
 }
 
@@ -2098,7 +2098,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %60 = load i64, ptr %0, align 8, !alias.scope !171, !noalias !162, !noundef !9
   %.not.i.i = icmp ult i64 %59, %60
   %61 = select i1 %.not.i.i, i64 0, i64 %60
-  %.0.i.i = sub i64 %59, %61
+  %.0.i.i = sub nuw i64 %59, %61
   %62 = load ptr, ptr %13, align 8, !alias.scope !159, !noalias !162, !nonnull !9, !noundef !9
   %63 = getelementptr inbounds ptr, ptr %62, i64 %.0.i.i
   store ptr %.0, ptr %63, align 8, !noalias !162
@@ -2117,7 +2117,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %69 = load i64, ptr %0, align 8, !noundef !9
   %.not.i.i23 = icmp ult i64 %68, %69
   %70 = select i1 %.not.i.i23, i64 0, i64 %69
-  %.0.i.i24 = sub i64 %68, %70
+  %.0.i.i24 = sub nuw i64 %68, %70
   %71 = load ptr, ptr %13, align 8, !nonnull !9, !noundef !9
   %72 = getelementptr inbounds ptr, ptr %71, i64 %.0.i.i24
   %73 = load i64, ptr %10, align 8, !noundef !9
@@ -2148,7 +2148,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %86 = add i64 %68, 1
   %.not.i.i25 = icmp ult i64 %86, %69
   %87 = select i1 %.not.i.i25, i64 0, i64 %69
-  %.0.i.i26 = sub i64 %86, %87
+  %.0.i.i26 = sub nuw i64 %86, %87
   store i64 %.0.i.i26, ptr %12, align 8, !alias.scope !174
   store i64 %64, ptr %11, align 8, !alias.scope !174
   %88 = getelementptr inbounds ptr, ptr %71, i64 %68
@@ -2170,7 +2170,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %96 = load i64, ptr %0, align 8, !alias.scope !180, !noundef !9
   %.not.i.i30 = icmp ult i64 %95, %96
   %97 = select i1 %.not.i.i30, i64 0, i64 %96
-  %.0.i.i31 = sub i64 %95, %97
+  %.0.i.i31 = sub nuw i64 %95, %97
   store i64 %.0.i.i31, ptr %12, align 8, !alias.scope !177
   %98 = add i64 %54, -1
   store i64 %98, ptr %11, align 8, !alias.scope !177
@@ -2457,7 +2457,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %63 = load i64, ptr %0, align 8, !alias.scope !233, !noalias !224, !noundef !9
   %.not.i.i = icmp ult i64 %62, %63
   %64 = select i1 %.not.i.i, i64 0, i64 %63
-  %.0.i.i = sub i64 %62, %64
+  %.0.i.i = sub nuw i64 %62, %64
   %65 = load ptr, ptr %16, align 8, !alias.scope !221, !noalias !224, !nonnull !9, !noundef !9
   %66 = getelementptr inbounds ptr, ptr %65, i64 %.0.i.i
   store ptr %.0, ptr %66, align 8, !noalias !224
@@ -2476,7 +2476,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %72 = load i64, ptr %0, align 8, !noundef !9
   %.not.i.i25 = icmp ult i64 %71, %72
   %73 = select i1 %.not.i.i25, i64 0, i64 %72
-  %.0.i.i26 = sub i64 %71, %73
+  %.0.i.i26 = sub nuw i64 %71, %73
   %74 = load ptr, ptr %16, align 8, !nonnull !9, !noundef !9
   %75 = getelementptr inbounds ptr, ptr %74, i64 %.0.i.i26
   %76 = load i64, ptr %13, align 8, !noundef !9
@@ -2507,7 +2507,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %89 = add i64 %71, 1
   %.not.i.i27 = icmp ult i64 %89, %72
   %90 = select i1 %.not.i.i27, i64 0, i64 %72
-  %.0.i.i28 = sub i64 %89, %90
+  %.0.i.i28 = sub nuw i64 %89, %90
   store i64 %.0.i.i28, ptr %15, align 8, !alias.scope !236
   store i64 %67, ptr %14, align 8, !alias.scope !236
   %91 = getelementptr inbounds ptr, ptr %74, i64 %71
@@ -2529,7 +2529,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %99 = load i64, ptr %0, align 8, !alias.scope !242, !noundef !9
   %.not.i.i32 = icmp ult i64 %98, %99
   %100 = select i1 %.not.i.i32, i64 0, i64 %99
-  %.0.i.i33 = sub i64 %98, %100
+  %.0.i.i33 = sub nuw i64 %98, %100
   store i64 %.0.i.i33, ptr %15, align 8, !alias.scope !239
   %101 = add i64 %57, -1
   store i64 %101, ptr %14, align 8, !alias.scope !239
@@ -2811,7 +2811,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %60 = load i64, ptr %0, align 8, !alias.scope !292, !noalias !283, !noundef !9
   %.not.i.i = icmp ult i64 %59, %60
   %61 = select i1 %.not.i.i, i64 0, i64 %60
-  %.0.i.i = sub i64 %59, %61
+  %.0.i.i = sub nuw i64 %59, %61
   %62 = load ptr, ptr %13, align 8, !alias.scope !280, !noalias !283, !nonnull !9, !noundef !9
   %63 = getelementptr inbounds ptr, ptr %62, i64 %.0.i.i
   store ptr %.0, ptr %63, align 8, !noalias !283
@@ -2830,7 +2830,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %69 = load i64, ptr %0, align 8, !noundef !9
   %.not.i.i23 = icmp ult i64 %68, %69
   %70 = select i1 %.not.i.i23, i64 0, i64 %69
-  %.0.i.i24 = sub i64 %68, %70
+  %.0.i.i24 = sub nuw i64 %68, %70
   %71 = load ptr, ptr %13, align 8, !nonnull !9, !noundef !9
   %72 = getelementptr inbounds ptr, ptr %71, i64 %.0.i.i24
   %73 = load i64, ptr %10, align 8, !noundef !9
@@ -2861,7 +2861,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %86 = add i64 %68, 1
   %.not.i.i25 = icmp ult i64 %86, %69
   %87 = select i1 %.not.i.i25, i64 0, i64 %69
-  %.0.i.i26 = sub i64 %86, %87
+  %.0.i.i26 = sub nuw i64 %86, %87
   store i64 %.0.i.i26, ptr %12, align 8, !alias.scope !295
   store i64 %64, ptr %11, align 8, !alias.scope !295
   %88 = getelementptr inbounds ptr, ptr %71, i64 %68
@@ -2883,7 +2883,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %96 = load i64, ptr %0, align 8, !alias.scope !301, !noundef !9
   %.not.i.i30 = icmp ult i64 %95, %96
   %97 = select i1 %.not.i.i30, i64 0, i64 %96
-  %.0.i.i31 = sub i64 %95, %97
+  %.0.i.i31 = sub nuw i64 %95, %97
   store i64 %.0.i.i31, ptr %12, align 8, !alias.scope !298
   %98 = add i64 %54, -1
   store i64 %98, ptr %11, align 8, !alias.scope !298
@@ -3057,13 +3057,13 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17h20328a7
   %14 = load i64, ptr %0, align 8, !alias.scope !348, !noalias !347, !noundef !9
   %.not.i.i.i.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i.i.i.i, i64 0, i64 %14
-  %.0.i.i.i.i = sub i64 %13, %15
+  %.0.i.i.i.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.0.i.i.i.i
   %.not.i.i.i = icmp ult i64 %16, %8
   br i1 %.not.i.i.i, label %17, label %19
 
 17:                                               ; preds = %10
-  %18 = sub i64 %8, %16
+  %18 = sub nuw i64 %8, %16
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit"
 
 19:                                               ; preds = %10
@@ -3176,13 +3176,13 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17hb525581
   %14 = load i64, ptr %0, align 8, !alias.scope !377, !noalias !375, !noundef !9
   %.not.i.i.i.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i.i.i.i, i64 0, i64 %14
-  %.0.i.i.i.i = sub i64 %13, %15
+  %.0.i.i.i.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.0.i.i.i.i
   %.not.i.i.i = icmp ult i64 %16, %8
   br i1 %.not.i.i.i, label %17, label %19
 
 17:                                               ; preds = %10
-  %18 = sub i64 %8, %16
+  %18 = sub nuw i64 %8, %16
   br label %22
 
 19:                                               ; preds = %10
@@ -3649,7 +3649,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %71 = load i64, ptr %0, align 8, !alias.scope !481, !noalias !472, !noundef !9
   %.not.i.i = icmp ult i64 %70, %71
   %72 = select i1 %.not.i.i, i64 0, i64 %71
-  %.0.i.i = sub i64 %70, %72
+  %.0.i.i = sub nuw i64 %70, %72
   %73 = load ptr, ptr %15, align 8, !alias.scope !469, !noalias !472, !nonnull !9, !noundef !9
   %74 = getelementptr inbounds ptr, ptr %73, i64 %.0.i.i
   store ptr %.0, ptr %74, align 8, !noalias !472
@@ -3668,7 +3668,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %80 = load i64, ptr %0, align 8, !noundef !9
   %.not.i.i31 = icmp ult i64 %79, %80
   %81 = select i1 %.not.i.i31, i64 0, i64 %80
-  %.0.i.i32 = sub i64 %79, %81
+  %.0.i.i32 = sub nuw i64 %79, %81
   %82 = load ptr, ptr %15, align 8, !nonnull !9, !noundef !9
   %83 = getelementptr inbounds ptr, ptr %82, i64 %.0.i.i32
   %84 = load i64, ptr %12, align 8, !noundef !9
@@ -3705,7 +3705,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %99 = add i64 %79, 1
   %.not.i.i33 = icmp ult i64 %99, %80
   %100 = select i1 %.not.i.i33, i64 0, i64 %80
-  %.0.i.i34 = sub i64 %99, %100
+  %.0.i.i34 = sub nuw i64 %99, %100
   store i64 %.0.i.i34, ptr %14, align 8, !alias.scope !484
   store i64 %75, ptr %13, align 8, !alias.scope !484
   %101 = getelementptr inbounds ptr, ptr %82, i64 %79
@@ -3727,7 +3727,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %110 = load i64, ptr %0, align 8, !alias.scope !487, !noundef !9
   %.not.i.i39 = icmp ult i64 %109, %110
   %111 = select i1 %.not.i.i39, i64 0, i64 %110
-  %.0.i.i40 = sub i64 %109, %111
+  %.0.i.i40 = sub nuw i64 %109, %111
   %112 = load ptr, ptr %15, align 8, !alias.scope !492, !nonnull !9, !noundef !9
   %113 = getelementptr inbounds ptr, ptr %112, i64 %.0.i.i40
   %114 = load ptr, ptr %113, align 8, !nonnull !9, !align !10, !noundef !9
@@ -3784,7 +3784,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %134 = load i64, ptr %0, align 8, !alias.scope !503, !noundef !9
   %.not.i.i44 = icmp ult i64 %133, %134
   %135 = select i1 %.not.i.i44, i64 0, i64 %134
-  %.0.i.i45 = sub i64 %133, %135
+  %.0.i.i45 = sub nuw i64 %133, %135
   store i64 %.0.i.i45, ptr %14, align 8, !alias.scope !501
   %136 = add i64 %131, -1
   store i64 %136, ptr %13, align 8, !alias.scope !501
@@ -3845,7 +3845,7 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i.i: ; 
 _ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit.i: ; preds = %158, %_ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i.i
   %.sroa.3.0.i = phi i64 [ %156, %_ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i.i ], [ 0, %158 ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
-  %159 = sub i64 %142, %147
+  %159 = sub nuw i64 %142, %147
   %160 = getelementptr inbounds i8, ptr %139, i64 8208
   %161 = load i8, ptr %160, align 8, !alias.scope !509, !noalias !506, !noundef !9
   br label %167
@@ -4131,7 +4131,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %71 = load i64, ptr %0, align 8, !alias.scope !575, !noalias !566, !noundef !9
   %.not.i.i = icmp ult i64 %70, %71
   %72 = select i1 %.not.i.i, i64 0, i64 %71
-  %.0.i.i = sub i64 %70, %72
+  %.0.i.i = sub nuw i64 %70, %72
   %73 = load ptr, ptr %15, align 8, !alias.scope !563, !noalias !566, !nonnull !9, !noundef !9
   %74 = getelementptr inbounds ptr, ptr %73, i64 %.0.i.i
   store ptr %.0, ptr %74, align 8, !noalias !566
@@ -4150,7 +4150,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %80 = load i64, ptr %0, align 8, !noundef !9
   %.not.i.i31 = icmp ult i64 %79, %80
   %81 = select i1 %.not.i.i31, i64 0, i64 %80
-  %.0.i.i32 = sub i64 %79, %81
+  %.0.i.i32 = sub nuw i64 %79, %81
   %82 = load ptr, ptr %15, align 8, !nonnull !9, !noundef !9
   %83 = getelementptr inbounds ptr, ptr %82, i64 %.0.i.i32
   %84 = load i64, ptr %12, align 8, !noundef !9
@@ -4187,7 +4187,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %99 = add i64 %79, 1
   %.not.i.i33 = icmp ult i64 %99, %80
   %100 = select i1 %.not.i.i33, i64 0, i64 %80
-  %.0.i.i34 = sub i64 %99, %100
+  %.0.i.i34 = sub nuw i64 %99, %100
   store i64 %.0.i.i34, ptr %14, align 8, !alias.scope !578
   store i64 %75, ptr %13, align 8, !alias.scope !578
   %101 = getelementptr inbounds ptr, ptr %82, i64 %79
@@ -4209,7 +4209,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %110 = load i64, ptr %0, align 8, !alias.scope !581, !noundef !9
   %.not.i.i39 = icmp ult i64 %109, %110
   %111 = select i1 %.not.i.i39, i64 0, i64 %110
-  %.0.i.i40 = sub i64 %109, %111
+  %.0.i.i40 = sub nuw i64 %109, %111
   %112 = load ptr, ptr %15, align 8, !alias.scope !586, !nonnull !9, !noundef !9
   %113 = getelementptr inbounds ptr, ptr %112, i64 %.0.i.i40
   %114 = load ptr, ptr %113, align 8, !nonnull !9, !align !10, !noundef !9
@@ -4266,7 +4266,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %134 = load i64, ptr %0, align 8, !alias.scope !597, !noundef !9
   %.not.i.i44 = icmp ult i64 %133, %134
   %135 = select i1 %.not.i.i44, i64 0, i64 %134
-  %.0.i.i45 = sub i64 %133, %135
+  %.0.i.i45 = sub nuw i64 %133, %135
   store i64 %.0.i.i45, ptr %14, align 8, !alias.scope !595
   %136 = add i64 %131, -1
   store i64 %136, ptr %13, align 8, !alias.scope !595
@@ -4327,7 +4327,7 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i.i: ; 
 _ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit.i: ; preds = %158, %_ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i.i
   %.sroa.3.0.i = phi i64 [ %156, %_ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i.i ], [ 0, %158 ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
-  %159 = sub i64 %142, %147
+  %159 = sub nuw i64 %142, %147
   %160 = getelementptr inbounds i8, ptr %139, i64 8208
   %161 = load i8, ptr %160, align 8, !alias.scope !603, !noalias !600, !noundef !9
   br label %167
@@ -4481,13 +4481,13 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16LinesChunkBuffer5print17hf22b216
   %14 = load i64, ptr %0, align 8, !alias.scope !656, !noalias !655, !noundef !9
   %.not.i.i.i.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i.i.i.i, i64 0, i64 %14
-  %.0.i.i.i.i = sub i64 %13, %15
+  %.0.i.i.i.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.0.i.i.i.i
   %.not.i.i.i = icmp ult i64 %16, %8
   br i1 %.not.i.i.i, label %17, label %19
 
 17:                                               ; preds = %10
-  %18 = sub i64 %8, %16
+  %18 = sub nuw i64 %8, %16
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit"
 
 19:                                               ; preds = %10

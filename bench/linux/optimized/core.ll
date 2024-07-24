@@ -3541,7 +3541,7 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   br i1 %87, label %88, label %.lr.ph.split._crit_edge
 
 88:                                               ; preds = %.thread12
-  %89 = sub i64 %85, %86
+  %89 = sub nuw i64 %85, %86
   %90 = getelementptr inbounds i8, ptr %67, i64 176
   tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %90, i64 %89, ptr elementtype(i64) %90) #22, !srcloc !41
   br label %.lr.ph.split._crit_edge
@@ -3598,7 +3598,7 @@ define internal i64 @icl_update_topdown_event(ptr noundef %0) #1 align 16 {
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %.thread13
-  %124 = sub i64 %120, %121
+  %124 = sub nuw i64 %120, %121
   %125 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %125, i64 %124, ptr elementtype(i64) %125) #22, !srcloc !41
   br label %126

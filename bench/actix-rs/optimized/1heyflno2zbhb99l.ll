@@ -1746,7 +1746,7 @@ define hidden void @"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$13choos
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit": ; preds = %.lr.ph
-  %34 = sub i64 %.val23, %28
+  %34 = sub nuw i64 %.val23, %28
   %.not.i.i24 = icmp ult i64 %34, 8
   br i1 %.not.i.i24, label %35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit28"
 

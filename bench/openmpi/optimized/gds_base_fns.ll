@@ -777,7 +777,7 @@ pmix_obj_run_constructors.exit151:                ; preds = %.lr.ph.i148, %276
   br i1 %334, label %.loopexit, label %335
 
 335:                                              ; preds = %.lr.ph
-  %336 = sub i32 %329, %333
+  %336 = sub nuw i32 %329, %333
   store i32 %336, ptr %12, align 4
   %337 = getelementptr inbounds i8, ptr %.086281, i64 120
   %.086 = load ptr, ptr %337, align 8

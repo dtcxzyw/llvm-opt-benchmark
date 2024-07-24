@@ -4907,7 +4907,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
-  %184 = sub nsw i64 %174, %181
+  %184 = sub nuw nsw i64 %174, %181
   invoke void @_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %172, i64 noundef %184)
           to label %.noexc38 unwind label %268
 
@@ -5761,7 +5761,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   br i1 %26, label %27, label %57
 
 27:                                               ; preds = %14
-  %28 = sub nsw i64 %18, %25
+  %28 = sub nuw nsw i64 %18, %25
   %29 = getelementptr inbounds i8, ptr %4, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
@@ -6047,7 +6047,7 @@ _ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit:        ; preds = %.lr.ph.i.i.i.i.i.i
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit
-  %148 = sub nsw i64 %137, %145
+  %148 = sub nuw nsw i64 %137, %145
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %138, i64 noundef %148)
           to label %.lr.ph.preheader unwind label %.loopexit.split-lp
 

@@ -244,7 +244,7 @@ define internal noundef range(i64 -22, 2147483648) i64 @setup_data_read(ptr noca
   br i1 %13, label %14, label %34
 
 14:                                               ; preds = %9
-  %15 = sub nsw i64 %12, %7
+  %15 = sub nuw nsw i64 %12, %7
   %16 = tail call i64 @llvm.umin.i64(i64 %15, i64 %2)
   %17 = load i64, ptr %6, align 8
   %18 = add i64 %17, %7

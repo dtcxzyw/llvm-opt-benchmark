@@ -1619,7 +1619,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.9066054611792751
   br i1 %.not.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17h8f956c62f2bfc634E.llvm.906605461179275197.exit", label %48
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit.i
-  %49 = sub i64 %1, %47
+  %49 = sub nuw i64 %1, %47
   %50 = getelementptr inbounds i8, ptr %0, i64 %49
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %50, i64 %47), !alias.scope !366
   %51 = icmp eq i32 %bcmp.i.i.i, 0
@@ -1924,7 +1924,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.9066054611792751
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb82f83160d86f135E.exit", label %48
 
 48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit
-  %49 = sub i64 %2, %47
+  %49 = sub nuw i64 %2, %47
   %50 = getelementptr inbounds i8, ptr %1, i64 %49
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %50, i64 %47), !alias.scope !382
   %51 = icmp eq i32 %bcmp.i.i, 0

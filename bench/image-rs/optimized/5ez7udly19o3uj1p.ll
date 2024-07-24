@@ -13484,7 +13484,7 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   br i1 %132, label %267, label %196
 
 133:                                              ; preds = %126
-  %134 = sub i64 %.sroa.8.0207326, %77
+  %134 = sub nuw i64 %.sroa.8.0207326, %77
   %135 = getelementptr inbounds i8, ptr %.sroa.5194.0325, i64 %77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   %136 = icmp eq i64 %124, 0
@@ -13576,7 +13576,7 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit.i"
 
 166:                                              ; preds = %157
-  %167 = sub i64 %163, %164
+  %167 = sub nuw i64 %163, %164
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h9478d6f47c96feedE.llvm.17224713629878502917"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %167, i8 noundef 0)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit_crit_edge.i" unwind label %184, !noalias !1910
 
@@ -14274,7 +14274,7 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   br i1 %132, label %267, label %196
 
 133:                                              ; preds = %126
-  %134 = sub i64 %.sroa.8.0207326, %77
+  %134 = sub nuw i64 %.sroa.8.0207326, %77
   %135 = getelementptr inbounds i8, ptr %.sroa.5194.0325, i64 %77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   %136 = icmp eq i64 %124, 0
@@ -14366,7 +14366,7 @@ default.unreachable356:                           ; preds = %"_ZN3png7decoder15R
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit.i"
 
 166:                                              ; preds = %157
-  %167 = sub i64 %163, %164
+  %167 = sub nuw i64 %163, %164
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h9478d6f47c96feedE.llvm.17224713629878502917"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %167, i8 noundef 0)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit_crit_edge.i" unwind label %184, !noalias !2025
 
@@ -15260,7 +15260,7 @@ define internal fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$21read_until_image
   br label %87
 
 .critedge:                                        ; preds = %69
-  %83 = sub i64 %80, %78
+  %83 = sub nuw i64 %80, %78
   store i64 %83, ptr %79, align 8
   %84 = getelementptr inbounds i8, ptr %1, i64 672
   %85 = load i64, ptr %84, align 8, !noundef !19
@@ -15535,7 +15535,7 @@ define internal fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$21read_until_image
   br label %87
 
 .critedge:                                        ; preds = %69
-  %83 = sub i64 %80, %78
+  %83 = sub nuw i64 %80, %78
   store i64 %83, ptr %79, align 8
   %84 = getelementptr inbounds i8, ptr %1, i64 648
   %85 = load i64, ptr %84, align 8, !noundef !19
@@ -15683,7 +15683,7 @@ define internal fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17hb6211592225ad28dE.exit.i": ; preds = %52
-  %56 = sub i64 %26, %51
+  %56 = sub nuw i64 %26, %51
   %57 = getelementptr inbounds i8, ptr %53, i64 %51
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %57, i64 %56, i1 false), !alias.scope !2170, !noalias !2174
   %58 = load i64, ptr %12, align 8, !alias.scope !2157, !noalias !2160, !noundef !19
@@ -15692,7 +15692,7 @@ define internal fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_
   br i1 %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i", label %61
 
 61:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17hb6211592225ad28dE.exit.i"
-  %62 = sub i64 %58, %59
+  %62 = sub nuw i64 %58, %59
   store i64 %62, ptr %12, align 8, !alias.scope !2176, !noalias !2160
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i"
 
@@ -16063,7 +16063,7 @@ define internal fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17hb6211592225ad28dE.exit.i": ; preds = %52
-  %56 = sub i64 %26, %51
+  %56 = sub nuw i64 %26, %51
   %57 = getelementptr inbounds i8, ptr %53, i64 %51
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %57, i64 %56, i1 false), !alias.scope !2206, !noalias !2210
   %58 = load i64, ptr %12, align 8, !alias.scope !2194, !noalias !2197, !noundef !19
@@ -16072,7 +16072,7 @@ define internal fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_
   br i1 %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i", label %61
 
 61:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within17hb6211592225ad28dE.exit.i"
-  %62 = sub i64 %58, %59
+  %62 = sub nuw i64 %58, %59
   store i64 %62, ptr %12, align 8, !alias.scope !2212, !noalias !2197
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8cf6a3a25a0efd08E.exit.i"
 
@@ -28192,7 +28192,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 115:                                              ; preds = %111
   %116 = getelementptr i8, ptr %2, i64 %114
   %117 = mul nuw nsw i64 %113, %108
-  %118 = sub nsw i64 %3, %114
+  %118 = sub nuw nsw i64 %3, %114
   %.not.i189 = icmp ugt i64 %117, %118
   br i1 %.not.i189, label %.invoke, label %120
 
@@ -28379,7 +28379,7 @@ common.resume:                                    ; preds = %.body, %309, %153
   br i1 %169, label %174, label %170
 
 170:                                              ; preds = %167
-  %171 = sub i64 %168, %162
+  %171 = sub nuw i64 %168, %162
   store i64 %171, ptr %166, align 8, !alias.scope !3341, !noalias !3346
   br label %172
 
@@ -29166,7 +29166,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 116:                                              ; preds = %112
   %117 = getelementptr i8, ptr %2, i64 %115
   %118 = mul nuw nsw i64 %114, %109
-  %119 = sub nsw i64 %3, %115
+  %119 = sub nuw nsw i64 %3, %115
   %.not.i190 = icmp ugt i64 %118, %119
   br i1 %.not.i190, label %.invoke, label %121
 
@@ -29319,7 +29319,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   br i1 %159, label %164, label %160
 
 160:                                              ; preds = %157
-  %161 = sub i64 %158, %152
+  %161 = sub nuw i64 %158, %152
   store i64 %161, ptr %156, align 8, !alias.scope !3498, !noalias !3503
   br label %162
 

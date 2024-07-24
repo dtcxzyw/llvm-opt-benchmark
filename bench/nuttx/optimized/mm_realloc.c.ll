@@ -81,7 +81,7 @@ define ptr @mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unn
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %40, %spec.select
-  %45 = sub i64 %40, %spec.select
+  %45 = sub nuw i64 %40, %spec.select
   br i1 %44, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %43, %42
@@ -116,7 +116,7 @@ select.unfold:                                    ; preds = %43, %42
   br i1 %60, label %61, label %70
 
 61:                                               ; preds = %55
-  %62 = sub i64 %.0143, %spec.select162
+  %62 = sub nuw i64 %.0143, %spec.select162
   %63 = getelementptr inbounds i8, ptr %.0140, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = and i64 %64, 3
@@ -185,7 +185,7 @@ select.unfold:                                    ; preds = %43, %42
 
 98:                                               ; preds = %89
   %99 = getelementptr inbounds i8, ptr %.0134, i64 %92
-  %100 = sub i64 %spec.select, %spec.select163
+  %100 = sub nuw i64 %spec.select, %spec.select163
   %101 = getelementptr inbounds i8, ptr %99, i64 8
   store i64 %100, ptr %101, align 8
   store i64 %100, ptr %80, align 8

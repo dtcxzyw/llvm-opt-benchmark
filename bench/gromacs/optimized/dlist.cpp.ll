@@ -1008,7 +1008,7 @@ sub_2341:                                         ; preds = %sub_1340
   br i1 %378, label %379, label %381
 
 379:                                              ; preds = %369
-  %380 = sub nsw i64 %370, %377
+  %380 = sub nuw nsw i64 %370, %377
   invoke void @_ZNSt6vectorI7t_dlistSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %380)
           to label %_ZNSt6vectorI7t_dlistSaIS0_EE6resizeEm.exit unwind label %.loopexit.split-lp
 

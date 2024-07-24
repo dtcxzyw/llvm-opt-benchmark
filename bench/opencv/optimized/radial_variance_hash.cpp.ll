@@ -877,7 +877,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl17findFeat
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %1
-  %15 = sub nsw i64 %5, %12
+  %15 = sub nuw nsw i64 %5, %12
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %15)
   %.pre = load i32, ptr %3, align 8
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit

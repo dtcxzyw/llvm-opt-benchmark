@@ -679,7 +679,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %sub = sub i64 %0, %1
+  %sub = sub nuw i64 %0, %1
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 2147483647)
   %conv = trunc nuw nsw i64 %spec.store.select to i32
   br label %return

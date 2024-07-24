@@ -1710,7 +1710,7 @@ define internal void @dmc_load_work_fn(ptr nocapture noundef %0) #1 align 16 {
 280:                                              ; preds = %267
   %281 = load ptr, ptr %40, align 8
   %282 = getelementptr i8, ptr %281, i64 %272
-  %283 = sub i64 %273, %272
+  %283 = sub nuw i64 %273, %272
   %284 = load ptr, ptr %3, align 8
   %285 = icmp ult i64 %283, 20
   br i1 %285, label %493, label %286

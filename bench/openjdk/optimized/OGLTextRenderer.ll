@@ -460,7 +460,7 @@ OGLTR_DisableGlyphModeState.exit.i128:            ; preds = %158, %151
   %.03843.us.i = phi i32 [ %167, %._crit_edge.us.i ], [ 0, %166 ]
   %167 = add nuw nsw i32 %.03843.us.i, 32
   %168 = icmp ugt i32 %167, %154
-  %169 = sub nsw i32 %154, %.03843.us.i
+  %169 = sub nuw nsw i32 %154, %.03843.us.i
   %170 = select i1 %168, i32 %169, i32 32
   br label %171
 
@@ -469,7 +469,7 @@ OGLTR_DisableGlyphModeState.exit.i128:            ; preds = %158, %151
   %.03741.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %172, %171 ]
   %172 = add nuw nsw i32 %.03741.us.i, 32
   %173 = icmp ugt i32 %172, %153
-  %174 = sub nsw i32 %153, %.03741.us.i
+  %174 = sub nuw nsw i32 %153, %.03741.us.i
   %175 = select i1 %173, i32 %174, i32 32
   %176 = load ptr, ptr %80, align 8
   tail call void @OGLVertexCache_AddMaskQuad(ptr noundef %1, i32 noundef %.03741.us.i, i32 noundef %.03843.us.i, i32 noundef %.042.us.i, i32 noundef %.03644.us.i, i32 noundef %175, i32 noundef %170, i32 noundef %153, ptr noundef %176) #5
@@ -973,9 +973,9 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %418, %413
   %441 = phi <2 x float> [ %517, %._crit_edge.us.i136 ], [ zeroinitializer, %.lr.ph120.i ]
   %442 = add nuw nsw i32 %.0104115.us.i, 32
   %443 = icmp ugt i32 %442, %416
-  %444 = sub nsw i32 %416, %.0104115.us.i
+  %444 = sub nuw nsw i32 %416, %.0104115.us.i
   %445 = select i1 %443, i32 %444, i32 32
-  %446 = sitofp i32 %445 to float
+  %446 = uitofp nneg i32 %445 to float
   %447 = fmul float %446, 7.812500e-03
   %448 = add nsw i32 %445, %.096118.us.i
   %449 = fmul float %446, 1.562500e-02
@@ -989,7 +989,7 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %418, %413
   %453 = phi <2 x float> [ %441, %.lr.ph.us.i135 ], [ %517, %494 ]
   %454 = add nuw nsw i32 %.0103110.us.i, 32
   %455 = icmp ugt i32 %454, %182
-  %456 = sub nsw i32 %182, %.0103110.us.i
+  %456 = sub nuw nsw i32 %182, %.0103110.us.i
   %457 = select i1 %455, i32 %456, i32 32
   %458 = load ptr, ptr @j2d_glPixelStorei, align 8
   tail call void %458(i32 noundef 3316, i32 noundef %.0103110.us.i) #5
@@ -1001,7 +1001,7 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %418, %413
   %462 = load ptr, ptr %80, align 8
   %463 = getelementptr inbounds i8, ptr %462, i64 %440
   tail call void %461(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %457, i32 noundef %445, i32 noundef %32, i32 noundef 5121, ptr noundef %463) #5
-  %464 = sitofp i32 %457 to float
+  %464 = uitofp nneg i32 %457 to float
   %465 = fmul float %464, 7.812500e-03
   %466 = load i32, ptr %34, align 4
   %467 = load i32, ptr %35, align 8

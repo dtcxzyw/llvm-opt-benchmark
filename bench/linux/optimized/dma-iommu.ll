@@ -1570,7 +1570,7 @@ define internal i32 @iommu_dma_mmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %18 = load i64, ptr %1, align 8
   %19 = sub i64 %17, %18
   %20 = lshr i64 %19, 12
-  %21 = sub nsw i64 %8, %10
+  %21 = sub nuw nsw i64 %8, %10
   %22 = icmp ugt i64 %20, %21
   br i1 %22, label %49, label %23
 

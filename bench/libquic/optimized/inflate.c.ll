@@ -2093,7 +2093,7 @@ do.body1007:                                      ; preds = %do.body1007.loopexi
   %bits.31.lcssa = phi i32 [ %bits.30.lcssa, %while.cond983.preheader ], [ %132, %do.body1007.loopexit ]
   %sh_prom1010 = zext nneg i8 %here.sroa.16.0.copyload.lcssa to i64
   %shr1011 = lshr i64 %hold.31.lcssa, %sh_prom1010
-  %sub1014 = sub i32 %bits.31.lcssa, %conv937.lcssa1521
+  %sub1014 = sub nuw i32 %bits.31.lcssa, %conv937.lcssa1521
   %cmp1018 = icmp eq i32 %inc11511569.lcssa15731577, 0
   br i1 %cmp1018, label %if.then1020, label %if.end1023
 
@@ -2455,7 +2455,7 @@ do.body1328:                                      ; preds = %do.body1328.loopexi
   %here.sroa.0.0.copyload51 = load i8, ptr %arrayidx1303.lcssa, align 2
   %sh_prom1331 = zext nneg i8 %here.sroa.16.0.copyload54.lcssa to i64
   %shr1332 = lshr i64 %hold.40.lcssa, %sh_prom1331
-  %sub1335 = sub i32 %bits.40.lcssa, %conv1256.lcssa
+  %sub1335 = sub nuw i32 %bits.40.lcssa, %conv1256.lcssa
   br label %do.body1343
 
 do.body1343:                                      ; preds = %for.end1275, %do.body1328
@@ -2561,7 +2561,7 @@ do.end1414:                                       ; preds = %if.end1402, %while.
   store i32 %add1421, ptr %length1680, align 4
   %sh_prom1424 = zext nneg i32 %161 to i64
   %shr1425 = lshr i64 %hold.43.lcssa, %sh_prom1424
-  %sub1427 = sub i32 %bits.43.lcssa, %161
+  %sub1427 = sub nuw i32 %bits.43.lcssa, %161
   %164 = load i32, ptr %back1245, align 4
   %add1432 = add i32 %164, %161
   store i32 %add1432, ptr %back1245, align 4
@@ -2719,7 +2719,7 @@ do.body1516:                                      ; preds = %do.body1516.loopexi
   %here.sroa.0.0.copyload53 = load i8, ptr %arrayidx1491.lcssa, align 2
   %sh_prom1519 = zext nneg i8 %here.sroa.16.0.copyload56.lcssa to i64
   %shr1520 = lshr i64 %hold.47.lcssa, %sh_prom1519
-  %sub1523 = sub i32 %bits.47.lcssa, %conv1447.lcssa
+  %sub1523 = sub nuw i32 %bits.47.lcssa, %conv1447.lcssa
   %176 = load i32, ptr %back1245, align 4
   %add1529 = add nsw i32 %176, %conv1447.lcssa
   br label %do.body1531
@@ -2805,7 +2805,7 @@ do.end1586:                                       ; preds = %if.end1574, %while.
   store i32 %add1593, ptr %offset, align 8
   %sh_prom1596 = zext nneg i32 %178 to i64
   %shr1597 = lshr i64 %hold.50.lcssa, %sh_prom1596
-  %sub1599 = sub i32 %bits.50.lcssa, %178
+  %sub1599 = sub nuw i32 %bits.50.lcssa, %178
   %181 = load i32, ptr %back1245, align 4
   %add1604 = add i32 %181, %178
   store i32 %add1604, ptr %back1245, align 4
@@ -2835,7 +2835,7 @@ if.end1611:                                       ; preds = %sw.bb1607
   br i1 %cmp1614, label %if.then1616, label %if.else1649
 
 if.then1616:                                      ; preds = %if.end1611
-  %sub1618 = sub i32 %182, %sub1612
+  %sub1618 = sub nuw i32 %182, %sub1612
   %183 = load i32, ptr %whave, align 8
   %cmp1619 = icmp ugt i32 %sub1618, %183
   br i1 %cmp1619, label %if.then1621, label %if.end1627
@@ -2856,13 +2856,13 @@ if.end1627:                                       ; preds = %if.then1621, %if.th
   br i1 %cmp1628, label %if.then1630, label %if.else1636
 
 if.then1630:                                      ; preds = %if.end1627
-  %sub1632 = sub i32 %sub1618, %185
+  %sub1632 = sub nuw i32 %sub1618, %185
   %186 = load i32, ptr %wsize, align 4
   %sub1633 = sub i32 %186, %sub1632
   br label %if.end1642
 
 if.else1636:                                      ; preds = %if.end1627
-  %sub1639 = sub i32 %185, %sub1618
+  %sub1639 = sub nuw i32 %185, %sub1618
   br label %if.end1642
 
 if.end1642:                                       ; preds = %if.else1636, %if.then1630

@@ -7958,7 +7958,7 @@ _ZN4core3ops5range11RangeBounds8contains17hd8ce1e5f620bc1eeE.exit.thread: ; pred
   br label %56
 
 53:                                               ; preds = %44
-  %54 = sub i128 %8, %3
+  %54 = sub nuw i128 %8, %3
   %55 = and i128 %25, %54
   store i128 %55, ptr %0, align 16
   %.sroa.4.0..sroa_idx31 = getelementptr inbounds i8, ptr %0, i64 16

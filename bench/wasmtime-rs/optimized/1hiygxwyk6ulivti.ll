@@ -7979,7 +7979,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8317a087ef19b6f3E"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h98ef2c26d5e54db5E.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !1584, !noundef !11
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -8026,7 +8026,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha0c0f1750e6ccdddE"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hb201bd5cd79bd634E.llvm.2944573799196634385.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !1590, !noundef !11
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -8226,7 +8226,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h06f573917b0090ac
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !11, !noundef !11
   %10 = getelementptr inbounds { { i64, [17 x i64] }, { ptr, i64 }, i64 }, ptr %9, i64 %1
@@ -8247,7 +8247,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h481e5f6a28d381f9
   br i1 %6, label %"_ZN4core3ptr87drop_in_place$LT$$u5b$indexmap..Bucket$LT$alloc..string..String$C$$LP$$RP$$GT$$u5d$$GT$17hd72796c5f316e259E.llvm.2944573799196634385.exit", label %7
 
 7:                                                ; preds = %2
-  %8 = sub i64 %5, %1
+  %8 = sub nuw i64 %5, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !11, !noundef !11
   %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64, {} }, ptr %10, i64 %1
@@ -8356,7 +8356,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf5b3ee9de24c77d1
   br i1 %6, label %"_ZN4core3ptr156drop_in_place$LT$$u5b$indexmap..Bucket$LT$alloc..string..String$C$core..option..Option$LT$wasmtime_environ..component..types..InterfaceType$GT$$GT$$u5d$$GT$17h9d1b435135cedda0E.llvm.2944573799196634385.exit", label %7
 
 7:                                                ; preds = %2
-  %8 = sub i64 %5, %1
+  %8 = sub nuw i64 %5, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !11, !noundef !11
   %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %10, i64 %1

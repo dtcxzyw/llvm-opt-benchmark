@@ -705,7 +705,7 @@ lor.lhs.false22:                                  ; preds = %lor.lhs.false
   br i1 %cmp25, label %if.end37.thread, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false22
-  %sub32 = sub nsw i64 %conv24, %15
+  %sub32 = sub nuw nsw i64 %conv24, %15
   %div34 = lshr i64 %sub32, 9
   %cmp33 = icmp ult i64 %div34, %conv13
   br i1 %cmp33, label %if.end37.thread, label %if.end42
@@ -901,9 +901,9 @@ if.end7:                                          ; preds = %if.end2
   call void @blk_get_geometry(ptr noundef %2, ptr noundef nonnull %total_sectors) #14
   %3 = load i64, ptr %total_sectors, align 8
   %cmp8 = icmp uge i64 %3, %sector
-  %sub = sub i64 %3, %sector
+  %sub = sub nuw i64 %3, %sector
   %cmp10 = icmp ule i64 %shr, %sub
-  %or.cond.not = and i1 %cmp8, %cmp10
+  %or.cond.not = select i1 %cmp8, i1 %cmp10, i1 false
   br label %return
 
 return:                                           ; preds = %if.end7, %if.end2, %if.end, %entry
@@ -1677,9 +1677,9 @@ virtio_blk_sect_range_ok.exit:                    ; preds = %if.end2.i
   call void @blk_get_geometry(ptr noundef %3, ptr noundef nonnull %total_sectors.i) #14
   %4 = load i64, ptr %total_sectors.i, align 8
   %cmp8.i = icmp uge i64 %4, %dwz_hdr.val
-  %sub.i = sub i64 %4, %dwz_hdr.val
+  %sub.i = sub nuw i64 %4, %dwz_hdr.val
   %cmp10.i = icmp ule i64 %shr.i, %sub.i
-  %or.cond.not.i = and i1 %cmp8.i, %cmp10.i
+  %or.cond.not.i = select i1 %cmp8.i, i1 %cmp10.i, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %total_sectors.i)
   br i1 %or.cond.not.i, label %if.end21, label %err
 
@@ -1998,9 +1998,9 @@ switch.lookup51:                                  ; preds = %switch.hole_check
 land.lhs.true1.i36:                               ; preds = %switch.lookup51
   %27 = load i64, ptr %iov_len.i37, align 8
   %cmp.not.i = icmp ult i64 %27, %i.048
-  %sub.i = sub i64 %27, %i.048
+  %sub.i = sub nuw i64 %27, %i.048
   %cmp5.not.i38 = icmp ult i64 %sub.i, 64
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i38
+  %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i38
   br i1 %or.cond13.i, label %iov_from_buf.exit40, label %iov_from_buf.exit40.thread
 
 iov_from_buf.exit40.thread:                       ; preds = %land.lhs.true1.i36

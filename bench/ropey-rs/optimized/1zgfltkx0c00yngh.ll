@@ -5765,7 +5765,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit258: ; 
 371:                                              ; preds = %370
   %372 = add i64 %265, %363
   %373 = add <2 x i64> %268, %365
-  %374 = sub i64 %266, %363
+  %374 = sub nuw i64 %266, %363
   store i64 %374, ptr %53, align 8
   br label %263
 

@@ -998,7 +998,7 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %106
-  %110 = sub nsw i32 %107, %.0
+  %110 = sub nuw nsw i32 %107, %.0
   %111 = load i32, ptr @hf_bytes, align 4
   %112 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.0125, i32 noundef %111, ptr noundef %0, i32 noundef %.0, i32 noundef %110, ptr noundef null, ptr noundef nonnull @.str.237, i32 noundef %110) #9
   br label %113

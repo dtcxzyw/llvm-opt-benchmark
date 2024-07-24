@@ -1802,7 +1802,7 @@ invoke.cont18:                                    ; preds = %_ZN5folly8OptionalI
   br label %return
 
 _ZN5folly8OptionalISt4pairImmEEptEv.exit53:       ; preds = %_ZN5folly8OptionalISt4pairImmEEptEv.exit
-  %sub = sub i64 %remaining, %3
+  %sub = sub nuw i64 %remaining, %3
   %4 = load i64, ptr %lengthOfHeaders, align 8
   %cmp27 = icmp ult i64 %sub, %4
   br i1 %cmp27, label %invoke.cont37, label %while.cond.preheader

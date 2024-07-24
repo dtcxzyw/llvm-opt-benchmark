@@ -443,7 +443,7 @@ dissect_aol_init.exit:                            ; preds = %143, %132, %45, %.t
 
 160:                                              ; preds = %dissect_aol_init.exit
   %161 = load i32, ptr @hf_aol_udata, align 4
-  %162 = sub nsw i32 %158, %.3
+  %162 = sub nuw nsw i32 %158, %.3
   %163 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %161, ptr noundef %0, i32 noundef %.3, i32 noundef %162, i32 noundef 0) #2
   br label %.thread
 

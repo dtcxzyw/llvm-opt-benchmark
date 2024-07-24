@@ -1242,7 +1242,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %if.then, %_ZNSt12_V
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE7reserveEm.exit
-  %sub.i16 = sub nsw i64 %conv6, %sub.ptr.sub.i
+  %sub.i16 = sub nuw nsw i64 %conv6, %sub.ptr.sub.i
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %6, i64 noundef %sub.i16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre21 = load ptr, ptr %this, align 8
@@ -7416,7 +7416,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -7954,7 +7954,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__n, %sub.ptr.sub.i
   %add.ptr.i.i.i.i.i38 = getelementptr inbounds i8, ptr %1, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 %2, i64 %sub, i1 false)
   br label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit
@@ -8109,7 +8109,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIPKhmEv
 
 _ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKhmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIPKhmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
+  %sub = sub nuw i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   %add.ptr36 = getelementptr inbounds i8, ptr %2, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %1, %__position.coerce

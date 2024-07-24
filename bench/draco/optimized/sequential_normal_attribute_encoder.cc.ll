@@ -1969,7 +1969,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds =
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKhmEvRT_T0_.exit
   %45 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %12, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
-  %46 = sub i64 %8, %18
+  %46 = sub nuw i64 %8, %18
   %47 = getelementptr inbounds i8, ptr %45, i64 %46
   store ptr %47, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %12, %1
@@ -2700,7 +2700,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco56MeshPredictionSchemeConstrain
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %25
-  %36 = sub nsw i64 %24, %33
+  %36 = sub nuw nsw i64 %24, %33
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %36)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %42
 
@@ -2774,7 +2774,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %64 = sub nsw i64 %24, %61
+  %64 = sub nuw nsw i64 %24, %61
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %64)
           to label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i160.thread unwind label %189
 
@@ -8057,7 +8057,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco56MeshPredictionSchemeConstrain
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %25
-  %36 = sub nsw i64 %24, %33
+  %36 = sub nuw nsw i64 %24, %33
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %36)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %42
 
@@ -8131,7 +8131,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %64 = sub nsw i64 %24, %61
+  %64 = sub nuw nsw i64 %24, %61
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %64)
           to label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i160.thread unwind label %180
 

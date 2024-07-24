@@ -1837,8 +1837,8 @@ define linkonce_odr hidden noundef ptr @_ZNK16ObjectStartArray12object_startEPP1
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %14 = phi i32 [ %20, %.lr.ph.i ], [ %12, %2 ]
   %.010.i = phi ptr [ %18, %.lr.ph.i ], [ %9, %2 ]
-  %15 = sub nsw i32 %14, %10
-  %16 = shl nsw i32 %15, 2
+  %15 = sub nuw nsw i32 %14, %10
+  %16 = shl nuw nsw i32 %15, 2
   %17 = zext nneg i32 %16 to i64
   %.neg.i = shl nsw i64 -1, %17
   %18 = getelementptr inbounds i8, ptr %.010.i, i64 %.neg.i

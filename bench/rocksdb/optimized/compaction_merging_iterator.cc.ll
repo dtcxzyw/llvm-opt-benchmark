@@ -1916,7 +1916,7 @@ invoke.cont6:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont6
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN7rocksdb25CompactionMergingIterator8HeapItemESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %children_, i64 noundef %sub.i)
           to label %_ZNSt6vectorIN7rocksdb25CompactionMergingIterator8HeapItemESaIS2_EE6resizeEm.exit unwind label %lpad8.loopexit.split-lp.loopexit.split-lp
 
@@ -2133,7 +2133,7 @@ for.end30:                                        ; preds = %for.inc28, %for.end
   br i1 %cmp.i37, label %if.then.i49, label %if.else.i38
 
 if.then.i49:                                      ; preds = %for.end30
-  %sub.i50 = sub nsw i64 %conv, %sub.ptr.div.i.i36
+  %sub.i50 = sub nuw nsw i64 %conv, %sub.ptr.div.i.i36
   invoke void @_ZNSt6vectorIN7rocksdb25CompactionMergingIterator8HeapItemESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %pinned_heap_item_, i64 noundef %sub.i50)
           to label %_ZNSt6vectorIN7rocksdb25CompactionMergingIterator8HeapItemESaIS2_EE6resizeEm.exit52 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp
 

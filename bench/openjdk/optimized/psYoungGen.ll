@@ -534,7 +534,7 @@ define hidden noundef zeroext i1 @_ZN10PSYoungGen17resize_generationEmm(ptr noca
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %3
-  %29 = sub i64 %26, %14
+  %29 = sub nuw i64 %26, %14
   %30 = load ptr, ptr %5, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(49) %5, i64 noundef %29) #9
@@ -545,7 +545,7 @@ define hidden noundef zeroext i1 @_ZN10PSYoungGen17resize_generationEmm(ptr noca
   br i1 %34, label %35, label %122
 
 35:                                               ; preds = %33
-  %36 = sub i64 %14, %26
+  %36 = sub nuw i64 %14, %26
   %37 = getelementptr inbounds i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 48

@@ -19216,7 +19216,7 @@ invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i11, label %if.then.i.i13, label %if.else.i.i
 
 if.then.i.i13:                                    ; preds = %invoke.cont
-  %sub.i.i = sub i64 %conv, %11
+  %sub.i.i = sub nuw i64 %conv, %11
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %11
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i21.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -33821,7 +33821,7 @@ invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i10, label %if.then.i.i12, label %if.else.i.i
 
 if.then.i.i12:                                    ; preds = %invoke.cont
-  %sub.i.i = sub i64 %conv, %10
+  %sub.i.i = sub nuw i64 %conv, %10
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %10
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i20.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -37719,7 +37719,7 @@ if.then.i:                                        ; preds = %entry
 invoke.cont4:                                     ; preds = %entry
   %2 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %__pos
-  %sub.i = sub i64 %1, %__pos
+  %sub.i = sub nuw i64 %1, %__pos
   %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %cmp.i6 = icmp ugt i64 %spec.select.i, 15
   br i1 %cmp.i6, label %if.then.i7, label %entry.if.end_crit_edge.i
@@ -38809,7 +38809,7 @@ invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i9, label %if.then.i.i11, label %if.else.i.i
 
 if.then.i.i11:                                    ; preds = %invoke.cont
-  %sub.i.i = sub i64 %conv, %9
+  %sub.i.i = sub nuw i64 %conv, %9
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %9
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i19.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -42935,7 +42935,7 @@ invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i10, label %if.then.i.i12, label %if.else.i.i
 
 if.then.i.i12:                                    ; preds = %invoke.cont
-  %sub.i.i = sub i64 %conv, %10
+  %sub.i.i = sub nuw i64 %conv, %10
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %10
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i20.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -46527,14 +46527,14 @@ if.end.thread.i:                                  ; preds = %while.body.i16
   br label %_ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7consumeEm.exit
 
 if.end.i19:                                       ; preds = %while.body.i16
-  %sub.i20 = sub i64 %size.addr.017.i, %sub.i.i18
+  %sub.i20 = sub nuw i64 %size.addr.017.i, %sub.i.i18
   %inc.i21 = add i64 %inc1215.i, 1
   store i64 %inc.i21, ptr %next_elem_.i4, align 8
   %next.0.add.i22 = add nsw i64 %next.0.idx16.i, 16
   store i64 0, ptr %next_elem_offset_.i15, align 8
   %cmp.i23 = icmp ne i64 %next.0.add.i22, 48
   %cmp4.i24 = icmp ne i64 %sub.i20, 0
-  %12 = and i1 %cmp.i23, %cmp4.i24
+  %12 = select i1 %cmp.i23, i1 %cmp4.i24, i1 false
   br i1 %12, label %while.body.i16, label %_ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7consumeEm.exit, !llvm.loop !571
 
 _ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7consumeEm.exit: ; preds = %if.end.i19, %sw.default, %if.end.thread.i
@@ -47490,7 +47490,7 @@ invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i11, label %if.then.i.i13, label %if.else.i.i
 
 if.then.i.i13:                                    ; preds = %invoke.cont
-  %sub.i.i = sub i64 %conv, %10
+  %sub.i.i = sub nuw i64 %conv, %10
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %10
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i21.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -47804,7 +47804,7 @@ invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i11, label %if.then.i.i13, label %if.else.i.i
 
 if.then.i.i13:                                    ; preds = %invoke.cont
-  %sub.i.i = sub i64 %conv, %10
+  %sub.i.i = sub nuw i64 %conv, %10
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %10
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i21.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -55962,7 +55962,7 @@ for.cond.i.i.i.i.i.i.i:                           ; preds = %if.then.i9
   %25 = load ptr, ptr %handler, align 8
   %26 = load ptr, ptr %buffers_.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 %add.i.i.i.i.i.i.i.i
-  %sub.i.i.i.i.i.i.i.i.i = sub i64 %24, %add.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i.i.i.i.i = sub nuw i64 %24, %add.i.i.i.i.i.i.i.i
   %spec.select.i2.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i, align 8
   %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i, i64 8
@@ -56277,7 +56277,7 @@ for.cond.i.i:                                     ; preds = %entry
   %buffers_3.i.i = getelementptr inbounds i8, ptr %f, i64 8
   %4 = load ptr, ptr %buffers_3.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %add.i.i.i
-  %sub.i.i.i.i = sub i64 %2, %add.i.i.i
+  %sub.i.i.i.i = sub nuw i64 %2, %add.i.i.i
   %spec.select.i2.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i, ptr %ref.tmp.i.i, align 8
   %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
@@ -56464,7 +56464,7 @@ if.then:                                          ; preds = %invoke.cont2
 for.cond.i.i.i.i.i.i.i.i:                         ; preds = %if.then
   %11 = load ptr, ptr %buffers_.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %add.i.i.i.i.i.i.i.i.i
-  %sub.i.i.i.i.i.i.i.i.i.i = sub i64 %10, %add.i.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i.i.i.i.i.i = sub nuw i64 %10, %add.i.i.i.i.i.i.i.i.i
   %spec.select.i2.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i.i.i.i.i.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
@@ -56992,7 +56992,7 @@ for.cond.i.i.i.i.i.i.i:                           ; preds = %if.then.i9
   %25 = load ptr, ptr %handler, align 8
   %26 = load ptr, ptr %buffers_.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 %add.i.i.i.i.i.i.i.i
-  %sub.i.i.i.i.i.i.i.i.i = sub i64 %24, %add.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i.i.i.i.i = sub nuw i64 %24, %add.i.i.i.i.i.i.i.i
   %spec.select.i2.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i, align 8
   %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i, i64 8
@@ -57307,7 +57307,7 @@ for.cond.i.i:                                     ; preds = %entry
   %buffers_3.i.i = getelementptr inbounds i8, ptr %f, i64 8
   %4 = load ptr, ptr %buffers_3.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %add.i.i.i
-  %sub.i.i.i.i = sub i64 %2, %add.i.i.i
+  %sub.i.i.i.i = sub nuw i64 %2, %add.i.i.i
   %spec.select.i2.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i, ptr %ref.tmp.i.i, align 8
   %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
@@ -57494,7 +57494,7 @@ if.then:                                          ; preds = %invoke.cont2
 for.cond.i.i.i.i.i.i.i.i:                         ; preds = %if.then
   %11 = load ptr, ptr %buffers_.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %add.i.i.i.i.i.i.i.i.i
-  %sub.i.i.i.i.i.i.i.i.i.i = sub i64 %10, %add.i.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i.i.i.i.i.i = sub nuw i64 %10, %add.i.i.i.i.i.i.i.i.i
   %spec.select.i2.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i.i.i.i.i.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8

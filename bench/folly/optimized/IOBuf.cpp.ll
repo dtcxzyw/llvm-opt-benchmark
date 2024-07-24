@@ -3909,7 +3909,7 @@ land.lhs.true:                                    ; preds = %if.end28
   br i1 %or.cond139, label %if.end.i160, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true
-  %sub = sub i64 %sub.ptr.sub.i, %minHeadroom
+  %sub = sub nuw i64 %sub.ptr.sub.i, %minHeadroom
   %add42 = add i64 %sub, %6
   %cmp.i = icmp slt i64 %add42, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i154

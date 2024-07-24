@@ -5235,7 +5235,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   br i1 %.not.i, label %343, label %341
 
 341:                                              ; preds = %330
-  %342 = sub i64 %337, %340
+  %342 = sub nuw i64 %337, %340
   br label %345
 
 343:                                              ; preds = %330
@@ -11331,7 +11331,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3gmx11VsiteThreadESt14def
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -11562,7 +11562,7 @@ _ZNSt10unique_ptrIN3gmx11VsiteThreadESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %_ZNSt10unique_ptrIN3gmx11VsiteThreadESt14default_deleteIS1_EED2Ev.exit
-  %54 = sub nsw i64 %44, %51
+  %54 = sub nuw nsw i64 %44, %51
   invoke void @_ZNSt6vectorIN3gmx9AtomIndexESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %54)
           to label %_ZNSt6vectorIN3gmx9AtomIndexESaIS1_EE6resizeEm.exit unwind label %62
 
@@ -11968,7 +11968,7 @@ define void @_ZN3gmx13ThreadingInfo15setVirtualSitesENS_8ArrayRefIK15Interaction
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %86
-  %98 = sub nsw i64 %88, %95
+  %98 = sub nuw nsw i64 %88, %95
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %87, i64 noundef %98)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -12126,7 +12126,7 @@ _ZN15InteractionList5clearEv.exit29.i:            ; preds = %145, %_ZN15Interact
   br i1 %189, label %190, label %222
 
 190:                                              ; preds = %177
-  %191 = sub nsw i64 %188, %185
+  %191 = sub nuw nsw i64 %188, %185
   %192 = load ptr, ptr %160, align 8
   %193 = ptrtoint ptr %192 to i64
   %194 = sub i64 %193, %182
@@ -12629,7 +12629,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit63:             ; preds = %101, %._crit_edge
   store <2 x float> zeroinitializer, ptr %10, align 8
   %137 = getelementptr inbounds i8, ptr %10, i64 8
   store float 0.000000e+00, ptr %137, align 8
-  %138 = sub nsw i64 %112, %120
+  %138 = sub nuw nsw i64 %112, %120
   invoke void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr %115, i64 noundef %138, ptr noundef nonnull align 4 dereferenceable(12) %10)
           to label %._ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEmRKS2_.exit_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -12689,7 +12689,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEmRKS2_.exit: ; preds = %._ZNS
 
 157:                                              ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEmRKS2_.exit
   %158 = getelementptr inbounds i8, ptr %17, i64 5152
-  %159 = sub i64 %112, %.pre-phi162
+  %159 = sub nuw i64 %112, %.pre-phi162
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %158, ptr %147, i32 %146, i64 noundef %159, i1 noundef zeroext false)
           to label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -12942,7 +12942,7 @@ _ZN15InteractionList5clearEv.exit128.i:           ; preds = %197, %_ZN15Interact
   br i1 %303, label %304, label %336
 
 304:                                              ; preds = %288
-  %305 = sub nsw i64 %302, %299
+  %305 = sub nuw nsw i64 %302, %299
   %306 = getelementptr inbounds i8, ptr %290, i64 16
   %307 = load ptr, ptr %306, align 8
   %308 = ptrtoint ptr %307 to i64
@@ -13762,7 +13762,7 @@ _ZSt13move_backwardIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit: ; preds = %26, 
   br i1 %.not.i.i.i, label %_ZSt4fillIPN3gmx11BasicVectorIfEES2_EvT_S4_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !125
 
 32:                                               ; preds = %14
-  %33 = sub i64 %2, %17
+  %33 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

@@ -1610,7 +1610,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i456, %869
   br i1 %968, label %969, label %982
 
 969:                                              ; preds = %964
-  %970 = sub i64 %965, %967
+  %970 = sub nuw i64 %965, %967
   %971 = zext nneg i32 %960 to i64
   %spec.select.i = call i64 @llvm.umin.i64(i64 %970, i64 %971)
   %972 = getelementptr inbounds i8, ptr %959, i64 8

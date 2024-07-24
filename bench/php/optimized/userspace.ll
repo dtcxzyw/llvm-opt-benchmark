@@ -527,7 +527,7 @@ define internal i64 @php_userstreamop_write(ptr nocapture noundef readonly %0, p
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 24
-  %51 = sub nsw i64 %41, %2
+  %51 = sub nuw nsw i64 %41, %2
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.69, ptr noundef nonnull %50, i64 noundef %51, i64 noundef %41, i64 noundef %2) #11
   br label %.thread
 
@@ -623,7 +623,7 @@ define internal i64 @php_userstreamop_read(ptr nocapture noundef %0, ptr nocaptu
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 24
-  %47 = sub i64 %37, %2
+  %47 = sub nuw i64 %37, %2
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull %46, i64 noundef %47, i64 noundef %37, i64 noundef %2) #11
   %.pre = load ptr, ptr %5, align 8
   br label %48

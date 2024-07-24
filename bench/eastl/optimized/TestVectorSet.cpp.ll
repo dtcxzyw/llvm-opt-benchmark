@@ -115727,7 +115727,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mpEnd4.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %mpEnd4.i, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
   store ptr %2, ptr %agg.tmp4, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
@@ -123336,7 +123336,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mpEnd4.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %mpEnd4.i, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
   store ptr %2, ptr %agg.tmp4, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8

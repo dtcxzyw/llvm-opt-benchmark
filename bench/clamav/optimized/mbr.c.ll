@@ -150,7 +150,7 @@ define range(i32 0, 575) i32 @cli_mbr_check2(ptr noundef readonly %0, i64 nounde
   br i1 %or.cond28.not, label %17, label %fmap_readn.exit.thread
 
 17:                                               ; preds = %15
-  %18 = sub i64 %11, %16
+  %18 = sub nuw i64 %11, %16
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %18, i64 66)
   %19 = getelementptr inbounds i8, ptr %6, i64 104
   %20 = load ptr, ptr %19, align 8
@@ -263,7 +263,7 @@ define i32 @cli_scanmbr(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br i1 %or.cond.not, label %18, label %fmap_readn.exit.thread
 
 18:                                               ; preds = %16
-  %19 = sub i64 %12, %17
+  %19 = sub nuw i64 %12, %17
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %19, i64 66)
   %20 = getelementptr inbounds i8, ptr %7, i64 104
   %21 = load ptr, ptr %20, align 8
@@ -430,7 +430,7 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
   br i1 %or.cond.not.i, label %98, label %fmap_readn.exit.thread.i
 
 98:                                               ; preds = %93
-  %99 = sub i64 %97, %94
+  %99 = sub nuw i64 %97, %94
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %99, i64 66)
   %100 = getelementptr inbounds i8, ptr %95, i64 104
   %101 = load ptr, ptr %100, align 8
@@ -767,7 +767,7 @@ define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef %0, p
   br i1 %or.cond.not.i, label %47, label %fmap_readn.exit.thread.i
 
 47:                                               ; preds = %42
-  %48 = sub i64 %46, %43
+  %48 = sub nuw i64 %46, %43
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %48, i64 66)
   %49 = getelementptr inbounds i8, ptr %44, i64 104
   %50 = load ptr, ptr %49, align 8

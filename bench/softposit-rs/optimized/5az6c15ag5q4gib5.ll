@@ -295,7 +295,7 @@ _ZN9softposit5p16e14math7acos_pi18to_fixed28_acos_pi17hef468dc48a093872E.exit: ;
   %50 = select i1 %.not.i, i64 0, i64 %.11821.i
   %.116.i = add nuw i64 %50, %49
   %51 = select i1 %.not.i, i64 0, i64 %48
-  %.1.i = sub i64 %.023.i, %51
+  %.1.i = sub nuw i64 %.023.i, %51
   %52 = lshr i64 %.11821.i, 2
   %53 = icmp ult i64 %.11821.i, 4
   br i1 %53, label %_ZN9softposit5p16e14math6kernel5isqrt17h21470701fe9e9964E.exit, label %.lr.ph.i
@@ -346,7 +346,7 @@ _ZN9softposit5p16e14math6kernel5isqrt17h21470701fe9e9964E.exit: ; preds = %.lr.p
   %80 = select i1 %.not.i55, i64 0, i64 %.11821.i54
   %.116.i56 = add nuw i64 %80, %79
   %81 = select i1 %.not.i55, i64 0, i64 %78
-  %.1.i57 = sub i64 %.023.i52, %81
+  %.1.i57 = sub nuw i64 %.023.i52, %81
   %82 = lshr i64 %.11821.i54, 2
   %83 = icmp ult i64 %.11821.i54, 4
   br i1 %83, label %_ZN9softposit5p16e14math6kernel5isqrt17h21470701fe9e9964E.exit59, label %.lr.ph.i51
@@ -541,7 +541,7 @@ define noundef i16 @"_ZN9softposit5p16e14math7asin_pi41_$LT$impl$u20$softposit..
   %24 = select i1 %.not.i, i64 0, i64 %.11821.i
   %.116.i = add nuw i64 %24, %23
   %25 = select i1 %.not.i, i64 0, i64 %22
-  %.1.i = sub i64 %.023.i, %25
+  %.1.i = sub nuw i64 %.023.i, %25
   %26 = lshr i64 %.11821.i, 2
   %27 = icmp ult i64 %.11821.i, 4
   br i1 %27, label %_ZN9softposit5p16e14math6kernel5isqrt17h21470701fe9e9964E.exit, label %.lr.ph.i

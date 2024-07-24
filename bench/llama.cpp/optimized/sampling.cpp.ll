@@ -389,7 +389,7 @@ if.end27:                                         ; preds = %if.then.i.i.i, %inv
   br i1 %cmp.i, label %if.then.i24, label %if.else.i
 
 if.then.i24:                                      ; preds = %if.end27
-  %sub.i = sub nsw i64 %conv28, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv28, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %prev, i64 noundef %sub.i)
   br label %return
 

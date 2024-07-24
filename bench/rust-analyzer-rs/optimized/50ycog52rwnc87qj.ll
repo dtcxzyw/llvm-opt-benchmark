@@ -278,8 +278,8 @@ define void @_ZN4span3map11RealSpanMap14span_for_range17h7ca1bd590fbbd0ddE(ptr n
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %35, i64 4
   %41 = load i32, ptr %40, align 4, !noundef !4
-  %42 = sub i32 %2, %36
-  %43 = sub i32 %3, %36
+  %42 = sub nuw i32 %2, %36
+  %43 = sub nuw i32 %3, %36
   %44 = getelementptr inbounds i8, ptr %1, i64 16
   %45 = load i32, ptr %44, align 8, !noundef !4
   %46 = getelementptr inbounds i8, ptr %0, i64 4

@@ -688,9 +688,9 @@ define dso_local noundef range(i32 -34, 1) i32 @drm_dsc_compute_rc_parameters(pt
 
 148:                                              ; preds = %126
   %149 = shl nuw nsw i32 %131, 3
-  %150 = sub nsw i32 %131, %145
-  %151 = sdiv i32 %149, %150
-  %152 = sext i32 %151 to i64
+  %150 = sub nuw nsw i32 %131, %145
+  %151 = udiv i32 %149, %150
+  %152 = zext nneg i32 %151 to i64
   %153 = icmp ugt i16 %108, 1
   br i1 %153, label %154, label %164
 

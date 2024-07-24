@@ -1725,7 +1725,7 @@ define void @_ZN6sparse5index14inverted_index18inverted_index_ram16InvertedIndex
 
 34:                                               ; preds = %29
   %35 = add nuw nsw i64 %32, 1
-  %36 = sub nsw i64 %35, %33
+  %36 = sub nuw nsw i64 %35, %33
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h4dc182719a8fc589E.llvm.4012134325007315671"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %36)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h076999dc4a916ebbE.exit" unwind label %.loopexit
 

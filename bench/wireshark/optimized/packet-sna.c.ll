@@ -1310,7 +1310,7 @@ define internal i32 @dissect_sna(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 127:                                              ; preds = %124
   %128 = add i32 %.0167.i, %.1166.i
-  %129 = sub nsw i32 %.pre.i, %.0167.i
+  %129 = sub nuw nsw i32 %.pre.i, %.0167.i
   %130 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %128, i32 noundef %129, i32 noundef -1) #5
   %131 = tail call i32 @tvb_offset_exists(ptr noundef %130, i32 noundef 0) #5
   %.not88.i.i = icmp eq i32 %131, 0
@@ -1422,7 +1422,7 @@ define internal i32 @dissect_sna(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 176:                                              ; preds = %172
   %177 = load i32, ptr @hf_sna_padding, align 4
   %178 = add i32 %.032.i.i.i, %171
-  %179 = sub nsw i32 %174, %171
+  %179 = sub nuw nsw i32 %174, %171
   %180 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.174.i.i, i32 noundef %177, ptr noundef %159, i32 noundef %178, i32 noundef %179, i32 noundef 0) #5
   br label %181
 
@@ -1536,7 +1536,7 @@ dissect_optional_0e.exit.i.i:                     ; preds = %200, %184
 256:                                              ; preds = %234
   %257 = load i32, ptr @hf_sna_padding, align 4
   %258 = add nuw nsw i32 %230, 4
-  %259 = sub nsw i32 %254, %230
+  %259 = sub nuw nsw i32 %254, %230
   %260 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %257, ptr noundef %159, i32 noundef %258, i32 noundef %259, i32 noundef 0) #5
   br label %261
 
@@ -2512,7 +2512,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
 55:                                               ; preds = %50
   %56 = load i32, ptr @hf_sna_padding, align 4
   %57 = add nuw nsw i32 %48, %51
-  %58 = sub nsw i32 %53, %51
+  %58 = sub nuw nsw i32 %53, %51
   %59 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.191, i32 noundef %56, ptr noundef %9, i32 noundef %57, i32 noundef %58, i32 noundef 0) #5
   br label %60
 
@@ -2541,7 +2541,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
 72:                                               ; preds = %67
   %73 = load i32, ptr @hf_sna_padding, align 4
   %74 = add nuw nsw i32 %64, %68
-  %75 = sub nsw i32 %70, %68
+  %75 = sub nuw nsw i32 %70, %68
   %76 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.191, i32 noundef %73, ptr noundef %9, i32 noundef %74, i32 noundef %75, i32 noundef 0) #5
   br label %77
 

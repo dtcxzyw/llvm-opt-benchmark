@@ -610,7 +610,7 @@ define void @_ZNK5draco10PointCloud15CreateAttributeERKNS_17GeometryAttributeEbj
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %13
-  %28 = sub nsw i64 %16, %25
+  %28 = sub nuw nsw i64 %16, %25
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr %20, i64 noundef %28, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit unwind label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit
 
@@ -823,7 +823,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN5draco14PointAttributeESt
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -2353,7 +2353,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %.lr.ph34
-  %70 = sub nsw i64 %.015.lcssa, %67
+  %70 = sub nuw nsw i64 %.015.lcssa, %67
   tail call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr %62, i64 noundef %70, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
   br label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
@@ -2730,7 +2730,7 @@ _ZSt13move_backwardIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4
   br i1 %.not.i.i.i, label %_ZSt4fillIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !40
 
 39:                                               ; preds = %14
-  %40 = sub i64 %2, %18
+  %40 = sub nuw i64 %2, %18
   %.not7.i.i.i.i = icmp eq i64 %40, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

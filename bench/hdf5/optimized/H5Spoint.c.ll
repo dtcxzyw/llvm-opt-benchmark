@@ -1798,7 +1798,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_project_simple(ptr nocapture no
   br i1 %25, label %27, label %80
 
 27:                                               ; preds = %20
-  %28 = sub i32 %24, %22
+  %28 = sub nuw i32 %24, %22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %29 = load ptr, ptr %26, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 512
@@ -1888,7 +1888,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_project_simple(ptr nocapture no
   br i1 %79, label %.lr.ph118, label %.loopexit
 
 80:                                               ; preds = %20
-  %81 = sub i32 %22, %24
+  %81 = sub nuw i32 %22, %24
   store i64 0, ptr %2, align 8
   %82 = load ptr, ptr %26, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 512

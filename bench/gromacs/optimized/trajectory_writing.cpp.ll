@@ -483,7 +483,7 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %232, %168, %160, %2
   br i1 %.not.i116, label %251, label %249
 
 249:                                              ; preds = %.noexc
-  %250 = sub i64 %245, %248
+  %250 = sub nuw i64 %245, %248
   br label %253
 
 251:                                              ; preds = %.noexc

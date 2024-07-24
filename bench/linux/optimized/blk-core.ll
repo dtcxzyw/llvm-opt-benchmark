@@ -4443,7 +4443,7 @@ define dso_local void @submit_bio_noacct(ptr noundef %0) #1 align 16 {
 
 69:                                               ; preds = %66
   %70 = load i64, ptr %61, align 8
-  %71 = sub i64 %60, %67
+  %71 = sub nuw i64 %60, %67
   %72 = icmp ugt i64 %70, %71
   br i1 %72, label %73, label %.thread
 

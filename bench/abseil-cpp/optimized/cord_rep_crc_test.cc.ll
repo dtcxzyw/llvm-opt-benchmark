@@ -2438,7 +2438,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %add12.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %add12.i.i.i, %sub.ptr.div.i
   tail call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i), !noalias !68
   %.pre.i = load ptr, ptr %_M_start, align 8, !noalias !71
   %.pre4.i = load ptr, ptr %_M_first.i10, align 8, !noalias !71
@@ -2566,7 +2566,7 @@ if.then19:                                        ; preds = %if.else
   br i1 %cmp.i40, label %if.then.i52, label %if.end.i41
 
 if.then.i52:                                      ; preds = %if.then19
-  %sub4.i = sub i64 %add12.i.i.i, %sub.i39
+  %sub4.i = sub nuw i64 %add12.i.i.i, %sub.i39
   tail call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !84
   %.pre.i53 = load ptr, ptr %_M_finish, align 8
   %.pre4.i54 = load ptr, ptr %_M_last.i34, align 8
@@ -3163,7 +3163,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i23 = sub i64 %__n, %sub.ptr.div.i22
+  %sub.i23 = sub nuw i64 %__n, %sub.ptr.div.i22
   tail call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i23), !noalias !113
   %.pre.i = load ptr, ptr %_M_start, align 8
   %.pre4.i = load ptr, ptr %_M_first.i18, align 8
@@ -3685,7 +3685,7 @@ if.else51:                                        ; preds = %entry
   br i1 %cmp.i295, label %if.then.i322, label %if.end.i296
 
 if.then.i322:                                     ; preds = %if.else51
-  %sub4.i = sub i64 %__n, %sub.i294
+  %sub4.i = sub nuw i64 %__n, %sub.i294
   tail call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !189
   %.pre.i323 = load ptr, ptr %_M_finish.i, align 8
   %.pre4.i324 = load ptr, ptr %_M_last.i289, align 8

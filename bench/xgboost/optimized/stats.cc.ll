@@ -405,7 +405,7 @@ _ZN7xgboost6linalg6TensorIfLi1EE8HostViewEv.exit.preheader: ; preds = %_ZN7xgboo
   unreachable
 
 93:                                               ; preds = %87
-  %94 = sub i64 %83, %85
+  %94 = sub nuw i64 %83, %85
   %95 = getelementptr inbounds float, ptr %88, i64 %85
   %.sroa.0.0.copyload.i50 = load i32, ptr %46, align 8, !noalias !29
   %.sink.i.i.i = select i1 %90, i64 0, i64 %80

@@ -267,7 +267,7 @@ define dso_local void @usb_stor_set_xfer_buf(ptr nocapture noundef %0, i32 nound
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = sub i32 %10, %9
+  %13 = sub nuw i32 %10, %9
   %14 = getelementptr inbounds i8, ptr %2, i64 240
   store i32 %13, ptr %14, align 8
   br label %15

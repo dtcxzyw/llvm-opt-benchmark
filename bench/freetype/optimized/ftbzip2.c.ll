@@ -212,7 +212,7 @@ ft_bzip2_file_reset.exit.thread.i:                ; preds = %13
   br i1 %29, label %30, label %48
 
 30:                                               ; preds = %27
-  %31 = sub i64 %1, %28
+  %31 = sub nuw i64 %1, %28
   %32 = getelementptr inbounds i8, ptr %6, i64 8312
   %33 = getelementptr inbounds i8, ptr %6, i64 8304
   br label %34

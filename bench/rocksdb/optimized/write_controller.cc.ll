@@ -108,7 +108,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %sub = sub i64 %2, %num_bytes
+  %sub = sub nuw i64 %2, %num_bytes
   store i64 %sub, ptr %credit_in_bytes_, align 8
   br label %return
 
@@ -142,8 +142,8 @@ if.then17:                                        ; preds = %if.end14.thread, %i
   %.pre19 = phi i64 [ %.pre18, %if.end14.thread ], [ %.pre, %if.end14 ]
   %5 = phi i64 [ %div.i, %if.end14.thread ], [ %4, %if.end14 ]
   %sub19 = add nuw nsw i64 %div.i, 1000
-  %add = sub nsw i64 %sub19, %5
-  %conv = uitofp i64 %add to double
+  %add = sub nuw nsw i64 %sub19, %5
+  %conv = uitofp nneg i64 %add to double
   %div = fdiv double %conv, 1.000000e+06
   %delayed_write_rate_ = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i64, ptr %delayed_write_rate_, align 8
@@ -156,7 +156,7 @@ if.then17:                                        ; preds = %if.end14.thread, %i
   br i1 %cmp28.not, label %if.end33, label %if.then29
 
 if.then29:                                        ; preds = %if.then17
-  %sub31 = sub i64 %add24, %num_bytes
+  %sub31 = sub nuw i64 %add24, %num_bytes
   store i64 %sub31, ptr %credit_in_bytes_, align 8
   br label %return
 

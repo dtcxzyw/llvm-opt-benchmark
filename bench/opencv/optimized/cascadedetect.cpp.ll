@@ -672,7 +672,7 @@ define void @_ZN2cv15groupRectanglesERSt6vectorINS_5Rect_IiEESaIS2_EEidPS0_IiSaI
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %17
-  %34 = sub nsw i64 %24, %31
+  %34 = sub nuw nsw i64 %24, %31
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %34)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %43
 
@@ -1729,7 +1729,7 @@ _ZNK2cv12SimilarRectsclERKNS_5Rect_IiEES4_.exit.thread.us: ; preds = %.lr.ph144.
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %._crit_edge149
-  %133 = sub nsw i64 %123, %130
+  %133 = sub nuw nsw i64 %123, %130
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %133)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %156
 
@@ -3301,7 +3301,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16FeatureEvaluator9ScaleDataES
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -3323,7 +3323,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv16FeatureEvaluator9ScaleDataEmS2_ET_S4_T0
   br label %_ZNSt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS2_EE17_M_default_appendEm.exit
 
 22:                                               ; preds = %11
-  %23 = icmp ult i64 %19, %12
+  %23 = icmp ugt i64 %1, 461168601842738790
   br i1 %23, label %24, label %_ZNKSt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 24:                                               ; preds = %22
@@ -4861,7 +4861,7 @@ _ZN2cv3PtrISt6vectorINS_13HaarEvaluator10OptFeatureESaIS3_EEED2Ev.exit65: ; pred
   br i1 %265, label %266, label %268
 
 266:                                              ; preds = %_ZN2cv3PtrISt6vectorINS_13HaarEvaluator10OptFeatureESaIS3_EEED2Ev.exit65
-  %267 = sub i64 %10, %264
+  %267 = sub nuw i64 %10, %264
   tail call void @_ZNSt6vectorIN2cv13HaarEvaluator7FeatureESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %257, i64 noundef %267)
   br label %_ZNSt6vectorIN2cv13HaarEvaluator7FeatureESaIS2_EE6resizeEm.exit
 
@@ -5930,7 +5930,7 @@ define hidden void @_ZN2cv13HaarEvaluator18computeOptFeaturesEv(ptr noundef nonn
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %._crit_edge41
-  %57 = sub nsw i64 %45, %54
+  %57 = sub nuw nsw i64 %45, %54
   invoke void @_ZNSt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %57)
           to label %_ZNSt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS2_EE6resizeEm.exit unwind label %15
 
@@ -5986,7 +5986,7 @@ _ZNSt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS2_EE6resizeEm.exit: ; preds = %
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %._crit_edge
-  %85 = sub nsw i64 %45, %82
+  %85 = sub nuw nsw i64 %45, %82
   invoke void @_ZNSt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %75, i64 noundef %85)
           to label %_ZNSt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS2_EE6resizeEm.exit26 unwind label %15
 
@@ -8196,7 +8196,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv12LBPEvaluator7FeatureESaIS2_E
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -9038,7 +9038,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv12LBPEvaluator10OptFeatureESaI
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -15851,7 +15851,7 @@ _ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit.thread:   ; preds = %._crit_edge.i, %63,
   br i1 %122, label %123, label %125
 
 123:                                              ; preds = %114
-  %124 = sub i64 %.042.lcssa, %121
+  %124 = sub nuw i64 %.042.lcssa, %121
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %124)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -15883,7 +15883,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %129, %127, %125, %1
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %130
-  %140 = sub i64 %.042.lcssa, %137
+  %140 = sub nuw i64 %.042.lcssa, %137
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %140)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -15923,7 +15923,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE6resizeEm(pt
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -17236,7 +17236,7 @@ _ZNSt6vectorIN2cv7Point3_IdEESaIS2_EE9push_backERKS2_.exit: ; preds = %.lr.ph, %
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %._crit_edge
-  %95 = sub nsw i64 %85, %92
+  %95 = sub nuw nsw i64 %85, %92
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %95)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -17580,7 +17580,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv7Point3_IdEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -17602,7 +17602,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv7Point3_IdEEmS2_ET_S4_T0_RSaIT1_E.exit.i:
   br label %_ZNSt6vectorIN2cv7Point3_IdEESaIS2_EE17_M_default_appendEm.exit
 
 22:                                               ; preds = %11
-  %23 = icmp ult i64 %19, %12
+  %23 = icmp ugt i64 %1, 384307168202282325
   br i1 %23, label %24, label %_ZNKSt6vectorIN2cv7Point3_IdEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 24:                                               ; preds = %22

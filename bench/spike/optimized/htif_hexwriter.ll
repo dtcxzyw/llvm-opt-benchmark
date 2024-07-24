@@ -223,7 +223,7 @@ _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit31: ; preds =
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit31
-  %63 = sub i64 %53, %60
+  %63 = sub nuw i64 %53, %60
   call void @_ZNSt6vectorIcSaIcEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPcS1_EEmRKc(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr %56, i64 noundef %63, ptr noundef nonnull align 1 dereferenceable(1) %12)
   br label %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit
 
@@ -503,7 +503,7 @@ _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit29: ; preds =
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit29
-  %63 = sub i64 %53, %60
+  %63 = sub nuw i64 %53, %60
   call void @_ZNSt6vectorIcSaIcEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPcS1_EEmRKc(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr %56, i64 noundef %63, ptr noundef nonnull align 1 dereferenceable(1) %12)
   br label %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit
 
@@ -900,7 +900,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPcmccET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = sub i64 %2, %16
+  %29 = sub nuw i64 %2, %16
   %30 = getelementptr inbounds i8, ptr %9, i64 %29
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 %14, i64 %29, i1 false)
   br label %_ZSt24__uninitialized_fill_n_aIPcmccET_S1_T0_RKT1_RSaIT2_E.exit

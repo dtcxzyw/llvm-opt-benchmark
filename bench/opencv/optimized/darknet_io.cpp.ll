@@ -1303,7 +1303,7 @@ _ZNSt3mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_
   br i1 %397, label %398, label %400
 
 398:                                              ; preds = %385
-  %399 = sub i64 %389, %396
+  %399 = sub nuw i64 %389, %396
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %388, i64 noundef %399)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %456
 

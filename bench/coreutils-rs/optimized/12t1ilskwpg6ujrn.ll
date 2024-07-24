@@ -2176,7 +2176,7 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %24 = getelementptr inbounds i8, ptr %10, i64 %16
   %25 = load i8, ptr %24, align 1, !alias.scope !267, !noalias !272, !noundef !4
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %12, %16
+  %27 = sub nuw i64 %12, %16
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3950917620001345818.exit.i.i", %21
@@ -2814,7 +2814,7 @@ define void @_ZN6uucore8features7entries10get_groups17h2dd54e4b2b84b288E(ptr noa
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h49cb782f2323c415E.exit"
 
 29:                                               ; preds = %26
-  %30 = sub nsw i64 %15, %27
+  %30 = sub nuw nsw i64 %15, %27
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hca73182fcd98199cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %30, i32 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h49cb782f2323c415E.exit" unwind label %.loopexit
 
@@ -3569,7 +3569,7 @@ define void @_ZN6uucore8features7entries6Passwd10belongs_to17h2a4d455b86ee19e4E(
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h49cb782f2323c415E.exit.backedge"
 
 58:                                               ; preds = %55
-  %59 = sub nsw i64 %54, %56
+  %59 = sub nuw nsw i64 %54, %56
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hca73182fcd98199cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %59, i32 noundef 0)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h49cb782f2323c415E.exit_crit_edge" unwind label %.loopexit
 

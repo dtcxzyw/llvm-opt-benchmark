@@ -933,7 +933,7 @@ define linkonce_odr noundef ptr @_ZN20DirStackFileIncluder13readLocalPathEPKcS1_
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %4
-  %27 = sub nsw i64 %17, %24
+  %27 = sub nuw nsw i64 %17, %24
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %27)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 

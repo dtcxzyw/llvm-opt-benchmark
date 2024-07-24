@@ -12454,14 +12454,14 @@ objspace_malloc_gc_stress.exit:                   ; preds = %30, %34, %36
   br i1 %49, label %51, label %56
 
 51:                                               ; preds = %.critedge
-  %52 = sub i64 %48, %31
+  %52 = sub nuw i64 %48, %31
   %53 = atomicrmw volatile add ptr %50, i64 %52 seq_cst, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 1536
   %55 = atomicrmw volatile add ptr %54, i64 %52 seq_cst, align 8
   br label %objspace_xfree.exit
 
 56:                                               ; preds = %.critedge
-  %57 = sub i64 %31, %48
+  %57 = sub nuw i64 %31, %48
   %58 = icmp eq i64 %57, 0
   br i1 %58, label %objspace_xfree.exit, label %.preheader.i.i46
 
@@ -12960,14 +12960,14 @@ define internal fastcc void @objspace_malloc_increase_body(ptr noundef %0, i64 n
   br i1 %5, label %7, label %12
 
 7:                                                ; preds = %4
-  %8 = sub i64 %1, %2
+  %8 = sub nuw i64 %1, %2
   %9 = atomicrmw volatile add ptr %6, i64 %8 seq_cst, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 1536
   %11 = atomicrmw volatile add ptr %10, i64 %8 seq_cst, align 8
   br label %atomic_sub_nounderflow.exit27
 
 12:                                               ; preds = %4
-  %13 = sub i64 %2, %1
+  %13 = sub nuw i64 %2, %1
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %atomic_sub_nounderflow.exit27, label %.preheader.i
 
@@ -20064,7 +20064,7 @@ heap_eden_total_slots.exit:                       ; preds = %heap_allocatable_sl
   br i1 %175, label %176, label %179
 
 176:                                              ; preds = %170
-  %177 = sub i64 %171, %spec.select
+  %177 = sub nuw i64 %171, %spec.select
   %178 = udiv i64 %177, 1638
   br label %179
 
@@ -24766,7 +24766,7 @@ heap_page_body_allocate.exit.thread.i.i:          ; preds = %heap_page_body_allo
   br i1 %92, label %93, label %101
 
 93:                                               ; preds = %._crit_edge.i.i
-  %94 = sub i64 %75, %.082.lcssa.i.i
+  %94 = sub nuw i64 %75, %.082.lcssa.i.i
   %95 = icmp ugt i64 %94, 2305843009213693951
   br i1 %95, label %96, label %rbimpl_size_mul_or_raise.exit.i.i
 

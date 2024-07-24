@@ -125,7 +125,7 @@ define internal fastcc range(i32 0, 2) i32 @rdp8_decompress_segment(ptr noundef 
   br label %20
 
 14:                                               ; preds = %9
-  %15 = sub i32 %8, %12
+  %15 = sub nuw i32 %8, %12
   %16 = getelementptr inbounds i8, ptr %0, i64 2500000
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, %15
@@ -780,7 +780,7 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
   br label %296
 
 291:                                              ; preds = %._crit_edge.i155
-  %292 = sub i32 %.1, %289
+  %292 = sub nuw i32 %.1, %289
   %293 = load i32, ptr %63, align 4
   %294 = add i32 %292, %293
   %295 = urem i32 %294, %289

@@ -815,7 +815,7 @@ if.then140:                                       ; preds = %if.then132
   br label %return
 
 if.end141:                                        ; preds = %if.then132
-  %sub142 = sub i64 %nextblocks.0, %0
+  %sub142 = sub nuw i64 %nextblocks.0, %0
   br label %if.end143
 
 if.end143:                                        ; preds = %if.end141, %if.then116
@@ -1174,7 +1174,7 @@ if.end34:                                         ; preds = %if.end27, %if.then1
   br i1 %cmp35.not, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.end34
-  %sub48 = sub i64 %8, %9
+  %sub48 = sub nuw i64 %8, %9
   store i64 %sub48, ptr %outl, align 8
   %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 136
   %10 = load i64, ptr %tlsmacsize, align 8

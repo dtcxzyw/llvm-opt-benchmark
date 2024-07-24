@@ -3071,7 +3071,7 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit: ; preds = %_ZN6r
   %22 = add i64 %.0.i.i.i9, 1
   %.not.i.i.i = icmp ult i64 %22, %13
   %23 = select i1 %.not.i.i.i, i64 0, i64 %13
-  %.0.i.i.i = sub i64 %22, %23
+  %.0.i.i.i = sub nuw i64 %22, %23
   store i64 %.0.i.i.i, ptr %12, align 8, !alias.scope !695, !noalias !700
   %24 = add i64 %21, -1
   store i64 %24, ptr %9, align 8, !alias.scope !695, !noalias !700
@@ -3215,7 +3215,7 @@ define void @_ZN6rustls12common_state11CommonState8send_msg17h8a7968f23a1802a7E(
   %41 = add i64 %40, %38
   %.not.i.i = icmp ult i64 %41, %37
   %42 = select i1 %.not.i.i, i64 0, i64 %37
-  %.0.i.i = sub i64 %41, %42
+  %.0.i.i = sub nuw i64 %41, %42
   %43 = getelementptr inbounds i8, ptr %0, i64 256
   %44 = load ptr, ptr %43, align 8, !alias.scope !728, !noalias !726, !nonnull !14, !noundef !14
   %45 = getelementptr inbounds { i8, [7 x i8], { { i64, ptr }, i64 } }, ptr %44, i64 %.0.i.i

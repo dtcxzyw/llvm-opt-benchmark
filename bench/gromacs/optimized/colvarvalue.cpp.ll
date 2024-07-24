@@ -2625,7 +2625,7 @@ _ZN12colvarmodule8vector1dIdE5clearEv.exit:       ; preds = %11, %9, %7, %6, %27
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %32
-  %51 = sub nsw i64 %41, %48
+  %51 = sub nuw nsw i64 %41, %48
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %51)
   br label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit
 
@@ -2973,7 +2973,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit21:         ; preds = %97, %_ZNSt6vectorIi
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit21
-  %132 = sub nsw i64 %123, %129
+  %132 = sub nuw nsw i64 %123, %129
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %132)
   br label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit
 

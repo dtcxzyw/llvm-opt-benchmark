@@ -217,7 +217,7 @@ if.end16:                                         ; preds = %if.then12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %input, i64 %conv13, i1 false)
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in)
   %add.ptr24 = getelementptr inbounds i8, ptr %input, i64 %conv13
-  %sub26 = sub i64 %len, %conv13
+  %sub26 = sub nuw i64 %len, %conv13
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end16, %entry

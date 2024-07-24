@@ -1037,7 +1037,7 @@ if.end22:                                         ; preds = %if.end14
   br i1 %cmp26, label %for.body.lr.ph, label %if.end40
 
 for.body.lr.ph:                                   ; preds = %if.end22
-  %sub = sub nsw i32 %12, %spec.select.i
+  %sub = sub nuw nsw i32 %12, %spec.select.i
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end37

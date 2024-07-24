@@ -99,7 +99,7 @@ define hidden void @_ZN8CodeHeap19mark_segmap_as_freeEmm(ptr nocapture noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %1
-  %gepdiff = sub nsw i64 %2, %1
+  %gepdiff = sub nuw nsw i64 %2, %1
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 -1, i64 %gepdiff, i1 false)
   br label %9
 
@@ -344,7 +344,7 @@ define hidden void @_ZN8CodeHeap5clearEmm(ptr nocapture noundef nonnull readonly
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %1
-  %gepdiff.i = sub nsw i64 %2, %1
+  %gepdiff.i = sub nuw nsw i64 %2, %1
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 -1, i64 %gepdiff.i, i1 false)
   br label %_ZN8CodeHeap19mark_segmap_as_freeEmm.exit
 
@@ -575,7 +575,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap9expand_byEm(ptr noundef nonnull a
   %51 = getelementptr inbounds i8, ptr %0, i64 128
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 %27
-  %gepdiff.i.i = sub nsw i64 %48, %27
+  %gepdiff.i.i = sub nuw nsw i64 %48, %27
   tail call void @llvm.memset.p0.i64(ptr align 1 %53, i8 -1, i64 %gepdiff.i.i, i1 false)
   br label %_ZN8CodeHeap5clearEmm.exit
 
@@ -1031,10 +1031,10 @@ define hidden void @_ZN8CodeHeap15deallocate_tailEPvm(ptr nocapture noundef nonn
   %22 = sub i64 %20, %21
   %23 = ashr i64 %22, %13
   %24 = add i64 %23, %14
-  %25 = sub nsw i64 %6, %14
+  %25 = sub nuw nsw i64 %6, %14
   %26 = shl i64 %24, %13
   %27 = getelementptr inbounds i8, ptr %19, i64 %26
-  %28 = trunc i64 %25 to i32
+  %28 = trunc nuw i64 %25 to i32
   store i32 %28, ptr %27, align 8
   %29 = load ptr, ptr %18, align 8
   %30 = ptrtoint ptr %27 to i64

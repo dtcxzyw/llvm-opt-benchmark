@@ -4991,10 +4991,10 @@ define internal fastcc range(i32 -30, 1) i32 @solaris_sparse_parse(ptr noundef %
   %7 = getelementptr inbounds i8, ptr %1, i64 320
   br label %8
 
-8:                                                ; preds = %56, %.preheader
-  %.pn = phi ptr [ %.027, %56 ], [ %2, %.preheader ]
-  %.025 = phi i64 [ %.044.i.i2, %56 ], [ 0, %.preheader ]
-  %.0 = phi i32 [ %59, %56 ], [ 1, %.preheader ]
+8:                                                ; preds = %55, %.preheader
+  %.pn = phi ptr [ %.027, %55 ], [ %2, %.preheader ]
+  %.025 = phi i64 [ %.044.i.i2, %55 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ %58, %55 ], [ 1, %.preheader ]
   %.028 = getelementptr inbounds i8, ptr %.pn, i64 1
   br label %9
 
@@ -5104,10 +5104,10 @@ tar_atol10.exit:                                  ; preds = %27, %29, %.critedge
 tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.critedge53.i.i, %.critedge, %tar_atol10.exit
   %.044.i.i2 = phi i64 [ %.044.i.i, %tar_atol10.exit ], [ 0, %.critedge ], [ 0, %.critedge53.i.i ], [ 0, %.critedge2.i.i ]
   %40 = icmp ult i64 %.025, %.044.i.i2
-  br i1 %40, label %41, label %56
+  br i1 %40, label %41, label %55
 
 41:                                               ; preds = %tar_atol10.exit.thread
-  %42 = sub nsw i64 %.044.i.i2, %.025
+  %42 = sub nuw nsw i64 %.044.i.i2, %.025
   %43 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %46
@@ -5122,35 +5122,32 @@ tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.c
   %.sink.i = select i1 %.not.i, ptr %7, ptr %47
   store ptr %43, ptr %.sink.i, align 8
   store ptr %43, ptr %6, align 8
-  %48 = or i64 %42, %.025
-  %or.cond.not.i = icmp slt i64 %48, 0
-  %49 = sub nuw nsw i64 9223372036854775807, %42
-  %50 = icmp ult i64 %49, %.025
-  %or.cond.i = select i1 %or.cond.not.i, i1 true, i1 %50
-  br i1 %or.cond.i, label %51, label %52
+  %48 = xor i64 %42, 9223372036854775807
+  %49 = icmp ult i64 %48, %.025
+  br i1 %49, label %50, label %51
 
-51:                                               ; preds = %46
+50:                                               ; preds = %46
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.102) #13
   br label %gnu_add_sparse_entry.exit.thread
 
-52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %43, i64 8
-  store i64 %.025, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %43, i64 16
-  store i64 %42, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %43, i64 24
-  store i32 %.0, ptr %55, align 8
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds i8, ptr %43, i64 8
+  store i64 %.025, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %43, i64 16
+  store i64 %42, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %43, i64 24
+  store i32 %.0, ptr %54, align 8
   %.pre = load i8, ptr %.027, align 1
-  br label %56
+  br label %55
 
-56:                                               ; preds = %52, %tar_atol10.exit.thread
-  %57 = phi i8 [ %.pre, %52 ], [ %10, %tar_atol10.exit.thread ]
-  %58 = icmp eq i8 %57, 0
-  %59 = xor i32 %.0, 1
-  br i1 %58, label %gnu_add_sparse_entry.exit.thread, label %8
+55:                                               ; preds = %51, %tar_atol10.exit.thread
+  %56 = phi i8 [ %.pre, %51 ], [ %10, %tar_atol10.exit.thread ]
+  %57 = icmp eq i8 %56, 0
+  %58 = xor i32 %.0, 1
+  br i1 %57, label %gnu_add_sparse_entry.exit.thread, label %8
 
-gnu_add_sparse_entry.exit.thread:                 ; preds = %56, %tar_atol10.exit, %11, %51, %45, %3
-  %.026 = phi i32 [ -20, %3 ], [ -30, %45 ], [ -30, %51 ], [ -20, %11 ], [ 0, %56 ], [ -20, %tar_atol10.exit ]
+gnu_add_sparse_entry.exit.thread:                 ; preds = %55, %tar_atol10.exit, %11, %50, %45, %3
+  %.026 = phi i32 [ -20, %3 ], [ -30, %45 ], [ -30, %50 ], [ -20, %11 ], [ 0, %55 ], [ -20, %tar_atol10.exit ]
   ret i32 %.026
 }
 

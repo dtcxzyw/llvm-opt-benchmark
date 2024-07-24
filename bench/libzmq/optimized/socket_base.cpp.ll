@@ -2174,9 +2174,9 @@ if.then3:                                         ; preds = %if.then
   %_last_tsc = getelementptr inbounds i8, ptr %this, i64 1680
   %0 = load i64, ptr %_last_tsc, align 8
   %cmp4.not = icmp uge i64 %call, %0
-  %sub = sub i64 %call, %0
+  %sub = sub nuw i64 %call, %0
   %cmp7 = icmp ult i64 %sub, 3000001
-  %or.cond = and i1 %cmp4.not, %cmp7
+  %or.cond = select i1 %cmp4.not, i1 %cmp7, i1 false
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then3

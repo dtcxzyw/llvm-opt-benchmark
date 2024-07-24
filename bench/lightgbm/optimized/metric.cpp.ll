@@ -19271,7 +19271,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %.loopexit
-  %96 = sub nsw i64 %86, %93
+  %96 = sub nuw nsw i64 %86, %93
   call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %85, i64 noundef %96)
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
 
@@ -19901,7 +19901,7 @@ define internal void @_ZN8LightGBM10NDCGMetric4InitERKNS_8MetadataEi.omp_outline
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %27
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   invoke void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr %37, i64 noundef %45, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit unwind label %84
 
@@ -20257,7 +20257,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds double, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -21292,7 +21292,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %.loopexit35
-  %95 = sub nsw i64 %85, %92
+  %95 = sub nuw nsw i64 %85, %92
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr %87, i64 noundef %95, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %.pre54 = load i32, ptr %62, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
@@ -21844,7 +21844,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

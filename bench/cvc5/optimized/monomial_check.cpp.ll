@@ -9320,7 +9320,7 @@ if.end:                                           ; preds = %_ZN4cvc58internal12
   br i1 %cmp.i, label %if.then.i229, label %if.else.i
 
 if.then.i229:                                     ; preds = %if.end
-  %sub.i = sub nsw i64 %conv22, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv22, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %exp, i64 noundef %sub.i)
   br label %cond.end36
 

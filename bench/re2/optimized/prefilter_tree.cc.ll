@@ -621,7 +621,7 @@ for.end:                                          ; preds = %for.inc, %sw.bb13
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
-  %sub.i = sub nsw i64 %conv26, %sub.ptr.div.i.lcssa
+  %sub.i = sub nuw nsw i64 %conv26, %sub.ptr.div.i.lcssa
   tail call void @_ZNSt6vectorIPN3re29PrefilterESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %sub.i)
   br label %_ZNSt6vectorIPN3re29PrefilterESaIS2_EE6resizeEm.exit
 
@@ -1606,7 +1606,7 @@ for.end71:                                        ; preds = %for.inc70, %_ZNSt6v
   br i1 %cmp.i, label %if.then.i182, label %if.else.i174
 
 if.then.i182:                                     ; preds = %for.end71
-  %sub.i = sub nsw i64 %conv72, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv72, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN3re213PrefilterTree5EntryESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
           to label %invoke.cont73 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7729,7 +7729,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEPiiET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds i32, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i35 = icmp eq ptr %1, %__position.coerce

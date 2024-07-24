@@ -1261,7 +1261,7 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit19:   ; preds = %74, %_ZNSt6vectorIP
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit19
-  %120 = sub nsw i64 %110, %117
+  %120 = sub nuw nsw i64 %110, %117
   tail call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %108, i64 noundef %120)
   br label %_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EE6resizeEm.exit
 
@@ -1311,7 +1311,7 @@ _ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EE6resizeEm
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EE6resizeEm.exit
-  %143 = sub nsw i64 %110, %140
+  %143 = sub nuw nsw i64 %110, %140
   tail call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %133, i64 noundef %143)
   br label %_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EE6resizeEm.exit28.preheader
 
@@ -7876,7 +7876,7 @@ _ZNK5Darts15DoubleArrayImplIvvivE8traverseEPKcRmS4_m.exit._crit_edge: ; preds = 
 150:                                              ; preds = %142
   %151 = sub nsw i32 %.060144, %146
   %152 = sext i32 %151 to i64
-  %153 = sub i64 %2, %147
+  %153 = sub nuw i64 %2, %147
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %153, i64 %152)
   %154 = getelementptr inbounds i8, ptr %3, i64 %147
   store i64 %.sroa.speculated.i, ptr %7, align 8
@@ -11186,7 +11186,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit: ; preds
 
 19:                                               ; preds = %17
   %20 = sub i64 %.0914.i.i, %.081
-  %21 = sub i64 %1, %.081
+  %21 = sub nuw i64 %1, %.081
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %21, i64 %20)
   %22 = getelementptr inbounds i8, ptr %2, i64 %.081
   %23 = load ptr, ptr %9, align 8
@@ -11311,7 +11311,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread: 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread.thread: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit, %15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread
   %.07996 = phi i64 [ %.079, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread ], [ %.081, %15 ], [ %.081, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit ]
   %61 = phi ptr [ %59, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread ], [ %10, %15 ], [ %10, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit ]
-  %62 = sub i64 %1, %.07996
+  %62 = sub nuw i64 %1, %.07996
   %63 = getelementptr inbounds i8, ptr %2, i64 %.07996
   %64 = getelementptr inbounds i8, ptr %0, i64 8
   %65 = getelementptr inbounds i8, ptr %0, i64 16

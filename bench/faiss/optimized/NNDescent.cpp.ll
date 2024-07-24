@@ -4457,7 +4457,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit:
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i32, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
@@ -6510,7 +6510,7 @@ define void @_ZN5faiss9NNDescent5buildERNS_16DistanceComputerEib(ptr noundef non
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %53
-  %69 = sub nsw i64 %59, %66
+  %69 = sub nuw nsw i64 %59, %66
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %69)
   %.pre = load i32, ptr %54, align 4
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit

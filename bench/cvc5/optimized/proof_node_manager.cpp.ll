@@ -8708,7 +8708,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i.i.i.i.i52: ; preds = %if.th
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %if.then9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
   %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_(ptr %incdec.ptr.i.i.i, ptr %__last.coerce, ptr noundef %1)
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %13 = load ptr, ptr %_M_finish, align 8
   %add.ptr50 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %13, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
@@ -10324,7 +10324,7 @@ while.body.i.i55:                                 ; preds = %if.else, %while.bod
 _ZSt7advanceINSt8__detail14_Node_iteratorIN4cvc58internal12NodeTemplateILb1EEELb1ELb1EEEmEvRT_T0_.exit: ; preds = %while.body.i.i55, %if.else
   %__mid.sroa.0.0 = phi ptr [ %__first.coerce, %if.else ], [ %16, %while.body.i.i55 ]
   %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyINSt8__detail14_Node_iteratorIN4cvc58internal12NodeTemplateILb1EEELb1ELb1EEEPS5_ET0_T_S9_S8_(ptr %__mid.sroa.0.0, ptr %__last.coerce, ptr noundef %2)
-  %sub = sub i64 %inc.i.i, %sub.ptr.div.i
+  %sub = sub nuw i64 %inc.i.i, %sub.ptr.div.i
   %17 = load ptr, ptr %_M_finish, align 8
   %add.ptr58 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %17, i64 %sub
   store ptr %add.ptr58, ptr %_M_finish, align 8

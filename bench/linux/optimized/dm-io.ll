@@ -464,7 +464,7 @@ define internal void @bio_next_page(ptr nocapture noundef %0) #0 align 16 {
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %.preheader
-  %31 = sub i32 %24, %28
+  %31 = sub nuw i32 %24, %28
   %32 = add i32 %25, 1
   %33 = icmp eq i32 %31, 0
   br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !18

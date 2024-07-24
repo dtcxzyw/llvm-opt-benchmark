@@ -8304,7 +8304,7 @@ entry:
   br i1 %brmerge, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sub = sub i32 %v_max, %v_min
+  %sub = sub nuw i32 %v_max, %v_min
   %conv = uitofp i32 %sub to float
   %DragSpeedDefaultRatio = getelementptr inbounds i8, ptr %0, i64 24136
   %3 = load float, ptr %DragSpeedDefaultRatio, align 8
@@ -9384,7 +9384,7 @@ entry:
   br i1 %brmerge, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %v_max, %v_min
+  %sub = sub nuw i64 %v_max, %v_min
   %conv = uitofp i64 %sub to float
   %DragSpeedDefaultRatio = getelementptr inbounds i8, ptr %0, i64 24136
   %3 = load float, ptr %DragSpeedDefaultRatio, align 8
@@ -12654,7 +12654,7 @@ entry:
   %.not = icmp eq i32 %1, 8
   %cmp5 = icmp ult i32 %v_min, %v_max
   %sub = sub i32 %v_max, %v_min
-  %sub6 = sub i32 %v_min, %v_max
+  %sub6 = sub nuw i32 %v_min, %v_max
   %cond7 = select i1 %cmp5, i32 %sub, i32 %sub6
   %conv = uitofp i32 %cond7 to float
   %Max = getelementptr inbounds i8, ptr %bb, i64 8
@@ -14128,7 +14128,7 @@ entry:
   %.not = icmp eq i32 %1, 8
   %cmp5 = icmp ult i64 %v_min, %v_max
   %sub = sub i64 %v_max, %v_min
-  %sub6 = sub i64 %v_min, %v_max
+  %sub6 = sub nuw i64 %v_min, %v_max
   %cond7 = select i1 %cmp5, i64 %sub, i64 %sub6
   %conv = uitofp i64 %cond7 to float
   %Max = getelementptr inbounds i8, ptr %bb, i64 8

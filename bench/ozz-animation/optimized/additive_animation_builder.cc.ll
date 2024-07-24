@@ -177,7 +177,7 @@ _ZN3ozz9animation7offline12RawAnimationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3oz
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %38
-  %60 = sub nsw i64 %50, %57
+  %60 = sub nuw nsw i64 %50, %57
   call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %60)
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
@@ -964,7 +964,7 @@ _ZN3ozz9animation7offline12RawAnimationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3oz
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %53
-  %74 = sub nsw i64 %64, %71
+  %74 = sub nuw nsw i64 %64, %71
   call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %74)
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 

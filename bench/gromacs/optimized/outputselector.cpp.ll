@@ -163,7 +163,7 @@ define void @_ZN3gmx14OutputSelector12processFrameEiP10t_trxframe(ptr noundef no
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %26
-  %37 = sub nsw i64 %9, %34
+  %37 = sub nuw nsw i64 %9, %34
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %37)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -544,7 +544,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -565,7 +565,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23

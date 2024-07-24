@@ -98,7 +98,7 @@ if.end8:                                          ; preds = %if.end
 
 if.then13:                                        ; preds = %if.end8
   %add.ptr14 = getelementptr i8, ptr %iv, i64 %spec.select
-  %sub15 = sub i64 %niv, %spec.select
+  %sub15 = sub nuw i64 %niv, %spec.select
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr14, i8 0, i64 %sub15, i1 false)
   br label %return
 

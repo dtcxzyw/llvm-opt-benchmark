@@ -2592,7 +2592,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit203.i: ; preds = %_ZNSt12_Vect
   br i1 %721, label %722, label %724
 
 722:                                              ; preds = %709
-  %723 = sub nsw i64 %714, %720
+  %723 = sub nuw nsw i64 %714, %720
   invoke void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %723)
           to label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i unwind label %.loopexit.split-lp66.loopexit.i
 

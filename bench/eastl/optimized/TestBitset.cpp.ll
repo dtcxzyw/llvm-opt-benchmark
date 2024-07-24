@@ -2412,7 +2412,7 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body.i
-  %sub.i = sub nsw i64 %indvars.iv.i, %shr.i
+  %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
   %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %sub.i
   %0 = load i8, ptr %arrayidx.i, align 1
   br label %cond.end.i
@@ -2900,7 +2900,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
   br i1 %cmp2.not.i.i, label %cond.end.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
-  %sub.i.i = sub nsw i64 %indvars.iv.i.i, %shr.i.i
+  %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
   %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   br label %cond.end.i.i
@@ -3455,7 +3455,7 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body.i
-  %sub.i = sub nsw i64 %indvars.iv.i, %shr.i
+  %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
   %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %sub.i
   %0 = load i8, ptr %arrayidx.i, align 1
   br label %cond.end.i
@@ -3944,7 +3944,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
   br i1 %cmp2.not.i.i, label %cond.end.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
-  %sub.i.i = sub nsw i64 %indvars.iv.i.i, %shr.i.i
+  %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
   %arrayidx.i.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   br label %cond.end.i.i
@@ -4510,7 +4510,7 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body.i
-  %sub.i = sub nsw i64 %indvars.iv.i, %shr.i
+  %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
   %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %sub.i
   %0 = load i8, ptr %arrayidx.i, align 1
   br label %cond.end.i
@@ -5002,7 +5002,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
   br i1 %cmp2.not.i.i, label %cond.end.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
-  %sub.i.i = sub nsw i64 %indvars.iv.i.i, %shr.i.i
+  %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
   %arrayidx.i.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   br label %cond.end.i.i
@@ -6133,7 +6133,7 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body.i
-  %sub.i = sub nsw i64 %indvars.iv.i, %shr.i
+  %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
   %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %sub.i
   %0 = load i16, ptr %arrayidx.i, align 2
   br label %cond.end.i
@@ -6621,7 +6621,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
   br i1 %cmp2.not.i.i, label %cond.end.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
-  %sub.i.i = sub nsw i64 %indvars.iv.i.i, %shr.i.i
+  %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
   %arrayidx.i.i = getelementptr inbounds [3 x i16], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   br label %cond.end.i.i
@@ -7197,7 +7197,7 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body.i
-  %sub.i = sub nsw i64 %indvars.iv.i, %shr.i
+  %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
   %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %sub.i
   %0 = load i16, ptr %arrayidx.i, align 2
   br label %cond.end.i
@@ -7686,7 +7686,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
   br i1 %cmp2.not.i.i, label %cond.end.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
-  %sub.i.i = sub nsw i64 %indvars.iv.i.i, %shr.i.i
+  %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
   %arrayidx.i.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   br label %cond.end.i.i
@@ -8274,7 +8274,7 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body.i
-  %sub.i = sub nsw i64 %indvars.iv.i, %shr.i
+  %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
   %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %sub.i
   %0 = load i16, ptr %arrayidx.i, align 2
   br label %cond.end.i
@@ -8766,7 +8766,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
   br i1 %cmp2.not.i.i, label %cond.end.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
-  %sub.i.i = sub nsw i64 %indvars.iv.i.i, %shr.i.i
+  %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
   %arrayidx.i.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   br label %cond.end.i.i
@@ -10991,7 +10991,7 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body.i
-  %sub.i = sub nsw i64 %indvars.iv.i, %shr.i
+  %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
   %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %sub.i
   %0 = load i32, ptr %arrayidx.i, align 4
   br label %cond.end.i
@@ -11477,7 +11477,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
   br i1 %cmp2.not.i.i, label %cond.end.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
-  %sub.i.i = sub nsw i64 %indvars.iv.i.i, %shr.i.i
+  %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
   %arrayidx.i.i = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   br label %cond.end.i.i
@@ -12093,7 +12093,7 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body.i
-  %sub.i = sub nsw i64 %indvars.iv.i, %shr.i
+  %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
   %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %sub.i
   %0 = load i32, ptr %arrayidx.i, align 4
   br label %cond.end.i
@@ -12582,7 +12582,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
   br i1 %cmp2.not.i.i, label %cond.end.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
-  %sub.i.i = sub nsw i64 %indvars.iv.i.i, %shr.i.i
+  %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
   %arrayidx.i.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   br label %cond.end.i.i

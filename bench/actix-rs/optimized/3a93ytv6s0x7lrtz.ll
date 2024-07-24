@@ -158,7 +158,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   resume { ptr, i32 } %47
 
 "_ZN10actix_http4body12message_body13foreign_impls100_$LT$impl$u20$actix_http..body..message_body..MessageBody$u20$for$u20$bytes..bytes_mut..BytesMut$GT$9poll_next17h333b4f31ed1b400dE.exit": ; preds = %27
-  %56 = sub i64 %37, %28
+  %56 = sub nuw i64 %37, %28
   %57 = getelementptr inbounds i8, ptr %9, i64 8
   %58 = load ptr, ptr %57, align 8, !alias.scope !15, !noalias !11, !noundef !9
   %59 = getelementptr inbounds i8, ptr %58, i64 %28
@@ -1031,7 +1031,7 @@ common.ret:                                       ; preds = %171, %47
           to label %.body unwind label %133, !noalias !127
 
 128:                                              ; preds = %.noexc25
-  %129 = sub i64 %111, %102
+  %129 = sub nuw i64 %111, %102
   store i64 %129, ptr %110, align 8, !alias.scope !128, !noalias !127
   %130 = getelementptr inbounds i8, ptr %10, i64 8
   %131 = load ptr, ptr %130, align 8, !alias.scope !128, !noalias !127, !noundef !9

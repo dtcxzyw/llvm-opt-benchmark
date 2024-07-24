@@ -995,7 +995,7 @@ define internal fastcc noundef range(i32 -32, 1) i32 @snd_pcm_update_hw_ptr0(ptr
   br i1 %214, label %217, label %215
 
 215:                                              ; preds = %._crit_edge
-  %216 = sub i64 %213, %206
+  %216 = sub nuw i64 %213, %206
   store i64 %216, ptr %201, align 8
   br label %217
 
@@ -1864,7 +1864,7 @@ define dso_local noundef i32 @snd_interval_ratnum(ptr nocapture noundef %0, i32 
   br i1 %82, label %92, label %83
 
 83:                                               ; preds = %79
-  %84 = sub i32 %75, %81
+  %84 = sub nuw i32 %75, %81
   %85 = getelementptr inbounds i8, ptr %73, i64 12
   %86 = load i32, ptr %85, align 4
   %87 = urem i32 %84, %86
@@ -2649,7 +2649,7 @@ define internal noundef i32 @snd_pcm_hw_rule_ratdens(ptr nocapture noundef %0, p
   br i1 %59, label %69, label %60
 
 60:                                               ; preds = %57
-  %61 = sub i32 %53, %58
+  %61 = sub nuw i32 %53, %58
   %62 = getelementptr inbounds i8, ptr %47, i64 8
   %63 = load i32, ptr %62, align 4
   %64 = urem i32 %61, %63
@@ -5654,7 +5654,7 @@ define internal i32 @pcm_chmap_ctl_tlv(ptr nocapture noundef readonly %0, i32 %1
 
 68:                                               ; preds = %65
   %69 = getelementptr i8, ptr %33, i64 8
-  %70 = sub i32 %66, %36
+  %70 = sub nuw i32 %66, %36
   %71 = add nuw nsw i32 %36, 8
   %72 = add i32 %71, %34
   %73 = getelementptr inbounds i8, ptr %32, i64 1

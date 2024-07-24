@@ -12459,7 +12459,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end5
-  %sub.i = sub nsw i64 %conv11, %sub.ptr.div.i.i28
+  %sub.i = sub nuw nsw i64 %conv11, %sub.ptr.div.i.i28
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %hashTable_, i64 noundef %sub.i)
           to label %if.then.i.invoke.cont12_crit_edge unwind label %lpad7
 
@@ -49353,7 +49353,7 @@ _ZSt22__uninitialized_copy_aIN5folly3f146detail23VectorContainerIteratorIPKNSt7_
 
 _ZSt22__uninitialized_copy_aIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_S9_ET0_T_SF_SE_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_S9_ET0_T_SF_SE_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit
   %9 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_S9_ET0_T_SF_SE_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit ]
-  %sub = sub i64 %inc.i.i, %sub.ptr.div.i
+  %sub = sub nuw i64 %inc.i.i, %sub.ptr.div.i
   %add.ptr42 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 %sub
   store ptr %add.ptr42, ptr %_M_finish, align 8
   br i1 %tobool.not2.i.i, label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit48, label %for.body.i.i.i.i.i41

@@ -1882,7 +1882,7 @@ define internal fastcc ptr @php_parserr(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %131, label %.loopexit, label %132
 
 132:                                              ; preds = %129
-  %133 = sub nsw i64 %53, %126
+  %133 = sub nuw nsw i64 %53, %126
   %134 = add nsw i64 %133, -2
   %135 = getelementptr inbounds i8, ptr %127, i64 %134
   %136 = icmp ugt ptr %135, %1

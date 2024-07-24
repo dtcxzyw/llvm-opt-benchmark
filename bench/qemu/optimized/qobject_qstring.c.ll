@@ -58,7 +58,7 @@ if.end:                                           ; preds = %entry
   store i64 1, ptr %refcnt.i, align 8
   store i32 3, ptr %call, align 8
   %add.ptr2 = getelementptr i8, ptr %str, i64 %start
-  %sub = sub i64 %end, %start
+  %sub = sub nuw i64 %end, %start
   %call3 = tail call noalias ptr @g_strndup(ptr noundef %add.ptr2, i64 noundef %sub) #8
   %string = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call3, ptr %string, align 8

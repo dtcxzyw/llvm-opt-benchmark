@@ -355,7 +355,7 @@ define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr nound
   store i64 %34, ptr %4, align 8
   %35 = getelementptr inbounds i8, ptr %3, i64 %storemerge50
   store i8 %.04652, ptr %35, align 1
-  %36 = sub i64 %2, %.04751
+  %36 = sub nuw i64 %2, %.04751
   %37 = call i64 @llvm.umin.i64(i64 %36, i64 65536)
   %38 = add nsw i64 %37, -1
   %39 = lshr i64 %38, 8

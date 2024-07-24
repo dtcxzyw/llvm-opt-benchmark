@@ -318,7 +318,7 @@ _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit: ; p
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %18
-  %23 = sub nsw i64 %20, %16
+  %23 = sub nuw nsw i64 %20, %16
   call void @_ZNSt6vectorIN5draco4Mesh13AttributeDataESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %23)
   br label %_ZNSt6vectorIN5draco4Mesh13AttributeDataESaIS2_EE6resizeEm.exit
 

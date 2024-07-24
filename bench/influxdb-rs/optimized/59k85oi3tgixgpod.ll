@@ -1883,7 +1883,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %13 = add i64 %.val8, %5
   %.not.i = icmp ult i64 %13, %.val
   %14 = select i1 %.not.i, i64 0, i64 %.val
-  %.0.i = sub i64 %13, %14
+  %.0.i = sub nuw i64 %13, %14
   %15 = sub i64 %.val, %.0.i
   %.not = icmp ult i64 %15, %7
   store i64 %.0.i, ptr %0, align 8
@@ -1895,7 +1895,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 19:                                               ; preds = %10
-  %20 = sub i64 %7, %15
+  %20 = sub nuw i64 %7, %15
   store i64 %.val, ptr %16, align 8
   store i64 0, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1930,7 +1930,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %13 = add i64 %.val8, %5
   %.not.i = icmp ult i64 %13, %.val
   %14 = select i1 %.not.i, i64 0, i64 %.val
-  %.0.i = sub i64 %13, %14
+  %.0.i = sub nuw i64 %13, %14
   %15 = sub i64 %.val, %.0.i
   %.not = icmp ult i64 %15, %7
   store i64 %.0.i, ptr %0, align 8
@@ -1942,7 +1942,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 19:                                               ; preds = %10
-  %20 = sub i64 %7, %15
+  %20 = sub nuw i64 %7, %15
   store i64 %.val, ptr %16, align 8
   store i64 0, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 24

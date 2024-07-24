@@ -543,7 +543,7 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   %.not375 = icmp uge i32 %158, %107
   %159 = icmp eq i32 %143, 0
   %or.cond404 = or i1 %159, %.not375
-  %160 = sub i32 %107, %143
+  %160 = sub nuw i32 %107, %143
   %161 = icmp ugt i32 %158, %160
   %or.cond406 = or i1 %161, %or.cond404
   br i1 %or.cond406, label %162, label %167
@@ -625,7 +625,7 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   %.not379 = icmp uge i32 %204, %172
   %205 = icmp eq i32 %188, 0
   %or.cond409 = or i1 %205, %.not379
-  %206 = sub i32 %172, %188
+  %206 = sub nuw i32 %172, %188
   %207 = icmp ugt i32 %204, %206
   %or.cond411 = or i1 %207, %or.cond409
   br i1 %or.cond411, label %208, label %213
@@ -2751,7 +2751,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %102 = getelementptr inbounds i8, ptr %101, i64 64
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr %70, align 8
-  %105 = sub i32 %.095.i, %65
+  %105 = sub nuw i32 %.095.i, %65
   %106 = load i32, ptr %63, align 4
   %107 = tail call ptr %103(ptr noundef nonnull %0, ptr noundef %104, i32 noundef %105, i32 noundef %106, i32 noundef 0) #8
   br label %116
@@ -2803,7 +2803,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr nocaptur
   %135 = load ptr, ptr %129, align 8
   %136 = getelementptr inbounds [64 x i16], ptr %135, i64 %72
   %137 = getelementptr inbounds [64 x i16], ptr %136, i64 %76
-  %138 = sub i32 %132, %75
+  %138 = sub nuw i32 %132, %75
   %139 = zext i32 %138 to i64
   %140 = shl nuw nsw i64 %139, 7
   tail call void @llvm.memset.p0.i64(ptr align 2 %137, i8 0, i64 %140, i1 false)
@@ -5282,7 +5282,7 @@ define internal fastcc void @do_crop_ext_reflect(ptr noundef %0, ptr nocapture n
   %71 = getelementptr inbounds i8, ptr %70, i64 64
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %40, align 8
-  %74 = sub i32 %.0125163, %36
+  %74 = sub nuw i32 %.0125163, %36
   %75 = load i32, ptr %33, align 4
   %76 = tail call ptr %72(ptr noundef nonnull %0, ptr noundef %73, i32 noundef %74, i32 noundef %75, i32 noundef 0) #8
   br label %85
@@ -5373,7 +5373,7 @@ define internal fastcc void @do_crop_ext_reflect(ptr noundef %0, ptr nocapture n
   br i1 %115, label %116, label %.loopexit134
 
 116:                                              ; preds = %.loopexit135
-  %117 = sub i32 %114, %44
+  %117 = sub nuw i32 %114, %44
   %.not131156 = icmp eq i32 %117, 0
   br i1 %.not131156, label %.loopexit134, label %.preheader.lr.ph
 
@@ -5562,7 +5562,7 @@ define internal fastcc void @do_crop_ext_flat(ptr noundef %0, ptr nocapture noun
   %75 = getelementptr inbounds i8, ptr %74, i64 64
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %40, align 8
-  %78 = sub i32 %.097116, %35
+  %78 = sub nuw i32 %.097116, %35
   %79 = load i32, ptr %33, align 4
   %80 = tail call ptr %76(ptr noundef nonnull %0, ptr noundef %77, i32 noundef %78, i32 noundef %79, i32 noundef 0) #8
   br label %89
@@ -5620,7 +5620,7 @@ define internal fastcc void @do_crop_ext_flat(ptr noundef %0, ptr nocapture noun
   %109 = load ptr, ptr %103, align 8
   %110 = getelementptr inbounds [64 x i16], ptr %109, i64 %42
   %111 = getelementptr inbounds [64 x i16], ptr %110, i64 %46
-  %112 = sub i32 %106, %45
+  %112 = sub nuw i32 %106, %45
   %113 = zext i32 %112 to i64
   %114 = shl nuw nsw i64 %113, 7
   tail call void @llvm.memset.p0.i64(ptr align 2 %111, i8 0, i64 %114, i1 false)

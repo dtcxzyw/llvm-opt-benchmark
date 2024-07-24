@@ -26,7 +26,7 @@ if.end.i:                                         ; preds = %entry
   %1 = load ptr, ptr %cbs, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %len
   store ptr %add.ptr.i, ptr %cbs, align 8
-  %sub.i = sub i64 %0, %len
+  %sub.i = sub nuw i64 %0, %len
   store i64 %sub.i, ptr %len.i, align 8
   br label %cbs_get.exit
 
@@ -291,7 +291,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %cbs, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %len
   store ptr %add.ptr.i, ptr %cbs, align 8
-  %sub.i = sub i64 %0, %len
+  %sub.i = sub nuw i64 %0, %len
   store i64 %sub.i, ptr %len.i, align 8
   store ptr %1, ptr %out, align 8
   %len2.i = getelementptr inbounds i8, ptr %out, i64 8
@@ -315,7 +315,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %cbs, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %len
   store ptr %add.ptr.i, ptr %cbs, align 8
-  %sub.i = sub i64 %0, %len
+  %sub.i = sub nuw i64 %0, %len
   store i64 %sub.i, ptr %len.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr align 1 %1, i64 %len, i1 false)
   br label %return
@@ -350,7 +350,7 @@ cbs_get.exit.i.i:                                 ; preds = %entry
 if.end.i.i:                                       ; preds = %cbs_get.exit.i.i
   %add.ptr.i.i4.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %3
   store ptr %add.ptr.i.i4.i, ptr %cbs, align 8
-  %sub.i.i5.i = sub i64 %sub.i.i.i, %3
+  %sub.i.i5.i = sub nuw i64 %sub.i.i.i, %3
   store i64 %sub.i.i5.i, ptr %len.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %out, align 8
   %len2.i.i.i = getelementptr inbounds i8, ptr %out, i64 8
@@ -398,7 +398,7 @@ if.end.i:                                         ; preds = %for.body.i.i
 if.end.i.i:                                       ; preds = %if.end.i
   %add.ptr.i.i4.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %3
   store ptr %add.ptr.i.i4.i, ptr %cbs, align 8
-  %sub.i.i5.i = sub i64 %sub.i.i.i, %3
+  %sub.i.i5.i = sub nuw i64 %sub.i.i.i, %3
   store i64 %sub.i.i5.i, ptr %len.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %out, align 8
   %len2.i.i.i = getelementptr inbounds i8, ptr %out, i64 8
@@ -446,7 +446,7 @@ if.end.i:                                         ; preds = %for.body.i.i
 if.end.i.i:                                       ; preds = %if.end.i
   %add.ptr.i.i4.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %3
   store ptr %add.ptr.i.i4.i, ptr %cbs, align 8
-  %sub.i.i5.i = sub i64 %sub.i.i.i, %3
+  %sub.i.i5.i = sub nuw i64 %sub.i.i.i, %3
   store i64 %sub.i.i5.i, ptr %len.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %out, align 8
   %len2.i.i.i = getelementptr inbounds i8, ptr %out, i64 8
@@ -555,7 +555,7 @@ if.end.i42.i:                                     ; preds = %if.end75.i
   %9 = load ptr, ptr %cbs, align 8
   %add.ptr.i.i43.i = getelementptr inbounds i8, ptr %9, i64 %len.0.i
   store ptr %add.ptr.i.i43.i, ptr %cbs, align 8
-  %sub.i.i44.i = sub i64 %8, %len.0.i
+  %sub.i.i44.i = sub nuw i64 %8, %len.0.i
   store i64 %sub.i.i44.i, ptr %header.sroa.7.0.cbs.sroa_idx.i, align 8
   br i1 %cmp.i, label %cbs_get_any_asn1_element.exit, label %return.sink.split.i
 
@@ -698,7 +698,7 @@ if.end.i42.i:                                     ; preds = %if.end75.i
   %12 = load ptr, ptr %cbs, align 8
   %add.ptr.i.i43.i = getelementptr inbounds i8, ptr %12, i64 %len.0.i
   store ptr %add.ptr.i.i43.i, ptr %cbs, align 8
-  %sub.i.i44.i = sub i64 %11, %len.0.i
+  %sub.i.i44.i = sub nuw i64 %11, %len.0.i
   store i64 %sub.i.i44.i, ptr %header.sroa.7.0.cbs.sroa_idx.i, align 8
   br i1 %cmp.i, label %cbs_get_any_asn1_element.exit, label %return.sink.split.i
 
@@ -802,7 +802,7 @@ if.end75.sink.split.i.i:                          ; preds = %if.end60.i.i, %if.t
 if.end.i42.i.i:                                   ; preds = %if.end75.sink.split.i.i
   %add.ptr.i.i43.i.i = getelementptr inbounds i8, ptr %header.sroa.0.0.copyload.i.i, i64 %len.0.ph.i.i
   store ptr %add.ptr.i.i43.i.i, ptr %cbs, align 8
-  %sub.i.i44.i.i = sub i64 %header.sroa.7.0.copyload.i.i, %len.0.ph.i.i
+  %sub.i.i44.i.i = sub nuw i64 %header.sroa.7.0.copyload.i.i, %len.0.ph.i.i
   store i64 %sub.i.i44.i.i, ptr %header.sroa.7.0.cbs.sroa_idx.i.i, align 8
   br i1 %cmp, label %CBS_get_any_asn1_element.exit, label %if.end.i42.i.i.else
 
@@ -838,7 +838,7 @@ if.end.i.i.else:                                  ; preds = %land.lhs.true.cont.
   %.else.val13 = load ptr, ptr %out, align 8
   %add.ptr.i.i27 = getelementptr inbounds i8, ptr %.else.val13, i64 %add68.sink.i.i
   store ptr %add.ptr.i.i27, ptr %out, align 8
-  %sub.i.i29 = sub i64 %.else.val, %add68.sink.i.i
+  %sub.i.i29 = sub nuw i64 %.else.val, %add68.sink.i.i
   store i64 %sub.i.i29, ptr %out.sroa.gep5, align 8
   br label %return
 
@@ -926,7 +926,7 @@ if.end75.sink.split.i.i.i:                        ; preds = %if.end60.i.i.i, %if
 if.end.i42.i.i.i:                                 ; preds = %if.end75.sink.split.i.i.i
   %add.ptr.i.i43.i.i.i = getelementptr inbounds i8, ptr %header.sroa.0.0.copyload.i.i.i, i64 %len.0.ph.i.i.i
   store ptr %add.ptr.i.i43.i.i.i, ptr %cbs, align 8
-  %sub.i.i44.i.i.i = sub i64 %header.sroa.7.0.copyload.i.i.i, %len.0.ph.i.i.i
+  %sub.i.i44.i.i.i = sub nuw i64 %header.sroa.7.0.copyload.i.i.i, %len.0.ph.i.i.i
   store i64 %sub.i.i44.i.i.i, ptr %header.sroa.7.0.cbs.sroa_idx.i.i.i, align 8
   br i1 %cmp.i, label %CBS_get_any_asn1_element.exit.i, label %if.end.i42.i.i.else.i
 
@@ -1045,7 +1045,7 @@ if.end75.sink.split.i.i.i:                        ; preds = %if.end60.i.i.i, %if
 if.end.i42.i.i.i:                                 ; preds = %if.end75.sink.split.i.i.i
   %add.ptr.i.i43.i.i.i = getelementptr inbounds i8, ptr %header.sroa.0.0.copyload.i.i.i, i64 %len.0.ph.i.i.i
   store ptr %add.ptr.i.i43.i.i.i, ptr %cbs, align 8
-  %sub.i.i44.i.i.i = sub i64 %header.sroa.7.0.copyload.i.i.i, %len.0.ph.i.i.i
+  %sub.i.i44.i.i.i = sub nuw i64 %header.sroa.7.0.copyload.i.i.i, %len.0.ph.i.i.i
   store i64 %sub.i.i44.i.i.i, ptr %header.sroa.7.0.cbs.sroa_idx.i.i.i, align 8
   %cmp1.not.i = icmp ne i8 %0, 2
   %cmp.i.i26.i = icmp ult i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
@@ -1054,7 +1054,7 @@ if.end.i42.i.i.i:                                 ; preds = %if.end75.sink.split
 
 if.end:                                           ; preds = %if.end.i42.i.i.i
   %add.ptr.i.i27.i = getelementptr inbounds i8, ptr %header.sroa.0.0.copyload.i.i.i, i64 %add68.sink.i.i.i
-  %sub.i.i29.i = sub nsw i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
+  %sub.i.i29.i = sub nuw nsw i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
   store i64 0, ptr %out, align 8
   %cmp = icmp eq i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
   br i1 %cmp, label %return, label %if.end4
@@ -1223,14 +1223,14 @@ if.end75.sink.split.i.i.i:                        ; preds = %if.end60.i.i.i, %if
 if.end3.i:                                        ; preds = %if.end75.sink.split.i.i.i
   %add.ptr.i.i43.i.i.i = getelementptr inbounds i8, ptr %1, i64 %len.0.ph.i.i.i
   store ptr %add.ptr.i.i43.i.i.i, ptr %cbs, align 8
-  %sub.i.i44.i.i.i = sub i64 %0, %len.0.ph.i.i.i
+  %sub.i.i44.i.i.i = sub nuw i64 %0, %len.0.ph.i.i.i
   store i64 %sub.i.i44.i.i.i, ptr %len.i.i.i, align 8
   %cmp.i.i26.i = icmp ult i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
   br i1 %cmp.i.i26.i, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end3.i
   %add.ptr.i.i27.i = getelementptr inbounds i8, ptr %1, i64 %add68.sink.i.i.i
-  %sub.i.i29.i = sub nsw i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
+  %sub.i.i29.i = sub nuw nsw i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
   %cmp.i = icmp eq ptr %out, null
   %switch.i.i6 = icmp ult i64 %sub.i.i29.i, 2
   br i1 %switch.i.i6, label %return, label %if.end4.i.i.i7
@@ -1320,7 +1320,7 @@ CBS_get_any_asn1_element.exit.i.thread:           ; preds = %if.end.i42.i.i.i46
 cbs_get_asn1.exit63.thread91:                     ; preds = %CBS_get_any_asn1_element.exit.i.thread
   %add.ptr.i.i27.i58 = getelementptr inbounds i8, ptr %add.ptr.i.i27.i, i64 %add68.sink.i.i.i43
   store ptr %add.ptr.i.i27.i58, ptr %out, align 8
-  %sub.i.i29.i59 = sub nsw i64 %.else.val.i54, %add68.sink.i.i.i43
+  %sub.i.i29.i59 = sub nuw nsw i64 %.else.val.i54, %add68.sink.i.i.i43
   store i64 %sub.i.i29.i59, ptr %out.sroa.gep.i49, align 8
   %cmp.not.old = icmp eq i64 %sub.i.i29.i, %.else.val.i54
   br i1 %cmp.not.old, label %if.end8, label %return
@@ -1437,7 +1437,7 @@ if.end75.sink.split.i.i.i:                        ; preds = %if.end60.i.i.i, %if
 if.end3.i:                                        ; preds = %if.end75.sink.split.i.i.i
   %add.ptr.i.i43.i.i.i = getelementptr inbounds i8, ptr %1, i64 %len.0.ph.i.i.i
   store ptr %add.ptr.i.i43.i.i.i, ptr %cbs, align 8
-  %sub.i.i44.i.i.i = sub i64 %0, %len.0.ph.i.i.i
+  %sub.i.i44.i.i.i = sub nuw i64 %0, %len.0.ph.i.i.i
   store i64 %sub.i.i44.i.i.i, ptr %len.i.i.i, align 8
   %cmp.i.i26.i = icmp ult i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
   br i1 %cmp.i.i26.i, label %return, label %if.then2
@@ -1446,7 +1446,7 @@ if.then2:                                         ; preds = %if.end3.i
   %out.sroa.gep.i = getelementptr inbounds i8, ptr %child, i64 8
   %add.ptr.i.i27.i = getelementptr inbounds i8, ptr %1, i64 %add68.sink.i.i.i
   store ptr %add.ptr.i.i27.i, ptr %child, align 8
-  %sub.i.i29.i = sub nsw i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
+  %sub.i.i29.i = sub nuw nsw i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
   store i64 %sub.i.i29.i, ptr %out.sroa.gep.i, align 8
   %call3 = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %child, ptr noundef %out)
   %tobool4.not = icmp ne i32 %call3, 0
@@ -1554,14 +1554,14 @@ if.end75.sink.split.i.i.i:                        ; preds = %if.end60.i.i.i, %if
 if.end3.i:                                        ; preds = %if.end75.sink.split.i.i.i
   %add.ptr.i.i43.i.i.i = getelementptr inbounds i8, ptr %1, i64 %len.0.ph.i.i.i
   store ptr %add.ptr.i.i43.i.i.i, ptr %cbs, align 8
-  %sub.i.i44.i.i.i = sub i64 %0, %len.0.ph.i.i.i
+  %sub.i.i44.i.i.i = sub nuw i64 %0, %len.0.ph.i.i.i
   store i64 %sub.i.i44.i.i.i, ptr %len.i.i.i, align 8
   %cmp.i.i26.i = icmp ult i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
   br i1 %cmp.i.i26.i, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end3.i
   %add.ptr.i.i27.i = getelementptr inbounds i8, ptr %1, i64 %add68.sink.i.i.i
-  %sub.i.i29.i = sub nsw i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
+  %sub.i.i29.i = sub nuw nsw i64 %len.0.ph.i.i.i, %add68.sink.i.i.i
   %switch.i.i8 = icmp ult i64 %sub.i.i29.i, 2
   br i1 %switch.i.i8, label %return, label %if.end4.i.i.i9
 
@@ -1638,7 +1638,7 @@ if.end.i42.i.i.i48:                               ; preds = %if.end75.sink.split
   br i1 %or.cond, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end.i42.i.i.i48
-  %sub.i.i29.i61 = sub nsw i64 %len.0.ph.i.i.i46, %add68.sink.i.i.i45
+  %sub.i.i29.i61 = sub nuw nsw i64 %len.0.ph.i.i.i46, %add68.sink.i.i.i45
   %cmp.not = icmp eq i64 %sub.i.i29.i61, 1
   %cmp8.not = icmp eq i64 %sub.i.i29.i, %len.0.ph.i.i.i46
   %or.cond90 = and i1 %cmp8.not, %cmp.not

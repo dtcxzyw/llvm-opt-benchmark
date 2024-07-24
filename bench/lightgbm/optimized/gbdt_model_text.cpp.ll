@@ -755,7 +755,7 @@ define void @_ZNK8LightGBM4GBDT9DumpModelB5cxx11Eiii(ptr dead_on_unwind noalias 
   br i1 %185, label %186, label %197
 
 186:                                              ; preds = %184
-  %187 = sub i64 %.02312.i, %.02411.i
+  %187 = sub nuw i64 %.02312.i, %.02411.i
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %.02411.i, i64 noundef %187)
           to label %188 unwind label %.loopexit.split-lp.loopexit.i
 
@@ -3161,7 +3161,7 @@ define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_
   br i1 %18, label %19, label %32
 
 19:                                               ; preds = %17
-  %20 = sub i64 %.033, %.01732
+  %20 = sub nuw i64 %.033, %.01732
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.01732, i64 noundef %20)
           to label %21 unwind label %.loopexit
 

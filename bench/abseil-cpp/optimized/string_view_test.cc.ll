@@ -49969,7 +49969,7 @@ if.end.i.i:                                       ; preds = %invoke.cont284
   br i1 %cmp4.not.i.i, label %if.end6.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %sub.i.i = sub i64 %36, %cond
+  %sub.i.i = sub nuw i64 %36, %cond
   %cmp11.not20.i.i = icmp ult i64 %sub.i.i, %45
   br i1 %cmp11.not20.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %while.body.lr.ph.i.i
 
@@ -49982,7 +49982,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end6.i.i
 while.body.i.i:                                   ; preds = %if.end19.i.i, %while.body.lr.ph.i.i
   %__len.022.i.i = phi i64 [ %sub.i.i, %while.body.lr.ph.i.i ], [ %sub.ptr.sub22.i.i, %if.end19.i.i ]
   %__first.021.i.i = phi ptr [ %add.ptr.i.i356, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.end19.i.i ]
-  %sub12.i.i = sub i64 %__len.022.i.i, %45
+  %sub12.i.i = sub nuw i64 %__len.022.i.i, %45
   %add.i.i = add i64 %sub12.i.i, 1
   %cmp.i.i.i = icmp eq i64 %add.i.i, 0
   br i1 %cmp.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
@@ -50546,7 +50546,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   br i1 %cmp.not.i.i369, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindES2_m.exit, label %if.then.i.i370
 
 if.then.i.i370:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  %sub.i.i371 = sub i64 %36, %98
+  %sub.i.i371 = sub nuw i64 %36, %98
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i371, i64 %cond)
   %cmp.i3.i.i = icmp eq i64 %98, 0
   br i1 %cmp.i3.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindES2_m.exit, label %do.body.i.i

@@ -5869,7 +5869,7 @@ land.rhs:                                         ; preds = %if.then12, %while.b
   br i1 %cmp16.not, label %if.end49, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %sub = sub i64 %sent.062, %22
+  %sub = sub nuw i64 %sent.062, %22
   %incdec.ptr = getelementptr inbounds i8, ptr %bufs_ptr.addr.061, i64 16
   %dec = add i64 %count.addr.060, -1
   %cmp14.not = icmp eq i64 %dec, 0
@@ -5893,7 +5893,7 @@ if.end49:                                         ; preds = %land.rhs
   %23 = load ptr, ptr %bufs_ptr.addr.061, align 8
   %add.ptr = getelementptr inbounds i8, ptr %23, i64 %sent.062
   store ptr %add.ptr, ptr %bufs_ptr.addr.061, align 8
-  %sub31 = sub i64 %22, %sent.062
+  %sub31 = sub nuw i64 %22, %sent.062
   store i64 %sub31, ptr %len15.le, align 8
   %cmp50 = icmp eq i32 %call7, 0
   br i1 %cmp50, label %if.then51, label %if.end67

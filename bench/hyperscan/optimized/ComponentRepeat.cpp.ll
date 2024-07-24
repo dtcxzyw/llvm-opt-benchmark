@@ -751,7 +751,7 @@ _ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EE5clearEv.exit35: ; preds = %
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EE5clearEv.exit35
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_firsts, i64 noundef %sub.i)
   br label %_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EE6resizeEm.exit
 
@@ -794,7 +794,7 @@ _ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %i
   br i1 %cmp.i51, label %if.then.i65, label %if.else.i52
 
 if.then.i65:                                      ; preds = %_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EE6resizeEm.exit
-  %sub.i66 = sub nsw i64 %conv, %sub.ptr.div.i.i50
+  %sub.i66 = sub nuw nsw i64 %conv, %sub.ptr.div.i.i50
   tail call void @_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_lasts, i64 noundef %sub.i66)
   br label %_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaIS3_EE6resizeEm.exit67
 
@@ -2639,7 +2639,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInf
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %4 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr %"class.ue2::PositionInfo", ptr %4, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %1, %__position.coerce
@@ -2844,7 +2844,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfo
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %4 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr %"class.ue2::PositionInfo", ptr %4, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %1, %__position.coerce

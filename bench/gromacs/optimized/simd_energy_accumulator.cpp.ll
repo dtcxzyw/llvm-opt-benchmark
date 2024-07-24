@@ -75,7 +75,7 @@ define void @_ZN3gmx22EnergyGroupsPerCluster15setEnergyGroupsENS_8ArrayRefIKiEE(
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %3
-  %24 = sub nsw i64 %14, %21
+  %24 = sub nuw nsw i64 %14, %21
   tail call void @_ZNSt6vectorIiN3gmx9AllocatorIiNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %24)
   br label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
@@ -368,7 +368,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
-  %53 = sub nsw i64 %42, %50
+  %53 = sub nuw nsw i64 %42, %50
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %53)
           to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit24 unwind label %90
 
@@ -398,7 +398,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit24
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit24
-  %69 = sub nsw i64 %59, %66
+  %69 = sub nuw nsw i64 %59, %66
   invoke void @_ZNSt6vectorIPfSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %69)
           to label %_ZNSt6vectorIPfSaIS0_EE6resizeEm.exit unwind label %90
 
@@ -427,7 +427,7 @@ _ZNSt6vectorIPfSaIS0_EE6resizeEm.exit:            ; preds = %74, %72, %70, %68
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %_ZNSt6vectorIPfSaIS0_EE6resizeEm.exit
-  %84 = sub nsw i64 %59, %81
+  %84 = sub nuw nsw i64 %59, %81
   invoke void @_ZNSt6vectorIPfSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %84)
           to label %_ZNSt6vectorIPfSaIS0_EE6resizeEm.exit29 unwind label %90
 

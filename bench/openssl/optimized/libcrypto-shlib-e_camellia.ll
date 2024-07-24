@@ -273,7 +273,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %len, %conv
+  %sub = sub nuw i64 %len, %conv
   %block = getelementptr inbounds i8, ptr %call1, i64 280
   br label %for.body
 

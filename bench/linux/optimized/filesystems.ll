@@ -386,7 +386,7 @@ define dso_local i32 @list_bdev_fs_names(ptr nocapture noundef writeonly %0, i64
 20:                                               ; preds = %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %14, i64 %16, i1 false)
   %21 = getelementptr i8, ptr %6, i64 %16
-  %22 = sub i64 %8, %16
+  %22 = sub nuw i64 %8, %16
   %23 = add i32 %7, 1
   br label %24
 

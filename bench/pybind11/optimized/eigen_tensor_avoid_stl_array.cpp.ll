@@ -14720,7 +14720,7 @@ _ZN8pybind115tupleC2IiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi
   unreachable
 
 554:                                              ; preds = %539
-  %555 = sub i64 %49, %.1209.lcssa
+  %555 = sub nuw i64 %49, %.1209.lcssa
   %556 = invoke ptr @PyTuple_New(i64 noundef %555)
           to label %.noexc405 unwind label %.loopexit766
 

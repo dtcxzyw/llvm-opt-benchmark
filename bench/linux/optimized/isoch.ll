@@ -436,7 +436,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   br i1 %254, label %.thread28.loopexit, label %.preheader31, !llvm.loop !15
 
 .thread28.loopexit:                               ; preds = %250
-  %255 = sub nsw i32 %221, %233
+  %255 = sub nuw nsw i32 %221, %233
   br label %.thread28
 
 .thread28:                                        ; preds = %.thread28.loopexit, %.thread26
@@ -457,7 +457,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %267 = sub nsw i32 %171, %264
   %268 = udiv i32 %267, %33
   %269 = urem i32 %267, %33
-  %270 = sub i32 %264, %257
+  %270 = sub nuw i32 %264, %257
   %271 = add i32 %270, %268
   %272 = add i32 %271, %269
   %273 = call i32 @llvm.umax.i32(i32 %33, i32 1)

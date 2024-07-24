@@ -3459,7 +3459,7 @@ define internal noundef zeroext i8 @elem_cause(ptr noundef %0, ptr noundef %1, p
 
 24:                                               ; preds = %22
   %25 = add i32 %.sink, %3
-  %26 = sub i32 %4, %.sink
+  %26 = sub nuw i32 %4, %.sink
   %27 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %25, i32 noundef %26) #5
   br label %28
 
@@ -3549,7 +3549,7 @@ define internal zeroext i8 @elem_cdma_sowd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %29
-  %33 = sub i32 %4, %30
+  %33 = sub nuw i32 %4, %30
   %34 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %33) #5
   %35 = add i32 %33, %.0
   %.pre = sub i32 %35, %3
@@ -4010,7 +4010,7 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
   br i1 %150, label %151, label %155
 
 151:                                              ; preds = %.loopexit
-  %152 = sub i32 %4, %149
+  %152 = sub nuw i32 %4, %149
   %153 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %152) #5
   %154 = add i32 %152, %.1
   %.pre = sub i32 %154, %3
@@ -4037,7 +4037,7 @@ define internal zeroext i8 @elem_downlink_re(ptr noundef %0, ptr noundef %1, ptr
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %6
-  %14 = sub i32 %4, %10
+  %14 = sub nuw i32 %4, %10
   %15 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %11, i32 noundef %14) #5
   %16 = add i32 %4, %3
   br label %17
@@ -4971,7 +4971,7 @@ content_fill_aux.exit298:                         ; preds = %139, %145, %121
   br label %178
 
 178:                                              ; preds = %159, %152
-  %179 = sub i32 %4, %151
+  %179 = sub nuw i32 %4, %151
   %180 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.3, i32 noundef %179) #5
   br label %181
 
@@ -5233,7 +5233,7 @@ define internal zeroext i8 @elem_is2000_scr(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %150, label %151, label %155
 
 151:                                              ; preds = %148
-  %152 = sub i32 %4, %149
+  %152 = sub nuw i32 %4, %149
   %153 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.4, i32 noundef %152) #5
   %154 = add i32 %152, %.4
   %.pre = sub i32 %154, %3
@@ -5338,7 +5338,7 @@ define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, pt
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %.loopexit
-  %63 = sub i32 %4, %60
+  %63 = sub nuw i32 %4, %60
   %64 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %63) #5
   %65 = add i32 %63, %.1
   %.pre = sub i32 %65, %3
@@ -6479,7 +6479,7 @@ define internal zeroext i8 @elem_sw_ver(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %30
-  %34 = sub i32 %4, %31
+  %34 = sub nuw i32 %4, %31
   %35 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %34) #5
   %36 = add i32 %34, %.0
   %.pre = sub i32 %36, %3
@@ -6899,7 +6899,7 @@ define internal zeroext i8 @elem_dtmf_chars(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %24
-  %33 = sub i32 %4, %30
+  %33 = sub nuw i32 %4, %30
   %34 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %29, i32 noundef %33) #5
   %35 = add i32 %33, %29
   %.pre = sub i32 %35, %3
@@ -6999,7 +6999,7 @@ define internal zeroext i8 @elem_a2p_bearer_session(ptr noundef %0, ptr noundef 
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %52
-  %56 = sub i32 %4, %53
+  %56 = sub nuw i32 %4, %53
   %57 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %56) #5
   %58 = add i32 %56, %.1
   %.pre = sub i32 %58, %3

@@ -717,8 +717,8 @@ define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThread20execute_trim_and_
 14:                                               ; preds = %10
   %15 = load i64, ptr %3, align 8
   %16 = icmp ult i64 %13, %15
-  %17 = sub i64 %15, %13
-  %18 = sub i64 %13, %15
+  %17 = sub nuw i64 %15, %13
+  %18 = sub nuw i64 %13, %15
   %19 = select i1 %16, i64 %17, i64 %18
   %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not38 = icmp eq ptr %20, null

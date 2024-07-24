@@ -35366,7 +35366,7 @@ _ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8getWidthEv
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8getWidthEv.exit
-  %sub = sub i32 %newSize, %call.i
+  %sub = sub nuw i32 %newSize, %call.i
   call void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE6extendEj(ptr sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %sub)
   br label %return
 
@@ -35375,7 +35375,7 @@ if.else:                                          ; preds = %_ZNK4cvc58internal6
   br i1 %cmp2, label %if.then3, label %if.else5
 
 if.then3:                                         ; preds = %if.else
-  %sub4 = sub i32 %call.i, %newSize
+  %sub4 = sub nuw i32 %call.i, %newSize
   call void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8contractEj(ptr sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %sub4)
   br label %return
 
@@ -49326,7 +49326,7 @@ _ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeT
 
 _ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEPS6_S6_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEPS6_S6_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEmEvRT_T0_.exit
   %8 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEPS6_S6_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr %"class.cvc5::internal::NodeTemplate.0", ptr %8, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i41 = icmp eq ptr %1, %__position.coerce
@@ -97448,7 +97448,7 @@ _ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb1EE8getWidthEv
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb1EE8getWidthEv.exit
-  %sub = sub i32 %newSize, %call.i
+  %sub = sub nuw i32 %newSize, %call.i
   call void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb1EE6extendEj(ptr sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector.61") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %sub)
   br label %return
 
@@ -97457,7 +97457,7 @@ if.else:                                          ; preds = %_ZNK4cvc58internal6
   br i1 %cmp2, label %if.then3, label %if.else5
 
 if.then3:                                         ; preds = %if.else
-  %sub4 = sub i32 %call.i, %newSize
+  %sub4 = sub nuw i32 %call.i, %newSize
   call void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb1EE8contractEj(ptr sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector.61") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %sub4)
   br label %return
 

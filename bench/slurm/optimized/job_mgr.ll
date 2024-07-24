@@ -10752,7 +10752,7 @@ define dso_local range(i32 -1, 1) i32 @job_update_tres_cnt(ptr noundef %0, i32 n
   br label %38
 
 36:                                               ; preds = %30
-  %37 = sub i32 %32, %.027
+  %37 = sub nuw i32 %32, %.027
   br label %38
 
 38:                                               ; preds = %36, %34
@@ -10776,7 +10776,7 @@ define dso_local range(i32 -1, 1) i32 @job_update_tres_cnt(ptr noundef %0, i32 n
   br label %50
 
 48:                                               ; preds = %42
-  %49 = sub i32 %44, %.027
+  %49 = sub nuw i32 %44, %.027
   br label %50
 
 50:                                               ; preds = %48, %46

@@ -3134,7 +3134,7 @@ _ZN2cv10AutoBufferIaLm1032EED2Ev.exit:            ; preds = %73, %70
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds float, ptr %109, i64 %101
   %111 = sub nsw i32 %11, %77
-  %112 = sub i64 %35, %.070115
+  %112 = sub nuw i64 %35, %.070115
   %113 = trunc i64 %112 to i32
   %.sroa.speculated94 = call i32 @llvm.smin.i32(i32 %111, i32 %113)
   call void @llvm.memcpy.p0.p0.i64(ptr align 32 %47, ptr align 1 %86, i64 %14, i1 false)
@@ -3457,7 +3457,7 @@ _ZSt13move_backwardIPSt6vectorIiSaIiEES3_ET0_T_S5_S4_.exit: ; preds = %_ZNSt6vec
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE16_Temporary_valueD2Ev.exit
 
 76:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE16_Temporary_valueC2IJRKS1_EEEPS3_DpOT_.exit
-  %77 = sub i64 %2, %38
+  %77 = sub nuw i64 %2, %38
   %78 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RKT1_(ptr noundef %10, i64 noundef %77, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %_ZSt24__uninitialized_fill_n_aIPSt6vectorIiSaIiEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 

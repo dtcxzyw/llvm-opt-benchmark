@@ -2355,7 +2355,7 @@ for.end:                                          ; preds = %_ZN3CFF15cff2_cs_op
   br i1 %cmp.not.i29, label %if.else.i, label %if.then.i30
 
 if.then.i30:                                      ; preds = %for.end
-  %sub.i = sub i32 %4, %mul16
+  %sub.i = sub nuw i32 %4, %mul16
   store i32 %sub.i, ptr %count.i.i.i, align 4
   br label %return
 
@@ -6295,13 +6295,13 @@ if.end.i.i2:                                      ; preds = %_ZN11hb_vector_tIfL
   br i1 %cmp3.i.i, label %if.else.thread, label %if.else
 
 if.else.thread:                                   ; preds = %if.end.i.i2
-  %sub.i.i.i = sub nsw i32 %add.i.i.i5.i, %18
-  %mul.i.i.i = shl nsw i32 %sub.i.i.i, 2
+  %sub.i.i.i = sub nuw nsw i32 %add.i.i.i5.i, %18
+  %mul.i.i.i = shl nuw nsw i32 %sub.i.i.i, 2
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %this, i64 4504
   %19 = load ptr, ptr %arrayZ.i.i.i, align 8
   %idx.ext.i.i.i = zext nneg i32 %18 to i64
   %add.ptr.i.i.i = getelementptr inbounds float, ptr %19, i64 %idx.ext.i.i.i
-  %conv.i.i.i.i3 = zext i32 %mul.i.i.i to i64
+  %conv.i.i.i.i3 = zext nneg i32 %mul.i.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i, i8 0, i64 %conv.i.i.i.i3, i1 false)
   store i32 %add.i.i.i5.i, ptr %length.i.i.i, align 4
   %20 = load ptr, ptr %varStore, align 8
@@ -7481,7 +7481,7 @@ for.end:                                          ; preds = %_ZN3CFF15cff2_cs_op
   br i1 %cmp.not.i29, label %if.else.i, label %if.then.i30
 
 if.then.i30:                                      ; preds = %for.end
-  %sub.i = sub i32 %4, %mul16
+  %sub.i = sub nuw i32 %4, %mul16
   store i32 %sub.i, ptr %count.i.i.i, align 4
   br label %return
 

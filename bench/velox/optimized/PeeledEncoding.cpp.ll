@@ -802,7 +802,7 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox4
   br label %invoke.cont40
 
 if.else.i:                                        ; preds = %_ZN8facebook5velox4exec12_GLOBAL__N_19setPeeledERKSt10shared_ptrINS0_10BaseVectorEEiRSt6vectorIS5_SaIS5_EE.exit125
-  %sub.i = sub i64 %sub.ptr.div.i, %add.i.i.i
+  %sub.i = sub nuw i64 %sub.ptr.div.i, %add.i.i.i
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %constantFields, ptr %71, i32 %72, i64 noundef %sub.i, i1 noundef zeroext false)
           to label %if.else.i.invoke.cont40_crit_edge unwind label %lpad9.loopexit
 
@@ -2864,7 +2864,7 @@ if.end:                                           ; preds = %_ZN8facebook5velox4
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %sub.i.i = sub nsw i64 %conv.i.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %sub.i.i)
   %.pre.i3 = load ptr, ptr %9, align 8
   %.pre4.i4 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -3350,7 +3350,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -5543,7 +5543,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 

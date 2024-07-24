@@ -78,7 +78,7 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hd3dc628e23f969f0E.exit": ; preds = %22
   store i64 0, ptr %5, align 8, !alias.scope !8, !noalias !5
   %26 = load ptr, ptr %4, align 8, !alias.scope !8, !noalias !5, !nonnull !4, !noundef !4
-  %27 = sub i64 %23, %.val29
+  %27 = sub nuw i64 %23, %.val29
   %28 = getelementptr inbounds { i8, i8 }, ptr %26, i64 %.val29
   %29 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.val29, ptr %29, align 8, !alias.scope !5, !noalias !8
@@ -246,7 +246,7 @@ _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4co
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h83358d0a40e47624E.exit": ; preds = %20
   store i64 0, ptr %5, align 8, !alias.scope !25, !noalias !22
   %24 = load ptr, ptr %4, align 8, !alias.scope !25, !noalias !22, !nonnull !4, !noundef !4
-  %25 = sub i64 %21, %.val27
+  %25 = sub nuw i64 %21, %.val27
   %26 = getelementptr inbounds { i32, i32 }, ptr %24, i64 %.val27
   %27 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.val27, ptr %27, align 8, !alias.scope !22, !noalias !25

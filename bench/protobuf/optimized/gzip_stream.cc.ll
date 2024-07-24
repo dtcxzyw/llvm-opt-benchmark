@@ -803,7 +803,7 @@ while.body:                                       ; preds = %entry
   unreachable
 
 while.end:                                        ; preds = %entry
-  %sub = sub i32 %0, %count
+  %sub = sub nuw i32 %0, %count
   store i32 %sub, ptr %avail_in, align 8
   ret void
 }

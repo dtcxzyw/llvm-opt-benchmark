@@ -5076,7 +5076,7 @@ define { double, i8 } @_ZN12typst_syntax3ast7Numeric3get17h38d7140ce0f0485aE(ptr
   %56 = getelementptr inbounds i8, ptr %.sroa.0.0.i56, i64 %34
   %57 = load i8, ptr %56, align 1, !alias.scope !997, !noundef !15
   %58 = icmp sgt i8 %57, -65
-  %59 = sub i64 %.sroa.3.0.i55, %34
+  %59 = sub nuw i64 %.sroa.3.0.i55, %34
   br i1 %58, label %61, label %60
 
 60:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i59", %53

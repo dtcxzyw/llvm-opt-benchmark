@@ -45,7 +45,7 @@ _ZNK11inputStream7preloadEv.exit:                 ; preds = %1, %7
   br label %_ZN11inputStream18set_buffer_contentEmm.exit.thread
 
 20:                                               ; preds = %17
-  %21 = sub i64 %13, %9
+  %21 = sub nuw i64 %13, %9
   store i64 %9, ptr %10, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
@@ -122,7 +122,7 @@ define hidden void @_ZN11inputStream18set_buffer_contentEmm(ptr nocapture nounde
   br label %43
 
 7:                                                ; preds = %3
-  %8 = sub i64 %2, %1
+  %8 = sub nuw i64 %2, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 40
@@ -277,7 +277,7 @@ define hidden noundef zeroext i1 @_ZN11inputStream11fill_bufferEv(ptr noundef no
   br label %_ZN11inputStream18set_buffer_contentEmm.exit
 
 48:                                               ; preds = %44
-  %49 = sub i64 %45, %46
+  %49 = sub nuw i64 %45, %46
   store i64 %45, ptr %12, align 8
   %50 = load ptr, ptr %10, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 %46

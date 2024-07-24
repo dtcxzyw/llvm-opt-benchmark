@@ -177,7 +177,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   unreachable
 
 7:                                                ; preds = %3
-  %8 = sub i32 %1, %0
+  %8 = sub nuw i32 %1, %0
   %9 = add i32 %8, 1
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %40
@@ -398,7 +398,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   unreachable
 
 7:                                                ; preds = %3
-  %8 = sub i32 %1, %0
+  %8 = sub nuw i32 %1, %0
   %9 = add i32 %8, 1
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %40
@@ -655,7 +655,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   unreachable
 
 9:                                                ; preds = %3
-  %10 = sub i64 %7, %6
+  %10 = sub nuw i64 %7, %6
   %11 = add i64 %10, 1
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %23
@@ -773,7 +773,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   unreachable
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %0
+  %8 = sub nuw i64 %1, %0
   %9 = add i64 %8, 1
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %21
@@ -887,7 +887,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   unreachable
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %0
+  %8 = sub nuw i64 %1, %0
   %9 = add i64 %8, 1
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %21

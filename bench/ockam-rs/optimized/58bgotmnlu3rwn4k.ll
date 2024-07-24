@@ -3250,7 +3250,7 @@ common.resume:                                    ; preds = %32, %.body
   %58 = add i64 %57, %56
   %.not.i = icmp ult i64 %58, %55
   %59 = select i1 %.not.i, i64 0, i64 %55
-  %.0.i = sub i64 %58, %59
+  %.0.i = sub nuw i64 %58, %59
   %60 = load ptr, ptr %8, align 8, !alias.scope !1001, !noalias !1004, !nonnull !115, !noundef !115
   %61 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %60, i64 %.0.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)

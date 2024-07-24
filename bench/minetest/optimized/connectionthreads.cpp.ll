@@ -17785,7 +17785,7 @@ invoke.cont41:                                    ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp44, label %if.then45, label %if.else
 
 if.then45:                                        ; preds = %invoke.cont41
-  %sub = sub i64 %add.i, %23
+  %sub = sub nuw i64 %add.i, %23
   %conv48 = uitofp i64 %sub to double
   %div = fdiv nsz double %conv48, 1.000000e+03
   %conv49 = fptrunc double %div to float

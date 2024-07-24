@@ -5964,7 +5964,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %sub.i.i = sub i64 %backups_.val.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %backups_.val.i, %sub.ptr.div.i.i.i
   invoke void @_ZNSt6vectorIN7rocksdb10BackupInfoESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %backup_info, i64 noundef %sub.i.i)
           to label %_ZNSt6vectorIN7rocksdb10BackupInfoESaIS1_EE6resizeEm.exit.i unwind label %lpad.loopexit.split-lp
 
@@ -46891,7 +46891,7 @@ while.body.i.preheader:                           ; preds = %if.end140.i
 
 while.body.i.us:                                  ; preds = %while.body.i.preheader, %while.body.i.us
   %211 = phi i64 [ %sub144.i.us, %while.body.i.us ], [ %bytes_toward_next_callback.2, %while.body.i.preheader ]
-  %sub144.i.us = sub i64 %211, %208
+  %sub144.i.us = sub nuw i64 %211, %208
   %cmp141.not.i.us = icmp ult i64 %sub144.i.us, %208
   br i1 %cmp141.not.i.us, label %do.cond.i, label %while.body.i.us, !llvm.loop !707
 
@@ -46903,7 +46903,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %212 = phi ptr [ %.pr, %while.body.ithread-pre-split ], [ %209, %while.body.i.preheader ]
   %213 = phi i64 [ %229, %while.body.ithread-pre-split ], [ %208, %while.body.i.preheader ]
   %214 = phi i64 [ %sub144.i, %while.body.ithread-pre-split ], [ %bytes_toward_next_callback.2, %while.body.i.preheader ]
-  %sub144.i = sub i64 %214, %213
+  %sub144.i = sub nuw i64 %214, %213
   %tobool.not.i.i291.not.i = icmp eq ptr %212, null
   br i1 %tobool.not.i.i291.not.i, label %if.end187.i, label %if.then146.i
 

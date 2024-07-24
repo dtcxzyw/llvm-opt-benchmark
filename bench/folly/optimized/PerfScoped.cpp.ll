@@ -1180,7 +1180,7 @@ for.body.i.i.i.i.i147:                            ; preds = %_ZSt13move_backward
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit: ; preds = %if.then9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
   %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %incdec.ptr.i.i.i, ptr %__last.coerce, ptr noundef %1)
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %27 = load ptr, ptr %_M_finish, align 8, !tbaa !27
   %add.ptr50 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %27, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8, !tbaa !27
@@ -2466,7 +2466,7 @@ while.cond:                                       ; preds = %if.end20, %while.co
 while.body:                                       ; preds = %while.cond
   %3 = load ptr, ptr %out, align 8, !tbaa !20
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %1
-  %sub = sub i64 %2, %1
+  %sub = sub nuw i64 %2, %1
   %call12 = invoke noundef i64 @_ZN5folly8readFullEiPvm(i32 noundef %fd, ptr noundef nonnull %arrayidx.i, i64 noundef %sub)
           to label %invoke.cont11 unwind label %lpad7
 

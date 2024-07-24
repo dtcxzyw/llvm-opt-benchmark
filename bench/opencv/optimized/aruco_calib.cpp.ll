@@ -827,7 +827,7 @@ define noundef double @_ZN2cv5aruco22calibrateCameraCharucoERKNS_11_InputArrayES
   br i1 %50, label %51, label %80
 
 51:                                               ; preds = %42
-  %52 = sub i64 %41, %49
+  %52 = sub nuw i64 %41, %49
   %53 = getelementptr inbounds i8, ptr %16, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
@@ -849,7 +849,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIN2cv7Point3_IfEESaIS3_EEmS5_ET_S7_T
   br label %_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE6resizeEm.exit
 
 62:                                               ; preds = %51
-  %63 = icmp ult i64 %59, %52
+  %63 = icmp ugt i64 %41, 384307168202282325
   br i1 %63, label %64, label %_ZNKSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i
 
 64:                                               ; preds = %62

@@ -934,7 +934,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %15, i64 %.fr.i
-  %24 = sub i64 %spec.select34.i, %.fr.i
+  %24 = sub nuw i64 %spec.select34.i, %.fr.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %23, i8 0, i64 %24, i1 false)
   br label %.thread26
 

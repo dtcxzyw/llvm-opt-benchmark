@@ -1431,7 +1431,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %sdslen.exit
-  %sub = sub i64 %len, %retval.0.i
+  %sub = sub nuw i64 %len, %retval.0.i
   %call.i = tail call ptr @_sdsMakeRoomFor(ptr noundef nonnull %s, i64 noundef %sub, i32 noundef 1)
   %cmp2 = icmp eq ptr %call.i, null
   br i1 %cmp2, label %return, label %if.end4

@@ -3262,7 +3262,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h107604f48adcf879E"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8ec9424e88d0afedE.llvm.7091670428431571743.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !668, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8

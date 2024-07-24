@@ -41933,7 +41933,7 @@ define hidden void @_ZN7hir_def4body5scope19compute_expr_scopes17hf5405239b5b978
 
 31:                                               ; preds = %4
   %32 = getelementptr inbounds i8, ptr %2, i64 48
-  %33 = sub i64 %.0.sroa.speculated.i.i.i, %30
+  %33 = sub nuw i64 %.0.sroa.speculated.i.i.i, %30
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0177845d1918403bE.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %33)
   %.pre.i.i = load i64, ptr %29, align 8, !alias.scope !6071
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h14f9d2c412ca3cdaE.llvm.14212318151792154407.exit.i.i"
@@ -42334,7 +42334,7 @@ _ZN7hir_def4body5scope10ExprScopes15new_block_scope17h5aeacd0dab08bfa6E.exit: ; 
 
 189:                                              ; preds = %_ZN7hir_def4body5scope10ExprScopes15new_block_scope17h5aeacd0dab08bfa6E.exit
   %190 = getelementptr inbounds i8, ptr %2, i64 48
-  %191 = sub i64 %.0.sroa.speculated.i.i.i24, %188
+  %191 = sub nuw i64 %.0.sroa.speculated.i.i.i24, %188
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0177845d1918403bE.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %190, i64 noundef %191)
   %.pre.i.i26 = load i64, ptr %29, align 8, !alias.scope !6162
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h14f9d2c412ca3cdaE.llvm.14212318151792154407.exit.i.i27"
@@ -42761,7 +42761,7 @@ _ZN7hir_def4body5scope10ExprScopes15new_block_scope17h5aeacd0dab08bfa6E.exit60: 
 
 371:                                              ; preds = %_ZN7hir_def4body5scope10ExprScopes15new_block_scope17h5aeacd0dab08bfa6E.exit60
   %372 = getelementptr inbounds i8, ptr %2, i64 48
-  %373 = sub i64 %.0.sroa.speculated.i.i.i61, %370
+  %373 = sub nuw i64 %.0.sroa.speculated.i.i.i61, %370
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0177845d1918403bE.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %372, i64 noundef %373)
   %.pre.i.i63 = load i64, ptr %29, align 8, !alias.scope !6260
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h14f9d2c412ca3cdaE.llvm.14212318151792154407.exit.i.i64"
@@ -48120,7 +48120,7 @@ define void @_ZN7hir_def8resolver8Resolver14reset_to_guard17hcd3982a672ac31d9E(p
   br i1 %5, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8645c1ce297161c7E.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !7768, !nonnull !118, !noundef !118
   %10 = getelementptr inbounds { i32, [5 x i32] }, ptr %9, i64 %1
@@ -52788,7 +52788,7 @@ define void @"_ZN138_$LT$hir_def..GenericDefId$u20$as$u20$hir_def..src..HasChild
           to label %.body.thread unwind label %55, !noalias !9346
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5293fa46b9689ba2E.llvm.14212318151792154407.exit.i.i": ; preds = %41
-  %49 = sub i64 %46, %.0.sroa.speculated.i.i
+  %49 = sub nuw i64 %46, %.0.sroa.speculated.i.i
   %50 = load ptr, ptr %.sroa.421.0..sroa_idx, align 8, !alias.scope !9347, !noalias !9343, !nonnull !118, !noundef !118
   %51 = getelementptr inbounds { i64, [2 x i64] }, ptr %50, i64 %.0.sroa.speculated.i.i
   store i64 %.0.sroa.speculated.i.i, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !9347, !noalias !9343
@@ -52908,7 +52908,7 @@ define void @"_ZN138_$LT$hir_def..GenericDefId$u20$as$u20$hir_def..src..HasChild
           to label %.body.thread unwind label %96, !noalias !9373
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5293fa46b9689ba2E.llvm.14212318151792154407.exit.i.i56": ; preds = %82
-  %90 = sub i64 %87, %.0.sroa.speculated.i.i51
+  %90 = sub nuw i64 %87, %.0.sroa.speculated.i.i51
   %91 = load ptr, ptr %.sroa.421.0..sroa_idx, align 8, !alias.scope !9374, !noalias !9370, !nonnull !118, !noundef !118
   %92 = getelementptr inbounds { i64, [2 x i64] }, ptr %91, i64 %.0.sroa.speculated.i.i51
   store i64 %.0.sroa.speculated.i.i51, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !9374, !noalias !9370
@@ -53162,7 +53162,7 @@ default.unreachable.i.i.i.i.i.i.i:                ; preds = %.noexc65
           to label %.body76 unwind label %171, !noalias !9485
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5293fa46b9689ba2E.llvm.14212318151792154407.exit.i.i75": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he33fd54965da149dE.exit"
-  %162 = sub i64 %160, %.0.sroa.speculated.i.i70
+  %162 = sub nuw i64 %160, %.0.sroa.speculated.i.i70
   %163 = load ptr, ptr %.sroa.421.0..sroa_idx, align 8, !alias.scope !9486, !noalias !9482, !nonnull !118, !noundef !118
   %164 = getelementptr inbounds { i64, [2 x i64] }, ptr %163, i64 %.0.sroa.speculated.i.i70
   store i64 %.0.sroa.speculated.i.i70, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !9486, !noalias !9482
@@ -53170,7 +53170,7 @@ default.unreachable.i.i.i.i.i.i.i:                ; preds = %.noexc65
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h7beb8b659e64cf92E.llvm.14212318151792154407.exit.i74" unwind label %.loopexit148, !noalias !9491
 
 165:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he33fd54965da149dE.exit"
-  %166 = sub i64 %.0.sroa.speculated.i.i70, %160
+  %166 = sub nuw i64 %.0.sroa.speculated.i.i70, %160
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h8fc5fc8cd358aa03E.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %166)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h7beb8b659e64cf92E.llvm.14212318151792154407.exit_crit_edge.i72" unwind label %.loopexit148, !noalias !9482
 

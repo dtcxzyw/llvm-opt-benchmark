@@ -300,7 +300,7 @@ if.then.i.i.i180:                                 ; preds = %while.end12.i
 
 invoke.cont9:                                     ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %12, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %12, %front.0.lcssa.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %11, i64 %front.0.lcssa.i
   %call2.i.i.i182 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %line, i64 noundef 0, i64 noundef %12, ptr noundef %add.ptr.i27.i, i64 noundef %.sroa.speculated.i.i)

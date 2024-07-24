@@ -896,7 +896,7 @@ define internal fastcc noundef range(i32 0, 1114112) i32 @"_ZN12regex_syntax3ast
   %11 = getelementptr inbounds i8, ptr %.8.val, i64 %0
   %12 = load i8, ptr %11, align 1, !alias.scope !103, !noundef !5
   %13 = icmp sgt i8 %12, -65
-  %14 = sub i64 %.16.val, %0
+  %14 = sub nuw i64 %.16.val, %0
   br i1 %13, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit.thread"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit": ; preds = %1, %8, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
@@ -1064,7 +1064,7 @@ define internal fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5parse16ParserI
   %36 = getelementptr inbounds i8, ptr %.val42, i64 %30
   %37 = load i8, ptr %36, align 1, !alias.scope !119, !noundef !5
   %38 = icmp sgt i8 %37, -65
-  %39 = sub i64 %5, %30
+  %39 = sub nuw i64 %5, %30
   br i1 %38, label %41, label %40
 
 40:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %33
@@ -1129,7 +1129,7 @@ define internal fastcc noundef zeroext i1 @"_ZN12regex_syntax3ast5parse16ParserI
   %15 = getelementptr inbounds i8, ptr %5, i64 %9
   %16 = load i8, ptr %15, align 1, !alias.scope !127, !noundef !5
   %17 = icmp sgt i8 %16, -65
-  %18 = sub i64 %7, %9
+  %18 = sub nuw i64 %7, %9
   br i1 %17, label %20, label %19
 
 19:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %12
@@ -1479,7 +1479,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @"_ZN12regex_syntax3ast
   %23 = getelementptr inbounds i8, ptr %9, i64 %17
   %24 = load i8, ptr %23, align 1, !alias.scope !165, !noundef !5
   %25 = icmp sgt i8 %24, -65
-  %26 = sub i64 %5, %17
+  %26 = sub nuw i64 %5, %17
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %20
@@ -1607,7 +1607,7 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread: ; pr
   %28 = getelementptr inbounds i8, ptr %.val47, i64 %22
   %29 = load i8, ptr %28, align 1, !alias.scope !174, !noundef !5
   %30 = icmp sgt i8 %29, -65
-  %31 = sub i64 %11, %22
+  %31 = sub nuw i64 %11, %22
   br i1 %30, label %33, label %32
 
 32:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %25
@@ -1713,7 +1713,7 @@ _ZN4core3str11validations15next_code_point17h557bd300d34cbe39E.exit.thread: ; pr
   %85 = getelementptr inbounds i8, ptr %.val47, i64 %.036
   %86 = load i8, ptr %85, align 1, !alias.scope !184, !noundef !5
   %87 = icmp sgt i8 %86, -65
-  %88 = sub i64 %11, %.036
+  %88 = sub nuw i64 %11, %.036
   br i1 %87, label %118, label %117
 
 89:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit"
@@ -5294,7 +5294,7 @@ _ZN12regex_syntax3ast5parse15is_capture_char17h2907a3e450866a9aE.exit.thread.i.i
 
 959:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf28e8d101a32479eE.llvm.9790117770016849591.exit.i.i.i.i.i"
   %960 = getelementptr inbounds i8, ptr %954, i64 80
-  %961 = sub i64 %949, %.019.lcssa.i.i.i.i.i.i
+  %961 = sub nuw i64 %949, %.019.lcssa.i.i.i.i.i.i
   %962 = mul i64 %961, 80
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %960, ptr nonnull align 8 %954, i64 %962, i1 false), !noalias !541
   br label %.thread135.i.i.i
@@ -8809,7 +8809,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %1759 = getelementptr inbounds i8, ptr %.val235, i64 %1753
   %1760 = load i8, ptr %1759, align 1, !alias.scope !886, !noalias !726, !noundef !5
   %1761 = icmp sgt i8 %1760, -65
-  %1762 = sub i64 %216, %1753
+  %1762 = sub nuw i64 %216, %1753
   br i1 %1761, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit.i", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit.thread.i428.invoke"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i413", %1756, %thread-pre-split
@@ -8897,7 +8897,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 1807:                                             ; preds = %1806
   %.not.i.i.i427 = icmp ult i64 %1753, %216
   %1808 = icmp sgt i8 %1767, -65
-  %1809 = sub i64 %216, %1753
+  %1809 = sub nuw i64 %216, %1753
   %or.cond3242 = and i1 %.not.i.i.i427, %1808
   br i1 %or.cond3242, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit.i429", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit.thread.i428.invoke"
 
@@ -9019,7 +9019,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 1860:                                             ; preds = %1859
   %.not.i.i.i416 = icmp ult i64 %1753, %216
   %1861 = icmp sgt i8 %1767, -65
-  %1862 = sub i64 %216, %1753
+  %1862 = sub nuw i64 %216, %1753
   %or.cond3251 = and i1 %.not.i.i.i416, %1861
   br i1 %or.cond3251, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit.i418", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit.thread.i428.invoke"
 
@@ -9132,7 +9132,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %1912 = getelementptr inbounds i8, ptr %.val235, i64 %1906
   %1913 = load i8, ptr %1912, align 1, !alias.scope !921, !noalias !900, !noundef !5
   %1914 = icmp sgt i8 %1913, -65
-  %1915 = sub i64 %216, %1906
+  %1915 = sub nuw i64 %216, %1906
   br i1 %1914, label %1916, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit.thread.i428.invoke"
 
 1916:                                             ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i", %1909, %1905
@@ -12205,7 +12205,7 @@ _ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E.exit.thread.i37.i: ; pred
   %316 = getelementptr inbounds i8, ptr %302, i64 %307
   %317 = load i8, ptr %316, align 1, !alias.scope !1145, !noalias !1150, !noundef !5
   %318 = icmp sgt i8 %317, -65
-  %319 = sub i64 %304, %307
+  %319 = sub nuw i64 %304, %307
   br i1 %318, label %320, label %.invoke.i
 
 320:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i.i.i.i", %313, %306
@@ -12462,7 +12462,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i: ; preds = %3
   %430 = getelementptr inbounds i8, ptr %293, i64 %422
   %431 = load i8, ptr %430, align 1, !alias.scope !1168, !noalias !1124, !noundef !5
   %432 = icmp sgt i8 %431, -65
-  %433 = sub i64 %294, %422
+  %433 = sub nuw i64 %294, %422
   br i1 %432, label %437, label %436
 
 434:                                              ; preds = %437, %436

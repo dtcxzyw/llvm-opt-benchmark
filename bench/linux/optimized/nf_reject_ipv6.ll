@@ -197,7 +197,7 @@ define dso_local ptr @nf_reject_ip6_tcphdr_get(ptr noundef %0, ptr noundef %1, p
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %24
-  %29 = sub i32 %26, %22
+  %29 = sub nuw i32 %26, %22
   store i32 %29, ptr %2, align 4
   %30 = load i8, ptr %5, align 1
   %31 = icmp ne i8 %30, 6
@@ -441,7 +441,7 @@ define dso_local ptr @nf_reject_skb_v6_unreach(ptr nocapture noundef readonly %0
   br i1 %44, label %45, label %49, !prof !5
 
 45:                                               ; preds = %40
-  %46 = sub nsw i32 %41, %43
+  %46 = sub nuw nsw i32 %41, %43
   %47 = tail call ptr @__pskb_pull_tail(ptr noundef %1, i32 noundef %46) #6
   %48 = icmp eq ptr %47, null
   br i1 %48, label %202, label %._crit_edge

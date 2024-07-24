@@ -158,7 +158,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010JitRuntime4_addEPPvPNS0_10Co
   %60 = load ptr, ptr %5, align 8, !tbaa !22
   %61 = getelementptr inbounds i8, ptr %60, i64 %49
   %62 = getelementptr inbounds i8, ptr %61, i64 %51
-  %63 = sub i64 %53, %51
+  %63 = sub nuw i64 %53, %51
   call void @llvm.memset.p0.i64(ptr align 1 %62, i8 0, i64 %63, i1 false)
   br label %64
 
@@ -199,7 +199,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010JitRuntime4_addEPPvPNS0_10Co
   %84 = load ptr, ptr %5, align 8, !tbaa !22
   %85 = getelementptr inbounds i8, ptr %84, i64 %73
   %86 = getelementptr inbounds i8, ptr %85, i64 %75
-  %87 = sub i64 %77, %75
+  %87 = sub nuw i64 %77, %75
   call void @llvm.memset.p0.i64(ptr align 1 %86, i8 0, i64 %87, i1 false)
   br label %88
 
@@ -224,7 +224,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010JitRuntime4_addEPPvPNS0_10Co
   %103 = load ptr, ptr %5, align 8, !tbaa !22
   %104 = getelementptr inbounds i8, ptr %103, i64 %92
   %105 = getelementptr inbounds i8, ptr %104, i64 %94
-  %106 = sub i64 %96, %94
+  %106 = sub nuw i64 %96, %94
   call void @llvm.memset.p0.i64(ptr align 1 %105, i8 0, i64 %106, i1 false)
   br label %107
 

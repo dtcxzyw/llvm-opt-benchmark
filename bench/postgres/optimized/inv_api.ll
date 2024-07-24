@@ -542,7 +542,7 @@ open_lo_relation.exit:                            ; preds = %19, %35
   br i1 %69, label %70, label %98
 
 70:                                               ; preds = %59
-  %71 = sub i64 %67, %68
+  %71 = sub nuw i64 %67, %68
   %72 = sub i32 %2, %.071
   %73 = sext i32 %72 to i64
   %. = call i64 @llvm.smin.i64(i64 %71, i64 %73)

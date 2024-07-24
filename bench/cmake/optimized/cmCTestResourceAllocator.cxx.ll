@@ -520,7 +520,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResource
   br i1 %43, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEES9_SaISA_ISB_SE_EEE4findERSB_.exit.thread, label %44
 
 44:                                               ; preds = %40
-  %45 = sub i32 %42, %3
+  %45 = sub nuw i32 %42, %3
   store i32 %45, ptr %41, align 4
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEES9_SaISA_ISB_SE_EEE4findERSB_.exit.thread
 

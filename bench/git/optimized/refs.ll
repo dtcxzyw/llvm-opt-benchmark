@@ -4833,7 +4833,7 @@ if.end10.i:                                       ; preds = %do.body.i.i
   br i1 %cmp.i.i.i, label %for.inc21, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.end10.i
-  %sub.i.i.i = sub i64 %call.i.i, %call.i.i.i
+  %sub.i.i.i = sub nuw i64 %call.i.i, %call.i.i.i
   %sub.i.i.i.fr = freeze i64 %sub.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %refname.addr.0.i, i64 %sub.i.i.i.fr
   %bcmp.i.i.i = call i32 @bcmp(ptr readonly %add.ptr.i.i.i, ptr nonnull readonly %indvars.iv.i, i64 %call.i.i.i)

@@ -322,7 +322,7 @@ define hidden void @lexbor_array_obj_delete(ptr nocapture noundef %0, i64 nounde
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
   %16 = mul i64 %13, %9
   %17 = getelementptr inbounds i8, ptr %11, i64 %16
-  %18 = sub i64 %5, %9
+  %18 = sub nuw i64 %5, %9
   %19 = shl i64 %18, 3
   %20 = mul i64 %19, %13
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %15, ptr align 1 %17, i64 %20, i1 false)

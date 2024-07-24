@@ -27259,7 +27259,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807

@@ -350,7 +350,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %117, label %switch.lookup, label %122
 
 switch.lookup:                                    ; preds = %111
-  %switch.offset = sub nsw i32 2, %116
+  %switch.offset = sub nuw nsw i32 2, %116
   %118 = load ptr, ptr @stdout, align 8
   %119 = call i32 @setvbuf(ptr noundef %118, ptr noundef null, i32 noundef %switch.offset, i64 noundef 0) #8
   %120 = load ptr, ptr @stderr, align 8

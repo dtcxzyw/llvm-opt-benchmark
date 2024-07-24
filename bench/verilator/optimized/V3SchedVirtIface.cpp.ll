@@ -2499,7 +2499,7 @@ _ZZN7AstNode13predicateImplIS_Lb0EZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor5vis
   br i1 %49, label %50, label %81
 
 50:                                               ; preds = %43
-  %51 = sub nsw i64 %48, %47
+  %51 = sub nuw nsw i64 %48, %47
   %52 = ptrtoint ptr %.sroa.20.1.i to i64
   %53 = sub i64 %52, %44
   %54 = ashr exact i64 %53, 3
@@ -3974,7 +3974,7 @@ _ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i: ; preds = %_ZNK7Ast
   br i1 %68, label %69, label %100
 
 69:                                               ; preds = %62
-  %70 = sub nsw i64 %67, %66
+  %70 = sub nuw nsw i64 %67, %66
   %71 = ptrtoint ptr %.sroa.20.1.i to i64
   %72 = sub i64 %71, %63
   %73 = ashr exact i64 %72, 3
@@ -4501,7 +4501,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %11, %.loopexit.i.i
   br i1 %31, label %32, label %63
 
 32:                                               ; preds = %25
-  %33 = sub nsw i64 %30, %29
+  %33 = sub nuw nsw i64 %30, %29
   %34 = ptrtoint ptr %.sroa.20.1.i to i64
   %35 = sub i64 %34, %26
   %36 = ashr exact i64 %35, 3
@@ -6516,7 +6516,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %20
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   tail call void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %31)
   br label %.sink.split
 

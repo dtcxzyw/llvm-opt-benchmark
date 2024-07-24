@@ -3086,7 +3086,7 @@ if.end18:                                         ; preds = %if.end
   br i1 %cmp.i61, label %if.then.i66, label %if.else.i62
 
 if.then.i66:                                      ; preds = %if.end18
-  %sub.i67 = sub nsw i64 %conv, %sub.ptr.div.i.i60
+  %sub.i67 = sub nuw nsw i64 %conv, %sub.ptr.div.i.i60
   call void @_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_slots, ptr %25, i64 noundef %sub.i67, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   br label %_ZNSt6vectorIPN3zmq9i_mailboxESaIS2_EE6resizeEmRKS2_.exit
 
@@ -6566,7 +6566,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds ptr, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 

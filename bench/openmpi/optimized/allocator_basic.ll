@@ -184,7 +184,7 @@ define ptr @mca_allocator_basic_alloc(ptr noundef %0, i64 noundef %1, i64 %2) #1
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 %12
   store ptr %22, ptr %20, align 8
-  %23 = sub i64 %16, %12
+  %23 = sub nuw i64 %16, %12
   store i64 %23, ptr %19, align 8
   %24 = load i8, ptr @opal_uses_threads, align 1
   %25 = trunc i8 %24 to i1

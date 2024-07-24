@@ -4189,7 +4189,7 @@ if.else200:                                       ; preds = %cond.end26
   br i1 %cmp203.not, label %return, label %if.then204
 
 if.then204:                                       ; preds = %if.else200
-  %sub = sub nsw i64 %sub.ptr.div.i514, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i514, %sub.ptr.div.i
   %conv207 = trunc i64 %sub to i32
   %cmp224 = icmp ne i32 %remainderDir, 1
   %119 = and i1 %cmp224, %computeRemainder
@@ -5343,7 +5343,7 @@ if.end84:                                         ; preds = %invoke.cont80, %if.
 if.then86:                                        ; preds = %if.end84
   %22 = load ptr, ptr %n1, align 8
   store ptr %22, ptr %agg.tmp88, align 8
-  %sub90 = sub i64 %call6, %add
+  %sub90 = sub nuw i64 %call6, %add
   call void @_ZN4cvc58internal6theory7strings4Word6suffixENS0_12NodeTemplateILb0EEEm(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp87, ptr noundef nonnull %agg.tmp88, i64 noundef %sub90)
   %call95 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %n1re, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp87)
           to label %invoke.cont94 unwind label %lpad93
@@ -15716,7 +15716,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i.i.i.i.i52: ; preds = %if.th
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %if.then9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
   %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_(ptr %incdec.ptr.i.i.i, ptr %__last.coerce, ptr noundef %1)
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %13 = load ptr, ptr %_M_finish, align 8
   %add.ptr50 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %13, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8

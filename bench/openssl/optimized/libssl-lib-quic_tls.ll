@@ -1160,7 +1160,7 @@ if.then41:                                        ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end46:                                         ; preds = %lor.lhs.false
-  %sub = sub i64 %1, %length
+  %sub = sub nuw i64 %1, %length
   store i64 %sub, ptr %recunreleased, align 8
   %cmp49.not = icmp eq i64 %1, %length
   br i1 %cmp49.not, label %if.end52, label %return

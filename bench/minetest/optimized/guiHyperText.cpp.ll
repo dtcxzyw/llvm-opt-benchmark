@@ -1324,7 +1324,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 _Z4trimSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %str.coerce0, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %str.coerce0, %front.0.lcssa.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %str.coerce1, i64 %front.0.lcssa.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)

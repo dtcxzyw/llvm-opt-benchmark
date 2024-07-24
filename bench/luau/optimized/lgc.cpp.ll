@@ -161,7 +161,7 @@ _ZL14getheaptriggerP12global_Statem.exit:         ; preds = %38, %50
   br i1 %.not43, label %100, label %98
 
 98:                                               ; preds = %96
-  %99 = sub i64 %97, %15
+  %99 = sub nuw i64 %97, %15
   store i64 %99, ptr %13, align 8
   br label %100
 

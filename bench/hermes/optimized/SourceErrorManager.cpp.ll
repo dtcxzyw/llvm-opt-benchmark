@@ -2936,7 +2936,7 @@ if.end70:                                         ; preds = %if.then67, %for.bod
 
 if.then.i101:                                     ; preds = %if.end70
   %46 = load ptr, ptr %sourceLine, align 8
-  %sub.i = sub i64 %45, %add71
+  %sub.i = sub nuw i64 %45, %add71
   %add.ptr.i102 = getelementptr inbounds i32, ptr %46, i64 %add71
   br label %for.body.i.i103
 
@@ -3178,7 +3178,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8_M_checkEmPKc.exit: ; preds = %entry
-  %sub.i = sub i64 %0, %__pos
+  %sub.i = sub nuw i64 %0, %__pos
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n1)
   %reass.sub = sub i64 %spec.select.i, %0
   %sub3.i.i = add i64 %reass.sub, 1152921504606846975

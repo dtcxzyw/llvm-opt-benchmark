@@ -340,7 +340,7 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %84, label %85, label %.loopexit
 
 85:                                               ; preds = %82
-  %86 = sub i64 %83, %.0594
+  %86 = sub nuw i64 %83, %.0594
   %87 = icmp ult i64 %86, 2
   br i1 %87, label %88, label %89
 

@@ -382,7 +382,7 @@ define internal i32 @dissect_rtsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 78:                                               ; preds = %74
   store i32 %.063, ptr %48, align 4
-  %79 = sub nsw i32 %76, %59
+  %79 = sub nuw nsw i32 %76, %59
   store i32 %79, ptr %49, align 8
   br label %dissect_rtspinterleaved.exit
 

@@ -2202,7 +2202,7 @@ invoke.cont9:                                     ; preds = %if.end4
   br i1 %cmp.i15, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont9
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %srcAllocation, i64 24
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i127 = ptrtoint ptr %6 to i64

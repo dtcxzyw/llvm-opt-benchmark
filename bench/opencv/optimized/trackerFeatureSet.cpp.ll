@@ -233,7 +233,7 @@ _ZN2cv6detail8tracking24TrackerContribFeatureSet14clearResponsesEv.exit: ; preds
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %_ZN2cv6detail8tracking24TrackerContribFeatureSet14clearResponsesEv.exit
-  %24 = sub nsw i64 %17, %21
+  %24 = sub nuw nsw i64 %17, %21
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %24)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 

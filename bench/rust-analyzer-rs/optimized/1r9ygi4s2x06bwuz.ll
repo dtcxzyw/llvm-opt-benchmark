@@ -2877,7 +2877,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !950
   %9 = icmp eq i32 %bcmp.i, 0
@@ -10066,7 +10066,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h1726a6dadad82
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1955)
   %21 = icmp ult i64 %20, %1
@@ -10121,7 +10121,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h6ce42844f83b8
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1961)
   %21 = icmp ult i64 %20, %1
@@ -14731,7 +14731,7 @@ common.resume:                                    ; preds = %.loopexit.i67, %673
   %579 = load i64, ptr %578, align 8, !alias.scope !3045, !noalias !3046
   store i64 %579, ptr %.sroa.0.0569.lcssa642, align 8, !alias.scope !3045, !noalias !3046
   store ptr %576, ptr %578, align 8, !alias.scope !3045, !noalias !3046
-  %580 = sub i64 %.sroa.14.0568.lcssa604, %573
+  %580 = sub nuw i64 %.sroa.14.0568.lcssa604, %573
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %573, i64 %580)
   %581 = lshr i64 %.sroa.14.0568.lcssa604, 3
   %582 = icmp uge i64 %.0.sroa.speculated.i, %581
@@ -17036,7 +17036,7 @@ common.resume:                                    ; preds = %.loopexit.i67, %"_Z
   %583 = load i64, ptr %582, align 8, !alias.scope !3506, !noalias !3507
   store i64 %583, ptr %.sroa.0.0652.lcssa725, align 8, !alias.scope !3506, !noalias !3507
   store ptr %580, ptr %582, align 8, !alias.scope !3506, !noalias !3507
-  %584 = sub i64 %.sroa.14.0651.lcssa687, %577
+  %584 = sub nuw i64 %.sroa.14.0651.lcssa687, %577
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %577, i64 %584)
   %585 = lshr i64 %.sroa.14.0651.lcssa687, 3
   %586 = icmp uge i64 %.0.sroa.speculated.i, %585
@@ -18716,8 +18716,8 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 80:                                               ; preds = %71
   %81 = getelementptr { [3 x i64] }, ptr %79, i64 %.sroa.725.0.i.i
   %82 = getelementptr i8, ptr %81, i64 24
-  %83 = sub nsw i64 %78, %.sroa.725.0.i.i
-  %84 = mul nsw i64 %83, 24
+  %83 = sub nuw nsw i64 %78, %.sroa.725.0.i.i
+  %84 = mul nuw nsw i64 %83, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %82, ptr nonnull align 8 %81, i64 %84, i1 false), !alias.scope !3855, !noalias !3858
   br label %90
 

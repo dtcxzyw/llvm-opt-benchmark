@@ -106,7 +106,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %2, %._ZNSt6vectorIf
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %26 = sub nsw i64 %15, %23
+  %26 = sub nuw nsw i64 %15, %23
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %26)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit26 unwind label %206
 
@@ -135,7 +135,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit26:             ; preds = %31, %29, %27, %25
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit26
-  %41 = sub nsw i64 %15, %38
+  %41 = sub nuw nsw i64 %15, %38
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %41)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit29 unwind label %206
 
@@ -164,7 +164,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit29:             ; preds = %46, %44, %42, %40
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit29
-  %56 = sub nsw i64 %15, %53
+  %56 = sub nuw nsw i64 %15, %53
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %56)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit32 unwind label %206
 
@@ -210,7 +210,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %63, %_ZNSt6vectorIf
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %.noexc33
-  %77 = sub nsw i64 %15, %74
+  %77 = sub nuw nsw i64 %15, %74
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %77)
           to label %.noexc34 unwind label %206
 
@@ -280,7 +280,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i37: ; preds = %94, %90
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %.noexc45
-  %108 = sub nsw i64 %15, %105
+  %108 = sub nuw nsw i64 %15, %105
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %108)
           to label %.noexc46 unwind label %206
 
@@ -350,7 +350,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i50: ; preds = %125, %121
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %.noexc58
-  %139 = sub nsw i64 %15, %136
+  %139 = sub nuw nsw i64 %15, %136
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %139)
           to label %.noexc59 unwind label %206
 
@@ -420,7 +420,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i63: ; preds = %156, %152
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %.noexc71
-  %170 = sub nsw i64 %15, %167
+  %170 = sub nuw nsw i64 %15, %167
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %170)
           to label %.noexc72 unwind label %206
 
@@ -474,7 +474,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
   br i1 %194, label %195, label %197
 
 195:                                              ; preds = %183
-  %196 = sub nsw i64 %15, %193
+  %196 = sub nuw nsw i64 %15, %193
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %196)
           to label %202 unwind label %206
 
@@ -962,7 +962,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %28, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !21
 
 35:                                               ; preds = %14
-  %36 = sub i64 %2, %18
+  %36 = sub nuw i64 %2, %18
   %.not8.i = icmp eq i64 %36, 0
   br i1 %.not8.i, label %_ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit, label %.lr.ph.i
 
@@ -1147,7 +1147,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrI16pme_solve_work_tSt14defa
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

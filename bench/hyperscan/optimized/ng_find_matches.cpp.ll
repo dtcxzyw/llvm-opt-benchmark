@@ -272,7 +272,7 @@ for.cond.cleanup.i.i:                             ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i90.i.i, label %if.then.i101.i.i, label %if.else.i91.i.i
 
 if.then.i101.i.i:                                 ; preds = %for.cond.cleanup.i.i
-  %sub.i102.i.i = sub nsw i64 %.pre.i.i, %sub.ptr.div.i.i89.i.i
+  %sub.i102.i.i = sub nuw nsw i64 %.pre.i.i, %sub.ptr.div.i.i89.i.i
   invoke void @_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %accept_states.i, i64 noundef %sub.i102.i.i)
           to label %_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit.i.i unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.i
 
@@ -316,7 +316,7 @@ _ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit.i.i: ; preds
   br i1 %cmp.i108.i.i, label %if.then.i122.i.i, label %if.else.i109.i.i
 
 if.then.i122.i.i:                                 ; preds = %_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit.i.i
-  %sub.i123.i.i = sub nsw i64 %.pre.i.i, %sub.ptr.div.i.i107.i.i
+  %sub.i123.i.i = sub nuw nsw i64 %.pre.i.i, %sub.ptr.div.i.i107.i.i
   invoke void @_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %accept_eod_states.i, i64 noundef %sub.i123.i.i)
           to label %_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit124.i.i unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.i
 
@@ -360,7 +360,7 @@ _ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit124.i.i: ; pr
   br i1 %cmp.i130.i.i, label %if.then.i141.i.i, label %if.else.i131.i.i
 
 if.then.i141.i.i:                                 ; preds = %_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit124.i.i
-  %sub.i142.i.i = sub nsw i64 %.pre.i.i, %sub.ptr.div.i.i129.i.i
+  %sub.i142.i.i = sub nuw nsw i64 %.pre.i.i, %sub.ptr.div.i.i129.i.i
   invoke void @_ZNSt6vectorISt3mapIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEENS1_8flat_setIjSt4lessIjESaIjEEESB_IS9_ESaISt4pairIKS9_SE_EEESaISK_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %vertex_reports_by_level.i, i64 noundef %sub.i142.i.i)
           to label %_ZNSt6vectorISt3mapIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEENS1_8flat_setIjSt4lessIjESaIjEEESB_IS9_ESaISt4pairIKS9_SE_EEESaISK_EE6resizeEm.exit.i.i unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.i
 
@@ -408,7 +408,7 @@ _ZNSt6vectorISt3mapIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8N
   br i1 %cmp.i148.i.i, label %if.then.i162.i.i, label %if.else.i149.i.i
 
 if.then.i162.i.i:                                 ; preds = %_ZNSt6vectorISt3mapIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEENS1_8flat_setIjSt4lessIjESaIjEEESB_IS9_ESaISt4pairIKS9_SE_EEESaISK_EE6resizeEm.exit.i.i
-  %sub.i163.i.i = sub nsw i64 %.pre.i.i, %sub.ptr.div.i.i147.i.i
+  %sub.i163.i.i = sub nuw nsw i64 %.pre.i.i, %sub.ptr.div.i.i147.i.i
   invoke void @_ZNSt6vectorISt3mapIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEENS1_8flat_setIjSt4lessIjESaIjEEESB_IS9_ESaISt4pairIKS9_SE_EEESaISK_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %vertex_eod_reports_by_level.i, i64 noundef %sub.i163.i.i)
           to label %invoke.cont5.i unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.i
 
@@ -459,7 +459,7 @@ for.body.i.i:                                     ; preds = %for.cond.cleanup14.
   br i1 %cmp.i171.i.i, label %if.then.i185.i.i, label %if.else.i172.i.i
 
 if.then.i185.i.i:                                 ; preds = %for.body.i.i
-  %sub.i186.i.i = sub nsw i64 %.pre.i.i, %sub.ptr.div.i.i170.i.i
+  %sub.i186.i.i = sub nuw nsw i64 %.pre.i.i, %sub.ptr.div.i.i170.i.i
   invoke void @_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i165.i.i, i64 noundef %sub.i186.i.i)
           to label %_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit187.i.i unwind label %lpad4.loopexit.split-lp.loopexit.i
 
@@ -505,7 +505,7 @@ _ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit187.i.i: ; pr
   br i1 %cmp.i194.i.i, label %if.then.i208.i.i, label %if.else.i195.i.i
 
 if.then.i208.i.i:                                 ; preds = %_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit187.i.i
-  %sub.i209.i.i = sub nsw i64 %.pre.i.i, %sub.ptr.div.i.i193.i.i
+  %sub.i209.i.i = sub nuw nsw i64 %.pre.i.i, %sub.ptr.div.i.i193.i.i
   invoke void @_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i188.i.i, i64 noundef %sub.i209.i.i)
           to label %_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit210.i.i unwind label %lpad4.loopexit.split-lp.loopexit.i
 
@@ -577,7 +577,7 @@ if.then.i213.i.i:                                 ; preds = %for.body15.i.i
   br i1 %cmp.i25.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i213.i.i
-  %sub.i.i.i.i = sub nsw i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %sub.i.i.i.i = sub nuw nsw i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i212.i.i, ptr %30, i64 noundef %sub.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i.i)
           to label %if.end.i.i.i unwind label %lpad4.loopexit.i
 
@@ -640,7 +640,7 @@ if.then.i229.i.i:                                 ; preds = %_ZN5boost14dynamic_
   br i1 %cmp.i25.i230.i.i, label %if.then.i.i246.i.i, label %if.else.i.i231.i.i
 
 if.then.i.i246.i.i:                               ; preds = %if.then.i229.i.i
-  %sub.i.i247.i.i = sub nsw i64 %add.i.i227.i.i, %sub.ptr.div.i.i.i222.i.i
+  %sub.i.i247.i.i = sub nuw nsw i64 %add.i.i227.i.i, %sub.ptr.div.i.i.i222.i.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i216.i.i, ptr %37, i64 noundef %sub.i.i247.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i217.i.i)
           to label %if.end.i233.i.i unwind label %lpad4.loopexit.i
 
@@ -1629,7 +1629,7 @@ if.then.i.i80.i:                                  ; preds = %for.body.i68.i
   br i1 %cmp.i25.i.i81.i, label %if.then.i.i.i131.i, label %if.else.i.i.i82.i
 
 if.then.i.i.i131.i:                               ; preds = %if.then.i.i80.i
-  %sub.i.i474.i.i = sub nsw i64 %add.i.i.i78.i, %sub.ptr.div.i.i.i.i74.i
+  %sub.i.i474.i.i = sub nuw nsw i64 %add.i.i.i78.i, %sub.ptr.div.i.i.i.i74.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i69.i, ptr %141, i64 noundef %sub.i.i474.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i53.i)
           to label %if.end.i.i84.i unwind label %lpad26.i.i
 
@@ -1688,7 +1688,7 @@ if.then.i487.i.i:                                 ; preds = %invoke.cont27.i.i
   br i1 %cmp.i25.i488.i.i, label %if.then.i.i504.i.i, label %if.else.i.i489.i.i
 
 if.then.i.i504.i.i:                               ; preds = %if.then.i487.i.i
-  %sub.i.i505.i.i = sub nsw i64 %add.i.i485.i.i, %sub.ptr.div.i.i.i480.i.i
+  %sub.i.i505.i.i = sub nuw nsw i64 %add.i.i485.i.i, %sub.ptr.div.i.i.i480.i.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i468.i.i, ptr %146, i64 noundef %sub.i.i505.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i475.i.i)
           to label %if.end.i491.i.i unwind label %lpad26.i.i
 
@@ -9581,7 +9581,7 @@ if.then.i:                                        ; preds = %for.body
   br i1 %cmp.i25.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %add.i.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %add.i.i, %sub.ptr.div.i.i.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr %8, i64 noundef %sub.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i)
           to label %if.end.i unwind label %lpad19
 
@@ -9632,7 +9632,7 @@ if.then.i107:                                     ; preds = %invoke.cont20
   br i1 %cmp.i25.i108, label %if.then.i.i124, label %if.else.i.i109
 
 if.then.i.i124:                                   ; preds = %if.then.i107
-  %sub.i.i125 = sub nsw i64 %add.i.i, %sub.ptr.div.i.i.i100
+  %sub.i.i125 = sub nuw nsw i64 %add.i.i, %sub.ptr.div.i.i.i100
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i94, ptr %13, i64 noundef %sub.i.i125, ptr noundef nonnull align 8 dereferenceable(8) %v.i95)
           to label %if.end.i111 unwind label %lpad19
 
@@ -9679,7 +9679,7 @@ invoke.cont24:                                    ; preds = %if.then.i27.i115, %
   br i1 %cmp.i, label %if.then.i130, label %if.else.i
 
 if.then.i130:                                     ; preds = %invoke.cont24
-  %sub.i = sub i64 %sz, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %sz, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i128, ptr %18, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28)
           to label %invoke.cont30 unwind label %lpad29
 
@@ -9713,7 +9713,7 @@ invoke.cont30:                                    ; preds = %invoke.cont.i.i, %i
   br i1 %cmp.i138, label %if.then.i145, label %if.else.i139
 
 if.then.i145:                                     ; preds = %invoke.cont30
-  %sub.i146 = sub i64 %sz, %sub.ptr.div.i.i137
+  %sub.i146 = sub nuw i64 %sz, %sub.ptr.div.i.i137
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i132, ptr %21, i64 noundef %sub.i146, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp34)
           to label %invoke.cont36 unwind label %lpad35
 

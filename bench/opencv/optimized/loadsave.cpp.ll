@@ -8066,7 +8066,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -9032,7 +9032,7 @@ _ZN2cv3PtrINS_16BaseImageDecoderEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_16Bas
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %128
-  %140 = sub i64 %.0, %137
+  %140 = sub nuw i64 %.0, %137
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %130, i64 noundef %140)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 

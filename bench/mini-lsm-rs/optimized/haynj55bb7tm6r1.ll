@@ -5363,7 +5363,7 @@ define hidden void @"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_im
   unreachable
 
 17:                                               ; preds = %2
-  %18 = sub i64 %8, %1
+  %18 = sub nuw i64 %8, %1
   store i64 %18, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !noundef !4
@@ -7692,7 +7692,7 @@ define void @_ZN13mini_lsm_mvcc5table5bloom5Bloom21build_from_key_hashes17hc643a
           to label %.body.thread unwind label %70, !noalias !1704
 
 65:                                               ; preds = %.noexc
-  %66 = sub i64 %48, %41
+  %66 = sub nuw i64 %48, %41
   %67 = getelementptr inbounds i8, ptr %10, i64 8
   %68 = load ptr, ptr %67, align 8, !alias.scope !1708, !noalias !1704, !noundef !4
   %69 = getelementptr inbounds i8, ptr %68, i64 %41

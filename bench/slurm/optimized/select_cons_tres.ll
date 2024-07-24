@@ -1258,7 +1258,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   br label %96
 
 94:                                               ; preds = %70
-  %95 = sub i64 %82, %86
+  %95 = sub nuw i64 %82, %86
   store i64 %95, ptr %81, align 8
   br label %96
 

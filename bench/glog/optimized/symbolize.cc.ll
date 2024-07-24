@@ -270,7 +270,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit39: ; preds
 .lr.ph.i:                                         ; preds = %.preheader.i, %101
   %.01931.i = phi i64 [ %102, %101 ], [ 0, %.preheader.i ]
   %104 = getelementptr inbounds i8, ptr %7, i64 %.01931.i
-  %105 = sub i64 %2, %.01931.i
+  %105 = sub nuw i64 %2, %.01931.i
   %106 = add i64 %100, %.01931.i
   br label %107
 
@@ -369,7 +369,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_9Symbolize
 
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds = %24
   %28 = getelementptr inbounds i8, ptr %1, i64 %25
-  %29 = sub i64 %2, %25
+  %29 = sub nuw i64 %2, %25
   %30 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef nonnull readonly dereferenceable(2) @.str.2, i64 noundef %29) #19
   %31 = getelementptr i8, ptr %1, i64 %2
   %32 = getelementptr i8, ptr %31, i64 -1
@@ -594,7 +594,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
 .lr.ph.i24.i.i.i:                                 ; preds = %.preheader.i22.i.i.i, %101
   %.01931.i25.i.i.i = phi i64 [ %102, %101 ], [ 0, %.preheader.i22.i.i.i ]
   %104 = getelementptr inbounds i8, ptr %96, i64 %.01931.i25.i.i.i
-  %105 = sub i64 %97, %.01931.i25.i.i.i
+  %105 = sub nuw i64 %97, %.01931.i25.i.i.i
   %106 = add i64 %.01931.i25.i.i.i, %.sroa.11.0.i.i
   br label %107
 
@@ -1169,7 +1169,7 @@ _ZN6google24glog_internal_namespace_14FileDescriptor5resetEi.exit.i: ; preds = %
 
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit60.i: ; preds = %286
   %290 = getelementptr inbounds i8, ptr %1, i64 %287
-  %291 = sub i64 %2, %287
+  %291 = sub nuw i64 %2, %287
   %292 = call ptr @strncpy(ptr noundef nonnull %290, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 noundef %291) #19
   store i8 0, ptr %32, align 1
   %293 = load i64, ptr %20, align 8
@@ -1229,7 +1229,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i.i: ; preds = %.lr.ph.
 
 316:                                              ; preds = %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i.i
   %317 = getelementptr inbounds i8, ptr %1, i64 %313
-  %318 = sub i64 %2, %313
+  %318 = sub nuw i64 %2, %313
   %319 = call ptr @strncpy(ptr noundef nonnull %317, ptr noundef readonly %.0.i.i.i, i64 noundef %318) #19
   store i8 0, ptr %32, align 1
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %11)
@@ -1243,7 +1243,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i.i: ; preds = %.lr.ph.
 
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i: ; preds = %316
   %323 = getelementptr inbounds i8, ptr %1, i64 %320
-  %324 = sub i64 %2, %320
+  %324 = sub nuw i64 %2, %320
   %325 = call ptr @strncpy(ptr noundef nonnull %323, ptr noundef nonnull readonly dereferenceable(2) @.str.4, i64 noundef %324) #19
   store i8 0, ptr %32, align 1
   br label %497
@@ -1558,7 +1558,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit30.i.i: ; p
 
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit87.i: ; preds = %444
   %450 = getelementptr inbounds i8, ptr %.050.i, i64 %447
-  %451 = sub i64 %.051.i, %447
+  %451 = sub nuw i64 %.051.i, %447
   %452 = call ptr @strncpy(ptr noundef %450, ptr noundef nonnull readonly dereferenceable(4) @.str.3, i64 noundef %451) #19
   %453 = getelementptr i8, ptr %.050.i, i64 %.051.i
   %454 = getelementptr i8, ptr %453, i64 -1
@@ -1620,7 +1620,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i: ; preds = %.lr.p
 
 478:                                              ; preds = %_ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i
   %479 = getelementptr inbounds i8, ptr %.050.i, i64 %475
-  %480 = sub i64 %.051.i, %475
+  %480 = sub nuw i64 %.051.i, %475
   %481 = call ptr @strncpy(ptr noundef %479, ptr noundef readonly %.0.i.i93.i, i64 noundef %480) #19
   store i8 0, ptr %454, align 1
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %6)
@@ -1634,7 +1634,7 @@ _ZN6google24glog_internal_namespace_L6itoa_rEmPcmjm.exit.i92.i: ; preds = %.lr.p
 
 _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97.i: ; preds = %478
   %485 = getelementptr inbounds i8, ptr %.050.i, i64 %482
-  %486 = sub i64 %.051.i, %482
+  %486 = sub nuw i64 %.051.i, %482
   %487 = call ptr @strncpy(ptr noundef %485, ptr noundef nonnull readonly dereferenceable(2) @.str.4, i64 noundef %486) #19
   store i8 0, ptr %454, align 1
   br label %497
@@ -1859,8 +1859,8 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 
 .lr.ph41.split:                                   ; preds = %.lr.ph41, %._crit_edge
   %.02439 = phi i64 [ %43, %._crit_edge ], [ 0, %.lr.ph41 ]
-  %9 = sub nsw i64 %7, %.02439
-  %10 = shl nsw i64 %9, 6
+  %9 = sub nuw nsw i64 %7, %.02439
+  %10 = shl nuw nsw i64 %9, 6
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 1024)
   %12 = shl nuw nsw i64 %.02439, 6
   %13 = add i64 %12, %2
@@ -1878,7 +1878,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 .lr.ph.i:                                         ; preds = %.lr.ph41.split, %15
   %.01931.i = phi i64 [ %16, %15 ], [ 0, %.lr.ph41.split ]
   %18 = getelementptr inbounds i8, ptr %6, i64 %.01931.i
-  %19 = sub i64 %11, %.01931.i
+  %19 = sub nuw i64 %11, %.01931.i
   %20 = add i64 %13, %.01931.i
   br label %21
 
@@ -1981,7 +1981,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
   %20 = load i64, ptr %13, align 8
   %21 = mul i64 %20, %18
   %22 = add i64 %21, %19
-  %23 = sub i64 %15, %18
+  %23 = sub nuw i64 %15, %18
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %23, i64 32)
   %24 = mul nuw nsw i64 %.sroa.speculated, 24
   br label %.lr.ph.i
@@ -1998,7 +1998,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 .lr.ph.i:                                         ; preds = %.preheader.i, %26
   %.01931.i = phi i64 [ %27, %26 ], [ 0, %.preheader.i ]
   %29 = getelementptr inbounds i8, ptr %8, i64 %.01931.i
-  %30 = sub i64 %24, %.01931.i
+  %30 = sub nuw i64 %24, %.01931.i
   %31 = add i64 %22, %.01931.i
   br label %32
 
@@ -2100,7 +2100,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread71: ; pre
 .lr.ph.i59:                                       ; preds = %.preheader.i57, %66
   %.01931.i60 = phi i64 [ %67, %66 ], [ 0, %.preheader.i57 ]
   %69 = getelementptr inbounds i8, ptr %2, i64 %.01931.i60
-  %70 = sub i64 %3, %.01931.i60
+  %70 = sub nuw i64 %3, %.01931.i60
   %71 = add i64 %64, %.01931.i60
   br label %72
 

@@ -5062,7 +5062,7 @@ define internal range(i32 -28, 1) i32 @gen8_oa_read(ptr noundef %0, ptr noundef 
 280:                                              ; preds = %271
   %281 = and i64 %276, 4294967295
   call void @llvm.memset.p0.i64(ptr align 4 %193, i8 0, i64 %281, i1 false)
-  %282 = sub i32 %116, %277
+  %282 = sub nuw i32 %116, %277
   %283 = zext i32 %282 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %117, i8 0, i64 %283, i1 false)
   br label %284

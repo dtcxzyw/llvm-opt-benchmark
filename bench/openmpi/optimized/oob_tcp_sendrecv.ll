@@ -463,12 +463,12 @@ define void @prte_oob_tcp_send_handler(i32 noundef %0, i16 noundef signext %1, p
 106:                                              ; preds = %103
   %107 = load ptr, ptr %67, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 %94
-  %109 = sub i64 %104, %94
+  %109 = sub nuw i64 %104, %94
   br label %120
 
 110:                                              ; preds = %103
   store i8 1, ptr %70, align 8
-  %111 = sub nsw i64 %94, %104
+  %111 = sub nuw nsw i64 %94, %104
   %112 = getelementptr inbounds i8, ptr %4, i64 16
   %113 = load ptr, ptr %112, align 16
   %114 = getelementptr inbounds i8, ptr %113, i64 %111

@@ -728,7 +728,7 @@ do.end37:                                         ; preds = %while.body
   %29 = load ptr, ptr %buffer, align 8
   %add.ptr38 = getelementptr inbounds i8, ptr %29, i64 %sp.0233
   %add.ptr39 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.neg
-  %sub = sub i64 %cond, %sp.0233
+  %sub = sub nuw i64 %cond, %sp.0233
   %30 = load i32, ptr %accel.i.i, align 4
   %31 = load i32, ptr %accel_and_friends.i.i, align 8
   %32 = load i32, ptr %exceptionMask1.i.i, align 16
@@ -2565,7 +2565,7 @@ if.end74:                                         ; preds = %if.end70
   %34 = load ptr, ptr %buffer, align 8
   %add.ptr76 = getelementptr inbounds i8, ptr %34, i64 %sp.1
   %add.ptr78 = getelementptr inbounds i8, ptr %add.ptr76, i64 %idx.neg
-  %sub79 = sub i64 %cond, %sp.1
+  %sub79 = sub nuw i64 %cond, %sp.1
   %call80 = call fastcc signext i8 @nfaExecLimEx32_Stream_First(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr78, i64 noundef %sub79, ptr noundef nonnull %ctx, i64 noundef %sp.1, ptr noundef nonnull %final_look75)
   %cmp82 = icmp eq i8 %call80, 0
   %.pre173 = load i32, ptr %cur, align 8
@@ -4193,7 +4193,7 @@ do.end47:                                         ; preds = %if.end41
   %13 = load ptr, ptr %buffer, align 8
   %add.ptr48 = getelementptr inbounds i8, ptr %13, i64 %sp.2
   %add.ptr50 = getelementptr inbounds i8, ptr %add.ptr48, i64 %idx.neg
-  %sub51 = sub i64 %add14, %sp.2
+  %sub51 = sub nuw i64 %add14, %sp.2
   call fastcc void @nfaExecLimEx32_Stream_Silent(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr50, i64 noundef %sub51, ptr noundef nonnull %ctx, i64 noundef %sp.2)
   br label %scan_done
 

@@ -232,8 +232,8 @@ if.else:                                          ; preds = %for.cond127
   br i1 %cmp145.not, label %if.end167, label %if.then147
 
 if.then147:                                       ; preds = %if.else
-  %sub151 = sub nsw i32 %conv133, %match.0160232
-  %idxprom152 = zext i32 %sub151 to i64
+  %sub151 = sub nuw nsw i32 %conv133, %match.0160232
+  %idxprom152 = zext nneg i32 %sub151 to i64
   %arrayidx153 = getelementptr inbounds i16, ptr %extra.0159233, i64 %idxprom152
   %15 = load i16, ptr %arrayidx153, align 2
   %conv154 = trunc i16 %15 to i8

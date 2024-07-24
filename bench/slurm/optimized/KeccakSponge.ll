@@ -49,7 +49,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_Sponge(i32 noundef %0, i32 noundef %
   call void @KeccakP1600_AddBytes(ptr noundef nonnull %8, ptr noundef %.15169, i32 noundef 0, i32 noundef %9) #2
   call void @KeccakP1600_Permute_24rounds(ptr noundef nonnull %8) #2
   %25 = getelementptr inbounds i8, ptr %.15169, i64 %18
-  %26 = sub i64 %.170, %18
+  %26 = sub nuw i64 %.170, %18
   %.not61 = icmp ult i64 %26, %18
   br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
@@ -89,7 +89,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_Sponge(i32 noundef %0, i32 noundef %
   call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.04973, i32 noundef 0, i32 noundef %9) #2
   call void @KeccakP1600_Permute_24rounds(ptr noundef nonnull %8) #2
   %42 = getelementptr inbounds i8, ptr %.04973, i64 %18
-  %43 = sub i64 %.05272, %18
+  %43 = sub nuw i64 %.05272, %18
   %44 = icmp ugt i64 %43, %18
   br i1 %44, label %.lr.ph75, label %._crit_edge76, !llvm.loop !8
 
@@ -232,7 +232,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, ptr nou
   tail call void @KeccakP1600_AddBytes(ptr noundef %0, ptr noundef %.166, i32 noundef 0, i32 noundef %6) #2
   tail call void @KeccakP1600_Permute_24rounds(ptr noundef %0) #2
   %41 = getelementptr inbounds i8, ptr %.166, i64 %10
-  %42 = sub i64 %.05665, %10
+  %42 = sub nuw i64 %.05665, %10
   %.not63 = icmp ult i64 %42, %10
   br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
@@ -391,7 +391,7 @@ KeccakWidth1600_SpongeAbsorbLastFewBits.exit:     ; preds = %3
   tail call void @KeccakP1600_Permute_24rounds(ptr noundef %0) #2
   tail call void @KeccakP1600_ExtractBytes(ptr noundef %0, ptr noundef %.157, i32 noundef 0, i32 noundef %6) #2
   %29 = getelementptr inbounds i8, ptr %.157, i64 %21
-  %30 = sub i64 %.04856, %21
+  %30 = sub nuw i64 %.04856, %21
   %.not54 = icmp ult i64 %30, %21
   br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
@@ -479,7 +479,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_12rounds_Sponge(i32 noundef %0, i32 
   call void @KeccakP1600_AddBytes(ptr noundef nonnull %8, ptr noundef %.15169, i32 noundef 0, i32 noundef %9) #2
   call void @KeccakP1600_Permute_12rounds(ptr noundef nonnull %8) #2
   %25 = getelementptr inbounds i8, ptr %.15169, i64 %18
-  %26 = sub i64 %.170, %18
+  %26 = sub nuw i64 %.170, %18
   %.not61 = icmp ult i64 %26, %18
   br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
@@ -519,7 +519,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_12rounds_Sponge(i32 noundef %0, i32 
   call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.04973, i32 noundef 0, i32 noundef %9) #2
   call void @KeccakP1600_Permute_12rounds(ptr noundef nonnull %8) #2
   %42 = getelementptr inbounds i8, ptr %.04973, i64 %18
-  %43 = sub i64 %.05272, %18
+  %43 = sub nuw i64 %.05272, %18
   %44 = icmp ugt i64 %43, %18
   br i1 %44, label %.lr.ph75, label %._crit_edge76, !llvm.loop !14
 
@@ -656,7 +656,7 @@ define range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef %0
   tail call void @KeccakP1600_AddBytes(ptr noundef %0, ptr noundef %.166, i32 noundef 0, i32 noundef %6) #2
   tail call void @KeccakP1600_Permute_12rounds(ptr noundef %0) #2
   %41 = getelementptr inbounds i8, ptr %.166, i64 %10
-  %42 = sub i64 %.05665, %10
+  %42 = sub nuw i64 %.05665, %10
   %.not63 = icmp ult i64 %42, %10
   br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
@@ -815,7 +815,7 @@ KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits.exit: ; preds = %3
   tail call void @KeccakP1600_Permute_12rounds(ptr noundef %0) #2
   tail call void @KeccakP1600_ExtractBytes(ptr noundef %0, ptr noundef %.157, i32 noundef 0, i32 noundef %6) #2
   %29 = getelementptr inbounds i8, ptr %.157, i64 %21
-  %30 = sub i64 %.04856, %21
+  %30 = sub nuw i64 %.04856, %21
   %.not54 = icmp ult i64 %30, %21
   br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 

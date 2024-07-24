@@ -6370,7 +6370,7 @@ land.rhs21:                                       ; preds = %while.cond19
   br i1 %cmp26.not, label %if.then31, label %while.cond19, !llvm.loop !41
 
 if.then31:                                        ; preds = %land.rhs21
-  %sub32 = sub i64 %end.1, %start.0.lcssa
+  %sub32 = sub nuw i64 %end.1, %start.0.lcssa
   tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %line, i64 noundef %start.0.lcssa, i64 noundef %sub32)
   br label %return
 

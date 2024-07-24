@@ -138,7 +138,7 @@ define internal i32 @dissect_nns(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %1, i64 332
   store i32 0, ptr %46, align 4
-  %47 = sub i32 %43, %42
+  %47 = sub nuw i32 %43, %42
   %48 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 %47, ptr %48, align 8
   br label %98

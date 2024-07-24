@@ -3021,7 +3021,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit", label %21
 
 21:                                               ; preds = %16
-  %22 = sub i8 %20, %19
+  %22 = sub nuw i8 %20, %19
   %23 = zext i8 %22 to i64
   %24 = add nuw nsw i64 %23, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit"
@@ -3063,7 +3063,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i7, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9", label %41
 
 41:                                               ; preds = %36
-  %42 = sub i8 %40, %39
+  %42 = sub nuw i8 %40, %39
   %43 = zext i8 %42 to i64
   %44 = add nuw nsw i64 %43, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9"
@@ -3130,7 +3130,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit", label %25
 
 25:                                               ; preds = %20
-  %26 = sub i8 %24, %23
+  %26 = sub nuw i8 %24, %23
   %27 = zext i8 %26 to i64
   %28 = add nuw nsw i64 %27, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit"
@@ -3183,7 +3183,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit.i", label %46
 
 46:                                               ; preds = %41
-  %47 = sub i8 %45, %44
+  %47 = sub nuw i8 %45, %44
   %48 = zext i8 %47 to i64
   %49 = add nuw nsw i64 %48, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit.i"
@@ -3222,7 +3222,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i7.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9.i", label %65
 
 65:                                               ; preds = %60
-  %66 = sub i8 %64, %63
+  %66 = sub nuw i8 %64, %63
   %67 = zext i8 %66 to i64
   %68 = add nuw nsw i64 %67, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9.i"
@@ -3271,7 +3271,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i.i16, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf6ae4ab032ffbcc3E.exit19", label %87
 
 87:                                               ; preds = %82
-  %88 = sub i8 %86, %85
+  %88 = sub nuw i8 %86, %85
   %89 = zext i8 %88 to i64
   %90 = add nuw nsw i64 %89, 1
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf6ae4ab032ffbcc3E.exit19"
@@ -3307,7 +3307,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i7.i8, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9.i9", label %105
 
 105:                                              ; preds = %100
-  %106 = sub i8 %104, %103
+  %106 = sub nuw i8 %104, %103
   %107 = zext i8 %106 to i64
   %108 = add nuw nsw i64 %107, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9.i9"
@@ -3341,7 +3341,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i20, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit22", label %121
 
 121:                                              ; preds = %116
-  %122 = sub i8 %120, %119
+  %122 = sub nuw i8 %120, %119
   %123 = zext i8 %122 to i64
   %124 = add nuw nsw i64 %123, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit22"
@@ -3460,7 +3460,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9", label %18
 
 18:                                               ; preds = %13
-  %19 = sub i8 %17, %16
+  %19 = sub nuw i8 %17, %16
   %20 = zext i8 %19 to i64
   %21 = add nuw nsw i64 %20, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9"
@@ -3486,7 +3486,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i7, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9", label %30
 
 30:                                               ; preds = %25
-  %31 = sub i8 %29, %28
+  %31 = sub nuw i8 %29, %28
   %32 = zext i8 %31 to i64
   %33 = add nuw nsw i64 %32, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9"
@@ -3503,7 +3503,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i10, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit12", label %40
 
 40:                                               ; preds = %35
-  %41 = sub i8 %39, %38
+  %41 = sub nuw i8 %39, %38
   %42 = zext i8 %41 to i64
   %43 = add nuw nsw i64 %42, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit12"
@@ -3522,7 +3522,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i13, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit15", label %50
 
 50:                                               ; preds = %45
-  %51 = sub i8 %49, %48
+  %51 = sub nuw i8 %49, %48
   %52 = zext i8 %51 to i64
   %53 = add nuw nsw i64 %52, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit15"
@@ -3572,7 +3572,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit", label %19
 
 19:                                               ; preds = %14
-  %20 = sub i8 %18, %17
+  %20 = sub nuw i8 %18, %17
   %21 = zext i8 %20 to i64
   %22 = add nuw nsw i64 %21, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit"
@@ -3589,7 +3589,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i7, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9", label %29
 
 29:                                               ; preds = %24
-  %30 = sub i8 %28, %27
+  %30 = sub nuw i8 %28, %27
   %31 = zext i8 %30 to i64
   %32 = add nuw nsw i64 %31, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9"
@@ -3633,7 +3633,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ea40b07575e4127E.exit", label %21
 
 21:                                               ; preds = %16
-  %22 = sub i8 %20, %19
+  %22 = sub nuw i8 %20, %19
   %23 = zext i8 %22 to i64
   %24 = add nuw nsw i64 %23, 1
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ea40b07575e4127E.exit"
@@ -3670,7 +3670,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ea40b07575e4127E.exit", label %38
 
 38:                                               ; preds = %33
-  %39 = sub i8 %37, %36
+  %39 = sub nuw i8 %37, %36
   %40 = zext i8 %39 to i64
   %41 = add nuw nsw i64 %40, 1
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ea40b07575e4127E.exit"
@@ -3687,7 +3687,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i7.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ea40b07575e4127E.exit", label %48
 
 48:                                               ; preds = %43
-  %49 = sub i8 %47, %46
+  %49 = sub nuw i8 %47, %46
   %50 = zext i8 %49 to i64
   %51 = add nuw nsw i64 %50, 1
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ea40b07575e4127E.exit"
@@ -3704,7 +3704,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i10.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit12.i", label %58
 
 58:                                               ; preds = %53
-  %59 = sub i8 %57, %56
+  %59 = sub nuw i8 %57, %56
   %60 = zext i8 %59 to i64
   %61 = add nuw nsw i64 %60, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit12.i"
@@ -3723,7 +3723,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i13.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit15.i", label %68
 
 68:                                               ; preds = %63
-  %69 = sub i8 %67, %66
+  %69 = sub nuw i8 %67, %66
   %70 = zext i8 %69 to i64
   %71 = add nuw nsw i64 %70, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit15.i"
@@ -3756,7 +3756,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i.i15, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ea40b07575e4127E.exit16", label %84
 
 84:                                               ; preds = %79
-  %85 = sub i8 %83, %82
+  %85 = sub nuw i8 %83, %82
   %86 = zext i8 %85 to i64
   %87 = add nuw nsw i64 %86, 1
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ea40b07575e4127E.exit16"
@@ -3773,7 +3773,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i7.i14, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ea40b07575e4127E.exit16", label %94
 
 94:                                               ; preds = %89
-  %95 = sub i8 %93, %92
+  %95 = sub nuw i8 %93, %92
   %96 = zext i8 %95 to i64
   %97 = add nuw nsw i64 %96, 1
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6ea40b07575e4127E.exit16"
@@ -3790,7 +3790,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i10.i7, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit12.i8", label %104
 
 104:                                              ; preds = %99
-  %105 = sub i8 %103, %102
+  %105 = sub nuw i8 %103, %102
   %106 = zext i8 %105 to i64
   %107 = add nuw nsw i64 %106, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit12.i8"
@@ -3809,7 +3809,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i13.i10, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit15.i11", label %114
 
 114:                                              ; preds = %109
-  %115 = sub i8 %113, %112
+  %115 = sub nuw i8 %113, %112
   %116 = zext i8 %115 to i64
   %117 = add nuw nsw i64 %116, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit15.i11"
@@ -3833,7 +3833,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT
   br i1 %.not.i17, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit19", label %125
 
 125:                                              ; preds = %120
-  %126 = sub i8 %124, %123
+  %126 = sub nuw i8 %124, %123
   %127 = zext i8 %126 to i64
   %128 = add nuw nsw i64 %127, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit19"
@@ -3885,7 +3885,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   br i1 %.not.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit", label %23
 
 23:                                               ; preds = %18
-  %24 = sub i8 %22, %21
+  %24 = sub nuw i8 %22, %21
   %25 = zext i8 %24 to i64
   %26 = add nuw nsw i64 %25, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit"
@@ -3940,7 +3940,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   br i1 %.not.i.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit.i", label %46
 
 46:                                               ; preds = %41
-  %47 = sub i8 %45, %44
+  %47 = sub nuw i8 %45, %44
   %48 = zext i8 %47 to i64
   %49 = add nuw nsw i64 %48, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit.i"
@@ -3979,7 +3979,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   br i1 %.not.i7.i, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9.i", label %65
 
 65:                                               ; preds = %60
-  %66 = sub i8 %64, %63
+  %66 = sub nuw i8 %64, %63
   %67 = zext i8 %66 to i64
   %68 = add nuw nsw i64 %67, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9.i"
@@ -4031,7 +4031,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   br i1 %.not.i.i16, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4eb227bcc2893910E.exit19", label %89
 
 89:                                               ; preds = %84
-  %90 = sub i8 %88, %87
+  %90 = sub nuw i8 %88, %87
   %91 = zext i8 %90 to i64
   %92 = add nuw nsw i64 %91, 1
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4eb227bcc2893910E.exit19"
@@ -4067,7 +4067,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   br i1 %.not.i7.i8, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9.i9", label %107
 
 107:                                              ; preds = %102
-  %108 = sub i8 %106, %105
+  %108 = sub nuw i8 %106, %105
   %109 = zext i8 %108 to i64
   %110 = add nuw nsw i64 %109, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit9.i9"
@@ -4101,7 +4101,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   br i1 %.not.i20, label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit22", label %123
 
 123:                                              ; preds = %118
-  %124 = sub i8 %122, %121
+  %124 = sub nuw i8 %122, %121
   %125 = zext i8 %124 to i64
   %126 = add nuw nsw i64 %125, 1
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h9facb025b13904e2E.exit22"
@@ -4207,7 +4207,7 @@ define hidden void @"_ZN3nom5bytes8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17
   %6 = load i64, ptr %1, align 8, !noundef !4
   %.not.i = icmp ugt i64 %6, %3
   %7 = select i1 %.not.i, i64 %3, i64 0
-  %spec.select.i = sub i64 %6, %7
+  %spec.select.i = sub nuw i64 %6, %7
   br i1 %.not.i, label %17, label %8
 
 8:                                                ; preds = %4
@@ -4230,7 +4230,7 @@ define hidden void @"_ZN3nom5bytes8complete4take28_$u7b$$u7b$closure$u7d$$u7d$17
 
 "_ZN59_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTake$GT$10take_split17h1e5aa5c4855c500aE.exit": ; preds = %8
   %14 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i
-  %15 = sub i64 %3, %spec.select.i
+  %15 = sub nuw i64 %3, %spec.select.i
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %14, ptr %16, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -5112,7 +5112,7 @@ define internal void @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..i
   br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %5
-  %11 = sub i8 %9, %8
+  %11 = sub nuw i8 %9, %8
   %12 = zext i8 %11 to i64
   %13 = add nuw nsw i64 %12, 1
   br label %.critedge

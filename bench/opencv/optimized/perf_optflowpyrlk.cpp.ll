@@ -5190,7 +5190,7 @@ _ZN7testing7MessagelsIiEERS0_RKT_.exit:           ; preds = %_ZN7testing7Message
   br i1 %244, label %245, label %270
 
 245:                                              ; preds = %229
-  %246 = sub nsw i64 %236, %243
+  %246 = sub nuw nsw i64 %236, %243
   %247 = getelementptr inbounds i8, ptr %25, i64 16
   %248 = load ptr, ptr %247, align 8
   %249 = ptrtoint ptr %248 to i64
@@ -5295,7 +5295,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %274, %272, %270, 
   br i1 %287, label %288, label %317
 
 288:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
-  %289 = sub i64 %280, %286
+  %289 = sub nuw i64 %280, %286
   %290 = getelementptr inbounds i8, ptr %26, i64 16
   %291 = load ptr, ptr %290, align 8
   %292 = ptrtoint ptr %291 to i64
@@ -5403,7 +5403,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %321, %319, %317, %_
   br i1 %335, label %336, label %368
 
 336:                                              ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-  %337 = sub nsw i64 %327, %334
+  %337 = sub nuw nsw i64 %327, %334
   %338 = getelementptr inbounds i8, ptr %27, i64 16
   %339 = load ptr, ptr %338, align 8
   %340 = ptrtoint ptr %339 to i64
@@ -12500,7 +12500,7 @@ _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_
   br i1 %176, label %177, label %202
 
 177:                                              ; preds = %161
-  %178 = sub nsw i64 %168, %175
+  %178 = sub nuw nsw i64 %168, %175
   %179 = getelementptr inbounds i8, ptr %19, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = ptrtoint ptr %180 to i64
@@ -16984,7 +16984,7 @@ _ZN7testing7MessagelsIiEERS0_RKT_.exit:           ; preds = %_ZN7testing7Message
   br i1 %255, label %256, label %281
 
 256:                                              ; preds = %240
-  %257 = sub nsw i64 %247, %254
+  %257 = sub nuw nsw i64 %247, %254
   %258 = getelementptr inbounds i8, ptr %25, i64 16
   %259 = load ptr, ptr %258, align 8
   %260 = ptrtoint ptr %259 to i64
@@ -17082,7 +17082,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %285, %283, %281, 
   br i1 %298, label %299, label %328
 
 299:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
-  %300 = sub i64 %291, %297
+  %300 = sub nuw i64 %291, %297
   %301 = getelementptr inbounds i8, ptr %26, i64 16
   %302 = load ptr, ptr %301, align 8
   %303 = ptrtoint ptr %302 to i64
@@ -17190,7 +17190,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %332, %330, %328, %_
   br i1 %346, label %347, label %379
 
 347:                                              ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-  %348 = sub nsw i64 %338, %345
+  %348 = sub nuw nsw i64 %338, %345
   %349 = getelementptr inbounds i8, ptr %27, i64 16
   %350 = load ptr, ptr %349, align 8
   %351 = ptrtoint ptr %350 to i64

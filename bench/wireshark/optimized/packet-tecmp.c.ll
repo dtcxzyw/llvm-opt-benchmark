@@ -1496,7 +1496,7 @@ dissect_tecmp_control_msg.exit:                   ; preds = %74, %78, %._crit_ed
   br i1 %221, label %222, label %proto_item_set_generated.exit.i.i
 
 222:                                              ; preds = %182
-  %223 = sub i64 %177, %220
+  %223 = sub nuw i64 %177, %220
   %224 = udiv i64 %223, 1000000000
   store i64 %224, ptr %24, align 8
   %225 = urem i64 %223, 1000000000

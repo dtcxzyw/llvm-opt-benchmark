@@ -293,9 +293,9 @@ _route_part_split_hostlist.exit:                  ; preds = %112, %114
 .preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %.preheader.us.i.backedge
   %indvars.iv.i46 = phi i64 [ %indvars.iv.i46.be, %.preheader.us.i.backedge ], [ 0, %.preheader.lr.ph.i ]
   %.150.us.i = phi i32 [ %147, %.preheader.us.i.backedge ], [ %117, %.preheader.lr.ph.i ]
-  %123 = sub nsw i64 %121, %indvars.iv.i46
-  %124 = sext i32 %.150.us.i to i64
-  %.not41.us.i = icmp slt i64 %123, %124
+  %123 = sub nuw nsw i64 %121, %indvars.iv.i46
+  %124 = trunc nuw nsw i64 %123 to i32
+  %.not41.us.i = icmp sgt i32 %.150.us.i, %124
   br i1 %.not41.us.i, label %132, label %125
 
 125:                                              ; preds = %.preheader.us.i

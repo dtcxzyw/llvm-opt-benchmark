@@ -4777,7 +4777,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   %219 = getelementptr inbounds i8, ptr %66, i64 %.195.i
   %220 = load i8, ptr %219, align 1, !alias.scope !752, !noalias !728, !noundef !4
   %221 = icmp sgt i8 %220, -65
-  %222 = sub i64 %68, %.195.i
+  %222 = sub nuw i64 %68, %.195.i
   br i1 %221, label %224, label %223
 
 223:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i.i", %216
@@ -5308,7 +5308,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   %401 = getelementptr inbounds i8, ptr %66, i64 %.191.i
   %402 = load i8, ptr %401, align 1, !alias.scope !858, !noalias !728, !noundef !4
   %403 = icmp sgt i8 %402, -65
-  %404 = sub i64 %68, %.191.i
+  %404 = sub nuw i64 %68, %.191.i
   br i1 %403, label %406, label %405
 
 405:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i162.i", %398
@@ -5730,7 +5730,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   %562 = getelementptr inbounds i8, ptr %.sroa.2936.0.copyload, i64 %554
   %563 = load i8, ptr %562, align 1, !alias.scope !911, !noalias !916, !noundef !4
   %564 = icmp sgt i8 %563, -65
-  %565 = sub i64 %.sroa.31.0.copyload, %554
+  %565 = sub nuw i64 %.sroa.31.0.copyload, %554
   br i1 %564, label %567, label %566
 
 566:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i.i.i.i.i", %559

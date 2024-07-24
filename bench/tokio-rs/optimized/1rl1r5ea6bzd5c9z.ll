@@ -3997,7 +3997,7 @@ define internal fastcc void @_ZN5tokio2io4util9read_line22put_back_original_data
   br i1 %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h27a5e0b1b9878d04E.exit", label %11
 
 11:                                               ; preds = %3
-  %12 = sub i64 %9, %2
+  %12 = sub nuw i64 %9, %2
   store i64 %12, ptr %8, align 8, !alias.scope !338
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h27a5e0b1b9878d04E.exit"
 
@@ -4871,7 +4871,7 @@ define hidden noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_
   %27 = load i64, ptr %20, align 8, !alias.scope !463, !noundef !5
   %.not.i.i.i = icmp ult i64 %26, %27
   %28 = select i1 %.not.i.i.i, i64 0, i64 %27
-  %.0.i.i.i = sub i64 %26, %28
+  %.0.i.i.i = sub nuw i64 %26, %28
   store i64 %.0.i.i.i, ptr %21, align 8, !alias.scope !462
   %29 = add i64 %24, -1
   store i64 %29, ptr %17, align 8, !alias.scope !462
@@ -5104,7 +5104,7 @@ define noundef ptr @_ZN5tokio7runtime9scheduler14current_thread4Core9next_task17
   %26 = load i64, ptr %22, align 8, !alias.scope !508, !noundef !5
   %.not.i.i.i.i.i = icmp ult i64 %25, %26
   %27 = select i1 %.not.i.i.i.i.i, i64 0, i64 %26
-  %.0.i.i.i.i.i = sub i64 %25, %27
+  %.0.i.i.i.i.i = sub nuw i64 %25, %27
   store i64 %.0.i.i.i.i.i, ptr %23, align 8, !alias.scope !507
   %28 = add i64 %19, -1
   store i64 %28, ptr %18, align 8, !alias.scope !507
@@ -5130,7 +5130,7 @@ _ZN5tokio7runtime9scheduler14current_thread4Core15next_local_task17h23337b13f7e7
   %41 = load i64, ptr %37, align 8, !alias.scope !518, !noundef !5
   %.not.i.i.i = icmp ult i64 %40, %41
   %42 = select i1 %.not.i.i.i, i64 0, i64 %41
-  %.0.i.i.i = sub i64 %40, %42
+  %.0.i.i.i = sub nuw i64 %40, %42
   store i64 %.0.i.i.i, ptr %38, align 8, !alias.scope !517
   %43 = add i64 %35, -1
   store i64 %43, ptr %34, align 8, !alias.scope !517
@@ -5218,7 +5218,7 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread4Core9push_task17
   %20 = add i64 %19, %17
   %.not.i.i = icmp ult i64 %20, %16
   %21 = select i1 %.not.i.i, i64 0, i64 %16
-  %.0.i.i = sub i64 %20, %21
+  %.0.i.i = sub nuw i64 %20, %21
   %22 = getelementptr inbounds i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8, !alias.scope !521, !nonnull !5, !noundef !5
   %24 = getelementptr inbounds ptr, ptr %23, i64 %.0.i.i

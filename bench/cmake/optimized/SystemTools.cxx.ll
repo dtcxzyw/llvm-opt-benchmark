@@ -2358,7 +2358,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools14StringEndsWithEPKcS
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %5
-  %9 = sub i64 %6, %7
+  %9 = sub nuw i64 %6, %7
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = tail call i32 @strncmp(ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef %7) #36
   %.not16 = icmp eq i32 %11, 0
@@ -2382,7 +2382,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools14StringEndsWithERKNS
 
 6:                                                ; preds = %3
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
-  %8 = sub i64 %4, %5
+  %8 = sub nuw i64 %4, %5
   %9 = getelementptr inbounds i8, ptr %7, i64 %8
   %10 = tail call i32 @strncmp(ptr noundef %9, ptr noundef nonnull %1, i64 noundef %5) #36
   %.not14 = icmp eq i32 %10, 0
@@ -12216,7 +12216,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %56 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
-  %57 = sub nsw i64 %9, %20
+  %57 = sub nuw nsw i64 %9, %20
   %58 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %56, i64 %57
   store ptr %58, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1

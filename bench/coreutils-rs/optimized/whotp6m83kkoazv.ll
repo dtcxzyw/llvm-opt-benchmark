@@ -39,7 +39,7 @@ define hidden noundef i64 @"_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u
 
 6:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %7 = sub i64 %1, %0
+  %7 = sub nuw i64 %1, %0
   %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
   %9 = shl i64 %7, %8
   %10 = add i64 %9, -1
@@ -111,7 +111,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   unreachable
 
 7:                                                ; preds = %3
-  %8 = sub i32 %1, %0
+  %8 = sub nuw i32 %1, %0
   %9 = add i32 %8, 1
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %38
@@ -264,7 +264,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
 
 6:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %7 = sub i64 %1, %0
+  %7 = sub nuw i64 %1, %0
   %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
   %9 = shl i64 %7, %8
   %10 = add i64 %9, -1
@@ -297,7 +297,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   unreachable
 
 5:                                                ; preds = %3
-  %6 = sub i64 %1, %0
+  %6 = sub nuw i64 %1, %0
   %7 = add i64 %6, 1
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %11
@@ -484,7 +484,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng9gen_range17h049e68daa6e4f7acE(ptr no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  %5 = sub i64 %2, %1
+  %5 = sub nuw i64 %2, %1
   %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %7 = shl i64 %5, %6
   %8 = add i64 %7, -1

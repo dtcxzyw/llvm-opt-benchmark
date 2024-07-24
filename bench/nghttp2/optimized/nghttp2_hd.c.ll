@@ -3156,7 +3156,7 @@ entry:
   br i1 %cmp.i, label %if.end3, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %sub2.i = sub i64 %add, %conv.i
+  %sub2.i = sub nuw i64 %add, %conv.i
   %cmp37.i = icmp ugt i64 %sub2.i, 127
   br i1 %cmp37.i, label %for.inc.i, label %if.end3
 
@@ -3201,7 +3201,7 @@ if.end.i17:                                       ; preds = %switch.lookup
   %4 = trunc nuw nsw i32 %sub.i to i8
   %conv8.i = or i8 %conv2.i, %4
   store i8 %conv8.i, ptr %sb, align 16
-  %sub9.i = sub i64 %add, %conv.i
+  %sub9.i = sub nuw i64 %add, %conv.i
   %buf.addr.020.i = getelementptr inbounds i8, ptr %sb, i64 1
   %cmp1021.i = icmp ugt i64 %sub9.i, 127
   br i1 %cmp1021.i, label %for.body.i, label %for.end.i

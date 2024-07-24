@@ -1053,7 +1053,7 @@ define internal noundef i32 @_ZL7str_repP9lua_State(ptr noundef %0) #0 {
   %.03235 = phi ptr [ %23, %.lr.ph ], [ %20, %14 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03235, ptr align 1 %16, i64 %.037, i1 false)
   %23 = getelementptr inbounds i8, ptr %.03235, i64 %.037
-  %24 = sub i64 %.03036, %.037
+  %24 = sub nuw i64 %.03036, %.037
   %25 = shl i64 %.037, 1
   %26 = icmp ult i64 %25, %24
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !15

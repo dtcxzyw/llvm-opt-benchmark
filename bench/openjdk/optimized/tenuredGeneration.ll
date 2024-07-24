@@ -417,7 +417,7 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
   br i1 %48, label %49, label %65
 
 49:                                               ; preds = %47
-  %50 = sub i64 %25, %18
+  %50 = sub nuw i64 %25, %18
   %51 = getelementptr inbounds i8, ptr %0, i64 192
   %52 = load i64, ptr %51, align 8
   %.not63 = icmp ult i64 %50, %52
@@ -444,7 +444,7 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
   br label %144
 
 65:                                               ; preds = %47
-  %66 = sub i64 %18, %25
+  %66 = sub nuw i64 %18, %25
   %67 = load i64, ptr @MaxHeapFreeRatio, align 8
   %68 = icmp ult i64 %67, 100
   br i1 %68, label %69, label %123
@@ -489,7 +489,7 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
   br i1 %93, label %94, label %123
 
 94:                                               ; preds = %92
-  %95 = sub i64 %18, %78
+  %95 = sub nuw i64 %18, %78
   %96 = load i8, ptr @ShrinkHeapInSteps, align 1
   %97 = trunc i8 %96 to i1
   br i1 %97, label %98, label %105
@@ -550,7 +550,7 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
   br i1 %126, label %127, label %140
 
 127:                                              ; preds = %123
-  %128 = sub i64 %18, %125
+  %128 = sub nuw i64 %18, %125
   %129 = tail call noundef i64 @llvm.umin.i64(i64 %128, i64 %66)
   %130 = tail call noundef i64 @llvm.umax.i64(i64 %.1, i64 %129)
   %131 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -866,7 +866,7 @@ define hidden void @_ZN17TenuredGeneration20update_promote_statsEv(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 208
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %5, %7
-  %9 = sub i64 %5, %7
+  %9 = sub nuw i64 %5, %7
   %10 = uitofp i64 %9 to float
   %.0 = select i1 %8, float %10, float 0.000000e+00
   %11 = getelementptr inbounds i8, ptr %0, i64 240

@@ -230,7 +230,7 @@ define void @"_ZN6uu_seq11numberparse86_$LT$impl$u20$core..str..traits..FromStr$
   %49 = getelementptr inbounds i8, ptr %35, i64 %40
   %50 = load i8, ptr %49, align 1, !alias.scope !53, !noalias !58, !noundef !21
   %51 = icmp sgt i8 %50, -65
-  %52 = sub i64 %37, %40
+  %52 = sub nuw i64 %37, %40
   br i1 %51, label %54, label %53
 
 53:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %46

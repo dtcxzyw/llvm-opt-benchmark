@@ -4792,8 +4792,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 92:                                               ; preds = %80
   %93 = add nuw nsw i64 %.sroa.727.0.i, 1
   %94 = getelementptr inbounds { [3 x i64] }, ptr %90, i64 %93
-  %95 = sub nsw i64 %89, %.sroa.727.0.i
-  %96 = mul nsw i64 %95, 24
+  %95 = sub nuw nsw i64 %89, %.sroa.727.0.i
+  %96 = mul nuw nsw i64 %95, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %94, ptr nonnull align 8 %91, i64 %96, i1 false), !alias.scope !930, !noalias !933
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
@@ -4801,7 +4801,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   tail call void @llvm.experimental.noalias.scope.decl(metadata !936)
   %97 = getelementptr inbounds { [8 x i64] }, ptr %.sroa.06.0.i, i64 %.sroa.727.0.i
   %98 = getelementptr inbounds { [8 x i64] }, ptr %.sroa.06.0.i, i64 %93
-  %99 = shl nsw i64 %95, 6
+  %99 = shl nuw nsw i64 %95, 6
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %98, ptr nonnull align 8 %97, i64 %99, i1 false), !alias.scope !939, !noalias !941
   br label %106
 
@@ -7581,7 +7581,7 @@ _ZN4core5slice6memchr12memchr_naive17h80d69771a2a986d1E.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !1303
   %67 = icmp eq i32 %bcmp.i, 0
@@ -8127,7 +8127,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %.not.us, label %31, label %26
 
 26:                                               ; preds = %24
-  %27 = sub i64 %25, %17
+  %27 = sub nuw i64 %25, %17
   %28 = add i64 %27, %14
   %29 = icmp ugt i64 %27, %28
   %30 = icmp ugt i64 %28, %5
@@ -8168,7 +8168,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.split
 
 44:                                               ; preds = %39
-  %45 = sub i64 %40, %17
+  %45 = sub nuw i64 %40, %17
   %46 = add i64 %45, %14
   %47 = icmp ugt i64 %45, %46
   %48 = icmp ugt i64 %46, %5
@@ -10249,7 +10249,7 @@ _ZN15rustfmt_nightly5utils13rewrite_ident17h7391328317c55cbbE.exit: ; preds = %.
   br i1 %.not.i.i, label %167, label %165
 
 165:                                              ; preds = %154
-  %166 = sub i64 %163, %164
+  %166 = sub nuw i64 %163, %164
   %.not.i = icmp ult i64 %166, 2
   br i1 %.not.i, label %192, label %168
 
@@ -10465,7 +10465,7 @@ _ZN15rustfmt_nightly5items16rewrite_generics17h660660c2881bc9a2E.exit: ; preds =
 
 243:                                              ; preds = %231
   %244 = add i64 %242, %233
-  %245 = sub i64 %240, %242
+  %245 = sub nuw i64 %240, %242
   store i64 %232, ptr %49, align 8
   %.sroa.615.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
   store i64 %233, ptr %.sroa.615.sroa.5.0..sroa_idx, align 8
@@ -11125,7 +11125,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
   %.sink1.i.i = select i1 %462, i64 0, i64 %463
   %464 = select i1 %462, i64 %460, i64 0
   %.sink2.i.i = add i64 %464, %441
-  %465 = sub i64 %456, %460
+  %465 = sub nuw i64 %456, %460
   store i64 %.sink2.i.i, ptr %40, align 8
   %.sroa.653.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 8
   store i64 %.sink1.i.i, ptr %.sroa.653.sroa.5.0..sroa_idx, align 8
@@ -11238,8 +11238,8 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit253: ; preds = %486
   br i1 %.not.i254.not, label %498, label %501
 
 498:                                              ; preds = %490
-  %499 = call i64 @llvm.usub.sat.i64(i64 %496, i64 %497)
-  %500 = add i64 %499, -1
+  %499 = xor i64 %497, -1
+  %500 = add i64 %496, %499
   store i64 %491, ptr %37, align 8
   %.sroa.663.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
   store i64 %492, ptr %.sroa.663.sroa.5.0..sroa_idx, align 8
@@ -11686,7 +11686,7 @@ _ZN15rustfmt_nightly5utils13rewrite_ident17h7391328317c55cbbE.exit: ; preds = %.
   br i1 %.not.i.i, label %167, label %165
 
 165:                                              ; preds = %154
-  %166 = sub i64 %163, %164
+  %166 = sub nuw i64 %163, %164
   %.not.i = icmp ult i64 %166, 2
   br i1 %.not.i, label %192, label %168
 
@@ -11902,7 +11902,7 @@ _ZN15rustfmt_nightly5items16rewrite_generics17h660660c2881bc9a2E.exit: ; preds =
 
 243:                                              ; preds = %231
   %244 = add i64 %242, %233
-  %245 = sub i64 %240, %242
+  %245 = sub nuw i64 %240, %242
   store i64 %232, ptr %49, align 8
   %.sroa.615.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
   store i64 %233, ptr %.sroa.615.sroa.5.0..sroa_idx, align 8
@@ -12562,7 +12562,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
   %.sink1.i.i = select i1 %462, i64 0, i64 %463
   %464 = select i1 %462, i64 %460, i64 0
   %.sink2.i.i = add i64 %464, %441
-  %465 = sub i64 %456, %460
+  %465 = sub nuw i64 %456, %460
   store i64 %.sink2.i.i, ptr %40, align 8
   %.sroa.653.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 8
   store i64 %.sink1.i.i, ptr %.sroa.653.sroa.5.0..sroa_idx, align 8
@@ -12675,8 +12675,8 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit253: ; preds = %486
   br i1 %.not.i254.not, label %498, label %501
 
 498:                                              ; preds = %490
-  %499 = call i64 @llvm.usub.sat.i64(i64 %496, i64 %497)
-  %500 = add i64 %499, -1
+  %499 = xor i64 %497, -1
+  %500 = add i64 %496, %499
   store i64 %491, ptr %37, align 8
   %.sroa.663.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
   store i64 %492, ptr %.sroa.663.sroa.5.0..sroa_idx, align 8
@@ -28463,7 +28463,7 @@ define hidden void @_ZN15rustfmt_nightly5pairs22rewrite_pairs_one_line17h6bc4a36
 
 54:                                               ; preds = %53
   %55 = add i64 %52, %31
-  %56 = sub i64 %29, %52
+  %56 = sub nuw i64 %29, %52
   store i64 %27, ptr %14, align 8
   %.sroa.6.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
   store i64 0, ptr %.sroa.6.sroa.5.0..sroa_idx, align 8
@@ -29035,7 +29035,7 @@ define hidden void @_ZN15rustfmt_nightly5pairs23rewrite_pairs_multiline17habef6e
   br i1 %.not.i, label %58, label %52
 
 52:                                               ; preds = %46
-  %53 = sub i64 %51, %30
+  %53 = sub nuw i64 %51, %30
   store i64 %.sroa.0138.0, ptr %17, align 8
   %.sroa.4161.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
   store i64 %.sroa.11.0, ptr %.sroa.4161.0..sroa_idx, align 8
@@ -29322,7 +29322,7 @@ define hidden void @_ZN15rustfmt_nightly5pairs23rewrite_pairs_multiline17habef6e
   %151 = getelementptr inbounds i8, ptr %137, i64 %145
   %152 = load i8, ptr %151, align 1, !alias.scope !4788, !noundef !9
   %153 = icmp sgt i8 %152, -65
-  %154 = sub i64 %138, %145
+  %154 = sub nuw i64 %138, %145
   br i1 %153, label %159, label %158
 
 .noexc79:                                         ; preds = %.invoke
@@ -29354,7 +29354,7 @@ _ZN15rustfmt_nightly5utils23trimmed_last_line_width17ha767721a6d860234E.exit: ; 
 
 164:                                              ; preds = %_ZN15rustfmt_nightly5utils23trimmed_last_line_width17ha767721a6d860234E.exit
   %165 = add i64 %163, %25
-  %166 = sub i64 %28, %163
+  %166 = sub nuw i64 %28, %163
   store i64 %23, ptr %14, align 8
   store i64 %90, ptr %.sroa.7153.8..sroa_idx, align 8
   store i64 %166, ptr %.sroa.8154.8..sroa_idx, align 8
@@ -30071,7 +30071,7 @@ common.resume:                                    ; preds = %134, %112
   br label %"_ZN15rustfmt_nightly4expr84_$LT$impl$u20$rustfmt_nightly..rewrite..Rewrite$u20$for$u20$rustc_ast..ast..Expr$GT$7rewrite17h7da9dc3832c7bf48E.exit.thread"
 
 146:                                              ; preds = %137
-  %147 = sub i64 %143, %141
+  %147 = sub nuw i64 %143, %141
   %148 = getelementptr inbounds i8, ptr %3, i64 32
   %149 = getelementptr inbounds i8, ptr %3, i64 40
   %150 = load i64, ptr %149, align 8, !noundef !9
@@ -30086,7 +30086,7 @@ common.resume:                                    ; preds = %134, %112
 
 153:                                              ; preds = %146
   %154 = add i64 %141, %61
-  %155 = sub i64 %147, %150
+  %155 = sub nuw i64 %147, %150
   store i64 %59, ptr %30, align 8
   %.sroa.7269.8..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   store i64 %103, ptr %.sroa.7269.8..sroa_idx, align 8
@@ -30491,7 +30491,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %239
   br label %421
 
 272:                                              ; preds = %266
-  %273 = sub i64 %143, %270
+  %273 = sub nuw i64 %143, %270
   %274 = add i64 %269, %61
   %275 = getelementptr inbounds i8, ptr %45, i64 16
   store i64 %273, ptr %275, align 8, !alias.scope !5034, !noalias !5037
@@ -30537,7 +30537,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %239
   br i1 %.not.i179, label %301, label %299
 
 299:                                              ; preds = %280
-  %300 = sub i64 %298, %287
+  %300 = sub nuw i64 %298, %287
   store i64 %292, ptr %45, align 8
   %.sroa.4348.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 8
   store i64 %103, ptr %.sroa.4348.0..sroa_idx, align 8
@@ -30714,7 +30714,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %239
   %341 = getelementptr inbounds i8, ptr %45, i64 24
   %342 = load i64, ptr %341, align 8, !alias.scope !5072, !noalias !5077, !noundef !9
   %343 = add i64 %342, %.sink545
-  %344 = sub i64 %338, %.sink545
+  %344 = sub nuw i64 %338, %.sink545
   store i64 %344, ptr %337, align 8
   store i64 %343, ptr %341, align 8
   br label %339
@@ -31354,7 +31354,7 @@ common.resume:                                    ; preds = %134, %112
   br label %"_ZN15rustfmt_nightly4expr84_$LT$impl$u20$rustfmt_nightly..rewrite..Rewrite$u20$for$u20$rustc_ast..ast..Expr$GT$7rewrite17h7da9dc3832c7bf48E.exit.thread"
 
 146:                                              ; preds = %137
-  %147 = sub i64 %143, %141
+  %147 = sub nuw i64 %143, %141
   %148 = getelementptr inbounds i8, ptr %3, i64 32
   %149 = getelementptr inbounds i8, ptr %3, i64 40
   %150 = load i64, ptr %149, align 8, !noundef !9
@@ -31369,7 +31369,7 @@ common.resume:                                    ; preds = %134, %112
 
 153:                                              ; preds = %146
   %154 = add i64 %141, %61
-  %155 = sub i64 %147, %150
+  %155 = sub nuw i64 %147, %150
   store i64 %59, ptr %30, align 8
   %.sroa.7269.8..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   store i64 %103, ptr %.sroa.7269.8..sroa_idx, align 8
@@ -31774,7 +31774,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %239
   br label %421
 
 272:                                              ; preds = %266
-  %273 = sub i64 %143, %270
+  %273 = sub nuw i64 %143, %270
   %274 = add i64 %269, %61
   %275 = getelementptr inbounds i8, ptr %45, i64 16
   store i64 %273, ptr %275, align 8, !alias.scope !5291, !noalias !5294
@@ -31820,7 +31820,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %239
   br i1 %.not.i179, label %301, label %299
 
 299:                                              ; preds = %280
-  %300 = sub i64 %298, %287
+  %300 = sub nuw i64 %298, %287
   store i64 %292, ptr %45, align 8
   %.sroa.4348.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 8
   store i64 %103, ptr %.sroa.4348.0..sroa_idx, align 8
@@ -31997,7 +31997,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %239
   %341 = getelementptr inbounds i8, ptr %45, i64 24
   %342 = load i64, ptr %341, align 8, !alias.scope !5329, !noalias !5334, !noundef !9
   %343 = add i64 %342, %.sink545
-  %344 = sub i64 %338, %.sink545
+  %344 = sub nuw i64 %338, %.sink545
   store i64 %344, ptr %337, align 8
   store i64 %343, ptr %341, align 8
   br label %339
@@ -32637,7 +32637,7 @@ common.resume:                                    ; preds = %134, %112
   br label %.thread386
 
 146:                                              ; preds = %137
-  %147 = sub i64 %143, %141
+  %147 = sub nuw i64 %143, %141
   %148 = getelementptr inbounds i8, ptr %3, i64 32
   %149 = getelementptr inbounds i8, ptr %3, i64 40
   %150 = load i64, ptr %149, align 8, !noundef !9
@@ -32652,7 +32652,7 @@ common.resume:                                    ; preds = %134, %112
 
 153:                                              ; preds = %146
   %154 = add i64 %141, %61
-  %155 = sub i64 %147, %150
+  %155 = sub nuw i64 %147, %150
   store i64 %59, ptr %30, align 8
   %.sroa.7266.8..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   store i64 %103, ptr %.sroa.7266.8..sroa_idx, align 8
@@ -33057,7 +33057,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %240
   br label %423
 
 273:                                              ; preds = %267
-  %274 = sub i64 %143, %271
+  %274 = sub nuw i64 %143, %271
   %275 = add i64 %270, %61
   %276 = getelementptr inbounds i8, ptr %45, i64 16
   store i64 %274, ptr %276, align 8, !alias.scope !5548, !noalias !5551
@@ -33103,7 +33103,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %240
   br i1 %.not.i178, label %302, label %300
 
 300:                                              ; preds = %281
-  %301 = sub i64 %299, %288
+  %301 = sub nuw i64 %299, %288
   store i64 %293, ptr %45, align 8
   %.sroa.4345.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 8
   store i64 %103, ptr %.sroa.4345.0..sroa_idx, align 8
@@ -33280,7 +33280,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %240
   %342 = getelementptr inbounds i8, ptr %45, i64 24
   %343 = load i64, ptr %342, align 8, !alias.scope !5586, !noalias !5591, !noundef !9
   %344 = add i64 %343, %.sink543
-  %345 = sub i64 %339, %.sink543
+  %345 = sub nuw i64 %339, %.sink543
   store i64 %345, ptr %338, align 8
   store i64 %344, ptr %342, align 8
   br label %340
@@ -33945,7 +33945,7 @@ common.resume:                                    ; preds = %143, %121
   br label %"_ZN93_$LT$rustfmt_nightly..patterns..RangeOperand$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17he1b2b41d5f5c02abE.exit131.thread"
 
 155:                                              ; preds = %146
-  %156 = sub i64 %152, %150
+  %156 = sub nuw i64 %152, %150
   %157 = getelementptr inbounds i8, ptr %3, i64 32
   %158 = getelementptr inbounds i8, ptr %3, i64 40
   %159 = load i64, ptr %158, align 8, !noundef !9
@@ -33960,7 +33960,7 @@ common.resume:                                    ; preds = %143, %121
 
 162:                                              ; preds = %155
   %163 = add i64 %150, %61
-  %164 = sub i64 %156, %159
+  %164 = sub nuw i64 %156, %159
   store i64 %59, ptr %30, align 8
   %.sroa.7276.8..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   store i64 %103, ptr %.sroa.7276.8..sroa_idx, align 8
@@ -34393,7 +34393,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %258
   br label %449
 
 291:                                              ; preds = %285
-  %292 = sub i64 %152, %289
+  %292 = sub nuw i64 %152, %289
   %293 = add i64 %288, %61
   %294 = getelementptr inbounds i8, ptr %45, i64 16
   store i64 %292, ptr %294, align 8, !alias.scope !5827, !noalias !5830
@@ -34439,7 +34439,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %258
   br i1 %.not.i183, label %320, label %318
 
 318:                                              ; preds = %299
-  %319 = sub i64 %317, %306
+  %319 = sub nuw i64 %317, %306
   store i64 %311, ptr %45, align 8
   %.sroa.4355.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 8
   store i64 %103, ptr %.sroa.4355.0..sroa_idx, align 8
@@ -34640,7 +34640,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %258
   %369 = getelementptr inbounds i8, ptr %45, i64 24
   %370 = load i64, ptr %369, align 8, !alias.scope !5865, !noalias !5870, !noundef !9
   %371 = add i64 %370, %.sink554
-  %372 = sub i64 %357, %.sink554
+  %372 = sub nuw i64 %357, %.sink554
   store i64 %372, ptr %356, align 8
   store i64 %371, ptr %369, align 8
   br label %358

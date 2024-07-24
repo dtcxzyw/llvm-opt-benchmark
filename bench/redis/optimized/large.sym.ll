@@ -256,7 +256,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.then56.i.i
   %div.i10442.i.i = lshr i32 %22, 1
   %cmp3.i.i.i = icmp ult i32 %call.i.i.i, %div.i10442.i.i
   %sub.i.i.i = select i1 %cmp3.i.i.i, i32 0, i32 %div.i10442.i.i
-  %spec.select.i.i = sub i32 %call.i.i.i, %sub.i.i.i
+  %spec.select.i.i = sub nuw i32 %call.i.i.i, %sub.i.i.i
   br label %percpu_arena_choose.exit.i.i
 
 percpu_arena_choose.exit.i.i:                     ; preds = %lor.lhs.false.i.i.i, %if.then56.i.i

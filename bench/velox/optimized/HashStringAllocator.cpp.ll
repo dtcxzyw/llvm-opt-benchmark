@@ -3387,7 +3387,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.else
-  %sub = sub nsw i64 %conv18, %add
+  %sub = sub nuw nsw i64 %conv18, %add
   %cmp24 = icmp ugt i64 %sub, 3072
   br i1 %cmp24, label %if.then25, label %if.else42
 

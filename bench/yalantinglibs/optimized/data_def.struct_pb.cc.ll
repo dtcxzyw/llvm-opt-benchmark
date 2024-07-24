@@ -1599,7 +1599,7 @@ if.end5:                                          ; preds = %if.end104.i, %if.en
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end5
-  %sub.i.i = sub i64 %sz.0247, %29
+  %sub.i.i = sub nuw i64 %sz.0247, %29
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %29
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -3851,7 +3851,7 @@ if.end39:                                         ; preds = %if.end104.i486, %if
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end39
-  %sub.i.i = sub i64 %sz34.0927, %81
+  %sub.i.i = sub nuw i64 %sz34.0927, %81
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %81
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i814, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -4101,7 +4101,7 @@ if.end54:                                         ; preds = %if.end104.i628, %if
   br i1 %cmp.i.i816, label %if.then.i.i821, label %if.else.i.i817
 
 if.then.i.i821:                                   ; preds = %if.end54
-  %sub.i.i822 = sub i64 %sz49.0933, %104
+  %sub.i.i822 = sub nuw i64 %sz49.0933, %104
   %sub3.i.i.i.i.i823 = sub i64 9223372036854775807, %104
   %cmp.i.i.i.i.i824 = icmp ult i64 %sub3.i.i.i.i.i823, %sub.i.i822
   br i1 %cmp.i.i.i.i.i824, label %if.then.i.i.i.i.i839, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i825
@@ -8539,7 +8539,7 @@ if.end11:                                         ; preds = %if.end104.i77, %if.
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end11
-  %sub.i.i = sub i64 %sz.0334, %44
+  %sub.i.i = sub nuw i64 %sz.0334, %44
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %44
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i

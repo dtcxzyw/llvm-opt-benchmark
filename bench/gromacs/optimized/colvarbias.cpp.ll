@@ -2923,7 +2923,7 @@ define noundef i32 @_ZN13colvarbias_ti10init_gridsEv(ptr noundef nonnull align 8
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %16
-  %38 = sub nsw i64 %28, %35
+  %38 = sub nuw nsw i64 %28, %35
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %38)
   %.pre = load ptr, ptr %0, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -6180,7 +6180,7 @@ define linkonce_odr void @_ZNSt6vectorI11colvarvalueSaIS0_EE6resizeEm(ptr nounde
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorI11colvarvalueSaIS0_EE15_M_erase_at_endEPS0_.exit
 

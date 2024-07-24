@@ -201,7 +201,7 @@ for.body16.i:                                     ; preds = %for.body11.i, %for.
 
 land.rhs.i:                                       ; preds = %for.body16.i, %for.body26.i
   %j17.i.0134 = phi i64 [ %sub22.i, %for.body26.i ], [ %i13.i.0138, %for.body16.i ]
-  %sub22.i = sub i64 %j17.i.0134, %7
+  %sub22.i = sub nuw i64 %j17.i.0134, %7
   %arrayidx23.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %sub22.i
   %9 = load i32, ptr %arrayidx23.i, align 4
   %cmp.not.i99 = icmp eq i32 %9, %tmp18.i.sroa.0.0.extract.trunc

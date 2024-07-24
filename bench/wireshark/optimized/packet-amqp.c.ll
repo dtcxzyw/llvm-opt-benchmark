@@ -6229,7 +6229,7 @@ define internal fastcc void @dissect_amqp_0_9_field_table(ptr noundef %0, ptr no
   %24 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %12, ptr noundef nonnull @.str.1416, ptr noundef %24) #12
   %25 = add i32 %15, %14
-  %26 = sub i32 %16, %14
+  %26 = sub nuw i32 %16, %14
   call void @increment_dissection_depth(ptr noundef %1) #12
   %27 = call fastcc i32 @dissect_amqp_0_9_field_value(ptr noundef %0, ptr noundef %1, i32 noundef %25, i32 noundef %26, ptr noundef %20)
   call void @decrement_dissection_depth(ptr noundef %1) #12
@@ -13649,7 +13649,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   br i1 %.not58.i, label %96, label %91
 
 91:                                               ; preds = %86
-  %92 = sub i64 %87, %90
+  %92 = sub nuw i64 %87, %90
   %93 = getelementptr i8, ptr %57, i64 %92
   %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) %89) #13
   %95 = icmp eq i32 %94, 0

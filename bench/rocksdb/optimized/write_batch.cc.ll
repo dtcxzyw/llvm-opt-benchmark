@@ -3007,7 +3007,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %lor.lhs.false
   %call8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_) #24
   %add.ptr = getelementptr inbounds i8, ptr %call8, i64 %begin
-  %sub = sub i64 %end, %begin
+  %sub = sub nuw i64 %end, %begin
   store ptr %add.ptr, ptr %input, align 8
   %size_.i55 = getelementptr inbounds i8, ptr %input, i64 8
   store i64 %sub, ptr %size_.i55, align 8
@@ -21778,7 +21778,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64

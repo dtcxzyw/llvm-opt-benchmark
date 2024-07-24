@@ -74,7 +74,7 @@ define hidden noundef i64 @"_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u
   unreachable
 
 6:                                                ; preds = %3
-  %7 = sub i64 %1, %0
+  %7 = sub nuw i64 %1, %0
   %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
   %9 = shl i64 %7, %8
   %10 = add i64 %9, -1
@@ -141,7 +141,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   unreachable
 
 6:                                                ; preds = %3
-  %7 = sub i64 %1, %0
+  %7 = sub nuw i64 %1, %0
   %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
   %9 = shl i64 %7, %8
   %10 = add i64 %9, -1
@@ -197,7 +197,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   unreachable
 
 5:                                                ; preds = %3
-  %6 = sub i64 %1, %0
+  %6 = sub nuw i64 %1, %0
   %7 = add i64 %6, 1
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %27
@@ -1076,7 +1076,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng9gen_range17h0425697eb69c44cdE(ptr no
   br i1 %.not, label %4, label %34
 
 4:                                                ; preds = %3
-  %5 = sub i64 %2, %1
+  %5 = sub nuw i64 %2, %1
   %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %7 = shl i64 %5, %6
   %8 = add i64 %7, -1
@@ -1508,8 +1508,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 91:                                               ; preds = %79
   %92 = add nuw nsw i64 %.sroa.726.0.i, 1
   %93 = getelementptr inbounds { [3 x i64] }, ptr %89, i64 %92
-  %94 = sub nsw i64 %88, %.sroa.726.0.i
-  %95 = mul nsw i64 %94, 24
+  %94 = sub nuw nsw i64 %88, %.sroa.726.0.i
+  %95 = mul nuw nsw i64 %94, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %93, ptr nonnull align 8 %90, i64 %95, i1 false), !alias.scope !220, !noalias !223
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
@@ -1517,7 +1517,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   %96 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.06.0.i, i64 %.sroa.726.0.i
   %97 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.06.0.i, i64 %92
-  %98 = shl nsw i64 %94, 5
+  %98 = shl nuw nsw i64 %94, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %97, ptr nonnull align 8 %96, i64 %98, i1 false), !alias.scope !229, !noalias !231
   br label %105
 

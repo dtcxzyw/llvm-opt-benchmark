@@ -465,7 +465,7 @@ while.body.i:                                     ; preds = %while.cond.backedge
   %5 = phi i64 [ %4, %while.body.lr.ph.i ], [ %12, %while.cond.backedge.i ]
   %conv5.i = phi i64 [ %conv3.i.pre-phi, %while.body.lr.ph.i ], [ %conv.i, %while.cond.backedge.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %_greeting_recv.i, i64 %conv5.i
-  %sub.i = sub i64 %5, %conv5.i
+  %sub.i = sub nuw i64 %5, %conv5.i
   %call.i = tail call noundef i32 @_ZN3zmq20stream_engine_base_t4readEPvm(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i)
   %cmp6.i = icmp eq i32 %call.i, -1
   br i1 %cmp6.i, label %if.then.i, label %if.end10.i
@@ -574,7 +574,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %2 = phi i64 [ %1, %while.body.lr.ph ], [ %9, %while.cond.backedge ]
   %conv5 = phi i64 [ %conv3, %while.body.lr.ph ], [ %conv, %while.cond.backedge ]
   %add.ptr = getelementptr inbounds i8, ptr %_greeting_recv, i64 %conv5
-  %sub = sub i64 %2, %conv5
+  %sub = sub nuw i64 %2, %conv5
   %call = tail call noundef i32 @_ZN3zmq20stream_engine_base_t4readEPvm(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef nonnull %add.ptr, i64 noundef %sub)
   %cmp6 = icmp eq i32 %call, -1
   br i1 %cmp6, label %if.then, label %if.end10

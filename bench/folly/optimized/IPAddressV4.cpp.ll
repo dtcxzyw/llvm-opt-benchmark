@@ -7554,7 +7554,7 @@ if.then.i:                                        ; preds = %if.then30
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit:           ; preds = %if.then30
   %add.ptr.i = getelementptr inbounds i8, ptr %sp.coerce0, i64 %tokenStartPos.0213
-  %sub.i = sub i64 %sub.ptr.sub.i, %tokenStartPos.0213
+  %sub.i = sub nuw i64 %sub.ptr.sub.i, %tokenStartPos.0213
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %tokenSize.0211)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %.sroa.speculated.i
   %7 = load ptr, ptr %_M_finish.i.i.i101, align 8, !tbaa !42
@@ -8175,8 +8175,8 @@ lpad.i:                                           ; preds = %if.then.i33
   br label %common.resume
 
 _ZN5folly11IPAddressV49fetchMaskEm.exit:          ; preds = %_ZNK5folly9IPAddress4asV4Ev.exit
-  %conv = zext nneg i8 %17 to i64
-  %sub.i = sub nuw nsw i64 32, %conv
+  %narrow = sub nuw nsw i8 32, %17
+  %sub.i = zext nneg i8 %narrow to i64
   %shl.i = shl nsw i64 -1, %sub.i
   %conv.i = trunc i64 %shl.i to i32
   %19 = call noundef i32 @llvm.bswap.i32(i32 %conv.i)

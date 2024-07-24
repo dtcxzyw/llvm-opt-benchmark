@@ -3131,7 +3131,7 @@ invoke.cont23:                                    ; preds = %invoke.cont22
   br i1 %cmp.i, label %if.then.i93, label %if.else.i92
 
 if.then.i93:                                      ; preds = %invoke.cont23
-  %sub.i = sub i64 %sub28, %sub.ptr.sub.i.i91
+  %sub.i = sub nuw i64 %sub28, %sub.ptr.sub.i.i91
   invoke void @_ZNSt6vectorIN6duckdb14ExpressionTypeESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %predicates, ptr %31, i64 noundef %sub.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont30 unwind label %lpad29
 
@@ -60696,7 +60696,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %2 = load ptr, ptr %1, align 8, !tbaa !625
   %tobool.not.i = icmp eq ptr %2, null
   %3 = add nuw nsw i64 %div2.i7, 1
-  %4 = sub nsw i64 %3, %div2.i
+  %4 = sub nuw nsw i64 %3, %div2.i
   br i1 %tobool.not.i, label %for.body.us.preheader, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
@@ -60709,8 +60709,8 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
   br i1 %or.cond, label %for.body.preheader18, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.preheader
-  %n.vec = and i64 %4, -4
-  %8 = shl nsw i64 %n.vec, 3
+  %n.vec = and i64 %4, 576460752303423484
+  %8 = shl nuw nsw i64 %n.vec, 3
   %9 = getelementptr i64, ptr %2, i64 %div2.i
   br label %vector.body
 
@@ -60735,7 +60735,7 @@ middle.block:                                     ; preds = %vector.body
 
 middle.block.for.body.preheader18_crit_edge:      ; preds = %middle.block
   %ind.end13 = getelementptr i8, ptr %add.ptr, i64 %8
-  %ind.end = add nsw i64 %n.vec, %div2.i
+  %ind.end = add nuw nsw i64 %n.vec, %div2.i
   %.pre = sub nsw i64 %3, %ind.end
   br label %for.body.preheader18
 
@@ -61129,7 +61129,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then
   %19 = load ptr, ptr %18, align 8, !tbaa !625
   %tobool.not.i.i18 = icmp eq ptr %19, null
   %20 = add nuw nsw i64 %div2.i7.i, 1
-  %21 = sub nsw i64 %20, %div2.i.i
+  %21 = sub nuw nsw i64 %20, %div2.i.i
   br i1 %tobool.not.i.i18, label %for.body.us.preheader.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body.lr.ph.i
@@ -61142,8 +61142,8 @@ for.body.i.preheader:                             ; preds = %for.body.lr.ph.i
   br i1 %or.cond, label %for.body.i.preheader30, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.preheader
-  %n.vec = and i64 %21, -4
-  %25 = shl nsw i64 %n.vec, 3
+  %n.vec = and i64 %21, 576460752303423484
+  %25 = shl nuw nsw i64 %n.vec, 3
   %26 = getelementptr i64, ptr %19, i64 %div2.i.i
   br label %vector.body
 
@@ -61168,7 +61168,7 @@ middle.block:                                     ; preds = %vector.body
 
 middle.block.for.body.i.preheader30_crit_edge:    ; preds = %middle.block
   %ind.end25 = getelementptr i8, ptr %add.ptr.i, i64 %25
-  %ind.end = add nsw i64 %n.vec, %div2.i.i
+  %ind.end = add nuw nsw i64 %n.vec, %div2.i.i
   %.pre7 = sub nsw i64 %20, %ind.end
   br label %for.body.i.preheader30
 
@@ -63996,12 +63996,12 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %if.en
   br i1 %cmp17121, label %for.body.preheader, label %if.end46
 
 for.body.preheader:                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %10 = sub nsw i64 %rem.i85, %rem.i
+  %10 = sub nuw nsw i64 %rem.i85, %rem.i
   %min.iters.check162 = icmp ult i64 %10, 4
   br i1 %min.iters.check162, label %for.body.preheader47, label %vector.ph163
 
 vector.ph163:                                     ; preds = %for.body.preheader
-  %n.vec165 = and i64 %10, -4
+  %n.vec165 = and i64 %10, 60
   %.splatinsert173 = insertelement <2 x i64> poison, i64 %rem.i, i64 0
   %.splat174 = shufflevector <2 x i64> %.splatinsert173, <2 x i64> poison, <2 x i32> zeroinitializer
   %induction175 = add nuw nsw <2 x i64> %.splat174, <i64 0, i64 1>
@@ -64027,7 +64027,7 @@ vector.body169:                                   ; preds = %vector.body169, %ve
   br i1 %17, label %middle.block160, label %vector.body169, !llvm.loop !1645
 
 middle.block160:                                  ; preds = %vector.body169
-  %ind.end166 = add nsw i64 %n.vec165, %rem.i
+  %ind.end166 = add nuw nsw i64 %n.vec165, %rem.i
   %bin.rdx183 = add <2 x i64> %16, %15
   %18 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx183)
   %cmp.n168 = icmp eq i64 %10, %n.vec165
@@ -67229,7 +67229,7 @@ if.then15:                                        ; preds = %if.then13
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then15
-  %sub.i = sub nsw i64 %mul.i, %sub.ptr.div.i.i49
+  %sub.i = sub nuw nsw i64 %mul.i, %sub.ptr.div.i.i49
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %filter_bits, ptr %13, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17)
   %.pre66 = load ptr, ptr %filter_bits, align 8, !tbaa !28
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
@@ -68497,7 +68497,7 @@ _ZN6duckdb15SelectionVector10InitializeEPj.exit:  ; preds = %for.body, %for.body
 
 for.body40.lr.ph:                                 ; preds = %_ZN6duckdb15SelectionVector10InitializeEPj.exit
   %tobool.not.i170 = icmp eq ptr %.pre, null
-  %26 = sub i64 %filtered, %filter_idx.1.lcssa
+  %26 = sub nuw i64 %filtered, %filter_idx.1.lcssa
   br i1 %tobool.not.i170, label %for.body40.us, label %for.body40
 
 for.body40.us:                                    ; preds = %for.body40.lr.ph, %for.inc51.us
@@ -69604,7 +69604,7 @@ sw.epilog:                                        ; preds = %switch.lookup, %inv
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.epilog
-  %sub.i = sub nsw i64 %nframes.0, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %nframes.0, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN6duckdb11FrameBoundsESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %frames, ptr %13, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31)
           to label %invoke.cont34 unwind label %lpad32
 
@@ -95005,7 +95005,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %cmp.not.i.i.i, label %if.end, label %for.body.i.i.i, !llvm.loop !2219
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not9.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not9.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i.preheader
 

@@ -160,7 +160,7 @@ define void @_Z28extendStateWithOriresHistoryRK10gmx_mtop_tRK10t_inputrecP7t_sta
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %11
-  %25 = sub nsw i64 %15, %22
+  %25 = sub nuw nsw i64 %15, %22
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %25)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -847,7 +847,7 @@ _ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit: ; preds = %_ZNSt6ve
   br i1 %205, label %206, label %239
 
 206:                                              ; preds = %198
-  %207 = sub nsw i64 %200, %204
+  %207 = sub nuw nsw i64 %200, %204
   %208 = ptrtoint ptr %.sroa.18.1307 to i64
   %209 = sub i64 %208, %201
   %210 = ashr exact i64 %209, 2
@@ -1071,7 +1071,7 @@ _ZNSt8optionalISt17reference_wrapperIfEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not
   br i1 %316, label %317, label %319
 
 317:                                              ; preds = %306
-  %318 = sub nsw i64 %308, %315
+  %318 = sub nuw nsw i64 %308, %315
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %318)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1105,7 +1105,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %323, %321, %319, %3
   br i1 %334, label %335, label %337
 
 335:                                              ; preds = %324
-  %336 = sub nsw i64 %326, %333
+  %336 = sub nuw nsw i64 %326, %333
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %95, i64 noundef %336)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit150_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1174,7 +1174,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit150:            ; preds = %._ZNSt6vectorIfSaIf
   br i1 %368, label %369, label %371
 
 369:                                              ; preds = %358
-  %370 = sub nsw i64 %360, %367
+  %370 = sub nuw nsw i64 %360, %367
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %97, i64 noundef %370)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit153_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1223,7 +1223,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit153:            ; preds = %._ZNSt6vectorIfSaIf
   br i1 %391, label %392, label %394
 
 392:                                              ; preds = %381
-  %393 = sub nsw i64 %383, %390
+  %393 = sub nuw nsw i64 %383, %390
   invoke void @_ZNSt6vectorI11OriresMatEqSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %98, i64 noundef %393)
           to label %._ZNSt6vectorI11OriresMatEqSaIS0_EE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1259,7 +1259,7 @@ _ZNSt6vectorI11OriresMatEqSaIS0_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI11Ori
   br i1 %409, label %410, label %412
 
 410:                                              ; preds = %_ZNSt6vectorI11OriresMatEqSaIS0_EE6resizeEm.exit
-  %411 = sub nsw i64 %401, %408
+  %411 = sub nuw nsw i64 %401, %408
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %99, i64 noundef %411)
           to label %417 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2018,7 +2018,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -2039,7 +2039,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23

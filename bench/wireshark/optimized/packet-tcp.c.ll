@@ -4215,7 +4215,7 @@ msp_add_out_of_order.exit.thread.i.us:            ; preds = %414, %408, %403, %3
   %492 = icmp uge i32 %489, %.0451912.i.us
   %493 = icmp sgt i32 %.0453.i.us, 0
   %or.cond23.i.us = select i1 %492, i1 %493, i1 false
-  %494 = sub i32 %489, %.0451912.i.us
+  %494 = sub nuw i32 %489, %.0451912.i.us
   %spec.select570.i.us = select i1 %or.cond23.i.us, i32 %494, i32 0
   br label %495
 
@@ -6572,7 +6572,7 @@ tcp_calculate_timestamps.exit:                    ; preds = %418, %417, %398, %.
   br label %1573
 
 454:                                              ; preds = %447
-  %455 = sub i32 %440, %449
+  %455 = sub nuw i32 %440, %449
   %456 = getelementptr inbounds i8, ptr %71, i64 20
   store i32 %455, ptr %456, align 4
   %457 = getelementptr inbounds i8, ptr %71, i64 16
@@ -12349,7 +12349,7 @@ addresses_equal.exit:                             ; preds = %75, %67, %copy_addr
 
 .select.unfold_crit_edge:                         ; preds = %122
   %124 = sub i32 %119, %113
-  %125 = sub i32 %18, %123
+  %125 = sub nuw i32 %18, %123
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.select.unfold_crit_edge, %.loopexit._crit_edge
@@ -16040,7 +16040,7 @@ define internal fastcc range(i32 0, 2) i32 @check_follow_fragments(ptr nocapture
   br i1 %37, label %38, label %59
 
 38:                                               ; preds = %35
-  %39 = sub i32 %31, %36
+  %39 = sub nuw i32 %31, %36
   %40 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #25
   store i32 %1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %20, i64 4

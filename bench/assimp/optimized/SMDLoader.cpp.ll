@@ -3614,7 +3614,7 @@ invoke.cont17:                                    ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont17
-  %sub.i = sub i64 %add, %sub.ptr.sub.i.i
+  %sub.i = sub nuw i64 %add, %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   %10 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %10 to i64
@@ -4200,7 +4200,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -5928,7 +5928,7 @@ if.end6:                                          ; preds = %if.end
 if.then9:                                         ; preds = %if.end6
   %add = add nuw i32 %iBone.0.ph, 1
   %conv11 = zext i32 %add to i64
-  %sub.i = sub nsw i64 %conv11, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %conv11, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN6Assimp3SMD4BoneESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %asBones, i64 noundef %sub.i)
   %.pre148 = load ptr, ptr %asBones, align 8
   %.pre149 = load i8, ptr %in.addr.0.i, align 1
@@ -8425,7 +8425,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorISt4pairIjfESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %0, i64 noundef %sub, ptr noundef nonnull align 4 dereferenceable(8) %__x)
   br label %if.end8
 
@@ -10792,7 +10792,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !101
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not4.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not4.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i
 

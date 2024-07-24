@@ -758,7 +758,7 @@ define dso_local void @iomap_readahead(ptr noundef %0, ptr noundef %1) #0 align 
   unreachable
 
 99:                                               ; preds = %.thread
-  %100 = sub i32 %96, %94
+  %100 = sub nuw i32 %96, %94
   store i32 %100, ptr %95, align 8
   %101 = zext i32 %94 to i64
   %102 = getelementptr inbounds i8, ptr %92, i64 24
@@ -5991,7 +5991,7 @@ define internal fastcc i64 @iomap_write_end(ptr nocapture noundef %0, i64 nounde
 
 161:                                              ; preds = %159
   %162 = load ptr, ptr %0, align 8
-  %163 = sub i64 %2, %129
+  %163 = sub nuw i64 %2, %129
   %164 = getelementptr inbounds i8, ptr %162, i64 80
   %165 = load i64, ptr %164, align 8
   %166 = and i64 %163, 4294967295

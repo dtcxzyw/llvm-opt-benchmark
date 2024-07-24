@@ -608,7 +608,7 @@ define internal range(i32 -30, 1) i32 @archive_write_client_write(ptr nocapture 
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %.07493, i64 %44
-  %51 = sub i64 %.094, %44
+  %51 = sub nuw i64 %.094, %44
   %.not = icmp eq i64 %51, 0
   br i1 %.not, label %._crit_edge.loopexit, label %41, !llvm.loop !10
 
@@ -758,7 +758,7 @@ define internal range(i32 -30, 1) i32 @archive_write_client_close(ptr nocapture 
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %.04459, i64 %39
-  %46 = sub i64 %.04558, %39
+  %46 = sub nuw i64 %.04558, %39
   %.not55 = icmp eq i64 %46, 0
   br i1 %.not55, label %.loopexit, label %36, !llvm.loop !12
 

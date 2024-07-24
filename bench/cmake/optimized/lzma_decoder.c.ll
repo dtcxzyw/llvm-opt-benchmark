@@ -388,7 +388,7 @@ dict_get.exit:                                    ; preds = %79
 
 135:                                              ; preds = %121
   %136 = sub i32 %.sroa.0.4, %127
-  %137 = sub i32 %.sroa.498.4, %127
+  %137 = sub nuw i32 %.sroa.498.4, %127
   %138 = lshr i16 %125, 5
   %139 = sub i16 %125, %138
   store i16 %139, ptr %124, align 2
@@ -456,7 +456,7 @@ dict_get.exit:                                    ; preds = %79
 
 168:                                              ; preds = %154
   %169 = sub i32 %.sroa.0.6, %160
-  %170 = sub i32 %.sroa.498.6, %160
+  %170 = sub nuw i32 %.sroa.498.6, %160
   %171 = lshr i16 %158, 5
   %172 = sub i16 %158, %171
   store i16 %172, ptr %157, align 2
@@ -524,7 +524,7 @@ dict_get.exit:                                    ; preds = %79
 
 201:                                              ; preds = %187
   %202 = sub i32 %.sroa.0.8, %193
-  %203 = sub i32 %.sroa.498.8, %193
+  %203 = sub nuw i32 %.sroa.498.8, %193
   %204 = lshr i16 %191, 5
   %205 = sub i16 %191, %204
   store i16 %205, ptr %190, align 2
@@ -592,7 +592,7 @@ dict_get.exit:                                    ; preds = %79
 
 234:                                              ; preds = %220
   %235 = sub i32 %.sroa.0.10, %226
-  %236 = sub i32 %.sroa.498.10, %226
+  %236 = sub nuw i32 %.sroa.498.10, %226
   %237 = lshr i16 %224, 5
   %238 = sub i16 %224, %237
   store i16 %238, ptr %223, align 2
@@ -660,7 +660,7 @@ dict_get.exit:                                    ; preds = %79
 
 267:                                              ; preds = %253
   %268 = sub i32 %.sroa.0.12, %259
-  %269 = sub i32 %.sroa.498.12, %259
+  %269 = sub nuw i32 %.sroa.498.12, %259
   %270 = lshr i16 %257, 5
   %271 = sub i16 %257, %270
   store i16 %271, ptr %256, align 2
@@ -728,7 +728,7 @@ dict_get.exit:                                    ; preds = %79
 
 300:                                              ; preds = %286
   %301 = sub i32 %.sroa.0.14, %292
-  %302 = sub i32 %.sroa.498.14, %292
+  %302 = sub nuw i32 %.sroa.498.14, %292
   %303 = lshr i16 %290, 5
   %304 = sub i16 %290, %303
   store i16 %304, ptr %289, align 2
@@ -796,7 +796,7 @@ dict_get.exit:                                    ; preds = %79
 
 333:                                              ; preds = %319
   %334 = sub i32 %.sroa.0.16, %325
-  %335 = sub i32 %.sroa.498.16, %325
+  %335 = sub nuw i32 %.sroa.498.16, %325
   %336 = lshr i16 %323, 5
   %337 = sub i16 %323, %336
   store i16 %337, ptr %322, align 2
@@ -864,7 +864,7 @@ dict_get.exit:                                    ; preds = %79
 
 366:                                              ; preds = %352
   %367 = sub i32 %.sroa.0.18, %358
-  %368 = sub i32 %.sroa.498.18, %358
+  %368 = sub nuw i32 %.sroa.498.18, %358
   %369 = lshr i16 %356, 5
   %370 = sub i16 %356, %369
   store i16 %370, ptr %355, align 2
@@ -947,7 +947,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 411:                                              ; preds = %396
   %412 = sub i32 %.sroa.0.20, %402
-  %413 = sub i32 %.sroa.498.20, %402
+  %413 = sub nuw i32 %.sroa.498.20, %402
   %414 = lshr i16 %400, 5
   %415 = sub i16 %400, %414
   %416 = or disjoint i32 %404, 1
@@ -1027,7 +1027,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 450:                                              ; preds = %435
   %451 = sub i32 %.sroa.0.23, %441
-  %452 = sub i32 %.sroa.498.23, %441
+  %452 = sub nuw i32 %.sroa.498.23, %441
   %453 = lshr i16 %439, 5
   %454 = sub i16 %439, %453
   %455 = or disjoint i32 %443, 1
@@ -1107,7 +1107,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 489:                                              ; preds = %474
   %490 = sub i32 %.sroa.0.26, %480
-  %491 = sub i32 %.sroa.498.26, %480
+  %491 = sub nuw i32 %.sroa.498.26, %480
   %492 = lshr i16 %478, 5
   %493 = sub i16 %478, %492
   %494 = or disjoint i32 %482, 1
@@ -1187,7 +1187,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 528:                                              ; preds = %513
   %529 = sub i32 %.sroa.0.29, %519
-  %530 = sub i32 %.sroa.498.29, %519
+  %530 = sub nuw i32 %.sroa.498.29, %519
   %531 = lshr i16 %517, 5
   %532 = sub i16 %517, %531
   %533 = or disjoint i32 %521, 1
@@ -1267,7 +1267,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 567:                                              ; preds = %552
   %568 = sub i32 %.sroa.0.32, %558
-  %569 = sub i32 %.sroa.498.32, %558
+  %569 = sub nuw i32 %.sroa.498.32, %558
   %570 = lshr i16 %556, 5
   %571 = sub i16 %556, %570
   %572 = or disjoint i32 %560, 1
@@ -1347,7 +1347,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 606:                                              ; preds = %591
   %607 = sub i32 %.sroa.0.35, %597
-  %608 = sub i32 %.sroa.498.35, %597
+  %608 = sub nuw i32 %.sroa.498.35, %597
   %609 = lshr i16 %595, 5
   %610 = sub i16 %595, %609
   %611 = or disjoint i32 %599, 1
@@ -1427,7 +1427,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 645:                                              ; preds = %630
   %646 = sub i32 %.sroa.0.38, %636
-  %647 = sub i32 %.sroa.498.38, %636
+  %647 = sub nuw i32 %.sroa.498.38, %636
   %648 = lshr i16 %634, 5
   %649 = sub i16 %634, %648
   %650 = or disjoint i32 %638, 1
@@ -1508,7 +1508,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 684:                                              ; preds = %669
   %685 = sub i32 %.sroa.0.41, %675
-  %686 = sub i32 %.sroa.498.41, %675
+  %686 = sub nuw i32 %.sroa.498.41, %675
   %687 = lshr i16 %673, 5
   %688 = sub i16 %673, %687
   store i16 %688, ptr %672, align 2
@@ -1569,7 +1569,7 @@ dict_put.exit:                                    ; preds = %694
 
 700:                                              ; preds = %79
   %701 = sub i32 %.sroa.0.2, %87
-  %702 = sub i32 %.sroa.498.2, %87
+  %702 = sub nuw i32 %.sroa.498.2, %87
   %703 = lshr i16 %85, 5
   %704 = sub i16 %85, %703
   store i16 %704, ptr %84, align 2
@@ -1759,7 +1759,7 @@ dict_put.exit:                                    ; preds = %694
 
 788:                                              ; preds = %772
   %789 = sub i32 %.sroa.0.49, %780
-  %790 = sub i32 %.sroa.498.49, %780
+  %790 = sub nuw i32 %.sroa.498.49, %780
   %791 = lshr i16 %778, 5
   %792 = sub i16 %778, %791
   store i16 %792, ptr %777, align 2
@@ -1830,7 +1830,7 @@ dict_put.exit:                                    ; preds = %694
 
 823:                                              ; preds = %807
   %824 = sub i32 %.sroa.0.51, %815
-  %825 = sub i32 %.sroa.498.51, %815
+  %825 = sub nuw i32 %.sroa.498.51, %815
   %826 = lshr i16 %813, 5
   %827 = sub i16 %813, %826
   store i16 %827, ptr %812, align 2
@@ -1900,7 +1900,7 @@ dict_put.exit:                                    ; preds = %694
 
 858:                                              ; preds = %842
   %859 = sub i32 %.sroa.0.53, %850
-  %860 = sub i32 %.sroa.498.53, %850
+  %860 = sub nuw i32 %.sroa.498.53, %850
   %861 = lshr i16 %848, 5
   %862 = sub i16 %848, %861
   %863 = or disjoint i32 %852, 1
@@ -1917,7 +1917,7 @@ dict_put.exit:                                    ; preds = %694
 
 866:                                              ; preds = %747
   %867 = sub i32 %.sroa.0.47, %752
-  %868 = sub i32 %.sroa.498.47, %752
+  %868 = sub nuw i32 %.sroa.498.47, %752
   %869 = lshr i16 %750, 5
   %870 = sub i16 %750, %869
   store i16 %870, ptr %749, align 4
@@ -2045,7 +2045,7 @@ dict_put.exit:                                    ; preds = %694
 
 925:                                              ; preds = %909
   %926 = sub i32 %.sroa.0.58, %917
-  %927 = sub i32 %.sroa.498.58, %917
+  %927 = sub nuw i32 %.sroa.498.58, %917
   %928 = lshr i16 %915, 5
   %929 = sub i16 %915, %928
   store i16 %929, ptr %914, align 2
@@ -2116,7 +2116,7 @@ dict_put.exit:                                    ; preds = %694
 
 960:                                              ; preds = %944
   %961 = sub i32 %.sroa.0.60, %952
-  %962 = sub i32 %.sroa.498.60, %952
+  %962 = sub nuw i32 %.sroa.498.60, %952
   %963 = lshr i16 %950, 5
   %964 = sub i16 %950, %963
   store i16 %964, ptr %949, align 2
@@ -2186,7 +2186,7 @@ dict_put.exit:                                    ; preds = %694
 
 995:                                              ; preds = %979
   %996 = sub i32 %.sroa.0.62, %987
-  %997 = sub i32 %.sroa.498.62, %987
+  %997 = sub nuw i32 %.sroa.498.62, %987
   %998 = lshr i16 %985, 5
   %999 = sub i16 %985, %998
   %1000 = or disjoint i32 %989, 1
@@ -2203,7 +2203,7 @@ dict_put.exit:                                    ; preds = %694
 
 1003:                                             ; preds = %884
   %1004 = sub i32 %.sroa.0.56, %889
-  %1005 = sub i32 %.sroa.498.56, %889
+  %1005 = sub nuw i32 %.sroa.498.56, %889
   %1006 = lshr i16 %887, 5
   %1007 = sub i16 %887, %1006
   store i16 %1007, ptr %886, align 2
@@ -2271,7 +2271,7 @@ dict_put.exit:                                    ; preds = %694
 
 1036:                                             ; preds = %1021
   %1037 = sub i32 %.sroa.0.65, %1028
-  %1038 = sub i32 %.sroa.498.65, %1028
+  %1038 = sub nuw i32 %.sroa.498.65, %1028
   %1039 = lshr i16 %1026, 5
   %1040 = sub i16 %1026, %1039
   store i16 %1040, ptr %1025, align 2
@@ -2340,7 +2340,7 @@ dict_put.exit:                                    ; preds = %694
 
 1070:                                             ; preds = %1055
   %1071 = sub i32 %.sroa.0.67, %1062
-  %1072 = sub i32 %.sroa.498.67, %1062
+  %1072 = sub nuw i32 %.sroa.498.67, %1062
   %1073 = lshr i16 %1060, 5
   %1074 = sub i16 %1060, %1073
   store i16 %1074, ptr %1059, align 2
@@ -2409,7 +2409,7 @@ dict_put.exit:                                    ; preds = %694
 
 1104:                                             ; preds = %1089
   %1105 = sub i32 %.sroa.0.69, %1096
-  %1106 = sub i32 %.sroa.498.69, %1096
+  %1106 = sub nuw i32 %.sroa.498.69, %1096
   %1107 = lshr i16 %1094, 5
   %1108 = sub i16 %1094, %1107
   store i16 %1108, ptr %1093, align 2
@@ -2478,7 +2478,7 @@ dict_put.exit:                                    ; preds = %694
 
 1138:                                             ; preds = %1123
   %1139 = sub i32 %.sroa.0.71, %1130
-  %1140 = sub i32 %.sroa.498.71, %1130
+  %1140 = sub nuw i32 %.sroa.498.71, %1130
   %1141 = lshr i16 %1128, 5
   %1142 = sub i16 %1128, %1141
   store i16 %1142, ptr %1127, align 2
@@ -2547,7 +2547,7 @@ dict_put.exit:                                    ; preds = %694
 
 1172:                                             ; preds = %1157
   %1173 = sub i32 %.sroa.0.73, %1164
-  %1174 = sub i32 %.sroa.498.73, %1164
+  %1174 = sub nuw i32 %.sroa.498.73, %1164
   %1175 = lshr i16 %1162, 5
   %1176 = sub i16 %1162, %1175
   store i16 %1176, ptr %1161, align 2
@@ -2616,7 +2616,7 @@ dict_put.exit:                                    ; preds = %694
 
 1206:                                             ; preds = %1191
   %1207 = sub i32 %.sroa.0.75, %1198
-  %1208 = sub i32 %.sroa.498.75, %1198
+  %1208 = sub nuw i32 %.sroa.498.75, %1198
   %1209 = lshr i16 %1196, 5
   %1210 = sub i16 %1196, %1209
   store i16 %1210, ptr %1195, align 2
@@ -2685,7 +2685,7 @@ dict_put.exit:                                    ; preds = %694
 
 1240:                                             ; preds = %1225
   %1241 = sub i32 %.sroa.0.77, %1232
-  %1242 = sub i32 %.sroa.498.77, %1232
+  %1242 = sub nuw i32 %.sroa.498.77, %1232
   %1243 = lshr i16 %1230, 5
   %1244 = sub i16 %1230, %1243
   store i16 %1244, ptr %1229, align 2
@@ -2753,7 +2753,7 @@ dict_put.exit:                                    ; preds = %694
 
 1274:                                             ; preds = %1259
   %1275 = sub i32 %.sroa.0.79, %1266
-  %1276 = sub i32 %.sroa.498.79, %1266
+  %1276 = sub nuw i32 %.sroa.498.79, %1266
   %1277 = lshr i16 %1264, 5
   %1278 = sub i16 %1264, %1277
   %1279 = or disjoint i32 %1268, 1
@@ -2851,7 +2851,7 @@ dict_put.exit:                                    ; preds = %694
 
 1316:                                             ; preds = %1302
   %1317 = sub i32 %.sroa.0.83, %1308
-  %1318 = sub i32 %.sroa.498.83, %1308
+  %1318 = sub nuw i32 %.sroa.498.83, %1308
   %1319 = lshr i16 %1306, 5
   %1320 = sub i16 %1306, %1319
   store i16 %1320, ptr %1305, align 2
@@ -2919,7 +2919,7 @@ dict_put.exit:                                    ; preds = %694
 
 1349:                                             ; preds = %1335
   %1350 = sub i32 %.sroa.0.85, %1341
-  %1351 = sub i32 %.sroa.498.85, %1341
+  %1351 = sub nuw i32 %.sroa.498.85, %1341
   %1352 = lshr i16 %1339, 5
   %1353 = sub i16 %1339, %1352
   store i16 %1353, ptr %1338, align 2
@@ -2987,7 +2987,7 @@ dict_put.exit:                                    ; preds = %694
 
 1382:                                             ; preds = %1368
   %1383 = sub i32 %.sroa.0.87, %1374
-  %1384 = sub i32 %.sroa.498.87, %1374
+  %1384 = sub nuw i32 %.sroa.498.87, %1374
   %1385 = lshr i16 %1372, 5
   %1386 = sub i16 %1372, %1385
   store i16 %1386, ptr %1371, align 2
@@ -3055,7 +3055,7 @@ dict_put.exit:                                    ; preds = %694
 
 1415:                                             ; preds = %1401
   %1416 = sub i32 %.sroa.0.89, %1407
-  %1417 = sub i32 %.sroa.498.89, %1407
+  %1417 = sub nuw i32 %.sroa.498.89, %1407
   %1418 = lshr i16 %1405, 5
   %1419 = sub i16 %1405, %1418
   store i16 %1419, ptr %1404, align 2
@@ -3123,7 +3123,7 @@ dict_put.exit:                                    ; preds = %694
 
 1448:                                             ; preds = %1434
   %1449 = sub i32 %.sroa.0.91, %1440
-  %1450 = sub i32 %.sroa.498.91, %1440
+  %1450 = sub nuw i32 %.sroa.498.91, %1440
   %1451 = lshr i16 %1438, 5
   %1452 = sub i16 %1438, %1451
   store i16 %1452, ptr %1437, align 2
@@ -3190,7 +3190,7 @@ dict_put.exit:                                    ; preds = %694
 
 1481:                                             ; preds = %1467
   %1482 = sub i32 %.sroa.0.93, %1473
-  %1483 = sub i32 %.sroa.498.93, %1473
+  %1483 = sub nuw i32 %.sroa.498.93, %1473
   %1484 = lshr i16 %1471, 5
   %1485 = sub i16 %1471, %1484
   %1486 = or disjoint i32 %1475, 1
@@ -3294,7 +3294,7 @@ dict_put.exit:                                    ; preds = %694
 
 1533:                                             ; preds = %1519
   %1534 = sub i32 %.sroa.0.96, %1525
-  %1535 = sub i32 %.sroa.498.96, %1525
+  %1535 = sub nuw i32 %.sroa.498.96, %1525
   %1536 = lshr i16 %1523, 5
   %1537 = sub i16 %1523, %1536
   %1538 = or disjoint i32 %1527, 1
@@ -3362,7 +3362,7 @@ dict_put.exit:                                    ; preds = %694
 
 1569:                                             ; preds = %1555
   %1570 = sub i32 %.sroa.0.99, %1561
-  %1571 = sub i32 %.sroa.498.99, %1561
+  %1571 = sub nuw i32 %.sroa.498.99, %1561
   %1572 = lshr i16 %1559, 5
   %1573 = sub i16 %1559, %1572
   %1574 = or disjoint i32 %1563, 1
@@ -3431,7 +3431,7 @@ dict_put.exit:                                    ; preds = %694
 
 1606:                                             ; preds = %1592
   %1607 = sub i32 %.sroa.0.102, %1598
-  %1608 = sub i32 %.sroa.498.102, %1598
+  %1608 = sub nuw i32 %.sroa.498.102, %1598
   %1609 = lshr i16 %1596, 5
   %1610 = sub i16 %1596, %1609
   %1611 = or disjoint i32 %1600, 1
@@ -3500,7 +3500,7 @@ dict_put.exit:                                    ; preds = %694
 
 1643:                                             ; preds = %1629
   %1644 = sub i32 %.sroa.0.105, %1635
-  %1645 = sub i32 %.sroa.498.105, %1635
+  %1645 = sub nuw i32 %.sroa.498.105, %1635
   %1646 = lshr i16 %1633, 5
   %1647 = sub i16 %1633, %1646
   %1648 = or disjoint i32 %1637, 1
@@ -3569,7 +3569,7 @@ dict_put.exit:                                    ; preds = %694
 
 1679:                                             ; preds = %1666
   %1680 = sub i32 %.sroa.0.108, %1672
-  %1681 = sub i32 %.sroa.498.108, %1672
+  %1681 = sub nuw i32 %.sroa.498.108, %1672
   %1682 = lshr i16 %1670, 5
   %1683 = sub i16 %1670, %1682
   store i16 %1683, ptr %1669, align 2
@@ -3708,7 +3708,7 @@ dict_put.exit:                                    ; preds = %694
 
 1741:                                             ; preds = %1726
   %1742 = sub i32 %.sroa.0.113, %1733
-  %1743 = sub i32 %.sroa.498.113, %1733
+  %1743 = sub nuw i32 %.sroa.498.113, %1733
   %1744 = lshr i16 %1731, 5
   %1745 = sub i16 %1731, %1744
   store i16 %1745, ptr %1730, align 2
@@ -3778,7 +3778,7 @@ dict_put.exit:                                    ; preds = %694
 
 1776:                                             ; preds = %1761
   %1777 = sub i32 %.sroa.0.115, %1768
-  %1778 = sub i32 %.sroa.498.115, %1768
+  %1778 = sub nuw i32 %.sroa.498.115, %1768
   %1779 = lshr i16 %1766, 5
   %1780 = sub i16 %1766, %1779
   store i16 %1780, ptr %1765, align 2
@@ -3848,7 +3848,7 @@ dict_put.exit:                                    ; preds = %694
 
 1811:                                             ; preds = %1796
   %1812 = sub i32 %.sroa.0.117, %1803
-  %1813 = sub i32 %.sroa.498.117, %1803
+  %1813 = sub nuw i32 %.sroa.498.117, %1803
   %1814 = lshr i16 %1801, 5
   %1815 = sub i16 %1801, %1814
   store i16 %1815, ptr %1800, align 2
@@ -3916,7 +3916,7 @@ dict_put.exit:                                    ; preds = %694
 
 1845:                                             ; preds = %1831
   %1846 = sub i32 %.sroa.0.119, %1838
-  %1847 = sub i32 %.sroa.498.119, %1838
+  %1847 = sub nuw i32 %.sroa.498.119, %1838
   %1848 = lshr i16 %1836, 5
   %1849 = sub i16 %1836, %1848
   %1850 = add i32 %.582711, 8
@@ -3995,7 +3995,7 @@ dict_put.exit:                                    ; preds = %694
 
 1871:                                             ; preds = %718
   %1872 = sub i32 %.sroa.0.45, %725
-  %1873 = sub i32 %.sroa.498.45, %725
+  %1873 = sub nuw i32 %.sroa.498.45, %725
   %1874 = lshr i16 %723, 5
   %1875 = sub i16 %723, %1874
   store i16 %1875, ptr %722, align 2
@@ -4164,7 +4164,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 1943:                                             ; preds = %1916
   %1944 = sub i32 %.sroa.0.127, %1924
-  %1945 = sub i32 %.sroa.498.127, %1924
+  %1945 = sub nuw i32 %.sroa.498.127, %1924
   %1946 = lshr i16 %1922, 5
   %1947 = sub i16 %1922, %1946
   store i16 %1947, ptr %1921, align 2
@@ -4172,7 +4172,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 1948:                                             ; preds = %1889
   %1949 = sub i32 %.sroa.0.125, %1896
-  %1950 = sub i32 %.sroa.498.125, %1896
+  %1950 = sub nuw i32 %.sroa.498.125, %1896
   %1951 = lshr i16 %1894, 5
   %1952 = sub i16 %1894, %1951
   store i16 %1952, ptr %1893, align 2
@@ -4240,7 +4240,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 1980:                                             ; preds = %1966
   %1981 = sub i32 %.sroa.0.130, %1973
-  %1982 = sub i32 %.sroa.498.130, %1973
+  %1982 = sub nuw i32 %.sroa.498.130, %1973
   %1983 = lshr i16 %1971, 5
   %1984 = sub i16 %1971, %1983
   store i16 %1984, ptr %1970, align 2
@@ -4308,7 +4308,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2012:                                             ; preds = %1998
   %2013 = sub i32 %.sroa.0.132, %2005
-  %2014 = sub i32 %.sroa.498.132, %2005
+  %2014 = sub nuw i32 %.sroa.498.132, %2005
   %2015 = lshr i16 %2003, 5
   %2016 = sub i16 %2003, %2015
   store i16 %2016, ptr %2002, align 2
@@ -4456,7 +4456,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2074:                                             ; preds = %2058
   %2075 = sub i32 %.sroa.0.137, %2066
-  %2076 = sub i32 %.sroa.498.137, %2066
+  %2076 = sub nuw i32 %.sroa.498.137, %2066
   %2077 = lshr i16 %2064, 5
   %2078 = sub i16 %2064, %2077
   store i16 %2078, ptr %2063, align 2
@@ -4527,7 +4527,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2109:                                             ; preds = %2093
   %2110 = sub i32 %.sroa.0.139, %2101
-  %2111 = sub i32 %.sroa.498.139, %2101
+  %2111 = sub nuw i32 %.sroa.498.139, %2101
   %2112 = lshr i16 %2099, 5
   %2113 = sub i16 %2099, %2112
   store i16 %2113, ptr %2098, align 2
@@ -4597,7 +4597,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2144:                                             ; preds = %2128
   %2145 = sub i32 %.sroa.0.141, %2136
-  %2146 = sub i32 %.sroa.498.141, %2136
+  %2146 = sub nuw i32 %.sroa.498.141, %2136
   %2147 = lshr i16 %2134, 5
   %2148 = sub i16 %2134, %2147
   %2149 = or disjoint i32 %2138, 1
@@ -4614,7 +4614,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2152:                                             ; preds = %2033
   %2153 = sub i32 %.sroa.0.135, %2038
-  %2154 = sub i32 %.sroa.498.135, %2038
+  %2154 = sub nuw i32 %.sroa.498.135, %2038
   %2155 = lshr i16 %2036, 5
   %2156 = sub i16 %2036, %2155
   store i16 %2156, ptr %2035, align 8
@@ -4742,7 +4742,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2211:                                             ; preds = %2195
   %2212 = sub i32 %.sroa.0.146, %2203
-  %2213 = sub i32 %.sroa.498.146, %2203
+  %2213 = sub nuw i32 %.sroa.498.146, %2203
   %2214 = lshr i16 %2201, 5
   %2215 = sub i16 %2201, %2214
   store i16 %2215, ptr %2200, align 2
@@ -4813,7 +4813,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2246:                                             ; preds = %2230
   %2247 = sub i32 %.sroa.0.148, %2238
-  %2248 = sub i32 %.sroa.498.148, %2238
+  %2248 = sub nuw i32 %.sroa.498.148, %2238
   %2249 = lshr i16 %2236, 5
   %2250 = sub i16 %2236, %2249
   store i16 %2250, ptr %2235, align 2
@@ -4883,7 +4883,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2281:                                             ; preds = %2265
   %2282 = sub i32 %.sroa.0.150, %2273
-  %2283 = sub i32 %.sroa.498.150, %2273
+  %2283 = sub nuw i32 %.sroa.498.150, %2273
   %2284 = lshr i16 %2271, 5
   %2285 = sub i16 %2271, %2284
   %2286 = or disjoint i32 %2275, 1
@@ -4900,7 +4900,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2289:                                             ; preds = %2170
   %2290 = sub i32 %.sroa.0.144, %2175
-  %2291 = sub i32 %.sroa.498.144, %2175
+  %2291 = sub nuw i32 %.sroa.498.144, %2175
   %2292 = lshr i16 %2173, 5
   %2293 = sub i16 %2173, %2292
   store i16 %2293, ptr %2172, align 2
@@ -4968,7 +4968,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2322:                                             ; preds = %2307
   %2323 = sub i32 %.sroa.0.153, %2314
-  %2324 = sub i32 %.sroa.498.153, %2314
+  %2324 = sub nuw i32 %.sroa.498.153, %2314
   %2325 = lshr i16 %2312, 5
   %2326 = sub i16 %2312, %2325
   store i16 %2326, ptr %2311, align 2
@@ -5037,7 +5037,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2356:                                             ; preds = %2341
   %2357 = sub i32 %.sroa.0.155, %2348
-  %2358 = sub i32 %.sroa.498.155, %2348
+  %2358 = sub nuw i32 %.sroa.498.155, %2348
   %2359 = lshr i16 %2346, 5
   %2360 = sub i16 %2346, %2359
   store i16 %2360, ptr %2345, align 2
@@ -5106,7 +5106,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2390:                                             ; preds = %2375
   %2391 = sub i32 %.sroa.0.157, %2382
-  %2392 = sub i32 %.sroa.498.157, %2382
+  %2392 = sub nuw i32 %.sroa.498.157, %2382
   %2393 = lshr i16 %2380, 5
   %2394 = sub i16 %2380, %2393
   store i16 %2394, ptr %2379, align 2
@@ -5175,7 +5175,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2424:                                             ; preds = %2409
   %2425 = sub i32 %.sroa.0.159, %2416
-  %2426 = sub i32 %.sroa.498.159, %2416
+  %2426 = sub nuw i32 %.sroa.498.159, %2416
   %2427 = lshr i16 %2414, 5
   %2428 = sub i16 %2414, %2427
   store i16 %2428, ptr %2413, align 2
@@ -5244,7 +5244,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2458:                                             ; preds = %2443
   %2459 = sub i32 %.sroa.0.161, %2450
-  %2460 = sub i32 %.sroa.498.161, %2450
+  %2460 = sub nuw i32 %.sroa.498.161, %2450
   %2461 = lshr i16 %2448, 5
   %2462 = sub i16 %2448, %2461
   store i16 %2462, ptr %2447, align 2
@@ -5313,7 +5313,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2492:                                             ; preds = %2477
   %2493 = sub i32 %.sroa.0.163, %2484
-  %2494 = sub i32 %.sroa.498.163, %2484
+  %2494 = sub nuw i32 %.sroa.498.163, %2484
   %2495 = lshr i16 %2482, 5
   %2496 = sub i16 %2482, %2495
   store i16 %2496, ptr %2481, align 2
@@ -5382,7 +5382,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2526:                                             ; preds = %2511
   %2527 = sub i32 %.sroa.0.165, %2518
-  %2528 = sub i32 %.sroa.498.165, %2518
+  %2528 = sub nuw i32 %.sroa.498.165, %2518
   %2529 = lshr i16 %2516, 5
   %2530 = sub i16 %2516, %2529
   store i16 %2530, ptr %2515, align 2
@@ -5450,7 +5450,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2560:                                             ; preds = %2545
   %2561 = sub i32 %.sroa.0.167, %2552
-  %2562 = sub i32 %.sroa.498.167, %2552
+  %2562 = sub nuw i32 %.sroa.498.167, %2552
   %2563 = lshr i16 %2550, 5
   %2564 = sub i16 %2550, %2563
   %2565 = or disjoint i32 %2554, 1

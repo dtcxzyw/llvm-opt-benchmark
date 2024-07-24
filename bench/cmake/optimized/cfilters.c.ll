@@ -1692,7 +1692,7 @@ define dso_local void @Curl_pollset_change(ptr nocapture noundef readnone %0, pt
 26:                                               ; preds = %22
   %27 = zext i32 %24 to i64
   %28 = getelementptr inbounds [5 x i32], ptr %1, i64 0, i64 %27
-  %29 = sub i32 %8, %24
+  %29 = sub nuw i32 %8, %24
   %30 = zext i32 %29 to i64
   %31 = shl nuw nsw i64 %30, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull align 4 %28, i64 %31, i1 false)
@@ -1794,7 +1794,7 @@ define dso_local void @Curl_pollset_set(ptr nocapture noundef readnone %0, ptr n
 32:                                               ; preds = %28
   %33 = zext i32 %30 to i64
   %34 = getelementptr inbounds [5 x i32], ptr %1, i64 0, i64 %33
-  %35 = sub i32 %15, %30
+  %35 = sub nuw i32 %15, %30
   %36 = zext i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %20, ptr nonnull align 4 %34, i64 %37, i1 false)

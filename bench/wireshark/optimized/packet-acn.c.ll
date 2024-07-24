@@ -3253,7 +3253,7 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph49.preheader.
 
 .lr.ph.i.i:                                       ; preds = %382
   %390 = add i32 %308, -1
-  %391 = sub i32 %308, %.1170.i.i
+  %391 = sub nuw i32 %308, %.1170.i.i
   br label %392
 
 392:                                              ; preds = %441, %.lr.ph.i.i
@@ -5281,7 +5281,7 @@ dissect_acn_common_base_pdu.exit.i22.i:           ; preds = %dissect_acn_common_
 .sink.split.i.i113:                               ; preds = %1279, %1277, %1275, %1273, %1271, %1269, %1267
   %hf_rdmnet_rpt_status_unknown_vector_string.sink.i.i = phi ptr [ @hf_rdmnet_rpt_status_unknown_rpt_uid_string, %1267 ], [ @hf_rdmnet_rpt_status_rdm_timeout_string, %1269 ], [ @hf_rdmnet_rpt_status_rdm_invalid_response_string, %1271 ], [ @hf_rdmnet_rpt_status_unknown_rdm_uid_string, %1273 ], [ @hf_rdmnet_rpt_status_unknown_endpoint_string, %1275 ], [ @hf_rdmnet_rpt_status_broadcast_complete_string, %1277 ], [ @hf_rdmnet_rpt_status_unknown_vector_string, %1279 ]
   %1281 = load i32, ptr %hf_rdmnet_rpt_status_unknown_vector_string.sink.i.i, align 4
-  %1282 = sub i32 %1266, %1265
+  %1282 = sub nuw i32 %1266, %1265
   %1283 = call ptr @proto_tree_add_item(ptr noundef %1249, i32 noundef %1281, ptr noundef %0, i32 noundef %1265, i32 noundef %1282, i32 noundef 0) #6
   br label %dissect_rpt_status.exit.i
 

@@ -837,7 +837,7 @@ if.then209:                                       ; preds = %if.then205
   br label %err
 
 if.end210:                                        ; preds = %if.then205
-  %sub211 = sub i64 %21, %blocksize.0
+  %sub211 = sub nuw i64 %21, %blocksize.0
   store i64 %sub211, ptr %tmp_len, align 8
   br label %if.end214
 

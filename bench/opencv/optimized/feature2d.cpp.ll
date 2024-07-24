@@ -302,7 +302,7 @@ define void @_ZN2cv9Feature2D6detectERKNS_11_InputArrayERSt6vectorIS4_INS_8KeyPo
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %34
-  %44 = sub nsw i64 %.pre-phi, %41
+  %44 = sub nuw nsw i64 %.pre-phi, %41
   invoke void @_ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %44)
           to label %_ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -737,7 +737,7 @@ define void @_ZN2cv9Feature2D7computeERKNS_11_InputArrayERSt6vectorIS4_INS_8KeyP
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %43
-  %55 = sub nsw i64 %28, %52
+  %55 = sub nuw nsw i64 %28, %52
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %45, i64 noundef %55)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -836,7 +836,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %54, %56, %58, %_ZSt
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %85
-  %97 = sub nsw i64 %28, %94
+  %97 = sub nuw nsw i64 %28, %94
   invoke void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %87, i64 noundef %97)
           to label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 

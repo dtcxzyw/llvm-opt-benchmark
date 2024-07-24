@@ -3577,7 +3577,7 @@ Hash_Int2ManInsert.exit:                          ; preds = %150, %Vec_IntPush.e
 
 316:                                              ; preds = %305
   %317 = trunc nuw nsw i64 %indvars.iv176 to i32
-  %318 = sub nsw i32 %317, %308
+  %318 = sub nuw nsw i32 %317, %308
   %.val110 = load i32, ptr %303, align 4
   %319 = lshr i32 %.val110, %318
   br label %320

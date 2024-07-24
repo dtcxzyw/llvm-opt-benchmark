@@ -3851,7 +3851,7 @@ _ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit: ; preds = %148, %156
 163:                                              ; preds = %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit
   %164 = getelementptr inbounds i8, ptr %0, i64 1664
   %165 = load ptr, ptr %164, align 8
-  %166 = sub i64 %142, %144
+  %166 = sub nuw i64 %142, %144
   call void @_ZN15ShenandoahPacer16unpace_for_allocElm(ptr noundef nonnull align 8 dereferenceable(480) %165, i64 noundef %.1, i64 noundef %166) #26
   br label %170
 

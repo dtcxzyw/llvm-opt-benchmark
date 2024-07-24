@@ -4439,7 +4439,7 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetwe
   br i1 %.not120.i.i, label %1063, label %1058
 
 1058:                                             ; preds = %.lr.ph208.i.i
-  %1059 = sub i64 %.0106214.i.i, %.0206.i.i
+  %1059 = sub nuw i64 %.0106214.i.i, %.0206.i.i
   %gep.i.i = getelementptr %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %invariant.gep.i.i, i64 %1059, i32 5
   %1060 = load i64, ptr %gep.i.i, align 8, !noalias !16
   %1061 = icmp eq i64 %1060, 1
@@ -8031,7 +8031,7 @@ define internal fastcc void @_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123
   br i1 %8, label %9, label %49
 
 9:                                                ; preds = %2
-  %10 = sub nsw i64 %1, %7
+  %10 = sub nuw nsw i64 %1, %7
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
@@ -8053,7 +8053,7 @@ _ZSt27__uninitialized_default_n_aIPN3gmx15analysismodules12_GLOBAL__N_123Seconda
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS3_EE17_M_default_appendEm.exit
 
 20:                                               ; preds = %9
-  %21 = icmp ult i64 %17, %10
+  %21 = icmp ugt i64 %1, 82351536043346212
   br i1 %21, label %22, label %_ZNKSt6vectorIN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresDataESaIS3_EE12_M_check_lenEmPKc.exit.i
 
 22:                                               ; preds = %20

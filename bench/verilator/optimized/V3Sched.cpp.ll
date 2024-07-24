@@ -2032,7 +2032,7 @@ define dso_local void @_ZN7V3Sched8scheduleEP10AstNetlist(ptr noundef %0) #3 per
   br i1 %258, label %259, label %290
 
 259:                                              ; preds = %252
-  %260 = sub nsw i64 %257, %256
+  %260 = sub nuw nsw i64 %257, %256
   %261 = ptrtoint ptr %.sroa.20.1.i.i to i64
   %262 = sub i64 %261, %253
   %263 = ashr exact i64 %262, 3
@@ -12398,7 +12398,7 @@ _ZN10AstSenTree9cloneTreeEb.exit:                 ; preds = %23
   br i1 %51, label %52, label %83
 
 52:                                               ; preds = %45
-  %53 = sub nsw i64 %50, %49
+  %53 = sub nuw nsw i64 %50, %49
   %54 = ptrtoint ptr %.sroa.20.1.i to i64
   %55 = sub i64 %54, %46
   %56 = ashr exact i64 %55, 3
@@ -13399,7 +13399,7 @@ _ZN8AstCFunc4nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ;
   br i1 %255, label %256, label %287
 
 256:                                              ; preds = %249
-  %257 = sub nsw i64 %254, %253
+  %257 = sub nuw nsw i64 %254, %253
   %258 = ptrtoint ptr %.sroa.20.1.i to i64
   %259 = sub i64 %258, %250
   %260 = ashr exact i64 %259, 3
@@ -13623,7 +13623,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   br i1 %332, label %333, label %364
 
 333:                                              ; preds = %326
-  %334 = sub nsw i64 %331, %330
+  %334 = sub nuw nsw i64 %331, %330
   %335 = ptrtoint ptr %.sroa.20.1.i72 to i64
   %336 = sub i64 %335, %327
   %337 = ashr exact i64 %336, 3
@@ -14890,7 +14890,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %20
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   tail call void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %31)
   br label %.sink.split
 
@@ -15333,7 +15333,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i.i:    ; preds = %17, %.loopexit.i.i.
   br i1 %37, label %38, label %69
 
 38:                                               ; preds = %31
-  %39 = sub nsw i64 %36, %35
+  %39 = sub nuw nsw i64 %36, %35
   %40 = ptrtoint ptr %.sroa.20.1.i.i to i64
   %41 = sub i64 %40, %32
   %42 = ashr exact i64 %41, 3
@@ -16832,7 +16832,7 @@ _ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %43
-  %53 = sub nsw i64 %50, %49
+  %53 = sub nuw nsw i64 %50, %49
   invoke void @_ZNSt6vectorIPK7AstNodeSaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %53)
           to label %._ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_bENKUlmE_clEm.exit20_crit_edge unwind label %.loopexit
 
@@ -22826,7 +22826,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i.i.i.i: ; preds = %8, %7
   br i1 %62, label %63, label %94
 
 63:                                               ; preds = %56
-  %64 = sub nsw i64 %61, %60
+  %64 = sub nuw nsw i64 %61, %60
   %65 = ptrtoint ptr %.sroa.20.1.i.i.i.i to i64
   %66 = sub i64 %65, %57
   %67 = ashr exact i64 %66, 3
@@ -26906,7 +26906,7 @@ _ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %35
-  %45 = sub nsw i64 %42, %41
+  %45 = sub nuw nsw i64 %42, %41
   invoke void @_ZNSt6vectorIPK7AstNodeSaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %45)
           to label %._ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT1_ENKUlmE_clEm.exit19_crit_edge unwind label %.loopexit
 
@@ -31252,7 +31252,7 @@ common.resume:                                    ; preds = %177, %.body, %183, 
   br i1 %78, label %79, label %110
 
 79:                                               ; preds = %72
-  %80 = sub nsw i64 %77, %76
+  %80 = sub nuw nsw i64 %77, %76
   %81 = ptrtoint ptr %.sroa.20.1.i to i64
   %82 = sub i64 %81, %73
   %83 = ashr exact i64 %82, 3

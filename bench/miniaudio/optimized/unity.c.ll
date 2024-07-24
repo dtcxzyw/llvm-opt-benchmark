@@ -11716,7 +11716,7 @@ sw.bb.i:                                          ; preds = %while.body.i
 while.body49.i:                                   ; preds = %sw.bb.i, %for.end139.i
   %exitLoop.1326.i = phi i32 [ %exitLoop.4.i, %for.end139.i ], [ 0, %sw.bb.i ]
   %totalCapturedDeviceFramesProcessed.0325.i = phi i32 [ %add144.i, %for.end139.i ], [ 0, %sw.bb.i ]
-  %sub.i = sub i32 %..i, %totalCapturedDeviceFramesProcessed.0325.i
+  %sub.i = sub nuw i32 %..i, %totalCapturedDeviceFramesProcessed.0325.i
   %spec.select.i = call i32 @llvm.umin.i32(i32 %sub.i, i32 %capturedDeviceDataCapInFrames.0.i)
   %26 = load ptr, ptr %pData, align 8
   %onDeviceRead56.i = getelementptr inbounds i8, ptr %26, i64 64
@@ -12077,7 +12077,7 @@ sw.bb145.i:                                       ; preds = %while.body.i, %whil
 
 while.body151.i:                                  ; preds = %sw.bb145.i, %ma_device__send_frames_to_client.exit.i
   %framesReadThisPeriod.0317.i = phi i32 [ %add171.i, %ma_device__send_frames_to_client.exit.i ], [ 0, %sw.bb145.i ]
-  %sub152.i = sub i32 %75, %framesReadThisPeriod.0317.i
+  %sub152.i = sub nuw i32 %75, %framesReadThisPeriod.0317.i
   %spec.select77.i = call i32 @llvm.umin.i32(i32 %sub152.i, i32 %capturedDeviceDataCapInFrames.0.i)
   %76 = load ptr, ptr %pData, align 8
   %onDeviceRead159.i = getelementptr inbounds i8, ptr %76, i64 64
@@ -12596,8 +12596,8 @@ while.body.i172.i:                                ; preds = %if.end155.i.i, %whi
   br i1 %cmp6.i.i50, label %if.then7.i.i, label %if.end40.i.i
 
 if.then7.i.i:                                     ; preds = %while.body.i172.i
-  %sub.i173.i = sub i32 %conv13.i.i, %totalFramesProcessed.0223.i.i
-  %sub12.i.i = sub i32 %135, %134
+  %sub.i173.i = sub nuw i32 %conv13.i.i, %totalFramesProcessed.0223.i.i
+  %sub12.i.i = sub nuw i32 %135, %134
   %spec.select.i176.i = call i32 @llvm.umin.i32(i32 %sub.i173.i, i32 %sub12.i.i)
   %136 = load ptr, ptr %pIntermediaryBuffer.i.i, align 8
   %conv.i.i = zext i32 %134 to i64
@@ -12795,7 +12795,7 @@ sw.bb173.i:                                       ; preds = %while.body.i
 
 while.body180.i:                                  ; preds = %sw.bb173.i, %if.end197.i
   %framesWrittenThisPeriod.0310.i = phi i32 [ %add202.i, %if.end197.i ], [ 0, %sw.bb173.i ]
-  %sub182.i = sub i32 %167, %framesWrittenThisPeriod.0310.i
+  %sub182.i = sub nuw i32 %167, %framesWrittenThisPeriod.0310.i
   %spec.select78.i = call i32 @llvm.umin.i32(i32 %sub182.i, i32 %playbackDeviceDataCapInFrames.0.i)
   call fastcc void @ma_device__read_frames_from_client(ptr noundef nonnull %pData, i32 noundef %spec.select78.i, ptr noundef nonnull %playbackDeviceData.i)
   %168 = load ptr, ptr %pData, align 8
@@ -14700,7 +14700,7 @@ while.body67:                                     ; preds = %while.cond63
   %mul.i124 = mul i32 %20, %19
   %21 = udiv i32 4096, %mul.i124
   %div = zext nneg i32 %21 to i64
-  %sub77 = sub nsw i64 %conv64, %totalFramesReadOut.2
+  %sub77 = sub nuw nsw i64 %conv64, %totalFramesReadOut.2
   %spec.select = call i64 @llvm.umin.i64(i64 %sub77, i64 %div)
   store i64 0, ptr %requiredInputFrameCount, align 8
   %22 = load i8, ptr %hasResampler.i, align 1
@@ -36096,7 +36096,7 @@ if.end52.i.i:                                     ; preds = %ma_linear_resampler
   br i1 %cmp60.not.i.i, label %if.end68.i.i, label %if.then61.i.i
 
 if.then61.i.i:                                    ; preds = %if.end52.i.i
-  %sub65.i.i = sub i32 %add56.i.i, %61
+  %sub65.i.i = sub nuw i32 %add56.i.i, %61
   store i32 %sub65.i.i, ptr %inTimeFrac.i.i.i, align 4
   %add67.i.i = add i32 %add55.i.i, 1
   store i32 %add67.i.i, ptr %inTimeInt.i.i, align 8
@@ -36402,7 +36402,7 @@ if.end50.i.i:                                     ; preds = %if.end45.i86.i, %if
   br i1 %cmp58.not.i.i, label %if.end66.i.i, label %if.then59.i.i
 
 if.then59.i.i:                                    ; preds = %if.end50.i.i
-  %sub63.i.i = sub i32 %add54.i.i, %124
+  %sub63.i.i = sub nuw i32 %add54.i.i, %124
   store i32 %sub63.i.i, ptr %inTimeFrac.i.i14.i, align 4
   %add65.i.i = add i32 %add53.i91.i, 1
   store i32 %add65.i.i, ptr %inTimeInt.i10.i, align 8
@@ -36701,7 +36701,7 @@ if.end52.i.i90:                                   ; preds = %ma_linear_resampler
   br i1 %cmp60.not.i.i94, label %if.end68.i.i98, label %if.then61.i.i95
 
 if.then61.i.i95:                                  ; preds = %if.end52.i.i90
-  %sub65.i.i96 = sub i32 %add56.i.i93, %195
+  %sub65.i.i96 = sub nuw i32 %add56.i.i93, %195
   store i32 %sub65.i.i96, ptr %inTimeFrac.i.i.i69, align 4
   %add67.i.i97 = add i32 %add55.i.i92, 1
   store i32 %add67.i.i97, ptr %inTimeInt.i.i61, align 8
@@ -36993,7 +36993,7 @@ if.end50.i.i48:                                   ; preds = %if.end45.i74.i, %if
   br i1 %cmp58.not.i.i51, label %if.end66.i.i55, label %if.then59.i.i52
 
 if.then59.i.i52:                                  ; preds = %if.end50.i.i48
-  %sub63.i.i53 = sub i32 %add54.i.i50, %263
+  %sub63.i.i53 = sub nuw i32 %add54.i.i50, %263
   store i32 %sub63.i.i53, ptr %inTimeFrac.i.i14.i18, align 4
   %add65.i.i54 = add i32 %add53.i79.i, 1
   store i32 %add65.i.i54, ptr %inTimeInt.i10.i14, align 8
@@ -47977,7 +47977,7 @@ while.body.us.us:                                 ; preds = %while.cond.preheade
   %1 = phi i64 [ %add22.us.us, %while.body.us.us ], [ %cursor.promoted, %while.cond.preheader.split.us ]
   %totalFramesRead.030.us.us = phi i64 [ %add.us.us, %while.body.us.us ], [ 0, %while.cond.preheader.split.us ]
   %sub.us.us = sub i64 %0, %1
-  %sub5.us.us = sub i64 %frameCount, %totalFramesRead.030.us.us
+  %sub5.us.us = sub nuw i64 %frameCount, %totalFramesRead.030.us.us
   %spec.select.us.us = tail call i64 @llvm.umin.i64(i64 %sub5.us.us, i64 %sub.us.us)
   %add.us.us = add i64 %spec.select.us.us, %totalFramesRead.030.us.us
   %add22.us.us = add i64 %1, %spec.select.us.us
@@ -47990,7 +47990,7 @@ while.body.us:                                    ; preds = %while.cond.preheade
   %2 = phi i64 [ %spec.select50, %while.body.us ], [ %cursor.promoted, %while.cond.preheader.split.us ]
   %totalFramesRead.030.us = phi i64 [ %add.us, %while.body.us ], [ 0, %while.cond.preheader.split.us ]
   %sub.us = sub i64 %0, %2
-  %sub5.us = sub i64 %frameCount, %totalFramesRead.030.us
+  %sub5.us = sub nuw i64 %frameCount, %totalFramesRead.030.us
   %spec.select.us = tail call i64 @llvm.umin.i64(i64 %sub5.us, i64 %sub.us)
   %add.us = add i64 %spec.select.us, %totalFramesRead.030.us
   %add22.us = add i64 %2, %spec.select.us
@@ -48013,7 +48013,7 @@ while.body.us31:                                  ; preds = %while.cond.preheade
   %4 = phi i64 [ %add22.us38, %if.end20.us36 ], [ %cursor.promoted, %while.cond.preheader.split ]
   %totalFramesRead.030.us32 = phi i64 [ %add.us37, %if.end20.us36 ], [ 0, %while.cond.preheader.split ]
   %sub.us33 = sub i64 %3, %4
-  %sub5.us34 = sub i64 %frameCount, %totalFramesRead.030.us32
+  %sub5.us34 = sub nuw i64 %frameCount, %totalFramesRead.030.us32
   %spec.select.us35 = tail call i64 @llvm.umin.i64(i64 %sub5.us34, i64 %sub.us33)
   %5 = load i32, ptr %format, align 8
   %6 = load i32, ptr %channels, align 4
@@ -48066,7 +48066,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %12 = phi i64 [ %spec.store.select, %if.end20 ], [ %cursor.promoted, %while.cond.preheader.split ]
   %totalFramesRead.030 = phi i64 [ %add, %if.end20 ], [ 0, %while.cond.preheader.split ]
   %sub = sub i64 %11, %12
-  %sub5 = sub i64 %frameCount, %totalFramesRead.030
+  %sub5 = sub nuw i64 %frameCount, %totalFramesRead.030
   %spec.select = tail call i64 @llvm.umin.i64(i64 %sub5, i64 %sub)
   %13 = load i32, ptr %format, align 8
   %14 = load i32, ptr %channels, align 4
@@ -49744,7 +49744,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %4 = phi ptr [ %.pre, %while.body.lr.ph ], [ %13, %if.end26 ]
   %5 = phi i64 [ %.pre46, %while.body.lr.ph ], [ %14, %if.end26 ]
   %totalFramesRead.042 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end26 ]
-  %sub = sub i64 %frameCount, %totalFramesRead.042
+  %sub = sub nuw i64 %frameCount, %totalFramesRead.042
   %sizeInFrames = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i64, ptr %sizeInFrames, align 8
   %sub5 = sub i64 %6, %5
@@ -55021,7 +55021,7 @@ if.end20:                                         ; preds = %ma_dr_wav_seek_to_f
   br i1 %cmp22, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.end20
-  %sub = sub i64 %spec.select, %9
+  %sub = sub nuw i64 %spec.select, %9
   %cmp25.not61 = icmp eq i64 %sub, 0
   br i1 %cmp25.not61, label %return, label %while.body.lr.ph
 
@@ -55111,7 +55111,7 @@ if.end60:                                         ; preds = %if.then14.i, %ma_dr
   br i1 %cmp66, label %if.then68, label %if.else70
 
 if.then68:                                        ; preds = %if.end60
-  %sub69 = sub i64 %mul65, %sub63
+  %sub69 = sub nuw i64 %mul65, %sub63
   br label %if.end75
 
 if.else70:                                        ; preds = %if.end60
@@ -55994,7 +55994,7 @@ if.end23.thread.i:                                ; preds = %if.else.i626
 
 if.else11.i:                                      ; preds = %if.else.i626
   %add15.i627 = add i64 %pcmFramesRead.022.i, %conv.i
-  %sub19.i = sub i64 %pcmFramesToSeek.addr.021.i, %conv.i
+  %sub19.i = sub nuw i64 %pcmFramesToSeek.addr.021.i, %conv.i
   store i32 0, ptr %pcmFramesRemaining.i, align 8
   br label %if.end23.i
 
@@ -57043,7 +57043,7 @@ if.end23.thread.i:                                ; preds = %if.else.i611
 
 if.else11.i:                                      ; preds = %if.else.i611
   %add15.i612 = add i64 %pcmFramesRead.022.i, %conv.i
-  %sub19.i = sub i64 %pcmFramesToSeek.addr.021.i, %conv.i
+  %sub19.i = sub nuw i64 %pcmFramesToSeek.addr.021.i, %conv.i
   store i32 0, ptr %pcmFramesRemaining.i, align 8
   br label %if.end23.i
 
@@ -58102,7 +58102,7 @@ if.end23.thread.i:                                ; preds = %if.else.i558
 
 if.else11.i:                                      ; preds = %if.else.i558
   %add15.i559 = add i64 %pcmFramesRead.022.i, %conv.i
-  %sub19.i = sub i64 %pcmFramesToSeek.addr.021.i, %conv.i
+  %sub19.i = sub nuw i64 %pcmFramesToSeek.addr.021.i, %conv.i
   store i32 0, ptr %pcmFramesRemaining.i, align 8
   br label %if.end23.i
 
@@ -59163,20 +59163,20 @@ if.else:                                          ; preds = %if.end6
   br i1 %cmp16, label %if.then17, label %if.else27
 
 if.then17:                                        ; preds = %if.else
-  %sub = sub i64 %spec.select, %0
+  %sub = sub nuw i64 %spec.select, %0
   %conv = trunc i64 %sub to i32
   %7 = load i32, ptr %pcmFramesRemaining34, align 8
   %cmp19 = icmp ugt i32 %7, %conv
   br i1 %cmp19, label %if.then21, label %if.end43
 
 if.then21:                                        ; preds = %if.then17
-  %sub24 = sub i32 %7, %conv
+  %sub24 = sub nuw i32 %7, %conv
   store i32 %sub24, ptr %pcmFramesRemaining34, align 8
   store i64 %spec.select, ptr %currentPCMFrame, align 8
   br i1 %ret.known.tr136, label %57, label %return.thread
 
 if.else27:                                        ; preds = %if.else
-  %sub29 = sub i64 %0, %spec.select
+  %sub29 = sub nuw i64 %0, %spec.select
   %conv30 = trunc i64 %sub29 to i32
   %8 = load i16, ptr %blockSizeInPCMFrames, align 8
   %conv32 = zext i16 %8 to i32
@@ -61009,7 +61009,7 @@ while.body.lr.ph:                                 ; preds = %lor.lhs.false
 
 while.body:                                       ; preds = %while.body.lr.ph, %ma_dr_mp3_s16_to_f32.exit
   %totalPCMFramesRead.021 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %ma_dr_mp3_s16_to_f32.exit ]
-  %sub = sub i64 %framesToRead, %totalPCMFramesRead.021
+  %sub = sub nuw i64 %framesToRead, %totalPCMFramesRead.021
   %1 = load i32, ptr %channels, align 4
   %2 = udiv i32 8192, %1
   %div = zext nneg i32 %2 to i64
@@ -66348,7 +66348,7 @@ while.body84:                                     ; preds = %while.cond81
   %mul.i151 = mul i32 %26, %6
   %27 = udiv i32 4096, %mul.i151
   %div = zext nneg i32 %27 to i64
-  %sub89 = sub i64 %frameCount, %25
+  %sub89 = sub nuw i64 %frameCount, %25
   %spec.select = call i64 @llvm.umin.i64(i64 %sub89, i64 %div)
   store i64 0, ptr %requiredInputFrameCount, align 8
   %28 = load i8, ptr %hasResampler.i, align 1
@@ -75800,7 +75800,7 @@ while.cond:                                       ; preds = %ma_resource_manager
   br i1 %cmp15, label %ma_resource_manager_data_stream_result.exit.i23, label %while.end
 
 ma_resource_manager_data_stream_result.exit.i23:  ; preds = %while.cond
-  %sub = sub i64 %frameCount, %totalFramesProcessed.0
+  %sub = sub nuw i64 %frameCount, %totalFramesProcessed.0
   %9 = load atomic i32, ptr %result.i seq_cst, align 8
   %cmp10.not.i = icmp eq i32 %9, 0
   br i1 %cmp10.not.i, label %if.end12.i, label %while.end
@@ -75915,7 +75915,7 @@ ma_resource_manager_data_stream_set_absolute_cursor.exit.i: ; preds = %if.then.i
   br i1 %cmp9.not.i, label %if.else.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %ma_resource_manager_data_stream_set_absolute_cursor.exit.i
-  %sub.i44 = sub i32 %add8.i, %mul.i.i41
+  %sub.i44 = sub nuw i32 %add8.i, %mul.i.i41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %tmp.sroa.5.0.job.sroa_idx.i, i8 0, i64 88, i1 false)
   store i16 9, ptr %job.i, align 8
   store i16 -1, ptr %tmp.sroa.3.0.job.sroa_idx.i, align 2
@@ -76933,7 +76933,7 @@ ma_resource_manager_data_stream_set_absolute_cursor.exit.i: ; preds = %if.then.i
   br i1 %cmp9.not.i, label %if.else.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %ma_resource_manager_data_stream_set_absolute_cursor.exit.i
-  %sub.i = sub i32 %add8.i, %mul.i.i
+  %sub.i = sub nuw i32 %add8.i, %mul.i.i
   %tmp.sroa.5.0.job.sroa_idx.i = getelementptr inbounds i8, ptr %job.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %tmp.sroa.5.0.job.sroa_idx.i, i8 0, i64 88, i1 false)
   store i16 9, ptr %job.i, align 8
@@ -78017,7 +78017,7 @@ while.cond:                                       ; preds = %while.body, %ma_nod
   br i1 %cmp4, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %sub = sub i64 %frameCount, %totalFramesRead.0
+  %sub = sub nuw i64 %frameCount, %totalFramesRead.0
   %spec.store.select = call i64 @llvm.umin.i64(i64 %sub, i64 4294967295)
   %4 = atomicrmw xchg ptr %isReading1.i, i32 1 seq_cst, align 4
   %mul.i = mul i64 %totalFramesRead.0, %retval.0.i
@@ -78041,7 +78041,7 @@ while.end:                                        ; preds = %while.body, %while.
   br i1 %cmp22, label %if.then24, label %if.end27
 
 if.then24:                                        ; preds = %while.end
-  %sub26 = sub i64 %frameCount, %totalFramesRead.1
+  %sub26 = sub nuw i64 %frameCount, %totalFramesRead.1
   %mul4.i = mul i64 %sub26, %retval.0.i
   %cmp.i.not16.i = icmp eq i64 %mul4.i, 0
   br i1 %cmp.i.not16.i, label %if.end27, label %while.body.i.i.preheader
@@ -83516,20 +83516,19 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %ma
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
-  %sub.i.i = sub i64 %conv, %totalFramesRead.0.i.i
-  %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 4294967295)
   %5 = atomicrmw xchg ptr %isReading1.i.i.i, i32 1 seq_cst, align 4
   %mul.i.i.i = mul i64 %totalFramesRead.0.i.i, %retval.0.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pFramesOut, i64 %mul.i.i.i
-  %conv.i.i = trunc nuw i64 %spec.store.select.i.i to i32
-  %6 = load atomic i64, ptr %localTime.i.i.i seq_cst, align 8
-  %call12.i.i = call fastcc i32 @ma_node_read_pcm_frames(ptr noundef nonnull %endpoint.i.i, i32 noundef 0, ptr noundef %add.ptr.i.i.i, i32 noundef %conv.i.i, ptr noundef nonnull %framesJustRead.i.i, i64 noundef %6)
-  %7 = atomicrmw xchg ptr %isReading1.i.i.i, i32 0 seq_cst, align 4
-  %8 = load i32, ptr %framesJustRead.i.i, align 4
-  %conv13.i.i = zext i32 %8 to i64
+  %6 = trunc i64 %totalFramesRead.0.i.i to i32
+  %conv.i.i = sub i32 %frameCount, %6
+  %7 = load atomic i64, ptr %localTime.i.i.i seq_cst, align 8
+  %call12.i.i = call fastcc i32 @ma_node_read_pcm_frames(ptr noundef nonnull %endpoint.i.i, i32 noundef 0, ptr noundef %add.ptr.i.i.i, i32 noundef %conv.i.i, ptr noundef nonnull %framesJustRead.i.i, i64 noundef %7)
+  %8 = atomicrmw xchg ptr %isReading1.i.i.i, i32 0 seq_cst, align 4
+  %9 = load i32, ptr %framesJustRead.i.i, align 4
+  %conv13.i.i = zext i32 %9 to i64
   %add.i.i = add i64 %totalFramesRead.0.i.i, %conv13.i.i
   %cmp14.i.i = icmp ne i32 %call12.i.i, 0
-  %cmp18.i.i = icmp eq i32 %8, 0
+  %cmp18.i.i = icmp eq i32 %9, 0
   %or.cond.i.i = select i1 %cmp14.i.i, i1 true, i1 %cmp18.i.i
   br i1 %or.cond.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !741
 
@@ -83540,8 +83539,8 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %wh
   br i1 %cmp22.i.i, label %if.then24.i.i, label %ma_node_graph_read_pcm_frames.exit.i
 
 if.then24.i.i:                                    ; preds = %while.end.i.i
-  %sub26.i.i = sub i64 %conv, %totalFramesRead.1.i.i
-  %mul4.i.i.i = mul i64 %sub26.i.i, %retval.0.i.i.i
+  %sub26.i.i = sub nuw i64 %conv, %totalFramesRead.1.i.i
+  %mul4.i.i.i = mul nuw nsw i64 %sub26.i.i, %retval.0.i.i.i
   %cmp.i.not16.i.i.i = icmp eq i64 %mul4.i.i.i, 0
   br i1 %cmp.i.not16.i.i.i, label %ma_node_graph_read_pcm_frames.exit.i, label %while.body.i.i.preheader.i.i
 
@@ -83574,14 +83573,14 @@ ma_node_graph_read_pcm_frames.exit.i:             ; preds = %ma_zero_memory_defa
 
 if.end3.i:                                        ; preds = %ma_node_graph_read_pcm_frames.exit.i
   %onProcess.i = getelementptr inbounds i8, ptr %0, i64 1272
-  %9 = load ptr, ptr %onProcess.i, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %onProcess.i, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %ma_engine_read_pcm_frames.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end3.i
   %pProcessUserData.i = getelementptr inbounds i8, ptr %0, i64 1280
-  %10 = load ptr, ptr %pProcessUserData.i, align 8
-  call void %9(ptr noundef %10, ptr noundef %pFramesOut, i64 noundef %totalFramesRead.1.i.i) #63
+  %11 = load ptr, ptr %pProcessUserData.i, align 8
+  call void %10(ptr noundef %11, ptr noundef %pFramesOut, i64 noundef %totalFramesRead.1.i.i) #63
   br label %ma_engine_read_pcm_frames.exit
 
 ma_engine_read_pcm_frames.exit:                   ; preds = %ma_node_graph_read_pcm_frames.exit.thread.i, %ma_node_graph_read_pcm_frames.exit.i, %if.end3.i, %if.then7.i
@@ -83945,7 +83944,7 @@ while.cond.i:                                     ; preds = %while.body.i, %ma_n
   br i1 %cmp4.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %sub.i = sub i64 %frameCount, %totalFramesRead.0.i
+  %sub.i = sub nuw i64 %frameCount, %totalFramesRead.0.i
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 4294967295)
   %4 = atomicrmw xchg ptr %isReading1.i.i, i32 1 seq_cst, align 4
   %mul.i.i = mul i64 %totalFramesRead.0.i, %retval.0.i.i
@@ -83969,7 +83968,7 @@ while.end.i:                                      ; preds = %while.body.i, %whil
   br i1 %cmp22.i, label %if.then24.i, label %ma_node_graph_read_pcm_frames.exit
 
 if.then24.i:                                      ; preds = %while.end.i
-  %sub26.i = sub i64 %frameCount, %totalFramesRead.1.i
+  %sub26.i = sub nuw i64 %frameCount, %totalFramesRead.1.i
   %mul4.i.i = mul i64 %sub26.i, %retval.0.i.i
   %cmp.i.not16.i.i = icmp eq i64 %mul4.i.i, 0
   br i1 %cmp.i.not16.i.i, label %ma_node_graph_read_pcm_frames.exit, label %while.body.i.i.preheader.i
@@ -94229,7 +94228,7 @@ while.cond:                                       ; preds = %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %bytesRead.039 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %while.cond ]
-  %sub = sub i64 %spec.select, %bytesRead.039
+  %sub = sub nuw i64 %spec.select, %bytesRead.039
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 2147483647)
   %9 = load ptr, ptr %onSeek, align 8
   %10 = load ptr, ptr %pUserData19, align 8
@@ -94249,7 +94248,7 @@ while.cond25:                                     ; preds = %while.body28, %whil
   br i1 %cmp26, label %while.body28, label %if.end44
 
 while.body28:                                     ; preds = %while.cond25
-  %sub30 = sub i64 %spec.select, %bytesRead.1
+  %sub30 = sub nuw i64 %spec.select, %bytesRead.1
   %spec.store.select1 = call i64 @llvm.umin.i64(i64 %sub30, i64 4096)
   %11 = load ptr, ptr %pWav, align 8
   %12 = load ptr, ptr %pUserData36, align 8
@@ -99566,7 +99565,7 @@ if.end23.thread:                                  ; preds = %if.else
 
 if.else11:                                        ; preds = %if.else
   %add15 = add i64 %pcmFramesRead.022, %conv
-  %sub19 = sub i64 %pcmFramesToSeek.addr.021, %conv
+  %sub19 = sub nuw i64 %pcmFramesToSeek.addr.021, %conv
   store i32 0, ptr %pcmFramesRemaining, align 8
   br label %if.end23
 
@@ -99992,7 +99991,7 @@ if.end23.thread.i:                                ; preds = %if.else.i
 
 if.else11.i:                                      ; preds = %if.else.i
   %add15.i = add i64 %pcmFramesRead.022.i, %conv.i
-  %sub19.i = sub i64 %pcmFramesToSeek.addr.021.i, %conv.i
+  %sub19.i = sub nuw i64 %pcmFramesToSeek.addr.021.i, %conv.i
   store i32 0, ptr %pcmFramesRemaining.i, align 8
   br label %if.end23.i
 
@@ -100219,7 +100218,7 @@ if.end23.thread.i:                                ; preds = %if.else.i
 
 if.else11.i:                                      ; preds = %if.else.i
   %add15.i = add i64 %pcmFramesRead.022.i, %conv.i39
-  %sub19.i = sub i64 %pcmFramesToSeek.addr.021.i, %conv.i39
+  %sub19.i = sub nuw i64 %pcmFramesToSeek.addr.021.i, %conv.i39
   store i32 0, ptr %pcmFramesRemaining60, align 8
   br label %if.end23.i
 
@@ -100276,7 +100275,7 @@ if.end23.thread.i66:                              ; preds = %if.else.i53
 
 if.else11.i56:                                    ; preds = %if.else.i53
   %add15.i57 = add i64 %pcmFramesRead.022.i50, %conv.i54
-  %sub19.i58 = sub i64 %pcmFramesToSeek.addr.021.i51, %conv.i54
+  %sub19.i58 = sub nuw i64 %pcmFramesToSeek.addr.021.i51, %conv.i54
   store i32 0, ptr %pcmFramesRemaining60, align 8
   br label %if.end23.i59
 
@@ -122684,7 +122683,7 @@ while.body.lr.ph:                                 ; preds = %if.then3
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %totalFramesProcessed.046 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %while.body ]
-  %sub = sub i32 %frameCount, %totalFramesProcessed.046
+  %sub = sub nuw i32 %frameCount, %totalFramesProcessed.046
   %spec.select = call i32 @llvm.umin.i32(i32 %sub, i32 %10)
   %mul = mul i32 %totalFramesProcessed.046, %mul.i61
   %idx.ext = zext i32 %mul to i64
@@ -122865,7 +122864,7 @@ ma_device__on_data_inner.exit:                    ; preds = %ma_zero_memory_defa
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end155
   %totalFramesProcessed.0223 = phi i32 [ 0, %while.body.lr.ph ], [ %add156, %if.end155 ]
-  %sub = sub i32 %frameCount, %totalFramesProcessed.0223
+  %sub = sub nuw i32 %frameCount, %totalFramesProcessed.0223
   br i1 %cmp3.not, label %if.end60, label %if.then4
 
 if.then4:                                         ; preds = %while.body
@@ -122875,7 +122874,7 @@ if.then4:                                         ; preds = %while.body
   br i1 %cmp6, label %if.then7, label %if.end40
 
 if.then7:                                         ; preds = %if.then4
-  %sub12 = sub i32 %8, %7
+  %sub12 = sub nuw i32 %8, %7
   %spec.select = tail call i32 @llvm.umin.i32(i32 %sub, i32 %sub12)
   %9 = load ptr, ptr %pIntermediaryBuffer, align 8
   %conv = zext i32 %7 to i64
@@ -123947,7 +123946,7 @@ while.cond:                                       ; preds = %ma_rb_pointer_dista
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %while.cond
   %totalFramesRead.048 = phi i64 [ 0, %if.end.i.lr.ph ], [ %add, %while.cond ]
-  %sub = sub i64 %frameCount, %totalFramesRead.048
+  %sub = sub nuw i64 %frameCount, %totalFramesRead.048
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 4294967295)
   %conv = trunc nuw i64 %spec.store.select to i32
   %0 = load i32, ptr %format.i13.i, align 8
@@ -124162,7 +124161,7 @@ while.body.us.us.i:                               ; preds = %while.cond.preheade
   %1 = phi i64 [ %add22.us.us.i, %while.body.us.us.i ], [ %cursor.promoted.i, %while.cond.preheader.i ]
   %totalFramesRead.030.us.us.i = phi i64 [ %add.us.us.i, %while.body.us.us.i ], [ 0, %while.cond.preheader.i ]
   %sub.us.us.i = sub i64 %0, %1
-  %sub5.us.us.i = sub i64 %frameCount, %totalFramesRead.030.us.us.i
+  %sub5.us.us.i = sub nuw i64 %frameCount, %totalFramesRead.030.us.us.i
   %spec.select.us.us.i = tail call i64 @llvm.umin.i64(i64 %sub5.us.us.i, i64 %sub.us.us.i)
   %add.us.us.i = add i64 %spec.select.us.us.i, %totalFramesRead.030.us.us.i
   %add22.us.us.i = add i64 %spec.select.us.us.i, %1
@@ -124180,7 +124179,7 @@ while.body.us31.i:                                ; preds = %while.cond.preheade
   %3 = phi i64 [ %add22.us38.i, %if.end20.us36.i ], [ %cursor.promoted.i, %while.cond.preheader.i ]
   %totalFramesRead.030.us32.i = phi i64 [ %add.us37.i, %if.end20.us36.i ], [ 0, %while.cond.preheader.i ]
   %sub.us33.i = sub i64 %2, %3
-  %sub5.us34.i = sub i64 %frameCount, %totalFramesRead.030.us32.i
+  %sub5.us34.i = sub nuw i64 %frameCount, %totalFramesRead.030.us32.i
   %spec.select.us35.i = tail call i64 @llvm.umin.i64(i64 %sub5.us34.i, i64 %sub.us33.i)
   %4 = load i32, ptr %format.i, align 8
   %5 = load i32, ptr %channels.i, align 4
@@ -124355,7 +124354,7 @@ while.body.i:                                     ; preds = %if.end26.i, %while.
   %4 = phi ptr [ %.pre.i, %while.body.lr.ph.i ], [ %13, %if.end26.i ]
   %5 = phi i64 [ %.pre46.i, %while.body.lr.ph.i ], [ %14, %if.end26.i ]
   %totalFramesRead.042.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add.i, %if.end26.i ]
-  %sub.i = sub i64 %frameCount, %totalFramesRead.042.i
+  %sub.i = sub nuw i64 %frameCount, %totalFramesRead.042.i
   %sizeInFrames.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i64, ptr %sizeInFrames.i, align 8
   %sub5.i = sub i64 %6, %5
@@ -127718,20 +127717,19 @@ while.cond.i:                                     ; preds = %while.body.i, %ma_n
   br i1 %cmp4.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %sub.i = sub i64 %conv, %totalFramesRead.0.i
-  %spec.store.select.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 4294967295)
   %6 = atomicrmw xchg ptr %isReading1.i.i, i32 1 seq_cst, align 4
   %mul.i.i = mul i64 %totalFramesRead.0.i, %retval.0.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %mul.i.i
-  %conv.i = trunc nuw i64 %spec.store.select.i to i32
-  %7 = load atomic i64, ptr %localTime.i.i seq_cst, align 8
-  %call12.i = call fastcc i32 @ma_node_read_pcm_frames(ptr noundef nonnull %endpoint.i, i32 noundef 0, ptr noundef %add.ptr.i.i, i32 noundef %conv.i, ptr noundef nonnull %framesJustRead.i, i64 noundef %7)
-  %8 = atomicrmw xchg ptr %isReading1.i.i, i32 0 seq_cst, align 4
-  %9 = load i32, ptr %framesJustRead.i, align 4
-  %conv13.i = zext i32 %9 to i64
+  %7 = trunc i64 %totalFramesRead.0.i to i32
+  %conv.i = sub i32 %1, %7
+  %8 = load atomic i64, ptr %localTime.i.i seq_cst, align 8
+  %call12.i = call fastcc i32 @ma_node_read_pcm_frames(ptr noundef nonnull %endpoint.i, i32 noundef 0, ptr noundef %add.ptr.i.i, i32 noundef %conv.i, ptr noundef nonnull %framesJustRead.i, i64 noundef %8)
+  %9 = atomicrmw xchg ptr %isReading1.i.i, i32 0 seq_cst, align 4
+  %10 = load i32, ptr %framesJustRead.i, align 4
+  %conv13.i = zext i32 %10 to i64
   %add.i = add i64 %totalFramesRead.0.i, %conv13.i
   %cmp14.i = icmp ne i32 %call12.i, 0
-  %cmp18.i = icmp eq i32 %9, 0
+  %cmp18.i = icmp eq i32 %10, 0
   %or.cond.i = select i1 %cmp14.i, i1 true, i1 %cmp18.i
   br i1 %or.cond.i, label %while.end.i, label %while.cond.i, !llvm.loop !741
 
@@ -127741,8 +127739,8 @@ while.end.i:                                      ; preds = %while.body.i, %whil
   br i1 %cmp22.i, label %if.then24.i, label %ma_node_graph_read_pcm_frames.exit
 
 if.then24.i:                                      ; preds = %while.end.i
-  %sub26.i = sub i64 %conv, %totalFramesRead.1.i
-  %mul4.i.i = mul i64 %sub26.i, %retval.0.i.i
+  %sub26.i = sub nuw i64 %conv, %totalFramesRead.1.i
+  %mul4.i.i = mul nuw nsw i64 %sub26.i, %retval.0.i.i
   %cmp.i.not16.i.i = icmp eq i64 %mul4.i.i, 0
   br i1 %cmp.i.not16.i.i, label %ma_node_graph_read_pcm_frames.exit, label %while.body.i.i.preheader.i
 
@@ -127888,7 +127886,7 @@ while.body.lr.ph:                                 ; preds = %for.body
 
 while.body:                                       ; preds = %if.end43, %while.body.lr.ph
   %23 = phi i32 [ 0, %while.body.lr.ph ], [ %add44, %if.end43 ]
-  %sub = sub i32 %frameCount, %23
+  %sub = sub nuw i32 %frameCount, %23
   %spec.select = call i32 @llvm.umin.i32(i32 %sub, i32 %19)
   %conv15 = zext i32 %23 to i64
   %mul.i = mul nuw nsw i64 %conv15, %conv.i46
@@ -127953,7 +127951,7 @@ if.then57:                                        ; preds = %while.end
   %conv58 = zext i32 %add44 to i64
   %mul.i51 = mul nuw nsw i64 %conv58, %conv.i46
   %add.ptr.i52 = getelementptr inbounds i8, ptr %pFramesOut, i64 %mul.i51
-  %sub60 = sub i32 %frameCount, %add44
+  %sub60 = sub nuw i32 %frameCount, %add44
   %conv61 = zext i32 %sub60 to i64
   %mul4.i = mul nuw nsw i64 %conv61, %conv.i46
   br label %ma_zero_memory_default.exit.i.i
@@ -128406,7 +128404,7 @@ while.cond:                                       ; preds = %ma_sound_at_end.exi
   br i1 %cmp15, label %while.body, label %return
 
 while.body:                                       ; preds = %while.cond
-  %sub = sub i32 %0, %totalFramesRead.0
+  %sub = sub nuw i32 %0, %totalFramesRead.0
   %conv18 = zext i32 %sub to i64
   %19 = load atomic i32, ptr %isPitchDisabled.i.i acquire, align 8
   %tobool.not.i.not.i = icmp eq i32 %19, 0
@@ -128832,7 +128830,7 @@ while.cond:                                       ; preds = %if.end135, %lor.end
 while.body:                                       ; preds = %while.cond
   %25 = udiv i32 1024, %2
   %sub32 = sub i32 %0, %totalFramesProcessedIn.0
-  %sub33 = sub i32 %1, %totalFramesProcessedOut.0
+  %sub33 = sub nuw i32 %1, %totalFramesProcessedOut.0
   %26 = load ptr, ptr %ppFramesIn, align 8
   %conv34 = zext i32 %totalFramesProcessedIn.0 to i64
   %mul.i = mul nuw i64 %conv34, %conv.i
@@ -133089,7 +133087,7 @@ while.cond:                                       ; preds = %if.end28, %entry
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %sub = sub i64 %bytesToRead, %bytesRead.0
+  %sub = sub nuw i64 %bytesToRead, %bytesRead.0
   %0 = load i32, ptr %bytesRemainingInPage, align 8
   %conv = zext i32 %0 to i64
   %cmp1.not = icmp ugt i64 %sub, %conv
@@ -133383,7 +133381,7 @@ if.end27.i:                                       ; preds = %if.end23.i
   br i1 %cmp29.not.i, label %if.end32.i, label %return
 
 if.end32.i:                                       ; preds = %if.end27.i
-  %sub.i112 = sub nsw i32 %subframeBitsPerSample.0.i, %conv28.i
+  %sub.i112 = sub nuw nsw i32 %subframeBitsPerSample.0.i, %conv28.i
   %pSamplesS32.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store ptr %add.ptr, ptr %pSamplesS32.i, align 8
   %13 = load i8, ptr %add.ptr.i, align 8
@@ -137042,7 +137040,7 @@ if.end15:                                         ; preds = %if.end10
 
 if.end20:                                         ; preds = %if.end15
   %shl = shl nuw nsw i32 1, %conv11
-  %sub = sub nsw i32 %div23, %lpcOrder
+  %sub = sub nuw nsw i32 %div23, %lpcOrder
   %trunc = trunc i32 %result.0.i to i1
   %cache.i.i133 = getelementptr inbounds i8, ptr %bs, i64 4144
   %add.i.i227 = add nsw i32 %lpcPrecision, %bitsPerSample
@@ -138201,7 +138199,7 @@ if.then11.i.i:                                    ; preds = %extract_rice_param_
   br label %if.end.i2969
 
 if.else.i.i2973:                                  ; preds = %extract_rice_param_part.i.i
-  %sub21.i.i = sub i32 %add8.i.i, %sub.i.i
+  %sub21.i.i = sub nuw i32 %add8.i.i, %sub.i.i
   %7 = load i32, ptr %nextL2Line56.i.i, align 8
   %cmp23.i.i = icmp ult i32 %7, 512
   br i1 %cmp23.i.i, label %if.then25.i.i, label %if.else29.i.i
@@ -138916,7 +138914,7 @@ if.then11.i6565:                                  ; preds = %extract_rice_param_
   br label %lor.lhs.false
 
 if.else.i6247:                                    ; preds = %extract_rice_param_part.i6242
-  %sub21.i6251 = sub i32 %add8.i6245, %sub.i6190
+  %sub21.i6251 = sub nuw i32 %add8.i6245, %sub.i6190
   %79 = load i32, ptr %nextL2Line56.i6215, align 8
   %cmp23.i6254 = icmp ult i32 %79, 512
   br i1 %cmp23.i6254, label %if.then25.i6281, label %if.else29.i6255
@@ -139499,7 +139497,7 @@ if.then11.i5723:                                  ; preds = %extract_rice_param_
   br label %lor.lhs.false10
 
 if.else.i5405:                                    ; preds = %extract_rice_param_part.i5400
-  %sub21.i5409 = sub i32 %add8.i5403, %sub.i6190
+  %sub21.i5409 = sub nuw i32 %add8.i5403, %sub.i6190
   %145 = load i32, ptr %nextL2Line56.i6215, align 8
   %cmp23.i5412 = icmp ult i32 %145, 512
   br i1 %cmp23.i5412, label %if.then25.i5439, label %if.else29.i5413
@@ -140082,7 +140080,7 @@ if.then11.i4881:                                  ; preds = %extract_rice_param_
   br label %lor.lhs.false13
 
 if.else.i4563:                                    ; preds = %extract_rice_param_part.i4558
-  %sub21.i4567 = sub i32 %add8.i4561, %sub.i6190
+  %sub21.i4567 = sub nuw i32 %add8.i4561, %sub.i6190
   %211 = load i32, ptr %nextL2Line56.i6215, align 8
   %cmp23.i4570 = icmp ult i32 %211, 512
   br i1 %cmp23.i4570, label %if.then25.i4597, label %if.else29.i4571
@@ -140665,7 +140663,7 @@ if.then11.i4039:                                  ; preds = %extract_rice_param_
   br label %if.end17
 
 if.else.i3721:                                    ; preds = %extract_rice_param_part.i3716
-  %sub21.i3725 = sub i32 %add8.i3719, %sub.i6190
+  %sub21.i3725 = sub nuw i32 %add8.i3719, %sub.i6190
   %277 = load i32, ptr %nextL2Line56.i6215, align 8
   %cmp23.i3728 = icmp ult i32 %277, 512
   br i1 %cmp23.i3728, label %if.then25.i3755, label %if.else29.i3729
@@ -142847,7 +142845,7 @@ if.then11.i3197:                                  ; preds = %extract_rice_param_
   br label %lor.lhs.false71
 
 if.else.i2879:                                    ; preds = %extract_rice_param_part.i2874
-  %sub21.i2883 = sub i32 %add8.i2877, %sub.i2822
+  %sub21.i2883 = sub nuw i32 %add8.i2877, %sub.i2822
   %599 = load i32, ptr %nextL2Line56.i2847, align 8
   %cmp23.i2886 = icmp ult i32 %599, 512
   br i1 %cmp23.i2886, label %if.then25.i2913, label %if.else29.i2887
@@ -143430,7 +143428,7 @@ if.then11.i2355:                                  ; preds = %extract_rice_param_
   br label %lor.lhs.false74
 
 if.else.i2037:                                    ; preds = %extract_rice_param_part.i2032
-  %sub21.i2041 = sub i32 %add8.i2035, %sub.i2822
+  %sub21.i2041 = sub nuw i32 %add8.i2035, %sub.i2822
   %665 = load i32, ptr %nextL2Line56.i2847, align 8
   %cmp23.i2044 = icmp ult i32 %665, 512
   br i1 %cmp23.i2044, label %if.then25.i2071, label %if.else29.i2045
@@ -144013,7 +144011,7 @@ if.then11.i1513:                                  ; preds = %extract_rice_param_
   br label %lor.lhs.false77
 
 if.else.i1195:                                    ; preds = %extract_rice_param_part.i1190
-  %sub21.i1199 = sub i32 %add8.i1193, %sub.i2822
+  %sub21.i1199 = sub nuw i32 %add8.i1193, %sub.i2822
   %731 = load i32, ptr %nextL2Line56.i2847, align 8
   %cmp23.i1202 = icmp ult i32 %731, 512
   br i1 %cmp23.i1202, label %if.then25.i1229, label %if.else29.i1203
@@ -144596,7 +144594,7 @@ if.then11.i671:                                   ; preds = %extract_rice_param_
   br label %if.end81
 
 if.else.i353:                                     ; preds = %extract_rice_param_part.i348
-  %sub21.i357 = sub i32 %add8.i351, %sub.i2822
+  %sub21.i357 = sub nuw i32 %add8.i351, %sub.i2822
   %797 = load i32, ptr %nextL2Line56.i2847, align 8
   %cmp23.i360 = icmp ult i32 %797, 512
   br i1 %cmp23.i360, label %if.then25.i387, label %if.else29.i361
@@ -146570,7 +146568,7 @@ if.then11.i:                                      ; preds = %extract_rice_param_
   br label %if.end145
 
 if.else.i:                                        ; preds = %extract_rice_param_part.i
-  %sub21.i = sub i32 %add8.i, %sub.i
+  %sub21.i = sub nuw i32 %add8.i, %sub.i
   %1119 = load i32, ptr %nextL2Line56.i, align 8
   %cmp23.i = icmp ult i32 %1119, 512
   br i1 %cmp23.i, label %if.then25.i, label %if.else29.i
@@ -148096,7 +148094,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %sub7 = sub nsw i64 %bitsToSeek, %sub
+  %sub7 = sub nuw nsw i64 %bitsToSeek, %sub
   store i32 64, ptr %consumedBits, align 4
   %cache15 = getelementptr inbounds i8, ptr %bs, i64 4144
   store i64 0, ptr %cache15, align 8
@@ -148468,7 +148466,7 @@ if.end23.i:                                       ; preds = %if.else.i100, %if.t
   br i1 %cmp25.not.i, label %if.end28.i, label %return
 
 if.end28.i:                                       ; preds = %if.end23.i
-  %sub.i101 = sub nsw i32 %subframeBitsPerSample.0.i, %conv24.i
+  %sub.i101 = sub nuw nsw i32 %subframeBitsPerSample.0.i, %conv24.i
   %pSamplesS32.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store ptr null, ptr %pSamplesS32.i, align 8
   %6 = load i8, ptr %add.ptr.i, align 8
@@ -148480,7 +148478,7 @@ if.end28.i:                                       ; preds = %if.end23.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end28.i
-  %conv32.i = zext i32 %sub.i101 to i64
+  %conv32.i = zext nneg i32 %sub.i101 to i64
   %call33.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %conv32.i)
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %return, label %for.inc
@@ -148488,8 +148486,8 @@ sw.bb.i:                                          ; preds = %if.end28.i
 sw.bb37.i:                                        ; preds = %if.end28.i
   %7 = load i16, ptr %blockSizeInPCMFrames96.i, align 8
   %conv39.i = zext i16 %7 to i32
-  %mul.i = mul nsw i32 %sub.i101, %conv39.i
-  %conv40.i = zext i32 %mul.i to i64
+  %mul.i = mul nuw nsw i32 %sub.i101, %conv39.i
+  %conv40.i = zext nneg i32 %mul.i to i64
   %call41.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %conv40.i)
   %tobool42.not.i = icmp eq i32 %call41.i, 0
   br i1 %tobool42.not.i, label %return, label %for.inc
@@ -148498,8 +148496,8 @@ sw.bb45.i:                                        ; preds = %if.end28.i
   %lpcOrder.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %8 = load i8, ptr %lpcOrder.i, align 2
   %conv47.i = zext i8 %8 to i32
-  %mul48.i = mul nsw i32 %sub.i101, %conv47.i
-  %conv49.i = zext i32 %mul48.i to i64
+  %mul48.i = mul nuw nsw i32 %sub.i101, %conv47.i
+  %conv49.i = zext nneg i32 %mul48.i to i64
   %call50.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %conv49.i)
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %return, label %if.end53.i
@@ -148517,8 +148515,8 @@ sw.bb63.i:                                        ; preds = %if.end28.i
   %lpcOrder65.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %11 = load i8, ptr %lpcOrder65.i, align 2
   %conv66.i = zext i8 %11 to i32
-  %mul67.i = mul nsw i32 %sub.i101, %conv66.i
-  %conv68.i = zext i32 %mul67.i to i64
+  %mul67.i = mul nuw nsw i32 %sub.i101, %conv66.i
+  %conv68.i = zext nneg i32 %mul67.i to i64
   %call69.i = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %bs, i64 noundef %conv68.i)
   %tobool70.not.i = icmp eq i32 %call69.i, 0
   br i1 %tobool70.not.i, label %return, label %if.end72.i
@@ -149193,7 +149191,7 @@ if.end15:                                         ; preds = %if.end10
 
 if.end20:                                         ; preds = %if.end15
   %shl = shl nuw nsw i32 1, %conv11
-  %sub = sub nsw i32 %div12, %order
+  %sub = sub nuw nsw i32 %div12, %order
   %trunc = trunc i32 %result.0.i to i1
   %cache.i.i122 = getelementptr inbounds i8, ptr %bs, i64 4144
   %nextL2Line38.i.i = getelementptr inbounds i8, ptr %bs, i64 40
@@ -149453,7 +149451,7 @@ if.then8.i.i:                                     ; preds = %extract_rice_param_
   br label %if.end36.i.i
 
 if.else.i.i173:                                   ; preds = %extract_rice_param_part.i.i
-  %sub12.i.i = sub i32 %add5.i.i, %sub.i.i166
+  %sub12.i.i = sub nuw i32 %add5.i.i, %sub.i.i166
   %30 = load i32, ptr %nextL2Line38.i.i, align 8
   %cmp14.i.i = icmp ult i32 %30, 512
   br i1 %cmp14.i.i, label %if.then16.i.i, label %if.else19.i.i
@@ -150155,7 +150153,7 @@ if.end23.thread.i.i:                              ; preds = %if.else.i.i
 
 if.else11.i.i:                                    ; preds = %if.else.i.i
   %add15.i.i = add i64 %pcmFramesRead.022.i.i, %conv.i.i
-  %sub19.i.i = sub i64 %pcmFramesToSeek.addr.021.i.i, %conv.i.i
+  %sub19.i.i = sub nuw i64 %pcmFramesToSeek.addr.021.i.i, %conv.i.i
   store i32 0, ptr %pcmFramesRemaining.i.i, align 8
   br label %if.end23.i.i
 
@@ -150228,7 +150226,7 @@ if.end23.thread.i.i90:                            ; preds = %if.else.i.i75
 
 if.else11.i.i78:                                  ; preds = %if.else.i.i75
   %add15.i.i79 = add i64 %pcmFramesRead.022.i.i72, %conv.i.i76
-  %sub19.i.i80 = sub i64 %pcmFramesToSeek.addr.021.i.i73, %conv.i.i76
+  %sub19.i.i80 = sub nuw i64 %pcmFramesToSeek.addr.021.i.i73, %conv.i.i76
   store i32 0, ptr %pcmFramesRemaining.i.i67, align 8
   br label %if.end23.i.i81
 
@@ -150271,7 +150269,7 @@ if.then52:                                        ; preds = %if.else38
   br label %if.end105
 
 if.else64:                                        ; preds = %if.else38
-  %sub65 = sub i64 %pcmFrameIndex, %firstPCMFrame.0.i
+  %sub65 = sub nuw i64 %pcmFrameIndex, %firstPCMFrame.0.i
   %cmp67 = icmp ult i64 %sub65, %cond
   br i1 %cmp67, label %if.then69, label %if.else76
 
@@ -150320,7 +150318,7 @@ if.end23.thread.i.i125:                           ; preds = %if.else.i.i110
 
 if.else11.i.i113:                                 ; preds = %if.else.i.i110
   %add15.i.i114 = add i64 %pcmFramesRead.022.i.i107, %conv.i.i111
-  %sub19.i.i115 = sub i64 %pcmFramesToSeek.addr.021.i.i108, %conv.i.i111
+  %sub19.i.i115 = sub nuw i64 %pcmFramesToSeek.addr.021.i.i108, %conv.i.i111
   store i32 0, ptr %pcmFramesRemaining.i.i102, align 8
   br label %if.end23.i.i116
 

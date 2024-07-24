@@ -2939,189 +2939,185 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_read_eeprom(ptr nocapture n
   %15 = getelementptr i8, ptr %12, i64 %14
   %16 = zext i16 %2 to i64
   tail call void @ioread16_rep(ptr noundef %15, ptr noundef %3, i64 noundef %16) #7
-  br label %141
+  br label %135
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds i8, ptr %0, i64 84
   %19 = load i16, ptr %18, align 4
   %20 = icmp ugt i16 %19, %1
-  br i1 %20, label %21, label %141
+  br i1 %20, label %21, label %135
 
 21:                                               ; preds = %17
-  %22 = zext i16 %1 to i32
-  %23 = zext i16 %19 to i32
-  %24 = zext i16 %2 to i32
-  %25 = sub nsw i32 %23, %22
-  %26 = icmp slt i32 %25, %24
-  %27 = icmp eq i16 %2, 0
-  %28 = or i1 %27, %26
-  br i1 %28, label %141, label %29
+  %narrow = sub nuw i16 %19, %1
+  %22 = add i16 %2, -1
+  %.not = icmp ult i16 %22, %narrow
+  br i1 %.not, label %23, label %135
 
-29:                                               ; preds = %21
-  %30 = tail call fastcc i32 @e1000_acquire_eeprom(ptr noundef %0), !range !9
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %141
+23:                                               ; preds = %21
+  %24 = tail call fastcc i32 @e1000_acquire_eeprom(ptr noundef %0), !range !9
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %135
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %5, align 4
-  switch i32 %33, label %.loopexit [
-    i32 1, label %39
-    i32 2, label %34
+26:                                               ; preds = %23
+  %27 = load i32, ptr %5, align 4
+  switch i32 %27, label %.loopexit [
+    i32 1, label %33
+    i32 2, label %28
   ]
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 86
-  %36 = getelementptr inbounds i8, ptr %0, i64 88
-  %37 = getelementptr inbounds i8, ptr %0, i64 90
-  %38 = zext i16 %2 to i64
-  br label %96
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds i8, ptr %0, i64 86
+  %30 = getelementptr inbounds i8, ptr %0, i64 88
+  %31 = getelementptr inbounds i8, ptr %0, i64 90
+  %32 = zext i16 %2 to i64
+  br label %90
 
-39:                                               ; preds = %32
-  %40 = tail call fastcc i32 @e1000_spi_eeprom_ready(ptr noundef %0), !range !9
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %.thread
+33:                                               ; preds = %26
+  %34 = tail call fastcc i32 @e1000_spi_eeprom_ready(ptr noundef %0), !range !9
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %.thread
 
-.thread:                                          ; preds = %39
+.thread:                                          ; preds = %33
   tail call fastcc void @e1000_release_eeprom(ptr noundef %0)
-  br label %141
+  br label %135
 
-42:                                               ; preds = %39
+36:                                               ; preds = %33
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
-  %43 = getelementptr inbounds i8, ptr %0, i64 88
-  %44 = load i16, ptr %43, align 4
-  %45 = icmp eq i16 %44, 8
-  %46 = icmp ugt i16 %1, 127
-  %47 = and i1 %46, %45
-  %48 = select i1 %47, i16 11, i16 3
-  %49 = getelementptr inbounds i8, ptr %0, i64 86
-  %50 = load i16, ptr %49, align 2
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %48, i16 noundef zeroext %50)
-  %51 = shl i16 %1, 1
-  %52 = load i16, ptr %43, align 4
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %51, i16 noundef zeroext %52)
-  %53 = getelementptr inbounds i8, ptr %0, i64 90
-  %54 = zext i16 %2 to i64
+  %37 = getelementptr inbounds i8, ptr %0, i64 88
+  %38 = load i16, ptr %37, align 4
+  %39 = icmp eq i16 %38, 8
+  %40 = icmp ugt i16 %1, 127
+  %41 = and i1 %40, %39
+  %42 = select i1 %41, i16 11, i16 3
+  %43 = getelementptr inbounds i8, ptr %0, i64 86
+  %44 = load i16, ptr %43, align 2
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %42, i16 noundef zeroext %44)
+  %45 = shl i16 %1, 1
+  %46 = load i16, ptr %37, align 4
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %45, i16 noundef zeroext %46)
+  %47 = getelementptr inbounds i8, ptr %0, i64 90
+  %48 = zext i16 %2 to i64
+  br label %49
+
+49:                                               ; preds = %85, %36
+  %50 = phi i64 [ 0, %36 ], [ %88, %85 ]
+  %51 = load ptr, ptr %0, align 8
+  %52 = getelementptr i8, ptr %51, i64 16
+  %53 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %52) #7, !srcloc !5
+  %54 = and i32 %53, -13
   br label %55
 
-55:                                               ; preds = %91, %42
-  %56 = phi i64 [ 0, %42 ], [ %94, %91 ]
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr i8, ptr %57, i64 16
-  %59 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %58) #7, !srcloc !5
-  %60 = and i32 %59, -13
-  br label %61
+55:                                               ; preds = %55, %49
+  %56 = phi i16 [ 0, %49 ], [ %74, %55 ]
+  %57 = phi i32 [ 0, %49 ], [ %83, %55 ]
+  %58 = phi i32 [ %54, %49 ], [ %75, %55 ]
+  %59 = shl i16 %56, 1
+  %60 = or i32 %58, 1
+  %61 = load ptr, ptr %0, align 8
+  %62 = getelementptr i8, ptr %61, i64 16
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %60, ptr elementtype(i32) %62) #7, !srcloc !6
+  %63 = load ptr, ptr %0, align 8
+  %64 = getelementptr i8, ptr %63, i64 8
+  %65 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %64) #7, !srcloc !5
+  %66 = load i16, ptr %47, align 2
+  %67 = zext i16 %66 to i64
+  tail call void @__udelay(i64 noundef %67) #7
+  %68 = load ptr, ptr %0, align 8
+  %69 = getelementptr i8, ptr %68, i64 16
+  %70 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %69) #7, !srcloc !5
+  %71 = trunc i32 %70 to i16
+  %72 = lshr i16 %71, 3
+  %73 = and i16 %72, 1
+  %74 = or disjoint i16 %73, %59
+  %75 = and i32 %70, -6
+  %76 = load ptr, ptr %0, align 8
+  %77 = getelementptr i8, ptr %76, i64 16
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %75, ptr elementtype(i32) %77) #7, !srcloc !6
+  %78 = load ptr, ptr %0, align 8
+  %79 = getelementptr i8, ptr %78, i64 8
+  %80 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %79) #7, !srcloc !5
+  %81 = load i16, ptr %47, align 2
+  %82 = zext i16 %81 to i64
+  tail call void @__udelay(i64 noundef %82) #7
+  %83 = add nuw nsw i32 %57, 1
+  %84 = icmp eq i32 %83, 16
+  br i1 %84, label %85, label %55, !llvm.loop !23
 
-61:                                               ; preds = %61, %55
-  %62 = phi i16 [ 0, %55 ], [ %80, %61 ]
-  %63 = phi i32 [ 0, %55 ], [ %89, %61 ]
-  %64 = phi i32 [ %60, %55 ], [ %81, %61 ]
-  %65 = shl i16 %62, 1
-  %66 = or i32 %64, 1
-  %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr i8, ptr %67, i64 16
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %66, ptr elementtype(i32) %68) #7, !srcloc !6
-  %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr i8, ptr %69, i64 8
-  %71 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %70) #7, !srcloc !5
-  %72 = load i16, ptr %53, align 2
-  %73 = zext i16 %72 to i64
-  tail call void @__udelay(i64 noundef %73) #7
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr i8, ptr %74, i64 16
-  %76 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %75) #7, !srcloc !5
-  %77 = trunc i32 %76 to i16
-  %78 = lshr i16 %77, 3
-  %79 = and i16 %78, 1
-  %80 = or disjoint i16 %79, %65
-  %81 = and i32 %76, -6
-  %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr i8, ptr %82, i64 16
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %81, ptr elementtype(i32) %83) #7, !srcloc !6
-  %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr i8, ptr %84, i64 8
-  %86 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %85) #7, !srcloc !5
-  %87 = load i16, ptr %53, align 2
-  %88 = zext i16 %87 to i64
-  tail call void @__udelay(i64 noundef %88) #7
-  %89 = add nuw nsw i32 %63, 1
-  %90 = icmp eq i32 %89, 16
-  br i1 %90, label %91, label %61, !llvm.loop !23
+85:                                               ; preds = %55
+  %86 = tail call i16 @llvm.bswap.i16(i16 %74)
+  %87 = getelementptr i16, ptr %3, i64 %50
+  store i16 %86, ptr %87, align 2
+  %88 = add nuw nsw i64 %50, 1
+  %89 = icmp eq i64 %88, %48
+  br i1 %89, label %.loopexit, label %49, !llvm.loop !24
 
-91:                                               ; preds = %61
-  %92 = tail call i16 @llvm.bswap.i16(i16 %80)
-  %93 = getelementptr i16, ptr %3, i64 %56
-  store i16 %92, ptr %93, align 2
-  %94 = add nuw nsw i64 %56, 1
-  %95 = icmp eq i64 %94, %54
-  br i1 %95, label %.loopexit, label %55, !llvm.loop !24
+90:                                               ; preds = %130, %28
+  %91 = phi i64 [ 0, %28 ], [ %133, %130 ]
+  %92 = load i16, ptr %29, align 2
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 6, i16 noundef zeroext %92)
+  %93 = trunc i64 %91 to i16
+  %94 = add i16 %93, %1
+  %95 = load i16, ptr %30, align 4
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %94, i16 noundef zeroext %95)
+  %96 = load ptr, ptr %0, align 8
+  %97 = getelementptr i8, ptr %96, i64 16
+  %98 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %97) #7, !srcloc !5
+  %99 = and i32 %98, -13
+  br label %100
 
-96:                                               ; preds = %136, %34
-  %97 = phi i64 [ 0, %34 ], [ %139, %136 ]
-  %98 = load i16, ptr %35, align 2
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 6, i16 noundef zeroext %98)
-  %99 = trunc i64 %97 to i16
-  %100 = add i16 %99, %1
-  %101 = load i16, ptr %36, align 4
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %100, i16 noundef zeroext %101)
-  %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr i8, ptr %102, i64 16
-  %104 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %103) #7, !srcloc !5
-  %105 = and i32 %104, -13
-  br label %106
+100:                                              ; preds = %100, %90
+  %101 = phi i16 [ 0, %90 ], [ %119, %100 ]
+  %102 = phi i32 [ 0, %90 ], [ %128, %100 ]
+  %103 = phi i32 [ %99, %90 ], [ %120, %100 ]
+  %104 = shl i16 %101, 1
+  %105 = or i32 %103, 1
+  %106 = load ptr, ptr %0, align 8
+  %107 = getelementptr i8, ptr %106, i64 16
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %105, ptr elementtype(i32) %107) #7, !srcloc !6
+  %108 = load ptr, ptr %0, align 8
+  %109 = getelementptr i8, ptr %108, i64 8
+  %110 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109) #7, !srcloc !5
+  %111 = load i16, ptr %31, align 2
+  %112 = zext i16 %111 to i64
+  tail call void @__udelay(i64 noundef %112) #7
+  %113 = load ptr, ptr %0, align 8
+  %114 = getelementptr i8, ptr %113, i64 16
+  %115 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %114) #7, !srcloc !5
+  %116 = trunc i32 %115 to i16
+  %117 = lshr i16 %116, 3
+  %118 = and i16 %117, 1
+  %119 = or disjoint i16 %118, %104
+  %120 = and i32 %115, -6
+  %121 = load ptr, ptr %0, align 8
+  %122 = getelementptr i8, ptr %121, i64 16
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %120, ptr elementtype(i32) %122) #7, !srcloc !6
+  %123 = load ptr, ptr %0, align 8
+  %124 = getelementptr i8, ptr %123, i64 8
+  %125 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %124) #7, !srcloc !5
+  %126 = load i16, ptr %31, align 2
+  %127 = zext i16 %126 to i64
+  tail call void @__udelay(i64 noundef %127) #7
+  %128 = add nuw nsw i32 %102, 1
+  %129 = icmp eq i32 %128, 16
+  br i1 %129, label %130, label %100, !llvm.loop !23
 
-106:                                              ; preds = %106, %96
-  %107 = phi i16 [ 0, %96 ], [ %125, %106 ]
-  %108 = phi i32 [ 0, %96 ], [ %134, %106 ]
-  %109 = phi i32 [ %105, %96 ], [ %126, %106 ]
-  %110 = shl i16 %107, 1
-  %111 = or i32 %109, 1
-  %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr i8, ptr %112, i64 16
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %111, ptr elementtype(i32) %113) #7, !srcloc !6
-  %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr i8, ptr %114, i64 8
-  %116 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %115) #7, !srcloc !5
-  %117 = load i16, ptr %37, align 2
-  %118 = zext i16 %117 to i64
-  tail call void @__udelay(i64 noundef %118) #7
-  %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr i8, ptr %119, i64 16
-  %121 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %120) #7, !srcloc !5
-  %122 = trunc i32 %121 to i16
-  %123 = lshr i16 %122, 3
-  %124 = and i16 %123, 1
-  %125 = or disjoint i16 %124, %110
-  %126 = and i32 %121, -6
-  %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr i8, ptr %127, i64 16
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %126, ptr elementtype(i32) %128) #7, !srcloc !6
-  %129 = load ptr, ptr %0, align 8
-  %130 = getelementptr i8, ptr %129, i64 8
-  %131 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %130) #7, !srcloc !5
-  %132 = load i16, ptr %37, align 2
-  %133 = zext i16 %132 to i64
-  tail call void @__udelay(i64 noundef %133) #7
-  %134 = add nuw nsw i32 %108, 1
-  %135 = icmp eq i32 %134, 16
-  br i1 %135, label %136, label %106, !llvm.loop !23
-
-136:                                              ; preds = %106
-  %137 = getelementptr i16, ptr %3, i64 %97
-  store i16 %125, ptr %137, align 2
+130:                                              ; preds = %100
+  %131 = getelementptr i16, ptr %3, i64 %91
+  store i16 %119, ptr %131, align 2
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
-  %138 = tail call i32 @__SCT__cond_resched() #7
-  %139 = add nuw nsw i64 %97, 1
-  %140 = icmp eq i64 %139, %38
-  br i1 %140, label %.loopexit, label %96, !llvm.loop !25
+  %132 = tail call i32 @__SCT__cond_resched() #7
+  %133 = add nuw nsw i64 %91, 1
+  %134 = icmp eq i64 %133, %32
+  br i1 %134, label %.loopexit, label %90, !llvm.loop !25
 
-.loopexit:                                        ; preds = %136, %91, %32
+.loopexit:                                        ; preds = %130, %85, %26
   tail call fastcc void @e1000_release_eeprom(ptr noundef %0)
-  br label %141
+  br label %135
 
-141:                                              ; preds = %.thread, %.loopexit, %29, %21, %17, %9
-  %142 = phi i32 [ 0, %9 ], [ 0, %.loopexit ], [ -1, %21 ], [ -1, %17 ], [ -1, %29 ], [ -1, %.thread ]
+135:                                              ; preds = %.thread, %.loopexit, %23, %21, %17, %9
+  %136 = phi i32 [ 0, %9 ], [ 0, %.loopexit ], [ -1, %21 ], [ -1, %17 ], [ -1, %23 ], [ -1, %.thread ]
   tail call void @mutex_unlock(ptr noundef nonnull @e1000_eeprom_lock) #7
-  ret i32 %142
+  ret i32 %136
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5708,168 +5704,165 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr nocapture 
   %14 = getelementptr i8, ptr %12, i64 %13
   %15 = zext i16 %2 to i64
   tail call void @iowrite16_rep(ptr noundef %14, ptr noundef %3, i64 noundef %15) #7
-  br label %107
+  br label %102
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 84
   %18 = load i16, ptr %17, align 4
   %19 = icmp ugt i16 %18, %1
-  br i1 %19, label %20, label %107
+  br i1 %19, label %20, label %102
 
 20:                                               ; preds = %16
-  %21 = zext i16 %18 to i32
-  %22 = zext i16 %1 to i32
-  %23 = zext i16 %2 to i32
-  %24 = sub nsw i32 %21, %22
-  %25 = icmp slt i32 %24, %23
-  %26 = icmp eq i16 %2, 0
-  %27 = or i1 %26, %25
-  br i1 %27, label %107, label %28
+  %21 = zext i16 %1 to i32
+  %narrow = sub nuw i16 %18, %1
+  %22 = add i16 %2, -1
+  %.not = icmp ult i16 %22, %narrow
+  br i1 %.not, label %23, label %102
 
-28:                                               ; preds = %20
-  %29 = tail call fastcc i32 @e1000_acquire_eeprom(ptr noundef %0), !range !9
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %107
+23:                                               ; preds = %20
+  %24 = tail call fastcc i32 @e1000_acquire_eeprom(ptr noundef %0), !range !9
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %102
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %5, align 4
-  %33 = icmp eq i32 %32, 2
-  %34 = getelementptr inbounds i8, ptr %0, i64 86
-  br i1 %33, label %35, label %.lr.ph.preheader
+26:                                               ; preds = %23
+  %27 = load i32, ptr %5, align 4
+  %28 = icmp eq i32 %27, 2
+  %29 = getelementptr inbounds i8, ptr %0, i64 86
+  br i1 %28, label %30, label %.lr.ph.preheader
 
-35:                                               ; preds = %31
-  %36 = load i16, ptr %34, align 2
-  %37 = add i16 %36, 2
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 19, i16 noundef zeroext %37)
-  %38 = getelementptr inbounds i8, ptr %0, i64 88
-  %39 = load i16, ptr %38, align 4
-  %40 = add i16 %39, -2
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 0, i16 noundef zeroext %40)
+30:                                               ; preds = %26
+  %31 = load i16, ptr %29, align 2
+  %32 = add i16 %31, 2
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 19, i16 noundef zeroext %32)
+  %33 = getelementptr inbounds i8, ptr %0, i64 88
+  %34 = load i16, ptr %33, align 4
+  %35 = add i16 %34, -2
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 0, i16 noundef zeroext %35)
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
-  %41 = zext i16 %2 to i64
-  br label %42
+  %36 = zext i16 %2 to i64
+  br label %37
 
-42:                                               ; preds = %60, %35
-  %43 = phi i64 [ 0, %35 ], [ %62, %60 ]
-  %44 = load i16, ptr %34, align 2
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 5, i16 noundef zeroext %44)
-  %45 = trunc i64 %43 to i16
-  %46 = add i16 %45, %1
-  %47 = load i16, ptr %38, align 4
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %46, i16 noundef zeroext %47)
-  %48 = getelementptr i16, ptr %3, i64 %43
-  %49 = load i16, ptr %48, align 2
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %49, i16 noundef zeroext 16)
+37:                                               ; preds = %55, %30
+  %38 = phi i64 [ 0, %30 ], [ %57, %55 ]
+  %39 = load i16, ptr %29, align 2
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 5, i16 noundef zeroext %39)
+  %40 = trunc i64 %38 to i16
+  %41 = add i16 %40, %1
+  %42 = load i16, ptr %33, align 4
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %41, i16 noundef zeroext %42)
+  %43 = getelementptr i16, ptr %3, i64 %38
+  %44 = load i16, ptr %43, align 2
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %44, i16 noundef zeroext 16)
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
-  br label %50
+  br label %45
 
-50:                                               ; preds = %57, %42
-  %51 = phi i16 [ 0, %42 ], [ %58, %57 ]
-  %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr i8, ptr %52, i64 16
-  %54 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53) #7, !srcloc !5
-  %55 = and i32 %54, 8
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %60
+45:                                               ; preds = %52, %37
+  %46 = phi i16 [ 0, %37 ], [ %53, %52 ]
+  %47 = load ptr, ptr %0, align 8
+  %48 = getelementptr i8, ptr %47, i64 16
+  %49 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48) #7, !srcloc !5
+  %50 = and i32 %49, 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %55
 
-57:                                               ; preds = %50
+52:                                               ; preds = %45
   tail call void @__const_udelay(i64 noundef 214750) #7
-  %58 = add nuw nsw i16 %51, 1
-  %59 = icmp eq i16 %58, 200
-  br i1 %59, label %.thread, label %50, !llvm.loop !40
+  %53 = add nuw nsw i16 %46, 1
+  %54 = icmp eq i16 %53, 200
+  br i1 %54, label %.thread, label %45, !llvm.loop !40
 
-60:                                               ; preds = %50
+55:                                               ; preds = %45
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
-  %61 = tail call i32 @__SCT__cond_resched() #7
-  %62 = add nuw nsw i64 %43, 1
-  %63 = icmp eq i64 %62, %41
-  br i1 %63, label %64, label %42, !llvm.loop !41
+  %56 = tail call i32 @__SCT__cond_resched() #7
+  %57 = add nuw nsw i64 %38, 1
+  %58 = icmp eq i64 %57, %36
+  br i1 %58, label %59, label %37, !llvm.loop !41
 
-64:                                               ; preds = %60
-  %65 = load i16, ptr %34, align 2
-  %66 = add i16 %65, 2
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 16, i16 noundef zeroext %66)
-  %67 = load i16, ptr %38, align 4
-  %68 = add i16 %67, -2
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 0, i16 noundef zeroext %68)
+59:                                               ; preds = %55
+  %60 = load i16, ptr %29, align 2
+  %61 = add i16 %60, 2
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 16, i16 noundef zeroext %61)
+  %62 = load i16, ptr %33, align 4
+  %63 = add i16 %62, -2
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 0, i16 noundef zeroext %63)
   br label %.thread
 
-.lr.ph.preheader:                                 ; preds = %31
-  %69 = getelementptr inbounds i8, ptr %0, i64 88
-  %70 = icmp ugt i16 %1, 127
-  %71 = getelementptr inbounds i8, ptr %0, i64 92
-  %72 = zext i16 %2 to i64
+.lr.ph.preheader:                                 ; preds = %26
+  %64 = getelementptr inbounds i8, ptr %0, i64 88
+  %65 = icmp ugt i16 %1, 127
+  %66 = getelementptr inbounds i8, ptr %0, i64 92
+  %67 = zext i16 %2 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
-  %73 = phi i16 [ %104, %.loopexit ], [ 0, %.lr.ph.preheader ]
-  %74 = tail call fastcc i32 @e1000_spi_eeprom_ready(ptr noundef %0), !range !9
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %.thread7
+  %68 = phi i16 [ %99, %.loopexit ], [ 0, %.lr.ph.preheader ]
+  %69 = tail call fastcc i32 @e1000_spi_eeprom_ready(ptr noundef %0), !range !9
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %.thread7
 
-76:                                               ; preds = %.lr.ph
+71:                                               ; preds = %.lr.ph
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
-  %77 = tail call i32 @__SCT__cond_resched() #7
-  %78 = load i16, ptr %34, align 2
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 6, i16 noundef zeroext %78)
+  %72 = tail call i32 @__SCT__cond_resched() #7
+  %73 = load i16, ptr %29, align 2
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext 6, i16 noundef zeroext %73)
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
-  %79 = load i16, ptr %69, align 4
-  %80 = icmp eq i16 %79, 8
-  %81 = and i1 %70, %80
-  %82 = select i1 %81, i16 10, i16 2
-  %83 = load i16, ptr %34, align 2
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %82, i16 noundef zeroext %83)
-  %84 = add i16 %73, %1
-  %85 = shl i16 %84, 1
-  %86 = load i16, ptr %69, align 4
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %85, i16 noundef zeroext %86)
-  %87 = zext i16 %73 to i64
-  br label %88
+  %74 = load i16, ptr %64, align 4
+  %75 = icmp eq i16 %74, 8
+  %76 = and i1 %65, %75
+  %77 = select i1 %76, i16 10, i16 2
+  %78 = load i16, ptr %29, align 2
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %77, i16 noundef zeroext %78)
+  %79 = add i16 %68, %1
+  %80 = shl i16 %79, 1
+  %81 = load i16, ptr %64, align 4
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %80, i16 noundef zeroext %81)
+  %82 = zext i16 %68 to i64
+  br label %83
 
-88:                                               ; preds = %91, %76
-  %89 = phi i64 [ %95, %91 ], [ %87, %76 ]
-  %90 = icmp eq i64 %89, %72
-  br i1 %90, label %.loopexit, label %91
+83:                                               ; preds = %86, %71
+  %84 = phi i64 [ %90, %86 ], [ %82, %71 ]
+  %85 = icmp eq i64 %84, %67
+  br i1 %85, label %.loopexit, label %86
 
-91:                                               ; preds = %88
-  %92 = getelementptr i16, ptr %3, i64 %89
-  %93 = load i16, ptr %92, align 2
-  %94 = tail call i16 @llvm.bswap.i16(i16 %93)
-  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %94, i16 noundef zeroext 16)
-  %95 = add nuw nsw i64 %89, 1
-  %96 = trunc i64 %95 to i32
-  %97 = add nuw nsw i32 %96, %22
-  %98 = shl nuw nsw i32 %97, 1
-  %99 = load i16, ptr %71, align 4
-  %100 = zext i16 %99 to i32
-  %101 = urem i32 %98, %100
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %88
+86:                                               ; preds = %83
+  %87 = getelementptr i16, ptr %3, i64 %84
+  %88 = load i16, ptr %87, align 2
+  %89 = tail call i16 @llvm.bswap.i16(i16 %88)
+  tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %89, i16 noundef zeroext 16)
+  %90 = add nuw nsw i64 %84, 1
+  %91 = trunc i64 %90 to i32
+  %92 = add nuw nsw i32 %91, %21
+  %93 = shl nuw nsw i32 %92, 1
+  %94 = load i16, ptr %66, align 4
+  %95 = zext i16 %94 to i32
+  %96 = urem i32 %93, %95
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %83
 
-103:                                              ; preds = %91
+98:                                               ; preds = %86
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %88, %103
-  %.in = phi i64 [ %95, %103 ], [ %72, %88 ]
-  %104 = trunc i64 %.in to i16
-  %105 = icmp ult i16 %104, %2
-  br i1 %105, label %.lr.ph, label %.thread7
+.loopexit:                                        ; preds = %83, %98
+  %.in = phi i64 [ %90, %98 ], [ %67, %83 ]
+  %99 = trunc i64 %.in to i16
+  %100 = icmp ult i16 %99, %2
+  br i1 %100, label %.lr.ph, label %.thread7
 
 .thread7:                                         ; preds = %.loopexit, %.lr.ph
   %.ph = phi i32 [ 0, %.loopexit ], [ -1, %.lr.ph ]
   tail call void @msleep(i32 noundef 10) #7
   br label %.thread
 
-.thread:                                          ; preds = %57, %.thread7, %64
-  %106 = phi i32 [ %.ph, %.thread7 ], [ 0, %64 ], [ -1, %57 ]
+.thread:                                          ; preds = %52, %.thread7, %59
+  %101 = phi i32 [ %.ph, %.thread7 ], [ 0, %59 ], [ -1, %52 ]
   tail call fastcc void @e1000_release_eeprom(ptr noundef %0)
-  br label %107
+  br label %102
 
-107:                                              ; preds = %.thread, %28, %20, %16, %9
-  %108 = phi i32 [ 0, %9 ], [ %106, %.thread ], [ -1, %20 ], [ -1, %16 ], [ -1, %28 ]
+102:                                              ; preds = %.thread, %23, %20, %16, %9
+  %103 = phi i32 [ 0, %9 ], [ %101, %.thread ], [ -1, %20 ], [ -1, %16 ], [ -1, %23 ]
   tail call void @mutex_unlock(ptr noundef nonnull @e1000_eeprom_lock) #7
-  ret i32 %108
+  ret i32 %103
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

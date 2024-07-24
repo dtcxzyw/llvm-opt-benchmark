@@ -9872,7 +9872,7 @@ define internal fastcc range(i32 0, 2) i32 @decompress(ptr noundef %0, ptr nound
   %37 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %36) #6
   %38 = add nuw nsw i32 %.064.i, 4
   %39 = icmp ugt i32 %37, %3
-  %40 = sub nsw i32 %3, %37
+  %40 = sub nuw nsw i32 %3, %37
   %41 = icmp ugt i32 %38, %40
   %or.cond.i = select i1 %39, i1 true, i1 %41
   br i1 %or.cond.i, label %83, label %42

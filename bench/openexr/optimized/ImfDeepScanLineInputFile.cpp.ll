@@ -880,7 +880,7 @@ delete.end:                                       ; preds = %delete.notnull, %in
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %delete.end
-  %sub.i = sub nsw i64 %conv130, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv130, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %lineOffsets, i64 noundef %sub.i)
           to label %_ZNSt6vectorImSaImEE6resizeEm.exit unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -1173,7 +1173,7 @@ invoke.cont236:                                   ; preds = %invoke.cont229
   br i1 %cmp.i50, label %if.then.i57, label %if.else.i51
 
 if.then.i57:                                      ; preds = %invoke.cont236
-  %sub.i58 = sub nsw i64 %conv246, %sub.ptr.div.i.i49
+  %sub.i58 = sub nuw nsw i64 %conv246, %sub.ptr.div.i.i49
   invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %bytesPerLine, i64 noundef %sub.i58)
           to label %invoke.cont247 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 

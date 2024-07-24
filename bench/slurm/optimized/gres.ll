@@ -3857,12 +3857,12 @@ _validate_gres_conf.exit:                         ; preds = %147, %.sink.split.i
   br i1 %212, label %213, label %215
 
 213:                                              ; preds = %209
-  %214 = sub i64 %211, %.0.ph.i.i
+  %214 = sub nuw i64 %211, %.0.ph.i.i
   store i64 %214, ptr %210, align 8
   br label %_compare_conf_counts.exit.i
 
 215:                                              ; preds = %209
-  %216 = sub i64 %.0.ph.i.i, %211
+  %216 = sub nuw i64 %.0.ph.i.i, %211
   store i64 0, ptr %210, align 8
   br label %.outer.i.i, !llvm.loop !38
 
@@ -3913,12 +3913,12 @@ _compare_conf_counts.exit.i:                      ; preds = %202, %213
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %233
-  %238 = sub i64 %235, %.0.ph.i59.i
+  %238 = sub nuw i64 %235, %.0.ph.i59.i
   store i64 %238, ptr %234, align 8
   br label %_compare_conf_counts.exit63.i
 
 239:                                              ; preds = %233
-  %240 = sub i64 %.0.ph.i59.i, %235
+  %240 = sub nuw i64 %.0.ph.i59.i, %235
   store i64 0, ptr %234, align 8
   br label %.outer.i58.i, !llvm.loop !38
 
@@ -8669,7 +8669,7 @@ define internal fastcc void @_sync_node_shared_to_sharing(ptr noundef readonly %
   %115 = getelementptr inbounds ptr, ptr %114, i64 %indvars.iv159
   %116 = load ptr, ptr %115, align 8
   tail call void @bit_set(ptr noundef %116, i64 noundef %indvars.iv159) #25
-  %117 = sub i64 %10, %indvars.iv159
+  %117 = sub nuw i64 %10, %indvars.iv159
   %118 = udiv i64 %.1111144, %117
   %119 = load ptr, ptr %109, align 8
   %120 = getelementptr inbounds i64, ptr %119, i64 %indvars.iv159
@@ -9385,7 +9385,7 @@ _gres_scale_value.exit:                           ; preds = %.loopexit, %._crit_
   br i1 %.not60, label %81, label %78
 
 78:                                               ; preds = %73
-  %79 = sub i64 %2, %77
+  %79 = sub nuw i64 %2, %77
   %80 = getelementptr inbounds i8, ptr %75, i64 32
   store i64 %79, ptr %80, align 8
   br label %85
@@ -17811,7 +17811,7 @@ gres_use_busy_dev.exit.i:                         ; preds = %50, %47
   br i1 %.not328.i, label %.thread366.i, label %314
 
 314:                                              ; preds = %310
-  %315 = sub i64 %309, %313
+  %315 = sub nuw i64 %309, %313
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %314, %306
@@ -19803,7 +19803,7 @@ _filter_shared_gres_per_task.exit64.us.i:         ; preds = %138, %_filter_share
 
 .thread.i:                                        ; preds = %.lr.ph127.i
   %160 = getelementptr inbounds i64, ptr %124, i64 %156
-  %161 = sub i64 %158, %119
+  %161 = sub nuw i64 %158, %119
   store i64 %161, ptr %160, align 8
   call void @bit_set(ptr noundef %122, i64 noundef %156) #25
   br label %_filter_shared_gres_per_task.exit64thread-pre-split.i
@@ -19826,7 +19826,7 @@ _filter_shared_gres_per_task.exit64.us.i:         ; preds = %138, %_filter_share
 
 .thread95.i:                                      ; preds = %.lr.ph.i
   %172 = getelementptr inbounds i64, ptr %124, i64 %168
-  %173 = sub i64 %170, %119
+  %173 = sub nuw i64 %170, %119
   store i64 %173, ptr %172, align 8
   br label %_filter_shared_gres_per_task.exit64thread-pre-split.i
 
@@ -19871,7 +19871,7 @@ _filter_shared_gres_per_task.exit64.us.i:         ; preds = %138, %_filter_share
 
 .thread100.i:                                     ; preds = %.lr.ph131.i
   %192 = getelementptr inbounds i64, ptr %124, i64 %188
-  %193 = sub i64 %190, %119
+  %193 = sub nuw i64 %190, %119
   store i64 %193, ptr %192, align 8
   call void @bit_set(ptr noundef %122, i64 noundef %188) #25
   br label %_filter_shared_gres_per_task.exit64thread-pre-split.i
@@ -19894,7 +19894,7 @@ _filter_shared_gres_per_task.exit64.us.i:         ; preds = %138, %_filter_share
 
 .thread103.i:                                     ; preds = %.lr.ph129.i
   %204 = getelementptr inbounds i64, ptr %124, i64 %200
-  %205 = sub i64 %202, %119
+  %205 = sub nuw i64 %202, %119
   store i64 %205, ptr %204, align 8
   br label %_filter_shared_gres_per_task.exit64thread-pre-split.i
 
@@ -26488,7 +26488,7 @@ define internal fastcc void @_merge_gres2(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %39, label %.split.us, label %40
 
 40:                                               ; preds = %36
-  %41 = sub i64 %.0.us, %38
+  %41 = sub nuw i64 %.0.us, %38
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %.thread38, label %.preheader.split.us, !llvm.loop !249
 
@@ -26602,7 +26602,7 @@ _set_file_subset.exit:                            ; preds = %73, %87, %91
   br label %.thread38
 
 93:                                               ; preds = %66
-  %94 = sub i64 %.0, %68
+  %94 = sub nuw i64 %.0, %68
   %95 = icmp eq i64 %94, 0
   br i1 %95, label %.thread38, label %.preheader.split, !llvm.loop !249
 

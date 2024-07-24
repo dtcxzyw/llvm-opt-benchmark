@@ -727,7 +727,7 @@ _ZN4File10DirectReadEPvm.exit:                    ; preds = %._crit_edge.i, %30
   %43 = getelementptr inbounds i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(8256) %0, i64 noundef %41, i32 noundef 0)
-  %45 = sub i64 %.040.ph, %.03564
+  %45 = sub nuw i64 %.040.ph, %.03564
   %46 = call i64 @llvm.umin.i64(i64 %45, i64 512)
   %47 = load i32, ptr %20, align 4
   %48 = icmp eq i32 %47, 1
@@ -813,7 +813,7 @@ split:                                            ; preds = %60, %._crit_edge
 
 82:                                               ; preds = %76
   %83 = getelementptr inbounds i8, ptr %.034.ph, i64 %80
-  %84 = sub i64 %.040.ph, %80
+  %84 = sub nuw i64 %.040.ph, %80
   br label %.outer, !llvm.loop !7
 
 85:                                               ; preds = %.loopexit, %76

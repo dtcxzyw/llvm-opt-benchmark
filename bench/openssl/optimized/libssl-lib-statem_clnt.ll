@@ -2747,7 +2747,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i.i, 
 if.end9.i:                                        ; preds = %lor.lhs.false.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 3
   %add.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %conv.i.i
-  %sub.i.i6.i.i = sub i64 %sub.i.i.i.i, %conv.i.i
+  %sub.i.i6.i.i = sub nuw i64 %sub.i.i.i.i, %conv.i.i
   store ptr %add.ptr.i.i5.i.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i.i, ptr %1, align 8
   %d1.i = getelementptr inbounds i8, ptr %s, i64 1136
@@ -3004,7 +3004,7 @@ if.then31:                                        ; preds = %if.end28, %lor.lhs.
 if.end32:                                         ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i, i64 1
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   store ptr %add.ptr.i.i5.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i, ptr %0, align 8
   %cmp34 = icmp ugt i8 %9, 32
@@ -3572,7 +3572,7 @@ if.then:                                          ; preds = %lor.lhs.false.i, %l
 if.end9:                                          ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 3
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   store ptr %add.ptr.i.i5.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i, ptr %0, align 8
   %d1 = getelementptr inbounds i8, ptr %s, i64 1136
@@ -3772,7 +3772,7 @@ if.end51:                                         ; preds = %lor.lhs.false47
   store ptr %add.ptr.i2.i63, ptr %certbytes, align 8
   %add.ptr.i.i70 = getelementptr inbounds i8, ptr %add.ptr.i2.i63, i64 %or7.i.i62
   store ptr %add.ptr.i.i70, ptr %pkt, align 8
-  %sub.i.i71 = sub i64 %sub.i.i64, %or7.i.i62
+  %sub.i.i71 = sub nuw i64 %sub.i.i64, %or7.i.i62
   store i64 %sub.i.i71, ptr %15, align 8
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %propq, align 8
@@ -3854,7 +3854,7 @@ if.then87:                                        ; preds = %if.then84, %lor.lhs
 if.end88:                                         ; preds = %lor.lhs.false.i
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i, i64 2
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
-  %sub.i.i7.i = sub i64 %sub.i.i.i, %or.i.i.i
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i, %or.i.i.i
   store ptr %add.ptr.i.i6.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i, ptr %15, align 8
   store ptr %add.ptr.i2.i.i, ptr %extensions, align 8
@@ -3989,7 +3989,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i.i, 
 if.end.i:                                         ; preds = %lor.lhs.false.i.i
   %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i.i, i64 2
   %add.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
-  %sub.i.i7.i.i = sub i64 %sub.i.i.i.i, %or.i.i.i.i
+  %sub.i.i7.i.i = sub nuw i64 %sub.i.i.i.i, %or.i.i.i.i
   store ptr %add.ptr.i.i6.i.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i.i, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
   %cmp.i = icmp ugt i64 %or.i.i.i.i, 256
@@ -4060,7 +4060,7 @@ lor.lhs.false.i.i60:                              ; preds = %if.then12
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false.i.i60
   %add.ptr.i2.i.i.i69 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i.i61, i64 2
   %add.ptr.i.i6.i.i70 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i69, i64 %or.i.i.i.i66
-  %sub.i.i7.i.i71 = sub i64 %sub.i.i.i.i67, %or.i.i.i.i66
+  %sub.i.i7.i.i71 = sub nuw i64 %sub.i.i.i.i67, %or.i.i.i.i66
   store ptr %add.ptr.i.i6.i.i70, ptr %pkt, align 8
   store i64 %sub.i.i7.i.i71, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
   %cmp.i.i.i18.i = icmp ult i64 %sub.i.i7.i.i71, 2
@@ -4081,7 +4081,7 @@ lor.lhs.false.i19.i:                              ; preds = %lor.lhs.false.i
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i19.i
   %add.ptr.i2.i.i29.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i70, i64 2
   %add.ptr.i.i6.i30.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i29.i, i64 %or.i.i.i25.i
-  %sub.i.i7.i31.i = sub i64 %sub.i.i.i26.i, %or.i.i.i25.i
+  %sub.i.i7.i31.i = sub nuw i64 %sub.i.i.i26.i, %or.i.i.i25.i
   store ptr %add.ptr.i.i6.i30.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i31.i, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %sub.i.i.i26.i, %or.i.i.i25.i
@@ -4097,7 +4097,7 @@ lor.lhs.false.i35.i:                              ; preds = %lor.lhs.false3.i
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i35.i
   %add.ptr.i.i.i40.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i30.i, i64 1
   %add.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i40.i, i64 %conv.i.i
-  %sub.i.i6.i.i = sub i64 %sub.i.i.i37.i, %conv.i.i
+  %sub.i.i6.i.i = sub nuw i64 %sub.i.i.i37.i, %conv.i.i
   store ptr %add.ptr.i.i5.i.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i.i, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
   %cmp.i.i.i45.i = icmp ult i64 %sub.i.i6.i.i, 2
@@ -4124,7 +4124,7 @@ if.then.i75:                                      ; preds = %lor.lhs.false.i46.i
 if.end.i72:                                       ; preds = %lor.lhs.false.i46.i
   %add.ptr.i2.i.i56.i = getelementptr inbounds i8, ptr %add.ptr.i.i5.i.i, i64 2
   %add.ptr.i.i6.i57.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i56.i, i64 %or.i.i.i52.i
-  %sub.i.i7.i58.i = sub i64 %sub.i.i.i53.i, %or.i.i.i52.i
+  %sub.i.i7.i58.i = sub nuw i64 %sub.i.i.i53.i, %or.i.i.i52.i
   store ptr %add.ptr.i.i6.i57.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i58.i, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
   %conv.i = trunc nuw nsw i64 %or.i.i.i.i66 to i32
@@ -4210,7 +4210,7 @@ lor.lhs.false.i.i79:                              ; preds = %if.then20
 lor.lhs.false.i88:                                ; preds = %lor.lhs.false.i.i79
   %add.ptr.i2.i.i.i89 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i.i80, i64 2
   %add.ptr.i.i6.i.i90 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i89, i64 %or.i.i.i.i85
-  %sub.i.i7.i.i91 = sub i64 %sub.i.i.i.i86, %or.i.i.i.i85
+  %sub.i.i7.i.i91 = sub nuw i64 %sub.i.i.i.i86, %or.i.i.i.i85
   store ptr %add.ptr.i.i6.i.i90, ptr %pkt, align 8
   store i64 %sub.i.i7.i.i91, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
   %cmp.i.i.i42.i = icmp ult i64 %sub.i.i7.i.i91, 2
@@ -4231,7 +4231,7 @@ lor.lhs.false.i43.i:                              ; preds = %lor.lhs.false.i88
 lor.lhs.false3.i92:                               ; preds = %lor.lhs.false.i43.i
   %add.ptr.i2.i.i53.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i90, i64 2
   %add.ptr.i.i6.i54.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i53.i, i64 %or.i.i.i49.i
-  %sub.i.i7.i55.i = sub i64 %sub.i.i.i50.i, %or.i.i.i49.i
+  %sub.i.i7.i55.i = sub nuw i64 %sub.i.i.i50.i, %or.i.i.i49.i
   store ptr %add.ptr.i.i6.i54.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i55.i, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
   %cmp.i.i.i61.i = icmp ult i64 %sub.i.i7.i55.i, 2
@@ -4259,7 +4259,7 @@ tls_process_ske_dhe.exit.thread:                  ; preds = %if.then20, %lor.lhs
 if.end.i93:                                       ; preds = %lor.lhs.false.i62.i
   %add.ptr.i2.i.i72.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i54.i, i64 2
   %add.ptr.i.i6.i73.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i72.i, i64 %or.i.i.i68.i
-  %sub.i.i7.i74.i = sub i64 %sub.i.i.i69.i, %or.i.i.i68.i
+  %sub.i.i7.i74.i = sub nuw i64 %sub.i.i.i69.i, %or.i.i.i68.i
   store ptr %add.ptr.i.i6.i73.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i74.i, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
   %conv.i94 = trunc nuw nsw i64 %or.i.i.i.i85 to i32
@@ -4500,7 +4500,7 @@ if.then16.i:                                      ; preds = %lor.lhs.false.i.i11
 if.end17.i:                                       ; preds = %lor.lhs.false.i.i111
   %add.ptr.i.i.i.i116 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i.i112, i64 1
   %add.ptr.i.i5.i.i117 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i116, i64 %conv.i.i114
-  %sub.i.i6.i.i118 = sub i64 %sub.i.i.i.i113, %conv.i.i114
+  %sub.i.i6.i.i118 = sub nuw i64 %sub.i.i.i.i113, %conv.i.i114
   store ptr %add.ptr.i.i5.i.i117, ptr %pkt, align 8
   store i64 %sub.i.i6.i.i118, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
   %41 = load ptr, ptr %peer_tmp, align 8
@@ -4647,7 +4647,7 @@ lor.lhs.false.i135:                               ; preds = %if.end74
 lor.lhs.false:                                    ; preds = %lor.lhs.false.i135
   %add.ptr.i2.i.i142 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i, i64 2
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i142, i64 %or.i.i.i139
-  %sub.i.i7.i = sub i64 %sub.i.i.i140, %or.i.i.i139
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i140, %or.i.i.i139
   store ptr %add.ptr.i.i6.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
   %cmp86.not = icmp eq i64 %sub.i.i.i140, %or.i.i.i139
@@ -4868,7 +4868,7 @@ lor.lhs.false.i:                                  ; preds = %if.end27
 lor.lhs.false:                                    ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i, i64 1
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   store ptr %add.ptr.i.i5.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i, ptr %tmp.sroa.7.0.pkt.sroa_idx.i, align 8
   %11 = load ptr, ptr %pha_context, align 8
@@ -4920,7 +4920,7 @@ if.then46:                                        ; preds = %if.end43, %lor.lhs.
 if.end47:                                         ; preds = %lor.lhs.false.i52
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i53, i64 2
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
-  %sub.i.i7.i = sub i64 %sub.i.i.i55, %or.i.i.i
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i55, %or.i.i.i
   store ptr %add.ptr.i.i6.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i, ptr %tmp.sroa.7.0.pkt.sroa_idx.i, align 8
   store ptr %add.ptr.i2.i.i, ptr %extensions, align 8
@@ -4977,7 +4977,7 @@ if.then62:                                        ; preds = %if.else59, %lor.lhs
 if.end63:                                         ; preds = %lor.lhs.false.i62
   %add.ptr.i.i.i68 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i63, i64 1
   %add.ptr.i.i5.i69 = getelementptr inbounds i8, ptr %add.ptr.i.i.i68, i64 %conv.i65
-  %sub.i.i6.i70 = sub i64 %sub.i.i.i64, %conv.i65
+  %sub.i.i6.i70 = sub nuw i64 %sub.i.i.i64, %conv.i65
   store ptr %add.ptr.i.i5.i69, ptr %pkt, align 8
   store i64 %sub.i.i6.i70, ptr %tmp.sroa.7.0.pkt.sroa_idx.i59, align 8
   %ctype66 = getelementptr inbounds i8, ptr %s, i64 720
@@ -5041,7 +5041,7 @@ if.then83:                                        ; preds = %if.then80, %lor.lhs
 if.end84:                                         ; preds = %lor.lhs.false.i85
   %add.ptr.i2.i.i95 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i86, i64 2
   %add.ptr.i.i6.i96 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i95, i64 %or.i.i.i91
-  %sub.i.i7.i97 = sub i64 %sub.i.i.i92, %or.i.i.i91
+  %sub.i.i7.i97 = sub nuw i64 %sub.i.i.i92, %or.i.i.i91
   store ptr %add.ptr.i.i6.i96, ptr %pkt, align 8
   store i64 %sub.i.i7.i97, ptr %tmp.sroa.7.0.pkt.sroa_idx.i59, align 8
   store ptr %add.ptr.i2.i.i95, ptr %sigalgs, align 8
@@ -5256,7 +5256,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false13
 PACKET_get_length_prefixed_1.exit:                ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 9
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   store ptr %add.ptr.i.i5.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i, ptr %1, align 8
   br label %lor.lhs.false16
@@ -7076,7 +7076,7 @@ PACKET_copy_bytes.exit:                           ; preds = %if.end16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call8, ptr align 1 %6, i64 %or7.i.i.i, i1 false)
   %add.ptr.i.i15 = getelementptr inbounds i8, ptr %6, i64 %or7.i.i.i
   store ptr %add.ptr.i.i15, ptr %pkt, align 8
-  %sub.i.i16 = sub i64 %pkt.val.i.i13, %or7.i.i.i
+  %sub.i.i16 = sub nuw i64 %pkt.val.i.i13, %or7.i.i.i
   store i64 %sub.i.i16, ptr %0, align 8
   br label %return
 

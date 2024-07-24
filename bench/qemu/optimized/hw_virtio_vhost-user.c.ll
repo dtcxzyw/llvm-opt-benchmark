@@ -4427,7 +4427,7 @@ trace_vhost_user_postcopy_fault_handler_loop.exit: ; preds = %for.body, %land.lh
   br i1 %cmp13.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %trace_vhost_user_postcopy_fault_handler_loop.exit
-  %sub = sub i64 %2, %24
+  %sub = sub nuw i64 %2, %24
   %regions19 = getelementptr inbounds i8, ptr %.pre, i64 8
   %memory_size22 = getelementptr [0 x %struct.vhost_memory_region], ptr %regions19, i64 0, i64 %conv66, i32 1
   %25 = load i64, ptr %memory_size22, align 8

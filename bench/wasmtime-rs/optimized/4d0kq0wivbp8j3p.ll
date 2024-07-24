@@ -194,7 +194,7 @@ define hidden noundef align 8 dereferenceable_or_null(88) ptr @"_ZN10wasmparser9
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = sub i64 %1, %4
+  %28 = sub nuw i64 %1, %4
   %29 = icmp ult i64 %28, %27
   br i1 %29, label %46, label %45
 
@@ -291,7 +291,7 @@ define hidden noundef align 8 dereferenceable_or_null(152) ptr @"_ZN10wasmparser
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = sub i64 %1, %4
+  %28 = sub nuw i64 %1, %4
   %29 = icmp ult i64 %28, %27
   br i1 %29, label %46, label %45
 
@@ -388,7 +388,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN10wasmparser9
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = sub i64 %1, %4
+  %28 = sub nuw i64 %1, %4
   %29 = icmp ult i64 %28, %27
   br i1 %29, label %46, label %45
 
@@ -485,7 +485,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN10wasmparser9
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = sub i64 %1, %4
+  %28 = sub nuw i64 %1, %4
   %29 = icmp ult i64 %28, %27
   br i1 %29, label %46, label %45
 
@@ -582,7 +582,7 @@ define hidden noundef align 8 dereferenceable_or_null(176) ptr @"_ZN10wasmparser
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = sub i64 %1, %4
+  %28 = sub nuw i64 %1, %4
   %29 = icmp ult i64 %28, %27
   br i1 %29, label %46, label %45
 
@@ -679,7 +679,7 @@ define hidden noundef align 8 dereferenceable_or_null(272) ptr @"_ZN10wasmparser
 25:                                               ; preds = %2
   %26 = getelementptr inbounds i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = sub i64 %1, %4
+  %28 = sub nuw i64 %1, %4
   %29 = icmp ult i64 %28, %27
   br i1 %29, label %46, label %45
 
@@ -11171,7 +11171,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN91_$LT$wasmp
 28:                                               ; preds = %3
   %29 = getelementptr inbounds i8, ptr %0, i64 456
   %30 = load i64, ptr %29, align 8, !alias.scope !2171, !noundef !4
-  %31 = sub i64 %5, %7
+  %31 = sub nuw i64 %5, %7
   %32 = icmp ult i64 %31, %30
   br i1 %32, label %48, label %"_ZN10wasmparser9validator5types21SnapshotList$LT$T$GT$3get17hb0bf22d494271382E.llvm.12426178672938875897.exit"
 
@@ -11278,7 +11278,7 @@ define hidden noundef nonnull align 8 dereferenceable(88) ptr @"_ZN91_$LT$wasmpa
 30:                                               ; preds = %4
   %31 = getelementptr inbounds i8, ptr %0, i64 344
   %32 = load i64, ptr %31, align 8, !alias.scope !2184, !noundef !4
-  %33 = sub i64 %7, %9
+  %33 = sub nuw i64 %7, %9
   %34 = icmp ult i64 %33, %32
   br i1 %34, label %50, label %"_ZN10wasmparser9validator5types21SnapshotList$LT$T$GT$3get17h0f3c896fcd946989E.llvm.12426178672938875897.exit"
 
@@ -11383,7 +11383,7 @@ define hidden noundef nonnull align 8 dereferenceable(152) ptr @"_ZN91_$LT$wasmp
 28:                                               ; preds = %3
   %29 = getelementptr inbounds i8, ptr %0, i64 568
   %30 = load i64, ptr %29, align 8, !alias.scope !2197, !noundef !4
-  %31 = sub i64 %5, %7
+  %31 = sub nuw i64 %5, %7
   %32 = icmp ult i64 %31, %30
   br i1 %32, label %48, label %"_ZN10wasmparser9validator5types21SnapshotList$LT$T$GT$3get17h629c6c4649bc909fE.llvm.12426178672938875897.exit"
 
@@ -11488,7 +11488,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN91_$LT$wasmpa
 28:                                               ; preds = %3
   %29 = getelementptr inbounds i8, ptr %0, i64 512
   %30 = load i64, ptr %29, align 8, !alias.scope !2210, !noundef !4
-  %31 = sub i64 %5, %7
+  %31 = sub nuw i64 %5, %7
   %32 = icmp ult i64 %31, %30
   br i1 %32, label %48, label %"_ZN10wasmparser9validator5types21SnapshotList$LT$T$GT$3get17ha754586bd29ddd92E.llvm.12426178672938875897.exit"
 
@@ -11593,7 +11593,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN91_$LT$wasmpa
 28:                                               ; preds = %3
   %29 = getelementptr inbounds i8, ptr %0, i64 64
   %30 = load i64, ptr %29, align 8, !alias.scope !2223, !noundef !4
-  %31 = sub i64 %5, %7
+  %31 = sub nuw i64 %5, %7
   %32 = icmp ult i64 %31, %30
   br i1 %32, label %48, label %"_ZN10wasmparser9validator5types21SnapshotList$LT$T$GT$3get17h9964d054a96798e7E.llvm.12426178672938875897.exit"
 
@@ -11698,7 +11698,7 @@ define hidden noundef nonnull align 8 dereferenceable(272) ptr @"_ZN91_$LT$wasmp
 28:                                               ; preds = %3
   %29 = getelementptr inbounds i8, ptr %0, i64 288
   %30 = load i64, ptr %29, align 8, !alias.scope !2236, !noundef !4
-  %31 = sub i64 %5, %7
+  %31 = sub nuw i64 %5, %7
   %32 = icmp ult i64 %31, %30
   br i1 %32, label %48, label %"_ZN10wasmparser9validator5types21SnapshotList$LT$T$GT$3get17hb97edbd5e5c4f345E.llvm.12426178672938875897.exit"
 

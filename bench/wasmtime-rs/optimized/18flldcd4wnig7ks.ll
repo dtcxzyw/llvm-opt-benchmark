@@ -6645,7 +6645,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h0a17db33d7fb9051E"
 
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb9083c0275b9ba55E.llvm.12599983639457799574.exit"
   %18 = getelementptr inbounds i8, ptr %11, i64 72
-  %19 = sub i64 %5, %1
+  %19 = sub nuw i64 %5, %1
   %20 = mul i64 %19, 72
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 8 %11, i64 %20, i1 false)
   br label %23
@@ -6698,7 +6698,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hbe8860749a9c3efcE"
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %11, i64 4
-  %17 = sub i64 %5, %1
+  %17 = sub nuw i64 %5, %1
   %18 = shl i64 %17, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %16, ptr nonnull align 4 %11, i64 %18, i1 false)
   br label %20
@@ -6722,7 +6722,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8f07d7ea8acf5b77E"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc3e03063155a61e7E.llvm.12599983639457799574.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !1438, !noundef !9
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -6776,7 +6776,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h98cba37c1ce8e595E"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hfa0ccb2441c21cc5E.llvm.12599983639457799574.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = zext i1 %2 to i8
   %10 = load i64, ptr %0, align 8, !alias.scope !1444, !noundef !9
   %11 = sub i64 %10, %5
@@ -6824,7 +6824,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha143b10e46cd8cd7E"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h60c5569799464174E.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !1450, !noundef !9
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -6878,7 +6878,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hcc251ce4b38c037dE"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h64c79df9db8c05ccE.llvm.12599983639457799574.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %.sroa.0.0.copyload = load i8, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -7004,7 +7004,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hfe7adbc80b1d2226E"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8d1d66f0f36cdf96E.llvm.12599983639457799574.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %.sroa.0.0.copyload = load i32, ptr %2, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4

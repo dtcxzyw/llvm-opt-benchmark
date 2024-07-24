@@ -1339,12 +1339,12 @@ define noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(dou
   br i1 %.not.i, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", label %16
 
 16:                                               ; preds = %13
-  %17 = sub i64 %15, %14
+  %17 = sub nuw i64 %15, %14
   %18 = icmp ult i64 %17, 5
   br i1 %18, label %common.ret35, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %13
-  %19 = sub i64 %14, %15
+  %19 = sub nuw i64 %14, %15
   %20 = icmp ult i64 %19, 5
   br i1 %20, label %common.ret35, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
 

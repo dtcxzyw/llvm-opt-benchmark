@@ -1556,7 +1556,7 @@ define internal fastcc i32 @nf_xfrm_me_harder(ptr noundef %0, ptr noundef %1, i3
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %49
-  %76 = sub nsw i32 %65, %73
+  %76 = sub nuw nsw i32 %65, %73
   %77 = call i32 @pskb_expand_head(ptr noundef %1, i32 noundef %76, i32 noundef 0, i32 noundef 2080) #8
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %80

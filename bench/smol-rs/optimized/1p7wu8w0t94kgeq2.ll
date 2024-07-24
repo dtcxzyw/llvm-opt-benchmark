@@ -74,7 +74,7 @@ default.unreachable11:                            ; preds = %1
   br i1 %23, label %30, label %26
 
 24:                                               ; preds = %15
-  %25 = sub i64 %20, %19
+  %25 = sub nuw i64 %20, %19
   br label %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3len17h39ac3652d5f98174E.exit"
 
 26:                                               ; preds = %22

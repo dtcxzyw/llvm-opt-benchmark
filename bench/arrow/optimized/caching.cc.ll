@@ -3471,7 +3471,7 @@ _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal14ReadRangeCache4Impl7WaitForES8_EUlRKS4_E_ET_SG_SG_T0_.exit
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %ranges, i64 noundef %sub.i)
   %.pre139 = load ptr, ptr %_M_finish.i, align 8
   %.pre140 = load ptr, ptr %ranges, align 8

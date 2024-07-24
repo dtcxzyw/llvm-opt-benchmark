@@ -3196,7 +3196,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %remaining.065 = phi i64 [ %spec.select, %for.body22.lr.ph ], [ %sub25, %if.else44 ]
   %chain.164 = phi ptr [ %9, %for.body22.lr.ph ], [ %12, %if.else44 ]
   %12 = load ptr, ptr %chain.164, align 8
-  %sub25 = sub i64 %remaining.065, %11
+  %sub25 = sub nuw i64 %remaining.065, %11
   %13 = load ptr, ptr %last_with_datap, align 8
   %14 = load ptr, ptr %13, align 8
   %cmp26.not = icmp eq ptr %chain.164, %14
@@ -3330,7 +3330,7 @@ land.rhs.i:                                       ; preds = %if.end27.i, %while.
 while.body.i:                                     ; preds = %land.rhs.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data.046.i, ptr align 1 %add.ptr49.i, i64 %5, i1 false)
   %add.ptr37.i = getelementptr inbounds i8, ptr %data.046.i, i64 %5
-  %sub38.i = sub i64 %datlen.addr.148.i, %5
+  %sub38.i = sub nuw i64 %datlen.addr.148.i, %5
   %tobool31.not.i = icmp eq i64 %sub38.i, 0
   br i1 %tobool31.not.i, label %do.body53.i, label %land.rhs.i, !llvm.loop !24
 
@@ -3451,7 +3451,7 @@ land.rhs:                                         ; preds = %if.end27, %while.bo
 while.body:                                       ; preds = %land.rhs
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data.046, ptr align 1 %add.ptr50, i64 %sub32, i1 false)
   %add.ptr37 = getelementptr inbounds i8, ptr %data.046, i64 %sub32
-  %sub38 = sub i64 %datlen.addr.148, %sub32
+  %sub38 = sub nuw i64 %datlen.addr.148, %sub32
   %tobool31.not = icmp eq i64 %sub38, 0
   br i1 %tobool31.not, label %do.body53, label %land.rhs, !llvm.loop !24
 
@@ -3519,7 +3519,7 @@ land.rhs.i:                                       ; preds = %if.end27.i, %while.
 while.body.i:                                     ; preds = %land.rhs.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data.046.i, ptr align 1 %add.ptr49.i, i64 %4, i1 false)
   %add.ptr37.i = getelementptr inbounds i8, ptr %data.046.i, i64 %4
-  %sub38.i = sub i64 %datlen.addr.148.i, %4
+  %sub38.i = sub nuw i64 %datlen.addr.148.i, %4
   %tobool31.not.i = icmp eq i64 %sub38.i, 0
   br i1 %tobool31.not.i, label %do.body53.i, label %land.rhs.i, !llvm.loop !24
 
@@ -3632,7 +3632,7 @@ do.end43:                                         ; preds = %do.end43.lr.ph, %if
   %chain.098 = phi ptr [ %5, %do.end43.lr.ph ], [ %13, %if.end51 ]
   %nread.097 = phi i64 [ 0, %do.end43.lr.ph ], [ %add, %if.end51 ]
   %add = add i64 %11, %nread.097
-  %sub = sub i64 %datlen.addr.099, %11
+  %sub = sub nuw i64 %datlen.addr.099, %11
   %cmp46 = icmp eq ptr %10, %chain.098
   br i1 %cmp46, label %if.then48, label %if.end51
 
@@ -3860,13 +3860,13 @@ if.then12:                                        ; preds = %if.end10
   br label %do.body147
 
 if.end14:                                         ; preds = %if.end10
-  %sub = sub i64 %size.addr.0, %5
+  %sub = sub nuw i64 %size.addr.0, %5
   %tmp.0109 = load ptr, ptr %2, align 8
   %tobool19.not110 = icmp eq ptr %tmp.0109, null
   br i1 %tobool19.not110, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %if.end22
-  %sub28 = sub i64 %remaining.0111, %9
+  %sub28 = sub nuw i64 %remaining.0111, %9
   %tmp.0 = load ptr, ptr %tmp.0112, align 8
   %tobool19.not = icmp eq ptr %tmp.0, null
   br i1 %tobool19.not, label %for.end, label %for.body, !llvm.loop !26
@@ -4496,7 +4496,7 @@ land.rhs.i.i:                                     ; preds = %do.end3.i.i, %while
   br i1 %cmp28.not.i.i, label %do.body56.i.i, label %while.body.i.i56
 
 while.body.i.i56:                                 ; preds = %land.rhs.i.i
-  %sub31.i.i = sub i64 %left.041.i.i, %27
+  %sub31.i.i = sub nuw i64 %left.041.i.i, %27
   %28 = load ptr, ptr %chain.142.i.i, align 8
   %tobool26.not.i.i = icmp eq ptr %28, null
   br i1 %tobool26.not.i.i, label %if.else.i.i57, label %land.rhs.i.i, !llvm.loop !33
@@ -5380,7 +5380,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 %13, ptr %iov_len.i, align 8
-  %sub.i = sub i64 %howmuch.addr.029.i, %13
+  %sub.i = sub nuw i64 %howmuch.addr.029.i, %13
   %chain.0.i = load ptr, ptr %chain.031.i, align 8
   %cmp6.i = icmp ne ptr %chain.0.i, null
   %cmp8.i = icmp ult i64 %indvars.iv.i, 127
@@ -5551,7 +5551,7 @@ land.rhs:                                         ; preds = %do.end25, %while.bo
   br i1 %cmp28.not, label %if.then33, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %sub31 = sub i64 %add27, %7
+  %sub31 = sub nuw i64 %add27, %7
   %8 = load ptr, ptr %chain.142, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.else, label %land.rhs, !llvm.loop !33

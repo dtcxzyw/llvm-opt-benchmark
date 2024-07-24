@@ -13434,7 +13434,7 @@ common.resume:                                    ; preds = %171, %79, %411
   call void @llvm.experimental.noalias.scope.decl(metadata !1128)
   call void @llvm.experimental.noalias.scope.decl(metadata !1131)
   store i64 0, ptr %125, align 8, !alias.scope !1131, !noalias !1128
-  %244 = sub i64 %235, %.011.i
+  %244 = sub nuw i64 %235, %.011.i
   %245 = getelementptr inbounds i8, ptr %221, i64 %.011.i
   store i64 %.011.i, ptr %130, align 8, !alias.scope !1128, !noalias !1131
   store i64 %244, ptr %131, align 8, !alias.scope !1128, !noalias !1131
@@ -13744,7 +13744,7 @@ common.resume:                                    ; preds = %171, %79, %411
   br i1 %357, label %358, label %360
 
 358:                                              ; preds = %351
-  %359 = sub i64 %355, %356
+  %359 = sub nuw i64 %355, %356
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8cc1ef8b0b0095e5E.llvm.2944573799196634385"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %359, i8 noundef 0)
           to label %377 unwind label %.body141.thread227.loopexit
 
@@ -13770,7 +13770,7 @@ common.resume:                                    ; preds = %171, %79, %411
   store i64 %355, ptr %125, align 8, !alias.scope !1169, !noalias !1172
   %366 = load ptr, ptr %124, align 8, !alias.scope !1169, !noalias !1172, !nonnull !11, !noundef !11
   %367 = getelementptr inbounds i8, ptr %366, i64 %355
-  %368 = sub i64 %356, %.0.sroa.speculated.i
+  %368 = sub nuw i64 %356, %.0.sroa.speculated.i
   %369 = getelementptr inbounds i8, ptr %366, i64 %.0.sroa.speculated.i
   store ptr %367, ptr %23, align 8, !alias.scope !1164, !noalias !1167
   store ptr %369, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1164, !noalias !1167
@@ -14162,7 +14162,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h792d74cdd609f48aE.exit.thre
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %96
-  %102 = sub nsw i64 %99, %98
+  %102 = sub nuw nsw i64 %99, %98
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17habd22a2e9a2cfe4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %102, i32 noundef -1)
           to label %103 unwind label %.loopexit
 

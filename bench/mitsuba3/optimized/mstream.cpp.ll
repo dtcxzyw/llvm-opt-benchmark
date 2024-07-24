@@ -178,7 +178,7 @@ define void @_ZN7mitsuba12MemoryStream6resizeEm(ptr nocapture noundef nonnull al
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %storemerge, i64 %22
-  %26 = sub i64 %1, %22
+  %26 = sub nuw i64 %1, %22
   tail call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %26, i1 false)
   br label %27
 
@@ -536,7 +536,7 @@ common.resume:                                    ; preds = %18, %20, %42
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %storemerge.i, i64 %53
-  %57 = sub i64 %33, %53
+  %57 = sub nuw i64 %33, %53
   tail call void @llvm.memset.p0.i64(ptr align 1 %56, i8 0, i64 %57, i1 false)
   br label %_ZN7mitsuba12MemoryStream6resizeEm.exit
 
@@ -707,7 +707,7 @@ define void @_ZN7mitsuba12MemoryStream8truncateEm(ptr nocapture noundef nonnull 
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %storemerge.i, i64 %23
-  %27 = sub i64 %1, %23
+  %27 = sub nuw i64 %1, %23
   tail call void @llvm.memset.p0.i64(ptr align 1 %26, i8 0, i64 %27, i1 false)
   br label %_ZN7mitsuba12MemoryStream6resizeEm.exit
 

@@ -565,7 +565,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37: ; 
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %93
-  %104 = sub nsw i64 %95, %101
+  %104 = sub nuw nsw i64 %95, %101
   call void @_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %104)
   %.pre = load ptr, ptr %82, align 8
   br label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit
@@ -1093,7 +1093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %119
-  %130 = sub nsw i64 %121, %127
+  %130 = sub nuw nsw i64 %121, %127
   call void @_ZNSt6vectorIN3gmx20AwhPointStateHistoryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %130)
   %.pre = load ptr, ptr %1, align 8
   %.pre109 = load ptr, ptr %108, align 8
@@ -2491,7 +2491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44.i: 
   br i1 %459, label %460, label %462
 
 460:                                              ; preds = %450
-  %461 = sub nsw i64 %452, %458
+  %461 = sub nuw nsw i64 %452, %458
   invoke void @_ZNSt6vectorIN3gmx27CorrelationBlockDataHistoryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %438, i64 noundef %461)
           to label %.noexc52 unwind label %.loopexit.split-lp
 

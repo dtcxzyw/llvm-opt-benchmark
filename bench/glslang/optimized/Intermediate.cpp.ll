@@ -22899,7 +22899,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang40TextureUpgradeAndSamplerRem
   br i1 %98, label %99, label %._crit_edge.thread
 
 99:                                               ; preds = %._crit_edge
-  %100 = sub i64 %.1, %96
+  %100 = sub nuw i64 %.1, %96
   %101 = getelementptr inbounds i8, ptr %7, i64 24
   %102 = load ptr, ptr %101, align 8
   %103 = ptrtoint ptr %102 to i64
@@ -22994,7 +22994,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE6resizeEm.exit: ; pre
   br i1 %139, label %140, label %166
 
 140:                                              ; preds = %134
-  %141 = sub i64 %.0.lcssa73, %138
+  %141 = sub nuw i64 %.0.lcssa73, %138
   %142 = getelementptr inbounds i8, ptr %11, i64 24
   %143 = load ptr, ptr %142, align 8
   %144 = ptrtoint ptr %143 to i64
@@ -23239,7 +23239,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6ve
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEES4_S8_ET0_T_SC_SB_RT1_.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEES4_S8_ET0_T_SC_SB_RT1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEmEvRT_T0_.exit
   %37 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEES4_S8_ET0_T_SC_SB_RT1_.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP11TIntermNodeSt6vectorIS3_N7glslang14pool_allocatorIS3_EEEEEmEvRT_T0_.exit ]
-  %38 = sub nsw i64 %9, %20
+  %38 = sub nuw nsw i64 %9, %20
   %39 = getelementptr ptr, ptr %37, i64 %38
   store ptr %39, ptr %12, align 8
   %.not8.i.i44 = icmp eq ptr %13, %1

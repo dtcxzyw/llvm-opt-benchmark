@@ -2474,12 +2474,12 @@ define void @Extra_ThreshSimplifyInequalities(i32 noundef %0, i32 noundef %1, pt
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = sub i64 %15, %12
+  %20 = sub nuw i64 %15, %12
   store i64 %20, ptr %14, align 8
   br label %24
 
 21:                                               ; preds = %17
-  %22 = sub i64 %12, %15
+  %22 = sub nuw i64 %12, %15
   store i64 %22, ptr %11, align 8
   br label %24
 
@@ -2602,12 +2602,12 @@ define noundef i32 @Extra_ThreshAssignWeights(ptr nocapture readnone %0, ptr noc
   br i1 %49, label %52, label %50
 
 50:                                               ; preds = %48
-  %51 = sub i64 %46, %44
+  %51 = sub nuw i64 %46, %44
   store i64 %51, ptr %45, align 8
   br label %55
 
 52:                                               ; preds = %48
-  %53 = sub i64 %44, %46
+  %53 = sub nuw i64 %44, %46
   store i64 %53, ptr %43, align 8
   br label %55
 

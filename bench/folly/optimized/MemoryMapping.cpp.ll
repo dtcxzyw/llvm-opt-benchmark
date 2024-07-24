@@ -1020,7 +1020,7 @@ while.body.lr.ph.split.us.i:                      ; preds = %while.body.lr.ph.i
   br i1 %cmp4.not.us29.i, label %if.end.us.i, label %if.end
 
 while.body.us.i:                                  ; preds = %if.end.us.i
-  %sub.us.i = sub i64 %1, %add.us.i
+  %sub.us.i = sub nuw i64 %1, %add.us.i
   %.sroa.speculated.us.i = tail call i64 @llvm.umin.i64(i64 %sub.us.i, i64 %retval.0.i.i)
   %add.ptr.us.i = getelementptr inbounds i8, ptr %0, i64 %add.us.i
   %call2.i.us.i = tail call i32 @mlock(ptr noundef %add.ptr.us.i, i64 noundef %.sroa.speculated.us.i) #18
@@ -1040,7 +1040,7 @@ while.body.lr.ph.split.i:                         ; preds = %while.body.lr.ph.i
   br i1 %cmp4.not24.i, label %if.end.i, label %if.end
 
 while.body.i:                                     ; preds = %if.end.i
-  %sub.i = sub i64 %1, %add.i
+  %sub.i = sub nuw i64 %1, %add.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %retval.0.i.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.i
   %call.i.i.i = tail call noundef i32 @mlock2(ptr noundef %add.ptr.i, i64 noundef %.sroa.speculated.i, i32 noundef %spec.select.i.i.i) #18

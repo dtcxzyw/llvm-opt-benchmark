@@ -5060,7 +5060,7 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %49
-  %59 = sub nsw i64 %56, %55
+  %59 = sub nuw nsw i64 %56, %55
   invoke void @_ZNSt6vectorIPK7AstNodeSaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %59)
           to label %._ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20_crit_edge unwind label %.loopexit
 

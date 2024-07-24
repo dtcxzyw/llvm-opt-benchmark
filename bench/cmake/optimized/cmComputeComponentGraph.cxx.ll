@@ -305,7 +305,7 @@ _ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit: ; preds = %1, %6
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit
-  %23 = sub nsw i64 %16, %20
+  %23 = sub nuw nsw i64 %16, %20
   tail call void @_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %23)
   br label %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit1
 
@@ -361,7 +361,7 @@ _ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE6resizeEm.exit: ; p
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %_ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE6resizeEm.exit
-  %23 = sub nsw i64 %11, %20
+  %23 = sub nuw nsw i64 %11, %20
   call void @_ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %18, i64 noundef %23, ptr noundef nonnull align 8 dereferenceable(16) %2)
   br label %_ZNSt6vectorIN23cmComputeComponentGraph11TarjanEntryESaIS1_EE6resizeEmRKS1_.exit
 
@@ -404,7 +404,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIN23cmC
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %40 = sub nsw i64 %11, %37
+  %40 = sub nuw nsw i64 %11, %37
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr %35, i64 noundef %40, ptr noundef nonnull align 8 dereferenceable(8) @_ZN23cmComputeComponentGraph17INVALID_COMPONENTE)
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
@@ -450,7 +450,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit12:             ; preds = %_ZNSt6vectorImSaImE
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit12
-  %58 = sub nsw i64 %11, %55
+  %58 = sub nuw nsw i64 %11, %55
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr %53, i64 noundef %58, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit14
 
@@ -1551,7 +1551,7 @@ _ZSt13move_backwardIPN23cmComputeComponentGraph11TarjanEntryES2_ET0_T_S4_S3_.exi
   br i1 %31, label %_ZSt24__uninitialized_fill_n_aIPN23cmComputeComponentGraph11TarjanEntryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %32
 
 32:                                               ; preds = %30
-  %33 = sub i64 %2, %17
+  %33 = sub nuw i64 %2, %17
   %34 = getelementptr inbounds %"struct.cmComputeComponentGraph::TarjanEntry", ptr %9, i64 %33
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -1731,7 +1731,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

@@ -525,8 +525,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 91:                                               ; preds = %79
   %92 = add nuw nsw i64 %.sroa.726.0.i, 1
   %93 = getelementptr inbounds { [3 x i64] }, ptr %89, i64 %92
-  %94 = sub nsw i64 %88, %.sroa.726.0.i
-  %95 = mul nsw i64 %94, 24
+  %94 = sub nuw nsw i64 %88, %.sroa.726.0.i
+  %95 = mul nuw nsw i64 %94, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %93, ptr nonnull align 8 %90, i64 %95, i1 false), !alias.scope !85, !noalias !88
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
@@ -534,7 +534,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %96 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.06.0.i, i64 %.sroa.726.0.i
   %97 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.06.0.i, i64 %92
-  %98 = shl nsw i64 %94, 5
+  %98 = shl nuw nsw i64 %94, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %97, ptr nonnull align 8 %96, i64 %98, i1 false), !alias.scope !94, !noalias !96
   br label %105
 

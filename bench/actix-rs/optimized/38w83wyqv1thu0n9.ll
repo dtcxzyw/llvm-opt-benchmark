@@ -8440,7 +8440,7 @@ define hidden { i64, ptr } @_ZN9actix_web4rmap11ResourceMap19_find_matching_node
   %13 = getelementptr inbounds i8, ptr %1, i64 %6
   %14 = load i8, ptr %13, align 1, !alias.scope !1996, !noundef !13
   %15 = icmp sgt i8 %14, -65
-  %16 = sub i64 %2, %6
+  %16 = sub nuw i64 %2, %6
   br i1 %15, label %18, label %17
 
 17:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %10

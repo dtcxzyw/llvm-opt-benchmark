@@ -447,7 +447,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
   br label %.loopexit
 
 43:                                               ; preds = %.lr.ph
-  %44 = sub i64 %.03867, %37
+  %44 = sub nuw i64 %.03867, %37
   %.0.in = getelementptr inbounds i8, ptr %.068, i64 48
   %.0 = load ptr, ptr %.0.in, align 8
   %.not52 = icmp eq ptr %.0, null

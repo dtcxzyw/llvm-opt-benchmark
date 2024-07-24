@@ -21773,7 +21773,7 @@ invoke.cont6.us:                                  ; preds = %while.cond.us
   br i1 %cmp8.us, label %if.then9, label %invoke.cont13.us
 
 invoke.cont13.us:                                 ; preds = %invoke.cont6.us
-  %sub11.us = sub i32 %15, %sz2
+  %sub11.us = sub nuw i32 %15, %sz2
   %sub12.us = add i32 %15, -1
   %16 = load ptr, ptr %m_buffer.i, align 8
   %idxprom.i.i.us = zext i32 %sub12.us to i64
@@ -24884,7 +24884,7 @@ lpad8:                                            ; preds = %lpad8.loopexit.spli
   resume { ptr, i32 } %lpad.phi
 
 invoke.cont17:                                    ; preds = %invoke.cont9
-  %sub15 = sub i32 %36, %sz2
+  %sub15 = sub nuw i32 %36, %sz2
   %sub16 = add i32 %36, -1
   %41 = load ptr, ptr %m_buffer.i61, align 8
   %idxprom.i.i = zext i32 %sub16 to i64
@@ -25874,7 +25874,7 @@ if.end:                                           ; preds = %invoke.cont15
 
 for.body:                                         ; preds = %if.end, %for.inc
   %k.072 = phi i32 [ %inc, %for.inc ], [ 2, %if.end ]
-  %sub18 = sub i32 %n, %k.072
+  %sub18 = sub nuw i32 %n, %k.072
   %idxprom19 = zext i32 %sub18 to i64
   %arrayidx20 = getelementptr inbounds ptr, ptr %as, i64 %idxprom19
   %16 = load ptr, ptr %arrayidx20, align 8
@@ -26493,7 +26493,7 @@ if.end:                                           ; preds = %_ZNK11realclosure7m
 
 for.body:                                         ; preds = %if.end, %for.inc
   %k.058 = phi i32 [ %inc, %for.inc ], [ 2, %if.end ]
-  %sub8 = sub i32 %n, %k.058
+  %sub8 = sub nuw i32 %n, %k.058
   %idxprom9 = zext i32 %sub8 to i64
   %arrayidx10 = getelementptr inbounds ptr, ptr %p, i64 %idxprom9
   %17 = load ptr, ptr %arrayidx10, align 8
@@ -30529,7 +30529,7 @@ lpad5:                                            ; preds = %lpad5.loopexit.spli
   resume { ptr, i32 } %lpad.phi
 
 invoke.cont13:                                    ; preds = %invoke.cont6
-  %sub11 = sub i32 %16, %sz2
+  %sub11 = sub nuw i32 %16, %sz2
   %24 = load i32, ptr %d, align 4
   %inc = add i32 %24, 1
   store i32 %inc, ptr %d, align 4

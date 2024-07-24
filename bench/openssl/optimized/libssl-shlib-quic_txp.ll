@@ -1244,7 +1244,7 @@ if.end35.i.i:                                     ; preds = %if.end27.i.i
   br i1 %cmp.i38.i.i, label %txp_determine_ppl_from_pl.exit.thread.i.i, label %if.end.i39.i.i
 
 if.end.i39.i.i:                                   ; preds = %if.end35.i.i
-  %sub.i.i.i = sub i64 %cmpl.0.i.i, %conv31.i.i
+  %sub.i.i.i = sub nuw i64 %cmpl.0.i.i, %conv31.i.i
   store i64 %sub.i.i.i, ptr %pl.addr.i.i.i, align 8
   %51 = load ptr, ptr %qtx, align 8
   %call.i40.i.i = call i32 @ossl_qtx_calculate_plaintext_payload_len(ptr noundef %51, i32 noundef %.pre-phi, i64 noundef %sub.i.i.i, ptr noundef nonnull %pl.addr.i.i.i) #10

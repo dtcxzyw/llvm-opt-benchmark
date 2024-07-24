@@ -178,7 +178,7 @@ define internal i32 @crypto_cbc_decrypt(ptr nocapture noundef readonly %0, ptr n
   %23 = zext i32 %14 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %22, i64 %23, i1 false)
   %24 = tail call i32 @crypto_lskcipher_decrypt(ptr noundef %9, ptr noundef %22, ptr noundef %22, i32 noundef %14, ptr noundef null) #7
-  %25 = sub i32 %3, %14
+  %25 = sub nuw i32 %3, %14
   %26 = icmp ult i32 %25, %14
   br i1 %26, label %.loopexit, label %27
 

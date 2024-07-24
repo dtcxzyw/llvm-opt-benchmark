@@ -412,9 +412,9 @@ land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %2 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %2, %offset
-  %sub.i = sub i64 %2, %offset
+  %sub.i = sub nuw i64 %2, %offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
-  %or.cond.i = or i1 %cmp.i, %cmp2.i
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
@@ -518,9 +518,9 @@ land.lhs.true.i:                                  ; preds = %if.end22
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %9 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %9, %offset
-  %sub.i = sub i64 %9, %offset
+  %sub.i = sub nuw i64 %9, %offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
-  %or.cond.i = or i1 %cmp.i, %cmp2.i
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %fail, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end22
@@ -577,9 +577,9 @@ land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %2 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %2, %offset
-  %sub.i = sub i64 %2, %offset
+  %sub.i = sub nuw i64 %2, %offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
-  %or.cond.i = or i1 %cmp.i, %cmp2.i
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
@@ -614,9 +614,9 @@ land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %2 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %2, %offset
-  %sub.i = sub i64 %2, %offset
+  %sub.i = sub nuw i64 %2, %offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
-  %or.cond.i = or i1 %cmp.i, %cmp2.i
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
@@ -651,9 +651,9 @@ land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %2 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %2, %src_offset
-  %sub.i = sub i64 %2, %src_offset
+  %sub.i = sub nuw i64 %2, %src_offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
-  %or.cond.i = or i1 %cmp.i, %cmp2.i
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
@@ -688,9 +688,9 @@ land.lhs.true.i:                                  ; preds = %entry
   %size.i = getelementptr inbounds i8, ptr %bs.val, i64 8
   %2 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %2, %dst_offset
-  %sub.i = sub i64 %2, %dst_offset
+  %sub.i = sub nuw i64 %2, %dst_offset
   %cmp2.i = icmp ult i64 %sub.i, %bytes
-  %or.cond.i = or i1 %cmp.i, %cmp2.i
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
@@ -984,7 +984,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %sub9 = sub nsw i64 %call, %offset
+  %sub9 = sub nuw nsw i64 %call, %offset
   %cmp10 = icmp ult i64 %sub9, %size
   %or.cond = select i1 %has_size, i1 %cmp10, i1 false
   br i1 %or.cond, label %if.then12, label %if.end15

@@ -266,7 +266,7 @@ define void @_ZN2cv8ximgproc14ContourFitting13frequencyInitEv(ptr noundef nonnul
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %1
-  %15 = sub nsw i64 %5, %12
+  %15 = sub nuw nsw i64 %5, %12
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %15)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -1379,7 +1379,7 @@ _ZNK2cv11_InputArray6getMatEi.exit149:            ; preds = %129, %132
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %182
-  %195 = sub nsw i64 %185, %192
+  %195 = sub nuw nsw i64 %185, %192
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %183, i64 noundef %195)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 
@@ -1415,7 +1415,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIdSaId
   br i1 %209, label %210, label %212
 
 210:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %211 = sub nsw i64 %.pre-phi, %208
+  %211 = sub nuw nsw i64 %.pre-phi, %208
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %201, i64 noundef %211)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit153_crit_edge unwind label %.loopexit.split-lp
 
@@ -1465,7 +1465,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit153:            ; preds = %._ZNSt6vectorIdSaId
   br i1 %233, label %234, label %236
 
 234:                                              ; preds = %222
-  %235 = sub nsw i64 %225, %232
+  %235 = sub nuw nsw i64 %225, %232
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %224, i64 noundef %235)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i unwind label %.loopexit.split-lp
 
@@ -3248,7 +3248,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt7complexIdESaIS1_EE6resizeEm(ptr
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

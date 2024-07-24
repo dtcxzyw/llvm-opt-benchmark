@@ -6658,7 +6658,7 @@ if.then.i:                                        ; preds = %if.then9
   br label %"_ZN4node16OnScopeLeaveImplIZNS_4quic7Session7ReceiveEONS1_5StoreERKNS_13SocketAddressES7_E3$_0ED2Ev.exit"
 
 if.end.i:                                         ; preds = %if.then9
-  %sub.i = sub i64 %call2.i, %call3.i4
+  %sub.i = sub nuw i64 %call2.i, %call3.i4
   %div.i = udiv i64 %sub.i, 1000000
   %timer_.i = getelementptr inbounds i8, ptr %this, i64 2472
   %cmp4.i = icmp ult i64 %sub.i, 1000000
@@ -6692,7 +6692,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %call2, %call3
+  %sub = sub nuw i64 %call2, %call3
   %div = udiv i64 %sub, 1000000
   %timer_ = getelementptr inbounds i8, ptr %this, i64 2472
   %cmp4 = icmp ult i64 %sub, 1000000
@@ -9489,7 +9489,7 @@ if.then.i.i:                                      ; preds = %if.then.i23
   br label %cleanup.cont
 
 if.end.i.i:                                       ; preds = %if.then.i23
-  %sub.i.i = sub i64 %call2.i.i, %call3.i.i
+  %sub.i.i = sub nuw i64 %call2.i.i, %call3.i.i
   %div.i.i = udiv i64 %sub.i.i, 1000000
   %timer_.i.i = getelementptr inbounds i8, ptr %this, i64 2472
   %cmp4.i.i = icmp ult i64 %sub.i.i, 1000000

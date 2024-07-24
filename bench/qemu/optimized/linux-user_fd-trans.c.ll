@@ -303,10 +303,10 @@ if.end15.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i16 %sub.i.i.i.i.i.i, -4
   %conv18.i.i.i.i.i.i = zext i16 %and.i.i.i.i.i.i to i64
   %cmp19.not.i.i.i.i.i.i = icmp ugt i64 %len.addr.016.i.i.i.i.i.i, %conv18.i.i.i.i.i.i
-  %sub24.i.i.i.i.i.i = sub i64 %len.addr.016.i.i.i.i.i.i, %conv18.i.i.i.i.i.i
+  %sub24.i.i.i.i.i.i = sub nuw nsw i64 %len.addr.016.i.i.i.i.i.i, %conv18.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i.i.i.i.i.i, i64 %conv18.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub24.i.i.i.i.i.i, 4
-  %or.cond21.i.i.i.i.i.i = and i1 %cmp19.not.i.i.i.i.i.i, %cmp.i.i.i.i.i.i
+  %or.cond21.i.i.i.i.i.i = select i1 %cmp19.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
   br i1 %or.cond21.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %if.end15.i.i.i.i.i, !llvm.loop !5
 
 if.else.i.i.i.i.i:                                ; preds = %sw.bb8.i.i.i.i.i
@@ -355,10 +355,10 @@ if.end15.i35.i.i.i.i.i:                           ; preds = %if.then.i77.i.i.i.i
   %and.i37.i.i.i.i.i = and i16 %sub.i36.i.i.i.i.i, -4
   %conv18.i38.i.i.i.i.i = zext i16 %and.i37.i.i.i.i.i to i64
   %cmp19.not.i39.i.i.i.i.i = icmp ugt i64 %len.addr.016.i27.i.i.i.i.i, %conv18.i38.i.i.i.i.i
-  %sub24.i40.i.i.i.i.i = sub i64 %len.addr.016.i27.i.i.i.i.i, %conv18.i38.i.i.i.i.i
+  %sub24.i40.i.i.i.i.i = sub nuw nsw i64 %len.addr.016.i27.i.i.i.i.i, %conv18.i38.i.i.i.i.i
   %add.ptr.i41.i.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i26.i.i.i.i.i, i64 %conv18.i38.i.i.i.i.i
   %cmp.i42.i.i.i.i.i = icmp ugt i64 %sub24.i40.i.i.i.i.i, 4
-  %or.cond21.i43.i.i.i.i.i = and i1 %cmp19.not.i39.i.i.i.i.i, %cmp.i42.i.i.i.i.i
+  %or.cond21.i43.i.i.i.i.i = select i1 %cmp19.not.i39.i.i.i.i.i, i1 %cmp.i42.i.i.i.i.i, i1 false
   br i1 %or.cond21.i43.i.i.i.i.i, label %while.body.i25.i.i.i.i.i, label %if.end15.i.i.i.i.i, !llvm.loop !5
 
 do.body.i.i.i.i.i:                                ; preds = %if.else.i.i.i.i.i
@@ -453,10 +453,10 @@ if.end15.i59.i.i.i.i.i:                           ; preds = %if.then.i82.i.i.i.i
   %and.i61.i.i.i.i.i = and i16 %sub.i60.i.i.i.i.i, -4
   %conv18.i62.i.i.i.i.i = zext i16 %and.i61.i.i.i.i.i to i64
   %cmp19.not.i63.i.i.i.i.i = icmp ugt i64 %len.addr.016.i51.i.i.i.i.i, %conv18.i62.i.i.i.i.i
-  %sub24.i64.i.i.i.i.i = sub i64 %len.addr.016.i51.i.i.i.i.i, %conv18.i62.i.i.i.i.i
+  %sub24.i64.i.i.i.i.i = sub nuw nsw i64 %len.addr.016.i51.i.i.i.i.i, %conv18.i62.i.i.i.i.i
   %add.ptr.i65.i.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i50.i.i.i.i.i, i64 %conv18.i62.i.i.i.i.i
   %cmp.i66.i.i.i.i.i = icmp ugt i64 %sub24.i64.i.i.i.i.i, 4
-  %or.cond21.i67.i.i.i.i.i = and i1 %cmp19.not.i63.i.i.i.i.i, %cmp.i66.i.i.i.i.i
+  %or.cond21.i67.i.i.i.i.i = select i1 %cmp19.not.i63.i.i.i.i.i, i1 %cmp.i66.i.i.i.i.i, i1 false
   br i1 %or.cond21.i67.i.i.i.i.i, label %while.body.i49.i.i.i.i.i, label %if.end15.i.i.i.i.i, !llvm.loop !5
 
 do.body49.i.i.i.i.i:                              ; preds = %sw.bb36.i.i.i.i.i
@@ -489,10 +489,10 @@ if.end15.i.i.i.i.i:                               ; preds = %if.end15.i59.i.i.i.
   %and.i.i.i.i.i = and i16 %sub.i.i.i.i.i, -4
   %conv18.i.i.i.i.i = zext i16 %and.i.i.i.i.i to i64
   %cmp19.not.i.i.i.i.i = icmp ugt i64 %len.addr.016.i.i.i.i.i, %conv18.i.i.i.i.i
-  %sub24.i.i.i.i.i = sub i64 %len.addr.016.i.i.i.i.i, %conv18.i.i.i.i.i
+  %sub24.i.i.i.i.i = sub nuw nsw i64 %len.addr.016.i.i.i.i.i, %conv18.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i.i.i.i.i, i64 %conv18.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp ugt i64 %sub24.i.i.i.i.i, 4
-  %or.cond21.i.i.i.i.i = and i1 %cmp19.not.i.i.i.i.i, %cmp.i.i.i.i.i
+  %or.cond21.i.i.i.i.i = select i1 %cmp19.not.i.i.i.i.i, i1 %cmp.i.i.i.i.i, i1 false
   br i1 %or.cond21.i.i.i.i.i, label %while.body.i.i.i.i.i, label %if.end15.i.i.i.i, !llvm.loop !5
 
 sw.bb136.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
@@ -561,10 +561,10 @@ if.end15.i.i206.i.i.i.i:                          ; preds = %if.then.i.i205.i.i.
   %and.i.i208.i.i.i.i = and i16 %sub.i.i207.i.i.i.i, -4
   %conv18.i.i209.i.i.i.i = zext i16 %and.i.i208.i.i.i.i to i64
   %cmp19.not.i.i210.i.i.i.i = icmp ugt i64 %len.addr.016.i.i195.i.i.i.i, %conv18.i.i209.i.i.i.i
-  %sub24.i.i211.i.i.i.i = sub i64 %len.addr.016.i.i195.i.i.i.i, %conv18.i.i209.i.i.i.i
+  %sub24.i.i211.i.i.i.i = sub nuw nsw i64 %len.addr.016.i.i195.i.i.i.i, %conv18.i.i209.i.i.i.i
   %add.ptr.i.i212.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i.i194.i.i.i.i, i64 %conv18.i.i209.i.i.i.i
   %cmp.i.i213.i.i.i.i = icmp ugt i64 %sub24.i.i211.i.i.i.i, 4
-  %or.cond21.i.i214.i.i.i.i = and i1 %cmp19.not.i.i210.i.i.i.i, %cmp.i.i213.i.i.i.i
+  %or.cond21.i.i214.i.i.i.i = select i1 %cmp19.not.i.i210.i.i.i.i, i1 %cmp.i.i213.i.i.i.i, i1 false
   br i1 %or.cond21.i.i214.i.i.i.i, label %while.body.i.i193.i.i.i.i, label %if.end15.i124.i.i.i.i, !llvm.loop !5
 
 sw.bb2.i185.i.i.i.i:                              ; preds = %if.end.i121.i.i.i.i
@@ -614,10 +614,10 @@ if.end15.i18.i.i.i.i.i:                           ; preds = %if.then.i34.i.i.i.i
   %and.i20.i.i.i.i.i = and i16 %sub.i19.i.i.i.i.i, -4
   %conv18.i21.i.i.i.i.i = zext i16 %and.i20.i.i.i.i.i to i64
   %cmp19.not.i22.i.i.i.i.i = icmp ugt i64 %len.addr.016.i10.i.i.i.i.i, %conv18.i21.i.i.i.i.i
-  %sub24.i23.i.i.i.i.i = sub i64 %len.addr.016.i10.i.i.i.i.i, %conv18.i21.i.i.i.i.i
+  %sub24.i23.i.i.i.i.i = sub nuw nsw i64 %len.addr.016.i10.i.i.i.i.i, %conv18.i21.i.i.i.i.i
   %add.ptr.i24.i.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i9.i.i.i.i.i, i64 %conv18.i21.i.i.i.i.i
   %cmp.i25.i.i.i.i.i = icmp ugt i64 %sub24.i23.i.i.i.i.i, 4
-  %or.cond21.i26.i.i.i.i.i = and i1 %cmp19.not.i22.i.i.i.i.i, %cmp.i25.i.i.i.i.i
+  %or.cond21.i26.i.i.i.i.i = select i1 %cmp19.not.i22.i.i.i.i.i, i1 %cmp.i25.i.i.i.i.i, i1 false
   br i1 %or.cond21.i26.i.i.i.i.i, label %while.body.i8.i.i.i.i.i, label %if.end15.i124.i.i.i.i, !llvm.loop !5
 
 do.body.i215.i.i.i.i:                             ; preds = %if.end.i121.i.i.i.i
@@ -636,10 +636,10 @@ if.end15.i124.i.i.i.i:                            ; preds = %if.end15.i18.i.i.i.
   %and.i126.i.i.i.i = and i16 %sub.i125.i.i.i.i, -4
   %conv18.i127.i.i.i.i = zext i16 %and.i126.i.i.i.i to i64
   %cmp19.not.i128.i.i.i.i = icmp ugt i64 %len.addr.016.i116.i.i.i.i, %conv18.i127.i.i.i.i
-  %sub24.i129.i.i.i.i = sub i64 %len.addr.016.i116.i.i.i.i, %conv18.i127.i.i.i.i
+  %sub24.i129.i.i.i.i = sub nuw nsw i64 %len.addr.016.i116.i.i.i.i, %conv18.i127.i.i.i.i
   %add.ptr.i130.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i115.i.i.i.i, i64 %conv18.i127.i.i.i.i
   %cmp.i131.i.i.i.i = icmp ugt i64 %sub24.i129.i.i.i.i, 4
-  %or.cond21.i132.i.i.i.i = and i1 %cmp19.not.i128.i.i.i.i, %cmp.i131.i.i.i.i
+  %or.cond21.i132.i.i.i.i = select i1 %cmp19.not.i128.i.i.i.i, i1 %cmp.i131.i.i.i.i, i1 false
   br i1 %or.cond21.i132.i.i.i.i, label %while.body.i114.i.i.i.i, label %if.end15.i.i.i.i, !llvm.loop !5
 
 sw.bb141.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
@@ -684,10 +684,10 @@ if.end15.i146.i.i.i.i:                            ; preds = %if.then.i221.i.i.i.
   %and.i148.i.i.i.i = and i16 %sub.i147.i.i.i.i, -4
   %conv18.i149.i.i.i.i = zext i16 %and.i148.i.i.i.i to i64
   %cmp19.not.i150.i.i.i.i = icmp ugt i64 %len.addr.016.i138.i.i.i.i, %conv18.i149.i.i.i.i
-  %sub24.i151.i.i.i.i = sub i64 %len.addr.016.i138.i.i.i.i, %conv18.i149.i.i.i.i
+  %sub24.i151.i.i.i.i = sub nuw nsw i64 %len.addr.016.i138.i.i.i.i, %conv18.i149.i.i.i.i
   %add.ptr.i152.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i137.i.i.i.i, i64 %conv18.i149.i.i.i.i
   %cmp.i153.i.i.i.i = icmp ugt i64 %sub24.i151.i.i.i.i, 4
-  %or.cond21.i154.i.i.i.i = and i1 %cmp19.not.i150.i.i.i.i, %cmp.i153.i.i.i.i
+  %or.cond21.i154.i.i.i.i = select i1 %cmp19.not.i150.i.i.i.i, i1 %cmp.i153.i.i.i.i, i1 false
   br i1 %or.cond21.i154.i.i.i.i, label %while.body.i136.i.i.i.i, label %if.end15.i.i.i.i, !llvm.loop !5
 
 sw.bb146.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
@@ -774,10 +774,10 @@ if.end15.i.i240.i.i.i.i:                          ; preds = %if.then.i.i239.i.i.
   %and.i.i242.i.i.i.i = and i16 %sub.i.i241.i.i.i.i, -4
   %conv18.i.i243.i.i.i.i = zext i16 %and.i.i242.i.i.i.i to i64
   %cmp19.not.i.i244.i.i.i.i = icmp ugt i64 %len.addr.016.i.i228.i.i.i.i, %conv18.i.i243.i.i.i.i
-  %sub24.i.i245.i.i.i.i = sub i64 %len.addr.016.i.i228.i.i.i.i, %conv18.i.i243.i.i.i.i
+  %sub24.i.i245.i.i.i.i = sub nuw nsw i64 %len.addr.016.i.i228.i.i.i.i, %conv18.i.i243.i.i.i.i
   %add.ptr.i.i246.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i.i227.i.i.i.i, i64 %conv18.i.i243.i.i.i.i
   %cmp.i.i247.i.i.i.i = icmp ugt i64 %sub24.i.i245.i.i.i.i, 4
-  %or.cond21.i.i248.i.i.i.i = and i1 %cmp19.not.i.i244.i.i.i.i, %cmp.i.i247.i.i.i.i
+  %or.cond21.i.i248.i.i.i.i = select i1 %cmp19.not.i.i244.i.i.i.i, i1 %cmp.i.i247.i.i.i.i, i1 false
   br i1 %or.cond21.i.i248.i.i.i.i, label %while.body.i.i226.i.i.i.i, label %if.end15.i168.i.i.i.i, !llvm.loop !5
 
 sw.bb78.i.i.i.i.i:                                ; preds = %if.end.i165.i.i.i.i
@@ -820,10 +820,10 @@ if.end15.i58.i.i.i.i.i:                           ; preds = %if.then.i74.i.i.i.i
   %and.i60.i.i.i.i.i = and i16 %sub.i59.i.i.i.i.i, -4
   %conv18.i61.i.i.i.i.i = zext i16 %and.i60.i.i.i.i.i to i64
   %cmp19.not.i62.i.i.i.i.i = icmp ugt i64 %len.addr.016.i50.i.i.i.i.i, %conv18.i61.i.i.i.i.i
-  %sub24.i63.i.i.i.i.i = sub i64 %len.addr.016.i50.i.i.i.i.i, %conv18.i61.i.i.i.i.i
+  %sub24.i63.i.i.i.i.i = sub nuw nsw i64 %len.addr.016.i50.i.i.i.i.i, %conv18.i61.i.i.i.i.i
   %add.ptr.i64.i.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i49.i.i.i.i.i, i64 %conv18.i61.i.i.i.i.i
   %cmp.i65.i.i.i.i.i = icmp ugt i64 %sub24.i63.i.i.i.i.i, 4
-  %or.cond21.i66.i.i.i.i.i = and i1 %cmp19.not.i62.i.i.i.i.i, %cmp.i65.i.i.i.i.i
+  %or.cond21.i66.i.i.i.i.i = select i1 %cmp19.not.i62.i.i.i.i.i, i1 %cmp.i65.i.i.i.i.i, i1 false
   br i1 %or.cond21.i66.i.i.i.i.i, label %while.body.i48.i.i.i.i.i, label %if.end15.i168.i.i.i.i, !llvm.loop !5
 
 do.body.i250.i.i.i.i:                             ; preds = %if.end.i165.i.i.i.i
@@ -842,10 +842,10 @@ if.end15.i168.i.i.i.i:                            ; preds = %if.end15.i58.i.i.i.
   %and.i170.i.i.i.i = and i16 %sub.i169.i.i.i.i, -4
   %conv18.i171.i.i.i.i = zext i16 %and.i170.i.i.i.i to i64
   %cmp19.not.i172.i.i.i.i = icmp ugt i64 %len.addr.016.i160.i.i.i.i, %conv18.i171.i.i.i.i
-  %sub24.i173.i.i.i.i = sub i64 %len.addr.016.i160.i.i.i.i, %conv18.i171.i.i.i.i
+  %sub24.i173.i.i.i.i = sub nuw nsw i64 %len.addr.016.i160.i.i.i.i, %conv18.i171.i.i.i.i
   %add.ptr.i174.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i159.i.i.i.i, i64 %conv18.i171.i.i.i.i
   %cmp.i175.i.i.i.i = icmp ugt i64 %sub24.i173.i.i.i.i, 4
-  %or.cond21.i176.i.i.i.i = and i1 %cmp19.not.i172.i.i.i.i, %cmp.i175.i.i.i.i
+  %or.cond21.i176.i.i.i.i = select i1 %cmp19.not.i172.i.i.i.i, i1 %cmp.i175.i.i.i.i, i1 false
   br i1 %or.cond21.i176.i.i.i.i, label %while.body.i158.i.i.i.i, label %if.end15.i.i.i.i, !llvm.loop !5
 
 do.body.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
@@ -864,10 +864,10 @@ if.end15.i.i.i.i:                                 ; preds = %if.end15.i168.i.i.i
   %and.i.i.i.i = and i16 %sub.i.i.i.i, -4
   %conv18.i.i.i.i = zext i16 %and.i.i.i.i to i64
   %cmp19.not.i.i.i.i = icmp ugt i64 %len.addr.016.i.i.i.i, %conv18.i.i.i.i
-  %sub24.i.i.i.i = sub i64 %len.addr.016.i.i.i.i, %conv18.i.i.i.i
+  %sub24.i.i.i.i = sub nuw nsw i64 %len.addr.016.i.i.i.i, %conv18.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr i8, ptr %rtattr.addr.017.i.i.i.i, i64 %conv18.i.i.i.i
   %cmp.i.i.i.i = icmp ugt i64 %sub24.i.i.i.i, 4
-  %or.cond21.i.i.i.i = and i1 %cmp19.not.i.i.i.i, %cmp.i.i.i.i
+  %or.cond21.i.i.i.i = select i1 %cmp19.not.i.i.i.i, i1 %cmp.i.i.i.i, i1 false
   br i1 %or.cond21.i.i.i.i, label %while.body.i.i.i.i, label %sw.epilog.i.i, !llvm.loop !7
 
 sw.bb16.i.i:                                      ; preds = %if.end.i.i, %if.end.i.i, %if.end.i.i
@@ -922,10 +922,10 @@ if.end15.i.i34.i.i:                               ; preds = %if.then.i.i45.i.i, 
   %and.i.i36.i.i = and i16 %sub.i.i35.i.i, -4
   %conv18.i.i37.i.i = zext i16 %and.i.i36.i.i to i64
   %cmp19.not.i.i38.i.i = icmp ugt i64 %len.addr.016.i.i27.i.i, %conv18.i.i37.i.i
-  %sub24.i.i39.i.i = sub i64 %len.addr.016.i.i27.i.i, %conv18.i.i37.i.i
+  %sub24.i.i39.i.i = sub nuw nsw i64 %len.addr.016.i.i27.i.i, %conv18.i.i37.i.i
   %add.ptr.i.i40.i.i = getelementptr i8, ptr %rtattr.addr.017.i.i26.i.i, i64 %conv18.i.i37.i.i
   %cmp.i.i41.i.i = icmp ugt i64 %sub24.i.i39.i.i, 4
-  %or.cond21.i.i42.i.i = and i1 %cmp19.not.i.i38.i.i, %cmp.i.i41.i.i
+  %or.cond21.i.i42.i.i = select i1 %cmp19.not.i.i38.i.i, i1 %cmp.i.i41.i.i, i1 false
   br i1 %or.cond21.i.i42.i.i, label %while.body.i.i25.i.i, label %sw.epilog.i.i, !llvm.loop !7
 
 sw.bb31.i.i:                                      ; preds = %if.end.i.i, %if.end.i.i, %if.end.i.i
@@ -982,10 +982,10 @@ if.end15.i.i58.i.i:                               ; preds = %if.then.i.i70.i.i, 
   %and.i.i60.i.i = and i16 %sub.i.i59.i.i, -4
   %conv18.i.i61.i.i = zext i16 %and.i.i60.i.i to i64
   %cmp19.not.i.i62.i.i = icmp ugt i64 %len.addr.016.i.i51.i.i, %conv18.i.i61.i.i
-  %sub24.i.i63.i.i = sub i64 %len.addr.016.i.i51.i.i, %conv18.i.i61.i.i
+  %sub24.i.i63.i.i = sub nuw nsw i64 %len.addr.016.i.i51.i.i, %conv18.i.i61.i.i
   %add.ptr.i.i64.i.i = getelementptr i8, ptr %rtattr.addr.017.i.i50.i.i, i64 %conv18.i.i61.i.i
   %cmp.i.i65.i.i = icmp ugt i64 %sub24.i.i63.i.i, 4
-  %or.cond21.i.i66.i.i = and i1 %cmp19.not.i.i62.i.i, %cmp.i.i65.i.i
+  %or.cond21.i.i66.i.i = select i1 %cmp19.not.i.i62.i.i, i1 %cmp.i.i65.i.i, i1 false
   br i1 %or.cond21.i.i66.i.i, label %while.body.i.i49.i.i, label %sw.epilog.i.i, !llvm.loop !7
 
 sw.epilog.i.i:                                    ; preds = %if.end15.i.i58.i.i, %while.body.i.i49.i.i, %if.end15.i.i34.i.i, %while.body.i.i25.i.i, %if.end15.i.i.i.i, %while.body.i.i.i.i, %if.then36.i.i, %sw.bb31.i.i, %if.then21.i.i, %sw.bb16.i.i, %if.then.i.i, %sw.bb.i.i, %if.end.i.i
@@ -993,10 +993,10 @@ sw.epilog.i.i:                                    ; preds = %if.end15.i.i58.i.i,
   %and.i.i = and i32 %sub.i.i, -4
   %conv16.i.i = zext i32 %and.i.i to i64
   %cmp17.not.i.i = icmp ugt i64 %len.addr.020.i.i, %conv16.i.i
-  %sub22.i.i = sub i64 %len.addr.020.i.i, %conv16.i.i
+  %sub22.i.i = sub nuw i64 %len.addr.020.i.i, %conv16.i.i
   %add.ptr23.i.i = getelementptr i8, ptr %nlh.addr.021.i.i, i64 %conv16.i.i
   %cmp.i.i = icmp ugt i64 %sub22.i.i, 16
-  %or.cond28.i.i = and i1 %cmp17.not.i.i, %cmp.i.i
+  %or.cond28.i.i = select i1 %cmp17.not.i.i, i1 %cmp.i.i, i1 false
   br i1 %or.cond28.i.i, label %while.body.i.i, label %host_to_target_nlmsg_route.exit, !llvm.loop !8
 
 host_to_target_nlmsg_route.exit.loopexit:         ; preds = %if.end.i.i
@@ -1144,10 +1144,10 @@ if.end17.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i16 %sub.i.i.i.i.i.i, -4
   %conv21.i.i.i.i.i.i = zext i16 %and.i.i.i.i.i.i to i64
   %cmp22.not.i.i.i.i.i.i = icmp ugt i64 %len.addr.016.i.i.i.i.i.i, %conv21.i.i.i.i.i.i
-  %sub27.i.i.i.i.i.i = sub i64 %len.addr.016.i.i.i.i.i.i, %conv21.i.i.i.i.i.i
+  %sub27.i.i.i.i.i.i = sub nuw nsw i64 %len.addr.016.i.i.i.i.i.i, %conv21.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i.i.i.i.i.i, i64 %conv21.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub27.i.i.i.i.i.i, 4
-  %or.cond21.i.i.i.i.i.i = and i1 %cmp22.not.i.i.i.i.i.i, %cmp.i.i.i.i.i.i
+  %or.cond21.i.i.i.i.i.i = select i1 %cmp22.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
   br i1 %or.cond21.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %if.end17.i.i.i.i.i, !llvm.loop !9
 
 do.body.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
@@ -1167,10 +1167,10 @@ if.end17.i.i.i.i.i:                               ; preds = %if.end17.i.i.i.i.i.
   %and.i.i.i.i.i = and i16 %sub.i.i.i.i.i, -4
   %conv21.i.i.i.i.i = zext i16 %and.i.i.i.i.i to i64
   %cmp22.not.i.i.i.i.i = icmp ugt i64 %len.addr.016.i.i.i.i.i, %conv21.i.i.i.i.i
-  %sub27.i.i.i.i.i = sub i64 %len.addr.016.i.i.i.i.i, %conv21.i.i.i.i.i
+  %sub27.i.i.i.i.i = sub nuw nsw i64 %len.addr.016.i.i.i.i.i, %conv21.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %nlattr.addr.017.i.i.i.i.i, i64 %conv21.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp ugt i64 %sub27.i.i.i.i.i, 4
-  %or.cond21.i.i.i.i.i = and i1 %cmp22.not.i.i.i.i.i, %cmp.i.i.i.i.i
+  %or.cond21.i.i.i.i.i = select i1 %cmp22.not.i.i.i.i.i, i1 %cmp.i.i.i.i.i, i1 false
   br i1 %or.cond21.i.i.i.i.i, label %while.body.i.i.i.i.i, label %if.end17.i.i.i.i, !llvm.loop !9
 
 do.body.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
@@ -1190,10 +1190,10 @@ if.end17.i.i.i.i:                                 ; preds = %if.end17.i.i.i.i.i,
   %and.i.i.i.i = and i16 %sub.i.i.i.i, -4
   %conv21.i.i.i.i = zext i16 %and.i.i.i.i to i64
   %cmp22.not.i.i.i.i = icmp ugt i64 %len.addr.016.i.i.i.i, %conv21.i.i.i.i
-  %sub27.i.i.i.i = sub i64 %len.addr.016.i.i.i.i, %conv21.i.i.i.i
+  %sub27.i.i.i.i = sub nuw nsw i64 %len.addr.016.i.i.i.i, %conv21.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr i8, ptr %rtattr.addr.017.i.i.i.i, i64 %conv21.i.i.i.i
   %cmp.i.i.i.i = icmp ugt i64 %sub27.i.i.i.i, 3
-  %or.cond21.i.i.i.i = and i1 %cmp22.not.i.i.i.i, %cmp.i.i.i.i
+  %or.cond21.i.i.i.i = select i1 %cmp22.not.i.i.i.i, i1 %cmp.i.i.i.i, i1 false
   br i1 %or.cond21.i.i.i.i, label %while.body.i.i.i.i, label %sw.default.sw.epilog_crit_edge.i.i, !llvm.loop !10
 
 sw.bb14.i.i:                                      ; preds = %if.end.i.i, %if.end.i.i, %if.end.i.i
@@ -1245,10 +1245,10 @@ if.end17.i.i37.i.i:                               ; preds = %if.then.i.i36.i.i, 
   %and.i.i39.i.i = and i16 %sub.i.i38.i.i, -4
   %conv21.i.i40.i.i = zext i16 %and.i.i39.i.i to i64
   %cmp22.not.i.i41.i.i = icmp ugt i64 %len.addr.016.i.i27.i.i, %conv21.i.i40.i.i
-  %sub27.i.i42.i.i = sub i64 %len.addr.016.i.i27.i.i, %conv21.i.i40.i.i
+  %sub27.i.i42.i.i = sub nuw nsw i64 %len.addr.016.i.i27.i.i, %conv21.i.i40.i.i
   %add.ptr.i.i43.i.i = getelementptr i8, ptr %rtattr.addr.017.i.i26.i.i, i64 %conv21.i.i40.i.i
   %cmp.i.i44.i.i = icmp ugt i64 %sub27.i.i42.i.i, 3
-  %or.cond21.i.i45.i.i = and i1 %cmp22.not.i.i41.i.i, %cmp.i.i44.i.i
+  %or.cond21.i.i45.i.i = select i1 %cmp22.not.i.i41.i.i, i1 %cmp.i.i44.i.i, i1 false
   br i1 %or.cond21.i.i45.i.i, label %while.body.i.i25.i.i, label %sw.default.sw.epilog_crit_edge.i.i, !llvm.loop !10
 
 sw.bb29.i.i:                                      ; preds = %if.end.i.i, %if.end.i.i, %if.end.i.i
@@ -1305,10 +1305,10 @@ if.end17.i.i58.i.i:                               ; preds = %if.then.i.i70.i.i, 
   %and.i.i60.i.i = and i16 %sub.i.i59.i.i, -4
   %conv21.i.i61.i.i = zext i16 %and.i.i60.i.i to i64
   %cmp22.not.i.i62.i.i = icmp ugt i64 %len.addr.016.i.i51.i.i, %conv21.i.i61.i.i
-  %sub27.i.i63.i.i = sub i64 %len.addr.016.i.i51.i.i, %conv21.i.i61.i.i
+  %sub27.i.i63.i.i = sub nuw nsw i64 %len.addr.016.i.i51.i.i, %conv21.i.i61.i.i
   %add.ptr.i.i64.i.i = getelementptr i8, ptr %rtattr.addr.017.i.i50.i.i, i64 %conv21.i.i61.i.i
   %cmp.i.i65.i.i = icmp ugt i64 %sub27.i.i63.i.i, 3
-  %or.cond21.i.i66.i.i = and i1 %cmp22.not.i.i62.i.i, %cmp.i.i65.i.i
+  %or.cond21.i.i66.i.i = select i1 %cmp22.not.i.i62.i.i, i1 %cmp.i.i65.i.i, i1 false
   br i1 %or.cond21.i.i66.i.i, label %while.body.i.i49.i.i, label %sw.default.sw.epilog_crit_edge.i.i, !llvm.loop !10
 
 sw.default.sw.epilog_crit_edge.i.i:               ; preds = %if.end17.i.i58.i.i, %while.body.i.i49.i.i, %if.end17.i.i37.i.i, %while.body.i.i25.i.i, %if.end17.i.i.i.i, %while.body.i.i.i.i, %if.then34.i.i, %sw.bb29.i.i, %if.then19.i.i, %sw.bb14.i.i, %if.then.i.i, %sw.bb.i.i
@@ -1321,10 +1321,10 @@ sw.epilog.i.i:                                    ; preds = %sw.default.sw.epilo
   %and.i.i = and i32 %sub.i.i, -4
   %conv21.i.i = zext i32 %and.i.i to i64
   %cmp22.not.i.i = icmp ugt i64 %len.addr.017.i.i, %conv21.i.i
-  %sub27.i.i = sub i64 %len.addr.017.i.i, %conv21.i.i
+  %sub27.i.i = sub nuw i64 %len.addr.017.i.i, %conv21.i.i
   %add.ptr28.i.i = getelementptr i8, ptr %nlh.addr.018.i.i, i64 %conv21.i.i
   %cmp.i.i = icmp ugt i64 %sub27.i.i, 16
-  %or.cond20.i.i = and i1 %cmp22.not.i.i, %cmp.i.i
+  %or.cond20.i.i = select i1 %cmp22.not.i.i, i1 %cmp.i.i, i1 false
   br i1 %or.cond20.i.i, label %while.body.i.i, label %target_to_host_nlmsg_route.exit, !llvm.loop !11
 
 target_to_host_nlmsg_route.exit.loopexit:         ; preds = %if.end.i.i
@@ -1376,10 +1376,10 @@ sw.epilog.i.i:                                    ; preds = %if.end.i.i
   %and.i.i = and i32 %sub.i.i, -4
   %conv16.i.i = zext i32 %and.i.i to i64
   %cmp17.not.i.i = icmp ugt i64 %len.addr.020.i.i, %conv16.i.i
-  %sub22.i.i = sub i64 %len.addr.020.i.i, %conv16.i.i
+  %sub22.i.i = sub nuw i64 %len.addr.020.i.i, %conv16.i.i
   %add.ptr23.i.i = getelementptr i8, ptr %nlh.addr.021.i.i, i64 %conv16.i.i
   %cmp.i.i = icmp ugt i64 %sub22.i.i, 16
-  %or.cond28.i.i = and i1 %cmp17.not.i.i, %cmp.i.i
+  %or.cond28.i.i = select i1 %cmp17.not.i.i, i1 %cmp.i.i, i1 false
   br i1 %or.cond28.i.i, label %while.body.i.i, label %host_to_target_nlmsg_audit.exit, !llvm.loop !8
 
 host_to_target_nlmsg_audit.exit:                  ; preds = %while.body.i.i, %if.end.i.i, %if.end.i.i, %sw.epilog.i.i, %entry, %sw.default.i.i, %if.then.i.i
@@ -1437,10 +1437,10 @@ sw.epilog.i.i:                                    ; preds = %sw.caserange3.i.i, 
   %and.i.i = and i32 %sub.i.i, -4
   %conv21.i.i = zext i32 %and.i.i to i64
   %cmp22.not.i.i = icmp ugt i64 %len.addr.017.i.i, %conv21.i.i
-  %sub27.i.i = sub i64 %len.addr.017.i.i, %conv21.i.i
+  %sub27.i.i = sub nuw i64 %len.addr.017.i.i, %conv21.i.i
   %add.ptr28.i.i = getelementptr i8, ptr %nlh.addr.018.i.i, i64 %conv21.i.i
   %cmp.i.i = icmp ugt i64 %sub27.i.i, 16
-  %or.cond20.i.i = and i1 %cmp22.not.i.i, %cmp.i.i
+  %or.cond20.i.i = select i1 %cmp22.not.i.i, i1 %cmp.i.i, i1 false
   br i1 %or.cond20.i.i, label %while.body.i.i, label %target_to_host_nlmsg_audit.exit, !llvm.loop !11
 
 target_to_host_nlmsg_audit.exit:                  ; preds = %if.end.i.i, %if.end.i.i, %while.body.i.i, %sw.epilog.i.i, %entry, %do.body.i.i, %if.then.i.i

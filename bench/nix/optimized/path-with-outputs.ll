@@ -2216,7 +2216,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread26: ; preds 
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread26
-  %19 = sub i64 %1, %17
+  %19 = sub nuw i64 %1, %17
   %20 = getelementptr inbounds i8, ptr %2, i64 %17
   call void @_ZN3nix14tokenizeStringISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEET_St17basic_string_viewIcS5_ESE_(ptr dead_on_unwind nonnull writable sret(%"class.std::set") align 8 %5, i64 %19, ptr nonnull %20, i64 1, ptr nonnull @.str.4)
   call void @llvm.experimental.noalias.scope.decl(metadata !108)

@@ -1812,7 +1812,7 @@ ehcleanup28:                                      ; preds = %ehcleanup, %lpad3
   br label %ehcleanup61
 
 if.end56:                                         ; preds = %if.then53
-  %sub = sub i64 %targetBytes.addr.073, %call51
+  %sub = sub nuw i64 %targetBytes.addr.073, %call51
   br label %for.inc58
 
 for.inc58:                                        ; preds = %invoke.cont50, %if.end56

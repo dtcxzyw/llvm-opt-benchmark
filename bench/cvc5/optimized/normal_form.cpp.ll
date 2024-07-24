@@ -7307,7 +7307,7 @@ if.then53:                                        ; preds = %for.end51
   br i1 %cmp.i52, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then53
-  %sub.i = sub i64 %writePos.2, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %writePos.2, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN4cvc58internal6theory5arith6linear8MonomialESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %monos, ptr %28, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(24) %cp)
           to label %invoke.cont56 unwind label %lpad55
 
@@ -38289,7 +38289,7 @@ lpad.body:                                        ; preds = %lpad.loopexit, %lpa
   br label %eh.resume
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not7.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not7.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i
 

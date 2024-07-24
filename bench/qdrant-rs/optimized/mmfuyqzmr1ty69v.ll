@@ -1081,7 +1081,7 @@ define void @_ZN6sparse5index14inverted_index26inverted_index_ram_builder20Inver
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h6a1cd82a1a3c9ba2E.exit" unwind label %.loopexit
 
 29:                                               ; preds = %22
-  %30 = sub i64 %.0.sroa.speculated.i, %27
+  %30 = sub nuw i64 %.0.sroa.speculated.i, %27
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h7c24b90591316606E.llvm.4012134325007315671"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %30)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h6a1cd82a1a3c9ba2E.exit" unwind label %.loopexit
 

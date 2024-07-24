@@ -64,8 +64,8 @@ define hidden void @_ZN17TrimCLibcHeapDCmd7executeE10DCmdSourceP10JavaThread(ptr
 11:                                               ; preds = %6
   %12 = load i64, ptr %4, align 8
   %13 = icmp ult i64 %10, %12
-  %14 = sub i64 %12, %10
-  %15 = sub i64 %10, %12
+  %14 = sub nuw i64 %12, %10
+  %15 = sub nuw i64 %10, %12
   %16 = select i1 %13, i64 %14, i64 %15
   %17 = load ptr, ptr %7, align 8
   %18 = icmp ugt i64 %12, 107374182399

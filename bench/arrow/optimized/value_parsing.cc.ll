@@ -3730,8 +3730,8 @@ if.else.i.i.us:                                   ; preds = %if.then.i60.us
 
 if.then.i.i.i.us:                                 ; preds = %if.else.i.i.us
   %add.ptr.i.i.i.us = getelementptr i64, ptr %x, i64 %conv.i.i50.us
-  %18 = sub nsw i64 %add.i61.us, %conv.i.i50.us
-  %19 = shl nsw i64 %18, 3
+  %18 = sub nuw nsw i64 %add.i61.us, %conv.i.i50.us
+  %19 = shl nuw nsw i64 %18, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i.us, i8 0, i64 %19, i1 false)
   br label %if.end7.sink.split.i.us
 

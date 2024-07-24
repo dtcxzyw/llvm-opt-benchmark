@@ -103,7 +103,7 @@ define internal ptr @mca_mpool_base_basic_alloc(ptr noundef %0, i64 noundef %1, 
 
 23:                                               ; preds = %4
   %24 = inttoptr i64 %15 to ptr
-  %25 = sub i64 %21, %19
+  %25 = sub nuw i64 %21, %19
   store i64 %25, ptr %20, align 8
   store i64 %18, ptr %10, align 8
   br label %26

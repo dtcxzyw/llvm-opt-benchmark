@@ -62,9 +62,8 @@ define range(i32 -12, 1) i32 @circbuf_resize(ptr nocapture noundef %0, i64 nound
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %9
-  %17 = sub i64 %14, %1
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %17)
-  %18 = add i64 %spec.select.i, %13
+  %17 = sub nuw i64 %14, %1
+  %18 = add i64 %17, %13
   store i64 %18, ptr %12, align 8
   br label %19
 

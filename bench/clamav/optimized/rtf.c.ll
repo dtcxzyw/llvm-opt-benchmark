@@ -152,7 +152,7 @@ fmap_need_off_once_len.exit:                      ; preds = %fmap_need_off_once_
   %54 = phi i64 [ %45, %fmap_need_off_once_len.exit.lr.ph ], [ %310, %._crit_edge219 ]
   %55 = phi ptr [ %43, %fmap_need_off_once_len.exit.lr.ph ], [ %308, %._crit_edge219 ]
   %.0128221 = phi i64 [ 0, %fmap_need_off_once_len.exit.lr.ph ], [ %307, %._crit_edge219 ]
-  %56 = sub i64 %54, %.0128221
+  %56 = sub nuw i64 %54, %.0128221
   %spec.select.i = call i64 @llvm.umin.i64(i64 %56, i64 8192)
   %57 = getelementptr inbounds i8, ptr %55, i64 104
   %58 = load ptr, ptr %57, align 8
@@ -1253,7 +1253,7 @@ define internal i32 @rtf_object_process(ptr nocapture noundef readonly %0, ptr n
   br label %.critedge236
 
 171:                                              ; preds = %162
-  %172 = sub i64 %157, %167
+  %172 = sub nuw i64 %157, %167
   %.not233 = icmp ult i64 %166, %165
   br i1 %.not233, label %238, label %173
 
@@ -1275,7 +1275,7 @@ define internal i32 @rtf_object_process(ptr nocapture noundef readonly %0, ptr n
   br i1 %180, label %182, label %.thread
 
 .thread:                                          ; preds = %177
-  %181 = sub i64 %.3267, %179
+  %181 = sub nuw i64 %.3267, %179
   br label %184
 
 182:                                              ; preds = %177

@@ -547,8 +547,8 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %253, label %254, label %268
 
 254:                                              ; preds = %251
-  %255 = sub nsw i64 %252, %.078
-  %256 = add nsw i64 %255, 1
+  %255 = sub nuw nsw i64 %252, %.078
+  %256 = add nuw nsw i64 %255, 1
   %257 = call noalias ptr @GC_malloc_atomic(i64 noundef %256) #11
   %258 = icmp eq ptr %257, null
   br i1 %258, label %259, label %262

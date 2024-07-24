@@ -3126,7 +3126,7 @@ define internal i32 @dissect_thread_nwd(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %83, label %84, label %.loopexit
 
 84:                                               ; preds = %76
-  %85 = sub nsw i32 %21, %82
+  %85 = sub nuw nsw i32 %21, %82
   %86 = load i32, ptr @hf_thread_nwd_tlv_sub_tlvs, align 4
   %87 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %86, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef 0) #7
   %88 = load i32, ptr @ett_thread_nwd_prefix_sub_tlvs, align 4
@@ -3303,7 +3303,7 @@ define internal i32 @dissect_thread_nwd(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %203, label %204, label %.loopexit
 
 204:                                              ; preds = %202
-  %205 = sub nsw i32 %21, %.1347
+  %205 = sub nuw nsw i32 %21, %.1347
   %206 = load i32, ptr @hf_thread_nwd_tlv_sub_tlvs, align 4
   %207 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %206, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef 0) #7
   %208 = load i32, ptr @ett_thread_nwd_prefix_sub_tlvs, align 4

@@ -2168,7 +2168,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   br i1 %895, label %896, label %900
 
 896:                                              ; preds = %tailrecurse.i
-  %897 = sub i32 %887, %889
+  %897 = sub nuw i32 %887, %889
   %898 = and i32 %897, 1
   %899 = icmp eq i32 %898, 0
   br i1 %899, label %_ZNK8JVMState14is_monitor_useEj.exit.thread, label %900

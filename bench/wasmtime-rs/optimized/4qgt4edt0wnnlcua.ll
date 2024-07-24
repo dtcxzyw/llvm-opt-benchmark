@@ -5967,7 +5967,7 @@ define hidden void @_ZN16wasmtime_runtime8instance9allocator7pooling10stack_pool
   unreachable
 
 34:                                               ; preds = %23
-  %35 = sub i64 %30, %12
+  %35 = sub nuw i64 %30, %12
   %36 = icmp eq i64 %25, 0
   br i1 %36, label %41, label %37, !prof !510
 

@@ -1245,7 +1245,7 @@ lor.lhs.false.i.us.i:                             ; preds = %while.body.us.i
 if.end21.us.i:                                    ; preds = %lor.lhs.false.i.us.i
   %add.ptr.i2.i.i.us.i = getelementptr inbounds i8, ptr %pkt.sroa.0.156.us.i, i64 8
   %add.ptr.i.i6.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.us.i, i64 %or.i.i.i.us.i
-  %sub.i.i7.i.us.i = sub i64 %sub.i.i.i.us.i, %or.i.i.i.us.i
+  %sub.i.i7.i.us.i = sub nuw i64 %sub.i.i.i.us.i, %or.i.i.i.us.i
   %tobool9.not.us.i = icmp eq i64 %sub.i.i7.i.us.i, 0
   br i1 %tobool9.not.us.i, label %if.end14, label %while.body.us.i, !llvm.loop !4
 
@@ -1347,7 +1347,7 @@ lor.lhs.false.i.i:                                ; preds = %lor.lhs.false17.i
 if.end21.i:                                       ; preds = %lor.lhs.false.i.i
   %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.156.i, i64 8
   %add.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
-  %sub.i.i7.i.i = sub i64 %sub.i.i.i.i, %or.i.i.i.i
+  %sub.i.i7.i.i = sub nuw i64 %sub.i.i.i.i, %or.i.i.i.i
   %cmp27.i = icmp eq i64 %or12.i.i.i, 464
   br i1 %cmp27.i, label %if.then28.i, label %if.else.i
 
@@ -1970,7 +1970,7 @@ lor.lhs.false.i.i.i:                              ; preds = %lor.lhs.false13.i.i
 if.end17.i.i:                                     ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i2.i.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.1.i.i, i64 8
   %add.ptr.i.i6.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i.i, i64 %or.i.i.i.i.i
-  %sub.i.i7.i.i.i = sub i64 %sub.i.i.i.i.i, %or.i.i.i.i.i
+  %sub.i.i7.i.i.i = sub nuw i64 %sub.i.i.i.i.i, %or.i.i.i.i.i
   %cmp18.i.i = icmp eq i32 %or.i.i15.i.i, %ext_type
   br i1 %cmp18.i.i, label %if.end26.i, label %for.cond.i.i
 
@@ -2098,7 +2098,7 @@ lor.lhs.false.i.i:                                ; preds = %lor.lhs.false13.i
 if.end17.i:                                       ; preds = %lor.lhs.false.i.i
   %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.1.i, i64 8
   %add.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
-  %sub.i.i7.i.i = sub i64 %sub.i.i.i.i, %or.i.i.i.i
+  %sub.i.i7.i.i = sub nuw i64 %sub.i.i.i.i, %or.i.i.i.i
   %cmp18.i = icmp eq i32 %or.i.i15.i, %ext_type
   br i1 %cmp18.i, label %if.end26, label %for.cond.i
 

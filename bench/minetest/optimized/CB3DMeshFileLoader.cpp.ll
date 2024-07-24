@@ -4720,7 +4720,7 @@ if.then.i:                                        ; preds = %if.end25
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv.i120, %sub.ptr.div.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i120, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %BaseVertices, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE10reallocateEjb.exit
 
@@ -4797,7 +4797,7 @@ if.then.i146:                                     ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i151, label %if.then.i.i158, label %if.else.i.i152
 
 if.then.i.i158:                                   ; preds = %if.then.i146
-  %sub.i.i159 = sub nsw i64 %conv.i133, %sub.ptr.div.i.i.i150
+  %sub.i.i159 = sub nuw nsw i64 %conv.i133, %sub.ptr.div.i.i.i150
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %AnimatedVertices_VertexID, i64 noundef %sub.i.i159)
   br label %_ZN3irr4core5arrayIiE10reallocateEjb.exit
 
@@ -5677,7 +5677,7 @@ if.then.i:                                        ; preds = %if.end15
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv.i224, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i224, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Indices, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 

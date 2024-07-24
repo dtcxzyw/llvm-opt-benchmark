@@ -647,12 +647,12 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
   br i1 %60, label %61, label %.lr.ph
 
 61:                                               ; preds = %58
-  %62 = sub nsw i64 %20, %59
+  %62 = sub nuw nsw i64 %20, %59
   %63 = getelementptr inbounds i8, ptr %5, i64 %4
   %64 = sub nsw i64 0, %62
   %65 = getelementptr inbounds i8, ptr %63, i64 %64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %65, i8 0, i64 %62, i1 false)
-  %66 = sub i64 %4, %62
+  %66 = sub nsw i64 %4, %62
   %.not7485 = icmp eq i64 %66, 0
   br i1 %.not7485, label %.loopexit, label %.lr.ph
 

@@ -215,7 +215,7 @@ define hidden void @"_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$rand..seq..SliceRandom$GT$
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc3380e19bf1c138aE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E.exit", %5
   %7 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %.0
-  %8 = sub i64 %2, %.0
+  %8 = sub nuw i64 %2, %.0
   store ptr %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %8, ptr %9, align 8
@@ -280,7 +280,7 @@ define hidden void @"_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$rand..seq..SliceRandom$GT$
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hddabf08f12502a53E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit", %5
   %7 = getelementptr inbounds i64, ptr %1, i64 %.0
-  %8 = sub i64 %2, %.0
+  %8 = sub nuw i64 %2, %.0
   store ptr %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %8, ptr %9, align 8

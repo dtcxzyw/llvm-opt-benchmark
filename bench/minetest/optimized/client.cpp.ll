@@ -20503,7 +20503,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end
-  %sub = sub i32 %15, %conv
+  %sub = sub nuw i32 %15, %conv
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %sub, i32 %radius)
   br label %return
 
@@ -27296,36 +27296,23 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %sub = sub i64 %call2, %inc
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %filename, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %cmp.i.i.not = icmp ugt i64 %0, %call.i
-  br i1 %cmp.i.i.not, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i, label %if.then.i.i
+  br i1 %cmp.i.i.not, label %if.then3.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then4
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.178, i64 noundef %inc, i64 noundef %0) #36
   unreachable
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; preds = %if.then4
-  switch i64 %sub, label %if.then3.i [
-    i64 -1, label %if.then.i
-    i64 0, label %if.end6
-  ]
-
-if.then.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
-  store i64 %inc, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
-  %1 = load ptr, ptr %filename, align 8, !tbaa !11
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 %inc
-  store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !13
-  br label %if.end6
-
-if.then3.i:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
+if.then3.i:                                       ; preds = %if.then4
+  %sub = sub nuw i64 %call2, %inc
   %sub.i.i = sub i64 %0, %inc
   %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %filename, i64 noundef %inc, i64 noundef %spec.select.i.i)
   br label %if.end6
 
-if.end6:                                          ; preds = %if.then3.i, %if.then.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i, %if.end
+if.end6:                                          ; preds = %if.then3.i, %if.end
   %m_mod_vfs = getelementptr inbounds i8, ptr %this, i64 1656
   %call.i26 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %m_mod_vfs, ptr noundef nonnull align 8 dereferenceable(32) %filename)
   %cmp.i = icmp eq ptr %call.i26, null

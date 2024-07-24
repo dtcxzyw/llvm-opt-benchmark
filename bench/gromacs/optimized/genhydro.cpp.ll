@@ -1265,7 +1265,7 @@ _ZSt4copyIP9t_resinfoS1_ET0_T_S3_S2_.exit.thread: ; preds = %_ZSt4copyIP9t_resin
   br i1 %379, label %380, label %404
 
 380:                                              ; preds = %_ZSt4copyIP9t_resinfoS1_ET0_T_S3_S2_.exit.thread
-  %381 = sub nsw i64 %371, %378
+  %381 = sub nuw nsw i64 %371, %378
   %382 = getelementptr inbounds i8, ptr %21, i64 16
   %383 = load ptr, ptr %382, align 8
   %384 = ptrtoint ptr %383 to i64
@@ -1286,7 +1286,7 @@ _ZSt4copyIP9t_resinfoS1_ET0_T_S3_S2_.exit.thread: ; preds = %_ZSt4copyIP9t_resin
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit
 
 392:                                              ; preds = %380
-  %393 = icmp ult i64 %388, %381
+  %393 = icmp slt i32 %.pre-phi, 0
   br i1 %393, label %.noexc.i.invoke, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %392
@@ -1386,7 +1386,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit: ; preds = %390, %_ZNS
   br i1 %435, label %436, label %459
 
 436:                                              ; preds = %425
-  %437 = sub nsw i64 %428, %434
+  %437 = sub nuw nsw i64 %428, %434
   %438 = load ptr, ptr %410, align 8
   %439 = ptrtoint ptr %438 to i64
   %440 = sub i64 %439, %431
@@ -1406,7 +1406,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit: ; preds = %390, %_ZNS
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit213
 
 447:                                              ; preds = %436
-  %448 = icmp ult i64 %443, %437
+  %448 = icmp slt i32 %427, 0
   br i1 %448, label %.noexc.i.invoke, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i201
 
 _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i201: ; preds = %447
@@ -1555,7 +1555,7 @@ _ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit:      ; preds = %468
   br i1 %522, label %523, label %546
 
 523:                                              ; preds = %512
-  %524 = sub nsw i64 %515, %521
+  %524 = sub nuw nsw i64 %515, %521
   %525 = load ptr, ptr %410, align 8
   %526 = ptrtoint ptr %525 to i64
   %527 = sub i64 %526, %518
@@ -1575,7 +1575,7 @@ _ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit:      ; preds = %468
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit232
 
 534:                                              ; preds = %523
-  %535 = icmp ult i64 %530, %524
+  %535 = icmp slt i32 %514, 0
   br i1 %535, label %.noexc.i.invoke, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i220
 
 _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i220: ; preds = %534
@@ -2006,7 +2006,7 @@ define linkonce_odr void @_ZNSt6vectorIS_I13MoleculePatchSaIS0_EESaIS2_EE6resize
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIS_I13MoleculePatchSaIS0_EESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIS_I13MoleculePatchSaIS0_EESaIS2_EE15_M_erase_at_endEPS2_.exit
 

@@ -1511,7 +1511,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %if.then12.i, %grpc_
 
 if.then12.i:                                      ; preds = %grpc_slice_buffer_take_first.exit.i
   tail call void @grpc_slice_buffer_add(ptr noundef %dst, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %slice.i)
-  %sub13.i = sub i64 %n.addr.038.i, %cond.i.i
+  %sub13.i = sub nuw i64 %n.addr.038.i, %cond.i.i
   %8 = load i64, ptr %count.i, align 8
   %cmp7.not.i = icmp eq i64 %8, 0
   br i1 %cmp7.not.i, label %do.body39.i, label %grpc_slice_buffer_take_first.exit.i, !llvm.loop !34
@@ -1662,7 +1662,7 @@ grpc_slice_buffer_take_first.exit.i:              ; preds = %if.then12.i, %grpc_
 
 if.then12.i:                                      ; preds = %grpc_slice_buffer_take_first.exit.i
   tail call void @grpc_slice_buffer_add(ptr noundef %dst, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %slice.i)
-  %sub13.i = sub i64 %n.addr.047.i, %cond.i.i
+  %sub13.i = sub nuw i64 %n.addr.047.i, %cond.i.i
   %8 = load i64, ptr %count.i, align 8
   %cmp7.not.i = icmp eq i64 %8, 0
   br i1 %cmp7.not.i, label %do.body39.i, label %grpc_slice_buffer_take_first.exit.i, !llvm.loop !38
@@ -2020,7 +2020,7 @@ if.then6:                                         ; preds = %for.body
 if.end16:                                         ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.016, ptr align 1 %cond27, i64 %cond, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %dstp.016, i64 %cond
-  %sub = sub i64 %n.addr.018, %cond
+  %sub = sub nuw i64 %n.addr.018, %cond
   %inc = add nuw i64 %i.017, 1
   %6 = load i64, ptr %count, align 8
   %cmp1 = icmp ult i64 %inc, %6
@@ -2048,7 +2048,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %sub = sub i64 %0, %n
+  %sub = sub nuw i64 %0, %n
   store i64 %sub, ptr %length, align 8
   %count = getelementptr inbounds i8, ptr %sb, i64 16
   %slices = getelementptr inbounds i8, ptr %sb, i64 8
@@ -2122,7 +2122,7 @@ if.then7:                                         ; preds = %grpc_slice_buffer_a
   %n.addr.0.lcssa = phi i64 [ %n, %do.end ], [ %sub34.us, %if.end33.us ], [ %sub34, %grpc_slice_buffer_add_indexed.exit112 ]
   %sub2.lcssa = phi i64 [ %sub2133, %do.end ], [ %sub2.us, %if.end33.us ], [ %sub2, %grpc_slice_buffer_add_indexed.exit112 ]
   %cond.lcssa = phi i64 [ %cond137, %do.end ], [ %cond.us, %if.end33.us ], [ %cond, %grpc_slice_buffer_add_indexed.exit112 ]
-  %sub8 = sub i64 %cond.lcssa, %n.addr.0.lcssa
+  %sub8 = sub nuw i64 %cond.lcssa, %n.addr.0.lcssa
   call void @grpc_slice_split_head(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp, ptr noundef nonnull %slice, i64 noundef %sub8)
   %11 = load ptr, ptr %slices, align 8
   %arrayidx10 = getelementptr inbounds %struct.grpc_slice, ptr %11, i64 %sub2.lcssa

@@ -582,13 +582,13 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.not369 = icmp uge i32 %.0263399, %64
   %65 = select i1 %.not369, i8 56, i8 48
   %66 = select i1 %.not369, i32 %64, i32 0
-  %.1264 = sub i32 %.0263399, %66
+  %.1264 = sub nuw i32 %.0263399, %66
   %67 = lshr exact i32 %64, 1
   %.not370 = icmp uge i32 %.1264, %67
   %68 = or disjoint i8 %65, 4
   %69 = select i1 %.not370, i8 %68, i8 %65
   %70 = select i1 %.not370, i32 %67, i32 0
-  %.2265 = sub i32 %.1264, %70
+  %.2265 = sub nuw nsw i32 %.1264, %70
   %71 = or i1 %.not369, %.not370
   br i1 %71, label %72, label %73
 
@@ -606,11 +606,11 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.0261 = phi i32 [ %74, %73 ], [ %61, %.lr.ph400 ]
   %.not371 = icmp uge i32 %.3266, %.0261
   %77 = select i1 %.not371, i32 %.0261, i32 0
-  %.4267 = sub i32 %.3266, %77
+  %.4267 = sub nuw i32 %.3266, %77
   %78 = lshr i32 %.0261, 1
   %.not372 = icmp uge i32 %.4267, %78
   %79 = select i1 %.not372, i32 %78, i32 0
-  %.5 = sub i32 %.4267, %79
+  %.5 = sub nuw nsw i32 %.4267, %79
   %80 = or i1 %.not371, %.not372
   br i1 %80, label %81, label %85
 
@@ -755,13 +755,13 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.not353 = icmp uge i32 %.7, %138
   %139 = select i1 %.not353, i8 56, i8 48
   %140 = select i1 %.not353, i32 %138, i32 0
-  %.8 = sub i32 %.7, %140
+  %.8 = sub nuw i32 %.7, %140
   %141 = lshr exact i32 %138, 1
   %.not354 = icmp uge i32 %.8, %141
   %142 = or disjoint i8 %139, 4
   %143 = select i1 %.not354, i8 %142, i8 %139
   %144 = select i1 %.not354, i32 %141, i32 0
-  %.9 = sub i32 %.8, %144
+  %.9 = sub nuw nsw i32 %.8, %144
   %145 = or i1 %.not353, %.not354
   br i1 %145, label %146, label %147
 
@@ -779,11 +779,11 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.1262 = phi i32 [ %148, %147 ], [ %135, %131 ]
   %.not355 = icmp uge i32 %.10, %.1262
   %151 = select i1 %.not355, i32 %.1262, i32 0
-  %.11 = sub i32 %.10, %151
+  %.11 = sub nuw i32 %.10, %151
   %152 = lshr i32 %.1262, 1
   %.not356 = icmp uge i32 %.11, %152
   %153 = select i1 %.not356, i32 %152, i32 0
-  %.12 = sub i32 %.11, %153
+  %.12 = sub nuw nsw i32 %.11, %153
   %154 = or i1 %.not355, %.not356
   br i1 %154, label %155, label %159
 
@@ -864,13 +864,13 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.not358 = icmp uge i32 %.14, %186
   %187 = select i1 %.not358, i8 56, i8 48
   %188 = select i1 %.not358, i32 %186, i32 0
-  %.15 = sub i32 %.14, %188
+  %.15 = sub nuw i32 %.14, %188
   %189 = lshr exact i32 %186, 1
   %.not359 = icmp uge i32 %.15, %189
   %190 = or disjoint i8 %187, 4
   %191 = select i1 %.not359, i8 %190, i8 %187
   %192 = select i1 %.not359, i32 %189, i32 0
-  %.16 = sub i32 %.15, %192
+  %.16 = sub nuw nsw i32 %.15, %192
   %193 = or i1 %.not358, %.not359
   br i1 %193, label %194, label %195
 
@@ -888,11 +888,11 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.2 = phi i32 [ %196, %195 ], [ %183, %179 ]
   %.not360 = icmp uge i32 %.17, %.2
   %199 = select i1 %.not360, i32 %.2, i32 0
-  %.18 = sub i32 %.17, %199
+  %.18 = sub nuw i32 %.17, %199
   %200 = lshr i32 %.2, 1
   %.not361 = icmp uge i32 %.18, %200
   %201 = select i1 %.not361, i32 %200, i32 0
-  %.19 = sub i32 %.18, %201
+  %.19 = sub nuw nsw i32 %.18, %201
   %202 = or i1 %.not360, %.not361
   br i1 %202, label %203, label %207
 
@@ -965,13 +965,13 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.not348 = icmp uge i32 %.21, %230
   %231 = select i1 %.not348, i8 56, i8 48
   %232 = select i1 %.not348, i32 %230, i32 0
-  %.22 = sub i32 %.21, %232
+  %.22 = sub nuw i32 %.21, %232
   %233 = lshr exact i32 %230, 1
   %.not349 = icmp uge i32 %.22, %233
   %234 = or disjoint i8 %231, 4
   %235 = select i1 %.not349, i8 %234, i8 %231
   %236 = select i1 %.not349, i32 %233, i32 0
-  %.23 = sub i32 %.22, %236
+  %.23 = sub nuw nsw i32 %.22, %236
   %237 = or i1 %.not348, %.not349
   br i1 %237, label %238, label %239
 
@@ -989,11 +989,11 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.3 = phi i32 [ %240, %239 ], [ %227, %223 ]
   %.not350 = icmp uge i32 %.24, %.3
   %243 = select i1 %.not350, i32 %.3, i32 0
-  %.25 = sub i32 %.24, %243
+  %.25 = sub nuw i32 %.24, %243
   %244 = lshr i32 %.3, 1
   %.not351 = icmp uge i32 %.25, %244
   %245 = select i1 %.not351, i32 %244, i32 0
-  %.26 = sub i32 %.25, %245
+  %.26 = sub nuw nsw i32 %.25, %245
   %246 = or i1 %.not350, %.not351
   br i1 %246, label %247, label %251
 
@@ -1050,13 +1050,13 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %.not363 = icmp uge i32 %.28395, %266
   %267 = select i1 %.not363, i8 56, i8 48
   %268 = select i1 %.not363, i32 %266, i32 0
-  %.29 = sub i32 %.28395, %268
+  %.29 = sub nuw i32 %.28395, %268
   %269 = lshr exact i32 %266, 1
   %.not364 = icmp uge i32 %.29, %269
   %270 = or disjoint i8 %267, 4
   %271 = select i1 %.not364, i8 %270, i8 %267
   %272 = select i1 %.not364, i32 %269, i32 0
-  %.30 = sub i32 %.29, %272
+  %.30 = sub nuw i32 %.29, %272
   %273 = or i1 %.not363, %.not364
   br i1 %273, label %274, label %275
 
@@ -1076,13 +1076,13 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   %279 = add nuw nsw i8 %278, 2
   %280 = select i1 %.not365, i8 %279, i8 %278
   %281 = select i1 %.not365, i32 %.4, i32 0
-  %.32 = sub i32 %.31, %281
+  %.32 = sub nuw i32 %.31, %281
   %282 = lshr i32 %.4, 1
   %.not366 = icmp uge i32 %.32, %282
   %283 = zext i1 %.not366 to i8
   %284 = add nuw nsw i8 %280, %283
   %285 = select i1 %.not366, i32 %282, i32 0
-  %.33 = sub i32 %.32, %285
+  %.33 = sub nuw i32 %.32, %285
   %286 = or i1 %.not365, %.not366
   br i1 %286, label %287, label %288
 
@@ -11878,7 +11878,7 @@ define noundef ptr @decNumberRotate(ptr noundef returned %0, ptr noundef %1, ptr
   br i1 %112, label %113, label %123
 
 113:                                              ; preds = %109
-  %114 = sub i32 %93, %89
+  %114 = sub nuw i32 %93, %89
   %115 = zext i32 %114 to i64
   %116 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %115
   %117 = load i32, ptr %116, align 4
@@ -11891,7 +11891,7 @@ define noundef ptr @decNumberRotate(ptr noundef returned %0, ptr noundef %1, ptr
   br label %.sink.split
 
 123:                                              ; preds = %109
-  %124 = sub i32 %89, %93
+  %124 = sub nuw i32 %89, %93
   br label %.sink.split
 
 .sink.split:                                      ; preds = %123, %113

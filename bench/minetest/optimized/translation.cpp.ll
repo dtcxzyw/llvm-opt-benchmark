@@ -829,7 +829,7 @@ if.then.i.i.i316:                                 ; preds = %while.end12.i
 
 invoke.cont33:                                    ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %42, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %42, %front.0.lcssa.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %41, i64 %front.0.lcssa.i
   %45 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !32

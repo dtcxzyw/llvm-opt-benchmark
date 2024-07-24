@@ -11056,7 +11056,7 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h687f2686f91fe358E.ex
   %190 = getelementptr inbounds i8, ptr %2, i64 %.094
   %191 = load i8, ptr %190, align 1, !alias.scope !1611, !noundef !4
   %192 = icmp sgt i8 %191, -65
-  %193 = sub i64 %3, %.094
+  %193 = sub nuw i64 %3, %.094
   br i1 %192, label %195, label %194
 
 194:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i137", %187
@@ -11654,7 +11654,7 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h687f2686f91fe358E.ex
   %394 = getelementptr inbounds i8, ptr %2, i64 %.090
   %395 = load i8, ptr %394, align 1, !alias.scope !1722, !noundef !4
   %396 = icmp sgt i8 %395, -65
-  %397 = sub i64 %3, %.090
+  %397 = sub nuw i64 %3, %.090
   br i1 %396, label %399, label %398
 
 398:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i174", %391
@@ -11955,7 +11955,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %24 = getelementptr inbounds i8, ptr %10, i64 %16
   %25 = load i8, ptr %24, align 1, !alias.scope !1758, !noalias !1763, !noundef !4
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %12, %16
+  %27 = sub nuw i64 %12, %16
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i", %21
@@ -18923,7 +18923,7 @@ _ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread.i: ; preds 
   %260 = getelementptr inbounds i8, ptr %196, i64 %245
   %261 = load i8, ptr %260, align 1, !alias.scope !4187, !noundef !4
   %262 = icmp sgt i8 %261, -65
-  %263 = sub i64 %197, %245
+  %263 = sub nuw i64 %197, %245
   br i1 %262, label %269, label %.invoke433
 
 .invoke433:                                       ; preds = %444, %453, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i", %460, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i.i", %351, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i126", %257, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
@@ -19097,7 +19097,7 @@ _ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread.i: ; preds 
   %354 = getelementptr inbounds i8, ptr %196, i64 %.279
   %355 = load i8, ptr %354, align 1, !alias.scope !4197, !noundef !4
   %356 = icmp sgt i8 %355, -65
-  %357 = sub i64 %197, %.279
+  %357 = sub nuw i64 %197, %.279
   br i1 %356, label %358, label %.invoke433
 
 358:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i126", %351, %345

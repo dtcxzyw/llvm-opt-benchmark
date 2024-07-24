@@ -4771,7 +4771,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !1259
   %9 = icmp eq i32 %bcmp.i, 0
@@ -5847,7 +5847,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h887
   %143 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %.sroa.4.1
   %144 = load i8, ptr %143, align 1, !alias.scope !1469, !noalias !1474, !noundef !22
   %145 = icmp sgt i8 %144, -65
-  %146 = sub i64 %.sroa.03.sroa.13.0.copyload, %.sroa.4.1
+  %146 = sub nuw i64 %.sroa.03.sroa.13.0.copyload, %.sroa.4.1
   br i1 %145, label %148, label %147
 
 147:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %140
@@ -26358,7 +26358,7 @@ _ZN3std7process7Command6stderr17he9ea1006ed6d20afE.exit.i: ; preds = %_ZN3std7pr
   br i1 %.not.i.i206.i, label %341, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd4443cfa65844475E.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd4443cfa65844475E.exit.i.i": ; preds = %333
-  %.pre.i.i = sub i64 %328, %332
+  %.pre.i.i = sub nuw i64 %328, %332
   %334 = load ptr, ptr %48, align 8, !noalias !6428, !nonnull !22, !align !382, !noundef !22
   %335 = getelementptr inbounds i8, ptr %326, i64 %.pre.i.i
   %bcmp.i.i.i207.i = call i32 @bcmp(ptr nonnull readonly %334, ptr nonnull readonly %335, i64 %332), !alias.scope !6615
@@ -26370,7 +26370,7 @@ _ZN3std7process7Command6stderr17he9ea1006ed6d20afE.exit.i: ; preds = %_ZN3std7pr
   br i1 %.not.i.i206.i, label %.thread277.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd4443cfa65844475E.exit.i212.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd4443cfa65844475E.exit.i212.i": ; preds = %337
-  %.pre.i211.i = sub i64 %328, %332
+  %.pre.i211.i = sub nuw i64 %328, %332
   %338 = load ptr, ptr %48, align 8, !noalias !6428, !nonnull !22, !align !382, !noundef !22
   %339 = getelementptr inbounds i8, ptr %326, i64 %.pre.i211.i
   %bcmp.i.i.i213.i = call i32 @bcmp(ptr nonnull readonly %338, ptr nonnull readonly %339, i64 %332), !alias.scope !6625
@@ -34690,7 +34690,7 @@ default.unreachable:                              ; preds = %88
   br i1 %.not2526.i.not, label %_ZN3ide11inlay_hints10param_name31is_param_name_suffix_of_fn_name17h2bec0de94f8a2e27E.exit.thread, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h203dd5ff83fa97b2E.exit.thread.thread.i"
-  %114 = sub i64 %.sroa.3.0.i, %59
+  %114 = sub nuw i64 %.sroa.3.0.i, %59
   %115 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %114
   %116 = load i8, ptr %115, align 1, !alias.scope !8876, !noalias !8879, !noundef !22
   %117 = icmp sgt i8 %116, -65
@@ -44807,7 +44807,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i30.i.i: ; preds = %204, 
   %303 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 %300
   %304 = load i8, ptr %303, align 1, !alias.scope !11434, !noalias !11378, !noundef !22
   %305 = icmp sgt i8 %304, -65
-  %306 = sub i64 %.sroa.3.0.i.i.i, %300
+  %306 = sub nuw i64 %.sroa.3.0.i.i.i, %300
   br i1 %305, label %.thread34.i.i, label %307
 
 307:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i"

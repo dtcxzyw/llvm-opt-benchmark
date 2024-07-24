@@ -94,7 +94,7 @@ define hidden void @_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hb1f4f
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !alias.scope !5, !noalias !8, !noundef !4
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %13)
-  %14 = sub i64 %13, %.0.sroa.speculated.i.i.i
+  %14 = sub nuw i64 %13, %.0.sroa.speculated.i.i.i
   %15 = load ptr, ptr %2, align 8, !alias.scope !5, !noalias !8, !nonnull !4, !align !12, !noundef !4
   %16 = getelementptr inbounds i8, ptr %15, i64 %.0.sroa.speculated.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pre, ptr nonnull readonly align 1 %15, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !13, !noalias !17
@@ -766,7 +766,7 @@ define hidden void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %12 = getelementptr inbounds i8, ptr %1, i64 48
   %13 = load i64, ptr %12, align 8, !alias.scope !180, !noalias !181, !noundef !4
   %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %13)
-  %14 = sub i64 %13, %.0.sroa.speculated.i.i.i.i
+  %14 = sub nuw i64 %13, %.0.sroa.speculated.i.i.i.i
   %15 = load ptr, ptr %7, align 8, !alias.scope !180, !noalias !181, !nonnull !4, !align !12, !noundef !4
   %16 = getelementptr inbounds i8, ptr %15, i64 %.0.sroa.speculated.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pre.i, ptr nonnull readonly align 1 %15, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !185, !noalias !189

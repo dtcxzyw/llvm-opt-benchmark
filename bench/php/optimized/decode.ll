@@ -2401,7 +2401,7 @@ lxb_encoding_decode_gb18030_range.exit.thread221: ; preds = %311
 .preheader.i:                                     ; preds = %311, %334
   %.03245.i = phi i64 [ %.1.i, %334 ], [ 207, %311 ]
   %.03344.i = phi i64 [ %.134.i, %334 ], [ 0, %311 ]
-  %314 = sub i64 %.03245.i, %.03344.i
+  %314 = sub nuw i64 %.03245.i, %.03344.i
   %315 = lshr i64 %314, 1
   %316 = add i64 %315, %.03344.i
   %317 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %316
@@ -7587,7 +7587,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
 .preheader.i:                                     ; preds = %110, %132
   %.03245.i = phi i64 [ %.1.i, %132 ], [ 207, %110 ]
   %.03344.i = phi i64 [ %.134.i, %132 ], [ 0, %110 ]
-  %112 = sub i64 %.03245.i, %.03344.i
+  %112 = sub nuw i64 %.03245.i, %.03344.i
   %113 = lshr i64 %112, 1
   %114 = add i64 %113, %.03344.i
   %115 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %114

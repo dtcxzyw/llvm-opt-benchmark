@@ -2404,7 +2404,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %24 = getelementptr inbounds i8, ptr %10, i64 %16
   %25 = load i8, ptr %24, align 1, !alias.scope !412, !noalias !417, !noundef !10
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %12, %16
+  %27 = sub nuw i64 %12, %16
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i", %21
@@ -9630,7 +9630,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i: ; preds = 
   br i1 %192, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h050e5faa7482420fE.exit.i.i.i", label %.lr.ph.split.split.i.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdaef701dec81f19dE.exit.i.i.i.i": ; preds = %187
-  %195 = sub i64 %189, %149
+  %195 = sub nuw i64 %189, %149
   %196 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %195
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %196, ptr nonnull readonly %.sroa.019.sroa.8.0..sroa_idx, i64 %149), !alias.scope !1994, !noalias !1988
   %197 = icmp eq i32 %bcmp.i.i.i.i.i, 0

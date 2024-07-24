@@ -506,7 +506,7 @@ lor.lhs.false.i63:                                ; preds = %PACKET_equal.exit
 if.end49:                                         ; preds = %lor.lhs.false.i63
   %add.ptr.i.i.i69 = getelementptr inbounds i8, ptr %add.ptr.i.i5.i, i64 1
   %add.ptr.i.i5.i70 = getelementptr inbounds i8, ptr %add.ptr.i.i.i69, i64 %conv.i66
-  %sub.i.i6.i71 = sub nsw i64 %sub.i.i.i65, %conv.i66
+  %sub.i.i6.i71 = sub nuw nsw i64 %sub.i.i.i65, %conv.i66
   %tobool51.not = icmp eq i8 %10, 0
   br i1 %tobool51.not, label %if.end57, label %if.then52
 
@@ -547,7 +547,7 @@ lor.lhs.false67:                                  ; preds = %lor.lhs.false60
   br i1 %cmp.i110, label %return, label %if.end72
 
 if.end72:                                         ; preds = %lor.lhs.false67
-  %sub.i.i113 = sub nsw i64 %sub.i.i106, %conv68
+  %sub.i.i113 = sub nuw nsw i64 %sub.i.i106, %conv68
   %cmp.i.i117 = icmp ult i64 %sub.i.i113, 2
   br i1 %cmp.i.i117, label %return, label %lor.lhs.false75
 

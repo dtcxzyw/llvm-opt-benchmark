@@ -12098,7 +12098,7 @@ _ZN5alloc7raw_vec11finish_grow17h9b8b8a0ec08387c9E.exit.i.i.i: ; preds = %140, %
   %179 = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0580
   %180 = load i8, ptr %179, align 1, !alias.scope !3175, !noundef !4
   %181 = icmp sgt i8 %180, -65
-  %182 = sub i64 %1, %.sroa.0.0580
+  %182 = sub nuw i64 %1, %.sroa.0.0580
   br i1 %181, label %183, label %.thread292
 
 183:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %176, %173
@@ -61487,7 +61487,7 @@ common.resume:                                    ; preds = %.thread204, %.threa
 267:                                              ; preds = %264
   %268 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %269 = getelementptr inbounds { { { { { ptr, ptr } }, {}, {} }, i64 }, {} }, ptr %268, i64 %254
-  %270 = sub i64 %265, %256
+  %270 = sub nuw i64 %265, %256
   %271 = getelementptr inbounds { { { { { ptr, ptr } }, {}, {} }, i64 }, {} }, ptr %269, i64 %270
   invoke void @_ZN4core5slice6rotate10ptr_rotate17h93ea3dc284ffbb6bE(i64 noundef %270, ptr noundef nonnull %271, i64 noundef %256)
           to label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12rotate_right17h50f051a3382d806dE.exit" unwind label %.loopexit239
@@ -63347,7 +63347,7 @@ define hidden { i64, i16 } @_ZN5typst6layout6inline10SpanMapper7span_at17hdf6f47
 20:                                               ; preds = %12
   %21 = getelementptr inbounds i8, ptr %.sroa.0.011, i64 8
   %22 = load i64, ptr %21, align 8, !range !518, !noundef !4
-  %23 = sub i64 %1, %.07
+  %23 = sub nuw i64 %1, %.07
   %spec.select14 = tail call i64 @llvm.umin.i64(i64 %23, i64 65536)
   %spec.select = trunc i64 %spec.select14 to i16
   br label %17
@@ -67895,7 +67895,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hfacfd343ec90d3c5E.exit.i: ; pred
   %510 = getelementptr inbounds i8, ptr %467, i64 %.sroa.03.0114.lcssa.i
   %511 = load i8, ptr %510, align 1, !alias.scope !11673, !noalias !11672, !noundef !4
   %512 = icmp sgt i8 %511, -65
-  %513 = sub i64 %468, %.sroa.03.0114.lcssa.i
+  %513 = sub nuw i64 %468, %.sroa.03.0114.lcssa.i
   br i1 %512, label %514, label %.invoke
 
 514:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %507, %505
@@ -69653,7 +69653,7 @@ _ZN4core3ptr19swap_nonoverlapping17h10cf8ef88626a7d6E.exit.i.i: ; preds = %49
   br i1 %61, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc75e88e0b0cdf872E.exit", label %62
 
 62:                                               ; preds = %56
-  %63 = sub i64 %60, %59
+  %63 = sub nuw i64 %60, %59
   %64 = load ptr, ptr %18, align 8, !alias.scope !11976, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds { { { i64, [12 x i64] }, { i64, [12 x i64] }, ptr, { ptr, i64 }, { i64, i64 }, i64, double, i8, i8, [6 x i8] }, i64, double }, ptr %64, i64 %59
   store i64 %59, ptr %19, align 8, !alias.scope !11976

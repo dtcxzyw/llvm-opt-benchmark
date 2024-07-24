@@ -11075,7 +11075,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef no
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -13603,7 +13603,7 @@ _ZSt14__copy_move_a1ILb0EPcS0_ET1_T0_S2_S1_.exit.i.i.i.i.i.i.i: ; preds = %102, 
   br label %_ZSt22__uninitialized_copy_aISt15_Deque_iteratorIcRcPcES2_cET0_T_S5_S4_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aISt15_Deque_iteratorIcRcPcES2_cET0_T_S5_S4_RSaIT1_E.exit: ; preds = %108, %109, %._crit_edge.i.i.i.i.i.i.i, %106
-  %112 = sub i64 %31, %41
+  %112 = sub nuw i64 %31, %41
   %113 = load ptr, ptr %34, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 %112
   store ptr %114, ptr %34, align 8

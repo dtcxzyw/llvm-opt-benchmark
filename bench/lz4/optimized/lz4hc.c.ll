@@ -450,7 +450,7 @@ while.body.i58.i:                                 ; preds = %while.cond.i55.back
   br i1 %cmp25.i.not.i, label %if.else70.i.i, label %if.then27.i.i
 
 if.then27.i.i:                                    ; preds = %while.body.i58.i
-  %sub28.i.i = sub i32 %matchIndex.i.02828.i, %21
+  %sub28.i.i = sub nuw i32 %matchIndex.i.02828.i, %21
   %idx.ext29.i.i = zext i32 %sub28.i.i to i64
   %add.ptr30.i.i = getelementptr inbounds i8, ptr %20, i64 %idx.ext29.i.i
   %idx.ext31.i.i = sext i32 %longest.addr.i.02826.i to i64
@@ -1260,7 +1260,7 @@ if.end331.i.i:                                    ; preds = %if.end328.i.i, %if.
   br i1 %cmp336.i.i, label %while.end.i56.i, label %if.end339.i.i
 
 if.end339.i.i:                                    ; preds = %if.end331.i.i
-  %sub340.i.i = sub i32 %cond278.i.i, %conv335.i.i
+  %sub340.i.i = sub nuw i32 %cond278.i.i, %conv335.i.i
   br label %while.cond.i55.backedge.i
 
 while.cond.i55.backedge.i:                        ; preds = %if.end346.i.i, %if.end339.i.i, %if.else297.i.i, %if.then287.i65.i
@@ -1606,7 +1606,7 @@ while.body.i285.i:                                ; preds = %while.cond.i205.bac
   br i1 %cmp25.i289.not.i, label %if.else70.i290.i, label %if.then27.i544.i
 
 if.then27.i544.i:                                 ; preds = %while.body.i285.i
-  %sub28.i545.i = sub i32 %matchIndex.i121.02908.i, %87
+  %sub28.i545.i = sub nuw i32 %matchIndex.i121.02908.i, %87
   %idx.ext29.i546.i = zext i32 %sub28.i545.i to i64
   %add.ptr30.i547.i = getelementptr inbounds i8, ptr %86, i64 %idx.ext29.i546.i
   %idx.ext31.i548.i = sext i32 %longest.addr.i99.02910.i to i64
@@ -2507,7 +2507,7 @@ if.end331.i395.i:                                 ; preds = %if.end328.i413.i, %
   br i1 %cmp336.i400.i, label %while.end.i208.i, label %if.end339.i401.i
 
 if.end339.i401.i:                                 ; preds = %if.end331.i395.i
-  %sub340.i402.i = sub i32 %cond278.i372.i, %conv335.i399.i
+  %sub340.i402.i = sub nuw i32 %cond278.i372.i, %conv335.i399.i
   br label %while.cond.i205.backedge.i
 
 while.cond.i205.backedge.i:                       ; preds = %if.end346.i309.i, %if.end339.i401.i, %if.else304.i385.i, %if.else297.i377.i, %if.then287.i420.i
@@ -3133,7 +3133,7 @@ while.body.i817.i:                                ; preds = %while.cond.i737.bac
   br i1 %cmp25.i821.not.i, label %if.else70.i822.i, label %if.then27.i1076.i
 
 if.then27.i1076.i:                                ; preds = %while.body.i817.i
-  %sub28.i1077.i = sub i32 %matchIndex.i652.02998.i, %183
+  %sub28.i1077.i = sub nuw i32 %matchIndex.i652.02998.i, %183
   %idx.ext29.i1078.i = zext i32 %sub28.i1077.i to i64
   %add.ptr30.i1079.i = getelementptr inbounds i8, ptr %182, i64 %idx.ext29.i1078.i
   %idx.ext31.i1080.i = sext i32 %longest.addr.i630.03000.i to i64
@@ -4093,7 +4093,7 @@ if.end331.i927.i:                                 ; preds = %if.end328.i945.i, %
   br i1 %cmp336.i932.i, label %while.end.i740.i, label %if.end339.i933.i
 
 if.end339.i933.i:                                 ; preds = %if.end331.i927.i
-  %sub340.i934.i = sub i32 %cond278.i904.i, %conv335.i931.i
+  %sub340.i934.i = sub nuw i32 %cond278.i904.i, %conv335.i931.i
   br label %while.cond.i737.backedge.i
 
 while.cond.i737.backedge.i:                       ; preds = %if.end346.i841.i, %if.end339.i933.i, %if.else304.i917.i, %if.else297.i909.i, %if.then287.i952.i
@@ -6749,7 +6749,7 @@ while.body.i47:                                   ; preds = %while.body.i47.lr.p
   br i1 %cmp25.i.not, label %if.else70.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %while.body.i47
-  %sub28.i = sub i32 %matchIndex.i.02769, %5
+  %sub28.i = sub nuw i32 %matchIndex.i.02769, %5
   %idx.ext29.i = zext i32 %sub28.i to i64
   %add.ptr30.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext29.i
   %idx.ext31.i = sext i32 %longest.addr.i.02767 to i64
@@ -7559,7 +7559,7 @@ if.end331.i:                                      ; preds = %if.end328.i, %if.th
   br i1 %cmp336.i, label %LZ4HC_InsertAndGetWiderMatch.exit, label %if.end339.i
 
 if.end339.i:                                      ; preds = %if.end331.i
-  %sub340.i = sub i32 %cond278.i, %conv335.i
+  %sub340.i = sub nuw i32 %cond278.i, %conv335.i
   br label %while.cond.i44.backedge
 
 while.cond.i44.backedge:                          ; preds = %if.end339.i, %if.then287.i54, %if.else297.i, %if.end346.i
@@ -7710,7 +7710,7 @@ while.body.i274:                                  ; preds = %while.body.i274.lr.
   br i1 %cmp25.i278.not, label %if.else70.i279, label %if.then27.i533
 
 if.then27.i533:                                   ; preds = %while.body.i274
-  %sub28.i534 = sub i32 %matchIndex.i110.02829, %56
+  %sub28.i534 = sub nuw i32 %matchIndex.i110.02829, %56
   %idx.ext29.i535 = zext i32 %sub28.i534 to i64
   %add.ptr30.i536 = getelementptr inbounds i8, ptr %55, i64 %idx.ext29.i535
   %idx.ext31.i537 = sext i32 %longest.addr.i88.02831 to i64
@@ -8670,7 +8670,7 @@ if.end331.i384:                                   ; preds = %if.end328.i402, %if
   br i1 %cmp336.i389, label %if.end32.i, label %if.end339.i390
 
 if.end339.i390:                                   ; preds = %if.end331.i384
-  %sub340.i391 = sub i32 %cond278.i361, %conv335.i388
+  %sub340.i391 = sub nuw i32 %cond278.i361, %conv335.i388
   br label %while.cond.i194.backedge
 
 while.cond.i194.backedge:                         ; preds = %if.else304.i374, %if.end339.i390, %if.then287.i409, %if.else297.i366, %if.end346.i298
@@ -9020,7 +9020,7 @@ while.body.i806:                                  ; preds = %while.body.i806.lr.
   br i1 %cmp25.i810.not, label %if.else70.i811, label %if.then27.i1065
 
 if.then27.i1065:                                  ; preds = %while.body.i806
-  %sub28.i1066 = sub i32 %matchIndex.i641.02888, %138
+  %sub28.i1066 = sub nuw i32 %matchIndex.i641.02888, %138
   %idx.ext29.i1067 = zext i32 %sub28.i1066 to i64
   %add.ptr30.i1068 = getelementptr inbounds i8, ptr %137, i64 %idx.ext29.i1067
   %idx.ext31.i1069 = sext i32 %longest.addr.i619.02890 to i64
@@ -9980,7 +9980,7 @@ if.end331.i916:                                   ; preds = %if.end328.i934, %if
   br i1 %cmp336.i921, label %if.end112.i, label %if.end339.i922
 
 if.end339.i922:                                   ; preds = %if.end331.i916
-  %sub340.i923 = sub i32 %cond278.i893, %conv335.i920
+  %sub340.i923 = sub nuw i32 %cond278.i893, %conv335.i920
   br label %while.cond.i726.backedge
 
 while.cond.i726.backedge:                         ; preds = %if.else304.i906, %if.end339.i922, %if.then287.i941, %if.else297.i898, %if.end346.i830
@@ -11077,7 +11077,7 @@ if.else.i.i2180:                                  ; preds = %while.body.i.i2177
   br i1 %cmp25.i.i2181.not, label %if.else70.i.i2182, label %if.then27.i.i2642
 
 if.then27.i.i2642:                                ; preds = %if.else.i.i2180
-  %sub28.i.i2643 = sub i32 %matchIndex.i.i1850.02688, %3
+  %sub28.i.i2643 = sub nuw i32 %matchIndex.i.i1850.02688, %3
   %idx.ext29.i.i2644 = zext i32 %sub28.i.i2643 to i64
   %add.ptr30.i.i2645 = getelementptr inbounds i8, ptr %2, i64 %idx.ext29.i.i2644
   %idx.ext31.i.i2646 = sext i32 %longest.addr.i.i1828.02691 to i64
@@ -11510,7 +11510,7 @@ if.then154.i.i2381:                               ; preds = %for.end.i.i2378
   br i1 %cmp155.i.i2382, label %while.end.i.i1948, label %if.end158.i.i2383
 
 if.end158.i.i2383:                                ; preds = %if.then154.i.i2381
-  %sub159.i.i2384 = sub i32 %matchIndex.i.i1850.02688, %distanceToNextMatch.i.i1861.1
+  %sub159.i.i2384 = sub nuw i32 %matchIndex.i.i1850.02688, %distanceToNextMatch.i.i1861.1
   %cmp17.i.i1946 = icmp uge i32 %sub159.i.i2384, %cond.i.i1916
   %cmp19.i.i2821 = icmp sgt i32 %nbAttempts.i.i1847.02690, 1
   %32 = select i1 %cmp17.i.i1946, i1 %cmp19.i.i2821, i1 false
@@ -11937,7 +11937,7 @@ if.end331.i.i2287:                                ; preds = %if.end328.i.i2305, 
   br i1 %cmp336.i.i2292, label %while.end.i.i1948, label %if.end339.i.i2293
 
 if.end339.i.i2293:                                ; preds = %if.end331.i.i2287
-  %sub340.i.i2294 = sub i32 %cond278.i.i2264, %conv335.i.i2291
+  %sub340.i.i2294 = sub nuw i32 %cond278.i.i2264, %conv335.i.i2291
   br label %while.cond.i.i1945.outer.backedge
 
 while.cond.i.i1945.outer.backedge:                ; preds = %if.end339.i.i2293, %if.then287.i.i2312, %if.else297.i.i2269, %if.end346.i.i2201
@@ -12548,7 +12548,7 @@ if.else.i.i1089:                                  ; preds = %while.body.i.i1086
   br i1 %cmp25.i.i1090.not, label %if.else70.i.i1091, label %if.then27.i.i1551
 
 if.then27.i.i1551:                                ; preds = %if.else.i.i1089
-  %sub28.i.i1552 = sub i32 %matchIndex.i.i759.02773, %3
+  %sub28.i.i1552 = sub nuw i32 %matchIndex.i.i759.02773, %3
   %idx.ext29.i.i1553 = zext i32 %sub28.i.i1552 to i64
   %add.ptr30.i.i1554 = getelementptr inbounds i8, ptr %2, i64 %idx.ext29.i.i1553
   %idx.ext31.i.i1555 = sext i32 %longest.addr.i.i737.02776 to i64
@@ -12981,7 +12981,7 @@ if.then154.i.i1290:                               ; preds = %for.end.i.i1287
   br i1 %cmp155.i.i1291, label %while.end.i.i857, label %if.end158.i.i1292
 
 if.end158.i.i1292:                                ; preds = %if.then154.i.i1290
-  %sub159.i.i1293 = sub i32 %matchIndex.i.i759.02773, %distanceToNextMatch.i.i770.1
+  %sub159.i.i1293 = sub nuw i32 %matchIndex.i.i759.02773, %distanceToNextMatch.i.i770.1
   %cmp17.i.i855 = icmp uge i32 %sub159.i.i1293, %cond.i.i825
   %cmp19.i.i1730 = icmp sgt i32 %nbAttempts.i.i756.02775, 1
   %125 = select i1 %cmp17.i.i855, i1 %cmp19.i.i1730, i1 false
@@ -13408,7 +13408,7 @@ if.end331.i.i1196:                                ; preds = %if.end328.i.i1214, 
   br i1 %cmp336.i.i1201, label %while.end.i.i857, label %if.end339.i.i1202
 
 if.end339.i.i1202:                                ; preds = %if.end331.i.i1196
-  %sub340.i.i1203 = sub i32 %cond278.i.i1173, %conv335.i.i1200
+  %sub340.i.i1203 = sub nuw i32 %cond278.i.i1173, %conv335.i.i1200
   br label %while.cond.i.i854.outer.backedge
 
 while.cond.i.i854.outer.backedge:                 ; preds = %if.end339.i.i1202, %if.then287.i.i1221, %if.else297.i.i1178, %if.end346.i.i1110
@@ -13742,7 +13742,7 @@ if.else.i.i:                                      ; preds = %while.body.i.i
   br i1 %cmp25.i.i.not, label %if.else70.i.i, label %if.then27.i.i
 
 if.then27.i.i:                                    ; preds = %if.else.i.i
-  %sub28.i.i = sub i32 %matchIndex.i.i.02849, %3
+  %sub28.i.i = sub nuw i32 %matchIndex.i.i.02849, %3
   %idx.ext29.i.i = zext i32 %sub28.i.i to i64
   %add.ptr30.i.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext29.i.i
   %idx.ext31.i.i = sext i32 %longest.addr.i.i.02846 to i64
@@ -14175,7 +14175,7 @@ if.then154.i.i:                                   ; preds = %for.end.i.i
   br i1 %cmp155.i.i, label %while.end.i.i, label %if.end158.i.i
 
 if.end158.i.i:                                    ; preds = %if.then154.i.i
-  %sub159.i.i = sub i32 %matchIndex.i.i.02849, %distanceToNextMatch.i.i.1
+  %sub159.i.i = sub nuw i32 %matchIndex.i.i.02849, %distanceToNextMatch.i.i.1
   %cmp17.i.i = icmp uge i32 %sub159.i.i, %cond.i.i
   %cmp19.i.i = icmp sgt i32 %nbAttempts.i.i.02847, 1
   %189 = select i1 %cmp17.i.i, i1 %cmp19.i.i, i1 false
@@ -14601,7 +14601,7 @@ if.end331.i.i:                                    ; preds = %if.end328.i.i, %if.
   br i1 %cmp336.i.i, label %while.end.i.i, label %if.end339.i.i
 
 if.end339.i.i:                                    ; preds = %if.end331.i.i
-  %sub340.i.i = sub i32 %cond278.i.i, %conv335.i.i
+  %sub340.i.i = sub nuw i32 %cond278.i.i, %conv335.i.i
   br label %while.cond.i.i.outer.backedge
 
 while.cond.i.i.outer.backedge:                    ; preds = %if.end339.i.i, %if.then287.i.i, %if.else297.i.i, %if.end346.i.i

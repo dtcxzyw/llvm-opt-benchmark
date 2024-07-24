@@ -3072,7 +3072,7 @@ _ZN11BigUnsignedD2Ev.exit34:                      ; preds = %40, %45
   br label %_ZN11BigUnsignedD2Ev.exit
 
 64:                                               ; preds = %54
-  %65 = sub i32 %61, %56
+  %65 = sub nuw i32 %61, %56
   %66 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %65, ptr %66, align 4
   %67 = load i32, ptr %0, align 8

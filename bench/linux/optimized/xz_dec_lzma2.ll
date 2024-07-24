@@ -444,7 +444,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   br label %303
 
 261:                                              ; preds = %251
-  %262 = sub nsw i64 %246, %255
+  %262 = sub nuw nsw i64 %246, %255
   %263 = load i64, ptr %9, align 8
   %264 = add i64 %262, %263
   store i64 %264, ptr %9, align 8
@@ -621,7 +621,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
 
 359:                                              ; preds = %355
   %360 = sub i64 %353, %352
-  %361 = sub i64 %357, %356
+  %361 = sub nuw i64 %357, %356
   %362 = tail call i64 @llvm.umin.i64(i64 %360, i64 %361)
   %363 = load i64, ptr %14, align 8
   %364 = load i64, ptr %15, align 8
@@ -1094,7 +1094,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 
 189:                                              ; preds = %175
   %190 = sub i32 %178, %182
-  %191 = sub i32 %177, %182
+  %191 = sub nuw i32 %177, %182
   store i32 %191, ptr %70, align 4
   %192 = lshr i16 %180, 5
   %193 = sub i16 %180, %192
@@ -1190,7 +1190,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 
 254:                                              ; preds = %240
   %255 = sub i32 %243, %247
-  %256 = sub i32 %242, %247
+  %256 = sub nuw i32 %242, %247
   store i32 %256, ptr %70, align 4
   %257 = lshr i16 %245, 5
   %258 = sub i16 %245, %257
@@ -1252,7 +1252,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 
 287:                                              ; preds = %116
   %288 = sub i32 %119, %123
-  %289 = sub i32 %118, %123
+  %289 = sub nuw i32 %118, %123
   store i32 %289, ptr %70, align 4
   %290 = lshr i16 %121, 5
   %291 = sub i16 %121, %290
@@ -1289,7 +1289,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 312:                                              ; preds = %303
   %313 = sub i32 %306, %310
   store i32 %313, ptr %0, align 8
-  %314 = sub i32 %305, %310
+  %314 = sub nuw i32 %305, %310
   store i32 %314, ptr %70, align 4
   %315 = lshr i16 %308, 5
   %316 = sub i16 %308, %315
@@ -1361,7 +1361,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 361:                                              ; preds = %353
   %362 = sub i32 %355, %359
   store i32 %362, ptr %0, align 8
-  %363 = sub i32 %354, %359
+  %363 = sub nuw i32 %354, %359
   store i32 %363, ptr %70, align 4
   %364 = lshr i16 %357, 5
   %365 = sub i16 %357, %364
@@ -1383,7 +1383,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 
 373:                                              ; preds = %328
   %374 = sub i32 %331, %335
-  %375 = sub i32 %330, %335
+  %375 = sub nuw i32 %330, %335
   store i32 %375, ptr %70, align 4
   %376 = lshr i16 %333, 5
   %377 = sub i16 %333, %376
@@ -1429,7 +1429,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 
 404:                                              ; preds = %389
   %405 = sub i32 %392, %396
-  %406 = sub i32 %391, %396
+  %406 = sub nuw i32 %391, %396
   store i32 %406, ptr %70, align 4
   %407 = lshr i16 %394, 5
   %408 = sub i16 %394, %407
@@ -1472,7 +1472,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 
 434:                                              ; preds = %420
   %435 = sub i32 %422, %426
-  %436 = sub i32 %421, %426
+  %436 = sub nuw i32 %421, %426
   store i32 %436, ptr %70, align 4
   %437 = lshr i16 %424, 5
   %438 = sub i16 %424, %437
@@ -1575,7 +1575,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 
 498:                                              ; preds = %485
   %499 = sub i32 %487, %491
-  %500 = sub i32 %486, %491
+  %500 = sub nuw i32 %486, %491
   store i32 %500, ptr %70, align 4
   %501 = lshr i16 %489, 5
   %502 = sub i16 %489, %501
@@ -1672,7 +1672,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 561:                                              ; preds = %546
   %562 = sub i32 %548, %552
   store i32 %562, ptr %0, align 8
-  %563 = sub i32 %547, %552
+  %563 = sub nuw i32 %547, %552
   store i32 %563, ptr %70, align 4
   %564 = load i16, ptr %533, align 2
   %565 = lshr i16 %564, 5
@@ -1786,7 +1786,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 
 640:                                              ; preds = %627
   %641 = sub i32 %629, %633
-  %642 = sub i32 %628, %633
+  %642 = sub nuw i32 %628, %633
   store i32 %642, ptr %70, align 4
   %643 = lshr i16 %631, 5
   %644 = sub i16 %631, %643
@@ -1970,7 +1970,7 @@ define internal fastcc void @lzma_len(ptr nocapture noundef %0, ptr nocapture no
 39:                                               ; preds = %20
   %40 = sub i32 %22, %26
   store i32 %40, ptr %0, align 8
-  %41 = sub i32 %21, %26
+  %41 = sub nuw i32 %21, %26
   store i32 %41, ptr %27, align 4
   %42 = load i16, ptr %1, align 2
   %43 = lshr i16 %42, 5
@@ -2026,7 +2026,7 @@ define internal fastcc void @lzma_len(ptr nocapture noundef %0, ptr nocapture no
 78:                                               ; preds = %60
   %79 = sub i32 %62, %66
   store i32 %79, ptr %0, align 8
-  %80 = sub i32 %61, %66
+  %80 = sub nuw i32 %61, %66
   store i32 %80, ptr %27, align 4
   %81 = load i16, ptr %45, align 2
   %82 = lshr i16 %81, 5
@@ -2092,7 +2092,7 @@ define internal fastcc void @lzma_len(ptr nocapture noundef %0, ptr nocapture no
 123:                                              ; preds = %108
   %124 = sub i32 %110, %114
   store i32 %124, ptr %0, align 8
-  %125 = sub i32 %109, %114
+  %125 = sub nuw i32 %109, %114
   store i32 %125, ptr %27, align 4
   %126 = load i16, ptr %95, align 2
   %127 = lshr i16 %126, 5
@@ -2109,7 +2109,7 @@ define internal fastcc void @lzma_len(ptr nocapture noundef %0, ptr nocapture no
   br i1 %134, label %92, label %135, !llvm.loop !14
 
 135:                                              ; preds = %129
-  %136 = sub i32 %133, %88
+  %136 = sub nuw i32 %133, %88
   %137 = load i32, ptr %89, align 4
   %138 = add i32 %136, %137
   store i32 %138, ptr %89, align 4

@@ -1905,7 +1905,7 @@ _ZN7mitsuba3refINS_6StructEED2Ev.exit695:         ; preds = %_ZN7mitsuba3refINS_
   br i1 %553, label %554, label %576
 
 554:                                              ; preds = %.lr.ph1419
-  %555 = sub i64 %545, %552
+  %555 = sub nuw i64 %545, %552
   %556 = getelementptr inbounds i8, ptr %.sroa.01020.01417, i64 48
   %557 = load ptr, ptr %556, align 8
   %558 = ptrtoint ptr %557 to i64
@@ -1956,7 +1956,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i: ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i
   %572 = getelementptr inbounds i8, ptr %571, i64 %551
   %573 = getelementptr inbounds float, ptr %571, i64 %.0.i.i
-  %574 = shl i64 %555, 2
+  %574 = shl nuw i64 %555, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %572, i8 0, i64 %574, i1 false)
   %scevgep.i8.i = getelementptr i8, ptr %572, i64 %574
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %571, ptr align 4 %548, i64 %551, i1 false)
@@ -2986,7 +2986,7 @@ _ZN7mitsuba3refINS_6StructEED2Ev.exit821:         ; preds = %_ZN7mitsuba3refINS_
   br i1 %938, label %939, label %941
 
 939:                                              ; preds = %.lr.ph
-  %940 = sub i64 %930, %937
+  %940 = sub nuw i64 %930, %937
   invoke void @_ZNSt3__16vectorIfNS_9allocatorIfEEE8__appendEm(ptr noundef nonnull align 8 dereferenceable(24) %925, i64 noundef %940)
           to label %_ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit823 unwind label %.loopexit1173
 

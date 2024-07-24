@@ -22174,7 +22174,7 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEEET_
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit
-  %153 = sub nsw i64 %147, %150
+  %153 = sub nuw nsw i64 %147, %150
   tail call void @_ZNSt6vectorIP8CVertexOSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %153)
   br label %_ZNSt6vectorIP8CVertexOSaIS1_EE6resizeEm.exit
 
@@ -25702,7 +25702,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
-  %13 = sub i64 %1, %10
+  %13 = sub nuw i64 %1, %10
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %13)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -26846,7 +26846,7 @@ define linkonce_odr void @_ZN3vcg13GridStaticPtrI6CFaceOfE3SetIN9__gnu_cxx17__no
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %6
-  %49 = sub nsw i64 %39, %46
+  %49 = sub nuw nsw i64 %39, %46
   tail call void @_ZNSt6vectorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %49)
   br label %_ZNSt6vectorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS5_EE6resizeEm.exit
 
@@ -32858,7 +32858,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
-  %13 = sub i64 %1, %10
+  %13 = sub nuw i64 %1, %10
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %13)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 

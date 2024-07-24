@@ -181,7 +181,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %72
-  %85 = sub nsw i64 %75, %82
+  %85 = sub nuw nsw i64 %75, %82
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %85)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %38
 
@@ -217,7 +217,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIdSaId
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %103 = sub nsw i64 %93, %100
+  %103 = sub nuw nsw i64 %93, %100
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %103)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit27 unwind label %38
 
@@ -280,7 +280,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit27:             ; preds = %108, %106, %104, %1
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %121
-  %134 = sub nsw i64 %124, %131
+  %134 = sub nuw nsw i64 %124, %131
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %134)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit30_crit_edge unwind label %38
 
@@ -316,7 +316,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit30:             ; preds = %._ZNSt6vectorIdSaId
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit30
-  %152 = sub nsw i64 %142, %149
+  %152 = sub nuw nsw i64 %142, %149
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %152)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit33 unwind label %38
 

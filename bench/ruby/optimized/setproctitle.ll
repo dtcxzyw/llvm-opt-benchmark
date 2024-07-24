@@ -218,7 +218,7 @@ define dso_local void @setproctitle(ptr noundef %0, ...) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %6
   %16 = load ptr, ptr @argv_start, align 8
   %scevgep = getelementptr i8, ptr %16, i64 %10
-  %17 = sub i64 %14, %10
+  %17 = sub nuw i64 %14, %10
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %17, i1 false)
   br label %._crit_edge
 

@@ -433,7 +433,7 @@ define hidden void @_ZN10DumpRegion9commit_toEPc(ptr nocapture noundef nonnull r
   br i1 %12, label %38, label %13
 
 13:                                               ; preds = %2
-  %14 = sub i64 %8, %11
+  %14 = sub nuw i64 %8, %11
   %15 = load ptr, ptr %9, align 8
   %16 = tail call noundef i64 @_ZNK12VirtualSpace13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %15) #10
   %17 = sub i64 %16, %11

@@ -1324,8 +1324,8 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
   %84 = zext i16 %81 to i64
   %85 = getelementptr i8, ptr %0, i64 %84
   %86 = getelementptr i8, ptr %85, i64 %68
-  %87 = sub nsw i32 %52, %.pre-phi
-  %88 = zext i32 %87 to i64
+  %87 = sub nuw nsw i32 %52, %.pre-phi
+  %88 = zext nneg i32 %87 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %86, ptr align 1 %85, i64 %88, i1 false)
   %.pre81 = load i16, ptr %7, align 2
   br label %89
@@ -1710,8 +1710,8 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
   %77 = zext i16 %8 to i64
   %78 = getelementptr i8, ptr %0, i64 %77
   %79 = getelementptr i8, ptr %78, i64 %68
-  %80 = sub nsw i32 %52, %53
-  %81 = zext i32 %80 to i64
+  %80 = sub nuw nsw i32 %52, %53
+  %81 = zext nneg i32 %80 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %79, ptr align 1 %78, i64 %81, i1 false)
   %.pre = load i16, ptr %7, align 2
   %.val73.pre = load i16, ptr %3, align 4

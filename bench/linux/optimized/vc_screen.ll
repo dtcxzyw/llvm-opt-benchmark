@@ -714,7 +714,7 @@ define internal i64 @vcs_write(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %66, label %.thread38, label %67
 
 67:                                               ; preds = %64
-  %68 = sub nsw i64 %65, %17
+  %68 = sub nuw nsw i64 %65, %17
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 %2)
   %70 = getelementptr inbounds i8, ptr %5, i64 2
   %71 = getelementptr i8, ptr %14, i64 1

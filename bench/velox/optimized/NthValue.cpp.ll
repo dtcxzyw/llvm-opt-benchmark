@@ -5082,7 +5082,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %div7, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %div7, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %rowNumbers_, i64 noundef %sub.i)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -8305,7 +8305,7 @@ if.end.i11:                                       ; preds = %_ZNK8facebook5velox
   br i1 %cmp.i.i.i12, label %if.then.i.i.i37, label %if.else.i.i.i13
 
 if.then.i.i.i37:                                  ; preds = %if.end.i11
-  %sub.i.i.i = sub nsw i64 %conv.i.i.i, %sub.ptr.div.i.i.i.i
+  %sub.i.i.i = sub nuw nsw i64 %conv.i.i.i, %sub.ptr.div.i.i.i.i
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %invalidRows_.i, i64 noundef %sub.i.i.i)
   %.pre.i.i = load ptr, ptr %invalidRows_.i, align 8
   %.pre4.i.i = load ptr, ptr %_M_finish.i.i.i.i, align 8

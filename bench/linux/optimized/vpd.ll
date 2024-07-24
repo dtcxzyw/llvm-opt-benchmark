@@ -1108,7 +1108,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
 
 20:                                               ; preds = %17
   %21 = icmp sgt i64 %8, %18
-  %22 = sub nsw i64 %18, %1
+  %22 = sub nuw nsw i64 %18, %1
   %23 = select i1 %21, i64 %22, i64 %2
   %24 = tail call i64 @llvm.smin.i64(i64 %8, i64 %18)
   %25 = tail call i32 @mutex_lock_killable(ptr noundef %7) #11

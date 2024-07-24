@@ -3294,7 +3294,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %2, %._ZNSt6vectorIS
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
-  %27 = sub nsw i64 %.pre-phi47, %24
+  %27 = sub nuw nsw i64 %.pre-phi47, %24
   invoke void @_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %27)
           to label %_ZNSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE6resizeEm.exit unwind label %.loopexit.split-lp
 

@@ -47345,7 +47345,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h49fef9878d77ed24E"
 
 20:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3481716d2307ce77E.llvm.12748775874117282400.exit"
   %21 = getelementptr inbounds i8, ptr %14, i64 16
-  %22 = sub i64 %8, %1
+  %22 = sub nuw i64 %8, %1
   %23 = shl i64 %22, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull align 8 %14, i64 %23, i1 false)
   br label %26
@@ -47414,7 +47414,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17haa93a3cdcdea2d82E"
 
 22:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h68f2888f4d6d2e17E.llvm.12748775874117282400.exit"
   %23 = getelementptr inbounds i8, ptr %11, i64 8
-  %24 = sub i64 %5, %1
+  %24 = sub nuw i64 %5, %1
   %25 = shl i64 %24, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %11, i64 %25, i1 false)
   br label %28
@@ -47477,7 +47477,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17he287a9e85be7a6e5E"
 
 20:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc60036f48c49daaaE.llvm.12748775874117282400.exit"
   %21 = getelementptr inbounds i8, ptr %14, i64 16
-  %22 = sub i64 %8, %1
+  %22 = sub nuw i64 %8, %1
   %23 = shl i64 %22, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull align 8 %14, i64 %23, i1 false)
   br label %26
@@ -57389,7 +57389,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i: ; preds = 
   br i1 %64, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h227775a79cbb7478E.exit.i.i.i", label %.lr.ph.split.split.i.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d451a841346ada2E.exit.i.i.i.i": ; preds = %59
-  %67 = sub i64 %61, %17
+  %67 = sub nuw i64 %61, %17
   %68 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %67
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %15, i64 %17), !alias.scope !17344, !noalias !17338
   %69 = icmp eq i32 %bcmp.i.i.i.i.i, 0

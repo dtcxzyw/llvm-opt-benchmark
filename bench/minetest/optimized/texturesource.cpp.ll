@@ -3796,7 +3796,7 @@ if.then.i.i183:                                   ; preds = %if.end41
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end41
-  %sub.i = sub i64 %name.coerce0, %conv42
+  %sub.i = sub nuw i64 %name.coerce0, %conv42
   %add.ptr.i180 = getelementptr inbounds i8, ptr %name.coerce1, i64 %conv42
   %cmp.i = icmp eq i64 %conv42, %name.coerce0
   br i1 %cmp.i, label %if.end86, label %if.else
@@ -19719,7 +19719,7 @@ invoke.cont4.i.i:                                 ; preds = %if.end10
   store ptr %7, ptr %agg.result, align 8, !tbaa !32, !alias.scope !274
   %8 = load ptr, ptr %this, align 8, !tbaa !39, !noalias !274
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %5
-  %sub.i.i.i = sub i64 %6, %5
+  %sub.i.i.i = sub nuw i64 %6, %5
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #14, !noalias !274
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !27, !noalias !274
@@ -19991,7 +19991,7 @@ invoke.cont4.i.i58:                               ; preds = %if.end
   store ptr %3, ptr %ref.tmp8, align 8, !tbaa !32, !alias.scope !282
   %25 = load ptr, ptr %str, align 8, !tbaa !39, !noalias !282
   %add.ptr.i.i59 = getelementptr inbounds i8, ptr %25, i64 %pos.0143
-  %sub.i.i.i60 = sub i64 %24, %pos.0143
+  %sub.i.i.i60 = sub nuw i64 %24, %pos.0143
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i60, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i55) #14, !noalias !282
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i55, align 8, !tbaa !27, !noalias !282
@@ -20287,7 +20287,7 @@ invoke.cont4.i.i:                                 ; preds = %do.end
   store ptr %12, ptr %agg.result, align 8, !tbaa !32, !alias.scope !290
   %13 = load ptr, ptr %this, align 8, !tbaa !39, !noalias !290
   %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 %0
-  %sub.i.i.i = sub i64 %11, %0
+  %sub.i.i.i = sub nuw i64 %11, %0
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #14, !noalias !290
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !27, !noalias !290
@@ -22895,7 +22895,7 @@ if.then.i.i.i125:                                 ; preds = %while.body
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i: ; preds = %while.body
-  %sub.i.i.i = sub i64 %50, %call35163
+  %sub.i.i.i = sub nuw i64 %50, %call35163
   %spec.select.i.i.i124 = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 4)
   %call3.i.i127 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %fname_base, i64 noundef %call35163, i64 noundef %spec.select.i.i.i124, ptr noundef nonnull @.str.43, i64 noundef 11)
           to label %invoke.cont37 unwind label %lpad36.loopexit

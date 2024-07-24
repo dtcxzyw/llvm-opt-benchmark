@@ -130,7 +130,7 @@ default.unreachable188:                           ; preds = %2
   br i1 %41, label %42, label %"_ZN9itertools11lazy_buffer19LazyBuffer$LT$I$GT$7prefill17ha4c86d767033687cE.exit"
 
 42:                                               ; preds = %38
-  %43 = sub i64 %19, %40
+  %43 = sub nuw i64 %19, %40
   %44 = getelementptr inbounds i8, ptr %1, i64 64
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h45c1b633ab0561c8E.llvm.6497612000841670839"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(32) %44, i64 noundef %43)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 56

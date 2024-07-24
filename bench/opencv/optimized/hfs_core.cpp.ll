@@ -1116,7 +1116,7 @@ define hidden noundef i32 @_ZN2cv3hfs7HfsCore18getAvgGradientBdryERKNS_3MatERKSt
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %6
-  %34 = sub nsw i64 %24, %31
+  %34 = sub nuw nsw i64 %24, %31
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %34)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 

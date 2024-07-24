@@ -3532,7 +3532,7 @@ define hidden void @_ZN8Pipeline14prepareOutputsEv(ptr noundef nonnull align 8 d
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %1
-  %19 = sub i64 %9, %16
+  %19 = sub nuw i64 %9, %16
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %19)
   %.pre = load ptr, ptr %10, align 8
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
@@ -10196,7 +10196,7 @@ _ZN8CallNodeD2Ev.exit:                            ; preds = %_ZN2cv4util7variant
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %_ZN8CallNodeD2Ev.exit
-  %84 = sub nsw i64 %19, %81
+  %84 = sub nuw nsw i64 %19, %81
   invoke void @_ZNSt6vectorISt8weak_ptrI4NodeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %74, i64 noundef %84)
           to label %_ZNSt6vectorISt8weak_ptrI4NodeESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -27531,7 +27531,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv4util7variantI
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv4util7variantIJPNS2_4UMatEPNS2_3MatEPNS2_4RMatEPNS2_7Scalar_IdEEPNS2_10MediaFrameENS2_6detail9VectorRefENSG_9OpaqueRefEEEESt6vectorISJ_SaISJ_EEEEPSJ_SJ_ET0_T_SS_SR_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv4util7variantIJPNS2_4UMatEPNS2_3MatEPNS2_4RMatEPNS2_7Scalar_IdEEPNS2_10MediaFrameENS2_6detail9VectorRefENSG_9OpaqueRefEEEESt6vectorISJ_SaISJ_EEEEPSJ_SJ_ET0_T_SS_SR_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN2cv4util7variantIJPNS2_4UMatEPNS2_3MatEPNS2_4RMatEPNS2_7Scalar_IdEEPNS2_10MediaFrameENS2_6detail9VectorRefENSG_9OpaqueRefEEEESt6vectorISJ_SaISJ_EEEEmEvRT_T0_.exit
   %109 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv4util7variantIJPNS2_4UMatEPNS2_3MatEPNS2_4RMatEPNS2_7Scalar_IdEEPNS2_10MediaFrameENS2_6detail9VectorRefENSG_9OpaqueRefEEEESt6vectorISJ_SaISJ_EEEEPSJ_SJ_ET0_T_SS_SR_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN2cv4util7variantIJPNS2_4UMatEPNS2_3MatEPNS2_4RMatEPNS2_7Scalar_IdEEPNS2_10MediaFrameENS2_6detail9VectorRefENSG_9OpaqueRefEEEESt6vectorISJ_SaISJ_EEEEmEvRT_T0_.exit ]
-  %110 = sub nsw i64 %9, %20
+  %110 = sub nuw nsw i64 %9, %20
   %111 = getelementptr inbounds %"class.cv::util::variant.261", ptr %109, i64 %110
   store ptr %111, ptr %12, align 8
   %.not12.i.i.i.i.i55 = icmp eq ptr %13, %1
@@ -30166,7 +30166,7 @@ _ZSt13move_backwardIPN2cv4gapi9GNetParamES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN2cv4gapi9GNetParamESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %17
   %52 = getelementptr inbounds i8, ptr %2, i64 %19
   %53 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv4gapi9GNetParamESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_(ptr %52, ptr %3, ptr noundef %13)
-  %54 = sub nsw i64 %9, %20
+  %54 = sub nuw nsw i64 %9, %20
   %55 = load ptr, ptr %12, align 8
   %56 = getelementptr inbounds %"struct.cv::gapi::GNetParam", ptr %55, i64 %54
   store ptr %56, ptr %12, align 8
@@ -59744,7 +59744,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyIiLi1EEclERSt6v
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %3
-  %21 = sub i64 %11, %18
+  %21 = sub nuw i64 %11, %18
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %21)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 

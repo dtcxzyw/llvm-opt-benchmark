@@ -1286,7 +1286,7 @@ while.body.i:                                     ; preds = %invoke.cont15, %.no
   %sub.ptr.sub.i35.i = phi i64 [ 1024, %.noexc ], [ %sub.ptr.sub.i32.i, %invoke.cont15 ]
   %6 = phi ptr [ %buf_.i, %.noexc ], [ %5, %invoke.cont15 ]
   %n.addr.034.i = phi i64 [ %sub.i, %.noexc ], [ %conv, %invoke.cont15 ]
-  %sub.i = sub i64 %n.addr.034.i, %sub.ptr.sub.i35.i
+  %sub.i = sub nuw i64 %n.addr.034.i, %sub.ptr.sub.i35.i
   %cmp5.not.i = icmp eq ptr %add.ptr.i.i, %6
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 

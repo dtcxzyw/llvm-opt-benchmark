@@ -1383,7 +1383,7 @@ cannot_decrypt.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 if.end.i120.i.i.i.i:                              ; preds = %cannot_decrypt.i.i.i.i
   %add.ptr.i.i121.i.i.i.i = getelementptr inbounds i8, ptr %pkt.val75.i.i.i.i, i64 %sub.ptr.sub183.i.i.i.i
   store ptr %add.ptr.i.i121.i.i.i.i, ptr %pkt.i.i.i, align 8
-  %sub.i.i.i.i.i.i = sub i64 %pkt.val.i.i.i.i.i, %sub.ptr.sub183.i.i.i.i
+  %sub.i.i.i.i.i.i = sub nuw i64 %pkt.val.i.i.i.i.i, %sub.ptr.sub183.i.i.i.i
   store i64 %sub.i.i.i.i.i.i, ptr %remaining.i.i.i.i, align 8
   br label %qrx_process_pkt.exit.i.i.i
 
@@ -1406,7 +1406,7 @@ if.then187.i.i.i.i:                               ; preds = %malformed.i.i.i.i
 if.end.i127.i.i.i.i:                              ; preds = %if.then187.i.i.i.i
   %add.ptr.i.i128.i.i.i.i = getelementptr inbounds i8, ptr %.pre22.i.i.i, i64 %sub.ptr.sub192.i.i.i.i
   store ptr %add.ptr.i.i128.i.i.i.i, ptr %pkt.i.i.i, align 8
-  %sub.i.i129.i.i.i.i = sub i64 %pkt.val.i125.i.i.i.i, %sub.ptr.sub192.i.i.i.i
+  %sub.i.i129.i.i.i.i = sub nuw i64 %pkt.val.i125.i.i.i.i, %sub.ptr.sub192.i.i.i.i
   store i64 %sub.i.i129.i.i.i.i, ptr %remaining.i.i.i.i, align 8
   br label %79
 

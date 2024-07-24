@@ -919,7 +919,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_sha256_update(ptr nocapture noundef 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %9, i1 false)
   %23 = tail call i32 @mbedtls_internal_sha256_process(ptr noundef nonnull %0, ptr noundef nonnull %20)
   %24 = getelementptr inbounds i8, ptr %1, i64 %9
-  %25 = sub i64 %2, %9
+  %25 = sub nuw i64 %2, %9
   br label %26
 
 26:                                               ; preds = %19, %17

@@ -1018,7 +1018,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -4708,7 +4708,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %14, %._ZNSt6vectorI
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %32 = sub nsw i64 %24, %29
+  %32 = sub nuw nsw i64 %24, %29
   invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %32)
           to label %_ZNSt6vectorImSaImEE6resizeEm.exit95 unwind label %.loopexit.split-lp
 
@@ -4881,7 +4881,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit95:             ; preds = %31, %33, %35, %37
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %._crit_edge138
-  %110 = sub nsw i64 %100, %107
+  %110 = sub nuw nsw i64 %100, %107
   invoke void @_ZNSt6vectorIS_IfSaIfEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %110)
           to label %_ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -4970,7 +4970,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit:    ; preds = %109, %111, %113, %_
   br label %.split.us
 
 152:                                              ; preds = %.lr.ph145.split.us
-  %153 = sub i64 %138, %145
+  %153 = sub nuw i64 %138, %145
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %136, i64 noundef %153)
           to label %.split.us unwind label %.loopexit.split.us
 
@@ -5004,7 +5004,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit:    ; preds = %109, %111, %113, %_
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %.lr.ph145.split
-  %175 = sub i64 %165, %172
+  %175 = sub nuw i64 %165, %172
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %164, i64 noundef %175)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %.loopexit.split
 

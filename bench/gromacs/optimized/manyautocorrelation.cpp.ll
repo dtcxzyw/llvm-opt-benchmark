@@ -232,7 +232,7 @@ define noundef i32 @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE(ptr nounde
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %.lr.ph
-  %62 = sub i64 %52, %59
+  %62 = sub nuw i64 %52, %59
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.033.056, ptr %54, i64 noundef %62, ptr noundef nonnull align 4 dereferenceable(4) %12)
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
@@ -277,7 +277,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %61, %63, %65, %67
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %.lr.ph60
-  %83 = sub i64 %73, %80
+  %83 = sub nuw i64 %73, %80
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.029.058, i64 noundef %83)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -612,7 +612,7 @@ define internal void @_Z16many_auto_correlPSt6vectorIS_IfSaIfEESaIS1_EE.omp_outl
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %30
-  %42 = sub i64 %32, %39
+  %42 = sub nuw i64 %32, %39
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %34, i64 noundef %42, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %._ZNSt6vectorIfSaIfEE6resizeEmRKf.exit_crit_edge unwind label %.loopexit.split-lp
 
@@ -648,7 +648,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
-  %57 = sub i64 %.pre-phi, %54
+  %57 = sub nuw i64 %.pre-phi, %54
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %49, i64 noundef %57, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit39 unwind label %.loopexit.split-lp
 
@@ -1087,7 +1087,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

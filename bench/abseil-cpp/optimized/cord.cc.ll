@@ -4398,7 +4398,7 @@ if.then.i:                                        ; preds = %invoke.cont26
   %10 = load ptr, ptr %_M_str.i.i.i, align 8
   %add.ptr.i.i.i29 = getelementptr inbounds i8, ptr %10, i64 %spec.select
   store ptr %add.ptr.i.i.i29, ptr %_M_str.i.i.i, align 8
-  %sub.i.i.i = sub i64 %9, %spec.select
+  %sub.i.i.i = sub nuw i64 %9, %spec.select
   store i64 %sub.i.i.i, ptr %it, align 8
   %bytes_remaining_.i.i = getelementptr inbounds i8, ptr %it, i64 24
   %11 = load i64, ptr %bytes_remaining_.i.i, align 8
@@ -6061,7 +6061,7 @@ if.else.i.i:                                      ; preds = %if.end
   br label %_ZN4absl4CordC2ERKS0_.exit
 
 _ZN4absl4CordC2ERKS0_.exit:                       ; preds = %if.then.i.i, %if.then.i.i.i.i, %if.else.i.i
-  %sub = sub i64 %cond.i.i, %rhs.coerce0
+  %sub = sub nuw i64 %cond.i.i, %rhs.coerce0
   invoke void @_ZN4absl4Cord12RemovePrefixEm(ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 noundef %sub)
           to label %invoke.cont unwind label %lpad
 
@@ -6224,7 +6224,7 @@ if.else.i.i:                                      ; preds = %if.end
   br label %_ZN4absl4CordC2ERKS0_.exit
 
 _ZN4absl4CordC2ERKS0_.exit:                       ; preds = %if.then.i.i, %if.then.i.i.i.i, %if.else.i.i
-  %sub = sub i64 %cond.i.i, %cond.i.i8
+  %sub = sub nuw i64 %cond.i.i, %cond.i.i8
   invoke void @_ZN4absl4Cord12RemovePrefixEm(ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 noundef %sub)
           to label %invoke.cont unwind label %lpad
 
@@ -6560,7 +6560,7 @@ while.cond:                                       ; preds = %if.then, %while.bod
 while.body:                                       ; preds = %while.cond
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data.0, ptr align 1 %1, i64 %0, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %data.0, i64 %0
-  %sub = sub i64 %n.addr.0, %0
+  %sub = sub nuw i64 %n.addr.0, %0
   %call13 = invoke noundef nonnull align 8 dereferenceable(152) ptr @_ZN4absl4Cord13ChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(152) %this)
           to label %while.cond unwind label %lpad.loopexit, !llvm.loop !37
 
@@ -6587,7 +6587,7 @@ while.end:                                        ; preds = %while.cond
 if.then19:                                        ; preds = %while.end
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %n.addr.0
   store ptr %add.ptr.i.i, ptr %_M_str.i, align 8
-  %sub.i.i = sub i64 %0, %n.addr.0
+  %sub.i.i = sub nuw i64 %0, %n.addr.0
   store i64 %sub.i.i, ptr %this, align 8
   %bytes_remaining_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %bytes_remaining_.i, align 8
@@ -7198,7 +7198,7 @@ if.end:                                           ; preds = %_ZNKSt17basic_strin
 if.then.i.i17:                                    ; preds = %if.end
   %add.ptr.i.i.i.i19 = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i.i.i.i19, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i, align 8
-  %sub.i.i.i.i20 = sub i64 %retval.sroa.0.0.copyload.i.i, %sub.ptr.sub.i
+  %sub.i.i.i.i20 = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %sub.ptr.sub.i
   store i64 %sub.i.i.i.i20, ptr %it, align 8
   %sub.i.i.i22 = sub i64 %3, %sub.ptr.sub.i
   store i64 %sub.i.i.i22, ptr %bytes_remaining_, align 8
@@ -7273,7 +7273,7 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   %12 = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 %.sroa.speculated.i
   store ptr %add.ptr.i.i.i.i.i, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i.i, align 8
-  %sub.i.i.i.i.i = sub i64 %.ph, %.sroa.speculated.i
+  %sub.i.i.i.i.i = sub nuw i64 %.ph, %.sroa.speculated.i
   store i64 %sub.i.i.i.i.i, ptr %agg.tmp24, align 8
   %13 = load i64, ptr %bytes_remaining_.i.i.i25, align 8
   %sub.i.i.i.i28 = sub i64 %13, %.sroa.speculated.i
@@ -7604,7 +7604,7 @@ if.then.i.i:                                      ; preds = %if.end18
   %15 = load ptr, ptr %_M_str.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 %retval.sroa.0.0.copyload.i.i
   store ptr %add.ptr.i.i.i.i, ptr %_M_str.i.i.i.i, align 8
-  %sub.i.i.i.i = sub i64 %14, %retval.sroa.0.0.copyload.i.i
+  %sub.i.i.i.i = sub nuw i64 %14, %retval.sroa.0.0.copyload.i.i
   store i64 %sub.i.i.i.i, ptr %haystack_advanced_it, align 8
   %16 = load i64, ptr %bytes_remaining_.i.i37, align 8
   %sub.i.i.i = sub i64 %16, %retval.sroa.0.0.copyload.i.i
@@ -7649,7 +7649,7 @@ if.then.i.i52:                                    ; preds = %_ZN4absl4Cord7Advan
   %22 = load ptr, ptr %_M_str.i.i.i.i53, align 8
   %add.ptr.i.i.i.i54 = getelementptr inbounds i8, ptr %22, i64 %retval.sroa.0.0.copyload.i.i
   store ptr %add.ptr.i.i.i.i54, ptr %_M_str.i.i.i.i53, align 8
-  %sub.i.i.i.i55 = sub i64 %21, %retval.sroa.0.0.copyload.i.i
+  %sub.i.i.i.i55 = sub nuw i64 %21, %retval.sroa.0.0.copyload.i.i
   store i64 %sub.i.i.i.i55, ptr %needle_it, align 8
   %23 = load i64, ptr %bytes_remaining_.i.i45, align 8
   %sub.i.i.i57 = sub i64 %23, %retval.sroa.0.0.copyload.i.i
@@ -7718,7 +7718,7 @@ if.end.thread.i:                                  ; preds = %land.rhs.i.i.i
 if.then.i.i.i:                                    ; preds = %if.end.thread.i, %if.end.i66
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %29
   store ptr %add.ptr.i.i.i.i.i, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i.i, align 8
-  %sub.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %29
+  %sub.i.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %29
   store i64 %sub.i.i.i.i.i, ptr %agg.tmp2160, align 8
   %30 = load i64, ptr %bytes_remaining_.i.i.i63, align 8
   %sub.i.i.i.i67 = sub i64 %30, %29
@@ -7765,7 +7765,7 @@ if.then.i.i30.i:                                  ; preds = %_ZN4absl4Cord7Advan
   %36 = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i5.i, align 8
   %add.ptr.i.i.i.i32.i = getelementptr inbounds i8, ptr %36, i64 %.sroa.speculated.i
   store ptr %add.ptr.i.i.i.i32.i, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i5.i, align 8
-  %sub.i.i.i.i33.i = sub i64 %35, %.sroa.speculated.i
+  %sub.i.i.i.i33.i = sub nuw i64 %35, %.sroa.speculated.i
   store i64 %sub.i.i.i.i33.i, ptr %agg.tmp2261, align 8
   %sub.i.i.i35.i = sub i64 %34, %.sroa.speculated.i
   store i64 %sub.i.i.i35.i, ptr %bytes_remaining_.i.i.i.i, align 8
@@ -7909,7 +7909,7 @@ if.end.thread.i.i:                                ; preds = %land.rhs.i.i.i.i
 if.then.i.i.i.i:                                  ; preds = %if.end.thread.i.i, %if.end.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i.i, i64 %51
   store ptr %add.ptr.i.i.i.i.i.i, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i.i.i, align 8
-  %sub.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i, %51
+  %sub.i.i.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i.i, %51
   store i64 %sub.i.i.i.i.i.i, ptr %agg.tmp3.i, align 8
   %52 = load i64, ptr %bytes_remaining_.i.i.i.i89, align 8
   %sub.i.i.i.i.i91 = sub i64 %52, %51
@@ -7956,7 +7956,7 @@ if.then.i.i30.i.i:                                ; preds = %_ZN4absl4Cord7Advan
   %58 = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i5.i.i, align 8
   %add.ptr.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %58, i64 %.sroa.speculated.i.i
   store ptr %add.ptr.i.i.i.i32.i.i, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i5.i.i, align 8
-  %sub.i.i.i.i33.i.i = sub i64 %57, %.sroa.speculated.i.i
+  %sub.i.i.i.i33.i.i = sub nuw i64 %57, %.sroa.speculated.i.i
   store i64 %sub.i.i.i.i33.i.i, ptr %agg.tmp14.i, align 8
   %sub.i.i.i35.i.i = sub i64 %56, %.sroa.speculated.i.i
   store i64 %sub.i.i.i35.i.i, ptr %bytes_remaining_.i.i.i.i.i, align 8
@@ -9276,7 +9276,7 @@ while.body.i.i:                                   ; preds = %if.end.i, %while.bo
   %index.08.i.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ %conv.i.i.i, %if.end.i ]
   %offset.addr.07.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %offset, %if.end.i ]
   %inc.i.i = add i64 %index.08.i.i, 1
-  %sub.i.i = sub i64 %offset.addr.07.i.i, %6
+  %sub.i.i = sub nuw i64 %offset.addr.07.i.i, %6
   %arrayidx.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i, i64 0, i64 %inc.i.i
   %7 = load ptr, ptr %arrayidx.i.i, align 8
   %8 = load i64, ptr %7, align 8
@@ -9323,7 +9323,7 @@ while.body.i22.i:                                 ; preds = %while.body.i, %whil
   %index.08.i23.i = phi i64 [ %inc.i25.i, %while.body.i22.i ], [ %conv.i.i18.i, %while.body.i ]
   %offset.addr.07.i24.i = phi i64 [ %sub.i26.i, %while.body.i22.i ], [ %offset.addr.0.lcssa.i.pn39.i, %while.body.i ]
   %inc.i25.i = add i64 %index.08.i23.i, 1
-  %sub.i26.i = sub i64 %offset.addr.07.i24.i, %14
+  %sub.i26.i = sub nuw i64 %offset.addr.07.i24.i, %14
   %arrayidx.i27.i = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i, i64 0, i64 %inc.i25.i
   %15 = load ptr, ptr %arrayidx.i27.i, align 8
   %16 = load i64, ptr %15, align 8
@@ -9392,7 +9392,7 @@ if.then.i.i:                                      ; preds = %_ZN4absl13cord_inte
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit
   %retval.sroa.3.0.i4 = getelementptr inbounds i8, ptr %storage.i.pn.i, i64 %offset.0.i
-  %sub.i = sub i64 %18, %offset.addr.0.lcssa.i.pn.lcssa.i
+  %sub.i = sub nuw i64 %18, %offset.addr.0.lcssa.i.pn.lcssa.i
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.i4, i64 %offset.addr.0.lcssa.i.pn.lcssa.i
   %24 = load i32, ptr %navigator_, align 8
   %cmp.i.i.i = icmp sgt i32 %24, -1
@@ -9828,7 +9828,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %add12.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %add12.i.i.i, %sub.ptr.div.i
   tail call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i), !noalias !97
   %.pre.i = load ptr, ptr %_M_start, align 8, !noalias !100
   %.pre4.i = load ptr, ptr %_M_first.i10, align 8, !noalias !100
@@ -9956,7 +9956,7 @@ if.then19:                                        ; preds = %if.else
   br i1 %cmp.i40, label %if.then.i52, label %if.end.i41
 
 if.then.i52:                                      ; preds = %if.then19
-  %sub4.i = sub i64 %add12.i.i.i, %sub.i39
+  %sub4.i = sub nuw i64 %add12.i.i.i, %sub.i39
   tail call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !113
   %.pre.i53 = load ptr, ptr %_M_finish, align 8
   %.pre4.i54 = load ptr, ptr %_M_last.i34, align 8
@@ -10550,7 +10550,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i23 = sub i64 %__n, %sub.ptr.div.i22
+  %sub.i23 = sub nuw i64 %__n, %sub.ptr.div.i22
   tail call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i23), !noalias !142
   %.pre.i = load ptr, ptr %_M_start, align 8
   %.pre4.i = load ptr, ptr %_M_first.i18, align 8
@@ -11072,7 +11072,7 @@ if.else51:                                        ; preds = %entry
   br i1 %cmp.i295, label %if.then.i322, label %if.end.i296
 
 if.then.i322:                                     ; preds = %if.else51
-  %sub4.i = sub i64 %__n, %sub.i294
+  %sub4.i = sub nuw i64 %__n, %sub.i294
   tail call void @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !218
   %.pre.i323 = load ptr, ptr %_M_finish.i, align 8
   %.pre4.i324 = load ptr, ptr %_M_last.i289, align 8

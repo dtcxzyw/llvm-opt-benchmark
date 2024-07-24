@@ -5121,7 +5121,7 @@ get_logpage_name.exit:                            ; preds = %5, %14, %16, %18
   br i1 %.not81.i, label %63, label %dissect_nvme_get_logpage_ify_resp.exit
 
 63:                                               ; preds = %62
-  %64 = sub i32 %4, %57
+  %64 = sub nuw i32 %4, %57
   br label %70
 
 65:                                               ; preds = %60
@@ -5718,7 +5718,7 @@ add_group_mask_entry.exit237.i:                   ; preds = %.lr.ph.i233.i, %227
   br i1 %or.cond.i.i, label %decode_smart_resp_temps.exit.i, label %385
 
 385:                                              ; preds = %379
-  %386 = sub i32 %4, %381
+  %386 = sub nuw i32 %4, %381
   %387 = icmp ult i32 %188, 201
   %388 = sub nuw nsw i32 216, %188
   %389 = select i1 %387, i32 16, i32 %388
@@ -5872,7 +5872,7 @@ add_group_mask_entry.exit.i101:                   ; preds = %.lr.ph.i.i111, %443
   br i1 %or.cond.i.i103, label %decode_fw_slot_frs.exit.i, label %468
 
 468:                                              ; preds = %462
-  %469 = sub i32 %4, %464
+  %469 = sub nuw i32 %4, %464
   %470 = icmp ult i32 %441, 9
   %471 = sub nuw nsw i32 64, %441
   %472 = select i1 %470, i32 56, i32 %471
@@ -6801,7 +6801,7 @@ add_group_mask_entry.exit117.i:                   ; preds = %.lr.ph.i113.i, %904
 
 978:                                              ; preds = %974
   %979 = load i32, ptr @hf_nvme_get_logpage_pred_lat_rsvd3, align 4
-  %980 = sub i32 %4, %976
+  %980 = sub nuw i32 %4, %976
   %981 = tail call ptr @proto_tree_add_item(ptr noundef %887, i32 noundef %979, ptr noundef %0, i32 noundef %976, i32 noundef %980, i32 noundef 0) #10
   br label %dissect_nvme_get_logpage_err_inf_resp.exit
 
@@ -7499,7 +7499,7 @@ dissect_nvme_get_logpage_lba_status_lba_range.exit.i: ; preds = %.lr.ph.preheade
   br i1 %.not54.i, label %1348, label %dissect_nvme_get_logpage_err_inf_resp.exit
 
 1348:                                             ; preds = %1347
-  %1349 = sub i32 %4, %1342
+  %1349 = sub nuw i32 %4, %1342
   %spec.store.select.i203 = tail call i32 @llvm.umin.i32(i32 %1349, i32 48)
   br label %1352
 

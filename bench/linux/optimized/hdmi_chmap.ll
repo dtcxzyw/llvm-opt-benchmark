@@ -1282,7 +1282,7 @@ define internal i32 @hdmi_chmap_ctl_tlv(ptr nocapture noundef readonly %0, i32 %
   br i1 %106, label %.loopexit, label %107
 
 107:                                              ; preds = %103
-  %108 = sub i32 %105, %62
+  %108 = sub nuw i32 %105, %62
   %109 = add i32 %65, %69
   %110 = load ptr, ptr %51, align 8
   call void %110(ptr noundef %9, ptr noundef %71, ptr noundef nonnull %5, i32 noundef %60) #13

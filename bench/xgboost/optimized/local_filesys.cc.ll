@@ -2854,7 +2854,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
   %67 = sub i64 %39, %36
   %68 = load ptr, ptr %9, align 8, !tbaa !17
   %69 = getelementptr inbounds i8, ptr %68, i64 %36
-  %70 = sub i64 %62, %36
+  %70 = sub nuw i64 %62, %36
   %71 = call noundef i64 @llvm.umin.i64(i64 %70, i64 %67)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
   store i64 %71, ptr %6, align 8, !tbaa !38
@@ -2913,7 +2913,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
   %93 = load ptr, ptr %9, align 8, !tbaa !17
   %94 = getelementptr inbounds i8, ptr %93, i64 %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  %95 = sub nsw i64 %88, %39
+  %95 = sub nuw nsw i64 %88, %39
   store i64 %95, ptr %5, align 8, !tbaa !38
   %96 = icmp ugt i64 %95, 15
   br i1 %96, label %97, label %101

@@ -6276,7 +6276,7 @@ tailrecurse:                                      ; preds = %29, %6
   br i1 %or.cond, label %18, label %13
 
 13:                                               ; preds = %tailrecurse
-  %14 = sub nsw i32 %12, %5
+  %14 = sub nuw nsw i32 %12, %5
   %15 = load i32, ptr %7, align 4
   %16 = icmp ult i32 %14, %15
   br i1 %16, label %17, label %18
@@ -6295,7 +6295,7 @@ tailrecurse:                                      ; preds = %29, %6
   br i1 %or.cond56, label %27, label %22
 
 22:                                               ; preds = %18
-  %23 = sub nsw i32 %20, %5
+  %23 = sub nuw nsw i32 %20, %5
   %24 = load i32, ptr %7, align 4
   %25 = icmp ult i32 %23, %24
   br i1 %25, label %26, label %27

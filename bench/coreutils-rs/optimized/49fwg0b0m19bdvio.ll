@@ -2194,7 +2194,7 @@ define hidden void @_ZN6uu_seq11numberparse25parse_exponent_no_decimal17h1493847
   %17 = getelementptr inbounds i8, ptr %1, i64 %11
   %18 = load i8, ptr %17, align 1, !alias.scope !425, !noundef !13
   %19 = icmp sgt i8 %18, -65
-  %20 = sub i64 %2, %11
+  %20 = sub nuw i64 %2, %11
   br i1 %19, label %22, label %21
 
 21:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %14
@@ -2534,7 +2534,7 @@ define hidden void @_ZN6uu_seq11numberparse26parse_decimal_and_exponent17h26254b
   %22 = getelementptr inbounds i8, ptr %1, i64 %16
   %23 = load i8, ptr %22, align 1, !alias.scope !514, !noundef !13
   %24 = icmp sgt i8 %23, -65
-  %25 = sub i64 %2, %16
+  %25 = sub nuw i64 %2, %16
   br i1 %24, label %27, label %26
 
 26:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %19

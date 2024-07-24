@@ -14668,12 +14668,12 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.std::unique_ptr.117", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end26
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"class.std::unique_ptr.117", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18
@@ -21534,7 +21534,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sink3.i, i64 %new_size
-  %sub = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub = sub nuw nsw i64 %shr.i.sink.i, %new_size
   %cmp.not3.i = icmp eq i64 %sub, 0
   br i1 %cmp.not3.i, label %if.end25, label %for.body.i
 
@@ -24760,7 +24760,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZSt7advanceISt24_F
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt24_Fwd_list_const_iteratorIiEPiiET0_T_S4_S3_RSaIT1_E.exit.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !549
 
 _ZSt22__uninitialized_copy_aISt24_Fwd_list_const_iteratorIiEPiiET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %_ZSt7advanceISt24_Fwd_list_const_iteratorIiEmEvRT_T0_.exit.i
-  %sub.i1633 = sub i64 %inc.i.i.i1596, %sub.ptr.div.i.i1628
+  %sub.i1633 = sub nuw i64 %inc.i.i.i1596, %sub.ptr.div.i.i1628
   %add.ptr50.i1634 = getelementptr inbounds i32, ptr %std_v239.sroa.11.42305, i64 %sub.i1633
   br i1 %tobool.not1.i.i.i, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit33.i, label %if.then.i.i.i.i.i.i.i.i.i31.i
 
@@ -59838,12 +59838,12 @@ if.else:                                          ; preds = %entry
 
 if.then9:                                         ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end25
 
 if.else17:                                        ; preds = %if.else
   %add.ptr22 = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %new_size
-  %sub24 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub24 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then9, %if.else17
@@ -65003,12 +65003,12 @@ if.else:                                          ; preds = %entry
 
 if.then9:                                         ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end25
 
 if.else17:                                        ; preds = %if.else
   %add.ptr22 = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %new_size
-  %sub24 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub24 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then9, %if.else17
@@ -91190,12 +91190,12 @@ if.else:                                          ; preds = %entry
 
 if.then9:                                         ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end25
 
 if.else17:                                        ; preds = %if.else
   %add.ptr22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sink3.i, i64 %new_size
-  %sub24 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub24 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then9, %if.else17
@@ -111989,7 +111989,7 @@ lor.rhs.i:                                        ; preds = %if.end
   br i1 %cmp.not.i, label %if.end9, label %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit
 
 _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = %lor.rhs.i
-  %sub.i = sub i64 %6, %8
+  %sub.i = sub nuw i64 %6, %8
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %sub.i
   %bcmp.i6 = call i32 @bcmp(ptr %add.ptr.i, ptr %9, i64 %8)
   %cmp9.i = icmp eq i32 %bcmp.i6, 0
@@ -112010,7 +112010,7 @@ lor.rhs.i8:                                       ; preds = %if.end9
   br i1 %cmp.not.i9, label %cleanup, label %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit15
 
 _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit15: ; preds = %lor.rhs.i8
-  %sub.i11 = sub i64 %10, %12
+  %sub.i11 = sub nuw i64 %10, %12
   %add.ptr.i12 = getelementptr inbounds i8, ptr %11, i64 %sub.i11
   %bcmp.i13 = call i32 @bcmp(ptr %add.ptr.i12, ptr %13, i64 %12)
   %bcmp.i13.fr = freeze i32 %bcmp.i13
@@ -139879,7 +139879,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %new_size
-  %sub = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub = sub nuw nsw i64 %shr.i.sink.i, %new_size
   %cmp.not6.i = icmp eq i64 %sub, 0
   br i1 %cmp.not6.i, label %if.end24, label %for.body.preheader.i
 
@@ -142874,7 +142874,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %new_size
-  %sub = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub = sub nuw nsw i64 %shr.i.sink.i, %new_size
   %cmp.not6.i = icmp eq i64 %sub, 0
   br i1 %cmp.not6.i, label %if.end24, label %for.body.preheader.i
 
@@ -153686,12 +153686,12 @@ if.else:                                          ; preds = %entry
 
 if.then8:                                         ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end24
 
 if.else16:                                        ; preds = %if.else
   %add.ptr21 = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %new_size
-  %sub23 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub23 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then8, %if.else16
@@ -155576,12 +155576,12 @@ if.else:                                          ; preds = %entry
 
 if.then8:                                         ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end24
 
 if.else16:                                        ; preds = %if.else
   %add.ptr21 = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %new_size
-  %sub23 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub23 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then8, %if.else16
@@ -158175,12 +158175,12 @@ if.else:                                          ; preds = %entry
 
 if.then9:                                         ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end25
 
 if.else17:                                        ; preds = %if.else
   %add.ptr22 = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %new_size
-  %sub24 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub24 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then9, %if.else17
@@ -159431,12 +159431,12 @@ if.else.i835:                                     ; preds = %if.end.i.i177
 
 if.then9.i:                                       ; preds = %if.else.i835
   %add.ptr.i869 = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i.i833, i64 %shr.i.sink.i.i834
-  %sub.i870 = sub nsw i64 %shr.i.i.i.i, %shr.i.sink.i.i834
+  %sub.i870 = sub nuw nsw i64 %shr.i.i.i.i, %shr.i.sink.i.i834
   br label %if.end25.i
 
 if.else17.i:                                      ; preds = %if.else.i835
   %add.ptr22.i = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i.i833, i64 %shr.i.i.i.i
-  %sub24.i = sub nsw i64 %shr.i.sink.i.i834, %shr.i.i.i.i
+  %sub24.i = sub nuw nsw i64 %shr.i.sink.i.i834, %shr.i.i.i.i
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.else17.i, %if.then9.i
@@ -159674,12 +159674,12 @@ if.else.i890:                                     ; preds = %if.end.i.i215
 
 if.then9.i974:                                    ; preds = %if.else.i890
   %add.ptr.i975 = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i.i886, i64 %shr.i.sink.i.i888
-  %sub.i976 = sub nsw i64 %shr.i.i.i.i217, %shr.i.sink.i.i888
+  %sub.i976 = sub nuw nsw i64 %shr.i.i.i.i217, %shr.i.sink.i.i888
   br label %if.end25.i895
 
 if.else17.i892:                                   ; preds = %if.else.i890
   %add.ptr22.i893 = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i.i886, i64 %shr.i.i.i.i217
-  %sub24.i894 = sub nsw i64 %shr.i.sink.i.i888, %shr.i.i.i.i217
+  %sub24.i894 = sub nuw nsw i64 %shr.i.sink.i.i888, %shr.i.i.i.i217
   br label %if.end25.i895
 
 if.end25.i895:                                    ; preds = %if.else17.i892, %if.then9.i974
@@ -190951,12 +190951,12 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end26
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18
@@ -191169,12 +191169,12 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end26
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18
@@ -191387,12 +191387,12 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end26
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18
@@ -191603,12 +191603,12 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end26
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18
@@ -197615,12 +197615,12 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end26
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18
@@ -197833,12 +197833,12 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end26
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18
@@ -198051,12 +198051,12 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end26
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18
@@ -198267,12 +198267,12 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end26
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18
@@ -200018,12 +200018,12 @@ if.else:                                          ; preds = %entry
 
 if.then9:                                         ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end25
 
 if.else17:                                        ; preds = %if.else
   %add.ptr22 = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %.sink3.i, i64 %new_size
-  %sub24 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub24 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then9, %if.else17
@@ -201964,12 +201964,12 @@ if.else:                                          ; preds = %entry
 
 if.then9:                                         ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end25
 
 if.else17:                                        ; preds = %if.else
   %add.ptr22 = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i, i64 %new_size
-  %sub24 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub24 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then9, %if.else17

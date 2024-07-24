@@ -299,7 +299,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
-  %sub.i = sub i64 %sub.ptr.sub, %sub.ptr.sub.i.i
+  %sub.i = sub nuw i64 %sub.ptr.sub, %sub.ptr.sub.i.i
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i8.i, %sub.ptr.lhs.cast.i.i
   %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i.i, -1

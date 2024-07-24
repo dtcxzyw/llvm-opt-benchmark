@@ -3165,7 +3165,7 @@ if.then658:                                       ; preds = %invoke.cont653
   br i1 %cmp.i1138, label %if.then.i1142, label %if.else.i1139
 
 if.then.i1142:                                    ; preds = %if.then658
-  %sub.i1143 = sub nsw i64 %conv659, %sub.ptr.div.i1132
+  %sub.i1143 = sub nuw nsw i64 %conv659, %sub.ptr.div.i1132
   %sub.ptr.lhs.cast.i9.i = ptrtoint ptr %pRing.sroa.29.02710 to i64
   %sub.ptr.sub.i10.i = sub i64 %sub.ptr.lhs.cast.i9.i, %sub.ptr.lhs.cast.i1129
   %sub.ptr.div.i11.i = sdiv exact i64 %sub.ptr.sub.i10.i, 12
@@ -3184,7 +3184,7 @@ _ZSt27__uninitialized_default_n_aIPN4pbrt6Point3IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i
   br label %if.end661
 
 if.else.i.i1146:                                  ; preds = %if.then.i1142
-  %cmp.i.i.i1147 = icmp ult i64 %sub.i.i, %sub.i1143
+  %cmp.i.i.i1147 = icmp slt i32 %call654, 0
   br i1 %cmp.i.i.i1147, label %if.then.i.i.i1152, label %_ZNKSt6vectorIN4pbrt6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i1152:                                ; preds = %if.else.i.i1146

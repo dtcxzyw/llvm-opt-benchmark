@@ -3617,7 +3617,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hcdf9b9d99ec00486
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !11, !noundef !11
   %10 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %9, i64 %1
@@ -3938,7 +3938,7 @@ _ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.exit.i.i: ; preds = %51,
   br i1 %61, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread.i", label %.lr.ph.split.split.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.i.i": ; preds = %56
-  %64 = sub i64 %58, %18
+  %64 = sub nuw i64 %58, %18
   %65 = getelementptr inbounds i8, ptr %.val.i, i64 %64
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %65, ptr nonnull readonly %15, i64 %18), !alias.scope !653, !noalias !647
   %66 = icmp eq i32 %bcmp.i.i.i, 0

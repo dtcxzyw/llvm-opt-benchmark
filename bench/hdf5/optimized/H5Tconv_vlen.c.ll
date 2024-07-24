@@ -744,7 +744,7 @@ define range(i32 -1, 1) i32 @H5T__conv_vlen(ptr noundef readonly %0, ptr noundef
 414:                                              ; preds = %410
   %415 = mul i64 %411, %97
   %416 = getelementptr inbounds i8, ptr %.5330, i64 %415
-  %417 = sub i64 %412, %411
+  %417 = sub nuw i64 %412, %411
   %418 = mul i64 %417, %97
   call void @llvm.memset.p0.i64(ptr align 1 %416, i8 0, i64 %418, i1 false)
   br label %419

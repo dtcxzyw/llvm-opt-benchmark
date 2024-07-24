@@ -15995,7 +15995,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -21193,7 +21193,7 @@ _ZN8tinygltf6detail8GetValueERN8nlohmann6detail9iter_implIKNS1_10basic_jsonISt3m
   br i1 %817, label %818, label %847
 
 818:                                              ; preds = %811
-  %819 = sub i64 %787, %816
+  %819 = sub nuw i64 %787, %816
   %820 = load ptr, ptr %652, align 8
   %821 = ptrtoint ptr %820 to i64
   %822 = sub i64 %821, %814
@@ -83900,36 +83900,36 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi__build_huffmanP13s
   br i1 %53, label %54, label %.loopexit
 
 54:                                               ; preds = %50
-  %55 = zext nneg i8 %52 to i32
-  %56 = getelementptr inbounds [256 x i16], ptr %22, i64 0, i64 %indvars.iv106
-  %57 = load i16, ptr %56, align 2
-  %58 = zext i16 %57 to i32
-  %59 = sub nuw nsw i32 9, %55
-  %60 = shl nuw nsw i32 %58, %59
-  %61 = trunc i64 %indvars.iv106 to i8
-  %62 = zext nneg i32 %60 to i64
-  br label %63
+  %55 = getelementptr inbounds [256 x i16], ptr %22, i64 0, i64 %indvars.iv106
+  %56 = load i16, ptr %55, align 2
+  %57 = zext i16 %56 to i32
+  %narrow = sub nuw nsw i8 9, %52
+  %58 = zext nneg i8 %narrow to i32
+  %59 = shl nuw nsw i32 %57, %58
+  %60 = trunc i64 %indvars.iv106 to i8
+  %61 = zext nneg i32 %59 to i64
+  br label %62
 
-63:                                               ; preds = %54, %63
-  %indvars.iv103 = phi i64 [ 0, %54 ], [ %indvars.iv.next104, %63 ]
-  %64 = add nuw nsw i64 %indvars.iv103, %62
-  %65 = getelementptr inbounds [512 x i8], ptr %0, i64 0, i64 %64
-  store i8 %61, ptr %65, align 1
+62:                                               ; preds = %54, %62
+  %indvars.iv103 = phi i64 [ 0, %54 ], [ %indvars.iv.next104, %62 ]
+  %63 = add nuw nsw i64 %indvars.iv103, %61
+  %64 = getelementptr inbounds [512 x i8], ptr %0, i64 0, i64 %63
+  store i8 %60, ptr %64, align 1
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %66 = trunc nuw nsw i64 %indvars.iv.next104 to i32
-  %.2.highbits = lshr i32 %66, %59
-  %67 = icmp eq i32 %.2.highbits, 0
-  br i1 %67, label %63, label %.loopexit, !llvm.loop !1940
+  %65 = trunc nuw nsw i64 %indvars.iv.next104 to i32
+  %.2.highbits = lshr i32 %65, %58
+  %66 = icmp eq i32 %.2.highbits, 0
+  br i1 %66, label %62, label %.loopexit, !llvm.loop !1940
 
-.loopexit:                                        ; preds = %63, %50
+.loopexit:                                        ; preds = %62, %50
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
   br i1 %exitcond109.not, label %.loopexit65, label %50, !llvm.loop !1941
 
 .loopexit65.sink.split:                           ; preds = %11, %._crit_edge78
   %.str.161.sink = phi ptr [ @.str.161, %._crit_edge78 ], [ @.str.160, %11 ]
-  %68 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
-  store ptr %.str.161.sink, ptr %68, align 8
+  %67 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
+  store ptr %.str.161.sink, ptr %67, align 8
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %.loopexit, %.loopexit65.sink.split, %47
@@ -90281,7 +90281,7 @@ _ZSt7advanceIPhmEvRT_T0_.exit:                    ; preds = %16
 
 _ZSt22__uninitialized_copy_aIPhS0_hET0_T_S2_S1_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPhmEvRT_T0_.exit, %28
   %31 = phi ptr [ %12, %_ZSt7advanceIPhmEvRT_T0_.exit ], [ %.pre, %28 ]
-  %32 = sub i64 %8, %18
+  %32 = sub nuw i64 %8, %18
   %33 = getelementptr inbounds i8, ptr %31, i64 %32
   store ptr %33, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %12, %1
@@ -114326,7 +114326,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
   %53 = zext nneg i32 %.07381 to i64
   %54 = shl i64 %53, %15
   %55 = icmp uge i64 %49, %13
-  %56 = sub i64 %9, %49
+  %56 = sub nuw i64 %9, %49
   %.not21.i = icmp ult i64 %56, %54
   %or.cond22.i = or i1 %55, %.not21.i
   br i1 %or.cond22.i, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit, label %.lr.ph.i
@@ -114346,7 +114346,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
 
 62:                                               ; preds = %59
   %63 = sub i64 %13, %.023.i
-  %64 = sub i64 %60, %13
+  %64 = sub nuw i64 %60, %13
   %65 = icmp ugt i64 %63, %64
   br i1 %65, label %.critedge2.i, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit
 
@@ -114392,7 +114392,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
   %87 = sub nsw i32 %86, %82
   store i32 %87, ptr %2, align 4
   %88 = icmp uge i64 %75, %84
-  %89 = sub i64 %83, %75
+  %89 = sub nuw i64 %83, %75
   %.not21.i55 = icmp ult i64 %89, %16
   %or.cond22.i56 = or i1 %88, %.not21.i55
   br i1 %or.cond22.i56, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit, label %.lr.ph.i57
@@ -114412,7 +114412,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
 
 95:                                               ; preds = %92
   %96 = sub i64 %84, %.023.i60
-  %97 = sub i64 %93, %84
+  %97 = sub nuw i64 %93, %84
   %98 = icmp ugt i64 %96, %97
   br i1 %98, label %.critedge2.i61, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit
 

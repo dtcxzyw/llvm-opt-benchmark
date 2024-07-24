@@ -3781,8 +3781,8 @@ define linkonce_odr hidden noundef ptr @_ZN12G1HeapRegion25oops_on_memregion_ite
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %19 = phi i32 [ %24, %.lr.ph.i.i ], [ %18, %4 ]
   %.014.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %16, %4 ]
-  %20 = sub nsw i32 %19, %17
-  %21 = shl nsw i32 %20, 2
+  %20 = sub nuw nsw i32 %19, %17
+  %21 = shl nuw nsw i32 %20, 2
   %22 = zext nneg i32 %21 to i64
   %.neg.i.i = shl nsw i64 -1, %22
   %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 %.neg.i.i
@@ -26901,8 +26901,8 @@ define linkonce_odr hidden noundef ptr @_ZN12G1HeapRegion25oops_on_memregion_ite
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %19 = phi i32 [ %24, %.lr.ph.i.i ], [ %18, %4 ]
   %.014.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %16, %4 ]
-  %20 = sub nsw i32 %19, %17
-  %21 = shl nsw i32 %20, 2
+  %20 = sub nuw nsw i32 %19, %17
+  %21 = shl nuw nsw i32 %20, 2
   %22 = zext nneg i32 %21 to i64
   %.neg.i.i = shl nsw i64 -1, %22
   %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 %.neg.i.i

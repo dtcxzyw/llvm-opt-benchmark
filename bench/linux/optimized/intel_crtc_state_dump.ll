@@ -163,7 +163,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 44:                                               ; preds = %36
   %45 = getelementptr i8, ptr %31, i64 %42
-  %46 = sub i64 %29, %42
+  %46 = sub nuw nsw i64 %29, %42
   %47 = trunc i64 %33 to i32
   %48 = xor i32 %47, -1
   %49 = and i32 %30, %48

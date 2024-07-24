@@ -536,7 +536,7 @@ _ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit: ; pre
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE.exit
-  %63 = sub nsw i64 %53, %60
+  %63 = sub nuw nsw i64 %53, %60
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %63)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 

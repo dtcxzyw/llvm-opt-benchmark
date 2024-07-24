@@ -4749,7 +4749,7 @@ proto_item_set_generated.exit:                    ; preds = %153, %156, %159
   br i1 %or.cond, label %252, label %171
 
 171:                                              ; preds = %169
-  %172 = sub nsw i32 %3, %.1
+  %172 = sub nuw nsw i32 %3, %.1
   %173 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1, i32 noundef %172) #9
   call fastcc void @dissect_sccp_global_title(ptr noundef %173, ptr noundef %2, ptr noundef %14, i32 noundef %172, i8 noundef zeroext %46, i32 noundef %4, ptr noundef %5)
   br label %252
@@ -4904,7 +4904,7 @@ proto_item_set_hidden.exit287:                    ; preds = %227, %224, %217, %.
   br i1 %or.cond282, label %252, label %249
 
 249:                                              ; preds = %247
-  %250 = sub nsw i32 %3, %.3
+  %250 = sub nuw nsw i32 %3, %.3
   %251 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.3, i32 noundef %250) #9
   call fastcc void @dissect_sccp_global_title(ptr noundef %251, ptr noundef %2, ptr noundef %14, i32 noundef %250, i8 noundef zeroext %46, i32 noundef %4, ptr noundef %5)
   br label %252
@@ -5063,7 +5063,7 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
   br i1 %82, label %152, label %83
 
 83:                                               ; preds = %81
-  %84 = sub i32 %3, %.297
+  %84 = sub nuw i32 %3, %.297
   %85 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.297, i32 noundef %84) #9
   %86 = getelementptr inbounds i8, ptr %1, i64 408
   %87 = load ptr, ptr %86, align 8

@@ -1456,7 +1456,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   %30 = getelementptr inbounds i8, ptr %.val.i, i64 %22
   %31 = load i8, ptr %30, align 1, !alias.scope !252, !noalias !257, !noundef !12
   %32 = icmp sgt i8 %31, -65
-  %33 = sub i64 %.val5.i, %22
+  %33 = sub nuw i64 %.val5.i, %22
   br i1 %32, label %35, label %34
 
 34:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %27
@@ -1928,7 +1928,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %61
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd19825e187916615E.exit.i"
 
 76:                                               ; preds = %72
-  %77 = sub i64 %.sroa.3.0.i, %74
+  %77 = sub nuw i64 %.sroa.3.0.i, %74
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8380b9245a8ea7bcE.llvm.712157615307907702"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %77, i8 noundef 0)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd19825e187916615E.exit_crit_edge.i" unwind label %132, !noalias !270
 

@@ -36254,7 +36254,7 @@ _ZN9V3OutFile10writeBlockEv.exit:                 ; preds = %_ZN9V3OutFile10writ
   store i64 %18, ptr %9, align 8
   store i64 0, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %.01417, i64 %.019
-  %20 = sub i64 %.01318, %.019
+  %20 = sub nuw i64 %.01318, %.019
   %.not = icmp ult i64 %20, 131072
   br i1 %.not, label %._crit_edge, label %_ZN9V3OutFile10writeBlockEv.exit, !llvm.loop !222
 
@@ -52487,7 +52487,7 @@ _ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %43
-  %53 = sub nsw i64 %50, %49
+  %53 = sub nuw nsw i64 %50, %49
   invoke void @_ZNSt6vectorIPK7AstNodeSaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %53)
           to label %._ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_bENKUlmE_clEm.exit20_crit_edge unwind label %.loopexit
 
@@ -54571,7 +54571,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit:          ; preds = %11, %13
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %27
-  %37 = sub nsw i64 %34, %33
+  %37 = sub nuw nsw i64 %34, %33
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %37)
           to label %._ZZN7AstNode13predicateImplI12AstNodeCCallLb1EZN9EmitCFunc5visitEP8AstCFuncEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit18_crit_edge unwind label %.loopexit47
 

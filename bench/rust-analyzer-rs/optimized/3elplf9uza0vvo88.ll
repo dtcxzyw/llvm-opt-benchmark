@@ -1661,8 +1661,8 @@ define hidden void @_ZN6syntax7parsing9reparsing19incremental_reparse17h6d84efd8
           to label %115 unwind label %75, !noalias !174
 
 107:                                              ; preds = %105
-  %108 = sub i32 %43, %.0.i.i.i
-  %109 = sub i32 %45, %.0.i.i.i
+  %108 = sub nuw i32 %43, %.0.i.i.i
+  %109 = sub nuw i32 %45, %.0.i.i.i
   %.val86.i = load ptr, ptr %35, align 8, !noalias !170, !nonnull !4, !noundef !4
   %.val.i100.i = load i64, ptr %.val86.i, align 8, !range !9, !noalias !174, !noundef !4
   %switch.not.not.i101.i = icmp eq i64 %.val.i100.i, 0
@@ -1684,7 +1684,7 @@ define hidden void @_ZN6syntax7parsing9reparsing19incremental_reparse17h6d84efd8
   %.sroa.0.0.i.i = phi ptr [ %114, %110 ], [ @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.8, %107 ]
   %117 = zext i32 %108 to i64
   %118 = zext i32 %109 to i64
-  %.not.i.i102.i = icmp ugt i32 %108, %109
+  %.not.i.i102.i = icmp ugt i32 %43, %45
   br i1 %.not.i.i102.i, label %134, label %119
 
 119:                                              ; preds = %116
@@ -3423,8 +3423,8 @@ define internal fastcc void @_ZN6syntax7parsing9reparsing19get_text_after_edit17
   unreachable
 
 30:                                               ; preds = %28
-  %31 = sub i32 %18, %26
-  %32 = sub i32 %16, %26
+  %31 = sub nuw i32 %18, %26
+  %32 = sub nuw i32 %16, %26
   invoke void @_ZN9text_edit5Indel7replace17he20f1731a23f4bfeE(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i32, i32 } }) align 8 dereferenceable(32) %12, i32 noundef %32, i32 noundef %31, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11)
           to label %33 unwind label %23
 
@@ -3925,8 +3925,8 @@ define internal fastcc void @_ZN6syntax7parsing9reparsing12merge_errors17h27e57d
   br i1 %or.cond.i, label %.invoke, label %77
 
 77:                                               ; preds = %75
-  %78 = sub i32 %69, %29
-  %79 = sub i32 %76, %29
+  %78 = sub nuw i32 %69, %29
+  %79 = sub nuw i32 %76, %29
   call void @llvm.experimental.noalias.scope.decl(metadata !609)
   store i32 %78, ptr %30, align 8, !alias.scope !612, !noalias !609
   store i32 %79, ptr %31, align 4, !alias.scope !612, !noalias !609

@@ -4414,7 +4414,7 @@ _ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit: ; preds = %_ZN9Comp
   br i1 %.not.i42, label %255, label %214
 
 214:                                              ; preds = %209
-  %215 = sub i64 %.sroa.0.167, %213
+  %215 = sub nuw nsw i64 %.sroa.0.167, %213
   tail call void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr noundef nonnull %.03269, i64 noundef %213, i1 noundef zeroext true) #16
   %.promoted.i43 = load i32, ptr %4, align 4
   %216 = zext i32 %.promoted.i43 to i64

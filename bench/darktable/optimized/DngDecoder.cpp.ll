@@ -678,11 +678,11 @@ define hidden void @_ZNK8rawspeed10DngDecoder15parseACTIVEAREAEPKNS_7TiffIFDE(pt
   br label %56
 
 80:                                               ; preds = %72
-  %81 = sub nsw i32 %47, %50
-  %82 = sub nsw i32 %52, %51
-  %83 = zext i32 %82 to i64
-  %84 = shl nuw i64 %83, 32
-  %85 = zext i32 %81 to i64
+  %81 = sub nuw nsw i32 %47, %50
+  %82 = sub nuw nsw i32 %52, %51
+  %83 = zext nneg i32 %82 to i64
+  %84 = shl nuw nsw i64 %83, 32
+  %85 = zext nneg i32 %81 to i64
   %86 = or disjoint i64 %84, %85
   %87 = zext nneg i32 %51 to i64
   %88 = shl nuw nsw i64 %87, 32

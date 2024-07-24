@@ -21592,7 +21592,7 @@ for.body10.us:                                    ; preds = %for.body10.lr.ph, %
   br i1 %cmp16.us, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.split.us, label %if.end25.us
 
 if.end25.us:                                      ; preds = %for.body10.us
-  %sub29.us = sub i32 %n.078.us, %17
+  %sub29.us = sub nuw i32 %n.078.us, %17
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
   br i1 %exitcond104.not, label %for.end32, label %for.body10.us, !llvm.loop !83
@@ -21811,7 +21811,7 @@ invoke.cont21:                                    ; preds = %if.end.i
 
 if.end25:                                         ; preds = %if.end.thread55, %if.end.thread
   %36 = phi i32 [ %23, %if.end.thread ], [ %22, %if.end.thread55 ]
-  %sub29 = sub i32 %n.078, %36
+  %sub29 = sub nuw i32 %n.078, %36
   br label %for.inc30
 
 for.inc30:                                        ; preds = %invoke.cont11, %if.end25

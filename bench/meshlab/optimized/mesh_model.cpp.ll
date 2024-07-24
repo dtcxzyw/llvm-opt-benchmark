@@ -4078,7 +4078,7 @@ define void @_ZN9MeshModel14updateDataMaskEi(ptr noundef nonnull align 8 derefer
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %10
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   tail call void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %30)
   br label %_ZN3vcg4face10vector_ocfI6CFaceOE17EnableFFAdjacencyEv.exit
 
@@ -4131,7 +4131,7 @@ _ZN3vcg4face10vector_ocfI6CFaceOE17EnableFFAdjacencyEv.exit: ; preds = %29, %31,
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %38
-  %59 = sub nsw i64 %48, %56
+  %59 = sub nuw nsw i64 %48, %56
   call void @_ZNSt6vectorIN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr %51, i64 noundef %59, ptr noundef nonnull align 8 dereferenceable(12) %8)
   br label %_ZN3vcg6vertex10vector_ocfI8CVertexOE17EnableVFAdjacencyEv.exit
 
@@ -4172,7 +4172,7 @@ _ZN3vcg6vertex10vector_ocfI8CVertexOE17EnableVFAdjacencyEv.exit: ; preds = %58, 
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %_ZN3vcg6vertex10vector_ocfI8CVertexOE17EnableVFAdjacencyEv.exit
-  %84 = sub nsw i64 %74, %81
+  %84 = sub nuw nsw i64 %74, %81
   call void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %84)
   br label %_ZN3vcg4face10vector_ocfI6CFaceOE17EnableVFAdjacencyEv.exit
 
@@ -4233,7 +4233,7 @@ _ZN3vcg4face10vector_ocfI6CFaceOE17EnableVFAdjacencyEv.exit: ; preds = %83, %85,
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %92
-  %117 = sub nsw i64 %102, %114
+  %117 = sub nuw nsw i64 %102, %114
   call void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr %109, i64 noundef %117, ptr noundef nonnull align 4 dereferenceable(36) %7)
   br label %_ZN3vcg4face10vector_ocfI6CFaceOE19EnableWedgeTexCoordEv.exit
 
@@ -4284,7 +4284,7 @@ _ZN3vcg4face10vector_ocfI6CFaceOE19EnableWedgeTexCoordEv.exit: ; preds = %116, %
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %125
-  %145 = sub nsw i64 %135, %142
+  %145 = sub nuw nsw i64 %135, %142
   call void @_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr %137, i64 noundef %145, ptr noundef nonnull align 1 dereferenceable(4) %6)
   br label %_ZN3vcg4face10vector_ocfI6CFaceOE11EnableColorEv.exit
 
@@ -4335,7 +4335,7 @@ _ZN3vcg4face10vector_ocfI6CFaceOE11EnableColorEv.exit: ; preds = %144, %146, %14
   br i1 %171, label %172, label %174
 
 172:                                              ; preds = %153
-  %173 = sub nsw i64 %163, %170
+  %173 = sub nuw nsw i64 %163, %170
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %156, ptr %165, i64 noundef %173, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZN3vcg4face10vector_ocfI6CFaceOE13EnableQualityEv.exit
 
@@ -4406,7 +4406,7 @@ _ZN3vcg4face10vector_ocfI6CFaceOE13EnableQualityEv.exit: ; preds = %172, %174, %
   br i1 %212, label %213, label %215
 
 213:                                              ; preds = %194
-  %214 = sub nsw i64 %204, %211
+  %214 = sub nuw nsw i64 %204, %211
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %197, ptr %206, i64 noundef %214, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN3vcg4face10vector_ocfI6CFaceOE10EnableMarkEv.exit
 
@@ -4457,7 +4457,7 @@ _ZN3vcg4face10vector_ocfI6CFaceOE10EnableMarkEv.exit: ; preds = %213, %215, %217
   br i1 %240, label %241, label %243
 
 241:                                              ; preds = %222
-  %242 = sub nsw i64 %232, %239
+  %242 = sub nuw nsw i64 %232, %239
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %225, ptr %234, i64 noundef %242, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZN3vcg6vertex10vector_ocfI8CVertexOE10EnableMarkEv.exit
 
@@ -4526,7 +4526,7 @@ _ZN3vcg6vertex10vector_ocfI8CVertexOE10EnableMarkEv.exit: ; preds = %241, %243, 
   br i1 %281, label %282, label %284
 
 282:                                              ; preds = %263
-  %283 = sub nsw i64 %273, %280
+  %283 = sub nuw nsw i64 %273, %280
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %266, i64 noundef %283)
   br label %_ZN3vcg6vertex10vector_ocfI8CVertexOE12EnableRadiusEv.exit
 
@@ -6097,7 +6097,7 @@ _ZSt13move_backwardIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeES6_ET0_T_S8_S
   br i1 %.not.i.i.i, label %_ZSt4fillIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeES5_EvT_S7_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !84
 
 33:                                               ; preds = %14
-  %34 = sub i64 %2, %17
+  %34 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %34, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -6372,7 +6372,7 @@ _ZSt13move_backwardIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackES6_ET0_T_
   br i1 %.not.i.i.i, label %_ZSt4fillIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackES5_EvT_S7_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !87
 
 32:                                               ; preds = %14
-  %33 = sub i64 %2, %17
+  %33 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -6581,7 +6581,7 @@ _ZSt13move_backwardIPN3vcg6Color4IhEES3_ET0_T_S5_S4_.exit: ; preds = %28, %_ZSt2
   br i1 %.not.i.i.i, label %_ZSt4fillIPN3vcg6Color4IhEES2_EvT_S4_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !90
 
 35:                                               ; preds = %14
-  %36 = sub i64 %2, %18
+  %36 = sub nuw i64 %2, %18
   %.not7.i.i.i.i = icmp eq i64 %36, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN3vcg6Color4IhEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -6783,7 +6783,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -6912,7 +6912,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4face23CurvatureDirOcfBaseTypeIfEESa
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -7053,7 +7053,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -7182,7 +7182,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6vertex19CurvatureDirTypeOcfIfEESaIS
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -7373,7 +7373,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg9TexCoord2IfLi1EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -7394,7 +7394,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg9TexCoord2IfLi1EEESaIS2_EE6resizeEm(
   br label %_ZNSt6vectorIN3vcg9TexCoord2IfLi1EEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3vcg9TexCoord2IfLi1EEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23
@@ -7828,7 +7828,7 @@ define void @_ZN9MeshModel6enableEi(ptr noundef nonnull align 8 dereferenceable(
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %23
-  %48 = sub nsw i64 %33, %45
+  %48 = sub nuw nsw i64 %33, %45
   call void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr %40, i64 noundef %48, ptr noundef nonnull align 4 dereferenceable(36) %5)
   br label %_ZN9MeshModel14updateDataMaskEi.exit
 
@@ -7895,7 +7895,7 @@ _ZN9MeshModel14updateDataMaskEi.exit:             ; preds = %47, %49, %51, %53
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %65
-  %85 = sub nsw i64 %75, %82
+  %85 = sub nuw nsw i64 %75, %82
   call void @_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr %77, i64 noundef %85, ptr noundef nonnull align 1 dereferenceable(4) %4)
   br label %_ZN9MeshModel14updateDataMaskEi.exit17
 
@@ -7948,7 +7948,7 @@ _ZN9MeshModel14updateDataMaskEi.exit17:           ; preds = %84, %86, %88, %90
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %96
-  %116 = sub nsw i64 %106, %113
+  %116 = sub nuw nsw i64 %106, %113
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %99, i64 noundef %116)
   br label %_ZN9MeshModel14updateDataMaskEi.exit18
 
@@ -8026,7 +8026,7 @@ _ZN9MeshModel14updateDataMaskEi.exit18:           ; preds = %115, %117, %119, %1
   br i1 %157, label %158, label %160
 
 158:                                              ; preds = %139
-  %159 = sub nsw i64 %149, %156
+  %159 = sub nuw nsw i64 %149, %156
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %142, ptr %151, i64 noundef %159, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZN9MeshModel14updateDataMaskEi.exit19
 

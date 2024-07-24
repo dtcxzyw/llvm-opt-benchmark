@@ -6356,7 +6356,7 @@ invoke.cont839:                                   ; preds = %_ZNKSt4lessISt4pair
   br i1 %cmp.i2908, label %if.then.i2915, label %if.else.i2909
 
 if.then.i2915:                                    ; preds = %invoke.cont839
-  %sub.i = sub nsw i64 %conv841, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv841, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN4cvc58internal8RationalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %second.i2900, i64 noundef %sub.i)
           to label %if.end843 unwind label %lpad638.loopexit.split-lp.loopexit
 
@@ -6675,7 +6675,7 @@ invoke.cont856:                                   ; preds = %_ZNKSt4lessISt4pair
   br i1 %cmp.i3099, label %if.then.i3112, label %if.else.i3100
 
 if.then.i3112:                                    ; preds = %invoke.cont856
-  %sub.i3113 = sub i64 %add858, %sub.ptr.div.i.i3098
+  %sub.i3113 = sub nuw i64 %add858, %sub.ptr.div.i.i3098
   invoke void @_ZNSt6vectorIN4cvc58internal8RationalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %second.i3087, i64 noundef %sub.i3113)
           to label %if.end860 unwind label %lpad638.loopexit.split-lp.loopexit
 
@@ -21340,7 +21340,7 @@ _ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeT
 
 _ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEPS6_S6_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEPS6_S6_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEmEvRT_T0_.exit
   %8 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEPS6_S6_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr %"class.cvc5::internal::NodeTemplate.101", ptr %8, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i41 = icmp eq ptr %1, %__position.coerce

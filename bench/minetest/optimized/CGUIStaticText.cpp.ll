@@ -3201,7 +3201,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_checkEmPKc.exit.i.i: ;
   store ptr %2, ptr %ref.tmp, align 8, !tbaa !52, !alias.scope !127
   %3 = load ptr, ptr %this, align 8, !tbaa !56, !noalias !127
   %add.ptr.i.i = getelementptr inbounds i32, ptr %3, i64 %conv
-  %sub.i.i.i = sub i64 %0, %conv
+  %sub.i.i.i = sub nuw i64 %0, %conv
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %conv3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #19, !noalias !127
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !130, !noalias !127

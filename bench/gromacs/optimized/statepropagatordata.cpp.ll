@@ -1568,7 +1568,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %209, %212
   br i1 %.not.i, label %231, label %229
 
 229:                                              ; preds = %218
-  %230 = sub i64 %225, %228
+  %230 = sub nuw i64 %225, %228
   br label %233
 
 231:                                              ; preds = %218
@@ -2628,7 +2628,7 @@ _ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit: ; preds = %2, %
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %_ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit
-  %20 = sub i64 %1, %17
+  %20 = sub nuw i64 %1, %17
   tail call void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20)
   %.pre = load ptr, ptr %11, align 8
   %.pre5 = load ptr, ptr %10, align 8
@@ -3417,7 +3417,7 @@ _ZSt13move_backwardIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit: ; preds = %27, 
   br i1 %.not.i.i.i, label %_ZSt4fillIPN3gmx11BasicVectorIfEES2_EvT_S4_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !44
 
 33:                                               ; preds = %15
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %.not8.i = icmp eq i64 %34, 0
   br i1 %.not8.i, label %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit, label %.lr.ph.i
 
@@ -5533,7 +5533,7 @@ _Z11do_per_stepll.exit50.thread:                  ; preds = %_Z11do_per_stepll.e
   br i1 %.not.i51, label %110, label %108
 
 108:                                              ; preds = %97
-  %109 = sub i64 %104, %107
+  %109 = sub nuw i64 %104, %107
   br label %112
 
 110:                                              ; preds = %97
@@ -5628,7 +5628,7 @@ _Z11do_per_stepll.exit50.thread:                  ; preds = %_Z11do_per_stepll.e
   br i1 %.not.i53, label %174, label %172
 
 172:                                              ; preds = %161
-  %173 = sub i64 %168, %171
+  %173 = sub nuw i64 %168, %171
   br label %176
 
 174:                                              ; preds = %161

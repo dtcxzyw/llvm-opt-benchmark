@@ -2501,7 +2501,7 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %or.cond980, label %829, label %971
 
 829:                                              ; preds = %824
-  %830 = sub nsw i32 %.290410481055, %.0905
+  %830 = sub nuw nsw i32 %.290410481055, %.0905
   %831 = add nuw nsw i32 %.1, %.0905
   %832 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %831) #7
   %833 = zext i16 %832 to i32
@@ -2647,7 +2647,7 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %.not958, label %921, label %914
 
 914:                                              ; preds = %913
-  %915 = sub i32 %912, %904
+  %915 = sub nuw i32 %912, %904
   store i32 %915, ptr %911, align 4
   %916 = getelementptr inbounds i8, ptr %911, i64 4
   %917 = load i32, ptr %916, align 4

@@ -399,7 +399,7 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
 
 23:                                               ; preds = %.lr.ph, %dissect_grpc_message.exit
   %.06784 = phi i32 [ 0, %.lr.ph ], [ %.0.i, %dissect_grpc_message.exit ]
-  %24 = sub i32 %8, %.06784
+  %24 = sub nuw i32 %8, %.06784
   %25 = icmp ult i32 %24, 5
   br i1 %25, label %26, label %33
 

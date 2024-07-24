@@ -2174,7 +2174,7 @@ define internal void @png_image_memory_read(ptr noundef %0, ptr nocapture nounde
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %11, i64 %2, i1 false)
   %15 = getelementptr inbounds i8, ptr %11, i64 %2
   store ptr %15, ptr %10, align 8
-  %16 = sub i64 %13, %2
+  %16 = sub nuw i64 %13, %2
   store i64 %16, ptr %12, align 8
   br label %19
 

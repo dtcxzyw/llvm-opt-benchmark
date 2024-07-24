@@ -11442,7 +11442,7 @@ _is_mem_resv.exit156:                             ; preds = %163, %164
   br i1 %.not145, label %192, label %176
 
 176:                                              ; preds = %170
-  %177 = sub i64 %175, %172
+  %177 = sub nuw i64 %175, %172
   store i64 %177, ptr %174, align 8
   %178 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %179 = and i64 %178, 2
@@ -11815,7 +11815,7 @@ define internal fastcc i32 @_opt_cpu_cnt(i32 noundef %0, ptr noundef %1, ptr noc
   br i1 %.not13, label %10, label %.loopexit
 
 10:                                               ; preds = %.lr.ph
-  %11 = sub i32 %.015, %9
+  %11 = sub nuw i32 %.015, %9
   %12 = add nsw i32 %6, 1
   store i32 %12, ptr %4, align 4
   %13 = call ptr @next_node_bitmap(ptr noundef nonnull %1, ptr noundef nonnull %4) #13

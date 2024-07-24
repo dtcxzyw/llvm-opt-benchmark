@@ -2594,7 +2594,7 @@ define dso_local void @_ZN17cmQtAutoGenerator12SettingsFindB5cxx11ESt17basic_str
 26:                                               ; preds = %32, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %1, %.lr.ph.i.i ], [ %35, %32 ]
   %.02132.i.i = phi ptr [ %2, %.lr.ph.i.i ], [ %33, %32 ]
-  %27 = sub i64 %.033.i.i, %18
+  %27 = sub nuw i64 %.033.i.i, %18
   %28 = add i64 %27, 1
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
@@ -2631,7 +2631,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread33: ; preds 
   br i1 %41, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread33
-  %42 = sub i64 %1, %40
+  %42 = sub nuw i64 %1, %40
   %43 = getelementptr inbounds i8, ptr %2, i64 %40
   %44 = call ptr @memchr(ptr noundef %43, i32 noundef 10, i64 noundef %42) #22
   %.not.i = icmp eq ptr %44, null
@@ -2719,7 +2719,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %4
   br i1 %22, label %.invoke, label %23
 
 23:                                               ; preds = %20
-  %24 = sub i64 %2, %21
+  %24 = sub nuw i64 %2, %21
   %25 = getelementptr inbounds i8, ptr %3, i64 %21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store i64 4, ptr %7, align 8, !alias.scope !312, !noalias !315
@@ -2781,7 +2781,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit18: ; preds = %
   unreachable
 
 44:                                               ; preds = %40
-  %45 = sub i64 %2, %41
+  %45 = sub nuw i64 %2, %41
   %46 = getelementptr inbounds i8, ptr %3, i64 %41
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store i64 4, ptr %6, align 8, !alias.scope !321, !noalias !324

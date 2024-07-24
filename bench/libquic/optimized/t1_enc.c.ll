@@ -130,7 +130,7 @@ if.then15:                                        ; preds = %if.then12
   br label %return
 
 if.end16:                                         ; preds = %if.then12
-  %sub = sub i64 %call9, %add
+  %sub = sub nuw i64 %call9, %add
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end16, %if.end8

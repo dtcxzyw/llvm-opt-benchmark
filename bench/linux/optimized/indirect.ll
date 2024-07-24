@@ -189,7 +189,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   br label %102
 
 83:                                               ; preds = %74
-  %84 = sub i32 %75, %64
+  %84 = sub nuw i32 %75, %64
   %85 = lshr i32 %84, %63
   %86 = icmp ult i32 %85, %56
   br i1 %86, label %87, label %95
@@ -1204,7 +1204,7 @@ define dso_local void @ext4_ind_truncate(ptr noundef %0, ptr noundef %1) local_u
   br label %.thread
 
 56:                                               ; preds = %47
-  %57 = sub i32 %48, %37
+  %57 = sub nuw i32 %48, %37
   %58 = lshr i32 %57, %36
   %59 = icmp ult i32 %58, %31
   br i1 %59, label %60, label %68
@@ -1883,7 +1883,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   br label %75
 
 56:                                               ; preds = %47
-  %57 = sub i32 %48, %37
+  %57 = sub nuw i32 %48, %37
   %58 = lshr i32 %57, %36
   %59 = icmp ult i32 %58, %31
   br i1 %59, label %60, label %68
@@ -1970,7 +1970,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   br label %116
 
 97:                                               ; preds = %88
-  %98 = sub i32 %89, %.pre-phi118
+  %98 = sub nuw i32 %89, %.pre-phi118
   %99 = lshr i32 %98, %.pre-phi116
   %100 = icmp ult i32 %99, %.pre-phi110
   br i1 %100, label %101, label %109

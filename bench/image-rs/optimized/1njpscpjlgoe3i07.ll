@@ -580,7 +580,7 @@ default.unreachable1:                             ; preds = %5
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %9)
   %10 = load ptr, ptr %2, align 8, !alias.scope !26, !noalias !29, !nonnull !5, !align !32, !noundef !5
   %11 = getelementptr inbounds i8, ptr %10, i64 %.0.sroa.speculated.i.i
-  %12 = sub i64 %9, %.0.sroa.speculated.i.i
+  %12 = sub nuw i64 %9, %.0.sroa.speculated.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %3, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !33, !noalias !37
   store ptr %11, ptr %2, align 8, !alias.scope !26, !noalias !29
   store i64 %12, ptr %8, align 8, !alias.scope !26, !noalias !29
@@ -1213,7 +1213,7 @@ define hidden noundef ptr @"_ZN3exr2io17Tracking$LT$T$GT$13seek_write_to17hb93f2
 18:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %19 = sub i64 %1, %8
+  %19 = sub nuw i64 %1, %8
   %20 = getelementptr inbounds i8, ptr %3, i64 8
   store i8 0, ptr %20, align 8
   store i64 %19, ptr %3, align 8
@@ -1499,7 +1499,7 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h63768ac15d1be8d0E(p
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %14, i64 %10)
   %20 = getelementptr inbounds i8, ptr %8, i64 %.0.sroa.speculated.i.i.i
   %21 = sub nuw i64 %10, %.0.sroa.speculated.i.i.i
-  %22 = sub i64 %5, %15
+  %22 = sub nuw i64 %5, %15
   %.0.sroa.speculated.i.i20.i = tail call noundef i64 @llvm.umin.i64(i64 %22, i64 %21)
   %23 = getelementptr inbounds i8, ptr %11, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %20, i64 %.0.sroa.speculated.i.i20.i, i1 false), !alias.scope !196, !noalias !200
@@ -1560,7 +1560,7 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17he6d9f7ddd3fa9b7dE(p
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %11)
   %21 = getelementptr inbounds i8, ptr %9, i64 %.0.sroa.speculated.i.i.i
   %22 = sub nuw i64 %11, %.0.sroa.speculated.i.i.i
-  %23 = sub i64 %5, %16
+  %23 = sub nuw i64 %5, %16
   %.0.sroa.speculated.i.i20.i = tail call noundef i64 @llvm.umin.i64(i64 %23, i64 %22)
   %24 = getelementptr inbounds i8, ptr %12, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %21, i64 %.0.sroa.speculated.i.i20.i, i1 false), !alias.scope !218, !noalias !222
@@ -1699,7 +1699,7 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17hda6d87d1c6cd9aea
   br i1 %17, label %.lr.ph.preheader.i.i.i.i.us, label %21
 
 .lr.ph.preheader.i.i.i.i.us:                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4775764c3360a65dE.exit.i.i.i.us"
-  %18 = sub i64 %.promoted, %16
+  %18 = sub nuw i64 %.promoted, %16
   %19 = load ptr, ptr %7, align 8, !alias.scope !273, !noalias !271, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %19, i64 %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %18, i1 false), !alias.scope !276, !noalias !271
@@ -1877,7 +1877,7 @@ define hidden noundef ptr @"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$fo
 8:                                                ; preds = %3
   %9 = load ptr, ptr %4, align 8, !alias.scope !317, !noalias !320, !nonnull !5, !align !32, !noundef !5
   %10 = getelementptr inbounds i8, ptr %9, i64 %2
-  %11 = sub i64 %6, %2
+  %11 = sub nuw i64 %6, %2
   %12 = icmp eq i64 %2, 1
   br i1 %12, label %14, label %13
 
@@ -1916,7 +1916,7 @@ define hidden noundef ptr @"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$fo
 9:                                                ; preds = %3
   %10 = load ptr, ptr %5, align 8, !alias.scope !334, !noalias !339, !nonnull !5, !align !32, !noundef !5
   %11 = getelementptr inbounds i8, ptr %10, i64 %2
-  %12 = sub i64 %7, %2
+  %12 = sub nuw i64 %7, %2
   %13 = icmp eq i64 %2, 1
   br i1 %13, label %15, label %14
 
@@ -2013,7 +2013,7 @@ define hidden noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$fo
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8, !nonnull !5, !align !32, !noundef !5
   %9 = getelementptr inbounds i8, ptr %8, i64 %2
-  %10 = sub i64 %5, %2
+  %10 = sub nuw i64 %5, %2
   %11 = icmp eq i64 %2, 1
   br i1 %11, label %13, label %12
 
@@ -2073,7 +2073,7 @@ define hidden void @"_ZN3std2io5impls69_$LT$impl$u20$std..io..Write$u20$for$u20$
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %5)
   %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
   %7 = getelementptr inbounds i8, ptr %6, i64 %.0.sroa.speculated.i
-  %8 = sub i64 %5, %.0.sroa.speculated.i
+  %8 = sub nuw i64 %5, %.0.sroa.speculated.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull readonly align 1 %2, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !387, !noalias !391
   store ptr %7, ptr %1, align 8
   store i64 %8, ptr %4, align 8
@@ -2091,7 +2091,7 @@ define hidden noundef ptr @"_ZN3std2io5impls69_$LT$impl$u20$std..io..Write$u20$f
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %5)
   %6 = load ptr, ptr %0, align 8, !alias.scope !393, !noalias !396, !nonnull !5, !align !32, !noundef !5
   %7 = getelementptr inbounds i8, ptr %6, i64 %.0.sroa.speculated.i.i
-  %8 = sub i64 %5, %.0.sroa.speculated.i.i
+  %8 = sub nuw i64 %5, %.0.sroa.speculated.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull readonly align 1 %1, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !399, !noalias !403
   store ptr %7, ptr %0, align 8, !alias.scope !393, !noalias !396
   store i64 %8, ptr %4, align 8, !alias.scope !393, !noalias !396
@@ -5314,7 +5314,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 %3
-  %9 = sub i64 %2, %3
+  %9 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %10, align 8
@@ -20882,7 +20882,7 @@ define hidden noundef ptr @"_ZN54_$LT$W$u20$as$u20$lebe..io..WriteEndian$LT$f32$
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %6, i64 4)
   %7 = load ptr, ptr %0, align 8, !alias.scope !4043, !noalias !4044, !nonnull !5, !align !32, !noundef !5
   %8 = getelementptr inbounds i8, ptr %7, i64 %.0.sroa.speculated.i.i.i
-  %9 = sub i64 %6, %.0.sroa.speculated.i.i.i
+  %9 = sub nuw i64 %6, %.0.sroa.speculated.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 4 %3, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !4048, !noalias !4052
   store ptr %8, ptr %0, align 8, !alias.scope !4043, !noalias !4044
   store i64 %9, ptr %5, align 8, !alias.scope !4043, !noalias !4044
@@ -20927,7 +20927,7 @@ define hidden noundef ptr @"_ZN54_$LT$W$u20$as$u20$lebe..io..WriteEndian$LT$u16$
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %6, i64 2)
   %7 = load ptr, ptr %0, align 8, !alias.scope !4060, !noalias !4061, !nonnull !5, !align !32, !noundef !5
   %8 = getelementptr inbounds i8, ptr %7, i64 %.0.sroa.speculated.i.i.i
-  %9 = sub i64 %6, %.0.sroa.speculated.i.i.i
+  %9 = sub nuw i64 %6, %.0.sroa.speculated.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 2 %3, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !4065, !noalias !4069
   store ptr %8, ptr %0, align 8, !alias.scope !4060, !noalias !4061
   store i64 %9, ptr %5, align 8, !alias.scope !4060, !noalias !4061
@@ -20950,7 +20950,7 @@ define hidden noundef ptr @"_ZN54_$LT$W$u20$as$u20$lebe..io..WriteEndian$LT$u32$
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %6, i64 4)
   %7 = load ptr, ptr %0, align 8, !alias.scope !4077, !noalias !4078, !nonnull !5, !align !32, !noundef !5
   %8 = getelementptr inbounds i8, ptr %7, i64 %.0.sroa.speculated.i.i.i
-  %9 = sub i64 %6, %.0.sroa.speculated.i.i.i
+  %9 = sub nuw i64 %6, %.0.sroa.speculated.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 4 %3, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !4082, !noalias !4086
   store ptr %8, ptr %0, align 8, !alias.scope !4077, !noalias !4078
   store i64 %9, ptr %5, align 8, !alias.scope !4077, !noalias !4078
@@ -21579,7 +21579,7 @@ define hidden noundef ptr @"_ZN62_$LT$R$u20$as$u20$lebe..io..ReadEndian$LT$$u5b$
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8, !alias.scope !4256, !noalias !4259, !nonnull !5, !align !32, !noundef !5
   %9 = getelementptr inbounds i8, ptr %8, i64 %2
-  %10 = sub i64 %5, %2
+  %10 = sub nuw i64 %5, %2
   %11 = icmp eq i64 %2, 1
   br i1 %11, label %13, label %12
 
@@ -21626,7 +21626,7 @@ define hidden noundef ptr @"_ZN62_$LT$R$u20$as$u20$lebe..io..ReadEndian$LT$$u5b$
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8, !alias.scope !4268, !noalias !4271, !nonnull !5, !align !32, !noundef !5
   %9 = getelementptr inbounds i8, ptr %8, i64 %2
-  %10 = sub i64 %5, %2
+  %10 = sub nuw i64 %5, %2
   %11 = icmp eq i64 %2, 1
   br i1 %11, label %13, label %12
 
@@ -21683,7 +21683,7 @@ define hidden noundef ptr @"_ZN63_$LT$R$u20$as$u20$lebe..io..ReadEndian$LT$$u5b$
 10:                                               ; preds = %3
   %11 = load ptr, ptr %6, align 8, !alias.scope !4290, !noalias !4293, !nonnull !5, !align !32, !noundef !5
   %12 = getelementptr inbounds i8, ptr %11, i64 %4
-  %13 = sub i64 %8, %4
+  %13 = sub nuw i64 %8, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1, ptr nonnull readonly align 1 %11, i64 %4, i1 false), !alias.scope !4295, !noalias !4299
   store ptr %12, ptr %6, align 8, !alias.scope !4290, !noalias !4293
   store i64 %13, ptr %7, align 8, !alias.scope !4290, !noalias !4293
@@ -21706,7 +21706,7 @@ define hidden noundef ptr @"_ZN63_$LT$R$u20$as$u20$lebe..io..ReadEndian$LT$$u5b$
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8, !alias.scope !4301, !noalias !4304, !nonnull !5, !align !32, !noundef !5
   %10 = getelementptr inbounds i8, ptr %9, i64 %4
-  %11 = sub i64 %6, %4
+  %11 = sub nuw i64 %6, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1, ptr nonnull readonly align 1 %9, i64 %4, i1 false), !alias.scope !4306, !noalias !4310
   store ptr %10, ptr %0, align 8, !alias.scope !4301, !noalias !4304
   store i64 %11, ptr %5, align 8, !alias.scope !4301, !noalias !4304
@@ -21733,7 +21733,7 @@ define hidden noundef ptr @"_ZN63_$LT$R$u20$as$u20$lebe..io..ReadEndian$LT$$u5b$
 10:                                               ; preds = %3
   %11 = load ptr, ptr %6, align 8, !alias.scope !4322, !noalias !4325, !nonnull !5, !align !32, !noundef !5
   %12 = getelementptr inbounds i8, ptr %11, i64 %4
-  %13 = sub i64 %8, %4
+  %13 = sub nuw i64 %8, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %1, ptr nonnull readonly align 1 %11, i64 %4, i1 false), !alias.scope !4327, !noalias !4331
   store ptr %12, ptr %6, align 8, !alias.scope !4322, !noalias !4325
   store i64 %13, ptr %7, align 8, !alias.scope !4322, !noalias !4325
@@ -21760,7 +21760,7 @@ define hidden noundef ptr @"_ZN63_$LT$R$u20$as$u20$lebe..io..ReadEndian$LT$$u5b$
 10:                                               ; preds = %3
   %11 = load ptr, ptr %6, align 8, !alias.scope !4343, !noalias !4346, !nonnull !5, !align !32, !noundef !5
   %12 = getelementptr inbounds i8, ptr %11, i64 %4
-  %13 = sub i64 %8, %4
+  %13 = sub nuw i64 %8, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1, ptr nonnull readonly align 1 %11, i64 %4, i1 false), !alias.scope !4348, !noalias !4352
   store ptr %12, ptr %6, align 8, !alias.scope !4343, !noalias !4346
   store i64 %13, ptr %7, align 8, !alias.scope !4343, !noalias !4346
@@ -22172,7 +22172,7 @@ define hidden noalias noundef ptr @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %10)
   %16 = getelementptr inbounds i8, ptr %8, i64 %.0.sroa.speculated.i.i
   %17 = sub nuw i64 %10, %.0.sroa.speculated.i.i
-  %18 = sub i64 %12, %5
+  %18 = sub nuw i64 %12, %5
   %.0.sroa.speculated.i.i20 = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 %17)
   %19 = load ptr, ptr %1, align 8, !alias.scope !4492, !noalias !4502, !nonnull !5, !align !32, !noundef !5
   %20 = getelementptr inbounds i8, ptr %19, i64 %5
@@ -22214,7 +22214,7 @@ define hidden noalias noundef ptr @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %12)
   %18 = getelementptr inbounds i8, ptr %10, i64 %.0.sroa.speculated.i.i
   %19 = sub nuw i64 %12, %.0.sroa.speculated.i.i
-  %20 = sub i64 %14, %5
+  %20 = sub nuw i64 %14, %5
   %.0.sroa.speculated.i.i20 = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 %19)
   %21 = load ptr, ptr %1, align 8, !alias.scope !4512, !noalias !4522, !nonnull !5, !align !32, !noundef !5
   %22 = getelementptr inbounds i8, ptr %21, i64 %5
@@ -22254,7 +22254,7 @@ define hidden noalias noundef ptr @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %11)
   %17 = getelementptr inbounds i8, ptr %9, i64 %.0.sroa.speculated.i.i
   %18 = sub nuw i64 %11, %.0.sroa.speculated.i.i
-  %19 = sub i64 %13, %5
+  %19 = sub nuw i64 %13, %5
   %.0.sroa.speculated.i.i20 = tail call noundef i64 @llvm.umin.i64(i64 %19, i64 %18)
   %20 = load ptr, ptr %1, align 8, !alias.scope !4532, !noalias !4542, !nonnull !5, !align !32, !noundef !5
   %21 = getelementptr inbounds i8, ptr %20, i64 %5
@@ -22891,7 +22891,7 @@ define hidden void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u2
   %.sroa.016.033 = phi ptr [ %2, %.lr.ph ], [ %45, %"_ZN5image6codecs3dxt19DxtDecoder$LT$R$GT$13read_scanline17ha888491cb43a9fc5E.exit" ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.02134, i64 %.0.sroa.speculated.i)
   %45 = getelementptr inbounds i8, ptr %.sroa.016.033, i64 %.0.sroa.speculated.i.i
-  %46 = sub i64 %.sroa.6.02134, %.0.sroa.speculated.i.i
+  %46 = sub nuw i64 %.sroa.6.02134, %.0.sroa.speculated.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4592)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !4595
   store i64 %.0.sroa.speculated.i.i, ptr %37, align 8, !noalias !4595
@@ -23159,7 +23159,7 @@ define hidden void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u2
   %.sroa.09.025 = phi ptr [ %2, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.lr.ph" ], [ %45, %"_ZN5image6codecs3dxt19DxtDecoder$LT$R$GT$13read_scanline17h6f4723b2bca4a441E.exit" ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.01426, i64 %.0.sroa.speculated.i)
   %45 = getelementptr inbounds i8, ptr %.sroa.09.025, i64 %.0.sroa.speculated.i.i
-  %46 = sub i64 %.sroa.6.01426, %.0.sroa.speculated.i.i
+  %46 = sub nuw i64 %.sroa.6.01426, %.0.sroa.speculated.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4659)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !4660
   store i64 %.0.sroa.speculated.i.i, ptr %32, align 8, !noalias !4660

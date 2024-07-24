@@ -56275,7 +56275,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h3c098c78cd3321e1E.llvm.
 
 19:                                               ; preds = %.loopexit.i.i, %.lr.ph.i.i
   %.02335.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %62, %.loopexit.i.i ]
-  %20 = sub i64 %.0.sroa.speculated.i.i.i.i.i57, %.02335.i.i
+  %20 = sub nuw i64 %.0.sroa.speculated.i.i.i.i.i57, %.02335.i.i
   %21 = load i64, ptr %10, align 8, !alias.scope !7587, !noalias !7588, !noundef !4
   %.0.sroa.speculated.i.i.i21 = call noundef i64 @llvm.umin.i64(i64 %20, i64 %21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !7592
@@ -56541,7 +56541,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h61101bf32f39d96cE.llvm.
   %.150.us.i10.i.i.i = phi i64 [ %64, %70 ], [ 0, %.lr.ph.us.i.i.i.i ]
   %47 = phi i64 [ %62, %70 ], [ %39, %.lr.ph.us.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !7665
-  %48 = sub i64 %46, %47
+  %48 = sub nuw i64 %46, %47
   store i64 %48, ptr %7, align 8, !noalias !7665
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !7665
   %49 = sub nuw nsw i64 8192, %.150.us.i10.i.i.i
@@ -58154,7 +58154,7 @@ _ZN6flate22gz11read_to_nul17h131fe31bdc688050E.exit194.i.i: ; preds = %.lr.ph.i1
   br label %"_ZN72_$LT$flate2..gz..write..GzDecoder$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h736900e8136ee204E.exit.thread"
 
 297:                                              ; preds = %291
-  %298 = sub i64 %.sroa.4.0141, %.cast.i
+  %298 = sub nuw i64 %.sroa.4.0141, %.cast.i
   %299 = sub nuw nsw i64 8, %294
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %298, i64 %299)
   %300 = add i64 %.0.sroa.speculated.i.i, %.cast.i

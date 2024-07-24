@@ -377,7 +377,7 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %34, label %35, label %43
 
 35:                                               ; preds = %30
-  %36 = sub nsw i64 %spec.select, %33
+  %36 = sub nuw nsw i64 %spec.select, %33
   %37 = getelementptr i8, ptr %4, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -1
   %39 = load i8, ptr %38, align 1

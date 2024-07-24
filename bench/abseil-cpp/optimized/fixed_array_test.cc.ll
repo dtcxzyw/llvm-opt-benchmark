@@ -54580,7 +54580,7 @@ lor.rhs.i:                                        ; preds = %if.end
   br i1 %cmp.not.i, label %if.end9, label %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit
 
 _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = %lor.rhs.i
-  %sub.i = sub i64 %6, %8
+  %sub.i = sub nuw i64 %6, %8
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %sub.i
   %bcmp.i6 = call i32 @bcmp(ptr %add.ptr.i, ptr %9, i64 %8)
   %cmp9.i = icmp eq i32 %bcmp.i6, 0
@@ -54601,7 +54601,7 @@ lor.rhs.i8:                                       ; preds = %if.end9
   br i1 %cmp.not.i9, label %cleanup, label %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit15
 
 _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit15: ; preds = %lor.rhs.i8
-  %sub.i11 = sub i64 %10, %12
+  %sub.i11 = sub nuw i64 %10, %12
   %add.ptr.i12 = getelementptr inbounds i8, ptr %11, i64 %sub.i11
   %bcmp.i13 = call i32 @bcmp(ptr %add.ptr.i12, ptr %13, i64 %12)
   %bcmp.i13.fr = freeze i32 %bcmp.i13

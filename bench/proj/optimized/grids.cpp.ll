@@ -1676,7 +1676,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %.loopexit
-  %59 = sub nsw i64 %49, %56
+  %59 = sub nuw nsw i64 %49, %56
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %46, i64 noundef %59)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %65
 
@@ -2670,7 +2670,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %206, %._ZNSt6vector
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %217 = sub nsw i64 %.pre-phi, %214
+  %217 = sub nuw nsw i64 %.pre-phi, %214
   invoke void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr %209, i64 noundef %217, ptr noundef nonnull align 8 dereferenceable(8) %23)
           to label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit unwind label %227
 
@@ -2752,7 +2752,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit93:             ; preds = %244, %._ZNSt6vector
   br i1 %253, label %254, label %256
 
 254:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit93
-  %255 = sub nsw i64 %.pre-phi124, %252
+  %255 = sub nuw nsw i64 %.pre-phi124, %252
   invoke void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr %247, i64 noundef %255, ptr noundef nonnull align 8 dereferenceable(8) %24)
           to label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit96 unwind label %261
 
@@ -4002,7 +4002,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -9130,7 +9130,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %.loopexit
-  %67 = sub nsw i64 %57, %64
+  %67 = sub nuw nsw i64 %57, %64
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %67)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %73
 
@@ -9252,7 +9252,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %._crit_edge
-  %140 = sub nsw i64 %131, %137
+  %140 = sub nuw nsw i64 %131, %137
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %140)
   %.pre72.pre = load i32, ptr %54, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit46
@@ -22563,7 +22563,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds double, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

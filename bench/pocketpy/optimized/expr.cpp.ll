@@ -4498,7 +4498,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %_ZN4pkpy13is_identi
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %66
-  %71 = sub nsw i64 %65, %69
+  %71 = sub nuw nsw i64 %65, %69
   %72 = getelementptr inbounds i8, ptr %.pre, i64 %69
   %73 = load i8, ptr %.pre, align 1
   %74 = sext i8 %73 to i32

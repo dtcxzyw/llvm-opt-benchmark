@@ -3063,7 +3063,7 @@ if.end.i.i.i822:                                  ; preds = %if.else33.i.i.i, %i
   %block_type.i.0.i.i = phi i64 [ %add.i.i.i824, %if.then27.i.i.i ], [ %383, %if.then31.i.i.i ], [ %sub.i.i.i825, %if.else33.i.i.i ]
   %cmp36.i.not.i.i = icmp ult i64 %block_type.i.0.i.i, %350
   %sub38.i.i.i = select i1 %cmp36.i.not.i.i, i64 0, i64 %350
-  %spec.select.i.i823 = sub i64 %block_type.i.0.i.i, %sub38.i.i.i
+  %spec.select.i.i823 = sub nuw i64 %block_type.i.0.i.i, %sub38.i.i.i
   %384 = load i64, ptr %arrayidx28.i.i.i, align 8
   store i64 %384, ptr %arrayidx9.i.i.i, align 8
   store i64 %spec.select.i.i823, ptr %arrayidx28.i.i.i, align 8
@@ -3753,7 +3753,7 @@ if.end.i.i1430.i:                                 ; preds = %if.else33.i.i.i.i, 
   %block_type.i.i.0.i.i = phi i64 [ %add.i.i.i.i, %if.then27.i.i.i.i ], [ %513, %if.then31.i.i.i.i ], [ %sub.i.i.i.i, %if.else33.i.i.i.i ]
   %cmp36.i.i.not.i.i = icmp ult i64 %block_type.i.i.0.i.i, %481
   %sub38.i.i.i.i = select i1 %cmp36.i.i.not.i.i, i64 0, i64 %481
-  %spec.select.i1431.i = sub i64 %block_type.i.i.0.i.i, %sub38.i.i.i.i
+  %spec.select.i1431.i = sub nuw i64 %block_type.i.i.0.i.i, %sub38.i.i.i.i
   %514 = load i64, ptr %arrayidx28.i.i.i.i, align 8
   store i64 %514, ptr %arrayidx9.i.i.i.i, align 8
   store i64 %spec.select.i1431.i, ptr %arrayidx28.i.i.i.i, align 8
@@ -4637,7 +4637,7 @@ if.end.i.i1501.i:                                 ; preds = %if.else33.i.i.i1512
   %block_type.i2.i.0.i.i = phi i64 [ %add.i.i.i1511.i, %if.then27.i.i.i1509.i ], [ %663, %if.then31.i.i.i1500.i ], [ %sub.i.i.i1513.i, %if.else33.i.i.i1512.i ]
   %cmp36.i.i.not.i1502.i = icmp ult i64 %block_type.i2.i.0.i.i, %631
   %sub38.i.i.i1503.i = select i1 %cmp36.i.i.not.i1502.i, i64 0, i64 %631
-  %spec.select.i1504.i = sub i64 %block_type.i2.i.0.i.i, %sub38.i.i.i1503.i
+  %spec.select.i1504.i = sub nuw i64 %block_type.i2.i.0.i.i, %sub38.i.i.i1503.i
   %664 = load i64, ptr %arrayidx.i680, align 8
   store i64 %664, ptr %block_type_rb.i5.i.i.i, align 8
   store i64 %spec.select.i1504.i, ptr %arrayidx.i680, align 8
@@ -5143,7 +5143,7 @@ SafeDecodeCommandBlockSwitch.exit.i:              ; preds = %if.else33.i.i.i1305
   %block_type.i.2.i.i = phi i64 [ %sub.i.i1411.i, %if.else33.i.i.i1305 ], [ %744, %if.then31.i.i.i1297 ], [ %add.i.i.i1304, %if.then27.i.i.i1303 ]
   %cmp36.i.not.i.i1298 = icmp ult i64 %block_type.i.2.i.i, %677
   %sub38.i.i.i1299 = select i1 %cmp36.i.not.i.i1298, i64 0, i64 %677
-  %spec.select.i.i1300 = sub i64 %block_type.i.2.i.i, %sub38.i.i.i1299
+  %spec.select.i.i1300 = sub nuw i64 %block_type.i.2.i.i, %sub38.i.i.i1299
   %745 = load i64, ptr %arrayidx28.i.i.i, align 8
   store i64 %745, ptr %arrayidx9.i.i.i, align 8
   store i64 %spec.select.i.i1300, ptr %arrayidx28.i.i.i, align 8
@@ -6293,7 +6293,7 @@ SafeDecodeDistanceBlockSwitch.exit.i:             ; preds = %if.else33.i.i.i.i12
   %block_type.i.i.2.i.i = phi i64 [ %sub.i.i.i1536.i, %if.else33.i.i.i.i1212 ], [ %912, %if.then31.i.i.i.i1201 ], [ %add.i.i.i1535.i, %if.then27.i.i.i.i1210 ]
   %cmp36.i.i.not.i.i1202 = icmp ult i64 %block_type.i.i.2.i.i, %853
   %sub38.i.i.i.i1203 = select i1 %cmp36.i.i.not.i.i1202, i64 0, i64 %853
-  %spec.select.i1530.i = sub i64 %block_type.i.i.2.i.i, %sub38.i.i.i.i1203
+  %spec.select.i1530.i = sub nuw i64 %block_type.i.i.2.i.i, %sub38.i.i.i.i1203
   %913 = load i64, ptr %arrayidx28.i.i.i.i, align 8
   store i64 %913, ptr %arrayidx9.i.i.i.i, align 8
   store i64 %spec.select.i1530.i, ptr %arrayidx28.i.i.i.i, align 8
@@ -7522,7 +7522,7 @@ SafeDecodeLiteralBlockSwitch.exit.i:              ; preds = %if.else33.i.i.i1721
   %block_type.i2.i.2.i.i = phi i64 [ %sub.i.i.i1722.i, %if.else33.i.i.i1721.i ], [ %1100, %if.then31.i.i.i1703.i ], [ %add.i.i.i1720.i, %if.then27.i.i.i1718.i ]
   %cmp36.i.i.not.i1705.i = icmp ult i64 %block_type.i2.i.2.i.i, %1042
   %sub38.i.i.i1706.i = select i1 %cmp36.i.i.not.i1705.i, i64 0, i64 %1042
-  %spec.select.i1707.i = sub i64 %block_type.i2.i.2.i.i, %sub38.i.i.i1706.i
+  %spec.select.i1707.i = sub nuw i64 %block_type.i2.i.2.i.i, %sub38.i.i.i1706.i
   %1101 = load i64, ptr %arrayidx.i680, align 8
   store i64 %1101, ptr %block_type_rb.i5.i.i.i, align 8
   store i64 %spec.select.i1707.i, ptr %arrayidx.i680, align 8
@@ -9023,7 +9023,7 @@ if.else.i167:                                     ; preds = %if.end16.i
   br i1 %cmp33.i, label %while.cond.backedge.i, label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.else.i167
-  %sub.i.i175 = sub i64 %75, %add.i174
+  %sub.i.i175 = sub nuw i64 %75, %add.i174
   store i64 %sub.i.i175, ptr %bit_pos_.i, align 8
   %87 = load i64, ptr %br1, align 8
   %shr.i.i176 = lshr i64 %87, %add.i174
@@ -9466,7 +9466,7 @@ if.end52:                                         ; preds = %if.end47
   br i1 %cmp53, label %if.then55, label %if.end61
 
 if.then55:                                        ; preds = %if.end52
-  %sub = sub nsw i64 %code32.2, %14
+  %sub = sub nuw nsw i64 %code32.2, %14
   %conv56 = trunc i64 %sub to i8
   %inc57 = add i64 %context_index28.0210, 1
   %arrayidx58 = getelementptr inbounds i8, ptr %15, i64 %context_index28.0210

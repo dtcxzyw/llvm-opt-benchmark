@@ -18919,7 +18919,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sub = sub i32 %0, %1
+  %sub = sub nuw i32 %0, %1
   %call.i = tail call noundef i32 @_ZN3smt7context14pop_scope_coreEj(ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 noundef %sub)
   tail call void @_ZN3smt7context22reset_cache_generationEv(ptr noundef nonnull align 8 dereferenceable(11616) %this)
   br label %if.end
@@ -28012,7 +28012,7 @@ if.then52:                                        ; preds = %lor.lhs.false49, %l
   br i1 %cmp55, label %if.then56, label %if.end58
 
 if.then56:                                        ; preds = %if.then52
-  %sub = sub i32 %35, %curr_lvl
+  %sub = sub nuw i32 %35, %curr_lvl
   %call.i15 = tail call noundef i32 @_ZN3smt7context14pop_scope_coreEj(ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 noundef %sub)
   tail call void @_ZN3smt7context22reset_cache_generationEv(ptr noundef nonnull align 8 dereferenceable(11616) %this)
   br label %if.end58

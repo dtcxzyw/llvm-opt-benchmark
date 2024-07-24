@@ -786,8 +786,8 @@ Vec_IntFree.exit201:                              ; preds = %215, %217
 
 Kit_DsdNtkObj.exit202:                            ; preds = %234
   %242 = load ptr, ptr %10, align 8
-  %243 = sub nsw i32 %238, %240
-  %244 = sext i32 %243 to i64
+  %243 = sub nuw nsw i32 %238, %240
+  %244 = zext nneg i32 %243 to i64
   %245 = getelementptr inbounds ptr, ptr %242, i64 %244
   %246 = load ptr, ptr %245, align 8
   %.not151 = icmp eq ptr %246, null
@@ -991,8 +991,8 @@ Vec_IntPush.exit216:                              ; preds = %.Vec_IntGrow.exit10
 
 Kit_DsdNtkObj.exit217:                            ; preds = %332
   %338 = load ptr, ptr %10, align 8
-  %339 = sub nsw i32 %336, %329
-  %340 = sext i32 %339 to i64
+  %339 = sub nuw nsw i32 %336, %329
+  %340 = zext nneg i32 %339 to i64
   %341 = getelementptr inbounds ptr, ptr %338, i64 %340
   %342 = load ptr, ptr %341, align 8
   %343 = icmp eq ptr %342, null

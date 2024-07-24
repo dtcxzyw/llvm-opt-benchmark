@@ -255,7 +255,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %171, label %172, label %251
 
 172:                                              ; preds = %160
-  %173 = sub nsw i32 %164, %170
+  %173 = sub nuw nsw i32 %164, %170
   %174 = icmp ugt i32 %173, %25
   br i1 %174, label %175, label %177
 
@@ -287,7 +287,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %.not323, label %187, label %.preheader, !llvm.loop !5
 
 187:                                              ; preds = %.preheader
-  %188 = sub nsw i32 %.0239, %173
+  %188 = sub nuw nsw i32 %.0239, %173
   %189 = zext nneg i32 %164 to i64
   %190 = sub nsw i64 0, %189
   %191 = getelementptr inbounds i8, ptr %185, i64 %190
@@ -301,7 +301,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   %195 = sub i32 %49, %173
   %196 = zext i32 %195 to i64
   %197 = getelementptr i8, ptr %29, i64 %196
-  %198 = sub i32 %173, %27
+  %198 = sub nuw nsw i32 %173, %27
   %199 = icmp ult i32 %198, %.0239
   br i1 %199, label %.preheader466, label %230
 
@@ -318,7 +318,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %.not321, label %204, label %.preheader466, !llvm.loop !7
 
 204:                                              ; preds = %.preheader466
-  %205 = sub nsw i32 %.0239, %198
+  %205 = sub nuw nsw i32 %.0239, %198
   %206 = icmp ult i32 %27, %205
   br i1 %206, label %.preheader465, label %230
 
@@ -335,14 +335,14 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %.not322, label %211, label %.preheader465, !llvm.loop !8
 
 211:                                              ; preds = %.preheader465
-  %212 = sub i32 %205, %27
+  %212 = sub nuw i32 %205, %27
   %213 = zext nneg i32 %164 to i64
   %214 = sub nsw i64 0, %213
   %215 = getelementptr inbounds i8, ptr %209, i64 %214
   br label %230
 
 216:                                              ; preds = %192
-  %217 = sub i32 %27, %173
+  %217 = sub nuw i32 %27, %173
   %218 = zext i32 %217 to i64
   %219 = getelementptr i8, ptr %29, i64 %218
   %220 = icmp ult i32 %173, %.0239
@@ -361,7 +361,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %.not320, label %225, label %.preheader467, !llvm.loop !9
 
 225:                                              ; preds = %.preheader467
-  %226 = sub nsw i32 %.0239, %173
+  %226 = sub nuw nsw i32 %.0239, %173
   %227 = zext nneg i32 %164 to i64
   %228 = sub nsw i64 0, %227
   %229 = getelementptr inbounds i8, ptr %223, i64 %228

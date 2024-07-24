@@ -4289,7 +4289,7 @@ define dso_local i32 @tcp_read_sock(ptr noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %25, label %26, label %.thread12
 
 26:                                               ; preds = %18
-  %27 = sub i32 %24, %22
+  %27 = sub nuw i32 %24, %22
   %28 = load i16, ptr %14, align 2
   %29 = icmp eq i16 %28, 0
   br i1 %29, label %35, label %30, !prof !13
@@ -5751,7 +5751,7 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   %.us-phi82 = phi i32 [ %130, %127 ], [ %166, %163 ]
   %.us-phi83 = phi ptr [ %117, %127 ], [ %153, %163 ]
   %249 = getelementptr inbounds i8, ptr %.us-phi80, i64 112
-  %250 = sub i32 %.us-phi82, %.us-phi81
+  %250 = sub nuw i32 %.us-phi82, %.us-phi81
   %251 = zext i32 %250 to i64
   %252 = call i64 @llvm.umin.i64(i64 %80, i64 %251)
   %253 = load i16, ptr %61, align 2
@@ -11524,7 +11524,7 @@ define internal fastcc i32 @tcp_zerocopy_receive(ptr noundef %0, ptr nocapture n
   br i1 %140, label %.loopexit67, label %141
 
 141:                                              ; preds = %.preheader66
-  %142 = sub i32 %137, %139
+  %142 = sub nuw i32 %137, %139
   %143 = getelementptr i8, ptr %136, i64 16
   %144 = icmp eq i32 %142, 0
   br i1 %144, label %.loopexit67, label %.preheader66, !llvm.loop !103
@@ -11912,7 +11912,7 @@ tcp_update_recv_tstamps.exit:                     ; preds = %337, %341
   br i1 %.not, label %.thread56, label %374
 
 374:                                              ; preds = %.preheader60
-  %375 = sub i32 %371, %373
+  %375 = sub nuw i32 %371, %373
   %376 = getelementptr i8, ptr %370, i64 16
   %377 = icmp eq i32 %375, 0
   br i1 %377, label %.loopexit, label %.preheader60, !llvm.loop !103

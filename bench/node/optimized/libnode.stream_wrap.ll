@@ -2169,12 +2169,12 @@ if.then10:                                        ; preds = %for.body
   %5 = load ptr, ptr %vbufs.027, align 8
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %written.026
   store ptr %add.ptr, ptr %vbufs.027, align 8
-  %sub = sub i64 %4, %written.026
+  %sub = sub nuw i64 %4, %written.026
   store i64 %sub, ptr %len.le, align 8
   br label %for.end
 
 if.else:                                          ; preds = %for.body
-  %sub16 = sub i64 %written.026, %4
+  %sub16 = sub nuw i64 %written.026, %4
   %incdec.ptr = getelementptr inbounds i8, ptr %vbufs.027, i64 16
   %dec = add i64 %vcount.028, -1
   %cmp8.not = icmp eq i64 %dec, 0
@@ -2236,12 +2236,12 @@ if.then10.i:                                      ; preds = %for.body.i
   %5 = load ptr, ptr %vbufs.027.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %written.026.i
   store ptr %add.ptr.i, ptr %vbufs.027.i, align 8
-  %sub.i = sub i64 %4, %written.026.i
+  %sub.i = sub nuw i64 %4, %written.026.i
   store i64 %sub.i, ptr %len.i.le, align 8
   br label %for.end.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %sub16.i = sub i64 %written.026.i, %4
+  %sub16.i = sub nuw i64 %written.026.i, %4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %vbufs.027.i, i64 16
   %dec.i = add i64 %vcount.028.i, -1
   %cmp8.not.i = icmp eq i64 %dec.i, 0

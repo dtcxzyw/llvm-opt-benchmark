@@ -3107,7 +3107,7 @@ define void @_ZN6uucore8features4mode13parse_numeric17h4fcdc9cffb0cd06cE(ptr noa
   %37 = getelementptr inbounds i8, ptr %2, i64 %31
   %38 = load i8, ptr %37, align 1, !alias.scope !509, !noundef !4
   %39 = icmp sgt i8 %38, -65
-  %40 = sub i64 %3, %31
+  %40 = sub nuw i64 %3, %31
   br i1 %39, label %42, label %41
 
 41:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %34
@@ -3406,7 +3406,7 @@ _ZN6uucore8features4mode12parse_levels17h5bbba3b4385c9c7fE.exit: ; preds = %50, 
   %62 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa.fr.i
   %63 = load i8, ptr %62, align 1, !alias.scope !545, !noundef !4
   %64 = icmp sgt i8 %63, -65
-  %65 = sub i64 %3, %.0.lcssa.fr.i
+  %65 = sub nuw i64 %3, %.0.lcssa.fr.i
   br i1 %64, label %68, label %67
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %6, %_ZN6uucore8features4mode12parse_levels17h5bbba3b4385c9c7fE.exit
@@ -3786,7 +3786,7 @@ _ZN6uucore8features4mode12parse_change17h6d6d6cffe623ab87E.exit: ; preds = %186,
   %227 = getelementptr inbounds i8, ptr %226, i64 %.173.i86
   %228 = load i8, ptr %227, align 1, !alias.scope !574, !noundef !4
   %229 = icmp sgt i8 %228, -65
-  %230 = sub i64 %102, %.173.i86
+  %230 = sub nuw i64 %102, %.173.i86
   br i1 %229, label %_ZN6uucore8features4mode12parse_change17h6d6d6cffe623ab87E.exit.thread, label %231
 
 231:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i60", %223

@@ -28239,7 +28239,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit: ; preds = %entry
   %2 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %__pos
-  %sub.i = sub i64 %1, %__pos
+  %sub.i = sub nuw i64 %1, %__pos
   %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %cmp.i6 = icmp ugt i64 %spec.select.i, 15
   br i1 %cmp.i6, label %if.then.i7, label %entry.if.end_crit_edge.i

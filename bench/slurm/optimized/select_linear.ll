@@ -3124,7 +3124,7 @@ _test_tot_job.exit.thread.i:                      ; preds = %_test_tot_job.exit.
   %110 = phi i64 [ %99, %.thread.i ], [ %107, %103 ]
   %111 = phi ptr [ %98, %.thread.i ], [ %106, %103 ]
   %.0654.i = phi i64 [ 0, %.thread.i ], [ %.065.i, %103 ]
-  %112 = sub i64 %110, %.0654.i
+  %112 = sub nuw i64 %110, %.0654.i
   store i64 %112, ptr %111, align 8
   br label %117
 
@@ -3595,7 +3595,7 @@ _rem_run_job.exit:                                ; preds = %66, %52, %57
   br i1 %.not112, label %114, label %112
 
 112:                                              ; preds = %106
-  %113 = sub i64 %111, %.193
+  %113 = sub nuw i64 %111, %.193
   store i64 %113, ptr %110, align 8
   br label %125
 

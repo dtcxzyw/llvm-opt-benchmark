@@ -3615,7 +3615,7 @@ if.then.i.i:                                      ; preds = %if.end37
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end37
-  %sub.i17 = sub i64 %spec.select, %add
+  %sub.i17 = sub nuw i64 %spec.select, %add
   %add.ptr.i19 = getelementptr inbounds i8, ptr %name.coerce1, i64 %add
   store i64 %sub.i17, ptr %name_subdomain, align 8
   %4 = getelementptr inbounds i8, ptr %name_subdomain, i64 8

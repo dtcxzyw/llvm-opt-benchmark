@@ -708,7 +708,7 @@ define void @_ZN3gmx12AtomsRemover16refreshAtomCountERK7t_atoms(ptr noundef nonn
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = sub i64 %5, %11
+  %14 = sub nuw i64 %5, %11
   call void @_ZNSt6vectorIcSaIcEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPcS1_EEmRKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %7, i64 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %3)
   br label %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit
 
@@ -779,7 +779,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPcmccET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = sub i64 %2, %16
+  %29 = sub nuw i64 %2, %16
   %30 = getelementptr inbounds i8, ptr %9, i64 %29
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 %14, i64 %29, i1 false)
   br label %_ZSt24__uninitialized_fill_n_aIPcmccET_S1_T0_RKT1_RSaIT2_E.exit
@@ -1032,7 +1032,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -1053,7 +1053,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23
@@ -1186,7 +1186,7 @@ define void @_ZNK3gmx12AtomsRemover20removeMarkedElementsEPSt6vectorIfSaIfEE(ptr
   br i1 %38, label %39, label %._crit_edge.thread
 
 39:                                               ; preds = %._crit_edge
-  %40 = sub nsw i64 %37, %.pre23
+  %40 = sub nuw nsw i64 %37, %.pre23
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %40)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 

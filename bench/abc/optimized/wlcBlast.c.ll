@@ -19910,7 +19910,7 @@ Vec_IntFree.exit3885.cont:                        ; preds = %Vec_IntFree.exit388
 
 .preheader4639:                                   ; preds = %.preheader4639.preheader, %Gia_ManAppendCo.exit3898
   %indvars.iv5338 = phi i64 [ 0, %.preheader4639.preheader ], [ %indvars.iv.next5339, %Gia_ManAppendCo.exit3898 ]
-  %4147 = sub nsw i64 %4145, %indvars.iv5338
+  %4147 = sub nuw nsw i64 %4145, %indvars.iv5338
   %4148 = getelementptr inbounds i32, ptr %4143, i64 %4147
   %4149 = load i32, ptr %4148, align 4
   %4150 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %100)
@@ -20219,7 +20219,7 @@ Gia_ManAppendCo.exit3911:                         ; preds = %Vec_IntPush.exit.i3
 
 .preheader4635:                                   ; preds = %.preheader4635.preheader, %Vec_IntPushTwo.exit
   %indvars.iv5350 = phi i64 [ 0, %.preheader4635.preheader ], [ %indvars.iv.next5351, %Vec_IntPushTwo.exit ]
-  %4316 = sub nsw i64 %4314, %indvars.iv5350
+  %4316 = sub nuw nsw i64 %4314, %indvars.iv5350
   %4317 = getelementptr inbounds i32, ptr %4306, i64 %4316
   %4318 = load i32, ptr %4317, align 4
   %4319 = sub nsw i64 %4313, %indvars.iv5350
@@ -20512,7 +20512,7 @@ Vec_IntPushTwo.exit3932:                          ; preds = %.Vec_IntGrow.exit10
 
 .preheader4631:                                   ; preds = %.preheader4631.preheader, %Gia_ManAppendCo.exit3958
   %indvars.iv5362 = phi i64 [ 0, %.preheader4631.preheader ], [ %indvars.iv.next5363, %Gia_ManAppendCo.exit3958 ]
-  %4443 = sub nsw i64 %4441, %indvars.iv5362
+  %4443 = sub nuw nsw i64 %4441, %indvars.iv5362
   %4444 = getelementptr inbounds i32, ptr %4306, i64 %4443
   %4445 = load i32, ptr %4444, align 4
   %4446 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %100)
@@ -20934,7 +20934,7 @@ Vec_IntFreeP.exit:                                ; preds = %._crit_edge4926, %4
 
 .preheader4625:                                   ; preds = %.preheader4625.preheader, %.preheader4625
   %indvars.iv5377 = phi i64 [ 0, %.preheader4625.preheader ], [ %indvars.iv.next5378, %.preheader4625 ]
-  %4642 = sub nsw i64 %4640, %indvars.iv5377
+  %4642 = sub nuw nsw i64 %4640, %indvars.iv5377
   %4643 = getelementptr inbounds i32, ptr %4638, i64 %4642
   %4644 = load i32, ptr %4643, align 4
   tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %100, i32 noundef %4644)

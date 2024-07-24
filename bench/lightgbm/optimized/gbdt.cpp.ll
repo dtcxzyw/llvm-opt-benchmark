@@ -11185,7 +11185,7 @@ define void @_ZN8LightGBM4GBDT20ResetGradientBuffersEv(ptr noundef nonnull align
   br i1 %27, label %_ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE6resizeEm.exit, label %.sink.split
 
 _ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE6resizeEm.exit: ; preds = %18
-  %28 = sub nsw i64 %8, %26
+  %28 = sub nuw nsw i64 %8, %26
   tail call void @_ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %28)
   %29 = getelementptr inbounds i8, ptr %0, i64 312
   %30 = getelementptr inbounds i8, ptr %0, i64 320
@@ -11199,7 +11199,7 @@ _ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE6resizeEm.exit: ; p
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %_ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE6resizeEm.exit
-  %39 = sub nsw i64 %8, %36
+  %39 = sub nuw nsw i64 %8, %36
   tail call void @_ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %39)
   br label %.sink.split
 
@@ -11248,7 +11248,7 @@ _ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE6resizeEm.exit: ; p
   br i1 %66, label %_ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE6resizeEm.exit12, label %.sink.split
 
 _ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE6resizeEm.exit12: ; preds = %57
-  %67 = sub nsw i64 %8, %65
+  %67 = sub nuw nsw i64 %8, %65
   tail call void @_ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %58, i64 noundef %67)
   %68 = getelementptr inbounds i8, ptr %0, i64 312
   %69 = getelementptr inbounds i8, ptr %0, i64 320
@@ -11262,7 +11262,7 @@ _ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE6resizeEm.exit12: ;
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %_ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE6resizeEm.exit12
-  %78 = sub nsw i64 %8, %75
+  %78 = sub nuw nsw i64 %8, %75
   tail call void @_ZNSt6vectorIfN8LightGBM6Common18AlignmentAllocatorIfLm32EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %68, i64 noundef %78)
   br label %.sink.split
 
@@ -18944,7 +18944,7 @@ define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_o
   br i1 %25, label %26, label %37
 
 26:                                               ; preds = %24
-  %27 = sub i64 %.02347, %.02446
+  %27 = sub nuw i64 %.02347, %.02446
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.02446, i64 noundef %27)
           to label %28 unwind label %.loopexit.split-lp.loopexit
 

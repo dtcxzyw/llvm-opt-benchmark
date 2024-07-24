@@ -278,7 +278,7 @@ define hidden i32 @set_ps_title(ptr nocapture noundef readonly %0) local_unnamed
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %3, i64 %9
-  %13 = sub i64 %5, %9
+  %13 = sub nuw i64 %5, %9
   tail call void @llvm.memset.p0.i64(ptr align 1 %12, i8 0, i64 %13, i1 false)
   br label %14
 

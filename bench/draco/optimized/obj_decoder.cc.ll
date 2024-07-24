@@ -693,7 +693,7 @@ _ZN5draco6StatusC2ENS0_4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %123
-  %135 = sub nsw i64 %124, %132
+  %135 = sub nuw nsw i64 %124, %132
   invoke void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr %127, i64 noundef %135, ptr noundef nonnull align 4 dereferenceable(12) %4)
           to label %_ZN5draco4Mesh11SetNumFacesEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1669,7 +1669,7 @@ _ZNSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS1_EED2Ev.exit16
   br i1 %.not227, label %512, label %510
 
 510:                                              ; preds = %509
-  %511 = sub nsw i64 %.pre226, %507
+  %511 = sub nuw nsw i64 %.pre226, %507
   invoke void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %500, ptr %502, i64 noundef %511, ptr noundef nonnull align 4 dereferenceable(12) %3)
           to label %.noexc170 unwind label %.loopexit197
 
@@ -3911,7 +3911,7 @@ _ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm
   br i1 %.not.i.i.i, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %.preheader.i.i.i, !llvm.loop !32
 
 41:                                               ; preds = %14
-  %42 = sub i64 %2, %17
+  %42 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %42, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

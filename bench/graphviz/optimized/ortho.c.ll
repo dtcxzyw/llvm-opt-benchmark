@@ -843,7 +843,7 @@ sidePt.exit153.i:                                 ; preds = %setSeg.exit.i
 
 400:                                              ; preds = %398
   %401 = getelementptr inbounds i8, ptr %393, i64 %389
-  %402 = sub i64 %390, %389
+  %402 = sub nuw i64 %390, %389
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %401, i8 0, i64 %402, i1 false)
   br label %.lr.ph231.i
 

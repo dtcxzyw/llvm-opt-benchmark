@@ -264,7 +264,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp9.i.i = icmp ugt i64 %target.addr.019.i.i, %11
   %spec.select.i.i = select i1 %cmp9.i.i, i32 %add.i15.i, i32 %result.018.i.i
   %sub.i.i = select i1 %cmp9.i.i, i64 %11, i64 0
-  %spec.select14.i.i = sub i64 %target.addr.019.i.i, %sub.i.i
+  %spec.select14.i.i = sub nuw i64 %target.addr.019.i.i, %sub.i.i
   %shr.i.i = lshr i32 %i.020.i.i, 1
   %cmp5.not.i.i = icmp ult i32 %i.020.i.i, 2
   br i1 %cmp5.not.i.i, label %dbGetNextNonEmptySlot.exit, label %for.body.i.i, !llvm.loop !7
@@ -386,7 +386,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
   %cmp9.i = icmp ugt i64 %target.addr.019.i, %8
   %spec.select.i = select i1 %cmp9.i, i32 %add.i15, i32 %result.018.i
   %sub.i = select i1 %cmp9.i, i64 %8, i64 0
-  %spec.select14.i = sub i64 %target.addr.019.i, %sub.i
+  %spec.select14.i = sub nuw i64 %target.addr.019.i, %sub.i
   %shr.i = lshr i32 %i.020.i, 1
   %cmp5.not.i = icmp ult i32 %i.020.i, 2
   br i1 %cmp5.not.i, label %cond.end, label %for.body.i, !llvm.loop !7
@@ -495,7 +495,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %cmp9.i = icmp ugt i64 %target.addr.019.i, %3
   %spec.select.i = select i1 %cmp9.i, i32 %add.i, i32 %result.018.i
   %sub.i = select i1 %cmp9.i, i64 %3, i64 0
-  %spec.select14.i = sub i64 %target.addr.019.i, %sub.i
+  %spec.select14.i = sub nuw i64 %target.addr.019.i, %sub.i
   %shr.i = lshr i32 %i.020.i, 1
   %cmp5.not.i = icmp ult i32 %i.020.i, 2
   br i1 %cmp5.not.i, label %findSlotByKeyIndex.exit, label %for.body.i, !llvm.loop !7
@@ -552,7 +552,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %cmp9 = icmp ugt i64 %target.addr.019, %3
   %spec.select = select i1 %cmp9, i32 %add, i32 %result.018
   %sub = select i1 %cmp9, i64 %3, i64 0
-  %spec.select14 = sub i64 %target.addr.019, %sub
+  %spec.select14 = sub nuw i64 %target.addr.019, %sub
   %shr = lshr i32 %i.020, 1
   %cmp5.not = icmp ult i32 %i.020, 2
   br i1 %cmp5.not, label %return, label %for.body, !llvm.loop !7
@@ -2266,7 +2266,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %cmp9.i.i = icmp ugt i64 %target.addr.019.i.i, %6
   %spec.select.i.i = select i1 %cmp9.i.i, i32 %add.i.i, i32 %result.018.i.i
   %sub.i.i = select i1 %cmp9.i.i, i64 %6, i64 0
-  %spec.select14.i.i = sub i64 %target.addr.019.i.i, %sub.i.i
+  %spec.select14.i.i = sub nuw i64 %target.addr.019.i.i, %sub.i.i
   %shr.i.i = lshr i32 %i.020.i.i, 1
   %cmp5.not.i.i = icmp ult i32 %i.020.i.i, 2
   br i1 %cmp5.not.i.i, label %getFairRandomSlot.exit, label %for.body.i.i, !llvm.loop !7
@@ -2466,7 +2466,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
   %cmp9.i = icmp ugt i64 %target.addr.019.i, %4
   %spec.select.i = select i1 %cmp9.i, i32 %add.i, i32 %result.018.i
   %sub.i = select i1 %cmp9.i, i64 %4, i64 0
-  %spec.select14.i = sub i64 %target.addr.019.i, %sub.i
+  %spec.select14.i = sub nuw i64 %target.addr.019.i, %sub.i
   %shr.i = lshr i32 %i.020.i, 1
   %cmp5.not.i = icmp ult i32 %i.020.i, 2
   br i1 %cmp5.not.i, label %findSlotByKeyIndex.exit, label %for.body.i, !llvm.loop !7
@@ -4269,7 +4269,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %cmp9.i.i = icmp ugt i64 %target.addr.019.i.i, %18
   %spec.select.i.i = select i1 %cmp9.i.i, i32 %add.i.i, i32 %result.018.i.i
   %sub.i.i = select i1 %cmp9.i.i, i64 %18, i64 0
-  %spec.select14.i.i = sub i64 %target.addr.019.i.i, %sub.i.i
+  %spec.select14.i.i = sub nuw i64 %target.addr.019.i.i, %sub.i.i
   %shr.i.i = lshr i32 %i.020.i.i, 1
   %cmp5.not.i.i = icmp ult i32 %i.020.i.i, 2
   br i1 %cmp5.not.i.i, label %dbIteratorInit.exit, label %for.body.i.i, !llvm.loop !7
@@ -5680,7 +5680,7 @@ for.body.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %cmp9.i.i = icmp ugt i64 %target.addr.019.i.i, %9
   %spec.select.i.i = select i1 %cmp9.i.i, i32 %add.i15.i, i32 %result.018.i.i
   %sub.i.i = select i1 %cmp9.i.i, i64 %9, i64 0
-  %spec.select14.i.i = sub i64 %target.addr.019.i.i, %sub.i.i
+  %spec.select14.i.i = sub nuw i64 %target.addr.019.i.i, %sub.i.i
   %shr.i.i = lshr i32 %i.020.i.i, 1
   %cmp5.not.i.i = icmp ult i32 %i.020.i.i, 2
   br i1 %cmp5.not.i.i, label %if.end45, label %for.body.i.i, !llvm.loop !7
@@ -10269,7 +10269,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %cmp9.i.i = icmp ugt i64 %target.addr.019.i.i, %3
   %spec.select.i.i = select i1 %cmp9.i.i, i32 %add.i.i, i32 %result.018.i.i
   %sub.i.i = select i1 %cmp9.i.i, i64 %3, i64 0
-  %spec.select14.i.i = sub i64 %target.addr.019.i.i, %sub.i.i
+  %spec.select14.i.i = sub nuw i64 %target.addr.019.i.i, %sub.i.i
   %shr.i.i = lshr i32 %i.020.i.i, 1
   %cmp5.not.i.i = icmp ult i32 %i.020.i.i, 2
   br i1 %cmp5.not.i.i, label %dbIteratorInit.exit, label %for.body.i.i, !llvm.loop !7

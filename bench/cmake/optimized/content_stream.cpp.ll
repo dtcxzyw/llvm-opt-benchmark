@@ -1045,7 +1045,7 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader6bufferEm(ptr noundef
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %2
-  %34 = sub i64 %1, %31
+  %34 = sub nuw i64 %1, %31
   %.not21 = icmp eq i64 %34, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph
 

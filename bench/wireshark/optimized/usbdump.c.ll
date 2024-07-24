@@ -249,7 +249,7 @@ define internal fastcc range(i32 0, 2) i32 @usbdump_read_packet(ptr nocapture %.
   br label %26
 
 24:                                               ; preds = %18
-  %25 = sub i32 %20, %13
+  %25 = sub nuw i32 %20, %13
   store i32 %25, ptr %19, align 4
   br label %26
 
@@ -304,7 +304,7 @@ define internal fastcc range(i32 0, 2) i32 @usbdump_read_packet(ptr nocapture %.
   br label %63
 
 61:                                               ; preds = %55
-  %62 = sub i32 %56, %57
+  %62 = sub nuw i32 %56, %57
   store i32 %62, ptr %19, align 4
   br label %63
 
@@ -336,7 +336,7 @@ define internal fastcc range(i32 0, 2) i32 @usbdump_read_packet(ptr nocapture %.
   br label %82
 
 80:                                               ; preds = %75
-  %81 = sub i32 %76, %71
+  %81 = sub nuw i32 %76, %71
   store i32 %81, ptr %19, align 4
   br label %82
 

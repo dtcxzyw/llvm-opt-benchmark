@@ -3317,7 +3317,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %104
-  %109 = sub nsw i64 %106, %102
+  %109 = sub nuw nsw i64 %106, %102
   invoke void @_ZNSt6vectorISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESaIS9_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %109)
           to label %_ZNSt6vectorISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESaIS9_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -3386,7 +3386,7 @@ _ZNSt6vectorISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESaIS9_
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %132
-  %137 = sub nsw i64 %134, %131
+  %137 = sub nuw nsw i64 %134, %131
   invoke void @_ZNSt6vectorIN3gmx16HardwareTopology7PackageESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %137)
           to label %_ZNSt6vectorIN3gmx16HardwareTopology7PackageESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -3673,7 +3673,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %257, label %258, label %260
 
 258:                                              ; preds = %254
-  %259 = sub nsw i64 %256, %252
+  %259 = sub nuw nsw i64 %256, %252
   invoke void @_ZNSt6vectorIN3gmx16HardwareTopology4CoreESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %245, i64 noundef %259)
           to label %_ZNSt6vectorIN3gmx16HardwareTopology4CoreESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit
 

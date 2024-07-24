@@ -798,7 +798,7 @@ if.then.i.i87:                                    ; preds = %if.then53
   unreachable
 
 invoke.cont57:                                    ; preds = %if.then53
-  %sub.i = sub i64 %18, %add
+  %sub.i = sub nuw i64 %18, %add
   %add.ptr.i86 = getelementptr inbounds i8, ptr %19, i64 %add
   %after_decimal.sroa.0.0 = call i64 @llvm.umin.i64(i64 %sub.i, i64 3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i)

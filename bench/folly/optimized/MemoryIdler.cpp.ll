@@ -849,7 +849,7 @@ _ZN5folly6detailL8pageSizeEv.exit:                ; preds = %init.i, %init.check
   br i1 %cmp10.not, label %if.end12, label %cleanup.cont
 
 if.end12:                                         ; preds = %_ZN5folly6detailL8pageSizeEv.exit
-  %sub13 = sub i64 %and, %35
+  %sub13 = sub nuw i64 %and, %35
   %36 = inttoptr i64 %35 to ptr
   %call14 = call i32 @madvise(ptr noundef %36, i64 noundef %sub13, i32 noundef 4) #20
   br label %cleanup.cont

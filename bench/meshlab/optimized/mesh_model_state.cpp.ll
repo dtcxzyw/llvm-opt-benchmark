@@ -485,7 +485,7 @@ define void @_ZN14MeshModelState6createEiP9MeshModel(ptr noundef nonnull align 8
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %38
-  %57 = sub nsw i64 %47, %54
+  %57 = sub nuw nsw i64 %47, %54
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %57)
   %.pre162 = load ptr, ptr %4, align 8
   %.pre163 = load ptr, ptr %39, align 8
@@ -816,7 +816,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %56, %58, %60, %62
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 248:                                              ; preds = %219
-  %249 = sub i64 %228, %239
+  %249 = sub nuw i64 %228, %239
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %220, ptr %230, i32 %232, i64 noundef %249, i1 noundef zeroext false)
   %.pre169 = load ptr, ptr %4, align 8
   %.pre170 = load ptr, ptr %220, align 8
@@ -923,7 +923,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %_ZNSt14_Bit_referen
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit31
 
 308:                                              ; preds = %279
-  %309 = sub i64 %288, %299
+  %309 = sub nuw i64 %288, %299
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %280, ptr %290, i32 %292, i64 noundef %309, i1 noundef zeroext false)
   %.pre171 = load ptr, ptr %4, align 8
   %.pre172 = load ptr, ptr %280, align 8
@@ -1026,7 +1026,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EE6resizeEm(ptr nou
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -1122,7 +1122,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr nou
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -1143,7 +1143,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr nou
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23

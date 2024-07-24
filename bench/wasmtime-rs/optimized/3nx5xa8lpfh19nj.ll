@@ -136,7 +136,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cranelift_e
 14:                                               ; preds = %2
   %trunc.i = trunc nuw i32 %7 to i1
   %.sroa.5.0.i = select i1 %trunc.i, i32 undef, i32 %9
-  %15 = sub i64 %4, %12
+  %15 = sub nuw i64 %4, %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !61
   store i32 %7, ptr %3, align 4, !noalias !53
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
@@ -179,7 +179,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !alias.scope !68, !noundef !9
-  %10 = sub i64 %3, %5
+  %10 = sub nuw i64 %3, %5
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hcc3e2c4b3fb65075E.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %10, i32 noundef %9)
   %.pre = load i64, ptr %4, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6292a95278d74fE.exit"
@@ -215,7 +215,7 @@ define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN16cranelift_en
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i16, ptr %8, align 8, !alias.scope !79, !noundef !9
-  %10 = sub i64 %3, %5
+  %10 = sub nuw i64 %3, %5
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17had0589e96642e79cE.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %10, i16 noundef %9)
   %.pre = load i64, ptr %4, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h79e77dfa598b3693E.exit"
@@ -251,7 +251,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN16cranelift_en
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8, !range !88, !alias.scope !89, !noundef !9
-  %10 = sub i64 %3, %5
+  %10 = sub nuw i64 %3, %5
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hb256643f222be9dfE.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %10, i8 noundef %9)
   %.pre = load i64, ptr %4, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h0b29b8ca9d2d7670E.exit"
@@ -388,7 +388,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
   br label %.thread
 
 13:                                               ; preds = %6
-  %14 = sub nsw i64 %9, %11
+  %14 = sub nuw nsw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h51253fb1008579cfE.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14, i64 noundef 0)
   br label %.thread
 

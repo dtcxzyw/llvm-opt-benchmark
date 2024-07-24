@@ -4260,7 +4260,7 @@ define void @_ZN6casadi16CallbackInternal8finalizeEv(ptr noundef nonnull align 8
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %55
-  %68 = sub i64 %58, %65
+  %68 = sub nuw i64 %58, %65
   tail call void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %68)
   %.pre = load i64, ptr %57, align 8
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit
@@ -4329,7 +4329,7 @@ _ZNK6casadi16FunctionInternal6nnz_inEx.exit:      ; preds = %77
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %._crit_edge
-  %104 = sub i64 %94, %101
+  %104 = sub nuw i64 %94, %101
   tail call void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %104)
   %.pre55 = load i64, ptr %93, align 8
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit36

@@ -28216,7 +28216,7 @@ define internal fastcc void @_ZL15TestOneTruncatePKcmmmmm(ptr noundef %0, i64 no
 
 38:                                               ; preds = %.lr.ph, %.critedge78
   %.068111 = phi i64 [ 0, %.lr.ph ], [ %49, %.critedge78 ]
-  %39 = sub nsw i64 %3, %.068111
+  %39 = sub nuw nsw i64 %3, %.068111
   %.sroa.speculated99 = call i64 @llvm.umin.i64(i64 %39, i64 10)
   %40 = invoke i64 @write(i32 noundef %30, ptr noundef nonnull @.str.431, i64 noundef %.sroa.speculated99)
           to label %41 unwind label %.loopexit.split-lp.loopexit
@@ -28277,7 +28277,7 @@ define internal fastcc void @_ZL15TestOneTruncatePKcmmmmm(ptr noundef %0, i64 no
 
 55:                                               ; preds = %.lr.ph113, %.critedge80
   %.169112 = phi i64 [ 0, %.lr.ph113 ], [ %66, %.critedge80 ]
-  %56 = sub nsw i64 %4, %.169112
+  %56 = sub nuw nsw i64 %4, %.169112
   %.sroa.speculated95 = call i64 @llvm.umin.i64(i64 %56, i64 7)
   %57 = invoke i64 @write(i32 noundef %30, ptr noundef nonnull @.str.432, i64 noundef %.sroa.speculated95)
           to label %58 unwind label %.loopexit
@@ -28496,7 +28496,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.critedge84
 
 .critedge88:                                      ; preds = %.critedge86, %123
   %.060114 = phi i64 [ %124, %123 ], [ 0, %.critedge86 ]
-  %126 = sub nsw i64 %5, %.060114
+  %126 = sub nuw nsw i64 %5, %.060114
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %126, i64 7)
   %bcmp = call i32 @bcmp(ptr %122, ptr nonnull @.str.432, i64 %.sroa.speculated)
   %.not.not = icmp eq i32 %bcmp, 0

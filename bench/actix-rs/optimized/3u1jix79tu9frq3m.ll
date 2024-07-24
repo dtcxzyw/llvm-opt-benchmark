@@ -508,7 +508,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %40,
   br i1 %48, label %.split.us.i.i, label %.lr.ph.split.split.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h30d04cb2171eb123E.exit.i.i": ; preds = %45
-  %50 = sub i64 %47, %29
+  %50 = sub nuw i64 %47, %29
   %51 = getelementptr inbounds i8, ptr %1, i64 %50
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(1) %.sroa.0.sroa.6.0..sroa_idx, i64 %29), !alias.scope !106, !noalias !97
   %52 = icmp eq i32 %bcmp.i.i.i, 0

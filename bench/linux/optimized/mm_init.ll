@@ -2655,7 +2655,7 @@ define internal fastcc void @free_area_init_core(ptr noundef %0) unnamed_addr #0
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %7
-  %23 = sub i64 %13, %20
+  %23 = sub nuw i64 %13, %20
   br label %28
 
 24:                                               ; preds = %7
@@ -2942,7 +2942,7 @@ define internal fastcc void @memmap_init_zone_range(ptr noundef %0, i64 noundef 
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %4
-  %27 = sub i64 %24, %21
+  %27 = sub nuw i64 %24, %21
   %28 = shl i64 %17, 32
   %29 = ashr exact i64 %28, 32
   tail call void @memmap_init_range(i64 noundef %27, i32 noundef %11, i64 noundef %29, i64 noundef %21, i64 poison, i32 noundef 0, ptr poison, i32 noundef 1) #24

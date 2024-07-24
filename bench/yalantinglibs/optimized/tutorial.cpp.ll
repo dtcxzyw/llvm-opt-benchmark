@@ -536,7 +536,7 @@ invoke.cont24:                                    ; preds = %invoke.cont20
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont24
-  %sub.i.i = sub i64 %conv26, %8
+  %sub.i.i = sub nuw i64 %conv26, %8
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %8
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -887,7 +887,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %sub.i.i = sub i64 %call, %2
+  %sub.i.i = sub nuw i64 %call, %2
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %2
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i

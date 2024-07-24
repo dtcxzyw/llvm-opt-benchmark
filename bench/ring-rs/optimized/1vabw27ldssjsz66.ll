@@ -1163,7 +1163,7 @@ _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit: ; preds =
   %.sroa.022.028 = phi ptr [ %17, %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit ], [ %2, %9 ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.029, i64 16)
   %17 = getelementptr inbounds i8, ptr %.sroa.022.028, i64 %.0.sroa.speculated.i.i
-  %18 = sub i64 %.sroa.5.029, %.0.sroa.speculated.i.i
+  %18 = sub nuw i64 %.sroa.5.029, %.0.sroa.speculated.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
   store <16 x i8> zeroinitializer, ptr %.sroa.0.i, align 16, !noalias !105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %.sroa.0.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.022.028, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !109, !noalias !113
@@ -2015,7 +2015,7 @@ define void @_ZN4ring6pbkdf26derive17h38f75382a469d03bE(ptr noalias noundef read
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17hbb007d906e555d86E.exit": ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit"
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.5.0714, i64 %12)
-  %24 = sub i64 %.sroa.5.0714, %.0.sroa.speculated.i.i
+  %24 = sub nuw i64 %.sroa.5.0714, %.0.sroa.speculated.i.i
   %25 = getelementptr inbounds i8, ptr %.sroa.06.013, i64 %.0.sroa.speculated.i.i
   %26 = extractvalue { i32, i1 } %21, 0
   call fastcc void @_ZN4ring6pbkdf212derive_block17h23076b73e2eeec55E(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %10, i32 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 noundef %26, ptr noalias noundef nonnull align 1 %.sroa.06.013, i64 noundef %.0.sroa.speculated.i.i)
@@ -2200,7 +2200,7 @@ define noundef zeroext i1 @_ZN4ring6pbkdf26verify17h3b62a3be952bcf4dE(ptr noalia
   %.sroa.016.026 = phi ptr [ %25, %.lr.ph.preheader.i ], [ %6, %13 ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.01727, i64 %15)
   %25 = getelementptr inbounds i8, ptr %.sroa.016.026, i64 %.0.sroa.speculated.i.i
-  %26 = sub i64 %.sroa.5.01727, %.0.sroa.speculated.i.i
+  %26 = sub nuw i64 %.sroa.5.01727, %.0.sroa.speculated.i.i
   %27 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %.01428, i32 1)
   %28 = extractvalue { i32, i1 } %27, 1
   %29 = extractvalue { i32, i1 } %27, 0

@@ -40,7 +40,7 @@ define dso_local noundef zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, 
   br i1 %15, label %16, label %46
 
 16:                                               ; preds = %14
-  %17 = sub i32 %7, %5
+  %17 = sub nuw i32 %7, %5
   %18 = getelementptr inbounds i8, ptr %0, i64 116
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
@@ -166,7 +166,7 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %11
-  %35 = sub i32 %5, %3
+  %35 = sub nuw i32 %5, %3
   %36 = tail call ptr @skb_put(ptr noundef %0, i32 noundef %35) #5
   br label %54
 
@@ -263,7 +263,7 @@ define dso_local noundef zeroext i1 @nf_nat_mangle_udp_packet(ptr noundef %0, pt
   br i1 %14, label %15, label %45
 
 15:                                               ; preds = %13
-  %16 = sub i32 %7, %5
+  %16 = sub nuw i32 %7, %5
   %17 = getelementptr inbounds i8, ptr %0, i64 116
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0

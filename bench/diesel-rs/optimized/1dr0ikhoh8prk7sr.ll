@@ -568,7 +568,7 @@ define hidden noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$fo
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8, !nonnull !7, !align !48, !noundef !7
   %9 = getelementptr inbounds i8, ptr %8, i64 %2
-  %10 = sub i64 %5, %2
+  %10 = sub nuw i64 %5, %2
   %11 = icmp eq i64 %2, 1
   br i1 %11, label %13, label %12
 
@@ -4646,7 +4646,7 @@ default.unreachable120:                           ; preds = %"_ZN5alloc3vec16Vec
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h025dcdc37e468978E.exit.thread": ; preds = %.loopexit, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h025dcdc37e468978E.exit"
   %.1.i.i122 = phi i64 [ %.1.i.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h025dcdc37e468978E.exit" ], [ 0, %.loopexit ]
-  %115 = sub i64 %90, %.1.i.i122
+  %115 = sub nuw i64 %90, %.1.i.i122
   store i64 %115, ptr %89, align 8, !alias.scope !903
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h75cab515a4685edcE.exit"
 

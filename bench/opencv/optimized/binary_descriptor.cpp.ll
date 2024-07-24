@@ -543,7 +543,7 @@ _ZN2cv3PtrINS_15line_descriptor16BinaryDescriptor14EDLineDetectorEED2Ev.exit: ; 
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %._crit_edge
-  %122 = sub nsw i64 %112, %119
+  %122 = sub nuw nsw i64 %112, %119
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %109, i64 noundef %122)
   %.pre = load i32, ptr %4, align 4
   %.pre59 = mul nsw i32 %.pre, 3
@@ -612,7 +612,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %121, %123, %125, %1
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %._crit_edge43
-  %164 = sub nsw i64 %154, %161
+  %164 = sub nuw nsw i64 %154, %161
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %152, i64 noundef %164)
   %.pre58 = load i32, ptr %4, align 4
   %.pre60 = mul nsw i32 %.pre58, 9
@@ -678,7 +678,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3PtrINS0_15line_descriptor16Bi
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3PtrINS0_15line_descriptor16BinaryDescriptor14EDLineDetectorEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3PtrINS0_15line_descriptor16BinaryDescriptor14EDLineDetectorEEESaIS5_EE15_M_erase_at_endEPS5_.exit
 
@@ -792,7 +792,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv5Size_IiEESaIS2_EE6resizeEm(pt
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -1535,7 +1535,7 @@ _ZN2cv3PtrINS_15line_descriptor16BinaryDescriptor14EDLineDetectorEED2Ev.exit: ; 
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %._crit_edge
-  %129 = sub nsw i64 %119, %126
+  %129 = sub nuw nsw i64 %119, %126
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %129)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 
@@ -1606,7 +1606,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIdSaId
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %._crit_edge50
-  %170 = sub nsw i64 %160, %167
+  %170 = sub nuw nsw i64 %160, %167
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %170)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit40_crit_edge unwind label %.loopexit.split-lp
 
@@ -2988,7 +2988,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit29:    ; preds = %_ZNSt6vectorIN2cv3M
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit29
-  %34 = sub nsw i64 %26, %31
+  %34 = sub nuw nsw i64 %26, %31
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %34)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
@@ -3029,7 +3029,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %33, %35, %37, %_ZSt
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
-  %54 = sub nsw i64 %45, %51
+  %54 = sub nuw nsw i64 %45, %51
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %54)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit40
 
@@ -4505,7 +4505,7 @@ _ZNSt6vectorIS_IN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_
   br i1 %305, label %306, label %308
 
 306:                                              ; preds = %_ZNSt6vectorIS_IN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EESaIS5_EE5clearEv.exit
-  %307 = sub nsw i64 %300, %304
+  %307 = sub nuw nsw i64 %300, %304
   invoke void @_ZNSt6vectorIS_IN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %307)
           to label %_ZNSt6vectorIS_IN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineESaIS3_EESaIS5_EE6resizeEm.exit unwind label %_ZN2cv15line_descriptor16BinaryDescriptor16OctaveSingleLineD2Ev.exit
 
@@ -9363,7 +9363,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %166
   br i1 %975, label %976, label %978
 
 976:                                              ; preds = %965
-  %977 = sub nsw i64 %967, %974
+  %977 = sub nuw nsw i64 %967, %974
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %977)
           to label %_ZNSt6vectorIjSaIjEE6resizeEm.exit unwind label %241
 
@@ -9393,7 +9393,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %982, %980, %978, %9
   br i1 %991, label %992, label %994
 
 992:                                              ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %993 = sub nsw i64 %967, %990
+  %993 = sub nuw nsw i64 %967, %990
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %983, i64 noundef %993)
           to label %_ZNSt6vectorIjSaIjEE6resizeEm.exit1110 unwind label %241
 
@@ -9425,7 +9425,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit1110:           ; preds = %998, %996, %994, %9
   br i1 %1009, label %1010, label %1012
 
 1010:                                             ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit1110
-  %1011 = sub nsw i64 %1001, %1008
+  %1011 = sub nuw nsw i64 %1001, %1008
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %999, i64 noundef %1011)
           to label %._ZNSt6vectorIjSaIjEE6resizeEm.exit1113_crit_edge unwind label %241
 
@@ -9638,7 +9638,7 @@ define noundef range(i32 -1, 2) i32 @_ZN2cv15line_descriptor16BinaryDescriptor14
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %19
-  %37 = sub nsw i64 %27, %34
+  %37 = sub nuw nsw i64 %27, %34
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %37)
           to label %_ZNSt6vectorIjSaIjEE6resizeEm.exit unwind label %17
 
@@ -9668,7 +9668,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %42, %40, %38, %36
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %53 = sub nsw i64 %27, %50
+  %53 = sub nuw nsw i64 %27, %50
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %53)
           to label %_ZNSt6vectorIjSaIjEE6resizeEm.exit266 unwind label %17
 
@@ -9701,7 +9701,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit266:            ; preds = %58, %56, %54, %52
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit266
-  %72 = sub nsw i64 %62, %69
+  %72 = sub nuw nsw i64 %62, %69
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef %72)
           to label %._ZNSt6vectorIjSaIjEE6resizeEm.exit269_crit_edge unwind label %17
 

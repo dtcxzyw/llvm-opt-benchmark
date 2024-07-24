@@ -2351,7 +2351,7 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
 31:                                               ; preds = %22, %28
   %32 = phi i64 [ 0, %28 ], [ %19, %22 ]
   %.pn = phi i64 [ %29, %28 ], [ %25, %22 ]
-  %.058 = sub i64 %3, %.pn
+  %.058 = sub nuw i64 %3, %.pn
   %33 = icmp ult i64 %.058, 11
   br i1 %33, label %65, label %34
 

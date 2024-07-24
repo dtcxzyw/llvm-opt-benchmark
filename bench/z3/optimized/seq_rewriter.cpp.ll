@@ -27221,12 +27221,12 @@ invoke.cont44.lr.ph:                              ; preds = %_ZNK15ref_vector_co
 
 invoke.cont44:                                    ; preds = %invoke.cont44.lr.ph, %for.inc
   %i.0293 = phi i32 [ 1, %invoke.cont44.lr.ph ], [ %inc, %for.inc ]
-  %sub = sub i32 %retval.0.i.i, %i.0293
+  %sub = sub nuw i32 %retval.0.i.i, %i.0293
   %23 = load ptr, ptr %m_nodes.i.i, align 8
   %idxprom.i.i = zext i32 %sub to i64
   %arrayidx.i.i94 = getelementptr inbounds ptr, ptr %23, i64 %idxprom.i.i
   %24 = load ptr, ptr %arrayidx.i.i94, align 8
-  %sub41 = sub i32 %retval.0.i.i91, %i.0293
+  %sub41 = sub nuw i32 %retval.0.i.i91, %i.0293
   %25 = load ptr, ptr %m_nodes.i.i83, align 8
   %idxprom.i.i96 = zext i32 %sub41 to i64
   %arrayidx.i.i97 = getelementptr inbounds ptr, ptr %25, i64 %idxprom.i.i96
@@ -27468,7 +27468,7 @@ if.end82:                                         ; preds = %for.end
 
 invoke.cont91:                                    ; preds = %if.end82, %for.inc97
   %j.0308 = phi i32 [ %inc98, %for.inc97 ], [ %i.0.lcssa292, %if.end82 ]
-  %sub88 = sub i32 %retval.0.i.i, %j.0308
+  %sub88 = sub nuw i32 %retval.0.i.i, %j.0308
   %64 = load ptr, ptr %m_nodes.i.i, align 8
   %idxprom.i.i151 = zext i32 %sub88 to i64
   %arrayidx.i.i152 = getelementptr inbounds ptr, ptr %64, i64 %idxprom.i.i151
@@ -45335,7 +45335,7 @@ invoke.cont17:                                    ; preds = %for.cond.preheader,
   br i1 %cmp.not, label %cleanup, label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %invoke.cont17
-  %sub = sub i32 %12, %i.053
+  %sub = sub nuw i32 %12, %i.053
   invoke void @_ZNK7zstring7extractEjj(ptr nonnull sret(%class.zstring) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(80) %A, i32 noundef %i.053, i32 noundef %sub)
           to label %invoke.cont21 unwind label %lpad.loopexit
 
@@ -71024,7 +71024,7 @@ for.cond8.preheader:                              ; preds = %for.cond, %for.cond
   br i1 %cmp979, label %for.body10.lr.ph, label %for.cond8.preheader.for.end16_crit_edge
 
 for.cond8.preheader.for.end16_crit_edge:          ; preds = %for.cond8.preheader
-  %.pre110 = sub i32 %1, %0
+  %.pre111 = sub i32 %1, %0
   br label %for.end16
 
 for.body10.lr.ph:                                 ; preds = %for.cond8.preheader
@@ -71102,7 +71102,7 @@ for.body.i30:                                     ; preds = %for.cond.i37
   br i1 %cmp.i39.le.not, label %for.cond8, label %return
 
 for.end16:                                        ; preds = %for.cond8, %for.cond8.preheader.for.end16_crit_edge
-  %sub.pre-phi = phi i32 [ %.pre110, %for.cond8.preheader.for.end16_crit_edge ], [ %10, %for.cond8 ]
+  %sub.pre-phi = phi i32 [ %.pre111, %for.cond8.preheader.for.end16_crit_edge ], [ %10, %for.cond8 ]
   %cmp1987 = icmp ult i32 %sub.pre-phi, %1
   br i1 %cmp1987, label %for.body20.lr.ph, label %return
 
@@ -71111,21 +71111,19 @@ for.body20.lr.ph:                                 ; preds = %for.end16
   %20 = load ptr, ptr %s2.tr, align 8
   %21 = load i32, ptr %19, align 4
   %22 = zext i32 %sub.pre-phi to i64
-  %wide.trip.count108 = zext i32 %1 to i64
+  %23 = zext i32 %1 to i64
   br label %for.body20
 
 for.cond18:                                       ; preds = %for.body20, %"_ZZNK12seq_rewriter11non_overlapERK7zstringS2_ENK3$_0clEjjj.exit59"
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %return, label %for.body20, !llvm.loop !376
+  %exitcond110.not = icmp eq i64 %indvars.iv.next106, %23
+  br i1 %exitcond110.not, label %return, label %for.body20, !llvm.loop !376
 
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.cond18
   %indvars.iv105 = phi i64 [ %22, %for.body20.lr.ph ], [ %indvars.iv.next106, %for.cond18 ]
   %indvars.iv101.in = phi i32 [ %0, %for.body20.lr.ph ], [ %indvars.iv101, %for.cond18 ]
   %indvars.iv101 = add i32 %indvars.iv101.in, -1
-  %23 = trunc nuw i64 %indvars.iv105 to i32
-  %sub21 = sub i32 %1, %23
-  %24 = zext i32 %sub21 to i64
+  %24 = sub nuw nsw i64 %23, %indvars.iv105
   %arrayidx.i.i5.i5282 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv105
   %25 = load i32, ptr %arrayidx.i.i5.i5282, align 4
   %cmp3.not.i5383 = icmp eq i32 %21, %25
@@ -71473,7 +71471,7 @@ for.body80.preheader:                             ; preds = %for.inc74, %for.con
 
 for.body80:                                       ; preds = %for.body80.preheader, %for.inc86
   %j77.0179 = phi i32 [ %inc87, %for.inc86 ], [ %27, %for.body80.preheader ]
-  %sub81 = sub i32 %retval.0.i.i40, %j77.0179
+  %sub81 = sub nuw i32 %retval.0.i.i40, %j77.0179
   br label %for.body.i105
 
 for.body.i105:                                    ; preds = %for.body80, %call9.i.noexc126
@@ -77232,7 +77230,7 @@ invoke.cont135:                                   ; preds = %if.then2.i.i.i.i328
   br i1 %cmp137, label %invoke.cont142, label %invoke.cont153
 
 invoke.cont142:                                   ; preds = %invoke.cont135
-  %sub144 = sub i32 %151, %.sroa.speculated
+  %sub144 = sub nuw i32 %151, %.sroa.speculated
   invoke void @_ZNK7zstring7extractEjj(ptr nonnull sret(%class.zstring) align 8 %ref.tmp141, ptr noundef nonnull align 8 dereferenceable(80) %s1, i32 noundef 0, i32 noundef %sub144)
           to label %invoke.cont145 unwind label %lpad
 
@@ -77314,7 +77312,7 @@ invoke.cont153:                                   ; preds = %invoke.cont135, %in
   br i1 %cmp155, label %invoke.cont160, label %if.end175
 
 invoke.cont160:                                   ; preds = %invoke.cont153
-  %sub162 = sub i32 %164, %.sroa.speculated
+  %sub162 = sub nuw i32 %164, %.sroa.speculated
   invoke void @_ZNK7zstring7extractEjj(ptr nonnull sret(%class.zstring) align 8 %ref.tmp159, ptr noundef nonnull align 8 dereferenceable(80) %s2, i32 noundef 0, i32 noundef %sub162)
           to label %invoke.cont163 unwind label %lpad
 

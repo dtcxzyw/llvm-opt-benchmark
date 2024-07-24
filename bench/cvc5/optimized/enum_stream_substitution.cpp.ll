@@ -5895,7 +5895,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %d_seq, i64 noundef %sub.i)
           to label %if.then.i.invoke.cont5_crit_edge unwind label %lpad
 
@@ -5952,7 +5952,7 @@ invoke.cont14:                                    ; preds = %for.body.i.i.i.i.pr
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %invoke.cont14
-  %sub.i22 = sub nsw i64 %sub.ptr.div.i8, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw nsw i64 %sub.ptr.div.i8, %sub.ptr.div.i.i13
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %d_last_perm, i64 noundef %sub.i22)
           to label %if.then.i21.invoke.cont17_crit_edge unwind label %lpad
 

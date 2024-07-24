@@ -6672,7 +6672,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorISt10shared_ptrIN5arrow7compute8internal10KeyEncoderEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -6787,7 +6787,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorISt10shared_ptrIN5arrow13ExtensionTypeEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -6981,7 +6981,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -7541,7 +7541,7 @@ for.end:                                          ; preds = %cond.end, %_ZNSt6ve
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN5arrow5DatumESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i)
           to label %_ZNSt6vectorIN5arrow5DatumESaIS1_EE6resizeEm.exit unwind label %lpad4.loopexit.split-lp
 

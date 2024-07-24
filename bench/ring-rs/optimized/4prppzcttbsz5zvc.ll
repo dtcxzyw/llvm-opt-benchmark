@@ -1362,7 +1362,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i64, ptr %37, i64 %42
-  %47 = sub i64 %36, %42
+  %47 = sub nuw i64 %36, %42
   %48 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %48)
   %.not.i14 = icmp ugt i64 %18, %47
@@ -1370,13 +1370,13 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i64, ptr %46, i64 %18
-  %51 = sub i64 %47, %18
+  %51 = sub nuw i64 %47, %18
   %.not.i17 = icmp ugt i64 %18, %51
   br i1 %.not.i17, label %.invoke, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i64, ptr %50, i64 %18
-  %54 = sub i64 %51, %18
+  %54 = sub nuw i64 %51, %18
   %.not.i20 = icmp eq i64 %18, %1
   br i1 %.not.i20, label %56, label %55
 
@@ -1723,7 +1723,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i64, ptr %37, i64 %42
-  %47 = sub i64 %36, %42
+  %47 = sub nuw i64 %36, %42
   %48 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %48)
   %.not.i14 = icmp ugt i64 %18, %47
@@ -1731,13 +1731,13 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i64, ptr %46, i64 %18
-  %51 = sub i64 %47, %18
+  %51 = sub nuw i64 %47, %18
   %.not.i17 = icmp ugt i64 %18, %51
   br i1 %.not.i17, label %.invoke, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i64, ptr %50, i64 %18
-  %54 = sub i64 %51, %18
+  %54 = sub nuw i64 %51, %18
   %.not.i20 = icmp eq i64 %18, %1
   br i1 %.not.i20, label %56, label %55
 

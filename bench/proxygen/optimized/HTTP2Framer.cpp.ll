@@ -460,7 +460,7 @@ cleanup.action:                                   ; preds = %invoke.cont35
   br label %return
 
 if.end41:                                         ; preds = %if.end19.i
-  %sub24.i = sub i32 %lefttoparse.0, %conv.i
+  %sub24.i = sub nuw i32 %lefttoparse.0, %conv.i
   %conv = zext i8 %storemerge.i to i16
   %14 = load i8, ptr %flags.i.i, align 1
   %15 = lshr i8 %14, 3
@@ -951,7 +951,7 @@ cleanup.action:                                   ; preds = %invoke.cont35
   br label %return
 
 if.end41:                                         ; preds = %if.end19.i
-  %sub24.i = sub i32 %lefttoparse.0, %conv.i
+  %sub24.i = sub nuw i32 %lefttoparse.0, %conv.i
   %14 = load i8, ptr %flags.i.i, align 1
   %15 = and i8 %14, 32
   %tobool42.not = icmp eq i8 %15, 0
@@ -1249,7 +1249,7 @@ cleanup.action:                                   ; preds = %invoke.cont35
   br label %return
 
 if.end41:                                         ; preds = %if.end19.i
-  %sub24.i = sub i32 %lefttoparse.0, %conv.i
+  %sub24.i = sub nuw i32 %lefttoparse.0, %conv.i
   %14 = load i8, ptr %flags.i.i, align 1
   %15 = and i8 %14, 32
   %tobool42.not = icmp eq i8 %15, 0
@@ -1794,13 +1794,13 @@ cleanup.action:                                   ; preds = %invoke.cont35
   br label %return
 
 if.end41:                                         ; preds = %if.end19.i
-  %sub24.i = sub i32 %lefttoparse.0, %conv.i
+  %sub24.i = sub nuw i32 %lefttoparse.0, %conv.i
   %14 = load i32, ptr @_ZN8proxygen5http221kFramePushPromiseSizeE, align 4
   %cmp42 = icmp ult i32 %sub24.i, %14
   br i1 %cmp42, label %return, label %if.end44
 
 if.end44:                                         ; preds = %if.end41
-  %sub = sub i32 %sub24.i, %14
+  %sub = sub nuw i32 %sub24.i, %14
   %crtPos_.i.i.i14 = getelementptr inbounds i8, ptr %cursor, i64 32
   %15 = load ptr, ptr %crtPos_.i.i.i14, align 8
   %16 = ptrtoint ptr %15 to i64
@@ -1841,7 +1841,7 @@ invoke.cont45:                                    ; preds = %_ZN5folly2io6detail
   %tobool48.not = icmp ne i32 %and, 0
   %or.cond.not39 = or i1 %cmp47, %tobool48.not
   %cmp51 = icmp ult i32 %sub, %conv.i
-  %or.cond38 = or i1 %cmp51, %or.cond.not39
+  %or.cond38 = select i1 %or.cond.not39, i1 true, i1 %cmp51
   br i1 %or.cond38, label %return, label %if.end53
 
 if.end53:                                         ; preds = %invoke.cont45

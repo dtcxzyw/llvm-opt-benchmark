@@ -2486,7 +2486,7 @@ define internal fastcc { ptr, i64 } @_ZN16wasmtime_runtime9component8libcalls20i
   unreachable
 
 ._crit_edge:                                      ; preds = %39, %.preheader
-  %23 = sub i64 %1, %2
+  %23 = sub nuw i64 %1, %2
   %24 = getelementptr inbounds i16, ptr %0, i64 %2
   %25 = insertvalue { ptr, i64 } poison, ptr %24, 0
   %26 = insertvalue { ptr, i64 } %25, i64 %23, 1

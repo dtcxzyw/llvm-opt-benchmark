@@ -4900,7 +4900,7 @@ if.end:                                           ; preds = %do.body.i.i
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub i64 %call.i.i, %__pos.addr.0.i.i
+  %sub.i = sub nuw i64 %call.i.i, %__pos.addr.0.i.i
   %call.i.i7 = tail call ptr @memchr(ptr noundef %add.ptr.i.i, i32 noundef 47, i64 noundef %sub.i) #24
   %tobool.not.i = icmp eq ptr %call.i.i7, null
   br i1 %tobool.not.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit, label %if.then3.i

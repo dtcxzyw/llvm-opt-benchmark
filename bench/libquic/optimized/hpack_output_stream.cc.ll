@@ -145,7 +145,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   tail call void @_ZN3net17HpackOutputStream10AppendBitsEhm(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 noundef zeroext %conv, i64 noundef %sub)
-  %sub6 = sub i32 %I, %conv3
+  %sub6 = sub nuw i32 %I, %conv3
   %cmp7.not11 = icmp ult i32 %sub6, 128
   br i1 %cmp7.not11, label %if.end, label %while.body
 

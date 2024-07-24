@@ -2985,7 +2985,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %50, %53
   br i1 %230, label %231, label %256
 
 231:                                              ; preds = %214
-  %232 = sub nsw i64 %222, %229
+  %232 = sub nuw nsw i64 %222, %229
   %233 = getelementptr inbounds i8, ptr %8, i64 16
   %234 = load ptr, ptr %233, align 8
   %235 = ptrtoint ptr %234 to i64
@@ -3078,7 +3078,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %260, %258, %256, 
   br i1 %268, label %269, label %294
 
 269:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
-  %270 = sub nsw i64 %222, %267
+  %270 = sub nuw nsw i64 %222, %267
   %271 = getelementptr inbounds i8, ptr %9, i64 16
   %272 = load ptr, ptr %271, align 8
   %273 = ptrtoint ptr %272 to i64
@@ -3170,7 +3170,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit170: ; preds = %298, %296, %29
   br i1 %305, label %306, label %335
 
 306:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit170
-  %307 = sub i64 %222, %304
+  %307 = sub nuw i64 %222, %304
   %308 = getelementptr inbounds i8, ptr %10, i64 16
   %309 = load ptr, ptr %308, align 8
   %310 = ptrtoint ptr %309 to i64
@@ -3408,7 +3408,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %_ZSt27__uninitializ
   br i1 %404, label %405, label %430
 
 405:                                              ; preds = %._crit_edge
-  %406 = sub nsw i64 %397, %403
+  %406 = sub nuw nsw i64 %397, %403
   %407 = getelementptr inbounds i8, ptr %8, i64 16
   %408 = load ptr, ptr %407, align 8
   %409 = ptrtoint ptr %408 to i64
@@ -3500,7 +3500,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit192: ; preds = %434, %432, %43
   br i1 %441, label %442, label %467
 
 442:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit192
-  %443 = sub nsw i64 %397, %440
+  %443 = sub nuw nsw i64 %397, %440
   %444 = getelementptr inbounds i8, ptr %9, i64 16
   %445 = load ptr, ptr %444, align 8
   %446 = ptrtoint ptr %445 to i64

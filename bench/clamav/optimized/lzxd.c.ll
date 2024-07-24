@@ -2798,7 +2798,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 1208:                                             ; preds = %1203
   %1209 = load i64, ptr %48, align 8
   %1210 = icmp slt i64 %1209, %1207
-  %1211 = sub i32 %.51119, %.211113048
+  %1211 = sub nuw i32 %.51119, %.211113048
   br i1 %1210, label %1212, label %._crit_edge3216
 
 1212:                                             ; preds = %1208

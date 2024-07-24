@@ -916,7 +916,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false13
 if.end17:                                         ; preds = %lor.lhs.false.i
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0171, i64 5
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
-  %sub.i.i7.i = sub i64 %sub.i.i.i, %or.i.i.i
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i, %or.i.i.i
   switch i8 %7, label %if.end136 [
     i8 22, label %if.then20
     i8 20, label %if.then89

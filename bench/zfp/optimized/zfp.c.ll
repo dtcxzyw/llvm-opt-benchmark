@@ -2522,7 +2522,7 @@ define internal void @compress_int32_1(ptr noundef %0, ptr nocapture noundef rea
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %._crit_edge
-  %14 = sub i64 %6, %.0.lcssa
+  %14 = sub nuw i64 %6, %.0.lcssa
   %15 = tail call i64 @zfp_encode_partial_block_strided_int32_1(ptr noundef %0, ptr noundef %.014.lcssa, i64 noundef %14, i64 noundef 1) #19
   br label %16
 
@@ -2556,7 +2556,7 @@ define internal void @compress_int64_1(ptr noundef %0, ptr nocapture noundef rea
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %._crit_edge
-  %14 = sub i64 %6, %.0.lcssa
+  %14 = sub nuw i64 %6, %.0.lcssa
   %15 = tail call i64 @zfp_encode_partial_block_strided_int64_1(ptr noundef %0, ptr noundef %.014.lcssa, i64 noundef %14, i64 noundef 1) #19
   br label %16
 
@@ -2590,7 +2590,7 @@ define internal void @compress_float_1(ptr noundef %0, ptr nocapture noundef rea
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %._crit_edge
-  %14 = sub i64 %6, %.0.lcssa
+  %14 = sub nuw i64 %6, %.0.lcssa
   %15 = tail call i64 @zfp_encode_partial_block_strided_float_1(ptr noundef %0, ptr noundef %.014.lcssa, i64 noundef %14, i64 noundef 1) #19
   br label %16
 
@@ -2624,7 +2624,7 @@ define internal void @compress_double_1(ptr noundef %0, ptr nocapture noundef re
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %._crit_edge
-  %14 = sub i64 %6, %.0.lcssa
+  %14 = sub nuw i64 %6, %.0.lcssa
   %15 = tail call i64 @zfp_encode_partial_block_strided_double_1(ptr noundef %0, ptr noundef %.014.lcssa, i64 noundef %14, i64 noundef 1) #19
   br label %16
 
@@ -2668,7 +2668,7 @@ define internal void @compress_strided_int32_2(ptr noundef %0, ptr nocapture nou
   %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
   %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr i32, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.045.us48
+  %19 = sub nuw i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -2694,7 +2694,7 @@ define internal void @compress_strided_int32_2(ptr noundef %0, ptr nocapture nou
   %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
   %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr i32, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.045.us.us
+  %31 = sub nuw i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_encode_partial_block_strided_int32_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
   %34 = add i64 %.045.us.us, 4
@@ -2747,7 +2747,7 @@ define internal void @compress_strided_int64_2(ptr noundef %0, ptr nocapture nou
   %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
   %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr i64, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.045.us48
+  %19 = sub nuw i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -2773,7 +2773,7 @@ define internal void @compress_strided_int64_2(ptr noundef %0, ptr nocapture nou
   %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
   %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr i64, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.045.us.us
+  %31 = sub nuw i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_encode_partial_block_strided_int64_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
   %34 = add i64 %.045.us.us, 4
@@ -2826,7 +2826,7 @@ define internal void @compress_strided_float_2(ptr noundef %0, ptr nocapture nou
   %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
   %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr float, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.045.us48
+  %19 = sub nuw i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -2852,7 +2852,7 @@ define internal void @compress_strided_float_2(ptr noundef %0, ptr nocapture nou
   %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
   %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr float, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.045.us.us
+  %31 = sub nuw i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_encode_partial_block_strided_float_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
   %34 = add i64 %.045.us.us, 4
@@ -2905,7 +2905,7 @@ define internal void @compress_strided_double_2(ptr noundef %0, ptr nocapture no
   %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
   %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr double, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.045.us48
+  %19 = sub nuw i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -2931,7 +2931,7 @@ define internal void @compress_strided_double_2(ptr noundef %0, ptr nocapture no
   %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
   %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr double, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.045.us.us
+  %31 = sub nuw i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_encode_partial_block_strided_double_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
   %34 = add i64 %.045.us.us, 4
@@ -3003,7 +3003,7 @@ define internal void @compress_strided_int32_3(ptr noundef %0, ptr nocapture nou
   %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
   %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr i32, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.070.us.us.us.us.us
+  %29 = sub nuw i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_encode_partial_block_strided_int32_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %32 = add i64 %.070.us.us.us.us.us, 4
@@ -3029,7 +3029,7 @@ define internal void @compress_strided_int32_3(ptr noundef %0, ptr nocapture nou
   %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
   %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr i32, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.070.us77.us.us
+  %41 = sub nuw i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -3055,7 +3055,7 @@ define internal void @compress_strided_int32_3(ptr noundef %0, ptr nocapture nou
   %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
   %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr i32, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.070.us.us.us.us
+  %53 = sub nuw i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_encode_partial_block_strided_int32_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %56 = add i64 %.070.us.us.us.us, 4
@@ -3147,7 +3147,7 @@ define internal void @compress_strided_int64_3(ptr noundef %0, ptr nocapture nou
   %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
   %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr i64, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.070.us.us.us.us.us
+  %29 = sub nuw i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_encode_partial_block_strided_int64_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %32 = add i64 %.070.us.us.us.us.us, 4
@@ -3173,7 +3173,7 @@ define internal void @compress_strided_int64_3(ptr noundef %0, ptr nocapture nou
   %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
   %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr i64, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.070.us77.us.us
+  %41 = sub nuw i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -3199,7 +3199,7 @@ define internal void @compress_strided_int64_3(ptr noundef %0, ptr nocapture nou
   %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
   %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr i64, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.070.us.us.us.us
+  %53 = sub nuw i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_encode_partial_block_strided_int64_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %56 = add i64 %.070.us.us.us.us, 4
@@ -3291,7 +3291,7 @@ define internal void @compress_strided_float_3(ptr noundef %0, ptr nocapture nou
   %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
   %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.070.us.us.us.us.us
+  %29 = sub nuw i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_encode_partial_block_strided_float_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %32 = add i64 %.070.us.us.us.us.us, 4
@@ -3317,7 +3317,7 @@ define internal void @compress_strided_float_3(ptr noundef %0, ptr nocapture nou
   %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
   %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr float, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.070.us77.us.us
+  %41 = sub nuw i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -3343,7 +3343,7 @@ define internal void @compress_strided_float_3(ptr noundef %0, ptr nocapture nou
   %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
   %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr float, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.070.us.us.us.us
+  %53 = sub nuw i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_encode_partial_block_strided_float_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %56 = add i64 %.070.us.us.us.us, 4
@@ -3435,7 +3435,7 @@ define internal void @compress_strided_double_3(ptr noundef %0, ptr nocapture no
   %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
   %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr double, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.070.us.us.us.us.us
+  %29 = sub nuw i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_encode_partial_block_strided_double_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %32 = add i64 %.070.us.us.us.us.us, 4
@@ -3461,7 +3461,7 @@ define internal void @compress_strided_double_3(ptr noundef %0, ptr nocapture no
   %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
   %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr double, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.070.us77.us.us
+  %41 = sub nuw i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -3487,7 +3487,7 @@ define internal void @compress_strided_double_3(ptr noundef %0, ptr nocapture no
   %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
   %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr double, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.070.us.us.us.us
+  %53 = sub nuw i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_encode_partial_block_strided_double_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %56 = add i64 %.070.us.us.us.us, 4
@@ -3598,7 +3598,7 @@ define internal void @compress_strided_int32_4(ptr noundef %0, ptr nocapture nou
   %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
   %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
+  %38 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_encode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
@@ -3639,7 +3639,7 @@ define internal void @compress_strided_int32_4(ptr noundef %0, ptr nocapture nou
   %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
+  %56 = sub nuw i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -3665,7 +3665,7 @@ define internal void @compress_strided_int32_4(ptr noundef %0, ptr nocapture nou
   %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr i32, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
+  %68 = sub nuw i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_encode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
@@ -3694,7 +3694,7 @@ define internal void @compress_strided_int32_4(ptr noundef %0, ptr nocapture nou
   %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
   %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
+  %82 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_encode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
@@ -3829,7 +3829,7 @@ define internal void @compress_strided_int64_4(ptr noundef %0, ptr nocapture nou
   %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
   %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
+  %38 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_encode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
@@ -3870,7 +3870,7 @@ define internal void @compress_strided_int64_4(ptr noundef %0, ptr nocapture nou
   %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
+  %56 = sub nuw i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -3896,7 +3896,7 @@ define internal void @compress_strided_int64_4(ptr noundef %0, ptr nocapture nou
   %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr i64, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
+  %68 = sub nuw i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_encode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
@@ -3925,7 +3925,7 @@ define internal void @compress_strided_int64_4(ptr noundef %0, ptr nocapture nou
   %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
   %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
+  %82 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_encode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
@@ -4060,7 +4060,7 @@ define internal void @compress_strided_float_4(ptr noundef %0, ptr nocapture nou
   %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
   %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
+  %38 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_encode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
@@ -4101,7 +4101,7 @@ define internal void @compress_strided_float_4(ptr noundef %0, ptr nocapture nou
   %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
+  %56 = sub nuw i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -4127,7 +4127,7 @@ define internal void @compress_strided_float_4(ptr noundef %0, ptr nocapture nou
   %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr float, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
+  %68 = sub nuw i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_encode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
@@ -4156,7 +4156,7 @@ define internal void @compress_strided_float_4(ptr noundef %0, ptr nocapture nou
   %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
   %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
+  %82 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_encode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
@@ -4291,7 +4291,7 @@ define internal void @compress_strided_double_4(ptr noundef %0, ptr nocapture no
   %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
   %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
+  %38 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_encode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
@@ -4332,7 +4332,7 @@ define internal void @compress_strided_double_4(ptr noundef %0, ptr nocapture no
   %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
+  %56 = sub nuw i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -4358,7 +4358,7 @@ define internal void @compress_strided_double_4(ptr noundef %0, ptr nocapture no
   %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr double, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
+  %68 = sub nuw i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_encode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
@@ -4387,7 +4387,7 @@ define internal void @compress_strided_double_4(ptr noundef %0, ptr nocapture no
   %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
   %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
+  %82 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_encode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
@@ -4464,7 +4464,7 @@ define internal void @compress_strided_int32_1(ptr noundef %0, ptr nocapture nou
   %.022 = phi i64 [ %18, %17 ], [ 0, %2 ]
   %9 = mul nsw i64 %.022, %spec.select
   %10 = getelementptr inbounds i32, ptr %4, i64 %9
-  %11 = sub i64 %6, %.022
+  %11 = sub nuw i64 %6, %.022
   %12 = icmp ult i64 %11, 4
   br i1 %12, label %13, label %15
 
@@ -4501,7 +4501,7 @@ define internal void @compress_strided_int64_1(ptr noundef %0, ptr nocapture nou
   %.022 = phi i64 [ %18, %17 ], [ 0, %2 ]
   %9 = mul nsw i64 %.022, %spec.select
   %10 = getelementptr inbounds i64, ptr %4, i64 %9
-  %11 = sub i64 %6, %.022
+  %11 = sub nuw i64 %6, %.022
   %12 = icmp ult i64 %11, 4
   br i1 %12, label %13, label %15
 
@@ -4538,7 +4538,7 @@ define internal void @compress_strided_float_1(ptr noundef %0, ptr nocapture nou
   %.022 = phi i64 [ %18, %17 ], [ 0, %2 ]
   %9 = mul nsw i64 %.022, %spec.select
   %10 = getelementptr inbounds float, ptr %4, i64 %9
-  %11 = sub i64 %6, %.022
+  %11 = sub nuw i64 %6, %.022
   %12 = icmp ult i64 %11, 4
   br i1 %12, label %13, label %15
 
@@ -4575,7 +4575,7 @@ define internal void @compress_strided_double_1(ptr noundef %0, ptr nocapture no
   %.022 = phi i64 [ %18, %17 ], [ 0, %2 ]
   %9 = mul nsw i64 %.022, %spec.select
   %10 = getelementptr inbounds double, ptr %4, i64 %9
-  %11 = sub i64 %6, %.022
+  %11 = sub nuw i64 %6, %.022
   %12 = icmp ult i64 %11, 4
   br i1 %12, label %13, label %15
 
@@ -9525,7 +9525,7 @@ define internal void @decompress_int32_1(ptr noundef %0, ptr nocapture noundef r
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %._crit_edge
-  %14 = sub i64 %6, %.0.lcssa
+  %14 = sub nuw i64 %6, %.0.lcssa
   %15 = tail call i64 @zfp_decode_partial_block_strided_int32_1(ptr noundef %0, ptr noundef %.014.lcssa, i64 noundef %14, i64 noundef 1) #19
   br label %16
 
@@ -9559,7 +9559,7 @@ define internal void @decompress_int64_1(ptr noundef %0, ptr nocapture noundef r
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %._crit_edge
-  %14 = sub i64 %6, %.0.lcssa
+  %14 = sub nuw i64 %6, %.0.lcssa
   %15 = tail call i64 @zfp_decode_partial_block_strided_int64_1(ptr noundef %0, ptr noundef %.014.lcssa, i64 noundef %14, i64 noundef 1) #19
   br label %16
 
@@ -9593,7 +9593,7 @@ define internal void @decompress_float_1(ptr noundef %0, ptr nocapture noundef r
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %._crit_edge
-  %14 = sub i64 %6, %.0.lcssa
+  %14 = sub nuw i64 %6, %.0.lcssa
   %15 = tail call i64 @zfp_decode_partial_block_strided_float_1(ptr noundef %0, ptr noundef %.014.lcssa, i64 noundef %14, i64 noundef 1) #19
   br label %16
 
@@ -9627,7 +9627,7 @@ define internal void @decompress_double_1(ptr noundef %0, ptr nocapture noundef 
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %._crit_edge
-  %14 = sub i64 %6, %.0.lcssa
+  %14 = sub nuw i64 %6, %.0.lcssa
   %15 = tail call i64 @zfp_decode_partial_block_strided_double_1(ptr noundef %0, ptr noundef %.014.lcssa, i64 noundef %14, i64 noundef 1) #19
   br label %16
 
@@ -9671,7 +9671,7 @@ define internal void @decompress_strided_int32_2(ptr noundef %0, ptr nocapture n
   %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
   %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr i32, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.045.us48
+  %19 = sub nuw i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -9697,7 +9697,7 @@ define internal void @decompress_strided_int32_2(ptr noundef %0, ptr nocapture n
   %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
   %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr i32, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.045.us.us
+  %31 = sub nuw i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_decode_partial_block_strided_int32_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
   %34 = add i64 %.045.us.us, 4
@@ -9750,7 +9750,7 @@ define internal void @decompress_strided_int64_2(ptr noundef %0, ptr nocapture n
   %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
   %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr i64, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.045.us48
+  %19 = sub nuw i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -9776,7 +9776,7 @@ define internal void @decompress_strided_int64_2(ptr noundef %0, ptr nocapture n
   %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
   %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr i64, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.045.us.us
+  %31 = sub nuw i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_decode_partial_block_strided_int64_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
   %34 = add i64 %.045.us.us, 4
@@ -9829,7 +9829,7 @@ define internal void @decompress_strided_float_2(ptr noundef %0, ptr nocapture n
   %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
   %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr float, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.045.us48
+  %19 = sub nuw i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -9855,7 +9855,7 @@ define internal void @decompress_strided_float_2(ptr noundef %0, ptr nocapture n
   %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
   %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr float, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.045.us.us
+  %31 = sub nuw i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_decode_partial_block_strided_float_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
   %34 = add i64 %.045.us.us, 4
@@ -9908,7 +9908,7 @@ define internal void @decompress_strided_double_2(ptr noundef %0, ptr nocapture 
   %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
   %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr double, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.045.us48
+  %19 = sub nuw i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -9934,7 +9934,7 @@ define internal void @decompress_strided_double_2(ptr noundef %0, ptr nocapture 
   %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
   %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr double, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.045.us.us
+  %31 = sub nuw i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_decode_partial_block_strided_double_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
   %34 = add i64 %.045.us.us, 4
@@ -10006,7 +10006,7 @@ define internal void @decompress_strided_int32_3(ptr noundef %0, ptr nocapture n
   %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
   %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr i32, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.070.us.us.us.us.us
+  %29 = sub nuw i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_decode_partial_block_strided_int32_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %32 = add i64 %.070.us.us.us.us.us, 4
@@ -10032,7 +10032,7 @@ define internal void @decompress_strided_int32_3(ptr noundef %0, ptr nocapture n
   %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
   %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr i32, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.070.us77.us.us
+  %41 = sub nuw i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -10058,7 +10058,7 @@ define internal void @decompress_strided_int32_3(ptr noundef %0, ptr nocapture n
   %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
   %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr i32, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.070.us.us.us.us
+  %53 = sub nuw i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_decode_partial_block_strided_int32_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %56 = add i64 %.070.us.us.us.us, 4
@@ -10150,7 +10150,7 @@ define internal void @decompress_strided_int64_3(ptr noundef %0, ptr nocapture n
   %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
   %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr i64, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.070.us.us.us.us.us
+  %29 = sub nuw i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_decode_partial_block_strided_int64_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %32 = add i64 %.070.us.us.us.us.us, 4
@@ -10176,7 +10176,7 @@ define internal void @decompress_strided_int64_3(ptr noundef %0, ptr nocapture n
   %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
   %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr i64, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.070.us77.us.us
+  %41 = sub nuw i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -10202,7 +10202,7 @@ define internal void @decompress_strided_int64_3(ptr noundef %0, ptr nocapture n
   %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
   %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr i64, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.070.us.us.us.us
+  %53 = sub nuw i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_decode_partial_block_strided_int64_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %56 = add i64 %.070.us.us.us.us, 4
@@ -10294,7 +10294,7 @@ define internal void @decompress_strided_float_3(ptr noundef %0, ptr nocapture n
   %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
   %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.070.us.us.us.us.us
+  %29 = sub nuw i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_decode_partial_block_strided_float_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %32 = add i64 %.070.us.us.us.us.us, 4
@@ -10320,7 +10320,7 @@ define internal void @decompress_strided_float_3(ptr noundef %0, ptr nocapture n
   %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
   %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr float, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.070.us77.us.us
+  %41 = sub nuw i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -10346,7 +10346,7 @@ define internal void @decompress_strided_float_3(ptr noundef %0, ptr nocapture n
   %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
   %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr float, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.070.us.us.us.us
+  %53 = sub nuw i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_decode_partial_block_strided_float_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %56 = add i64 %.070.us.us.us.us, 4
@@ -10438,7 +10438,7 @@ define internal void @decompress_strided_double_3(ptr noundef %0, ptr nocapture 
   %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
   %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr double, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.070.us.us.us.us.us
+  %29 = sub nuw i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_decode_partial_block_strided_double_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %32 = add i64 %.070.us.us.us.us.us, 4
@@ -10464,7 +10464,7 @@ define internal void @decompress_strided_double_3(ptr noundef %0, ptr nocapture 
   %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
   %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr double, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.070.us77.us.us
+  %41 = sub nuw i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -10490,7 +10490,7 @@ define internal void @decompress_strided_double_3(ptr noundef %0, ptr nocapture 
   %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
   %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr double, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.070.us.us.us.us
+  %53 = sub nuw i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_decode_partial_block_strided_double_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
   %56 = add i64 %.070.us.us.us.us, 4
@@ -10601,7 +10601,7 @@ define internal void @decompress_strided_int32_4(ptr noundef %0, ptr nocapture n
   %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
   %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
+  %38 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_decode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
@@ -10642,7 +10642,7 @@ define internal void @decompress_strided_int32_4(ptr noundef %0, ptr nocapture n
   %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
+  %56 = sub nuw i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -10668,7 +10668,7 @@ define internal void @decompress_strided_int32_4(ptr noundef %0, ptr nocapture n
   %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr i32, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
+  %68 = sub nuw i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_decode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
@@ -10697,7 +10697,7 @@ define internal void @decompress_strided_int32_4(ptr noundef %0, ptr nocapture n
   %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
   %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
+  %82 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_decode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
@@ -10832,7 +10832,7 @@ define internal void @decompress_strided_int64_4(ptr noundef %0, ptr nocapture n
   %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
   %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
+  %38 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_decode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
@@ -10873,7 +10873,7 @@ define internal void @decompress_strided_int64_4(ptr noundef %0, ptr nocapture n
   %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
+  %56 = sub nuw i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -10899,7 +10899,7 @@ define internal void @decompress_strided_int64_4(ptr noundef %0, ptr nocapture n
   %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr i64, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
+  %68 = sub nuw i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_decode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
@@ -10928,7 +10928,7 @@ define internal void @decompress_strided_int64_4(ptr noundef %0, ptr nocapture n
   %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
   %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
+  %82 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_decode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
@@ -11063,7 +11063,7 @@ define internal void @decompress_strided_float_4(ptr noundef %0, ptr nocapture n
   %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
   %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
+  %38 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_decode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
@@ -11104,7 +11104,7 @@ define internal void @decompress_strided_float_4(ptr noundef %0, ptr nocapture n
   %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
+  %56 = sub nuw i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -11130,7 +11130,7 @@ define internal void @decompress_strided_float_4(ptr noundef %0, ptr nocapture n
   %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr float, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
+  %68 = sub nuw i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_decode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
@@ -11159,7 +11159,7 @@ define internal void @decompress_strided_float_4(ptr noundef %0, ptr nocapture n
   %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
   %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
+  %82 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_decode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
@@ -11294,7 +11294,7 @@ define internal void @decompress_strided_double_4(ptr noundef %0, ptr nocapture 
   %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
   %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
+  %38 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_decode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
@@ -11335,7 +11335,7 @@ define internal void @decompress_strided_double_4(ptr noundef %0, ptr nocapture 
   %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
+  %56 = sub nuw i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -11361,7 +11361,7 @@ define internal void @decompress_strided_double_4(ptr noundef %0, ptr nocapture 
   %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
   %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr double, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
+  %68 = sub nuw i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_decode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
@@ -11390,7 +11390,7 @@ define internal void @decompress_strided_double_4(ptr noundef %0, ptr nocapture 
   %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
   %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
+  %82 = sub nuw i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_decode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
   %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
@@ -11467,7 +11467,7 @@ define internal void @decompress_strided_int32_1(ptr noundef %0, ptr nocapture n
   %.022 = phi i64 [ %18, %17 ], [ 0, %2 ]
   %9 = mul nsw i64 %.022, %spec.select
   %10 = getelementptr inbounds i32, ptr %4, i64 %9
-  %11 = sub i64 %6, %.022
+  %11 = sub nuw i64 %6, %.022
   %12 = icmp ult i64 %11, 4
   br i1 %12, label %13, label %15
 
@@ -11504,7 +11504,7 @@ define internal void @decompress_strided_int64_1(ptr noundef %0, ptr nocapture n
   %.022 = phi i64 [ %18, %17 ], [ 0, %2 ]
   %9 = mul nsw i64 %.022, %spec.select
   %10 = getelementptr inbounds i64, ptr %4, i64 %9
-  %11 = sub i64 %6, %.022
+  %11 = sub nuw i64 %6, %.022
   %12 = icmp ult i64 %11, 4
   br i1 %12, label %13, label %15
 
@@ -11541,7 +11541,7 @@ define internal void @decompress_strided_float_1(ptr noundef %0, ptr nocapture n
   %.022 = phi i64 [ %18, %17 ], [ 0, %2 ]
   %9 = mul nsw i64 %.022, %spec.select
   %10 = getelementptr inbounds float, ptr %4, i64 %9
-  %11 = sub i64 %6, %.022
+  %11 = sub nuw i64 %6, %.022
   %12 = icmp ult i64 %11, 4
   br i1 %12, label %13, label %15
 
@@ -11578,7 +11578,7 @@ define internal void @decompress_strided_double_1(ptr noundef %0, ptr nocapture 
   %.022 = phi i64 [ %18, %17 ], [ 0, %2 ]
   %9 = mul nsw i64 %.022, %spec.select
   %10 = getelementptr inbounds double, ptr %4, i64 %9
-  %11 = sub i64 %6, %.022
+  %11 = sub nuw i64 %6, %.022
   %12 = icmp ult i64 %11, 4
   br i1 %12, label %13, label %15
 

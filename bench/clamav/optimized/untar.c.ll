@@ -86,7 +86,7 @@ define i32 @cli_untar(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   br i1 %.not.i, label %25, label %fmap_need_off_once_len.exit
 
 25:                                               ; preds = %.backedge
-  %26 = sub i64 %24, %.0108
+  %26 = sub nuw i64 %24, %.0108
   %spec.select.i = call i64 @llvm.umin.i64(i64 %26, i64 512)
   %27 = getelementptr inbounds i8, ptr %22, i64 104
   %28 = load ptr, ptr %27, align 8
@@ -410,7 +410,7 @@ testchecksum.exit.thread:                         ; preds = %60, %testchecksum.e
   br label %.outer.backedge
 
 138:                                              ; preds = %136
-  %139 = sub i64 %.0102.ph, %.099
+  %139 = sub nuw i64 %.0102.ph, %.099
   %140 = icmp ne i64 %139, 0
   %141 = icmp eq i64 %storemerge.i, 0
   %or.cond5 = select i1 %140, i1 %141, i1 false

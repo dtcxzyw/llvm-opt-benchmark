@@ -1931,7 +1931,7 @@ thread-pre-split611:                              ; preds = %162, %169, %171, %1
   br i1 %939, label %940, label %969
 
 940:                                              ; preds = %936
-  %941 = sub i64 %937, %938
+  %941 = sub nuw i64 %937, %938
   %942 = load ptr, ptr %0, align 8
   %.not595 = icmp eq ptr %942, null
   br i1 %1, label %943, label %953

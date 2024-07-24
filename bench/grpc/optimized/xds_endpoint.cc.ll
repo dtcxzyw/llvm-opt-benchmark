@@ -3234,7 +3234,7 @@ do.end.i:                                         ; preds = %do.body.i
   br i1 %cmp28.i, label %if.then.i44.i, label %if.end36.i
 
 if.then.i44.i:                                    ; preds = %do.end.i
-  %sub.i.i = sub i64 %add.i, %sub.ptr.div.i.i
+  %sub.i.i = sub nuw i64 %add.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN9grpc_core19XdsEndpointResource8PriorityESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %priorities.i, i64 noundef %sub.i.i)
           to label %if.then.i44.if.end36_crit_edge.i unwind label %lpad23.loopexit.i, !noalias !42
 

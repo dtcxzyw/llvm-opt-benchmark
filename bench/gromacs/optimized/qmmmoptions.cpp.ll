@@ -17176,7 +17176,7 @@ _ZNK3gmx3Any6isTypeINS_17KeyValueTreeArrayEEEbv.exit.i.i.i: ; preds = %141
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %149
-  %167 = sub nsw i64 %157, %164
+  %167 = sub nuw nsw i64 %157, %164
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %150, i64 noundef %167)
           to label %._ZNSt6vectorIlSaIlEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp862.loopexit.split-lp.loopexit.split-lp
 
@@ -17563,7 +17563,7 @@ _ZNK3gmx3Any6isTypeINS_17KeyValueTreeArrayEEEbv.exit.i.i.i256: ; preds = %270
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %279
-  %296 = sub nsw i64 %286, %293
+  %296 = sub nuw nsw i64 %286, %293
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %280, i64 noundef %296)
           to label %._ZNSt6vectorIlSaIlEE6resizeEm.exit262_crit_edge unwind label %.loopexit.split-lp862.loopexit.split-lp.loopexit.split-lp
 
@@ -17923,7 +17923,7 @@ _ZNK3gmx3Any6isTypeINS_17KeyValueTreeArrayEEEbv.exit.i.i.i321: ; preds = %399
   br i1 %423, label %424, label %426
 
 424:                                              ; preds = %408
-  %425 = sub nsw i64 %415, %422
+  %425 = sub nuw nsw i64 %415, %422
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %409, i64 noundef %425)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp862.loopexit.split-lp.loopexit.split-lp
 
@@ -18749,7 +18749,7 @@ _ZNK3gmx3Any6isTypeIlEEbv.exit.i.i.i.i.i463:      ; preds = %679
   br i1 %704, label %705, label %707
 
 705:                                              ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS1_IPlS5_IlSaIlEEEEZNS2_11QMMMOptions29readInternalParametersFromKvtERKNS2_18KeyValueTreeObjectEE3$_4ET0_T_SJ_SI_T1_.exit"
-  %706 = sub nsw i64 %696, %703
+  %706 = sub nuw nsw i64 %696, %703
   invoke void @_ZNSt6vectorIN3gmx12LinkFrontierESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %692, i64 noundef %706)
           to label %_ZNSt6vectorIN3gmx12LinkFrontierESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp855.loopexit.split-lp
 

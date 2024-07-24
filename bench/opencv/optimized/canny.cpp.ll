@@ -4478,7 +4478,7 @@ define linkonce_odr void @_ZNSt5dequeIPhSaIS0_EE19_M_range_insert_auxISt15_Deque
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %49
-  %58 = sub i64 %44, %55
+  %58 = sub nuw i64 %44, %55
   tail call void @_ZNSt5dequeIPhSaIS0_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %58), !noalias !80
   %.pre.i = load ptr, ptr %46, align 8, !noalias !83
   %.pre6.i = load ptr, ptr %50, align 8, !noalias !83
@@ -4612,7 +4612,7 @@ _ZNSt11_Deque_baseIPhSaIS0_EE16_M_destroy_nodesEPPS0_S4_.exit: ; preds = %.lr.ph
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %110
-  %120 = sub i64 %44, %117
+  %120 = sub nuw i64 %44, %117
   tail call void @_ZNSt5dequeIPhSaIS0_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %120), !noalias !101
   %.pre.i10 = load ptr, ptr %107, align 8
   %.pre6.i11 = load ptr, ptr %111, align 8
@@ -4882,7 +4882,7 @@ define linkonce_odr void @_ZNSt5dequeIPhSaIS0_EE13_M_insert_auxISt15_Deque_itera
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %98
-  %106 = sub i64 %4, %103
+  %106 = sub nuw i64 %4, %103
   tail call void @_ZNSt5dequeIPhSaIS0_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %106), !noalias !122
   %.pre.i = load ptr, ptr %50, align 8
   %.pre6.i = load ptr, ptr %99, align 8
@@ -5332,7 +5332,7 @@ _ZSt4copyISt15_Deque_iteratorIPhRS1_PS1_ES4_ET0_T_S6_S5_.exit30: ; preds = %292
   br i1 %312, label %313, label %315
 
 313:                                              ; preds = %305
-  %314 = sub i64 %4, %311
+  %314 = sub nuw i64 %4, %311
   tail call void @_ZNSt5dequeIPhSaIS0_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %314), !noalias !181
   %.pre.i32 = load ptr, ptr %78, align 8
   %.pre6.i33 = load ptr, ptr %306, align 8

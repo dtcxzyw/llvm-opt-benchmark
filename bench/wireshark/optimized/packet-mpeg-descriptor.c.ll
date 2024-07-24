@@ -2870,7 +2870,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_association_tag(ptr n
 
 33:                                               ; preds = %31
   %34 = load i32, ptr @hf_mpeg_descr_association_tag_private_bytes, align 4
-  %35 = sub i32 %5, %.0
+  %35 = sub nuw i32 %5, %.0
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %34, ptr noundef %0, i32 noundef %.0, i32 noundef %35, i32 noundef 0) #5
   br label %37
 
@@ -4740,7 +4740,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_ac3(ptr noundef %0, i
 
 53:                                               ; preds = %51
   %54 = load i32, ptr @hf_mpeg_descr_ac3_additional_info, align 4
-  %55 = sub i32 %5, %.3
+  %55 = sub nuw i32 %5, %.3
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %54, ptr noundef %0, i32 noundef %.3, i32 noundef %55, i32 noundef 0) #5
   br label %57
 
@@ -4958,7 +4958,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_extension(ptr noundef
 
 26:                                               ; preds = %23
   %27 = load i32, ptr @hf_mpeg_descr_private_data, align 4
-  %28 = sub nsw i32 %2, %24
+  %28 = sub nuw nsw i32 %2, %24
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %27, ptr noundef %0, i32 noundef %.0, i32 noundef %28, i32 noundef 0) #5
   br label %36
 
@@ -5100,7 +5100,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_ac3_system_a(ptr noun
 
 80:                                               ; preds = %78
   %81 = load i32, ptr @hf_mpeg_descr_ac3_additional_info, align 4
-  %82 = sub i32 %5, %.2
+  %82 = sub nuw i32 %5, %.2
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %81, ptr noundef %0, i32 noundef %.2, i32 noundef %82, i32 noundef 0) #5
   br label %84
 

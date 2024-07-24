@@ -8336,7 +8336,7 @@ define internal void @dissect_gtpv2_mbms_ip_mc_dist(ptr noundef %0, ptr nocaptur
 
 52:                                               ; preds = %46
   %53 = load i32, ptr @hf_gtpv2_spare_bytes, align 4
-  %54 = sub nsw i32 %50, %49
+  %54 = sub nuw nsw i32 %50, %49
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef %49, i32 noundef %54, i32 noundef 0) #10
   br label %56
 
@@ -8617,7 +8617,7 @@ define internal void @dissect_gtpv2_add_mm_cont_for_srvcc(ptr noundef %0, ptr no
 
 49:                                               ; preds = %46
   %50 = load i32, ptr @hf_gtpv2_spare_bytes, align 4
-  %51 = sub nsw i32 %47, %.2
+  %51 = sub nuw nsw i32 %47, %.2
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %.2, i32 noundef %51, i32 noundef 0) #10
   br label %53
 

@@ -1996,7 +1996,7 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread: ; preds = %25, %13, 
   br i1 %brmerge.not, label %30, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit
 
 30:                                               ; preds = %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread
-  %31 = sub i32 %5, %28
+  %31 = sub nuw i32 %5, %28
   %32 = mul i32 %31, 72
   %.not.i.i = icmp eq i32 %32, 0
   br i1 %.not.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit, label %33
@@ -2102,7 +2102,7 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb
   br i1 %31, label %32, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i
 
 32:                                               ; preds = %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread.i
-  %33 = sub i32 %16, %30
+  %33 = sub nuw i32 %16, %30
   %34 = mul i32 %33, 72
   %.not.i.i.i = icmp eq i32 %34, 0
   br i1 %.not.i.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i, label %35
@@ -2813,7 +2813,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i: ; pre
   br i1 %72, label %73, label %83
 
 73:                                               ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
-  %74 = sub i32 %51, %71
+  %74 = sub nuw i32 %51, %71
   %75 = shl i32 %74, 3
   %.not.i.i.i = icmp eq i32 %75, 0
   br i1 %.not.i.i.i, label %83, label %76
@@ -4006,7 +4006,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i: ; pre
   br i1 %130, label %131, label %.noexc26
 
 131:                                              ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
-  %132 = sub i32 %108, %129
+  %132 = sub nuw i32 %108, %129
   %133 = shl i32 %132, 3
   %.not.i.i.i31 = icmp eq i32 %133, 0
   br i1 %.not.i.i.i31, label %.noexc26, label %134
@@ -5774,7 +5774,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i: ; pre
   br i1 %187, label %188, label %_ZN12hb_bit_set_t6resizeEjbb.exit
 
 188:                                              ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
-  %189 = sub i32 %163, %186
+  %189 = sub nuw i32 %163, %186
   %190 = shl i32 %189, 3
   %.not.i.i.i152 = icmp eq i32 %190, 0
   br i1 %.not.i.i.i152, label %_ZN12hb_bit_set_t6resizeEjbb.exit, label %191
@@ -6083,7 +6083,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i154: ; 
   br i1 %347, label %348, label %.noexc146
 
 348:                                              ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i154
-  %349 = sub i32 %163, %346
+  %349 = sub nuw i32 %163, %346
   %350 = shl i32 %349, 3
   %.not.i.i.i157 = icmp eq i32 %350, 0
   br i1 %.not.i.i.i157, label %.noexc146, label %351

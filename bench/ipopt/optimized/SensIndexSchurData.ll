@@ -980,7 +980,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc35, %_ZNSt6ve
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %._crit_edge
-  %35 = sub nsw i64 %9, %32
+  %35 = sub nuw nsw i64 %9, %32
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr %27, i64 noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %63
 
@@ -1011,7 +1011,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %40, %38, %36, %34
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
-  %51 = sub nsw i64 %9, %48
+  %51 = sub nuw nsw i64 %9, %48
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr %43, i64 noundef %51, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit39 unwind label %63
 
@@ -1125,7 +1125,7 @@ define void @_ZN5Ipopt14IndexSchurData12SetData_ListERKSt6vectorIiSaIiEEd(ptr no
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %3
-  %23 = sub nsw i64 %13, %20
+  %23 = sub nuw nsw i64 %13, %20
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %15, i64 noundef %23, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -3252,7 +3252,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

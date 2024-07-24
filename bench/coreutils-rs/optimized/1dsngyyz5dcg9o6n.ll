@@ -834,7 +834,7 @@ _ZN7uu_head12read_n_bytes17h9c3988130e973429E.exit: ; preds = %"_ZN4core3ptr47dr
           to label %101 unwind label %.loopexit.loopexit.split-lp
 
 96:                                               ; preds = %76
-  %.neg = sub i64 %1, %77
+  %.neg = sub nuw i64 %1, %77
   %97 = add i64 %.neg, %61
   %98 = icmp ugt i64 %97, 65536
   br i1 %98, label %.invoke, label %139
@@ -1190,7 +1190,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_bytes17h9da0d1357b1e4985
           to label %66 unwind label %.loopexit.loopexit.split-lp
 
 61:                                               ; preds = %41
-  %.neg = sub i64 %1, %42
+  %.neg = sub nuw i64 %1, %42
   %62 = add i64 %.neg, %26
   %63 = icmp ugt i64 %62, 65536
   br i1 %63, label %.invoke, label %104

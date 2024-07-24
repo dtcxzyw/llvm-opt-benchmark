@@ -4779,7 +4779,7 @@ define hidden void @"_ZN114_$LT$fluent_bundle..args..FluentArgs$u20$as$u20$core.
 
 53:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h641ab964cda51883E.llvm.6776338100628702967.exit.i.i"
   %54 = getelementptr inbounds i8, ptr %48, i64 144
-  %55 = sub i64 %26, %.sroa.3.0.i.i.i
+  %55 = sub nuw i64 %26, %.sroa.3.0.i.i.i
   %56 = mul i64 %55, 144
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 8 %48, i64 %56, i1 false), !noalias !602
   br label %61

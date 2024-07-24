@@ -320,7 +320,7 @@ define internal i32 @lzma2_decode(ptr noundef %0, ptr noalias noundef %1, ptr no
   br i1 %108, label %.loopexit, label %109
 
 109:                                              ; preds = %.critedge.thread
-  %110 = sub i64 %107, %106
+  %110 = sub nuw i64 %107, %106
   store i64 %110, ptr %6, align 8
   %.not89 = icmp eq i32 %104, 1
   br i1 %.not89, label %111, label %.loopexit

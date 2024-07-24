@@ -117081,7 +117081,7 @@ _ZNK2cv11_InputArray6getMatEi.exit18:             ; preds = %22, %25
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %._crit_edge
-  %54 = sub nsw i64 %44, %51
+  %54 = sub nuw nsw i64 %44, %51
   call void @_ZNSt6vectorIN2cv19connectedcomponents10Point2ui64ESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr %46, i64 noundef %54, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZNSt6vectorIN2cv19connectedcomponents10Point2ui64ESaIS2_EE6resizeEmRKS2_.exit
 
@@ -117182,7 +117182,7 @@ _ZSt13move_backwardIPN2cv19connectedcomponents10Point2ui64ES3_ET0_T_S5_S4_.exit:
   br i1 %.not.i.i.i, label %_ZSt4fillIPN2cv19connectedcomponents10Point2ui64ES2_EvT_S4_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !199
 
 33:                                               ; preds = %14
-  %34 = sub i64 %2, %17
+  %34 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %34, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN2cv19connectedcomponents10Point2ui64EmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -118754,7 +118754,7 @@ define linkonce_odr hidden void @_ZN2cv19connectedcomponents9CCStatsOp11initElem
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %._crit_edge
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   call void @_ZNSt6vectorIN2cv19connectedcomponents10Point2ui64ESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr %23, i64 noundef %31, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZNSt6vectorIN2cv19connectedcomponents10Point2ui64ESaIS2_EE6resizeEmRKS2_.exit
 

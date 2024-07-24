@@ -1728,7 +1728,7 @@ _ZN15actix_multipart6server13PayloadBuffer15readline_or_eof17h0922ba60964d3afcE.
   unreachable
 
 .critedge.i.i.i:                                  ; preds = %.noexc.i.i.i
-  %250 = sub i64 %231, %222
+  %250 = sub nuw i64 %231, %222
   %251 = getelementptr inbounds i8, ptr %22, i64 8
   %252 = load ptr, ptr %251, align 8, !alias.scope !350, !noalias !349, !noundef !4
   %253 = getelementptr inbounds i8, ptr %252, i64 %222
@@ -3798,7 +3798,7 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i: ; preds =
   unreachable
 
 114:                                              ; preds = %.noexc41
-  %115 = sub i64 %95, %86
+  %115 = sub nuw i64 %95, %86
   %116 = getelementptr inbounds i8, ptr %32, i64 8
   %117 = load ptr, ptr %116, align 8, !alias.scope !773, !noalias !772, !noundef !4
   %118 = getelementptr inbounds i8, ptr %117, i64 %86
@@ -4213,7 +4213,7 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i: ; preds =
           to label %.body unwind label %275, !noalias !898
 
 270:                                              ; preds = %.noexc52
-  %271 = sub i64 %253, %244
+  %271 = sub nuw i64 %253, %244
   %272 = getelementptr inbounds i8, ptr %21, i64 8
   %273 = load ptr, ptr %272, align 8, !alias.scope !888, !noalias !887, !noundef !4
   %274 = getelementptr inbounds i8, ptr %273, i64 %244
@@ -4410,7 +4410,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit.i: ; preds = %270, 
           to label %.body unwind label %349, !noalias !938
 
 344:                                              ; preds = %.noexc63
-  %345 = sub i64 %327, %318
+  %345 = sub nuw i64 %327, %318
   %346 = getelementptr inbounds i8, ptr %15, i64 8
   %347 = load ptr, ptr %346, align 8, !alias.scope !928, !noalias !927, !noundef !4
   %348 = getelementptr inbounds i8, ptr %347, i64 %318
@@ -4529,7 +4529,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit153.i: ; preds = %34
           to label %.body unwind label %388, !noalias !964
 
 383:                                              ; preds = %.noexc65
-  %384 = sub i64 %366, %357
+  %384 = sub nuw i64 %366, %357
   %385 = getelementptr inbounds i8, ptr %9, i64 8
   %386 = load ptr, ptr %385, align 8, !alias.scope !954, !noalias !953, !noundef !4
   %387 = getelementptr inbounds i8, ptr %386, i64 %357
@@ -5206,7 +5206,7 @@ define internal fastcc void @_ZN15actix_multipart6server13PayloadBuffer10read_un
   resume { ptr, i32 } %43
 
 52:                                               ; preds = %23
-  %53 = sub i64 %33, %24
+  %53 = sub nuw i64 %33, %24
   %54 = getelementptr inbounds i8, ptr %10, i64 8
   %55 = load ptr, ptr %54, align 8, !alias.scope !1055, !noalias !1054, !noundef !4
   %56 = getelementptr inbounds i8, ptr %55, i64 %24

@@ -3956,7 +3956,7 @@ define internal fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b87
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h8c5a62f029dc18a1E.llvm.3304932924735990938.exit" unwind label %49
 
 44:                                               ; preds = %16
-  %45 = sub i64 %26, %17
+  %45 = sub nuw i64 %26, %17
   store i64 %45, ptr %25, align 8, !alias.scope !627
   %46 = getelementptr inbounds i8, ptr %8, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !627, !noundef !7

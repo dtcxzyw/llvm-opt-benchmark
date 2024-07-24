@@ -420,7 +420,7 @@ invoke.cont13:                                    ; preds = %invoke.cont10
   br i1 %cmp.i16, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont13
-  %sub.i = sub i64 %add, %sub.ptr.sub.i.i
+  %sub.i = sub nuw i64 %add, %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %contents, i64 16
   %14 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %14 to i64

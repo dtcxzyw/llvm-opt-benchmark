@@ -5006,7 +5006,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i.i65
 while.body.i.i:                                   ; preds = %if.end19.i.i, %while.body.lr.ph.i.i
   %__len.022.i.i = phi i64 [ %78, %while.body.lr.ph.i.i ], [ %sub.ptr.sub22.i.i, %if.end19.i.i ]
   %__first.021.i.i = phi ptr [ %77, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.end19.i.i ]
-  %sub12.i.i = sub i64 %__len.022.i.i, %agg.tmp276.sroa.0.0.copyload
+  %sub12.i.i = sub nuw i64 %__len.022.i.i, %agg.tmp276.sroa.0.0.copyload
   %add.i.i = add i64 %sub12.i.i, 1
   %cmp.i.i.i68 = icmp eq i64 %add.i.i, 0
   br i1 %cmp.i.i.i68, label %for.inc, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i

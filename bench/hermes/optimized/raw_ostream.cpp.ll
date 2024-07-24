@@ -2582,7 +2582,7 @@ if.else21:                                        ; preds = %entry
   br i1 %cmp, label %if.then24, label %if.end30
 
 if.then24:                                        ; preds = %if.else21
-  %conv28 = sub i32 %7, %6
+  %conv28 = sub nuw i32 %7, %6
   %cmp.i.i = icmp ult i32 %conv28, 80
   br i1 %cmp.i.i, label %if.then.i.i, label %while.body.i.i
 
@@ -4627,7 +4627,7 @@ if.then8:                                         ; preds = %if.end
   br label %cleanup
 
 if.end10:                                         ; preds = %if.end
-  %sub = sub i64 %5, %conv.i
+  %sub = sub nuw i64 %5, %conv.i
   %Where = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i32, ptr %Where, align 8
   switch i32 %8, label %sw.default [

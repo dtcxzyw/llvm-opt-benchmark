@@ -547,7 +547,7 @@ _ZN7rocksdb10autovectorIjLm16EED2Ev.exit:         ; preds = %_ZN7rocksdb10autove
 if.end24:                                         ; preds = %land.lhs.true.i
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %15, i64 %conv.i
   store ptr %add.ptr.i5.i, ptr %input, align 8
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i53, %conv.i
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i53, %conv.i
   store i64 %sub.i.i, ptr %size_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   %19 = load ptr, ptr %columns, align 8

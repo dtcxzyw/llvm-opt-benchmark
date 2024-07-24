@@ -14836,7 +14836,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
   %67 = sub i64 %39, %36
   %68 = load ptr, ptr %9, align 8, !tbaa !4
   %69 = getelementptr inbounds i8, ptr %68, i64 %36
-  %70 = sub i64 %62, %36
+  %70 = sub nuw i64 %62, %36
   %71 = call noundef i64 @llvm.umin.i64(i64 %70, i64 %67)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
   store i64 %71, ptr %6, align 8, !tbaa !14
@@ -14895,7 +14895,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
   %93 = load ptr, ptr %9, align 8, !tbaa !4
   %94 = getelementptr inbounds i8, ptr %93, i64 %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  %95 = sub nsw i64 %88, %39
+  %95 = sub nuw nsw i64 %88, %39
   store i64 %95, ptr %5, align 8, !tbaa !14
   %96 = icmp ugt i64 %95, 15
   br i1 %96, label %97, label %101
@@ -27591,7 +27591,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerIjfE4Loa
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %23
-  %34 = sub i64 %24, %31
+  %34 = sub nuw i64 %24, %31
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %34)
   %35 = load i64, ptr %9, align 8, !tbaa !14
   br label %42
@@ -27654,7 +27654,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerIjfE4Loa
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %60
-  %71 = sub i64 %61, %68
+  %71 = sub nuw i64 %61, %68
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %71)
   %72 = load i64, ptr %8, align 8, !tbaa !14
   br label %79
@@ -27772,7 +27772,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit34:      ; preds = %.noexc, %_ZN4dmlc15
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %116
-  %127 = sub i64 %117, %124
+  %127 = sub nuw i64 %117, %124
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %110, i64 noundef %127)
   %128 = load i64, ptr %7, align 8, !tbaa !14
   br label %135
@@ -27890,7 +27890,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit37:      ; preds = %.noexc36, %_ZN4dmlc
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %172
-  %183 = sub i64 %173, %180
+  %183 = sub nuw i64 %173, %180
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %166, i64 noundef %183)
   %184 = load i64, ptr %6, align 8, !tbaa !14
   br label %191
@@ -28008,7 +28008,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit40:      ; preds = %.noexc39, %_ZN4dmlc
   br i1 %237, label %238, label %241
 
 238:                                              ; preds = %228
-  %239 = sub i64 %229, %236
+  %239 = sub nuw i64 %229, %236
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %222, i64 noundef %239)
   %240 = load i64, ptr %5, align 8, !tbaa !14
   br label %247
@@ -28126,7 +28126,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit43:      ; preds = %.noexc42, %_ZN4dmlc
   br i1 %293, label %294, label %297
 
 294:                                              ; preds = %284
-  %295 = sub i64 %285, %292
+  %295 = sub nuw i64 %285, %292
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %278, i64 noundef %295)
   %296 = load i64, ptr %4, align 8, !tbaa !14
   br label %303
@@ -28244,7 +28244,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit46:      ; preds = %.noexc45, %_ZN4dmlc
   br i1 %349, label %350, label %353
 
 350:                                              ; preds = %340
-  %351 = sub i64 %341, %348
+  %351 = sub nuw i64 %341, %348
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %334, i64 noundef %351)
   %352 = load i64, ptr %3, align 8, !tbaa !14
   br label %359
@@ -35954,7 +35954,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerImfE4Loa
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %23
-  %34 = sub i64 %24, %31
+  %34 = sub nuw i64 %24, %31
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %34)
   %35 = load i64, ptr %9, align 8, !tbaa !14
   br label %42
@@ -36017,7 +36017,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerImfE4Loa
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %60
-  %71 = sub i64 %61, %68
+  %71 = sub nuw i64 %61, %68
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %71)
   %72 = load i64, ptr %8, align 8, !tbaa !14
   br label %79
@@ -36135,7 +36135,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit34:      ; preds = %.noexc, %_ZN4dmlc15
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %116
-  %127 = sub i64 %117, %124
+  %127 = sub nuw i64 %117, %124
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %110, i64 noundef %127)
   %128 = load i64, ptr %7, align 8, !tbaa !14
   br label %135
@@ -36253,7 +36253,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit37:      ; preds = %.noexc36, %_ZN4dmlc
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %172
-  %183 = sub i64 %173, %180
+  %183 = sub nuw i64 %173, %180
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %166, i64 noundef %183)
   %184 = load i64, ptr %6, align 8, !tbaa !14
   br label %191
@@ -36371,7 +36371,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit40:      ; preds = %.noexc39, %_ZN4dmlc
   br i1 %237, label %238, label %241
 
 238:                                              ; preds = %228
-  %239 = sub i64 %229, %236
+  %239 = sub nuw i64 %229, %236
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %222, i64 noundef %239)
   %240 = load i64, ptr %5, align 8, !tbaa !14
   br label %247
@@ -36489,7 +36489,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit43:      ; preds = %.noexc42, %_ZN4dmlc
   br i1 %293, label %294, label %297
 
 294:                                              ; preds = %284
-  %295 = sub i64 %285, %292
+  %295 = sub nuw i64 %285, %292
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %278, i64 noundef %295)
   %296 = load i64, ptr %4, align 8, !tbaa !14
   br label %303
@@ -36607,7 +36607,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit46:      ; preds = %.noexc45, %_ZN4dmlc
   br i1 %349, label %350, label %353
 
 350:                                              ; preds = %340
-  %351 = sub i64 %341, %348
+  %351 = sub nuw i64 %341, %348
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %334, i64 noundef %351)
   %352 = load i64, ptr %3, align 8, !tbaa !14
   br label %359
@@ -43484,7 +43484,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerIjiE4Loa
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %23
-  %34 = sub i64 %24, %31
+  %34 = sub nuw i64 %24, %31
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %34)
   %35 = load i64, ptr %9, align 8, !tbaa !14
   br label %42
@@ -43547,7 +43547,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerIjiE4Loa
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %60
-  %71 = sub i64 %61, %68
+  %71 = sub nuw i64 %61, %68
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %71)
   %72 = load i64, ptr %8, align 8, !tbaa !14
   br label %79
@@ -43665,7 +43665,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit34:      ; preds = %.noexc, %_ZN4dmlc15
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %116
-  %127 = sub i64 %117, %124
+  %127 = sub nuw i64 %117, %124
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %110, i64 noundef %127)
   %128 = load i64, ptr %7, align 8, !tbaa !14
   br label %135
@@ -43783,7 +43783,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit37:      ; preds = %.noexc36, %_ZN4dmlc
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %172
-  %183 = sub i64 %173, %180
+  %183 = sub nuw i64 %173, %180
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %166, i64 noundef %183)
   %184 = load i64, ptr %6, align 8, !tbaa !14
   br label %191
@@ -43901,7 +43901,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit40:      ; preds = %.noexc39, %_ZN4dmlc
   br i1 %237, label %238, label %241
 
 238:                                              ; preds = %228
-  %239 = sub i64 %229, %236
+  %239 = sub nuw i64 %229, %236
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %222, i64 noundef %239)
   %240 = load i64, ptr %5, align 8, !tbaa !14
   br label %247
@@ -44019,7 +44019,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit43:      ; preds = %.noexc42, %_ZN4dmlc
   br i1 %293, label %294, label %297
 
 294:                                              ; preds = %284
-  %295 = sub i64 %285, %292
+  %295 = sub nuw i64 %285, %292
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %278, i64 noundef %295)
   %296 = load i64, ptr %4, align 8, !tbaa !14
   br label %303
@@ -44137,7 +44137,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit46:      ; preds = %.noexc45, %_ZN4dmlc
   br i1 %349, label %350, label %353
 
 350:                                              ; preds = %340
-  %351 = sub i64 %341, %348
+  %351 = sub nuw i64 %341, %348
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %334, i64 noundef %351)
   %352 = load i64, ptr %3, align 8, !tbaa !14
   br label %359
@@ -51113,7 +51113,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerImiE4Loa
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %23
-  %34 = sub i64 %24, %31
+  %34 = sub nuw i64 %24, %31
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %34)
   %35 = load i64, ptr %9, align 8, !tbaa !14
   br label %42
@@ -51176,7 +51176,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerImiE4Loa
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %60
-  %71 = sub i64 %61, %68
+  %71 = sub nuw i64 %61, %68
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %71)
   %72 = load i64, ptr %8, align 8, !tbaa !14
   br label %79
@@ -51294,7 +51294,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit34:      ; preds = %.noexc, %_ZN4dmlc15
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %116
-  %127 = sub i64 %117, %124
+  %127 = sub nuw i64 %117, %124
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %110, i64 noundef %127)
   %128 = load i64, ptr %7, align 8, !tbaa !14
   br label %135
@@ -51412,7 +51412,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit37:      ; preds = %.noexc36, %_ZN4dmlc
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %172
-  %183 = sub i64 %173, %180
+  %183 = sub nuw i64 %173, %180
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %166, i64 noundef %183)
   %184 = load i64, ptr %6, align 8, !tbaa !14
   br label %191
@@ -51530,7 +51530,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit40:      ; preds = %.noexc39, %_ZN4dmlc
   br i1 %237, label %238, label %241
 
 238:                                              ; preds = %228
-  %239 = sub i64 %229, %236
+  %239 = sub nuw i64 %229, %236
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %222, i64 noundef %239)
   %240 = load i64, ptr %5, align 8, !tbaa !14
   br label %247
@@ -51648,7 +51648,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit43:      ; preds = %.noexc42, %_ZN4dmlc
   br i1 %293, label %294, label %297
 
 294:                                              ; preds = %284
-  %295 = sub i64 %285, %292
+  %295 = sub nuw i64 %285, %292
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %278, i64 noundef %295)
   %296 = load i64, ptr %4, align 8, !tbaa !14
   br label %303
@@ -51766,7 +51766,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit46:      ; preds = %.noexc45, %_ZN4dmlc
   br i1 %349, label %350, label %353
 
 350:                                              ; preds = %340
-  %351 = sub i64 %341, %348
+  %351 = sub nuw i64 %341, %348
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %334, i64 noundef %351)
   %352 = load i64, ptr %3, align 8, !tbaa !14
   br label %359
@@ -58654,7 +58654,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerIjlE4Loa
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %23
-  %34 = sub i64 %24, %31
+  %34 = sub nuw i64 %24, %31
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %34)
   %35 = load i64, ptr %9, align 8, !tbaa !14
   br label %42
@@ -58717,7 +58717,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerIjlE4Loa
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %60
-  %71 = sub i64 %61, %68
+  %71 = sub nuw i64 %61, %68
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %71)
   %72 = load i64, ptr %8, align 8, !tbaa !14
   br label %79
@@ -58835,7 +58835,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit34:      ; preds = %.noexc, %_ZN4dmlc15
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %116
-  %127 = sub i64 %117, %124
+  %127 = sub nuw i64 %117, %124
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %110, i64 noundef %127)
   %128 = load i64, ptr %7, align 8, !tbaa !14
   br label %135
@@ -58953,7 +58953,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit37:      ; preds = %.noexc36, %_ZN4dmlc
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %172
-  %183 = sub i64 %173, %180
+  %183 = sub nuw i64 %173, %180
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %166, i64 noundef %183)
   %184 = load i64, ptr %6, align 8, !tbaa !14
   br label %191
@@ -59071,7 +59071,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit40:      ; preds = %.noexc39, %_ZN4dmlc
   br i1 %237, label %238, label %241
 
 238:                                              ; preds = %228
-  %239 = sub i64 %229, %236
+  %239 = sub nuw i64 %229, %236
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %222, i64 noundef %239)
   %240 = load i64, ptr %5, align 8, !tbaa !14
   br label %247
@@ -59189,7 +59189,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit43:      ; preds = %.noexc42, %_ZN4dmlc
   br i1 %293, label %294, label %297
 
 294:                                              ; preds = %284
-  %295 = sub i64 %285, %292
+  %295 = sub nuw i64 %285, %292
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %278, i64 noundef %295)
   %296 = load i64, ptr %4, align 8, !tbaa !14
   br label %303
@@ -59307,7 +59307,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit46:      ; preds = %.noexc45, %_ZN4dmlc
   br i1 %349, label %350, label %353
 
 350:                                              ; preds = %340
-  %351 = sub i64 %341, %348
+  %351 = sub nuw i64 %341, %348
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %334, i64 noundef %351)
   %352 = load i64, ptr %3, align 8, !tbaa !14
   br label %359
@@ -66294,7 +66294,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerImlE4Loa
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %23
-  %34 = sub i64 %24, %31
+  %34 = sub nuw i64 %24, %31
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %34)
   %35 = load i64, ptr %9, align 8, !tbaa !14
   br label %42
@@ -66357,7 +66357,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data17RowBlockContainerImlE4Loa
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %60
-  %71 = sub i64 %61, %68
+  %71 = sub nuw i64 %61, %68
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %71)
   %72 = load i64, ptr %8, align 8, !tbaa !14
   br label %79
@@ -66475,7 +66475,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit34:      ; preds = %.noexc, %_ZN4dmlc15
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %116
-  %127 = sub i64 %117, %124
+  %127 = sub nuw i64 %117, %124
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %110, i64 noundef %127)
   %128 = load i64, ptr %7, align 8, !tbaa !14
   br label %135
@@ -66593,7 +66593,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit37:      ; preds = %.noexc36, %_ZN4dmlc
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %172
-  %183 = sub i64 %173, %180
+  %183 = sub nuw i64 %173, %180
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %166, i64 noundef %183)
   %184 = load i64, ptr %6, align 8, !tbaa !14
   br label %191
@@ -66711,7 +66711,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit40:      ; preds = %.noexc39, %_ZN4dmlc
   br i1 %237, label %238, label %241
 
 238:                                              ; preds = %228
-  %239 = sub i64 %229, %236
+  %239 = sub nuw i64 %229, %236
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %222, i64 noundef %239)
   %240 = load i64, ptr %5, align 8, !tbaa !14
   br label %247
@@ -66829,7 +66829,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit43:      ; preds = %.noexc42, %_ZN4dmlc
   br i1 %293, label %294, label %297
 
 294:                                              ; preds = %284
-  %295 = sub i64 %285, %292
+  %295 = sub nuw i64 %285, %292
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %278, i64 noundef %295)
   %296 = load i64, ptr %4, align 8, !tbaa !14
   br label %303
@@ -66947,7 +66947,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit46:      ; preds = %.noexc45, %_ZN4dmlc
   br i1 %349, label %350, label %353
 
 350:                                              ; preds = %340
-  %351 = sub i64 %341, %348
+  %351 = sub nuw i64 %341, %348
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %334, i64 noundef %351)
   %352 = load i64, ptr %3, align 8, !tbaa !14
   br label %359
@@ -74012,7 +74012,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data14TextParserBaseIjfE8FillDa
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %17
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   call void @_ZNSt6vectorIN4dmlc4data17RowBlockContainerIjfEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %30)
   br label %40
 
@@ -83055,7 +83055,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data14TextParserBaseImfE8FillDa
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %17
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   call void @_ZNSt6vectorIN4dmlc4data17RowBlockContainerImfEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %30)
   br label %40
 
@@ -96520,7 +96520,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data14TextParserBaseIjiE8FillDa
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %17
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   call void @_ZNSt6vectorIN4dmlc4data17RowBlockContainerIjiEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %30)
   br label %40
 
@@ -99569,7 +99569,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data14TextParserBaseImiE8FillDa
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %17
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   call void @_ZNSt6vectorIN4dmlc4data17RowBlockContainerImiEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %30)
   br label %40
 
@@ -102624,7 +102624,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data14TextParserBaseIjlE8FillDa
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %17
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   call void @_ZNSt6vectorIN4dmlc4data17RowBlockContainerIjlEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %30)
   br label %40
 
@@ -105672,7 +105672,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4dmlc4data14TextParserBaseImlE8FillDa
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %17
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   call void @_ZNSt6vectorIN4dmlc4data17RowBlockContainerImlEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %30)
   br label %40
 

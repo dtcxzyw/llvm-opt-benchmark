@@ -1030,7 +1030,7 @@ land.rhs.i37:                                     ; preds = %if.then48
   br i1 %cmp5.not.i, label %_ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit, label %if.then53
 
 _ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit: ; preds = %land.rhs.i37
-  %sub7.i = sub i32 %add.i, %27
+  %sub7.i = sub nuw i32 %add.i, %27
   %call8.i = tail call noundef zeroext i1 @_ZN8proxygen16QPACKHeaderTable8canEvictEj(ptr noundef nonnull align 8 dereferenceable(104) %add.ptr, i32 noundef %sub7.i)
   br i1 %call8.i, label %if.then53, label %if.else99
 
@@ -1139,7 +1139,7 @@ if.then126:                                       ; preds = %while.end124
   br label %return
 
 if.else132:                                       ; preds = %while.end124
-  %sub134 = sub i32 %baseIndex, %index.3
+  %sub134 = sub nuw i32 %baseIndex, %index.3
   %conv135 = zext i32 %sub134 to i64
   %call136 = call noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_127, i64 noundef %conv135, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL9Q_INDEXEDE)
   br label %return
@@ -1275,7 +1275,7 @@ invoke.cont9:                                     ; preds = %if.else
   %cmp11 = icmp ugt i32 %requiredInsertCount, %baseIndex
   %12 = xor i32 %baseIndex, -1
   %sub14 = add i32 %12, %requiredInsertCount
-  %sub20 = sub i32 %baseIndex, %requiredInsertCount
+  %sub20 = sub nuw i32 %baseIndex, %requiredInsertCount
   %sub14.sink = select i1 %cmp11, i32 %sub14, i32 %sub20
   %13 = select i1 %cmp11, i8 -128, i8 0
   %conv15 = zext i32 %sub14.sink to i64
@@ -2243,13 +2243,13 @@ if.end:                                           ; preds = %cleanup.done, %entr
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end
-  %sub = sub i32 %absoluteNameIndex, %baseIndex
+  %sub = sub nuw i32 %absoluteNameIndex, %baseIndex
   %streamBuffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call13.i = tail call noundef i32 @_ZN8proxygen12QPACKEncoder20encodeLiteralQHelperERNS_17HPACKEncodeBufferERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEbjhRKNS_5HPACK11InstructionESE_(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext false, i32 noundef %sub, i8 noundef zeroext 16, ptr noundef nonnull readonly align 1 dereferenceable(2) @_ZN8proxygen5HPACKL23Q_LITERAL_NAME_REF_POSTE, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL9Q_LITERALE)
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %reass.sub = sub i32 %baseIndex, %absoluteNameIndex
+  %reass.sub = sub nuw i32 %baseIndex, %absoluteNameIndex
   %add = add i32 %reass.sub, 1
   %cond = select i1 %isStaticName, i32 %nameIndex, i32 %add
   %streamBuffer_.i11 = getelementptr inbounds i8, ptr %this, i64 8
@@ -3448,7 +3448,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %ackedInsertCount_ = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %ackedInsertCount_, align 8
-  %sub = sub i32 %0, %numInserts
+  %sub = sub nuw i32 %0, %numInserts
   %cmp3 = icmp ugt i32 %1, %sub
   br i1 %cmp3, label %if.then, label %if.end
 

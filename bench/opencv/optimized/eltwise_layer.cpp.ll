@@ -820,7 +820,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %179
-  %193 = sub nsw i64 %183, %190
+  %193 = sub nuw nsw i64 %183, %190
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %193)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %.loopexit.split-lp252
 
@@ -1023,7 +1023,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %253, label %254, label %256
 
 254:                                              ; preds = %241
-  %255 = sub nsw i64 %245, %252
+  %255 = sub nuw nsw i64 %245, %252
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %52, i64 noundef %255)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %.loopexit.split-lp247
 
@@ -1226,7 +1226,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %315, label %316, label %318
 
 316:                                              ; preds = %303
-  %317 = sub nsw i64 %307, %314
+  %317 = sub nuw nsw i64 %307, %314
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %317)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit189 unwind label %.loopexit.split-lp
 
@@ -6595,7 +6595,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   %95 = mul i64 %93, %92
   %.recomposed = urem i64 %.0180264, %92
   %96 = trunc i64 %.recomposed to i32
-  %97 = sub i64 %.sroa.speculated219, %.0180264
+  %97 = sub nuw i64 %.sroa.speculated219, %.0180264
   %98 = trunc i64 %97 to i32
   %99 = trunc i64 %92 to i32
   %100 = sub nsw i32 %99, %96

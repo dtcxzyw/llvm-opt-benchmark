@@ -5360,7 +5360,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit:                ; preds = %4, %14
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit
-  %35 = sub nsw i64 %23, %32
+  %35 = sub nuw nsw i64 %23, %32
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %35)
   %.pre = load i64, ptr %24, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit

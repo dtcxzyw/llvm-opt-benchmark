@@ -4964,7 +4964,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h41c9d8ebcb976c03E(ptr al
   unreachable
 
 10:                                               ; preds = %5
-  %11 = sub i64 %3, %2
+  %11 = sub nuw i64 %3, %2
   %12 = icmp ult i64 %11, 10
   %13 = icmp ult i64 %3, %1
   %or.cond3 = select i1 %12, i1 %13, i1 false
@@ -5031,7 +5031,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h5714188c2831f884E(ptr al
   unreachable
 
 10:                                               ; preds = %5
-  %11 = sub i64 %3, %2
+  %11 = sub nuw i64 %3, %2
   %12 = icmp ult i64 %11, 10
   %13 = icmp ult i64 %3, %1
   %or.cond3 = select i1 %12, i1 %13, i1 false
@@ -5098,7 +5098,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h842040818989c65bE(ptr al
   unreachable
 
 10:                                               ; preds = %5
-  %11 = sub i64 %3, %2
+  %11 = sub nuw i64 %3, %2
   %12 = icmp ult i64 %11, 10
   %13 = icmp ult i64 %3, %1
   %or.cond3 = select i1 %12, i1 %13, i1 false
@@ -5165,7 +5165,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17hbe5ca4708c173f0fE(ptr al
   unreachable
 
 10:                                               ; preds = %5
-  %11 = sub i64 %3, %2
+  %11 = sub nuw i64 %3, %2
   %12 = icmp ult i64 %11, 10
   %13 = icmp ult i64 %3, %1
   %or.cond3 = select i1 %12, i1 %13, i1 false
@@ -5232,7 +5232,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17hd07bde5182bf86b7E(ptr al
   unreachable
 
 10:                                               ; preds = %5
-  %11 = sub i64 %3, %2
+  %11 = sub nuw i64 %3, %2
   %12 = icmp ult i64 %11, 10
   %13 = icmp ult i64 %3, %1
   %or.cond3 = select i1 %12, i1 %13, i1 false
@@ -5299,7 +5299,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17hd79cd2ee4c3486deE(ptr al
   unreachable
 
 10:                                               ; preds = %5
-  %11 = sub i64 %3, %2
+  %11 = sub nuw i64 %3, %2
   %12 = icmp ult i64 %11, 10
   %13 = icmp ult i64 %3, %1
   %or.cond3 = select i1 %12, i1 %13, i1 false

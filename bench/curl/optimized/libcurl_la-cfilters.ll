@@ -1741,7 +1741,7 @@ if.then25:                                        ; preds = %if.then9
 if.then29:                                        ; preds = %if.then25
   %idxprom35 = zext i32 %add to i64
   %arrayidx36 = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %idxprom35
-  %sub = sub i32 %0, %add
+  %sub = sub nuw i32 %0, %add
   %conv39 = zext i32 %sub to i64
   %mul = shl nuw nsw i64 %conv39, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %arrayidx.le, ptr nonnull align 4 %arrayidx36, i64 %mul, i1 false)
@@ -1844,7 +1844,7 @@ if.then25.i:                                      ; preds = %if.then9.i
 if.then29.i:                                      ; preds = %if.then25.i
   %idxprom35.i = zext i32 %add.i to i64
   %arrayidx36.i = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %idxprom35.i
-  %sub.i = sub i32 %0, %add.i
+  %sub.i = sub nuw i32 %0, %add.i
   %conv39.i = zext i32 %sub.i to i64
   %mul.i = shl nuw nsw i64 %conv39.i, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %arrayidx.i.le, ptr nonnull align 4 %arrayidx36.i, i64 %mul.i, i1 false)

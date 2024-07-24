@@ -230,7 +230,7 @@ define internal void @linear_status(ptr nocapture noundef readonly %0, i32 nound
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %3, i64 %35
-  %39 = sub nsw i64 %19, %35
+  %39 = sub nuw nsw i64 %19, %35
   %40 = load ptr, ptr %7, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 28
   %42 = getelementptr inbounds i8, ptr %7, i64 8

@@ -1057,7 +1057,7 @@ define i32 @XzDec_Init(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_a
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
   %14 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
-  %16 = sub nsw i64 %12, %indvars.iv
+  %16 = sub nuw nsw i64 %12, %indvars.iv
   %17 = getelementptr inbounds [4 x %struct.CXzFilter], ptr %11, i64 0, i64 %16
   %18 = load i64, ptr %17, align 8
   %.not49 = icmp eq i64 %15, %18
@@ -1140,7 +1140,7 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
 
 48:                                               ; preds = %MixCoder_Free.exit, %MixCoder_SetFromMethod.exit
   %indvars.iv71 = phi i64 [ 0, %MixCoder_Free.exit ], [ %indvars.iv.next72, %MixCoder_SetFromMethod.exit ]
-  %49 = sub nsw i64 %47, %indvars.iv71
+  %49 = sub nuw nsw i64 %47, %indvars.iv71
   %50 = getelementptr inbounds [4 x %struct.CXzFilter], ptr %44, i64 0, i64 %49
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %45, i64 0, i64 %indvars.iv71
@@ -1219,7 +1219,7 @@ MixCoder_SetFromMethod.exit:                      ; preds = %73, %59
 
 83:                                               ; preds = %.loopexit, %82
   %indvars.iv76 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next77, %82 ]
-  %84 = sub nsw i64 %.pre-phi, %indvars.iv76
+  %84 = sub nuw nsw i64 %.pre-phi, %indvars.iv76
   %85 = getelementptr inbounds [4 x %struct.CXzFilter], ptr %80, i64 0, i64 %84
   %86 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %81, i64 0, i64 %indvars.iv76
   %87 = getelementptr inbounds i8, ptr %86, i64 16
@@ -1776,7 +1776,7 @@ Xz_ParseHeader.exit:                              ; preds = %117
   br i1 %220, label %221, label %234
 
 221:                                              ; preds = %217
-  %222 = sub i64 %219, %218
+  %222 = sub nuw i64 %219, %218
   %spec.select278 = call i64 @llvm.umin.i64(i64 %90, i64 %222)
   %223 = load i32, ptr %25, align 8
   %224 = call i32 @CrcUpdate(i32 noundef %223, ptr noundef %.0232293, i64 noundef %spec.select278) #10

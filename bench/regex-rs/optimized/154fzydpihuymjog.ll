@@ -4462,7 +4462,7 @@ _ZN12regex_syntax3hir3Hir9into_kind17h70095490173fb92aE.exit: ; preds = %"_ZN4co
   br i1 %506, label %510, label %507
 
 507:                                              ; preds = %504
-  %508 = sub i64 %505, %.sroa.49.0.i
+  %508 = sub nuw i64 %505, %.sroa.49.0.i
   %509 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h2309613086de6655E"(i64 noundef %508, i1 noundef zeroext false)
           to label %513 unwind label %.loopexit
 
@@ -7309,7 +7309,7 @@ define noundef range(i64 1, 257) i64 @_ZN12regex_syntax3hir15ClassBytesRange3len
   unreachable
 
 6:                                                ; preds = %1
-  %7 = sub i8 %3, %4
+  %7 = sub nuw i8 %3, %4
   %8 = zext i8 %7 to i64
   %9 = add nuw nsw i64 %8, 1
   ret i64 %9

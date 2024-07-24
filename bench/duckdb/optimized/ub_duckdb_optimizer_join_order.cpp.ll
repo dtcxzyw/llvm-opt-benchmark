@@ -4559,7 +4559,7 @@ for.cond.preheader:                               ; preds = %if.else27, %entry
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %8 = load ptr, ptr %right, align 8, !tbaa !27
-  %9 = sub i64 %1, %j.0.lcssa
+  %9 = sub nuw i64 %1, %j.0.lcssa
   %10 = add i64 %9, %count3.0.lcssa
   %min.iters.check155 = icmp ult i64 %9, 12
   br i1 %min.iters.check155, label %for.body.preheader, label %vector.memcheck151
@@ -4630,7 +4630,7 @@ for.cond14.preheader:                             ; preds = %if.else
 
 for.body17.lr.ph:                                 ; preds = %for.cond14.preheader
   %22 = sub i64 %indvars.iv, %i.0116
-  %23 = sub i64 %0, %i.0116
+  %23 = sub nuw i64 %0, %i.0116
   %min.iters.check = icmp ult i64 %23, 12
   br i1 %min.iters.check, label %for.body17.preheader, label %vector.memcheck
 

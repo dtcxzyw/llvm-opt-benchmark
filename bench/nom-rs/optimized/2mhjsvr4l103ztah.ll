@@ -520,7 +520,7 @@ define { i64, i64 } @"_ZN69_$LT$$RF$str$u20$as$u20$nom..traits..FindSubstring$LT
   %29 = getelementptr inbounds i8, ptr %15, i64 %20
   %30 = load i8, ptr %29, align 1, !alias.scope !85, !noalias !90, !noundef !4
   %31 = icmp sgt i8 %30, -65
-  %32 = sub i64 %17, %20
+  %32 = sub nuw i64 %17, %20
   br i1 %31, label %34, label %33
 
 33:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %26
@@ -1015,7 +1015,7 @@ define void @"_ZN56_$LT$$u5b$u8$u5d$$u20$as$u20$nom..traits..HexDisplay$GT$11to_
   %.sroa.5.0131 = phi i64 [ %2, %.lr.ph133 ], [ %40, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h26c8162719ccdd9aE.exit" ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.0131, i64 %3)
   %39 = getelementptr inbounds i8, ptr %.sroa.085.0132, i64 %.0.sroa.speculated.i.i
-  %40 = sub i64 %.sroa.5.0131, %.0.sroa.speculated.i.i
+  %40 = sub nuw i64 %.sroa.5.0131, %.0.sroa.speculated.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)

@@ -233,7 +233,7 @@ for.body16.lr.ph.i:                               ; preds = %for.body.i19
   %conv17.i = trunc i64 %indvars.iv.i20 to i8
   %scevgep.i = getelementptr i8, ptr @sz_size2index_tab, i64 %dst_ind.014.i
   %11 = tail call i64 @llvm.usub.sat.i64(i64 512, i64 %dst_ind.014.i)
-  %12 = sub nsw i64 %shr.i, %dst_ind.014.i
+  %12 = sub nuw nsw i64 %shr.i, %dst_ind.014.i
   %umin.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %12)
   %13 = add nuw nsw i64 %umin.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 %conv17.i, i64 %13, i1 false)

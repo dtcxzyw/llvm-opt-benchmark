@@ -5139,7 +5139,7 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %58, %55
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit20.preheader
 
 80:                                               ; preds = %_ZNK7AstNode5widthEv.exit
-  %81 = sub i64 %63, %72
+  %81 = sub nuw i64 %63, %72
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr %64, i32 %65, i64 noundef %81, i1 noundef zeroext false)
           to label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit20.preheader unwind label %32
 

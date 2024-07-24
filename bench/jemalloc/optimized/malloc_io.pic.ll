@@ -797,7 +797,7 @@ do.body283:                                       ; preds = %for.inc, %cond.end2
   br i1 %cmp284, label %if.then286, label %if.end296
 
 if.then286:                                       ; preds = %do.body283
-  %sub287 = sub i64 %size, %i.3
+  %sub287 = sub nuw i64 %size, %i.3
   %cond294 = call i64 @llvm.umin.i64(i64 %slen.0, i64 %sub287)
   %arrayidx295 = getelementptr inbounds i8, ptr %str, i64 %i.3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx295, ptr nonnull align 1 %s.addr.0.i, i64 %cond294, i1 false)
@@ -1043,7 +1043,7 @@ do.body533:                                       ; preds = %for.inc529, %cond.e
   br i1 %cmp534, label %if.then536, label %if.end547
 
 if.then536:                                       ; preds = %do.body533
-  %sub538 = sub i64 %size, %i.8
+  %sub538 = sub nuw i64 %size, %i.8
   %cond545 = call i64 @llvm.umin.i64(i64 %slen.1, i64 %sub538)
   %arrayidx546 = getelementptr inbounds i8, ptr %str, i64 %i.8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx546, ptr nonnull align 1 %s.addr.0.i321, i64 %cond545, i1 false)
@@ -1275,7 +1275,7 @@ do.body785:                                       ; preds = %for.inc781, %cond.e
   br i1 %cmp786, label %if.then788, label %if.end799
 
 if.then788:                                       ; preds = %do.body785
-  %sub790 = sub i64 %size, %i.13
+  %sub790 = sub nuw i64 %size, %i.13
   %cond797 = call i64 @llvm.umin.i64(i64 %conv31.i, i64 %sub790)
   %arrayidx798 = getelementptr inbounds i8, ptr %str, i64 %i.13
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx798, ptr nonnull align 1 %arrayidx3.i.le, i64 %cond797, i1 false)
@@ -1525,7 +1525,7 @@ do.body1041:                                      ; preds = %for.inc1037, %cond.
   br i1 %cmp1042, label %if.then1044, label %if.end1055
 
 if.then1044:                                      ; preds = %do.body1041
-  %sub1046 = sub i64 %size, %i.18
+  %sub1046 = sub nuw i64 %size, %i.18
   %cond1053 = call i64 @llvm.umin.i64(i64 %slen.2, i64 %sub1046)
   %arrayidx1054 = getelementptr inbounds i8, ptr %str, i64 %i.18
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx1054, ptr nonnull align 1 %s.addr.0.i329, i64 %cond1053, i1 false)
@@ -1729,7 +1729,7 @@ do.body1273:                                      ; preds = %for.inc1269, %cond.
   br i1 %cmp1274, label %if.then1276, label %if.end1287
 
 if.then1276:                                      ; preds = %do.body1273
-  %sub1278 = sub i64 %size, %i.28
+  %sub1278 = sub nuw i64 %size, %i.28
   %cond1285 = call i64 @llvm.umin.i64(i64 %cond1221, i64 %sub1278)
   %arrayidx1286 = getelementptr inbounds i8, ptr %str, i64 %i.28
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx1286, ptr align 1 %126, i64 %cond1285, i1 false)
@@ -1858,7 +1858,7 @@ do.body1384:                                      ; preds = %for.inc1380, %cond.
   br i1 %cmp1385, label %if.then1387, label %if.end1398
 
 if.then1387:                                      ; preds = %do.body1384
-  %sub1389 = sub i64 %size, %i.33
+  %sub1389 = sub nuw i64 %size, %i.33
   %cond1396 = call i64 @llvm.umin.i64(i64 %add.i348, i64 %sub1389)
   %arrayidx1397 = getelementptr inbounds i8, ptr %str, i64 %i.33
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx1397, ptr nonnull align 1 %add.ptr.i347, i64 %cond1396, i1 false)

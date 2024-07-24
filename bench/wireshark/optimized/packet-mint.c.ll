@@ -368,7 +368,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   br i1 %51, label %52, label %.loopexit258
 
 52:                                               ; preds = %42
-  %53 = sub i32 %4, %50
+  %53 = sub nuw i32 %4, %50
   %54 = tail call fastcc i32 @dissect_eth_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %50, i32 noundef %53)
   %55 = add i32 %54, %50
   br label %.loopexit258
@@ -392,7 +392,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   br i1 %71, label %72, label %.loopexit258
 
 72:                                               ; preds = %56
-  %73 = sub i32 %4, %70
+  %73 = sub nuw i32 %4, %70
   %74 = tail call fastcc i32 @dissect_eth_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %70, i32 noundef %73)
   %75 = add i32 %74, %70
   br label %.loopexit258

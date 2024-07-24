@@ -18371,7 +18371,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i: ; preds = %_ZN5f
   br i1 %.not.i17.i.i.i.i.i, label %462, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i
 
 462:                                              ; preds = %461
-  %463 = sub i64 %459, %457
+  %463 = sub nuw i64 %459, %457
   %464 = trunc i64 %463 to i32
   %notmask.i.i.i.i.i.i = shl nsw i32 -1, %464
   %465 = xor i32 %notmask.i.i.i.i.i.i, -1
@@ -18647,7 +18647,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i131.i.i.i, label %574, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i132.i.i.i
 
 574:                                              ; preds = %573
-  %575 = sub i64 %571, %569
+  %575 = sub nuw i64 %571, %569
   %576 = trunc i64 %575 to i32
   %notmask.i.i.i133.i.i.i = shl nsw i32 -1, %576
   %577 = xor i32 %notmask.i.i.i133.i.i.i, -1
@@ -18925,7 +18925,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i170.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i181.i.i.i, label %687, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i182.i.i.i
 
 687:                                              ; preds = %686
-  %688 = sub i64 %684, %682
+  %688 = sub nuw i64 %684, %682
   %689 = trunc i64 %688 to i32
   %notmask.i.i.i183.i.i.i = shl nsw i32 -1, %689
   %690 = xor i32 %notmask.i.i.i183.i.i.i, -1
@@ -19203,7 +19203,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i226.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i237.i.i.i, label %800, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i238.i.i.i
 
 800:                                              ; preds = %799
-  %801 = sub i64 %797, %795
+  %801 = sub nuw i64 %797, %795
   %802 = trunc i64 %801 to i32
   %notmask.i.i.i239.i.i.i = shl nsw i32 -1, %802
   %803 = xor i32 %notmask.i.i.i239.i.i.i, -1
@@ -19903,7 +19903,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i187.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i.i196.i.i, label %1073, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i197.i.i
 
 1073:                                             ; preds = %1072
-  %1074 = sub i64 %1070, %1068
+  %1074 = sub nuw i64 %1070, %1068
   %1075 = trunc i64 %1074 to i32
   %notmask.i.i.i.i198.i.i = shl nsw i32 -1, %1075
   %1076 = xor i32 %notmask.i.i.i.i198.i.i, -1
@@ -20179,7 +20179,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i143.i.i: ; preds = 
   br i1 %.not.i17.i.i131.i153.i.i, label %1185, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i132.i154.i.i
 
 1185:                                             ; preds = %1184
-  %1186 = sub i64 %1182, %1180
+  %1186 = sub nuw i64 %1182, %1180
   %1187 = trunc i64 %1186 to i32
   %notmask.i.i.i133.i155.i.i = shl nsw i32 -1, %1187
   %1188 = xor i32 %notmask.i.i.i133.i155.i.i, -1
@@ -20457,7 +20457,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i170.i99.i.i: ; preds = %
   br i1 %.not.i17.i.i181.i109.i.i, label %1298, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i182.i110.i.i
 
 1298:                                             ; preds = %1297
-  %1299 = sub i64 %1295, %1293
+  %1299 = sub nuw i64 %1295, %1293
   %1300 = trunc i64 %1299 to i32
   %notmask.i.i.i183.i111.i.i = shl nsw i32 -1, %1300
   %1301 = xor i32 %notmask.i.i.i183.i111.i.i, -1
@@ -20735,7 +20735,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i226.i55.i.i: ; preds = %
   br i1 %.not.i17.i.i237.i65.i.i, label %1411, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i238.i66.i.i
 
 1411:                                             ; preds = %1410
-  %1412 = sub i64 %1408, %1406
+  %1412 = sub nuw i64 %1408, %1406
   %1413 = trunc i64 %1412 to i32
   %notmask.i.i.i239.i67.i.i = shl nsw i32 -1, %1413
   %1414 = xor i32 %notmask.i.i.i239.i67.i.i, -1
@@ -22869,7 +22869,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i130: ; preds = %_Z
   br i1 %.not.i18.i.i.i.i.i, label %2202, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i137
 
 2202:                                             ; preds = %2201
-  %2203 = sub i64 %2199, %2197
+  %2203 = sub nuw i64 %2199, %2197
   %2204 = trunc i64 %2203 to i32
   %notmask.i.i.i.i.i.i138 = shl nsw i32 -1, %2204
   %2205 = xor i32 %notmask.i.i.i.i.i.i138, -1
@@ -23173,7 +23173,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i97: ; preds = %
   br i1 %.not.i18.i.i134.i.i.i, label %2333, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i135.i.i.i
 
 2333:                                             ; preds = %2332
-  %2334 = sub i64 %2330, %2328
+  %2334 = sub nuw i64 %2330, %2328
   %2335 = trunc i64 %2334 to i32
   %notmask.i.i.i136.i.i.i = shl nsw i32 -1, %2335
   %2336 = xor i32 %notmask.i.i.i136.i.i.i, -1
@@ -23479,7 +23479,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i173.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i187.i.i.i, label %2465, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i188.i.i.i
 
 2465:                                             ; preds = %2464
-  %2466 = sub i64 %2462, %2460
+  %2466 = sub nuw i64 %2462, %2460
   %2467 = trunc i64 %2466 to i32
   %notmask.i.i.i189.i.i.i = shl nsw i32 -1, %2467
   %2468 = xor i32 %notmask.i.i.i189.i.i.i, -1
@@ -23785,7 +23785,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i232.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i246.i.i.i, label %2597, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i247.i.i.i
 
 2597:                                             ; preds = %2596
-  %2598 = sub i64 %2594, %2592
+  %2598 = sub nuw i64 %2594, %2592
   %2599 = trunc i64 %2598 to i32
   %notmask.i.i.i248.i.i.i = shl nsw i32 -1, %2599
   %2600 = xor i32 %notmask.i.i.i248.i.i.i, -1
@@ -24507,7 +24507,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i196.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i.i208.i.i, label %2889, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i209.i.i
 
 2889:                                             ; preds = %2888
-  %2890 = sub i64 %2886, %2884
+  %2890 = sub nuw i64 %2886, %2884
   %2891 = trunc i64 %2890 to i32
   %notmask.i.i.i.i210.i.i = shl nsw i32 -1, %2891
   %2892 = xor i32 %notmask.i.i.i.i210.i.i, -1
@@ -24811,7 +24811,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i149.i.i: ; preds = 
   br i1 %.not.i18.i.i134.i162.i.i, label %3020, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i135.i163.i.i
 
 3020:                                             ; preds = %3019
-  %3021 = sub i64 %3017, %3015
+  %3021 = sub nuw i64 %3017, %3015
   %3022 = trunc i64 %3021 to i32
   %notmask.i.i.i136.i164.i.i = shl nsw i32 -1, %3022
   %3023 = xor i32 %notmask.i.i.i136.i164.i.i, -1
@@ -25117,7 +25117,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i173.i102.i.i: ; preds = 
   br i1 %.not.i18.i.i187.i115.i.i, label %3152, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i188.i116.i.i
 
 3152:                                             ; preds = %3151
-  %3153 = sub i64 %3149, %3147
+  %3153 = sub nuw i64 %3149, %3147
   %3154 = trunc i64 %3153 to i32
   %notmask.i.i.i189.i117.i.i = shl nsw i32 -1, %3154
   %3155 = xor i32 %notmask.i.i.i189.i117.i.i, -1
@@ -25423,7 +25423,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i232.i55.i.i: ; preds = %
   br i1 %.not.i18.i.i246.i68.i.i, label %3284, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i247.i69.i.i
 
 3284:                                             ; preds = %3283
-  %3285 = sub i64 %3281, %3279
+  %3285 = sub nuw i64 %3281, %3279
   %3286 = trunc i64 %3285 to i32
   %notmask.i.i.i248.i70.i.i = shl nsw i32 -1, %3286
   %3287 = xor i32 %notmask.i.i.i248.i70.i.i, -1
@@ -26493,7 +26493,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i: ; preds = %_ZN5f
   br i1 %.not.i17.i.i.i.i.i, label %456, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i
 
 456:                                              ; preds = %455
-  %457 = sub i64 %453, %451
+  %457 = sub nuw i64 %453, %451
   %458 = trunc i64 %457 to i32
   %notmask.i.i.i.i.i.i = shl nsw i32 -1, %458
   %459 = xor i32 %notmask.i.i.i.i.i.i, -1
@@ -26759,7 +26759,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i130.i.i.i, label %559, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i131.i.i.i
 
 559:                                              ; preds = %558
-  %560 = sub i64 %556, %554
+  %560 = sub nuw i64 %556, %554
   %561 = trunc i64 %560 to i32
   %notmask.i.i.i132.i.i.i = shl nsw i32 -1, %561
   %562 = xor i32 %notmask.i.i.i132.i.i.i, -1
@@ -27027,7 +27027,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i169.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i179.i.i.i, label %663, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i180.i.i.i
 
 663:                                              ; preds = %662
-  %664 = sub i64 %660, %658
+  %664 = sub nuw i64 %660, %658
   %665 = trunc i64 %664 to i32
   %notmask.i.i.i181.i.i.i = shl nsw i32 -1, %665
   %666 = xor i32 %notmask.i.i.i181.i.i.i, -1
@@ -27295,7 +27295,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i224.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i234.i.i.i, label %767, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i235.i.i.i
 
 767:                                              ; preds = %766
-  %768 = sub i64 %764, %762
+  %768 = sub nuw i64 %764, %762
   %769 = trunc i64 %768 to i32
   %notmask.i.i.i236.i.i.i = shl nsw i32 -1, %769
   %770 = xor i32 %notmask.i.i.i236.i.i.i, -1
@@ -27985,7 +27985,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i184.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i.i192.i.i, label %1031, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i193.i.i
 
 1031:                                             ; preds = %1030
-  %1032 = sub i64 %1028, %1026
+  %1032 = sub nuw i64 %1028, %1026
   %1033 = trunc i64 %1032 to i32
   %notmask.i.i.i.i194.i.i = shl nsw i32 -1, %1033
   %1034 = xor i32 %notmask.i.i.i.i194.i.i, -1
@@ -28251,7 +28251,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i141.i.i: ; preds = 
   br i1 %.not.i17.i.i130.i150.i.i, label %1134, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i131.i151.i.i
 
 1134:                                             ; preds = %1133
-  %1135 = sub i64 %1131, %1129
+  %1135 = sub nuw i64 %1131, %1129
   %1136 = trunc i64 %1135 to i32
   %notmask.i.i.i132.i152.i.i = shl nsw i32 -1, %1136
   %1137 = xor i32 %notmask.i.i.i132.i152.i.i, -1
@@ -28519,7 +28519,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i169.i98.i.i: ; preds = %
   br i1 %.not.i17.i.i179.i107.i.i, label %1238, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i180.i108.i.i
 
 1238:                                             ; preds = %1237
-  %1239 = sub i64 %1235, %1233
+  %1239 = sub nuw i64 %1235, %1233
   %1240 = trunc i64 %1239 to i32
   %notmask.i.i.i181.i109.i.i = shl nsw i32 -1, %1240
   %1241 = xor i32 %notmask.i.i.i181.i109.i.i, -1
@@ -28787,7 +28787,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i224.i55.i.i: ; preds = %
   br i1 %.not.i17.i.i234.i64.i.i, label %1342, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i235.i65.i.i
 
 1342:                                             ; preds = %1341
-  %1343 = sub i64 %1339, %1337
+  %1343 = sub nuw i64 %1339, %1337
   %1344 = trunc i64 %1343 to i32
   %notmask.i.i.i236.i66.i.i = shl nsw i32 -1, %1344
   %1345 = xor i32 %notmask.i.i.i236.i66.i.i, -1
@@ -30911,7 +30911,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i129: ; preds = %_Z
   br i1 %.not.i18.i.i.i.i.i, label %2124, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i135
 
 2124:                                             ; preds = %2123
-  %2125 = sub i64 %2121, %2119
+  %2125 = sub nuw i64 %2121, %2119
   %2126 = trunc i64 %2125 to i32
   %notmask.i.i.i.i.i.i136 = shl nsw i32 -1, %2126
   %2127 = xor i32 %notmask.i.i.i.i.i.i136, -1
@@ -31205,7 +31205,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i97: ; preds = %
   br i1 %.not.i18.i.i133.i.i.i, label %2246, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i134.i.i.i
 
 2246:                                             ; preds = %2245
-  %2247 = sub i64 %2243, %2241
+  %2247 = sub nuw i64 %2243, %2241
   %2248 = trunc i64 %2247 to i32
   %notmask.i.i.i135.i.i.i = shl nsw i32 -1, %2248
   %2249 = xor i32 %notmask.i.i.i135.i.i.i, -1
@@ -31501,7 +31501,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i172.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i185.i.i.i, label %2369, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i186.i.i.i
 
 2369:                                             ; preds = %2368
-  %2370 = sub i64 %2366, %2364
+  %2370 = sub nuw i64 %2366, %2364
   %2371 = trunc i64 %2370 to i32
   %notmask.i.i.i187.i.i.i = shl nsw i32 -1, %2371
   %2372 = xor i32 %notmask.i.i.i187.i.i.i, -1
@@ -31797,7 +31797,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i230.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i243.i.i.i, label %2492, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i244.i.i.i
 
 2492:                                             ; preds = %2491
-  %2493 = sub i64 %2489, %2487
+  %2493 = sub nuw i64 %2489, %2487
   %2494 = trunc i64 %2493 to i32
   %notmask.i.i.i245.i.i.i = shl nsw i32 -1, %2494
   %2495 = xor i32 %notmask.i.i.i245.i.i.i, -1
@@ -32509,7 +32509,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i193.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i.i204.i.i, label %2775, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i205.i.i
 
 2775:                                             ; preds = %2774
-  %2776 = sub i64 %2772, %2770
+  %2776 = sub nuw i64 %2772, %2770
   %2777 = trunc i64 %2776 to i32
   %notmask.i.i.i.i206.i.i = shl nsw i32 -1, %2777
   %2778 = xor i32 %notmask.i.i.i.i206.i.i, -1
@@ -32803,7 +32803,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i147.i.i: ; preds = 
   br i1 %.not.i18.i.i133.i159.i.i, label %2897, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i134.i160.i.i
 
 2897:                                             ; preds = %2896
-  %2898 = sub i64 %2894, %2892
+  %2898 = sub nuw i64 %2894, %2892
   %2899 = trunc i64 %2898 to i32
   %notmask.i.i.i135.i161.i.i = shl nsw i32 -1, %2899
   %2900 = xor i32 %notmask.i.i.i135.i161.i.i, -1
@@ -33099,7 +33099,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i172.i101.i.i: ; preds = 
   br i1 %.not.i18.i.i185.i113.i.i, label %3020, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i186.i114.i.i
 
 3020:                                             ; preds = %3019
-  %3021 = sub i64 %3017, %3015
+  %3021 = sub nuw i64 %3017, %3015
   %3022 = trunc i64 %3021 to i32
   %notmask.i.i.i187.i115.i.i = shl nsw i32 -1, %3022
   %3023 = xor i32 %notmask.i.i.i187.i115.i.i, -1
@@ -33395,7 +33395,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i230.i55.i.i: ; preds = %
   br i1 %.not.i18.i.i243.i67.i.i, label %3143, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i244.i68.i.i
 
 3143:                                             ; preds = %3142
-  %3144 = sub i64 %3140, %3138
+  %3144 = sub nuw i64 %3140, %3138
   %3145 = trunc i64 %3144 to i32
   %notmask.i.i.i245.i69.i.i = shl nsw i32 -1, %3145
   %3146 = xor i32 %notmask.i.i.i245.i69.i.i, -1
@@ -33907,7 +33907,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %70
+  %77 = sub nuw i64 %73, %70
   %78 = trunc i64 %77 to i32
   %notmask.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i, -1
@@ -34144,7 +34144,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -34392,7 +34392,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %88, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 88:                                               ; preds = %87
-  %89 = sub i64 %85, %83
+  %89 = sub nuw i64 %85, %83
   %90 = trunc i64 %89 to i32
   %notmask.i.i = shl nsw i32 -1, %90
   %91 = xor i32 %notmask.i.i, -1
@@ -34631,7 +34631,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -34870,7 +34870,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -35098,7 +35098,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %76
+  %83 = sub nuw i64 %79, %76
   %84 = trunc i64 %83 to i32
   %notmask.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i, -1
@@ -35433,7 +35433,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -35696,7 +35696,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -35972,7 +35972,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %88, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 88:                                               ; preds = %87
-  %89 = sub i64 %85, %83
+  %89 = sub nuw i64 %85, %83
   %90 = trunc i64 %89 to i32
   %notmask.i.i = shl nsw i32 -1, %90
   %91 = xor i32 %notmask.i.i, -1
@@ -36239,7 +36239,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -36506,7 +36506,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -36751,7 +36751,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 71:                                               ; preds = %70
-  %72 = sub i64 %68, %65
+  %72 = sub nuw i64 %68, %65
   %73 = trunc i64 %72 to i32
   %notmask.i = shl nsw i32 -1, %73
   %74 = xor i32 %notmask.i, -1
@@ -36974,7 +36974,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %71
+  %77 = sub nuw i64 %73, %71
   %78 = trunc i64 %77 to i32
   %notmask.i.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i.i, -1
@@ -37213,7 +37213,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -37442,7 +37442,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -37672,7 +37672,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -37892,7 +37892,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -38217,7 +38217,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %72, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 72:                                               ; preds = %71
-  %73 = sub i64 %69, %66
+  %73 = sub nuw i64 %69, %66
   %74 = trunc i64 %73 to i32
   %notmask.i = shl nsw i32 -1, %74
   %75 = xor i32 %notmask.i, -1
@@ -38467,7 +38467,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %71
+  %77 = sub nuw i64 %73, %71
   %78 = trunc i64 %77 to i32
   %notmask.i.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i.i, -1
@@ -38734,7 +38734,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -38991,7 +38991,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -39249,7 +39249,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -40056,7 +40056,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i: ; preds = %_ZN5f
   br i1 %.not.i17.i.i.i.i.i, label %462, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i
 
 462:                                              ; preds = %461
-  %463 = sub i64 %459, %457
+  %463 = sub nuw i64 %459, %457
   %464 = trunc i64 %463 to i32
   %notmask.i.i.i.i.i.i = shl nsw i32 -1, %464
   %465 = xor i32 %notmask.i.i.i.i.i.i, -1
@@ -40332,7 +40332,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i131.i.i.i, label %574, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i132.i.i.i
 
 574:                                              ; preds = %573
-  %575 = sub i64 %571, %569
+  %575 = sub nuw i64 %571, %569
   %576 = trunc i64 %575 to i32
   %notmask.i.i.i133.i.i.i = shl nsw i32 -1, %576
   %577 = xor i32 %notmask.i.i.i133.i.i.i, -1
@@ -40610,7 +40610,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i170.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i181.i.i.i, label %687, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i182.i.i.i
 
 687:                                              ; preds = %686
-  %688 = sub i64 %684, %682
+  %688 = sub nuw i64 %684, %682
   %689 = trunc i64 %688 to i32
   %notmask.i.i.i183.i.i.i = shl nsw i32 -1, %689
   %690 = xor i32 %notmask.i.i.i183.i.i.i, -1
@@ -40888,7 +40888,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i226.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i237.i.i.i, label %800, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i238.i.i.i
 
 800:                                              ; preds = %799
-  %801 = sub i64 %797, %795
+  %801 = sub nuw i64 %797, %795
   %802 = trunc i64 %801 to i32
   %notmask.i.i.i239.i.i.i = shl nsw i32 -1, %802
   %803 = xor i32 %notmask.i.i.i239.i.i.i, -1
@@ -41588,7 +41588,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i187.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i.i196.i.i, label %1073, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i197.i.i
 
 1073:                                             ; preds = %1072
-  %1074 = sub i64 %1070, %1068
+  %1074 = sub nuw i64 %1070, %1068
   %1075 = trunc i64 %1074 to i32
   %notmask.i.i.i.i198.i.i = shl nsw i32 -1, %1075
   %1076 = xor i32 %notmask.i.i.i.i198.i.i, -1
@@ -41864,7 +41864,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i143.i.i: ; preds = 
   br i1 %.not.i17.i.i131.i153.i.i, label %1185, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i132.i154.i.i
 
 1185:                                             ; preds = %1184
-  %1186 = sub i64 %1182, %1180
+  %1186 = sub nuw i64 %1182, %1180
   %1187 = trunc i64 %1186 to i32
   %notmask.i.i.i133.i155.i.i = shl nsw i32 -1, %1187
   %1188 = xor i32 %notmask.i.i.i133.i155.i.i, -1
@@ -42142,7 +42142,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i170.i99.i.i: ; preds = %
   br i1 %.not.i17.i.i181.i109.i.i, label %1298, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i182.i110.i.i
 
 1298:                                             ; preds = %1297
-  %1299 = sub i64 %1295, %1293
+  %1299 = sub nuw i64 %1295, %1293
   %1300 = trunc i64 %1299 to i32
   %notmask.i.i.i183.i111.i.i = shl nsw i32 -1, %1300
   %1301 = xor i32 %notmask.i.i.i183.i111.i.i, -1
@@ -42420,7 +42420,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i226.i55.i.i: ; preds = %
   br i1 %.not.i17.i.i237.i65.i.i, label %1411, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i238.i66.i.i
 
 1411:                                             ; preds = %1410
-  %1412 = sub i64 %1408, %1406
+  %1412 = sub nuw i64 %1408, %1406
   %1413 = trunc i64 %1412 to i32
   %notmask.i.i.i239.i67.i.i = shl nsw i32 -1, %1413
   %1414 = xor i32 %notmask.i.i.i239.i67.i.i, -1
@@ -44554,7 +44554,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i130: ; preds = %_Z
   br i1 %.not.i18.i.i.i.i.i, label %2202, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i137
 
 2202:                                             ; preds = %2201
-  %2203 = sub i64 %2199, %2197
+  %2203 = sub nuw i64 %2199, %2197
   %2204 = trunc i64 %2203 to i32
   %notmask.i.i.i.i.i.i138 = shl nsw i32 -1, %2204
   %2205 = xor i32 %notmask.i.i.i.i.i.i138, -1
@@ -44858,7 +44858,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i97: ; preds = %
   br i1 %.not.i18.i.i134.i.i.i, label %2333, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i135.i.i.i
 
 2333:                                             ; preds = %2332
-  %2334 = sub i64 %2330, %2328
+  %2334 = sub nuw i64 %2330, %2328
   %2335 = trunc i64 %2334 to i32
   %notmask.i.i.i136.i.i.i = shl nsw i32 -1, %2335
   %2336 = xor i32 %notmask.i.i.i136.i.i.i, -1
@@ -45164,7 +45164,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i173.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i187.i.i.i, label %2465, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i188.i.i.i
 
 2465:                                             ; preds = %2464
-  %2466 = sub i64 %2462, %2460
+  %2466 = sub nuw i64 %2462, %2460
   %2467 = trunc i64 %2466 to i32
   %notmask.i.i.i189.i.i.i = shl nsw i32 -1, %2467
   %2468 = xor i32 %notmask.i.i.i189.i.i.i, -1
@@ -45470,7 +45470,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i232.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i246.i.i.i, label %2597, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i247.i.i.i
 
 2597:                                             ; preds = %2596
-  %2598 = sub i64 %2594, %2592
+  %2598 = sub nuw i64 %2594, %2592
   %2599 = trunc i64 %2598 to i32
   %notmask.i.i.i248.i.i.i = shl nsw i32 -1, %2599
   %2600 = xor i32 %notmask.i.i.i248.i.i.i, -1
@@ -46192,7 +46192,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i196.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i.i208.i.i, label %2889, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i209.i.i
 
 2889:                                             ; preds = %2888
-  %2890 = sub i64 %2886, %2884
+  %2890 = sub nuw i64 %2886, %2884
   %2891 = trunc i64 %2890 to i32
   %notmask.i.i.i.i210.i.i = shl nsw i32 -1, %2891
   %2892 = xor i32 %notmask.i.i.i.i210.i.i, -1
@@ -46496,7 +46496,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i149.i.i: ; preds = 
   br i1 %.not.i18.i.i134.i162.i.i, label %3020, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i135.i163.i.i
 
 3020:                                             ; preds = %3019
-  %3021 = sub i64 %3017, %3015
+  %3021 = sub nuw i64 %3017, %3015
   %3022 = trunc i64 %3021 to i32
   %notmask.i.i.i136.i164.i.i = shl nsw i32 -1, %3022
   %3023 = xor i32 %notmask.i.i.i136.i164.i.i, -1
@@ -46802,7 +46802,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i173.i102.i.i: ; preds = 
   br i1 %.not.i18.i.i187.i115.i.i, label %3152, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i188.i116.i.i
 
 3152:                                             ; preds = %3151
-  %3153 = sub i64 %3149, %3147
+  %3153 = sub nuw i64 %3149, %3147
   %3154 = trunc i64 %3153 to i32
   %notmask.i.i.i189.i117.i.i = shl nsw i32 -1, %3154
   %3155 = xor i32 %notmask.i.i.i189.i117.i.i, -1
@@ -47108,7 +47108,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i232.i55.i.i: ; preds = %
   br i1 %.not.i18.i.i246.i68.i.i, label %3284, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i247.i69.i.i
 
 3284:                                             ; preds = %3283
-  %3285 = sub i64 %3281, %3279
+  %3285 = sub nuw i64 %3281, %3279
   %3286 = trunc i64 %3285 to i32
   %notmask.i.i.i248.i70.i.i = shl nsw i32 -1, %3286
   %3287 = xor i32 %notmask.i.i.i248.i70.i.i, -1
@@ -48178,7 +48178,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i: ; preds = %_ZN5f
   br i1 %.not.i17.i.i.i.i.i, label %456, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i
 
 456:                                              ; preds = %455
-  %457 = sub i64 %453, %451
+  %457 = sub nuw i64 %453, %451
   %458 = trunc i64 %457 to i32
   %notmask.i.i.i.i.i.i = shl nsw i32 -1, %458
   %459 = xor i32 %notmask.i.i.i.i.i.i, -1
@@ -48444,7 +48444,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i130.i.i.i, label %559, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i131.i.i.i
 
 559:                                              ; preds = %558
-  %560 = sub i64 %556, %554
+  %560 = sub nuw i64 %556, %554
   %561 = trunc i64 %560 to i32
   %notmask.i.i.i132.i.i.i = shl nsw i32 -1, %561
   %562 = xor i32 %notmask.i.i.i132.i.i.i, -1
@@ -48712,7 +48712,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i169.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i179.i.i.i, label %663, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i180.i.i.i
 
 663:                                              ; preds = %662
-  %664 = sub i64 %660, %658
+  %664 = sub nuw i64 %660, %658
   %665 = trunc i64 %664 to i32
   %notmask.i.i.i181.i.i.i = shl nsw i32 -1, %665
   %666 = xor i32 %notmask.i.i.i181.i.i.i, -1
@@ -48980,7 +48980,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i224.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i234.i.i.i, label %767, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i235.i.i.i
 
 767:                                              ; preds = %766
-  %768 = sub i64 %764, %762
+  %768 = sub nuw i64 %764, %762
   %769 = trunc i64 %768 to i32
   %notmask.i.i.i236.i.i.i = shl nsw i32 -1, %769
   %770 = xor i32 %notmask.i.i.i236.i.i.i, -1
@@ -49670,7 +49670,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i184.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i.i192.i.i, label %1031, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i193.i.i
 
 1031:                                             ; preds = %1030
-  %1032 = sub i64 %1028, %1026
+  %1032 = sub nuw i64 %1028, %1026
   %1033 = trunc i64 %1032 to i32
   %notmask.i.i.i.i194.i.i = shl nsw i32 -1, %1033
   %1034 = xor i32 %notmask.i.i.i.i194.i.i, -1
@@ -49936,7 +49936,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i141.i.i: ; preds = 
   br i1 %.not.i17.i.i130.i150.i.i, label %1134, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i131.i151.i.i
 
 1134:                                             ; preds = %1133
-  %1135 = sub i64 %1131, %1129
+  %1135 = sub nuw i64 %1131, %1129
   %1136 = trunc i64 %1135 to i32
   %notmask.i.i.i132.i152.i.i = shl nsw i32 -1, %1136
   %1137 = xor i32 %notmask.i.i.i132.i152.i.i, -1
@@ -50204,7 +50204,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i169.i98.i.i: ; preds = %
   br i1 %.not.i17.i.i179.i107.i.i, label %1238, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i180.i108.i.i
 
 1238:                                             ; preds = %1237
-  %1239 = sub i64 %1235, %1233
+  %1239 = sub nuw i64 %1235, %1233
   %1240 = trunc i64 %1239 to i32
   %notmask.i.i.i181.i109.i.i = shl nsw i32 -1, %1240
   %1241 = xor i32 %notmask.i.i.i181.i109.i.i, -1
@@ -50472,7 +50472,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i224.i55.i.i: ; preds = %
   br i1 %.not.i17.i.i234.i64.i.i, label %1342, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i235.i65.i.i
 
 1342:                                             ; preds = %1341
-  %1343 = sub i64 %1339, %1337
+  %1343 = sub nuw i64 %1339, %1337
   %1344 = trunc i64 %1343 to i32
   %notmask.i.i.i236.i66.i.i = shl nsw i32 -1, %1344
   %1345 = xor i32 %notmask.i.i.i236.i66.i.i, -1
@@ -52596,7 +52596,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i129: ; preds = %_Z
   br i1 %.not.i18.i.i.i.i.i, label %2124, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i135
 
 2124:                                             ; preds = %2123
-  %2125 = sub i64 %2121, %2119
+  %2125 = sub nuw i64 %2121, %2119
   %2126 = trunc i64 %2125 to i32
   %notmask.i.i.i.i.i.i136 = shl nsw i32 -1, %2126
   %2127 = xor i32 %notmask.i.i.i.i.i.i136, -1
@@ -52890,7 +52890,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i97: ; preds = %
   br i1 %.not.i18.i.i133.i.i.i, label %2246, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i134.i.i.i
 
 2246:                                             ; preds = %2245
-  %2247 = sub i64 %2243, %2241
+  %2247 = sub nuw i64 %2243, %2241
   %2248 = trunc i64 %2247 to i32
   %notmask.i.i.i135.i.i.i = shl nsw i32 -1, %2248
   %2249 = xor i32 %notmask.i.i.i135.i.i.i, -1
@@ -53186,7 +53186,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i172.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i185.i.i.i, label %2369, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i186.i.i.i
 
 2369:                                             ; preds = %2368
-  %2370 = sub i64 %2366, %2364
+  %2370 = sub nuw i64 %2366, %2364
   %2371 = trunc i64 %2370 to i32
   %notmask.i.i.i187.i.i.i = shl nsw i32 -1, %2371
   %2372 = xor i32 %notmask.i.i.i187.i.i.i, -1
@@ -53482,7 +53482,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i230.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i243.i.i.i, label %2492, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i244.i.i.i
 
 2492:                                             ; preds = %2491
-  %2493 = sub i64 %2489, %2487
+  %2493 = sub nuw i64 %2489, %2487
   %2494 = trunc i64 %2493 to i32
   %notmask.i.i.i245.i.i.i = shl nsw i32 -1, %2494
   %2495 = xor i32 %notmask.i.i.i245.i.i.i, -1
@@ -54194,7 +54194,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i193.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i.i204.i.i, label %2775, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i205.i.i
 
 2775:                                             ; preds = %2774
-  %2776 = sub i64 %2772, %2770
+  %2776 = sub nuw i64 %2772, %2770
   %2777 = trunc i64 %2776 to i32
   %notmask.i.i.i.i206.i.i = shl nsw i32 -1, %2777
   %2778 = xor i32 %notmask.i.i.i.i206.i.i, -1
@@ -54488,7 +54488,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i147.i.i: ; preds = 
   br i1 %.not.i18.i.i133.i159.i.i, label %2897, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i134.i160.i.i
 
 2897:                                             ; preds = %2896
-  %2898 = sub i64 %2894, %2892
+  %2898 = sub nuw i64 %2894, %2892
   %2899 = trunc i64 %2898 to i32
   %notmask.i.i.i135.i161.i.i = shl nsw i32 -1, %2899
   %2900 = xor i32 %notmask.i.i.i135.i161.i.i, -1
@@ -54784,7 +54784,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i172.i101.i.i: ; preds = 
   br i1 %.not.i18.i.i185.i113.i.i, label %3020, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i186.i114.i.i
 
 3020:                                             ; preds = %3019
-  %3021 = sub i64 %3017, %3015
+  %3021 = sub nuw i64 %3017, %3015
   %3022 = trunc i64 %3021 to i32
   %notmask.i.i.i187.i115.i.i = shl nsw i32 -1, %3022
   %3023 = xor i32 %notmask.i.i.i187.i115.i.i, -1
@@ -55080,7 +55080,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i230.i55.i.i: ; preds = %
   br i1 %.not.i18.i.i243.i67.i.i, label %3143, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i244.i68.i.i
 
 3143:                                             ; preds = %3142
-  %3144 = sub i64 %3140, %3138
+  %3144 = sub nuw i64 %3140, %3138
   %3145 = trunc i64 %3144 to i32
   %notmask.i.i.i245.i69.i.i = shl nsw i32 -1, %3145
   %3146 = xor i32 %notmask.i.i.i245.i69.i.i, -1
@@ -55592,7 +55592,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %70
+  %77 = sub nuw i64 %73, %70
   %78 = trunc i64 %77 to i32
   %notmask.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i, -1
@@ -55826,7 +55826,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -56074,7 +56074,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %88, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 88:                                               ; preds = %87
-  %89 = sub i64 %85, %83
+  %89 = sub nuw i64 %85, %83
   %90 = trunc i64 %89 to i32
   %notmask.i.i = shl nsw i32 -1, %90
   %91 = xor i32 %notmask.i.i, -1
@@ -56313,7 +56313,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -56552,7 +56552,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -56780,7 +56780,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %76
+  %83 = sub nuw i64 %79, %76
   %84 = trunc i64 %83 to i32
   %notmask.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i, -1
@@ -57115,7 +57115,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -57378,7 +57378,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -57654,7 +57654,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %88, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 88:                                               ; preds = %87
-  %89 = sub i64 %85, %83
+  %89 = sub nuw i64 %85, %83
   %90 = trunc i64 %89 to i32
   %notmask.i.i = shl nsw i32 -1, %90
   %91 = xor i32 %notmask.i.i, -1
@@ -57921,7 +57921,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -58188,7 +58188,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -58433,7 +58433,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 71:                                               ; preds = %70
-  %72 = sub i64 %68, %65
+  %72 = sub nuw i64 %68, %65
   %73 = trunc i64 %72 to i32
   %notmask.i = shl nsw i32 -1, %73
   %74 = xor i32 %notmask.i, -1
@@ -58656,7 +58656,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %71
+  %77 = sub nuw i64 %73, %71
   %78 = trunc i64 %77 to i32
   %notmask.i.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i.i, -1
@@ -58895,7 +58895,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -59124,7 +59124,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -59354,7 +59354,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -59574,7 +59574,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -59899,7 +59899,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %72, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 72:                                               ; preds = %71
-  %73 = sub i64 %69, %66
+  %73 = sub nuw i64 %69, %66
   %74 = trunc i64 %73 to i32
   %notmask.i = shl nsw i32 -1, %74
   %75 = xor i32 %notmask.i, -1
@@ -60149,7 +60149,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %71
+  %77 = sub nuw i64 %73, %71
   %78 = trunc i64 %77 to i32
   %notmask.i.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i.i, -1
@@ -60416,7 +60416,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -60673,7 +60673,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -60931,7 +60931,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -61738,7 +61738,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i: ; preds = %_ZN5f
   br i1 %.not.i17.i.i.i.i.i, label %462, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i
 
 462:                                              ; preds = %461
-  %463 = sub i64 %459, %457
+  %463 = sub nuw i64 %459, %457
   %464 = trunc i64 %463 to i32
   %notmask.i.i.i.i.i.i = shl nsw i32 -1, %464
   %465 = xor i32 %notmask.i.i.i.i.i.i, -1
@@ -62014,7 +62014,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i131.i.i.i, label %574, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i132.i.i.i
 
 574:                                              ; preds = %573
-  %575 = sub i64 %571, %569
+  %575 = sub nuw i64 %571, %569
   %576 = trunc i64 %575 to i32
   %notmask.i.i.i133.i.i.i = shl nsw i32 -1, %576
   %577 = xor i32 %notmask.i.i.i133.i.i.i, -1
@@ -62292,7 +62292,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i170.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i181.i.i.i, label %687, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i182.i.i.i
 
 687:                                              ; preds = %686
-  %688 = sub i64 %684, %682
+  %688 = sub nuw i64 %684, %682
   %689 = trunc i64 %688 to i32
   %notmask.i.i.i183.i.i.i = shl nsw i32 -1, %689
   %690 = xor i32 %notmask.i.i.i183.i.i.i, -1
@@ -62570,7 +62570,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i226.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i237.i.i.i, label %800, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i238.i.i.i
 
 800:                                              ; preds = %799
-  %801 = sub i64 %797, %795
+  %801 = sub nuw i64 %797, %795
   %802 = trunc i64 %801 to i32
   %notmask.i.i.i239.i.i.i = shl nsw i32 -1, %802
   %803 = xor i32 %notmask.i.i.i239.i.i.i, -1
@@ -63270,7 +63270,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i187.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i.i196.i.i, label %1073, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i197.i.i
 
 1073:                                             ; preds = %1072
-  %1074 = sub i64 %1070, %1068
+  %1074 = sub nuw i64 %1070, %1068
   %1075 = trunc i64 %1074 to i32
   %notmask.i.i.i.i198.i.i = shl nsw i32 -1, %1075
   %1076 = xor i32 %notmask.i.i.i.i198.i.i, -1
@@ -63546,7 +63546,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i143.i.i: ; preds = 
   br i1 %.not.i17.i.i131.i153.i.i, label %1185, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i132.i154.i.i
 
 1185:                                             ; preds = %1184
-  %1186 = sub i64 %1182, %1180
+  %1186 = sub nuw i64 %1182, %1180
   %1187 = trunc i64 %1186 to i32
   %notmask.i.i.i133.i155.i.i = shl nsw i32 -1, %1187
   %1188 = xor i32 %notmask.i.i.i133.i155.i.i, -1
@@ -63824,7 +63824,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i170.i99.i.i: ; preds = %
   br i1 %.not.i17.i.i181.i109.i.i, label %1298, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i182.i110.i.i
 
 1298:                                             ; preds = %1297
-  %1299 = sub i64 %1295, %1293
+  %1299 = sub nuw i64 %1295, %1293
   %1300 = trunc i64 %1299 to i32
   %notmask.i.i.i183.i111.i.i = shl nsw i32 -1, %1300
   %1301 = xor i32 %notmask.i.i.i183.i111.i.i, -1
@@ -64102,7 +64102,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i226.i55.i.i: ; preds = %
   br i1 %.not.i17.i.i237.i65.i.i, label %1411, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i238.i66.i.i
 
 1411:                                             ; preds = %1410
-  %1412 = sub i64 %1408, %1406
+  %1412 = sub nuw i64 %1408, %1406
   %1413 = trunc i64 %1412 to i32
   %notmask.i.i.i239.i67.i.i = shl nsw i32 -1, %1413
   %1414 = xor i32 %notmask.i.i.i239.i67.i.i, -1
@@ -66236,7 +66236,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i130: ; preds = %_Z
   br i1 %.not.i18.i.i.i.i.i, label %2202, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i137
 
 2202:                                             ; preds = %2201
-  %2203 = sub i64 %2199, %2197
+  %2203 = sub nuw i64 %2199, %2197
   %2204 = trunc i64 %2203 to i32
   %notmask.i.i.i.i.i.i138 = shl nsw i32 -1, %2204
   %2205 = xor i32 %notmask.i.i.i.i.i.i138, -1
@@ -66539,7 +66539,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i97: ; preds = %
   br i1 %.not.i18.i.i134.i.i.i, label %2332, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i135.i.i.i
 
 2332:                                             ; preds = %2331
-  %2333 = sub i64 %2329, %2327
+  %2333 = sub nuw i64 %2329, %2327
   %2334 = trunc i64 %2333 to i32
   %notmask.i.i.i136.i.i.i = shl nsw i32 -1, %2334
   %2335 = xor i32 %notmask.i.i.i136.i.i.i, -1
@@ -66844,7 +66844,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i173.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i187.i.i.i, label %2463, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i188.i.i.i
 
 2463:                                             ; preds = %2462
-  %2464 = sub i64 %2460, %2458
+  %2464 = sub nuw i64 %2460, %2458
   %2465 = trunc i64 %2464 to i32
   %notmask.i.i.i189.i.i.i = shl nsw i32 -1, %2465
   %2466 = xor i32 %notmask.i.i.i189.i.i.i, -1
@@ -67149,7 +67149,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i232.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i246.i.i.i, label %2594, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i247.i.i.i
 
 2594:                                             ; preds = %2593
-  %2595 = sub i64 %2591, %2589
+  %2595 = sub nuw i64 %2591, %2589
   %2596 = trunc i64 %2595 to i32
   %notmask.i.i.i248.i.i.i = shl nsw i32 -1, %2596
   %2597 = xor i32 %notmask.i.i.i248.i.i.i, -1
@@ -67870,7 +67870,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i196.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i.i208.i.i, label %2885, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i209.i.i
 
 2885:                                             ; preds = %2884
-  %2886 = sub i64 %2882, %2880
+  %2886 = sub nuw i64 %2882, %2880
   %2887 = trunc i64 %2886 to i32
   %notmask.i.i.i.i210.i.i = shl nsw i32 -1, %2887
   %2888 = xor i32 %notmask.i.i.i.i210.i.i, -1
@@ -68173,7 +68173,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i149.i.i: ; preds = 
   br i1 %.not.i18.i.i134.i162.i.i, label %3015, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i135.i163.i.i
 
 3015:                                             ; preds = %3014
-  %3016 = sub i64 %3012, %3010
+  %3016 = sub nuw i64 %3012, %3010
   %3017 = trunc i64 %3016 to i32
   %notmask.i.i.i136.i164.i.i = shl nsw i32 -1, %3017
   %3018 = xor i32 %notmask.i.i.i136.i164.i.i, -1
@@ -68478,7 +68478,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i173.i102.i.i: ; preds = 
   br i1 %.not.i18.i.i187.i115.i.i, label %3146, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i188.i116.i.i
 
 3146:                                             ; preds = %3145
-  %3147 = sub i64 %3143, %3141
+  %3147 = sub nuw i64 %3143, %3141
   %3148 = trunc i64 %3147 to i32
   %notmask.i.i.i189.i117.i.i = shl nsw i32 -1, %3148
   %3149 = xor i32 %notmask.i.i.i189.i117.i.i, -1
@@ -68783,7 +68783,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i232.i55.i.i: ; preds = %
   br i1 %.not.i18.i.i246.i68.i.i, label %3277, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i247.i69.i.i
 
 3277:                                             ; preds = %3276
-  %3278 = sub i64 %3274, %3272
+  %3278 = sub nuw i64 %3274, %3272
   %3279 = trunc i64 %3278 to i32
   %notmask.i.i.i248.i70.i.i = shl nsw i32 -1, %3279
   %3280 = xor i32 %notmask.i.i.i248.i70.i.i, -1
@@ -69852,7 +69852,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i: ; preds = %_ZN5f
   br i1 %.not.i17.i.i.i.i.i, label %456, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i
 
 456:                                              ; preds = %455
-  %457 = sub i64 %453, %451
+  %457 = sub nuw i64 %453, %451
   %458 = trunc i64 %457 to i32
   %notmask.i.i.i.i.i.i = shl nsw i32 -1, %458
   %459 = xor i32 %notmask.i.i.i.i.i.i, -1
@@ -70118,7 +70118,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i130.i.i.i, label %559, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i131.i.i.i
 
 559:                                              ; preds = %558
-  %560 = sub i64 %556, %554
+  %560 = sub nuw i64 %556, %554
   %561 = trunc i64 %560 to i32
   %notmask.i.i.i132.i.i.i = shl nsw i32 -1, %561
   %562 = xor i32 %notmask.i.i.i132.i.i.i, -1
@@ -70386,7 +70386,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i169.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i179.i.i.i, label %663, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i180.i.i.i
 
 663:                                              ; preds = %662
-  %664 = sub i64 %660, %658
+  %664 = sub nuw i64 %660, %658
   %665 = trunc i64 %664 to i32
   %notmask.i.i.i181.i.i.i = shl nsw i32 -1, %665
   %666 = xor i32 %notmask.i.i.i181.i.i.i, -1
@@ -70654,7 +70654,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i224.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i234.i.i.i, label %767, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i235.i.i.i
 
 767:                                              ; preds = %766
-  %768 = sub i64 %764, %762
+  %768 = sub nuw i64 %764, %762
   %769 = trunc i64 %768 to i32
   %notmask.i.i.i236.i.i.i = shl nsw i32 -1, %769
   %770 = xor i32 %notmask.i.i.i236.i.i.i, -1
@@ -71344,7 +71344,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i184.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i.i192.i.i, label %1031, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i193.i.i
 
 1031:                                             ; preds = %1030
-  %1032 = sub i64 %1028, %1026
+  %1032 = sub nuw i64 %1028, %1026
   %1033 = trunc i64 %1032 to i32
   %notmask.i.i.i.i194.i.i = shl nsw i32 -1, %1033
   %1034 = xor i32 %notmask.i.i.i.i194.i.i, -1
@@ -71610,7 +71610,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i141.i.i: ; preds = 
   br i1 %.not.i17.i.i130.i150.i.i, label %1134, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i131.i151.i.i
 
 1134:                                             ; preds = %1133
-  %1135 = sub i64 %1131, %1129
+  %1135 = sub nuw i64 %1131, %1129
   %1136 = trunc i64 %1135 to i32
   %notmask.i.i.i132.i152.i.i = shl nsw i32 -1, %1136
   %1137 = xor i32 %notmask.i.i.i132.i152.i.i, -1
@@ -71878,7 +71878,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i169.i98.i.i: ; preds = %
   br i1 %.not.i17.i.i179.i107.i.i, label %1238, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i180.i108.i.i
 
 1238:                                             ; preds = %1237
-  %1239 = sub i64 %1235, %1233
+  %1239 = sub nuw i64 %1235, %1233
   %1240 = trunc i64 %1239 to i32
   %notmask.i.i.i181.i109.i.i = shl nsw i32 -1, %1240
   %1241 = xor i32 %notmask.i.i.i181.i109.i.i, -1
@@ -72146,7 +72146,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i224.i55.i.i: ; preds = %
   br i1 %.not.i17.i.i234.i64.i.i, label %1342, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i235.i65.i.i
 
 1342:                                             ; preds = %1341
-  %1343 = sub i64 %1339, %1337
+  %1343 = sub nuw i64 %1339, %1337
   %1344 = trunc i64 %1343 to i32
   %notmask.i.i.i236.i66.i.i = shl nsw i32 -1, %1344
   %1345 = xor i32 %notmask.i.i.i236.i66.i.i, -1
@@ -74270,7 +74270,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i129: ; preds = %_Z
   br i1 %.not.i18.i.i.i.i.i, label %2124, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i135
 
 2124:                                             ; preds = %2123
-  %2125 = sub i64 %2121, %2119
+  %2125 = sub nuw i64 %2121, %2119
   %2126 = trunc i64 %2125 to i32
   %notmask.i.i.i.i.i.i136 = shl nsw i32 -1, %2126
   %2127 = xor i32 %notmask.i.i.i.i.i.i136, -1
@@ -74563,7 +74563,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i97: ; preds = %
   br i1 %.not.i18.i.i133.i.i.i, label %2245, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i134.i.i.i
 
 2245:                                             ; preds = %2244
-  %2246 = sub i64 %2242, %2240
+  %2246 = sub nuw i64 %2242, %2240
   %2247 = trunc i64 %2246 to i32
   %notmask.i.i.i135.i.i.i = shl nsw i32 -1, %2247
   %2248 = xor i32 %notmask.i.i.i135.i.i.i, -1
@@ -74858,7 +74858,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i172.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i185.i.i.i, label %2367, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i186.i.i.i
 
 2367:                                             ; preds = %2366
-  %2368 = sub i64 %2364, %2362
+  %2368 = sub nuw i64 %2364, %2362
   %2369 = trunc i64 %2368 to i32
   %notmask.i.i.i187.i.i.i = shl nsw i32 -1, %2369
   %2370 = xor i32 %notmask.i.i.i187.i.i.i, -1
@@ -75153,7 +75153,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i230.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i243.i.i.i, label %2489, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i244.i.i.i
 
 2489:                                             ; preds = %2488
-  %2490 = sub i64 %2486, %2484
+  %2490 = sub nuw i64 %2486, %2484
   %2491 = trunc i64 %2490 to i32
   %notmask.i.i.i245.i.i.i = shl nsw i32 -1, %2491
   %2492 = xor i32 %notmask.i.i.i245.i.i.i, -1
@@ -75864,7 +75864,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i193.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i.i204.i.i, label %2771, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i205.i.i
 
 2771:                                             ; preds = %2770
-  %2772 = sub i64 %2768, %2766
+  %2772 = sub nuw i64 %2768, %2766
   %2773 = trunc i64 %2772 to i32
   %notmask.i.i.i.i206.i.i = shl nsw i32 -1, %2773
   %2774 = xor i32 %notmask.i.i.i.i206.i.i, -1
@@ -76157,7 +76157,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i147.i.i: ; preds = 
   br i1 %.not.i18.i.i133.i159.i.i, label %2892, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i134.i160.i.i
 
 2892:                                             ; preds = %2891
-  %2893 = sub i64 %2889, %2887
+  %2893 = sub nuw i64 %2889, %2887
   %2894 = trunc i64 %2893 to i32
   %notmask.i.i.i135.i161.i.i = shl nsw i32 -1, %2894
   %2895 = xor i32 %notmask.i.i.i135.i161.i.i, -1
@@ -76452,7 +76452,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i172.i101.i.i: ; preds = 
   br i1 %.not.i18.i.i185.i113.i.i, label %3014, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i186.i114.i.i
 
 3014:                                             ; preds = %3013
-  %3015 = sub i64 %3011, %3009
+  %3015 = sub nuw i64 %3011, %3009
   %3016 = trunc i64 %3015 to i32
   %notmask.i.i.i187.i115.i.i = shl nsw i32 -1, %3016
   %3017 = xor i32 %notmask.i.i.i187.i115.i.i, -1
@@ -76747,7 +76747,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i230.i55.i.i: ; preds = %
   br i1 %.not.i18.i.i243.i67.i.i, label %3136, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i244.i68.i.i
 
 3136:                                             ; preds = %3135
-  %3137 = sub i64 %3133, %3131
+  %3137 = sub nuw i64 %3133, %3131
   %3138 = trunc i64 %3137 to i32
   %notmask.i.i.i245.i69.i.i = shl nsw i32 -1, %3138
   %3139 = xor i32 %notmask.i.i.i245.i69.i.i, -1
@@ -77258,7 +77258,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %70
+  %77 = sub nuw i64 %73, %70
   %78 = trunc i64 %77 to i32
   %notmask.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i, -1
@@ -77492,7 +77492,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -77740,7 +77740,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %88, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 88:                                               ; preds = %87
-  %89 = sub i64 %85, %83
+  %89 = sub nuw i64 %85, %83
   %90 = trunc i64 %89 to i32
   %notmask.i.i = shl nsw i32 -1, %90
   %91 = xor i32 %notmask.i.i, -1
@@ -77979,7 +77979,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -78218,7 +78218,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -78446,7 +78446,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %76
+  %83 = sub nuw i64 %79, %76
   %84 = trunc i64 %83 to i32
   %notmask.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i, -1
@@ -78780,7 +78780,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -79042,7 +79042,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -79317,7 +79317,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %88, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 88:                                               ; preds = %87
-  %89 = sub i64 %85, %83
+  %89 = sub nuw i64 %85, %83
   %90 = trunc i64 %89 to i32
   %notmask.i.i = shl nsw i32 -1, %90
   %91 = xor i32 %notmask.i.i, -1
@@ -79583,7 +79583,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -79849,7 +79849,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -80093,7 +80093,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 71:                                               ; preds = %70
-  %72 = sub i64 %68, %65
+  %72 = sub nuw i64 %68, %65
   %73 = trunc i64 %72 to i32
   %notmask.i = shl nsw i32 -1, %73
   %74 = xor i32 %notmask.i, -1
@@ -80316,7 +80316,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %71
+  %77 = sub nuw i64 %73, %71
   %78 = trunc i64 %77 to i32
   %notmask.i.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i.i, -1
@@ -80555,7 +80555,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -80784,7 +80784,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -81014,7 +81014,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -81234,7 +81234,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -81558,7 +81558,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %72, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 72:                                               ; preds = %71
-  %73 = sub i64 %69, %66
+  %73 = sub nuw i64 %69, %66
   %74 = trunc i64 %73 to i32
   %notmask.i = shl nsw i32 -1, %74
   %75 = xor i32 %notmask.i, -1
@@ -81807,7 +81807,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %71
+  %77 = sub nuw i64 %73, %71
   %78 = trunc i64 %77 to i32
   %notmask.i.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i.i, -1
@@ -82073,7 +82073,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -82329,7 +82329,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -82586,7 +82586,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -83392,7 +83392,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i: ; preds = %_ZN5f
   br i1 %.not.i17.i.i.i.i.i, label %462, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i
 
 462:                                              ; preds = %461
-  %463 = sub i64 %459, %457
+  %463 = sub nuw i64 %459, %457
   %464 = trunc i64 %463 to i32
   %notmask.i.i.i.i.i.i = shl nsw i32 -1, %464
   %465 = xor i32 %notmask.i.i.i.i.i.i, -1
@@ -83668,7 +83668,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i131.i.i.i, label %574, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i132.i.i.i
 
 574:                                              ; preds = %573
-  %575 = sub i64 %571, %569
+  %575 = sub nuw i64 %571, %569
   %576 = trunc i64 %575 to i32
   %notmask.i.i.i133.i.i.i = shl nsw i32 -1, %576
   %577 = xor i32 %notmask.i.i.i133.i.i.i, -1
@@ -83946,7 +83946,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i170.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i181.i.i.i, label %687, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i182.i.i.i
 
 687:                                              ; preds = %686
-  %688 = sub i64 %684, %682
+  %688 = sub nuw i64 %684, %682
   %689 = trunc i64 %688 to i32
   %notmask.i.i.i183.i.i.i = shl nsw i32 -1, %689
   %690 = xor i32 %notmask.i.i.i183.i.i.i, -1
@@ -84224,7 +84224,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i226.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i237.i.i.i, label %800, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i238.i.i.i
 
 800:                                              ; preds = %799
-  %801 = sub i64 %797, %795
+  %801 = sub nuw i64 %797, %795
   %802 = trunc i64 %801 to i32
   %notmask.i.i.i239.i.i.i = shl nsw i32 -1, %802
   %803 = xor i32 %notmask.i.i.i239.i.i.i, -1
@@ -84924,7 +84924,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i187.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i.i196.i.i, label %1073, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i197.i.i
 
 1073:                                             ; preds = %1072
-  %1074 = sub i64 %1070, %1068
+  %1074 = sub nuw i64 %1070, %1068
   %1075 = trunc i64 %1074 to i32
   %notmask.i.i.i.i198.i.i = shl nsw i32 -1, %1075
   %1076 = xor i32 %notmask.i.i.i.i198.i.i, -1
@@ -85200,7 +85200,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i143.i.i: ; preds = 
   br i1 %.not.i17.i.i131.i153.i.i, label %1185, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i132.i154.i.i
 
 1185:                                             ; preds = %1184
-  %1186 = sub i64 %1182, %1180
+  %1186 = sub nuw i64 %1182, %1180
   %1187 = trunc i64 %1186 to i32
   %notmask.i.i.i133.i155.i.i = shl nsw i32 -1, %1187
   %1188 = xor i32 %notmask.i.i.i133.i155.i.i, -1
@@ -85478,7 +85478,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i170.i99.i.i: ; preds = %
   br i1 %.not.i17.i.i181.i109.i.i, label %1298, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i182.i110.i.i
 
 1298:                                             ; preds = %1297
-  %1299 = sub i64 %1295, %1293
+  %1299 = sub nuw i64 %1295, %1293
   %1300 = trunc i64 %1299 to i32
   %notmask.i.i.i183.i111.i.i = shl nsw i32 -1, %1300
   %1301 = xor i32 %notmask.i.i.i183.i111.i.i, -1
@@ -85756,7 +85756,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i226.i55.i.i: ; preds = %
   br i1 %.not.i17.i.i237.i65.i.i, label %1411, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i238.i66.i.i
 
 1411:                                             ; preds = %1410
-  %1412 = sub i64 %1408, %1406
+  %1412 = sub nuw i64 %1408, %1406
   %1413 = trunc i64 %1412 to i32
   %notmask.i.i.i239.i67.i.i = shl nsw i32 -1, %1413
   %1414 = xor i32 %notmask.i.i.i239.i67.i.i, -1
@@ -87890,7 +87890,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i130: ; preds = %_Z
   br i1 %.not.i18.i.i.i.i.i, label %2202, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i137
 
 2202:                                             ; preds = %2201
-  %2203 = sub i64 %2199, %2197
+  %2203 = sub nuw i64 %2199, %2197
   %2204 = trunc i64 %2203 to i32
   %notmask.i.i.i.i.i.i138 = shl nsw i32 -1, %2204
   %2205 = xor i32 %notmask.i.i.i.i.i.i138, -1
@@ -88193,7 +88193,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i97: ; preds = %
   br i1 %.not.i18.i.i134.i.i.i, label %2332, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i135.i.i.i
 
 2332:                                             ; preds = %2331
-  %2333 = sub i64 %2329, %2327
+  %2333 = sub nuw i64 %2329, %2327
   %2334 = trunc i64 %2333 to i32
   %notmask.i.i.i136.i.i.i = shl nsw i32 -1, %2334
   %2335 = xor i32 %notmask.i.i.i136.i.i.i, -1
@@ -88498,7 +88498,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i173.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i187.i.i.i, label %2463, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i188.i.i.i
 
 2463:                                             ; preds = %2462
-  %2464 = sub i64 %2460, %2458
+  %2464 = sub nuw i64 %2460, %2458
   %2465 = trunc i64 %2464 to i32
   %notmask.i.i.i189.i.i.i = shl nsw i32 -1, %2465
   %2466 = xor i32 %notmask.i.i.i189.i.i.i, -1
@@ -88803,7 +88803,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i232.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i246.i.i.i, label %2594, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i247.i.i.i
 
 2594:                                             ; preds = %2593
-  %2595 = sub i64 %2591, %2589
+  %2595 = sub nuw i64 %2591, %2589
   %2596 = trunc i64 %2595 to i32
   %notmask.i.i.i248.i.i.i = shl nsw i32 -1, %2596
   %2597 = xor i32 %notmask.i.i.i248.i.i.i, -1
@@ -89524,7 +89524,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i196.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i.i208.i.i, label %2885, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i209.i.i
 
 2885:                                             ; preds = %2884
-  %2886 = sub i64 %2882, %2880
+  %2886 = sub nuw i64 %2882, %2880
   %2887 = trunc i64 %2886 to i32
   %notmask.i.i.i.i210.i.i = shl nsw i32 -1, %2887
   %2888 = xor i32 %notmask.i.i.i.i210.i.i, -1
@@ -89827,7 +89827,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i149.i.i: ; preds = 
   br i1 %.not.i18.i.i134.i162.i.i, label %3015, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i135.i163.i.i
 
 3015:                                             ; preds = %3014
-  %3016 = sub i64 %3012, %3010
+  %3016 = sub nuw i64 %3012, %3010
   %3017 = trunc i64 %3016 to i32
   %notmask.i.i.i136.i164.i.i = shl nsw i32 -1, %3017
   %3018 = xor i32 %notmask.i.i.i136.i164.i.i, -1
@@ -90132,7 +90132,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i173.i102.i.i: ; preds = 
   br i1 %.not.i18.i.i187.i115.i.i, label %3146, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i188.i116.i.i
 
 3146:                                             ; preds = %3145
-  %3147 = sub i64 %3143, %3141
+  %3147 = sub nuw i64 %3143, %3141
   %3148 = trunc i64 %3147 to i32
   %notmask.i.i.i189.i117.i.i = shl nsw i32 -1, %3148
   %3149 = xor i32 %notmask.i.i.i189.i117.i.i, -1
@@ -90437,7 +90437,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i232.i55.i.i: ; preds = %
   br i1 %.not.i18.i.i246.i68.i.i, label %3277, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i247.i69.i.i
 
 3277:                                             ; preds = %3276
-  %3278 = sub i64 %3274, %3272
+  %3278 = sub nuw i64 %3274, %3272
   %3279 = trunc i64 %3278 to i32
   %notmask.i.i.i248.i70.i.i = shl nsw i32 -1, %3279
   %3280 = xor i32 %notmask.i.i.i248.i70.i.i, -1
@@ -91506,7 +91506,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i: ; preds = %_ZN5f
   br i1 %.not.i17.i.i.i.i.i, label %456, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i
 
 456:                                              ; preds = %455
-  %457 = sub i64 %453, %451
+  %457 = sub nuw i64 %453, %451
   %458 = trunc i64 %457 to i32
   %notmask.i.i.i.i.i.i = shl nsw i32 -1, %458
   %459 = xor i32 %notmask.i.i.i.i.i.i, -1
@@ -91772,7 +91772,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i130.i.i.i, label %559, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i131.i.i.i
 
 559:                                              ; preds = %558
-  %560 = sub i64 %556, %554
+  %560 = sub nuw i64 %556, %554
   %561 = trunc i64 %560 to i32
   %notmask.i.i.i132.i.i.i = shl nsw i32 -1, %561
   %562 = xor i32 %notmask.i.i.i132.i.i.i, -1
@@ -92040,7 +92040,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i169.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i179.i.i.i, label %663, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i180.i.i.i
 
 663:                                              ; preds = %662
-  %664 = sub i64 %660, %658
+  %664 = sub nuw i64 %660, %658
   %665 = trunc i64 %664 to i32
   %notmask.i.i.i181.i.i.i = shl nsw i32 -1, %665
   %666 = xor i32 %notmask.i.i.i181.i.i.i, -1
@@ -92308,7 +92308,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i224.i.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i234.i.i.i, label %767, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i235.i.i.i
 
 767:                                              ; preds = %766
-  %768 = sub i64 %764, %762
+  %768 = sub nuw i64 %764, %762
   %769 = trunc i64 %768 to i32
   %notmask.i.i.i236.i.i.i = shl nsw i32 -1, %769
   %770 = xor i32 %notmask.i.i.i236.i.i.i, -1
@@ -92998,7 +92998,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i184.i.i: ; preds = %_Z
   br i1 %.not.i17.i.i.i192.i.i, label %1031, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i193.i.i
 
 1031:                                             ; preds = %1030
-  %1032 = sub i64 %1028, %1026
+  %1032 = sub nuw i64 %1028, %1026
   %1033 = trunc i64 %1032 to i32
   %notmask.i.i.i.i194.i.i = shl nsw i32 -1, %1033
   %1034 = xor i32 %notmask.i.i.i.i194.i.i, -1
@@ -93264,7 +93264,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i141.i.i: ; preds = 
   br i1 %.not.i17.i.i130.i150.i.i, label %1134, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i131.i151.i.i
 
 1134:                                             ; preds = %1133
-  %1135 = sub i64 %1131, %1129
+  %1135 = sub nuw i64 %1131, %1129
   %1136 = trunc i64 %1135 to i32
   %notmask.i.i.i132.i152.i.i = shl nsw i32 -1, %1136
   %1137 = xor i32 %notmask.i.i.i132.i152.i.i, -1
@@ -93532,7 +93532,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i169.i98.i.i: ; preds = %
   br i1 %.not.i17.i.i179.i107.i.i, label %1238, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i180.i108.i.i
 
 1238:                                             ; preds = %1237
-  %1239 = sub i64 %1235, %1233
+  %1239 = sub nuw i64 %1235, %1233
   %1240 = trunc i64 %1239 to i32
   %notmask.i.i.i181.i109.i.i = shl nsw i32 -1, %1240
   %1241 = xor i32 %notmask.i.i.i181.i109.i.i, -1
@@ -93800,7 +93800,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i224.i55.i.i: ; preds = %
   br i1 %.not.i17.i.i234.i64.i.i, label %1342, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i235.i65.i.i
 
 1342:                                             ; preds = %1341
-  %1343 = sub i64 %1339, %1337
+  %1343 = sub nuw i64 %1339, %1337
   %1344 = trunc i64 %1343 to i32
   %notmask.i.i.i236.i66.i.i = shl nsw i32 -1, %1344
   %1345 = xor i32 %notmask.i.i.i236.i66.i.i, -1
@@ -95924,7 +95924,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i.i.i129: ; preds = %_Z
   br i1 %.not.i18.i.i.i.i.i, label %2124, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i.i.i135
 
 2124:                                             ; preds = %2123
-  %2125 = sub i64 %2121, %2119
+  %2125 = sub nuw i64 %2121, %2119
   %2126 = trunc i64 %2125 to i32
   %notmask.i.i.i.i.i.i136 = shl nsw i32 -1, %2126
   %2127 = xor i32 %notmask.i.i.i.i.i.i136, -1
@@ -96217,7 +96217,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i.i.i97: ; preds = %
   br i1 %.not.i18.i.i133.i.i.i, label %2245, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i134.i.i.i
 
 2245:                                             ; preds = %2244
-  %2246 = sub i64 %2242, %2240
+  %2246 = sub nuw i64 %2242, %2240
   %2247 = trunc i64 %2246 to i32
   %notmask.i.i.i135.i.i.i = shl nsw i32 -1, %2247
   %2248 = xor i32 %notmask.i.i.i135.i.i.i, -1
@@ -96512,7 +96512,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i172.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i185.i.i.i, label %2367, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i186.i.i.i
 
 2367:                                             ; preds = %2366
-  %2368 = sub i64 %2364, %2362
+  %2368 = sub nuw i64 %2364, %2362
   %2369 = trunc i64 %2368 to i32
   %notmask.i.i.i187.i.i.i = shl nsw i32 -1, %2369
   %2370 = xor i32 %notmask.i.i.i187.i.i.i, -1
@@ -96807,7 +96807,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i230.i.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i243.i.i.i, label %2489, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i244.i.i.i
 
 2489:                                             ; preds = %2488
-  %2490 = sub i64 %2486, %2484
+  %2490 = sub nuw i64 %2486, %2484
   %2491 = trunc i64 %2490 to i32
   %notmask.i.i.i245.i.i.i = shl nsw i32 -1, %2491
   %2492 = xor i32 %notmask.i.i.i245.i.i.i, -1
@@ -97518,7 +97518,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i.i193.i.i: ; preds = %_Z
   br i1 %.not.i18.i.i.i204.i.i, label %2771, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i.i205.i.i
 
 2771:                                             ; preds = %2770
-  %2772 = sub i64 %2768, %2766
+  %2772 = sub nuw i64 %2768, %2766
   %2773 = trunc i64 %2772 to i32
   %notmask.i.i.i.i206.i.i = shl nsw i32 -1, %2773
   %2774 = xor i32 %notmask.i.i.i.i206.i.i, -1
@@ -97811,7 +97811,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i121.i147.i.i: ; preds = 
   br i1 %.not.i18.i.i133.i159.i.i, label %2892, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i134.i160.i.i
 
 2892:                                             ; preds = %2891
-  %2893 = sub i64 %2889, %2887
+  %2893 = sub nuw i64 %2889, %2887
   %2894 = trunc i64 %2893 to i32
   %notmask.i.i.i135.i161.i.i = shl nsw i32 -1, %2894
   %2895 = xor i32 %notmask.i.i.i135.i161.i.i, -1
@@ -98106,7 +98106,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i172.i101.i.i: ; preds = 
   br i1 %.not.i18.i.i185.i113.i.i, label %3014, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i186.i114.i.i
 
 3014:                                             ; preds = %3013
-  %3015 = sub i64 %3011, %3009
+  %3015 = sub nuw i64 %3011, %3009
   %3016 = trunc i64 %3015 to i32
   %notmask.i.i.i187.i115.i.i = shl nsw i32 -1, %3016
   %3017 = xor i32 %notmask.i.i.i187.i115.i.i, -1
@@ -98401,7 +98401,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i230.i55.i.i: ; preds = %
   br i1 %.not.i18.i.i243.i67.i.i, label %3136, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i.i244.i68.i.i
 
 3136:                                             ; preds = %3135
-  %3137 = sub i64 %3133, %3131
+  %3137 = sub nuw i64 %3133, %3131
   %3138 = trunc i64 %3137 to i32
   %notmask.i.i.i245.i69.i.i = shl nsw i32 -1, %3138
   %3139 = xor i32 %notmask.i.i.i245.i69.i.i, -1
@@ -98912,7 +98912,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %70
+  %77 = sub nuw i64 %73, %70
   %78 = trunc i64 %77 to i32
   %notmask.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i, -1
@@ -99146,7 +99146,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -99394,7 +99394,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %88, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 88:                                               ; preds = %87
-  %89 = sub i64 %85, %83
+  %89 = sub nuw i64 %85, %83
   %90 = trunc i64 %89 to i32
   %notmask.i.i = shl nsw i32 -1, %90
   %91 = xor i32 %notmask.i.i, -1
@@ -99633,7 +99633,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -99872,7 +99872,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -100100,7 +100100,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %76
+  %83 = sub nuw i64 %79, %76
   %84 = trunc i64 %83 to i32
   %notmask.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i, -1
@@ -100434,7 +100434,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -100696,7 +100696,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -100971,7 +100971,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %88, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 88:                                               ; preds = %87
-  %89 = sub i64 %85, %83
+  %89 = sub nuw i64 %85, %83
   %90 = trunc i64 %89 to i32
   %notmask.i.i = shl nsw i32 -1, %90
   %91 = xor i32 %notmask.i.i, -1
@@ -101237,7 +101237,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -101503,7 +101503,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %81, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 81:                                               ; preds = %80
-  %82 = sub i64 %78, %76
+  %82 = sub nuw i64 %78, %76
   %83 = trunc i64 %82 to i32
   %notmask.i.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i.i, -1
@@ -101747,7 +101747,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 71:                                               ; preds = %70
-  %72 = sub i64 %68, %65
+  %72 = sub nuw i64 %68, %65
   %73 = trunc i64 %72 to i32
   %notmask.i = shl nsw i32 -1, %73
   %74 = xor i32 %notmask.i, -1
@@ -101970,7 +101970,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %71
+  %77 = sub nuw i64 %73, %71
   %78 = trunc i64 %77 to i32
   %notmask.i.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i.i, -1
@@ -102209,7 +102209,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -102438,7 +102438,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -102668,7 +102668,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i17.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -102888,7 +102888,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -103212,7 +103212,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %72, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 72:                                               ; preds = %71
-  %73 = sub i64 %69, %66
+  %73 = sub nuw i64 %69, %66
   %74 = trunc i64 %73 to i32
   %notmask.i = shl nsw i32 -1, %74
   %75 = xor i32 %notmask.i, -1
@@ -103461,7 +103461,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %71
+  %77 = sub nuw i64 %73, %71
   %78 = trunc i64 %77 to i32
   %notmask.i.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i.i, -1
@@ -103727,7 +103727,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %77
+  %83 = sub nuw i64 %79, %77
   %84 = trunc i64 %83 to i32
   %notmask.i.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i.i, -1
@@ -103983,7 +103983,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1
@@ -104240,7 +104240,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i: ; preds = %_ZN5faiss12si
   br i1 %.not.i18.i, label %75, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i
 
 75:                                               ; preds = %74
-  %76 = sub i64 %72, %70
+  %76 = sub nuw i64 %72, %70
   %77 = trunc i64 %76 to i32
   %notmask.i.i = shl nsw i32 -1, %77
   %78 = xor i32 %notmask.i.i, -1

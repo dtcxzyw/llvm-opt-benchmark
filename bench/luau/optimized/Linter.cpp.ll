@@ -7007,7 +7007,7 @@ _ZNSt6vectorIPN4Luau15AstExprFunctionESaIS2_EE9push_backERKS2_.exit: ; preds = %
   br i1 %141, label %142, label %_ZNSt6vectorIPN4Luau15AstExprFunctionESaIS2_EE6resizeEm.exit
 
 142:                                              ; preds = %.critedge.thread
-  %143 = sub i64 %umax, %122
+  %143 = sub nuw i64 %umax, %122
   tail call void @_ZNSt6vectorIPN4Luau15AstExprFunctionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %115, i64 noundef %143)
   br label %_ZNSt6vectorIPN4Luau15AstExprFunctionESaIS2_EE6resizeEm.exit
 

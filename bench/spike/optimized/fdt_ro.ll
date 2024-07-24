@@ -40,7 +40,7 @@ define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef w
   br i1 %.not, label %26, label %119
 
 26:                                               ; preds = %25
-  %27 = sub nsw i32 %4, %23
+  %27 = sub nuw nsw i32 %4, %23
   %28 = load i8, ptr %0, align 1
   %29 = zext i8 %28 to i32
   %30 = shl nuw i32 %29, 24
@@ -112,7 +112,7 @@ define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef w
   br i1 %.not50, label %86, label %119
 
 86:                                               ; preds = %67
-  %87 = sub i32 %85, %1
+  %87 = sub nuw i32 %85, %1
   %spec.select54 = tail call i32 @llvm.umin.i32(i32 %87, i32 %27)
   br label %109
 
@@ -150,7 +150,7 @@ define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef w
 
 109:                                              ; preds = %86, %107, %47
   %.039.in = phi i32 [ %27, %47 ], [ %spec.select, %107 ], [ %spec.select54, %86 ]
-  %.039 = zext i32 %.039.in to i64
+  %.039 = zext nneg i32 %.039.in to i64
   %110 = zext nneg i32 %23 to i64
   %111 = getelementptr inbounds i8, ptr %0, i64 %110
   %112 = tail call ptr @memchr(ptr noundef nonnull %111, i32 noundef 0, i64 noundef %.039) #10

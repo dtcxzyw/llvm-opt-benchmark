@@ -2054,7 +2054,7 @@ default.unreachable11:                            ; preds = %1
   br i1 %20, label %27, label %23
 
 21:                                               ; preds = %12
-  %22 = sub i64 %17, %16
+  %22 = sub nuw i64 %17, %16
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit"
 
 23:                                               ; preds = %19
@@ -2153,7 +2153,7 @@ default.unreachable11:                            ; preds = %1
   br i1 %20, label %27, label %23
 
 21:                                               ; preds = %12
-  %22 = sub i64 %17, %16
+  %22 = sub nuw i64 %17, %16
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h110e15f4b17556aaE.exit"
 
 23:                                               ; preds = %19
@@ -2252,7 +2252,7 @@ default.unreachable11:                            ; preds = %1
   br i1 %20, label %27, label %23
 
 21:                                               ; preds = %12
-  %22 = sub i64 %17, %16
+  %22 = sub nuw i64 %17, %16
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit"
 
 23:                                               ; preds = %19
@@ -2915,7 +2915,7 @@ default.unreachable22:                            ; preds = %1
   br i1 %20, label %27, label %23
 
 21:                                               ; preds = %12
-  %22 = sub i64 %17, %16
+  %22 = sub nuw i64 %17, %16
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit"
 
 23:                                               ; preds = %19
@@ -3076,7 +3076,7 @@ default.unreachable22:                            ; preds = %1
   br i1 %20, label %27, label %23
 
 21:                                               ; preds = %12
-  %22 = sub i64 %17, %16
+  %22 = sub nuw i64 %17, %16
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit"
 
 23:                                               ; preds = %19

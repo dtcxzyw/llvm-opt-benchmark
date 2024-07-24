@@ -354,7 +354,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b4b7d7fe261252eE.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !45
   %67 = icmp eq i32 %bcmp.i, 0
@@ -1844,7 +1844,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit.i.i: ; preds = %59
   %169 = getelementptr inbounds i8, ptr %155, i64 %160
   %170 = load i8, ptr %169, align 1, !alias.scope !305, !noalias !310, !noundef !14
   %171 = icmp sgt i8 %170, -65
-  %172 = sub i64 %157, %160
+  %172 = sub nuw i64 %157, %160
   br i1 %171, label %174, label %173
 
 173:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i", %166

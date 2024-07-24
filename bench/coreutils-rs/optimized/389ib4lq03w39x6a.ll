@@ -686,7 +686,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12rotate_right
   unreachable
 
 5:                                                ; preds = %3
-  %6 = sub i64 %1, %2
+  %6 = sub nuw i64 %1, %2
   %7 = getelementptr inbounds i32, ptr %0, i64 %6
   tail call void @_ZN4core5slice6rotate10ptr_rotate17hd37edbe7b5e69736E(i64 noundef %6, ptr noundef nonnull %7, i64 noundef %2)
   ret void
@@ -716,7 +716,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !81
   %9 = icmp eq i32 %bcmp.i, 0

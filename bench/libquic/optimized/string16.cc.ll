@@ -1593,7 +1593,7 @@ invoke.cont:                                      ; preds = %entry
   %2 = load ptr, ptr %__str, align 8
   %add.ptr.idx = shl nsw i64 %__pos, 1
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %add.ptr.idx
-  %3 = sub nsw i64 %1, %__pos
+  %3 = sub nuw nsw i64 %1, %__pos
   %gepdiff = shl nsw i64 %3, 1
   %cmp.i6 = icmp ugt i64 %3, 7
   br i1 %cmp.i6, label %if.then.i7, label %if.end.i
@@ -1655,7 +1655,7 @@ if.then.i:                                        ; preds = %entry
 invoke.cont4:                                     ; preds = %entry
   %2 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i16, ptr %2, i64 %__pos
-  %sub.i = sub i64 %1, %__pos
+  %sub.i = sub nuw i64 %1, %__pos
   %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %add.ptr7.idx = shl nsw i64 %spec.select.i, 1
   %cmp.i7 = icmp ugt i64 %spec.select.i, 7
@@ -1717,7 +1717,7 @@ if.then.i:                                        ; preds = %entry
 invoke.cont:                                      ; preds = %entry
   %2 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i16, ptr %2, i64 %__pos
-  %sub.i = sub i64 %1, %__pos
+  %sub.i = sub nuw i64 %1, %__pos
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %add.ptr5.idx = shl nsw i64 %spec.select.i, 1
   %cmp.i6 = icmp ugt i64 %spec.select.i, 7
@@ -2623,7 +2623,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__n, %0
+  %sub = sub nuw i64 %__n, %0
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEmt(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub, i16 noundef zeroext %__c)
   br label %if.end5
 
@@ -2762,7 +2762,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %__n, %0
+  %sub.i = sub nuw i64 %__n, %0
   %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEmt(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub.i, i16 noundef zeroext 0)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6resizeEmt.exit
 
@@ -3668,7 +3668,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %entry
   %1 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i16, ptr %1, i64 %__pos
-  %sub.i = sub i64 %0, %__pos
+  %sub.i = sub nuw i64 %0, %__pos
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8
@@ -4052,7 +4052,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
   %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_string_length.i, align 8
   %add.ptr = getelementptr inbounds i16, ptr %1, i64 %__pos
-  %sub.i = sub i64 %0, %__pos
+  %sub.i = sub nuw i64 %0, %__pos
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 0, i64 noundef %2, ptr noundef %add.ptr, i64 noundef %spec.select.i)
   ret ptr %call5
@@ -4603,7 +4603,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %entry
-  %sub.i = sub i64 %0, %__pos
+  %sub.i = sub nuw i64 %0, %__pos
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n1)
   %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %spec.select.i, ptr noundef %__s, i64 noundef %__n2)
   ret ptr %call3
@@ -4632,7 +4632,7 @@ if.then.i.i:                                      ; preds = %_ZNKSt7__cxx1112bas
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
-  %sub.i = sub i64 %0, %__pos2
+  %sub.i = sub nuw i64 %0, %__pos2
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %2 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i16, ptr %2, i64 %__pos2
@@ -5192,7 +5192,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
   %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
   %1 = load i64, ptr %_M_string_length.i, align 8
   %2 = load ptr, ptr %__str, align 8
-  %sub.i.i = sub i64 %0, %__pos
+  %sub.i.i = sub nuw i64 %0, %__pos
   %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %__n)
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %spec.select.i.i, ptr noundef %2, i64 noundef %1)
   ret ptr %call3.i
@@ -5221,11 +5221,11 @@ if.then.i.i:                                      ; preds = %_ZNKSt7__cxx1112bas
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
-  %sub.i = sub i64 %0, %__pos2
+  %sub.i = sub nuw i64 %0, %__pos2
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n2)
   %2 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i16, ptr %2, i64 %__pos2
-  %sub.i.i = sub i64 %1, %__pos1
+  %sub.i.i = sub nuw i64 %1, %__pos1
   %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %__n1)
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos1, i64 noundef %spec.select.i.i, ptr noundef %add.ptr, i64 noundef %spec.select.i)
   ret ptr %call3.i
@@ -5258,7 +5258,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__s to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %sub.i.i = sub i64 %1, %__pos
+  %sub.i.i = sub nuw i64 %1, %__pos
   %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %__n1)
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %spec.select.i.i, ptr noundef %__s, i64 noundef %sub.ptr.div.i.i)
   ret ptr %call3.i
@@ -5277,7 +5277,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %entry
-  %sub.i = sub i64 %0, %__pos
+  %sub.i = sub nuw i64 %0, %__pos
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n1)
   %reass.sub = sub i64 %spec.select.i, %0
   %sub3.i.i = add i64 %reass.sub, 2305843009213693951
@@ -5391,7 +5391,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu
   %sub.ptr.lhs.cast.i1.i = ptrtoint ptr %__i2.coerce to i64
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.lhs.cast.i.i
   %sub.ptr.div.i4.i = ashr exact i64 %sub.ptr.sub.i3.i, 1
-  %sub.i.i.i = sub i64 %1, %sub.ptr.div.i.i
+  %sub.i.i.i = sub nuw i64 %1, %sub.ptr.div.i.i
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.ptr.div.i4.i)
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub.ptr.div.i.i, i64 noundef %spec.select.i.i.i, ptr noundef %3, i64 noundef %2)
   ret ptr %call3.i.i
@@ -5418,7 +5418,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
   %sub.ptr.lhs.cast.i1 = ptrtoint ptr %__i2.coerce to i64
   %sub.ptr.sub.i3 = sub i64 %sub.ptr.lhs.cast.i1, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i4 = ashr exact i64 %sub.ptr.sub.i3, 1
-  %sub.i.i = sub i64 %1, %sub.ptr.div.i
+  %sub.i.i = sub nuw i64 %1, %sub.ptr.div.i
   %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.div.i4)
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub.ptr.div.i, i64 noundef %spec.select.i.i, ptr noundef %__s, i64 noundef %__n)
   ret ptr %call3.i
@@ -5459,7 +5459,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu
   %sub.ptr.lhs.cast.i1.i = ptrtoint ptr %__i2.coerce to i64
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.lhs.cast.i.i2
   %sub.ptr.div.i4.i = ashr exact i64 %sub.ptr.sub.i3.i, 1
-  %sub.i.i.i = sub i64 %2, %sub.ptr.div.i.i5
+  %sub.i.i.i = sub nuw i64 %2, %sub.ptr.div.i.i5
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.ptr.div.i4.i)
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub.ptr.div.i.i5, i64 noundef %spec.select.i.i.i, ptr noundef %__s, i64 noundef %sub.ptr.div.i.i)
   ret ptr %call3.i.i
@@ -5490,7 +5490,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
   %sub.ptr.lhs.cast.i2 = ptrtoint ptr %__i2.coerce to i64
   %sub.ptr.sub.i4 = sub i64 %sub.ptr.lhs.cast.i2, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i5 = ashr exact i64 %sub.ptr.sub.i4, 1
-  %sub.i.i = sub i64 %1, %sub.ptr.div.i
+  %sub.i.i = sub nuw i64 %1, %sub.ptr.div.i
   %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.div.i5)
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub.ptr.div.i, i64 noundef %spec.select.i.i, ptr noundef %__k1, i64 noundef %sub.ptr.div)
   ret ptr %call3.i
@@ -5521,7 +5521,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
   %sub.ptr.lhs.cast.i2 = ptrtoint ptr %__i2.coerce to i64
   %sub.ptr.sub.i4 = sub i64 %sub.ptr.lhs.cast.i2, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i5 = ashr exact i64 %sub.ptr.sub.i4, 1
-  %sub.i.i = sub i64 %1, %sub.ptr.div.i
+  %sub.i.i = sub nuw i64 %1, %sub.ptr.div.i
   %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.div.i5)
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub.ptr.div.i, i64 noundef %spec.select.i.i, ptr noundef %__k1, i64 noundef %sub.ptr.div)
   ret ptr %call3.i
@@ -5552,7 +5552,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
   %sub.ptr.lhs.cast.i1 = ptrtoint ptr %__i2.coerce to i64
   %sub.ptr.sub.i3 = sub i64 %sub.ptr.lhs.cast.i1, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i4 = ashr exact i64 %sub.ptr.sub.i3, 1
-  %sub.i.i = sub i64 %1, %sub.ptr.div.i
+  %sub.i.i = sub nuw i64 %1, %sub.ptr.div.i
   %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.div.i4)
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub.ptr.div.i, i64 noundef %spec.select.i.i, ptr noundef %__k1.coerce, i64 noundef %sub.ptr.div.i8)
   ret ptr %call3.i
@@ -5583,7 +5583,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
   %sub.ptr.lhs.cast.i1 = ptrtoint ptr %__i2.coerce to i64
   %sub.ptr.sub.i3 = sub i64 %sub.ptr.lhs.cast.i1, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i4 = ashr exact i64 %sub.ptr.sub.i3, 1
-  %sub.i.i = sub i64 %1, %sub.ptr.div.i
+  %sub.i.i = sub nuw i64 %1, %sub.ptr.div.i
   %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.div.i4)
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub.ptr.div.i, i64 noundef %spec.select.i.i, ptr noundef %__k1.coerce, i64 noundef %sub.ptr.div.i8)
   ret ptr %call3.i
@@ -5610,7 +5610,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu
   %sub.ptr.lhs.cast.i1.i = ptrtoint ptr %__i2.coerce to i64
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.lhs.cast.i.i
   %sub.ptr.div.i4.i = ashr exact i64 %sub.ptr.sub.i3.i, 1
-  %sub.i.i.i = sub i64 %1, %sub.ptr.div.i.i
+  %sub.i.i.i = sub nuw i64 %1, %sub.ptr.div.i.i
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.ptr.div.i4.i)
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub.ptr.div.i.i, i64 noundef %spec.select.i.i.i, ptr noundef %__l.coerce0, i64 noundef %__l.coerce1)
   ret ptr %call3.i.i
@@ -5629,7 +5629,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %entry
-  %sub.i = sub i64 %0, %__pos
+  %sub.i = sub nuw i64 %0, %__pos
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %tobool.not = icmp eq i64 %spec.select.i, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -5817,7 +5817,7 @@ if.end:                                           ; preds = %entry
 if.end5:                                          ; preds = %if.end
   %1 = load i16, ptr %__s, align 2
   %2 = load ptr, ptr %this, align 8
-  %sub = sub i64 %0, %__pos
+  %sub = sub nuw i64 %0, %__pos
   %cmp8.not30 = icmp ult i64 %sub, %__n
   br i1 %cmp8.not30, label %return, label %while.body.lr.ph
 
@@ -5830,7 +5830,7 @@ while.body.lr.ph:                                 ; preds = %if.end5
 while.body:                                       ; preds = %while.body.lr.ph, %if.end17
   %__len.032 = phi i64 [ %sub, %while.body.lr.ph ], [ %sub.ptr.div21, %if.end17 ]
   %__first.031 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %incdec.ptr, %if.end17 ]
-  %sub9 = sub i64 %__len.032, %__n
+  %sub9 = sub nuw i64 %__len.032, %__n
   %add = add i64 %sub9, 1
   %cmp.not4.i.i = icmp eq i64 %add, 0
   br i1 %cmp.not4.i.i, label %return, label %while.body.i.i
@@ -5907,7 +5907,7 @@ if.end.i:                                         ; preds = %entry
 if.end5.i:                                        ; preds = %if.end.i
   %3 = load i16, ptr %0, align 2
   %4 = load ptr, ptr %this, align 8
-  %sub.i = sub i64 %2, %__pos
+  %sub.i = sub nuw i64 %2, %__pos
   %cmp8.not30.i = icmp ult i64 %sub.i, %1
   br i1 %cmp8.not30.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtmm.exit, label %while.body.lr.ph.i
 
@@ -5920,7 +5920,7 @@ while.body.lr.ph.i:                               ; preds = %if.end5.i
 while.body.i:                                     ; preds = %if.end17.i, %while.body.lr.ph.i
   %__len.032.i = phi i64 [ %sub.i, %while.body.lr.ph.i ], [ %sub.ptr.div21.i, %if.end17.i ]
   %__first.031.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %incdec.ptr.i, %if.end17.i ]
-  %sub9.i = sub i64 %__len.032.i, %1
+  %sub9.i = sub nuw i64 %__len.032.i, %1
   %add.i = add i64 %sub9.i, 1
   %cmp.not4.i.i.i = icmp eq i64 %add.i, 0
   br i1 %cmp.not4.i.i.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtmm.exit, label %while.body.i.i.i
@@ -6008,7 +6008,7 @@ if.end.i:                                         ; preds = %_ZN4base20string16_
 if.end5.i:                                        ; preds = %if.end.i
   %2 = load i16, ptr %__s, align 2
   %3 = load ptr, ptr %this, align 8
-  %sub.i = sub i64 %1, %__pos
+  %sub.i = sub nuw i64 %1, %__pos
   %cmp8.not30.i = icmp ult i64 %sub.i, %sub.ptr.div.i.i
   br i1 %cmp8.not30.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtmm.exit, label %while.body.lr.ph.i
 
@@ -6021,7 +6021,7 @@ while.body.lr.ph.i:                               ; preds = %if.end5.i
 while.body.i:                                     ; preds = %if.end17.i, %while.body.lr.ph.i
   %__len.032.i = phi i64 [ %sub.i, %while.body.lr.ph.i ], [ %sub.ptr.div21.i, %if.end17.i ]
   %__first.031.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %incdec.ptr.i, %if.end17.i ]
-  %sub9.i = sub i64 %__len.032.i, %sub.ptr.div.i.i
+  %sub9.i = sub nuw i64 %__len.032.i, %sub.ptr.div.i.i
   %add.i = add i64 %sub9.i, 1
   %cmp.not4.i.i.i = icmp eq i64 %add.i, 0
   br i1 %cmp.not4.i.i.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtmm.exit, label %while.body.i.i.i
@@ -6085,17 +6085,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %sub = sub i64 %0, %__pos
-  %cmp.not4.i.i = icmp eq i64 %sub, 0
-  br i1 %cmp.not4.i.i, label %if.end5, label %while.body.i.i.preheader
-
-while.body.i.i.preheader:                         ; preds = %if.then
+  %sub = sub nuw i64 %0, %__pos
   %add.ptr = getelementptr inbounds i16, ptr %1, i64 %__pos
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end.i.i
-  %dec6.in.i.i = phi i64 [ %dec6.i.i, %if.end.i.i ], [ %sub, %while.body.i.i.preheader ]
-  %s.addr.05.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %add.ptr, %while.body.i.i.preheader ]
+while.body.i.i:                                   ; preds = %if.then, %if.end.i.i
+  %dec6.in.i.i = phi i64 [ %dec6.i.i, %if.end.i.i ], [ %sub, %if.then ]
+  %s.addr.05.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %add.ptr, %if.then ]
   %2 = load i16, ptr %s.addr.05.i.i, align 2
   %cmp2.i.i = icmp eq i16 %2, %__c
   br i1 %cmp2.i.i, label %if.then4, label %if.end.i.i
@@ -6113,8 +6109,8 @@ if.then4:                                         ; preds = %while.body.i.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
   br label %if.end5
 
-if.end5:                                          ; preds = %if.end.i.i, %if.then, %if.then4, %entry
-  %__ret.0 = phi i64 [ %sub.ptr.div, %if.then4 ], [ -1, %entry ], [ -1, %if.then ], [ -1, %if.end.i.i ]
+if.end5:                                          ; preds = %if.end.i.i, %if.then4, %entry
+  %__ret.0 = phi i64 [ %sub.ptr.div, %if.then4 ], [ -1, %entry ], [ -1, %if.end.i.i ]
   ret i64 %__ret.0
 }
 
@@ -6130,7 +6126,7 @@ entry:
   br i1 %cmp.not.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEPKtmm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %2, %1
+  %sub.i = sub nuw i64 %2, %1
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %__pos)
   %3 = load ptr, ptr %this, align 8
   %cmp.not7.i.i.i = icmp eq i64 %1, 0
@@ -6176,7 +6172,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %0, %__n
+  %sub = sub nuw i64 %0, %__n
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %__pos)
   %1 = load ptr, ptr %this, align 8
   %cmp.not7.i.i = icmp eq i64 %__n, 0
@@ -6236,7 +6232,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %while.cond.i.i
   br i1 %cmp.not.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEPKtmm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit
-  %sub.i = sub i64 %1, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %1, %sub.ptr.div.i.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %__pos)
   %2 = load ptr, ptr %this, align 8
   %cmp.not7.i.i.i = icmp eq ptr %s.addr.0.i.i, %__s
@@ -6462,17 +6458,13 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %sub.i = sub i64 %0, %__pos
-  %cmp.not4.i.i.i = icmp eq i64 %sub.i, 0
-  br i1 %cmp.not4.i.i.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEtm.exit, label %while.body.i.i.preheader.i
-
-while.body.i.i.preheader.i:                       ; preds = %if.then.i
+  %sub.i = sub nuw i64 %0, %__pos
   %add.ptr.i = getelementptr inbounds i16, ptr %1, i64 %__pos
   br label %while.body.i.i.i
 
-while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.preheader.i
-  %dec6.in.i.i.i = phi i64 [ %dec6.i.i.i, %if.end.i.i.i ], [ %sub.i, %while.body.i.i.preheader.i ]
-  %s.addr.05.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %add.ptr.i, %while.body.i.i.preheader.i ]
+while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %if.then.i
+  %dec6.in.i.i.i = phi i64 [ %dec6.i.i.i, %if.end.i.i.i ], [ %sub.i, %if.then.i ]
+  %s.addr.05.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %add.ptr.i, %if.then.i ]
   %2 = load i16, ptr %s.addr.05.i.i.i, align 2
   %cmp2.i.i.i = icmp eq i16 %2, %__c
   br i1 %cmp2.i.i.i, label %if.then4.i, label %if.end.i.i.i
@@ -6490,8 +6482,8 @@ if.then4.i:                                       ; preds = %while.body.i.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
   br label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEtm.exit
 
-_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEtm.exit: ; preds = %if.end.i.i.i, %entry, %if.then.i, %if.then4.i
-  %__ret.0.i = phi i64 [ %sub.ptr.div.i, %if.then4.i ], [ -1, %entry ], [ -1, %if.then.i ], [ -1, %if.end.i.i.i ]
+_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEtm.exit: ; preds = %if.end.i.i.i, %entry, %if.then4.i
+  %__ret.0.i = phi i64 [ %sub.ptr.div.i, %if.then4.i ], [ -1, %entry ], [ -1, %if.end.i.i.i ]
   ret i64 %__ret.0.i
 }
 
@@ -7111,7 +7103,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %entry
-  %sub.i = sub i64 %0, %__pos
+  %sub.i = sub nuw i64 %0, %__pos
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
   %1 = load i64, ptr %_M_string_length.i, align 8
@@ -7183,7 +7175,7 @@ if.then.i10:                                      ; preds = %_ZNKSt7__cxx1112bas
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit11: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
   %sub.i = sub i64 %0, %__pos1
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n1)
-  %sub.i14 = sub i64 %1, %__pos2
+  %sub.i14 = sub nuw i64 %1, %__pos2
   %spec.select.i15 = tail call noundef i64 @llvm.umin.i64(i64 %sub.i14, i64 %__n2)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %spec.select.i15, i64 %spec.select.i)
   %cmp.not7.i.i = icmp eq i64 %.sroa.speculated, 0
@@ -7302,7 +7294,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %entry
-  %sub.i = sub i64 %0, %__pos
+  %sub.i = sub nuw i64 %0, %__pos
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
@@ -7373,7 +7365,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %entry
-  %sub.i = sub i64 %0, %__pos
+  %sub.i = sub nuw i64 %0, %__pos
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n1)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %__n2)
   %cmp.not7.i.i = icmp eq i64 %.sroa.speculated, 0

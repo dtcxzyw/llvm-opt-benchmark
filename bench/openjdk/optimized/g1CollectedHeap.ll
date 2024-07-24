@@ -5855,8 +5855,8 @@ define hidden noundef ptr @_ZNK15G1CollectedHeap11block_startEPKv(ptr nocapture 
 .lr.ph.i.i.i:                                     ; preds = %21, %.lr.ph.i.i.i
   %34 = phi i32 [ %39, %.lr.ph.i.i.i ], [ %33, %21 ]
   %.014.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %31, %21 ]
-  %35 = sub nsw i32 %34, %32
-  %36 = shl nsw i32 %35, 2
+  %35 = sub nuw nsw i32 %34, %32
+  %36 = shl nuw nsw i32 %35, 2
   %37 = zext nneg i32 %36 to i64
   %.neg.i.i.i = shl nsw i64 -1, %37
   %38 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 %.neg.i.i.i
@@ -22369,8 +22369,8 @@ define linkonce_odr hidden noundef ptr @_ZN20BlockLocationPrinterI15G1CollectedH
 .lr.ph.i.i.i.i:                                   ; preds = %23, %.lr.ph.i.i.i.i
   %36 = phi i32 [ %41, %.lr.ph.i.i.i.i ], [ %35, %23 ]
   %.014.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %33, %23 ]
-  %37 = sub nsw i32 %36, %34
-  %38 = shl nsw i32 %37, 2
+  %37 = sub nuw nsw i32 %36, %34
+  %38 = shl nuw nsw i32 %37, 2
   %39 = zext nneg i32 %38 to i64
   %.neg.i.i.i.i = shl nsw i64 -1, %39
   %40 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 %.neg.i.i.i.i

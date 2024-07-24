@@ -657,7 +657,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %11 = xor i16 %20, -1
   store ptr %22, ptr %10, align 8, !alias.scope !130
   store ptr %21, ptr %3, align 8, !alias.scope !130
-  %12 = sub i16 -2, %20
+  %12 = sub nuw i16 -2, %20
   %13 = and i16 %12, %11
   store i16 %13, ptr %8, align 8, !alias.scope !131
   %14 = add i64 %5, -1
@@ -729,7 +729,7 @@ define hidden noundef range(i8 0, 35) i8 @"_ZN99_$LT$hashbrown..raw..RawIntoIter
   %10 = xor i16 %18, -1
   store ptr %20, ptr %9, align 8, !alias.scope !143
   store ptr %19, ptr %2, align 8, !alias.scope !143
-  %11 = sub i16 -2, %18
+  %11 = sub nuw i16 -2, %18
   %12 = and i16 %11, %10
   store i16 %12, ptr %7, align 8, !alias.scope !144
   %13 = add i64 %4, -1
@@ -798,7 +798,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %11 = xor i16 %20, -1
   store ptr %22, ptr %10, align 8, !alias.scope !157
   store ptr %21, ptr %3, align 8, !alias.scope !157
-  %12 = sub i16 -2, %20
+  %12 = sub nuw i16 -2, %20
   %13 = and i16 %12, %11
   store i16 %13, ptr %8, align 8, !alias.scope !158
   %14 = add i64 %5, -1

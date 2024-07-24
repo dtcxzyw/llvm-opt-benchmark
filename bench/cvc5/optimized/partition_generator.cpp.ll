@@ -3374,7 +3374,7 @@ if.end20:                                         ; preds = %invoke.cont19.if.en
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end20
-  %sub.i = sub i64 %15, %sub.ptr.div.i.i.pre-phi
+  %sub.i = sub nuw i64 %15, %sub.ptr.div.i.i.pre-phi
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %literals, i64 noundef %sub.i)
           to label %invoke.cont22 unwind label %lpad.loopexit.split-lp159
 
@@ -5447,7 +5447,7 @@ if.end:                                           ; preds = %invoke.cont18.if.en
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub i64 %conv, %sub.ptr.div.i.i.pre-phi
+  %sub.i = sub nuw i64 %conv, %sub.ptr.div.i.i.pre-phi
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %literals, i64 noundef %sub.i)
           to label %invoke.cont19 unwind label %lpad
 

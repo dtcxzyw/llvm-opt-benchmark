@@ -2585,7 +2585,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i279:     ; preds = %887, %884
   br i1 %912, label %913, label %915
 
 913:                                              ; preds = %902
-  %914 = sub nsw i64 %904, %911
+  %914 = sub nuw nsw i64 %904, %911
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %914)
           to label %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit_crit_edge.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 

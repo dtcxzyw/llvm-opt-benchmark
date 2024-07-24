@@ -1835,7 +1835,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %55 = sub i64 %45, %52
+  %55 = sub nuw i64 %45, %52
   call void @_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %55)
   br label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit
 
@@ -2230,7 +2230,7 @@ _ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit: ; preds = %16
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub i64 %35, %42
+  %45 = sub nuw i64 %35, %42
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %45)
   %.pre = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
@@ -2434,7 +2434,7 @@ _ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit: ; preds = %16
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub i64 %35, %42
+  %45 = sub nuw i64 %35, %42
   call void @_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %45)
   %.pre = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit
@@ -4498,7 +4498,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %55 = sub i64 %45, %52
+  %55 = sub nuw i64 %45, %52
   call void @_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %55)
   br label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit
 
@@ -5485,7 +5485,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %55 = sub i64 %45, %52
+  %55 = sub nuw i64 %45, %52
   call void @_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %55)
   br label %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit
 

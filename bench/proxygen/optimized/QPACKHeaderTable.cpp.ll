@@ -1526,7 +1526,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i2, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %sub.i)
   br label %if.end
 
@@ -1594,7 +1594,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %sub = sub i32 %add, %desiredCapacity
+  %sub = sub nuw i32 %add, %desiredCapacity
   %call = tail call noundef zeroext i1 @_ZN8proxygen16QPACKHeaderTable8canEvictEj(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %sub)
   br i1 %call, label %if.end, label %return
 
@@ -1771,7 +1771,7 @@ land.rhs.i:                                       ; preds = %if.then37
   br i1 %cmp5.not.i, label %_ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit, label %if.then40
 
 _ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit: ; preds = %land.rhs.i
-  %sub7.i = sub i32 %add.i6, %10
+  %sub7.i = sub nuw i32 %add.i6, %10
   %call8.i = tail call noundef zeroext i1 @_ZN8proxygen16QPACKHeaderTable8canEvictEj(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %sub7.i)
   br i1 %call8.i, label %if.then40, label %return
 

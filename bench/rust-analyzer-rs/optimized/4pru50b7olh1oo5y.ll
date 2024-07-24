@@ -172,7 +172,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %.not.us, label %33, label %28
 
 28:                                               ; preds = %25
-  %29 = sub i64 %27, %17
+  %29 = sub nuw i64 %27, %17
   %30 = add i64 %29, %14
   %31 = icmp ugt i64 %29, %30
   %32 = icmp ugt i64 %30, %5
@@ -213,7 +213,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.split
 
 48:                                               ; preds = %42
-  %49 = sub i64 %44, %17
+  %49 = sub nuw i64 %44, %17
   %50 = add i64 %49, %14
   %51 = icmp ugt i64 %49, %50
   %52 = icmp ugt i64 %50, %5
@@ -981,7 +981,7 @@ define void @_ZN3vfs8vfs_path7VfsPath18name_and_extension17hd19cc0841cc41d88E(pt
   %37 = getelementptr inbounds i8, ptr %.val, i64 %31
   %38 = load i8, ptr %37, align 1, !alias.scope !167, !noalias !156, !noundef !5
   %39 = icmp sgt i8 %38, -65
-  %40 = sub i64 %.sroa.8.0.i, %31
+  %40 = sub nuw i64 %.sroa.8.0.i, %31
   br i1 %39, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %34, %30

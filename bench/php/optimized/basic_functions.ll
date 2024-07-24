@@ -4422,7 +4422,7 @@ define hidden void @zif_time_sleep_until(ptr noundef %0, ptr nocapture noundef w
   br label %50
 
 34:                                               ; preds = %21
-  %35 = sub i64 %24, %30
+  %35 = sub nuw i64 %24, %30
   %36 = udiv i64 %35, 1000000000
   store i64 %36, ptr %5, align 16
   %37 = urem i64 %35, 1000000000

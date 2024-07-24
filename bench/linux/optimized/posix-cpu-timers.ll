@@ -1709,7 +1709,7 @@ define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0
   br i1 %77, label %.loopexit, label %78
 
 78:                                               ; preds = %72
-  %79 = sub i64 %66, %73
+  %79 = sub nuw i64 %66, %73
   %80 = add i64 %79, %74
   %81 = icmp ult i64 %74, %79
   br i1 %81, label %.preheader, label %.thread
@@ -1749,7 +1749,7 @@ define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0
   %103 = load i64, ptr %86, align 8
   %104 = add i64 %103, %102
   store i64 %104, ptr %86, align 8
-  %105 = sub i64 %98, %97
+  %105 = sub nuw i64 %98, %97
   br label %106
 
 106:                                              ; preds = %100, %94
@@ -1766,7 +1766,7 @@ define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0
   br i1 %113, label %114, label %121
 
 114:                                              ; preds = %.loopexit
-  %115 = sub i64 %112, %66
+  %115 = sub nuw i64 %112, %66
   %116 = getelementptr inbounds i8, ptr %3, i64 16
   %117 = call { i64, i64 } @ns_to_timespec64(i64 noundef %115) #11
   %118 = extractvalue { i64, i64 } %117, 0
@@ -2214,7 +2214,7 @@ define internal void @posix_cpu_timer_get(ptr nocapture noundef readonly %0, ptr
   br i1 %71, label %73, label %79
 
 73:                                               ; preds = %69
-  %74 = sub i64 %9, %70
+  %74 = sub nuw i64 %9, %70
   %75 = call { i64, i64 } @ns_to_timespec64(i64 noundef %74) #11
   %76 = extractvalue { i64, i64 } %75, 0
   %77 = extractvalue { i64, i64 } %75, 1
@@ -2308,7 +2308,7 @@ define internal void @posix_cpu_timer_rearm(ptr noundef %0) #1 align 16 {
   br i1 %43, label %.loopexit, label %44
 
 44:                                               ; preds = %35
-  %45 = sub i64 %36, %38
+  %45 = sub nuw i64 %36, %38
   %46 = add i64 %45, %40
   %47 = icmp ult i64 %40, %45
   br i1 %47, label %.preheader, label %.thread
@@ -2348,7 +2348,7 @@ define internal void @posix_cpu_timer_rearm(ptr noundef %0) #1 align 16 {
   %69 = load i64, ptr %52, align 8
   %70 = add i64 %69, %68
   store i64 %70, ptr %52, align 8
-  %71 = sub i64 %64, %63
+  %71 = sub nuw i64 %64, %63
   br label %72
 
 72:                                               ; preds = %66, %60

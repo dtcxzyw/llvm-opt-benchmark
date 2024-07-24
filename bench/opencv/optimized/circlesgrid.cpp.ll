@@ -7301,7 +7301,7 @@ _ZN5GraphC2Em.exit:                               ; preds = %315, %._crit_edge
   br i1 %326, label %327, label %329
 
 327:                                              ; preds = %_ZN5GraphC2Em.exit
-  %328 = sub nsw i64 %.lcssa, %325
+  %328 = sub nuw nsw i64 %.lcssa, %325
   invoke void @_ZNSt6vectorI5GraphSaIS0_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS0_S2_EEmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %320, i64 noundef %328, ptr noundef nonnull align 8 dereferenceable(48) %20)
           to label %_ZNSt6vectorI5GraphSaIS0_EE6resizeEmRKS0_.exit unwind label %355
 
@@ -7941,7 +7941,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE9push_backERKS1_.exit: ; preds = %._ZNSt6vectorIS
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %134
-  %142 = sub nsw i64 %.lcssa77, %139
+  %142 = sub nuw nsw i64 %.lcssa77, %139
   invoke void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %142)
           to label %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -19369,7 +19369,7 @@ _ZSt13move_backwardIP5GraphS1_ET0_T_S3_S2_.exit:  ; preds = %_ZN5GraphaSEOS_.exi
   br label %228
 
 103:                                              ; preds = %_ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueC2IJRKS0_EEEPS2_DpOT_.exit
-  %104 = sub i64 %2, %38
+  %104 = sub nuw i64 %2, %38
   %105 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIP5GraphmS0_ET_S2_T0_RKT1_(ptr noundef %35, i64 noundef %104, ptr noundef nonnull align 8 dereferenceable(48) %17)
           to label %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 

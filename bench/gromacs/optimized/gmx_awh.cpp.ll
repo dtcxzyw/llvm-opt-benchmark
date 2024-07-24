@@ -1306,7 +1306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44.i.i
   br i1 %243, label %244, label %247
 
 244:                                              ; preds = %231
-  %245 = sub nsw i64 %235, %242
+  %245 = sub nuw nsw i64 %235, %242
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %234, ptr %237, i64 noundef %245, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %.noexc45.i.i unwind label %387, !noalias !10
 
@@ -1565,7 +1565,7 @@ _ZNSt10unique_ptrI10OutputFileSt14default_deleteIS0_EED2Ev.exit.i.i: ; preds = %
   br i1 %345, label %346, label %348
 
 346:                                              ; preds = %330
-  %347 = sub nsw i64 %337, %344
+  %347 = sub nuw nsw i64 %337, %344
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %336, ptr %339, i64 noundef %347, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %.noexc75.i.i unwind label %.loopexit94.i.i, !noalias !10
 
@@ -2957,7 +2957,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

@@ -10286,7 +10286,7 @@ _ZN4llvh12safe_reallocEPvm.exit.i.i:              ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh12safe_reallocEPvm.exit.i.i
-  %sub.i7.i.i.i.i = sub i64 %.sroa.speculated.i.i, %conv.i.i.i.i
+  %sub.i7.i.i.i.i = sub nuw i64 %.sroa.speculated.i.i, %conv.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %call.i.i.i, i64 %conv.i.i.i.i
   %mul.i.i.i.i.i = shl i64 %sub.i7.i.i.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i, i8 0, i64 %mul.i.i.i.i.i, i1 false)

@@ -7500,7 +7500,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr70drop
   %732 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload.i.i.i, i64 %.sroa.4.1.i.i.i
   %733 = load i8, ptr %732, align 1, !alias.scope !1270, !noalias !1275, !noundef !9
   %734 = icmp sgt i8 %733, -65
-  %735 = sub i64 %.sroa.03.sroa.13.0.copyload.i.i.i, %.sroa.4.1.i.i.i
+  %735 = sub nuw i64 %.sroa.03.sroa.13.0.copyload.i.i.i, %.sroa.4.1.i.i.i
   br i1 %734, label %737, label %736
 
 736:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i.i", %729

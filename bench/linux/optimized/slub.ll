@@ -9891,7 +9891,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @check_object(ptr nocapture n
 59:                                               ; preds = %54
   %60 = zext i32 %56 to i64
   %61 = getelementptr i8, ptr %2, i64 %60
-  %62 = sub i32 %57, %56
+  %62 = sub nuw i32 %57, %56
   %63 = tail call fastcc i32 @check_bytes_and_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.35, ptr noundef %61, i32 noundef 204, i32 noundef %62), !range !130
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %190, label %.thread
@@ -9908,7 +9908,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @check_object(ptr nocapture n
   br i1 %71, label %72, label %.thread
 
 72:                                               ; preds = %68
-  %73 = sub i32 %70, %6
+  %73 = sub nuw i32 %70, %6
   %74 = tail call fastcc i32 @check_bytes_and_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.36, ptr noundef %8, i32 noundef 90, i32 noundef %73), !range !130
   br label %.thread
 
@@ -13919,7 +13919,7 @@ define internal fastcc void @process_slab(ptr nocapture noundef %0, ptr nocaptur
 
 274:                                              ; preds = %269
   %275 = getelementptr i8, ptr %272, i64 88
-  %276 = sub i64 %270, %239
+  %276 = sub nuw i64 %270, %239
   %277 = mul i64 %276, 88
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %275, ptr align 8 %272, i64 %277, i1 false)
   %.pre25 = load i64, ptr %87, align 8

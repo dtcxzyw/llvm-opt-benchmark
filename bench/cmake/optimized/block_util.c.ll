@@ -63,9 +63,9 @@ lzma_block_unpadded_size.exit.thread18:           ; preds = %lzma_block_unpadded
   br i1 %.not, label %30, label %lzma_block_unpadded_size.exit.thread
 
 30:                                               ; preds = %lzma_block_unpadded_size.exit.thread18
-  %31 = sub i64 %1, %29
+  %31 = sub nuw i64 %1, %29
   %.not16 = icmp eq i64 %14, %31
-  %or.cond = or i1 %17, %.not16
+  %or.cond = select i1 %17, i1 true, i1 %.not16
   br i1 %or.cond, label %32, label %lzma_block_unpadded_size.exit.thread
 
 32:                                               ; preds = %30

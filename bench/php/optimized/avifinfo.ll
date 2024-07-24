@@ -180,7 +180,7 @@ define internal ptr @AvifInfoInternalForwardRead(ptr nocapture noundef %0, i64 n
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %1
   store ptr %8, ptr %0, align 8
-  %9 = sub i64 %4, %1
+  %9 = sub nuw i64 %4, %1
   store i64 %9, ptr %3, align 8
   br label %10
 
@@ -1723,7 +1723,7 @@ AvifInfoInternalReadBigEndian.exit114:            ; preds = %.lr.ph.i109
   br i1 %.not86, label %72, label %48
 
 48:                                               ; preds = %45
-  %49 = sub i32 %35, %47
+  %49 = sub nuw i32 %35, %47
   %50 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %49, ptr %50, align 4
   %51 = load i32, ptr %2, align 4

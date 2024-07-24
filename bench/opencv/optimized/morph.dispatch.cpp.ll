@@ -1401,7 +1401,7 @@ define hidden void @_ZN2cv12cpu_baseline19getMorphologyFilterEiiRKNS_3MatENS_6Po
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %86
-  %103 = sub nsw i64 %93, %100
+  %103 = sub nuw nsw i64 %93, %100
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %103)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i unwind label %111, !noalias !105
 
@@ -1568,7 +1568,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIhEENS2_10Morp
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %146
-  %163 = sub nsw i64 %153, %160
+  %163 = sub nuw nsw i64 %153, %160
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %127, i64 noundef %163)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i69 unwind label %171, !noalias !110
 
@@ -1735,7 +1735,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpItEENS2_10Morp
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %206
-  %223 = sub nsw i64 %213, %220
+  %223 = sub nuw nsw i64 %213, %220
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %187, i64 noundef %223)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i95 unwind label %231, !noalias !115
 
@@ -1902,7 +1902,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIsEENS2_10Morp
   br i1 %281, label %282, label %284
 
 282:                                              ; preds = %266
-  %283 = sub nsw i64 %273, %280
+  %283 = sub nuw nsw i64 %273, %280
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %247, i64 noundef %283)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i121 unwind label %291, !noalias !120
 
@@ -2069,7 +2069,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIfEENS2_10Morp
   br i1 %341, label %342, label %344
 
 342:                                              ; preds = %326
-  %343 = sub nsw i64 %333, %340
+  %343 = sub nuw nsw i64 %333, %340
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %307, i64 noundef %343)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i147 unwind label %351, !noalias !125
 
@@ -2245,7 +2245,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIdEENS2_10Morp
   br i1 %402, label %403, label %405
 
 403:                                              ; preds = %387
-  %404 = sub nsw i64 %394, %401
+  %404 = sub nuw nsw i64 %394, %401
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %368, i64 noundef %404)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i173 unwind label %412, !noalias !130
 
@@ -2412,7 +2412,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIhEENS2_10Morp
   br i1 %462, label %463, label %465
 
 463:                                              ; preds = %447
-  %464 = sub nsw i64 %454, %461
+  %464 = sub nuw nsw i64 %454, %461
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %428, i64 noundef %464)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i199 unwind label %472, !noalias !135
 
@@ -2579,7 +2579,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpItEENS2_10Morp
   br i1 %522, label %523, label %525
 
 523:                                              ; preds = %507
-  %524 = sub nsw i64 %514, %521
+  %524 = sub nuw nsw i64 %514, %521
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %488, i64 noundef %524)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i225 unwind label %532, !noalias !140
 
@@ -2746,7 +2746,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIsEENS2_10Morp
   br i1 %582, label %583, label %585
 
 583:                                              ; preds = %567
-  %584 = sub nsw i64 %574, %581
+  %584 = sub nuw nsw i64 %574, %581
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %548, i64 noundef %584)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i251 unwind label %592, !noalias !145
 
@@ -2913,7 +2913,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIfEENS2_10Morp
   br i1 %642, label %643, label %645
 
 643:                                              ; preds = %627
-  %644 = sub nsw i64 %634, %641
+  %644 = sub nuw nsw i64 %634, %641
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %608, i64 noundef %644)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i.i.i.i.i.i.i.i.i277 unwind label %652, !noalias !150
 

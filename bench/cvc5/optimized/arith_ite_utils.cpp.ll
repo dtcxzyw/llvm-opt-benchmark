@@ -9253,7 +9253,7 @@ for.end41:                                        ; preds = %_ZN4cvc58internal12
   br i1 %cmp.i, label %if.then.i42, label %if.else.i
 
 if.then.i42:                                      ; preds = %for.end41
-  %sub.i = sub i64 %writePos.1, %.pre90
+  %sub.i = sub nuw i64 %writePos.1, %.pre90
   tail call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %d_orBinEqs, i64 noundef %sub.i)
   br i1 %solvedSomething.1, label %do.body.backedge, label %do.end
 

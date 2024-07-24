@@ -721,7 +721,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %284, label %285, label %.loopexit82
 
 285:                                              ; preds = %280
-  %286 = sub i64 %22, %281
+  %286 = sub nuw i64 %22, %281
   %287 = add nuw i64 %281, 1
   %288 = and i64 %286, 1
   %289 = icmp eq i64 %288, 0

@@ -685,7 +685,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   %div.i56 = lshr i32 %2, 1
   %cmp3.i = icmp ult i32 %call.i146, %div.i56
   %sub.i = select i1 %cmp3.i, i32 0, i32 %div.i56
-  %spec.select58 = sub i32 %call.i146, %sub.i
+  %spec.select58 = sub nuw i32 %call.i146, %sub.i
   br label %percpu_arena_choose.exit
 
 percpu_arena_choose.exit:                         ; preds = %lor.lhs.false.i, %if.then
@@ -6498,7 +6498,7 @@ te_event_advance.exit:                            ; preds = %te_event_advance.ex
   br i1 %brmerge, label %return, label %if.then53
 
 if.then53:                                        ; preds = %te_event_advance.exit
-  %sub = sub nsw i64 %usize.0, %10
+  %sub = sub nuw nsw i64 %usize.0, %10
   %add.ptr = getelementptr inbounds i8, ptr %retval.i256.0410, i64 %10
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 -91, i64 %sub, i1 false)
   br label %return
@@ -7517,7 +7517,7 @@ te_event_advance.exit:                            ; preds = %te_event_advance.ex
   br i1 %brmerge, label %label_not_resized, label %if.then60
 
 if.then60:                                        ; preds = %te_event_advance.exit
-  %sub61 = sub i64 %spec.select118, %6
+  %sub61 = sub nuw i64 %spec.select118, %6
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 %6
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 -91, i64 %sub61, i1 false)
   br label %label_not_resized
@@ -9132,7 +9132,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bin.0254 = phi ptr [ null, %while.body.lr.ph ], [ %bin.2, %if.end147 ]
   %filled.0253 = phi i64 [ 0, %while.body.lr.ph ], [ %filled.3, %if.end147 ]
   %arena.0252 = phi ptr [ null, %while.body.lr.ph ], [ %arena.5, %if.end147 ]
-  %sub = sub i64 %num, %filled.0253
+  %sub = sub nuw i64 %num, %filled.0253
   %cmp45.not = icmp ult i64 %sub, %nregs.0
   %or.cond206 = select i1 %cmp16, i1 true, i1 %cmp45.not
   br i1 %or.cond206, label %if.end77, label %if.then47
@@ -9233,7 +9233,7 @@ land.rhs:                                         ; preds = %land.lhs.true82
 if.then111:                                       ; preds = %land.rhs
   %cmp102 = icmp eq ptr %bin.0254, null
   %bin.1 = select i1 %cmp102, ptr %arrayidx87, ptr %bin.0254
-  %sub112 = sub i64 %sub, %progress.0
+  %sub112 = sub nuw i64 %sub, %progress.0
   %add.ptr114 = getelementptr ptr, ptr %ptrs, i64 %filled.1
   %bin.1.val = load ptr, ptr %bin.1, align 8
   %25 = getelementptr i8, ptr %bin.1, i64 20
@@ -9475,7 +9475,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then56.i
   %div.i42.i = lshr i32 %18, 1
   %cmp3.i.i = icmp ult i32 %call.i92.i, %div.i42.i
   %sub.i.i = select i1 %cmp3.i.i, i32 0, i32 %div.i42.i
-  %spec.select.i = sub i32 %call.i92.i, %sub.i.i
+  %spec.select.i = sub nuw i32 %call.i92.i, %sub.i.i
   br label %percpu_arena_choose.exit.i
 
 percpu_arena_choose.exit.i:                       ; preds = %lor.lhs.false.i.i, %if.then56.i

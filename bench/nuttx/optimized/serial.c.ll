@@ -1141,7 +1141,7 @@ up_irq_restore.exit.us.i66:                       ; preds = %135, %133
 .loopexit75:                                      ; preds = %.split.i, %.split.i57, %up_irq_restore.exit.us.i, %up_irq_restore.exit.us.i66
   %.142.ph = phi i64 [ -4, %up_irq_restore.exit.us.i66 ], [ -4, %up_irq_restore.exit.us.i ], [ -11, %.split.i57 ], [ -11, %.split.i ]
   %139 = icmp ult i64 %.04584, %2
-  %140 = sub i64 %2, %.04584
+  %140 = sub nuw i64 %2, %.04584
   %spec.select = select i1 %139, i64 %140, i64 %.142.ph
   br label %.loopexit77
 

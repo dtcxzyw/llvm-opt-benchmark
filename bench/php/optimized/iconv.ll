@@ -2273,7 +2273,7 @@ get_internal_encoding.exit:                       ; preds = %12, %14
 
 .lr.ph700.i:                                      ; preds = %259, %291
   %.0506698.i = phi i64 [ %292, %291 ], [ 4, %259 ]
-  %271 = sub i64 %270, %.0506698.i
+  %271 = sub nuw i64 %270, %.0506698.i
   store i64 %271, ptr %6, align 8
   %272 = call i64 @iconv(ptr noundef %155, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %273 = icmp eq i64 %272, -1
@@ -5815,7 +5815,7 @@ thread-pre-split:                                 ; preds = %26, %60, %67
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %._crit_edge
-  %137 = sub i64 %.3209.lcssa, %134
+  %137 = sub nuw i64 %.3209.lcssa, %134
   %138 = trunc nuw nsw i32 %6 to i8
   %139 = call ptr @php_stream_bucket_new(ptr noundef %1, ptr noundef %.3.lcssa, i64 noundef %137, i8 noundef zeroext 1, i8 noundef zeroext %138) #16
   %140 = icmp eq ptr %139, null

@@ -388,7 +388,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp, label %if.end26, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %sub = sub i32 %address, %conv
+  %sub = sub nuw i32 %address, %conv
   %cmp4 = icmp ugt i32 %sub, 63
   br i1 %cmp4, label %if.end26, label %if.end7
 

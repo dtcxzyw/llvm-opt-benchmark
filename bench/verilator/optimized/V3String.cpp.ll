@@ -4756,8 +4756,8 @@ define dso_local void @_ZNK11VSpellCheck17bestCandidateInfoERKNSt7__cxx1112basic
   %.sroa.043.048 = phi ptr [ %73, %72 ], [ %9, %4 ]
   %12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.043.048) #23
   %13 = icmp ugt i64 %12, %8
-  %14 = sub i64 %12, %8
-  %15 = sub i64 %8, %12
+  %14 = sub nuw i64 %12, %8
+  %15 = sub nuw i64 %8, %12
   %16 = select i1 %13, i64 %14, i64 %15
   %17 = trunc i64 %16 to i32
   %18 = load i32, ptr %3, align 4

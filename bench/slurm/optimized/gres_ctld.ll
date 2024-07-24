@@ -626,7 +626,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br i1 %111, label %112, label %115
 
 112:                                              ; preds = %102
-  %113 = sub i64 %108, %110
+  %113 = sub nuw i64 %108, %110
   %114 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.29, ptr noundef %17, i32 noundef %6, ptr noundef %7, i64 noundef %113, i64 noundef %108, i64 noundef %110) #8
   br label %731
 
@@ -2255,7 +2255,7 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
   br i1 %.not369.i, label %94, label %92
 
 92:                                               ; preds = %86
-  %93 = sub i64 %88, %91
+  %93 = sub nuw i64 %88, %91
   br label %96
 
 94:                                               ; preds = %86
@@ -2314,7 +2314,7 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
   br i1 %.not371.i, label %118, label %116
 
 116:                                              ; preds = %113
-  %117 = sub i64 %115, %112
+  %117 = sub nuw i64 %115, %112
   store i64 %117, ptr %114, align 8
   br label %.critedge.i
 
@@ -2390,7 +2390,7 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
   br i1 %.not395.i, label %158, label %156
 
 156:                                              ; preds = %148
-  %157 = sub i64 %155, %152
+  %157 = sub nuw i64 %155, %152
   store i64 %157, ptr %154, align 8
   br label %164
 
@@ -2488,7 +2488,7 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
   br i1 %.not398.i, label %208, label %206
 
 206:                                              ; preds = %202
-  %207 = sub i64 %205, %152
+  %207 = sub nuw i64 %205, %152
   store i64 %207, ptr %204, align 8
   br label %212
 
@@ -2583,7 +2583,7 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
 
 .thread405.i:                                     ; preds = %254, %253
   %260 = phi i64 [ %259, %254 ], [ 1, %253 ]
-  %261 = sub i64 %252, %260
+  %261 = sub nuw i64 %252, %260
   store i64 %261, ptr %251, align 8
   br label %267
 
@@ -2638,7 +2638,7 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
   br i1 %.not386.i, label %294, label %292
 
 292:                                              ; preds = %288
-  %293 = sub i64 %291, %268
+  %293 = sub nuw i64 %291, %268
   store i64 %293, ptr %290, align 8
   br label %298
 
@@ -2732,7 +2732,7 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
   br i1 %.not388.i, label %335, label %_job_dealloc.exit
 
 335:                                              ; preds = %330
-  %336 = sub i64 %334, %332
+  %336 = sub nuw i64 %334, %332
   store i64 %336, ptr %333, align 8
   %337 = icmp ult i32 %.0301430.i, %326
   br i1 %337, label %.lr.ph433.i, label %._crit_edge.i
@@ -5052,7 +5052,7 @@ define dso_local i32 @gres_ctld_step_dealloc(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not121.i.us, label %63, label %61
 
 61:                                               ; preds = %58
-  %62 = sub i64 %60, %55
+  %62 = sub nuw i64 %60, %55
   store i64 %62, ptr %59, align 8
   br label %69
 

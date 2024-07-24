@@ -5530,7 +5530,7 @@ define linkonce_odr void @_ZN18ArithmeticPathImplC2EmmdRKSt6vectorIdSaIdEE(ptr n
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %25
-  %35 = sub i64 %2, %32
+  %35 = sub nuw i64 %2, %32
   invoke void @_ZNSt6vectorIS_I11colvarvalueSaIS0_EESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr %27, i64 noundef %35, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %_ZNSt6vectorIS_I11colvarvalueSaIS0_EESaIS2_EE6resizeEmRKS2_.exit unwind label %124
 
@@ -5626,7 +5626,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %57
-  %67 = sub i64 %2, %64
+  %67 = sub nuw i64 %2, %64
   invoke void @_ZNSt6vectorIS_I11colvarvalueSaIS0_EESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr %59, i64 noundef %67, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %_ZNSt6vectorIS_I11colvarvalueSaIS0_EESaIS2_EE6resizeEmRKS2_.exit29 unwind label %129
 
@@ -5722,7 +5722,7 @@ _ZN11colvarvalueD2Ev.exit39:                      ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %89
-  %99 = sub i64 %2, %96
+  %99 = sub nuw i64 %2, %96
   invoke void @_ZNSt6vectorIS_I11colvarvalueSaIS0_EESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr %91, i64 noundef %99, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %_ZNSt6vectorIS_I11colvarvalueSaIS0_EESaIS2_EE6resizeEmRKS2_.exit46 unwind label %134
 
@@ -6137,7 +6137,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %19, %_ZNSt6vectorId
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %._crit_edge
-  %66 = sub i64 %2, %63
+  %66 = sub nuw i64 %2, %63
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %66)
   %.pre13 = load i64, ptr %55, align 8
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
@@ -6692,7 +6692,7 @@ _ZSt13move_backwardIPSt6vectorI11colvarvalueSaIS1_EES4_ET0_T_S6_S5_.exit: ; pred
   br label %153
 
 60:                                               ; preds = %16
-  %61 = sub i64 %2, %22
+  %61 = sub nuw i64 %2, %22
   %.not13.i.i.i.i = icmp eq i64 %61, 0
   br i1 %.not13.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPSt6vectorI11colvarvalueSaIS1_EEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

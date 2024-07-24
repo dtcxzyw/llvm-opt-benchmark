@@ -54,7 +54,7 @@ if.else.us:                                       ; preds = %for.body3.us
 
 for.body10.us:                                    ; preds = %if.else.us, %for.body10.us
   %done.030.us = phi i64 [ 0, %if.else.us ], [ %add.us, %for.body10.us ]
-  %sub.us = sub i64 %call.fr, %done.030.us
+  %sub.us = sub nuw i64 %call.fr, %done.030.us
   %spec.select.us = call i64 @llvm.umin.i64(i64 %stride.031.us, i64 %sub.us)
   %arrayidx.us = getelementptr inbounds i8, ptr %0, i64 %done.030.us
   %call14.us = call i32 @RIPEMD160_Update(ptr noundef nonnull %ctx, ptr noundef %arrayidx.us, i64 noundef %spec.select.us)

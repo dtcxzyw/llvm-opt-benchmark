@@ -1698,19 +1698,19 @@ thread-pre-split122:                              ; preds = %64
   br i1 %1020, label %1021, label %1039
 
 1021:                                             ; preds = %1017
-  %1022 = sub i32 %1019, %1018
+  %1022 = sub nuw i32 %1019, %1018
   %1023 = load i32, ptr %56, align 4
   %1024 = icmp ugt i32 %1022, %1023
   br i1 %1024, label %1025, label %1029
 
 1025:                                             ; preds = %1021
-  %1026 = sub i32 %1022, %1023
+  %1026 = sub nuw i32 %1022, %1023
   %1027 = load i32, ptr %57, align 4
   %1028 = sub i32 %1027, %1026
   br label %1031
 
 1029:                                             ; preds = %1021
-  %1030 = sub i32 %1023, %1022
+  %1030 = sub nuw i32 %1023, %1022
   br label %1031
 
 1031:                                             ; preds = %1029, %1025

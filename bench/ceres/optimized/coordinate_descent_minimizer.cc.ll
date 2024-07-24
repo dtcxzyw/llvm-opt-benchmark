@@ -1395,7 +1395,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %221, %205, %_ZNSt6v
   br i1 %296, label %297, label %299
 
 297:                                              ; preds = %._crit_edge145
-  %298 = sub i64 %288, %295
+  %298 = sub nuw i64 %288, %295
   invoke void @_ZNSt6vectorIS_IPN5ceres8internal13ResidualBlockESaIS3_EESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %287, i64 noundef %298)
           to label %_ZNSt6vectorIS_IPN5ceres8internal13ResidualBlockESaIS3_EESaIS5_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

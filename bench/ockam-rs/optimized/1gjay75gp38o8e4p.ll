@@ -109,7 +109,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.th
   %32 = load i64, ptr %31, align 8, !alias.scope !18, !noundef !5
   %.not.i.i = icmp ult i64 %30, %32
   %33 = select i1 %.not.i.i, i64 0, i64 %32
-  %.0.i.i = sub i64 %30, %33
+  %.0.i.i = sub nuw i64 %30, %33
   store i64 %.0.i.i, ptr %28, align 8, !alias.scope !18
   %34 = add i64 %24, -1
   store i64 %34, ptr %23, align 8, !alias.scope !18
@@ -331,7 +331,7 @@ define hidden { i64, i64 } @"_ZN12sharded_slab3tid12Registration8register28_$u7b
   %12 = load i64, ptr %11, align 8, !alias.scope !51, !noundef !5
   %.not.i = icmp ult i64 %10, %12
   %13 = select i1 %.not.i, i64 0, i64 %12
-  %.0.i = sub i64 %10, %13
+  %.0.i = sub nuw i64 %10, %13
   store i64 %.0.i, ptr %8, align 8, !alias.scope !51
   %14 = add i64 %4, -1
   store i64 %14, ptr %3, align 8, !alias.scope !51

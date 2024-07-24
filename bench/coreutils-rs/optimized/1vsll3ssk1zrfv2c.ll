@@ -51,7 +51,7 @@ define hidden void @"_ZN3nom5bytes8complete3tag28_$u7b$$u7b$closure$u7d$$u7d$17h
 
 "_ZN59_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTake$GT$10take_split17h1e5aa5c4855c500aE.llvm.15859092204462515359.exit": ; preds = %.loopexit
   %12 = getelementptr inbounds i8, ptr %2, i64 %6
-  %13 = sub i64 %3, %6
+  %13 = sub nuw i64 %3, %6
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %14, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -155,7 +155,7 @@ define hidden void @"_ZN3nom8sequence14separated_pair28_$u7b$$u7b$closure$u7d$$u
 
 22:                                               ; preds = %.loopexit.i.i
   %23 = getelementptr inbounds i8, ptr %.sroa.024.0.copyload, i64 %14
-  %24 = sub i64 %.sroa.425.0.copyload, %14
+  %24 = sub nuw i64 %.sroa.425.0.copyload, %14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !48
   store ptr %23, ptr %6, align 8, !noalias !55
@@ -249,7 +249,7 @@ define hidden void @"_ZN3nom8sequence8preceded28_$u7b$$u7b$closure$u7d$$u7d$17hc
 
 12:                                               ; preds = %.loopexit.i.i
   %13 = getelementptr inbounds i8, ptr %2, i64 %6
-  %14 = sub i64 %3, %6
+  %14 = sub nuw i64 %3, %6
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @"_ZN3nom10combinator9recognize28_$u7b$$u7b$closure$u7d$$u7d$17h7a8e0dda6a81cbacE.llvm.10490459382562086296"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %14)
   br label %18
@@ -508,7 +508,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -567,7 +567,7 @@ define hidden void @"_ZN59_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTak
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.llvm.15859092204462515359.exit": ; preds = %3
   %12 = load ptr, ptr %1, align 8, !nonnull !4, !align !8, !noundef !4
   %13 = getelementptr inbounds i8, ptr %12, i64 %2
-  %14 = sub i64 %6, %2
+  %14 = sub nuw i64 %6, %2
   store ptr %13, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %14, ptr %15, align 8
@@ -631,7 +631,7 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
 
 "_ZN59_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTake$GT$10take_split17h1e5aa5c4855c500aE.llvm.15859092204462515359.exit.i": ; preds = %.loopexit.i
   %12 = getelementptr inbounds i8, ptr %2, i64 %6
-  %13 = sub i64 %3, %6
+  %13 = sub nuw i64 %3, %6
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %14, align 8, !alias.scope !127, !noalias !145
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -695,7 +695,7 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
 
 12:                                               ; preds = %.loopexit.i.i.i
   %13 = getelementptr inbounds i8, ptr %2, i64 %6
-  %14 = sub i64 %3, %6
+  %14 = sub nuw i64 %3, %6
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @"_ZN3nom10combinator9recognize28_$u7b$$u7b$closure$u7d$$u7d$17h7a8e0dda6a81cbacE.llvm.10490459382562086296"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %14)
   br label %"_ZN3nom8sequence8preceded28_$u7b$$u7b$closure$u7d$$u7d$17hc27c8f4e520480c0E.llvm.15859092204462515359.exit"
@@ -791,7 +791,7 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
 
 22:                                               ; preds = %.loopexit.i.i.i
   %23 = getelementptr inbounds i8, ptr %.sroa.024.0.copyload.i, i64 %14
-  %24 = sub i64 %.sroa.425.0.copyload.i, %14
+  %24 = sub nuw i64 %.sroa.425.0.copyload.i, %14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !184
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !220
   store ptr %23, ptr %6, align 8, !noalias !227

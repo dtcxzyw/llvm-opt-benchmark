@@ -274,7 +274,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBa
   %19 = zext i32 %2 to i64
   %20 = mul nuw i64 %18, %19
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
-  %22 = sub i32 %3, %6
+  %22 = sub nuw i32 %3, %6
   %23 = zext i32 %22 to i64
   %24 = mul nuw i64 %23, %19
   tail call void @llvm.memset.p0.i64(ptr align 1 %21, i8 0, i64 %24, i1 false)

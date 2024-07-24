@@ -1247,7 +1247,7 @@ for.end103:                                       ; preds = %for.end103.loopexit
   br i1 %cmp108, label %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit, label %if.end118
 
 _ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit: ; preds = %for.end103
-  %sub.i = sub nsw i64 %sub.ptr.div.i219, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i219, %sub.ptr.div.i
   call void @_ZNSt6vectorIN4pbrt5ImageESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %pixelCounterImages, i64 noundef %sub.i)
   %78 = load ptr, ptr %this, align 8
   %pixelCounterNames = getelementptr inbounds i8, ptr %78, i64 488
@@ -1271,7 +1271,7 @@ _ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit: ; preds = %for.end103
   br i1 %cmp.i238, label %if.then.i249, label %if.else.i239
 
 if.then.i249:                                     ; preds = %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit
-  %sub.i250 = sub nsw i64 %sub.ptr.div.i232, %sub.ptr.div.i.i237
+  %sub.i250 = sub nuw nsw i64 %sub.ptr.div.i232, %sub.ptr.div.i.i237
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %pixelCounterNames, i64 noundef %sub.i250)
   br label %if.end118
 
@@ -1318,7 +1318,7 @@ if.end118:                                        ; preds = %invoke.cont.i.i248,
   br i1 %cmp123, label %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit284, label %if.end133
 
 _ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit284: ; preds = %if.end118
-  %sub.i283 = sub nsw i64 %sub.ptr.div.i260, %sub.ptr.div.i255
+  %sub.i283 = sub nuw nsw i64 %sub.ptr.div.i260, %sub.ptr.div.i255
   call void @_ZNSt6vectorIN4pbrt5ImageESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %pixelRatioImages, i64 noundef %sub.i283)
   %90 = load ptr, ptr %this, align 8
   %pixelRatioNames = getelementptr inbounds i8, ptr %90, i64 536
@@ -1342,7 +1342,7 @@ _ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit284: ; preds = %if.end118
   br i1 %cmp.i295, label %if.then.i306, label %if.else.i296
 
 if.then.i306:                                     ; preds = %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit284
-  %sub.i307 = sub nsw i64 %sub.ptr.div.i289, %sub.ptr.div.i.i294
+  %sub.i307 = sub nuw nsw i64 %sub.ptr.div.i289, %sub.ptr.div.i.i294
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %pixelRatioNames, i64 noundef %sub.i307)
   br label %if.end133
 
@@ -4665,7 +4665,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub nsw i64 %conv4, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %conv4, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN4pbrt5ImageESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %counterImages, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit
 
@@ -4703,7 +4703,7 @@ _ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit: ; preds = %if.then.i, %if.else
   br i1 %cmp.i15, label %if.then.i26, label %if.else.i16
 
 if.then.i26:                                      ; preds = %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit
-  %sub.i27 = sub nsw i64 %conv4, %sub.ptr.div.i.i14
+  %sub.i27 = sub nuw nsw i64 %conv4, %sub.ptr.div.i.i14
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %counterNames, i64 noundef %sub.i27)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
@@ -4897,7 +4897,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub nsw i64 %conv4, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %conv4, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN4pbrt5ImageESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %ratioImages, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit
 
@@ -4935,7 +4935,7 @@ _ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit: ; preds = %if.then.i, %if.else
   br i1 %cmp.i24, label %if.then.i35, label %if.else.i25
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit
-  %sub.i36 = sub nsw i64 %conv4, %sub.ptr.div.i.i23
+  %sub.i36 = sub nuw nsw i64 %conv4, %sub.ptr.div.i.i23
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %ratioNames, i64 noundef %sub.i36)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 

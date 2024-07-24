@@ -5800,7 +5800,7 @@ _ZL9need_swapPK12t_swapcoordsP6t_swap.exit.thread: ; preds = %_ZL24apply_modifie
   br i1 %.not.i247, label %532, label %530
 
 530:                                              ; preds = %519
-  %531 = sub i64 %526, %529
+  %531 = sub nuw i64 %526, %529
   br label %534
 
 532:                                              ; preds = %519

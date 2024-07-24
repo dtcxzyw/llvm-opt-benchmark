@@ -12535,7 +12535,7 @@ define hidden void @"_ZN9itertools11lazy_buffer19LazyBuffer$LT$I$GT$7prefill17h7
   ret void
 
 7:                                                ; preds = %2
-  %8 = sub i64 %1, %4
+  %8 = sub nuw i64 %1, %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h4159961dfdd969e8E.llvm.10122841070676192969"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %8)
   br label %6

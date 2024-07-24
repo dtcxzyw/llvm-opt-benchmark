@@ -719,7 +719,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen26gatherFunctions_DEPRECATED
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %14
-  %19 = sub nsw i64 %16, %10
+  %19 = sub nuw nsw i64 %16, %10
   tail call void @_ZNSt6vectorIP5ProtoSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %19)
   %.pre = load ptr, ptr %0, align 8
   br label %_ZNSt6vectorIP5ProtoSaIS1_EE6resizeEm.exit
@@ -981,7 +981,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen21gatherFunctionsHelperERSt6
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = sub nsw i64 %18, %12
+  %21 = sub nuw nsw i64 %18, %12
   tail call void @_ZNSt6vectorIP5ProtoSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %21)
   %.pre = load ptr, ptr %0, align 8
   br label %_ZNSt6vectorIP5ProtoSaIS1_EE6resizeEm.exit

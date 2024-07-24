@@ -6996,7 +6996,7 @@ define internal fastcc void @dissect_spare_extension_and_crc(ptr noundef %0, ptr
 
 26:                                               ; preds = %24
   %27 = tail call ptr @wmem_packet_scope() #8
-  %28 = sub i32 %.0, %5
+  %28 = sub nuw i32 %.0, %5
   %29 = zext i32 %28 to i64
   %30 = tail call ptr @tvb_memdup(ptr noundef %27, ptr noundef %0, i32 noundef %5, i64 noundef %29) #8
   %31 = tail call zeroext i16 @crc16_8005_noreflect_noxor(ptr noundef %30, i64 noundef %29) #8

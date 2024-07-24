@@ -71,7 +71,7 @@ for.end26:                                        ; preds = %for.body20.preheade
 if.then29:                                        ; preds = %for.end26
   %add.ptr30 = getelementptr i8, ptr %c, i64 %spec.store.select53
   %add.ptr31 = getelementptr i8, ptr %m.addr.049, i64 %spec.store.select53
-  %sub32 = sub i64 %mlen, %spec.store.select53
+  %sub32 = sub nuw i64 %mlen, %spec.store.select53
   %call35 = call i32 @crypto_stream_salsa20_xor_ic(ptr noundef %add.ptr30, ptr noundef %add.ptr31, i64 noundef %sub32, ptr noundef %add.ptr, i64 noundef 1, ptr noundef nonnull %subkey) #7
   br label %if.end36
 

@@ -2060,7 +2060,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end
-  %sub.i = sub i64 %line.coerce0, %conv12
+  %sub.i = sub nuw i64 %line.coerce0, %conv12
   %add.ptr.i = getelementptr inbounds i8, ptr %line.coerce1, i64 %conv12
   %call.i18 = tail call { i64, ptr } @_ZN4absl12lts_2023080227StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %sub.i, ptr nonnull %add.ptr.i)
   %6 = extractvalue { i64, ptr } %call.i18, 0
@@ -2082,7 +2082,7 @@ if.then.i22.lr.ph:                                ; preds = %_ZNKSt17basic_strin
 if.then.i22:                                      ; preds = %if.then.i22.lr.ph, %if.end70
   %conv1577 = phi i64 [ 0, %if.then.i22.lr.ph ], [ %conv15, %if.end70 ]
   %start.076 = phi i32 [ 0, %if.then.i22.lr.ph ], [ %add71, %if.end70 ]
-  %sub.i24 = sub i64 %8, %conv1577
+  %sub.i24 = sub nuw i64 %8, %conv1577
   %add.ptr.i25 = getelementptr inbounds i8, ptr %9, i64 %conv1577
   %call.i.i26 = call ptr @memchr(ptr noundef %add.ptr.i25, i32 noundef 44, i64 noundef %sub.i24) #21
   %tobool.not.i27 = icmp eq ptr %call.i.i26, null
@@ -2622,7 +2622,7 @@ if.then.i.i:                                      ; preds = %_ZSt11find_if_notIP
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
-  %sub.i = sub i64 %str.coerce0, %sub.ptr.sub
+  %sub.i = sub nuw i64 %str.coerce0, %sub.ptr.sub
   %add.ptr.i4 = getelementptr inbounds i8, ptr %str.coerce1, i64 %sub.ptr.sub
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %sub.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %add.ptr.i4, 1

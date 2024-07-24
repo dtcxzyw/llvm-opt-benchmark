@@ -9093,7 +9093,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIihEclEPPKhPhi
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = sub nsw i64 %23, %20
+  %26 = sub nuw nsw i64 %23, %20
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %33
 
@@ -9610,7 +9610,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIthEclEPPKhPhi
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = sub nsw i64 %27, %24
+  %30 = sub nuw nsw i64 %27, %24
   invoke void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %30)
           to label %._ZNSt6vectorItSaItEE6resizeEm.exit_crit_edge unwind label %37
 
@@ -10113,7 +10113,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdhEclEPPKhPhi
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = sub nsw i64 %23, %20
+  %26 = sub nuw nsw i64 %23, %20
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %33
 
@@ -10690,7 +10690,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIitEclEPPKhPhi
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = sub nsw i64 %23, %20
+  %26 = sub nuw nsw i64 %23, %20
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %33
 
@@ -11090,7 +11090,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEclEPPKhPhi
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = sub nsw i64 %23, %20
+  %26 = sub nuw nsw i64 %23, %20
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %33
 
@@ -11569,7 +11569,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIisEclEPPKhPhi
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = sub nsw i64 %23, %20
+  %26 = sub nuw nsw i64 %23, %20
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %33
 
@@ -11969,7 +11969,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEclEPPKhPhi
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = sub nsw i64 %23, %20
+  %26 = sub nuw nsw i64 %23, %20
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %33
 
@@ -12448,7 +12448,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEclEPPKhPhi
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = sub nsw i64 %23, %20
+  %26 = sub nuw nsw i64 %23, %20
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %33
 
@@ -12842,7 +12842,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIifEclEPPKhPhi
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = sub nsw i64 %23, %20
+  %26 = sub nuw nsw i64 %23, %20
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %33
 
@@ -13236,7 +13236,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEclEPPKhPhi
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = sub nsw i64 %23, %20
+  %26 = sub nuw nsw i64 %23, %20
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %33
 
@@ -13686,7 +13686,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIidEclEPPKhPhi
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = sub nsw i64 %23, %20
+  %26 = sub nuw nsw i64 %23, %20
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %33
 
@@ -14136,7 +14136,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19ColumnSumIddEclEPPKhPhi
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = sub nsw i64 %23, %20
+  %26 = sub nuw nsw i64 %23, %20
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %33
 

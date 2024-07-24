@@ -787,7 +787,7 @@ if.then:                                          ; preds = %malloc_mutex_lock.e
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.then
-  %sub = sub i64 %6, %call3
+  %sub = sub nuw i64 %6, %call3
   %mul = mul i64 %sub, 1000000
   br label %if.end9
 
@@ -885,7 +885,7 @@ if.end15:                                         ; preds = %if.then11
   br i1 %cmp21, label %if.then22, label %return
 
 if.then22:                                        ; preds = %if.end15
-  %sub25 = sub i64 %18, %call19
+  %sub25 = sub nuw i64 %18, %call19
   %mul26 = mul i64 %sub25, 1000000
   %spec.select = call i64 @llvm.umin.i64(i64 %mul26, i64 %time_ns.0)
   br label %return

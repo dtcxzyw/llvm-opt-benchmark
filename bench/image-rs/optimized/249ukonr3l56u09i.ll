@@ -17164,7 +17164,7 @@ define hidden void @"_ZN5flume13Chan$LT$T$GT$12pull_pending17h4ff18b7da65d2f54E.
   %33 = load i64, ptr %8, align 8, !alias.scope !1872, !noundef !4
   %.not.i.i = icmp ult i64 %32, %33
   %34 = select i1 %.not.i.i, i64 0, i64 %33
-  %.0.i.i = sub i64 %32, %34
+  %.0.i.i = sub nuw i64 %32, %34
   store i64 %.0.i.i, ptr %19, align 8, !alias.scope !1869
   %35 = add i64 %28, -1
   store i64 %35, ptr %18, align 8, !alias.scope !1869
@@ -17341,7 +17341,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %98 = add i64 %97, %96
   %.not.i.i4 = icmp ult i64 %98, %95
   %99 = select i1 %.not.i.i4, i64 0, i64 %95
-  %.0.i.i5 = sub i64 %98, %99
+  %.0.i.i5 = sub nuw i64 %98, %99
   %100 = load ptr, ptr %23, align 8, !alias.scope !1886, !noalias !1889, !nonnull !4, !noundef !4
   %101 = getelementptr inbounds { i64, [9 x i64] }, ptr %100, i64 %.0.i.i5
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %101, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
@@ -17450,7 +17450,7 @@ define hidden void @"_ZN5flume13Chan$LT$T$GT$12pull_pending17h67ceaf368d068d79E.
   %29 = load i64, ptr %7, align 8, !alias.scope !1908, !noundef !4
   %.not.i.i = icmp ult i64 %28, %29
   %30 = select i1 %.not.i.i, i64 0, i64 %29
-  %.0.i.i = sub i64 %28, %30
+  %.0.i.i = sub nuw i64 %28, %30
   store i64 %.0.i.i, ptr %18, align 8, !alias.scope !1905
   %31 = add i64 %24, -1
   store i64 %31, ptr %17, align 8, !alias.scope !1905
@@ -17641,7 +17641,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %98 = add i64 %97, %96
   %.not.i.i5 = icmp ult i64 %98, %95
   %99 = select i1 %.not.i.i5, i64 0, i64 %95
-  %.0.i.i6 = sub i64 %98, %99
+  %.0.i.i6 = sub nuw i64 %98, %99
   %100 = load ptr, ptr %22, align 8, !alias.scope !1929, !noalias !1932, !nonnull !4, !noundef !4
   %101 = getelementptr inbounds { [2 x i64], i64, [11 x i64] }, ptr %100, i64 %.0.i.i6
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %101, ptr noundef nonnull align 8 dereferenceable(112) %4, i64 112, i1 false)
@@ -18440,7 +18440,7 @@ common.resume:                                    ; preds = %45, %470, %.thread7
   %56 = load i64, ptr %44, align 8, !alias.scope !2053, !noalias !2048, !noundef !4
   %.not.i.i = icmp ult i64 %55, %56
   %57 = select i1 %.not.i.i, i64 0, i64 %56
-  %.0.i.i = sub i64 %55, %57
+  %.0.i.i = sub nuw i64 %55, %57
   store i64 %.0.i.i, ptr %53, align 8, !alias.scope !2051, !noalias !2048
   %58 = add i64 %49, -1
   store i64 %58, ptr %48, align 8, !alias.scope !2051, !noalias !2048
@@ -18737,7 +18737,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %158 = add i64 %157, %155
   %.not.i.i29 = icmp ult i64 %158, %154
   %159 = select i1 %.not.i.i29, i64 0, i64 %154
-  %.0.i.i30 = sub i64 %158, %159
+  %.0.i.i30 = sub nuw i64 %158, %159
   %160 = getelementptr inbounds i8, ptr %135, i64 48
   %161 = load ptr, ptr %160, align 8, !alias.scope !2093, !noalias !2098, !nonnull !4, !noundef !4
   %162 = getelementptr inbounds { ptr, ptr }, ptr %161, i64 %.0.i.i30
@@ -19426,7 +19426,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
   %370 = load i64, ptr %366, align 8, !alias.scope !2217, !noalias !2213, !noundef !4
   %.not.i.i.i.i = icmp ult i64 %369, %370
   %371 = select i1 %.not.i.i.i.i, i64 0, i64 %370
-  %.0.i.i.i.i = sub i64 %369, %371
+  %.0.i.i.i.i = sub nuw i64 %369, %371
   store i64 %.0.i.i.i.i, ptr %367, align 8, !alias.scope !2210, !noalias !2213
   %372 = add i64 %363, -1
   store i64 %372, ptr %362, align 8, !alias.scope !2210, !noalias !2213
@@ -19616,7 +19616,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
   %433 = load i64, ptr %429, align 8, !alias.scope !2265, !noalias !2263, !noundef !4
   %.not.i.i.i.i.i = icmp ult i64 %432, %433
   %434 = select i1 %.not.i.i.i.i.i, i64 0, i64 %433
-  %.0.i.i.i.i53.i = sub i64 %432, %434
+  %.0.i.i.i.i53.i = sub nuw i64 %432, %434
   store i64 %.0.i.i.i.i53.i, ptr %430, align 8, !alias.scope !2260, !noalias !2263
   %435 = add i64 %426, -1
   store i64 %435, ptr %425, align 8, !alias.scope !2260, !noalias !2263
@@ -19898,7 +19898,7 @@ common.resume:                                    ; preds = %51, %506, %.thread8
   %60 = load i64, ptr %50, align 8, !alias.scope !2299, !noalias !2294, !noundef !4
   %.not.i.i = icmp ult i64 %59, %60
   %61 = select i1 %.not.i.i, i64 0, i64 %60
-  %.0.i.i = sub i64 %59, %61
+  %.0.i.i = sub nuw i64 %59, %61
   store i64 %.0.i.i, ptr %57, align 8, !alias.scope !2297, !noalias !2294
   %62 = add i64 %55, -1
   store i64 %62, ptr %54, align 8, !alias.scope !2297, !noalias !2294
@@ -20185,7 +20185,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %156 = add i64 %155, %153
   %.not.i.i29 = icmp ult i64 %156, %152
   %157 = select i1 %.not.i.i29, i64 0, i64 %152
-  %.0.i.i30 = sub i64 %156, %157
+  %.0.i.i30 = sub nuw i64 %156, %157
   %158 = getelementptr inbounds i8, ptr %136, i64 48
   %159 = load ptr, ptr %158, align 8, !alias.scope !2339, !noalias !2344, !nonnull !4, !noundef !4
   %160 = getelementptr inbounds { ptr, ptr }, ptr %159, i64 %.0.i.i30
@@ -20930,7 +20930,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
   %393 = load i64, ptr %389, align 8, !alias.scope !2487, !noalias !2483, !noundef !4
   %.not.i.i.i.i = icmp ult i64 %392, %393
   %394 = select i1 %.not.i.i.i.i, i64 0, i64 %393
-  %.0.i.i.i.i = sub i64 %392, %394
+  %.0.i.i.i.i = sub nuw i64 %392, %394
   store i64 %.0.i.i.i.i, ptr %390, align 8, !alias.scope !2480, !noalias !2483
   %395 = add i64 %386, -1
   store i64 %395, ptr %385, align 8, !alias.scope !2480, !noalias !2483
@@ -21113,7 +21113,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
   %455 = load i64, ptr %451, align 8, !alias.scope !2535, !noalias !2533, !noundef !4
   %.not.i.i.i.i.i = icmp ult i64 %454, %455
   %456 = select i1 %.not.i.i.i.i.i, i64 0, i64 %455
-  %.0.i.i.i.i57.i = sub i64 %454, %456
+  %.0.i.i.i.i57.i = sub nuw i64 %454, %456
   store i64 %.0.i.i.i.i57.i, ptr %452, align 8, !alias.scope !2530, !noalias !2533
   %457 = add i64 %448, -1
   store i64 %457, ptr %447, align 8, !alias.scope !2530, !noalias !2533
@@ -21636,7 +21636,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
   %138 = add i64 %137, %135
   %.not.i.i71 = icmp ult i64 %138, %134
   %139 = select i1 %.not.i.i71, i64 0, i64 %134
-  %.0.i.i72 = sub i64 %138, %139
+  %.0.i.i72 = sub nuw i64 %138, %139
   %140 = getelementptr inbounds i8, ptr %61, i64 88
   %141 = load ptr, ptr %140, align 8, !alias.scope !2614, !noalias !2619, !nonnull !4, !noundef !4
   %142 = getelementptr inbounds { ptr, ptr }, ptr %141, i64 %.0.i.i72
@@ -22342,7 +22342,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %368 = add i64 %367, %365
   %.not.i.i = icmp ult i64 %368, %364
   %369 = select i1 %.not.i.i, i64 0, i64 %364
-  %.0.i.i = sub i64 %368, %369
+  %.0.i.i = sub nuw i64 %368, %369
   %370 = getelementptr inbounds i8, ptr %61, i64 16
   %371 = load ptr, ptr %370, align 8, !alias.scope !2587, !noalias !2590, !nonnull !4, !noundef !4
   %372 = getelementptr inbounds { i64, [9 x i64] }, ptr %371, i64 %.0.i.i
@@ -22380,7 +22380,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %386 = load i64, ptr %382, align 8, !alias.scope !2750, !noundef !4
   %.not.i.i89 = icmp ult i64 %385, %386
   %387 = select i1 %.not.i.i89, i64 0, i64 %386
-  %.0.i.i90 = sub i64 %385, %387
+  %.0.i.i90 = sub nuw i64 %385, %387
   store i64 %.0.i.i90, ptr %383, align 8, !alias.scope !2748
   %388 = add i64 %379, -1
   store i64 %388, ptr %380, align 8, !alias.scope !2748
@@ -22620,7 +22620,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %471 = add i64 %470, %468
   %.not.i.i100 = icmp ult i64 %471, %467
   %472 = select i1 %.not.i.i100, i64 0, i64 %467
-  %.0.i.i101 = sub i64 %471, %472
+  %.0.i.i101 = sub nuw i64 %471, %472
   %473 = getelementptr inbounds i8, ptr %451, i64 16
   %474 = load ptr, ptr %473, align 8, !alias.scope !2787, !noalias !2790, !nonnull !4, !noundef !4
   %475 = getelementptr inbounds { i64, [9 x i64] }, ptr %474, i64 %.0.i.i101
@@ -22811,7 +22811,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %543 = add i64 %542, %540
   %.not.i.i115 = icmp ult i64 %543, %539
   %544 = select i1 %.not.i.i115, i64 0, i64 %539
-  %.0.i.i116 = sub i64 %543, %544
+  %.0.i.i116 = sub nuw i64 %543, %544
   %545 = getelementptr inbounds i8, ptr %381, i64 16
   %546 = load ptr, ptr %545, align 8, !alias.scope !2817, !noalias !2820, !nonnull !4, !noundef !4
   %547 = getelementptr inbounds { i64, [9 x i64] }, ptr %546, i64 %.0.i.i116
@@ -23379,7 +23379,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.97426544
   %130 = add i64 %129, %127
   %.not.i.i75 = icmp ult i64 %130, %126
   %131 = select i1 %.not.i.i75, i64 0, i64 %126
-  %.0.i.i76 = sub i64 %130, %131
+  %.0.i.i76 = sub nuw i64 %130, %131
   %132 = getelementptr inbounds i8, ptr %55, i64 88
   %133 = load ptr, ptr %132, align 8, !alias.scope !2931, !noalias !2936, !nonnull !4, !noundef !4
   %134 = getelementptr inbounds { ptr, ptr }, ptr %133, i64 %.0.i.i76
@@ -24085,7 +24085,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %352 = add i64 %351, %349
   %.not.i.i = icmp ult i64 %352, %348
   %353 = select i1 %.not.i.i, i64 0, i64 %348
-  %.0.i.i = sub i64 %352, %353
+  %.0.i.i = sub nuw i64 %352, %353
   %354 = getelementptr inbounds i8, ptr %55, i64 16
   %355 = load ptr, ptr %354, align 8, !alias.scope !2904, !noalias !2907, !nonnull !4, !noundef !4
   %356 = getelementptr inbounds { [2 x i64], i64, [11 x i64] }, ptr %355, i64 %.0.i.i
@@ -24123,7 +24123,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %369 = load i64, ptr %365, align 8, !alias.scope !3075, !noundef !4
   %.not.i.i93 = icmp ult i64 %368, %369
   %370 = select i1 %.not.i.i93, i64 0, i64 %369
-  %.0.i.i94 = sub i64 %368, %370
+  %.0.i.i94 = sub nuw i64 %368, %370
   store i64 %.0.i.i94, ptr %366, align 8, !alias.scope !3073
   %371 = add i64 %362, -1
   store i64 %371, ptr %363, align 8, !alias.scope !3073
@@ -24382,7 +24382,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %461 = add i64 %460, %458
   %.not.i.i105 = icmp ult i64 %461, %457
   %462 = select i1 %.not.i.i105, i64 0, i64 %457
-  %.0.i.i106 = sub i64 %461, %462
+  %.0.i.i106 = sub nuw i64 %461, %462
   %463 = getelementptr inbounds i8, ptr %434, i64 16
   %464 = load ptr, ptr %463, align 8, !alias.scope !3109, !noalias !3112, !nonnull !4, !noundef !4
   %465 = getelementptr inbounds { [2 x i64], i64, [11 x i64] }, ptr %464, i64 %.0.i.i106
@@ -24529,7 +24529,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
   %517 = add i64 %516, %514
   %.not.i.i122 = icmp ult i64 %517, %513
   %518 = select i1 %.not.i.i122, i64 0, i64 %513
-  %.0.i.i123 = sub i64 %517, %518
+  %.0.i.i123 = sub nuw i64 %517, %518
   %519 = getelementptr inbounds i8, ptr %364, i64 16
   %520 = load ptr, ptr %519, align 8, !alias.scope !3141, !noalias !3144, !nonnull !4, !noundef !4
   %521 = getelementptr inbounds { [2 x i64], i64, [11 x i64] }, ptr %520, i64 %.0.i.i123
@@ -29708,7 +29708,7 @@ _ZN5image6codecs3ico7decoder8DirEntry18matches_dimensions17h326bb5d15c82cfc4E.ex
   br label %100
 
 127:                                              ; preds = %123
-  %128 = sub i64 %124, %118
+  %128 = sub nuw i64 %124, %118
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !3872
   %129 = getelementptr inbounds i8, ptr %1, i64 148
   %130 = load i32, ptr %129, align 4, !noundef !4

@@ -1782,9 +1782,9 @@ if.then.i75.i:                                    ; preds = %while.body.i51.i
   br label %if.end.i59.i
 
 if.else.i56.i:                                    ; preds = %while.body.i51.i
-  %sub.i.i = sub nsw i32 %s.addr.i21.0.i, %conv2.i36.i
-  %mul.i.i = shl nsw i32 %sub.i.i, 5
-  %idx.ext.i87.i = zext i32 %mul.i.i to i64
+  %sub.i.i = sub nuw nsw i32 %s.addr.i21.0.i, %conv2.i36.i
+  %mul.i.i = shl nuw nsw i32 %sub.i.i, 5
+  %idx.ext.i87.i = zext nneg i32 %mul.i.i to i64
   %add.ptr.i88.i = getelementptr inbounds i8, ptr %add.ptr4.i40.i, i64 %idx.ext.i87.i
   %add.ptr.i119.i = getelementptr inbounds i8, ptr %add.ptr.i88.i, i64 1
   %104 = load i8, ptr %add.ptr.i119.i, align 1
@@ -2356,9 +2356,9 @@ if.then.i15.i:                                    ; preds = %while.body.i.i
   br label %if.end.i13.i
 
 if.else.i12.i:                                    ; preds = %while.body.i.i
-  %sub.i95.i = sub nsw i32 %s.addr.i.0.i, %conv2.i.i
-  %mul.i96.i = shl nsw i32 %sub.i95.i, 5
-  %idx.ext.i97.i = zext i32 %mul.i96.i to i64
+  %sub.i95.i = sub nuw nsw i32 %s.addr.i.0.i, %conv2.i.i
+  %mul.i96.i = shl nuw nsw i32 %sub.i95.i, 5
+  %idx.ext.i97.i = zext nneg i32 %mul.i96.i to i64
   %add.ptr.i98.i = getelementptr inbounds i8, ptr %add.ptr4.i8.i, i64 %idx.ext.i97.i
   %add.ptr.i183.i = getelementptr inbounds i8, ptr %add.ptr.i98.i, i64 1
   %202 = load i8, ptr %add.ptr.i183.i, align 1
@@ -4533,9 +4533,9 @@ if.then.i75.i:                                    ; preds = %while.body.i51.i
   br label %if.end.i59.i
 
 if.else.i56.i:                                    ; preds = %while.body.i51.i
-  %sub.i.i = sub nsw i32 %s.addr.i21.0.i, %conv2.i36.i
-  %mul.i.i = shl nsw i32 %sub.i.i, 5
-  %idx.ext.i87.i = zext i32 %mul.i.i to i64
+  %sub.i.i = sub nuw nsw i32 %s.addr.i21.0.i, %conv2.i36.i
+  %mul.i.i = shl nuw nsw i32 %sub.i.i, 5
+  %idx.ext.i87.i = zext nneg i32 %mul.i.i to i64
   %add.ptr.i88.i = getelementptr inbounds i8, ptr %add.ptr4.i40.i, i64 %idx.ext.i87.i
   %add.ptr.i119.i = getelementptr inbounds i8, ptr %add.ptr.i88.i, i64 1
   %104 = load i8, ptr %add.ptr.i119.i, align 1
@@ -5032,9 +5032,9 @@ if.then.i15.i:                                    ; preds = %while.body.i.i
   br label %if.end.i13.i
 
 if.else.i12.i:                                    ; preds = %while.body.i.i
-  %sub.i95.i = sub nsw i32 %s.addr.i.0.i, %conv2.i.i
-  %mul.i96.i = shl nsw i32 %sub.i95.i, 5
-  %idx.ext.i97.i = zext i32 %mul.i96.i to i64
+  %sub.i95.i = sub nuw nsw i32 %s.addr.i.0.i, %conv2.i.i
+  %mul.i96.i = shl nuw nsw i32 %sub.i95.i, 5
+  %idx.ext.i97.i = zext nneg i32 %mul.i96.i to i64
   %add.ptr.i98.i = getelementptr inbounds i8, ptr %add.ptr4.i8.i, i64 %idx.ext.i97.i
   %add.ptr.i183.i = getelementptr inbounds i8, ptr %add.ptr.i98.i, i64 1
   %196 = load i8, ptr %add.ptr.i183.i, align 1
@@ -6799,9 +6799,9 @@ if.then.i75.i:                                    ; preds = %while.body.i51.i
   br label %if.end.i59.i
 
 if.else.i56.i:                                    ; preds = %while.body.i51.i
-  %sub.i.i = sub nsw i32 %s.addr.i21.0154.i, %conv2.i36.i
-  %mul.i.i = shl nsw i32 %sub.i.i, 5
-  %idx.ext.i87.i = zext i32 %mul.i.i to i64
+  %sub.i.i = sub nuw nsw i32 %s.addr.i21.0154.i, %conv2.i36.i
+  %mul.i.i = shl nuw nsw i32 %sub.i.i, 5
+  %idx.ext.i87.i = zext nneg i32 %mul.i.i to i64
   %add.ptr.i88.i = getelementptr inbounds i8, ptr %add.ptr4.i40.i, i64 %idx.ext.i87.i
   %add.ptr.i119.i = getelementptr inbounds i8, ptr %add.ptr.i88.i, i64 1
   %100 = load i8, ptr %add.ptr.i119.i, align 1
@@ -7294,9 +7294,9 @@ if.then.i15.i:                                    ; preds = %while.body.i.i
   br label %if.end.i13.i
 
 if.else.i12.i:                                    ; preds = %while.body.i.i
-  %sub.i95.i = sub nsw i32 %s.addr.i.0.i, %conv2.i.i
-  %mul.i96.i = shl nsw i32 %sub.i95.i, 5
-  %idx.ext.i97.i = zext i32 %mul.i96.i to i64
+  %sub.i95.i = sub nuw nsw i32 %s.addr.i.0.i, %conv2.i.i
+  %mul.i96.i = shl nuw nsw i32 %sub.i95.i, 5
+  %idx.ext.i97.i = zext nneg i32 %mul.i96.i to i64
   %add.ptr.i98.i = getelementptr inbounds i8, ptr %add.ptr4.i8.i, i64 %idx.ext.i97.i
   %add.ptr.i183.i = getelementptr inbounds i8, ptr %add.ptr.i98.i, i64 1
   %193 = load i8, ptr %add.ptr.i183.i, align 1

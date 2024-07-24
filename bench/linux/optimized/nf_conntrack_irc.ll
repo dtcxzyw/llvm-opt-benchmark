@@ -237,7 +237,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %.thread21
-  %39 = sub i32 %29, %36
+  %39 = sub nuw i32 %29, %36
   %40 = call i32 @llvm.umin.i32(i32 %39, i32 4095)
   call void @_raw_spin_lock_bh(ptr noundef nonnull @irc_buffer_lock) #11
   %41 = load ptr, ptr @irc_buffer, align 8

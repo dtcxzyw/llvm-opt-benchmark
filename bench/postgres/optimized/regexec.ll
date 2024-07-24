@@ -2885,8 +2885,8 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   br i1 %.not119.i, label %278, label %285
 
 278:                                              ; preds = %277
-  %279 = sub nsw i32 %.0103.i, %.097.i109
-  %280 = sext i32 %279 to i64
+  %279 = sub nuw nsw i32 %.0103.i, %.097.i109
+  %280 = zext nneg i32 %279 to i64
   %281 = ptrtoint ptr %.0104.i107 to i64
   %282 = sub i64 %252, %281
   %283 = ashr exact i64 %282, 2
@@ -3088,8 +3088,8 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   br i1 %.not130.i, label %366, label %.lr.ph112.preheader
 
 366:                                              ; preds = %365
-  %367 = sub nsw i32 %spec.store.select.i, %.0103.i61122
-  %368 = sext i32 %367 to i64
+  %367 = sub nuw nsw i32 %spec.store.select.i, %.0103.i61122
+  %368 = zext nneg i32 %367 to i64
   %369 = ptrtoint ptr %352 to i64
   %370 = sub i64 %327, %369
   %371 = ashr exact i64 %370, 2

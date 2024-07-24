@@ -9982,7 +9982,7 @@ _ZNK3gmx3Any6isTypeINS_17KeyValueTreeArrayEEEbv.exit.i.i.i: ; preds = %84
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %92
-  %110 = sub nsw i64 %100, %107
+  %110 = sub nuw nsw i64 %100, %107
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %110)
           to label %._ZNSt6vectorIlSaIlEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 

@@ -851,7 +851,7 @@ if.then13:                                        ; preds = %if.then11
 if.end14:                                         ; preds = %if.then11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx, ptr noundef nonnull align 1 dereferenceable(1) %Data.coerce0, i64 %sub, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %Data.coerce0, i64 %sub
-  %sub17 = sub i64 %Data.coerce1, %sub
+  %sub17 = sub nuw i64 %Data.coerce1, %sub
   %call20 = tail call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr nonnull %buffer, i64 64)
   br label %if.end21
 
@@ -918,7 +918,7 @@ if.then13.i:                                      ; preds = %if.then11.i
 if.end14.i:                                       ; preds = %if.then11.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx.i, ptr noundef nonnull align 1 dereferenceable(1) %Str.coerce0, i64 %sub.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %Str.coerce0, i64 %sub.i
-  %sub17.i = sub i64 %Str.coerce1, %sub.i
+  %sub17.i = sub nuw i64 %Str.coerce1, %sub.i
   %call20.i = tail call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr nonnull %buffer.i, i64 64)
   br label %if.end21.i
 

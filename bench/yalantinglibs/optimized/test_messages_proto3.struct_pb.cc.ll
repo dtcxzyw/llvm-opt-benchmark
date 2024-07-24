@@ -19995,7 +19995,7 @@ if.end105:                                        ; preds = %if.end104.i5912, %i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end105
-  %sub.i.i = sub i64 %sz.023084, %144
+  %sub.i.i = sub nuw i64 %sz.023084, %144
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %144
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -20245,7 +20245,7 @@ if.end120:                                        ; preds = %if.end104.i6054, %i
   br i1 %cmp.i.i19393, label %if.then.i.i19398, label %if.else.i.i19394
 
 if.then.i.i19398:                                 ; preds = %if.end120
-  %sub.i.i19399 = sub i64 %sz115.023090, %167
+  %sub.i.i19399 = sub nuw i64 %sz115.023090, %167
   %sub3.i.i.i.i.i19400 = sub i64 9223372036854775807, %167
   %cmp.i.i.i.i.i19401 = icmp ult i64 %sub3.i.i.i.i.i19400, %sub.i.i19399
   br i1 %cmp.i.i.i.i.i19401, label %if.then.i.i.i.i.i19416, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i19402
@@ -21422,7 +21422,7 @@ if.end201:                                        ; preds = %if.end104.i6906, %i
   br i1 %cmp.i.i19428, label %if.then.i.i19433, label %if.else.i.i19429
 
 if.then.i.i19433:                                 ; preds = %if.end201
-  %sub.i.i19434 = sub i64 %sz196.023126, %274
+  %sub.i.i19434 = sub nuw i64 %sz196.023126, %274
   %sub3.i.i.i.i.i19435 = sub i64 9223372036854775807, %274
   %cmp.i.i.i.i.i19436 = icmp ult i64 %sub3.i.i.i.i.i19435, %sub.i.i19434
   br i1 %cmp.i.i.i.i.i19436, label %if.then.i.i.i.i.i19451, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i19437
@@ -21672,7 +21672,7 @@ if.end216:                                        ; preds = %if.end104.i7048, %i
   br i1 %cmp.i.i19454, label %if.then.i.i19459, label %if.else.i.i19455
 
 if.then.i.i19459:                                 ; preds = %if.end216
-  %sub.i.i19460 = sub i64 %sz211.023132, %297
+  %sub.i.i19460 = sub nuw i64 %sz211.023132, %297
   %sub3.i.i.i.i.i19461 = sub i64 9223372036854775807, %297
   %cmp.i.i.i.i.i19462 = icmp ult i64 %sub3.i.i.i.i.i19461, %sub.i.i19460
   br i1 %cmp.i.i.i.i.i19462, label %if.then.i.i.i.i.i19477, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i19463
@@ -26138,7 +26138,7 @@ if.end456:                                        ; preds = %if.end445
   br i1 %cmp.i19901, label %if.then.i19905, label %if.else.i19902
 
 if.then.i19905:                                   ; preds = %if.end456
-  %sub.i19906 = sub nsw i64 %conv458, %sub.ptr.div.i.i
+  %sub.i19906 = sub nuw nsw i64 %conv458, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %repeated_fixed32457, i64 noundef %sub.i19906)
   %.pre29492 = load ptr, ptr %repeated_fixed32457, align 8
   %.pre29493 = load i64, ptr %pos, align 8
@@ -26440,7 +26440,7 @@ if.end492:                                        ; preds = %if.end478
   br i1 %cmp.i19947, label %if.then.i19954, label %if.else.i19948
 
 if.then.i19954:                                   ; preds = %if.end492
-  %sub.i19955 = sub nsw i64 %conv494, %sub.ptr.div.i.i19946
+  %sub.i19955 = sub nuw nsw i64 %conv494, %sub.ptr.div.i.i19946
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %repeated_fixed64493, i64 noundef %sub.i19955)
   %.pre29490 = load ptr, ptr %repeated_fixed64493, align 8
   %.pre29491 = load i64, ptr %pos, align 8
@@ -26742,7 +26742,7 @@ if.end528:                                        ; preds = %if.end514
   br i1 %cmp.i19997, label %if.then.i20004, label %if.else.i19998
 
 if.then.i20004:                                   ; preds = %if.end528
-  %sub.i20005 = sub nsw i64 %conv530, %sub.ptr.div.i.i19996
+  %sub.i20005 = sub nuw nsw i64 %conv530, %sub.ptr.div.i.i19996
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %repeated_sfixed32529, i64 noundef %sub.i20005)
   %.pre29488 = load ptr, ptr %repeated_sfixed32529, align 8
   %.pre29489 = load i64, ptr %pos, align 8
@@ -27044,7 +27044,7 @@ if.end564:                                        ; preds = %if.end550
   br i1 %cmp.i20046, label %if.then.i20053, label %if.else.i20047
 
 if.then.i20053:                                   ; preds = %if.end564
-  %sub.i20054 = sub nsw i64 %conv566, %sub.ptr.div.i.i20045
+  %sub.i20054 = sub nuw nsw i64 %conv566, %sub.ptr.div.i.i20045
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %repeated_sfixed64565, i64 noundef %sub.i20054)
   %.pre29486 = load ptr, ptr %repeated_sfixed64565, align 8
   %.pre29487 = load i64, ptr %pos, align 8
@@ -27346,7 +27346,7 @@ if.end600:                                        ; preds = %if.end586
   br i1 %cmp.i20090, label %if.then.i20097, label %if.else.i20091
 
 if.then.i20097:                                   ; preds = %if.end600
-  %sub.i20098 = sub nsw i64 %conv602, %sub.ptr.div.i.i20089
+  %sub.i20098 = sub nuw nsw i64 %conv602, %sub.ptr.div.i.i20089
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %repeated_float601, i64 noundef %sub.i20098)
   %.pre29484 = load ptr, ptr %repeated_float601, align 8
   %.pre29485 = load i64, ptr %pos, align 8
@@ -27648,7 +27648,7 @@ if.end636:                                        ; preds = %if.end622
   br i1 %cmp.i20134, label %if.then.i20141, label %if.else.i20135
 
 if.then.i20141:                                   ; preds = %if.end636
-  %sub.i20142 = sub nsw i64 %conv638, %sub.ptr.div.i.i20133
+  %sub.i20142 = sub nuw nsw i64 %conv638, %sub.ptr.div.i.i20133
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %repeated_double637, i64 noundef %sub.i20142)
   %.pre29482 = load ptr, ptr %repeated_double637, align 8
   %.pre29483 = load i64, ptr %pos, align 8
@@ -35161,7 +35161,7 @@ if.end1075:                                       ; preds = %if.end1061
   br i1 %cmp.i20833, label %if.then.i20840, label %if.else.i20834
 
 if.then.i20840:                                   ; preds = %if.end1075
-  %sub.i20841 = sub nsw i64 %conv1077, %sub.ptr.div.i.i20832
+  %sub.i20841 = sub nuw nsw i64 %conv1077, %sub.ptr.div.i.i20832
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %packed_fixed321076, i64 noundef %sub.i20841)
   %.pre29478 = load ptr, ptr %packed_fixed321076, align 8
   %.pre29479 = load i64, ptr %pos, align 8
@@ -35463,7 +35463,7 @@ if.end1111:                                       ; preds = %if.end1097
   br i1 %cmp.i20883, label %if.then.i20890, label %if.else.i20884
 
 if.then.i20890:                                   ; preds = %if.end1111
-  %sub.i20891 = sub nsw i64 %conv1113, %sub.ptr.div.i.i20882
+  %sub.i20891 = sub nuw nsw i64 %conv1113, %sub.ptr.div.i.i20882
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %packed_fixed641112, i64 noundef %sub.i20891)
   %.pre29476 = load ptr, ptr %packed_fixed641112, align 8
   %.pre29477 = load i64, ptr %pos, align 8
@@ -35765,7 +35765,7 @@ if.end1147:                                       ; preds = %if.end1133
   br i1 %cmp.i20933, label %if.then.i20940, label %if.else.i20934
 
 if.then.i20940:                                   ; preds = %if.end1147
-  %sub.i20941 = sub nsw i64 %conv1149, %sub.ptr.div.i.i20932
+  %sub.i20941 = sub nuw nsw i64 %conv1149, %sub.ptr.div.i.i20932
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %packed_sfixed321148, i64 noundef %sub.i20941)
   %.pre29474 = load ptr, ptr %packed_sfixed321148, align 8
   %.pre29475 = load i64, ptr %pos, align 8
@@ -36067,7 +36067,7 @@ if.end1183:                                       ; preds = %if.end1169
   br i1 %cmp.i20983, label %if.then.i20991, label %if.else.i20984
 
 if.then.i20991:                                   ; preds = %if.end1183
-  %sub.i20992 = sub nsw i64 %conv1185, %sub.ptr.div.i.i20982
+  %sub.i20992 = sub nuw nsw i64 %conv1185, %sub.ptr.div.i.i20982
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %packed_sfixed641184, i64 noundef %sub.i20992)
   %.pre29472 = load ptr, ptr %packed_sfixed641184, align 8
   %.pre29473 = load i64, ptr %pos, align 8
@@ -36369,7 +36369,7 @@ if.end1219:                                       ; preds = %if.end1205
   br i1 %cmp.i21034, label %if.then.i21041, label %if.else.i21035
 
 if.then.i21041:                                   ; preds = %if.end1219
-  %sub.i21042 = sub nsw i64 %conv1221, %sub.ptr.div.i.i21033
+  %sub.i21042 = sub nuw nsw i64 %conv1221, %sub.ptr.div.i.i21033
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %packed_float1220, i64 noundef %sub.i21042)
   %.pre29470 = load ptr, ptr %packed_float1220, align 8
   %.pre29471 = load i64, ptr %pos, align 8
@@ -36671,7 +36671,7 @@ if.end1255:                                       ; preds = %if.end1241
   br i1 %cmp.i21084, label %if.then.i21091, label %if.else.i21085
 
 if.then.i21091:                                   ; preds = %if.end1255
-  %sub.i21092 = sub nsw i64 %conv1257, %sub.ptr.div.i.i21083
+  %sub.i21092 = sub nuw nsw i64 %conv1257, %sub.ptr.div.i.i21083
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %packed_double1256, i64 noundef %sub.i21092)
   %.pre29468 = load ptr, ptr %packed_double1256, align 8
   %.pre29469 = load i64, ptr %pos, align 8
@@ -42105,7 +42105,7 @@ if.end1546:                                       ; preds = %if.end1532
   br i1 %cmp.i21665, label %if.then.i21673, label %if.else.i21666
 
 if.then.i21673:                                   ; preds = %if.end1546
-  %sub.i21674 = sub nsw i64 %conv1548, %sub.ptr.div.i.i21663
+  %sub.i21674 = sub nuw nsw i64 %conv1548, %sub.ptr.div.i.i21663
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %unpacked_fixed321547, i64 noundef %sub.i21674)
   %.pre29466 = load ptr, ptr %unpacked_fixed321547, align 8
   %.pre29467 = load i64, ptr %pos, align 8
@@ -42407,7 +42407,7 @@ if.end1582:                                       ; preds = %if.end1568
   br i1 %cmp.i21716, label %if.then.i21723, label %if.else.i21717
 
 if.then.i21723:                                   ; preds = %if.end1582
-  %sub.i21724 = sub nsw i64 %conv1584, %sub.ptr.div.i.i21715
+  %sub.i21724 = sub nuw nsw i64 %conv1584, %sub.ptr.div.i.i21715
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %unpacked_fixed641583, i64 noundef %sub.i21724)
   %.pre29464 = load ptr, ptr %unpacked_fixed641583, align 8
   %.pre29465 = load i64, ptr %pos, align 8
@@ -42709,7 +42709,7 @@ if.end1618:                                       ; preds = %if.end1604
   br i1 %cmp.i21766, label %if.then.i21773, label %if.else.i21767
 
 if.then.i21773:                                   ; preds = %if.end1618
-  %sub.i21774 = sub nsw i64 %conv1620, %sub.ptr.div.i.i21765
+  %sub.i21774 = sub nuw nsw i64 %conv1620, %sub.ptr.div.i.i21765
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %unpacked_sfixed321619, i64 noundef %sub.i21774)
   %.pre29462 = load ptr, ptr %unpacked_sfixed321619, align 8
   %.pre29463 = load i64, ptr %pos, align 8
@@ -43011,7 +43011,7 @@ if.end1654:                                       ; preds = %if.end1640
   br i1 %cmp.i21816, label %if.then.i21823, label %if.else.i21817
 
 if.then.i21823:                                   ; preds = %if.end1654
-  %sub.i21824 = sub nsw i64 %conv1656, %sub.ptr.div.i.i21815
+  %sub.i21824 = sub nuw nsw i64 %conv1656, %sub.ptr.div.i.i21815
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %unpacked_sfixed641655, i64 noundef %sub.i21824)
   %.pre29460 = load ptr, ptr %unpacked_sfixed641655, align 8
   %.pre29461 = load i64, ptr %pos, align 8
@@ -43313,7 +43313,7 @@ if.end1690:                                       ; preds = %if.end1676
   br i1 %cmp.i21866, label %if.then.i21873, label %if.else.i21867
 
 if.then.i21873:                                   ; preds = %if.end1690
-  %sub.i21874 = sub nsw i64 %conv1692, %sub.ptr.div.i.i21865
+  %sub.i21874 = sub nuw nsw i64 %conv1692, %sub.ptr.div.i.i21865
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %unpacked_float1691, i64 noundef %sub.i21874)
   %.pre29458 = load ptr, ptr %unpacked_float1691, align 8
   %.pre29459 = load i64, ptr %pos, align 8
@@ -43615,7 +43615,7 @@ if.end1726:                                       ; preds = %if.end1712
   br i1 %cmp.i21916, label %if.then.i21923, label %if.else.i21917
 
 if.then.i21923:                                   ; preds = %if.end1726
-  %sub.i21924 = sub nsw i64 %conv1728, %sub.ptr.div.i.i21915
+  %sub.i21924 = sub nuw nsw i64 %conv1728, %sub.ptr.div.i.i21915
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %unpacked_double1727, i64 noundef %sub.i21924)
   %.pre29456 = load ptr, ptr %unpacked_double1727, align 8
   %.pre29457 = load i64, ptr %pos, align 8
@@ -52960,7 +52960,7 @@ if.end2336:                                       ; preds = %if.end104.i25650, %
   br i1 %cmp.i.i22041, label %if.then.i.i22046, label %if.else.i.i22042
 
 if.then.i.i22046:                                 ; preds = %if.end2336
-  %sub.i.i22047 = sub i64 %str_sz.024000, %2902
+  %sub.i.i22047 = sub nuw i64 %str_sz.024000, %2902
   %sub3.i.i.i.i.i22048 = sub i64 9223372036854775807, %2902
   %cmp.i.i.i.i.i22049 = icmp ult i64 %sub3.i.i.i.i.i22048, %sub.i.i22047
   br i1 %cmp.i.i.i.i.i22049, label %if.then.i.i.i.i.i22091.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i22050
@@ -53208,7 +53208,7 @@ if.end2352:                                       ; preds = %if.end104.i25792, %
   br i1 %cmp.i.i22068, label %if.then.i.i22073, label %if.else.i.i22069
 
 if.then.i.i22073:                                 ; preds = %if.end2352
-  %sub.i.i22074 = sub i64 %str_sz2346.024006, %2925
+  %sub.i.i22074 = sub nuw i64 %str_sz2346.024006, %2925
   %sub3.i.i.i.i.i22075 = sub i64 9223372036854775807, %2925
   %cmp.i.i.i.i.i22076 = icmp ult i64 %sub3.i.i.i.i.i22075, %sub.i.i22074
   br i1 %cmp.i.i.i.i.i22076, label %if.then.i.i.i.i.i22091.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i22077
@@ -53924,7 +53924,7 @@ if.end2398:                                       ; preds = %if.end104.i26076, %
   br i1 %cmp.i.i22114, label %if.then.i.i22119, label %if.else.i.i22115
 
 if.then.i.i22119:                                 ; preds = %if.end2398
-  %sub.i.i22120 = sub i64 %str_sz2392.024024, %2984
+  %sub.i.i22120 = sub nuw i64 %str_sz2392.024024, %2984
   %sub3.i.i.i.i.i22121 = sub i64 9223372036854775807, %2984
   %cmp.i.i.i.i.i22122 = icmp ult i64 %sub3.i.i.i.i.i22121, %sub.i.i22120
   br i1 %cmp.i.i.i.i.i22122, label %if.then.i.i.i.i.i22165.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i22123
@@ -54172,7 +54172,7 @@ if.end2414:                                       ; preds = %if.end104.i26218, %
   br i1 %cmp.i.i22142, label %if.then.i.i22147, label %if.else.i.i22143
 
 if.then.i.i22147:                                 ; preds = %if.end2414
-  %sub.i.i22148 = sub i64 %str_sz2408.024030, %3007
+  %sub.i.i22148 = sub nuw i64 %str_sz2408.024030, %3007
   %sub3.i.i.i.i.i22149 = sub i64 9223372036854775807, %3007
   %cmp.i.i.i.i.i22150 = icmp ult i64 %sub3.i.i.i.i.i22149, %sub.i.i22148
   br i1 %cmp.i.i.i.i.i22150, label %if.then.i.i.i.i.i22165.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i22151
@@ -54881,7 +54881,7 @@ if.end2460:                                       ; preds = %if.end104.i26502, %
   br i1 %cmp.i.i22186, label %if.then.i.i22191, label %if.else.i.i22187
 
 if.then.i.i22191:                                 ; preds = %if.end2460
-  %sub.i.i22192 = sub i64 %str_sz2454.024048, %3065
+  %sub.i.i22192 = sub nuw i64 %str_sz2454.024048, %3065
   %sub3.i.i.i.i.i22193 = sub i64 9223372036854775807, %3065
   %cmp.i.i.i.i.i22194 = icmp ult i64 %sub3.i.i.i.i.i22193, %sub.i.i22192
   br i1 %cmp.i.i.i.i.i22194, label %if.then.i.i.i.i.i22209, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i22195
@@ -55792,7 +55792,7 @@ if.end2521:                                       ; preds = %if.end104.i26928, %
   br i1 %cmp.i.i22229, label %if.then.i.i22234, label %if.else.i.i22230
 
 if.then.i.i22234:                                 ; preds = %if.end2521
-  %sub.i.i22235 = sub i64 %str_sz2515.024072, %3141
+  %sub.i.i22235 = sub nuw i64 %str_sz2515.024072, %3141
   %sub3.i.i.i.i.i22236 = sub i64 9223372036854775807, %3141
   %cmp.i.i.i.i.i22237 = icmp ult i64 %sub3.i.i.i.i.i22236, %sub.i.i22235
   br i1 %cmp.i.i.i.i.i22237, label %if.then.i.i.i.i.i22252, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i22238
@@ -56693,7 +56693,7 @@ if.end2581:                                       ; preds = %if.end104.i27354, %
   br i1 %cmp.i.i22277, label %if.then.i.i22282, label %if.else.i.i22278
 
 if.then.i.i22282:                                 ; preds = %if.end2581
-  %sub.i.i22283 = sub i64 %str_sz2575.024096, %3217
+  %sub.i.i22283 = sub nuw i64 %str_sz2575.024096, %3217
   %sub3.i.i.i.i.i22284 = sub i64 9223372036854775807, %3217
   %cmp.i.i.i.i.i22285 = icmp ult i64 %sub3.i.i.i.i.i22284, %sub.i.i22283
   br i1 %cmp.i.i.i.i.i22285, label %if.then.i.i.i.i.i22300, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i22286
@@ -57544,7 +57544,7 @@ if.end2634:                                       ; preds = %if.end104.i27780, %
   br i1 %cmp.i.i22314, label %if.then.i.i22319, label %if.else.i.i22315
 
 if.then.i.i22319:                                 ; preds = %if.end2634
-  %sub.i.i22320 = sub i64 %str_sz2628.024120, %3289
+  %sub.i.i22320 = sub nuw i64 %str_sz2628.024120, %3289
   %sub3.i.i.i.i.i22321 = sub i64 9223372036854775807, %3289
   %cmp.i.i.i.i.i22322 = icmp ult i64 %sub3.i.i.i.i.i22321, %sub.i.i22320
   br i1 %cmp.i.i.i.i.i22322, label %if.then.i.i.i.i.i22337, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i22323
@@ -58431,7 +58431,7 @@ _ZSt3getILm3EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318Test
   br i1 %cmp.i.i22378, label %if.then.i.i22383, label %if.else.i.i22379
 
 if.then.i.i22383:                                 ; preds = %_ZSt3getILm3EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSN_.exit
-  %sub.i.i22384 = sub i64 %str_sz2709.024144, %3368
+  %sub.i.i22384 = sub nuw i64 %str_sz2709.024144, %3368
   %sub3.i.i.i.i.i22385 = sub i64 9223372036854775807, %3368
   %cmp.i.i.i.i.i22386 = icmp ult i64 %sub3.i.i.i.i.i22385, %sub.i.i22384
   br i1 %cmp.i.i.i.i.i22386, label %if.then.i.i.i.i.i22401, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i22387
@@ -58718,7 +58718,7 @@ _ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318Test
   br i1 %cmp.i.i22419, label %if.then.i.i22424, label %if.else.i.i22420
 
 if.then.i.i22424:                                 ; preds = %_ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSN_.exit
-  %sub.i.i22425 = sub i64 %str_sz2734.024150, %3394
+  %sub.i.i22425 = sub nuw i64 %str_sz2734.024150, %3394
   %sub3.i.i.i.i.i22426 = sub i64 9223372036854775807, %3394
   %cmp.i.i.i.i.i22427 = icmp ult i64 %sub3.i.i.i.i.i22426, %sub.i.i22425
   br i1 %cmp.i.i.i.i.i22427, label %if.then.i.i.i.i.i22442, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i22428
@@ -70215,7 +70215,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %__n, %0
+  %sub.i = sub nuw i64 %__n, %0
   %sub3.i.i.i.i = sub i64 9223372036854775807, %0
   %cmp.i.i.i.i = icmp ult i64 %sub3.i.i.i.i, %sub.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i

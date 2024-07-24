@@ -1589,7 +1589,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEE15ExtractSubran
   br i1 %465, label %466, label %468
 
 466:                                              ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEE15ExtractSubrangeEiiPPS3_.exit.i
-  %467 = sub nsw i64 %438, %464
+  %467 = sub nuw nsw i64 %438, %464
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %343, i64 noundef %467)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i unwind label %.body.i
 
@@ -10426,7 +10426,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

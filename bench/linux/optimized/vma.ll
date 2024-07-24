@@ -378,7 +378,7 @@ define dso_local i32 @arch_setup_additional_pages(ptr nocapture noundef readnone
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %5
-  %25 = sub i64 %22, %16
+  %25 = sub nuw i64 %22, %16
   %26 = lshr i64 %25, 12
   %27 = trunc i64 %26 to i32
   %28 = add i32 %27, 1

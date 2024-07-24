@@ -6374,7 +6374,7 @@ proto_item_set_generated.exit170:                 ; preds = %174, %181, %184
   br i1 %.not216217.not, label %192, label %proto_item_set_generated.exit167
 
 192:                                              ; preds = %proto_item_set_generated.exit170
-  %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %191, i64 %190)
+  %storemerge.i = sub nuw i64 %191, %190
   %193 = load i32, ptr @hf_mac_lte_drx_state_short_cycle_remaining, align 4
   %194 = trunc i64 %storemerge.i to i32
   %195 = and i32 %194, 65535
@@ -6405,7 +6405,7 @@ proto_item_set_generated.exit167:                 ; preds = %proto_item_set_gene
   br i1 %.not219220.not, label %207, label %proto_item_set_generated.exit183
 
 207:                                              ; preds = %proto_item_set_generated.exit167
-  %storemerge.i178 = tail call i64 @llvm.usub.sat.i64(i64 %206, i64 %205)
+  %storemerge.i178 = sub nuw i64 %206, %205
   %208 = load i32, ptr @hf_mac_lte_drx_state_onduration_remaining, align 4
   %209 = trunc i64 %storemerge.i178 to i32
   %210 = and i32 %209, 65535
@@ -6434,7 +6434,7 @@ proto_item_set_generated.exit183:                 ; preds = %215, %212, %207, %p
   br i1 %.not222223.not, label %222, label %proto_item_set_generated.exit192
 
 222:                                              ; preds = %proto_item_set_generated.exit183
-  %storemerge.i187 = tail call i64 @llvm.usub.sat.i64(i64 %221, i64 %220)
+  %storemerge.i187 = sub nuw i64 %221, %220
   %223 = load i32, ptr @hf_mac_lte_drx_state_inactivity_remaining, align 4
   %224 = trunc i64 %storemerge.i187 to i32
   %225 = and i32 %224, 65535
@@ -6472,7 +6472,7 @@ proto_item_set_generated.exit192:                 ; preds = %230, %227, %222, %p
   br i1 %.not228229.not, label %240, label %253
 
 240:                                              ; preds = %236
-  %storemerge.i196 = tail call i64 @llvm.usub.sat.i64(i64 %239, i64 %238)
+  %storemerge.i196 = sub nuw i64 %239, %238
   %241 = load i32, ptr @hf_mac_lte_drx_state_retransmission_remaining, align 4
   %242 = trunc i64 %storemerge.i196 to i32
   %243 = and i32 %242, 65535
@@ -6512,7 +6512,7 @@ proto_item_set_generated.exit201:                 ; preds = %240, %245, %248
   br i1 %.not225226.not, label %258, label %271
 
 258:                                              ; preds = %254
-  %storemerge.i205 = tail call i64 @llvm.usub.sat.i64(i64 %257, i64 %256)
+  %storemerge.i205 = sub nuw i64 %257, %256
   %259 = load i32, ptr @hf_mac_lte_drx_state_rtt_remaining, align 4
   %260 = trunc i64 %storemerge.i205 to i32
   %261 = and i32 %260, 65535
@@ -13315,17 +13315,14 @@ declare void @llvm.va_start.p0(ptr) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #14
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -13341,8 +13338,8 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { nounwind willreturn memory(read) }
 attributes #18 = { nounwind returns_twice }

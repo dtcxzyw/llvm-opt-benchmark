@@ -8897,7 +8897,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit: ; preds = %4
   %11 = load ptr, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %2
-  %13 = sub i64 %8, %2
+  %13 = sub nuw i64 %8, %2
   %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %13, i64 %3)
   %14 = icmp ugt i64 %spec.select.i, 15
   br i1 %14, label %15, label %._crit_edge.i
@@ -9075,7 +9075,7 @@ define linkonce_odr noundef i32 @_ZN5boost4asio15basic_streambufISaIcEE8overflow
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i64, ptr %13, align 8
   %15 = icmp ult i64 %12, %14
-  %16 = sub i64 %14, %12
+  %16 = sub nuw i64 %14, %12
   %17 = tail call i64 @llvm.umin.i64(i64 %16, i64 128)
   %.sink = select i1 %15, i64 %17, i64 128
   tail call void @_ZN5boost4asio15basic_streambufISaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %.sink)
@@ -9160,9 +9160,9 @@ define linkonce_odr void @_ZN5boost4asio15basic_streambufISaIcEE7reserveEm(ptr n
   %28 = getelementptr inbounds i8, ptr %0, i64 64
   %29 = load i64, ptr %28, align 8
   %.not22 = icmp ult i64 %29, %1
-  %30 = sub i64 %29, %1
+  %30 = sub nuw i64 %29, %1
   %.not23 = icmp ugt i64 %.0, %30
-  %or.cond = or i1 %.not22, %.not23
+  %or.cond = select i1 %.not22, i1 true, i1 %.not23
   br i1 %or.cond, label %33, label %31
 
 31:                                               ; preds = %27
@@ -9214,7 +9214,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -15884,7 +15884,7 @@ _ZNK5boost4asio19basic_streambuf_refISaIcEE4dataEv.exit: ; preds = %22
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i16
   %46 = sub i64 %53, %52
-  %47 = sub i64 %59, %52
+  %47 = sub nuw i64 %59, %52
   br label %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcE7advanceEl.exit
 
 48:                                               ; preds = %.loopexit.i16, %.lr.ph.i
@@ -15895,7 +15895,7 @@ _ZNK5boost4asio19basic_streambuf_refISaIcEE4dataEv.exit: ; preds = %22
   %50 = phi i64 [ 0, %.lr.ph.i ], [ %53, %.loopexit.i16 ]
   %.02145.i = phi i64 [ %45, %.lr.ph.i ], [ %52, %.loopexit.i16 ]
   %51 = phi i64 [ 0, %.lr.ph.i ], [ %59, %.loopexit.i16 ]
-  %52 = sub i64 %.02145.i, %51
+  %52 = sub nuw i64 %.02145.i, %51
   %53 = sub i64 %50, %51
   %54 = icmp eq ptr %49, %7
   br i1 %54, label %_ZN5boost4asio16buffers_iteratorINS0_15const_buffers_1EcE7advanceEl.exit, label %.preheader33.i
@@ -17111,7 +17111,7 @@ define linkonce_odr void @_ZNSt5dequeIcSaIcEE19_M_range_insert_auxIPKcEEvSt15_De
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %14
-  %22 = sub i64 %8, %19
+  %22 = sub nuw i64 %8, %19
   tail call void @_ZNSt5dequeIcSaIcEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %22), !noalias !285
   %.pre.i = load ptr, ptr %11, align 8, !noalias !288
   %.pre7.i = load ptr, ptr %15, align 8, !noalias !288
@@ -17252,7 +17252,7 @@ _ZSt22__uninitialized_copy_aIPKcSt15_Deque_iteratorIcRcPcEcET0_T_S7_S6_RSaIT1_E.
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %81
-  %90 = sub i64 %8, %87
+  %90 = sub nuw i64 %8, %87
   tail call void @_ZNSt5dequeIcSaIcEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %90), !noalias !305
   %.pre.i19 = load ptr, ptr %78, align 8
   %.pre6.i = load ptr, ptr %82, align 8
@@ -17478,7 +17478,7 @@ define linkonce_odr void @_ZNSt5dequeIcSaIcEE13_M_insert_auxIPKcEEvSt15_Deque_it
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %77
-  %84 = sub i64 %4, %81
+  %84 = sub nuw i64 %4, %81
   tail call void @_ZNSt5dequeIcSaIcEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %84), !noalias !324
   %.pre.i = load ptr, ptr %31, align 8
   %.pre7.i = load ptr, ptr %78, align 8
@@ -18011,7 +18011,7 @@ _ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i.i.i53:   ; preds = %308, %302
   br i1 %326, label %327, label %329
 
 327:                                              ; preds = %320
-  %328 = sub i64 %4, %325
+  %328 = sub nuw i64 %4, %325
   tail call void @_ZNSt5dequeIcSaIcEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %328), !noalias !414
   %.pre.i61 = load ptr, ptr %57, align 8
   %.pre6.i = load ptr, ptr %321, align 8
@@ -42252,7 +42252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
 199:                                              ; preds = %197
   %200 = zext i8 %127 to i64
   %201 = getelementptr inbounds i8, ptr %57, i64 %200
-  %202 = sub i8 %140, %127
+  %202 = sub nuw i8 %140, %127
   %203 = zext i8 %202 to i64
   %204 = add nuw nsw i64 %203, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %201, i8 1, i64 %204, i1 false)
@@ -63762,7 +63762,7 @@ _ZSt13move_backwardIPN5boost9sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__c
   br i1 %.not.i.i.i, label %_ZSt4fillIPN5boost9sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESD_EvT_SF_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !801
 
 55:                                               ; preds = %14
-  %56 = sub i64 %2, %20
+  %56 = sub nuw i64 %2, %20
   %.not12.i.i.i.i = icmp eq i64 %56, 0
   br i1 %.not12.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN5boost9sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEmSD_SD_ET_SF_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

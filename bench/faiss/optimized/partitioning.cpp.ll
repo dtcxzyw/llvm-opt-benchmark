@@ -2314,34 +2314,34 @@ define void @_ZN5faiss16simd_histogram_8EPKtitiPi(ptr nocapture noundef readonly
   %exitcond32.not = icmp eq i64 %14, %7
   br i1 %exitcond32.not, label %.loopexit, label %.lr.ph29, !llvm.loop !37
 
-.lr.ph:                                           ; preds = %.preheader25, %28
-  %.027 = phi i64 [ %29, %28 ], [ 0, %.preheader25 ]
+.lr.ph:                                           ; preds = %.preheader25, %27
+  %.027 = phi i64 [ %28, %27 ], [ 0, %.preheader25 ]
   %15 = getelementptr inbounds i16, ptr %0, i64 %.027
   %16 = load i16, ptr %15, align 2
   %17 = icmp ult i16 %16, %2
-  br i1 %17, label %28, label %18
+  br i1 %17, label %27, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = sub i16 %16, %2
-  %20 = zext i16 %19 to i32
-  %21 = lshr i32 %20, %3
-  %22 = icmp ult i32 %21, 8
-  br i1 %22, label %23, label %28
+  %narrow = sub nuw i16 %16, %2
+  %19 = zext i16 %narrow to i32
+  %20 = lshr i32 %19, %3
+  %21 = icmp ult i32 %20, 8
+  br i1 %21, label %22, label %27
 
-23:                                               ; preds = %18
-  %24 = zext nneg i32 %21 to i64
-  %25 = getelementptr inbounds i32, ptr %4, i64 %24
-  %26 = load i32, ptr %25, align 4
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %25, align 4
-  br label %28
+22:                                               ; preds = %18
+  %23 = zext nneg i32 %20 to i64
+  %24 = getelementptr inbounds i32, ptr %4, i64 %23
+  %25 = load i32, ptr %24, align 4
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %24, align 4
+  br label %27
 
-28:                                               ; preds = %18, %23, %.lr.ph
-  %29 = add nuw i64 %.027, 1
-  %exitcond.not = icmp eq i64 %29, %7
+27:                                               ; preds = %18, %22, %.lr.ph
+  %28 = add nuw i64 %.027, 1
+  %exitcond.not = icmp eq i64 %28, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
-.loopexit:                                        ; preds = %28, %.lr.ph29, %.preheader25, %.preheader
+.loopexit:                                        ; preds = %27, %.lr.ph29, %.preheader25, %.preheader
   ret void
 }
 

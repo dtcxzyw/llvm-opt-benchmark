@@ -583,7 +583,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %242
   br i1 %252, label %253, label %255
 
 253:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
-  %254 = sub nsw i64 %.pre150, %251
+  %254 = sub nuw nsw i64 %.pre150, %251
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %46, i64 noundef %254)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit103 unwind label %296
 
@@ -1437,7 +1437,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %171
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
-  %191 = sub nsw i64 %.pre272, %188
+  %191 = sub nuw nsw i64 %.pre272, %188
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %191)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit139 unwind label %.loopexit.split-lp227
 

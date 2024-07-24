@@ -1223,7 +1223,7 @@ _ZN11hb_vector_tI18hb_ot_name_entry_tLb0EE5allocEjb.exit.thread.i: ; preds = %_Z
   br i1 %218, label %219, label %_ZN11hb_vector_tI18hb_ot_name_entry_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i
 
 219:                                              ; preds = %_ZN11hb_vector_tI18hb_ot_name_entry_tLb0EE5allocEjb.exit.thread.i
-  %220 = sub i32 %200, %217
+  %220 = sub nuw i32 %200, %217
   %221 = shl i32 %220, 4
   %.not.i.i.i = icmp eq i32 %221, 0
   br i1 %.not.i.i.i, label %_ZN11hb_vector_tI18hb_ot_name_entry_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i, label %222
@@ -1359,7 +1359,7 @@ _ZN11hb_vector_tI18hb_ot_name_entry_tLb0EE5allocEjb.exit.thread.i: ; preds = %_Z
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %_ZN11hb_vector_tI18hb_ot_name_entry_tLb0EE5allocEjb.exit.thread.i
-  %25 = sub i32 %5, %22
+  %25 = sub nuw i32 %5, %22
   %26 = shl i32 %25, 4
   %.not.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i, label %34, label %27

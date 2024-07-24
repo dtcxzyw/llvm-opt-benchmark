@@ -2596,7 +2596,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco40MeshPredictionSchemeParallelo
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %19)
   %.pre = load i32, ptr %7, align 8
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit
@@ -3308,7 +3308,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco45MeshPredictionSchemeMultiPara
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %19)
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit
 
@@ -4118,7 +4118,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %8
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 56:                                               ; preds = %37
-  %57 = sub nsw i64 %39, %50
+  %57 = sub nuw nsw i64 %39, %50
   call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr %41, i32 %43, i64 noundef %57, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
@@ -4271,7 +4271,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco56MeshPredictionSchemeConstrain
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %6
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %21)
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit
 
@@ -4308,7 +4308,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %20, %22,
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %.preheader200
-  %38 = sub nsw i64 %11, %35
+  %38 = sub nuw nsw i64 %11, %35
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr %30, i64 noundef %38, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %44
 
@@ -5768,7 +5768,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -6149,7 +6149,7 @@ thread-pre-split:                                 ; preds = %17
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 55:                                               ; preds = %36
-  %56 = sub nsw i64 %38, %49
+  %56 = sub nuw nsw i64 %38, %49
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr %40, i32 %42, i64 noundef %56, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
@@ -7776,7 +7776,7 @@ _ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit:     ; preds = %2
   br label %_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE18ResizeOrientationsEi.exit
 
 32:                                               ; preds = %13
-  %33 = sub nsw i64 %15, %26
+  %33 = sub nuw nsw i64 %15, %26
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr %17, i32 %19, i64 noundef %33, i1 noundef zeroext false)
   br label %_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE18ResizeOrientationsEi.exit
 
@@ -10982,7 +10982,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco40MeshPredictionSchemeParallelo
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %19)
   %.pre = load i32, ptr %7, align 8
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit
@@ -11558,7 +11558,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco45MeshPredictionSchemeMultiPara
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %19)
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit
 
@@ -12358,7 +12358,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %8
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 54:                                               ; preds = %35
-  %55 = sub nsw i64 %37, %48
+  %55 = sub nuw nsw i64 %37, %48
   call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr %39, i32 %41, i64 noundef %55, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
@@ -12511,7 +12511,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco56MeshPredictionSchemeConstrain
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %6
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %21)
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit
 
@@ -12548,7 +12548,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %20, %22,
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %.preheader194
-  %38 = sub nsw i64 %11, %35
+  %38 = sub nuw nsw i64 %11, %35
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr %30, i64 noundef %38, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %44
 
@@ -13635,7 +13635,7 @@ thread-pre-split:                                 ; preds = %17
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 53:                                               ; preds = %34
-  %54 = sub nsw i64 %36, %47
+  %54 = sub nuw nsw i64 %36, %47
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr %38, i32 %40, i64 noundef %54, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
@@ -14664,7 +14664,7 @@ _ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit:     ; preds = %2
   br label %_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_11CornerTableEEEE18ResizeOrientationsEi.exit
 
 32:                                               ; preds = %13
-  %33 = sub nsw i64 %15, %26
+  %33 = sub nuw nsw i64 %15, %26
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr %17, i32 %19, i64 noundef %33, i1 noundef zeroext false)
   br label %_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_11CornerTableEEEE18ResizeOrientationsEi.exit
 
@@ -16720,7 +16720,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco28PredictionSchemeDeltaDecoderI
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %19)
   %.pre = load i32, ptr %7, align 8
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit

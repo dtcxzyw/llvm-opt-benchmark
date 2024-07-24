@@ -244,7 +244,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   br i1 %cmp.i.i32, label %if.then.i.i38, label %if.else.i.i
 
 if.then.i.i38:                                    ; preds = %for.body.i
-  %sub.i.i = sub i64 %add.i, %sub.ptr.div.i.i.i31
+  %sub.i.i = sub nuw i64 %add.i, %sub.ptr.div.i.i.i31
   %_M_end_of_storage.i85 = getelementptr inbounds i8, ptr %__begin2.0.ptr147.i, i64 16
   %15 = load ptr, ptr %_M_end_of_storage.i85, align 8
   %sub.ptr.lhs.cast.i86 = ptrtoint ptr %15 to i64

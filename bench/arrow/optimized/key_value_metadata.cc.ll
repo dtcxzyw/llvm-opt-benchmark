@@ -1225,7 +1225,7 @@ for.end65:                                        ; preds = %for.cond.loopexit, 
   br i1 %cmp.i, label %if.then.i27, label %if.else.i25
 
 if.then.i27:                                      ; preds = %for.end65
-  %sub.i = sub i64 %sub67, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %sub67, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
@@ -1262,7 +1262,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   br i1 %cmp.i33, label %if.then.i44, label %if.else.i34
 
 if.then.i44:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
-  %sub.i45 = sub i64 %sub67, %sub.ptr.div.i.i32
+  %sub.i45 = sub nuw i64 %sub67, %sub.ptr.div.i.i32
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values_68, i64 noundef %sub.i45)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit46
 

@@ -779,7 +779,7 @@ invoke.cont1.i.i.i.i.i:                           ; preds = %if.then.i.i103.i
 invoke.cont1.i.i11.i.i.i:                         ; preds = %invoke.cont1.i.i.i.i.i, %if.then.i.i103.i
   %out_start.addr.0.i.i.i = phi ptr [ %60, %if.then.i.i103.i ], [ %add.ptr.i5.i.i.i.i.i, %invoke.cont1.i.i.i.i.i ]
   %f.addr.0.i.i.i.i.i = phi ptr [ %56, %if.then.i.i103.i ], [ %add.ptr.i.i.i.i17.i.i, %invoke.cont1.i.i.i.i.i ]
-  %sub.i.i.i = sub i64 %57, %61
+  %sub.i.i.i = sub nuw i64 %57, %61
   %mul.i.i12.i.i.i = shl i64 %sub.i.i.i, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i.i, ptr align 4 %f.addr.0.i.i.i.i.i, i64 %mul.i.i12.i.i.i, i1 false)
   br label %for.inc72.sink.split.i
@@ -994,7 +994,7 @@ invoke.cont1.i.i.i.i133.i:                        ; preds = %if.then.i.i131.i
 invoke.cont1.i.i11.i.i137.i:                      ; preds = %invoke.cont1.i.i.i.i133.i, %if.then.i.i131.i
   %out_start.addr.0.i.i138.i = phi ptr [ %81, %if.then.i.i131.i ], [ %add.ptr.i5.i.i.i.i136.i, %invoke.cont1.i.i.i.i133.i ]
   %f.addr.0.i.i.i.i139.i = phi ptr [ %77, %if.then.i.i131.i ], [ %add.ptr.i.i.i.i17.i135.i, %invoke.cont1.i.i.i.i133.i ]
-  %sub.i.i140.i = sub i64 %78, %82
+  %sub.i.i140.i = sub nuw i64 %78, %82
   %mul.i.i12.i.i141.i = shl i64 %sub.i.i140.i, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i138.i, ptr align 4 %f.addr.0.i.i.i.i139.i, i64 %mul.i.i12.i.i141.i, i1 false)
   br label %for.inc99.sink.split.i
@@ -1804,7 +1804,7 @@ invoke.cont1.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i11.i:                             ; preds = %invoke.cont1.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i5.i.i.i, %invoke.cont1.i.i.i ]
   %f.addr.0.i.i.i = phi ptr [ %first, %if.then.i ], [ %add.ptr.i.i.i.i17, %invoke.cont1.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i, %4
   %mul.i.i12.i = shl i64 %sub.i, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i, ptr align 4 %f.addr.0.i.i.i, i64 %mul.i.i12.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EEvRT_T0_NS0_16allocator_traitsIS6_E9size_typeET1_SB_.exit

@@ -518,7 +518,7 @@ sw.bb21.i115:                                     ; preds = %land.lhs.true
 
 sdsavail.exit119:                                 ; preds = %land.lhs.true, %sw.bb1.i109, %sw.bb5.i103, %sw.bb14.i97, %sw.bb21.i115
   %retval.0.i102 = phi i64 [ %sub26.i118, %sw.bb21.i115 ], [ %conv20.i101, %sw.bb14.i97 ], [ %sub12.i108, %sw.bb5.i103 ], [ %sub.i114, %sw.bb1.i109 ], [ 0, %land.lhs.true ]
-  %sub22 = sub i64 %len, %sub
+  %sub22 = sub nuw i64 %len, %sub
   %cmp23 = icmp ult i64 %retval.0.i102, %sub22
   br i1 %cmp23, label %if.then24, label %if.end31
 

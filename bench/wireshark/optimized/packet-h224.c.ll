@@ -445,7 +445,7 @@ define internal noundef i32 @dissect_h224_cme_client_data(ptr noundef %0, ptr no
 
 55:                                               ; preds = %51
   %56 = load i32, ptr @hf_h224_encoded_characters, align 4
-  %57 = sub nsw i32 %53, %49
+  %57 = sub nuw nsw i32 %53, %49
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %56, ptr noundef %0, i32 noundef %49, i32 noundef %57, i32 noundef 0) #2
   %59 = load i32, ptr @hf_h224_end_octet, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %59, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef 0) #2

@@ -294,7 +294,7 @@ if.end19:                                         ; preds = %if.then17, %if.end1
 if.then23:                                        ; preds = %if.end19
   %add.ptr24 = getelementptr i8, ptr %retval.0.i30, i64 %size
   %add.ptr25 = getelementptr i8, ptr %add.ptr24, i64 %conv.i.i
-  %sub27 = sub i64 %sub20, %add21
+  %sub27 = sub nuw i64 %sub20, %add21
   %call28 = call i32 @munmap(ptr noundef %add.ptr25, i64 noundef %sub27) #9
   br label %return
 

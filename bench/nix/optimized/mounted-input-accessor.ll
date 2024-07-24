@@ -2771,7 +2771,7 @@ _ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairI
   br i1 %111, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, label %106, !llvm.loop !15
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %106, %107
-  %112 = sub i64 %.pre25, %.1.i.i
+  %112 = sub nuw i64 %.pre25, %.1.i.i
   %113 = getelementptr inbounds i8, ptr %105, i64 %.1.i.i
   br label %_ZNK3nix9CanonPath8baseNameEv.exit
 

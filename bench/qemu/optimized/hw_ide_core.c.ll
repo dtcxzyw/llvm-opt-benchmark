@@ -1403,9 +1403,9 @@ if.end34:                                         ; preds = %while.body18
   call void @blk_get_geometry(ptr noundef %.val, ptr noundef nonnull %total_sectors.i) #16
   %13 = load i64, ptr %total_sectors.i, align 8
   %cmp.i = icmp uge i64 %13, %and.le
-  %sub.i = sub i64 %13, %and.le
+  %sub.i = sub nuw i64 %13, %and.le
   %cmp1.i = icmp uge i64 %sub.i, %shr.le
-  %or.cond.not.i = and i1 %cmp.i, %cmp1.i
+  %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %total_sectors.i)
   %14 = load ptr, ptr %12, align 8
   %call43 = call ptr @blk_get_stats(ptr noundef %14) #16
@@ -7038,9 +7038,9 @@ land.lhs.true69:                                  ; preds = %trace_ide_dma_cb.ex
   call void @blk_get_geometry(ptr noundef %opaque.val, ptr noundef nonnull %total_sectors.i) #16
   %69 = load i64, ptr %total_sectors.i, align 8
   %cmp.i118 = icmp uge i64 %69, %sector_num.0
-  %sub.i119 = sub i64 %69, %sector_num.0
+  %sub.i119 = sub nuw i64 %69, %sector_num.0
   %cmp1.i = icmp uge i64 %sub.i119, %conv70
-  %or.cond.not.i = and i1 %cmp.i118, %cmp1.i
+  %or.cond.not.i = select i1 %cmp.i118, i1 %cmp1.i, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %total_sectors.i)
   br i1 %or.cond.not.i, label %if.end74thread-pre-split, label %if.then72
 
@@ -7343,9 +7343,9 @@ trace_ide_sector_read.exit:                       ; preds = %if.end, %land.lhs.t
   call void @blk_get_geometry(ptr noundef %s.val, ptr noundef nonnull %total_sectors.i) #16
   %32 = load i64, ptr %total_sectors.i, align 8
   %cmp.i = icmp uge i64 %32, %sector_num.0.i
-  %sub.i29 = sub i64 %32, %sector_num.0.i
+  %sub.i29 = sub nuw i64 %32, %sector_num.0.i
   %cmp1.i = icmp uge i64 %sub.i29, %conv8
-  %or.cond.not.i = and i1 %cmp.i, %cmp1.i
+  %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %total_sectors.i)
   br i1 %or.cond.not.i, label %if.end12, label %if.then10
 
@@ -7762,9 +7762,9 @@ trace_ide_sector_write.exit:                      ; preds = %ide_get_sector.exit
   call void @blk_get_geometry(ptr noundef %s.val, ptr noundef nonnull %total_sectors.i) #16
   %28 = load i64, ptr %total_sectors.i, align 8
   %cmp.i = icmp uge i64 %28, %sector_num.0.i
-  %sub.i23 = sub i64 %28, %sector_num.0.i
+  %sub.i23 = sub nuw i64 %28, %sector_num.0.i
   %cmp1.i = icmp uge i64 %sub.i23, %conv
-  %or.cond.not.i = and i1 %cmp.i, %cmp1.i
+  %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %total_sectors.i)
   br i1 %or.cond.not.i, label %if.end5, label %if.then3
 

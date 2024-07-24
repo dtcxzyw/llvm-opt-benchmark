@@ -3953,7 +3953,7 @@ define hidden void @_ZN6brotli3enc14entropy_encode20SortHuffmanTreeItems17hd9853
 
 .lr.ph:                                           ; preds = %14, %29
   %.04587 = phi i64 [ %18, %29 ], [ %.04690, %14 ]
-  %18 = sub i64 %.04587, %11
+  %18 = sub nuw i64 %.04587, %11
   %19 = icmp ult i64 %18, %1
   br i1 %19, label %21, label %24, !prof !953
 
@@ -7558,7 +7558,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h8475ea
   %9 = xor i16 %16, -1
   store ptr %18, ptr %6, align 8, !alias.scope !1541
   store ptr %17, ptr %0, align 8, !alias.scope !1541
-  %10 = sub i16 -2, %16
+  %10 = sub nuw i16 -2, %16
   %11 = and i16 %10, %9
   store i16 %11, ptr %5, align 8, !alias.scope !1542
   %12 = add i64 %8, -1
@@ -7631,7 +7631,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hd2cc41
   %10 = xor i16 %17, -1
   store ptr %19, ptr %6, align 8, !alias.scope !1551
   store ptr %18, ptr %0, align 8, !alias.scope !1551
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %5, align 8, !alias.scope !1558
   %13 = add i64 %9, -1
@@ -12527,7 +12527,7 @@ define { ptr, ptr } @"_ZN88_$LT$actix_http..header..map..Iter$u20$as$u20$core..i
   %29 = xor i16 %36, -1
   store ptr %38, ptr %28, align 8, !alias.scope !2727
   store ptr %37, ptr %0, align 8, !alias.scope !2727
-  %30 = sub i16 -2, %36
+  %30 = sub nuw i16 -2, %36
   %31 = and i16 %30, %29
   store i16 %31, ptr %27, align 8, !alias.scope !2728
   %32 = add i64 %24, -1

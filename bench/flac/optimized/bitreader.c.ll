@@ -229,7 +229,7 @@ if.then5.i:                                       ; preds = %if.end.i
   %12 = load ptr, ptr %br, align 8
   %idx.ext.i = zext i32 %11 to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %12, i64 %idx.ext.i
-  %sub.i = sub i32 %0, %11
+  %sub.i = sub nuw i32 %0, %11
   %read_crc16.i = getelementptr inbounds i8, ptr %br, i64 28
   %13 = load i32, ptr %read_crc16.i, align 4
   %conv.i = trunc i32 %13 to i16
@@ -398,7 +398,7 @@ if.then5:                                         ; preds = %if.then2
   br label %return
 
 if.else:                                          ; preds = %if.then2
-  %sub = sub i32 %1, %bits
+  %sub = sub nuw i32 %1, %bits
   store i32 %sub, ptr %read_limit, align 4
   br label %if.end9
 
@@ -449,7 +449,7 @@ if.then23:                                        ; preds = %if.then20
   br i1 %cmp30, label %if.then31, label %if.end42
 
 if.then31:                                        ; preds = %if.then23
-  %sub32 = sub i32 %sub25, %bits
+  %sub32 = sub nuw i32 %sub25, %bits
   %cmp33 = icmp ult i32 %sub32, 64
   %and = and i64 %7, %cond
   %sh_prom35 = zext nneg i32 %sub32 to i64
@@ -466,7 +466,7 @@ if.end42:                                         ; preds = %if.then23
   %and43 = and i64 %7, %cond
   %conv44 = trunc i64 %and43 to i32
   store i32 %conv44, ptr %val, align 4
-  %sub45 = sub i32 %bits, %sub25
+  %sub45 = sub nuw i32 %bits, %sub25
   %9 = load i32, ptr %consumed_words, align 4
   %inc = add i32 %9, 1
   store i32 %inc, ptr %consumed_words, align 4
@@ -656,7 +656,7 @@ if.end.i:                                         ; preds = %if.then.if.end.i_cr
 if.then5.i:                                       ; preds = %if.end.i
   %idx.ext.i = zext i32 %10 to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %.pre51, i64 %idx.ext.i
-  %sub.i = sub i32 %0, %10
+  %sub.i = sub nuw i32 %0, %10
   %read_crc16.i = getelementptr inbounds i8, ptr %br, i64 28
   %11 = load i32, ptr %read_crc16.i, align 4
   %conv.i = trunc i32 %11 to i16
@@ -1546,7 +1546,7 @@ if.end33:                                         ; preds = %if.end25
   br i1 %cmp37.not, label %if.else, label %if.then39
 
 if.then39:                                        ; preds = %if.end33
-  %sub40 = sub nsw i32 %rem, %parameter
+  %sub40 = sub nuw nsw i32 %rem, %parameter
   %shl42 = shl i64 %shl28, %sh_prom41
   br label %if.end59
 
@@ -1801,7 +1801,7 @@ if.end33:                                         ; preds = %if.end25
   br i1 %cmp37.not, label %if.else, label %if.then39
 
 if.then39:                                        ; preds = %if.end33
-  %sub40 = sub nsw i32 %rem, %parameter
+  %sub40 = sub nuw nsw i32 %rem, %parameter
   %shl42 = shl i64 %shl28, %sh_prom41
   br label %if.end59
 

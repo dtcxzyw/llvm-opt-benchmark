@@ -806,7 +806,7 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i2.i.i, label %if.then.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %land.rhs
-  %sub = sub i64 %s.coerce0, %suffix.coerce0
+  %sub = sub nuw i64 %s.coerce0, %suffix.coerce0
   %add.ptr.i.i = getelementptr inbounds i8, ptr %s.coerce1, i64 %sub
   %bcmp = tail call i32 @bcmp(ptr %add.ptr.i.i, ptr %suffix.coerce1, i64 %suffix.coerce0)
   %cmp.i.i = icmp eq i32 %bcmp, 0
@@ -831,7 +831,7 @@ entry:
 
 land.rhs.i:                                       ; preds = %entry
   %cmp.i2.i.i.i = icmp eq i64 %suffix.coerce0, 0
-  %.pre = sub i64 %s.coerce0, %suffix.coerce0
+  %.pre = sub nuw i64 %s.coerce0, %suffix.coerce0
   br i1 %cmp.i2.i.i.i, label %if.then, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i

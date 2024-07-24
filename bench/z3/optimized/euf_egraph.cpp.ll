@@ -4787,7 +4787,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sub = sub i32 %0, %num_scopes
+  %sub = sub nuw i32 %0, %num_scopes
   store i32 %sub, ptr %m_num_scopes, align 8
   %m_to_merge = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_to_merge, align 8
@@ -4795,7 +4795,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %return, label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %sub4 = sub i32 %num_scopes, %0
+  %sub4 = sub nuw i32 %num_scopes, %0
   store i32 0, ptr %m_num_scopes, align 8
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 120
   %2 = load ptr, ptr %m_scopes, align 8

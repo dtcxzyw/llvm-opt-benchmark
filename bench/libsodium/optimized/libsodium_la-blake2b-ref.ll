@@ -215,28 +215,31 @@ _sodium_blake2b_init_param.exit:                  ; preds = %for.body.i
   %arrayidx.i.i = getelementptr i8, ptr %S, i64 72
   %add.ptr10.i = getelementptr i8, ptr %S, i64 224
   %.pre.i = load i64, ptr %buflen.i, align 1
-  br label %while.body.i
+  %sub.i15 = sub i64 256, %.pre.i
+  %cmp1.i16 = icmp ult i64 %sub.i15, 128
+  br i1 %cmp1.i16, label %if.end.i, label %if.end.thread.i
 
-while.body.i:                                     ; preds = %if.end.i, %_sodium_blake2b_init_param.exit
-  %4 = phi i64 [ %.pre.i, %_sodium_blake2b_init_param.exit ], [ %sub12.i, %if.end.i ]
-  %in.addr.029.i = phi ptr [ %block, %_sodium_blake2b_init_param.exit ], [ %in.addr.1.i, %if.end.i ]
-  %inlen.addr.028.i = phi i64 [ 128, %_sodium_blake2b_init_param.exit ], [ %sub14.i, %if.end.i ]
-  %sub.i = sub i64 256, %4
-  %cmp1.i = icmp ugt i64 %inlen.addr.028.i, %sub.i
-  %add.ptr.i11 = getelementptr i8, ptr %buf15.i, i64 %4
-  br i1 %cmp1.i, label %if.end.i, label %if.end.thread.i
-
-if.end.thread.i:                                  ; preds = %while.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i11, ptr noundef nonnull align 1 dereferenceable(1) %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
-  %5 = load i64, ptr %buflen.i, align 1
-  %add19.i = add i64 %5, %inlen.addr.028.i
+if.end.thread.i:                                  ; preds = %if.end.i, %_sodium_blake2b_init_param.exit
+  %.lcssa = phi i64 [ %.pre.i, %_sodium_blake2b_init_param.exit ], [ %sub12.i, %if.end.i ]
+  %in.addr.029.i.lcssa = phi ptr [ %block, %_sodium_blake2b_init_param.exit ], [ %in.addr.1.i, %if.end.i ]
+  %inlen.addr.028.i.lcssa = phi i64 [ 128, %_sodium_blake2b_init_param.exit ], [ %sub14.i, %if.end.i ]
+  %add.ptr17.i = getelementptr i8, ptr %buf15.i, i64 %.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr17.i, ptr noundef nonnull align 1 dereferenceable(1) %in.addr.029.i.lcssa, i64 %inlen.addr.028.i.lcssa, i1 false)
+  %4 = load i64, ptr %buflen.i, align 1
+  %add19.i = add i64 %4, %inlen.addr.028.i.lcssa
   store i64 %add19.i, ptr %buflen.i, align 1
-  br label %_sodium_blake2b_update.exit
+  call void @sodium_memzero(ptr noundef nonnull %block, i64 noundef 128) #8
+  ret i32 0
 
-if.end.i:                                         ; preds = %while.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i11, ptr align 1 %in.addr.029.i, i64 %sub.i, i1 false)
+if.end.i:                                         ; preds = %_sodium_blake2b_init_param.exit, %if.end.i
+  %sub.i19 = phi i64 [ %sub.i, %if.end.i ], [ %sub.i15, %_sodium_blake2b_init_param.exit ]
+  %inlen.addr.028.i18 = phi i64 [ %sub14.i, %if.end.i ], [ 128, %_sodium_blake2b_init_param.exit ]
+  %in.addr.029.i17 = phi ptr [ %in.addr.1.i, %if.end.i ], [ %block, %_sodium_blake2b_init_param.exit ]
+  %5 = phi i64 [ %sub12.i, %if.end.i ], [ %.pre.i, %_sodium_blake2b_init_param.exit ]
+  %add.ptr.i11 = getelementptr i8, ptr %buf15.i, i64 %5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i11, ptr align 1 %in.addr.029.i17, i64 %sub.i19, i1 false)
   %6 = load i64, ptr %buflen.i, align 1
-  %add.i = add i64 %6, %sub.i
+  %add.i = add i64 %6, %sub.i19
   store i64 %add.i, ptr %buflen.i, align 1
   %7 = load i64, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i64 %7 to i128
@@ -255,15 +258,12 @@ if.end.i:                                         ; preds = %while.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf15.i, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr10.i, i64 128, i1 false)
   %10 = load i64, ptr %buflen.i, align 1
   %sub12.i = add i64 %10, -128
-  %sub14.i = sub i64 %inlen.addr.028.i, %sub.i
+  %sub14.i = sub nuw i64 %inlen.addr.028.i18, %sub.i19
   store i64 %sub12.i, ptr %buflen.i, align 1
-  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i, i64 %sub.i
-  %cmp.not.i = icmp eq i64 %sub14.i, 0
-  br i1 %cmp.not.i, label %_sodium_blake2b_update.exit, label %while.body.i, !llvm.loop !8
-
-_sodium_blake2b_update.exit:                      ; preds = %if.end.i, %if.end.thread.i
-  call void @sodium_memzero(ptr noundef nonnull %block, i64 noundef 128) #8
-  ret i32 0
+  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i17, i64 %sub.i19
+  %sub.i = sub i64 384, %10
+  %cmp1.i = icmp ugt i64 %sub14.i, %sub.i
+  br i1 %cmp1.i, label %if.end.i, label %if.end.thread.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -322,7 +322,7 @@ if.end:                                           ; preds = %while.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf15, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr10, i64 128, i1 false)
   %6 = load i64, ptr %buflen, align 1
   %sub12 = add i64 %6, -128
-  %sub14 = sub i64 %inlen.addr.028, %sub
+  %sub14 = sub nuw i64 %inlen.addr.028, %sub
   store i64 %sub12, ptr %buflen, align 1
   %in.addr.1 = getelementptr i8, ptr %in.addr.029, i64 %sub
   %cmp.not = icmp eq i64 %sub14, 0
@@ -421,28 +421,31 @@ _sodium_blake2b_init_param.exit:                  ; preds = %for.body.i
   %arrayidx.i.i = getelementptr i8, ptr %S, i64 72
   %add.ptr10.i = getelementptr i8, ptr %S, i64 224
   %.pre.i = load i64, ptr %buflen.i, align 1
-  br label %while.body.i
+  %sub.i17 = sub i64 256, %.pre.i
+  %cmp1.i18 = icmp ult i64 %sub.i17, 128
+  br i1 %cmp1.i18, label %if.end.i, label %if.end.thread.i
 
-while.body.i:                                     ; preds = %if.end.i, %_sodium_blake2b_init_param.exit
-  %4 = phi i64 [ %.pre.i, %_sodium_blake2b_init_param.exit ], [ %sub12.i, %if.end.i ]
-  %in.addr.029.i = phi ptr [ %block, %_sodium_blake2b_init_param.exit ], [ %in.addr.1.i, %if.end.i ]
-  %inlen.addr.028.i = phi i64 [ 128, %_sodium_blake2b_init_param.exit ], [ %sub14.i, %if.end.i ]
-  %sub.i = sub i64 256, %4
-  %cmp1.i = icmp ugt i64 %inlen.addr.028.i, %sub.i
-  %add.ptr.i13 = getelementptr i8, ptr %buf15.i, i64 %4
-  br i1 %cmp1.i, label %if.end.i, label %if.end.thread.i
-
-if.end.thread.i:                                  ; preds = %while.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i13, ptr noundef nonnull align 1 dereferenceable(1) %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
-  %5 = load i64, ptr %buflen.i, align 1
-  %add19.i = add i64 %5, %inlen.addr.028.i
+if.end.thread.i:                                  ; preds = %if.end.i, %_sodium_blake2b_init_param.exit
+  %.lcssa = phi i64 [ %.pre.i, %_sodium_blake2b_init_param.exit ], [ %sub12.i, %if.end.i ]
+  %in.addr.029.i.lcssa = phi ptr [ %block, %_sodium_blake2b_init_param.exit ], [ %in.addr.1.i, %if.end.i ]
+  %inlen.addr.028.i.lcssa = phi i64 [ 128, %_sodium_blake2b_init_param.exit ], [ %sub14.i, %if.end.i ]
+  %add.ptr17.i = getelementptr i8, ptr %buf15.i, i64 %.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr17.i, ptr noundef nonnull align 1 dereferenceable(1) %in.addr.029.i.lcssa, i64 %inlen.addr.028.i.lcssa, i1 false)
+  %4 = load i64, ptr %buflen.i, align 1
+  %add19.i = add i64 %4, %inlen.addr.028.i.lcssa
   store i64 %add19.i, ptr %buflen.i, align 1
-  br label %_sodium_blake2b_update.exit
+  call void @sodium_memzero(ptr noundef nonnull %block, i64 noundef 128) #8
+  ret i32 0
 
-if.end.i:                                         ; preds = %while.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i13, ptr align 1 %in.addr.029.i, i64 %sub.i, i1 false)
+if.end.i:                                         ; preds = %_sodium_blake2b_init_param.exit, %if.end.i
+  %sub.i21 = phi i64 [ %sub.i, %if.end.i ], [ %sub.i17, %_sodium_blake2b_init_param.exit ]
+  %inlen.addr.028.i20 = phi i64 [ %sub14.i, %if.end.i ], [ 128, %_sodium_blake2b_init_param.exit ]
+  %in.addr.029.i19 = phi ptr [ %in.addr.1.i, %if.end.i ], [ %block, %_sodium_blake2b_init_param.exit ]
+  %5 = phi i64 [ %sub12.i, %if.end.i ], [ %.pre.i, %_sodium_blake2b_init_param.exit ]
+  %add.ptr.i13 = getelementptr i8, ptr %buf15.i, i64 %5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i13, ptr align 1 %in.addr.029.i19, i64 %sub.i21, i1 false)
   %6 = load i64, ptr %buflen.i, align 1
-  %add.i = add i64 %6, %sub.i
+  %add.i = add i64 %6, %sub.i21
   store i64 %add.i, ptr %buflen.i, align 1
   %7 = load i64, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i64 %7 to i128
@@ -461,15 +464,12 @@ if.end.i:                                         ; preds = %while.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buf15.i, ptr noundef nonnull align 1 dereferenceable(128) %add.ptr10.i, i64 128, i1 false)
   %10 = load i64, ptr %buflen.i, align 1
   %sub12.i = add i64 %10, -128
-  %sub14.i = sub i64 %inlen.addr.028.i, %sub.i
+  %sub14.i = sub nuw i64 %inlen.addr.028.i20, %sub.i21
   store i64 %sub12.i, ptr %buflen.i, align 1
-  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i, i64 %sub.i
-  %cmp.not.i = icmp eq i64 %sub14.i, 0
-  br i1 %cmp.not.i, label %_sodium_blake2b_update.exit, label %while.body.i, !llvm.loop !8
-
-_sodium_blake2b_update.exit:                      ; preds = %if.end.i, %if.end.thread.i
-  call void @sodium_memzero(ptr noundef nonnull %block, i64 noundef 128) #8
-  ret i32 0
+  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i19, i64 %sub.i21
+  %sub.i = sub i64 384, %10
+  %cmp1.i = icmp ugt i64 %sub14.i, %sub.i
+  br i1 %cmp1.i, label %if.end.i, label %if.end.thread.i
 }
 
 ; Function Attrs: nounwind ssp uwtable
@@ -682,28 +682,30 @@ while.body.lr.ph.i:                               ; preds = %if.end36
   %arrayidx.i.i14 = getelementptr inbounds i8, ptr %S, i64 72
   %add.ptr10.i = getelementptr inbounds i8, ptr %S, i64 224
   %.pre.i = load i64, ptr %buflen.i, align 32
-  br label %while.body.i
+  %sub.i19 = sub i64 256, %.pre.i
+  %cmp1.i20 = icmp ult i64 %sub.i19, %inlen
+  br i1 %cmp1.i20, label %if.end.i15, label %if.end.thread.i
 
-while.body.i:                                     ; preds = %if.end.i15, %while.body.lr.ph.i
-  %2 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %sub12.i, %if.end.i15 ]
-  %in.addr.029.i = phi ptr [ %in, %while.body.lr.ph.i ], [ %in.addr.1.i, %if.end.i15 ]
-  %inlen.addr.028.i = phi i64 [ %inlen, %while.body.lr.ph.i ], [ %sub14.i, %if.end.i15 ]
-  %sub.i = sub i64 256, %2
-  %cmp1.i = icmp ugt i64 %inlen.addr.028.i, %sub.i
-  %add.ptr.i = getelementptr i8, ptr %buf15.i, i64 %2
-  br i1 %cmp1.i, label %if.end.i15, label %if.end.thread.i
-
-if.end.thread.i:                                  ; preds = %while.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
-  %3 = load i64, ptr %buflen.i, align 32
-  %add19.i = add i64 %3, %inlen.addr.028.i
+if.end.thread.i:                                  ; preds = %if.end.i15, %while.body.lr.ph.i
+  %.lcssa = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %sub12.i, %if.end.i15 ]
+  %in.addr.029.i.lcssa = phi ptr [ %in, %while.body.lr.ph.i ], [ %in.addr.1.i, %if.end.i15 ]
+  %inlen.addr.028.i.lcssa = phi i64 [ %inlen, %while.body.lr.ph.i ], [ %sub14.i, %if.end.i15 ]
+  %add.ptr17.i = getelementptr i8, ptr %buf15.i, i64 %.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr17.i, ptr align 1 %in.addr.029.i.lcssa, i64 %inlen.addr.028.i.lcssa, i1 false)
+  %2 = load i64, ptr %buflen.i, align 32
+  %add19.i = add i64 %2, %inlen.addr.028.i.lcssa
   store i64 %add19.i, ptr %buflen.i, align 32
   br label %_sodium_blake2b_update.exit
 
-if.end.i15:                                       ; preds = %while.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %sub.i, i1 false)
+if.end.i15:                                       ; preds = %while.body.lr.ph.i, %if.end.i15
+  %sub.i23 = phi i64 [ %sub.i, %if.end.i15 ], [ %sub.i19, %while.body.lr.ph.i ]
+  %inlen.addr.028.i22 = phi i64 [ %sub14.i, %if.end.i15 ], [ %inlen, %while.body.lr.ph.i ]
+  %in.addr.029.i21 = phi ptr [ %in.addr.1.i, %if.end.i15 ], [ %in, %while.body.lr.ph.i ]
+  %3 = phi i64 [ %sub12.i, %if.end.i15 ], [ %.pre.i, %while.body.lr.ph.i ]
+  %add.ptr.i = getelementptr i8, ptr %buf15.i, i64 %3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i21, i64 %sub.i23, i1 false)
   %4 = load i64, ptr %buflen.i, align 32
-  %add.i = add i64 %4, %sub.i
+  %add.i = add i64 %4, %sub.i23
   store i64 %add.i, ptr %buflen.i, align 32
   %5 = load i64, ptr %arrayidx.i.i14, align 8
   %conv.i.i = zext i64 %5 to i128
@@ -722,13 +724,14 @@ if.end.i15:                                       ; preds = %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %buf15.i, ptr noundef nonnull align 32 dereferenceable(128) %add.ptr10.i, i64 128, i1 false)
   %8 = load i64, ptr %buflen.i, align 32
   %sub12.i = add i64 %8, -128
-  %sub14.i = sub i64 %inlen.addr.028.i, %sub.i
+  %sub14.i = sub nuw i64 %inlen.addr.028.i22, %sub.i23
   store i64 %sub12.i, ptr %buflen.i, align 32
-  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i, i64 %sub.i
-  %cmp.not.i = icmp eq i64 %sub14.i, 0
-  br i1 %cmp.not.i, label %_sodium_blake2b_update.exit, label %while.body.i, !llvm.loop !8
+  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i21, i64 %sub.i23
+  %sub.i = sub i64 384, %8
+  %cmp1.i = icmp ugt i64 %sub14.i, %sub.i
+  br i1 %cmp1.i, label %if.end.i15, label %if.end.thread.i
 
-_sodium_blake2b_update.exit:                      ; preds = %if.end.i15, %if.end36, %if.end.thread.i
+_sodium_blake2b_update.exit:                      ; preds = %if.end36, %if.end.thread.i
   %call40 = call i32 @_sodium_blake2b_final(ptr noundef nonnull %S, ptr noundef nonnull %out, i8 noundef zeroext %outlen)
   ret i32 0
 }
@@ -859,28 +862,30 @@ while.body.lr.ph.i:                               ; preds = %if.end36
   %arrayidx.i.i16 = getelementptr inbounds i8, ptr %S, i64 72
   %add.ptr10.i = getelementptr inbounds i8, ptr %S, i64 224
   %.pre.i = load i64, ptr %buflen.i, align 32
-  br label %while.body.i
+  %sub.i21 = sub i64 256, %.pre.i
+  %cmp1.i22 = icmp ult i64 %sub.i21, %inlen
+  br i1 %cmp1.i22, label %if.end.i17, label %if.end.thread.i
 
-while.body.i:                                     ; preds = %if.end.i17, %while.body.lr.ph.i
-  %2 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %sub12.i, %if.end.i17 ]
-  %in.addr.029.i = phi ptr [ %in, %while.body.lr.ph.i ], [ %in.addr.1.i, %if.end.i17 ]
-  %inlen.addr.028.i = phi i64 [ %inlen, %while.body.lr.ph.i ], [ %sub14.i, %if.end.i17 ]
-  %sub.i = sub i64 256, %2
-  %cmp1.i = icmp ugt i64 %inlen.addr.028.i, %sub.i
-  %add.ptr.i = getelementptr i8, ptr %buf15.i, i64 %2
-  br i1 %cmp1.i, label %if.end.i17, label %if.end.thread.i
-
-if.end.thread.i:                                  ; preds = %while.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
-  %3 = load i64, ptr %buflen.i, align 32
-  %add19.i = add i64 %3, %inlen.addr.028.i
+if.end.thread.i:                                  ; preds = %if.end.i17, %while.body.lr.ph.i
+  %.lcssa = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %sub12.i, %if.end.i17 ]
+  %in.addr.029.i.lcssa = phi ptr [ %in, %while.body.lr.ph.i ], [ %in.addr.1.i, %if.end.i17 ]
+  %inlen.addr.028.i.lcssa = phi i64 [ %inlen, %while.body.lr.ph.i ], [ %sub14.i, %if.end.i17 ]
+  %add.ptr17.i = getelementptr i8, ptr %buf15.i, i64 %.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr17.i, ptr align 1 %in.addr.029.i.lcssa, i64 %inlen.addr.028.i.lcssa, i1 false)
+  %2 = load i64, ptr %buflen.i, align 32
+  %add19.i = add i64 %2, %inlen.addr.028.i.lcssa
   store i64 %add19.i, ptr %buflen.i, align 32
   br label %_sodium_blake2b_update.exit
 
-if.end.i17:                                       ; preds = %while.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %sub.i, i1 false)
+if.end.i17:                                       ; preds = %while.body.lr.ph.i, %if.end.i17
+  %sub.i25 = phi i64 [ %sub.i, %if.end.i17 ], [ %sub.i21, %while.body.lr.ph.i ]
+  %inlen.addr.028.i24 = phi i64 [ %sub14.i, %if.end.i17 ], [ %inlen, %while.body.lr.ph.i ]
+  %in.addr.029.i23 = phi ptr [ %in.addr.1.i, %if.end.i17 ], [ %in, %while.body.lr.ph.i ]
+  %3 = phi i64 [ %sub12.i, %if.end.i17 ], [ %.pre.i, %while.body.lr.ph.i ]
+  %add.ptr.i = getelementptr i8, ptr %buf15.i, i64 %3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i23, i64 %sub.i25, i1 false)
   %4 = load i64, ptr %buflen.i, align 32
-  %add.i = add i64 %4, %sub.i
+  %add.i = add i64 %4, %sub.i25
   store i64 %add.i, ptr %buflen.i, align 32
   %5 = load i64, ptr %arrayidx.i.i16, align 8
   %conv.i.i = zext i64 %5 to i128
@@ -899,13 +904,14 @@ if.end.i17:                                       ; preds = %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %buf15.i, ptr noundef nonnull align 32 dereferenceable(128) %add.ptr10.i, i64 128, i1 false)
   %8 = load i64, ptr %buflen.i, align 32
   %sub12.i = add i64 %8, -128
-  %sub14.i = sub i64 %inlen.addr.028.i, %sub.i
+  %sub14.i = sub nuw i64 %inlen.addr.028.i24, %sub.i25
   store i64 %sub12.i, ptr %buflen.i, align 32
-  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i, i64 %sub.i
-  %cmp.not.i = icmp eq i64 %sub14.i, 0
-  br i1 %cmp.not.i, label %_sodium_blake2b_update.exit, label %while.body.i, !llvm.loop !8
+  %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i23, i64 %sub.i25
+  %sub.i = sub i64 384, %8
+  %cmp1.i = icmp ugt i64 %sub14.i, %sub.i
+  br i1 %cmp1.i, label %if.end.i17, label %if.end.thread.i
 
-_sodium_blake2b_update.exit:                      ; preds = %if.end.i17, %if.end36, %if.end.thread.i
+_sodium_blake2b_update.exit:                      ; preds = %if.end36, %if.end.thread.i
   %call40 = call i32 @_sodium_blake2b_final(ptr noundef nonnull %S, ptr noundef nonnull %out, i8 noundef zeroext %outlen)
   ret i32 0
 }

@@ -677,7 +677,7 @@ if.else.i:                                        ; preds = %while.body.i
   %8 = load i64, ptr %pos_.i.i, align 8
   %add.i21.i = add i64 %8, %sub.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %p.027.i, i64 %sub.i.i
-  %sub.i = sub i64 %size.026.i, %sub.i.i
+  %sub.i = sub nuw i64 %size.026.i, %sub.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -748,7 +748,7 @@ if.else.i34:                                      ; preds = %while.body.i15
   %21 = load i64, ptr %pos_.i.i18, align 8
   %add.i21.i35 = add i64 %21, %sub.i.i19
   %add.ptr.i36 = getelementptr inbounds i8, ptr %p.027.i7, i64 %sub.i.i19
-  %sub.i37 = sub i64 %size.026.i8, %sub.i.i19
+  %sub.i37 = sub nuw i64 %size.026.i8, %sub.i.i19
   br label %if.end.i25
 
 if.end.i25:                                       ; preds = %if.else.i34, %if.then.i23
@@ -819,7 +819,7 @@ if.else.i71:                                      ; preds = %while.body.i52
   %34 = load i64, ptr %pos_.i.i55, align 8
   %add.i21.i72 = add i64 %34, %sub.i.i56
   %add.ptr.i73 = getelementptr inbounds i8, ptr %p.027.i44, i64 %sub.i.i56
-  %sub.i74 = sub i64 %size.026.i45, %sub.i.i56
+  %sub.i74 = sub nuw i64 %size.026.i45, %sub.i.i56
   br label %if.end.i62
 
 if.end.i62:                                       ; preds = %if.else.i71, %if.then.i60
@@ -894,7 +894,7 @@ if.else:                                          ; preds = %while.body
   %8 = load i64, ptr %pos_.i, align 8
   %add.i21 = add i64 %8, %sub.i
   %add.ptr = getelementptr inbounds i8, ptr %p.027, i64 %sub.i
-  %sub = sub i64 %size.026, %sub.i
+  %sub = sub nuw i64 %size.026, %sub.i
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

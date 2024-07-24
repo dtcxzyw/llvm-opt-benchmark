@@ -752,7 +752,7 @@ if.end22:                                         ; preds = %land.lhs.true.i
   store ptr %30, ptr %magic_number, align 8
   store i64 %conv.i, ptr %size_.i28, align 8
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %30, i64 %conv.i
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i, %conv.i
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i, %conv.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(16) %magic_number, i1 noundef zeroext false)
           to label %invoke.cont24 unwind label %lpad5
@@ -1257,7 +1257,7 @@ if.end31:                                         ; preds = %land.lhs.true.i
   store i64 %conv.i, ptr %size_.i51, align 8
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %32, i64 %conv.i
   store ptr %add.ptr.i5.i, ptr %enc_slice, align 8
-  %sub.i.i54 = sub i64 %sub.ptr.sub.i.i, %conv.i
+  %sub.i.i54 = sub nuw i64 %sub.ptr.sub.i.i, %conv.i
   store i64 %sub.i.i54, ptr %size_.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(16) %file_operation, i1 noundef zeroext false)
@@ -1343,7 +1343,7 @@ if.end54:                                         ; preds = %land.lhs.true.i80
   store i64 %conv.i84, ptr %size_.i71, align 8
   %add.ptr.i5.i88 = getelementptr inbounds i8, ptr %37, i64 %conv.i84
   store ptr %add.ptr.i5.i88, ptr %enc_slice, align 8
-  %sub.i.i89 = sub i64 %sub.ptr.sub.i.i83, %conv.i84
+  %sub.i.i89 = sub nuw i64 %sub.ptr.sub.i.i83, %conv.i84
   store i64 %sub.i.i89, ptr %size_.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i72)
   invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(16) %io_status, i1 noundef zeroext false)

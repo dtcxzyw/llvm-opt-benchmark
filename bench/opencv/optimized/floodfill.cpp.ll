@@ -695,7 +695,7 @@ _ZNK2cv11_InputArray6getMatEi.exit266:            ; preds = %165, %168
   br i1 %255, label %256, label %289
 
 256:                                              ; preds = %244
-  %257 = sub nsw i64 %247, %254
+  %257 = sub nuw nsw i64 %247, %254
   %258 = getelementptr inbounds i8, ptr %67, i64 16
   %259 = load ptr, ptr %258, align 8
   %260 = ptrtoint ptr %259 to i64
@@ -732,7 +732,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv12FFillSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
   br label %_ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit
 
 272:                                              ; preds = %256
-  %273 = icmp ult i64 %264, %257
+  %273 = icmp slt i32 %245, 0
   br i1 %273, label %.invoke3138, label %_ZNKSt6vectorIN2cv12FFillSegmentESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 .invoke3138:                                      ; preds = %1676, %1437, %1209, %992, %776, %548, %6423, %6243, %6031, %5400, %5263, %5122, %4766, %4604, %4415, %3856, %3724, %3587, %3248, %3093, %2888, %2349, %2226, %2089, %272

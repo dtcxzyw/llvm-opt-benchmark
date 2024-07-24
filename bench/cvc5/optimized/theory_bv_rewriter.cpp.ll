@@ -81416,7 +81416,7 @@ for.body:                                         ; preds = %_ZN4cvc58internal12
   %119 = load ptr, ptr %ppc, align 8
   %120 = load ptr, ptr %xor0, align 8
   store ptr %120, ptr %agg.tmp210, align 8
-  %sub214 = sub i32 %sub179, %i.0823
+  %sub214 = sub nuw i32 %sub179, %i.0823
   invoke void @_ZN4cvc58internal6theory2bv5utils9mkExtractENS0_12NodeTemplateILb0EEEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp209, ptr noundef nonnull %agg.tmp210, i32 noundef %sub214, i32 noundef %sub214)
           to label %invoke.cont218 unwind label %lpad217
 

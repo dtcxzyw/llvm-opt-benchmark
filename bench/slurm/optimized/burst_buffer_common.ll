@@ -3937,7 +3937,7 @@ define void @bb_limit_rem(i32 noundef %0, i64 noundef %1, ptr noundef %2, ptr no
   br i1 %.not53, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = sub i64 %11, %1
+  %13 = sub nuw i64 %11, %1
   br label %16
 
 14:                                               ; preds = %9
@@ -3953,7 +3953,7 @@ define void @bb_limit_rem(i32 noundef %0, i64 noundef %1, ptr noundef %2, ptr no
   br i1 %.not54, label %21, label %19
 
 19:                                               ; preds = %16
-  %20 = sub i64 %18, %1
+  %20 = sub nuw i64 %18, %1
   store i64 %20, ptr %17, align 8
   br label %59
 
@@ -3998,7 +3998,7 @@ define void @bb_limit_rem(i32 noundef %0, i64 noundef %1, ptr noundef %2, ptr no
   br i1 %.not56, label %40, label %38
 
 38:                                               ; preds = %35
-  %39 = sub i64 %37, %1
+  %39 = sub nuw i64 %37, %1
   br label %42
 
 40:                                               ; preds = %35
@@ -4014,7 +4014,7 @@ define void @bb_limit_rem(i32 noundef %0, i64 noundef %1, ptr noundef %2, ptr no
   br i1 %.not58, label %47, label %45
 
 45:                                               ; preds = %42
-  %46 = sub i64 %44, %1
+  %46 = sub nuw i64 %44, %1
   br label %.loopexit.sink.split
 
 47:                                               ; preds = %42
@@ -4094,7 +4094,7 @@ bb_find_user_rec.exit:                            ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not60, label %82, label %80
 
 80:                                               ; preds = %bb_find_user_rec.exit
-  %81 = sub i64 %79, %1
+  %81 = sub nuw i64 %79, %1
   store i64 %81, ptr %78, align 8
   br label %84
 
@@ -4331,7 +4331,7 @@ define i32 @bb_post_persist_delete(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not58, label %72, label %47
 
 47:                                               ; preds = %.lr.ph
-  %48 = sub i64 %46, %13
+  %48 = sub nuw i64 %46, %13
   store i64 %48, ptr %45, align 8
   %49 = call i32 @get_log_level() #17
   %50 = icmp sgt i32 %49, 5
@@ -4411,7 +4411,7 @@ define i32 @bb_post_persist_delete(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not57, label %109, label %107
 
 107:                                              ; preds = %98
-  %108 = sub i64 %106, %13
+  %108 = sub nuw i64 %106, %13
   store i64 %108, ptr %105, align 8
   br label %110
 
@@ -4492,7 +4492,7 @@ define range(i32 0, 3) i32 @bb_test_size_limit(ptr noundef %0, ptr nocapture nou
   br i1 %.not253, label %31, label %28
 
 28:                                               ; preds = %.lr.ph
-  %29 = sub i64 %27, %.
+  %29 = sub nuw i64 %27, %.
   %30 = getelementptr inbounds i64, ptr %16, i64 %indvars.iv
   store i64 %29, ptr %30, align 8
   br label %31

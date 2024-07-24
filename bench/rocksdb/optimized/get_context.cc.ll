@@ -2863,7 +2863,7 @@ if.then.i.us:                                     ; preds = %land.lhs.true.i.us
   store ptr %5, ptr %value, align 8
   store i64 %conv.i.us, ptr %size_.i4, align 8
   %add.ptr.i5.i.us = getelementptr inbounds i8, ptr %5, i64 %conv.i.us
-  %sub.i.i.us = sub i64 %sub.ptr.sub.i.i.us, %conv.i.us
+  %sub.i.i.us = sub nuw i64 %sub.ptr.sub.i.i.us, %conv.i.us
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit.us
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit.us: ; preds = %if.then.i.us, %land.lhs.true.i.us, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i.us
@@ -2939,7 +2939,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   store ptr %10, ptr %value, align 8
   store i64 %conv.i, ptr %size_.i4, align 8
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %10, i64 %conv.i
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i, %conv.i
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i, %conv.i
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit: ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i, %land.lhs.true.i, %if.then.i
@@ -2993,7 +2993,7 @@ land.lhs.true.i15:                                ; preds = %_ZN7rocksdb14GetVar
 
 if.then.i21:                                      ; preds = %land.lhs.true.i15
   %add.ptr.i5.i23 = getelementptr inbounds i8, ptr %13, i64 %conv.i19
-  %sub.i.i24 = sub i64 %sub.ptr.sub.i.i18, %conv.i19
+  %sub.i.i24 = sub nuw i64 %sub.ptr.sub.i.i18, %conv.i19
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.then.i21, %land.lhs.true.i15, %call.i.i.i11.noexc

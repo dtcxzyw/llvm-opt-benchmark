@@ -2468,7 +2468,7 @@ _ZN5eastl4fillINS_13DequeIteratorIiPiRiLj64EEEiEEvT_S5_RKT0_.exit: ; preds = %_Z
   %9 = phi ptr [ %.pre71, %_ZN5eastl4fillINS_13DequeIteratorIiPiRiLj64EEEiEEvT_S5_RKT0_.exit.loopexit ], [ %3, %if.then ]
   %10 = phi ptr [ %.pre, %_ZN5eastl4fillINS_13DequeIteratorIiPiRiLj64EEEiEEvT_S5_RKT0_.exit.loopexit ], [ %2, %if.then ]
   %11 = load ptr, ptr %mpEnd4.i9, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp318)
   store ptr %10, ptr %agg.tmp318, align 8
   %agg.tmp3.sroa.2.0.agg.tmp318.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp318, i64 8
@@ -2756,7 +2756,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mpEnd4.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %mpEnd4.i, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
   store ptr %2, ptr %agg.tmp4, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
@@ -8810,7 +8810,7 @@ _ZN5eastl4fillINS_13DequeIteratorI10TestObjectPS2_RS2_Lj8EEES2_EEvT_S6_RKT0_.exi
   %13 = phi ptr [ %.pre81, %_ZN5eastl4fillINS_13DequeIteratorI10TestObjectPS2_RS2_Lj8EEES2_EEvT_S6_RKT0_.exit.loopexit ], [ %3, %if.then ]
   %14 = phi ptr [ %.pre, %_ZN5eastl4fillINS_13DequeIteratorI10TestObjectPS2_RS2_Lj8EEES2_EEvT_S6_RKT0_.exit.loopexit ], [ %2, %if.then ]
   %15 = load ptr, ptr %mpEnd4.i9, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp318)
   store ptr %14, ptr %agg.tmp318, align 8
   %agg.tmp3.sroa.2.0.agg.tmp318.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp318, i64 8
@@ -9119,7 +9119,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mpEnd4.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %mpEnd4.i, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
   store ptr %2, ptr %agg.tmp4, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
@@ -72257,7 +72257,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3.i, label %if.then5.i, label %if.end26.i
 
 if.then5.i:                                       ; preds = %if.then
-  %sub.i = sub nsw i64 %add11.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %add11.i.i.i, %sub.ptr.div.i
   %mpCurrentArrayPtr.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %mpCurrentArrayPtr.i, align 8, !noalias !3131
   %4 = load ptr, ptr %this, align 8, !noalias !3131
@@ -72407,7 +72407,7 @@ if.then13:                                        ; preds = %if.else
   br i1 %cmp35.i, label %if.then38.i, label %if.end78.i
 
 if.then38.i:                                      ; preds = %if.then13
-  %sub40.i = sub nsw i64 %add11.i.i.i, %sub.ptr.div34.i
+  %sub40.i = sub nuw nsw i64 %add11.i.i.i, %sub.ptr.div34.i
   %20 = load ptr, ptr %this, align 8, !noalias !3144
   %mnPtrArraySize.i = getelementptr inbounds i8, ptr %this, i64 8
   %21 = load i64, ptr %mnPtrArraySize.i, align 8, !noalias !3144
@@ -72594,7 +72594,7 @@ if.then26:                                        ; preds = %if.else21
   br i1 %cmp3.i139, label %if.then5.i162, label %if.end26.i140
 
 if.then5.i162:                                    ; preds = %if.then26
-  %sub.i163 = sub nsw i64 %add11.i.i.i, %sub.ptr.div.i138
+  %sub.i163 = sub nuw nsw i64 %add11.i.i.i, %sub.ptr.div.i138
   %44 = load ptr, ptr %this, align 8, !noalias !3156
   %sub.ptr.rhs.cast9.i166 = ptrtoint ptr %44 to i64
   %sub.ptr.sub10.i167 = sub i64 %sub.ptr.rhs.cast.i124, %sub.ptr.rhs.cast9.i166
@@ -73071,7 +73071,7 @@ if.else58:                                        ; preds = %if.else21
   br i1 %cmp35.i448, label %if.then38.i470, label %if.end78.i449
 
 if.then38.i470:                                   ; preds = %if.else58
-  %sub40.i471 = sub nsw i64 %add11.i.i.i, %sub.ptr.div34.i447
+  %sub40.i471 = sub nuw nsw i64 %add11.i.i.i, %sub.ptr.div34.i447
   %94 = load ptr, ptr %this, align 8, !noalias !3213
   %mnPtrArraySize.i472 = getelementptr inbounds i8, ptr %this, i64 8
   %95 = load i64, ptr %mnPtrArraySize.i472, align 8, !noalias !3213
@@ -78379,7 +78379,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3.i, label %if.then5.i, label %if.end26.i
 
 if.then5.i:                                       ; preds = %if.then
-  %sub.i = sub nsw i64 %add11.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %add11.i.i.i, %sub.ptr.div.i
   %mpCurrentArrayPtr.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %mpCurrentArrayPtr.i, align 8, !noalias !3526
   %4 = load ptr, ptr %this, align 8, !noalias !3526
@@ -78549,7 +78549,7 @@ if.then13:                                        ; preds = %if.else
   br i1 %cmp35.i, label %if.then38.i, label %if.end78.i
 
 if.then38.i:                                      ; preds = %if.then13
-  %sub40.i = sub nsw i64 %add11.i.i.i, %sub.ptr.div34.i
+  %sub40.i = sub nuw nsw i64 %add11.i.i.i, %sub.ptr.div34.i
   %31 = load ptr, ptr %this, align 8, !noalias !3539
   %mnPtrArraySize.i = getelementptr inbounds i8, ptr %this, i64 8
   %32 = load i64, ptr %mnPtrArraySize.i, align 8, !noalias !3539
@@ -78756,7 +78756,7 @@ if.then26:                                        ; preds = %if.else21
   br i1 %cmp3.i139, label %if.then5.i162, label %if.end26.i140
 
 if.then5.i162:                                    ; preds = %if.then26
-  %sub.i163 = sub nsw i64 %add11.i.i.i, %sub.ptr.div.i138
+  %sub.i163 = sub nuw nsw i64 %add11.i.i.i, %sub.ptr.div.i138
   %66 = load ptr, ptr %this, align 8, !noalias !3551
   %sub.ptr.rhs.cast9.i166 = ptrtoint ptr %66 to i64
   %sub.ptr.sub10.i167 = sub i64 %sub.ptr.rhs.cast.i124, %sub.ptr.rhs.cast9.i166
@@ -79372,7 +79372,7 @@ if.else58:                                        ; preds = %if.else21
   br i1 %cmp35.i475, label %if.then38.i497, label %if.end78.i476
 
 if.then38.i497:                                   ; preds = %if.else58
-  %sub40.i498 = sub nsw i64 %add11.i.i.i, %sub.ptr.div34.i474
+  %sub40.i498 = sub nuw nsw i64 %add11.i.i.i, %sub.ptr.div34.i474
   %159 = load ptr, ptr %this, align 8, !noalias !3608
   %mnPtrArraySize.i499 = getelementptr inbounds i8, ptr %this, i64 8
   %160 = load i64, ptr %mnPtrArraySize.i499, align 8, !noalias !3608
@@ -83805,7 +83805,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mpEnd4.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %mpEnd4.i, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
   store ptr %2, ptr %agg.tmp4, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
@@ -83886,7 +83886,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3.i, label %if.then5.i, label %if.end26.i
 
 if.then5.i:                                       ; preds = %if.then
-  %sub.i = sub i64 %n, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %n, %sub.ptr.div.i
   %mpCurrentArrayPtr.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %mpCurrentArrayPtr.i, align 8, !noalias !3862
   %4 = load ptr, ptr %this, align 8, !noalias !3862
@@ -84012,7 +84012,7 @@ if.then11:                                        ; preds = %if.else
   br i1 %cmp35.i, label %if.then38.i, label %if.end78.i
 
 if.then38.i:                                      ; preds = %if.then11
-  %sub40.i = sub i64 %n, %sub.ptr.div34.i
+  %sub40.i = sub nuw i64 %n, %sub.ptr.div34.i
   %17 = load ptr, ptr %this, align 8, !noalias !3869
   %mnPtrArraySize.i = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load i64, ptr %mnPtrArraySize.i, align 8, !noalias !3869
@@ -84176,7 +84176,7 @@ if.then21:                                        ; preds = %if.else17
   br i1 %cmp3.i96, label %if.then5.i119, label %if.end26.i97
 
 if.then5.i119:                                    ; preds = %if.then21
-  %sub.i120 = sub i64 %n, %sub.ptr.div.i95
+  %sub.i120 = sub nuw i64 %n, %sub.ptr.div.i95
   %39 = load ptr, ptr %this, align 8, !noalias !3875
   %sub.ptr.rhs.cast9.i123 = ptrtoint ptr %39 to i64
   %sub.ptr.sub10.i124 = sub i64 %sub.ptr.rhs.cast.i81, %sub.ptr.rhs.cast9.i123
@@ -84563,7 +84563,7 @@ if.else48:                                        ; preds = %if.else17
   br i1 %cmp35.i350, label %if.then38.i372, label %if.end78.i351
 
 if.then38.i372:                                   ; preds = %if.else48
-  %sub40.i373 = sub i64 %n, %sub.ptr.div34.i349
+  %sub40.i373 = sub nuw i64 %n, %sub.ptr.div34.i349
   %79 = load ptr, ptr %this, align 8, !noalias !3914
   %mnPtrArraySize.i374 = getelementptr inbounds i8, ptr %this, i64 8
   %80 = load i64, ptr %mnPtrArraySize.i374, align 8, !noalias !3914
@@ -85007,7 +85007,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mpEnd4.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %mpEnd4.i, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
   store ptr %2, ptr %agg.tmp4, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
@@ -85995,7 +85995,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mpEnd4.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %mpEnd4.i, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
   store ptr %2, ptr %agg.tmp4, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
@@ -86362,7 +86362,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3.i, label %if.then5.i, label %if.end26.i
 
 if.then5.i:                                       ; preds = %if.then
-  %sub.i = sub i64 %n, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %n, %sub.ptr.div.i
   %mpCurrentArrayPtr.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %mpCurrentArrayPtr.i, align 8, !noalias !4036
   %4 = load ptr, ptr %this, align 8, !noalias !4036
@@ -86511,7 +86511,7 @@ if.then11:                                        ; preds = %if.else
   br i1 %cmp35.i, label %if.then38.i, label %if.end78.i
 
 if.then38.i:                                      ; preds = %if.then11
-  %sub40.i = sub i64 %n, %sub.ptr.div34.i
+  %sub40.i = sub nuw i64 %n, %sub.ptr.div34.i
   %22 = load ptr, ptr %this, align 8, !noalias !4043
   %mnPtrArraySize.i = getelementptr inbounds i8, ptr %this, i64 8
   %23 = load i64, ptr %mnPtrArraySize.i, align 8, !noalias !4043
@@ -86712,7 +86712,7 @@ if.then21:                                        ; preds = %if.else17
   br i1 %cmp3.i108, label %if.then5.i131, label %if.end26.i109
 
 if.then5.i131:                                    ; preds = %if.then21
-  %sub.i132 = sub i64 %n, %sub.ptr.div.i107
+  %sub.i132 = sub nuw i64 %n, %sub.ptr.div.i107
   %54 = load ptr, ptr %this, align 8, !noalias !4049
   %sub.ptr.rhs.cast9.i135 = ptrtoint ptr %54 to i64
   %sub.ptr.sub10.i136 = sub i64 %sub.ptr.rhs.cast.i92, %sub.ptr.rhs.cast9.i135
@@ -87235,7 +87235,7 @@ if.else71:                                        ; preds = %if.else17
   br i1 %cmp35.i392, label %if.then38.i414, label %if.end78.i393
 
 if.then38.i414:                                   ; preds = %if.else71
-  %sub40.i415 = sub i64 %n, %sub.ptr.div34.i391
+  %sub40.i415 = sub nuw i64 %n, %sub.ptr.div34.i391
   %119 = load ptr, ptr %this, align 8, !noalias !4089
   %mnPtrArraySize.i416 = getelementptr inbounds i8, ptr %this, i64 8
   %120 = load i64, ptr %mnPtrArraySize.i416, align 8, !noalias !4089
@@ -87804,7 +87804,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mpEnd4.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %mpEnd4.i, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
   store ptr %2, ptr %agg.tmp4, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
@@ -92072,7 +92072,7 @@ _ZN5eastl4fillINS_13DequeIteratorIiPiRiLj1EEEiEEvT_S5_RKT0_.exit: ; preds = %_ZN
   %9 = phi ptr [ %.pre70, %_ZN5eastl4fillINS_13DequeIteratorIiPiRiLj1EEEiEEvT_S5_RKT0_.exit.loopexit ], [ %3, %if.then ]
   %10 = phi ptr [ %.pre, %_ZN5eastl4fillINS_13DequeIteratorIiPiRiLj1EEEiEEvT_S5_RKT0_.exit.loopexit ], [ %2, %if.then ]
   %11 = load ptr, ptr %mpEnd4.i9, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp318)
   store ptr %10, ptr %agg.tmp318, align 8
   %agg.tmp3.sroa.2.0.agg.tmp318.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp318, i64 8
@@ -93184,7 +93184,7 @@ if.then:                                          ; preds = %_ZN5eastl8distanceI
   br i1 %cmp3.i, label %if.then5.i, label %if.end26.i
 
 if.then5.i:                                       ; preds = %if.then
-  %sub.i = sub i64 %n.0.lcssa.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %n.0.lcssa.i.i, %sub.ptr.div.i
   %mpCurrentArrayPtr.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %mpCurrentArrayPtr.i, align 8, !noalias !4550
   %8 = load ptr, ptr %this, align 8, !noalias !4550
@@ -93315,7 +93315,7 @@ if.then13:                                        ; preds = %if.else
   br i1 %cmp35.i, label %if.then38.i, label %if.end78.i
 
 if.then38.i:                                      ; preds = %if.then13
-  %sub40.i = sub i64 %n.0.lcssa.i.i, %sub.ptr.div34.i
+  %sub40.i = sub nuw i64 %n.0.lcssa.i.i, %sub.ptr.div34.i
   %24 = load ptr, ptr %this, align 8, !noalias !4562
   %mnPtrArraySize.i = getelementptr inbounds i8, ptr %this, i64 8
   %25 = load i64, ptr %mnPtrArraySize.i, align 8, !noalias !4562
@@ -93483,7 +93483,7 @@ if.then26:                                        ; preds = %if.else21
   br i1 %cmp3.i109, label %if.then5.i132, label %if.end26.i110
 
 if.then5.i132:                                    ; preds = %if.then26
-  %sub.i133 = sub i64 %n.0.lcssa.i.i, %sub.ptr.div.i108
+  %sub.i133 = sub nuw i64 %n.0.lcssa.i.i, %sub.ptr.div.i108
   %48 = load ptr, ptr %this, align 8, !noalias !4573
   %sub.ptr.rhs.cast9.i136 = ptrtoint ptr %48 to i64
   %sub.ptr.sub10.i137 = sub i64 %sub.ptr.rhs.cast.i94, %sub.ptr.rhs.cast9.i136
@@ -93879,7 +93879,7 @@ if.else58:                                        ; preds = %if.else21
   br i1 %cmp35.i335, label %if.then38.i357, label %if.end78.i336
 
 if.then38.i357:                                   ; preds = %if.else58
-  %sub40.i358 = sub i64 %n.0.lcssa.i.i, %sub.ptr.div34.i334
+  %sub40.i358 = sub nuw i64 %n.0.lcssa.i.i, %sub.ptr.div34.i334
   %91 = load ptr, ptr %this, align 8, !noalias !4629
   %mnPtrArraySize.i359 = getelementptr inbounds i8, ptr %this, i64 8
   %92 = load i64, ptr %mnPtrArraySize.i359, align 8, !noalias !4629
@@ -94487,7 +94487,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3.i, label %if.then5.i, label %if.end26.i
 
 if.then5.i:                                       ; preds = %if.then
-  %sub.i = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %mpCurrentArrayPtr.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %mpCurrentArrayPtr.i, align 8, !noalias !4701
   %6 = load ptr, ptr %this, align 8, !noalias !4701
@@ -94617,7 +94617,7 @@ if.then9:                                         ; preds = %if.else
   br i1 %cmp35.i, label %if.then38.i, label %if.end78.i
 
 if.then38.i:                                      ; preds = %if.then9
-  %sub40.i = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div34.i
+  %sub40.i = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div34.i
   %21 = load ptr, ptr %this, align 8, !noalias !4713
   %mnPtrArraySize.i = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load i64, ptr %mnPtrArraySize.i, align 8, !noalias !4713
@@ -94784,7 +94784,7 @@ if.then20:                                        ; preds = %if.else15
   br i1 %cmp3.i113, label %if.then5.i136, label %if.end26.i114
 
 if.then5.i136:                                    ; preds = %if.then20
-  %sub.i137 = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i112
+  %sub.i137 = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i112
   %44 = load ptr, ptr %this, align 8, !noalias !4724
   %sub.ptr.rhs.cast9.i140 = ptrtoint ptr %44 to i64
   %sub.ptr.sub10.i141 = sub i64 %sub.ptr.rhs.cast.i94, %sub.ptr.rhs.cast9.i140
@@ -95164,7 +95164,7 @@ if.else46:                                        ; preds = %if.else15
   br i1 %cmp35.i343, label %if.then38.i365, label %if.end78.i344
 
 if.then38.i365:                                   ; preds = %if.else46
-  %sub40.i366 = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div34.i342
+  %sub40.i366 = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div34.i342
   %80 = load ptr, ptr %this, align 8, !noalias !4781
   %mnPtrArraySize.i367 = getelementptr inbounds i8, ptr %this, i64 8
   %81 = load i64, ptr %mnPtrArraySize.i367, align 8, !noalias !4781
@@ -95965,7 +95965,7 @@ _ZN5eastl4fillINS_13DequeIteratorIiPiRiLj32768EEEiEEvT_S5_RKT0_.exit: ; preds = 
   %9 = phi ptr [ %.pre71, %_ZN5eastl4fillINS_13DequeIteratorIiPiRiLj32768EEEiEEvT_S5_RKT0_.exit.loopexit ], [ %3, %if.then ]
   %10 = phi ptr [ %.pre, %_ZN5eastl4fillINS_13DequeIteratorIiPiRiLj32768EEEiEEvT_S5_RKT0_.exit.loopexit ], [ %2, %if.then ]
   %11 = load ptr, ptr %mpEnd4.i9, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp318)
   store ptr %10, ptr %agg.tmp318, align 8
   %agg.tmp3.sroa.2.0.agg.tmp318.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp318, i64 8
@@ -102628,7 +102628,7 @@ _ZN5eastl4fillINS_13DequeIteratorI10TestObjectPS2_RS2_Lj1EEES2_EEvT_S6_RKT0_.exi
   %13 = phi ptr [ %.pre81, %_ZN5eastl4fillINS_13DequeIteratorI10TestObjectPS2_RS2_Lj1EEES2_EEvT_S6_RKT0_.exit.loopexit ], [ %3, %if.then ]
   %14 = phi ptr [ %.pre, %_ZN5eastl4fillINS_13DequeIteratorI10TestObjectPS2_RS2_Lj1EEES2_EEvT_S6_RKT0_.exit.loopexit ], [ %2, %if.then ]
   %15 = load ptr, ptr %mpEnd4.i9, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp318)
   store ptr %14, ptr %agg.tmp318, align 8
   %agg.tmp3.sroa.2.0.agg.tmp318.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp318, i64 8
@@ -104012,7 +104012,7 @@ if.then:                                          ; preds = %_ZN5eastl8distanceI
   br i1 %cmp3.i, label %if.then5.i, label %if.end26.i
 
 if.then5.i:                                       ; preds = %if.then
-  %sub.i = sub i64 %n.0.lcssa.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %n.0.lcssa.i.i, %sub.ptr.div.i
   %mpCurrentArrayPtr.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %mpCurrentArrayPtr.i, align 8, !noalias !5495
   %8 = load ptr, ptr %this, align 8, !noalias !5495
@@ -104163,7 +104163,7 @@ if.then13:                                        ; preds = %if.else
   br i1 %cmp35.i, label %if.then38.i, label %if.end78.i
 
 if.then38.i:                                      ; preds = %if.then13
-  %sub40.i = sub i64 %n.0.lcssa.i.i, %sub.ptr.div34.i
+  %sub40.i = sub nuw i64 %n.0.lcssa.i.i, %sub.ptr.div34.i
   %35 = load ptr, ptr %this, align 8, !noalias !5507
   %mnPtrArraySize.i = getelementptr inbounds i8, ptr %this, i64 8
   %36 = load i64, ptr %mnPtrArraySize.i, align 8, !noalias !5507
@@ -104351,7 +104351,7 @@ if.then26:                                        ; preds = %if.else21
   br i1 %cmp3.i109, label %if.then5.i132, label %if.end26.i110
 
 if.then5.i132:                                    ; preds = %if.then26
-  %sub.i133 = sub i64 %n.0.lcssa.i.i, %sub.ptr.div.i108
+  %sub.i133 = sub nuw i64 %n.0.lcssa.i.i, %sub.ptr.div.i108
   %70 = load ptr, ptr %this, align 8, !noalias !5518
   %sub.ptr.rhs.cast9.i136 = ptrtoint ptr %70 to i64
   %sub.ptr.sub10.i137 = sub i64 %sub.ptr.rhs.cast.i94, %sub.ptr.rhs.cast9.i136
@@ -104886,7 +104886,7 @@ if.else58:                                        ; preds = %if.else21
   br i1 %cmp35.i360, label %if.then38.i382, label %if.end78.i361
 
 if.then38.i382:                                   ; preds = %if.else58
-  %sub40.i383 = sub i64 %n.0.lcssa.i.i, %sub.ptr.div34.i359
+  %sub40.i383 = sub nuw i64 %n.0.lcssa.i.i, %sub.ptr.div34.i359
   %156 = load ptr, ptr %this, align 8, !noalias !5574
   %mnPtrArraySize.i384 = getelementptr inbounds i8, ptr %this, i64 8
   %157 = load i64, ptr %mnPtrArraySize.i384, align 8, !noalias !5574
@@ -105690,7 +105690,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3.i, label %if.then5.i, label %if.end26.i
 
 if.then5.i:                                       ; preds = %if.then
-  %sub.i = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %mpCurrentArrayPtr.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %mpCurrentArrayPtr.i, align 8, !noalias !5645
   %6 = load ptr, ptr %this, align 8, !noalias !5645
@@ -105840,7 +105840,7 @@ if.then9:                                         ; preds = %if.else
   br i1 %cmp35.i, label %if.then38.i, label %if.end78.i
 
 if.then38.i:                                      ; preds = %if.then9
-  %sub40.i = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div34.i
+  %sub40.i = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div34.i
   %32 = load ptr, ptr %this, align 8, !noalias !5657
   %mnPtrArraySize.i = getelementptr inbounds i8, ptr %this, i64 8
   %33 = load i64, ptr %mnPtrArraySize.i, align 8, !noalias !5657
@@ -106027,7 +106027,7 @@ if.then20:                                        ; preds = %if.else15
   br i1 %cmp3.i113, label %if.then5.i136, label %if.end26.i114
 
 if.then5.i136:                                    ; preds = %if.then20
-  %sub.i137 = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i112
+  %sub.i137 = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i112
   %66 = load ptr, ptr %this, align 8, !noalias !5668
   %sub.ptr.rhs.cast9.i140 = ptrtoint ptr %66 to i64
   %sub.ptr.sub10.i141 = sub i64 %sub.ptr.rhs.cast.i94, %sub.ptr.rhs.cast9.i140
@@ -106546,7 +106546,7 @@ if.else46:                                        ; preds = %if.else15
   br i1 %cmp35.i372, label %if.then38.i394, label %if.end78.i373
 
 if.then38.i394:                                   ; preds = %if.else46
-  %sub40.i395 = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div34.i371
+  %sub40.i395 = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div34.i371
   %145 = load ptr, ptr %this, align 8, !noalias !5725
   %mnPtrArraySize.i396 = getelementptr inbounds i8, ptr %this, i64 8
   %146 = load i64, ptr %mnPtrArraySize.i396, align 8, !noalias !5725
@@ -107608,7 +107608,7 @@ _ZN5eastl4fillINS_13DequeIteratorI10TestObjectPS2_RS2_Lj32768EEES2_EEvT_S6_RKT0_
   %13 = phi ptr [ %.pre82, %_ZN5eastl4fillINS_13DequeIteratorI10TestObjectPS2_RS2_Lj32768EEES2_EEvT_S6_RKT0_.exit.loopexit ], [ %3, %if.then ]
   %14 = phi ptr [ %.pre, %_ZN5eastl4fillINS_13DequeIteratorI10TestObjectPS2_RS2_Lj32768EEES2_EEvT_S6_RKT0_.exit.loopexit ], [ %2, %if.then ]
   %15 = load ptr, ptr %mpEnd4.i9, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp318)
   store ptr %14, ptr %agg.tmp318, align 8
   %agg.tmp3.sroa.2.0.agg.tmp318.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp318, i64 8

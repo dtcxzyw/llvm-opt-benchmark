@@ -74,7 +74,7 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %19
-  %24 = sub i64 %13, %21
+  %24 = sub nuw i64 %13, %21
   %25 = getelementptr inbounds i8, ptr %15, i64 1952
   %26 = load i64, ptr %25, align 32
   %27 = icmp ule i64 %24, %26
@@ -108,7 +108,7 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %41
-  %46 = sub i64 %32, %43
+  %46 = sub nuw i64 %32, %43
   %47 = icmp ule i64 %46, %37
   %48 = zext i1 %47 to i32
   br label %49
@@ -171,7 +171,7 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %84, label %85, label %90
 
 85:                                               ; preds = %81
-  %86 = sub i64 %79, %83
+  %86 = sub nuw i64 %79, %83
   %87 = getelementptr inbounds i8, ptr %15, i64 1952
   %88 = load i64, ptr %87, align 32
   %89 = icmp ugt i64 %86, %88

@@ -3064,7 +3064,7 @@ _ZSt13move_backwardIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEEmEvRT_T0_.exit: ; preds = %17
   %88 = getelementptr inbounds i8, ptr %2, i64 %19
   %89 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEEPS9_ET0_T_SI_SH_(ptr %88, ptr %3, ptr noundef %13)
-  %90 = sub nsw i64 %9, %20
+  %90 = sub nuw nsw i64 %9, %20
   %91 = load ptr, ptr %12, align 8
   %92 = getelementptr inbounds %class.BT, ptr %91, i64 %90
   store ptr %92, ptr %12, align 8

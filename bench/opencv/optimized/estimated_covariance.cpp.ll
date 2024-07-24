@@ -104,7 +104,7 @@ define hidden void @_ZN2cv8ximgproc18EstimateCovariance26initInternalDataStructu
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %1
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %22)
   %.pre = load i32, ptr %4, align 4
   br label %_ZNSt6vectorIN2cv8ximgproc18EstimateCovariance11CombinationESaIS3_EE6resizeEm.exit

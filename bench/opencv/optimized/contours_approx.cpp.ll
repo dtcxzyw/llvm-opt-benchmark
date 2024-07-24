@@ -356,7 +356,7 @@ _ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit._ZN12_GLOBAL_
   %114 = add i64 %.0593.i, %.038187
   %115 = icmp ult i64 %114, %98
   %116 = select i1 %115, i64 0, i64 %98
-  %117 = sub i64 %114, %116
+  %117 = sub nuw i64 %114, %116
   %118 = getelementptr inbounds %"struct.(anonymous namespace)::ApproxItem", ptr %.sroa.0.2, i64 %117
   %119 = load i32, ptr %118, align 8
   %gep.i = getelementptr %"struct.(anonymous namespace)::ApproxItem", ptr %100, i64 %.p.i
@@ -435,7 +435,7 @@ _ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit._ZN12_GLOBAL_
   %157 = add i64 %.06390.i, %.038187
   %158 = icmp ult i64 %157, %98
   %159 = select i1 %158, i64 0, i64 %98
-  %160 = sub i64 %157, %159
+  %160 = sub nuw i64 %157, %159
   %gep = getelementptr %"struct.(anonymous namespace)::ApproxItem", ptr %100, i64 %.p.i75
   %161 = load i32, ptr %gep, align 8
   %162 = load i32, ptr %100, align 8
@@ -581,7 +581,7 @@ _ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit._ZN12_GLOBAL_
   %225 = add i64 %.039204, 1
   %226 = icmp ult i64 %225, %98
   %227 = select i1 %226, i64 0, i64 %98
-  %228 = sub i64 %225, %227
+  %228 = sub nuw i64 %225, %227
   %229 = getelementptr inbounds %"struct.(anonymous namespace)::ApproxItem", ptr %.sroa.0.2, i64 %228, i32 2
   %230 = load i32, ptr %229, align 8
   %231 = icmp sgt i32 %230, %221
@@ -606,7 +606,7 @@ _ZN12_GLOBAL__N_16pass_0ERKSt6vectorIaSaIaEEN2cv6Point_IiEEbb.exit._ZN12_GLOBAL_
   %235 = add i64 %232, %.039204
   %236 = icmp ult i64 %235, %98
   %237 = select i1 %236, i64 0, i64 %98
-  %238 = sub i64 %235, %237
+  %238 = sub nuw i64 %235, %237
   %239 = getelementptr inbounds %"struct.(anonymous namespace)::ApproxItem", ptr %.sroa.0.2, i64 %238, i32 2
   %240 = load i32, ptr %239, align 8
   %241 = icmp sgt i32 %240, %221
@@ -653,7 +653,7 @@ _ZN12_GLOBAL__N_116calc_nms_cleanupERKSt6vectorINS_10ApproxItemESaIS1_EEm.exit.t
   %258 = add nuw i64 %.037209, 1
   %259 = icmp ult i64 %258, %98
   %260 = select i1 %259, i64 0, i64 %98
-  %261 = sub i64 %258, %260
+  %261 = sub nuw i64 %258, %260
   %262 = getelementptr inbounds %"struct.(anonymous namespace)::ApproxItem", ptr %.sroa.0.2, i64 %261, i32 2
   %263 = load i32, ptr %262, align 8
   %.not168 = icmp sgt i32 %255, %263

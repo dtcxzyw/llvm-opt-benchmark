@@ -833,7 +833,7 @@ _ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorColumnRowNumbe
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %_ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorColumnRowNumbersERKNS0_15BarcodeMetadataE.exit
-  %67 = sub nsw i64 %57, %64
+  %67 = sub nuw nsw i64 %57, %64
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %67)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 

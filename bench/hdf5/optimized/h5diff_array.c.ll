@@ -4239,8 +4239,8 @@ define internal fastcc range(i64 0, 2) i64 @diff_ulong_element(i64 %.0.val, i64 
 
 8:                                                ; preds = %7
   %9 = icmp ugt i64 %.0.val1, %.0.val
-  %10 = sub i64 %.0.val1, %.0.val
-  %11 = sub i64 %.0.val, %.0.val1
+  %10 = sub nuw i64 %.0.val1, %.0.val
+  %11 = sub nuw i64 %.0.val, %.0.val1
   %12 = select i1 %9, i64 %10, i64 %11
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   %14 = load double, ptr %13, align 8
@@ -4321,8 +4321,8 @@ print_data.exit161:                               ; preds = %43, %47
 
 51:                                               ; preds = %print_data.exit161
   %52 = icmp ugt i64 %.0.val1, %.0.val
-  %53 = sub i64 %.0.val1, %.0.val
-  %54 = sub i64 %.0.val, %.0.val1
+  %53 = sub nuw i64 %.0.val1, %.0.val
+  %54 = sub nuw i64 %.0.val, %.0.val1
   %55 = select i1 %52, i64 %53, i64 %54
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, i64 noundef %.0.val, i64 noundef %.0.val1, i64 noundef %55) #14
   br label %print_data.exit.thread
@@ -4356,8 +4356,8 @@ print_data.exit165:                               ; preds = %60, %64
 
 68:                                               ; preds = %print_data.exit165
   %69 = icmp ugt i64 %.0.val1, %.0.val
-  %70 = sub i64 %.0.val1, %.0.val
-  %71 = sub i64 %.0.val, %.0.val1
+  %70 = sub nuw i64 %.0.val1, %.0.val
+  %71 = sub nuw i64 %.0.val, %.0.val1
   %72 = select i1 %69, i64 %70, i64 %71
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.105, i64 noundef %.0.val, i64 noundef %.0.val1, i64 noundef %72, double noundef %.013524) #14
   br label %print_data.exit.thread
@@ -4408,8 +4408,8 @@ print_data.exit169:                               ; preds = %89, %93
 
 97:                                               ; preds = %print_data.exit169
   %98 = icmp ugt i64 %.0.val1, %.0.val
-  %99 = sub i64 %.0.val1, %.0.val
-  %100 = sub i64 %.0.val, %.0.val1
+  %99 = sub nuw i64 %.0.val1, %.0.val
+  %100 = sub nuw i64 %.0.val, %.0.val1
   %101 = select i1 %98, i64 %99, i64 %100
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, i64 noundef %.0.val, i64 noundef %.0.val1, i64 noundef %101) #14
   br label %print_data.exit.thread
@@ -4423,8 +4423,8 @@ print_data.exit169:                               ; preds = %89, %93
 
 106:                                              ; preds = %102
   %107 = icmp ugt i64 %.0.val1, %.0.val
-  %108 = sub i64 %.0.val1, %.0.val
-  %109 = sub i64 %.0.val, %.0.val1
+  %108 = sub nuw i64 %.0.val1, %.0.val
+  %109 = sub nuw i64 %.0.val, %.0.val1
   %110 = select i1 %107, i64 %108, i64 %109
   %111 = getelementptr inbounds i8, ptr %1, i64 40
   %112 = load double, ptr %111, align 8
@@ -4482,8 +4482,8 @@ print_data.exit177:                               ; preds = %124, %128
 
 132:                                              ; preds = %print_data.exit177
   %133 = icmp ugt i64 %.0.val1, %.0.val
-  %134 = sub i64 %.0.val1, %.0.val
-  %135 = sub i64 %.0.val, %.0.val1
+  %134 = sub nuw i64 %.0.val1, %.0.val
+  %135 = sub nuw i64 %.0.val, %.0.val1
   %136 = select i1 %133, i64 %134, i64 %135
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.103, i64 noundef %.0.val, i64 noundef %.0.val1, i64 noundef %136) #14
   br label %print_data.exit.thread
@@ -4767,8 +4767,8 @@ define internal fastcc range(i64 0, 2) i64 @diff_ullong_element(i64 %.0.val, i64
 
 10:                                               ; preds = %9
   %11 = icmp ugt i64 %.0.val1, %.0.val
-  %12 = sub i64 %.0.val1, %.0.val
-  %13 = sub i64 %.0.val, %.0.val1
+  %12 = sub nuw i64 %.0.val1, %.0.val
+  %13 = sub nuw i64 %.0.val, %.0.val1
   %14 = select i1 %11, i64 %12, i64 %13
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load double, ptr %15, align 8
@@ -4853,8 +4853,8 @@ print_data.exit141:                               ; preds = %47, %51
 
 55:                                               ; preds = %print_data.exit141
   %56 = icmp ugt i64 %.0.val1, %.0.val
-  %57 = sub i64 %.0.val1, %.0.val
-  %58 = sub i64 %.0.val, %.0.val1
+  %57 = sub nuw i64 %.0.val1, %.0.val
+  %58 = sub nuw i64 %.0.val, %.0.val1
   %59 = select i1 %56, i64 %57, i64 %58
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.110, i64 noundef %.0.val, i64 noundef %.0.val1, i64 noundef %59) #14
   br label %print_data.exit.thread
@@ -4888,8 +4888,8 @@ print_data.exit145:                               ; preds = %64, %68
 
 72:                                               ; preds = %print_data.exit145
   %73 = icmp ugt i64 %.0.val1, %.0.val
-  %74 = sub i64 %.0.val1, %.0.val
-  %75 = sub i64 %.0.val, %.0.val1
+  %74 = sub nuw i64 %.0.val1, %.0.val
+  %75 = sub nuw i64 %.0.val, %.0.val1
   %76 = select i1 %73, i64 %74, i64 %75
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.111, i64 noundef %.0.val, i64 noundef %.0.val1, i64 noundef %76, double noundef %.011524) #14
   br label %print_data.exit.thread
@@ -4944,8 +4944,8 @@ print_data.exit149:                               ; preds = %95, %99
 
 103:                                              ; preds = %print_data.exit149
   %104 = icmp ugt i64 %.0.val1, %.0.val
-  %105 = sub i64 %.0.val1, %.0.val
-  %106 = sub i64 %.0.val, %.0.val1
+  %105 = sub nuw i64 %.0.val1, %.0.val
+  %106 = sub nuw i64 %.0.val, %.0.val1
   %107 = select i1 %104, i64 %105, i64 %106
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.110, i64 noundef %.0.val, i64 noundef %.0.val1, i64 noundef %107) #14
   br label %print_data.exit.thread
@@ -4959,8 +4959,8 @@ print_data.exit149:                               ; preds = %95, %99
 
 112:                                              ; preds = %108
   %113 = icmp ugt i64 %.0.val1, %.0.val
-  %114 = sub i64 %.0.val1, %.0.val
-  %115 = sub i64 %.0.val, %.0.val1
+  %114 = sub nuw i64 %.0.val1, %.0.val
+  %115 = sub nuw i64 %.0.val, %.0.val1
   %116 = select i1 %113, i64 %114, i64 %115
   %117 = getelementptr inbounds i8, ptr %1, i64 40
   %118 = load double, ptr %117, align 8
@@ -5018,8 +5018,8 @@ print_data.exit157:                               ; preds = %130, %134
 
 138:                                              ; preds = %print_data.exit157
   %139 = icmp ugt i64 %.0.val1, %.0.val
-  %140 = sub i64 %.0.val1, %.0.val
-  %141 = sub i64 %.0.val, %.0.val1
+  %140 = sub nuw i64 %.0.val1, %.0.val
+  %141 = sub nuw i64 %.0.val, %.0.val1
   %142 = select i1 %139, i64 %140, i64 %141
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.109, i64 noundef %.0.val, i64 noundef %.0.val1, i64 noundef %142) #14
   br label %print_data.exit.thread
@@ -8336,8 +8336,8 @@ define internal fastcc range(i64 0, 2) i64 @diff_uint_element(i32 %.0.val, i32 %
 
 8:                                                ; preds = %7
   %9 = icmp ugt i32 %.0.val1, %.0.val
-  %10 = sub i32 %.0.val1, %.0.val
-  %11 = sub i32 %.0.val, %.0.val1
+  %10 = sub nuw i32 %.0.val1, %.0.val
+  %11 = sub nuw i32 %.0.val, %.0.val1
   %12 = select i1 %9, i32 %10, i32 %11
   %13 = uitofp i32 %12 to double
   %14 = getelementptr inbounds i8, ptr %1, i64 40
@@ -8418,8 +8418,8 @@ print_data.exit161:                               ; preds = %43, %47
 
 51:                                               ; preds = %print_data.exit161
   %52 = icmp ugt i32 %.0.val1, %.0.val
-  %53 = sub i32 %.0.val1, %.0.val
-  %54 = sub i32 %.0.val, %.0.val1
+  %53 = sub nuw i32 %.0.val1, %.0.val
+  %54 = sub nuw i32 %.0.val, %.0.val1
   %55 = select i1 %52, i32 %53, i32 %54
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.91, i32 noundef %.0.val, i32 noundef %.0.val1, i32 noundef %55) #14
   br label %print_data.exit.thread
@@ -8453,8 +8453,8 @@ print_data.exit165:                               ; preds = %60, %64
 
 68:                                               ; preds = %print_data.exit165
   %69 = icmp ugt i32 %.0.val1, %.0.val
-  %70 = sub i32 %.0.val1, %.0.val
-  %71 = sub i32 %.0.val, %.0.val1
+  %70 = sub nuw i32 %.0.val1, %.0.val
+  %71 = sub nuw i32 %.0.val, %.0.val1
   %72 = select i1 %69, i32 %70, i32 %71
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.92, i32 noundef %.0.val, i32 noundef %.0.val1, i32 noundef %72, double noundef %.013524) #14
   br label %print_data.exit.thread
@@ -8505,8 +8505,8 @@ print_data.exit169:                               ; preds = %89, %93
 
 97:                                               ; preds = %print_data.exit169
   %98 = icmp ugt i32 %.0.val1, %.0.val
-  %99 = sub i32 %.0.val1, %.0.val
-  %100 = sub i32 %.0.val, %.0.val1
+  %99 = sub nuw i32 %.0.val1, %.0.val
+  %100 = sub nuw i32 %.0.val, %.0.val1
   %101 = select i1 %98, i32 %99, i32 %100
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.91, i32 noundef %.0.val, i32 noundef %.0.val1, i32 noundef %101) #14
   br label %print_data.exit.thread
@@ -8520,8 +8520,8 @@ print_data.exit169:                               ; preds = %89, %93
 
 106:                                              ; preds = %102
   %107 = icmp ugt i32 %.0.val1, %.0.val
-  %108 = sub i32 %.0.val1, %.0.val
-  %109 = sub i32 %.0.val, %.0.val1
+  %108 = sub nuw i32 %.0.val1, %.0.val
+  %109 = sub nuw i32 %.0.val, %.0.val1
   %110 = select i1 %107, i32 %108, i32 %109
   %111 = uitofp i32 %110 to double
   %112 = getelementptr inbounds i8, ptr %1, i64 40
@@ -8579,8 +8579,8 @@ print_data.exit177:                               ; preds = %124, %128
 
 132:                                              ; preds = %print_data.exit177
   %133 = icmp ugt i32 %.0.val1, %.0.val
-  %134 = sub i32 %.0.val1, %.0.val
-  %135 = sub i32 %.0.val, %.0.val1
+  %134 = sub nuw i32 %.0.val1, %.0.val
+  %135 = sub nuw i32 %.0.val, %.0.val1
   %136 = select i1 %133, i32 %134, i32 %135
   tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.90, i32 noundef %.0.val, i32 noundef %.0.val1, i32 noundef %136) #14
   br label %print_data.exit.thread

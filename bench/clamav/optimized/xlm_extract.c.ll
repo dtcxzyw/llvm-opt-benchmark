@@ -1418,7 +1418,7 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
   %48 = getelementptr inbounds i8, ptr %0, i64 6
   %49 = load i32, ptr %48, align 1
   %50 = zext i32 %49 to i64
-  %51 = sub i64 %2, %43
+  %51 = sub nuw i64 %2, %43
   %. = tail call i64 @llvm.umin.i64(i64 %51, i64 %50)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1143, i64 noundef %.) #10
   %52 = getelementptr inbounds i8, ptr %3, i64 48

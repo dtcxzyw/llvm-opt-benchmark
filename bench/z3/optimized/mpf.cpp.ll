@@ -1856,7 +1856,7 @@ if.then.i.i71:                                    ; preds = %cleanup.action31
   unreachable
 
 invoke.cont40:                                    ; preds = %cleanup.action31
-  %sub.i65 = sub i64 %v.sroa.0.0, %add
+  %sub.i65 = sub nuw i64 %v.sroa.0.0, %add
   %add.ptr.i68 = getelementptr inbounds i8, ptr %v.sroa.10.0, i64 %add
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i74)
@@ -6882,7 +6882,7 @@ invoke.cont588:                                   ; preds = %if.end581
   br i1 %cmp590, label %if.then591, label %invoke.cont602
 
 if.then591:                                       ; preds = %invoke.cont588
-  %sub592 = sub i32 %call589, %add585
+  %sub592 = sub nuw i32 %call589, %add585
   %94 = load ptr, ptr %m_mpz_manager.i.i.i, align 8
   invoke void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %94, ptr noundef nonnull align 8 dereferenceable(16) %significand587, i32 noundef %sub592)
           to label %invoke.cont595 unwind label %lpad365

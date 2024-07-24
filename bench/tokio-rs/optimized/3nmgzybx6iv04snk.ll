@@ -3195,8 +3195,8 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   %104 = add nuw nsw i64 %.sroa.725.0.i.i, 1
   %105 = getelementptr inbounds i128, ptr %.sroa.06.0.i.i, i64 %.sroa.725.0.i.i
   %106 = getelementptr inbounds i128, ptr %.sroa.06.0.i.i, i64 %104
-  %107 = sub nsw i64 %102, %.sroa.725.0.i.i
-  %108 = shl nsw i64 %107, 4
+  %107 = sub nuw nsw i64 %102, %.sroa.725.0.i.i
+  %108 = shl nuw nsw i64 %107, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %106, ptr nonnull align 8 %105, i64 %108, i1 false), !alias.scope !832, !noalias !827
   %109 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 176
   %110 = getelementptr inbounds { ptr, ptr }, ptr %109, i64 %.sroa.725.0.i.i
@@ -5171,7 +5171,7 @@ define void @_ZN5tokio2fs8read_dir7ReadDir15poll_next_entry17h0d537625bf908f9fE(
   %20 = add i64 %19, 1
   %.not.i.i = icmp ult i64 %20, %.sroa.04.0.copyload
   %21 = select i1 %.not.i.i, i64 0, i64 %.sroa.04.0.copyload
-  %.0.i.i = sub i64 %20, %21
+  %.0.i.i = sub nuw i64 %20, %21
   store i64 %.0.i.i, ptr %9, align 8, !alias.scope !1119, !noalias !1122
   %22 = add i64 %17, -1
   store i64 %22, ptr %8, align 8, !alias.scope !1119, !noalias !1122
@@ -5375,7 +5375,7 @@ define noundef zeroext i1 @_ZN5tokio2fs8read_dir7ReadDir10next_chunk17h58ea15eb9
   %31 = add i64 %30, %29
   %.not.i.i = icmp ult i64 %31, %28
   %32 = select i1 %.not.i.i, i64 0, i64 %28
-  %.0.i.i = sub i64 %31, %32
+  %.0.i.i = sub nuw i64 %31, %32
   %33 = load ptr, ptr %10, align 8, !alias.scope !1130, !noalias !1133, !nonnull !86, !noundef !86
   %34 = getelementptr inbounds { i32, [3 x i32] }, ptr %33, i64 %.0.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)

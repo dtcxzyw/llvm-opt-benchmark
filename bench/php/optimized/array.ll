@@ -22347,7 +22347,7 @@ define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1
   %132 = lshr i32 %9, 1
   %133 = zext nneg i32 %132 to i64
   %134 = icmp ult i64 %133, %3
-  %135 = sub nsw i64 %124, %3
+  %135 = sub nuw nsw i64 %124, %3
   %spec.select265 = select i1 %134, i64 %135, i64 %3
   %136 = add nuw nsw i64 %124, 63
   %137 = lshr i64 %136, 3

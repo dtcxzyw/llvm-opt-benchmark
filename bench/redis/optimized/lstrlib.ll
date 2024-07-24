@@ -98,7 +98,7 @@ entry:
   br i1 %cmp8, label %cleanup, label %if.end10
 
 if.end10:                                         ; preds = %entry
-  %sub = sub nsw i64 %spec.select, %2
+  %sub = sub nuw nsw i64 %spec.select, %2
   %3 = trunc i64 %sub to i32
   %conv = add i32 %3, 1
   %conv11 = sext i32 %conv to i64

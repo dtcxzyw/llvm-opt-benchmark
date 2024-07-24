@@ -1218,7 +1218,7 @@ define internal void @add_zeros_padding(ptr nocapture noundef writeonly %0, i64 
 
 .lr.ph.preheader:                                 ; preds = %3
   %scevgep = getelementptr i8, ptr %0, i64 %2
-  %5 = sub i64 %1, %2
+  %5 = sub nuw i64 %1, %2
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %5, i1 false)
   br label %._crit_edge
 
@@ -1551,7 +1551,7 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr nocapture noundef readonl
   br i1 %26, label %mbedtls_cipher_aead_decrypt.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = sub i64 %6, %10
+  %28 = sub nuw i64 %6, %10
   %29 = icmp ugt i64 %28, %8
   br i1 %29, label %mbedtls_cipher_aead_decrypt.exit, label %30
 

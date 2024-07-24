@@ -3598,7 +3598,7 @@ lpad20:                                           ; preds = %invoke.cont18
   br label %ehcleanup
 
 invoke.cont24:                                    ; preds = %lor.lhs.false
-  %sub.i = sub i64 %4, %__size.1.i
+  %sub.i = sub nuw i64 %4, %__size.1.i
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %__size.1.i
   store i64 %sub.i, ptr %3, align 8
   store ptr %add.ptr.i, ptr %_M_str.i6, align 8

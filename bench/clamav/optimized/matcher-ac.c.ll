@@ -3296,7 +3296,7 @@ ac_findmatch.exit:                                ; preds = %121
   %300 = trunc i64 %indvars.iv729 to i8
   %301 = load i32, ptr %292, align 8
   %.not505 = icmp ne i32 %301, 0
-  %302 = sub i32 %128, %296
+  %302 = sub nuw i32 %128, %296
   %303 = icmp ugt i32 %302, %301
   %or.cond595 = select i1 %.not505, i1 %303, i1 false
   %.not506 = icmp eq i8 %300, 0
@@ -6692,7 +6692,7 @@ define internal fastcc i32 @ac_findmatch_special(ptr nocapture noundef readonly 
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %47
-  %51 = sub i32 %2, %48
+  %51 = sub nuw i32 %2, %48
   br label %52
 
 52:                                               ; preds = %44, %50
@@ -6748,7 +6748,7 @@ define internal fastcc i32 @ac_findmatch_special(ptr nocapture noundef readonly 
   br i1 %.not139, label %.loopexit, label %.lr.ph.split
 
 75:                                               ; preds = %.lr.ph.split
-  %76 = sub i32 %2, %72
+  %76 = sub nuw i32 %2, %72
   br label %.loopexit163.split.us
 
 .loopexit163.split.us:                            ; preds = %.lr.ph.split.us, %75

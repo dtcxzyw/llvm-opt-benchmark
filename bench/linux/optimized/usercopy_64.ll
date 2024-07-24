@@ -106,7 +106,7 @@ define dso_local i64 @__copy_user_flushcache(ptr noundef %0, ptr noundef %1, i32
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %.loopexit9
-  %46 = sub nsw i64 %43, %42
+  %46 = sub nuw nsw i64 %43, %42
   %47 = and i64 %46, 7
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %.loopexit, label %49

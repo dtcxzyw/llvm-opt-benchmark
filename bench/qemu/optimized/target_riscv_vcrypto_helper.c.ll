@@ -5497,7 +5497,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %3 = shl i32 %conv, 2
   %4 = zext nneg i32 %mul37 to i64
   %scevgep64 = getelementptr inbounds i8, ptr %tmp, i64 16
-  %5 = sub i32 %conv2, %conv
+  %5 = sub nuw i32 %conv2, %conv
   %6 = getelementptr inbounds i8, ptr %tmp, i64 16
   %arrayidx29.phi.trans.insert = getelementptr inbounds i8, ptr %tmp, i64 4
   %arrayidx32.phi.trans.insert = getelementptr inbounds i8, ptr %tmp, i64 8
@@ -5652,7 +5652,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %arrayidx6.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 12
   %3 = shl i32 %conv, 2
   %scevgep52 = getelementptr inbounds i8, ptr %tmp, i64 16
-  %4 = sub i32 %conv2, %conv
+  %4 = sub nuw i32 %conv2, %conv
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.body28.lr.ph, %for.cond25.preheader
@@ -5809,7 +5809,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %arrayidx6.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 12
   %3 = shl i32 %conv, 2
   %scevgep44 = getelementptr inbounds i8, ptr %tmp, i64 16
-  %4 = sub i32 %conv2, %conv
+  %4 = sub nuw i32 %conv2, %conv
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.body27.lr.ph, %for.cond24.preheader

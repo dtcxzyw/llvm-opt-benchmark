@@ -279,7 +279,7 @@ define range(i32 0, 2) i32 @opal_pack_homogeneous_contig_with_gaps(ptr noundef %
   %102 = load ptr, ptr %43, align 8
   %103 = tail call ptr %102(ptr noundef %85, ptr noundef %93, i64 noundef %99, ptr noundef nonnull %0) #4
   %104 = getelementptr inbounds i8, ptr %85, i64 %99
-  %105 = sub i64 %spec.select, %99
+  %105 = sub nuw i64 %spec.select, %99
   %106 = load i64, ptr %41, align 8
   %107 = sub i64 %106, %99
   store i64 %107, ptr %41, align 8

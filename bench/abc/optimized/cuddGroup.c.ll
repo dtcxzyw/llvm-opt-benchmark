@@ -2054,8 +2054,8 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingBackward(ptr noundef %
 32:                                               ; preds = %.split.us
   %33 = load i32, ptr %.187129.us, align 8
   %34 = icmp ugt i32 %33, %28
-  %35 = sub i32 %33, %28
-  %36 = sub i32 %28, %33
+  %35 = sub nuw i32 %33, %28
+  %36 = sub nuw i32 %28, %33
   %37 = select i1 %34, i32 %35, i32 %36
   %38 = icmp slt i32 %37, %.079131.us
   %spec.select111.us = select i1 %38, ptr %.187129.us, ptr %.283130.us
@@ -2083,8 +2083,8 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingBackward(ptr noundef %
   %46 = getelementptr inbounds i8, ptr %.187129, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = icmp ugt i32 %47, %28
-  %49 = sub i32 %47, %28
-  %50 = sub i32 %28, %47
+  %49 = sub nuw i32 %47, %28
+  %50 = sub nuw i32 %28, %47
   %51 = select i1 %48, i32 %49, i32 %50
   %52 = icmp slt i32 %51, %.079131
   %spec.select111 = select i1 %52, ptr %.187129, ptr %.283130

@@ -1573,7 +1573,7 @@ gv_calloc.exit:                                   ; preds = %._crit_edge167
 
 202:                                              ; preds = %200
   %203 = getelementptr inbounds i8, ptr %195, i64 %190
-  %204 = sub i64 %191, %190
+  %204 = sub nuw i64 %191, %190
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %203, i8 0, i64 %204, i1 false)
   br label %gv_recalloc.exit.i
 
@@ -1642,7 +1642,7 @@ gv_recalloc.exit.i:                               ; preds = %202, %200, %193
 
 244:                                              ; preds = %242
   %245 = getelementptr inbounds i8, ptr %237, i64 %232
-  %246 = sub i64 %233, %232
+  %246 = sub nuw i64 %233, %232
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %245, i8 0, i64 %246, i1 false)
   br label %gv_recalloc.exit52.i
 
@@ -1897,7 +1897,7 @@ gv_calloc.exit102:                                ; preds = %gv_calloc.exit
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds i8, ptr %87, i64 %82
-  %96 = sub i64 %83, %82
+  %96 = sub nuw i64 %83, %82
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %95, i8 0, i64 %96, i1 false)
   br label %gv_recalloc.exit
 
@@ -1973,7 +1973,7 @@ gv_recalloc.exit:                                 ; preds = %85, %92, %94
 
 143:                                              ; preds = %141
   %144 = getelementptr inbounds i8, ptr %136, i64 %131
-  %145 = sub i64 %132, %131
+  %145 = sub nuw i64 %132, %131
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %144, i8 0, i64 %145, i1 false)
   br label %gv_recalloc.exit106
 
@@ -2098,7 +2098,7 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = sub i64 %10, %9
+  %23 = sub nuw i64 %10, %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %22, i8 0, i64 %23, i1 false)
   br label %gv_realloc.exit
 

@@ -304,7 +304,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
 
 117:                                              ; preds = %.preheader
   %118 = shl i64 %112, 12
-  %119 = sub i64 %115, %112
+  %119 = sub nuw i64 %115, %112
   %120 = shl i64 %119, 12
   %121 = call i64 @e820__range_update(i64 noundef %118, i64 noundef %120, i32 noundef 1, i32 noundef 2) #8
   %122 = add i64 %121, %110
@@ -329,7 +329,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
 
 134:                                              ; preds = %.loopexit
   %135 = shl i64 %132, 12
-  %136 = sub i64 %0, %132
+  %136 = sub nuw i64 %0, %132
   %137 = shl i64 %136, 12
   %138 = call i64 @e820__range_update(i64 noundef %135, i64 noundef %137, i32 noundef 1, i32 noundef 2) #8
   %139 = add i64 %138, %129

@@ -12870,7 +12870,7 @@ define hidden void @_ZN5rayon5slice9mergesort7recurse17ha68d9733c14de565E(ptr no
   %25 = add i64 %3, -1
   %26 = getelementptr inbounds [0 x { i64, i64 }], ptr %2, i64 0, i64 %25, i32 1
   %27 = load i64, ptr %26, align 8, !noundef !11
-  %28 = sub i64 %3, %22
+  %28 = sub nuw i64 %3, %22
   %.039 = select i1 %4, ptr %0, ptr %1
   %.0 = select i1 %4, ptr %1, ptr %0
   %29 = getelementptr inbounds { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }, ptr %.039, i64 %21
@@ -14251,7 +14251,7 @@ define hidden void @_ZN5rayon5slice9mergesort9par_merge17he28cda35e534d2cbE(ptr 
 33:                                               ; preds = %.noexc, %.lr.ph15.i
   %.01914.i = phi i64 [ 0, %.lr.ph15.i ], [ %.120.i, %.noexc ]
   %.02113.i = phi i64 [ %1, %.lr.ph15.i ], [ %.122.i, %.noexc ]
-  %34 = sub i64 %.02113.i, %.01914.i
+  %34 = sub nuw i64 %.02113.i, %.01914.i
   %35 = lshr i64 %34, 1
   %36 = add i64 %35, %.01914.i
   %37 = icmp ult i64 %36, %1
@@ -14352,7 +14352,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.17814153394679541470.exit.i.i.
 75:                                               ; preds = %.noexc36, %.lr.ph.i
   %.012.i = phi i64 [ %3, %.lr.ph.i ], [ %.1.i, %.noexc36 ]
   %.02311.i = phi i64 [ 0, %.lr.ph.i ], [ %.124.i, %.noexc36 ]
-  %76 = sub i64 %.012.i, %.02311.i
+  %76 = sub nuw i64 %.012.i, %.02311.i
   %77 = lshr i64 %76, 1
   %78 = add i64 %77, %.02311.i
   %79 = icmp ult i64 %78, %3
@@ -14493,9 +14493,9 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.17814153394679541470.exit.i.i.
   %.sroa.3.0.i110117 = phi i64 [ %.124.i, %122 ], [ %21, %120 ]
   %.sroa.0.0.i111116 = phi i64 [ %27, %122 ], [ %.120.i, %120 ]
   %125 = getelementptr inbounds { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.0.0.i111116
-  %126 = sub i64 %1, %.sroa.0.0.i111116
+  %126 = sub nuw i64 %1, %.sroa.0.0.i111116
   %127 = getelementptr inbounds { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }, ptr %2, i64 %.sroa.3.0.i110117
-  %128 = sub i64 %3, %.sroa.3.0.i110117
+  %128 = sub nuw i64 %3, %.sroa.3.0.i110117
   %129 = getelementptr { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }, ptr %4, i64 %.sroa.0.0.i111116
   %130 = getelementptr { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }, ptr %129, i64 %.sroa.3.0.i110117
   %131 = tail call { i64, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9c6648b077df3aadE.llvm.18263967998570167583"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.26d2c8a87f4bfa638a02c66113af3c5c.12.llvm.18263967998570167583)

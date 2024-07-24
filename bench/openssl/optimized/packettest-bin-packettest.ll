@@ -1668,7 +1668,7 @@ if.end.i.i:                                       ; preds = %PACKET_buf_init.exi
 
 lor.lhs.false1.i:                                 ; preds = %if.end.i.i
   %call7.i.i = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %pkt.sroa.0.12329) #5
-  %sub.i.i.i = sub nsw i64 %pkt.sroa.5.12428, %conv1.i.i.i
+  %sub.i.i.i = sub nuw nsw i64 %pkt.sroa.5.12428, %conv1.i.i.i
   %cmp.i.i.i = icmp ult i64 %sub.i.i.i, %call7.i.i
   br i1 %cmp.i.i.i, label %PACKET_get_quic_length_prefixed.exit, label %if.end.i12
 

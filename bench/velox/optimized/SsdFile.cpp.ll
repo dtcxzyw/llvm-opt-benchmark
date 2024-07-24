@@ -1225,7 +1225,7 @@ if.end43:                                         ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.i, label %if.then.i15, label %if.else.i
 
 if.then.i15:                                      ; preds = %if.end43
-  %sub.i = sub nsw i64 %conv46.pre-phi, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv46.pre-phi, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %writableRegions_, i64 noundef %sub.i)
           to label %if.then.i15.invoke.cont47_crit_edge unwind label %lpad
 
@@ -1360,7 +1360,7 @@ invoke.cont59:                                    ; preds = %if.then.i.i.i.i.i8.
   br i1 %cmp.i25, label %if.then.i32, label %if.else.i26
 
 if.then.i32:                                      ; preds = %invoke.cont59
-  %sub.i33 = sub nsw i64 %conv62.pre-phi, %sub.ptr.div.i.i24
+  %sub.i33 = sub nuw nsw i64 %conv62.pre-phi, %sub.ptr.div.i.i24
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %regionSizes_, i64 noundef %sub.i33)
           to label %if.then.i32.invoke.cont63_crit_edge unwind label %lpad
 
@@ -1395,7 +1395,7 @@ invoke.cont63:                                    ; preds = %if.then.i32.invoke.
   br i1 %cmp.i40, label %if.then.i47, label %if.else.i41
 
 if.then.i47:                                      ; preds = %invoke.cont63
-  %sub.i48 = sub nsw i64 %conv66.pre-phi, %sub.ptr.div.i.i39
+  %sub.i48 = sub nuw nsw i64 %conv66.pre-phi, %sub.ptr.div.i.i39
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %regionPins_, i64 noundef %sub.i48)
           to label %invoke.cont67 unwind label %lpad
 
@@ -2728,7 +2728,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp20, label %for.end, label %if.end22
 
 if.end22:                                         ; preds = %for.body
-  %sub26 = sub i64 %available.024, %conv19
+  %sub26 = sub nuw i64 %available.024, %conv19
   %add = add nsw i64 %toWrite.025, %conv19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next
@@ -5559,7 +5559,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.pr
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %writableRegions_, i64 noundef %sub.i)
           to label %if.then.i.invoke.cont8_crit_edge unwind label %lpad
 

@@ -1365,7 +1365,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 
 gv_recalloc.exit:                                 ; preds = %367
   %369 = getelementptr inbounds i8, ptr %362, i64 %360
-  %370 = sub nsw i64 %361, %360
+  %370 = sub nuw nsw i64 %361, %360
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %369, i8 0, i64 %370, i1 false)
   %371 = call ptr @realloc(ptr noundef %28, i64 noundef %361) #16
   %372 = icmp eq ptr %371, null
@@ -1412,7 +1412,7 @@ gv_recalloc.exit476:                              ; preds = %gv_recalloc.exit.th
 
 392:                                              ; preds = %391
   %393 = getelementptr inbounds i8, ptr %386, i64 %360
-  %394 = sub nsw i64 %361, %360
+  %394 = sub nuw nsw i64 %361, %360
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %393, i8 0, i64 %394, i1 false)
   br label %gv_recalloc.exit477
 

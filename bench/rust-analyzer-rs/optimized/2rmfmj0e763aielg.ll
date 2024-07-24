@@ -221,7 +221,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nocap
   %46 = getelementptr inbounds i8, ptr %1, i64 %40
   %47 = load i8, ptr %46, align 1, !alias.scope !45, !noalias !54, !noundef !5
   %48 = icmp sgt i8 %47, -65
-  %49 = sub i64 %2, %40
+  %49 = sub nuw i64 %2, %40
   br i1 %48, label %"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit33.i.i.i", label %.invoke.i
 
 .invoke.i:                                        ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i32.i.i.i", %43, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i"
@@ -1053,7 +1053,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 
 ._crit_edge:                                      ; preds = %42, %.preheader
   %.032.lcssa = phi i64 [ 0, %.preheader ], [ %43, %42 ]
-  %22 = sub i64 %.032.lcssa, %2
+  %22 = sub nuw i64 %.032.lcssa, %2
   ret i64 %22
 
 23:                                               ; preds = %.lr.ph, %42
@@ -1116,7 +1116,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   unreachable
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
-  %49 = sub i64 %1, %.032105
+  %49 = sub nuw i64 %1, %.032105
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %.thread, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread"
 

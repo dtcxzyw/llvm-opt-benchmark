@@ -2330,7 +2330,7 @@ define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr nounde
 
 31:                                               ; preds = %4
   store ptr %29, ptr %7, align 8
-  %32 = sub nsw i64 %2, %28
+  %32 = sub nuw nsw i64 %2, %28
   %33 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %32, ptr %33, align 8
   tail call void @__rcu_read_lock() #17
@@ -18225,7 +18225,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   br i1 %183, label %184, label %.loopexit69
 
 184:                                              ; preds = %180
-  %185 = sub i32 %135, %182
+  %185 = sub nuw i32 %135, %182
   %186 = add i32 %185, 2
   %187 = call ptr @skb_put(ptr noundef %1, i32 noundef %186) #17
   %188 = getelementptr i8, ptr %187, i64 1

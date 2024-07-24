@@ -1242,7 +1242,7 @@ if.then.i:                                        ; preds = %invoke.cont17, %.no
           to label %.noexc unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %if.then.i
-  %sub.i = sub i32 %symbol.addr.011.i, %shl12.i
+  %sub.i = sub nuw i32 %symbol.addr.011.i, %shl12.i
   %inc.i = add nuw nsw i32 %k.addr.010.i, 1
   %shl.i = shl nuw i32 2, %k.addr.010.i
   %cmp.not.i = icmp ult i32 %sub.i, %shl.i
@@ -1301,7 +1301,7 @@ if.else.i16.us:                                   ; preds = %for.body23.us
           to label %.noexc21.us unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 .noexc21.us:                                      ; preds = %if.else.i16.us
-  %sub.i17.us = sub i64 %cond.i.i.us, %M
+  %sub.i17.us = sub nuw i64 %cond.i.i.us, %M
   %conv2.i.us = trunc i64 %sub.i17.us to i32
   %cmp.not9.i.i.us = icmp eq i32 %conv2.i.us, 0
   br i1 %cmp.not9.i.i.us, label %if.else.i.thread.i.us, label %if.then.i.i.us
@@ -1314,7 +1314,7 @@ if.then.i.i.us:                                   ; preds = %.noexc21.us, %.noex
           to label %.noexc23.us unwind label %lpad11.loopexit.split-lp.loopexit.split.us
 
 .noexc23.us:                                      ; preds = %if.then.i.i.us
-  %sub.i.i.us = sub i32 %symbol.addr.011.i.i.us, %shl12.i.i.us
+  %sub.i.i.us = sub nuw i32 %symbol.addr.011.i.i.us, %shl12.i.i.us
   %inc.i.i.us = add nuw nsw i32 %k.addr.010.i.i.us, 1
   %shl.i.i.us = shl nuw i32 2, %k.addr.010.i.i.us
   %cmp.not.i.i.us = icmp ult i32 %sub.i.i.us, %shl.i.i.us

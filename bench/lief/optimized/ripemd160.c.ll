@@ -1913,7 +1913,7 @@ define hidden noundef i32 @mbedtls_ripemd160_update(ptr nocapture noundef %0, pt
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %9, i1 false)
   %23 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef nonnull %20)
   %24 = getelementptr inbounds i8, ptr %1, i64 %9
-  %25 = sub i64 %2, %9
+  %25 = sub nuw i64 %2, %9
   br label %26
 
 26:                                               ; preds = %19, %17
@@ -2020,7 +2020,7 @@ define hidden noundef i32 @mbedtls_ripemd160_finish(ptr nocapture noundef %0, pt
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull readonly align 16 dereferenceable(1) @ripemd160_padding, i64 %35, i1 false)
   %46 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef nonnull %43)
   %47 = getelementptr inbounds i8, ptr @ripemd160_padding, i64 %35
-  %48 = sub nsw i64 %33, %35
+  %48 = sub nuw nsw i64 %33, %35
   br label %49
 
 49:                                               ; preds = %42, %40

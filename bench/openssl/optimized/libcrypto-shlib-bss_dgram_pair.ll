@@ -1173,7 +1173,7 @@ if.then38.i.i:                                    ; preds = %if.end.i.i
   %cmp29.i.i = icmp eq i64 %add27.i.i, %12
   %spec.store.select.i.i = select i1 %cmp29.i.i, i64 0, i64 %add27.i.i
   store i64 %spec.store.select.i.i, ptr %arrayidx, align 8
-  %sub40.i.i = sub i64 %14, %spec.select.i
+  %sub40.i.i = sub nuw i64 %14, %spec.select.i
   store i64 %sub40.i.i, ptr %count, align 8
   br label %ring_buf_push_pop.exit.i
 
@@ -1187,7 +1187,7 @@ if.then38.i19.i:                                  ; preds = %if.end.i
   %cmp29.i21.i = icmp eq i64 %add27.i20.i, %9
   %spec.store.select.i22.i = select i1 %cmp29.i21.i, i64 0, i64 %add27.i20.i
   store i64 %spec.store.select.i22.i, ptr %arrayidx, align 8
-  %sub40.i23.i = sub i64 %10, %spec.select.i
+  %sub40.i23.i = sub nuw i64 %10, %spec.select.i
   store i64 %sub40.i23.i, ptr %count, align 8
   br label %if.end11.i
 
@@ -1224,7 +1224,7 @@ if.else70:                                        ; preds = %if.end65
   br i1 %cmp72, label %if.then74, label %if.end88
 
 if.then74:                                        ; preds = %if.else70
-  %sub = sub i64 %18, %sz
+  %sub = sub nuw i64 %18, %sz
   %no_trunc = getelementptr inbounds i8, ptr %0, i64 80
   %bf.load76 = load i8, ptr %no_trunc, align 8
   %bf.clear77 = and i8 %bf.load76, 1
@@ -1326,7 +1326,7 @@ if.then38.i:                                      ; preds = %if.end.i
   %cmp29.i = icmp eq i64 %add27.i, %4
   %spec.store.select.i = select i1 %cmp29.i, i64 0, i64 %add27.i
   store i64 %spec.store.select.i, ptr %arrayidx.i, align 8
-  %sub40.i = sub i64 %6, %spec.select
+  %sub40.i = sub nuw i64 %6, %spec.select
   store i64 %sub40.i, ptr %count11.i, align 8
   br label %ring_buf_push_pop.exit
 
@@ -1340,7 +1340,7 @@ if.then38.i19:                                    ; preds = %if.end
   %cmp29.i21 = icmp eq i64 %add27.i20, %1
   %spec.store.select.i22 = select i1 %cmp29.i21, i64 0, i64 %add27.i20
   store i64 %spec.store.select.i22, ptr %arrayidx.i, align 8
-  %sub40.i23 = sub i64 %2, %spec.select
+  %sub40.i23 = sub nuw i64 %2, %spec.select
   store i64 %sub40.i23, ptr %count11.i, align 8
   br label %if.end11
 
@@ -1574,7 +1574,7 @@ if.then38.i.i.i:                                  ; preds = %if.end.i.i.i
   %cmp29.i.i.i = icmp eq i64 %add27.i.i.i, %26
   %spec.store.select.i.i.i = select i1 %cmp29.i.i.i, i64 0, i64 %add27.i.i.i
   store i64 %spec.store.select.i.i.i, ptr %arrayidx.i, align 8
-  %sub40.i.i.i = sub i64 %28, %spec.select.i.i
+  %sub40.i.i.i = sub nuw i64 %28, %spec.select.i.i
   store i64 %sub40.i.i.i, ptr %count.i41, align 8
   br label %ring_buf_push_pop.exit.i.i
 
@@ -1588,7 +1588,7 @@ if.then38.i19.i.i:                                ; preds = %if.end.i.i43
   %cmp29.i21.i.i = icmp eq i64 %add27.i20.i.i, %23
   %spec.store.select.i22.i.i = select i1 %cmp29.i21.i.i, i64 0, i64 %add27.i20.i.i
   store i64 %spec.store.select.i22.i.i, ptr %arrayidx.i, align 8
-  %sub40.i23.i.i = sub i64 %24, %spec.select.i.i
+  %sub40.i23.i.i = sub nuw i64 %24, %spec.select.i.i
   store i64 %sub40.i23.i.i, ptr %count.i41, align 8
   br label %if.end11.i.i
 

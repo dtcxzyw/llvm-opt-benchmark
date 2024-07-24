@@ -875,7 +875,7 @@ psh_hint_table_align_hints.exit:                  ; preds = %psh_hint_table_alig
   br i1 %436, label %437, label %490
 
 437:                                              ; preds = %432
-  %438 = sub i32 %.69.i, %.058119.i
+  %438 = sub nuw i32 %.69.i, %.058119.i
   %439 = load ptr, ptr %18, align 8
   %440 = zext i32 %.058119.i to i64
   %441 = getelementptr inbounds %struct.PSH_PointRec_, ptr %439, i64 %440

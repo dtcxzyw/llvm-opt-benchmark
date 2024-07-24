@@ -781,7 +781,7 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !noundef !11
   %9 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %8, i64 %2
-  %10 = sub i64 %5, %2
+  %10 = sub nuw i64 %5, %2
   %11 = load ptr, ptr %1, align 8, !nonnull !11, !align !12, !noundef !11
   store ptr %11, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -4538,7 +4538,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !845
   %9 = icmp eq i32 %bcmp.i, 0
@@ -31993,11 +31993,11 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit: ; preds = %11, %15
   unreachable
 
 47:                                               ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$10text_range17h2adc96274b1e9be6E.exit"
-  %48 = sub i32 %20, %.0.i.i
-  %49 = sub i32 %22, %.0.i.i
+  %48 = sub nuw i32 %20, %.0.i.i
+  %49 = sub nuw i32 %22, %.0.i.i
   %50 = zext i32 %48 to i64
   %51 = zext i32 %49 to i64
-  %.not.i.i1 = icmp ugt i32 %48, %49
+  %.not.i.i1 = icmp ugt i32 %20, %22
   br i1 %.not.i.i1, label %67, label %52
 
 52:                                               ; preds = %47

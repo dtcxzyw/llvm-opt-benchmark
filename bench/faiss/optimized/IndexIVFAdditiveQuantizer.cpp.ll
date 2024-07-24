@@ -624,7 +624,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %._ZNSt6vectorIfSaIf
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
-  %88 = sub nsw i64 %80, %85
+  %88 = sub nuw nsw i64 %80, %85
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %73, i64 noundef %88)
           to label %_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit unwind label %94
 
@@ -829,7 +829,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i53:           ; preds = %._ZNSt6vectorIfSaIf
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i53
-  %166 = sub nsw i64 %158, %163
+  %166 = sub nuw nsw i64 %158, %163
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %151, i64 noundef %166)
           to label %_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit unwind label %172
 
@@ -967,7 +967,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i77:           ; preds = %._ZNSt6vectorIfSaIf
   br i1 %217, label %218, label %220
 
 218:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i77
-  %219 = sub nsw i64 %211, %216
+  %219 = sub nuw nsw i64 %211, %216
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %204, i64 noundef %219)
           to label %_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit unwind label %225
 
@@ -1105,7 +1105,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i101:          ; preds = %._ZNSt6vectorIfSaIf
   br i1 %270, label %271, label %273
 
 271:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i101
-  %272 = sub nsw i64 %264, %269
+  %272 = sub nuw nsw i64 %264, %269
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %257, i64 noundef %272)
           to label %_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit unwind label %278
 
@@ -1243,7 +1243,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i125:          ; preds = %._ZNSt6vectorIfSaIf
   br i1 %323, label %324, label %326
 
 324:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i125
-  %325 = sub nsw i64 %317, %322
+  %325 = sub nuw nsw i64 %317, %322
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %310, i64 noundef %325)
           to label %_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit unwind label %331
 
@@ -1381,7 +1381,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i149:          ; preds = %._ZNSt6vectorIfSaIf
   br i1 %376, label %377, label %379
 
 377:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i149
-  %378 = sub nsw i64 %370, %375
+  %378 = sub nuw nsw i64 %370, %375
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %363, i64 noundef %378)
           to label %_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit unwind label %384
 
@@ -1519,7 +1519,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i173:          ; preds = %._ZNSt6vectorIfSaIf
   br i1 %429, label %430, label %432
 
 430:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i173
-  %431 = sub nsw i64 %423, %428
+  %431 = sub nuw nsw i64 %423, %428
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %416, i64 noundef %431)
           to label %_ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EEC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit unwind label %437
 

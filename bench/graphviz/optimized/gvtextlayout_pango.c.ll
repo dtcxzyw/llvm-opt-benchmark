@@ -1053,7 +1053,7 @@ agxbsizeof.exit:                                  ; preds = %2
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %13, i64 %.fr
-  %22 = sub i64 %spec.select33, %.fr
+  %22 = sub nuw i64 %spec.select33, %.fr
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %22, i1 false)
   br label %gv_recalloc.exit
 

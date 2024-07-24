@@ -266,7 +266,7 @@ if.then29.i.i:                                    ; preds = %if.then20.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_136typedArrayConstructorFromArrayBufferIaLNS0_8CellKindE35EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleINS0_12JSTypedArrayIT_XT0_EEEEENSB_INS0_13JSArrayBufferEEENSB_IS5_EESI_.exit.i
 
 if.end32.i.i:                                     ; preds = %if.then20.i.i
-  %sub.i.i = sub nsw i64 %conv.i50.i, %conv.i.i43.i
+  %sub.i.i = sub nuw nsw i64 %conv.i50.i, %conv.i.i43.i
   br label %if.end49.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i42.i
@@ -696,7 +696,7 @@ if.then29.i.i:                                    ; preds = %if.end26.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_136typedArrayConstructorFromArrayBufferIsLNS0_8CellKindE36EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleINS0_12JSTypedArrayIT_XT0_EEEEENSB_INS0_13JSArrayBufferEEENSB_IS5_EESI_.exit.i
 
 if.end32.i.i:                                     ; preds = %if.end26.i.i
-  %sub.i.i = sub nsw i64 %conv.i50.i, %conv.i.i43.i
+  %sub.i.i = sub nuw nsw i64 %conv.i50.i, %conv.i.i43.i
   br label %if.end49.i.i
 
 if.else.i.i:                                      ; preds = %if.end15.i.i
@@ -1129,7 +1129,7 @@ if.then29.i.i:                                    ; preds = %if.end26.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_136typedArrayConstructorFromArrayBufferIiLNS0_8CellKindE37EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleINS0_12JSTypedArrayIT_XT0_EEEEENSB_INS0_13JSArrayBufferEEENSB_IS5_EESI_.exit.i
 
 if.end32.i.i:                                     ; preds = %if.end26.i.i
-  %sub.i.i = sub nsw i64 %conv.i50.i, %conv.i.i43.i
+  %sub.i.i = sub nuw nsw i64 %conv.i50.i, %conv.i.i43.i
   br label %if.end49.i.i
 
 if.else.i.i:                                      ; preds = %if.end15.i.i
@@ -1522,7 +1522,7 @@ if.then29.i.i:                                    ; preds = %if.then20.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_136typedArrayConstructorFromArrayBufferIhLNS0_8CellKindE38EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleINS0_12JSTypedArrayIT_XT0_EEEEENSB_INS0_13JSArrayBufferEEENSB_IS5_EESI_.exit.i
 
 if.end32.i.i:                                     ; preds = %if.then20.i.i
-  %sub.i.i = sub nsw i64 %conv.i50.i, %conv.i.i43.i
+  %sub.i.i = sub nuw nsw i64 %conv.i50.i, %conv.i.i43.i
   br label %if.end49.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i42.i
@@ -1912,7 +1912,7 @@ if.then29.i.i:                                    ; preds = %if.then20.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_136typedArrayConstructorFromArrayBufferIhLNS0_8CellKindE39EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleINS0_12JSTypedArrayIT_XT0_EEEEENSB_INS0_13JSArrayBufferEEENSB_IS5_EESI_.exit.i
 
 if.end32.i.i:                                     ; preds = %if.then20.i.i
-  %sub.i.i = sub nsw i64 %conv.i50.i, %conv.i.i43.i
+  %sub.i.i = sub nuw nsw i64 %conv.i50.i, %conv.i.i43.i
   br label %if.end49.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i42.i
@@ -2342,7 +2342,7 @@ if.then29.i.i:                                    ; preds = %if.end26.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_136typedArrayConstructorFromArrayBufferItLNS0_8CellKindE40EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleINS0_12JSTypedArrayIT_XT0_EEEEENSB_INS0_13JSArrayBufferEEENSB_IS5_EESI_.exit.i
 
 if.end32.i.i:                                     ; preds = %if.end26.i.i
-  %sub.i.i = sub nsw i64 %conv.i50.i, %conv.i.i43.i
+  %sub.i.i = sub nuw nsw i64 %conv.i50.i, %conv.i.i43.i
   br label %if.end49.i.i
 
 if.else.i.i:                                      ; preds = %if.end15.i.i
@@ -2775,7 +2775,7 @@ if.then29.i.i:                                    ; preds = %if.end26.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_136typedArrayConstructorFromArrayBufferIjLNS0_8CellKindE41EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleINS0_12JSTypedArrayIT_XT0_EEEEENSB_INS0_13JSArrayBufferEEENSB_IS5_EESI_.exit.i
 
 if.end32.i.i:                                     ; preds = %if.end26.i.i
-  %sub.i.i = sub nsw i64 %conv.i50.i, %conv.i.i43.i
+  %sub.i.i = sub nuw nsw i64 %conv.i50.i, %conv.i.i43.i
   br label %if.end49.i.i
 
 if.else.i.i:                                      ; preds = %if.end15.i.i
@@ -3208,7 +3208,7 @@ if.then29.i.i:                                    ; preds = %if.end26.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_136typedArrayConstructorFromArrayBufferIfLNS0_8CellKindE42EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleINS0_12JSTypedArrayIT_XT0_EEEEENSB_INS0_13JSArrayBufferEEENSB_IS5_EESI_.exit.i
 
 if.end32.i.i:                                     ; preds = %if.end26.i.i
-  %sub.i.i = sub nsw i64 %conv.i50.i, %conv.i.i43.i
+  %sub.i.i = sub nuw nsw i64 %conv.i50.i, %conv.i.i43.i
   br label %if.end49.i.i
 
 if.else.i.i:                                      ; preds = %if.end15.i.i
@@ -3641,7 +3641,7 @@ if.then29.i.i:                                    ; preds = %if.end26.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_136typedArrayConstructorFromArrayBufferIdLNS0_8CellKindE43EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleINS0_12JSTypedArrayIT_XT0_EEEEENSB_INS0_13JSArrayBufferEEENSB_IS5_EESI_.exit.i
 
 if.end32.i.i:                                     ; preds = %if.end26.i.i
-  %sub.i.i = sub nsw i64 %conv.i50.i, %conv.i.i43.i
+  %sub.i.i = sub nuw nsw i64 %conv.i50.i, %conv.i.i43.i
   br label %if.end49.i.i
 
 if.else.i.i:                                      ; preds = %if.end15.i.i
@@ -4074,7 +4074,7 @@ if.then29.i.i:                                    ; preds = %if.end26.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_136typedArrayConstructorFromArrayBufferIlLNS0_8CellKindE44EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleINS0_12JSTypedArrayIT_XT0_EEEEENSB_INS0_13JSArrayBufferEEENSB_IS5_EESI_.exit.i
 
 if.end32.i.i:                                     ; preds = %if.end26.i.i
-  %sub.i.i = sub nsw i64 %conv.i50.i, %conv.i.i43.i
+  %sub.i.i = sub nuw nsw i64 %conv.i50.i, %conv.i.i43.i
   br label %if.end49.i.i
 
 if.else.i.i:                                      ; preds = %if.end15.i.i
@@ -4507,7 +4507,7 @@ if.then29.i.i:                                    ; preds = %if.end26.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_136typedArrayConstructorFromArrayBufferImLNS0_8CellKindE45EEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeENS0_6HandleINS0_12JSTypedArrayIT_XT0_EEEEENSB_INS0_13JSArrayBufferEEENSB_IS5_EESI_.exit.i
 
 if.end32.i.i:                                     ; preds = %if.end26.i.i
-  %sub.i.i = sub nsw i64 %conv.i50.i, %conv.i.i43.i
+  %sub.i.i = sub nuw nsw i64 %conv.i50.i, %conv.i.i43.i
   br label %if.end49.i.i
 
 if.else.i.i:                                      ; preds = %if.end15.i.i
@@ -8983,7 +8983,7 @@ cond.true.i:                                      ; preds = %for.body
   %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %78
   %82 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %82
-  %sub.i = sub i32 %i.0137, %80
+  %sub.i = sub nuw i32 %i.0137, %80
   %cmp.i.i113 = icmp ult i32 %sub.i, 4096
   br i1 %cmp.i.i113, label %if.then.i.i, label %if.else.i.i114
 
@@ -9164,7 +9164,7 @@ cond.true:                                        ; preds = %entry
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %2
   %3 = inttoptr i64 %add.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %3
-  %sub = sub i32 %index, %0
+  %sub = sub nuw i32 %index, %0
   %cmp.i = icmp ult i32 %sub, 4096
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -9562,7 +9562,7 @@ cond.true.i111:                                   ; preds = %for.body122
   %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %38
   %46 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %46
-  %sub.i = sub i32 %i119.0149, %44
+  %sub.i = sub nuw i32 %i119.0149, %44
   %cmp.i.i112 = icmp ult i32 %sub.i, 4096
   br i1 %cmp.i.i112, label %if.then.i.i, label %if.else.i.i113
 
@@ -11797,7 +11797,7 @@ cond.true.i:                                      ; preds = %_ZN6hermes2vm13Stri
   %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %61
   %76 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %76
-  %sub.i = sub i32 %i135.0158, %74
+  %sub.i = sub nuw i32 %i135.0158, %74
   %cmp.i.i129 = icmp ult i32 %sub.i, 4096
   br i1 %cmp.i.i129, label %if.then.i.i131, label %if.else.i.i130
 

@@ -6058,7 +6058,7 @@ rb_hrtime_now.exit.i:                             ; preds = %86, %vm_check_ints_
   br i1 %90, label %hrtime_update_expire.exit.thread, label %hrtime_update_expire.exit
 
 hrtime_update_expire.exit:                        ; preds = %rb_hrtime_now.exit.i
-  %91 = sub i64 %.0.i, %.0.i2.i.i.i
+  %91 = sub nuw i64 %.0.i, %.0.i2.i.i.i
   store i64 %91, ptr %6, align 8
   %92 = and i8 %.pre39.pre40, 3
   %93 = icmp eq i8 %92, 1
@@ -8975,7 +8975,7 @@ define dso_local void @rb_fd_set(i32 noundef %0, ptr nocapture noundef nonnull %
   %17 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %16, i64 noundef %7) #49
   store ptr %17, ptr %15, align 8
   %18 = getelementptr i8, ptr %17, i64 %spec.store.select1.i
-  %19 = sub nsw i64 %7, %spec.store.select1.i
+  %19 = sub nuw nsw i64 %7, %spec.store.select1.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %18, i8 0, i64 %19, i1 false)
   %.pre.i = load i32, ptr %1, align 8
   br label %20
@@ -9119,7 +9119,7 @@ define dso_local i32 @rb_fd_select(i32 noundef %0, ptr noundef %1, ptr noundef %
   %21 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %20, i64 noundef %11) #49
   store ptr %21, ptr %19, align 8
   %22 = getelementptr i8, ptr %21, i64 %spec.store.select1.i
-  %23 = sub nsw i64 %11, %spec.store.select1.i
+  %23 = sub nuw nsw i64 %11, %spec.store.select1.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %22, i8 0, i64 %23, i1 false)
   %.pre.i = load i32, ptr %1, align 8
   br label %24
@@ -9164,7 +9164,7 @@ rb_fd_resize.exit:                                ; preds = %24, %26
   %44 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %43, i64 noundef %34) #49
   store ptr %44, ptr %42, align 8
   %45 = getelementptr i8, ptr %44, i64 %spec.store.select1.i25
-  %46 = sub nsw i64 %34, %spec.store.select1.i25
+  %46 = sub nuw nsw i64 %34, %spec.store.select1.i25
   tail call void @llvm.memset.p0.i64(ptr align 1 %45, i8 0, i64 %46, i1 false)
   %.pre.i27 = load i32, ptr %2, align 8
   br label %47
@@ -9209,7 +9209,7 @@ rb_fd_resize.exit28:                              ; preds = %47, %49
   %67 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %66, i64 noundef %57) #49
   store ptr %67, ptr %65, align 8
   %68 = getelementptr i8, ptr %67, i64 %spec.store.select1.i29
-  %69 = sub nsw i64 %57, %spec.store.select1.i29
+  %69 = sub nuw nsw i64 %57, %spec.store.select1.i29
   tail call void @llvm.memset.p0.i64(ptr align 1 %68, i8 0, i64 %69, i1 false)
   %.pre.i31 = load i32, ptr %3, align 8
   br label %70
@@ -9366,7 +9366,7 @@ vm_check_ints_blocking.exit:                      ; preds = %24, %35
   %78 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %77, i64 noundef %68) #49
   store ptr %78, ptr %76, align 8
   %79 = getelementptr i8, ptr %78, i64 %spec.store.select1.i
-  %80 = sub nsw i64 %68, %spec.store.select1.i
+  %80 = sub nuw nsw i64 %68, %spec.store.select1.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %79, i8 0, i64 %80, i1 false)
   %.pre.i = load i32, ptr %1, align 8
   br label %81
@@ -9436,7 +9436,7 @@ rb_fd_resize.exit:                                ; preds = %81, %83
   %115 = call nonnull ptr @ruby_xrealloc(ptr noundef %114, i64 noundef %105) #49
   store ptr %115, ptr %113, align 8
   %116 = getelementptr i8, ptr %115, i64 %spec.store.select1.i32
-  %117 = sub nsw i64 %105, %spec.store.select1.i32
+  %117 = sub nuw nsw i64 %105, %spec.store.select1.i32
   call void @llvm.memset.p0.i64(ptr align 1 %116, i8 0, i64 %117, i1 false)
   %.pre.i34 = load i32, ptr %98, align 8
   br label %118
@@ -9506,7 +9506,7 @@ rb_fd_resize.exit35:                              ; preds = %118, %120
   %153 = call nonnull ptr @ruby_xrealloc(ptr noundef %152, i64 noundef %143) #49
   store ptr %153, ptr %151, align 8
   %154 = getelementptr i8, ptr %153, i64 %spec.store.select1.i38
-  %155 = sub nsw i64 %143, %spec.store.select1.i38
+  %155 = sub nuw nsw i64 %143, %spec.store.select1.i38
   call void @llvm.memset.p0.i64(ptr align 1 %154, i8 0, i64 %155, i1 false)
   %.pre.i40 = load i32, ptr %136, align 8
   br label %156
@@ -10388,7 +10388,7 @@ rb_hrtime_now.exit.i16:                           ; preds = %25, %22
   br i1 %30, label %hrtime_update_expire.exit22, label %31
 
 31:                                               ; preds = %rb_hrtime_now.exit.i16
-  %32 = sub i64 %3, %.0.i2.i.i.i20
+  %32 = sub nuw i64 %3, %.0.i2.i.i.i20
   br label %hrtime_update_expire.exit22.sink.split
 
 hrtime_update_expire.exit22.sink.split:           ; preds = %rb_hrtime_now.exit.i, %31
@@ -15880,7 +15880,7 @@ rb_hrtime_now.exit.i.i.i:                         ; preds = %98, %vm_check_ints_
   br i1 %102, label %sleep_hrtime_until.exit.i, label %hrtime_update_expire.exit.i.i
 
 hrtime_update_expire.exit.i.i:                    ; preds = %rb_hrtime_now.exit.i.i.i
-  %103 = sub i64 %10, %.0.i2.i.i.i.i.i
+  %103 = sub nuw i64 %10, %.0.i2.i.i.i.i.i
   store i64 %103, ptr %4, align 8
   %104 = and i8 %.pre33.pre.i.i, 3
   %105 = icmp eq i8 %104, 1
@@ -19689,7 +19689,7 @@ rb_hrtime_now.exit.i:                             ; preds = %108, %105
   br i1 %112, label %hrtime_update_expire.exit, label %113
 
 113:                                              ; preds = %rb_hrtime_now.exit.i
-  %114 = sub i64 %.0.i, %.0.i2.i.i.i
+  %114 = sub nuw i64 %.0.i, %.0.i2.i.i.i
   store i64 %114, ptr %11, align 8
   %115 = load i8, ptr %32, align 8
   %116 = and i8 %115, -4
@@ -19957,9 +19957,9 @@ rb_native_mutex_lock.exit.i:                      ; preds = %rb_hrtime_now.exit.
   %52 = getelementptr i8, ptr %45, i64 -16
   %53 = load i64, ptr %52, align 8
   %54 = icmp ult i64 %53, %.0.i2.i.i.i
-  %55 = sub i64 %53, %.0.i2.i.i.i
+  %55 = sub nuw i64 %53, %.0.i2.i.i.i
   %56 = icmp ult i64 %55, 1000000
-  %.0.i10.i.i = or i1 %54, %56
+  %.0.i10.i.i = select i1 %54, i1 true, i1 %56
   br i1 %.0.i10.i.i, label %57, label %148
 
 57:                                               ; preds = %51

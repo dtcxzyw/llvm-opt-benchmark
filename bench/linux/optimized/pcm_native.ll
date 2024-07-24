@@ -3919,7 +3919,7 @@ define dso_local i32 @snd_pcm_mmap_data(ptr noundef %0, ptr nocapture readnone %
   %41 = getelementptr inbounds i8, ptr %2, i64 128
   %42 = load i64, ptr %41, align 8
   %43 = shl i64 %42, 12
-  %44 = sub i64 %38, %34
+  %44 = sub nuw i64 %38, %34
   %45 = icmp ugt i64 %43, %44
   br i1 %45, label %60, label %46
 
@@ -4652,7 +4652,7 @@ define internal i32 @snd_pcm_mmap(ptr nocapture noundef readonly %0, ptr noundef
   %134 = add i64 %133, 4095
   %135 = and i64 %134, -4096
   %136 = icmp ugt i64 %131, %135
-  %137 = sub i64 %135, %131
+  %137 = sub nuw i64 %135, %131
   %138 = icmp ugt i64 %17, %137
   %or.cond = select i1 %136, i1 true, i1 %138
   br i1 %or.cond, label %snd_pcm_mmap_data.exit, label %139

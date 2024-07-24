@@ -530,7 +530,7 @@ lpad39:                                           ; preds = %invoke.cont42, %inv
   br label %eh.resume
 
 if.end48:                                         ; preds = %if.then34
-  %sub49 = sub i64 %sub, %mul
+  %sub49 = sub nuw i64 %sub, %mul
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end, %if.end48, %if.else27

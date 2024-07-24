@@ -2185,7 +2185,7 @@ _ZN15InteractionListD2Ev.exit.i:                  ; preds = %206, %205
   br i1 %223, label %224, label %255
 
 224:                                              ; preds = %._crit_edge83.i
-  %225 = sub nsw i64 %222, %220
+  %225 = sub nuw nsw i64 %222, %220
   %226 = ptrtoint ptr %.sroa.18.086.i to i64
   %227 = sub i64 %226, %217
   %228 = ashr exact i64 %227, 2

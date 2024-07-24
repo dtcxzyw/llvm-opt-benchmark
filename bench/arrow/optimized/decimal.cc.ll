@@ -6694,7 +6694,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond13.for.end_crit_edge.us
   %posn.023.us = phi i64 [ %add22.us, %for.cond13.for.end_crit_edge.us ], [ 0, %for.body.lr.ph ]
-  %sub.us = sub i64 %input.coerce0, %posn.023.us
+  %sub.us = sub nuw i64 %input.coerce0, %posn.023.us
   %.sroa.speculated.us = call i64 @llvm.umin.i64(i64 %sub.us, i64 18)
   %arrayidx.us = getelementptr inbounds [19 x i64], ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 0, i64 %.sroa.speculated.us
   %0 = load i64, ptr %arrayidx.us, align 8
@@ -6764,7 +6764,7 @@ lpad.split.us:                                    ; preds = %call4.i.noexc.us, %
 
 for.body:                                         ; preds = %for.body.lr.ph, %cleanup.done
   %posn.023 = phi i64 [ %add22, %cleanup.done ], [ 0, %for.body.lr.ph ]
-  %sub = sub i64 %input.coerce0, %posn.023
+  %sub = sub nuw i64 %input.coerce0, %posn.023
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 18)
   store i64 0, ptr %chunk, align 8
   %add.ptr = getelementptr inbounds i8, ptr %input.coerce1, i64 %posn.023

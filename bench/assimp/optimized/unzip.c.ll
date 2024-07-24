@@ -901,7 +901,7 @@ if.then174:                                       ; preds = %unz64local_getShort
   br label %return
 
 if.end181:                                        ; preds = %if.end166
-  %sub = sub i64 %central_pos.0, %add
+  %sub = sub nuw i64 %central_pos.0, %add
   %byte_before_the_zipfile = getelementptr inbounds i8, ptr %us, i64 120
   store i64 %sub, ptr %byte_before_the_zipfile, align 8
   %central_pos185 = getelementptr inbounds i8, ptr %us, i64 152

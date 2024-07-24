@@ -1840,7 +1840,7 @@ if.end17.i:                                       ; preds = %if.end13.i, %if.the
   br i1 %cmp18.i, label %land.lhs.true.i158, label %if.end211
 
 land.lhs.true.i158:                               ; preds = %if.end17.i
-  %sub19.i = sub i64 %and4.i, %align_bss.0.i
+  %sub19.i = sub nuw i64 %and4.i, %align_bss.0.i
   %call20.i = call i64 @target_mmap(i64 noundef %align_bss.0.i, i64 noundef %sub19.i, i32 noundef %elf_prot.2, i32 noundef 50, i32 noundef -1, i64 noundef 0) #19
   %cmp21.i = icmp eq i64 %call20.i, -1
   br i1 %cmp21.i, label %if.then22.i, label %if.end211

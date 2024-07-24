@@ -1570,7 +1570,7 @@ define internal void @blkcg_iolatency_done_bio(ptr nocapture readnone %0, ptr no
   br i1 %64, label %65, label %102
 
 65:                                               ; preds = %61
-  %66 = sub nsw i64 %33, %63
+  %66 = sub nuw nsw i64 %33, %63
   br i1 %7, label %76, label %67
 
 67:                                               ; preds = %65
@@ -1585,7 +1585,7 @@ define internal void @blkcg_iolatency_done_bio(ptr nocapture readnone %0, ptr no
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %45, align 8
-  %75 = sub i64 %56, %66
+  %75 = sub nuw i64 %56, %66
   call void @blkcg_add_delay(ptr noundef %74, i64 noundef %33, i64 noundef %75) #14
   br label %102
 
@@ -1644,7 +1644,7 @@ define internal void @blkcg_iolatency_done_bio(ptr nocapture readnone %0, ptr no
   br i1 %105, label %106, label %332
 
 106:                                              ; preds = %102
-  %107 = sub i64 %30, %104
+  %107 = sub nuw i64 %30, %104
   %108 = getelementptr inbounds i8, ptr %45, i64 136
   %109 = load i64, ptr %108, align 8
   %110 = icmp ult i64 %107, %109

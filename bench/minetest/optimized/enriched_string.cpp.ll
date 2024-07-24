@@ -823,7 +823,7 @@ if.then.i.i158:                                   ; preds = %if.end40
 
 invoke.cont4.i:                                   ; preds = %if.end40
   %add.ptr.i155 = getelementptr inbounds i32, ptr %.lcssa, i64 %start_index.0
-  %sub.i.i = sub i64 %.lcssa334, %start_index.0
+  %sub.i.i = sub nuw i64 %.lcssa334, %start_index.0
   %spec.select.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %length.0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #26
   store i64 %spec.select.i.i, ptr %__dnew.i.i, align 8, !tbaa !52
@@ -2704,7 +2704,7 @@ if.end:                                           ; preds = %entry
   %add = add i64 %len, %pos
   %cmp5 = icmp ugt i64 %add, %0
   %or.cond = or i1 %cmp2, %cmp5
-  %sub = sub i64 %0, %pos
+  %sub = sub nuw i64 %0, %pos
   %len.addr.0 = select i1 %or.cond, i64 %sub, i64 %len
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
@@ -2884,7 +2884,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %if.th
   br i1 %cmp40, label %if.then41, label %if.end54thread-pre-split
 
 if.then41:                                        ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
-  %sub44 = sub i64 %22, %pos
+  %sub44 = sub nuw i64 %22, %pos
   %23 = load i64, ptr %_M_string_length.i.i.i.i79, align 8, !tbaa !21
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %23, i64 %sub44)
   store i64 %.sroa.speculated, ptr %m_default_length.i81, align 8, !tbaa !9

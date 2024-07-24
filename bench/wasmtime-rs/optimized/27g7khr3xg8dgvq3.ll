@@ -78,7 +78,7 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   br label %._crit_edge
 
 34:                                               ; preds = %27
-  %35 = sub i64 %30, %31
+  %35 = sub nuw i64 %30, %31
   %36 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %37 = load i64, ptr %3, align 8, !noundef !3
   %38 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17h81e8681dd4ec5742E"(i64 %35, i64 %30, ptr nonnull align 1 %36, i64 %37)

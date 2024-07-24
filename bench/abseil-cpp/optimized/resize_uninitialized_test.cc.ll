@@ -3951,7 +3951,7 @@ for.body:                                         ; preds = %entry, %if.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
-  %sub.i = sub nsw i64 %indvars.iv, %call.i
+  %sub.i = sub nuw nsw i64 %indvars.iv, %call.i
   %call.i.i8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %str, i64 noundef %sub.i, i8 noundef signext 0)
           to label %invoke.cont unwind label %lpad.loopexit
 

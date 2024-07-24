@@ -2242,7 +2242,7 @@ define dso_local i32 @ext4_init_new_dir(ptr noundef %0, ptr noundef %1, ptr noun
   unreachable
 
 84:                                               ; preds = %75
-  %85 = sub nsw i32 %9, %78
+  %85 = sub nuw nsw i32 %9, %78
   %86 = trunc i32 %85 to i16
   %87 = getelementptr i8, ptr %49, i64 16
   store i16 %86, ptr %87, align 4

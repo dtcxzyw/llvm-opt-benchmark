@@ -3085,7 +3085,7 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub nsw i64 %conv16, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv16, %sub.ptr.div.i.i
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %chunkOffsets, i64 noundef %sub.i)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 

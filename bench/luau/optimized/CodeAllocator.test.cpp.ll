@@ -3312,7 +3312,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit: ; preds = %28, %
   br i1 %46, label %47, label %78
 
 47:                                               ; preds = %39
-  %48 = sub i64 %38, %45
+  %48 = sub nuw i64 %38, %45
   %49 = getelementptr inbounds i8, ptr %4, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %50 to i64
@@ -3816,7 +3816,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit: ; preds = %26, %
   br i1 %44, label %45, label %76
 
 45:                                               ; preds = %37
-  %46 = sub i64 %36, %43
+  %46 = sub nuw i64 %36, %43
   %47 = getelementptr inbounds i8, ptr %4, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
@@ -4299,7 +4299,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_15v() #2 personality ptr @__gxx_per
   br i1 %33, label %34, label %65
 
 34:                                               ; preds = %26
-  %35 = sub i64 %25, %32
+  %35 = sub nuw i64 %25, %32
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64

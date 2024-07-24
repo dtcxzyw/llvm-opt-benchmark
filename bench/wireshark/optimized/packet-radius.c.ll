@@ -1106,7 +1106,7 @@ define hidden void @radius_tlv(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %60
 
 28:                                               ; preds = %24
-  %29 = sub nsw i32 %.05368, %20
+  %29 = sub nuw nsw i32 %.05368, %20
   %30 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %35, label %31
@@ -1285,7 +1285,7 @@ define hidden void @dissect_attribute_value_pairs(ptr noundef %0, ptr noundef %1
   br label %.loopexit485
 
 52:                                               ; preds = %48
-  %53 = sub i32 %.0407, %32
+  %53 = sub nuw i32 %.0407, %32
   %54 = load ptr, ptr @dict, align 8
   %55 = load ptr, ptr %54, align 8
   %.sroa.4221.0.insert.ext = select i1 %.not446, i32 %40, i32 0
@@ -1501,7 +1501,7 @@ define hidden void @dissect_attribute_value_pairs(ptr noundef %0, ptr noundef %1
   br label %.outer486.backedge
 
 166:                                              ; preds = %161
-  %167 = sub i32 %.1421, %157
+  %167 = sub nuw i32 %.1421, %157
   %168 = load ptr, ptr %121, align 8
   %.not457 = icmp eq ptr %168, null
   br i1 %.not457, label %175, label %169

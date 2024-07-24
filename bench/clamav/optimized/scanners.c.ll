@@ -5436,7 +5436,7 @@ cli_scangzip_with_zib_from_the_80s.exit:          ; preds = %37, %11, %18, %24, 
   %81 = phi i64 [ %72, %.lr.ph ], [ %137, %.loopexit ]
   %.04579 = phi i64 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
   %.04678 = phi i64 [ 0, %.lr.ph ], [ %.2, %.loopexit ]
-  %82 = sub i64 %81, %.04579
+  %82 = sub nuw i64 %81, %.04579
   %83 = load i64, ptr %73, align 8
   %. = call i64 @llvm.umin.i64(i64 %82, i64 %83)
   %84 = trunc i64 %. to i32
@@ -5665,7 +5665,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %20
   br label %.loopexit
 
 fmap_need_off_once_len.exit:                      ; preds = %20
-  %24 = sub i64 %23, %.0
+  %24 = sub nuw i64 %23, %.0
   %spec.select.i = call i64 @llvm.umin.i64(i64 %24, i64 8192)
   %25 = getelementptr inbounds i8, ptr %21, i64 104
   %26 = load ptr, ptr %25, align 8
@@ -5875,7 +5875,7 @@ define internal fastcc i32 @cli_scanxz(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %28, label %fmap_need_off_once_len.exit.thread
 
 28:                                               ; preds = %24
-  %29 = sub i64 %27, %.038
+  %29 = sub nuw i64 %27, %.038
   %spec.select.i = call i64 @llvm.umin.i64(i64 %29, i64 262144)
   %30 = getelementptr inbounds i8, ptr %25, i64 104
   %31 = load ptr, ptr %30, align 8
@@ -6424,7 +6424,7 @@ define internal fastcc i32 @cli_scanhtml_utf16(ptr noundef %0) unnamed_addr #0 {
   %14 = phi i64 [ %38, %35 ], [ %13, %9 ]
   %15 = phi ptr [ %36, %35 ], [ %11, %9 ]
   %.04490 = phi i64 [ %26, %35 ], [ 0, %9 ]
-  %16 = sub i64 %14, %.04490
+  %16 = sub nuw i64 %14, %.04490
   %17 = getelementptr inbounds i8, ptr %15, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = shl i64 %18, 4
@@ -7503,7 +7503,7 @@ fmap_need_off_once_len.exit:                      ; preds = %10, %16
   %21 = phi i64 [ %20, %16 ], [ %15, %10 ]
   %22 = phi ptr [ %18, %16 ], [ %13, %10 ]
   %.047 = phi i64 [ %17, %16 ], [ 16, %10 ]
-  %23 = sub i64 %21, %.047
+  %23 = sub nuw i64 %21, %.047
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %23, i64 8192)
   %24 = getelementptr inbounds i8, ptr %22, i64 104
   %25 = load ptr, ptr %24, align 8
@@ -7659,7 +7659,7 @@ default.unreachable:                              ; preds = %4
   br i1 %or.cond55.not.us, label %35, label %.critedge
 
 35:                                               ; preds = %.split.us
-  %36 = sub i64 %34, %.03659.us
+  %36 = sub nuw i64 %34, %.03659.us
   %spec.select.i.us = call i64 @llvm.umin.i64(i64 %36, i64 8191)
   %37 = load ptr, ptr %33, align 8
   %38 = call ptr %37(ptr noundef nonnull %6, i64 noundef %.03659.us, i64 noundef %spec.select.i.us, i32 noundef 0) #16
@@ -7696,7 +7696,7 @@ fmap_readn.exit.us:                               ; preds = %35
   br i1 %or.cond55.not, label %52, label %.critedge
 
 52:                                               ; preds = %.split
-  %53 = sub i64 %51, %.03659
+  %53 = sub nuw i64 %51, %.03659
   %spec.select.i = call i64 @llvm.umin.i64(i64 %53, i64 8191)
   %54 = load ptr, ptr %31, align 8
   %55 = call ptr %54(ptr noundef nonnull %6, i64 noundef %.03659, i64 noundef %spec.select.i, i32 noundef 0) #16
@@ -8103,7 +8103,7 @@ define i32 @cli_magic_scan_nested_fmap_type(ptr noundef %0, i64 noundef %1, i64 
   br label %magic_scan_nested_fmap_type.exit
 
 fmap_need_off_once_len.exit:                      ; preds = %30
-  %34 = sub i64 %26, %1
+  %34 = sub nuw i64 %26, %1
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %34, i64 %.157)
   %35 = getelementptr inbounds i8, ptr %0, i64 104
   %36 = load ptr, ptr %35, align 8
@@ -8184,7 +8184,7 @@ fmap_need_off_once_len.exit:                      ; preds = %30
 
 72:                                               ; preds = %69
   %.not44.i = icmp eq i64 %2, 0
-  %73 = sub i64 %70, %1
+  %73 = sub nuw i64 %70, %1
   %spec.select.i81 = select i1 %.not44.i, i64 %73, i64 %2
   %74 = icmp ugt i64 %spec.select.i81, %73
   br i1 %74, label %75, label %78

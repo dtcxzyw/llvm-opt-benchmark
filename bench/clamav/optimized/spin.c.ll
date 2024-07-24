@@ -597,7 +597,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
   %251 = getelementptr inbounds %struct.cli_exe_section, ptr %2, i64 %indvars.iv780, i32 1
   %252 = load i32, ptr %251, align 4
   %253 = zext i32 %252 to i64
-  %254 = sub i64 %246, %.0522735
+  %254 = sub nuw i64 %246, %.0522735
   %255 = icmp ult i64 %254, %253
   br i1 %255, label %.loopexit693, label %256
 
@@ -769,7 +769,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr nocapture
   br i1 %.not636, label %338, label %317
 
 317:                                              ; preds = %.lr.ph749
-  %318 = sub i32 %312, %316
+  %318 = sub nuw i32 %312, %316
   %319 = getelementptr inbounds i8, ptr %315, i64 4
   %320 = load i32, ptr %319, align 4
   %321 = icmp ult i32 %318, %320

@@ -14908,7 +14908,7 @@ define linkonce_odr void @_ZN7glslang9TVariable19setMemberExtensionsEiiPKPKc(ptr
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %8
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   tail call void @_ZNSt6vectorIN7glslang7TVectorIPKcEENS0_14pool_allocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %32)
   br label %_ZNSt6vectorIN7glslang7TVectorIPKcEENS0_14pool_allocatorIS4_EEE6resizeEm.exit
 

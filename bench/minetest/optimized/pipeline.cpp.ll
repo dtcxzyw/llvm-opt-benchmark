@@ -622,7 +622,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %add = add nuw nsw i64 %conv, 1
-  %sub.i = sub nsw i64 %add, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %add, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN13TextureBuffer17TextureDefinitionESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_definitions, i64 noundef %sub.i)
   %.pre = load ptr, ptr %m_definitions, align 8, !tbaa !23
   br label %if.end
@@ -667,7 +667,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %add = add nuw nsw i64 %conv, 1
-  %sub.i = sub nsw i64 %add, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %add, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN13TextureBuffer17TextureDefinitionESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_definitions, i64 noundef %sub.i)
   %.pre = load ptr, ptr %m_definitions, align 8, !tbaa !23
   br label %if.end
@@ -758,7 +758,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.cond.cleanup
-  %sub.i.i = sub nsw i64 %conv.i80, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i80, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_textures, i64 noundef %sub.i.i)
   %.pre141 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !34
   %.pre142 = load ptr, ptr %m_textures, align 8, !tbaa !34

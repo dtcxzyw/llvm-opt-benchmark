@@ -2618,7 +2618,7 @@ select.unfold:                                    ; preds = %81, %79
   %133 = zext i8 %132 to i64
   %134 = or disjoint i64 %130, %133
   %135 = icmp ugt i64 %134, %89
-  %136 = sub i64 %89, %134
+  %136 = sub nuw i64 %89, %134
   %137 = icmp sgt i64 %.3141305, %136
   %or.cond189 = select i1 %135, i1 true, i1 %137
   br i1 %or.cond189, label %138, label %139

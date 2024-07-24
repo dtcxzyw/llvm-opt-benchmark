@@ -364,7 +364,7 @@ if.then87:                                        ; preds = %if.end85
   %idxprom88 = zext nneg i32 %nranges.1 to i64
   %arrayidx89 = getelementptr [3 x i64], ptr %starts, i64 0, i64 %idxprom88
   store i64 %host_start.0, ptr %arrayidx89, align 8
-  %reass.sub99 = sub i64 %host_last.0, %host_start.0
+  %reass.sub99 = sub nuw i64 %host_last.0, %host_start.0
   %add91 = add i64 %reass.sub99, 1
   %arrayidx93 = getelementptr [3 x i64], ptr %lens, i64 0, i64 %idxprom88
   store i64 %add91, ptr %arrayidx93, align 8
@@ -1018,7 +1018,7 @@ if.then206:                                       ; preds = %if.end203
   %add212 = sub i64 %offset, %start.addr.0
   %sub213 = add i64 %add212, %real_start.0
   %offset1.0 = select i1 %tobool134.not, i64 %sub213, i64 0
-  %sub215 = sub i64 %real_last.0, %real_start.0
+  %sub215 = sub nuw i64 %real_last.0, %real_start.0
   %add216 = add i64 %sub215, 1
   %39 = load i64, ptr @guest_base, align 8
   %add.i165 = add i64 %39, %real_start.0
@@ -1607,7 +1607,7 @@ for.end40:                                        ; preds = %for.end40.loopexit,
   br i1 %cmp45, label %return, label %for.end40.if.end48_crit_edge
 
 for.end40.if.end48_crit_edge:                     ; preds = %for.end40
-  %.pre53 = sub i64 %real_last.0, %real_start.0
+  %.pre53 = sub nuw i64 %real_last.0, %real_start.0
   br label %if.end48
 
 if.end48:                                         ; preds = %for.end40.if.end48_crit_edge, %for.end17
@@ -1814,7 +1814,7 @@ if.else73:                                        ; preds = %if.end64
 
 if.then78:                                        ; preds = %if.else73
   %add79 = add i64 %old_size, %old_addr
-  %sub80 = sub i64 %old_size, %new_size
+  %sub80 = sub nuw i64 %old_size, %new_size
   %call81 = tail call fastcc i32 @mmap_reserve_or_unmap(i64 noundef %add79, i64 noundef %sub80)
   br label %if.else93
 

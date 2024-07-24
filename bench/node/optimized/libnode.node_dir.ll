@@ -2057,7 +2057,7 @@ if.then61:                                        ; preds = %_ZNK2v820FunctionCa
   br i1 %cmp.i, label %if.then.i84, label %if.else.i
 
 if.then.i84:                                      ; preds = %if.then61
-  %sub.i = sub i64 %conv, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %conv, %sub.ptr.div.i
   tail call void @_ZNSt6vectorI11uv_dirent_sSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %dirents_, i64 noundef %sub.i)
   br label %_ZNSt6vectorI11uv_dirent_sSaIS0_EE6resizeEm.exit
 

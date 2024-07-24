@@ -5201,7 +5201,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI4MeshE19CompactVertexVectorERS2_
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %16
-  %27 = sub nsw i64 %13, %24
+  %27 = sub nuw nsw i64 %13, %24
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %19, i64 noundef %27, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
@@ -5493,7 +5493,7 @@ _ZN3vcg3tri16ReorderAttributeI4MeshSt3setINS_18PointerToAttributeESt4lessIS4_ESa
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %_ZN3vcg3tri16ReorderAttributeI4MeshSt3setINS_18PointerToAttributeESt4lessIS4_ESaIS4_EEEEvRT0_RSt6vectorImSaImEERT_.exit
-  %142 = sub nsw i64 %134, %139
+  %142 = sub nuw nsw i64 %134, %139
   call void @_ZNSt6vectorI10MeshVertexSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %142)
   %.pre159 = load ptr, ptr %5, align 8
   %.pre160 = load ptr, ptr %7, align 8
@@ -5812,7 +5812,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -6090,7 +6090,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI4MeshE17CompactEdgeVectorERS2_RN
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %18
-  %29 = sub nsw i64 %15, %26
+  %29 = sub nuw nsw i64 %15, %26
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %21, i64 noundef %29, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
@@ -6333,7 +6333,7 @@ _ZN3vcg3tri16ReorderAttributeI4MeshSt3setINS_18PointerToAttributeESt4lessIS4_ESa
   br i1 %177, label %178, label %180
 
 178:                                              ; preds = %_ZN3vcg3tri16ReorderAttributeI4MeshSt3setINS_18PointerToAttributeESt4lessIS4_ESaIS4_EEEEvRT0_RSt6vectorImSaImEERT_.exit
-  %179 = sub nsw i64 %171, %176
+  %179 = sub nuw nsw i64 %171, %176
   call void @_ZNSt6vectorI8MeshEdgeSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %179)
   %.pre190 = load ptr, ptr %8, align 8
   %.pre191 = load ptr, ptr %9, align 8
@@ -6706,7 +6706,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI4MeshE17CompactFaceVectorERS2_RN
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %18
-  %29 = sub nsw i64 %15, %26
+  %29 = sub nuw nsw i64 %15, %26
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %21, i64 noundef %29, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
@@ -7004,7 +7004,7 @@ common.resume:                                    ; preds = %204, %132
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %._crit_edge190
-  %175 = sub nsw i64 %167, %172
+  %175 = sub nuw nsw i64 %167, %172
   call void @_ZNSt6vectorI8MeshFaceSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %175)
   %.pre218 = load ptr, ptr %8, align 8
   %.pre219 = load ptr, ptr %9, align 8
@@ -7323,7 +7323,7 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI4MeshE18CompactTetraVectorERS2_R
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %17
-  %28 = sub i64 %15, %25
+  %28 = sub nuw i64 %15, %25
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr %20, i64 noundef %28, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
@@ -7469,7 +7469,7 @@ _ZN3vcg3tri15ResizeAttributeI4MeshSt3setINS_18PointerToAttributeESt4lessIS4_ESaI
   br i1 %89, label %90, label %111
 
 90:                                               ; preds = %_ZN3vcg3tri15ResizeAttributeI4MeshSt3setINS_18PointerToAttributeESt4lessIS4_ESaIS4_EEEEvRT0_mRT_.exit
-  %91 = sub i64 %84, %88
+  %91 = sub nuw i64 %84, %88
   %92 = getelementptr inbounds i8, ptr %0, i64 152
   %93 = load ptr, ptr %92, align 8
   %94 = ptrtoint ptr %93 to i64
@@ -10046,7 +10046,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EEiE6
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
-  %13 = sub i64 %1, %10
+  %13 = sub nuw i64 %1, %10
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %13)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -10972,7 +10972,7 @@ define linkonce_odr void @_ZNSt6vectorI12CoordStorageSaIS0_EE6resizeEm(ptr nound
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -10994,7 +10994,7 @@ _ZSt27__uninitialized_default_n_aIP12CoordStoragemS0_ET_S2_T0_RSaIT1_E.exit.i: ;
   br label %_ZNSt6vectorI12CoordStorageSaIS0_EE17_M_default_appendEm.exit
 
 22:                                               ; preds = %11
-  %23 = icmp ult i64 %19, %12
+  %23 = icmp ugt i64 %1, 128102389400760775
   br i1 %23, label %24, label %_ZNKSt6vectorI12CoordStorageSaIS0_EE12_M_check_lenEmPKc.exit.i
 
 24:                                               ; preds = %22
@@ -11665,7 +11665,7 @@ define linkonce_odr void @_ZNSt6vectorI15TexCoordStorageSaIS0_EE6resizeEm(ptr no
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -11687,7 +11687,7 @@ _ZSt27__uninitialized_default_n_aIP15TexCoordStoragemS0_ET_S2_T0_RSaIT1_E.exit.i
   br label %_ZNSt6vectorI15TexCoordStorageSaIS0_EE17_M_default_appendEm.exit
 
 22:                                               ; preds = %11
-  %23 = icmp ult i64 %19, %12
+  %23 = icmp ugt i64 %1, 128102389400760775
   br i1 %23, label %24, label %_ZNKSt6vectorI15TexCoordStorageSaIS0_EE12_M_check_lenEmPKc.exit.i
 
 24:                                               ; preds = %22

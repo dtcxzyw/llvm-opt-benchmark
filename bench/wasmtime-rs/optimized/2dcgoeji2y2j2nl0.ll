@@ -24528,7 +24528,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h81
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -40491,7 +40491,7 @@ define hidden noundef ptr @"_ZN64_$LT$bincode..de..read..SliceReader$u20$as$u20$
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf7e646bcad8dc915E.exit": ; preds = %3
   %7 = load ptr, ptr %0, align 8, !alias.scope !16998, !noalias !17001, !nonnull !4, !align !141, !noundef !4
   %8 = getelementptr inbounds i8, ptr %7, i64 %2
-  %9 = sub i64 %5, %2
+  %9 = sub nuw i64 %5, %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull readonly align 1 %7, i64 %2, i1 false), !alias.scope !17004, !noalias !17008
   store ptr %8, ptr %0, align 8, !alias.scope !16998, !noalias !17001
   store i64 %9, ptr %4, align 8, !alias.scope !16998, !noalias !17001
@@ -40514,7 +40514,7 @@ define hidden void @"_ZN64_$LT$bincode..de..read..SliceReader$u20$as$u20$std..io
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf7e646bcad8dc915E.exit": ; preds = %4
   %8 = load ptr, ptr %1, align 8, !nonnull !4, !align !141, !noundef !4
   %9 = getelementptr inbounds i8, ptr %8, i64 %3
-  %10 = sub i64 %6, %3
+  %10 = sub nuw i64 %6, %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %8, i64 %3, i1 false), !alias.scope !17010, !noalias !17014
   store ptr %9, ptr %1, align 8
   store i64 %10, ptr %5, align 8
@@ -41804,7 +41804,7 @@ _ZN7bincode6config3int11IntEncoding15deserialize_len17h88c2b2125419152fE.llvm.74
 27:                                               ; preds = %13
   %28 = load ptr, ptr %1, align 8, !alias.scope !17824, !noalias !17825, !nonnull !4, !align !141, !noundef !4
   %29 = getelementptr inbounds i8, ptr %28, i64 %.cast
-  %30 = sub i64 %11, %.cast
+  %30 = sub nuw i64 %11, %.cast
   store ptr %29, ptr %1, align 8, !alias.scope !17824, !noalias !17825
   store i64 %30, ptr %5, align 8, !alias.scope !17824, !noalias !17825
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17826)
@@ -48405,7 +48405,7 @@ common.resume:                                    ; preds = %46, %24
 28:                                               ; preds = %15
   %29 = load ptr, ptr %1, align 8, !alias.scope !23248, !noalias !23249, !nonnull !4, !align !141, !noundef !4
   %30 = getelementptr inbounds i8, ptr %29, i64 %.cast
-  %31 = sub i64 %13, %.cast
+  %31 = sub nuw i64 %13, %.cast
   store ptr %30, ptr %1, align 8, !alias.scope !23248, !noalias !23249
   store i64 %31, ptr %7, align 8, !alias.scope !23248, !noalias !23249
   call void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %29, i64 noundef %.cast), !noalias !23239

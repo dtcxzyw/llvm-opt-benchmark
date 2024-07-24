@@ -18948,7 +18948,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !5
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.sroa.0.0.i = sub i64 %13, %15
+  %.sroa.0.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.sroa.0.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -18960,7 +18960,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -18994,7 +18994,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !5
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.sroa.0.0.i = sub i64 %13, %15
+  %.sroa.0.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.sroa.0.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -19006,7 +19006,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19040,7 +19040,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !5
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.sroa.0.0.i = sub i64 %13, %15
+  %.sroa.0.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.sroa.0.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -19052,7 +19052,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19086,7 +19086,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !5
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.sroa.0.0.i = sub i64 %13, %15
+  %.sroa.0.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.sroa.0.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -19098,7 +19098,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19132,7 +19132,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !5
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.sroa.0.0.i = sub i64 %13, %15
+  %.sroa.0.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.sroa.0.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -19144,7 +19144,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19178,7 +19178,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !5
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.sroa.0.0.i = sub i64 %13, %15
+  %.sroa.0.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.sroa.0.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.sroa.0.0.i, ptr %0, align 8
@@ -19190,7 +19190,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19212,7 +19212,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !5
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.sroa.0.0 = sub i64 %5, %7
+  %.sroa.0.0 = sub nuw i64 %5, %7
   ret i64 %.sroa.0.0
 }
 
@@ -19224,7 +19224,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !5
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.sroa.0.0 = sub i64 %5, %7
+  %.sroa.0.0 = sub nuw i64 %5, %7
   ret i64 %.sroa.0.0
 }
 
@@ -19236,7 +19236,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !5
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.sroa.0.0 = sub i64 %5, %7
+  %.sroa.0.0 = sub nuw i64 %5, %7
   ret i64 %.sroa.0.0
 }
 
@@ -19248,7 +19248,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !5
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.sroa.0.0 = sub i64 %5, %7
+  %.sroa.0.0 = sub nuw i64 %5, %7
   ret i64 %.sroa.0.0
 }
 
@@ -19260,7 +19260,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !5
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.sroa.0.0 = sub i64 %5, %7
+  %.sroa.0.0 = sub nuw i64 %5, %7
   ret i64 %.sroa.0.0
 }
 
@@ -19272,7 +19272,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !5
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.sroa.0.0 = sub i64 %5, %7
+  %.sroa.0.0 = sub nuw i64 %5, %7
   ret i64 %.sroa.0.0
 }
 
@@ -19284,7 +19284,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !5
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.sroa.0.0 = sub i64 %5, %7
+  %.sroa.0.0 = sub nuw i64 %5, %7
   ret i64 %.sroa.0.0
 }
 
@@ -19338,7 +19338,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   %10 = load i64, ptr %0, align 8, !alias.scope !3566, !noundef !5
   %.not.i = icmp ult i64 %9, %10
   %11 = select i1 %.not.i, i64 0, i64 %10
-  %.sroa.0.0.i = sub i64 %9, %11
+  %.sroa.0.0.i = sub nuw i64 %9, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
   %14 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i16, [3 x i16] }, ptr %13, i64 %.sroa.0.0.i
@@ -19455,7 +19455,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %9 = load i64, ptr %0, align 8, !noundef !5
   %.not.i = icmp ult i64 %8, %9
   %10 = select i1 %.not.i, i64 0, i64 %9
-  %.sroa.0.0.i = sub i64 %8, %10
+  %.sroa.0.0.i = sub nuw i64 %8, %10
   store i64 %.sroa.0.0.i, ptr %6, align 8
   %11 = add i64 %3, -1
   store i64 %11, ptr %2, align 8
@@ -19506,7 +19506,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %15 = add i64 %14, %12
   %.not.i = icmp ult i64 %15, %11
   %16 = select i1 %.not.i, i64 0, i64 %11
-  %.sroa.0.0.i = sub i64 %15, %16
+  %.sroa.0.0.i = sub nuw i64 %15, %16
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i16, [3 x i16] }, ptr %18, i64 %.sroa.0.0.i

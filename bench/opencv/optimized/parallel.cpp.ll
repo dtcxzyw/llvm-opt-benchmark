@@ -5760,7 +5760,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv8parallel23ParallelBackendR
   %57 = phi ptr [ %43, %.lr.ph107 ], [ %205, %.thread ]
   %.052106 = phi i64 [ 0, %.lr.ph107 ], [ %203, %.thread ]
   %58 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %57, i64 %.052106
-  %59 = sub i64 %56, %.052106
+  %59 = sub nuw i64 %56, %.052106
   %60 = trunc i64 %59 to i32
   %61 = mul i32 %60, 1000
   %62 = add i32 %61, 100000
@@ -6296,7 +6296,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv8parallel19ParallelBackendInfo
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv8parallel19ParallelBackendInfoESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv8parallel19ParallelBackendInfoESaIS2_EE15_M_erase_at_endEPS2_.exit
 

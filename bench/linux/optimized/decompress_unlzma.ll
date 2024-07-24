@@ -1294,7 +1294,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @rc_direct_bit(ptr nocapture 
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %6
-  %13 = sub i32 %10, %8
+  %13 = sub nuw i32 %10, %8
   store i32 %13, ptr %9, align 8
   br label %14
 

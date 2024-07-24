@@ -10307,7 +10307,7 @@ if.end8:                                          ; preds = %for.body.lr.ph.i, %
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end8
-  %sub.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %5, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %.pre = load ptr, ptr %this, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
@@ -10606,7 +10606,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 
@@ -12245,7 +12245,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
 while.body.i.i:                                   ; preds = %if.end20.i.i, %while.body.lr.ph.i.i
   %__len.022.i.i = phi i64 [ %sinput.sroa.0.0, %while.body.lr.ph.i.i ], [ %sub.ptr.sub23.i.i, %if.end20.i.i ]
   %__first.021.i.i = phi ptr [ %sinput.sroa.6.0, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.end20.i.i ]
-  %sub12.i.i = sub i64 %__len.022.i.i, %conv.i12
+  %sub12.i.i = sub nuw i64 %__len.022.i.i, %conv.i12
   %add.i.i = add i64 %sub12.i.i, 1
   %cmp.i.i.i14 = icmp eq i64 %add.i.i, 0
   br i1 %cmp.i.i.i14, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
@@ -12710,7 +12710,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
 while.body.i.i:                                   ; preds = %if.end20.i.i, %while.body.lr.ph.i.i
   %__len.022.i.i = phi i64 [ %sinput.sroa.0.0, %while.body.lr.ph.i.i ], [ %sub.ptr.sub23.i.i, %if.end20.i.i ]
   %__first.021.i.i = phi ptr [ %sinput.sroa.6.0, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.end20.i.i ]
-  %sub12.i.i = sub i64 %__len.022.i.i, %conv.i26
+  %sub12.i.i = sub nuw i64 %__len.022.i.i, %conv.i26
   %add.i.i29 = add i64 %sub12.i.i, 1
   %cmp.i.i.i30 = icmp eq i64 %add.i.i29, 0
   br i1 %cmp.i.i.i30, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
@@ -13355,7 +13355,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
 while.body.i.i:                                   ; preds = %if.end20.i.i, %while.body.lr.ph.i.i
   %__len.022.i.i = phi i64 [ %sinput.sroa.0.0, %while.body.lr.ph.i.i ], [ %sub.ptr.sub23.i.i, %if.end20.i.i ]
   %__first.021.i.i = phi ptr [ %sinput.sroa.6.0, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.end20.i.i ]
-  %sub12.i.i = sub i64 %__len.022.i.i, %conv.i12
+  %sub12.i.i = sub nuw i64 %__len.022.i.i, %conv.i12
   %add.i.i = add i64 %sub12.i.i, 1
   %cmp.i.i.i14 = icmp eq i64 %add.i.i, 0
   br i1 %cmp.i.i.i14, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
@@ -13811,7 +13811,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
 while.body.i.i:                                   ; preds = %if.end20.i.i, %while.body.lr.ph.i.i
   %__len.022.i.i = phi i64 [ %sinput.sroa.0.0, %while.body.lr.ph.i.i ], [ %sub.ptr.sub23.i.i, %if.end20.i.i ]
   %__first.021.i.i = phi ptr [ %sinput.sroa.6.0, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.end20.i.i ]
-  %sub12.i.i = sub i64 %__len.022.i.i, %conv.i26
+  %sub12.i.i = sub nuw i64 %__len.022.i.i, %conv.i26
   %add.i.i29 = add i64 %sub12.i.i, 1
   %cmp.i.i.i30 = icmp eq i64 %add.i.i29, 0
   br i1 %cmp.i.i.i30, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i

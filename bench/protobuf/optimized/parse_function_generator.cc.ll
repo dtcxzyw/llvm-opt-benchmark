@@ -2465,9 +2465,9 @@ invoke.cont35:                                    ; preds = %while.body
 while.end:                                        ; preds = %for.body20
   %11 = and i8 %start_new_block.093, 1
   %cmp39 = icmp eq i8 %11, 0
-  %sub41 = sub i32 %8, %last_skip_entry_start.092
+  %sub41 = sub nuw i32 %8, %last_skip_entry_start.092
   %cmp42 = icmp ugt i32 %sub41, 96
-  %or.cond = and i1 %cmp39, %cmp42
+  %or.cond = select i1 %cmp39, i1 %cmp42, i1 false
   %start_new_block.1 = select i1 %or.cond, i8 1, i8 %start_new_block.093
   %tobool46 = trunc nuw i8 %start_new_block.1 to i1
   br i1 %tobool46, label %if.then47, label %if.end53
@@ -10728,7 +10728,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %9, i64 %13
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %8, %13
+  %sub.i.i = sub nuw i64 %8, %13
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24

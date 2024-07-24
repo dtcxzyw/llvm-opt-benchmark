@@ -345,7 +345,7 @@ invoke.cont31:                                    ; preds = %if.then25
   %11 = load i16, ptr %len, align 2
   %conv30 = zext i16 %11 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %conv27
-  %sub.i = sub i64 %sub.ptr.sub.i.i, %conv27
+  %sub.i = sub nuw i64 %sub.ptr.sub.i.i, %conv27
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv30)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %.sroa.speculated.i
   %scheme_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -393,7 +393,7 @@ if.end78:                                         ; preds = %invoke.cont75, %inv
   %conv70.pre-phi.sink120 = phi i64 [ %conv70.pre-phi, %invoke.cont75 ], [ %sub56, %invoke.cont63 ]
   %conv74.sink = phi i64 [ %conv74, %invoke.cont75 ], [ %add, %invoke.cont63 ]
   %add.ptr.i28 = getelementptr inbounds i8, ptr %10, i64 %conv70.pre-phi.sink120
-  %sub.i29 = sub i64 %sub.ptr.sub.i.i, %conv70.pre-phi.sink120
+  %sub.i29 = sub nuw i64 %sub.ptr.sub.i.i, %conv70.pre-phi.sink120
   %.sroa.speculated.i30 = call i64 @llvm.umin.i64(i64 %sub.i29, i64 %conv74.sink)
   %add.ptr.i.i31 = getelementptr inbounds i8, ptr %add.ptr.i28, i64 %.sroa.speculated.i30
   %host_77 = getelementptr inbounds i8, ptr %this, i64 64
@@ -415,7 +415,7 @@ invoke.cont89:                                    ; preds = %if.end78
   %18 = load i16, ptr %len87, align 2
   %conv88 = zext i16 %18 to i64
   %add.ptr.i43 = getelementptr inbounds i8, ptr %10, i64 %conv84
-  %sub.i44 = sub i64 %sub.ptr.sub.i.i, %conv84
+  %sub.i44 = sub nuw i64 %sub.ptr.sub.i.i, %conv84
   %.sroa.speculated.i45 = call i64 @llvm.umin.i64(i64 %sub.i44, i64 %conv88)
   %add.ptr.i.i46 = getelementptr inbounds i8, ptr %add.ptr.i43, i64 %.sroa.speculated.i45
   %path_91 = getelementptr inbounds i8, ptr %this, i64 96
@@ -433,7 +433,7 @@ invoke.cont102:                                   ; preds = %invoke.cont89
   %20 = load i16, ptr %len100, align 2
   %conv101 = zext i16 %20 to i64
   %add.ptr.i58 = getelementptr inbounds i8, ptr %10, i64 %conv97
-  %sub.i59 = sub i64 %sub.ptr.sub.i.i, %conv97
+  %sub.i59 = sub nuw i64 %sub.ptr.sub.i.i, %conv97
   %.sroa.speculated.i60 = call i64 @llvm.umin.i64(i64 %sub.i59, i64 %conv101)
   %add.ptr.i.i61 = getelementptr inbounds i8, ptr %add.ptr.i58, i64 %.sroa.speculated.i60
   %query_ = getelementptr inbounds i8, ptr %this, i64 112
@@ -458,7 +458,7 @@ invoke.cont114:                                   ; preds = %invoke.cont102
   %22 = load i16, ptr %len112, align 2
   %conv113 = zext i16 %22 to i64
   %add.ptr.i73 = getelementptr inbounds i8, ptr %10, i64 %conv109
-  %sub.i74 = sub i64 %sub.ptr.sub.i.i, %conv109
+  %sub.i74 = sub nuw i64 %sub.ptr.sub.i.i, %conv109
   %.sroa.speculated.i75 = call i64 @llvm.umin.i64(i64 %sub.i74, i64 %conv113)
   %add.ptr.i.i76 = getelementptr inbounds i8, ptr %add.ptr.i73, i64 %.sroa.speculated.i75
   %fragment_ = getelementptr inbounds i8, ptr %this, i64 128
@@ -664,9 +664,9 @@ if.then30:                                        ; preds = %invoke.cont28
   br i1 %cmp.i49, label %if.then.i81.invoke, label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %if.then30
-  %sub = sub i64 %.sroa.speculated92, %retval.0.i.i
+  %sub = sub nuw i64 %.sroa.speculated92, %retval.0.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %retval.0.i.i
-  %sub.i = sub i64 %sub.ptr.sub.i.i48, %retval.0.i.i
+  %sub.i = sub nuw i64 %sub.ptr.sub.i.i48, %retval.0.i.i
   %.sroa.speculated.i50 = call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub)
   %add.ptr.i.i51 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %.sroa.speculated.i50
   br label %if.end38
@@ -695,7 +695,7 @@ invoke.cont45:                                    ; preds = %if.then40
   %11 = xor i64 %retval.0.i.i20, -1
   %sub44 = add i64 %retval.0.i.i35, %11
   %add.ptr.i61 = getelementptr inbounds i8, ptr %10, i64 %add
-  %sub.i62 = sub i64 %sub.ptr.sub.i.i59, %add
+  %sub.i62 = sub nuw i64 %sub.ptr.sub.i.i59, %add
   %.sroa.speculated.i63 = call i64 @llvm.umin.i64(i64 %sub.i62, i64 %sub44)
   %add.ptr.i.i64 = getelementptr inbounds i8, ptr %add.ptr.i61, i64 %.sroa.speculated.i63
   %query_ = getelementptr inbounds i8, ptr %this, i64 112
@@ -861,8 +861,6 @@ if.else:                                          ; preds = %if.end
   br i1 %or.cond1, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.else
-  %sub = sub i64 %call3, %call
-  %add22 = add i64 %sub, 1
   %call.i29 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %authority_) #19
   %cmp.i30 = icmp ult i64 %call.i29, %call
   br i1 %cmp.i30, label %if.then.i44, label %if.end.i31
@@ -875,12 +873,13 @@ if.then.i44:                                      ; preds = %if.then19
   unreachable
 
 if.end.i31:                                       ; preds = %if.then19
+  %sub = sub nuw i64 %call3, %call
   %call2.i32 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %authority_) #19
   %add.ptr.i33 = getelementptr inbounds i8, ptr %call2.i32, i64 %call
   %call3.i34 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %authority_) #19
   %sub.i35 = sub i64 %call3.i34, %call
-  %cmp4.i36 = icmp ult i64 %sub.i35, %add22
-  br i1 %cmp4.i36, label %if.then5.i40, label %if.else.i37
+  %cmp4.i36.not = icmp ugt i64 %sub.i35, %sub
+  br i1 %cmp4.i36.not, label %if.else.i37, label %if.then5.i40
 
 if.then5.i40:                                     ; preds = %if.end.i31
   %call6.i41 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %authority_) #19
@@ -889,7 +888,8 @@ if.then5.i40:                                     ; preds = %if.end.i31
   br label %return.sink.split
 
 if.else.i37:                                      ; preds = %if.end.i31
-  %add.ptr10.i38 = getelementptr inbounds i8, ptr %add.ptr.i33, i64 %add22
+  %4 = getelementptr i8, ptr %call2.i32, i64 %call3
+  %add.ptr10.i38 = getelementptr i8, ptr %4, i64 1
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then5.i40, %if.else.i37, %if.then5.i23, %if.else.i20
@@ -906,10 +906,10 @@ return:                                           ; preds = %return.sink.split, 
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %if.then.i44, %lpad
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #20
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #20
   unreachable
 }
 

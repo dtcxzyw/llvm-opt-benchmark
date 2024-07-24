@@ -955,7 +955,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEPiiET0_T_SA_S9_RSaIT1_E.exit.i.i: ; preds = %447, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i.i
   %450 = phi ptr [ %416, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit.i.i ], [ %.pre.i35.i, %447 ]
-  %451 = sub nsw i64 %427, %436
+  %451 = sub nuw nsw i64 %427, %436
   %452 = getelementptr inbounds i32, ptr %450, i64 %451
   store ptr %452, ptr %384, align 8
   %.not.i.i.i.i.i.i.i.i.i52.i.i = icmp eq ptr %416, %422
@@ -3072,7 +3072,7 @@ _ZNK11gmx_ga2la_t4findEi.exit64:                  ; preds = %.lr.ph13, %.lr.ph18
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %.loopexit
-  %143 = sub nsw i64 %140, %137
+  %143 = sub nuw nsw i64 %140, %137
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %130, i64 noundef %143)
   %.pre.i = load ptr, ptr %130, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
@@ -3662,7 +3662,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.i:              ; preds = %_ZNK11gmx_ga2la_t4f
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %._crit_edge.i
-  %75 = sub nsw i64 %72, %69
+  %75 = sub nuw nsw i64 %72, %69
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %75)
   %.pre.i24.i = load ptr, ptr %15, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
@@ -4254,7 +4254,7 @@ _ZL8dd_dist2PK5t_pbcN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEEii.exit144: ; preds =
   br i1 %263, label %264, label %266
 
 264:                                              ; preds = %.thread19
-  %265 = sub nsw i64 %262, %259
+  %265 = sub nuw nsw i64 %262, %259
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %252, i64 noundef %265)
   %.pre.i145 = load ptr, ptr %252, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
@@ -4510,7 +4510,7 @@ _ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exi
 
 _ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit
   %46 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit ]
-  %47 = sub nsw i64 %9, %20
+  %47 = sub nuw nsw i64 %9, %20
   %48 = getelementptr inbounds i32, ptr %46, i64 %47
   store ptr %48, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %13, %1

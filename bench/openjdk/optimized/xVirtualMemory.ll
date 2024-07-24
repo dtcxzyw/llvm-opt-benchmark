@@ -151,8 +151,8 @@ define hidden noundef zeroext i1 @_ZN21XVirtualMemoryManager7reserveEm(ptr nound
   %28 = phi i64 [ %36, %.lr.ph.i17 ], [ %21, %.loopexit ]
   %.018.i = phi i64 [ %34, %.lr.ph.i17 ], [ 0, %.loopexit ]
   %.01417.i = phi i64 [ %33, %.lr.ph.i17 ], [ 0, %.loopexit ]
-  %29 = sub i64 %9, %.01417.i
-  %30 = sub i64 %28, %.018.i
+  %29 = sub nuw i64 %9, %.01417.i
+  %30 = sub nuw i64 %28, %.018.i
   %31 = tail call noundef i64 @llvm.umin.i64(i64 %29, i64 %30)
   %32 = tail call noundef i64 @_ZN21XVirtualMemoryManager21reserve_discontiguousEmmm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %.018.i, i64 noundef %31, i64 noundef %24)
   %33 = add i64 %32, %.01417.i
@@ -300,8 +300,8 @@ define hidden noundef i64 @_ZN21XVirtualMemoryManager21reserve_discontiguousEm(p
   %10 = phi i64 [ %18, %.lr.ph ], [ %7, %2 ]
   %.018 = phi i64 [ %16, %.lr.ph ], [ 0, %2 ]
   %.01417 = phi i64 [ %15, %.lr.ph ], [ 0, %2 ]
-  %11 = sub i64 %1, %.01417
-  %12 = sub i64 %10, %.018
+  %11 = sub nuw i64 %1, %.01417
+  %12 = sub nuw i64 %10, %.018
   %13 = tail call noundef i64 @llvm.umin.i64(i64 %11, i64 %12)
   %14 = tail call noundef i64 @_ZN21XVirtualMemoryManager21reserve_discontiguousEmmm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %.018, i64 noundef %13, i64 noundef %5)
   %15 = add i64 %14, %.01417

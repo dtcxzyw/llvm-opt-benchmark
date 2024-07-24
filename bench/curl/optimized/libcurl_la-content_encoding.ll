@@ -1036,7 +1036,7 @@ if.end25.i:                                       ; preds = %if.then21.i
   br i1 %cmp31.i, label %sw.bb12, label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.end25.i
-  %sub36.i = sub nsw i64 %sub.i, %add.i
+  %sub36.i = sub nuw nsw i64 %sub.i, %add.i
   %add.ptr38.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %add.i
   br label %if.end39.i
 
@@ -1260,7 +1260,7 @@ if.end25.i117:                                    ; preds = %if.then21.i115
   br i1 %cmp31.i119, label %return, label %if.end34.i120
 
 if.end34.i120:                                    ; preds = %if.end25.i117
-  %sub36.i121 = sub nsw i64 %sub.i111, %add.i118
+  %sub36.i121 = sub nuw nsw i64 %sub.i111, %add.i118
   %add.ptr38.i122 = getelementptr inbounds i8, ptr %add.ptr.i112, i64 %add.i118
   br label %if.end39.i123
 

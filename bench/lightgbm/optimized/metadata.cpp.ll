@@ -2502,7 +2502,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %23, %_ZNSt6vectorIf
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %31
-  %42 = sub nsw i64 %35, %39
+  %42 = sub nuw nsw i64 %35, %39
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr %33, i64 noundef %42, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %.pre21 = load i32, ptr %10, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
@@ -2562,7 +2562,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %41, %43, %45, %47
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %59
-  %71 = sub nsw i64 %63, %68
+  %71 = sub nuw nsw i64 %63, %68
   call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr %61, i64 noundef %71, ptr noundef nonnull align 8 dereferenceable(8) %8)
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
@@ -2611,7 +2611,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit:            ; preds = %76, %74, %72, %70, 
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %84
-  %97 = sub nsw i64 %87, %94
+  %97 = sub nuw nsw i64 %87, %94
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr %89, i64 noundef %97, ptr noundef nonnull align 4 dereferenceable(4) %9)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -2773,7 +2773,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2960,7 +2960,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds double, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -3137,7 +3137,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -10746,7 +10746,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %12, %17
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %29
-  %50 = sub nsw i64 %40, %47
+  %50 = sub nuw nsw i64 %40, %47
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %50)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %26
 
@@ -11222,7 +11222,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %31, %36
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %47
-  %78 = sub nsw i64 %68, %75
+  %78 = sub nuw nsw i64 %68, %75
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %66, i64 noundef %78)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 
@@ -16463,7 +16463,7 @@ define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_
   br i1 %17, label %18, label %31
 
 18:                                               ; preds = %16
-  %19 = sub i64 %.033, %.01732
+  %19 = sub nuw i64 %.033, %.01732
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.01732, i64 noundef %19)
           to label %20 unwind label %.loopexit
 

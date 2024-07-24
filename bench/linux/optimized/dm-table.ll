@@ -1113,7 +1113,7 @@ define dso_local void @dm_consume_args(ptr nocapture noundef %0, i32 noundef %1)
   unreachable
 
 6:                                                ; preds = %2
-  %7 = sub i32 %3, %1
+  %7 = sub nuw i32 %3, %1
   store i32 %7, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8

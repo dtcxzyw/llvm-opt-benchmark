@@ -7000,8 +7000,8 @@ if.end95:                                         ; preds = %if.end75
   br i1 %cmp, label %invoke.cont98, label %invoke.cont125
 
 invoke.cont98:                                    ; preds = %if.end95
-  %sub = sub nsw i64 %amt, %27
-  %conv = trunc i64 %sub to i32
+  %sub = sub nuw nsw i64 %amt, %27
+  %conv = trunc nuw i64 %sub to i32
   %call101 = invoke noundef zeroext i1 @_ZN6hermes2vm7HadesGC22canAllocExternalMemoryEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 noundef %conv)
           to label %invoke.cont100 unwind label %lpad
 
@@ -7048,7 +7048,7 @@ invoke.cont119:                                   ; preds = %invoke.cont100
           to label %if.end130 unwind label %lpad
 
 invoke.cont125:                                   ; preds = %if.end95
-  %sub127 = sub i64 %27, %amt
+  %sub127 = sub nuw i64 %27, %amt
   %conv128 = trunc i64 %sub127 to i32
   invoke void @_ZN6hermes2vm7HadesGC19debitExternalMemoryEPNS0_6GCCellEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %ns.0, i32 noundef %conv128)
           to label %if.end130 unwind label %lpad

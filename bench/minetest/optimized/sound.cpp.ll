@@ -1606,7 +1606,7 @@ _ZNSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5eraseENSt8__det
   br label %cleanup
 
 if.else:                                          ; preds = %if.end
-  %sub = sub i32 %9, %num_owners
+  %sub = sub nuw i32 %9, %num_owners
   store i32 %sub, ptr %second, align 4, !tbaa !74
   br label %cleanup
 

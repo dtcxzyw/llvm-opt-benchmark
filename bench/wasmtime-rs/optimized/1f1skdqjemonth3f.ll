@@ -6081,7 +6081,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$9split_off17h6fb81f419e95c2a6E.exit": ; preds = %16
-  %29 = sub i64 %26, %24
+  %29 = sub nuw i64 %26, %24
   %30 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h00a85982f8e2bef7E"(i64 noundef %29, i1 noundef zeroext false), !noalias !713
   %31 = extractvalue { i64, ptr } %30, 0
   %32 = extractvalue { i64, ptr } %30, 1

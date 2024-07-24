@@ -881,7 +881,7 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
   br i1 %235, label %236, label %240
 
 236:                                              ; preds = %226
-  %237 = sub i32 %227, %230
+  %237 = sub nuw i32 %227, %230
   %238 = load i32, ptr @pref_max_unmasked_len, align 4
   %239 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %232, ptr noundef nonnull @ei_ws_not_fully_unmasked, ptr noundef nonnull @.str.144, i32 noundef %237, i32 noundef %238) #6
   br label %240

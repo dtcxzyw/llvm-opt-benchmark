@@ -321,7 +321,7 @@ cond.end:                                         ; preds = %_ZN2EA4StdC9Stopwat
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %cond.end
-  %sub6 = sub i64 %sub, %6
+  %sub6 = sub nuw i64 %sub, %6
   %mnTotalElapsedTime = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i64, ptr %mnTotalElapsedTime, align 8
   %add = add i64 %sub6, %7

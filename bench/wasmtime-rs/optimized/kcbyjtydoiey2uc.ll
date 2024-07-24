@@ -293,7 +293,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cranelift_e
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha8b63f23e43f6130E.exit"
 
 13:                                               ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.llvm.7466715301661297591.exit"
-  %14 = sub i64 %5, %11
+  %14 = sub nuw i64 %5, %11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !35
   store i8 %.sroa.0.0, ptr %3, align 8, !noalias !27
   %.sroa.5.0..sroa_idx5 = getelementptr inbounds i8, ptr %3, i64 1

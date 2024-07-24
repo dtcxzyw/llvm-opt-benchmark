@@ -688,7 +688,7 @@ define internal range(i32 -1, 2) i32 @H5ES__wait_cb(ptr noundef %0, ptr nocaptur
   br label %60
 
 58:                                               ; preds = %55
-  %59 = sub i64 %54, %.026
+  %59 = sub nuw i64 %54, %.026
   store i64 %59, ptr %4, align 8
   br label %60
 

@@ -647,7 +647,7 @@ define range(i32 -1, 1) i32 @H5LDget_dset_elmts(i64 noundef %0, ptr noundef %1, 
   %25 = load i64, ptr %24, align 8
   %26 = icmp ugt i64 %23, %25
   %27 = select i1 %26, i64 %25, i64 0
-  %.sink161.i = sub i64 %23, %27
+  %.sink161.i = sub nuw i64 %23, %27
   %28 = zext i1 %26 to i32
   %.1102.i = add i32 %.0101144.i, %28
   %29 = getelementptr inbounds [32 x i64], ptr %8, i64 0, i64 %indvars.iv.i

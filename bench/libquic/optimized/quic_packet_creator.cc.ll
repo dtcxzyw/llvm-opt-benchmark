@@ -2060,7 +2060,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   br i1 %cmp2.not, label %if.end18.loopexit, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %sub = sub i64 %iov_offset.addr.044, %2
+  %sub = sub nuw i64 %iov_offset.addr.044, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %cleanup.done, label %land.rhs, !llvm.loop !20

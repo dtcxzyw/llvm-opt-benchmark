@@ -2943,7 +2943,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %240, label %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, label %241
 
 241:                                              ; preds = %237
-  %242 = sub nsw i32 %238, %239
+  %242 = sub nuw nsw i32 %238, %239
   %243 = sub i32 %.sroa.0.0.copyload141, %242
   %.not77 = icmp eq i32 %242, %243
   br i1 %.not77, label %257, label %244
@@ -4487,7 +4487,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit: ; pre
 279:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit.thread, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit
   %280 = phi i32 [ %276, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit.thread ], [ %277, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit ]
   %.0138152 = phi i32 [ 0, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit.thread ], [ %.0138, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit ]
-  %281 = sub nsw i32 %280, %.0138152
+  %281 = sub nuw nsw i32 %280, %.0138152
   %282 = sub i32 %.sroa.0.0.copyload144, %281
   %.not77 = icmp eq i32 %281, %282
   br i1 %.not77, label %296, label %283
@@ -5614,7 +5614,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %240, label %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, label %241
 
 241:                                              ; preds = %237
-  %242 = sub nsw i32 %238, %239
+  %242 = sub nuw nsw i32 %238, %239
   %243 = sub i32 %.sroa.0.0.copyload141, %242
   %.not77 = icmp eq i32 %242, %243
   br i1 %.not77, label %257, label %244
@@ -6757,7 +6757,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE12DecodeNumberEiPj.exit: ; pre
   br i1 %247, label %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, label %248
 
 248:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE12DecodeNumberEiPj.exit
-  %249 = sub nsw i32 %245, %246
+  %249 = sub nuw nsw i32 %245, %246
   %250 = sub i32 %.sroa.0.0.copyload142, %249
   %.not77 = icmp eq i32 %249, %250
   br i1 %.not77, label %264, label %251
@@ -7899,7 +7899,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %240, label %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, label %241
 
 241:                                              ; preds = %237
-  %242 = sub nsw i32 %238, %239
+  %242 = sub nuw nsw i32 %238, %239
   %243 = sub i32 %.sroa.0.0.copyload141, %242
   %.not77 = icmp eq i32 %242, %243
   br i1 %.not77, label %257, label %244
@@ -9072,7 +9072,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE12DecodeNumberEiPj.exit: ; pre
   br i1 %249, label %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, label %250
 
 250:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE12DecodeNumberEiPj.exit
-  %251 = sub nsw i32 %248, %247
+  %251 = sub nuw nsw i32 %248, %247
   %252 = sub i32 %.sroa.0.0.copyload143, %251
   %.not77 = icmp eq i32 %251, %252
   br i1 %.not77, label %266, label %253
@@ -10214,7 +10214,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %240, label %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, label %241
 
 241:                                              ; preds = %237
-  %242 = sub nsw i32 %238, %239
+  %242 = sub nuw nsw i32 %238, %239
   %243 = sub i32 %.sroa.0.0.copyload141, %242
   %.not77 = icmp eq i32 %242, %243
   br i1 %.not77, label %257, label %244

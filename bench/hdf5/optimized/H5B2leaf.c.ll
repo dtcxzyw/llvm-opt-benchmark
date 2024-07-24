@@ -696,8 +696,8 @@ define range(i32 -1, 1) i32 @H5B2__insert_leaf(ptr noundef %0, ptr nocapture nou
   %55 = load ptr, ptr %17, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8
-  %58 = sub nsw i32 %43, %41
-  %59 = zext i32 %58 to i64
+  %58 = sub nuw nsw i32 %43, %41
+  %59 = zext nneg i32 %58 to i64
   %60 = mul i64 %57, %59
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %52, ptr align 1 %54, i64 %60, i1 false)
   %.pre91 = load i32, ptr %7, align 4
@@ -976,8 +976,8 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr nocapture nou
   %64 = load ptr, ptr %21, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load i64, ptr %65, align 8
-  %67 = sub nsw i32 %52, %50
-  %68 = zext i32 %67 to i64
+  %67 = sub nuw nsw i32 %52, %50
+  %68 = zext nneg i32 %67 to i64
   %69 = mul i64 %66, %68
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %61, ptr align 1 %63, i64 %69, i1 false)
   %.pr.pre = load i32, ptr %9, align 4
@@ -1448,8 +1448,8 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf(ptr noundef %0, ptr nocapture nou
   %102 = load ptr, ptr %14, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 16
   %104 = load i64, ptr %103, align 8
-  %105 = sub nsw i32 %90, %89
-  %106 = zext i32 %105 to i64
+  %105 = sub nuw nsw i32 %90, %89
+  %106 = zext nneg i32 %105 to i64
   %107 = mul i64 %104, %106
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %98, ptr align 1 %101, i64 %107, i1 false)
   br label %109
@@ -1622,8 +1622,8 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf_by_idx(ptr noundef %0, ptr nocapt
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 16
   %83 = load i64, ptr %82, align 8
-  %84 = sub nsw i32 %66, %4
-  %85 = zext i32 %84 to i64
+  %84 = sub nuw nsw i32 %66, %4
+  %85 = zext nneg i32 %84 to i64
   %86 = mul i64 %83, %85
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %76, ptr align 1 %79, i64 %86, i1 false)
   br label %88

@@ -229,7 +229,7 @@ define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocap
   store i32 %19, ptr %17, align 4
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef nonnull %10)
   %20 = getelementptr inbounds i8, ptr %1, i64 %7
-  %21 = sub i64 %2, %7
+  %21 = sub nuw i64 %2, %7
   %22 = icmp ugt i64 %21, 64
   br i1 %22, label %.lr.ph, label %.loopexit
 
@@ -1769,7 +1769,7 @@ blake2s_init.exit:                                ; preds = %29
   store i32 %54, ptr %52, align 4
   call fastcc void @blake2s_compress(ptr noundef nonnull %9, ptr noundef nonnull %45)
   %55 = getelementptr inbounds i8, ptr %2, i64 %42
-  %56 = sub i64 %3, %42
+  %56 = sub nuw i64 %3, %42
   %57 = icmp ugt i64 %56, 64
   br i1 %57, label %.lr.ph.i, label %.loopexit.i
 

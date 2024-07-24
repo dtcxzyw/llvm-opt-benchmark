@@ -452,7 +452,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false23
 if.end27:                                         ; preds = %lor.lhs.false.i
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0, i64 5
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
-  %sub.i.i7.i = sub i64 %sub.i.i.i, %or.i.i.i
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i, %or.i.i.i
   %add = add i64 %written.0, 5
   %cmp28 = icmp eq i8 %1, 22
   br i1 %cmp28, label %land.lhs.true, label %if.end78
@@ -495,7 +495,7 @@ lor.lhs.false.i67:                                ; preds = %lor.lhs.false42
   br i1 %cmp.i.i.i70, label %return, label %lor.lhs.false48
 
 lor.lhs.false48:                                  ; preds = %lor.lhs.false.i67
-  %sub.i.i6.i = sub nsw i64 %sub.i.i.i69, %conv.i
+  %sub.i.i6.i = sub nuw nsw i64 %sub.i.i.i69, %conv.i
   %cmp.i76 = icmp ult i64 %sub.i.i6.i, 3
   br i1 %cmp.i76, label %return, label %lor.lhs.false51
 
@@ -565,7 +565,7 @@ lor.lhs.false.i116:                               ; preds = %lor.lhs.false62
 if.end66:                                         ; preds = %lor.lhs.false.i116
   %add.ptr.i2.i.i126 = getelementptr inbounds i8, ptr %extensions.sroa.0.2, i64 4
   %add.ptr.i.i6.i127 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i126, i64 %or.i.i.i122
-  %sub.i.i7.i128 = sub i64 %sub.i.i.i123, %or.i.i.i122
+  %sub.i.i7.i128 = sub nuw i64 %sub.i.i.i123, %or.i.i.i122
   %cmp67 = icmp eq i32 %or.i.i108, 43
   br i1 %cmp67, label %land.lhs.true69, label %while.cond56, !llvm.loop !9
 

@@ -3872,7 +3872,7 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
 
 99:                                               ; preds = %92
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %96, align 8
-  %100 = sub i64 %37, %.sroa.02.0.copyload.i.i.i
+  %100 = sub nuw i64 %37, %.sroa.02.0.copyload.i.i.i
   %101 = uitofp i64 %100 to double
   %102 = sub i64 %.sroa.0.0.copyload.i.i.i, %.sroa.02.0.copyload.i.i.i
   %103 = uitofp i64 %102 to double
@@ -3977,7 +3977,7 @@ LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.
 
 151:                                              ; preds = %144
   %.sroa.0.0.copyload.i71.i.i = load i64, ptr %148, align 8
-  %152 = sub i64 %38, %.sroa.02.0.copyload.i67.i.i
+  %152 = sub nuw i64 %38, %.sroa.02.0.copyload.i67.i.i
   %153 = uitofp i64 %152 to double
   %154 = sub i64 %.sroa.0.0.copyload.i71.i.i, %.sroa.02.0.copyload.i67.i.i
   %155 = uitofp i64 %154 to double
@@ -4082,7 +4082,7 @@ LagTrackerRead.exit72.i.i:                        ; preds = %167, %144, %.thread
 
 203:                                              ; preds = %196
   %.sroa.0.0.copyload.i90.i.i = load i64, ptr %200, align 8
-  %204 = sub i64 %39, %.sroa.02.0.copyload.i86.i.i
+  %204 = sub nuw i64 %39, %.sroa.02.0.copyload.i86.i.i
   %205 = uitofp i64 %204 to double
   %206 = sub i64 %.sroa.0.0.copyload.i90.i.i, %.sroa.02.0.copyload.i86.i.i
   %207 = uitofp i64 %206 to double

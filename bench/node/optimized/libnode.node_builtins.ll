@@ -1534,7 +1534,7 @@ _ZSt11make_sharedISt6vectorItSaItEEJRmEESt10shared_ptrINSt9enable_ifIXntsr8is_ar
   br i1 %cmp.i4, label %if.then.i6, label %if.else.i
 
 if.then.i6:                                       ; preds = %_ZSt11make_sharedISt6vectorItSaItEEJRmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.exit
-  %sub.i = sub i64 %call20, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %call20, %sub.ptr.div.i.i
   call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, i64 noundef %sub.i)
   %.pre = load ptr, ptr %_M_impl.i.i.i.i.i.i, align 8
   %.pre11 = load ptr, ptr %_M_finish.i.i, align 8

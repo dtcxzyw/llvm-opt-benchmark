@@ -308,7 +308,7 @@ while.cond:                                       ; preds = %if.end21, %while.co
 while.body:                                       ; preds = %while.cond
   %3 = load ptr, ptr %out, align 8, !tbaa !14
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %1
-  %sub = sub i64 %2, %1
+  %sub = sub nuw i64 %2, %1
   %call13 = invoke noundef i64 @_ZN5folly8readFullEiPvm(i32 noundef %fd, ptr noundef nonnull %arrayidx.i, i64 noundef %sub)
           to label %invoke.cont12 unwind label %lpad8
 

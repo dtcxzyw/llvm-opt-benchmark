@@ -24297,7 +24297,7 @@ if.end65:                                         ; preds = %land.lhs.true, %cal
 
 if.then.i224:                                     ; preds = %if.end65
   %add = add nuw nsw i64 %conv66, 1
-  %sub.i = sub nsw i64 %add, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %add, %sub.ptr.div.i
   invoke void @_ZNSt6vectorI15ContentFeaturesSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
           to label %if.then.i224.if.end74_crit_edge unwind label %lpad51.loopexit
 
@@ -25192,7 +25192,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub nsw i64 %dec, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %dec, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIP12NodeResolverSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_pending_resolve_callbacks, i64 noundef %sub.i)
   br label %cleanup10
 
@@ -25918,7 +25918,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %sub.i.i = sub nsw i64 %dec.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %dec.i, %sub.ptr.div.i.i.i
   invoke void @_ZNSt6vectorIP12NodeResolverSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_pending_resolve_callbacks.i, i64 noundef %sub.i.i)
           to label %if.end unwind label %terminate.lpad
 
@@ -27401,7 +27401,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !512
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64

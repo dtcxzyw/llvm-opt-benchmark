@@ -2938,7 +2938,7 @@ define void @_ZN13mini_lsm_mvcc5block8iterator13BlockIterator11seek_to_key17h9bf
 25:                                               ; preds = %.lr.ph, %51
   %.017 = phi i64 [ %6, %.lr.ph ], [ %.1, %51 ]
   %.0716 = phi i64 [ 0, %.lr.ph ], [ %.18, %51 ]
-  %26 = sub i64 %.017, %.0716
+  %26 = sub nuw i64 %.017, %.0716
   %27 = lshr i64 %26, 1
   %28 = add i64 %27, %.0716
   tail call void @llvm.experimental.noalias.scope.decl(metadata !684)

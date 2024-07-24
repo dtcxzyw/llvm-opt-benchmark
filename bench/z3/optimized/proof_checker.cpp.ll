@@ -15541,7 +15541,7 @@ if.then2.i.i.i183:                                ; preds = %if.then.i.i.i178
           to label %if.end186 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.else95:                                        ; preds = %if.end65
-  %sub = sub i32 %position, %num_heads.0
+  %sub = sub nuw i32 %position, %num_heads.0
   %cmp3.not.i186 = icmp ne i32 %num_bodies.0, 0
   tail call void @llvm.assume(i1 %cmp3.not.i186)
   %wide.trip.count.i189 = zext i32 %num_bodies.0 to i64

@@ -272,7 +272,7 @@ if.then.i.i:                                      ; preds = %while.body.i.i
   %sub.i.i119.i = add i64 %sub.i.i38.i.i, -1
   %add.i.i120.i = add i64 %sub.i.i38.i.i, 1
   %cmp32.i.i.i = icmp ule i64 %sub.i.i119.i, %add26.i.i
-  %sub133.i.i.i = sub i64 %sub.i.i.i113.i, %add26.i.i
+  %sub133.i.i.i = sub nuw i64 %sub.i.i.i113.i, %add26.i.i
   %cmp2.not34.i.i.i = icmp ult i64 %sub133.i.i.i, %shl36.i.i
   %or.cond35.i.i.i = or i1 %cmp32.i.i.i, %cmp2.not34.i.i.i
   br i1 %or.cond35.i.i.i, label %while.end.i.i.i, label %land.rhs.lr.ph.i.i.i
@@ -291,7 +291,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i.i
   %sub5.i.i.i = sub i64 %sub.i.i119.i, %rest.addr.036.i.i.i
-  %sub7.i.i.i = sub i64 %add3.i.i.i, %sub.i.i119.i
+  %sub7.i.i.i = sub nuw i64 %add3.i.i.i, %sub.i.i119.i
   %cmp8.not.i.i.i = icmp ult i64 %sub5.i.i.i, %sub7.i.i.i
   br i1 %cmp8.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i
 
@@ -319,7 +319,7 @@ land.lhs.true15.i.i.i:                            ; preds = %while.end.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %land.lhs.true15.i.i.i
   %sub18.i.i.i = sub i64 %add.i.i120.i, %rest.addr.0.lcssa.i.i.i
-  %sub20.i.i.i = sub i64 %add16.i.i.i, %add.i.i120.i
+  %sub20.i.i.i = sub nuw i64 %add16.i.i.i, %add.i.i120.i
   %cmp21.i.i.i = icmp ugt i64 %sub18.i.i.i, %sub20.i.i.i
   br i1 %cmp21.i.i.i, label %sw.epilog.thread, label %if.end.i.i.i
 
@@ -373,7 +373,7 @@ if.then58.i.i:                                    ; preds = %for.cond.i.i
   %sub.i52.i.i = sub i64 %mul63.i.i, %mul39.i.i
   %add.i53.i.i = add i64 %mul63.i.i, %mul39.i.i
   %cmp32.i54.i.i = icmp ule i64 %sub.i52.i.i, %and54.i.i
-  %sub133.i55.i.i = sub i64 %mul41.i.i, %and54.i.i
+  %sub133.i55.i.i = sub nuw i64 %mul41.i.i, %and54.i.i
   %cmp2.not34.i56.i.i = icmp ult i64 %sub133.i55.i.i, %shl.i115.i
   %or.cond35.i57.i.i = or i1 %cmp2.not34.i56.i.i, %cmp32.i54.i.i
   br i1 %or.cond35.i57.i.i, label %while.end.i75.i.i, label %land.rhs.lr.ph.i58.i.i
@@ -392,7 +392,7 @@ land.rhs.i61.i.i:                                 ; preds = %while.body.i69.i.i,
 
 lor.rhs.i65.i.i:                                  ; preds = %land.rhs.i61.i.i
   %sub5.i66.i.i = sub i64 %sub.i52.i.i, %rest.addr.036.i62.i.i
-  %sub7.i67.i.i = sub i64 %add3.i63.i.i, %sub.i52.i.i
+  %sub7.i67.i.i = sub nuw i64 %add3.i63.i.i, %sub.i52.i.i
   %cmp8.not.i68.i.i = icmp ult i64 %sub5.i66.i.i, %sub7.i67.i.i
   br i1 %cmp8.not.i68.i.i, label %while.end.i75.i.i, label %while.body.i69.i.i
 
@@ -420,7 +420,7 @@ land.lhs.true15.i80.i.i:                          ; preds = %while.end.i75.i.i
 
 lor.lhs.false.i83.i.i:                            ; preds = %land.lhs.true15.i80.i.i
   %sub18.i84.i.i = sub i64 %add.i53.i.i, %rest.addr.0.lcssa.i76.i.i
-  %sub20.i85.i.i = sub i64 %add16.i81.i.i, %add.i53.i.i
+  %sub20.i85.i.i = sub nuw i64 %add16.i81.i.i, %add.i53.i.i
   %cmp21.i86.i.i = icmp ugt i64 %sub18.i84.i.i, %sub20.i85.i.i
   br i1 %cmp21.i86.i.i, label %sw.epilog.thread, label %sw.epilog
 
@@ -648,9 +648,9 @@ while.end52.i.i:                                  ; preds = %while.body35.i.i
 
 if.end55.i.i:                                     ; preds = %while.end52.i.i
   %cmp.not.i41.i.i = icmp ult i64 %mul36.i.i, %shl.i8.i
-  %sub.i42.i.i = sub i64 %shl.i8.i, %mul36.i.i
+  %sub.i42.i.i = sub nuw i64 %shl.i8.i, %mul36.i.i
   %cmp1.not.i43.i.i = icmp ugt i64 %sub.i42.i.i, %mul36.i.i
-  %or.cond.i44.i.i = and i1 %cmp.not.i41.i.i, %cmp1.not.i43.i.i
+  %or.cond.i44.i.i = select i1 %cmp.not.i41.i.i, i1 %cmp1.not.i43.i.i, i1 false
   br i1 %or.cond.i44.i.i, label %if.end3.i46.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread
 
 if.end3.i46.i.i:                                  ; preds = %if.end55.i.i
@@ -670,7 +670,7 @@ if.end10.i49.i.i:                                 ; preds = %if.end3.i46.i.i
   br i1 %cmp34.i.i, label %land.lhs.true12.i51.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread
 
 land.lhs.true12.i51.i.i:                          ; preds = %if.end10.i49.i.i, %land.lhs.true.i80.i.i
-  %sub13.i52.i.i = sub i64 %and50.i.i, %mul36.i.i
+  %sub13.i52.i.i = sub nuw i64 %and50.i.i, %mul36.i.i
   %sub14.i53.i.i = sub i64 %shl.i8.i, %sub13.i52.i.i
   %cmp16.not.i54.i.i = icmp ugt i64 %sub14.i53.i.i, %sub13.i52.i.i
   br i1 %cmp16.not.i54.i.i, label %_ZN14arrow_vendored17double_conversionL13Grisu3CountedEdiNS0_6VectorIcEEPiS3_.exit.thread, label %if.then17.i55.i.i

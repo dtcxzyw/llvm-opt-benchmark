@@ -236,7 +236,7 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false12
   br i1 %cmp20, label %return, label %if.end23
 
 if.end23:                                         ; preds = %lor.lhs.false17
-  %sub = sub i64 %7, %add
+  %sub = sub nuw i64 %7, %add
   %pending_is_asn1 = getelementptr inbounds i8, ptr %4, i64 25
   %8 = load i8, ptr %pending_is_asn1, align 1
   %tobool27.not = icmp eq i8 %8, 0

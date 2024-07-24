@@ -526,7 +526,7 @@ while.body.i.i:                                   ; preds = %if.end73.i.i, %whil
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %tmp.052.i.i, i64 %inc.i.i.i
-  %sub.i.i.i = sub i64 %sub.ptr.sub.i54.i, %inc.i.i.i
+  %sub.i.i.i = sub nuw i64 %sub.ptr.sub.i54.i, %inc.i.i.i
   %call.i16.i.i.i = call ptr @memchr(ptr noundef %add.ptr.i.i.i, i32 noundef 0, i64 noundef %sub.i.i.i) #13
   %tobool.not.i17.i.i.i = icmp eq ptr %call.i16.i.i.i, null
   %sub.ptr.lhs.cast.i18.i.i.i = ptrtoint ptr %call.i16.i.i.i to i64

@@ -3443,7 +3443,7 @@ _ZNK7AstNode5widthEv.exit12:                      ; preds = %_ZNK7AstNode5widthE
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %_ZNK7AstNode5widthEv.exit12
-  %22 = sub nsw i64 %19, %14
+  %22 = sub nuw nsw i64 %19, %14
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %22)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -3491,7 +3491,7 @@ _ZNK7AstNode5widthEv.exit14:                      ; preds = %30, %33
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %_ZNK7AstNode5widthEv.exit14
-  %48 = sub nsw i64 %38, %45
+  %48 = sub nuw nsw i64 %38, %45
   tail call void @_ZNSt6vectorISt3mapIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS7_ESaISt4pairIS7_jEEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %48)
   br label %_ZNSt6vectorISt3mapIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS7_ESaISt4pairIS7_jEEESaISD_EE6resizeEm.exit
 

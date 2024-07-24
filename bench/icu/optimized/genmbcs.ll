@@ -899,8 +899,8 @@ while.end.i.i:                                    ; preds = %if.end74.i.i, %if.t
 if.then79.i.i:                                    ; preds = %while.end.i.i
   %conv81.i.i = zext nneg i32 %.lcssa.i.i to i64
   %conv82.i.i = zext i16 %newStart.0.lcssa.i.i to i64
-  %sub85.i.i = sub nsw i32 %.lcssa.i.i, %.pre.i.i
-  %conv86.i.i = zext i32 %sub85.i.i to i64
+  %sub85.i.i = sub nuw nsw i32 %.lcssa.i.i, %.pre.i.i
+  %conv86.i.i = zext nneg i32 %sub85.i.i to i64
   %mul.i20.i = shl nuw nsw i64 %conv86.i.i, 1
   %call.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %conv81.i.i, i64 noundef %conv82.i.i, i64 noundef %mul.i20.i)
   br label %if.end87.i.i
@@ -1064,8 +1064,8 @@ while.end.i29.i:                                  ; preds = %if.end79.i.i, %_ZL1
 if.then84.i.i:                                    ; preds = %while.end.i29.i
   %conv86.i34.i = zext nneg i32 %84 to i64
   %conv87.i.i = zext i16 %newStart.0.lcssa.i30.i to i64
-  %sub90.i.i = sub nsw i32 %84, %.pre.i32.i
-  %conv91.i35.i = zext i32 %sub90.i.i to i64
+  %sub90.i.i = sub nuw nsw i32 %84, %.pre.i32.i
+  %conv91.i35.i = zext nneg i32 %sub90.i.i to i64
   %mul.i36.i = shl nuw nsw i64 %conv91.i35.i, 1
   %call.i37.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %conv86.i34.i, i64 noundef %conv87.i.i, i64 noundef %mul.i36.i)
   br label %if.end92.i.i
@@ -1225,8 +1225,8 @@ while.end.i64.i:                                  ; preds = %if.end77.i.i, %if.e
 if.then82.i.i:                                    ; preds = %while.end.i64.i
   %conv84.i.i = zext nneg i32 %.lcssa.i66.i to i64
   %conv85.i71.i = zext i16 %newStart.0.lcssa.i65.i to i64
-  %sub88.i.i = sub nsw i32 %.lcssa.i66.i, %.pre.i68.i
-  %conv89.i.i = zext i32 %sub88.i.i to i64
+  %sub88.i.i = sub nuw nsw i32 %.lcssa.i66.i, %.pre.i68.i
+  %conv89.i.i = zext nneg i32 %sub88.i.i to i64
   %mul.i72.i = shl nuw nsw i64 %conv89.i.i, 2
   %call.i73.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %conv84.i.i, i64 noundef %conv85.i71.i, i64 noundef %mul.i72.i)
   br label %if.end90.i.i

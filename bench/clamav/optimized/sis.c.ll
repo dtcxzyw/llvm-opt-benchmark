@@ -455,7 +455,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   br i1 %or.cond696.not.i, label %84, label %fmap_readn.exit575.thread.i
 
 84:                                               ; preds = %80
-  %85 = sub i64 %83, %82
+  %85 = sub nuw i64 %83, %82
   %spec.select.i573.i = tail call i64 @llvm.umin.i64(i64 %85, i64 12)
   %86 = load ptr, ptr %42, align 8
   %87 = tail call ptr %86(ptr noundef nonnull %37, i64 noundef %82, i64 noundef %spec.select.i573.i, i32 noundef 0) #8
@@ -546,7 +546,7 @@ fmap_readn.exit575.thread.i:                      ; preds = %fmap_readn.exit575.
   br i1 %116, label %121, label %117
 
 117:                                              ; preds = %115
-  %118 = sub i64 %114, %.0445785.i
+  %118 = sub nuw i64 %114, %.0445785.i
   %spec.select.i577.i = call i64 @llvm.umin.i64(i64 %118, i64 %113)
   %119 = load ptr, ptr %42, align 8
   %120 = call ptr %119(ptr noundef nonnull %37, i64 noundef %.0445785.i, i64 noundef %spec.select.i577.i, i32 noundef 0) #8
@@ -974,7 +974,7 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   br i1 %330, label %335, label %331
 
 331:                                              ; preds = %329
-  %332 = sub i64 %328, %.8453754.i
+  %332 = sub nuw i64 %328, %.8453754.i
   %spec.select.i582.i = call i64 @llvm.umin.i64(i64 %332, i64 %327)
   %333 = load ptr, ptr %42, align 8
   %334 = call ptr %333(ptr noundef nonnull %37, i64 noundef %.8453754.i, i64 noundef %spec.select.i582.i, i32 noundef 0) #8
@@ -1046,7 +1046,7 @@ fmap_readn.exit584.i:                             ; preds = %select.unfold633.i,
   br i1 %360, label %365, label %361
 
 361:                                              ; preds = %359
-  %362 = sub i64 %358, %.10455763.i
+  %362 = sub nuw i64 %358, %.10455763.i
   %spec.select.i587.i = call i64 @llvm.umin.i64(i64 %362, i64 %357)
   %363 = load ptr, ptr %42, align 8
   %364 = call ptr %363(ptr noundef nonnull %37, i64 noundef %.10455763.i, i64 noundef %spec.select.i587.i, i32 noundef 0) #8
@@ -1118,7 +1118,7 @@ fmap_readn.exit589.i:                             ; preds = %select.unfold635.i,
   br i1 %391, label %396, label %392
 
 392:                                              ; preds = %390
-  %393 = sub i64 %389, %.12457771.i
+  %393 = sub nuw i64 %389, %.12457771.i
   %spec.select.i592.i = call i64 @llvm.umin.i64(i64 %393, i64 %388)
   %394 = load ptr, ptr %42, align 8
   %395 = call ptr %394(ptr noundef nonnull %37, i64 noundef %.12457771.i, i64 noundef %spec.select.i592.i, i32 noundef 0) #8
@@ -1511,11 +1511,11 @@ fmap_readn.exit594.i:                             ; preds = %select.unfold637.i,
   %.17443647.i = phi i32 [ %.17443.i, %570 ], [ %.1427.i, %.thread.sink.split.i ]
   %.17462646.i = phi i64 [ %.17462.i, %570 ], [ %.1446.i, %.thread.sink.split.i ]
   %.0486645.i = phi i32 [ %.0486.i, %570 ], [ 0, %.thread.sink.split.i ]
-  %571 = sub i32 %.17648.i, %.0486645.i
+  %571 = sub nuw i32 %.17648.i, %.0486645.i
   br label %587
 
 572:                                              ; preds = %570
-  %573 = sub i32 %.0486.i, %.17.i
+  %573 = sub nuw i32 %.0486.i, %.17.i
   %574 = zext i32 %573 to i64
   %575 = add i64 %.17462.i, %574
   %576 = load i64, ptr %38, align 8
@@ -1527,7 +1527,7 @@ fmap_readn.exit594.i:                             ; preds = %select.unfold637.i,
   br i1 %578, label %584, label %579
 
 579:                                              ; preds = %577
-  %580 = sub i64 %576, %575
+  %580 = sub nuw i64 %576, %575
   %spec.select.i597.i = call i64 @llvm.umin.i64(i64 %580, i64 8192)
   %581 = load ptr, ptr %42, align 8
   %582 = call ptr %581(ptr noundef nonnull %37, i64 noundef %575, i64 noundef %spec.select.i597.i, i32 noundef 0) #8
@@ -1670,11 +1670,11 @@ real_scansis.exit:                                ; preds = %fmap_readn.exit.thr
   br i1 %.not.i.i.i, label %634, label %632
 
 632:                                              ; preds = %620
-  %633 = sub i32 %631, %630
+  %633 = sub nuw i32 %631, %630
   br label %.loopexit311.i
 
 634:                                              ; preds = %620
-  %635 = sub i32 %630, %631
+  %635 = sub nuw i32 %630, %631
   %636 = zext i32 %635 to i64
   %637 = load i64, ptr %600, align 8
   %638 = add i64 %637, %636
@@ -1756,7 +1756,7 @@ real_scansis.exit:                                ; preds = %fmap_readn.exit.thr
   br i1 %678, label %getd.exit.thread.i, label %679
 
 679:                                              ; preds = %677
-  %680 = sub i64 %674, %670
+  %680 = sub nuw i64 %674, %670
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %680, i64 %672)
   %681 = getelementptr inbounds i8, ptr %666, i64 104
   %682 = load ptr, ptr %681, align 8
@@ -1891,7 +1891,7 @@ getd.exit.i:                                      ; preds = %690, %656
   br i1 %760, label %getd.exit228.thread.i, label %761
 
 761:                                              ; preds = %759
-  %762 = sub i64 %756, %752
+  %762 = sub nuw i64 %756, %752
   %spec.select.i.i224.i = call i64 @llvm.umin.i64(i64 %762, i64 %754)
   %763 = getelementptr inbounds i8, ptr %748, i64 104
   %764 = load ptr, ptr %763, align 8
@@ -2026,7 +2026,7 @@ getd.exit228.i:                                   ; preds = %772, %738
   br i1 %842, label %getd.exit240.thread.i, label %843
 
 843:                                              ; preds = %841
-  %844 = sub i64 %838, %834
+  %844 = sub nuw i64 %838, %834
   %spec.select.i.i236.i = call i64 @llvm.umin.i64(i64 %844, i64 %836)
   %845 = getelementptr inbounds i8, ptr %830, i64 104
   %846 = load ptr, ptr %845, align 8
@@ -2098,7 +2098,7 @@ fmap_readn.exit.i234.i:                           ; preds = %.fmap_readn.exit_cr
   br i1 %883, label %getd.exit240.thread.i, label %884
 
 884:                                              ; preds = %882
-  %885 = sub i64 %879, %875
+  %885 = sub nuw i64 %879, %875
   %spec.select.i.i248.i = call i64 @llvm.umin.i64(i64 %885, i64 %877)
   %886 = getelementptr inbounds i8, ptr %871, i64 104
   %887 = load ptr, ptr %886, align 8
@@ -2169,7 +2169,7 @@ fmap_readn.exit.i246.i:                           ; preds = %.fmap_readn.exit_cr
   br i1 %924, label %getd.exit240.thread.i, label %925
 
 925:                                              ; preds = %923
-  %926 = sub i64 %920, %916
+  %926 = sub nuw i64 %920, %916
   %spec.select.i.i260.i = call i64 @llvm.umin.i64(i64 %926, i64 %918)
   %927 = getelementptr inbounds i8, ptr %912, i64 104
   %928 = load ptr, ptr %927, align 8
@@ -2295,7 +2295,7 @@ getd.exit264.i:                                   ; preds = %936, %._crit_edge.i
   br i1 %1007, label %fmap_readn.exit.i39, label %1008
 
 1008:                                             ; preds = %1006
-  %1009 = sub i64 %1003, %1000
+  %1009 = sub nuw i64 %1003, %1000
   %spec.select.i.i40 = call i64 @llvm.umin.i64(i64 %1009, i64 %1001)
   %1010 = getelementptr inbounds i8, ptr %999, i64 104
   %1011 = load ptr, ptr %1010, align 8
@@ -2560,7 +2560,7 @@ define internal fastcc noundef i64 @fmap_readn(ptr noundef %0, ptr nocapture nou
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %9
-  %12 = sub i64 %6, %2
+  %12 = sub nuw i64 %6, %2
   %spec.select = tail call i64 @llvm.umin.i64(i64 %12, i64 %3)
   %13 = getelementptr inbounds i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
@@ -2669,7 +2669,7 @@ define internal fastcc ptr @getsistring(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %or.cond.not, label %14, label %fmap_readn.exit.thread
 
 14:                                               ; preds = %9
-  %15 = sub i64 %13, %10
+  %15 = sub nuw i64 %13, %10
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %11)
   %16 = getelementptr inbounds i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8
@@ -2771,7 +2771,7 @@ define internal fastcc noundef i32 @getfield(ptr nocapture noundef %0, ptr nocap
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %27
-  %30 = sub i64 %24, %20
+  %30 = sub nuw i64 %24, %20
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %30, i64 %22)
   %31 = getelementptr inbounds i8, ptr %15, i64 104
   %32 = load ptr, ptr %31, align 8
@@ -2898,7 +2898,7 @@ define internal fastcc range(i32 0, 2) i32 @getsize(ptr nocapture noundef %0) un
   br i1 %32, label %getd.exit.thread, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %28, %24
+  %34 = sub nuw i64 %28, %24
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %34, i64 %26)
   %35 = getelementptr inbounds i8, ptr %19, i64 104
   %36 = load ptr, ptr %35, align 8

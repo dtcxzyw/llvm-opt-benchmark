@@ -1363,7 +1363,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then24.i254, %fo
 for.body.us.i.i:                                  ; preds = %for.body.us.i.i.backedge, %for.body.lr.ph.i.i
   %use_pread.076.us.i.i = phi i32 [ %use_pread.0.ph128.i.i, %for.body.lr.ph.i.i ], [ 0, %for.body.us.i.i.backedge ]
   %nsent.075.us.i.i = phi i64 [ %nsent.0.ph125.i.i, %for.body.lr.ph.i.i ], [ 0, %for.body.us.i.i.backedge ]
-  %sub.us.i.i = sub i64 %157, %nsent.075.us.i.i
+  %sub.us.i.i = sub nuw i64 %157, %nsent.075.us.i.i
   %spec.store.select.us.i.i = call i64 @llvm.umin.i64(i64 %sub.us.i.i, i64 8192)
   %tobool.us.not.i.i = icmp ne i32 %use_pread.076.us.i.i, 0
   br i1 %tobool.us.not.i.i, label %do.body.us.us.i.i, label %do.body.us80.i.i
@@ -1783,7 +1783,7 @@ land.rhs.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %cmp1.not.i.i, label %if.then.i29.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
-  %sub.i.i371 = sub i64 %size.addr.018.i.i, %212
+  %sub.i.i371 = sub nuw i64 %size.addr.018.i.i, %212
   %inc.i.i = add i64 %offset.019.i.i, 1
   %cmp.not.i.i372 = icmp eq i64 %sub.i.i371, 0
   br i1 %cmp.not.i.i372, label %uv__fs_buf_offset.exit.i, label %land.rhs.i.i
@@ -1794,7 +1794,7 @@ if.then.i29.i:                                    ; preds = %land.rhs.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %213, i64 %size.addr.018.i.i
   store ptr %add.ptr.i.i, ptr %arrayidx5.i.i, align 8
   %len7.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 8
-  %sub8.i.i = sub i64 %212, %size.addr.018.i.i
+  %sub8.i.i = sub nuw i64 %212, %size.addr.018.i.i
   store i64 %sub8.i.i, ptr %len7.i.i, align 8
   %.pre54.i = load ptr, ptr %bufs2.i357, align 8
   br label %uv__fs_buf_offset.exit.i

@@ -570,7 +570,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   br i1 %22, label %x509_parse_time.exit, label %23
 
 23:                                               ; preds = %19
-  %24 = sub i64 %20, %21
+  %24 = sub nuw i64 %20, %21
   store i32 0, ptr %2, align 4
   br label %.lr.ph.i.i
 
@@ -934,7 +934,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   br i1 %.not83, label %19, label %.loopexit
 
 19:                                               ; preds = %17
-  %20 = sub i64 %.066.ph107, %18
+  %20 = sub nuw i64 %.066.ph107, %18
   %21 = getelementptr inbounds i8, ptr %.0.ph110, i64 %18
   br label %22
 
@@ -965,7 +965,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   br i1 %.not84, label %34, label %.loopexit
 
 34:                                               ; preds = %32
-  %35 = sub i64 %.167, %33
+  %35 = sub nuw i64 %.167, %33
   %36 = getelementptr inbounds i8, ptr %.1, i64 %33
   %37 = getelementptr inbounds i8, ptr %.06398, i64 32
   %38 = load i64, ptr %37, align 8
@@ -1037,7 +1037,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   br i1 %.not85, label %.outer, label %.loopexit
 
 .outer:                                           ; preds = %63
-  %65 = sub i64 %35, %64
+  %65 = sub nuw i64 %35, %64
   %66 = getelementptr inbounds i8, ptr %36, i64 %64
   %67 = getelementptr inbounds i8, ptr %.06398, i64 56
   %68 = load i8, ptr %67, align 8
@@ -1123,7 +1123,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
   br i1 %.not50, label %30, label %.loopexit
 
 30:                                               ; preds = %28
-  %31 = sub i64 %.03954, %29
+  %31 = sub nuw i64 %.03954, %29
   %32 = getelementptr inbounds i8, ptr %.055, i64 %29
   br label %33
 
@@ -1136,7 +1136,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
 
 ._crit_edge.loopexit:                             ; preds = %14
   %35 = getelementptr inbounds i8, ptr %0, i64 %15
-  %36 = sub i64 %1, %15
+  %36 = sub nuw i64 %1, %15
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %33, %._crit_edge.loopexit, %3
@@ -1157,7 +1157,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
   br i1 %.not49, label %43, label %.loopexit
 
 43:                                               ; preds = %41
-  %44 = sub i64 %.039.lcssa, %42
+  %44 = sub nuw i64 %.039.lcssa, %42
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge
@@ -1199,7 +1199,7 @@ define hidden i32 @mbedtls_x509_sig_alg_gets(ptr nocapture noundef writeonly %0,
   br i1 %.not42, label %18, label %39
 
 18:                                               ; preds = %16
-  %19 = sub i64 %1, %17
+  %19 = sub nuw i64 %1, %17
   %20 = icmp eq i32 %3, 6
   br i1 %20, label %21, label %36
 
@@ -1240,7 +1240,7 @@ md_type_to_string.exit47:                         ; preds = %md_type_to_string.e
   br i1 %.not45, label %34, label %39
 
 34:                                               ; preds = %32
-  %35 = sub i64 %19, %33
+  %35 = sub nuw i64 %19, %33
   br label %36
 
 36:                                               ; preds = %34, %18

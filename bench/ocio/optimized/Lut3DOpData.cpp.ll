@@ -1661,7 +1661,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %sub.i.i = sub i64 %call.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %call.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_data.i, i64 noundef %sub.i.i)
   br label %_ZN19OpenColorIO_v2_4dev6ArrayTIfE6resizeEmm.exit
 
@@ -1725,7 +1725,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %call, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %call, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_data, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 

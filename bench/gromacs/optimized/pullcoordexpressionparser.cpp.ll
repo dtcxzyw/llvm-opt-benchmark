@@ -158,7 +158,7 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %20
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %32)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %51
 

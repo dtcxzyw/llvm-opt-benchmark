@@ -6643,7 +6643,7 @@ for.body8.lr.ph:                                  ; preds = %for.cond6.preheader
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %_ZNSt6vectorIPN2tf4NodeESaIS2_EED2Ev.exit
   %j.032 = phi i64 [ 1, %for.body8.lr.ph ], [ %inc, %_ZNSt6vectorIPN2tf4NodeESaIS2_EED2Ev.exit ]
-  %sub = sub i64 %i.029, %j.032
+  %sub = sub nuw i64 %i.029, %j.032
   %5 = load ptr, ptr %0, align 8
   %arrayidx.i10 = getelementptr inbounds ptr, ptr %5, i64 %sub
   %6 = load ptr, ptr %arrayidx.i10, align 8
@@ -9370,7 +9370,7 @@ for.end:                                          ; preds = %for.body, %_ZSt9par
   br i1 %cmp.i2, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
-  %sub.i = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit
 
@@ -15478,7 +15478,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %num_workers, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %num_workers, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt5stackINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt5dequeIS9_SaIS9_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %_stacks, i64 noundef %sub.i)
   br label %_ZNSt6vectorISt5stackINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt5dequeIS9_SaIS9_EEESaISD_EE6resizeEm.exit
 
@@ -15918,7 +15918,7 @@ entry:
   br i1 %cmp, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %add12.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %add12.i.i.i, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIS_IN2tf7SegmentESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i8, i64 noundef %sub.i)
   %.pre = load ptr, ptr %_stacks, align 8
   %add.ptr.i37.phi.trans.insert = getelementptr inbounds %"class.std::stack", ptr %.pre, i64 %0
@@ -16594,7 +16594,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIS_IS_IN2tf7SegmentESaIS1_EESaIS3_EESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -20928,7 +20928,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp25 = icmp ult i64 %w.0112, %rem
   %conv = zext i1 %cmp25 to i64
   %add = add nuw i64 %div, %conv
-  %sub = sub i64 %sub.ptr.div.i.i.i, %curr_b.0113
+  %sub = sub nuw i64 %sub.ptr.div.i.i.i, %curr_b.0113
   %.sroa.speculated101 = tail call i64 @llvm.umin.i64(i64 %sub, i64 %add)
   %tobool.not = icmp eq i64 %w.0112, 0
   %24 = load ptr, ptr %buf, align 8
@@ -20974,7 +20974,7 @@ for.body44:                                       ; preds = %for.body44.lr.ph, %
   %cmp46 = icmp ult i64 %w36.0117, %rem
   %conv47 = zext i1 %cmp46 to i64
   %add48 = add nuw i64 %div, %conv47
-  %sub50 = sub i64 %sub.ptr.div.i.i.i, %curr_b37.0118
+  %sub50 = sub nuw i64 %sub.ptr.div.i.i.i, %curr_b37.0118
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub50, i64 %add48)
   store ptr %rt, ptr %ref.tmp52, align 8
   store ptr %16, ptr %15, align 8

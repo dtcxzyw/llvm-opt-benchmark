@@ -10355,7 +10355,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %sub = sub i64 %1, %2
+  %sub = sub nuw i64 %1, %2
   %num_levels_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %num_levels_, align 16
   %cmp78 = icmp sgt i32 %3, 0
@@ -11708,7 +11708,7 @@ invoke.cont69:                                    ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont69
-  %sub.i = sub nsw i64 %conv73, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv73, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN7rocksdb11InternalKeyESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %compact_cursor_114, i64 noundef %sub.i)
           to label %if.end unwind label %ehcleanup
 
@@ -18309,7 +18309,7 @@ if.then.i:                                        ; preds = %for.body7.i
   %num_entries.i = getelementptr inbounds i8, ptr %10, i64 128
   %15 = load i64, ptr %num_entries.i, align 8
   %cmp12.not.i = icmp ult i64 %mul.i, %15
-  %sub19.i = sub i64 %mul.i, %15
+  %sub19.i = sub nuw i64 %mul.i, %15
   %mul21.i = mul i64 %sub19.i, %retval.0.i.i
   %add.i = select i1 %cmp12.not.i, i64 0, i64 %mul21.i
   %compensated_range_deletion_size.i = getelementptr inbounds i8, ptr %10, i64 168
@@ -18439,7 +18439,7 @@ if.then:                                          ; preds = %for.body7
   %num_entries = getelementptr inbounds i8, ptr %10, i64 128
   %15 = load i64, ptr %num_entries, align 8
   %cmp12.not = icmp ult i64 %mul, %15
-  %sub19 = sub i64 %mul, %15
+  %sub19 = sub nuw i64 %mul, %15
   %mul21 = mul i64 %retval.0.i, %sub19
   %add = select i1 %cmp12.not, i64 0, i64 %mul21
   %16 = add i64 %12, %add
@@ -18562,7 +18562,7 @@ if.end10:                                         ; preds = %for.body, %for.cond
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end10
-  %sub.i = sub nsw i64 %conv11, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv11, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %level_max_bytes_, i64 noundef %sub.i)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -20198,12 +20198,12 @@ call.i.noexc.i:                                   ; preds = %if.end.i.i
   br i1 %cmp.not.i.i, label %if.end3.i.i, label %cond.end.i
 
 if.end3.i.i:                                      ; preds = %call.i.noexc.i
-  %sub.i111.i = sub i64 %115, %call.i113.i
+  %sub.i111.i = sub nuw i64 %115, %call.i113.i
   %cmp5.i.i = icmp ugt i64 %sub.i111.i, %.sink20.i.i
   br i1 %cmp5.i.i, label %if.then6.i.i, label %cond.end.i
 
 if.then6.i.i:                                     ; preds = %if.end3.i.i
-  %sub8.i.i = sub i64 %sub.i111.i, %.sink20.i.i
+  %sub8.i.i = sub nuw i64 %sub.i111.i, %.sink20.i.i
   %div.i.i = udiv i64 %sub8.i.i, %.sink.i.i
   %add.i112.i = add i64 %div.i.i, 1
   br label %cond.end.i
@@ -22770,7 +22770,7 @@ if.end49:                                         ; preds = %if.end43, %if.then4
   br i1 %cmp52, label %if.then53, label %for.inc88
 
 if.then53:                                        ; preds = %if.end49
-  %sub = sub i64 %add50, %21
+  %sub = sub nuw i64 %add50, %21
   %22 = getelementptr %"class.std::vector.297", ptr %1, i64 %indvars.iv
   %arrayidx60 = getelementptr i8, ptr %22, i64 24
   %23 = load ptr, ptr %arrayidx60, align 8
@@ -23134,7 +23134,7 @@ if.then6.i101:                                    ; preds = %land.lhs.true.i99
   br i1 %cmp11.not6.i, label %cleanup.i, label %for.body.lr.ph.i102
 
 for.body.lr.ph.i102:                              ; preds = %if.then6.i101
-  %sub.i103 = sub i64 %41, %44
+  %sub.i103 = sub nuw i64 %41, %44
   %47 = freeze i64 %sub.i103
   br label %for.body.i104
 
@@ -23422,7 +23422,7 @@ if.else206:                                       ; preds = %if.end200
   br i1 %cmp208, label %if.then209, label %if.end216
 
 if.then209:                                       ; preds = %if.else206
-  %sub211 = sub i64 %level_total_bytes.0.lcssa, %89
+  %sub211 = sub nuw i64 %level_total_bytes.0.lcssa, %89
   %conv212 = uitofp i64 %sub211 to double
   %add213 = fadd double %total_downcompact_bytes.0230, %conv212
   br label %if.end216
@@ -45107,7 +45107,7 @@ delete.end115:                                    ; preds = %arraydestroy.done11
   br i1 %cmp.i.i, label %if.then.i.i175, label %if.else.i.i
 
 if.then.i.i175:                                   ; preds = %delete.end115
-  %sub.i.i = sub nsw i64 %conv.i172, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i172, %sub.ptr.div.i.i.i
   invoke void @_ZNSt6vectorIN7rocksdb11InternalKeyESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %compact_cursor_.i, ptr %88, i64 noundef %sub.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i171)
           to label %invoke.cont117 unwind label %lpad.i176
 
@@ -71212,7 +71212,7 @@ lpad.body:                                        ; preds = %lpad.loopexit, %lpa
   br label %eh.resume
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not7.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not7.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i
 
@@ -77836,7 +77836,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64

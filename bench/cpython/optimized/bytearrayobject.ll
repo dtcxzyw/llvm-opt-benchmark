@@ -3858,7 +3858,7 @@ if.then129:                                       ; preds = %for.end
   %add.ptr130 = getelementptr i8, ptr %retval.0.i, i64 %add125
   %idx.neg131 = sub i64 0, %call35
   %add.ptr132 = getelementptr i8, ptr %add.ptr130, i64 %idx.neg131
-  %sub135 = sub i64 %self.val77, %add125
+  %sub135 = sub nuw i64 %self.val77, %add125
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr132, ptr align 1 %add.ptr130, i64 %sub135, i1 false)
   %self.val75.pre = load i64, ptr %0, align 8
   br label %if.end136

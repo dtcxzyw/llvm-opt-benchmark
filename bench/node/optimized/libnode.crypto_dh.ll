@@ -3132,7 +3132,7 @@ do.body5.i:                                       ; preds = %do.body.i
   unreachable
 
 do.end6.i:                                        ; preds = %do.body.i
-  %sub.i = sub i64 %call90, %conv86
+  %sub.i = sub nuw i64 %call90, %conv86
   %add.ptr.i45 = getelementptr inbounds i8, ptr %call88, i64 %sub.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i45, ptr align 1 %call88, i64 %conv86, i1 false)
   call void @llvm.memset.p0.i64(ptr align 1 %call88, i8 0, i64 %sub.i, i1 false)
@@ -5226,7 +5226,7 @@ do.body5.i:                                       ; preds = %do.body.i
   unreachable
 
 do.end6.i:                                        ; preds = %do.body.i
-  %sub.i = sub i64 %0, %1
+  %sub.i = sub nuw i64 %0, %1
   %add.ptr.i = getelementptr inbounds i8, ptr %call1.i.i, i64 %sub.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %call1.i.i, i64 %1, i1 false)
   call void @llvm.memset.p0.i64(ptr align 1 %call1.i.i, i8 0, i64 %sub.i, i1 false)

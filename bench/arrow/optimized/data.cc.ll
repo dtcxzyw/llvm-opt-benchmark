@@ -2216,7 +2216,7 @@ if.else82:                                        ; preds = %if.end76, %if.end76
   br i1 %cmp.i67, label %if.then.i76, label %if.else.i68
 
 if.then.i76:                                      ; preds = %if.else82
-  %sub.i77 = sub nsw i64 %sub.ptr.div.i61, %sub.ptr.div.i.i66
+  %sub.i77 = sub nuw nsw i64 %sub.ptr.div.i61, %sub.ptr.div.i.i66
   tail call void @_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %child_data83, i64 noundef %sub.i77)
   br label %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit78
 
@@ -2289,7 +2289,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -2483,7 +2483,7 @@ if.else:                                          ; preds = %for.end25
   br i1 %cmp.i32, label %if.then.i41, label %if.else.i33
 
 if.then.i41:                                      ; preds = %if.else
-  %sub.i42 = sub nsw i64 %conv, %sub.ptr.div.i.i31
+  %sub.i42 = sub nuw nsw i64 %conv, %sub.ptr.div.i.i31
   tail call void @_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %child_data, i64 noundef %sub.i42)
   br label %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit43
 

@@ -2693,7 +2693,7 @@ _ZNK12mpff_manager18to_buffer_shiftingEjRK4mpff.exit: ; preds = %_ZNK12mpff_mana
   br i1 %cmp, label %if.then38, label %if.else52
 
 if.then38:                                        ; preds = %_ZNK12mpff_manager18to_buffer_shiftingEjRK4mpff.exit
-  %sub40 = sub i32 %sub35, %43
+  %sub40 = sub nuw i32 %sub35, %43
   %bf.clear42 = and i32 %bf.load.i74, 1
   %m_to_plus_inf = getelementptr inbounds i8, ptr %this, i64 20
   %44 = load i8, ptr %m_to_plus_inf, align 4
@@ -2756,7 +2756,7 @@ if.end78.thread:                                  ; preds = %land.end64.thread
 if.then68:                                        ; preds = %land.end64.thread, %land.end64
   %frombool65102 = phi i1 [ false, %land.end64.thread ], [ %lnot63, %land.end64 ]
   %52 = phi i32 [ %43, %land.end64.thread ], [ %.pre98, %land.end64 ]
-  %sub71 = sub i32 %52, %sub35
+  %sub71 = sub nuw i32 %52, %sub35
   %conv72 = zext i32 %sub71 to i64
   %sub73 = sub nsw i64 %sub17, %conv72
   %53 = load i32, ptr %this, align 8

@@ -599,7 +599,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %68
   br i1 %206, label %207, label %209
 
 207:                                              ; preds = %192
-  %208 = sub nsw i64 %199, %205
+  %208 = sub nuw nsw i64 %199, %205
   invoke void @_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) @contours, i64 noundef %208)
           to label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE6resizeEm.exit unwind label %275
 

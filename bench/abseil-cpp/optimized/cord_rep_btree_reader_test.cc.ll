@@ -5408,7 +5408,7 @@ _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i: ; preds = %cond.false.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i
   %retval.sroa.3.0.i.i50 = getelementptr inbounds i8, ptr %storage.i.pn.i.i49, i64 %offset.0.i.i44
-  %sub.i.i = sub i64 %33, %29
+  %sub.i.i = sub nuw i64 %33, %29
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.i.i50, i64 %29
   br label %invoke.cont21
 
@@ -5759,7 +5759,7 @@ if.then.i.i.i127.cont:                            ; preds = %if.then.i.i.i127.in
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i119: ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i116
   %retval.sroa.3.0.i.i120 = getelementptr inbounds i8, ptr %storage.i.pn.i.i117, i64 %offset.0.i.i111
-  %sub.i.i121 = sub i64 %76, %72
+  %sub.i.i121 = sub nuw i64 %76, %72
   %add.ptr.i.i122 = getelementptr inbounds i8, ptr %retval.sroa.3.0.i.i120, i64 %72
   br label %invoke.cont97
 
@@ -6173,7 +6173,7 @@ if.then.i.i.i:                                    ; preds = %_ZN4absl13cord_inte
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i
   %retval.sroa.3.0.i.i62 = getelementptr inbounds i8, ptr %storage.i.pn.i.i61, i64 %offset.0.i.i56
-  %sub.i.i = sub i64 %17, %14
+  %sub.i.i = sub nuw i64 %17, %14
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.i.i62, i64 %14
   br label %_ZN4absl13cord_internal18CordRepBtreeReader4SkipEm.exit
 
@@ -6582,7 +6582,7 @@ while.body.i.i.i32:                               ; preds = %if.end.i.i29, %whil
   %index.08.i.i.i = phi i64 [ %inc.i.i.i, %while.body.i.i.i32 ], [ %conv.i.i.i.i31, %if.end.i.i29 ]
   %offset.addr.07.i.i.i = phi i64 [ %sub.i.i.i, %while.body.i.i.i32 ], [ %seek.0136, %if.end.i.i29 ]
   %inc.i.i.i = add i64 %index.08.i.i.i, 1
-  %sub.i.i.i = sub i64 %offset.addr.07.i.i.i, %25
+  %sub.i.i.i = sub nuw i64 %offset.addr.07.i.i.i, %25
   %arrayidx.i.i.i33 = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i, i64 0, i64 %inc.i.i.i
   %26 = load ptr, ptr %arrayidx.i.i.i33, align 8
   %27 = load i64, ptr %26, align 8
@@ -6628,7 +6628,7 @@ while.body.i22.i.i:                               ; preds = %while.body.i.i, %wh
   %index.08.i23.i.i = phi i64 [ %inc.i25.i.i, %while.body.i22.i.i ], [ %conv.i.i18.i.i, %while.body.i.i ]
   %offset.addr.07.i24.i.i = phi i64 [ %sub.i26.i.i, %while.body.i22.i.i ], [ %offset.addr.0.lcssa.i.pn39.i.i, %while.body.i.i ]
   %inc.i25.i.i = add i64 %index.08.i23.i.i, 1
-  %sub.i26.i.i = sub i64 %offset.addr.07.i24.i.i, %33
+  %sub.i26.i.i = sub nuw i64 %offset.addr.07.i24.i.i, %33
   %arrayidx.i27.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i.i, i64 0, i64 %inc.i25.i.i
   %34 = load ptr, ptr %arrayidx.i27.i.i, align 8
   %35 = load i64, ptr %34, align 8
@@ -6700,7 +6700,7 @@ if.then.i.i.i:                                    ; preds = %_ZN4absl13cord_inte
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i
   %retval.sroa.3.0.i4.i = getelementptr inbounds i8, ptr %storage.i.pn.i.i42, i64 %offset.0.i.i37
-  %sub.i.i = sub i64 %37, %offset.addr.0.lcssa.i.pn.lcssa.i.i
+  %sub.i.i = sub nuw i64 %37, %offset.addr.0.lcssa.i.pn.lcssa.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.i4.i, i64 %offset.addr.0.lcssa.i.pn.lcssa.i.i
   %43 = load i32, ptr %navigator_.i, align 8
   %cmp.i.i.i.i = icmp sgt i32 %43, -1
@@ -7171,7 +7171,7 @@ while.body.i.i:                                   ; preds = %if.end.i, %while.bo
   %index.08.i.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ %conv.i.i.i, %if.end.i ]
   %offset.addr.07.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %offset, %if.end.i ]
   %inc.i.i = add i64 %index.08.i.i, 1
-  %sub.i.i = sub i64 %offset.addr.07.i.i, %6
+  %sub.i.i = sub nuw i64 %offset.addr.07.i.i, %6
   %arrayidx.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i, i64 0, i64 %inc.i.i
   %7 = load ptr, ptr %arrayidx.i.i, align 8
   %8 = load i64, ptr %7, align 8
@@ -7218,7 +7218,7 @@ while.body.i22.i:                                 ; preds = %while.body.i, %whil
   %index.08.i23.i = phi i64 [ %inc.i25.i, %while.body.i22.i ], [ %conv.i.i18.i, %while.body.i ]
   %offset.addr.07.i24.i = phi i64 [ %sub.i26.i, %while.body.i22.i ], [ %offset.addr.0.lcssa.i.pn39.i, %while.body.i ]
   %inc.i25.i = add i64 %index.08.i23.i, 1
-  %sub.i26.i = sub i64 %offset.addr.07.i24.i, %14
+  %sub.i26.i = sub nuw i64 %offset.addr.07.i24.i, %14
   %arrayidx.i27.i = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i, i64 0, i64 %inc.i25.i
   %15 = load ptr, ptr %arrayidx.i27.i, align 8
   %16 = load i64, ptr %15, align 8
@@ -7287,7 +7287,7 @@ if.then.i.i:                                      ; preds = %_ZN4absl13cord_inte
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit
   %retval.sroa.3.0.i4 = getelementptr inbounds i8, ptr %storage.i.pn.i, i64 %offset.0.i
-  %sub.i = sub i64 %18, %offset.addr.0.lcssa.i.pn.lcssa.i
+  %sub.i = sub nuw i64 %18, %offset.addr.0.lcssa.i.pn.lcssa.i
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.i4, i64 %offset.addr.0.lcssa.i.pn.lcssa.i
   %24 = load i32, ptr %navigator_, align 8
   %cmp.i.i.i = icmp sgt i32 %24, -1

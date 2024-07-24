@@ -3199,7 +3199,7 @@ proto_item_set_generated.exit:                    ; preds = %value_guard.exit105
   br i1 %1170, label %1171, label %1185
 
 1171:                                             ; preds = %.lr.ph1268
-  %1172 = sub i64 %1169, %1167
+  %1172 = sub nuw i64 %1169, %1167
   %sext1027 = shl i64 %1172, 32
   %1173 = ashr exact i64 %sext1027, 32
   %1174 = sub i64 %1169, %1173
@@ -3227,7 +3227,7 @@ value_guard.exit1085:                             ; preds = %1171
   br i1 %1186, label %1187, label %1202
 
 1187:                                             ; preds = %1185
-  %1188 = sub i64 %1167, %1169
+  %1188 = sub nuw i64 %1167, %1169
   %sext = shl i64 %1188, 32
   %1189 = ashr exact i64 %sext, 32
   %1190 = sub i64 %1167, %1189

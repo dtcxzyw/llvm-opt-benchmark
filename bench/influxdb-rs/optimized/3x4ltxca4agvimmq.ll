@@ -339,7 +339,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h36dc07a6763a4f0aE.exit: ; preds = 
   %32 = getelementptr inbounds i8, ptr %0, i64 %.sroa.7.0.ph.i
   %33 = load i8, ptr %32, align 1, !alias.scope !38, !noundef !9
   %34 = icmp sgt i8 %33, -65
-  %35 = sub i64 %1, %.sroa.7.0.ph.i
+  %35 = sub nuw i64 %1, %.sroa.7.0.ph.i
   br i1 %34, label %37, label %36
 
 36:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit.i.i", %31
@@ -612,7 +612,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h5e76dc967ea21af5E.exit: ; preds = 
   %32 = getelementptr inbounds i8, ptr %0, i64 %.sroa.7.0.ph.i
   %33 = load i8, ptr %32, align 1, !alias.scope !152, !noundef !9
   %34 = icmp sgt i8 %33, -65
-  %35 = sub i64 %1, %.sroa.7.0.ph.i
+  %35 = sub nuw i64 %1, %.sroa.7.0.ph.i
   br i1 %34, label %37, label %36
 
 36:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit.i.i", %31

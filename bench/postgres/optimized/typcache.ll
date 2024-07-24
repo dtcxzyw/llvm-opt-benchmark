@@ -3571,7 +3571,7 @@ define dso_local range(i32 -1, 2) i32 @compare_values_of_enum(ptr nocapture noun
   br i1 %17, label %enum_known_sorted.exit.thread, label %18
 
 18:                                               ; preds = %14
-  %19 = sub i32 %1, %16
+  %19 = sub nuw i32 %1, %16
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %enum_known_sorted.exit.thread, label %enum_known_sorted.exit
 
@@ -3587,7 +3587,7 @@ enum_known_sorted.exit:                           ; preds = %18
   br i1 %26, label %enum_known_sorted.exit.thread, label %27
 
 27:                                               ; preds = %24
-  %28 = sub i32 %2, %25
+  %28 = sub nuw i32 %2, %25
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %enum_known_sorted.exit.thread, label %enum_known_sorted.exit46
 

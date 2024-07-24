@@ -2007,7 +2007,7 @@ define internal noundef i64 @pci_read_rom(ptr nocapture readnone %0, ptr noundef
 21:                                               ; preds = %19
   %22 = add i64 %5, %4
   %23 = icmp ugt i64 %22, %16
-  %24 = sub i64 %16, %4
+  %24 = sub nuw i64 %16, %4
   %25 = select i1 %23, i64 %24, i64 %5
   %26 = getelementptr i8, ptr %14, i64 %4
   call void @memcpy_fromio(ptr noundef %3, ptr noundef %26, i64 noundef %25) #11

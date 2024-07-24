@@ -3833,7 +3833,7 @@ for.cond.preheader.for.cond.cleanup_crit_edge:    ; preds = %for.cond.preheader
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %8 = load ptr, ptr %sel, align 8, !tbaa !324
-  %9 = sub i64 %chunk_end.0, %chunk_start.0
+  %9 = sub nuw i64 %chunk_end.0, %chunk_start.0
   %min.iters.check = icmp ult i64 %9, 8
   br i1 %min.iters.check, label %for.body.preheader, label %vector.ph
 

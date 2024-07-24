@@ -940,7 +940,7 @@ if.else:                                          ; preds = %if.then100
   br i1 %cmp124, label %if.then126, label %if.end149
 
 if.then126:                                       ; preds = %if.else
-  %sub129 = sub nsw i64 %add123, %56
+  %sub129 = sub nuw nsw i64 %add123, %56
   %sub132 = sub i64 %57, %56
   %spec.select = tail call i64 @llvm.umin.i64(i64 %sub129, i64 %sub132)
   %61 = load ptr, ptr %window, align 8
@@ -2197,7 +2197,7 @@ if.then332:                                       ; preds = %while.body
   %140 = load i64, ptr %adler333, align 8
   %141 = load ptr, ptr %pending_buf316, align 8
   %add.ptr335 = getelementptr inbounds i8, ptr %141, i64 %132
-  %sub337 = sub i64 %137, %132
+  %sub337 = sub nuw i64 %137, %132
   %conv338 = trunc i64 %sub337 to i32
   %call339 = tail call i64 @crc32(i64 noundef %140, ptr noundef %add.ptr335, i32 noundef %conv338) #10
   store i64 %call339, ptr %adler333, align 8
@@ -2289,7 +2289,7 @@ if.then371:                                       ; preds = %while.end
   %161 = load i64, ptr %adler372, align 8
   %162 = load ptr, ptr %pending_buf352, align 8
   %add.ptr374 = getelementptr inbounds i8, ptr %162, i64 %beg.0.lcssa
-  %sub376 = sub i64 %add362, %beg.0.lcssa
+  %sub376 = sub nuw i64 %add362, %beg.0.lcssa
   %conv377 = trunc i64 %sub376 to i32
   %call378 = tail call i64 @crc32(i64 noundef %161, ptr noundef %add.ptr374, i32 noundef %conv377) #10
   store i64 %call378, ptr %adler372, align 8
@@ -2340,7 +2340,7 @@ if.then411:                                       ; preds = %do.body403
   %169 = load i64, ptr %adler412, align 8
   %170 = load ptr, ptr %pending_buf413, align 8
   %add.ptr414 = getelementptr inbounds i8, ptr %170, i64 %beg395.0
-  %sub416 = sub i64 %166, %beg395.0
+  %sub416 = sub nuw i64 %166, %beg395.0
   %conv417 = trunc i64 %sub416 to i32
   %call418 = tail call i64 @crc32(i64 noundef %169, ptr noundef %add.ptr414, i32 noundef %conv417) #10
   store i64 %call418, ptr %adler412, align 8
@@ -2435,7 +2435,7 @@ if.then451:                                       ; preds = %land.lhs.true447
   %192 = load i64, ptr %adler412, align 8
   %193 = load ptr, ptr %pending_buf413, align 8
   %add.ptr454 = getelementptr inbounds i8, ptr %193, i64 %beg395.1
-  %sub456 = sub i64 %191, %beg395.1
+  %sub456 = sub nuw i64 %191, %beg395.1
   %conv457 = trunc i64 %sub456 to i32
   %call458 = tail call i64 @crc32(i64 noundef %192, ptr noundef %add.ptr454, i32 noundef %conv457) #10
   store i64 %call458, ptr %adler412, align 8
@@ -2486,7 +2486,7 @@ if.then493:                                       ; preds = %do.body485
   %200 = load i64, ptr %adler494, align 8
   %201 = load ptr, ptr %pending_buf495, align 8
   %add.ptr496 = getelementptr inbounds i8, ptr %201, i64 %beg476.0
-  %sub498 = sub i64 %197, %beg476.0
+  %sub498 = sub nuw i64 %197, %beg476.0
   %conv499 = trunc i64 %sub498 to i32
   %call500 = tail call i64 @crc32(i64 noundef %200, ptr noundef %add.ptr496, i32 noundef %conv499) #10
   store i64 %call500, ptr %adler494, align 8
@@ -2581,7 +2581,7 @@ if.then535:                                       ; preds = %land.lhs.true531
   %223 = load i64, ptr %adler494, align 8
   %224 = load ptr, ptr %pending_buf495, align 8
   %add.ptr538 = getelementptr inbounds i8, ptr %224, i64 %beg476.1
-  %sub540 = sub i64 %222, %beg476.1
+  %sub540 = sub nuw i64 %222, %beg476.1
   %conv541 = trunc i64 %sub540 to i32
   %call542 = tail call i64 @crc32(i64 noundef %223, ptr noundef %add.ptr538, i32 noundef %conv541) #10
   store i64 %call542, ptr %adler494, align 8
@@ -3310,7 +3310,7 @@ do.body:                                          ; preds = %do.cond, %entry
   br i1 %cmp8, label %do.end, label %if.end
 
 if.end:                                           ; preds = %do.body
-  %sub12 = sub i32 %6, %shr
+  %sub12 = sub nuw i32 %6, %shr
   %7 = load i32, ptr %strstart, align 4
   %8 = load i64, ptr %block_start, align 8
   %9 = trunc i64 %8 to i32

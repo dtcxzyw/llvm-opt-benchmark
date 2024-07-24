@@ -1781,7 +1781,7 @@ if.then.i241.i:                                   ; preds = %fill.exit285.i
   unreachable
 
 if.end.i220.i:                                    ; preds = %fill.exit285.i
-  %conv19.us.us.i.i.i = sub i32 %207, %209
+  %conv19.us.us.i.i.i = sub nuw i32 %207, %209
   %210 = load i32, ptr @input_crc32, align 4
   %conv.i221.i = zext i32 %210 to i64
   %211 = load i32, ptr @input_offset, align 4
@@ -1946,7 +1946,7 @@ if.then.i173.i:                                   ; preds = %fill.exit217.i
   unreachable
 
 if.end.i152.i:                                    ; preds = %fill.exit217.i
-  %conv19.us.i.i.i = sub i32 %234, %236
+  %conv19.us.i.i.i = sub nuw i32 %234, %236
   %237 = load i32, ptr @input_crc32, align 4
   %conv.i153.i = zext i32 %237 to i64
   %238 = load i32, ptr @input_offset, align 4
@@ -2112,7 +2112,7 @@ if.then.i105.i:                                   ; preds = %fill.exit149.i
   unreachable
 
 if.end.i84.i:                                     ; preds = %fill.exit149.i
-  %conv19.us23.i.i.i = sub i32 %261, %263
+  %conv19.us23.i.i.i = sub nuw i32 %261, %263
   %264 = load i32, ptr @input_crc32, align 4
   %conv.i85.i = zext i32 %264 to i64
   %265 = load i32, ptr @input_offset, align 4
@@ -2287,7 +2287,7 @@ if.then.i65.i:                                    ; preds = %fill.exit.i
   unreachable
 
 if.end.i54.i:                                     ; preds = %fill.exit.i
-  %conv19.i.i.i = sub i32 %293, %295
+  %conv19.i.i.i = sub nuw i32 %293, %295
   %296 = load i32, ptr @input_crc32, align 4
   %conv.i55.i = zext i32 %296 to i64
   %297 = load i32, ptr @input_offset, align 4
@@ -4146,7 +4146,7 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %sub.i.i = sub i64 %call.i, %call.i.i
+  %sub.i.i = sub nuw i64 %call.i, %call.i.i
   %add.ptr.i.i = getelementptr i8, ptr %pack_name, i64 %sub.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr readonly %add.ptr.i.i, ptr readonly %strip, i64 %call.i.i)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0

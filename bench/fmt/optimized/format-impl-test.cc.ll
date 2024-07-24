@@ -6776,7 +6776,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit71: 
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit71
-  %sub24 = sub nsw i64 %add18, %add15
+  %sub24 = sub nuw nsw i64 %add18, %add15
   %cmp25 = icmp ugt i64 %sub24, 1
   br i1 %cmp25, label %return, label %for.cond
 
@@ -25487,7 +25487,7 @@ _ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit16: ; pre
 
 if.then8:                                         ; preds = %_ZN3fmt3v106detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit16
   %conv5 = zext nneg i32 %2 to i64
-  %sub = sub nsw i64 %conv5, %conv
+  %sub = sub nuw nsw i64 %conv5, %conv
   store i64 %sub, ptr %padding, align 8
   store i64 %conv5, ptr %this, align 8
   br label %if.end28

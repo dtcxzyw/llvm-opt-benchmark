@@ -10864,7 +10864,7 @@ define linkonce_odr void @_ZNSt6vectorI5edparSaIS0_EE6resizeEm(ptr noundef nonnu
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -10886,7 +10886,7 @@ _ZSt27__uninitialized_default_n_aIP5edparmS0_ET_S2_T0_RSaIT1_E.exit.i: ; preds =
   br label %_ZNSt6vectorI5edparSaIS0_EE17_M_default_appendEm.exit
 
 22:                                               ; preds = %11
-  %23 = icmp ult i64 %19, %12
+  %23 = icmp ugt i64 %1, 10386680221683306
   br i1 %23, label %24, label %_ZNKSt6vectorI5edparSaIS0_EE12_M_check_lenEmPKc.exit.i
 
 24:                                               ; preds = %22

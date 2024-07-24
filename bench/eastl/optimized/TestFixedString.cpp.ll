@@ -2153,7 +2153,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -3399,7 +3399,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -4666,7 +4666,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -7607,7 +7607,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -9298,7 +9298,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -10989,7 +10989,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -12372,7 +12372,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -13777,7 +13777,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -16760,7 +16760,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -18451,7 +18451,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -21456,7 +21456,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -27024,7 +27024,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -27336,7 +27336,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -28859,7 +28859,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp8.i, label %if.then9.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit
 
 if.then9.i:                                       ; preds = %if.else.i
-  %sub.i = sub i64 %add11, %cond.i.i41
+  %sub.i = sub nuw i64 %add11, %cond.i.i41
   %call10.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i, i8 noundef signext 0)
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit
@@ -28941,7 +28941,7 @@ if.else.i56:                                      ; preds = %for.body
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80
 
 if.then9.i58:                                     ; preds = %if.else.i56
-  %sub.i59 = sub nsw i64 %n.0129, %cond.i.i54
+  %sub.i59 = sub nuw nsw i64 %n.0129, %cond.i.i54
   %call10.i60 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i59, i8 noundef signext 0)
   %.pre130 = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80
@@ -29010,7 +29010,7 @@ if.else.i92:                                      ; preds = %if.then30
   br i1 %cmp8.i93.not, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116, label %if.then9.i94
 
 if.then9.i94:                                     ; preds = %if.else.i92
-  %sub.i95 = sub nsw i64 %inc, %cond.i.i90
+  %sub.i95 = sub nuw nsw i64 %inc, %cond.i.i90
   %call10.i96 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i95, i8 noundef signext 0)
   %.pre131 = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116
@@ -31625,7 +31625,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp8.i, label %if.then9.i, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit
 
 if.then9.i:                                       ; preds = %if.else.i
-  %sub.i = sub i64 %add11, %cond.i.i41
+  %sub.i = sub nuw i64 %add11, %cond.i.i41
   %call10.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i, i8 noundef signext 0)
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit
@@ -31707,7 +31707,7 @@ if.else.i56:                                      ; preds = %for.body
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80
 
 if.then9.i58:                                     ; preds = %if.else.i56
-  %sub.i59 = sub nsw i64 %n.0129, %cond.i.i54
+  %sub.i59 = sub nuw nsw i64 %n.0129, %cond.i.i54
   %call10.i60 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i59, i8 noundef signext 0)
   %.pre130 = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80
@@ -31776,7 +31776,7 @@ if.else.i92:                                      ; preds = %if.then30
   br i1 %cmp8.i93.not, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116, label %if.then9.i94
 
 if.then9.i94:                                     ; preds = %if.else.i92
-  %sub.i95 = sub nsw i64 %inc, %cond.i.i90
+  %sub.i95 = sub nuw nsw i64 %inc, %cond.i.i90
   %call10.i96 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i95, i8 noundef signext 0)
   %.pre131 = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116
@@ -33650,7 +33650,7 @@ if.else:                                          ; preds = %if.then27
   %conv.i.i139 = zext nneg i8 %19 to i64
   %sub.i.i140 = sub nsw i64 23, %conv.i.i139
   %cond.i141 = select i1 %tobool.i.i137, i64 %20, i64 %sub.i.i140
-  %sub63 = sub i64 %sub.ptr.sub5, %sub.ptr.sub32
+  %sub63 = sub nuw i64 %sub.ptr.sub5, %sub.ptr.sub32
   %add64 = add i64 %cond.i141, %sub63
   %add64.fr = freeze i64 %add64
   br i1 %tobool.i.i137, label %.thread, label %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148
@@ -34107,7 +34107,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807
@@ -35299,7 +35299,7 @@ if.else:                                          ; preds = %if.then27
   %conv.i.i143 = zext nneg i8 %22 to i64
   %sub.i.i144 = sub nsw i64 23, %conv.i.i143
   %cond.i145 = select i1 %tobool.i.i141, i64 %23, i64 %sub.i.i144
-  %sub63 = sub i64 %sub.ptr.sub5, %sub.ptr.sub32
+  %sub63 = sub nuw i64 %sub.ptr.sub5, %sub.ptr.sub32
   %add64 = add i64 %cond.i145, %sub63
   %add64.fr = freeze i64 %add64
   br i1 %tobool.i.i141, label %.thread, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit152

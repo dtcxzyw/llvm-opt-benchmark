@@ -516,7 +516,7 @@ _ZSt13move_backwardIPN2cv3ccm9OperationES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN2cv3ccm9OperationESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %17
   %44 = getelementptr inbounds i8, ptr %2, i64 %19
   %45 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv3ccm9OperationESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_(ptr %44, ptr %3, ptr noundef %13)
-  %46 = sub nsw i64 %9, %20
+  %46 = sub nuw nsw i64 %9, %20
   %47 = load ptr, ptr %12, align 8
   %48 = getelementptr inbounds %"class.cv::ccm::Operation", ptr %47, i64 %46
   store ptr %48, ptr %12, align 8

@@ -4438,7 +4438,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_125CoarseQuantizedWithBuffer8
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %4
-  %17 = sub i64 %7, %14
+  %17 = sub nuw i64 %7, %14
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %17)
   %.pre = load i64, ptr %0, align 8
   %.pre8 = mul i64 %.pre, %2
@@ -4472,7 +4472,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %34 = sub i64 %.pre-phi, %31
+  %34 = sub nuw i64 %.pre-phi, %31
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %34)
   %.pre6 = load i64, ptr %0, align 8
   %.pre7 = load ptr, ptr %24, align 8
@@ -8279,7 +8279,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -9033,7 +9033,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -9887,7 +9887,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxItlEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMaxItlEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load i16, ptr %1, align 2
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds i16, ptr %4, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -10744,7 +10744,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMinItlEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMinItlEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load i16, ptr %1, align 2
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds i16, ptr %4, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -11316,7 +11316,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %70
+  %77 = sub nuw i64 %73, %70
   %78 = trunc i64 %77 to i32
   %notmask.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i, -1
@@ -11645,7 +11645,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %76
+  %83 = sub nuw i64 %79, %76
   %84 = trunc i64 %83 to i32
   %notmask.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i, -1
@@ -12147,7 +12147,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -14032,7 +14032,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %70
+  %77 = sub nuw i64 %73, %70
   %78 = trunc i64 %77 to i32
   %notmask.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i, -1
@@ -14351,7 +14351,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %82, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 82:                                               ; preds = %81
-  %83 = sub i64 %79, %76
+  %83 = sub nuw i64 %79, %76
   %84 = trunc i64 %83 to i32
   %notmask.i = shl nsw i32 -1, %84
   %85 = xor i32 %notmask.i, -1
@@ -14853,7 +14853,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -16367,7 +16367,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %4, %._ZNSt6vectorIt
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %32 = sub i64 %24, %29
+  %32 = sub nuw i64 %24, %29
   invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %32)
           to label %_ZNSt6vectorImSaImEE6resizeEm.exit unwind label %38
 
@@ -16477,7 +16477,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %4, %._ZNSt6vectorIt
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %32 = sub i64 %24, %29
+  %32 = sub nuw i64 %24, %29
   invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %32)
           to label %_ZNSt6vectorImSaImEE6resizeEm.exit unwind label %38
 
@@ -16962,7 +16962,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i16, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %70
+  %77 = sub nuw i64 %73, %70
   %78 = trunc i64 %77 to i32
   %notmask.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i, -1
@@ -17689,7 +17689,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i16, label %76, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 76:                                               ; preds = %75
-  %77 = sub i64 %73, %70
+  %77 = sub nuw i64 %73, %70
   %78 = trunc i64 %77 to i32
   %notmask.i = shl nsw i32 -1, %78
   %79 = xor i32 %notmask.i, -1

@@ -48635,7 +48635,7 @@ if.end96:                                         ; preds = %_ZNSt7__cxx1112basi
 
 if.then100:                                       ; preds = %if.end96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp101) #22
-  %sub103 = sub i64 %conv97, %30
+  %sub103 = sub nuw i64 %conv97, %30
   %31 = getelementptr inbounds i8, ptr %ref.tmp101, i64 16
   store ptr %31, ptr %ref.tmp101, align 8, !tbaa !37
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101, i64 noundef %sub103, i8 noundef signext 32)
@@ -58820,7 +58820,7 @@ entry:
   br i1 %cmp.i16, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_extendedAscii, i64 noundef %sub.i)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -58950,7 +58950,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !1439
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64
@@ -61597,7 +61597,7 @@ entry:
   br i1 %cmp.i15, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_extendedAscii, i64 noundef %sub.i)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -141634,7 +141634,7 @@ while.cond.i:                                     ; preds = %while.body.i, %for.
 
 while.body.i:                                     ; preds = %while.cond.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %begin.0.i
-  %sub.i = sub nsw i64 %conv.i.i, %begin.0.i
+  %sub.i = sub nuw nsw i64 %conv.i.i, %begin.0.i
   %call2.i = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %codepoint.i)
   %22 = load i32, ptr %codepoint.i, align 4, !tbaa !65
   %call3.i = call noundef i32 @_ZN6duckdb17utf8proc_categoryEi(i32 noundef %22)
@@ -141736,7 +141736,7 @@ while.cond.i120:                                  ; preds = %while.body.i143, %i
 
 while.body.i143:                                  ; preds = %while.cond.i120
   %add.ptr.i144 = getelementptr inbounds i8, ptr %cond.i.i118, i64 %begin.0.i121
-  %sub.i145 = sub nsw i64 %conv.i.i119, %begin.0.i121
+  %sub.i145 = sub nuw nsw i64 %conv.i.i119, %begin.0.i121
   %call2.i146 = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i144, i64 noundef %sub.i145, ptr noundef nonnull %codepoint.i115)
   %32 = load i32, ptr %codepoint.i115, align 4, !tbaa !65
   %call3.i147 = call noundef i32 @_ZN6duckdb17utf8proc_categoryEi(i32 noundef %32)
@@ -142090,7 +142090,7 @@ while.cond:                                       ; preds = %while.body, %entry
 
 while.body:                                       ; preds = %while.cond
   %add.ptr = getelementptr inbounds i8, ptr %cond.i, i64 %begin.0
-  %sub = sub nsw i64 %conv.i, %begin.0
+  %sub = sub nuw nsw i64 %conv.i, %begin.0
   %call2 = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %codepoint)
   %2 = load i32, ptr %codepoint, align 4, !tbaa !65
   %call3 = call noundef i32 @_ZN6duckdb17utf8proc_categoryEi(i32 noundef %2)
@@ -142883,7 +142883,7 @@ while.cond.while.end_crit_edge.i:                 ; preds = %while.cond.i
 
 while.body.i:                                     ; preds = %while.cond.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %begin.0.i
-  %sub.i = sub nsw i64 %conv.i.i, %begin.0.i
+  %sub.i = sub nuw nsw i64 %conv.i.i, %begin.0.i
   %call2.i = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %codepoint.i)
   %22 = load i32, ptr %codepoint.i, align 4, !tbaa !65
   %call3.i = call noundef i32 @_ZN6duckdb17utf8proc_categoryEi(i32 noundef %22)
@@ -142974,7 +142974,7 @@ while.cond.while.end_crit_edge.i123:              ; preds = %while.cond.i120
 
 while.body.i144:                                  ; preds = %while.cond.i120
   %add.ptr.i145 = getelementptr inbounds i8, ptr %cond.i.i118, i64 %begin.0.i121
-  %sub.i146 = sub nsw i64 %conv.i.i119, %begin.0.i121
+  %sub.i146 = sub nuw nsw i64 %conv.i.i119, %begin.0.i121
   %call2.i147 = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i145, i64 noundef %sub.i146, ptr noundef nonnull %codepoint.i115)
   %31 = load i32, ptr %codepoint.i115, align 4, !tbaa !65
   %call3.i148 = call noundef i32 @_ZN6duckdb17utf8proc_categoryEi(i32 noundef %31)
@@ -143317,7 +143317,7 @@ while.cond.while.end_crit_edge:                   ; preds = %while.cond
 
 while.body:                                       ; preds = %while.cond
   %add.ptr = getelementptr inbounds i8, ptr %cond.i, i64 %begin.0
-  %sub = sub nsw i64 %conv.i, %begin.0
+  %sub = sub nuw nsw i64 %conv.i, %begin.0
   %call2 = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %codepoint)
   %2 = load i32, ptr %codepoint, align 4, !tbaa !65
   %call3 = call noundef i32 @_ZN6duckdb17utf8proc_categoryEi(i32 noundef %2)

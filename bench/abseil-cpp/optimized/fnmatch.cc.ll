@@ -109,7 +109,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end6.i.i
 while.body.i.i:                                   ; preds = %if.end19.i.i, %while.body.lr.ph.i.i
   %__len.022.i.i = phi i64 [ %str.sroa.0.097, %while.body.lr.ph.i.i ], [ %sub.ptr.sub22.i.i, %if.end19.i.i ]
   %__first.021.i.i = phi ptr [ %str.sroa.10.096, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.end19.i.i ]
-  %sub12.i.i = sub i64 %__len.022.i.i, %fixed_portion.sroa.0.0
+  %sub12.i.i = sub nuw i64 %__len.022.i.i, %fixed_portion.sroa.0.0
   %add.i.i = add i64 %sub12.i.i, 1
   %cmp.i.i.i = icmp eq i64 %add.i.i, 0
   br i1 %cmp.i.i.i, label %return, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i22

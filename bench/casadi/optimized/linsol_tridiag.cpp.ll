@@ -298,7 +298,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi13LinsolTridiag8init_memEPv(ptr n
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %4
-  %17 = sub i64 %7, %14
+  %17 = sub nuw i64 %7, %14
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %17)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -329,7 +329,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %34 = sub i64 %24, %31
+  %34 = sub nuw i64 %24, %31
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %34)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit7
 
@@ -360,7 +360,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit7:              ; preds = %33, %35, %37, %39
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit7
-  %51 = sub i64 %41, %48
+  %51 = sub nuw i64 %41, %48
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %51)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit9
 

@@ -409,7 +409,7 @@ define dso_local noundef i64 @strlcat(ptr noundef %0, ptr noundef %1, i64 nounde
   %20 = ptrtoint ptr %9 to i64
   %21 = ptrtoint ptr %1 to i64
   %22 = sub i64 %20, %21
-  %23 = sub i64 %2, %16
+  %23 = sub nuw i64 %2, %16
   %24 = icmp ult i64 %22, %23
   %25 = add i64 %23, -1
   %26 = select i1 %24, i64 %22, i64 %25

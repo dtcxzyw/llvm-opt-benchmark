@@ -5102,7 +5102,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance9elem_drop17hf2c6d58b
   br label %.thread.i
 
 14:                                               ; preds = %7
-  %15 = sub nsw i64 %10, %12
+  %15 = sub nuw nsw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %15, i64 noundef 0)
   br label %.thread.i
 
@@ -5744,7 +5744,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance9data_drop17h91dfe6f1
   br label %.thread.i
 
 14:                                               ; preds = %7
-  %15 = sub nsw i64 %10, %12
+  %15 = sub nuw nsw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %15, i64 noundef 0)
   br label %.thread.i
 

@@ -137,7 +137,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
   br label %.thread
 
 13:                                               ; preds = %6
-  %14 = sub nsw i64 %9, %11
+  %14 = sub nuw nsw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14, i64 noundef 0)
   br label %.thread
 
@@ -202,7 +202,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
   br label %.thread
 
 13:                                               ; preds = %6
-  %14 = sub nsw i64 %9, %11
+  %14 = sub nuw nsw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14, i64 noundef 0)
   br label %.thread
 

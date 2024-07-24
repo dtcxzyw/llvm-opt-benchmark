@@ -445,7 +445,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
 
 53:                                               ; preds = %50
   %54 = or disjoint i64 %39, 1
-  %55 = sub nsw i64 %38, %52
+  %55 = sub nuw nsw i64 %38, %52
   br label %95
 
 56:                                               ; preds = %45
@@ -462,7 +462,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
 
 64:                                               ; preds = %56
   %65 = or disjoint i64 %39, 3
-  %66 = sub nsw i64 %38, %59
+  %66 = sub nuw nsw i64 %38, %59
   br label %95
 
 67:                                               ; preds = %.loopexit
@@ -487,7 +487,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
 
 81:                                               ; preds = %74
   %82 = or disjoint i64 %39, 5
-  %83 = sub nsw i64 %38, %76
+  %83 = sub nuw nsw i64 %38, %76
   br label %95
 
 84:                                               ; preds = %67
@@ -504,7 +504,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
 
 92:                                               ; preds = %84
   %93 = or disjoint i64 %39, 7
-  %94 = sub i64 %38, %87
+  %94 = sub nuw i64 %38, %87
   br label %95
 
 95:                                               ; preds = %81, %78, %92, %89, %53, %50, %64, %61

@@ -26586,7 +26586,7 @@ if.then.i83:                                      ; preds = %if.end30.i
 
 if.then8.i:                                       ; preds = %if.then.i83
   %conv5.i = zext i32 %5 to i64
-  %sub.i = sub nsw i64 %conv5.i, %conv.i79
+  %sub.i = sub nuw nsw i64 %conv5.i, %conv.i79
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 if.else.i:                                        ; preds = %if.end30.i
@@ -26810,7 +26810,7 @@ if.then.i148:                                     ; preds = %if.end30.i43
 
 if.then8.i150:                                    ; preds = %if.then.i148
   %conv5.i151 = zext i32 %29 to i64
-  %sub.i152 = sub nsw i64 %conv5.i151, %conv.i135
+  %sub.i152 = sub nuw nsw i64 %conv5.i151, %conv.i135
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit153
 
 if.else.i140:                                     ; preds = %if.end30.i43
@@ -27031,7 +27031,7 @@ if.then.i239:                                     ; preds = %if.end30.i87
 
 if.then8.i241:                                    ; preds = %if.then.i239
   %conv5.i242 = zext i32 %53 to i64
-  %sub.i243 = sub nsw i64 %conv5.i242, %conv.i226
+  %sub.i243 = sub nuw nsw i64 %conv5.i242, %conv.i226
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit244
 
 if.else.i231:                                     ; preds = %if.end30.i87
@@ -27257,7 +27257,7 @@ if.then.i336:                                     ; preds = %if.end30.i131
 
 if.then8.i338:                                    ; preds = %if.then.i336
   %conv5.i339 = zext i32 %80 to i64
-  %sub.i340 = sub nsw i64 %conv5.i339, %conv.i323
+  %sub.i340 = sub nuw nsw i64 %conv5.i339, %conv.i323
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit341
 
 if.else.i328:                                     ; preds = %if.end30.i131
@@ -38876,7 +38876,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i:
   br i1 %cmp19.i, label %invoke.cont72, label %if.end21.i
 
 if.end21.i:                                       ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i
-  %sub24.i = sub nsw i64 %add18.i, %add15.i
+  %sub24.i = sub nuw nsw i64 %add18.i, %add15.i
   %cmp25.i = icmp ugt i64 %sub24.i, 1
   br i1 %cmp25.i, label %invoke.cont72, label %for.cond.i
 
@@ -39274,7 +39274,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i6
   br i1 %cmp19.i679, label %invoke.cont107, label %if.end21.i680
 
 if.end21.i680:                                    ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i675
-  %sub24.i681 = sub nsw i64 %add18.i678, %add15.i671
+  %sub24.i681 = sub nuw nsw i64 %add18.i678, %add15.i671
   %cmp25.i682 = icmp ugt i64 %sub24.i681, 1
   br i1 %cmp25.i682, label %invoke.cont107, label %for.cond.i683
 
@@ -39375,7 +39375,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i7
   br i1 %cmp19.i750, label %if.end139.sink.split, label %if.end21.i751
 
 if.end21.i751:                                    ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i746
-  %sub24.i752 = sub nsw i64 %add18.i749, %add15.i742
+  %sub24.i752 = sub nuw nsw i64 %add18.i749, %add15.i742
   %cmp25.i753 = icmp ugt i64 %sub24.i752, 1
   br i1 %cmp25.i753, label %if.end139, label %for.cond.i754
 
@@ -39722,7 +39722,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i9
   br i1 %cmp19.i948, label %invoke.cont163, label %if.end21.i949
 
 if.end21.i949:                                    ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i944
-  %sub24.i950 = sub nsw i64 %add18.i947, %add15.i940
+  %sub24.i950 = sub nuw nsw i64 %add18.i947, %add15.i940
   %cmp25.i951 = icmp ult i64 %sub24.i950, 2
   %shl.i953 = shl nuw nsw i64 %sub24.i950, 32
   %cmp11.not.not.i954 = icmp sgt i32 %i.067.i927, %cond.i29.i917
@@ -39936,7 +39936,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i1
   br i1 %cmp19.i1070, label %if.then196, label %if.end21.i1071
 
 if.end21.i1071:                                   ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i1066
-  %sub24.i1072 = sub nsw i64 %add18.i1069, %add15.i1062
+  %sub24.i1072 = sub nuw nsw i64 %add18.i1069, %add15.i1062
   %cmp25.i1073 = icmp ugt i64 %sub24.i1072, 1
   br i1 %cmp25.i1073, label %if.end225, label %for.cond.i1074
 
@@ -47135,7 +47135,7 @@ if.then.i81:                                      ; preds = %if.end30.i
 
 if.then8.i:                                       ; preds = %if.then.i81
   %conv5.i = zext i32 %6 to i64
-  %sub.i = sub nsw i64 %conv5.i, %conv.i
+  %sub.i = sub nuw nsw i64 %conv5.i, %conv.i
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 if.else.i:                                        ; preds = %if.end30.i
@@ -47365,7 +47365,7 @@ if.then.i145:                                     ; preds = %if.end30.i43
 
 if.then8.i147:                                    ; preds = %if.then.i145
   %conv5.i148 = zext i32 %27 to i64
-  %sub.i149 = sub nsw i64 %conv5.i148, %conv.i132
+  %sub.i149 = sub nuw nsw i64 %conv5.i148, %conv.i132
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit150
 
 if.else.i137:                                     ; preds = %if.end30.i43
@@ -47592,7 +47592,7 @@ if.then.i246:                                     ; preds = %if.end30.i87
 
 if.then8.i248:                                    ; preds = %if.then.i246
   %conv5.i249 = zext i32 %50 to i64
-  %sub.i250 = sub nsw i64 %conv5.i249, %conv.i233
+  %sub.i250 = sub nuw nsw i64 %conv5.i249, %conv.i233
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit251
 
 if.else.i238:                                     ; preds = %if.end30.i87
@@ -47818,7 +47818,7 @@ if.then.i349:                                     ; preds = %if.end30.i131
 
 if.then8.i351:                                    ; preds = %if.then.i349
   %conv5.i352 = zext i32 %73 to i64
-  %sub.i353 = sub nsw i64 %conv5.i352, %conv.i336
+  %sub.i353 = sub nuw nsw i64 %conv5.i352, %conv.i336
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit354
 
 if.else.i341:                                     ; preds = %if.end30.i131
@@ -49850,7 +49850,7 @@ if.then.i81:                                      ; preds = %if.end30.i
 
 if.then8.i:                                       ; preds = %if.then.i81
   %conv5.i = zext i32 %3 to i64
-  %sub.i = sub nsw i64 %conv5.i, %conv.i
+  %sub.i = sub nuw nsw i64 %conv5.i, %conv.i
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 if.else.i:                                        ; preds = %if.end30.i
@@ -50081,7 +50081,7 @@ if.then.i145:                                     ; preds = %if.end30.i45
 
 if.then8.i147:                                    ; preds = %if.then.i145
   %conv5.i148 = zext i32 %25 to i64
-  %sub.i149 = sub nsw i64 %conv5.i148, %conv.i132
+  %sub.i149 = sub nuw nsw i64 %conv5.i148, %conv.i132
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit150
 
 if.else.i137:                                     ; preds = %if.end30.i45
@@ -50309,7 +50309,7 @@ if.then.i250:                                     ; preds = %if.end30.i89
 
 if.then8.i252:                                    ; preds = %if.then.i250
   %conv5.i253 = zext i32 %50 to i64
-  %sub.i254 = sub nsw i64 %conv5.i253, %conv.i237
+  %sub.i254 = sub nuw nsw i64 %conv5.i253, %conv.i237
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit255
 
 if.else.i242:                                     ; preds = %if.end30.i89
@@ -50535,7 +50535,7 @@ if.then.i357:                                     ; preds = %if.end30.i133
 
 if.then8.i359:                                    ; preds = %if.then.i357
   %conv5.i360 = zext i32 %73 to i64
-  %sub.i361 = sub nsw i64 %conv5.i360, %conv.i344
+  %sub.i361 = sub nuw nsw i64 %conv5.i360, %conv.i344
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit362
 
 if.else.i349:                                     ; preds = %if.end30.i133
@@ -53702,9 +53702,9 @@ if.end.i135:                                      ; preds = %for.cond.i
 if.end7.i138:                                     ; preds = %if.end.i135
   %43 = trunc nuw nsw i64 %indvars.iv375 to i32
   %cmp10.not.i = icmp ult i64 %mul68.i, %shl.i
-  %sub.i139 = sub i64 %shl.i, %mul68.i
+  %sub.i139 = sub nuw i64 %shl.i, %mul68.i
   %cmp11.not.i140 = icmp ugt i64 %sub.i139, %mul68.i
-  %or.cond18.i = and i1 %cmp10.not.i, %cmp11.not.i140
+  %or.cond18.i = select i1 %cmp10.not.i, i1 %cmp11.not.i140, i1 false
   br i1 %or.cond18.i, label %if.end18.i, label %if.then68
 
 if.end18.i:                                       ; preds = %if.end7.i138
@@ -53720,7 +53720,7 @@ land.lhs.true.i.i143:                             ; preds = %if.end18.i
   br i1 %cmp11.not.i.i147, label %land.lhs.true13.i.i150, label %if.then53
 
 land.lhs.true13.i.i150:                           ; preds = %if.end18.i, %land.lhs.true.i.i143
-  %sub14.i.i151 = sub i64 %and78.i, %mul68.i
+  %sub14.i.i151 = sub nuw i64 %and78.i, %mul68.i
   %sub16.i.i152 = sub i64 %shl.i, %sub14.i.i151
   %cmp17.not.i.i153 = icmp ult i64 %sub14.i.i151, %sub16.i.i152
   br i1 %cmp17.not.i.i153, label %if.then68, label %if.end22.i154

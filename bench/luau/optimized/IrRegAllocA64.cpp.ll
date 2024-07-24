@@ -1306,7 +1306,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18Assemb
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %._crit_edge
-  %44 = sub i64 %2, %40
+  %44 = sub nuw i64 %2, %40
   tail call void @_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %44)
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE6resizeEm.exit
 

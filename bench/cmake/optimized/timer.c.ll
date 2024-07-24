@@ -671,7 +671,7 @@ define dso_local i32 @uv__next_timeout(ptr nocapture noundef readonly %0) local_
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = sub i64 %6, %8
+  %10 = sub nuw i64 %6, %8
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %10, i64 2147483647)
   %11 = trunc nuw nsw i64 %spec.store.select to i32
   br label %12

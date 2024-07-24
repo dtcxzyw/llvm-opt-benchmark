@@ -4600,7 +4600,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo14init_from_fileEi(ptr nocaptu
   br i1 %136, label %142, label %137
 
 137:                                              ; preds = %132
-  %138 = sub i64 %128, %135
+  %138 = sub nuw i64 %128, %135
   %139 = getelementptr inbounds i8, ptr %133, i64 40
   %140 = load i64, ptr %139, align 8
   %141 = icmp ult i64 %138, %140

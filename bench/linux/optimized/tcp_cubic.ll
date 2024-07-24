@@ -264,7 +264,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
 
 67:                                               ; preds = %54
   %68 = load i64, ptr @cube_factor, align 8
-  %69 = sub i32 %62, %26
+  %69 = sub nuw i32 %62, %26
   %70 = zext i32 %69 to i64
   %71 = mul i64 %68, %70
   %72 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %71, i32 -1) #9, !srcloc !5
@@ -350,7 +350,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %110
-  %143 = sub i32 %140, %26
+  %143 = sub nuw i32 %140, %26
   %144 = udiv i32 %26, %143
   br label %147
 
@@ -407,7 +407,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
   br i1 %172, label %173, label %176
 
 173:                                              ; preds = %._crit_edge17
-  %174 = sub i32 %171, %26
+  %174 = sub nuw i32 %171, %26
   %175 = udiv i32 %26, %174
   %spec.select = tail call i32 @llvm.umin.i32(i32 %.pre22, i32 %175)
   br label %176

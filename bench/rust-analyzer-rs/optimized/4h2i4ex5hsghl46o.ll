@@ -8215,10 +8215,11 @@ define hidden { i64, i64 } @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %.not = icmp ule i64 %3, %4
-  %5 = sub i64 %4, %3
+  %5 = sub nuw i64 %4, %3
+  %.sroa.3.0 = select i1 %.not, i64 %5, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %7 = insertvalue { i64, i64 } %6, i64 %5, 1
+  %7 = insertvalue { i64, i64 } %6, i64 %.sroa.3.0, 1
   ret { i64, i64 } %7
 }
 
@@ -13326,7 +13327,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h1
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef nonnull align 8 dereferenceable(88) %7, i64 88, i1 false)
   call void @"_ZN116_$LT$rayon..iter..map_with..MapWithConsumer$LT$C$C$U$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hff61135255bc8369E"(ptr noalias nocapture noundef nonnull sret({ { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } }, {} }) align 8 dereferenceable(176) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %17, i64 noundef %23)
-  %49 = sub i64 %6, %23
+  %49 = sub nuw i64 %6, %23
   %50 = getelementptr inbounds i32, ptr %5, i64 %23
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %17)
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 160
@@ -13586,7 +13587,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h5
 
 49:                                               ; preds = %33
   %50 = getelementptr inbounds ptr, ptr %5, i64 %25
-  %51 = sub i64 %6, %25
+  %51 = sub nuw i64 %6, %25
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %7, i64 72, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2661)
@@ -13840,7 +13841,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17ha
 
 49:                                               ; preds = %33
   %50 = getelementptr inbounds i32, ptr %5, i64 %25
-  %51 = sub i64 %6, %25
+  %51 = sub nuw i64 %6, %25
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %7, i64 72, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2712)
@@ -14294,7 +14295,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef nonnull align 8 dereferenceable(88) %7, i64 88, i1 false)
   call void @"_ZN116_$LT$rayon..iter..map_with..MapWithConsumer$LT$C$C$U$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h65381ae4bec43862E"(ptr noalias nocapture noundef nonnull sret({ { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } }, { { { { { { ptr, { ptr, ptr, { { i64, { { i64, [2 x i64] } } } }, i32, [1 x i32] } } } } } }, ptr, { ptr, i64, {} } }, {} }) align 8 dereferenceable(176) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %17, i64 noundef %23)
-  %49 = sub i64 %6, %23
+  %49 = sub nuw i64 %6, %23
   %50 = getelementptr inbounds ptr, ptr %5, i64 %23
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %17)
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 160
@@ -14550,7 +14551,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
 
 "_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h761596a0abcf3934E.exit": ; preds = %33
   %45 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %.sroa.452.0.copyload, i64 %21
-  %46 = sub i64 %.sroa.553.0.copyload, %21
+  %46 = sub nuw i64 %.sroa.553.0.copyload, %21
   %47 = icmp ne ptr %.sroa.051.0.copyload, null
   tail call void @llvm.assume(i1 %47)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
@@ -16569,7 +16570,7 @@ _ZN5rayon4iter8plumbing24bridge_producer_consumer17h73a23f141720152aE.llvm.17814
   %39 = load ptr, ptr %18, align 8, !noalias !3170, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds ptr, ptr %39, i64 %9
   %41 = getelementptr inbounds ptr, ptr %39, i64 %12
-  %42 = sub i64 %30, %12
+  %42 = sub nuw i64 %30, %12
   %43 = shl i64 %42, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %41, i64 %43, i1 false), !noalias !3170
   %44 = add i64 %42, %9
@@ -16696,7 +16697,7 @@ _ZN5rayon4iter8plumbing24bridge_producer_consumer17h7e6653f34cf757aeE.llvm.17814
   %39 = load ptr, ptr %18, align 8, !noalias !3191, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds ptr, ptr %39, i64 %9
   %41 = getelementptr inbounds ptr, ptr %39, i64 %12
-  %42 = sub i64 %30, %12
+  %42 = sub nuw i64 %30, %12
   %43 = shl i64 %42, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %41, i64 %43, i1 false), !noalias !3191
   %44 = add i64 %42, %9
@@ -17226,7 +17227,7 @@ _ZN5rayon4iter8plumbing24bridge_producer_consumer17h26e8efed56ba64aeE.exit.i.i: 
   %43 = load ptr, ptr %24, align 8, !noalias !3259, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds i32, ptr %43, i64 %14
   %45 = getelementptr inbounds i32, ptr %43, i64 %15
-  %46 = sub i64 %11, %15
+  %46 = sub nuw i64 %11, %15
   %47 = shl i64 %46, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %44, ptr nonnull align 4 %45, i64 %47, i1 false), !noalias !3259
   %48 = add i64 %46, %14
@@ -17415,7 +17416,7 @@ _ZN5rayon4iter8plumbing24bridge_producer_consumer17h91cae15a97019156E.exit.i.i: 
   %43 = load ptr, ptr %24, align 8, !noalias !3296, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds i32, ptr %43, i64 %14
   %45 = getelementptr inbounds i32, ptr %43, i64 %15
-  %46 = sub i64 %11, %15
+  %46 = sub nuw i64 %11, %15
   %47 = shl i64 %46, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %44, ptr nonnull align 4 %45, i64 %47, i1 false), !noalias !3296
   %48 = add i64 %46, %14

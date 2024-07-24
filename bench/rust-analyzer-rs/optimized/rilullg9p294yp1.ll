@@ -17470,7 +17470,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hc409533a0c2778beE"
 
 22:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ded7e94544cf487E.llvm.14583280071648273458.exit"
   %23 = getelementptr inbounds i8, ptr %11, i64 8
-  %24 = sub i64 %5, %1
+  %24 = sub nuw i64 %5, %1
   %25 = shl i64 %24, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %11, i64 %25, i1 false)
   br label %28
@@ -17674,7 +17674,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h624608257b46c712
   br i1 %5, label %"_ZN4core3ptr62drop_in_place$LT$$u5b$crossbeam_channel..waker..Entry$u5d$$GT$17h5294b3ac8b746869E.llvm.14583280071648273458.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds { ptr, i64, ptr }, ptr %9, i64 %1
@@ -28313,7 +28313,7 @@ select.unfold:                                    ; preds = %.noexc, %28
   %54 = add i64 %53, %52
   %.not.i.i = icmp ult i64 %54, %51
   %55 = select i1 %.not.i.i, i64 0, i64 %51
-  %.0.i.i3 = sub i64 %54, %55
+  %.0.i.i3 = sub nuw i64 %54, %55
   %56 = load ptr, ptr %21, align 8, !alias.scope !5998, !nonnull !4, !noundef !4
   %57 = getelementptr inbounds i32, ptr %56, i64 %.0.i.i3
   store i32 %46, ptr %57, align 4

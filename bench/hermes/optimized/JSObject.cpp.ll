@@ -2607,7 +2607,7 @@ cond.true.i:                                      ; preds = %for.body123
   %add.i.i.i.i.i.i.i136 = add i64 %conv.i.i.i.i.i.i.i135, %38
   %75 = inttoptr i64 %add.i.i.i.i.i.i.i136 to ptr
   %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i134, ptr null, ptr %75
-  %sub.i = sub i32 %conv127, %73
+  %sub.i = sub nuw i32 %conv127, %73
   %cmp.i.i137 = icmp ult i32 %sub.i, 4096
   br i1 %cmp.i.i137, label %if.then.i.i139, label %if.else.i.i
 
@@ -3012,7 +3012,7 @@ cond.true.i273:                                   ; preds = %for.body219
   %add.i.i.i.i.i.i.i278 = add i64 %conv.i.i.i.i.i.i.i277, %132
   %136 = inttoptr i64 %add.i.i.i.i.i.i.i278 to ptr
   %cond.i.i.i.i.i.i279 = select i1 %cmp.i.not.i.i.i.i.i.i276, ptr null, ptr %136
-  %sub.i280 = sub i32 %dec, %134
+  %sub.i280 = sub nuw i32 %dec, %134
   %cmp.i.i281 = icmp ult i32 %sub.i280, 4096
   br i1 %cmp.i.i281, label %if.then.i.i299, label %if.else.i.i282
 
@@ -3171,7 +3171,7 @@ cond.true.i329:                                   ; preds = %if.then248
   %add.i.i.i.i.i.i.i334 = add i64 %conv.i.i.i.i.i.i.i333, %147
   %151 = inttoptr i64 %add.i.i.i.i.i.i.i334 to ptr
   %cond.i.i.i.i.i.i335 = select i1 %cmp.i.not.i.i.i.i.i.i332, ptr null, ptr %151
-  %sub.i336 = sub i32 %sub251, %149
+  %sub.i336 = sub nuw i32 %sub251, %149
   %cmp.i.i337 = icmp ult i32 %sub.i336, 4096
   br i1 %cmp.i.i337, label %if.then.i.i355, label %if.else.i.i338
 
@@ -13150,7 +13150,7 @@ cond.true.i.i:                                    ; preds = %for.body.i
   %add.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i, %1
   %121 = inttoptr i64 %add.i.i.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i, ptr null, ptr %121
-  %sub.i.i = sub i32 %i.0286.i, %119
+  %sub.i.i = sub nuw i32 %i.0286.i, %119
   %cmp.i.i60.i = icmp ult i32 %sub.i.i, 4096
   br i1 %cmp.i.i60.i, label %if.then.i.i.i165, label %if.else.i.i.i150
 

@@ -24775,7 +24775,7 @@ _ZSt22__uninitialized_copy_aINSt8__detail14_Node_iteratorIN5vcpkg11PackageSpecEL
 
 _ZSt22__uninitialized_copy_aINSt8__detail14_Node_iteratorIN5vcpkg11PackageSpecELb1ELb1EEEPS3_S3_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aINSt8__detail14_Node_iteratorIN5vcpkg11PackageSpecELb1ELb1EEEPS3_S3_ET0_T_S7_S6_RSaIT1_E.exit.loopexit, %_ZSt7advanceINSt8__detail14_Node_iteratorIN5vcpkg11PackageSpecELb1ELb1EEEmEvRT_T0_.exit
   %71 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aINSt8__detail14_Node_iteratorIN5vcpkg11PackageSpecELb1ELb1EEEPS3_S3_ET0_T_S7_S6_RSaIT1_E.exit.loopexit ], [ %10, %_ZSt7advanceINSt8__detail14_Node_iteratorIN5vcpkg11PackageSpecELb1ELb1EEEmEvRT_T0_.exit ]
-  %72 = sub i64 %6, %18
+  %72 = sub nuw i64 %6, %18
   %73 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %71, i64 %72
   store ptr %73, ptr %9, align 8
   br i1 %.not1.i.i, label %_ZSt22__uninitialized_move_aIPN5vcpkg11PackageSpecES2_SaIS1_EET0_T_S5_S4_RT1_.exit63, label %.lr.ph.i.i.i.i.i58
@@ -25838,7 +25838,7 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN
 
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11FeatureSpecESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11FeatureSpecESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11FeatureSpecESt6vectorIS4_SaIS4_EEEEEmEvRT_T0_.exit
   %68 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11FeatureSpecESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11FeatureSpecESt6vectorIS4_SaIS4_EEEEEmEvRT_T0_.exit ]
-  %69 = sub nsw i64 %9, %20
+  %69 = sub nuw nsw i64 %9, %20
   %70 = getelementptr inbounds %"struct.vcpkg::FeatureSpec", ptr %68, i64 %69
   store ptr %70, ptr %12, align 8
   %.not11.i.i.i.i.i54 = icmp eq ptr %13, %1

@@ -1539,7 +1539,7 @@ entry:
   br i1 %cmp, label %_ZNSt6vectorIN4cvc58internal4prop17CadicalPropagator7VarInfoESaIS4_EE6resizeEm.exit, label %if.end
 
 _ZNSt6vectorIN4cvc58internal4prop17CadicalPropagator7VarInfoESaIS4_EE6resizeEm.exit: ; preds = %entry
-  %sub.i = sub i64 %0, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %0, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN4cvc58internal4prop17CadicalPropagator7VarInfoESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %d_var_info, i64 noundef %sub.i)
   %.pre = load i64, ptr %var, align 8
   br label %if.end
@@ -3774,7 +3774,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   tail call void @_ZNSt5dequeIiSaIiEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i), !noalias !54
   %.pre.i = load ptr, ptr %_M_start, align 8, !noalias !57
   %.pre4.i = load ptr, ptr %_M_first.i, align 8, !noalias !57
@@ -3920,7 +3920,7 @@ if.then24:                                        ; preds = %if.else
   br i1 %cmp.i12, label %if.then.i22, label %if.end.i13
 
 if.then.i22:                                      ; preds = %if.then24
-  %sub4.i = sub nsw i64 %sub.ptr.div.i.i.i, %sub.i11
+  %sub4.i = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.i11
   tail call void @_ZNSt5dequeIiSaIiEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !74
   %.pre.i23 = load ptr, ptr %_M_finish, align 8
   %.pre4.i24 = load ptr, ptr %_M_last.i6, align 8
@@ -4157,7 +4157,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i24 = sub i64 %__n, %sub.ptr.div.i23
+  %sub.i24 = sub nuw i64 %__n, %sub.ptr.div.i23
   tail call void @_ZNSt5dequeIiSaIiEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i24), !noalias !93
   %.pre.i = load ptr, ptr %_M_start, align 8
   %.pre4.i = load ptr, ptr %_M_first.i19, align 8
@@ -4706,7 +4706,7 @@ if.else58:                                        ; preds = %entry
   br i1 %cmp.i248, label %if.then.i275, label %if.end.i249
 
 if.then.i275:                                     ; preds = %if.else58
-  %sub4.i = sub i64 %__n, %sub.i247
+  %sub4.i = sub nuw i64 %__n, %sub.i247
   tail call void @_ZNSt5dequeIiSaIiEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !184
   %.pre.i276 = load ptr, ptr %_M_finish.i, align 8
   %.pre4.i277 = load ptr, ptr %_M_last.i242, align 8
@@ -7272,7 +7272,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i, label %if.then.i49, label %if.else.i
 
 if.then.i49:                                      ; preds = %for.end
-  %sub.i = sub i64 %level, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %level, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %d_assignment_control, i64 noundef %sub.i)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -8921,7 +8921,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   tail call void @_ZNSt5dequeIN4cvc58internal4prop10SatLiteralESaIS3_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i), !noalias !360
   %.pre.i = load ptr, ptr %_M_start, align 8, !noalias !363
   %.pre4.i = load ptr, ptr %_M_first.i, align 8, !noalias !363
@@ -9028,7 +9028,7 @@ if.then24:                                        ; preds = %if.else
   br i1 %cmp.i13, label %if.then.i23, label %if.end.i14
 
 if.then.i23:                                      ; preds = %if.then24
-  %sub4.i = sub nsw i64 %sub.ptr.div.i.i.i, %sub.i12
+  %sub4.i = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.i12
   tail call void @_ZNSt5dequeIN4cvc58internal4prop10SatLiteralESaIS3_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !376
   %.pre.i24 = load ptr, ptr %_M_finish, align 8
   %.pre4.i25 = load ptr, ptr %_M_last.i7, align 8
@@ -9206,7 +9206,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i24 = sub i64 %__n, %sub.ptr.div.i23
+  %sub.i24 = sub nuw i64 %__n, %sub.ptr.div.i23
   tail call void @_ZNSt5dequeIN4cvc58internal4prop10SatLiteralESaIS3_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i24), !noalias !391
   %.pre.i = load ptr, ptr %_M_start, align 8
   %.pre4.i = load ptr, ptr %_M_first.i19, align 8
@@ -9746,7 +9746,7 @@ if.else58:                                        ; preds = %entry
   br i1 %cmp.i253, label %if.then.i280, label %if.end.i254
 
 if.then.i280:                                     ; preds = %if.else58
-  %sub4.i = sub i64 %__n, %sub.i252
+  %sub4.i = sub nuw i64 %__n, %sub.i252
   tail call void @_ZNSt5dequeIN4cvc58internal4prop10SatLiteralESaIS3_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !464
   %.pre.i281 = load ptr, ptr %_M_finish.i, align 8
   %.pre4.i282 = load ptr, ptr %_M_last.i247, align 8
@@ -11378,7 +11378,7 @@ _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
 
 _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEES3_mET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEES3_mET0_T_SA_S9_RSaIT1_E.exit.loopexit, %if.else5.i.i
   %10 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEES3_mET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %3, %if.else5.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
   %add.ptr42 = getelementptr inbounds i64, ptr %10, i64 %sub
   store ptr %add.ptr42, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i31 = icmp eq ptr %3, %__position.coerce

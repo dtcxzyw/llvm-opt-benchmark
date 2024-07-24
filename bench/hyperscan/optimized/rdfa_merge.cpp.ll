@@ -1335,7 +1335,7 @@ for.body.i270:                                    ; preds = %if.end96, %_ZNSt6ve
   br i1 %cmp.i.i275, label %if.then.i.i279, label %if.else.i.i276
 
 if.then.i.i279:                                   ; preds = %for.body.i270
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %108 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i469 = ptrtoint ptr %108 to i64
@@ -3879,7 +3879,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %as, i64 noundef %sub.i)
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre46 = load ptr, ptr %nfas, align 8
@@ -3918,7 +3918,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i, %if.else
   br i1 %cmp.i19, label %if.then.i26, label %if.else.i20
 
 if.then.i26:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %sub.i27 = sub nsw i64 %sub.ptr.div.i13.pre-phi, %sub.ptr.div.i.i18
+  %sub.i27 = sub nuw nsw i64 %sub.ptr.div.i13.pre-phi, %sub.ptr.div.i.i18
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %fs, i64 noundef %sub.i27)
   %.pre47 = load ptr, ptr %_M_finish.i, align 8
   %.pre48 = load ptr, ptr %nfas, align 8
@@ -5280,7 +5280,7 @@ invoke.cont3.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i.i:                               ; preds = %invoke.cont3.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i.i.i.i10, %invoke.cont3.i.i.i ]
   %f.sroa.0.0.i.i.i = phi ptr [ %first.coerce, %if.then.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont3.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i.i, %4
   %mul.i.i9.i = shl i64 %sub.i, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i, ptr align 4 %f.sroa.0.0.i.i.i, i64 %mul.i.i9.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaIvEvEENS_13move_iteratorIPjEES6_EEvRT_T0_NS0_16allocator_traitsIS8_E9size_typeET1_SD_.exit

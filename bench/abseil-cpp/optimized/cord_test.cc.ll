@@ -23087,7 +23087,7 @@ if.then.i.i389:                                   ; preds = %invoke.cont84
 
 invoke.cont91:                                    ; preds = %invoke.cont84
   %105 = extractvalue { i64, ptr } %call88, 1
-  %sub.i386 = sub i64 %104, %93
+  %sub.i386 = sub nuw i64 %104, %93
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i386, i64 %sub83)
   %add.ptr.i387 = getelementptr inbounds i8, ptr %105, i64 %93
   store i64 %.sroa.speculated.i, ptr %ref.tmp86, align 8
@@ -63555,7 +63555,7 @@ if.then.i.i528:                                   ; preds = %invoke.cont346
   %197 = load ptr, ptr %_M_str.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %197, i64 %195
   store ptr %add.ptr.i.i.i.i, ptr %_M_str.i.i.i.i, align 8
-  %sub.i.i.i.i = sub i64 %196, %195
+  %sub.i.i.i.i = sub nuw i64 %196, %195
   store i64 %sub.i.i.i.i, ptr %advance_iter, align 8
   %198 = load i64, ptr %bytes_remaining_.i.i527, align 8
   %sub.i.i.i530 = sub i64 %198, %195
@@ -64045,7 +64045,7 @@ if.then.i.i646:                                   ; preds = %invoke.cont415
   %261 = load ptr, ptr %_M_str.i.i.i.i, align 8
   %add.ptr.i.i.i.i648 = getelementptr inbounds i8, ptr %261, i64 %sub
   store ptr %add.ptr.i.i.i.i648, ptr %_M_str.i.i.i.i, align 8
-  %sub.i.i.i.i649 = sub i64 %260, %sub
+  %sub.i.i.i.i649 = sub nuw i64 %260, %sub
   store i64 %sub.i.i.i.i649, ptr %advance_iter, align 8
   %262 = load i64, ptr %bytes_remaining_.i.i527, align 8
   %sub.i.i.i651 = sub i64 %262, %sub
@@ -67738,7 +67738,7 @@ if.then.i.i34:                                    ; preds = %invoke.cont27
   unreachable
 
 invoke.cont30:                                    ; preds = %invoke.cont27
-  %sub.i = sub i64 %.fca.0.load.i, %storemerge125
+  %sub.i = sub nuw i64 %.fca.0.load.i, %storemerge125
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %storemerge3122)
   %add.ptr.i31 = getelementptr inbounds i8, ptr %.fca.1.load.i, i64 %storemerge125
   %call33 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl4CordaSESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %c, i64 %.sroa.speculated.i, ptr %add.ptr.i31)
@@ -138863,7 +138863,7 @@ while.body.i.i:                                   ; preds = %if.end.i, %while.bo
   %index.08.i.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ %conv.i.i.i, %if.end.i ]
   %offset.addr.07.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %offset, %if.end.i ]
   %inc.i.i = add i64 %index.08.i.i, 1
-  %sub.i.i = sub i64 %offset.addr.07.i.i, %6
+  %sub.i.i = sub nuw i64 %offset.addr.07.i.i, %6
   %arrayidx.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i, i64 0, i64 %inc.i.i
   %7 = load ptr, ptr %arrayidx.i.i, align 8
   %8 = load i64, ptr %7, align 8
@@ -138910,7 +138910,7 @@ while.body.i22.i:                                 ; preds = %while.body.i, %whil
   %index.08.i23.i = phi i64 [ %inc.i25.i, %while.body.i22.i ], [ %conv.i.i18.i, %while.body.i ]
   %offset.addr.07.i24.i = phi i64 [ %sub.i26.i, %while.body.i22.i ], [ %offset.addr.0.lcssa.i.pn39.i, %while.body.i ]
   %inc.i25.i = add i64 %index.08.i23.i, 1
-  %sub.i26.i = sub i64 %offset.addr.07.i24.i, %14
+  %sub.i26.i = sub nuw i64 %offset.addr.07.i24.i, %14
   %arrayidx.i27.i = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i, i64 0, i64 %inc.i25.i
   %15 = load ptr, ptr %arrayidx.i27.i, align 8
   %16 = load i64, ptr %15, align 8
@@ -138979,7 +138979,7 @@ if.then.i.i:                                      ; preds = %_ZN4absl13cord_inte
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit
   %retval.sroa.3.0.i4 = getelementptr inbounds i8, ptr %storage.i.pn.i, i64 %offset.0.i
-  %sub.i = sub i64 %18, %offset.addr.0.lcssa.i.pn.lcssa.i
+  %sub.i = sub nuw i64 %18, %offset.addr.0.lcssa.i.pn.lcssa.i
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.i4, i64 %offset.addr.0.lcssa.i.pn.lcssa.i
   %24 = load i32, ptr %navigator_, align 8
   %cmp.i.i.i = icmp sgt i32 %24, -1

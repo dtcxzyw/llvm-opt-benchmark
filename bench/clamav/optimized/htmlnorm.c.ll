@@ -5288,7 +5288,7 @@ rewind_tospace.exit:                              ; preds = %95
   %109 = zext i32 %..08.i to i64
   %110 = getelementptr inbounds i8, ptr %2, i64 %109
   store i8 0, ptr %110, align 1
-  %111 = sub i32 %.3, %..08.i
+  %111 = sub nuw i32 %.3, %..08.i
   %112 = zext i32 %111 to i64
   %113 = load i64, ptr %8, align 8
   %114 = sub nsw i64 %113, %112

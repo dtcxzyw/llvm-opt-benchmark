@@ -1499,7 +1499,7 @@ if.then12:                                        ; preds = %if.end10
   unreachable
 
 if.end14:                                         ; preds = %if.end10
-  %sub = sub i32 %1, %0
+  %sub = sub nuw i32 %1, %0
   %cmp.i6 = icmp ugt i32 %sub, 2147483646
   br i1 %cmp.i6, label %do.end.i, label %return
 

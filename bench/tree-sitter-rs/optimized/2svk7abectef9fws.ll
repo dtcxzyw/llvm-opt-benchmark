@@ -950,7 +950,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i: ; preds = %6
   br i1 %79, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i", label %.lr.ph.split.split.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit.i.i.i": ; preds = %74
-  %82 = sub i64 %76, %13
+  %82 = sub nuw i64 %76, %13
   %83 = getelementptr inbounds i8, ptr %.val.i.i, i64 %82
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %83, ptr nonnull readonly %11, i64 %13), !alias.scope !155, !noalias !143
   %84 = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -1079,7 +1079,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h37bcc7ac9650a8b4E"
 
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h237b1e0e92776055E.llvm.23857589297000235.exit"
   %18 = getelementptr inbounds i8, ptr %11, i64 240
-  %19 = sub i64 %5, %1
+  %19 = sub nuw i64 %5, %1
   %20 = mul i64 %19, 240
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 8 %11, i64 %20, i1 false)
   br label %23

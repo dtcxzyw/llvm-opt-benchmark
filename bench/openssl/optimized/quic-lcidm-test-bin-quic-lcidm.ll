@@ -138,7 +138,7 @@ lor.lhs.false1.i:                                 ; preds = %PACKET_get_1.exit.i
 if.end23:                                         ; preds = %lor.lhs.false1.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id.i253, ptr nonnull align 1 %add.ptr.i.i.i, i64 %conv.i, i1 false)
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   store i8 %10, ptr %arg_cid, align 1
   %11 = inttoptr i64 %or32.i.i to ptr
   %call24 = call i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef nonnull %call5, ptr noundef %11, ptr noundef nonnull %arg_cid) #3
@@ -441,7 +441,7 @@ lor.lhs.false1.i249:                              ; preds = %PACKET_get_1.exit.i
 if.end62:                                         ; preds = %lor.lhs.false1.i249
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id.i253, ptr nonnull align 1 %add.ptr.i.i.i246, i64 %conv.i250, i1 false)
   %add.ptr.i.i5.i254 = getelementptr inbounds i8, ptr %add.ptr.i.i.i246, i64 %conv.i250
-  %sub.i.i6.i255 = sub i64 %sub.i.i.i247, %conv.i250
+  %sub.i.i6.i255 = sub nuw i64 %sub.i.i.i247, %conv.i250
   store i8 %65, ptr %arg_cid, align 1
   %call63 = call i32 @ossl_quic_lcidm_lookup(ptr noundef nonnull %call5, ptr noundef nonnull %arg_cid, ptr noundef nonnull %seq_num_out, ptr noundef nonnull %opaque_out) #3
   br label %sw.epilog

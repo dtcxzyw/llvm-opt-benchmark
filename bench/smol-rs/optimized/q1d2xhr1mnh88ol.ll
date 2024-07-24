@@ -656,7 +656,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h30e
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %.not20 = icmp eq i64 %8, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
@@ -736,7 +736,7 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3
   br label %17
 
 15:                                               ; preds = %6
-  %16 = sub i64 %.val, %8
+  %16 = sub nuw i64 %.val, %8
   br label %10
 
 17:                                               ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
@@ -795,7 +795,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17he20
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %.not20 = icmp eq i64 %8, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph
 

@@ -6629,8 +6629,8 @@ invoke.cont59:                                    ; preds = %invoke.cont57
   br i1 %cmp62, label %if.then63, label %if.else90
 
 if.then63:                                        ; preds = %invoke.cont59
-  %sub = sub i32 %call58, %call60
-  invoke void @_ZN4cvc58internal6theory2bv5utils6mkZeroEj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %zero, i32 noundef %sub)
+  %narrow = sub nuw i32 %call58, %call60
+  invoke void @_ZN4cvc58internal6theory2bv5utils6mkZeroEj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %zero, i32 noundef %narrow)
           to label %invoke.cont65 unwind label %lpad40
 
 invoke.cont65:                                    ; preds = %if.then63

@@ -498,7 +498,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %87
-  %104 = sub nsw i64 %94, %101
+  %104 = sub nuw nsw i64 %94, %101
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %86, i64 noundef %104)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %36
 
@@ -1354,7 +1354,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   br i1 %187, label %188, label %222
 
 188:                                              ; preds = %179
-  %189 = sub i64 %4, %186
+  %189 = sub nuw i64 %4, %186
   %190 = getelementptr inbounds i8, ptr %10, i64 16
   %191 = load ptr, ptr %190, align 8
   %192 = ptrtoint ptr %191 to i64

@@ -1390,8 +1390,8 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
 
 Kit_DsdNtkObj.exit37:                             ; preds = %48
   %53 = load ptr, ptr %8, align 8
-  %54 = sub nsw i32 %49, %51
-  %55 = sext i32 %54 to i64
+  %54 = sub nuw nsw i32 %49, %51
+  %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds ptr, ptr %53, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
@@ -1404,8 +1404,8 @@ Kit_DsdNtkObj.exit37.thread:                      ; preds = %48, %Kit_DsdNtkObj.
 
 Kit_DsdNtkObj.exit38:                             ; preds = %Kit_DsdNtkObj.exit37.thread
   %61 = load ptr, ptr %8, align 8
-  %62 = sub nsw i32 %59, %51
-  %63 = sext i32 %62 to i64
+  %62 = sub nuw nsw i32 %59, %51
+  %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds ptr, ptr %61, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null

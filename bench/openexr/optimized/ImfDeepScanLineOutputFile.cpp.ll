@@ -894,7 +894,7 @@ if.end:                                           ; preds = %delete.notnull, %_Z
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub nsw i64 %conv58, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv58, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %lineOffsets, i64 noundef %sub.i)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -932,7 +932,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %if.then.i, %if.else
   br i1 %cmp.i25, label %if.then.i32, label %if.else.i26
 
 if.then.i32:                                      ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %sub.i33 = sub nsw i64 %conv66, %sub.ptr.div.i.i24
+  %sub.i33 = sub nuw nsw i64 %conv66, %sub.ptr.div.i.i24
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %bytesPerLine, i64 noundef %sub.i33)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit34
 
@@ -3902,7 +3902,7 @@ invoke.cont213:                                   ; preds = %while.body
   br i1 %cmp215, label %if.then.i, label %if.end222
 
 if.then.i:                                        ; preds = %invoke.cont213
-  %sub.i = sub i64 %64, %sub.ptr.sub.i72
+  %sub.i = sub nuw i64 %64, %sub.ptr.sub.i72
   %67 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i8.i, %sub.ptr.lhs.cast.i70

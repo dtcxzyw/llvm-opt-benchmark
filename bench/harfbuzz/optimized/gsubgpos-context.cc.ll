@@ -1595,27 +1595,23 @@ if.else:                                          ; preds = %if.end
   br i1 %brmerge.not, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.else
-  %sub.i = sub i32 %4, %cond
-  %tobool.not2.i = icmp eq i32 %sub.i, 0
-  br i1 %tobool.not2.i, label %if.end15, label %while.body.preheader.i
-
-while.body.preheader.i:                           ; preds = %if.then12
+  %sub.i = sub nuw i32 %4, %cond
   %arrayZ.i11 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %arrayZ.i11, align 8
   %idx.ext.i = zext i32 %4 to i64
   %add.ptr.i = getelementptr inbounds %"struct.graph::graph_t::vertex_t", ptr %8, i64 %idx.ext.i
   br label %while.body.i12
 
-while.body.i12:                                   ; preds = %while.body.i12, %while.body.preheader.i
-  %add.ptr.pn4.i = phi ptr [ %p.0.i, %while.body.i12 ], [ %add.ptr.i, %while.body.preheader.i ]
-  %count.03.i = phi i32 [ %dec.i, %while.body.i12 ], [ %sub.i, %while.body.preheader.i ]
+while.body.i12:                                   ; preds = %while.body.i12, %if.then12
+  %add.ptr.pn4.i = phi ptr [ %p.0.i, %while.body.i12 ], [ %add.ptr.i, %if.then12 ]
+  %count.03.i = phi i32 [ %dec.i, %while.body.i12 ], [ %sub.i, %if.then12 ]
   %p.0.i = getelementptr inbounds i8, ptr %add.ptr.pn4.i, i64 -136
   %dec.i = add i32 %count.03.i, -1
   tail call void @_ZN5graph7graph_t8vertex_tD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %p.0.i) #11
   %tobool.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i, label %if.end15, label %while.body.i12, !llvm.loop !44
 
-if.end15:                                         ; preds = %while.body.i12, %for.body.i, %if.then12, %if.else, %if.then4
+if.end15:                                         ; preds = %while.body.i12, %for.body.i, %if.else, %if.then4
   store i32 %cond, ptr %length, align 4
   br label %return
 

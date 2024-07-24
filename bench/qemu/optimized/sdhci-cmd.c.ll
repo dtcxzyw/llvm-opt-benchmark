@@ -107,7 +107,7 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.end.i
   %index.014.i = phi i64 [ %index.1.lcssa.i, %while.end.i ], [ 0, %entry ]
-  %sub.i = sub i64 %count, %index.014.i
+  %sub.i = sub nuw i64 %count, %index.014.i
   %conv.i = trunc i64 %sub.i to i32
   %cmp48.i = icmp sgt i32 %conv.i, 0
   br i1 %cmp48.i, label %while.body6.preheader.i, label %while.end.i

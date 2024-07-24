@@ -806,7 +806,7 @@ lor.rhs.i7:                                       ; preds = %cond.true29
   br i1 %cmp.not.i8, label %return, label %land.rhs.i9
 
 land.rhs.i9:                                      ; preds = %lor.rhs.i7
-  %sub.i = sub i64 %value.coerce0, %8
+  %sub.i = sub nuw i64 %value.coerce0, %8
   %add.ptr.i = getelementptr inbounds i8, ptr %value.coerce1, i64 %sub.i
   %bcmp.i10 = tail call i32 @bcmp(ptr %add.ptr.i, ptr %9, i64 %8)
   %cmp9.i = icmp eq i32 %bcmp.i10, 0
@@ -844,7 +844,7 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end.i.i.i
 while.body.i.i.i:                                 ; preds = %if.end19.i.i.i, %while.body.lr.ph.i.i.i
   %__len.022.i.i.i = phi i64 [ %value.coerce0, %while.body.lr.ph.i.i.i ], [ %sub.ptr.sub22.i.i.i, %if.end19.i.i.i ]
   %__first.021.i.i.i = phi ptr [ %value.coerce1, %while.body.lr.ph.i.i.i ], [ %incdec.ptr.i.i.i, %if.end19.i.i.i ]
-  %sub12.i.i.i = sub i64 %__len.022.i.i.i, %11
+  %sub12.i.i.i = sub nuw i64 %__len.022.i.i.i, %11
   %add.i.i.i = add i64 %sub12.i.i.i, 1
   %cmp.i.i.i.i = icmp eq i64 %add.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %cond.end64, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
@@ -906,7 +906,7 @@ while.body.lr.ph.i.i.i14:                         ; preds = %if.end.i.i.i12
 while.body.i.i.i18:                               ; preds = %if.end19.i.i.i30, %while.body.lr.ph.i.i.i14
   %__len.022.i.i.i19 = phi i64 [ %18, %while.body.lr.ph.i.i.i14 ], [ %sub.ptr.sub22.i.i.i33, %if.end19.i.i.i30 ]
   %__first.021.i.i.i20 = phi ptr [ %17, %while.body.lr.ph.i.i.i14 ], [ %incdec.ptr.i.i.i31, %if.end19.i.i.i30 ]
-  %sub12.i.i.i21 = sub i64 %__len.022.i.i.i19, %19
+  %sub12.i.i.i21 = sub nuw i64 %__len.022.i.i.i19, %19
   %add.i.i.i22 = add i64 %sub12.i.i.i21, 1
   %cmp.i.i.i.i23 = icmp eq i64 %add.i.i.i22, 0
   br i1 %cmp.i.i.i.i23, label %cond.end64, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i24

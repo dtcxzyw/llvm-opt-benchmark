@@ -5594,7 +5594,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h03dfe5e8e303a
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1104)
   %21 = icmp ult i64 %20, %1
@@ -5651,7 +5651,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h29a99b67c69d4
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1109)
   %21 = icmp ult i64 %20, %1
@@ -5708,7 +5708,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h30ad27cd9952c
   %19 = and i64 %18, %6
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %19, %20
+  %spec.select = sub nuw i64 %19, %20
   %21 = add nuw nsw i64 %9, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1114)
   %22 = icmp ult i64 %21, %1
@@ -5765,7 +5765,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h3d34ce0f3fe56
   %19 = and i64 %18, %6
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %19, %20
+  %spec.select = sub nuw i64 %19, %20
   %21 = add nuw nsw i64 %9, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1119)
   %22 = icmp ult i64 %21, %1
@@ -5822,7 +5822,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h3e79b815a4d13
   %19 = and i64 %18, %6
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %19, %20
+  %spec.select = sub nuw i64 %19, %20
   %21 = add nuw nsw i64 %9, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1124)
   %22 = icmp ult i64 %21, %1
@@ -5878,7 +5878,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h4193b7532b9d6
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1129)
   %21 = icmp ult i64 %20, %1
@@ -5933,7 +5933,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h5890a1b7871ff
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1134)
   %21 = icmp ult i64 %20, %1
@@ -5989,7 +5989,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h5baec3272c36b
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1139)
   %21 = icmp ult i64 %20, %1
@@ -6046,7 +6046,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h6060c9771b163
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1144)
   %21 = icmp ult i64 %20, %1
@@ -6102,7 +6102,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h84905c21d35a2
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1149)
   %21 = icmp ult i64 %20, %1
@@ -6158,7 +6158,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h8d2a8f4dba849
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1154)
   %21 = icmp ult i64 %20, %1
@@ -6214,7 +6214,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17ha82ed2ac31675
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1159)
   %21 = icmp ult i64 %20, %1
@@ -6270,7 +6270,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17hd3dc936dbe020
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1164)
   %21 = icmp ult i64 %20, %1
@@ -6327,7 +6327,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17hdf8bd506b21f7
   %19 = and i64 %18, %6
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %19, %20
+  %spec.select = sub nuw i64 %19, %20
   %21 = add nuw nsw i64 %9, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1169)
   %22 = icmp ult i64 %21, %1
@@ -6384,7 +6384,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17he14c4bc513dc7
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1174)
   %21 = icmp ult i64 %20, %1
@@ -14996,7 +14996,7 @@ common.resume:                                    ; preds = %.loopexit.i58, %.lo
   %250 = load i64, ptr %249, align 8, !alias.scope !2979, !noalias !2980
   store i64 %250, ptr %.sroa.0.0157.lcssa198, align 8, !alias.scope !2979, !noalias !2980
   store ptr %129, ptr %249, align 8, !alias.scope !2979, !noalias !2980
-  %251 = sub i64 %.sroa.14.0156.lcssa184, %243
+  %251 = sub nuw i64 %.sroa.14.0156.lcssa184, %243
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %243, i64 %251)
   %252 = lshr i64 %.sroa.14.0156.lcssa184, 3
   %253 = icmp uge i64 %.0.sroa.speculated.i, %252
@@ -16867,7 +16867,7 @@ common.resume:                                    ; preds = %935, %.loopexit.spl
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0437500, ptr noundef nonnull align 8 dereferenceable(16) %681, i64 16, i1 false), !alias.scope !3551, !noalias !3549
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %681, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !noalias !3549
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40)
-  %682 = sub i64 %.sroa.14.0436484, %677
+  %682 = sub nuw i64 %.sroa.14.0436484, %677
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %677, i64 %682)
   %683 = lshr i64 %.sroa.14.0436484, 3
   %684 = icmp uge i64 %.0.sroa.speculated.i, %683
@@ -18292,7 +18292,7 @@ _ZN4core5slice4sort12choose_pivot17h725bb5d016350567E.exit: ; preds = %"_ZN4core
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0118.lcssa144, ptr noundef nonnull align 8 dereferenceable(16) %287, i64 16, i1 false), !alias.scope !3904, !noalias !3902
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %287, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !noalias !3902
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %288 = sub i64 %.sroa.14.0117.lcssa136, %283
+  %288 = sub nuw i64 %.sroa.14.0117.lcssa136, %283
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %283, i64 %288)
   %289 = lshr i64 %.sroa.14.0117.lcssa136, 3
   %290 = icmp uge i64 %.0.sroa.speculated.i, %289
@@ -19239,7 +19239,7 @@ common.resume:                                    ; preds = %461, %303
   %307 = load i64, ptr %306, align 8, !alias.scope !3960, !noalias !3961
   store i64 %307, ptr %.sroa.0.0246337, align 8, !alias.scope !3960, !noalias !3961
   store i64 %76, ptr %306, align 8, !alias.scope !3960, !noalias !3961
-  %308 = sub i64 %.sroa.14.0245314, %300
+  %308 = sub nuw i64 %.sroa.14.0245314, %300
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %300, i64 %308)
   %309 = lshr i64 %.sroa.14.0245314, 3
   %310 = icmp uge i64 %.0.sroa.speculated.i, %309
@@ -20219,7 +20219,7 @@ _ZN4core5slice4sort12choose_pivot17h64456dd5dd38f8d7E.exit: ; preds = %"_ZN4core
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0126158, ptr noundef nonnull align 8 dereferenceable(32) %233, i64 32, i1 false), !alias.scope !4110, !noalias !4108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %233, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i36.i, i64 32, i1 false), !noalias !4108
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i36.i)
-  %234 = sub i64 %.sroa.14.0125148, %227
+  %234 = sub nuw i64 %.sroa.14.0125148, %227
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %227, i64 %234)
   %235 = lshr i64 %.sroa.14.0125148, 3
   %236 = icmp uge i64 %.0.sroa.speculated.i, %235
@@ -20992,7 +20992,7 @@ common.resume:                                    ; preds = %282, %224
   %228 = load i64, ptr %227, align 8, !alias.scope !4228, !noalias !4229
   store i64 %228, ptr %.sroa.0.0290367, align 8, !alias.scope !4228, !noalias !4229
   store i64 %76, ptr %227, align 8, !alias.scope !4228, !noalias !4229
-  %229 = sub i64 %.sroa.14.0289343, %221
+  %229 = sub nuw i64 %.sroa.14.0289343, %221
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %221, i64 %229)
   %230 = lshr i64 %.sroa.14.0289343, 3
   %231 = icmp uge i64 %.0.sroa.speculated.i, %230
@@ -22149,7 +22149,7 @@ _ZN4core5slice4sort12choose_pivot17h4bf40bbd135ce298E.exit: ; preds = %"_ZN4core
   %486 = load i64, ptr %485, align 8, !alias.scope !4455, !noalias !4456
   store i64 %486, ptr %.sroa.0.0125.lcssa157, align 8, !alias.scope !4455, !noalias !4456
   store ptr %309, ptr %485, align 8, !alias.scope !4455, !noalias !4456
-  %487 = sub i64 %.sroa.14.0124.lcssa149, %477
+  %487 = sub nuw i64 %.sroa.14.0124.lcssa149, %477
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %477, i64 %487)
   %488 = lshr i64 %.sroa.14.0124.lcssa149, 3
   %489 = icmp uge i64 %.0.sroa.speculated.i, %488
@@ -23145,7 +23145,7 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0.0142174, ptr noundef nonnull align 8 dereferenceable(120) %276, i64 120, i1 false), !alias.scope !4602, !noalias !4600
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %276, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0.i50.i, i64 120, i1 false), !noalias !4600
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %.sroa.0.i50.i)
-  %277 = sub i64 %.sroa.14.0141164, %270
+  %277 = sub nuw i64 %.sroa.14.0141164, %270
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %270, i64 %277)
   %278 = lshr i64 %.sroa.14.0141164, 3
   %279 = icmp uge i64 %.0.sroa.speculated.i, %278
@@ -23968,7 +23968,7 @@ _ZN4core5slice4sort12choose_pivot17hcb09cb5adc51396fE.exit: ; preds = %"_ZN4core
   %222 = load i32, ptr %221, align 4, !alias.scope !4726, !noalias !4727
   store i32 %222, ptr %.sroa.0.0106.lcssa132, align 4, !alias.scope !4726, !noalias !4727
   store i32 %110, ptr %221, align 4, !alias.scope !4726, !noalias !4727
-  %223 = sub i64 %.sroa.14.0105.lcssa124, %217
+  %223 = sub nuw i64 %.sroa.14.0105.lcssa124, %217
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %217, i64 %223)
   %224 = lshr i64 %.sroa.14.0105.lcssa124, 3
   %225 = icmp uge i64 %.0.sroa.speculated.i, %224
@@ -24830,7 +24830,7 @@ _ZN4core5slice4sort12choose_pivot17hd280f01e9fbdbd12E.exit: ; preds = %"_ZN4core
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0118.lcssa144, ptr noundef nonnull align 8 dereferenceable(16) %287, i64 16, i1 false), !alias.scope !4835, !noalias !4833
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %287, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !noalias !4833
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %288 = sub i64 %.sroa.14.0117.lcssa136, %283
+  %288 = sub nuw i64 %.sroa.14.0117.lcssa136, %283
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %283, i64 %288)
   %289 = lshr i64 %.sroa.14.0117.lcssa136, 3
   %290 = icmp uge i64 %.0.sroa.speculated.i, %289
@@ -26720,7 +26720,7 @@ common.resume:                                    ; preds = %935, %.loopexit.spl
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0435498, ptr noundef nonnull align 8 dereferenceable(16) %681, i64 16, i1 false), !alias.scope !5405, !noalias !5403
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %681, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !noalias !5403
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40)
-  %682 = sub i64 %.sroa.14.0434482, %677
+  %682 = sub nuw i64 %.sroa.14.0434482, %677
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %677, i64 %682)
   %683 = lshr i64 %.sroa.14.0434482, 3
   %684 = icmp uge i64 %.0.sroa.speculated.i, %683
@@ -28122,7 +28122,7 @@ _ZN4core5slice4sort12choose_pivot17h282615492c4ec2daE.exit: ; preds = %"_ZN4core
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0109.lcssa135, ptr noundef nonnull align 8 dereferenceable(16) %290, i64 16, i1 false), !alias.scope !5750, !noalias !5748
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %290, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !noalias !5748
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %291 = sub i64 %.sroa.14.0108.lcssa127, %286
+  %291 = sub nuw i64 %.sroa.14.0108.lcssa127, %286
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %286, i64 %291)
   %292 = lshr i64 %.sroa.14.0108.lcssa127, 3
   %293 = icmp uge i64 %.0.sroa.speculated.i, %292
@@ -28910,7 +28910,7 @@ common.resume:                                    ; preds = %307, %284, %.loopex
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.0145.lcssa184, ptr noundef nonnull align 8 dereferenceable(56) %251, i64 56, i1 false), !alias.scope !5882, !noalias !5880
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %251, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i32.i, i64 56, i1 false), !noalias !5880
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i32.i)
-  %252 = sub i64 %.sroa.14.0144.lcssa170, %247
+  %252 = sub nuw i64 %.sroa.14.0144.lcssa170, %247
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %247, i64 %252)
   %253 = lshr i64 %.sroa.14.0144.lcssa170, 3
   %254 = icmp uge i64 %.0.sroa.speculated.i, %253
@@ -29728,7 +29728,7 @@ _ZN4core5slice4sort12choose_pivot17h3ac59c61bc8907f8E.exit: ; preds = %"_ZN4core
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0113.lcssa139, ptr noundef nonnull align 8 dereferenceable(40) %260, i64 40, i1 false), !alias.scope !5958, !noalias !5956
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %260, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i34.i, i64 40, i1 false), !noalias !5956
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0.i34.i)
-  %261 = sub i64 %.sroa.14.0112.lcssa131, %254
+  %261 = sub nuw i64 %.sroa.14.0112.lcssa131, %254
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %254, i64 %261)
   %262 = lshr i64 %.sroa.14.0112.lcssa131, 3
   %263 = icmp uge i64 %.0.sroa.speculated.i, %262
@@ -30618,7 +30618,7 @@ common.resume:                                    ; preds = %352, %260
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0336399, ptr noundef nonnull align 8 dereferenceable(40) %263, i64 40, i1 false), !alias.scope !6069, !noalias !6067
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %263, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i53.i, i64 40, i1 false), !noalias !6067
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0.i53.i)
-  %264 = sub i64 %.sroa.14.0335376, %257
+  %264 = sub nuw i64 %.sroa.14.0335376, %257
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %257, i64 %264)
   %265 = lshr i64 %.sroa.14.0335376, 3
   %266 = icmp uge i64 %.0.sroa.speculated.i, %265
@@ -31739,7 +31739,7 @@ _ZN4core5slice4sort12choose_pivot17ha70fdc3a2e92304cE.exit: ; preds = %"_ZN4core
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.0124.lcssa154, ptr noundef nonnull align 8 dereferenceable(48) %309, i64 48, i1 false), !alias.scope !6253, !noalias !6251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %309, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i42.i, i64 48, i1 false), !noalias !6251
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i42.i)
-  %310 = sub i64 %.sroa.14.0123.lcssa146, %303
+  %310 = sub nuw i64 %.sroa.14.0123.lcssa146, %303
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %303, i64 %310)
   %311 = lshr i64 %.sroa.14.0123.lcssa146, 3
   %312 = icmp uge i64 %.0.sroa.speculated.i, %311
@@ -32676,7 +32676,7 @@ _ZN4core3ops8function5FnMut8call_mut17hadb984013256e1eaE.exit178.i.i: ; preds = 
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.0144181, ptr noundef nonnull align 8 dereferenceable(48) %276, i64 48, i1 false), !alias.scope !6456, !noalias !6454
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %276, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i46.i, i64 48, i1 false), !noalias !6454
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i46.i)
-  %277 = sub i64 %.sroa.14.0143171, %270
+  %277 = sub nuw i64 %.sroa.14.0143171, %270
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %270, i64 %277)
   %278 = lshr i64 %.sroa.14.0143171, 3
   %279 = icmp uge i64 %.0.sroa.speculated.i, %278

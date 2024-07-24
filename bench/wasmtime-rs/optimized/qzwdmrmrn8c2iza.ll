@@ -78409,7 +78409,7 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %20, i64 %.val
   %22 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %20, i64 %.val4
-  %23 = sub i64 %12, %.val4
+  %23 = sub nuw i64 %12, %.val4
   %24 = shl i64 %23, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull align 8 %22, i64 %24, i1 false)
   %25 = add i64 %23, %.val
@@ -78619,7 +78619,7 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }, ptr %20, i64 %.val
   %22 = getelementptr inbounds { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }, ptr %20, i64 %.val4
-  %23 = sub i64 %12, %.val4
+  %23 = sub nuw i64 %12, %.val4
   %24 = shl i64 %23, 6
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull align 8 %22, i64 %24, i1 false)
   %25 = add i64 %23, %.val

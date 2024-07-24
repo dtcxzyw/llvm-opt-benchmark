@@ -6147,7 +6147,7 @@ _ZN2cvL13CheckDistanceINS_3VecIfLi3EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i118
   br i1 %728, label %729, label %754
 
 729:                                              ; preds = %._crit_edge.i.i
-  %730 = sub i64 %.1.i.i, %707
+  %730 = sub nuw i64 %.1.i.i, %707
   %731 = ptrtoint ptr %.sroa.37.5.i to i64
   %732 = sub i64 %731, %704
   %733 = sdiv exact i64 %732, 12
@@ -6166,7 +6166,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv3VecIfLi3EEEmS2_ET_S4_T0_RSaIT1_E.exit.i.
   br label %_ZN2cvL14RemoveOverlapsINS_3VecIfLi3EEEEEvRSt6vectorIT_SaIS4_EEf.exit.i
 
 738:                                              ; preds = %729
-  %739 = icmp ult i64 %735, %730
+  %739 = icmp ugt i64 %.1.i.i, 768614336404564650
   br i1 %739, label %740, label %_ZNKSt6vectorIN2cv3VecIfLi3EEESaIS2_EE12_M_check_lenEmPKc.exit.i172.i
 
 740:                                              ; preds = %738
@@ -7764,7 +7764,7 @@ _ZN2cvL13CheckDistanceINS_3VecIfLi4EEEEEbRKSt6vectorIT_SaIS4_EEmRKS4_f.exit.i117
   br i1 %1326, label %1327, label %1353
 
 1327:                                             ; preds = %._crit_edge.i.i178
-  %1328 = sub i64 %.015.lcssa.i.i, %1305
+  %1328 = sub nuw i64 %.015.lcssa.i.i, %1305
   %1329 = ptrtoint ptr %.sroa.37.5.i177 to i64
   %1330 = sub i64 %1329, %1299
   %1331 = ashr exact i64 %1330, 4
@@ -9634,7 +9634,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit.i:      ; preds = %1964, %1962
   br i1 %2038, label %2039, label %._crit_edge619.thread.i
 
 2039:                                             ; preds = %._crit_edge619.i
-  %2040 = sub i64 %.1237.i, %.pre720.i
+  %2040 = sub nuw i64 %.1237.i, %.pre720.i
   %2041 = getelementptr inbounds i8, ptr %124, i64 16
   %2042 = load ptr, ptr %2041, align 8
   %2043 = ptrtoint ptr %2042 to i64
@@ -12510,7 +12510,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit:
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i32, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
@@ -13506,7 +13506,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCirc
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %59 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %60 = sub nsw i64 %9, %20
+  %60 = sub nuw nsw i64 %9, %20
   %61 = getelementptr inbounds %"struct.cv::EstimatedCircle", ptr %59, i64 %60
   store ptr %61, ptr %12, align 8
   %.not11.i.i.i.i.i52 = icmp eq ptr %13, %1

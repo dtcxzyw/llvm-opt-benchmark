@@ -9588,7 +9588,7 @@ if.then.i.i:                                      ; preds = %invoke.cont21
 for.body.lr.ph.i.i:                               ; preds = %invoke.cont21
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %conv9.i, i64 %conv34)
   %cmp2.i.i = icmp ugt i32 %mul.i, %mul33
-  %sub.i.i = sub nsw i64 %conv9.i, %.sroa.speculated.i.i
+  %sub.i.i = sub nuw nsw i64 %conv9.i, %.sroa.speculated.i.i
   br i1 %cmp2.i.i, label %for.body.us.i.i, label %for.body.i.i
 
 for.body.us.i.i:                                  ; preds = %for.body.lr.ph.i.i, %for.body.us.i.i
@@ -14608,7 +14608,7 @@ if.then42:                                        ; preds = %if.end
   %conv46 = zext i32 %7 to i64
   %shl50 = shl i64 %conv46, %sh_prom
   %cmp12.i = icmp uge i64 %add40, %sub.i
-  %sub13.i = sub i64 %delta, %add40
+  %sub13.i = sub nuw i64 %delta, %add40
   %cmp1.not14.i = icmp ult i64 %sub13.i, %shl50
   %or.cond15.i = or i1 %cmp12.i, %cmp1.not14.i
   br i1 %or.cond15.i, label %return, label %land.rhs.lr.ph.i
@@ -14628,7 +14628,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
   %sub3.i = sub i64 %sub.i, %rest.addr.016.i
-  %sub5.i = sub i64 %add.i, %sub.i
+  %sub5.i = sub nuw i64 %add.i, %sub.i
   %cmp6.i = icmp ugt i64 %sub3.i, %sub5.i
   br i1 %cmp6.i, label %while.body.i, label %return
 
@@ -14710,7 +14710,7 @@ land.rhs.i64:                                     ; preds = %while.body.i72, %la
 
 lor.rhs.i68:                                      ; preds = %land.rhs.i64
   %sub3.i69 = sub i64 %mul85, %rest.addr.016.i65
-  %sub5.i70 = sub i64 %add.i66, %mul85
+  %sub5.i70 = sub nuw i64 %add.i66, %mul85
   %cmp6.i71 = icmp ugt i64 %sub3.i69, %sub5.i70
   br i1 %cmp6.i71, label %while.body.i72, label %return
 
@@ -23505,7 +23505,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN4glTF4Mesh9PrimitiveESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %primitives, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN4glTF4Mesh9PrimitiveESaIS2_EE6resizeEm.exit
 
@@ -23759,7 +23759,7 @@ if.then29:                                        ; preds = %cond.end
   br i1 %cmp.i67, label %if.then.i74, label %if.else.i68
 
 if.then.i74:                                      ; preds = %if.then29
-  %sub.i75 = sub nsw i64 %add, %sub.ptr.div.i
+  %sub.i75 = sub nuw nsw i64 %add, %sub.ptr.div.i
   call void @_ZNSt6vectorIN10glTFCommon3RefIN4glTF8AccessorEEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %attributes.i, i64 noundef %sub.i75)
   br label %if.end30
 
@@ -63916,7 +63916,7 @@ if.then.i199:                                     ; preds = %invoke.cont39, %.no
           to label %.noexc unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %if.then.i199
-  %sub.i = sub i32 %symbol.addr.011.i, %shl12.i
+  %sub.i = sub nuw i32 %symbol.addr.011.i, %shl12.i
   %inc.i = add nuw nsw i32 %k.addr.010.i, 1
   %shl.i = shl nuw i32 2, %k.addr.010.i
   %cmp.not.i = icmp ult i32 %sub.i, %shl.i
@@ -65028,7 +65028,7 @@ if.then.i.i380:                                   ; preds = %.noexc388, %.noexc3
           to label %.noexc390 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc390:                                        ; preds = %if.then.i.i380
-  %sub.i.i = sub i32 %symbol.addr.011.i.i, %shl12.i.i
+  %sub.i.i = sub nuw i32 %symbol.addr.011.i.i, %shl12.i.i
   %inc.i.i381 = add nuw nsw i32 %k.addr.010.i.i, 1
   %shl.i.i = shl nuw i32 2, %k.addr.010.i.i
   %cmp.not.i.i = icmp ult i32 %sub.i.i, %shl.i.i
@@ -65287,7 +65287,7 @@ if.then.i.i406:                                   ; preds = %.noexc426, %.noexc4
           to label %.noexc428 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc428:                                        ; preds = %if.then.i.i406
-  %sub.i.i410 = sub i32 %symbol.addr.011.i.i408, %shl12.i.i407
+  %sub.i.i410 = sub nuw i32 %symbol.addr.011.i.i408, %shl12.i.i407
   %inc.i.i411 = add nuw nsw i32 %k.addr.010.i.i409, 1
   %shl.i.i412 = shl nuw i32 2, %k.addr.010.i.i409
   %cmp.not.i.i413 = icmp ult i32 %sub.i.i410, %shl.i.i412
@@ -65507,7 +65507,7 @@ if.then.i.i453:                                   ; preds = %.noexc473, %.noexc4
           to label %.noexc475 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc475:                                        ; preds = %if.then.i.i453
-  %sub.i.i457 = sub i32 %symbol.addr.011.i.i455, %shl12.i.i454
+  %sub.i.i457 = sub nuw i32 %symbol.addr.011.i.i455, %shl12.i.i454
   %inc.i.i458 = add nuw nsw i32 %k.addr.010.i.i456, 1
   %shl.i.i459 = shl nuw i32 2, %k.addr.010.i.i456
   %cmp.not.i.i460 = icmp ult i32 %sub.i.i457, %shl.i.i459
@@ -66466,7 +66466,7 @@ if.then.i111:                                     ; preds = %invoke.cont36, %.no
           to label %.noexc unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %if.then.i111
-  %sub.i = sub i32 %symbol.addr.011.i, %shl12.i
+  %sub.i = sub nuw i32 %symbol.addr.011.i, %shl12.i
   %inc.i = add nuw nsw i32 %k.addr.010.i, 1
   %shl.i = shl nuw i32 2, %k.addr.010.i
   %cmp.not.i = icmp ult i32 %sub.i, %shl.i
@@ -67079,7 +67079,7 @@ if.then.i.i160:                                   ; preds = %.noexc168, %.noexc1
           to label %.noexc170 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc170:                                        ; preds = %if.then.i.i160
-  %sub.i.i = sub i32 %symbol.addr.011.i.i, %shl12.i.i
+  %sub.i.i = sub nuw i32 %symbol.addr.011.i.i, %shl12.i.i
   %inc.i.i161 = add nuw nsw i32 %k.addr.010.i.i, 1
   %shl.i.i = shl nuw i32 2, %k.addr.010.i.i
   %cmp.not.i.i = icmp ult i32 %sub.i.i, %shl.i.i
@@ -67338,7 +67338,7 @@ if.then.i.i186:                                   ; preds = %.noexc206, %.noexc2
           to label %.noexc208 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc208:                                        ; preds = %if.then.i.i186
-  %sub.i.i190 = sub i32 %symbol.addr.011.i.i188, %shl12.i.i187
+  %sub.i.i190 = sub nuw i32 %symbol.addr.011.i.i188, %shl12.i.i187
   %inc.i.i191 = add nuw nsw i32 %k.addr.010.i.i189, 1
   %shl.i.i192 = shl nuw i32 2, %k.addr.010.i.i189
   %cmp.not.i.i193 = icmp ult i32 %sub.i.i190, %shl.i.i192
@@ -67556,7 +67556,7 @@ if.then.i.i233:                                   ; preds = %.noexc253, %.noexc2
           to label %.noexc255 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc255:                                        ; preds = %if.then.i.i233
-  %sub.i.i237 = sub i32 %symbol.addr.011.i.i235, %shl12.i.i234
+  %sub.i.i237 = sub nuw i32 %symbol.addr.011.i.i235, %shl12.i.i234
   %inc.i.i238 = add nuw nsw i32 %k.addr.010.i.i236, 1
   %shl.i.i239 = shl nuw i32 2, %k.addr.010.i.i236
   %cmp.not.i.i240 = icmp ult i32 %sub.i.i237, %shl.i.i239

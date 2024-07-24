@@ -112,7 +112,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i6
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i6
   tail call void @_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %batch_all_cols_, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE6resizeEm.exit
 
@@ -143,7 +143,7 @@ _ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE6resizeEm.exit: ; preds = %
   br i1 %cmp.i12, label %if.then.i19, label %if.else.i13
 
 if.then.i19:                                      ; preds = %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE6resizeEm.exit
-  %sub.i20 = sub nsw i64 %conv5, %sub.ptr.div.i.i11
+  %sub.i20 = sub nuw nsw i64 %conv5, %sub.ptr.div.i.i11
   tail call void @_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %batch_varbinary_cols_, i64 noundef %sub.i20)
   br label %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE6resizeEm.exit21
 
@@ -173,7 +173,7 @@ _ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE6resizeEm.exit21: ; preds =
   br i1 %cmp.i27, label %if.then.i34, label %if.else.i28
 
 if.then.i34:                                      ; preds = %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE6resizeEm.exit21
-  %sub.i35 = sub nsw i64 %conv5, %sub.ptr.div.i.i26
+  %sub.i35 = sub nuw nsw i64 %conv5, %sub.ptr.div.i.i26
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %batch_varbinary_cols_base_offsets_, i64 noundef %sub.i35)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 

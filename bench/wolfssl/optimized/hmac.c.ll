@@ -357,8 +357,8 @@ if.then265:                                       ; preds = %if.then265.sink.spl
 if.then268:                                       ; preds = %if.then265
   %idx.ext = zext nneg i32 %length.addr.0186 to i64
   %add.ptr = getelementptr inbounds i8, ptr %ipad, i64 %idx.ext
-  %sub = sub nsw i32 %hmac_block_size.0187, %length.addr.0186
-  %conv269 = zext i32 %sub to i64
+  %sub = sub nuw nsw i32 %hmac_block_size.0187, %length.addr.0186
+  %conv269 = zext nneg i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %conv269, i1 false)
   br label %if.end270
 
@@ -1167,7 +1167,7 @@ if.end11:                                         ; preds = %lor.lhs.false
 while.body:                                       ; preds = %if.end11, %if.end49
   %2 = phi i8 [ %inc, %if.end49 ], [ 1, %if.end11 ]
   %outIdx.029 = phi i32 [ %add53, %if.end49 ], [ 0, %if.end11 ]
-  %sub = sub i32 %outSz, %outIdx.029
+  %sub = sub nuw i32 %outSz, %outIdx.029
   %call19 = call i32 @wc_HmacSetKey(ptr noundef nonnull %myHmac, i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz)
   %cmp20.not = icmp eq i32 %call19, 0
   br i1 %cmp20.not, label %if.end23, label %while.end

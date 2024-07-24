@@ -2239,7 +2239,7 @@ do.end63.i:                                       ; preds = %if.then61.i, %land.
 if.then67.i:                                      ; preds = %do.end63.i
   %67 = load ptr, ptr %proto, align 8
   %add.ptr70.i = getelementptr inbounds i8, ptr %67, i64 %spec.select47.i
-  %sub72.i = sub i64 %66, %spec.select47.i
+  %sub72.i = sub nuw i64 %66, %spec.select47.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %67, ptr nonnull align 1 %add.ptr70.i, i64 %sub72.i, i1 false)
   %68 = load i64, ptr %cache_size.i108, align 8
   %sub74.i = sub i64 %68, %spec.select47.i

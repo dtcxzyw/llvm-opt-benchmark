@@ -93,7 +93,7 @@ if.end6:                                          ; preds = %if.then2
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
   %tlsmac = getelementptr inbounds i8, ptr %vctx, i64 16
   store ptr %add.ptr8, ptr %tlsmac, align 8
-  %sub = sub i64 %inl, %1
+  %sub = sub nuw i64 %inl, %1
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end6, %land.lhs.true, %if.end

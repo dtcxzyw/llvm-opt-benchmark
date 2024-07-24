@@ -1264,7 +1264,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   br i1 %491, label %492, label %497
 
 492:                                              ; preds = %482
-  %493 = sub i64 %466, %454
+  %493 = sub nuw i64 %466, %454
   call fastcc void @add_to_list(ptr noundef nonnull %1, ptr noundef nonnull %487, ptr noundef nonnull %289, i64 noundef %493, i64 noundef %439)
   %494 = load ptr, ptr %296, align 8
   %495 = getelementptr inbounds i8, ptr %494, i64 184
@@ -1720,7 +1720,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
   br i1 %283, label %284, label %289
 
 284:                                              ; preds = %274
-  %285 = sub i64 %258, %243
+  %285 = sub nuw i64 %258, %243
   tail call fastcc void @add_to_list(ptr noundef nonnull %7, ptr noundef nonnull %279, ptr noundef nonnull %44, i64 noundef %285, i64 noundef %244)
   %286 = load ptr, ptr %278, align 8
   %287 = getelementptr inbounds i8, ptr %286, i64 184
@@ -3671,7 +3671,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef %0, ptr nound
   %92 = getelementptr inbounds i8, ptr %72, i64 8
   %93 = load i64, ptr %92, align 8
   store i64 %88, ptr %72, align 8
-  %94 = sub i64 %88, %89
+  %94 = sub nuw i64 %88, %89
   %95 = add i64 %94, %93
   %96 = load ptr, ptr %53, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 8

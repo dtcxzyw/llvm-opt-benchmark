@@ -1633,7 +1633,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i16:              ; preds = %52, %_ZNSt12_Vector
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %.noexc
-  %99 = sub i64 %89, %96
+  %99 = sub nuw i64 %89, %96
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr %91, i64 noundef %99, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %.noexc20 unwind label %.thread
 
@@ -1703,7 +1703,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit.i:          ; preds = %104, %102, %100, %.
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %.noexc31
-  %130 = sub i64 %120, %127
+  %130 = sub nuw i64 %120, %127
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr %122, i64 noundef %130, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %.noexc32 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1776,7 +1776,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit.i22:        ; preds = %135, %133, %131, %.
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %.noexc44
-  %164 = sub i64 %154, %161
+  %164 = sub nuw i64 %154, %161
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %152, ptr %156, i64 noundef %164, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %.noexc45 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2024,7 +2024,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn18AttentionLayerImpl7forwardERKNS_11_
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %.noexc
-  %87 = sub i64 %77, %84
+  %87 = sub nuw i64 %77, %84
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr %79, i64 noundef %87, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %.noexc35 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2095,7 +2095,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit.i:          ; preds = %92, %90, %88, %.noe
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %.noexc46
-  %119 = sub i64 %109, %116
+  %119 = sub nuw i64 %109, %116
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr %111, i64 noundef %119, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2168,7 +2168,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit.i37:        ; preds = %124, %122, %120, %.
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %.noexc59
-  %153 = sub i64 %143, %150
+  %153 = sub nuw i64 %143, %150
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr %145, i64 noundef %153, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %.noexc60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4216,7 +4216,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

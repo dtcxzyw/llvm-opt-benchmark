@@ -1923,7 +1923,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %89, label %.loopexit16, label %90, !prof !13
 
 90:                                               ; preds = %.loopexit14
-  %91 = sub i32 %81, %88
+  %91 = sub nuw i32 %81, %88
   %92 = icmp eq i32 %81, %88
   br i1 %92, label %.loopexit16, label %93
 

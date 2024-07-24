@@ -301,7 +301,7 @@ define internal fastcc void @_ZN19brotli_decompressor6decode14WrapRingBuffer17h4
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h9e4738f8342988fbE.llvm.13158767072824543338.exit6": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h9e4738f8342988fbE.llvm.13158767072824543338.exit"
-  %29 = sub i64 %.val1, %14
+  %29 = sub nuw i64 %.val1, %14
   %.not.i.i7 = icmp ult i64 %29, %23
   br i1 %.not.i.i7, label %30, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit"
 
@@ -6945,7 +6945,7 @@ define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24Brot
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h190fa1b5ceadf067E.llvm.13158767072824543338.exit37": ; preds = %36
-  %38 = sub nsw i64 %29, %26
+  %38 = sub nuw nsw i64 %29, %26
   %39 = getelementptr inbounds i8, ptr %0, i64 1824
   %.val33 = load ptr, ptr %39, align 8, !nonnull !5, !align !6, !noundef !5
   %40 = getelementptr inbounds i8, ptr %.val33, i64 %38
@@ -7426,7 +7426,7 @@ _ZN19brotli_decompressor6decode12DecodeSymbol17h3607ad250f015206E.exit: ; preds 
   %157 = phi i32 [ %162, %161 ], [ %164, %163 ], [ %155, %152 ]
   %.not = icmp ult i32 %157, %12
   %158 = select i1 %.not, i32 0, i32 %12
-  %spec.select = sub i32 %157, %158
+  %spec.select = sub nuw i32 %157, %158
   %159 = getelementptr inbounds i8, ptr %151, i64 4
   %160 = load i32, ptr %159, align 4, !noundef !5
   store i32 %160, ptr %151, align 8
@@ -8509,7 +8509,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12align_to_mut
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h9e4738f8342988fbE.llvm.13158767072824543338.exit": ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 %7
-  %11 = sub i64 %2, %7
+  %11 = sub nuw i64 %2, %7
   %12 = lshr i64 %11, 2
   %13 = and i64 %11, 3
   %14 = and i64 %11, -4
@@ -8558,7 +8558,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -8644,7 +8644,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -8864,7 +8864,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.llvm
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h374780ec0ac323bfE.exit" unwind label %49
 
 44:                                               ; preds = %16
-  %45 = sub i64 %26, %17
+  %45 = sub nuw i64 %26, %17
   store i64 %45, ptr %25, align 8, !alias.scope !1050
   %46 = getelementptr inbounds i8, ptr %8, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !1050, !noundef !5
@@ -9498,7 +9498,7 @@ define void @_ZN10actix_http8encoding6Writer4take17h5349e7f440b8725fE(ptr noalia
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h374780ec0ac323bfE.exit.i" unwind label %49, !noalias !1155
 
 44:                                               ; preds = %17
-  %45 = sub i64 %27, %18
+  %45 = sub nuw i64 %27, %18
   store i64 %45, ptr %26, align 8, !alias.scope !1156, !noalias !1155
   %46 = getelementptr inbounds i8, ptr %8, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !1156, !noalias !1155, !noundef !5
@@ -11107,7 +11107,7 @@ define void @"_ZN81_$LT$actix_http..h1..payload..Payload$u20$as$u20$futures_core
   %19 = load i64, ptr %15, align 8, !alias.scope !1412, !noalias !1410, !noundef !5
   %.not.i.i.i = icmp ult i64 %18, %19
   %20 = select i1 %.not.i.i.i, i64 0, i64 %19
-  %.0.i.i.i = sub i64 %18, %20
+  %.0.i.i.i = sub nuw i64 %18, %20
   store i64 %.0.i.i.i, ptr %16, align 8, !alias.scope !1409, !noalias !1410
   %21 = add i64 %13, -1
   store i64 %21, ptr %12, align 8, !alias.scope !1409, !noalias !1410
@@ -12002,7 +12002,7 @@ select.unfold:                                    ; preds = %45
           to label %.body unwind label %100, !noalias !1558
 
 95:                                               ; preds = %.noexc10
-  %96 = sub i64 %78, %69
+  %96 = sub nuw i64 %78, %69
   store i64 %96, ptr %77, align 8, !alias.scope !1559, !noalias !1558
   %97 = getelementptr inbounds i8, ptr %9, i64 8
   %98 = load ptr, ptr %97, align 8, !alias.scope !1559, !noalias !1558, !noundef !5

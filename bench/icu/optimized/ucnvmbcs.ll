@@ -4252,7 +4252,7 @@ if.end643:                                        ; preds = %sw.bb637, %if.else6
   br label %while.cond.preheader, !llvm.loop !34
 
 if.else645:                                       ; preds = %if.end599
-  %sub646 = sub nsw i32 %length.10, %targetCapacity.4
+  %sub646 = sub nuw nsw i32 %length.10, %targetCapacity.4
   %charErrorBuffer647 = getelementptr inbounds i8, ptr %0, i64 104
   switch i32 %sub646, label %sw.epilog660 [
     i32 3, label %sw.bb649
@@ -4285,7 +4285,7 @@ sw.epilog660:                                     ; preds = %if.else645, %sw.bb6
   %conv661 = trunc nsw i32 %sub646 to i8
   %charErrorBufferLength = getelementptr inbounds i8, ptr %0, i64 91
   store i8 %conv661, ptr %charErrorBufferLength, align 1
-  %mul662 = shl nsw i32 %sub646, 3
+  %mul662 = shl nuw nsw i32 %sub646, 3
   %shr663 = lshr i32 %value.6, %mul662
   switch i32 %targetCapacity.4, label %default.unreachable [
     i32 3, label %sw.bb664

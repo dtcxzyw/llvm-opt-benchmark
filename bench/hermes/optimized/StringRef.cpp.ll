@@ -735,7 +735,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %From
-  %sub = sub i64 %0, %From
+  %sub = sub nuw i64 %0, %From
   %cmp4 = icmp eq i64 %Str.coerce1, 0
   br i1 %cmp4, label %return, label %if.end6
 
@@ -957,7 +957,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %reass.sub = sub i64 %0, %Str.coerce1.fr
+  %reass.sub = sub nuw i64 %0, %Str.coerce1.fr
   %add = add i64 %reass.sub, 1
   %cmp3.not18 = icmp eq i64 %add, 0
   br i1 %cmp3.not18, label %return, label %for.body.lr.ph
@@ -1000,7 +1000,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %reass.sub = sub i64 %0, %Str.coerce1.fr
+  %reass.sub = sub nuw i64 %0, %Str.coerce1.fr
   %add = add i64 %reass.sub, 1
   %cmp3.not15 = icmp eq i64 %add, 0
   br i1 %cmp3.not15, label %return, label %for.body.lr.ph
@@ -1650,7 +1650,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %reass.sub = sub i64 %0, %Str.coerce1.fr
+  %reass.sub = sub nuw i64 %0, %Str.coerce1.fr
   %cmp3.not21 = icmp eq i64 %reass.sub, -1
   br i1 %cmp3.not21, label %return, label %for.body.lr.ph
 

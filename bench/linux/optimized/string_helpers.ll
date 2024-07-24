@@ -1702,7 +1702,7 @@ define dso_local void @memcpy_and_pad(ptr nocapture noundef writeonly %0, i64 no
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %2, i64 %3, i1 false)
   %8 = getelementptr i8, ptr %0, i64 %3
   %9 = trunc i32 %4 to i8
-  %10 = sub i64 %1, %3
+  %10 = sub nuw i64 %1, %3
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 %9, i64 %10, i1 false)
   br label %12
 

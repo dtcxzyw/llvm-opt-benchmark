@@ -731,7 +731,7 @@ define range(i64 -1, 2147483648) i64 @hostlist_deranged_string_dims(ptr noundef 
   %23 = load ptr, ptr %12, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = sub i64 %1, %21
+  %26 = sub nuw i64 %1, %21
   %27 = getelementptr inbounds i8, ptr %2, i64 %21
   %28 = tail call fastcc i64 @hostrange_to_string(ptr noundef %25, i64 noundef %26, ptr noundef %27, i32 noundef %3)
   %29 = icmp slt i64 %28, 0
@@ -5792,7 +5792,7 @@ hostlist_parse_int_to_array.exit.us:              ; preds = %.lr.ph.i.us
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds i8, ptr %2, i64 %82
-  %85 = sub i64 %1, %82
+  %85 = sub nuw i64 %1, %82
   %86 = load ptr, ptr %0, align 8
   %87 = load i32, ptr %25, align 8
   %88 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %84, i64 noundef %85, ptr noundef nonnull @.str.20, ptr noundef %86, i32 noundef %87, i64 noundef %.06710) #22

@@ -4869,7 +4869,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i32 %stream_id, %0
+  %sub = sub nuw i32 %stream_id, %0
   %div5 = lshr i32 %sub, 1
   %sub3 = add nsw i32 %div5, -1
   %conv = zext i32 %sub3 to i64

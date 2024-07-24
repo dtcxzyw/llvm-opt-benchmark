@@ -1352,7 +1352,7 @@ define i32 @mca_btl_tcp_recv_blocking(i32 noundef %0, ptr noundef %1, i64 nounde
 .lr.ph.split.us:                                  ; preds = %3, %.outer
   %.0.ph31 = phi i64 [ %18, %.outer ], [ 0, %3 ]
   %4 = getelementptr inbounds i8, ptr %1, i64 %.0.ph31
-  %5 = sub i64 %2, %.0.ph31
+  %5 = sub nuw i64 %2, %.0.ph31
   %6 = tail call i64 @recv(i32 noundef %0, ptr noundef %4, i64 noundef %5, i32 noundef 0) #10
   %7 = trunc i64 %6 to i32
   %8 = icmp eq i32 %7, 0
@@ -1409,7 +1409,7 @@ define i32 @mca_btl_tcp_send_blocking(i32 noundef %0, ptr noundef %1, i64 nounde
 .lr.ph.split.us:                                  ; preds = %3, %.outer
   %.012.ph26 = phi i64 [ %15, %.outer ], [ 0, %3 ]
   %4 = getelementptr inbounds i8, ptr %1, i64 %.012.ph26
-  %5 = sub i64 %2, %.012.ph26
+  %5 = sub nuw i64 %2, %.012.ph26
   %6 = tail call i64 @send(i32 noundef %0, ptr noundef %4, i64 noundef %5, i32 noundef 0) #10
   %7 = and i64 %6, 2147483648
   %.not.us23 = icmp eq i64 %7, 0

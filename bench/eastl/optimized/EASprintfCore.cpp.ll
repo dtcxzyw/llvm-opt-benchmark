@@ -5364,7 +5364,7 @@ land.lhs.true:                                    ; preds = %if.then23
 
 if.then28:                                        ; preds = %land.lhs.true
   %add.ptr29 = getelementptr inbounds i16, ptr %pInBufferData.addr.090, i64 %4
-  %sub31 = sub i64 %idx.ext, %4
+  %sub31 = sub nuw i64 %idx.ext, %4
   %call32 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef null, ptr noundef %add.ptr29, i64 noundef 0, i64 noundef %sub31)
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %while.end61, label %if.end35
@@ -5622,7 +5622,7 @@ land.lhs.true:                                    ; preds = %if.then23
 
 if.then28:                                        ; preds = %land.lhs.true
   %add.ptr29 = getelementptr inbounds i32, ptr %pInBufferData.addr.090, i64 %4
-  %sub31 = sub i64 %idx.ext, %4
+  %sub31 = sub nuw i64 %idx.ext, %4
   %call32 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDimm(ptr noundef null, ptr noundef %add.ptr29, i64 noundef 0, i64 noundef %sub31)
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %while.end61, label %if.end35
@@ -7389,7 +7389,7 @@ land.lhs.true:                                    ; preds = %if.then22
 
 if.then27:                                        ; preds = %land.lhs.true
   %add.ptr28 = getelementptr inbounds i8, ptr %pInBufferData.addr.090, i64 %4
-  %sub30 = sub i64 %idx.ext, %4
+  %sub30 = sub nuw i64 %idx.ext, %4
   %call31 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPDsPKcmm(ptr noundef null, ptr noundef %add.ptr28, i64 noundef 0, i64 noundef %sub30)
   %cmp32 = icmp slt i32 %call31, 0
   br i1 %cmp32, label %while.end60, label %if.end34
@@ -7647,7 +7647,7 @@ land.lhs.true:                                    ; preds = %if.then23
 
 if.then28:                                        ; preds = %land.lhs.true
   %add.ptr29 = getelementptr inbounds i32, ptr %pInBufferData.addr.090, i64 %4
-  %sub31 = sub i64 %idx.ext, %4
+  %sub31 = sub nuw i64 %idx.ext, %4
   %call32 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPDsPKDimm(ptr noundef null, ptr noundef %add.ptr29, i64 noundef 0, i64 noundef %sub31)
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %while.end61, label %if.end35
@@ -9398,7 +9398,7 @@ land.lhs.true:                                    ; preds = %if.then22
 
 if.then27:                                        ; preds = %land.lhs.true
   %add.ptr28 = getelementptr inbounds i8, ptr %pInBufferData.addr.090, i64 %4
-  %sub30 = sub i64 %idx.ext, %4
+  %sub30 = sub nuw i64 %idx.ext, %4
   %call31 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPDiPKcmm(ptr noundef null, ptr noundef %add.ptr28, i64 noundef 0, i64 noundef %sub30)
   %cmp32 = icmp slt i32 %call31, 0
   br i1 %cmp32, label %while.end60, label %if.end34
@@ -9656,7 +9656,7 @@ land.lhs.true:                                    ; preds = %if.then23
 
 if.then28:                                        ; preds = %land.lhs.true
   %add.ptr29 = getelementptr inbounds i16, ptr %pInBufferData.addr.090, i64 %4
-  %sub31 = sub i64 %idx.ext, %4
+  %sub31 = sub nuw i64 %idx.ext, %4
   %call32 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPDiPKDsmm(ptr noundef null, ptr noundef %add.ptr29, i64 noundef 0, i64 noundef %sub31)
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %while.end61, label %if.end35

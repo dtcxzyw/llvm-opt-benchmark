@@ -550,7 +550,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i147: ; preds = %.noexc153
   br i1 %227, label %228, label %260
 
 228:                                              ; preds = %._crit_edge.i
-  %229 = sub nsw i64 %219, %226
+  %229 = sub nuw nsw i64 %219, %226
   %230 = getelementptr inbounds i8, ptr %48, i64 16
   %231 = load ptr, ptr %230, align 8
   %232 = ptrtoint ptr %231 to i64
@@ -682,7 +682,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit138.i:          ; preds = %_ZSt27__uninitializ
   br i1 %281, label %282, label %314
 
 282:                                              ; preds = %._crit_edge206.i
-  %283 = sub nsw i64 %273, %280
+  %283 = sub nuw nsw i64 %273, %280
   %284 = getelementptr inbounds i8, ptr %49, i64 16
   %285 = load ptr, ptr %284, align 8
   %286 = ptrtoint ptr %285 to i64
@@ -938,7 +938,7 @@ _ZNK2cv4Mat_IdE5cloneEv.exit.i:                   ; preds = %.noexc97
   br i1 %.not.i, label %386, label %371
 
 371:                                              ; preds = %369
-  %372 = sub i32 %370, %204
+  %372 = sub nuw i32 %370, %204
   %373 = load i32, ptr %196, align 4
   %374 = load ptr, ptr %325, align 8
   %375 = load ptr, ptr %327, align 8
@@ -1073,7 +1073,7 @@ _ZN2cvL12swap_columnsERNS_4Mat_IdEEii.exit144.i:  ; preds = %.lr.ph.i141.i, %_ZN
   br label %497
 
 459:                                              ; preds = %445
-  %460 = sub i32 %448, %204
+  %460 = sub nuw i32 %448, %204
   %461 = load ptr, ptr %439, align 8
   %462 = getelementptr inbounds double, ptr %461, i64 %indvars.iv242.i
   %463 = load double, ptr %462, align 8
@@ -1377,7 +1377,7 @@ _ZN2cv3Mat5beginIdEENS_12MatIterator_IT_EEv.exit: ; preds = %542, %543
   br label %635
 
 561:                                              ; preds = %557
-  %562 = sub i32 %559, %549
+  %562 = sub nuw i32 %559, %549
   %563 = load i32, ptr %551, align 4
   %564 = load ptr, ptr %552, align 8
   %565 = load ptr, ptr %553, align 8

@@ -823,7 +823,7 @@ define internal void @msg_config_req(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
-  %29 = sub i32 %3, %26
+  %29 = sub nuw i32 %3, %26
   %30 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %29) #3
   br label %31
 
@@ -1025,7 +1025,7 @@ define internal void @msg_download_req(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %139, label %140, label %143
 
 140:                                              ; preds = %138
-  %141 = sub i32 %3, %.pre-phi
+  %141 = sub nuw i32 %3, %.pre-phi
   %142 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.2, i32 noundef %141) #3
   br label %143
 
@@ -1094,7 +1094,7 @@ define internal void @msg_ms_key_req(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %41
-  %45 = sub i32 %3, %42
+  %45 = sub nuw i32 %3, %42
   %46 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %45) #3
   br label %47
 
@@ -1142,7 +1142,7 @@ define internal void @msg_key_gen_req(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %24
-  %28 = sub i32 %3, %25
+  %28 = sub nuw i32 %3, %25
   %29 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %28) #3
   br label %30
 
@@ -1214,7 +1214,7 @@ define internal void @msg_protocap_req(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %._crit_edge
-  %30 = sub i32 %3, %27
+  %30 = sub nuw i32 %3, %27
   %31 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %30) #3
   br label %32
 
@@ -1266,7 +1266,7 @@ define internal void @msg_sspr_config_req(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
-  %33 = sub i32 %3, %30
+  %33 = sub nuw i32 %3, %30
   %34 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %33) #3
   br label %35
 
@@ -1331,7 +1331,7 @@ define internal void @msg_sspr_download_req(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %35
-  %38 = sub i32 %3, %.pre-phi
+  %38 = sub nuw i32 %3, %.pre-phi
   %39 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %38) #3
   br label %40
 
@@ -1471,7 +1471,7 @@ for_param_block_val_spc.exit:                     ; preds = %58, %56, %48, %44, 
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %._crit_edge
-  %75 = sub i32 %3, %72
+  %75 = sub nuw i32 %3, %72
   %76 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %75) #3
   br label %77
 
@@ -1531,7 +1531,7 @@ define internal void @msg_puzl_config_req(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %19
-  %23 = sub i32 %3, %20
+  %23 = sub nuw i32 %3, %20
   %24 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %23) #3
   br label %25
 
@@ -1620,7 +1620,7 @@ define internal void @msg_puzl_download_req(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
-  %49 = sub i32 %3, %.pre-phi
+  %49 = sub nuw i32 %3, %.pre-phi
   %50 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.2, i32 noundef %49) #3
   br label %51
 
@@ -1675,7 +1675,7 @@ define internal void @msg_3gpd_config_req(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
-  %29 = sub i32 %3, %26
+  %29 = sub nuw i32 %3, %26
   %30 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %29) #3
   br label %31
 
@@ -1764,7 +1764,7 @@ define internal void @msg_3gpd_download_req(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
-  %49 = sub i32 %3, %.pre-phi
+  %49 = sub nuw i32 %3, %.pre-phi
   %50 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.2, i32 noundef %49) #3
   br label %51
 
@@ -1829,7 +1829,7 @@ define internal void @msg_secure_mode_req(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %32
-  %36 = sub i32 %3, %33
+  %36 = sub nuw i32 %3, %33
   %37 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %36) #3
   br label %38
 
@@ -1884,7 +1884,7 @@ define internal void @msg_mmd_config_req(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
-  %29 = sub i32 %3, %26
+  %29 = sub nuw i32 %3, %26
   %30 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %29) #3
   br label %31
 
@@ -1973,7 +1973,7 @@ define internal void @msg_mmd_download_req(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
-  %49 = sub i32 %3, %.pre-phi
+  %49 = sub nuw i32 %3, %.pre-phi
   %50 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.2, i32 noundef %49) #3
   br label %51
 
@@ -2023,7 +2023,7 @@ define internal void @msg_systag_config_req(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = sub i32 %3, %27
+  %30 = sub nuw i32 %3, %27
   %31 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %30) #3
   br label %32
 
@@ -2074,7 +2074,7 @@ define internal void @msg_systag_download_req(ptr noundef %0, ptr noundef %1, pt
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
-  %31 = sub i32 %3, %28
+  %31 = sub nuw i32 %3, %28
   %32 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %31) #3
   br label %33
 
@@ -2165,7 +2165,7 @@ define internal void @msg_mms_config_req(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
-  %29 = sub i32 %3, %26
+  %29 = sub nuw i32 %3, %26
   %30 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %29) #3
   br label %31
 
@@ -2254,7 +2254,7 @@ define internal void @msg_mms_download_req(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
-  %49 = sub i32 %3, %.pre-phi
+  %49 = sub nuw i32 %3, %.pre-phi
   %50 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.2, i32 noundef %49) #3
   br label %51
 
@@ -2695,7 +2695,7 @@ rev_param_block_nam_cdma_analog.exit:             ; preds = %42, %63
   br i1 %197, label %198, label %201
 
 198:                                              ; preds = %196
-  %199 = sub i32 %3, %.pre-phi
+  %199 = sub nuw i32 %3, %.pre-phi
   %200 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.3, i32 noundef %199) #3
   br label %201
 
@@ -2753,7 +2753,7 @@ define internal void @msg_download_rsp(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %._crit_edge
-  %32 = sub i32 %3, %29
+  %32 = sub nuw i32 %3, %29
   %33 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %32) #3
   br label %34
 
@@ -2822,7 +2822,7 @@ define internal void @msg_key_gen_rsp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
-  %31 = sub i32 %3, %28
+  %31 = sub nuw i32 %3, %28
   %32 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %31) #3
   br label %33
 
@@ -2981,7 +2981,7 @@ define internal void @msg_protocap_rsp(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %70
-  %74 = sub i32 %3, %71
+  %74 = sub nuw i32 %3, %71
   %75 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %74) #3
   br label %76
 
@@ -3047,7 +3047,7 @@ define internal void @msg_sspr_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
-  %39 = sub i32 %3, %.pre-phi
+  %39 = sub nuw i32 %3, %.pre-phi
   %40 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %39) #3
   br label %41
 
@@ -3137,7 +3137,7 @@ define internal void @msg_validate_rsp(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %._crit_edge
-  %32 = sub i32 %3, %29
+  %32 = sub nuw i32 %3, %29
   %33 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %32) #3
   br label %34
 
@@ -3195,7 +3195,7 @@ define internal void @msg_otapa_rsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %34
-  %38 = sub i32 %3, %35
+  %38 = sub nuw i32 %3, %35
   %39 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %38) #3
   br label %40
 
@@ -3261,7 +3261,7 @@ define internal void @msg_puzl_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
-  %39 = sub i32 %3, %.pre-phi
+  %39 = sub nuw i32 %3, %.pre-phi
   %40 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %39) #3
   br label %41
 
@@ -3347,7 +3347,7 @@ define internal void @msg_puzl_download_rsp(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %._crit_edge
-  %51 = sub i32 %3, %48
+  %51 = sub nuw i32 %3, %48
   %52 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %51) #3
   br label %53
 
@@ -3449,7 +3449,7 @@ define internal void @msg_3gpd_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %54
-  %57 = sub i32 %3, %.pre-phi
+  %57 = sub nuw i32 %3, %.pre-phi
   %58 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.2, i32 noundef %57) #3
   br label %59
 
@@ -3507,7 +3507,7 @@ define internal void @msg_3gpd_download_rsp(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %._crit_edge
-  %32 = sub i32 %3, %29
+  %32 = sub nuw i32 %3, %29
   %33 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %32) #3
   br label %34
 
@@ -3675,7 +3675,7 @@ define internal void @msg_ext_protocap_rsp(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %._crit_edge144
-  %85 = sub i32 %3, %82
+  %85 = sub nuw i32 %3, %82
   %86 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.1.lcssa, i32 noundef %85) #3
   br label %87
 
@@ -3777,7 +3777,7 @@ define internal void @msg_mmd_config_rsp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %54
-  %57 = sub i32 %3, %.pre-phi
+  %57 = sub nuw i32 %3, %.pre-phi
   %58 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.2, i32 noundef %57) #3
   br label %59
 
@@ -3835,7 +3835,7 @@ define internal void @msg_mmd_download_rsp(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %._crit_edge
-  %32 = sub i32 %3, %29
+  %32 = sub nuw i32 %3, %29
   %33 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %32) #3
   br label %34
 
@@ -3889,7 +3889,7 @@ define internal void @msg_systag_config_rsp(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
-  %34 = sub i32 %3, %31
+  %34 = sub nuw i32 %3, %31
   %35 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %34) #3
   br label %36
 
@@ -3942,7 +3942,7 @@ define internal void @msg_systag_download_rsp(ptr noundef %0, ptr noundef %1, pt
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %28
-  %32 = sub i32 %3, %29
+  %32 = sub nuw i32 %3, %29
   %33 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %32) #3
   br label %34
 
@@ -4061,7 +4061,7 @@ define internal void @msg_mms_config_rsp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %53
-  %56 = sub i32 %3, %.pre-phi
+  %56 = sub nuw i32 %3, %.pre-phi
   %57 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.2, i32 noundef %56) #3
   br label %58
 
@@ -4119,7 +4119,7 @@ define internal void @msg_mms_download_rsp(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %._crit_edge
-  %32 = sub i32 %3, %29
+  %32 = sub nuw i32 %3, %29
   %33 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_683_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %32) #3
   br label %34
 

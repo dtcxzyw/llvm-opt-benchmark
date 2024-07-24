@@ -3906,12 +3906,12 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sub = sub i32 %0, %n
+  %sub = sub nuw i32 %0, %n
   store i32 %sub, ptr %m_num_scopes, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sub4 = sub i32 %n, %0
+  %sub4 = sub nuw i32 %n, %0
   store i32 0, ptr %m_num_scopes, align 8
   %m_map = getelementptr inbounds i8, ptr %this, i64 200
   %1 = load ptr, ptr %m_map, align 8

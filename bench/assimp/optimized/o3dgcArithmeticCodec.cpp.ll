@@ -119,7 +119,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sub = sub i32 %1, %shr
+  %sub = sub nuw i32 %1, %shr
   store i32 %sub, ptr %value, align 4
   br label %if.end
 
@@ -360,7 +360,7 @@ entry:
   br i1 %cmp, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  %sub = sub i32 %2, %mul
+  %sub = sub nuw i32 %2, %mul
   store i32 %sub, ptr %value, align 4
   %sub6 = sub i32 %1, %mul
   br label %if.end
@@ -616,7 +616,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %sub = sub i32 %2, %mul
+  %sub = sub nuw i32 %2, %mul
   store i32 %sub, ptr %value, align 4
   %sub6 = sub i32 %1, %mul
   store i32 %sub6, ptr %length, align 8

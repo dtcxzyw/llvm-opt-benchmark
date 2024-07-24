@@ -3067,7 +3067,7 @@ invoke.cont34.i.i:                                ; preds = %invoke.cont16.i.i
   br i1 %cmp.i27.i.i, label %if.then.i31.i.i, label %if.else.i28.i.i
 
 if.then.i31.i.i:                                  ; preds = %invoke.cont34.i.i
-  %sub.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i21.i.i, %sub.ptr.div.i.i26.i.i
+  %sub.i.i.i = sub nuw nsw i64 %sub.ptr.div.i.i.i21.i.i, %sub.ptr.div.i.i26.i.i
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values.i.i, i64 noundef %sub.i.i.i)
           to label %if.then.i31.invoke.cont36_crit_edge.i.i unwind label %lpad.loopexit.split-lp.i.i, !noalias !25
 
@@ -6852,7 +6852,7 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %values.sroa.29.1.lcssa.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i18.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
@@ -7247,7 +7247,7 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %values.sroa.29.1.lcssa.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i18.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
@@ -7662,7 +7662,7 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %values.sroa.29.1.lcssa.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i18.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
@@ -8077,7 +8077,7 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %values.sroa.29.1.lcssa.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i18.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
@@ -8492,7 +8492,7 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %values.sroa.29.1.lcssa.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i18.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
@@ -8905,7 +8905,7 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %values.sroa.29.1.lcssa.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i18.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
@@ -9377,7 +9377,7 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %values.sroa.29.1.lcssa.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i18.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
@@ -9849,7 +9849,7 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %values.sroa.29.1.lcssa.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i18.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
@@ -10279,7 +10279,7 @@ invoke.cont36.i:                                  ; preds = %while.cond.i.i.i.i,
   br i1 %cmp.i24.i, label %if.then.i28.i, label %if.else.i25.i
 
 if.then.i28.i:                                    ; preds = %invoke.cont36.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i23.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i23.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %values.sroa.29.1.lcssa.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i20.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3

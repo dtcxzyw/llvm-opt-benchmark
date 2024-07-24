@@ -11768,7 +11768,7 @@ define dso_local noundef zeroext i1 @hugetlb_reserve_pages(ptr nocapture noundef
   br i1 %148, label %149, label %158, !prof !15
 
 149:                                              ; preds = %147
-  %150 = sub nsw i64 %68, %142
+  %150 = sub nuw nsw i64 %68, %142
   %151 = load i32, ptr %73, align 8
   %152 = zext nneg i32 %151 to i64
   %153 = shl i64 %150, %152

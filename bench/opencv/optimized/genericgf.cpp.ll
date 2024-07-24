@@ -159,7 +159,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %5, %._ZNSt6vectorIi
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %30 = sub nsw i64 %.pre-phi, %27
+  %30 = sub nuw nsw i64 %.pre-phi, %27
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %30)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit53_crit_edge unwind label %49
 

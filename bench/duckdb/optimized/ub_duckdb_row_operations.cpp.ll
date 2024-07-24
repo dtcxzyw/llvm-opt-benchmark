@@ -10443,7 +10443,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit143.us.us: ; preds = %cond.true.i13
 
 if.then.i151.us.us:                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit143.us.us
   %add.ptr.i152.us.us = getelementptr inbounds i8, ptr %8, i64 %conv.i.i145.us.us
-  %sub.i153.us.us = sub i64 %prefix_len, %conv.i.i145.us.us
+  %sub.i153.us.us = sub nuw i64 %prefix_len, %conv.i.i145.us.us
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i152.us.us, i8 0, i64 %sub.i153.us.us, i1 false)
   br label %_ZN6duckdb5Radix22EncodeStringDataPrefixEPhNS_8string_tEm.exit154.us.us
 
@@ -10591,7 +10591,7 @@ if.then11:                                        ; preds = %_ZNK6duckdb21Templa
 
 if.then.i:                                        ; preds = %if.then11
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %conv.i.i
-  %sub.i = sub i64 %prefix_len, %conv.i.i
+  %sub.i = sub nuw i64 %prefix_len, %conv.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   br label %_ZN6duckdb5Radix22EncodeStringDataPrefixEPhNS_8string_tEm.exit
 
@@ -10716,7 +10716,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit143: ; preds = %cond.true.i139, %_Z
 
 if.then.i151:                                     ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit143
   %add.ptr.i152 = getelementptr inbounds i8, ptr %56, i64 %conv.i.i145
-  %sub.i153 = sub i64 %prefix_len, %conv.i.i145
+  %sub.i153 = sub nuw i64 %prefix_len, %conv.i.i145
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i152, i8 0, i64 %sub.i153, i1 false)
   br label %_ZN6duckdb5Radix22EncodeStringDataPrefixEPhNS_8string_tEm.exit154
 

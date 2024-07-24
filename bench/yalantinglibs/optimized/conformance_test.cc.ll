@@ -7268,7 +7268,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %entry
-  %sub.i = sub i64 %1, %conv
+  %sub.i = sub nuw i64 %1, %conv
   %_M_str.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_str.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv

@@ -2688,7 +2688,7 @@ if.then170:                                       ; preds = %if.end168
   br label %if.end301
 
 if.else174:                                       ; preds = %lor.lhs.false120
-  %sub = sub i32 %17, %16
+  %sub = sub nuw i32 %17, %16
   %sub. = call i32 @llvm.umin.i32(i32 %13, i32 %sub)
   %len.0 = zext i32 %sub. to i64
   br i1 %tobool90.not, label %if.end235, label %if.then190

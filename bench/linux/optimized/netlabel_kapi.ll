@@ -928,7 +928,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_getlong(ptr nounde
   br label %37
 
 34:                                               ; preds = %.loopexit
-  %35 = sub i32 %16, %31
+  %35 = sub nuw i32 %16, %31
   %36 = zext i32 %35 to i64
   br label %37
 

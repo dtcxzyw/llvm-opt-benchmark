@@ -637,7 +637,7 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
   br i1 %.not1466, label %386, label %358
 
 358:                                              ; preds = %353
-  %359 = sub nsw i32 %.01293, %357
+  %359 = sub nuw nsw i32 %.01293, %357
   %360 = icmp ult i16 %354, 9
   br i1 %360, label %361, label %377
 

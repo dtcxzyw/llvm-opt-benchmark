@@ -2672,7 +2672,7 @@ if.then38.i:                                      ; preds = %if.then36.i
   br label %return
 
 if.end43.i:                                       ; preds = %if.then36.i
-  %sub44.i = sub i64 %mrs_gpa.1.i, %56
+  %sub44.i = sub nuw i64 %mrs_gpa.1.i, %56
   %add45.i = add i64 %sub44.i, %add32.i
   %cmp46.i = icmp eq i64 %add45.i, %mrs_host.1.i
   br i1 %cmp46.i, label %land.lhs.true47.i, label %if.else.i11
@@ -5148,7 +5148,7 @@ if.else51:                                        ; preds = %if.end47
   unreachable
 
 if.end52:                                         ; preds = %if.end47
-  %sub53 = sub i64 %this_chunk_size.057, %call31
+  %sub53 = sub nuw i64 %this_chunk_size.057, %call31
   %add.ptr = getelementptr i8, ptr %transfer_pointer.058, i64 %call31
   %cmp28.not = icmp eq i64 %sub53, 0
   br i1 %cmp28.not, label %while.cond.loopexit, label %do.body.preheader, !llvm.loop !35

@@ -185,7 +185,7 @@ while.body7:                                      ; preds = %while.end, %if.end2
   %cmp13 = icmp ugt i64 %spec.store.select, %conv12
   %spec.select = select i1 %cmp13, i32 0, i32 %add11
   %sub = select i1 %cmp13, i64 %conv12, i64 0
-  %spec.select54 = sub nsw i64 %spec.store.select, %sub
+  %spec.select54 = sub nuw nsw i64 %spec.store.select, %sub
   tail call void %func(ptr noundef %in.addr.179, ptr noundef %out.addr.178, i64 noundef %spec.select54, ptr noundef %key, ptr noundef nonnull %ivec) #3
   %7 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %spec.select) #4, !srcloc !11
   store i32 %7, ptr %add.ptr, align 4
@@ -207,7 +207,7 @@ do.body.i:                                        ; preds = %while.body7, %do.bo
   br i1 %tobool.not.i, label %if.end24, label %do.body.i, !llvm.loop !12
 
 if.end24:                                         ; preds = %do.body.i, %while.body7
-  %mul = shl nsw i64 %spec.select54, 4
+  %mul = shl nuw nsw i64 %spec.select54, 4
   %sub25 = sub i64 %len.addr.177, %mul
   %add.ptr26 = getelementptr inbounds i8, ptr %out.addr.178, i64 %mul
   %add.ptr27 = getelementptr inbounds i8, ptr %in.addr.179, i64 %mul

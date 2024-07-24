@@ -619,7 +619,7 @@ define hidden ptr @symbol_for_pc(ptr nocapture noundef readonly %0, i64 noundef 
   br i1 %.not18, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = sub i64 %1, %9
+  %11 = sub nuw i64 %1, %9
   %12 = tail call ptr @nearest_symbol(ptr noundef nonnull %6, i64 noundef %11, ptr noundef %2) #21
   %.not19 = icmp eq ptr %12, null
   br i1 %.not19, label %13, label %._crit_edge

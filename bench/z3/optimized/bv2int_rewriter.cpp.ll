@@ -4271,7 +4271,7 @@ _ZNK7bv_util11get_bv_sizeEPK4expr.exit40:         ; preds = %_ZNK7bv_util11get_b
   br i1 %brmerge, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNK7bv_util11get_bv_sizeEPK4expr.exit40
-  %sub = sub i32 %4, %9
+  %sub = sub nuw i32 %4, %9
   %10 = load ptr, ptr %t, align 8
   %call7 = tail call noundef ptr @_ZN15bv2int_rewriter9mk_extendEjP4exprb(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %sub, ptr noundef %10, i1 noundef zeroext true)
   %tobool.not.i = icmp eq ptr %call7, null
@@ -4312,7 +4312,7 @@ if.end:                                           ; preds = %_ZNK7bv_util11get_b
   br i1 %brmerge27, label %if.end17, label %if.then12
 
 if.then12:                                        ; preds = %if.end
-  %sub13 = sub i32 %4, %9
+  %sub13 = sub nuw i32 %4, %9
   %15 = load ptr, ptr %t, align 8
   %call15 = tail call noundef ptr @_ZN15bv2int_rewriter9mk_extendEjP4exprb(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %sub13, ptr noundef %15, i1 noundef zeroext false)
   %tobool.not.i41 = icmp eq ptr %call15, null
@@ -4354,7 +4354,7 @@ if.end17:                                         ; preds = %if.end, %_ZN7obj_re
   br i1 %brmerge29, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %if.end17
-  %sub22 = sub i32 %9, %4
+  %sub22 = sub nuw i32 %9, %4
   %20 = load ptr, ptr %s, align 8
   %call24 = tail call noundef ptr @_ZN15bv2int_rewriter9mk_extendEjP4exprb(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %sub22, ptr noundef %20, i1 noundef zeroext true)
   %tobool.not.i54 = icmp eq ptr %call24, null
@@ -4395,7 +4395,7 @@ if.end26:                                         ; preds = %if.end17, %_ZN7obj_
   br i1 %brmerge31, label %if.end35, label %if.then30
 
 if.then30:                                        ; preds = %if.end26
-  %sub31 = sub i32 %9, %4
+  %sub31 = sub nuw i32 %9, %4
   %25 = load ptr, ptr %s, align 8
   %call33 = tail call noundef ptr @_ZN15bv2int_rewriter9mk_extendEjP4exprb(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %sub31, ptr noundef %25, i1 noundef zeroext false)
   %tobool.not.i67 = icmp eq ptr %call33, null

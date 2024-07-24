@@ -8260,7 +8260,7 @@ common.resume:                                    ; preds = %.thread30, %20
   %138 = add i64 %137, %135
   %.not.i.i = icmp ult i64 %138, %134
   %139 = select i1 %.not.i.i, i64 0, i64 %134
-  %.0.i.i = sub i64 %138, %139
+  %.0.i.i = sub nuw i64 %138, %139
   %140 = getelementptr inbounds i8, ptr %0, i64 232
   %141 = load ptr, ptr %140, align 8, !alias.scope !1277, !noalias !1280, !nonnull !14, !noundef !14
   %142 = getelementptr inbounds { { { i64, ptr }, i64 }, i64 }, ptr %141, i64 %.0.i.i
@@ -13105,7 +13105,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
 
 1799:                                             ; preds = %.noexc476.i
   %1800 = getelementptr inbounds i8, ptr %1797, i64 24
-  %1801 = sub i64 %1700, %.019.lcssa.i.i
+  %1801 = sub nuw i64 %1700, %.019.lcssa.i.i
   %1802 = mul i64 %1801, 24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1800, ptr nonnull align 8 %1797, i64 %1802, i1 false), !noalias !2325
   br label %1803
@@ -16001,7 +16001,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet6remove17h96235b2a844d2007E.exit: ; 
 
 2658:                                             ; preds = %.noexc566
   %2659 = getelementptr inbounds i8, ptr %2656, i64 16
-  %2660 = sub i64 %2638, %.019.lcssa.i
+  %2660 = sub nuw i64 %2638, %.019.lcssa.i
   %2661 = shl i64 %2660, 4
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %2659, ptr nonnull align 8 %2656, i64 %2661, i1 false)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hef2ca530a52532c0E.exit"
@@ -17206,7 +17206,7 @@ common.resume:                                    ; preds = %55, %40
 
 59:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h46004af52e97adafE.llvm.1408760718162522189.exit.i"
   %60 = getelementptr inbounds i8, ptr %53, i64 48
-  %61 = sub i64 %9, %.019.lcssa.i
+  %61 = sub nuw i64 %9, %.019.lcssa.i
   %62 = mul i64 %61, 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull align 8 %53, i64 %62, i1 false), !noalias !3096
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17he75f64a536b16108E.exit"
@@ -27343,7 +27343,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i: 
   %768 = load i64, ptr %627, align 8, !alias.scope !5031, !noalias !5029, !noundef !14
   %.not.i.i.i.i = icmp ult i64 %767, %768
   %769 = select i1 %.not.i.i.i.i, i64 0, i64 %768
-  %.0.i.i.i82.i = sub i64 %767, %769
+  %.0.i.i.i82.i = sub nuw i64 %767, %769
   store i64 %.0.i.i.i82.i, ptr %.sroa.513.0..sroa_idx.i, align 8, !alias.scope !5028, !noalias !5029
   %770 = add i64 %765, -1
   store i64 %770, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !5028, !noalias !5029

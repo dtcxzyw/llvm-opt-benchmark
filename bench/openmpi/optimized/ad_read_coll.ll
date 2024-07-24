@@ -1193,7 +1193,7 @@ define void @ADIOI_Fill_user_buffer(ptr noundef %0, ptr nocapture noundef writeo
   %65 = sub i32 %50, %48
   %66 = zext i32 %65 to i64
   %. = call i64 @llvm.smin.i64(i64 %64, i64 %66)
-  %67 = sub i32 %59, %54
+  %67 = sub nuw i32 %59, %54
   %68 = zext i32 %67 to i64
   br label %.lr.ph441
 

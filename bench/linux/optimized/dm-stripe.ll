@@ -906,7 +906,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
 25:                                               ; preds = %20
   %26 = zext i32 %23 to i64
   %27 = getelementptr i8, ptr %3, i64 %26
-  %28 = sub i32 %4, %23
+  %28 = sub nuw i32 %4, %23
   %29 = zext i32 %28 to i64
   %30 = getelementptr [0 x %struct.stripe], ptr %19, i64 0, i64 %22
   %31 = load ptr, ptr %30, align 8
@@ -933,7 +933,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
 44:                                               ; preds = %.loopexit14
   %45 = zext i32 %42 to i64
   %46 = getelementptr i8, ptr %3, i64 %45
-  %47 = sub i32 %4, %42
+  %47 = sub nuw i32 %4, %42
   %48 = zext i32 %47 to i64
   %49 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %46, i64 noundef %48, ptr noundef nonnull @.str.17) #10
   %.pre21 = load i32, ptr %7, align 8
@@ -960,7 +960,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
 62:                                               ; preds = %57
   %63 = zext i32 %60 to i64
   %64 = getelementptr i8, ptr %3, i64 %63
-  %65 = sub i32 %4, %60
+  %65 = sub nuw i32 %4, %60
   %66 = zext i32 %65 to i64
   %67 = getelementptr [0 x %struct.stripe], ptr %56, i64 0, i64 %59, i32 2
   %68 = load volatile i32, ptr %67, align 4
@@ -1012,7 +1012,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
 99:                                               ; preds = %94
   %100 = zext i32 %97 to i64
   %101 = getelementptr i8, ptr %3, i64 %100
-  %102 = sub i32 %4, %97
+  %102 = sub nuw i32 %4, %97
   %103 = zext i32 %102 to i64
   %104 = getelementptr [0 x %struct.stripe], ptr %93, i64 0, i64 %96
   %105 = load ptr, ptr %104, align 8
@@ -1059,7 +1059,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
 135:                                              ; preds = %132
   %136 = zext i32 %133 to i64
   %137 = getelementptr i8, ptr %3, i64 %136
-  %138 = sub i32 %4, %133
+  %138 = sub nuw i32 %4, %133
   %139 = zext i32 %138 to i64
   %140 = load i32, ptr %7, align 8
   %141 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1088,7 +1088,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
 156:                                              ; preds = %152
   %157 = zext i32 %154 to i64
   %158 = getelementptr i8, ptr %3, i64 %157
-  %159 = sub i32 %4, %154
+  %159 = sub nuw i32 %4, %154
   %160 = zext i32 %159 to i64
   %161 = getelementptr [0 x %struct.stripe], ptr %151, i64 0, i64 %153
   %162 = load ptr, ptr %161, align 8
@@ -1106,7 +1106,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
 170:                                              ; preds = %166
   %171 = zext i32 %168 to i64
   %172 = getelementptr i8, ptr %3, i64 %171
-  %173 = sub i32 %4, %168
+  %173 = sub nuw i32 %4, %168
   %174 = zext i32 %173 to i64
   %175 = getelementptr [0 x %struct.stripe], ptr %151, i64 0, i64 %153, i32 1
   %176 = load i64, ptr %175, align 8
@@ -1123,7 +1123,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
 183:                                              ; preds = %179
   %184 = zext i32 %181 to i64
   %185 = getelementptr i8, ptr %3, i64 %184
-  %186 = sub i32 %4, %181
+  %186 = sub nuw i32 %4, %181
   %187 = zext i32 %186 to i64
   %188 = getelementptr [0 x %struct.stripe], ptr %151, i64 0, i64 %153, i32 2
   %189 = load volatile i32, ptr %188, align 4
@@ -1150,7 +1150,7 @@ define internal void @stripe_status(ptr nocapture noundef readonly %0, i32 nound
 203:                                              ; preds = %.loopexit16
   %204 = zext i32 %201 to i64
   %205 = getelementptr i8, ptr %3, i64 %204
-  %206 = sub i32 %4, %201
+  %206 = sub nuw i32 %4, %201
   %207 = zext i32 %206 to i64
   %208 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %205, i64 noundef %207, ptr noundef nonnull @.str.26) #10
   br label %.loopexit

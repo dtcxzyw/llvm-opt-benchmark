@@ -321,7 +321,7 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
   br i1 %.not, label %47, label %44
 
 44:                                               ; preds = %.preheader161
-  %45 = sub i64 %.0103, %43
+  %45 = sub nuw i64 %.0103, %43
   %46 = add i32 %.0106, 1
   %.not134 = icmp slt i32 %46, %2
   br i1 %.not134, label %88, label %91
@@ -362,7 +362,7 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
   br i1 %63, label %.loopexit166, label %.preheader
 
 64:                                               ; preds = %.preheader
-  %65 = sub i64 %.1104, %.pre153.ph
+  %65 = sub nuw i64 %.1104, %.pre153.ph
   %66 = add i32 %.1107.ph, 1
   %.not132 = icmp slt i32 %66, %2
   br i1 %.not132, label %._crit_edge152, label %.loopexit166
@@ -541,7 +541,7 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_send_bytes(ptr nocapture noun
   %23 = add i64 %22, %21
   %.neg = add i64 %20, %9
   %24 = sub i64 %.neg, %23
-  %25 = sub i64 %1, %.06582
+  %25 = sub nuw i64 %1, %.06582
   %. = call i64 @llvm.umin.i64(i64 %24, i64 %25)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
   %26 = load i8, ptr %13, align 8
@@ -985,7 +985,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   br i1 %.not122, label %173, label %178
 
 173:                                              ; preds = %167
-  %174 = sub nsw i64 %118, %168
+  %174 = sub nuw nsw i64 %118, %168
   %175 = call fastcc i32 @shm_mq_receive_bytes(ptr noundef nonnull %0, i64 noundef %174, i1 noundef zeroext %3, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not123 = icmp eq i32 %175, 0
   br i1 %.not123, label %176, label %.loopexit

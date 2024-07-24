@@ -1327,7 +1327,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %9
 
 do.end:                                           ; preds = %_ZN9grpc_core10HPackTable17MementoRingBuffer6PopOneEv.exit
-  %sub = sub i32 %7, %5
+  %sub = sub nuw i32 %7, %5
   store i32 %sub, ptr %this, align 8
   %cmp.not.i.i = icmp eq i64 %6, 0
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN9grpc_core16HpackParseResultESt14default_deleteIS1_EED2Ev.exit.i, label %delete.notnull.i.i.i

@@ -351,7 +351,7 @@ define dso_local i32 @sprint_oid(ptr noundef readonly %0, i64 noundef %1, ptr no
 50:                                               ; preds = %.loopexit12
   %51 = add i32 %47, %21
   %52 = getelementptr i8, ptr %24, i64 %48
-  %53 = sub i64 %23, %48
+  %53 = sub nuw i64 %23, %48
   %54 = icmp ult ptr %45, %5
   br i1 %54, label %20, label %.loopexit13, !llvm.loop !10
 

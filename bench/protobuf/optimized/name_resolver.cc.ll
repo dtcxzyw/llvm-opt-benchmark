@@ -871,7 +871,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.else.i
-  %sub.i.i = sub i64 %1, %add.i
+  %sub.i.i = sub nuw i64 %1, %add.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %add.i
   br label %_ZN6google8protobuf8compiler4java12_GLOBAL__N_116StripPackageNameESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_14FileDescriptorE.exit
 
@@ -1107,7 +1107,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.else.i
-  %sub.i.i = sub i64 %1, %add.i
+  %sub.i.i = sub nuw i64 %1, %add.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %add.i
   br label %_ZN6google8protobuf8compiler4java12_GLOBAL__N_116StripPackageNameESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_14FileDescriptorE.exit
 

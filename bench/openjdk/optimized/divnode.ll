@@ -614,7 +614,7 @@ _ZN4NodenwEm.exit125:                             ; preds = %213, %215
 
 .critedge.i:                                      ; preds = %.critedge.i.backedge, %224
   %.049.i = phi i32 [ %227, %224 ], [ %.150.i, %.critedge.i.backedge ]
-  %.047.i = phi i32 [ %.recomposed177, %224 ], [ %.148.i, %.critedge.i.backedge ]
+  %.047.i = phi i32 [ %.recomposed177, %224 ], [ %.047.i.be, %.critedge.i.backedge ]
   %.045.i = phi i32 [ %229, %224 ], [ %.146.i, %.critedge.i.backedge ]
   %.044.i = phi i32 [ %.recomposed, %224 ], [ %.1.i, %.critedge.i.backedge ]
   %.043.i = phi i32 [ 31, %224 ], [ %231, %.critedge.i.backedge ]
@@ -625,14 +625,14 @@ _ZN4NodenwEm.exit125:                             ; preds = %213, %215
   %234 = zext i1 %.not.i to i32
   %.150.i = or disjoint i32 %232, %234
   %235 = select i1 %.not.i, i32 %226, i32 0
-  %.148.i = sub i32 %233, %235
+  %.148.i = sub nuw i32 %233, %235
   %236 = shl i32 %.045.i, 1
   %237 = shl i32 %.044.i, 1
   %.not59.i = icmp uge i32 %237, %5
   %238 = zext i1 %.not59.i to i32
   %.146.i = or disjoint i32 %236, %238
   %239 = select i1 %.not59.i, i32 %5, i32 0
-  %.1.i = sub i32 %237, %239
+  %.1.i = sub nuw i32 %237, %239
   %240 = sub i32 %5, %.1.i
   %241 = icmp ult i32 %.150.i, %240
   br i1 %241, label %.critedge.i.backedge, label %242
@@ -640,10 +640,11 @@ _ZN4NodenwEm.exit125:                             ; preds = %213, %215
 242:                                              ; preds = %.critedge.i
   %243 = icmp eq i32 %.150.i, %240
   %244 = icmp eq i32 %.148.i, 0
-  %245 = and i1 %244, %243
+  %245 = select i1 %243, i1 %244, i1 false
   br i1 %245, label %.critedge.i.backedge, label %_ZL26magic_int_divide_constantsiRiS_.exit
 
 .critedge.i.backedge:                             ; preds = %242, %.critedge.i
+  %.047.i.be = phi i32 [ 0, %242 ], [ %.148.i, %.critedge.i ]
   br label %.critedge.i, !llvm.loop !8
 
 _ZL26magic_int_divide_constantsiRiS_.exit:        ; preds = %242
@@ -1885,7 +1886,7 @@ _ZN4NodenwEm.exit108:                             ; preds = %214, %216
 
 .critedge.i:                                      ; preds = %.critedge.i.backedge, %226
   %.049.i = phi i64 [ %229, %226 ], [ %.150.i, %.critedge.i.backedge ]
-  %.047.i = phi i64 [ %.recomposed137, %226 ], [ %.148.i, %.critedge.i.backedge ]
+  %.047.i = phi i64 [ %.recomposed137, %226 ], [ %.047.i.be, %.critedge.i.backedge ]
   %.045.i = phi i64 [ %231, %226 ], [ %.146.i, %.critedge.i.backedge ]
   %.044.i = phi i64 [ %.recomposed, %226 ], [ %.1.i, %.critedge.i.backedge ]
   %.043.i = phi i32 [ 63, %226 ], [ %233, %.critedge.i.backedge ]
@@ -1896,14 +1897,14 @@ _ZN4NodenwEm.exit108:                             ; preds = %214, %216
   %236 = zext i1 %.not.i to i64
   %.150.i = or disjoint i64 %234, %236
   %237 = select i1 %.not.i, i64 %228, i64 0
-  %.148.i = sub i64 %235, %237
+  %.148.i = sub nuw i64 %235, %237
   %238 = shl i64 %.045.i, 1
   %239 = shl i64 %.044.i, 1
   %.not59.i = icmp uge i64 %239, %5
   %240 = zext i1 %.not59.i to i64
   %.146.i = or disjoint i64 %238, %240
   %241 = select i1 %.not59.i, i64 %5, i64 0
-  %.1.i = sub i64 %239, %241
+  %.1.i = sub nuw i64 %239, %241
   %242 = sub i64 %5, %.1.i
   %243 = icmp ult i64 %.150.i, %242
   br i1 %243, label %.critedge.i.backedge, label %244
@@ -1911,10 +1912,11 @@ _ZN4NodenwEm.exit108:                             ; preds = %214, %216
 244:                                              ; preds = %.critedge.i
   %245 = icmp eq i64 %.150.i, %242
   %246 = icmp eq i64 %.148.i, 0
-  %247 = and i1 %246, %245
+  %247 = select i1 %245, i1 %246, i1 false
   br i1 %247, label %.critedge.i.backedge, label %_ZL27magic_long_divide_constantslRlRi.exit
 
 .critedge.i.backedge:                             ; preds = %244, %.critedge.i
+  %.047.i.be = phi i64 [ 0, %244 ], [ %.148.i, %.critedge.i ]
   br label %.critedge.i, !llvm.loop !9
 
 _ZL27magic_long_divide_constantslRlRi.exit:       ; preds = %244

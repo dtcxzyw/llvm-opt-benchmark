@@ -1458,7 +1458,7 @@ if.then55.i:                                      ; preds = %for.end.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then55.i
-  %sub.i.i = sub i64 %add49.i, %sub.ptr.sub.i.i.i
+  %sub.i.i = sub nuw i64 %add49.i, %sub.ptr.sub.i.i.i
   %sub.ptr.lhs.cast.i8.i.i = ptrtoint ptr %imgdata.sroa.10.077.i to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i8.i.i, %sub.ptr.lhs.cast.i.i.i
   %cmp4.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, -1
@@ -1871,7 +1871,7 @@ if.then76.i:                                      ; preds = %for.end.i44
   br i1 %cmp.i.i49, label %if.then.i.i50, label %if.else.i.i31
 
 if.then.i.i50:                                    ; preds = %if.then76.i
-  %sub.i.i51 = sub i64 %add.i42, %sub.ptr.sub.i.i.i48
+  %sub.i.i51 = sub nuw i64 %add.i42, %sub.ptr.sub.i.i.i48
   %sub.ptr.lhs.cast.i8.i.i52 = ptrtoint ptr %tiledata.sroa.10.3119.i to i64
   %sub.ptr.sub.i9.i.i53 = sub i64 %sub.ptr.lhs.cast.i8.i.i52, %sub.ptr.lhs.cast.i.i.i46
   %cmp4.i.i.i54 = icmp sgt i64 %sub.ptr.sub.i.i.i48, -1
@@ -2242,7 +2242,7 @@ if.then:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.then
   %cmp8 = icmp ugt i64 %0, %offset
-  %sub = sub i64 %0, %offset
+  %sub = sub nuw i64 %0, %offset
   br i1 %cmp8, label %if.end, label %if.end13
 
 if.end:                                           ; preds = %if.then6, %if.then
@@ -4142,7 +4142,7 @@ if.then135.i:                                     ; preds = %for.end130.i
   br i1 %cmp.i.i176, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then135.i
-  %sub.i.i = sub i64 %bufferSize.0.lcssa.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %bufferSize.0.lcssa.i, %sub.ptr.div.i.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %pixelBuffer.sroa.12.0200.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
@@ -5045,7 +5045,7 @@ if.else.i.us.i:                                   ; preds = %if.then162.us.i
   br label %for.cond169.preheader.lr.ph.split.us.us.i
 
 if.then.i.us.i:                                   ; preds = %if.then162.us.i
-  %sub.i.us.i = sub i64 %bufferSize.0.lcssa.us.i, %sub.ptr.div.i.i.us.i
+  %sub.i.us.i = sub nuw i64 %bufferSize.0.lcssa.us.i, %sub.ptr.div.i.i.us.i
   %sub.ptr.lhs.cast.i.us.i = ptrtoint ptr %pixelBuffer.sroa.12.3.us.i to i64
   %sub.ptr.sub.i.us.i = sub i64 %sub.ptr.lhs.cast.i.us.i, %sub.ptr.lhs.cast.i.i.us.i
   %sub.ptr.div.i.us.i = ashr exact i64 %sub.ptr.sub.i.us.i, 2
@@ -6941,7 +6941,7 @@ if.then128:                                       ; preds = %for.cond99.preheade
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then128
-  %sub.i = sub i64 %24, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %24, %sub.ptr.div.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %pixelBuffer.sroa.12.0164 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
@@ -7520,7 +7520,7 @@ if.else.i.us:                                     ; preds = %if.then155.us
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.us
 
 if.then.i.us:                                     ; preds = %if.then155.us
-  %sub.i.us = sub i64 %bufferSize.0.lcssa.us, %sub.ptr.div.i.i.us
+  %sub.i.us = sub nuw i64 %bufferSize.0.lcssa.us, %sub.ptr.div.i.i.us
   %sub.ptr.lhs.cast.i.us = ptrtoint ptr %pixelBuffer.sroa.12.3.us to i64
   %sub.ptr.sub.i.us = sub i64 %sub.ptr.lhs.cast.i.us, %sub.ptr.lhs.cast.i.i.us
   %sub.ptr.div.i.us = ashr exact i64 %sub.ptr.sub.i.us, 2

@@ -1071,7 +1071,7 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h4ee485f2d69161d3E.exit.i.i.i"
 
 36:                                               ; preds = %34
-  %37 = sub i64 %3, %.sroa.5.1.i.ph.i
+  %37 = sub nuw i64 %3, %.sroa.5.1.i.ph.i
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h37b2c2dfead61723E.llvm.3015548344323866763"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %37, i8 noundef 32)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h4ee485f2d69161d3E.exit_crit_edge.i.i.i" unwind label %46, !noalias !174
 
@@ -1267,7 +1267,7 @@ define internal fastcc void @_ZN5uu_dd6blocks7unblock17h909f21a5c5cb7e8cE(ptr no
   %18 = phi ptr [ %1, %.lr.ph.i ], [ %19, %46 ]
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %17, i64 %3)
   %19 = getelementptr inbounds i8, ptr %18, i64 %.0.sroa.speculated.i.i.i
-  %20 = sub i64 %17, %.0.sroa.speculated.i.i.i
+  %20 = sub nuw i64 %17, %.0.sroa.speculated.i.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !224
   store i64 %.sroa.0.033.i, ptr %5, align 8, !noalias !224
   store ptr %.sroa.7.032.i, ptr %.sroa.421.0..sroa_idx.i, align 8, !noalias !224
@@ -1858,7 +1858,7 @@ define hidden void @_ZN5uu_dd14bufferedoutput14BufferedOutput5flush17h2086e7659f
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hbd58533168a3790aE.exit": ; preds = %.split13
   store i64 0, ptr %9, align 8, !alias.scope !407, !noalias !404
   %23 = load ptr, ptr %7, align 8, !alias.scope !407, !noalias !404, !nonnull !4, !noundef !4
-  %24 = sub i64 %20, %19
+  %24 = sub nuw i64 %20, %19
   %25 = getelementptr inbounds i8, ptr %23, i64 %19
   %26 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %19, ptr %26, align 8, !alias.scope !404, !noalias !407
@@ -1945,7 +1945,7 @@ define hidden void @_ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17hca
   %17 = urem i64 %16, %11
   %18 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %17)
   %19 = getelementptr inbounds i8, ptr %2, i64 %18
-  %20 = sub i64 %3, %18
+  %20 = sub nuw i64 %3, %18
   %21 = load i64, ptr %1, align 8, !alias.scope !415, !noalias !422, !noundef !4
   %22 = sub i64 %21, %15
   %23 = icmp ult i64 %22, %18

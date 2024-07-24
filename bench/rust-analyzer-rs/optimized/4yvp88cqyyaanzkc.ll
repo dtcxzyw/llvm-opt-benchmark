@@ -294,7 +294,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i
   %18 = getelementptr inbounds i32, ptr %.promoted11.i.i.i, i64 %7
-  %19 = sub i64 %.promoted.i.i.i, %7
+  %19 = sub nuw i64 %.promoted.i.i.i, %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
@@ -456,7 +456,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i
   %18 = getelementptr inbounds i32, ptr %.promoted11.i.i.i, i64 %7
-  %19 = sub i64 %.promoted.i.i.i, %7
+  %19 = sub nuw i64 %.promoted.i.i.i, %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
@@ -2946,7 +2946,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h4e00ecc698b259
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %35 = getelementptr inbounds i32, ptr %.promoted8, i64 %12
-  %36 = sub i64 %.promoted, %12
+  %36 = sub nuw i64 %.promoted, %12
   store ptr %35, ptr %0, align 8, !alias.scope !982
   store i64 %36, ptr %10, align 8, !alias.scope !982
   tail call void @llvm.experimental.noalias.scope.decl(metadata !985)
@@ -3705,7 +3705,7 @@ switch.lookup:                                    ; preds = %"_ZN4core6result19R
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %24 = getelementptr inbounds i32, ptr %.promoted12, i64 %9
-  %25 = sub i64 %.promoted, %9
+  %25 = sub nuw i64 %.promoted, %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1328)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1331)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1333)
@@ -3822,7 +3822,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h47c2095a31
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %20 = getelementptr inbounds i32, ptr %.promoted11, i64 %6
-  %21 = sub i64 %.promoted, %6
+  %21 = sub nuw i64 %.promoted, %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1388)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1391)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1393)
@@ -3908,7 +3908,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4d93733b79
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %20 = getelementptr inbounds i32, ptr %.promoted11, i64 %6
-  %21 = sub i64 %.promoted, %6
+  %21 = sub nuw i64 %.promoted, %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1434)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1437)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1439)
@@ -4012,7 +4012,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h56d6acf26b
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %28 = getelementptr inbounds i32, ptr %.promoted14, i64 %9
-  %29 = sub i64 %.promoted, %9
+  %29 = sub nuw i64 %.promoted, %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1480)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1483)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1485)
@@ -4286,7 +4286,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %5
   br i1 %66, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hd7ff12415b85250fE.exit.i.i", label %.lr.ph.split.split.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit.i.i.i": ; preds = %61
-  %69 = sub i64 %63, %19
+  %69 = sub nuw i64 %63, %19
   %70 = getelementptr inbounds i8, ptr %.val.i.i, i64 %69
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %70, ptr nonnull readonly %17, i64 %19), !alias.scope !1569, !noalias !1563
   %71 = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -4416,7 +4416,7 @@ switch.lookup:                                    ; preds = %"_ZN4core6result19R
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %24 = getelementptr inbounds i32, ptr %.promoted12, i64 %9
-  %25 = sub i64 %.promoted, %9
+  %25 = sub nuw i64 %.promoted, %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1593)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1596)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1598)
@@ -5809,7 +5809,7 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   %17 = getelementptr inbounds i32, ptr %.promoted11.i.i, i64 %6
-  %18 = sub i64 %.promoted.i.i, %6
+  %18 = sub nuw i64 %.promoted.i.i, %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1945)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1948)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1951)
@@ -5919,7 +5919,7 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   %17 = getelementptr inbounds i32, ptr %.promoted11.i.i, i64 %6
-  %18 = sub i64 %.promoted.i.i, %6
+  %18 = sub nuw i64 %.promoted.i.i, %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2009)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2012)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2015)
@@ -6043,7 +6043,7 @@ define hidden void @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %17 = getelementptr inbounds i32, ptr %.promoted11.i, i64 %6
-  %18 = sub i64 %.promoted.i, %6
+  %18 = sub nuw i64 %.promoted.i, %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2057)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2060)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2063)
@@ -6131,7 +6131,7 @@ define hidden void @"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %17 = getelementptr inbounds i32, ptr %.promoted11.i, i64 %6
-  %18 = sub i64 %.promoted.i, %6
+  %18 = sub nuw i64 %.promoted.i, %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2098)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2101)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2104)

@@ -10906,7 +10906,7 @@ while.body:                                       ; preds = %if.end44, %while.bo
   br i1 %cmp11, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %sub12 = sub i64 %input_idx.089, %result_idx.091
+  %sub12 = sub nuw i64 %input_idx.089, %result_idx.091
   %shr = lshr i64 %6, %sub12
   %arrayidx13 = getelementptr inbounds [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %sub12
   %7 = load i64, ptr %arrayidx13, align 8, !tbaa !14
@@ -10921,7 +10921,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp15, label %if.then16, label %if.else25
 
 if.then16:                                        ; preds = %if.else
-  %sub18 = sub i64 %result_idx.091, %input_idx.089
+  %sub18 = sub nuw i64 %result_idx.091, %input_idx.089
   %arrayidx19 = getelementptr inbounds [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %sub18
   %8 = load i64, ptr %arrayidx19, align 8, !tbaa !14
   %not = xor i64 %8, -1
@@ -10953,7 +10953,7 @@ if.end29:                                         ; preds = %if.else25, %if.then
   br i1 %cmp31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end29
-  %sub33 = sub i64 %add30, %scan_count
+  %sub33 = sub nuw i64 %add30, %scan_count
   %arrayidx34 = getelementptr inbounds [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %sub33
   %10 = load i64, ptr %arrayidx34, align 8, !tbaa !14
   %or35 = or i64 %10, %input_mask.0
@@ -14659,7 +14659,7 @@ for.body.lr.ph.i.i:                               ; preds = %land.lhs.true
   store ptr %add.ptr4.i, ptr %byte_reader.i.i, align 8, !tbaa !523
   %index.i.i.i = getelementptr inbounds i8, ptr %scan_state, i64 7240
   store i32 0, ptr %index.i.i.i, align 8, !tbaa !524
-  %sub.i16 = sub i64 %7, %6
+  %sub.i16 = sub nuw i64 %7, %6
   %cond.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i16, i64 1024)
   %mul.neg.i = mul nsw i64 %cond.i.i, -2
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %mul.neg.i
@@ -21596,7 +21596,7 @@ if.else51:                                        ; preds = %if.end26.thread
   %21 = load i32, ptr %1, align 4, !tbaa !116
   %conv54 = add i32 %21, %16
   store i32 %conv54, ptr %1, align 4, !tbaa !116
-  %sub55 = sub i64 %sub, %conv.i135
+  %sub55 = sub nuw i64 %sub, %conv.i135
   %idx.ext57 = zext i32 %conv54 to i64
   %idx.neg58 = sub nsw i64 0, %idx.ext57
   %add.ptr59 = getelementptr inbounds i8, ptr %add.ptr21, i64 %idx.neg58
@@ -85829,7 +85829,7 @@ if.else.i:                                        ; preds = %if.end3
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.else.i
-  %reass.sub2 = sub i64 %11, %10
+  %reass.sub2 = sub nuw i64 %11, %10
   %12 = add i64 %reass.sub2, -127
   %cmp7.i.i = icmp ult i64 %12, -128
   br i1 %cmp7.i.i, label %if.then.i.i, label %_ZN6duckdb5patas16PatasCompressionIjLb1EE15StoreCompressedEjRNS0_21PatasCompressionStateIjLb1EEE.exit.i
@@ -86402,7 +86402,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %reass.sub2 = sub i64 %6, %5
+  %reass.sub2 = sub nuw i64 %6, %5
   %7 = add i64 %reass.sub2, -127
   %cmp7.i = icmp ult i64 %7, -128
   br i1 %cmp7.i, label %if.then.i, label %_ZN6duckdb5patas16PatasCompressionIjLb0EE15StoreCompressedEjRNS0_21PatasCompressionStateIjLb0EEE.exit
@@ -86602,7 +86602,7 @@ if.then:                                          ; preds = %land.lhs.true
   store ptr %add.ptr4.i, ptr %byte_reader.i.i, align 8, !tbaa !523
   %index.i.i.i = getelementptr inbounds i8, ptr %this, i64 7240
   store i32 0, ptr %index.i.i.i, align 8, !tbaa !524
-  %sub.i = sub i64 %1, %0
+  %sub.i = sub nuw i64 %1, %0
   %cond.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 1024)
   %mul.neg.i = mul nsw i64 %cond.i.i, -2
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %mul.neg.i
@@ -87212,7 +87212,7 @@ if.then:                                          ; preds = %land.lhs.true
   store ptr %add.ptr4.i, ptr %byte_reader.i.i, align 8, !tbaa !523
   %index.i.i.i = getelementptr inbounds i8, ptr %this, i64 7240
   store i32 0, ptr %index.i.i.i, align 8, !tbaa !524
-  %sub.i = sub i64 %1, %0
+  %sub.i = sub nuw i64 %1, %0
   %cond.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 1024)
   %mul.neg.i = mul nsw i64 %cond.i.i, -2
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %mul.neg.i
@@ -87500,7 +87500,7 @@ if.else.i:                                        ; preds = %if.end3
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.else.i
-  %reass.sub3 = sub i64 %11, %10
+  %reass.sub3 = sub nuw i64 %11, %10
   %12 = add i64 %reass.sub3, -127
   %cmp7.i.i = icmp ult i64 %12, -128
   br i1 %cmp7.i.i, label %if.then.i.i, label %_ZN6duckdb5patas16PatasCompressionImLb1EE15StoreCompressedEmRNS0_21PatasCompressionStateImLb1EEE.exit.i
@@ -88071,7 +88071,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %reass.sub2 = sub i64 %6, %5
+  %reass.sub2 = sub nuw i64 %6, %5
   %7 = add i64 %reass.sub2, -127
   %cmp7.i = icmp ult i64 %7, -128
   br i1 %cmp7.i, label %if.then.i, label %_ZN6duckdb5patas16PatasCompressionImLb0EE15StoreCompressedEmRNS0_21PatasCompressionStateImLb0EEE.exit

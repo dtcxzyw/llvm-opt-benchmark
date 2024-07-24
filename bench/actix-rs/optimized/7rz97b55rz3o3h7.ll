@@ -8714,7 +8714,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr585dro
   %184 = load i64, ptr %154, align 8, !alias.scope !1294, !noalias !1290, !noundef !4
   %.not.i.i = icmp ult i64 %183, %184
   %185 = select i1 %.not.i.i, i64 0, i64 %184
-  %.0.i.i97 = sub i64 %183, %185
+  %.0.i.i97 = sub nuw i64 %183, %185
   store i64 %.0.i.i97, ptr %165, align 8, !alias.scope !1292, !noalias !1290
   %186 = add i64 %181, -1
   store i64 %186, ptr %164, align 8, !alias.scope !1292, !noalias !1290
@@ -9957,7 +9957,7 @@ _ZN4core3cmp10PartialOrd2gt17h539e6bae9f78b4a8E.exit101.thread: ; preds = %_ZN4c
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h46fceed7e636f2d5E.exit.i.i.i": ; preds = %574
   %582 = getelementptr inbounds i8, ptr %575, i64 %.sroa.2.0.copyload.i.i.i
-  %583 = sub i64 %576, %.sroa.2.0.copyload.i.i.i
+  %583 = sub nuw i64 %576, %.sroa.2.0.copyload.i.i.i
   store ptr %582, ptr %558, align 8, !noalias !1368
   store i64 %583, ptr %559, align 8, !noalias !1368
   %584 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, 0
@@ -11667,7 +11667,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr175dro
   %189 = load i64, ptr %160, align 8, !alias.scope !1630, !noalias !1626, !noundef !4
   %.not.i.i = icmp ult i64 %188, %189
   %190 = select i1 %.not.i.i, i64 0, i64 %189
-  %.0.i.i98 = sub i64 %188, %190
+  %.0.i.i98 = sub nuw i64 %188, %190
   store i64 %.0.i.i98, ptr %171, align 8, !alias.scope !1628, !noalias !1626
   %191 = add i64 %186, -1
   store i64 %191, ptr %170, align 8, !alias.scope !1628, !noalias !1626
@@ -13010,7 +13010,7 @@ default.unreachable1.i.i.i.i.i:                   ; preds = %375
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h46fceed7e636f2d5E.exit.i.i.i": ; preds = %553
   %561 = getelementptr inbounds i8, ptr %554, i64 %.sroa.2.0.copyload.i.i.i
-  %562 = sub i64 %555, %.sroa.2.0.copyload.i.i.i
+  %562 = sub nuw i64 %555, %.sroa.2.0.copyload.i.i.i
   store ptr %561, ptr %542, align 8, !noalias !1735
   store i64 %562, ptr %543, align 8, !noalias !1735
   %563 = icmp eq i64 %.sroa.2.0.copyload.i.i.i, 0
@@ -14779,7 +14779,7 @@ define hidden void @"_ZN3awc6client4pool18Acquired$LT$Io$GT$7release17h78e80d652
   %105 = add i64 %104, %102
   %.not.i.i = icmp ult i64 %105, %101
   %106 = select i1 %.not.i.i, i64 0, i64 %101
-  %.0.i.i = sub i64 %105, %106
+  %.0.i.i = sub nuw i64 %105, %106
   %107 = getelementptr inbounds i8, ptr %.pn.i, i64 -24
   %108 = load ptr, ptr %107, align 8, !alias.scope !2091, !noalias !2094, !nonnull !4, !noundef !4
   %109 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %108, i64 %.0.i.i
@@ -15050,7 +15050,7 @@ define hidden void @"_ZN3awc6client4pool18Acquired$LT$Io$GT$7release17hedb7f41dc
   %105 = add i64 %104, %102
   %.not.i.i = icmp ult i64 %105, %101
   %106 = select i1 %.not.i.i, i64 0, i64 %101
-  %.0.i.i = sub i64 %105, %106
+  %.0.i.i = sub nuw i64 %105, %106
   %107 = getelementptr inbounds i8, ptr %.pn.i, i64 -24
   %108 = load ptr, ptr %107, align 8, !alias.scope !2160, !noalias !2163, !nonnull !4, !noundef !4
   %109 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %108, i64 %.0.i.i

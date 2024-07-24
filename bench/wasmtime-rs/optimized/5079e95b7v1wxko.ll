@@ -2255,8 +2255,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 91:                                               ; preds = %77
   %92 = add nuw nsw i64 %.sroa.726.0.i, 1
   %93 = getelementptr inbounds i32, ptr %88, i64 %92
-  %94 = sub nsw i64 %87, %.sroa.726.0.i
-  %95 = shl nsw i64 %94, 2
+  %94 = sub nuw nsw i64 %87, %.sroa.726.0.i
+  %95 = shl nuw nsw i64 %94, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %93, ptr nonnull align 4 %89, i64 %95, i1 false), !alias.scope !144, !noalias !139
   store i32 %2, ptr %89, align 4, !alias.scope !144, !noalias !139
   %96 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 8
@@ -2264,7 +2264,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull readonly align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !147
   %97 = getelementptr inbounds { [3 x i64] }, ptr %96, i64 %.sroa.726.0.i
   %98 = getelementptr inbounds { [3 x i64] }, ptr %96, i64 %92
-  %99 = mul nsw i64 %94, 24
+  %99 = mul nuw nsw i64 %94, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %98, ptr nonnull align 8 %97, i64 %99, i1 false), !alias.scope !151, !noalias !153
   br label %106
 
@@ -3082,14 +3082,14 @@ _ZN5alloc11collections5btree4node12slice_insert17h0b09fa7abc6b19a4E.exit.i29.i: 
 70:                                               ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h2d00e7773cb47c73E.exit.i"
   %71 = add nuw nsw i64 %.sroa.724.0.i, 1
   %72 = getelementptr inbounds i32, ptr %68, i64 %71
-  %73 = sub nsw i64 %67, %.sroa.724.0.i
-  %74 = shl nsw i64 %73, 2
+  %73 = sub nuw nsw i64 %67, %.sroa.724.0.i
+  %74 = shl nuw nsw i64 %73, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %72, ptr nonnull align 4 %69, i64 %74, i1 false), !alias.scope !285, !noalias !281
   store i32 %2, ptr %69, align 4, !alias.scope !285, !noalias !281
   %75 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 8
   %76 = getelementptr inbounds i64, ptr %75, i64 %.sroa.724.0.i
   %77 = getelementptr inbounds i64, ptr %75, i64 %71
-  %78 = shl nsw i64 %73, 3
+  %78 = shl nuw nsw i64 %73, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %77, ptr nonnull align 8 %76, i64 %78, i1 false), !alias.scope !288, !noalias !281
   br label %83
 
@@ -3695,8 +3695,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %82 = add nuw nsw i64 %.sroa.725.0.i, 1
   %83 = getelementptr inbounds i64, ptr %80, i64 %.sroa.725.0.i
   %84 = getelementptr inbounds i64, ptr %80, i64 %82
-  %85 = sub nsw i64 %79, %.sroa.725.0.i
-  %86 = shl nsw i64 %85, 3
+  %85 = sub nuw nsw i64 %79, %.sroa.725.0.i
+  %86 = shl nuw nsw i64 %85, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %84, ptr nonnull align 8 %83, i64 %86, i1 false), !alias.scope !398, !noalias !394
   %87 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 96
   %88 = getelementptr inbounds ptr, ptr %87, i64 %.sroa.725.0.i
@@ -4465,8 +4465,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 90:                                               ; preds = %76
   %91 = add nuw nsw i64 %.sroa.725.0.i, 1
   %92 = getelementptr inbounds i64, ptr %87, i64 %91
-  %93 = sub nsw i64 %86, %.sroa.725.0.i
-  %94 = shl nsw i64 %93, 3
+  %93 = sub nuw nsw i64 %86, %.sroa.725.0.i
+  %94 = shl nuw nsw i64 %93, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %92, ptr nonnull align 8 %88, i64 %94, i1 false), !alias.scope !520, !noalias !515
   store i64 %2, ptr %88, align 8, !alias.scope !520, !noalias !515
   %95 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 96
@@ -4474,7 +4474,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull readonly align 8 dereferenceable(40) %15, i64 40, i1 false), !noalias !523
   %96 = getelementptr inbounds { [5 x i64] }, ptr %95, i64 %.sroa.725.0.i
   %97 = getelementptr inbounds { [5 x i64] }, ptr %95, i64 %91
-  %98 = mul nsw i64 %93, 40
+  %98 = mul nuw nsw i64 %93, 40
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %97, ptr nonnull align 8 %96, i64 %98, i1 false), !alias.scope !527, !noalias !529
   br label %106
 
@@ -5190,8 +5190,8 @@ common.resume:                                    ; preds = %206, %167, %48
 58:                                               ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hcc4f0e09a5510bd1E.exit.i"
   %59 = getelementptr i32, ptr %57, i64 %.sroa.724.0.i
   %60 = getelementptr i8, ptr %59, i64 4
-  %61 = sub nsw i64 %56, %.sroa.724.0.i
-  %62 = shl nsw i64 %61, 2
+  %61 = sub nuw nsw i64 %56, %.sroa.724.0.i
+  %62 = shl nuw nsw i64 %61, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %60, ptr nonnull align 4 %59, i64 %62, i1 false), !alias.scope !650, !noalias !646
   br label %66
 
@@ -5746,14 +5746,14 @@ _ZN5alloc11collections5btree4node12slice_insert17hbab65fc0706ff8d9E.exit.i29.i: 
 73:                                               ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17ha453a610b37810f6E.exit.i"
   %74 = add nuw nsw i64 %.sroa.724.0.i, 1
   %75 = getelementptr inbounds i32, ptr %71, i64 %74
-  %76 = sub nsw i64 %70, %.sroa.724.0.i
-  %77 = shl nsw i64 %76, 2
+  %76 = sub nuw nsw i64 %70, %.sroa.724.0.i
+  %77 = shl nuw nsw i64 %76, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %75, ptr nonnull align 4 %72, i64 %77, i1 false), !alias.scope !752, !noalias !748
   store i32 %2, ptr %72, align 4, !alias.scope !752, !noalias !748
   %78 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 8
   %79 = getelementptr inbounds { [2 x i32] }, ptr %78, i64 %.sroa.724.0.i
   %80 = getelementptr inbounds { [2 x i32] }, ptr %78, i64 %74
-  %81 = shl nsw i64 %76, 3
+  %81 = shl nuw nsw i64 %76, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %80, ptr nonnull align 4 %79, i64 %81, i1 false), !alias.scope !755, !noalias !748
   br label %87
 
@@ -6406,8 +6406,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 90:                                               ; preds = %76
   %91 = add nuw nsw i64 %.sroa.725.0.i, 1
   %92 = getelementptr inbounds i32, ptr %87, i64 %91
-  %93 = sub nsw i64 %86, %.sroa.725.0.i
-  %94 = shl nsw i64 %93, 2
+  %93 = sub nuw nsw i64 %86, %.sroa.725.0.i
+  %94 = shl nuw nsw i64 %93, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %92, ptr nonnull align 4 %88, i64 %94, i1 false), !alias.scope !876, !noalias !871
   store i32 %2, ptr %88, align 4, !alias.scope !876, !noalias !871
   %95 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 8
@@ -6415,7 +6415,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull readonly align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !879
   %96 = getelementptr inbounds { [3 x i64] }, ptr %95, i64 %.sroa.725.0.i
   %97 = getelementptr inbounds { [3 x i64] }, ptr %95, i64 %91
-  %98 = mul nsw i64 %93, 24
+  %98 = mul nuw nsw i64 %93, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %97, ptr nonnull align 8 %96, i64 %98, i1 false), !alias.scope !883, !noalias !885
   br label %108
 
@@ -7202,13 +7202,13 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 92:                                               ; preds = %79
   %93 = add nuw nsw i64 %.sroa.725.0.i, 1
   %94 = getelementptr inbounds i64, ptr %89, i64 %93
-  %95 = sub nsw i64 %88, %.sroa.725.0.i
-  %96 = shl nsw i64 %95, 3
+  %95 = sub nuw nsw i64 %88, %.sroa.725.0.i
+  %96 = shl nuw nsw i64 %95, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %94, ptr nonnull align 8 %90, i64 %96, i1 false), !alias.scope !1028, !noalias !1024
   store i64 %2, ptr %90, align 8, !alias.scope !1028, !noalias !1024
   %97 = getelementptr inbounds { [2 x i64] }, ptr %.sroa.06.0.i, i64 %.sroa.725.0.i
   %98 = getelementptr inbounds { [2 x i64] }, ptr %.sroa.06.0.i, i64 %93
-  %99 = shl nsw i64 %95, 4
+  %99 = shl nuw nsw i64 %95, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %98, ptr nonnull align 8 %97, i64 %99, i1 false), !alias.scope !1031, !noalias !1024
   br label %111
 
@@ -7976,8 +7976,8 @@ common.resume:                                    ; preds = %206, %167, %48
 58:                                               ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h43463f949be4557dE.exit.i"
   %59 = getelementptr i32, ptr %57, i64 %.sroa.724.0.i
   %60 = getelementptr i8, ptr %59, i64 4
-  %61 = sub nsw i64 %56, %.sroa.724.0.i
-  %62 = shl nsw i64 %61, 2
+  %61 = sub nuw nsw i64 %56, %.sroa.724.0.i
+  %62 = shl nuw nsw i64 %61, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %60, ptr nonnull align 4 %59, i64 %62, i1 false), !alias.scope !1183, !noalias !1179
   br label %66
 
@@ -8573,8 +8573,8 @@ _ZN5alloc11collections5btree4node12slice_insert17hffd4f0e9c74958feE.exit.i30.i: 
 77:                                               ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hb7627e1c3d3e322fE.exit.i"
   %78 = add nuw nsw i64 %.sroa.725.0.i, 1
   %79 = getelementptr inbounds { [2 x i32] }, ptr %74, i64 %78
-  %80 = sub nsw i64 %73, %.sroa.725.0.i
-  %81 = shl nsw i64 %80, 3
+  %80 = sub nuw nsw i64 %73, %.sroa.725.0.i
+  %81 = shl nuw nsw i64 %80, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %79, ptr nonnull align 4 %75, i64 %81, i1 false), !alias.scope !1293, !noalias !1288
   store i32 %2, ptr %75, align 4, !alias.scope !1293, !noalias !1288
   %82 = getelementptr inbounds i8, ptr %75, i64 4
@@ -8583,7 +8583,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hffd4f0e9c74958feE.exit.i30.i: 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !1296
   %83 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.06.0.i, i64 %.sroa.725.0.i
   %84 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.06.0.i, i64 %78
-  %85 = shl nsw i64 %80, 5
+  %85 = shl nuw nsw i64 %80, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %84, ptr nonnull align 8 %83, i64 %85, i1 false), !alias.scope !1300, !noalias !1302
   br label %"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$6insert17h2d7e874e662739ffE.exit"
 
@@ -9320,8 +9320,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 19:                                               ; preds = %17
-  %20 = sub nsw i64 %8, %1
-  %21 = trunc i64 %20 to i16
+  %20 = sub nuw nsw i64 %8, %1
+  %21 = trunc nuw i64 %20 to i16
   store i16 %21, ptr %6, align 2
   %22 = trunc nuw nsw i64 %14 to i16
   store i16 %22, ptr %11, align 2
@@ -9332,7 +9332,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %26 = getelementptr inbounds { [4 x i64] }, ptr %10, i64 %1
   %27 = shl nuw nsw i64 %13, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 8 %10, i64 %27, i1 false)
-  %28 = add nsw i64 %20, 1
+  %28 = add nuw nsw i64 %20, 1
   %29 = sub nuw nsw i64 %8, %28
   %30 = add nsw i64 %1, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1395)
@@ -9453,8 +9453,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 20:                                               ; preds = %18
-  %21 = sub nsw i64 %9, %1
-  %22 = trunc i64 %21 to i16
+  %21 = sub nuw nsw i64 %9, %1
+  %22 = trunc nuw i64 %21 to i16
   store i16 %22, ptr %7, align 2
   %23 = trunc nuw nsw i64 %15 to i16
   store i16 %23, ptr %12, align 2
@@ -9466,7 +9466,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %28 = getelementptr inbounds { [3 x i64] }, ptr %27, i64 %1
   %29 = mul nuw nsw i64 %14, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 8 %27, i64 %29, i1 false)
-  %30 = add nsw i64 %21, 1
+  %30 = add nuw nsw i64 %21, 1
   %31 = sub nuw nsw i64 %9, %30
   %32 = add nsw i64 %1, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1414)
@@ -9592,8 +9592,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 18:                                               ; preds = %16
-  %19 = sub nsw i64 %7, %1
-  %20 = trunc i64 %19 to i16
+  %19 = sub nuw nsw i64 %7, %1
+  %20 = trunc nuw i64 %19 to i16
   store i16 %20, ptr %5, align 2
   %21 = trunc nuw nsw i64 %13 to i16
   store i16 %21, ptr %10, align 2
@@ -9604,7 +9604,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %25 = getelementptr inbounds { [2 x i64] }, ptr %9, i64 %1
   %26 = shl nuw nsw i64 %12, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 %9, i64 %26, i1 false)
-  %27 = add nsw i64 %19, 1
+  %27 = add nuw nsw i64 %19, 1
   %28 = sub nuw nsw i64 %7, %27
   %29 = add nsw i64 %1, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1434)
@@ -9726,8 +9726,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 18:                                               ; preds = %16
-  %19 = sub nsw i64 %7, %1
-  %20 = trunc i64 %19 to i16
+  %19 = sub nuw nsw i64 %7, %1
+  %20 = trunc nuw i64 %19 to i16
   store i16 %20, ptr %5, align 2
   %21 = trunc nuw nsw i64 %13 to i16
   store i16 %21, ptr %10, align 2
@@ -9736,7 +9736,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %24 = shl nuw nsw i64 %12, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull align 4 %22, i64 %24, i1 false)
   %25 = getelementptr inbounds i8, ptr %9, i64 56
-  %26 = add nsw i64 %19, 1
+  %26 = add nuw nsw i64 %19, 1
   %27 = sub nuw nsw i64 %7, %26
   %28 = add nsw i64 %1, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1451)
@@ -9842,10 +9842,10 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 19:                                               ; preds = %17
-  %20 = sub nsw i64 %13, %1
+  %20 = sub nuw nsw i64 %13, %1
   %21 = trunc nuw nsw i64 %14 to i16
   store i16 %21, ptr %6, align 2
-  %22 = trunc i64 %20 to i16
+  %22 = trunc nuw i64 %20 to i16
   store i16 %22, ptr %11, align 2
   %23 = add nsw i64 %1, -1
   %24 = getelementptr inbounds i8, ptr %10, i64 360
@@ -9889,10 +9889,10 @@ _ZN5alloc11collections5btree4node13move_to_slice17h20f35529bb760fbcE.exit: ; pre
   %43 = shl nuw nsw i64 %23, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull readonly align 8 %10, i64 %43, i1 false), !alias.scope !1472
   %44 = getelementptr inbounds { [2 x i32] }, ptr %24, i64 %1
-  %45 = shl nsw i64 %20, 3
+  %45 = shl nuw nsw i64 %20, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %24, ptr nonnull align 4 %44, i64 %45, i1 false)
   %46 = getelementptr inbounds { [4 x i64] }, ptr %10, i64 %1
-  %47 = shl nsw i64 %20, 5
+  %47 = shl nuw nsw i64 %20, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %46, i64 %47, i1 false)
   %48 = getelementptr inbounds i8, ptr %0, i64 32
   %49 = load i64, ptr %48, align 8, !noundef !17
@@ -9908,7 +9908,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h20f35529bb760fbcE.exit: ; pre
 53:                                               ; preds = %_ZN5alloc11collections5btree4node13move_to_slice17h20f35529bb760fbcE.exit
   br i1 %.not42, label %54, label %.lr.ph.i.preheader
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit64": ; preds = %.lr.ph.i61, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit", %52
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit64": ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit", %52
   ret void
 
 54:                                               ; preds = %53, %52
@@ -9922,8 +9922,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17h20f35529bb760fbcE.exit: ; pre
   %58 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %57, ptr nonnull readonly align 8 %55, i64 %58, i1 false), !alias.scope !1476
   %59 = getelementptr inbounds ptr, ptr %55, i64 %1
-  %60 = add nsw i64 %45, 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 8 %59, i64 %60, i1 false)
+  %60 = add nuw nsw i64 %45, 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %55, ptr noundef nonnull align 8 dereferenceable(1) %59, i64 %60, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -9941,12 +9941,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17h20f35529bb760fbcE.exit: ; pre
   %exitcond.not.i = icmp eq i64 %.sroa.0.06.i, %14
   br i1 %exitcond.not.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit", label %.lr.ph.i
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit": ; preds = %.lr.ph.i
-  %.not70 = icmp eq i64 %20, -1
-  br i1 %.not70, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit64", label %.lr.ph.i61
-
-.lr.ph.i61:                                       ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit", %.lr.ph.i61
-  %.sroa.0.06.i62 = phi i64 [ %68, %.lr.ph.i61 ], [ 0, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit" ]
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit": ; preds = %.lr.ph.i, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit"
+  %.sroa.0.06.i62 = phi i64 [ %68, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit" ], [ 0, %.lr.ph.i ]
   %68 = add nuw nsw i64 %.sroa.0.06.i62, 1
   %69 = icmp ult i64 %.sroa.0.06.i62, 12
   tail call void @llvm.assume(i1 %69)
@@ -9958,7 +9954,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h20f35529bb760fbcE.exit: ; pre
   %74 = getelementptr inbounds i8, ptr %71, i64 448
   store i16 %73, ptr %74, align 8
   %exitcond.not.i63 = icmp eq i64 %.sroa.0.06.i62, %20
-  br i1 %exitcond.not.i63, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit64", label %.lr.ph.i61
+  br i1 %exitcond.not.i63, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit64", label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hbcef04da733ac000E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9990,10 +9986,10 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 18:                                               ; preds = %16
-  %19 = sub nsw i64 %12, %1
+  %19 = sub nuw nsw i64 %12, %1
   %20 = trunc nuw nsw i64 %13 to i16
   store i16 %20, ptr %5, align 2
-  %21 = trunc i64 %19 to i16
+  %21 = trunc nuw i64 %19 to i16
   store i16 %21, ptr %10, align 2
   %22 = add nsw i64 %1, -1
   %23 = getelementptr inbounds i8, ptr %9, i64 184
@@ -10040,10 +10036,10 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %49 = shl nuw nsw i64 %22, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull readonly align 8 %9, i64 %49, i1 false), !alias.scope !1487
   %50 = getelementptr inbounds i64, ptr %23, i64 %1
-  %51 = shl nsw i64 %19, 3
+  %51 = shl nuw nsw i64 %19, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %50, i64 %51, i1 false)
   %52 = getelementptr inbounds { [2 x i64] }, ptr %9, i64 %1
-  %53 = shl nsw i64 %19, 4
+  %53 = shl nuw nsw i64 %19, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %52, i64 %53, i1 false)
   %54 = getelementptr inbounds i8, ptr %0, i64 32
   %55 = load i64, ptr %54, align 8, !noundef !17
@@ -10059,7 +10055,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
 59:                                               ; preds = %45
   br i1 %.not44, label %60, label %.lr.ph.i.preheader
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit67": ; preds = %.lr.ph.i64, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit", %58
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit67": ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit", %58
   ret void
 
 60:                                               ; preds = %59, %58
@@ -10073,8 +10069,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %64 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull readonly align 8 %61, i64 %64, i1 false), !alias.scope !1491
   %65 = getelementptr inbounds ptr, ptr %61, i64 %1
-  %66 = add nsw i64 %51, 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 8 %65, i64 %66, i1 false)
+  %66 = add nuw nsw i64 %51, 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %61, ptr noundef nonnull align 8 dereferenceable(1) %65, i64 %66, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -10092,12 +10088,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %exitcond.not.i = icmp eq i64 %.sroa.0.06.i, %13
   br i1 %exitcond.not.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit", label %.lr.ph.i
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit": ; preds = %.lr.ph.i
-  %.not74 = icmp eq i64 %19, -1
-  br i1 %.not74, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit67", label %.lr.ph.i64
-
-.lr.ph.i64:                                       ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit", %.lr.ph.i64
-  %.sroa.0.06.i65 = phi i64 [ %74, %.lr.ph.i64 ], [ 0, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit" ]
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit": ; preds = %.lr.ph.i, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit"
+  %.sroa.0.06.i65 = phi i64 [ %74, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit" ], [ 0, %.lr.ph.i ]
   %74 = add nuw nsw i64 %.sroa.0.06.i65, 1
   %75 = icmp ult i64 %.sroa.0.06.i65, 12
   tail call void @llvm.assume(i1 %75)
@@ -10109,7 +10101,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %80 = getelementptr inbounds i8, ptr %77, i64 272
   store i16 %79, ptr %80, align 8
   %exitcond.not.i66 = icmp eq i64 %.sroa.0.06.i65, %19
-  br i1 %exitcond.not.i66, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit67", label %.lr.ph.i64
+  br i1 %exitcond.not.i66, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit67", label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hfb301a5605c4626fE.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10141,10 +10133,10 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 18:                                               ; preds = %16
-  %19 = sub nsw i64 %12, %1
+  %19 = sub nuw nsw i64 %12, %1
   %20 = trunc nuw nsw i64 %13 to i16
   store i16 %20, ptr %5, align 2
-  %21 = trunc i64 %19 to i16
+  %21 = trunc nuw i64 %19 to i16
   store i16 %21, ptr %10, align 2
   %22 = add nsw i64 %1, -1
   %23 = getelementptr inbounds i8, ptr %9, i64 8
@@ -10178,7 +10170,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit: ; pre
   %38 = getelementptr inbounds i8, ptr %9, i64 56
   %39 = getelementptr inbounds i8, ptr %4, i64 56
   %40 = getelementptr inbounds i32, ptr %23, i64 %1
-  %41 = shl nsw i64 %19, 2
+  %41 = shl nuw nsw i64 %19, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull align 4 %40, i64 %41, i1 false)
   %42 = getelementptr inbounds i8, ptr %0, i64 32
   %43 = load i64, ptr %42, align 8, !noundef !17
@@ -10194,7 +10186,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit: ; pre
 47:                                               ; preds = %_ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit
   br i1 %.not38, label %48, label %.lr.ph.i.preheader
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit60": ; preds = %.lr.ph.i57, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit", %46
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit60": ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit", %46
   ret void
 
 48:                                               ; preds = %47, %46
@@ -10206,9 +10198,9 @@ _ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit: ; pre
   %50 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr nonnull readonly align 8 %38, i64 %50, i1 false), !alias.scope !1501
   %51 = getelementptr inbounds ptr, ptr %38, i64 %1
-  %52 = shl nsw i64 %19, 3
-  %53 = add nsw i64 %52, 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %51, i64 %53, i1 false)
+  %52 = shl nuw nsw i64 %19, 3
+  %53 = add nuw nsw i64 %52, 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %51, i64 %53, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -10225,12 +10217,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit: ; pre
   %exitcond.not.i = icmp eq i64 %.sroa.0.06.i, %13
   br i1 %exitcond.not.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit", label %.lr.ph.i
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit": ; preds = %.lr.ph.i
-  %.not64 = icmp eq i64 %19, -1
-  br i1 %.not64, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit60", label %.lr.ph.i57
-
-.lr.ph.i57:                                       ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit", %.lr.ph.i57
-  %.sroa.0.06.i58 = phi i64 [ %60, %.lr.ph.i57 ], [ 0, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit" ]
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit": ; preds = %.lr.ph.i, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit"
+  %.sroa.0.06.i58 = phi i64 [ %60, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit" ], [ 0, %.lr.ph.i ]
   %60 = add nuw nsw i64 %.sroa.0.06.i58, 1
   %61 = icmp ult i64 %.sroa.0.06.i58, 12
   tail call void @llvm.assume(i1 %61)
@@ -10241,7 +10229,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit: ; pre
   %65 = getelementptr inbounds i8, ptr %63, i64 52
   store i16 %64, ptr %65, align 4
   %exitcond.not.i59 = icmp eq i64 %.sroa.0.06.i58, %19
-  br i1 %exitcond.not.i59, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit60", label %.lr.ph.i57
+  br i1 %exitcond.not.i59, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit60", label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hf39dddbe49f011a4E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10277,10 +10265,10 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 20:                                               ; preds = %18
-  %21 = sub nsw i64 %14, %1
+  %21 = sub nuw nsw i64 %14, %1
   %22 = trunc nuw nsw i64 %15 to i16
   store i16 %22, ptr %7, align 2
-  %23 = trunc i64 %21 to i16
+  %23 = trunc nuw i64 %21 to i16
   store i16 %23, ptr %12, align 2
   %24 = add nsw i64 %1, -1
   %25 = getelementptr inbounds i8, ptr %11, i64 272
@@ -10332,10 +10320,10 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %47 = mul nuw nsw i64 %24, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull readonly align 8 %28, i64 %47, i1 false), !alias.scope !1515
   %48 = getelementptr inbounds i32, ptr %25, i64 %1
-  %49 = shl nsw i64 %21, 2
+  %49 = shl nuw nsw i64 %21, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %25, ptr nonnull align 4 %48, i64 %49, i1 false)
   %50 = getelementptr inbounds { [3 x i64] }, ptr %28, i64 %1
-  %51 = mul nsw i64 %21, 24
+  %51 = mul nuw nsw i64 %21, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 8 %50, i64 %51, i1 false)
   %52 = getelementptr inbounds i8, ptr %0, i64 32
   %53 = load i64, ptr %52, align 8, !noundef !17
@@ -10351,7 +10339,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
 57:                                               ; preds = %43
   br i1 %.not42, label %58, label %.lr.ph.i.preheader
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit65": ; preds = %.lr.ph.i62, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit", %56
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit65": ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit", %56
   ret void
 
 58:                                               ; preds = %57, %56
@@ -10365,9 +10353,9 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %62 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull readonly align 8 %59, i64 %62, i1 false), !alias.scope !1519
   %63 = getelementptr inbounds ptr, ptr %59, i64 %1
-  %64 = shl nsw i64 %21, 3
-  %65 = add nsw i64 %64, 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %63, i64 %65, i1 false)
+  %64 = shl nuw nsw i64 %21, 3
+  %65 = add nuw nsw i64 %64, 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %59, ptr noundef nonnull align 8 dereferenceable(1) %63, i64 %65, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -10384,12 +10372,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %exitcond.not.i = icmp eq i64 %.sroa.0.06.i, %15
   br i1 %exitcond.not.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit", label %.lr.ph.i
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit": ; preds = %.lr.ph.i
-  %.not71 = icmp eq i64 %21, -1
-  br i1 %.not71, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit65", label %.lr.ph.i62
-
-.lr.ph.i62:                                       ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit", %.lr.ph.i62
-  %.sroa.0.06.i63 = phi i64 [ %72, %.lr.ph.i62 ], [ 0, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit" ]
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit": ; preds = %.lr.ph.i, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit"
+  %.sroa.0.06.i63 = phi i64 [ %72, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit" ], [ 0, %.lr.ph.i ]
   %72 = add nuw nsw i64 %.sroa.0.06.i63, 1
   %73 = icmp ult i64 %.sroa.0.06.i63, 12
   tail call void @llvm.assume(i1 %73)
@@ -10400,7 +10384,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %77 = getelementptr inbounds i8, ptr %75, i64 316
   store i16 %76, ptr %77, align 4
   %exitcond.not.i64 = icmp eq i64 %.sroa.0.06.i63, %21
-  br i1 %exitcond.not.i64, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit65", label %.lr.ph.i62
+  br i1 %exitcond.not.i64, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit65", label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17hd7a8a7f009248e98E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11618,39 +11602,40 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   br i1 %.not.i29, label %"_ZN5alloc11collections5btree3fix178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$29fix_right_border_of_plentiful17hfa697b450b994299E.exit", label %.lr.ph.i28
 
 44:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$7last_kv17h449060b3b06e811dE.exit.i"
-  %45 = zext nneg i16 %42 to i64
-  %46 = sub nuw nsw i64 5, %45
-  %47 = getelementptr inbounds i8, ptr %36, i64 54
-  %48 = load i16, ptr %47, align 2, !noalias !1632, !noundef !17
-  %49 = zext i16 %48 to i64
-  %.not.i6.i = icmp ugt i64 %46, %49
-  br i1 %.not.i6.i, label %.noexc30, label %50
+  %narrow.i = sub nuw nsw i16 5, %42
+  %45 = zext nneg i16 %narrow.i to i64
+  %46 = getelementptr inbounds i8, ptr %36, i64 54
+  %47 = load i16, ptr %46, align 2, !noalias !1632, !noundef !17
+  %48 = zext nneg i16 %42 to i64
+  %.not.i6.i = icmp ult i16 %47, %narrow.i
+  br i1 %.not.i6.i, label %.noexc30, label %49
 
 .noexc30:                                         ; preds = %44
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.f7ec036493567efedaa7daa7831baa68.36, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f7ec036493567efedaa7daa7831baa68.37) #27
   unreachable
 
-50:                                               ; preds = %44
-  %51 = sub nsw i64 %49, %46
-  %52 = trunc i64 %51 to i16
-  store i16 %52, ptr %47, align 2, !noalias !1632
+49:                                               ; preds = %44
+  %50 = zext i16 %47 to i64
+  %51 = sub nuw nsw i64 %50, %45
+  %52 = trunc nuw i64 %51 to i16
+  store i16 %52, ptr %46, align 2, !noalias !1632
   store i16 5, ptr %41, align 2, !noalias !1632
   %53 = getelementptr inbounds i8, ptr %40, i64 8
-  %54 = getelementptr inbounds i32, ptr %53, i64 %46
-  %55 = shl nuw nsw i64 %45, 2
+  %54 = getelementptr inbounds i32, ptr %53, i64 %45
+  %55 = shl nuw nsw i64 %48, 2
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %54, ptr nonnull align 4 %53, i64 %55, i1 false), !noalias !1632
   %56 = getelementptr inbounds i8, ptr %40, i64 56
-  %57 = add nsw i64 %51, 1
-  %58 = sub nuw nsw i64 %49, %57
-  %59 = sub nuw nsw i64 4, %45
+  %57 = add nuw nsw i64 %51, 1
+  %58 = sub nuw nsw i64 %50, %57
+  %59 = add nsw i64 %45, -1
   %60 = icmp eq i64 %58, %59
   br i1 %60, label %_ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit.i.i, label %.noexc31
 
-.noexc31:                                         ; preds = %50
+.noexc31:                                         ; preds = %49
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.f7ec036493567efedaa7daa7831baa68.25, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f7ec036493567efedaa7daa7831baa68.26) #27
   unreachable
 
-_ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit.i.i: ; preds = %50
+_ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit.i.i: ; preds = %49
   %61 = getelementptr inbounds i8, ptr %36, i64 8
   %62 = getelementptr inbounds i32, ptr %61, i64 %57
   %63 = shl nuw nsw i64 %58, 2
@@ -11668,12 +11653,12 @@ _ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit.i.i: ;
 
 _ZN5alloc11collections5btree4node13move_to_slice17h5829d77f99dd0856E.exit.i.i: ; preds = %_ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit.i.i
   %70 = getelementptr inbounds i8, ptr %36, i64 56
-  %71 = getelementptr inbounds ptr, ptr %56, i64 %46
-  %72 = shl nuw nsw i64 %45, 3
+  %71 = getelementptr inbounds ptr, ptr %56, i64 %45
+  %72 = shl nuw nsw i64 %48, 3
   %73 = add nuw nsw i64 %72, 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %71, ptr noundef nonnull align 8 dereferenceable(1) %56, i64 %73, i1 false), !noalias !1632
   %74 = getelementptr inbounds ptr, ptr %70, i64 %57
-  %75 = shl nuw nsw i64 %46, 3
+  %75 = shl nuw nsw i64 %45, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %56, ptr nonnull readonly align 8 %74, i64 %75, i1 false), !alias.scope !1639, !noalias !1632
   br label %76
 

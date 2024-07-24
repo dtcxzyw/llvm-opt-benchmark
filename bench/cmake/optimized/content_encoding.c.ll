@@ -1017,7 +1017,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %42, label %.loopexit, label %43
 
 43:                                               ; preds = %38
-  %44 = sub nsw i64 %33, %41
+  %44 = sub nuw nsw i64 %33, %41
   %45 = getelementptr inbounds i8, ptr %34, i64 %41
   br label %46
 
@@ -1241,7 +1241,7 @@ process_zlib_error.exit:                          ; preds = %78, %79
   br i1 %137, label %exit_zlib.exit, label %138
 
 138:                                              ; preds = %133
-  %139 = sub nsw i64 %128, %136
+  %139 = sub nuw nsw i64 %128, %136
   %140 = getelementptr inbounds i8, ptr %129, i64 %136
   br label %141
 

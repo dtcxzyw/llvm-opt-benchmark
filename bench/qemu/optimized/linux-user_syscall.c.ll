@@ -972,13 +972,13 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end6
-  %sub9 = sub i64 %and3, %and
+  %sub9 = sub nuw i64 %and3, %and
   %call = tail call i32 @target_munmap(i64 noundef %and, i64 noundef %sub9) #26
   store i64 %brk_val, ptr @target_brk, align 8
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %sub11 = sub i64 %and, %and3
+  %sub11 = sub nuw i64 %and, %and3
   %call12 = tail call i64 @target_mmap(i64 noundef %and3, i64 noundef %sub11, i32 noundef 3, i32 noundef 1048610, i32 noundef -1, i64 noundef 0) #26
   %cmp13 = icmp eq i64 %call12, %and3
   br i1 %cmp13, label %if.then14, label %if.end15

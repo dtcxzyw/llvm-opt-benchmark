@@ -3111,7 +3111,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %num_cols, %add.i.i
+  %sub.i = sub nuw i64 %num_cols, %add.i.i
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %force_not_null, ptr %0, i32 %1, i64 noundef %sub.i, i1 noundef zeroext false)
   br label %if.end
 
@@ -5493,7 +5493,7 @@ invoke.cont4.i.i223:                              ; preds = %invoke.cont79
   store ptr %59, ptr %ref.tmp81, align 8, !tbaa !13, !alias.scope !269
   %68 = load ptr, ptr %old_val, align 8, !tbaa !16, !noalias !269
   %add.ptr.i.i224 = getelementptr inbounds i8, ptr %68, i64 %prev_pos.0366
-  %sub.i.i.i225 = sub i64 %67, %prev_pos.0366
+  %sub.i.i.i225 = sub nuw i64 %67, %prev_pos.0366
   %spec.select.i.i.i226 = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i225, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i220) #25, !noalias !269
   store i64 %spec.select.i.i.i226, ptr %__dnew.i.i.i220, align 8, !tbaa !137, !noalias !269
@@ -18755,7 +18755,7 @@ if.end:                                           ; preds = %entry
   %buffer = getelementptr inbounds i8, ptr %this, i64 1272
   %2 = load i64, ptr %buffer, align 8, !tbaa !24
   store ptr null, ptr %buffer, align 8, !tbaa !24
-  %sub = sub i64 %1, %0
+  %sub = sub nuw i64 %1, %0
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %if.end
@@ -45702,7 +45702,7 @@ invoke.cont36:                                    ; preds = %for.cond.cleanup
   br i1 %cmp40152, label %iter.check, label %for.end48
 
 iter.check:                                       ; preds = %invoke.cont36
-  %19 = sub i64 %sub2, %cur_pos.0
+  %19 = sub nuw i64 %sub2, %cur_pos.0
   %min.iters.check = icmp ult i64 %19, 8
   br i1 %min.iters.check, label %for.body41.preheader, label %vector.memcheck
 

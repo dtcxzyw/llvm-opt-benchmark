@@ -357,7 +357,7 @@ define internal fastcc { ptr, i64 } @"_ZN113_$LT$alloc..string..String$u20$as$u2
   %9 = getelementptr inbounds i8, ptr %.8.val, i64 %0
   %10 = load i8, ptr %9, align 1, !alias.scope !13, !noundef !10
   %11 = icmp sgt i8 %10, -65
-  %12 = sub i64 %.16.val, %0
+  %12 = sub nuw i64 %.16.val, %0
   br i1 %11, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17ha2ee3e20bcc17cc5E.exit", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17ha2ee3e20bcc17cc5E.exit.thread"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17ha2ee3e20bcc17cc5E.exit.thread": ; preds = %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i"
@@ -5399,7 +5399,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %.not.us, label %31, label %26
 
 26:                                               ; preds = %24
-  %27 = sub i64 %25, %17
+  %27 = sub nuw i64 %25, %17
   %28 = add i64 %27, %14
   %29 = icmp ugt i64 %27, %28
   %30 = icmp ugt i64 %28, %5
@@ -5440,7 +5440,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.split
 
 44:                                               ; preds = %39
-  %45 = sub i64 %40, %17
+  %45 = sub nuw i64 %40, %17
   %46 = add i64 %45, %14
   %47 = icmp ugt i64 %45, %46
   %48 = icmp ugt i64 %46, %5
@@ -6502,7 +6502,7 @@ _ZN15rustfmt_nightly8overflow7Context3new17h0e13ec0172a912f5E.exit.i: ; preds = 
   br label %197
 
 200:                                              ; preds = %190
-  %201 = sub i64 %195, %193
+  %201 = sub nuw i64 %195, %193
   %202 = load i64, ptr %3, align 8, !alias.scope !778, !noalias !781, !noundef !10
   %203 = getelementptr inbounds i8, ptr %3, i64 8
   %204 = load i64, ptr %203, align 8, !alias.scope !778, !noalias !781, !noundef !10
@@ -7105,7 +7105,7 @@ _ZN15rustfmt_nightly7comment19rewrite_doc_comment17he9cc3e8a6b15a26fE.exit: ; pr
   %161 = getelementptr inbounds i8, ptr %3, i64 24
   %162 = load i64, ptr %161, align 8, !alias.scope !867, !noalias !872, !noundef !10
   %163 = add i64 %162, %160
-  %164 = sub i64 %103, %160
+  %164 = sub nuw i64 %103, %160
   %165 = load <2 x i64>, ptr %3, align 8, !alias.scope !867, !noalias !872
   store <2 x i64> %165, ptr %14, align 16
   %.sroa.6.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
@@ -11728,7 +11728,7 @@ define hidden void @_ZN15rustfmt_nightly4expr20rewrite_unary_prefix17h66c4435f8d
   %19 = getelementptr inbounds i8, ptr %5, i64 24
   %20 = load i64, ptr %19, align 8, !alias.scope !1806, !noalias !1811, !noundef !10
   %21 = add i64 %20, %3
-  %22 = sub i64 %17, %3
+  %22 = sub nuw i64 %17, %3
   %23 = load <2 x i64>, ptr %5, align 8, !alias.scope !1806, !noalias !1811
   store <2 x i64> %23, ptr %12, align 16
   %.sroa.6.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
@@ -12027,7 +12027,7 @@ define hidden void @_ZN15rustfmt_nightly4expr20rewrite_unary_suffix17h4bd54f5262
   br i1 %.not.i, label %19, label %12
 
 12:                                               ; preds = %6
-  %13 = sub i64 %11, %3
+  %13 = sub nuw i64 %11, %3
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   %15 = load i64, ptr %14, align 8, !alias.scope !1904, !noalias !1907, !noundef !10
   %16 = load <2 x i64>, ptr %5, align 8, !alias.scope !1904, !noalias !1907
@@ -12438,7 +12438,7 @@ define internal fastcc void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_expr1
   br i1 %.not.i.i.i7, label %162, label %132
 
 132:                                              ; preds = %114
-  %133 = sub i64 %124, %131
+  %133 = sub nuw i64 %124, %131
   br label %161
 
 134:                                              ; preds = %111
@@ -12452,7 +12452,7 @@ define internal fastcc void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_expr1
   br i1 %.not.i1.i.i, label %162, label %140
 
 140:                                              ; preds = %134
-  %141 = sub i64 %139, %138
+  %141 = sub nuw i64 %139, %138
   br label %161
 
 .critedge.thread.i:                               ; preds = %107
@@ -13411,7 +13411,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h0d2e547
   br i1 %.not.i.i.i7.i, label %171, label %141
 
 141:                                              ; preds = %123
-  %142 = sub i64 %133, %140
+  %142 = sub nuw i64 %133, %140
   br label %170
 
 143:                                              ; preds = %120
@@ -13425,7 +13425,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h0d2e547
   br i1 %.not.i1.i.i.i, label %171, label %149
 
 149:                                              ; preds = %143
-  %150 = sub i64 %148, %147
+  %150 = sub nuw i64 %148, %147
   br label %170
 
 151:                                              ; preds = %116
@@ -14546,7 +14546,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h444610b
   br i1 %.not.i.i.i7.i, label %172, label %142
 
 142:                                              ; preds = %124
-  %143 = sub i64 %134, %141
+  %143 = sub nuw i64 %134, %141
   br label %171
 
 144:                                              ; preds = %121
@@ -14560,7 +14560,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h444610b
   br i1 %.not.i1.i.i.i, label %172, label %150
 
 150:                                              ; preds = %144
-  %151 = sub i64 %149, %148
+  %151 = sub nuw i64 %149, %148
   br label %171
 
 152:                                              ; preds = %117
@@ -15681,7 +15681,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h4b5e8ca
   br i1 %.not.i.i.i7.i, label %172, label %142
 
 142:                                              ; preds = %124
-  %143 = sub i64 %134, %141
+  %143 = sub nuw i64 %134, %141
   br label %171
 
 144:                                              ; preds = %121
@@ -15695,7 +15695,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h4b5e8ca
   br i1 %.not.i1.i.i.i, label %172, label %150
 
 150:                                              ; preds = %144
-  %151 = sub i64 %149, %148
+  %151 = sub nuw i64 %149, %148
   br label %171
 
 152:                                              ; preds = %117
@@ -16889,7 +16889,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h66513ed
   br i1 %.not.i.i.i8.i, label %202, label %158
 
 158:                                              ; preds = %140
-  %159 = sub i64 %150, %157
+  %159 = sub nuw i64 %150, %157
   br label %187
 
 160:                                              ; preds = %137
@@ -16903,7 +16903,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17h66513ed
   br i1 %.not.i1.i.i.i, label %202, label %166
 
 166:                                              ; preds = %160
-  %167 = sub i64 %165, %164
+  %167 = sub nuw i64 %165, %164
   br label %187
 
 168:                                              ; preds = %133
@@ -18304,7 +18304,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17hacb6519
   br i1 %.not.i.i.i8.i, label %176, label %144
 
 144:                                              ; preds = %126
-  %145 = sub i64 %136, %143
+  %145 = sub nuw i64 %136, %143
   br label %173
 
 146:                                              ; preds = %123
@@ -18318,7 +18318,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17hacb6519
   br i1 %.not.i1.i.i.i, label %176, label %152
 
 152:                                              ; preds = %146
-  %153 = sub i64 %151, %150
+  %153 = sub nuw i64 %151, %150
   br label %173
 
 154:                                              ; preds = %120
@@ -19459,7 +19459,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17hd3692e7
   br i1 %.not.i.i.i7.i, label %171, label %141
 
 141:                                              ; preds = %123
-  %142 = sub i64 %133, %140
+  %142 = sub nuw i64 %133, %140
   br label %170
 
 143:                                              ; preds = %120
@@ -19473,7 +19473,7 @@ define hidden void @_ZN15rustfmt_nightly4expr23rewrite_assign_rhs_with17hd3692e7
   br i1 %.not.i1.i.i.i, label %171, label %149
 
 149:                                              ; preds = %143
-  %150 = sub i64 %148, %147
+  %150 = sub nuw i64 %148, %147
   br label %170
 
 151:                                              ; preds = %116
@@ -20372,7 +20372,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   %48 = load i64, ptr %4, align 8, !alias.scope !3966, !noalias !3971, !noundef !10
   %49 = select i1 %46, i64 %42, i64 0
   %.sink2.i.i = add i64 %49, %48
-  %50 = sub i64 %.sink3.i.i, %42
+  %50 = sub nuw i64 %.sink3.i.i, %42
   store i64 %.sink2.i.i, ptr %15, align 8
   %.sroa.6.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   store i64 %.sink1.i.i, ptr %.sroa.6.sroa.5.0..sroa_idx, align 8
@@ -20713,7 +20713,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   %48 = load i64, ptr %4, align 8, !alias.scope !4034, !noalias !4039, !noundef !10
   %49 = select i1 %46, i64 %42, i64 0
   %.sink2.i.i = add i64 %49, %48
-  %50 = sub i64 %.sink3.i.i, %42
+  %50 = sub nuw i64 %.sink3.i.i, %42
   store i64 %.sink2.i.i, ptr %15, align 8
   %.sroa.6.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   store i64 %.sink1.i.i, ptr %.sroa.6.sroa.5.0..sroa_idx, align 8
@@ -21842,7 +21842,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %_RNvMNtCsd
   br i1 %.not.i.i330, label %332, label %330
 
 330:                                              ; preds = %328
-  %331 = sub i64 %.sroa.8395.0, %329
+  %331 = sub nuw i64 %.sroa.8395.0, %329
   %.not.i336 = icmp ult i64 %331, 2
   br i1 %.not.i336, label %337, label %333
 
@@ -23391,7 +23391,7 @@ _ZN15rustfmt_nightly5items14is_empty_infer17h6bc097dc2e5a306bE.exit.thread: ; pr
           to label %426 unwind label %424
 
 297:                                              ; preds = %295
-  %298 = sub i64 %59, %294
+  %298 = sub nuw i64 %59, %294
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
   %299 = getelementptr inbounds i8, ptr %31, i64 16
@@ -23608,7 +23608,7 @@ _ZN15rustfmt_nightly5items14is_empty_infer17h6bc097dc2e5a306bE.exit.thread: ; pr
   br label %412
 
 373:                                              ; preds = %371
-  %374 = sub i64 %59, %370
+  %374 = sub nuw i64 %59, %370
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
@@ -27393,7 +27393,7 @@ define void @"_ZN76_$LT$rustc_ast..ast..Expr$u20$as$u20$rustfmt_nightly..pairs..
   br i1 %.not.i.i, label %101, label %94
 
 94:                                               ; preds = %88
-  %95 = sub i64 %93, %74
+  %95 = sub nuw i64 %93, %74
   %96 = load ptr, ptr %28, align 8, !noalias !5022, !nonnull !10, !align !11, !noundef !10
   %97 = getelementptr inbounds i8, ptr %96, i64 710
   store i8 1, ptr %97, align 2, !noalias !5022
@@ -27423,7 +27423,7 @@ define void @"_ZN76_$LT$rustc_ast..ast..Expr$u20$as$u20$rustfmt_nightly..pairs..
 
 107:                                              ; preds = %103, %104
   %.sroa.11.0.sink.i = phi i64 [ %105, %104 ], [ %.sroa.11.0.i, %103 ]
-  %.sink.i = sub i64 %95, %69
+  %.sink.i = sub nuw i64 %95, %69
   store i64 %.sroa.011.0.i, ptr %6, align 8, !noalias !5022
   store i64 %.sroa.11.0.i, ptr %.sroa.63.sroa.5.0..sroa_idx.i, align 8, !noalias !5022
   store i64 %.sink.i, ptr %.sroa.63.sroa.6.0..sroa_idx.i, align 8, !noalias !5022
@@ -28121,7 +28121,7 @@ _ZN15rustfmt_nightly5utils13rewrite_ident17h7391328317c55cbbE.exit: ; preds = %2
   br i1 %or.cond, label %273, label %274
 
 237:                                              ; preds = %229
-  %238 = sub i64 %231, %234
+  %238 = sub nuw i64 %231, %234
   %239 = load ptr, ptr %215, align 8, !nonnull !10, !align !11, !noundef !10
   %240 = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.020.0.copyload = load i64, ptr %240, align 8
@@ -28790,7 +28790,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h4dc753b10907468cE.exit.thread:
 
 460:                                              ; preds = %_ZN5alloc3fmt6format17h35125637d547cb53E.llvm.11825479963814566850.exit
   %461 = add i64 %.sroa.6374.0.copyload, %172
-  %462 = sub i64 %.sroa.5373.0.copyload, %172
+  %462 = sub nuw i64 %.sroa.5373.0.copyload, %172
   store <2 x i64> %175, ptr %18, align 16, !noalias !5112
   %.sroa.6.i264.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %462, ptr %.sroa.6.i264.sroa.6.0..sroa_idx, align 16, !noalias !5112
@@ -33461,7 +33461,7 @@ _ZN15rustfmt_nightly5utils13rewrite_ident17h7391328317c55cbbE.exit: ; preds = %.
   br label %81
 
 41:                                               ; preds = %37
-  %42 = sub i64 %39, %34
+  %42 = sub nuw i64 %39, %34
   %43 = load i64, ptr %3, align 8, !noundef !10
   %44 = getelementptr inbounds i8, ptr %3, i64 8
   %45 = load i64, ptr %44, align 8, !noundef !10
@@ -33625,7 +33625,7 @@ _ZN15rustfmt_nightly5utils13rewrite_ident17h7391328317c55cbbE.exit: ; preds = %.
   br label %81
 
 111:                                              ; preds = %102
-  %112 = sub i64 %109, %107
+  %112 = sub nuw i64 %109, %107
   %113 = load i64, ptr %3, align 8, !noundef !10
   %114 = getelementptr inbounds i8, ptr %3, i64 8
   %115 = load i64, ptr %114, align 8, !noundef !10
@@ -34625,7 +34625,7 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.exit: ; preds = %55, %.noexc
   %76 = getelementptr inbounds i8, ptr %3, i64 24
   %77 = load i64, ptr %76, align 8, !alias.scope !6171, !noalias !6176, !noundef !10
   %78 = add i64 %77, %72
-  %79 = sub i64 %74, %72
+  %79 = sub nuw i64 %74, %72
   %80 = load <2 x i64>, ptr %3, align 8, !alias.scope !6171, !noalias !6176
   store <2 x i64> %80, ptr %18, align 16
   %.sroa.6.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
@@ -35255,7 +35255,7 @@ _ZN15rustfmt_nightly5utils13rewrite_ident17h7391328317c55cbbE.exit154: ; preds =
   br label %226
 
 179:                                              ; preds = %170
-  %180 = sub i64 %177, %175
+  %180 = sub nuw i64 %177, %175
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
@@ -35673,7 +35673,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   br label %226
 
 344:                                              ; preds = %335
-  %345 = sub i64 %342, %340
+  %345 = sub nuw i64 %342, %340
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
@@ -36335,7 +36335,7 @@ define void @"_ZN15rustfmt_nightly5types92_$LT$impl$u20$rustfmt_nightly..rewrite
   %43 = getelementptr inbounds i8, ptr %3, i64 24
   %44 = load i64, ptr %43, align 8, !alias.scope !6572, !noalias !6577, !noundef !10
   %45 = add i64 %44, %33
-  %46 = sub i64 %35, %33
+  %46 = sub nuw i64 %35, %33
   %47 = load <2 x i64>, ptr %3, align 8, !alias.scope !6572, !noalias !6577
   store <2 x i64> %47, ptr %12, align 16
   %.sroa.6.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
@@ -36654,7 +36654,7 @@ default.unreachable:                              ; preds = %291, %4
 
 112:                                              ; preds = %105
   %113 = add i64 %.sroa.6346.0.copyload, %.
-  %114 = sub i64 %.sroa.5.0.copyload, %.
+  %114 = sub nuw i64 %.sroa.5.0.copyload, %.
   store <2 x i64> %110, ptr %27, align 16, !noalias !6629
   %.sroa.6.i.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 16
   store i64 %114, ptr %.sroa.6.i.sroa.6.0..sroa_idx, align 16, !noalias !6629
@@ -37815,7 +37815,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit303
   br label %455
 
 529:                                              ; preds = %525
-  %530 = sub i64 %527, %520
+  %530 = sub nuw i64 %527, %520
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %72)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %71)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70)

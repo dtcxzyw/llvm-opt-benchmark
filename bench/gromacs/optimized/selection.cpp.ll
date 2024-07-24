@@ -1319,7 +1319,7 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit7:             ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %56
-  %68 = sub nsw i64 %58, %65
+  %68 = sub nuw nsw i64 %58, %65
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %60, i64 noundef %68, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %.pre10 = load i32, ptr %6, align 8
   %.pre11 = load ptr, ptr %34, align 8
@@ -1353,7 +1353,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %67, %69, %71, %73
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
-  %83 = sub nsw i64 %.pre-phi15, %80
+  %83 = sub nuw nsw i64 %.pre-phi15, %80
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr %76, i64 noundef %83, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9
 
@@ -1719,7 +1719,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

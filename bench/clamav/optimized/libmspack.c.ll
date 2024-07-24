@@ -111,7 +111,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   %42 = getelementptr inbounds i8, ptr %34, i64 72
   %43 = load i64, ptr %42, align 8
   %.not90103 = icmp eq i64 %43, 0
-  %44 = sub i64 %36, %38
+  %44 = sub nuw i64 %36, %38
   br i1 %.not90103, label %47, label %45
 
 45:                                               ; preds = %.thread
@@ -318,7 +318,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   %34 = getelementptr inbounds i8, ptr %26, i64 72
   %35 = load i64, ptr %34, align 8
   %.not8699 = icmp eq i64 %35, 0
-  %36 = sub i64 %28, %30
+  %36 = sub nuw i64 %28, %30
   br i1 %.not8699, label %39, label %37
 
 37:                                               ; preds = %.thread
@@ -581,7 +581,7 @@ define internal i32 @mspack_fmap_read(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %24
-  %27 = sub i64 %21, %16
+  %27 = sub nuw i64 %21, %16
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %27, i64 %19)
   %28 = getelementptr inbounds i8, ptr %18, i64 104
   %29 = load ptr, ptr %28, align 8

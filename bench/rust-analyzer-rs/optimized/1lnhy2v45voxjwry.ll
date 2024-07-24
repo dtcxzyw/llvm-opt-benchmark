@@ -57583,7 +57583,7 @@ define hidden void @_ZN11chalk_solve5split5Split30split_associated_ty_parameters
   unreachable
 
 32:                                               ; preds = %22
-  %33 = sub i64 %4, %26
+  %33 = sub nuw i64 %4, %26
   %34 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %3, i64 %33
   store ptr %34, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 8
@@ -57673,7 +57673,7 @@ define hidden void @_ZN11chalk_solve5split5Split30split_associated_ty_parameters
   unreachable
 
 32:                                               ; preds = %22
-  %33 = sub i64 %4, %26
+  %33 = sub nuw i64 %4, %26
   %34 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %33
   store ptr %34, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 8
@@ -57763,7 +57763,7 @@ define hidden void @_ZN11chalk_solve5split5Split30split_associated_ty_parameters
   unreachable
 
 32:                                               ; preds = %22
-  %33 = sub i64 %4, %26
+  %33 = sub nuw i64 %4, %26
   %34 = getelementptr inbounds { i64, i64 }, ptr %3, i64 %33
   store ptr %34, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 8
@@ -57839,7 +57839,7 @@ define hidden void @_ZN11chalk_solve5split5Split36split_associated_ty_value_para
   unreachable
 
 27:                                               ; preds = %6
-  %28 = sub i64 %4, %18
+  %28 = sub nuw i64 %4, %18
   %29 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %28
   store ptr %29, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 8
@@ -57915,7 +57915,7 @@ define hidden void @_ZN11chalk_solve5split5Split36split_associated_ty_value_para
   unreachable
 
 27:                                               ; preds = %6
-  %28 = sub i64 %4, %18
+  %28 = sub nuw i64 %4, %18
   %29 = getelementptr inbounds { i64, i64 }, ptr %3, i64 %28
   store ptr %29, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 8
@@ -58164,7 +58164,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 98:                                               ; preds = %.noexc151
-  %99 = sub i64 %84, %89
+  %99 = sub nuw i64 %84, %89
   %100 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %83, i64 %99
   %101 = atomicrmw sub ptr %85, i64 1 release, align 8, !noalias !8706
   %102 = icmp eq i64 %101, 1
@@ -84862,7 +84862,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_che
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds { i64, i64 }, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -84884,7 +84884,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_che
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -84906,7 +84906,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_che
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -84943,7 +84943,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h18
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -84976,7 +84976,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h32
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -85009,7 +85009,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h47
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds { i64, i64 }, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -115039,7 +115039,7 @@ define hidden noundef range(i8 0, 5) i8 @_ZN6hir_ty7display25hir_fmt_generic_arg
   %14 = icmp ult i64 %.011.i, %2
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %1, i64 %.011.i
-  %16 = sub i64 %2, %.011.i
+  %16 = sub nuw i64 %2, %.011.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h18c41fa3904fcddfE.llvm.3864848197730831337.exit"

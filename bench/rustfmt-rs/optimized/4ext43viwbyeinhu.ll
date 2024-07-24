@@ -2337,7 +2337,7 @@ _ZN15rustfmt_nightly5utils13is_empty_line17h92814a0856eb6a83E.exit.thread.i.i.i:
 
 120:                                              ; preds = %.noexc23.i.i.i
   %121 = extractvalue { ptr, i64 } %118, 0
-  %122 = sub i64 %52, %119
+  %122 = sub nuw i64 %52, %119
   %123 = getelementptr inbounds i8, ptr %.pre.i.i, i64 %122
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %121, ptr nonnull readonly %123, i64 %119), !alias.scope !326
   %124 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
@@ -13931,7 +13931,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %24 = getelementptr inbounds i8, ptr %10, i64 %16
   %25 = load i8, ptr %24, align 1, !alias.scope !2413, !noalias !2418, !noundef !14
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %12, %16
+  %27 = sub nuw i64 %12, %16
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i.i", %21
@@ -14173,7 +14173,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %.not.us, label %31, label %26
 
 26:                                               ; preds = %24
-  %27 = sub i64 %25, %17
+  %27 = sub nuw i64 %25, %17
   %28 = add i64 %27, %14
   %29 = icmp ugt i64 %27, %28
   %30 = icmp ugt i64 %28, %5
@@ -14214,7 +14214,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.split
 
 44:                                               ; preds = %39
-  %45 = sub i64 %40, %17
+  %45 = sub nuw i64 %40, %17
   %46 = add i64 %45, %14
   %47 = icmp ugt i64 %45, %46
   %48 = icmp ugt i64 %46, %5
@@ -19718,7 +19718,7 @@ define internal fastcc void @_ZN15rustfmt_nightly6macros15handle_vec_semi17h313c
   %47 = getelementptr inbounds i8, ptr %2, i64 8
   %48 = load i64, ptr %47, align 8, !alias.scope !3481, !noalias !3486, !noundef !14
   %49 = load i64, ptr %2, align 8, !alias.scope !3481, !noalias !3486, !noundef !14
-  %50 = sub i64 %41, %39
+  %50 = sub nuw i64 %41, %39
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   %51 = getelementptr inbounds i8, ptr %1, i64 40
   %52 = load ptr, ptr %51, align 8, !nonnull !14, !align !15, !noundef !14
@@ -26683,7 +26683,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   br label %1353
 
 100:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h16ef7dc5dfe9b761E.exit"
-  %101 = sub i64 %98, %.0
+  %101 = sub nuw i64 %98, %.0
   %102 = load i64, ptr %3, align 8, !alias.scope !4910, !noalias !4913, !noundef !14
   %103 = getelementptr inbounds i8, ptr %3, i64 8
   %104 = load i64, ptr %103, align 8, !alias.scope !4910, !noalias !4913, !noundef !14
@@ -32453,7 +32453,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   %.pn168.in = getelementptr inbounds i8, ptr %6, i64 24
   %.pn168 = load i64, ptr %.pn168.in, align 8, !noalias !14, !noundef !14
   %.sink = add i64 %.pn168, %45
-  %.sink161 = sub i64 %.pn167, %45
+  %.sink161 = sub nuw i64 %.pn167, %45
   %storemerge = load i64, ptr %6, align 8, !noalias !14, !noundef !14
   store i64 %storemerge, ptr %19, align 8
   %.sroa.6.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
@@ -33201,7 +33201,7 @@ define hidden void @_ZN15rustfmt_nightly5types24rewrite_bounded_lifetime17h9a766
   br i1 %.not.i, label %59, label %54
 
 54:                                               ; preds = %50
-  %55 = sub i64 %53, %51
+  %55 = sub nuw i64 %53, %51
   %56 = getelementptr inbounds i8, ptr %5, i64 24
   %57 = load i64, ptr %56, align 8, !alias.scope !6384, !noalias !6387, !noundef !14
   %58 = load <2 x i64>, ptr %5, align 8, !alias.scope !6384, !noalias !6387
@@ -33890,7 +33890,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   %.sink216 = phi i64 [ %188, %185 ], [ %192, %190 ]
   %.pn = phi i64 [ %184, %185 ], [ %181, %190 ]
   %.sink = phi i64 [ %188, %185 ], [ %195, %190 ]
-  %.sink215 = sub i64 %.pn, %171
+  %.sink215 = sub nuw i64 %.pn, %171
   %storemerge = load i64, ptr %4, align 8, !noalias !14, !noundef !14
   store i64 %storemerge, ptr %15, align 8
   %.sroa.626.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8

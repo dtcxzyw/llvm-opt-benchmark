@@ -10484,7 +10484,7 @@ _ZN3url3Url5slice17h5641f4827344e96eE.exit:       ; preds = %2, %20, %"_ZN4core3
   %35 = getelementptr inbounds i8, ptr %.val, i64 %29
   %36 = load i8, ptr %35, align 1, !alias.scope !1769, !noalias !1776, !noundef !7
   %37 = icmp sgt i8 %36, -65
-  %38 = sub i64 %.val1, %29
+  %38 = sub nuw i64 %.val1, %29
   br i1 %37, label %_ZN3url3Url5slice17hbc992b8b79c4d3b5E.exit.i, label %39
 
 39:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %32

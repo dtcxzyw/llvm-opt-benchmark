@@ -1364,7 +1364,7 @@ for.cond6.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp766.i, label %for.body8.i.preheader, label %cleanup.i
 
 for.body8.i.preheader:                            ; preds = %for.cond6.preheader.i
-  %6 = sub i64 %cond.i.i, %base_idx.073.i
+  %6 = sub nuw i64 %cond.i.i, %base_idx.073.i
   %xtraiter = and i64 %6, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body8.i.prol.loopexit, label %for.body8.i.prol
@@ -1393,7 +1393,7 @@ for.cond12.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp1368.i, label %for.body14.i.preheader, label %cleanup.i
 
 for.body14.i.preheader:                           ; preds = %for.cond12.preheader.i
-  %11 = sub i64 %cond.i.i, %base_idx.073.i
+  %11 = sub nuw i64 %cond.i.i, %base_idx.073.i
   %.neg = add nuw i64 %base_idx.073.i, 1
   %xtraiter80 = and i64 %11, 1
   %lcmp.mod81.not = icmp eq i64 %xtraiter80, 0
@@ -2041,7 +2041,7 @@ for.cond8.preheader.i:                            ; preds = %for.body.i
   br i1 %cmp944.i, label %for.body10.i.preheader, label %cleanup.i
 
 for.body10.i.preheader:                           ; preds = %for.cond8.preheader.i
-  %9 = sub i64 %cond.i.i, %base_idx.057.i
+  %9 = sub nuw i64 %cond.i.i, %base_idx.057.i
   %.neg = add nuw i64 %base_idx.057.i, 1
   %xtraiter = and i64 %9, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -2670,7 +2670,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %cl
   br i1 %cmp36, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader, label %cleanup.loopexit
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader: ; preds = %for.body
-  %23 = sub i64 %22, %21
+  %23 = sub nuw i64 %22, %21
   %.neg = add nuw i64 %21, 1
   %xtraiter = and i64 %23, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -12132,7 +12132,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 1, !tbaa !230, !alias.scope !255, !noalias !252
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -13900,7 +13900,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 2, !tbaa !272, !alias.scope !292, !noalias !289
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -15668,7 +15668,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 4, !tbaa !309, !alias.scope !327, !noalias !324
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -17433,7 +17433,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 8, !tbaa !344, !alias.scope !362, !noalias !359
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -19198,7 +19198,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 1, !tbaa !379, !alias.scope !396, !noalias !393
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -20966,7 +20966,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 2, !tbaa !413, !alias.scope !430, !noalias !427
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -22734,7 +22734,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 4, !tbaa !447, !alias.scope !464, !noalias !461
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -24499,7 +24499,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 8, !tbaa !481, !alias.scope !498, !noalias !495
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -25760,7 +25760,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 8, !tbaa !515, !alias.scope !540, !noalias !537
-  %7 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %7 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %7, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -27520,7 +27520,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 4, !tbaa !556, !alias.scope !576, !noalias !573
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -29285,7 +29285,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 8, !tbaa !593, !alias.scope !613, !noalias !610
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -30546,7 +30546,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 8, !tbaa !630, !alias.scope !655, !noalias !652
-  %7 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %7 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %7, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -37316,7 +37316,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp677.i, label %for.body7.i.preheader, label %cleanup.i
 
 for.body7.i.preheader:                            ; preds = %for.body.i
-  %10 = sub i64 %cond.i.i, %input.sroa.6.081.i
+  %10 = sub nuw i64 %cond.i.i, %input.sroa.6.081.i
   %.neg = add nuw i64 %input.sroa.6.081.i, 1
   %xtraiter = and i64 %10, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -39007,7 +39007,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp677.i, label %for.body7.i.preheader, label %cleanup.i
 
 for.body7.i.preheader:                            ; preds = %for.body.i
-  %10 = sub i64 %cond.i.i, %input.sroa.6.081.i
+  %10 = sub nuw i64 %cond.i.i, %input.sroa.6.081.i
   %.neg = add nuw i64 %input.sroa.6.081.i, 1
   %xtraiter = and i64 %10, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -40698,7 +40698,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp677.i, label %for.body7.i.preheader, label %cleanup.i
 
 for.body7.i.preheader:                            ; preds = %for.body.i
-  %10 = sub i64 %cond.i.i, %input.sroa.6.081.i
+  %10 = sub nuw i64 %cond.i.i, %input.sroa.6.081.i
   %.neg = add nuw i64 %input.sroa.6.081.i, 1
   %xtraiter = and i64 %10, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -42386,7 +42386,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp677.i, label %for.body7.i.preheader, label %cleanup.i
 
 for.body7.i.preheader:                            ; preds = %for.body.i
-  %10 = sub i64 %cond.i.i, %input.sroa.6.081.i
+  %10 = sub nuw i64 %cond.i.i, %input.sroa.6.081.i
   %.neg = add nuw i64 %input.sroa.6.081.i, 1
   %xtraiter = and i64 %10, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -44074,7 +44074,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp677.i, label %for.body7.i.preheader, label %cleanup.i
 
 for.body7.i.preheader:                            ; preds = %for.body.i
-  %10 = sub i64 %cond.i.i, %input.sroa.6.081.i
+  %10 = sub nuw i64 %cond.i.i, %input.sroa.6.081.i
   %.neg = add nuw i64 %input.sroa.6.081.i, 1
   %xtraiter = and i64 %10, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -45765,7 +45765,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp677.i, label %for.body7.i.preheader, label %cleanup.i
 
 for.body7.i.preheader:                            ; preds = %for.body.i
-  %10 = sub i64 %cond.i.i, %input.sroa.6.081.i
+  %10 = sub nuw i64 %cond.i.i, %input.sroa.6.081.i
   %.neg = add nuw i64 %input.sroa.6.081.i, 1
   %xtraiter = and i64 %10, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -47456,7 +47456,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp677.i, label %for.body7.i.preheader, label %cleanup.i
 
 for.body7.i.preheader:                            ; preds = %for.body.i
-  %10 = sub i64 %cond.i.i, %input.sroa.6.081.i
+  %10 = sub nuw i64 %cond.i.i, %input.sroa.6.081.i
   %.neg = add nuw i64 %input.sroa.6.081.i, 1
   %xtraiter = and i64 %10, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -49144,7 +49144,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp677.i, label %for.body7.i.preheader, label %cleanup.i
 
 for.body7.i.preheader:                            ; preds = %for.body.i
-  %10 = sub i64 %cond.i.i, %input.sroa.6.081.i
+  %10 = sub nuw i64 %cond.i.i, %input.sroa.6.081.i
   %.neg = add nuw i64 %input.sroa.6.081.i, 1
   %xtraiter = and i64 %10, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -50372,7 +50372,7 @@ cleanup.us.i:                                     ; preds = %for.body7.us.us.i, 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   store i8 1, ptr %is_set.i.i30, align 8, !tbaa !515, !alias.scope !985, !noalias !982
   store i8 0, ptr %is_null.i.i31, align 1, !tbaa !518, !alias.scope !985, !noalias !982
-  %6 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %6 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %xtraiter = and i64 %6, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body7.us.us.i.prol.loopexit, label %for.body7.us.us.i.prol
@@ -52053,7 +52053,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp677.i, label %for.body7.i.preheader, label %cleanup.i
 
 for.body7.i.preheader:                            ; preds = %for.body.i
-  %10 = sub i64 %cond.i.i, %input.sroa.6.081.i
+  %10 = sub nuw i64 %cond.i.i, %input.sroa.6.081.i
   %.neg = add nuw i64 %input.sroa.6.081.i, 1
   %xtraiter = and i64 %10, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -53741,7 +53741,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp677.i, label %for.body7.i.preheader, label %cleanup.i
 
 for.body7.i.preheader:                            ; preds = %for.body.i
-  %10 = sub i64 %cond.i.i, %input.sroa.6.081.i
+  %10 = sub nuw i64 %cond.i.i, %input.sroa.6.081.i
   %.neg = add nuw i64 %input.sroa.6.081.i, 1
   %xtraiter = and i64 %10, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -54969,7 +54969,7 @@ cleanup.us.i:                                     ; preds = %for.body7.us.us.i, 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   store i8 1, ptr %is_set.i.i30, align 8, !tbaa !630, !alias.scope !1086, !noalias !1083
   store i8 0, ptr %is_null.i.i31, align 1, !tbaa !633, !alias.scope !1086, !noalias !1083
-  %6 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %6 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %xtraiter = and i64 %6, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body7.us.us.i.prol.loopexit, label %for.body7.us.us.i.prol
@@ -60829,7 +60829,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 1, !tbaa !230, !alias.scope !1148, !noalias !1145
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -62594,7 +62594,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 2, !tbaa !272, !alias.scope !1178, !noalias !1175
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -64359,7 +64359,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 4, !tbaa !309, !alias.scope !1208, !noalias !1205
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -66121,7 +66121,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 8, !tbaa !344, !alias.scope !1238, !noalias !1235
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -67883,7 +67883,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 1, !tbaa !379, !alias.scope !1268, !noalias !1265
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -69648,7 +69648,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 2, !tbaa !413, !alias.scope !1298, !noalias !1295
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -71413,7 +71413,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 4, !tbaa !447, !alias.scope !1328, !noalias !1325
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -73175,7 +73175,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 8, !tbaa !481, !alias.scope !1358, !noalias !1355
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -74426,7 +74426,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 8, !tbaa !515, !alias.scope !1394, !noalias !1391
-  %7 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %7 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %7, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -76183,7 +76183,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 4, !tbaa !556, !alias.scope !1423, !noalias !1420
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -77945,7 +77945,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 8, !tbaa !593, !alias.scope !1453, !noalias !1450
-  %8 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %8 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %8, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -79196,7 +79196,7 @@ cleanup.us.i:                                     ; preds = %_ZN6duckdb13FirstFu
 
 for.body7.lr.ph.us.i:                             ; preds = %for.body.us.i
   %is_set.i.promoted.us.i = load i8, ptr %is_set.i.i31, align 8, !tbaa !630, !alias.scope !1489, !noalias !1486
-  %7 = sub i64 %cond.i.us.i, %input.sroa.6.081.us.i
+  %7 = sub nuw i64 %cond.i.us.i, %input.sroa.6.081.us.i
   %.neg = add nuw i64 %input.sroa.6.081.us.i, 1
   %xtraiter = and i64 %7, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0

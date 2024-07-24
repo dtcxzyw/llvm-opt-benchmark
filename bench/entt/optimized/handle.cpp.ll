@@ -19090,7 +19090,7 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #21
   store ptr null, ptr %ref.tmp.i, align 8, !tbaa !126
   %add.i = add nuw nsw i64 %div27.i, 1
-  %sub.i.i = sub nsw i64 %add.i, %sub.ptr.div.i.i
+  %sub.i.i = sub nuw nsw i64 %add.i, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIPN4entt6entityESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %sparse.i, ptr %1, i64 noundef %sub.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #21
   %.pre.i = load ptr, ptr %sparse.i, align 8, !tbaa !125
@@ -20606,7 +20606,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i55 = sub i64 %inc.i, %sub.ptr.div.i.i49
+  %sub.i55 = sub nuw i64 %inc.i, %sub.ptr.div.i.i49
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i55)
   %.pre = load ptr, ptr %this, align 8, !tbaa !126
   %.pre76 = load ptr, ptr %_M_finish.i.i45, align 8, !tbaa !126
@@ -21603,7 +21603,7 @@ for.cond.cleanup7.i:                              ; preds = %for.cond.cleanup7.l
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.cond.cleanup7.i
-  %sub.i.i = sub nsw i64 %div26.i, %sub.ptr.div.i.i32.pre-phi.i
+  %sub.i.i = sub nuw nsw i64 %div26.i, %sub.ptr.div.i.i32.pre-phi.i
   tail call void @_ZNSt6vectorIPiSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %payload.i, i64 noundef %sub.i.i)
   br label %_ZN4entt13basic_storageIiNS_6entityESaIiEvE14shrink_to_sizeEm.exit
 
@@ -22112,7 +22112,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #21
   store ptr null, ptr %ref.tmp, align 8, !tbaa !126
   %add = add nuw nsw i64 %div31, 1
-  %sub.i = sub nsw i64 %add, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %add, %sub.ptr.div.i
   call void @_ZNSt6vectorIPiSaIS0_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS0_S2_EEmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %payload, ptr %0, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #21
   %2 = load ptr, ptr %_M_finish.i, align 8, !tbaa !452
@@ -22195,7 +22195,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIPiSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -24538,7 +24538,7 @@ for.cond.cleanup7.i:                              ; preds = %for.cond.cleanup7.l
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.cond.cleanup7.i
-  %sub.i.i = sub nsw i64 %div26.i, %sub.ptr.div.i.i32.pre-phi.i
+  %sub.i.i = sub nuw nsw i64 %div26.i, %sub.ptr.div.i.i32.pre-phi.i
   tail call void @_ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %payload.i, i64 noundef %sub.i.i)
   br label %_ZN4entt13basic_storageIcNS_6entityESaIcEvE14shrink_to_sizeEm.exit
 
@@ -25100,7 +25100,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #21
   store ptr null, ptr %ref.tmp, align 8, !tbaa !126
   %add = add nuw nsw i64 %div31, 1
-  %sub.i = sub nsw i64 %add, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %add, %sub.ptr.div.i
   call void @_ZNSt6vectorIPcSaIS0_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS0_S2_EEmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %payload, ptr %0, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #21
   %2 = load ptr, ptr %_M_finish.i, align 8, !tbaa !498
@@ -25183,7 +25183,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -26751,7 +26751,7 @@ for.cond.cleanup7.i:                              ; preds = %for.cond.cleanup7.l
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.cond.cleanup7.i
-  %sub.i.i = sub nsw i64 %div26.i, %sub.ptr.div.i.i32.pre-phi.i
+  %sub.i.i = sub nuw nsw i64 %div26.i, %sub.ptr.div.i.i32.pre-phi.i
   tail call void @_ZNSt6vectorIPdSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %payload.i, i64 noundef %sub.i.i)
   br label %_ZN4entt13basic_storageIdNS_6entityESaIdEvE14shrink_to_sizeEm.exit
 
@@ -27293,7 +27293,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #21
   store ptr null, ptr %ref.tmp, align 8, !tbaa !126
   %add = add nuw nsw i64 %div31, 1
-  %sub.i = sub nsw i64 %add, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %add, %sub.ptr.div.i
   call void @_ZNSt6vectorIPdSaIS0_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS0_S2_EEmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %payload, ptr %0, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #21
   %2 = load ptr, ptr %_M_finish.i, align 8, !tbaa !528
@@ -27376,7 +27376,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIPdSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -40454,7 +40454,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i55 = sub i64 %inc.i, %sub.ptr.div.i.i49
+  %sub.i55 = sub nuw i64 %inc.i, %sub.ptr.div.i.i49
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i55)
   %.pre = load ptr, ptr %this, align 8, !tbaa !126
   %.pre76 = load ptr, ptr %_M_finish.i.i45, align 8, !tbaa !126
@@ -40604,7 +40604,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i55 = sub i64 %inc.i, %sub.ptr.div.i.i49
+  %sub.i55 = sub nuw i64 %inc.i, %sub.ptr.div.i.i49
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i55)
   %.pre = load ptr, ptr %this, align 8, !tbaa !126
   %.pre76 = load ptr, ptr %_M_finish.i.i45, align 8, !tbaa !126

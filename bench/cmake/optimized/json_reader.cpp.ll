@@ -5427,7 +5427,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
   br i1 %33, label %34, label %75
 
 34:                                               ; preds = %2
-  %35 = sub i64 %1, %32
+  %35 = sub nuw i64 %1, %32
   %36 = getelementptr inbounds i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
@@ -5438,7 +5438,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %34
-  %44 = sub i64 %35, %41
+  %44 = sub nuw i64 %35, %41
   tail call void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %44), !noalias !134
   %.pre.i.i = load ptr, ptr %4, align 8
   %.pre6.i.i = load ptr, ptr %36, align 8
@@ -12086,7 +12086,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
   br i1 %33, label %34, label %75
 
 34:                                               ; preds = %2
-  %35 = sub i64 %1, %32
+  %35 = sub nuw i64 %1, %32
   %36 = getelementptr inbounds i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
@@ -12097,7 +12097,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %34
-  %44 = sub i64 %35, %41
+  %44 = sub nuw i64 %35, %41
   tail call void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %44), !noalias !316
   %.pre.i.i = load ptr, ptr %4, align 8
   %.pre6.i.i = load ptr, ptr %36, align 8

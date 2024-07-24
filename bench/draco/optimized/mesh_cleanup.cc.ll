@@ -299,7 +299,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %46
-  %51 = sub nsw i64 %48, %23
+  %51 = sub nuw nsw i64 %48, %23
   call void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %21, i64 noundef %51, ptr noundef nonnull align 4 dereferenceable(12) %3)
   %.pre.i = load ptr, ptr %6, align 8
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
@@ -366,7 +366,7 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %75
-  %80 = sub nsw i64 %77, %71
+  %80 = sub nuw nsw i64 %77, %71
   call void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %67, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(12) %2)
   br label %_ZN5draco4Mesh11SetNumFacesEm.exit
 
@@ -611,7 +611,7 @@ _ZNSt13unordered_setISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %84
-  %89 = sub nsw i64 %86, %82
+  %89 = sub nuw nsw i64 %86, %82
   invoke void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %.pre81, i64 noundef %89, ptr noundef nonnull align 4 dereferenceable(12) %3)
           to label %.noexc unwind label %.loopexit
 
@@ -698,7 +698,7 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
   br i1 %122, label %123, label %125
 
 123:                                              ; preds = %118
-  %124 = sub nsw i64 %121, %109
+  %124 = sub nuw nsw i64 %121, %109
   invoke void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %105, i64 noundef %124, ptr noundef nonnull align 4 dereferenceable(12) %2)
           to label %_ZN5draco4Mesh11SetNumFacesEm.exit unwind label %.loopexit.split-lp
 
@@ -1218,7 +1218,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES
   br i1 %210, label %211, label %213
 
 211:                                              ; preds = %201
-  %212 = sub nsw i64 %50, %209
+  %212 = sub nuw nsw i64 %50, %209
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %202, ptr %204, i64 noundef %212, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit unwind label %144
 
@@ -1323,7 +1323,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %256, label %257, label %259
 
 257:                                              ; preds = %._crit_edge250
-  %258 = sub nsw i64 %247, %255
+  %258 = sub nuw nsw i64 %247, %255
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %248, ptr %250, i64 noundef %258, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit99 unwind label %144
 
@@ -1619,7 +1619,7 @@ _ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm
   br i1 %.not.i.i.i, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %.preheader.i.i.i, !llvm.loop !35
 
 41:                                               ; preds = %14
-  %42 = sub i64 %2, %17
+  %42 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %42, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -1864,7 +1864,7 @@ _ZSt13move_backwardIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4
   br i1 %.not.i.i.i, label %_ZSt4fillIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !39
 
 39:                                               ; preds = %14
-  %40 = sub i64 %2, %18
+  %40 = sub nuw i64 %2, %18
   %.not7.i.i.i.i = icmp eq i64 %40, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

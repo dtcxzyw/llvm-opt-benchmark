@@ -1375,7 +1375,7 @@ _ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E.exit.i: ; preds 
 
 52:                                               ; preds = %_ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E.exit.i
   %53 = getelementptr inbounds i8, ptr %0, i64 56
-  %54 = sub i64 %.0.sroa.speculated.i.i, %50
+  %54 = sub nuw i64 %.0.sroa.speculated.i.i, %50
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hc14381dc20d09bcbE.llvm.5655766238960710218"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %54, i8 noundef 2)
           to label %._crit_edge unwind label %55
 

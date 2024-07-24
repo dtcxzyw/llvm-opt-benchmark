@@ -1306,7 +1306,7 @@ if.then18:                                        ; preds = %if.then
   br label %return
 
 if.else19:                                        ; preds = %if.then
-  %sub = sub nsw i64 %load_limit.0, %call16
+  %sub = sub nuw nsw i64 %load_limit.0, %call16
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else19, %entry

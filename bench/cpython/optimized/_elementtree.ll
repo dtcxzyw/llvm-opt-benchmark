@@ -6044,7 +6044,7 @@ if.then76:                                        ; preds = %for.end
   %30 = load ptr, ptr %children78, align 8
   %add.ptr79 = getelementptr ptr, ptr %30, i64 %add72
   %add.ptr81 = getelementptr ptr, ptr %add.ptr79, i64 %idx.neg80
-  %sub87 = sub i64 %29, %add72
+  %sub87 = sub nuw i64 %29, %add72
   %mul88 = shl i64 %sub87, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr81, ptr align 8 %add.ptr79, i64 %mul88, i1 false)
   %.pre = load ptr, ptr %extra16, align 8

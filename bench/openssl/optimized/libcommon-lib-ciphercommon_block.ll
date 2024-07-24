@@ -84,7 +84,7 @@ entry:
   br i1 %cmp5, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %sub = sub i64 %blocksize, %0
+  %sub = sub nuw i64 %blocksize, %0
   %conv = trunc i64 %sub to i8
   %scevgep = getelementptr i8, ptr %buf, i64 %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 %conv, i64 %sub, i1 false)
@@ -118,7 +118,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then5, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end
-  %3 = sub i64 %blocksize, %conv
+  %3 = sub nuw i64 %blocksize, %conv
   br label %for.body
 
 if.then5:                                         ; preds = %if.end

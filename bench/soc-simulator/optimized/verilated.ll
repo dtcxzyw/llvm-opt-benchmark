@@ -6220,7 +6220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit310: ; preds = %
   br i1 %260, label %261, label %281
 
 261:                                              ; preds = %254
-  %262 = sub i64 %.0217957, %259
+  %262 = sub nuw i64 %.0217957, %259
   %263 = load i64, ptr %62, align 8
   %264 = sub i64 9223372036854775807, %263
   %265 = icmp ult i64 %264, %262
@@ -7171,7 +7171,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i355: ;
   br i1 %620, label %621, label %641
 
 621:                                              ; preds = %._crit_edge
-  %622 = sub i64 %.0217957, %619
+  %622 = sub nuw i64 %.0217957, %619
   %623 = load i64, ptr %104, align 8
   %624 = sub i64 9223372036854775807, %623
   %625 = icmp ult i64 %624, %622
@@ -14355,7 +14355,7 @@ define dso_local void @_Z18_vl_string_to_vintiPvmPKc(i32 noundef %0, ptr nocaptu
   br i1 %9, label %.lr.ph25.preheader, label %._crit_edge
 
 .lr.ph25.preheader:                               ; preds = %.preheader
-  %10 = sub i64 %7, %spec.select
+  %10 = sub nuw i64 %7, %spec.select
   tail call void @llvm.memset.p0.i64(ptr align 1 %.015.lcssa, i8 0, i64 %10, i1 false)
   br label %._crit_edge
 
@@ -14505,7 +14505,7 @@ _ZL7getLineRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjm.exit: ; preds
   br i1 %48, label %.lr.ph25.preheader.i, label %_Z18_vl_string_to_vintiPvmPKc.exit
 
 .lr.ph25.preheader.i:                             ; preds = %.preheader.i12
-  %49 = sub nsw i64 %45, %spec.select.i
+  %49 = sub nuw nsw i64 %45, %spec.select.i
   call void @llvm.memset.p0.i64(ptr align 1 %.015.lcssa.i, i8 0, i64 %49, i1 false)
   br label %_Z18_vl_string_to_vintiPvmPKc.exit
 
@@ -14860,7 +14860,7 @@ define dso_local noundef i32 @_Z12VL_FERROR_IWjiPj(i32 %0, i32 noundef %1, ptr n
   br i1 %17, label %.lr.ph25.preheader.i, label %_Z18_vl_string_to_vintiPvmPKc.exit
 
 .lr.ph25.preheader.i:                             ; preds = %.preheader.i
-  %18 = sub i64 %15, %spec.select.i
+  %18 = sub nuw i64 %15, %spec.select.i
   call void @llvm.memset.p0.i64(ptr align 1 %.015.lcssa.i, i8 0, i64 %18, i1 false)
   br label %_Z18_vl_string_to_vintiPvmPKc.exit
 
@@ -15022,7 +15022,7 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %5,
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %20
-  %41 = sub i64 %31, %38
+  %41 = sub nuw i64 %31, %38
   invoke void @_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %30, i64 noundef %41)
           to label %_ZNSt6vectorIP8_IO_FILESaIS1_EE6resizeEm.exit unwind label %95
 
@@ -16232,7 +16232,7 @@ define dso_local void @_Z13VL_SFORMAT_NXiRhRKNSt7__cxx1112basic_stringIcSt11char
   br i1 %19, label %.lr.ph25.preheader.i, label %_Z18_vl_string_to_vintiPvmPKc.exit
 
 .lr.ph25.preheader.i:                             ; preds = %.preheader.i
-  %20 = sub i64 %16, %spec.select.i
+  %20 = sub nuw i64 %16, %spec.select.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.015.lcssa.i, i8 0, i64 %20, i1 false)
   br label %_Z18_vl_string_to_vintiPvmPKc.exit
 
@@ -16294,7 +16294,7 @@ define dso_local void @_Z13VL_SFORMAT_NXiRtRKNSt7__cxx1112basic_stringIcSt11char
   br i1 %19, label %.lr.ph25.preheader.i, label %_Z18_vl_string_to_vintiPvmPKc.exit
 
 .lr.ph25.preheader.i:                             ; preds = %.preheader.i
-  %20 = sub i64 %16, %spec.select.i
+  %20 = sub nuw i64 %16, %spec.select.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.015.lcssa.i, i8 0, i64 %20, i1 false)
   br label %_Z18_vl_string_to_vintiPvmPKc.exit
 
@@ -16353,7 +16353,7 @@ define dso_local void @_Z13VL_SFORMAT_NXiRjRKNSt7__cxx1112basic_stringIcSt11char
   br i1 %19, label %.lr.ph25.preheader.i, label %_Z18_vl_string_to_vintiPvmPKc.exit
 
 .lr.ph25.preheader.i:                             ; preds = %.preheader.i
-  %20 = sub i64 %16, %spec.select.i
+  %20 = sub nuw i64 %16, %spec.select.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.015.lcssa.i, i8 0, i64 %20, i1 false)
   br label %_Z18_vl_string_to_vintiPvmPKc.exit
 
@@ -16412,7 +16412,7 @@ define dso_local void @_Z13VL_SFORMAT_NXiRmRKNSt7__cxx1112basic_stringIcSt11char
   br i1 %19, label %.lr.ph25.preheader.i, label %_Z18_vl_string_to_vintiPvmPKc.exit
 
 .lr.ph25.preheader.i:                             ; preds = %.preheader.i
-  %20 = sub i64 %16, %spec.select.i
+  %20 = sub nuw i64 %16, %spec.select.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.015.lcssa.i, i8 0, i64 %20, i1 false)
   br label %_Z18_vl_string_to_vintiPvmPKc.exit
 
@@ -16471,7 +16471,7 @@ define dso_local void @_Z13VL_SFORMAT_NXiPvRKNSt7__cxx1112basic_stringIcSt11char
   br i1 %19, label %.lr.ph25.preheader.i, label %_Z18_vl_string_to_vintiPvmPKc.exit
 
 .lr.ph25.preheader.i:                             ; preds = %.preheader.i
-  %20 = sub i64 %16, %spec.select.i
+  %20 = sub nuw i64 %16, %spec.select.i
   call void @llvm.memset.p0.i64(ptr align 1 %.015.lcssa.i, i8 0, i64 %20, i1 false)
   br label %_Z18_vl_string_to_vintiPvmPKc.exit
 
@@ -21050,7 +21050,7 @@ _ZN9VlReadMemC2EbiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit.
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %36
-  %42 = sub i64 %37, %13
+  %42 = sub nuw i64 %37, %13
   %43 = getelementptr inbounds i8, ptr %5, i64 %42
   invoke void @_ZN9VlReadMem7setDataEPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %47 unwind label %.split.us
@@ -21116,7 +21116,7 @@ _ZN9VlReadMemC2EbiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit.
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %59
-  %65 = sub i64 %60, %13
+  %65 = sub nuw i64 %60, %13
   %66 = getelementptr inbounds i16, ptr %5, i64 %65
   invoke void @_ZN9VlReadMem7setDataEPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %70 unwind label %.split.split.us
@@ -21181,7 +21181,7 @@ _ZN9VlReadMemC2EbiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit.
   br i1 %85, label %89, label %86
 
 86:                                               ; preds = %81
-  %87 = sub i64 %82, %13
+  %87 = sub nuw i64 %82, %13
   %88 = getelementptr inbounds i32, ptr %5, i64 %87
   invoke void @_ZN9VlReadMem7setDataEPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %88, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %92 unwind label %.split.split.split.us
@@ -21273,7 +21273,7 @@ _ZN9VlReadMemD2Ev.exit:                           ; preds = %.split, %114
   resume { ptr, i32 } %.us-phi
 
 .invoke:                                          ; preds = %104
-  %116 = sub i64 %105, %13
+  %116 = sub nuw i64 %105, %13
   %117 = mul i64 %116, %32
   %118 = getelementptr inbounds i32, ptr %5, i64 %117
   %119 = getelementptr inbounds i64, ptr %5, i64 %116
@@ -33849,7 +33849,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit: ; preds = %4
   %11 = load ptr, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %2
-  %13 = sub i64 %8, %2
+  %13 = sub nuw i64 %8, %2
   %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %13, i64 %3)
   %14 = icmp ugt i64 %spec.select.i, 15
   br i1 %14, label %15, label %._crit_edge.i

@@ -387,7 +387,7 @@ switch.lookup:                                    ; preds = %33
   %77 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0179188, i32 noundef %70, i32 noundef -1) #2
   %78 = call zeroext i8 @tvb_get_guint8(ptr noundef %77, i32 noundef 0) #2
   %79 = add i32 %70, %.0179188
-  %80 = sub i32 %.0178189, %70
+  %80 = sub nuw nsw i32 %.0178189, %70
   switch i8 %78, label %258 [
     i8 1, label %81
     i8 2, label %94

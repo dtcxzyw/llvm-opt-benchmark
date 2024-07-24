@@ -5318,7 +5318,7 @@ define void @_Z25dd_make_local_pull_groupsPK9t_commrecP6pull_t(ptr noundef %0, p
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %23
-  %36 = sub i64 %26, %33
+  %36 = sub nuw i64 %26, %33
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %36)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -7073,7 +7073,7 @@ _ZNSt10unique_ptrI17pull_group_work_tSt14default_deleteIS0_EED2Ev.exit: ; preds 
   br i1 %705, label %706, label %708
 
 706:                                              ; preds = %.loopexit
-  %707 = sub nsw i64 %697, %704
+  %707 = sub nuw nsw i64 %697, %704
   call void @_ZNSt6vectorI7ComSumsSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %707)
   br label %_ZNSt6vectorI7ComSumsSaIS0_EE6resizeEm.exit
 
@@ -7208,7 +7208,7 @@ _ZNSt6vectorI7ComSumsSaIS0_EE6resizeEm.exit:      ; preds = %706, %708, %710, %7
   br i1 %786, label %787, label %789
 
 787:                                              ; preds = %768
-  %788 = sub nsw i64 %778, %785
+  %788 = sub nuw nsw i64 %778, %785
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %769, i64 noundef %788)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -7273,7 +7273,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -7294,7 +7294,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23
@@ -7366,7 +7366,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -7387,7 +7387,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 384307168202282325
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23

@@ -5354,7 +5354,7 @@ define linkonce_odr void @_ZN8LightGBM7Dataset9ResizeRawEi(ptr noundef nonnull a
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %16
-  %20 = sub nsw i64 %17, %11
+  %20 = sub nuw nsw i64 %17, %11
   tail call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %20)
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit
@@ -5416,7 +5416,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt8_DestroyIPSt6v
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %35
-  %47 = sub nsw i64 %34, %44
+  %47 = sub nuw nsw i64 %34, %44
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %47)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -33523,7 +33523,7 @@ _ZNSt12_Vector_baseIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEEC2EmRKS3_.ex
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %.loopexit
-  %195 = sub nsw i64 %185, %192
+  %195 = sub nuw nsw i64 %185, %192
   invoke void @_ZNSt6vectorIS_IdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEESaIS4_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS4_S6_EEmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr %187, i64 noundef %195, ptr noundef nonnull align 8 dereferenceable(24) %31)
           to label %_ZNSt6vectorIS_IdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEESaIS4_EE6resizeEmRKS4_.exit unwind label %223
 
@@ -34154,7 +34154,7 @@ _ZN8LightGBM10TextReaderIiE10first_lineB5cxx11Ev.exit: ; preds = %127
   br i1 %146, label %147, label %158
 
 147:                                              ; preds = %145
-  %148 = sub i64 %.02312.i, %.02411.i
+  %148 = sub nuw i64 %.02312.i, %.02411.i
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %.02411.i, i64 noundef %148)
           to label %149 unwind label %.loopexit.split-lp.loopexit.i
 
@@ -34983,7 +34983,7 @@ _ZSt13move_backwardIPSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEES
   br label %_ZNSt6vectorIS_IdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEESaIS4_EE16_Temporary_valueD2Ev.exit
 
 83:                                               ; preds = %_ZNSt6vectorIS_IdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEESaIS4_EE16_Temporary_valueC2IJRKS4_EEEPS6_DpOT_.exit
-  %84 = sub i64 %2, %44
+  %84 = sub nuw i64 %2, %44
   %.not12.i.i.i.i = icmp eq i64 %84, 0
   br i1 %.not12.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -37639,7 +37639,7 @@ define linkonce_odr void @_ZZN8LightGBM9Predictor7PredictEPKcS2_bbbENKUlS2_PSt6v
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %._crit_edge
-  %54 = sub nsw i64 %50, %51
+  %54 = sub nuw nsw i64 %50, %51
   tail call void @_ZNSt6vectorISt4pairIidESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %54)
   br label %_ZNSt6vectorISt4pairIidESaIS1_EE6resizeEm.exit
 

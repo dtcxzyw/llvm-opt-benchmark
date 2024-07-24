@@ -10475,7 +10475,7 @@ for.body.i48:                                     ; preds = %if.end56.i, %for.bo
   %cmp4.not.i = icmp ne i32 %partition.04.i, 0
   %brmerge.i = select i1 %cmp4.not.i, i1 true, i1 %cmp5.not.i
   %sub.i49 = select i1 %cmp4.not.i, i32 0, i32 %predictor_order
-  %shr.mux.i = sub i32 %shr.i46, %sub.i49
+  %shr.mux.i = sub nuw i32 %shr.i46, %sub.i49
   br i1 %brmerge.i, label %if.end9.i, label %for.end
 
 if.end9.i:                                        ; preds = %for.body.i48

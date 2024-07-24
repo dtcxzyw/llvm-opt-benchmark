@@ -7377,7 +7377,7 @@ thread-pre-split:                                 ; preds = %80, %81
   %102 = load ptr, ptr %1, align 8
   %103 = sub i32 %2, %.0204
   %104 = sub i32 %3, %.0204
-  %105 = sub i32 %4, %.0204
+  %105 = sub nuw i32 %4, %.0204
   %106 = tail call i32 @select_g_job_test(ptr noundef %0, ptr noundef %102, i32 noundef %103, i32 noundef %104, i32 noundef %105, i16 noundef zeroext 2, ptr noundef %30, ptr noundef null, ptr noundef %5) #16
   %107 = load ptr, ptr %1, align 8
   br i1 %.not250327, label %109, label %108

@@ -21679,7 +21679,7 @@ _ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_
 _ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i: ; preds = %21
   %53 = getelementptr inbounds i8, ptr %2, i64 %22
   %54 = tail call fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %53, ptr noundef %3, ptr noundef %17)
-  %55 = sub nsw i64 %13, %23
+  %55 = sub nuw nsw i64 %13, %23
   %56 = load ptr, ptr %16, align 8
   %57 = getelementptr inbounds %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %56, i64 %55
   store ptr %57, ptr %16, align 8

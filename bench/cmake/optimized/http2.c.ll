@@ -1494,7 +1494,7 @@ define internal i64 @cf_h2_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not106, label %36, label %34
 
 34:                                               ; preds = %31
-  %35 = sub i64 %33, %.088
+  %35 = sub nuw i64 %33, %.088
   store i64 %35, ptr %32, align 8
   br label %42
 

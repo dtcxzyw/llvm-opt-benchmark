@@ -8556,7 +8556,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !1831
   %9 = icmp eq i32 %bcmp.i, 0
@@ -10310,7 +10310,7 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %30 = getelementptr inbounds i8, ptr %22, i64 %20
   %31 = load i8, ptr %30, align 1, !alias.scope !2187, !noundef !4
   %32 = icmp sgt i8 %31, -65
-  %33 = sub i64 %24, %20
+  %33 = sub nuw i64 %24, %20
   br i1 %32, label %36, label %35
 
 34:                                               ; preds = %4

@@ -519,7 +519,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   unreachable
 
 23:                                               ; preds = %17
-  %24 = sub i64 %.promoted, %16
+  %24 = sub nuw i64 %.promoted, %16
   store i64 %24, ptr %8, align 8, !alias.scope !35, !noalias !38
   %25 = icmp ugt ptr %15, inttoptr (i64 32 to ptr)
   br i1 %25, label %.noexc, label %40

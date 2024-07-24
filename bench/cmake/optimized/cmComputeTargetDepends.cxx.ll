@@ -662,7 +662,7 @@ define dso_local noundef zeroext i1 @_ZN22cmComputeTargetDepends7ComputeEv(ptr n
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %1
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   tail call void @_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %30)
   br label %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit.i
 
@@ -1341,7 +1341,7 @@ define dso_local void @_ZN22cmComputeTargetDepends14CollectDependsEv(ptr noundef
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %1
-  %20 = sub nsw i64 %10, %17
+  %20 = sub nuw nsw i64 %10, %17
   tail call void @_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %20)
   br label %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit
 
@@ -1586,7 +1586,7 @@ _ZNSt6vectorIN22cmComputeTargetDepends17TargetSideEffectsESaIS1_EE6resizeEm.exit
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %_ZNSt6vectorIN22cmComputeTargetDepends17TargetSideEffectsESaIS1_EE6resizeEm.exit
-  %35 = sub nsw i64 %28, %32
+  %35 = sub nuw nsw i64 %28, %32
   tail call void @_ZNSt6vectorIN22cmComputeTargetDepends17TargetSideEffectsESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %35)
   br label %_ZNSt6vectorIN22cmComputeTargetDepends17TargetSideEffectsESaIS1_EE6resizeEm.exit13
 
@@ -1732,7 +1732,7 @@ _ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit: ; preds = %1, %8
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit
-  %25 = sub nsw i64 %18, %22
+  %25 = sub nuw nsw i64 %18, %22
   tail call void @_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %25)
   br label %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit24
 
@@ -2074,7 +2074,7 @@ _ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit: ; preds = %2, %12
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit
-  %29 = sub nsw i64 %22, %26
+  %29 = sub nuw nsw i64 %22, %26
   tail call void @_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %29)
   br label %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit48
 
@@ -2108,7 +2108,7 @@ _ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit48: ; preds = %28, %30, %32
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE6resizeEm.exit48
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %52)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -2144,7 +2144,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %51, %53, %55, %57
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %74 = sub nsw i64 %64, %71
+  %74 = sub nuw nsw i64 %64, %71
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %58, i64 noundef %74)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit50
 

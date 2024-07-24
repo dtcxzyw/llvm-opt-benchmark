@@ -921,11 +921,11 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %.lr.ph.i, %4
   br i1 %.not32, label %25, label %23
 
 23:                                               ; preds = %.lr.ph
-  %24 = sub i64 %.02842, %22
+  %24 = sub nuw i64 %.02842, %22
   br label %33
 
 25:                                               ; preds = %.lr.ph
-  %26 = sub i64 %22, %.02842
+  %26 = sub nuw i64 %22, %.02842
   %27 = zext i32 %20 to i64
   %28 = getelementptr inbounds [16 x %struct.iovec], ptr %6, i64 0, i64 %27, i32 1
   store i64 %26, ptr %28, align 8
@@ -1275,11 +1275,11 @@ mca_pml_ob1_compute_segment_length_base.exit.thread: ; preds = %5
   br i1 %.not34, label %29, label %27
 
 27:                                               ; preds = %.lr.ph
-  %28 = sub i64 %.02838, %26
+  %28 = sub nuw i64 %.02838, %26
   br label %37
 
 29:                                               ; preds = %.lr.ph
-  %30 = sub i64 %26, %.02838
+  %30 = sub nuw i64 %26, %.02838
   %31 = zext i32 %24 to i64
   %32 = getelementptr inbounds [16 x %struct.iovec], ptr %7, i64 0, i64 %31, i32 1
   store i64 %30, ptr %32, align 8
@@ -2649,11 +2649,11 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %.lr.ph.i, %4
   br i1 %.not53, label %37, label %35
 
 35:                                               ; preds = %.lr.ph
-  %36 = sub i64 %.04563, %34
+  %36 = sub nuw i64 %.04563, %34
   br label %45
 
 37:                                               ; preds = %.lr.ph
-  %38 = sub i64 %34, %.04563
+  %38 = sub nuw i64 %34, %.04563
   %39 = zext i32 %32 to i64
   %40 = getelementptr inbounds [16 x %struct.iovec], ptr %6, i64 0, i64 %39, i32 1
   store i64 %38, ptr %40, align 8
@@ -2977,11 +2977,11 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %mca_pml_ob1_compute
   br i1 %.not32, label %29, label %27
 
 27:                                               ; preds = %.lr.ph
-  %28 = sub i64 %.02836, %26
+  %28 = sub nuw i64 %.02836, %26
   br label %37
 
 29:                                               ; preds = %.lr.ph
-  %30 = sub i64 %26, %.02836
+  %30 = sub nuw i64 %26, %.02836
   %31 = zext i32 %24 to i64
   %32 = getelementptr inbounds [16 x %struct.iovec], ptr %6, i64 0, i64 %31, i32 1
   store i64 %30, ptr %32, align 8

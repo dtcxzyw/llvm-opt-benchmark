@@ -1463,8 +1463,8 @@ common.resume.i:                                  ; preds = %213, %173, %57
 67:                                               ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hde13a6df1cb0d3a3E.exit.i.i"
   %68 = getelementptr i16, ptr %66, i64 %.sroa.724.0.i.i
   %69 = getelementptr i8, ptr %68, i64 2
-  %70 = sub nsw i64 %65, %.sroa.724.0.i.i
-  %71 = shl nsw i64 %70, 1
+  %70 = sub nuw nsw i64 %65, %.sroa.724.0.i.i
+  %71 = shl nuw nsw i64 %70, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %69, ptr nonnull align 2 %68, i64 %71, i1 false), !alias.scope !305, !noalias !301
   br label %75
 
@@ -2017,7 +2017,7 @@ common.resume.i:                                  ; preds = %207, %168, %56
 65:                                               ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h15dc1643d703280dE.exit.i.i"
   %66 = getelementptr i8, ptr %64, i64 %.sroa.724.0.i.i
   %67 = getelementptr i8, ptr %66, i64 1
-  %68 = sub nsw i64 %63, %.sroa.724.0.i.i
+  %68 = sub nuw nsw i64 %63, %.sroa.724.0.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %66, i64 %68, i1 false), !alias.scope !399, !noalias !395
   br label %72
 

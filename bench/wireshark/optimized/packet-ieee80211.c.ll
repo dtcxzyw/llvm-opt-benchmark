@@ -33078,7 +33078,7 @@ define internal i32 @dissect_multiple_bssid_ie(ptr noundef %0, ptr noundef %1, p
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %.loopexit78
-  %52 = sub i32 %6, %.1
+  %52 = sub nuw i32 %6, %.1
   %53 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ieee80211_extra_data, ptr noundef %0, i32 noundef %.1, i32 noundef %52, ptr noundef nonnull @.str.9704) #22
   br label %54
 
@@ -34059,7 +34059,7 @@ add_manuf.exit61:                                 ; preds = %41, %36, %35
 
 43:                                               ; preds = %add_manuf.exit61
   %44 = load i32, ptr @hf_ieee80211_tag_roaming_consortium_oi3, align 4
-  %45 = sub nsw i32 %5, %.056
+  %45 = sub nuw nsw i32 %5, %.056
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %.056, i32 noundef %45, i32 noundef 0) #22
   br label %47
 
@@ -42642,7 +42642,7 @@ proto_item_set_generated.exit1296:                ; preds = %908, %905, %proto_i
   %946 = load ptr, ptr %945, align 8
   %947 = zext i16 %.5 to i64
   %948 = getelementptr i8, ptr %13, i64 %947
-  %949 = sub i32 %942, %648
+  %949 = sub nuw i32 %942, %648
   %950 = zext i32 %949 to i64
   %951 = call noalias ptr @wmem_memdup(ptr noundef %946, ptr noundef %948, i64 noundef %950) #22
   %952 = load i32, ptr %12, align 4
@@ -46360,7 +46360,7 @@ get_group_element_len.exit._crit_edge.i:          ; preds = %get_group_element_l
   %.pre-phi.i = phi i32 [ %.pre-phi40.i, %49 ], [ %47, %46 ]
   %54 = icmp ugt i32 %27, %.pre-phi.i
   %55 = select i1 %54, i32 %.pre-phi.i, i32 0
-  %.0.i = sub i32 %27, %55
+  %.0.i = sub nuw i32 %27, %55
   %56 = load i32, ptr @hf_ieee80211_ff_sae_anti_clogging_token, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %56, ptr noundef %2, i32 noundef 8, i32 noundef %.0.i, i32 noundef 0) #22
   %58 = add i32 %.0.i, 8

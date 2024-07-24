@@ -916,7 +916,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h611105adaafd8b97E.llvm.81
   br label %54
 
 54:                                               ; preds = %52, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h8a43d81038add3e9E.exit.i.i"
-  %55 = sub i64 %43, %.0.sroa.speculated.i.i.i
+  %55 = sub nuw i64 %43, %.0.sroa.speculated.i.i.i
   %56 = getelementptr inbounds i8, ptr %44, i64 %.0.sroa.speculated.i.i.i
   %57 = add i64 %.0.sroa.speculated.i.i.i, %.0.i12
   %.not.i13 = icmp ugt i64 %43, %50
@@ -1055,7 +1055,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hd88897f0ebf3a2a2E.llvm.81
   br label %54
 
 54:                                               ; preds = %52, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h8a43d81038add3e9E.exit.i.i"
-  %55 = sub i64 %43, %.0.sroa.speculated.i.i.i
+  %55 = sub nuw i64 %43, %.0.sroa.speculated.i.i.i
   %56 = getelementptr inbounds i8, ptr %44, i64 %.0.sroa.speculated.i.i.i
   %57 = add i64 %.0.sroa.speculated.i.i.i, %.0.i12
   %.not.i13 = icmp ugt i64 %43, %50
@@ -1724,7 +1724,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hd88897f0ebf3a2a2E.llvm.81
   unreachable
 
 "_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$8read_buf17h0b46225ab14c1095E.exit": ; preds = %44
-  %49 = sub i64 %46, %19
+  %49 = sub nuw i64 %46, %19
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %49, i64 %37)
   %50 = load ptr, ptr %1, align 8, !alias.scope !279, !noalias !287, !nonnull !4, !align !164, !noundef !4
   %51 = getelementptr inbounds i8, ptr %50, i64 %19
@@ -1838,7 +1838,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h611105adaafd8b97E.llvm.81
   unreachable
 
 "_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$8read_buf17h0b46225ab14c1095E.exit": ; preds = %44
-  %49 = sub i64 %46, %19
+  %49 = sub nuw i64 %46, %19
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %49, i64 %37)
   %50 = load ptr, ptr %1, align 8, !alias.scope !302, !noalias !310, !nonnull !4, !align !164, !noundef !4
   %51 = getelementptr inbounds i8, ptr %50, i64 %19

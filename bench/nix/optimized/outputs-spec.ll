@@ -3632,7 +3632,7 @@ define linkonce_odr void @_ZZN2rc3gen7inRangeIhEENS_3GenIT_EES3_S3_ENKUlRKNS_6Ra
 
 31:                                               ; preds = %29
   invoke void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTIN2rc17GenerationFailureE, ptr nonnull @_ZN2rc17GenerationFailureD2Ev) #25
-          to label %66 unwind label %46
+          to label %64 unwind label %46
 
 32:                                               ; preds = %16
   %33 = landingpad { ptr, i32 }
@@ -3698,33 +3698,32 @@ define linkonce_odr void @_ZZN2rc3gen7inRangeIhEENS_3GenIT_EES3_S3_ENKUlRKNS_6Ra
   resume { ptr, i32 } %.pn17.pn
 
 50:                                               ; preds = %4
-  %51 = zext i8 %13 to i64
-  %52 = zext i8 %15 to i64
-  %53 = xor i64 %52, -1
-  %54 = add nsw i64 %53, %51
-  %55 = tail call noundef i64 @_ZN2rc3gen6detail12scaleIntegerEmi(i64 noundef %54, i32 noundef %3)
-  %56 = add i64 %55, 1
+  %narrow = sub nuw i8 %13, %15
+  %51 = zext i8 %narrow to i64
+  %52 = add nsw i64 %51, -1
+  %53 = tail call noundef i64 @_ZN2rc3gen6detail12scaleIntegerEmi(i64 noundef %52, i32 noundef %3)
+  %54 = add i64 %53, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %12, ptr noundef nonnull align 8 dereferenceable(81) %2, i64 81, i1 false)
-  %57 = call noundef i64 @_ZN2rc6Random4nextEv(ptr noundef nonnull align 8 dereferenceable(81) %12)
-  %58 = urem i64 %57, %56
-  %59 = load i8, ptr %14, align 1
-  %60 = trunc i64 %58 to i8
-  %61 = add i8 %59, %60
+  %55 = call noundef i64 @_ZN2rc6Random4nextEv(ptr noundef nonnull align 8 dereferenceable(81) %12)
+  %56 = urem i64 %55, %54
+  %57 = load i8, ptr %14, align 1
+  %58 = trunc i64 %56 to i8
+  %59 = add i8 %57, %58
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %62 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !37
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableINS_2fn8ConstantIhEEZNS3_11shrinkRecurIRKhZZNS_3gen7inRangeIhEENS_3GenIT_EESF_SF_ENKUlRKNS_6RandomEiE_clESJ_iEUlhE_EENS0_INSt5decayISF_E4typeEEEOSF_RKT0_EUlOhE_EEEE, i64 16), ptr %62, align 8, !noalias !37
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
-  store i8 %61, ptr %63, align 1, !noalias !37
-  %64 = getelementptr inbounds i8, ptr %62, i64 9
-  store i8 %59, ptr %64, align 1, !noalias !37
-  %65 = getelementptr inbounds i8, ptr %62, i64 16
-  store i64 1, ptr %65, align 8, !noalias !37
-  store ptr %62, ptr %0, align 8, !alias.scope !37
+  %60 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !37
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable6detail20JustShrinkShrinkableINS_2fn8ConstantIhEEZNS3_11shrinkRecurIRKhZZNS_3gen7inRangeIhEENS_3GenIT_EESF_SF_ENKUlRKNS_6RandomEiE_clESJ_iEUlhE_EENS0_INSt5decayISF_E4typeEEEOSF_RKT0_EUlOhE_EEEE, i64 16), ptr %60, align 8, !noalias !37
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  store i8 %59, ptr %61, align 1, !noalias !37
+  %62 = getelementptr inbounds i8, ptr %60, i64 9
+  store i8 %57, ptr %62, align 1, !noalias !37
+  %63 = getelementptr inbounds i8, ptr %60, i64 16
+  store i64 1, ptr %63, align 8, !noalias !37
+  store ptr %60, ptr %0, align 8, !alias.scope !37
   ret void
 
-66:                                               ; preds = %31
+64:                                               ; preds = %31
   unreachable
 }
 
@@ -4470,8 +4469,8 @@ define linkonce_odr void @_ZNK2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store i8 %5, ptr %8, align 1, !noalias !47
   %9 = icmp ult i8 %6, %5
-  %10 = sub i8 %5, %6
-  %11 = sub i8 %6, %5
+  %10 = sub nuw i8 %5, %6
+  %11 = sub nuw i8 %6, %5
   %12 = select i1 %9, i8 %10, i8 %11
   %13 = getelementptr inbounds i8, ptr %7, i64 9
   store i8 %12, ptr %13, align 1, !noalias !47
@@ -4734,8 +4733,8 @@ define linkonce_odr void @_ZNK2rc10ShrinkableIhE14ShrinkableImplINS_10shrinkable
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store i8 %5, ptr %8, align 1, !noalias !81
   %9 = icmp ult i8 %6, %5
-  %10 = sub i8 %5, %6
-  %11 = sub i8 %6, %5
+  %10 = sub nuw i8 %5, %6
+  %11 = sub nuw i8 %6, %5
   %12 = select i1 %9, i8 %10, i8 %11
   %13 = getelementptr inbounds i8, ptr %7, i64 9
   store i8 %12, ptr %13, align 1, !noalias !81
@@ -11729,7 +11728,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINS
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESB_SA_ET0_T_SH_SG_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESB_SA_ET0_T_SH_SG_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEEmEvRT_T0_.exit
   %78 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESB_SA_ET0_T_SH_SG_RSaIT1_E.exit.loopexit ], [ %14, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEEmEvRT_T0_.exit ]
-  %79 = sub nsw i64 %10, %21
+  %79 = sub nuw nsw i64 %10, %21
   %80 = getelementptr %"class.rc::Shrinkable.117", ptr %78, i64 %79
   store ptr %80, ptr %13, align 8
   %81 = icmp eq ptr %14, %1

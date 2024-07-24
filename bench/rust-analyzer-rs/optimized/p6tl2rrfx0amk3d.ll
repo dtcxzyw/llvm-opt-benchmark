@@ -210,7 +210,7 @@ _ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136: ; preds = %.lr.ph
   br label %44
 
 48:                                               ; preds = %44
-  %49 = sub i64 %.0117, %.0155
+  %49 = sub nuw i64 %.0117, %.0155
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %51, label %53
 
@@ -244,7 +244,7 @@ _ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136: ; preds = %.lr.ph
   br label %.backedge
 
 60:                                               ; preds = %56
-  %61 = sub i64 %.2119, %.0155
+  %61 = sub nuw i64 %.2119, %.0155
   %62 = icmp eq i64 %61, %.sroa.090.0156
   br i1 %62, label %63, label %.backedge
 

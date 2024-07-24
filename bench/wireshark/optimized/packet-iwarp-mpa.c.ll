@@ -407,7 +407,7 @@ define internal range(i32 0, 33619977) i32 @iwrap_mpa_pdu_length(ptr noundef %0,
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %16
-  %31 = sub i32 %.1.i.i, %23
+  %31 = sub nuw i32 %.1.i.i, %23
   %32 = lshr i32 %31, 7
   %33 = and i32 %32, 33554428
   %34 = add nuw nsw i32 %33, 10
@@ -507,7 +507,7 @@ define internal range(i32 -1, 33619977) i32 @dissect_iwarp_mpa_pdu(ptr noundef %
   %38 = sub i32 0, %.1.i12.i.i.i
   %39 = and i32 %38, 511
   %40 = icmp ult i32 %39, %.1.i.i.i.i
-  %41 = sub i32 %.1.i.i.i.i, %39
+  %41 = sub nuw i32 %.1.i.i.i.i, %39
   %42 = lshr i32 %41, 9
   %43 = add nuw nsw i32 %42, 1
   br i1 %40, label %48, label %.thread.i.i
@@ -536,7 +536,7 @@ define internal range(i32 -1, 33619977) i32 @dissect_iwarp_mpa_pdu(ptr noundef %
   br i1 %.not.i.i.i, label %58, label %dissect_iwarp_mpa.exit.thread
 
 58:                                               ; preds = %54
-  %59 = sub i32 %55, %57
+  %59 = sub nuw i32 %55, %57
   %60 = lshr i32 %41, 7
   %61 = and i32 %60, 33554428
   %62 = add nuw nsw i32 %61, 4
@@ -544,7 +544,7 @@ define internal range(i32 -1, 33619977) i32 @dissect_iwarp_mpa_pdu(ptr noundef %
   br i1 %.not27.i.i.i, label %63, label %dissect_iwarp_mpa.exit.thread
 
 63:                                               ; preds = %58
-  %64 = sub i32 %59, %62
+  %64 = sub nuw i32 %59, %62
   %65 = icmp ult i32 %64, 3
   br i1 %65, label %dissect_iwarp_mpa.exit.thread, label %expected_ulpdu_length.exit.i.i
 
@@ -656,7 +656,7 @@ expected_ulpdu_length.exit.i.i:                   ; preds = %63
   %132 = sub i32 0, %.1.i12.i.i99.i.i
   %133 = and i32 %132, 511
   %134 = icmp ult i32 %133, %.1.i.i.i.i.i
-  %135 = sub i32 %.1.i.i.i.i.i, %133
+  %135 = sub nuw i32 %.1.i.i.i.i.i, %133
   %136 = lshr i32 %135, 9
   %137 = icmp uge i32 %136, %.0.i97.i.i
   %138 = select i1 %134, i1 %137, i1 false
@@ -730,7 +730,7 @@ dissect_mpa_fpdu.exit.i:                          ; preds = %125, %155
   br i1 %.not75.i, label %174, label %201
 
 174:                                              ; preds = %163
-  %175 = sub i32 %.1.i.i57.i, %173
+  %175 = sub nuw i32 %.1.i.i57.i, %173
   %176 = lshr i32 %175, 7
   %177 = and i32 %176, 33554428
   %178 = add nuw nsw i32 %177, 4

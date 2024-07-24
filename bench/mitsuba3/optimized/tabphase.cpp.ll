@@ -1303,7 +1303,7 @@ define linkonce_odr hidden noundef float @_ZNK7mitsuba22ContinuousDistributionIf
   %9 = getelementptr inbounds i8, ptr %0, i64 80
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %8, %10
-  %12 = sub i32 %10, %8
+  %12 = sub nuw i32 %10, %8
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %12, i1 true)
   %14 = sub nuw nsw i32 32, %13
   %narrow.i = select i1 %11, i32 %14, i32 0

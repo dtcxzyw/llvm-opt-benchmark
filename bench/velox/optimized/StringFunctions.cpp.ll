@@ -14556,7 +14556,7 @@ if.end.i.i:                                       ; preds = %if.end.i.i.lr.ph, %
   br i1 %cmp.i.i.i.i, label %if.end29, label %if.end6.i.i.i.i
 
 if.end6.i.i.i.i:                                  ; preds = %if.end.i.i
-  %sub.i.i.i.i = sub i64 %13, %readPosition.1140
+  %sub.i.i.i.i = sub nuw i64 %13, %readPosition.1140
   %cmp11.not20.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i
   br i1 %cmp11.not20.i.i.i.i, label %while.end, label %while.body.lr.ph.i.i.i.i
 
@@ -14571,7 +14571,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %if.end6.i.i.i.i
 while.body.i.i.i.i:                               ; preds = %if.end20.i.i.i.i, %while.body.lr.ph.i.i.i.i
   %__len.022.i.i.i.i = phi i64 [ %sub.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %sub.ptr.sub23.i.i.i.i, %if.end20.i.i.i.i ]
   %__first.021.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %if.end20.i.i.i.i ]
-  %sub12.i.i.i.i = sub i64 %__len.022.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i
+  %sub12.i.i.i.i = sub nuw i64 %__len.022.i.i.i.i, %agg.tmp.sroa.0.0.copyload.i
   %add.i.i.i.i = add i64 %sub12.i.i.i.i, 1
   %cmp.i.i.i.i.i = icmp eq i64 %add.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %while.end, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i

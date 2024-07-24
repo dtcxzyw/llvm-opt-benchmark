@@ -1429,7 +1429,7 @@ define void @_ZN3gmx20AbstractAnalysisData15setDataSetCountEi(ptr nocapture noun
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %5
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %21)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 

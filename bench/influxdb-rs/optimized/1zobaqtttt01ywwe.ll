@@ -19262,7 +19262,7 @@ default.unreachable474:                           ; preds = %"_ZN5alloc11collect
   br i1 %529, label %530, label %747
 
 530:                                              ; preds = %518
-  %531 = sub nsw i64 %526, %528
+  %531 = sub nuw nsw i64 %526, %528
   %532 = getelementptr inbounds i8, ptr %466, i64 56
   %533 = load i64, ptr %532, align 8, !alias.scope !3526, !noundef !4
   %534 = icmp ugt i64 %526, %533
@@ -19314,7 +19314,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %558, label %559, label %775
 
 559:                                              ; preds = %547
-  %560 = sub nsw i64 %555, %557
+  %560 = sub nuw nsw i64 %555, %557
   %561 = getelementptr inbounds i8, ptr %466, i64 56
   %562 = load i64, ptr %561, align 8, !alias.scope !3537, !noundef !4
   %563 = icmp ugt i64 %555, %562
@@ -19366,7 +19366,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %587, label %588, label %797
 
 588:                                              ; preds = %576
-  %589 = sub nsw i64 %584, %586
+  %589 = sub nuw nsw i64 %584, %586
   %590 = getelementptr inbounds i8, ptr %466, i64 56
   %591 = load i64, ptr %590, align 8, !alias.scope !3548, !noundef !4
   %592 = icmp ugt i64 %584, %591
@@ -19418,7 +19418,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %616, label %617, label %819
 
 617:                                              ; preds = %605
-  %618 = sub nsw i64 %613, %615
+  %618 = sub nuw nsw i64 %613, %615
   %619 = getelementptr inbounds i8, ptr %466, i64 56
   %620 = load i64, ptr %619, align 8, !alias.scope !3559, !noundef !4
   %621 = icmp ugt i64 %613, %620
@@ -19470,7 +19470,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %645, label %646, label %_ZN12arrow_buffer7builder4null17NullBufferBuilder11append_null17h8ab28b07bc0f6779E.exit.i
 
 646:                                              ; preds = %634
-  %647 = sub nsw i64 %642, %644
+  %647 = sub nuw nsw i64 %642, %644
   %648 = getelementptr inbounds i8, ptr %466, i64 96
   %649 = load i64, ptr %648, align 8, !alias.scope !3572, !noundef !4
   %650 = icmp ugt i64 %642, %649
@@ -19584,7 +19584,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %703, label %704, label %841
 
 704:                                              ; preds = %692
-  %705 = sub nsw i64 %700, %702
+  %705 = sub nuw nsw i64 %700, %702
   %706 = getelementptr inbounds i8, ptr %466, i64 48
   %707 = load i64, ptr %706, align 8, !alias.scope !3590, !noundef !4
   %708 = icmp ugt i64 %700, %707
@@ -19644,7 +19644,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %733, label %734, label %862
 
 734:                                              ; preds = %722
-  %735 = sub nsw i64 %730, %732
+  %735 = sub nuw nsw i64 %730, %732
   %736 = getelementptr inbounds i8, ptr %466, i64 56
   %737 = load i64, ptr %736, align 8, !alias.scope !3601, !noundef !4
   %738 = icmp ugt i64 %730, %737
@@ -19688,7 +19688,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %759, label %760, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder7advance17haa7b964bb6c5eefaE.exit
 
 760:                                              ; preds = %747
-  %761 = sub nsw i64 %756, %758
+  %761 = sub nuw nsw i64 %756, %758
   %762 = getelementptr inbounds i8, ptr %466, i64 16
   %763 = load i64, ptr %762, align 8, !alias.scope !3607, !noundef !4
   %764 = icmp ugt i64 %756, %763
@@ -20012,7 +20012,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %922, label %923, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17h32f48e54a6a57165E.exit.i.i
 
 923:                                              ; preds = %911
-  %924 = sub nsw i64 %919, %921
+  %924 = sub nuw nsw i64 %919, %921
   %925 = getelementptr inbounds i8, ptr %884, i64 56
   %926 = load i64, ptr %925, align 8, !alias.scope !3654, !noundef !4
   %927 = icmp ugt i64 %919, %926
@@ -20321,7 +20321,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %1053, label %1054, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17h32f48e54a6a57165E.exit.i.i193
 
 1054:                                             ; preds = %1042
-  %1055 = sub nsw i64 %1050, %1052
+  %1055 = sub nuw nsw i64 %1050, %1052
   %1056 = getelementptr inbounds i8, ptr %884, i64 96
   %1057 = load i64, ptr %1056, align 8, !alias.scope !3735, !noalias !3720, !noundef !4
   %1058 = icmp ugt i64 %1050, %1057
@@ -20468,7 +20468,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %1127, label %1128, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17h32f48e54a6a57165E.exit.i.i208
 
 1128:                                             ; preds = %1116
-  %1129 = sub nsw i64 %1124, %1126
+  %1129 = sub nuw nsw i64 %1124, %1126
   %1130 = getelementptr inbounds i8, ptr %884, i64 56
   %1131 = load i64, ptr %1130, align 8, !alias.scope !3759, !noundef !4
   %1132 = icmp ugt i64 %1124, %1131
@@ -20599,7 +20599,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %1195, label %1196, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17h32f48e54a6a57165E.exit.i.i224
 
 1196:                                             ; preds = %1184
-  %1197 = sub nsw i64 %1192, %1194
+  %1197 = sub nuw nsw i64 %1192, %1194
   %1198 = getelementptr inbounds i8, ptr %884, i64 56
   %1199 = load i64, ptr %1198, align 8, !alias.scope !3782, !noundef !4
   %1200 = icmp ugt i64 %1192, %1199
@@ -20730,7 +20730,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %1263, label %1264, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17h32f48e54a6a57165E.exit.i.i240
 
 1264:                                             ; preds = %1252
-  %1265 = sub nsw i64 %1260, %1262
+  %1265 = sub nuw nsw i64 %1260, %1262
   %1266 = getelementptr inbounds i8, ptr %884, i64 56
   %1267 = load i64, ptr %1266, align 8, !alias.scope !3805, !noundef !4
   %1268 = icmp ugt i64 %1260, %1267
@@ -20854,7 +20854,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %1328, label %1329, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder7advance17haa7b964bb6c5eefaE.exit.i
 
 1329:                                             ; preds = %1313
-  %1330 = sub nsw i64 %1325, %1327
+  %1330 = sub nuw nsw i64 %1325, %1327
   %1331 = getelementptr inbounds i8, ptr %884, i64 16
   %1332 = load i64, ptr %1331, align 8, !alias.scope !3821, !noundef !4
   %1333 = icmp ugt i64 %1325, %1332
@@ -20924,7 +20924,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17h32f48e54a6a5716
   br i1 %1366, label %1367, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17h32f48e54a6a57165E.exit.i
 
 1367:                                             ; preds = %1355
-  %1368 = sub nsw i64 %1363, %1365
+  %1368 = sub nuw nsw i64 %1363, %1365
   %1369 = getelementptr inbounds i8, ptr %884, i64 56
   %1370 = load i64, ptr %1369, align 8, !alias.scope !3833, !noundef !4
   %1371 = icmp ugt i64 %1363, %1370

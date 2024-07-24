@@ -1593,7 +1593,7 @@ _ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit: ; preds = %._ZN5ZXing13Ge
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %_ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit
-  %33 = sub i64 %1, %30
+  %33 = sub nuw i64 %1, %30
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %33)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 

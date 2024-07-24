@@ -318,7 +318,7 @@ define void @_ZNK3gmx9BiasState16calcConvolvedPmfENS_8ArrayRefIKNS_9DimParamsEEE
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %5
-  %23 = sub nsw i64 %13, %20
+  %23 = sub nuw nsw i64 %13, %20
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %23)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -3714,7 +3714,7 @@ _ZNSt6vectorIZNK3gmx9BiasState23isSamplingRegionCoveredERKNS0_10BiasParamsENS0_8
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 50:                                               ; preds = %.lr.ph
-  %51 = sub i64 %30, %42
+  %51 = sub nuw i64 %30, %42
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr %33, i32 %35, i64 noundef %51, i1 noundef zeroext false)
           to label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -3748,7 +3748,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %44, %50
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit109
 
 71:                                               ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
-  %72 = sub i64 %30, %63
+  %72 = sub nuw i64 %30, %63
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr %54, i32 %56, i64 noundef %72, i1 noundef zeroext false)
           to label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit109 unwind label %.loopexit.split-lp.loopexit
 
@@ -3766,7 +3766,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit109:           ; preds = %65, %71
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit109
-  %83 = sub nsw i64 %30, %80
+  %83 = sub nuw nsw i64 %30, %80
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr %75, i64 noundef %83, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -5003,7 +5003,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -6458,7 +6458,7 @@ define noundef double @_ZNK3gmx9BiasState40updateProbabilityWeightsAndConvolvedB
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %7
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   tail call void @_ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %32)
   %.pre = load ptr, ptr %6, align 8
   br label %_ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
@@ -7427,7 +7427,7 @@ define void @_ZNK3gmx9BiasState20initHistoryFromStateEPNS_14AwhBiasHistoryE(ptr 
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %2
-  %20 = sub nsw i64 %10, %17
+  %20 = sub nuw nsw i64 %10, %17
   tail call void @_ZNSt6vectorIN3gmx20AwhPointStateHistoryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %20)
   br label %_ZNSt6vectorIN3gmx20AwhPointStateHistoryESaIS1_EE6resizeEm.exit
 

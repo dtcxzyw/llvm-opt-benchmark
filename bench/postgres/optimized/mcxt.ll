@@ -1197,7 +1197,7 @@ define dso_local ptr @repalloc0(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef %0, i64 noundef %2, i32 noundef 0) #16
   %14 = getelementptr i8, ptr %13, i64 %1
-  %15 = sub i64 %2, %1
+  %15 = sub nuw i64 %2, %1
   tail call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %15, i1 false)
   ret ptr %13
 }

@@ -1060,7 +1060,7 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %2, i64 332
   store i32 %1, ptr %43, align 4
-  %44 = sub i32 %34, %18
+  %44 = sub nuw i32 %34, %18
   %45 = getelementptr inbounds i8, ptr %2, i64 336
   store i32 %44, ptr %45, align 8
   br label %158

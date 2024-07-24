@@ -3054,7 +3054,7 @@ invoke.cont217:                                   ; preds = %invoke.cont215
   br i1 %cmp.i321, label %if.then.i325, label %if.else.i322
 
 if.then.i325:                                     ; preds = %invoke.cont217
-  %sub.i326 = sub nsw i64 %sub.ptr.div.i315, %sub.ptr.div.i.i320
+  %sub.i326 = sub nuw nsw i64 %sub.ptr.div.i315, %sub.ptr.div.i.i320
   invoke void @_ZNSt6vectorI9aiQuatKeySaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %aRotationKeys, i64 noundef %sub.i326)
           to label %if.then.i325._ZNSt6vectorI9aiQuatKeySaIS0_EE6resizeEm.exit_crit_edge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

@@ -336,7 +336,7 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
 10:                                               ; preds = %4
   %11 = sub nuw nsw i64 384, %8
   %12 = icmp ult i64 %11, %3
-  %13 = sub nsw i64 %11, %3
+  %13 = sub nuw nsw i64 %11, %3
   %14 = icmp ult i64 %13, %2
   %or.cond45 = select i1 %12, i1 true, i1 %14
   br i1 %or.cond45, label %62, label %15

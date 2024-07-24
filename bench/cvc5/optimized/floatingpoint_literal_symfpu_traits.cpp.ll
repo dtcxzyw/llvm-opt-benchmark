@@ -1683,7 +1683,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i32 %newSize, %call.i
+  %sub = sub nuw i32 %newSize, %call.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub), !noalias !22
   invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
@@ -3058,7 +3058,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i32 %newSize, %call.i
+  %sub = sub nuw i32 %newSize, %call.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub), !noalias !55
   invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)

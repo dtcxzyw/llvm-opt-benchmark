@@ -655,7 +655,7 @@ define void @_ZN8LightGBM19GradientDiscretizer4InitEiiiPKNS_7DatasetE(ptr nounde
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %5
-  %33 = sub nsw i64 %23, %30
+  %33 = sub nuw nsw i64 %23, %30
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %33)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -685,7 +685,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %32, %34, %36, %38
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %49 = sub nsw i64 %23, %46
+  %49 = sub nuw nsw i64 %23, %46
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %49)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit2
 
@@ -773,7 +773,7 @@ _ZN8LightGBM9Threading9BlockInfoIiEEvT_S2_PiPS2_.exit: ; preds = %_ZNSt23mersenn
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %_ZN8LightGBM9Threading9BlockInfoIiEEvT_S2_PiPS2_.exit
-  %94 = sub i64 %85, %91
+  %94 = sub nuw i64 %85, %91
   call void @_ZNSt6vectorIaSaIaEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPaS1_EEmRKa(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr %87, i64 noundef %94, ptr noundef nonnull align 1 dereferenceable(1) %13)
   %.pre = load i32, ptr %83, align 4
   %.pre15 = sext i32 %.pre to i64
@@ -807,7 +807,7 @@ _ZNSt6vectorIaSaIaEE6resizeEmRKa.exit:            ; preds = %93, %95, %97, %99
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %_ZNSt6vectorIaSaIaEE6resizeEmRKa.exit
-  %110 = sub i64 %.pre-phi, %107
+  %110 = sub nuw i64 %.pre-phi, %107
   call void @_ZNSt6vectorIaSaIaEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPaS1_EEmRKa(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr %103, i64 noundef %110, ptr noundef nonnull align 1 dereferenceable(1) %14)
   %.pre12 = load i32, ptr %83, align 4
   %.pre16 = sext i32 %.pre12 to i64
@@ -841,7 +841,7 @@ _ZNSt6vectorIaSaIaEE6resizeEmRKa.exit5:           ; preds = %109, %111, %113, %1
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %_ZNSt6vectorIaSaIaEE6resizeEmRKa.exit5
-  %126 = sub i64 %.pre-phi17, %123
+  %126 = sub nuw i64 %.pre-phi17, %123
   call void @_ZNSt6vectorIaSaIaEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPaS1_EEmRKa(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr %119, i64 noundef %126, ptr noundef nonnull align 1 dereferenceable(1) %15)
   %.pre13 = load i32, ptr %83, align 4
   %.pre18 = sext i32 %.pre13 to i64
@@ -875,7 +875,7 @@ _ZNSt6vectorIaSaIaEE6resizeEmRKa.exit7:           ; preds = %125, %127, %129, %1
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %_ZNSt6vectorIaSaIaEE6resizeEmRKa.exit7
-  %142 = sub i64 %.pre-phi19, %139
+  %142 = sub nuw i64 %.pre-phi19, %139
   call void @_ZNSt6vectorIaSaIaEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPaS1_EEmRKa(ptr noundef nonnull align 8 dereferenceable(24) %133, ptr %135, i64 noundef %142, ptr noundef nonnull align 1 dereferenceable(1) %16)
   %.pre14 = load i32, ptr %83, align 4
   br label %_ZNSt6vectorIaSaIaEE6resizeEmRKa.exit9
@@ -910,7 +910,7 @@ _ZNSt6vectorIaSaIaEE6resizeEmRKa.exit9:           ; preds = %141, %143, %145, %1
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %_ZNSt6vectorIaSaIaEE6resizeEmRKa.exit9
-  %161 = sub nsw i64 %151, %158
+  %161 = sub nuw nsw i64 %151, %158
   call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %149, ptr %153, i64 noundef %161, ptr noundef nonnull align 8 dereferenceable(8) %17)
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
@@ -941,7 +941,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit:            ; preds = %160, %162, %164, %1
   br i1 %176, label %177, label %179
 
 177:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
-  %178 = sub nsw i64 %168, %175
+  %178 = sub nuw nsw i64 %168, %175
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %167, i64 noundef %178)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
@@ -1217,7 +1217,7 @@ define linkonce_odr void @_ZNSt6vectorIaSaIaEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -1821,7 +1821,7 @@ define internal void @_ZN8LightGBM19GradientDiscretizer4InitEiiiPKNS_7DatasetE.o
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %20
-  %59 = sub nsw i64 %49, %56
+  %59 = sub nuw nsw i64 %49, %56
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %59)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %68
 
@@ -2138,7 +2138,7 @@ _ZSt13move_backwardIPaS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPamaaET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = sub i64 %2, %16
+  %29 = sub nuw i64 %2, %16
   %30 = getelementptr inbounds i8, ptr %9, i64 %29
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 %14, i64 %29, i1 false)
   br label %_ZSt24__uninitialized_fill_n_aIPamaaET_S1_T0_RKT1_RSaIT2_E.exit
@@ -2292,7 +2292,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds double, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

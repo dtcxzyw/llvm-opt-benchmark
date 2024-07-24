@@ -496,7 +496,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nocap
 
 69:                                               ; preds = %60
   %70 = load i8, ptr %12, align 1
-  %71 = sub i32 %67, %62
+  %71 = sub nuw i32 %67, %62
   %72 = icmp eq i8 %61, 0
   br i1 %72, label %.loopexit45, label %73
 

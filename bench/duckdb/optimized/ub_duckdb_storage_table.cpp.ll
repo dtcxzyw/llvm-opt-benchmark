@@ -3144,7 +3144,7 @@ if.end6:                                          ; preds = %if.end6.sink.split,
 
 for.body.lr.ph:                                   ; preds = %if.end6
   %inserted = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = sub i64 %end, %start
+  %2 = sub nuw i64 %end, %start
   %min.iters.check = icmp ult i64 %2, 4
   br i1 %min.iters.check, label %for.body.preheader, label %vector.ph
 
@@ -3205,7 +3205,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 for.body.lr.ph:                                   ; preds = %if.end
   %inserted = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = sub i64 %end, %start
+  %1 = sub nuw i64 %end, %start
   %min.iters.check = icmp ult i64 %1, 4
   br i1 %min.iters.check, label %for.body.preheader, label %vector.ph
 
@@ -10296,7 +10296,7 @@ if.then12:                                        ; preds = %if.end8
   %28 = load ptr, ptr %function.i109, align 8, !tbaa !358
   %skip.i = getelementptr inbounds i8, ptr %28, i64 88
   %29 = load ptr, ptr %skip.i, align 8, !tbaa !575
-  %sub.i = sub i64 %26, %25
+  %sub.i = sub nuw i64 %26, %25
   call void %29(ptr noundef nonnull align 8 dereferenceable(224) %27, ptr noundef nonnull align 8 dereferenceable(112) %state, i64 noundef %sub.i)
   %30 = load i64, ptr %row_index10, align 8, !tbaa !426
   store i64 %30, ptr %internal_index9, align 8, !tbaa !574
@@ -46561,7 +46561,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then4
-  %sub.i = sub nsw i64 %add, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %add, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN6duckdb15ColumnScanStateESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %child_states, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN6duckdb15ColumnScanStateESaIS1_EE6resizeEm.exit
 
@@ -51366,7 +51366,7 @@ _ZN6duckdb6vectorINS_16MetaBlockPointerELb1EEaSEOS2_.exit: ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN6duckdb6vectorINS_16MetaBlockPointerELb1EEaSEOS2_.exit
-  %sub.i = sub nsw i64 %sub.ptr.div.i68, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i68, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorISt10shared_ptrIN6duckdb10ColumnDataEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %columns, i64 noundef %sub.i)
           to label %if.then.i.invoke.cont19_crit_edge unwind label %lpad
 
@@ -55687,7 +55687,7 @@ while.cond:                                       ; preds = %cleanup286, %entry
   br i1 %cmp.not, label %if.end, label %cleanup291
 
 if.end:                                           ; preds = %while.cond
-  %sub = sub i64 %5, %mul
+  %sub = sub nuw i64 %5, %mul
   %cond.i = call noundef i64 @llvm.umin.i64(i64 %sub, i64 2048)
   %call8 = call noundef zeroext i1 @_ZN6duckdb8RowGroup20CheckZonemapSegmentsERNS_19CollectionScanStateE(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef nonnull align 8 dereferenceable(64) %state)
   br i1 %call8, label %if.end10, label %cleanup286, !llvm.loop !1349
@@ -56658,7 +56658,7 @@ while.cond:                                       ; preds = %cleanup274, %entry
   br i1 %cmp.not, label %if.end, label %cleanup279
 
 if.end:                                           ; preds = %while.cond
-  %sub = sub i64 %5, %mul
+  %sub = sub nuw i64 %5, %mul
   %cond.i = call noundef i64 @llvm.umin.i64(i64 %sub, i64 2048)
   %call8 = call noundef zeroext i1 @_ZN6duckdb8RowGroup20CheckZonemapSegmentsERNS_19CollectionScanStateE(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef nonnull align 8 dereferenceable(64) %state)
   br i1 %call8, label %if.end10, label %cleanup274, !llvm.loop !1366
@@ -57816,7 +57816,7 @@ while.cond:                                       ; preds = %cleanup274, %entry
   br i1 %cmp.not, label %if.end, label %cleanup279
 
 if.end:                                           ; preds = %while.cond
-  %sub = sub i64 %5, %mul
+  %sub = sub nuw i64 %5, %mul
   %cond.i = call noundef i64 @llvm.umin.i64(i64 %sub, i64 2048)
   %call8 = call noundef zeroext i1 @_ZN6duckdb8RowGroup20CheckZonemapSegmentsERNS_19CollectionScanStateE(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef nonnull align 8 dereferenceable(64) %state)
   br i1 %call8, label %if.end10, label %cleanup274, !llvm.loop !1372
@@ -58965,7 +58965,7 @@ while.cond:                                       ; preds = %cleanup283, %entry
   br i1 %cmp.not, label %if.end, label %cleanup288
 
 if.end:                                           ; preds = %while.cond
-  %sub = sub i64 %5, %mul
+  %sub = sub nuw i64 %5, %mul
   %cond.i = call noundef i64 @llvm.umin.i64(i64 %sub, i64 2048)
   %call8 = call noundef zeroext i1 @_ZN6duckdb8RowGroup20CheckZonemapSegmentsERNS_19CollectionScanStateE(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef nonnull align 8 dereferenceable(64) %state)
   br i1 %call8, label %if.end10, label %cleanup283, !llvm.loop !1378
@@ -60715,7 +60715,7 @@ if.end6.i:                                        ; preds = %if.end6.sink.split.
 
 for.body.lr.ph.i:                                 ; preds = %if.end6.i
   %inserted.i = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = sub i64 %cond11, %cond
+  %30 = sub nuw i64 %cond11, %cond
   %min.iters.check = icmp ult i64 %30, 4
   br i1 %min.iters.check, label %for.body.i.preheader, label %vector.ph
 
@@ -72153,7 +72153,7 @@ for.body43.lr.ph:                                 ; preds = %for.cond41.preheade
   %39 = load i64, ptr %count.i, align 8
   %add49 = add i64 %39, %add30
   %40 = load ptr, ptr %sel, align 8
-  %41 = sub i64 %count, %r.0223
+  %41 = sub nuw i64 %count, %r.0223
   br label %for.body43
 
 for.body43:                                       ; preds = %for.inc55, %for.body43.lr.ph
@@ -72182,7 +72182,7 @@ lpad33:                                           ; preds = %invoke.cont39, %.no
   br label %ehcleanup69
 
 for.inc55:                                        ; preds = %for.body43
-  %sub51 = sub i64 %42, %add30
+  %sub51 = sub nuw i64 %42, %add30
   %inc52 = add nuw i64 %sel_count.0215, 1
   %conv.i = trunc i64 %sub51 to i32
   %arrayidx.i = getelementptr inbounds i32, ptr %40, i64 %sel_count.0215
@@ -95196,13 +95196,13 @@ while.body70.lr.ph.i:                             ; preds = %while.cond66.prehea
   %8 = load ptr, ptr %tuples75.i, align 8, !tbaa !726
   %scevgep.i = getelementptr i8, ptr %result_values.i, i64 %result_offset.0.lcssa.i
   %scevgep66.i = getelementptr i8, ptr %5, i64 %update_info_offset.0.lcssa.i
-  %9 = sub nsw i64 %conv68.pre-phi.i, %update_info_offset.0.lcssa.i
+  %9 = sub nuw nsw i64 %conv68.pre-phi.i, %update_info_offset.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep.i, ptr align 1 %scevgep66.i, i64 %9, i1 false), !tbaa !1074
   %10 = shl i64 %result_offset.0.lcssa.i, 2
   %scevgep67.i = getelementptr i8, ptr %result_ids.i, i64 %10
   %11 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep68.i = getelementptr i8, ptr %8, i64 %11
-  %12 = shl nsw i64 %9, 2
+  %12 = shl nuw nsw i64 %9, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep67.i, ptr align 4 %scevgep68.i, i64 %12, i1 false), !tbaa !51
   %13 = add i64 %result_offset.0.lcssa.i, %conv68.pre-phi.i
   %14 = sub i64 %13, %update_info_offset.0.lcssa.i
@@ -95629,13 +95629,13 @@ for.cond23.preheader.i.i:                         ; preds = %for.body.i.i, %for.
 for.body25.i.preheader.i:                         ; preds = %for.cond23.preheader.i.i
   %scevgep71.i = getelementptr i8, ptr %result_values.i, i64 %result_offset.7.i
   %scevgep72.i = getelementptr i8, ptr %4, i64 %bidx.0.lcssa.i.i
-  %64 = sub nsw i64 %conv89.i, %bidx.0.lcssa.i.i
+  %64 = sub nuw nsw i64 %conv89.i, %bidx.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep71.i, ptr align 1 %scevgep72.i, i64 %64, i1 false), !tbaa !1074
   %65 = shl i64 %result_offset.7.i, 2
   %scevgep73.i = getelementptr i8, ptr %result_ids.i, i64 %65
   %66 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep74.i = getelementptr i8, ptr %27, i64 %66
-  %67 = shl nsw i64 %64, 2
+  %67 = shl nuw nsw i64 %64, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep73.i, ptr align 4 %scevgep74.i, i64 %67, i1 false), !tbaa !51
   %68 = add i64 %result_offset.7.i, %64
   br label %_ZN6duckdbL23MergeUpdateLoopInternalIbNS_12ValidityMaskENS_20ExtractValidityEntryEEEvPNS_10UpdateInfoEPT0_S4_S6_PlmRKNS_15SelectionVectorE.exit
@@ -95736,13 +95736,13 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %10 = load ptr, ptr %tuples68.i, align 8, !tbaa !726
   %scevgep.i = getelementptr i8, ptr %result_values.i, i64 %result_offset.0.lcssa.i
   %scevgep218.i = getelementptr i8, ptr %7, i64 %update_info_offset.0.lcssa.i
-  %11 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %11 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep.i, ptr align 1 %scevgep218.i, i64 %11, i1 false), !tbaa !50
   %12 = shl i64 %result_offset.0.lcssa.i, 2
   %scevgep219.i = getelementptr i8, ptr %result_ids.i, i64 %12
   %13 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep220.i = getelementptr i8, ptr %10, i64 %13
-  %14 = shl nsw i64 %11, 2
+  %14 = shl nuw nsw i64 %11, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep219.i, ptr align 4 %scevgep220.i, i64 %14, i1 false), !tbaa !51
   %15 = add i64 %result_offset.0.lcssa.i, %conv63.pre-phi.i
   %16 = sub i64 %15, %update_info_offset.0.lcssa.i
@@ -96073,13 +96073,13 @@ for.cond23.preheader.i.i:                         ; preds = %for.body.i.i, %for.
 for.body25.i.preheader.i:                         ; preds = %for.cond23.preheader.i.i
   %scevgep223.i = getelementptr i8, ptr %result_values.i, i64 %result_offset.7.i
   %scevgep224.i = getelementptr i8, ptr %6, i64 %bidx.0.lcssa.i.i
-  %58 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %58 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep223.i, ptr align 1 %scevgep224.i, i64 %58, i1 false), !tbaa !50
   %59 = shl i64 %result_offset.7.i, 2
   %scevgep225.i = getelementptr i8, ptr %result_ids.i, i64 %59
   %60 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep226.i = getelementptr i8, ptr %28, i64 %60
-  %61 = shl nsw i64 %58, 2
+  %61 = shl nuw nsw i64 %58, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep225.i, ptr align 4 %scevgep226.i, i64 %61, i1 false), !tbaa !51
   %62 = add i64 %result_offset.7.i, %58
   br label %_ZN6duckdbL23MergeUpdateLoopInternalIaaNS_20ExtractStandardEntryEEEvPNS_10UpdateInfoEPT0_S3_S5_PlmRKNS_15SelectionVectorE.exit
@@ -96190,14 +96190,14 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %scevgep.i = getelementptr i8, ptr %result_values.i, i64 %11
   %12 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 1
   %scevgep212.i = getelementptr i8, ptr %7, i64 %12
-  %13 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
-  %14 = shl nsw i64 %13, 1
+  %13 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %14 = shl nuw nsw i64 %13, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %scevgep.i, ptr align 2 %scevgep212.i, i64 %14, i1 false), !tbaa !938
   %15 = shl i64 %result_offset.0.lcssa.i, 2
   %scevgep213.i = getelementptr i8, ptr %result_ids.i, i64 %15
   %16 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep214.i = getelementptr i8, ptr %10, i64 %16
-  %17 = shl nsw i64 %13, 2
+  %17 = shl nuw nsw i64 %13, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep213.i, ptr align 4 %scevgep214.i, i64 %17, i1 false), !tbaa !51
   %18 = add i64 %result_offset.0.lcssa.i, %conv63.pre-phi.i
   %19 = sub i64 %18, %update_info_offset.0.lcssa.i
@@ -96533,14 +96533,14 @@ for.body25.i.preheader.i:                         ; preds = %for.cond23.preheade
   %scevgep217.i = getelementptr i8, ptr %result_values.i, i64 %62
   %63 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 1
   %scevgep218.i = getelementptr i8, ptr %6, i64 %63
-  %64 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
-  %65 = shl nsw i64 %64, 1
+  %64 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %65 = shl nuw nsw i64 %64, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %scevgep217.i, ptr align 2 %scevgep218.i, i64 %65, i1 false), !tbaa !938
   %66 = shl i64 %result_offset.7.i, 2
   %scevgep219.i = getelementptr i8, ptr %result_ids.i, i64 %66
   %67 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep220.i = getelementptr i8, ptr %31, i64 %67
-  %68 = shl nsw i64 %64, 2
+  %68 = shl nuw nsw i64 %64, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep219.i, ptr align 4 %scevgep220.i, i64 %68, i1 false), !tbaa !51
   %69 = add i64 %result_offset.7.i, %64
   br label %_ZN6duckdbL23MergeUpdateLoopInternalIssNS_20ExtractStandardEntryEEEvPNS_10UpdateInfoEPT0_S3_S5_PlmRKNS_15SelectionVectorE.exit
@@ -96652,8 +96652,8 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %scevgep.i = getelementptr i8, ptr %result_values.i, i64 %11
   %12 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep212.i = getelementptr i8, ptr %7, i64 %12
-  %13 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
-  %14 = shl nsw i64 %13, 2
+  %13 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %14 = shl nuw nsw i64 %13, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i, ptr align 4 %scevgep212.i, i64 %14, i1 false), !tbaa !51
   %scevgep213.i = getelementptr i8, ptr %result_ids.i, i64 %11
   %scevgep214.i = getelementptr i8, ptr %10, i64 %12
@@ -96991,8 +96991,8 @@ for.body25.i.preheader.i:                         ; preds = %for.cond23.preheade
   %scevgep217.i = getelementptr i8, ptr %result_values.i, i64 %59
   %60 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep218.i = getelementptr i8, ptr %6, i64 %60
-  %61 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
-  %62 = shl nsw i64 %61, 2
+  %61 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %62 = shl nuw nsw i64 %61, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep217.i, ptr align 4 %scevgep218.i, i64 %62, i1 false), !tbaa !51
   %scevgep219.i = getelementptr i8, ptr %result_ids.i, i64 %59
   %scevgep220.i = getelementptr i8, ptr %28, i64 %60
@@ -97106,14 +97106,14 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %scevgep.i = getelementptr i8, ptr %result_values.i, i64 %11
   %12 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 3
   %scevgep218.i = getelementptr i8, ptr %7, i64 %12
-  %13 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
-  %14 = shl nsw i64 %13, 3
+  %13 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %14 = shl nuw nsw i64 %13, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep.i, ptr align 8 %scevgep218.i, i64 %14, i1 false), !tbaa !18
   %15 = shl i64 %result_offset.0.lcssa.i, 2
   %scevgep219.i = getelementptr i8, ptr %result_ids.i, i64 %15
   %16 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep220.i = getelementptr i8, ptr %10, i64 %16
-  %17 = shl nsw i64 %13, 2
+  %17 = shl nuw nsw i64 %13, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep219.i, ptr align 4 %scevgep220.i, i64 %17, i1 false), !tbaa !51
   %18 = add i64 %result_offset.0.lcssa.i, %conv63.pre-phi.i
   %19 = sub i64 %18, %update_info_offset.0.lcssa.i
@@ -97449,14 +97449,14 @@ for.body25.i.preheader.i:                         ; preds = %for.cond23.preheade
   %scevgep223.i = getelementptr i8, ptr %result_values.i, i64 %62
   %63 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 3
   %scevgep224.i = getelementptr i8, ptr %6, i64 %63
-  %64 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
-  %65 = shl nsw i64 %64, 3
+  %64 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %65 = shl nuw nsw i64 %64, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep223.i, ptr align 8 %scevgep224.i, i64 %65, i1 false), !tbaa !18
   %66 = shl i64 %result_offset.8.i, 2
   %scevgep225.i = getelementptr i8, ptr %result_ids.i, i64 %66
   %67 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep226.i = getelementptr i8, ptr %31, i64 %67
-  %68 = shl nsw i64 %64, 2
+  %68 = shl nuw nsw i64 %64, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep225.i, ptr align 4 %scevgep226.i, i64 %68, i1 false), !tbaa !51
   %69 = add i64 %result_offset.8.i, %64
   br label %_ZN6duckdbL23MergeUpdateLoopInternalIllNS_20ExtractStandardEntryEEEvPNS_10UpdateInfoEPT0_S3_S5_PlmRKNS_15SelectionVectorE.exit
@@ -97566,13 +97566,13 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %10 = load ptr, ptr %tuples68.i, align 8, !tbaa !726
   %scevgep.i = getelementptr i8, ptr %result_values.i, i64 %result_offset.0.lcssa.i
   %scevgep218.i = getelementptr i8, ptr %7, i64 %update_info_offset.0.lcssa.i
-  %11 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %11 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep.i, ptr align 1 %scevgep218.i, i64 %11, i1 false), !tbaa !50
   %12 = shl i64 %result_offset.0.lcssa.i, 2
   %scevgep219.i = getelementptr i8, ptr %result_ids.i, i64 %12
   %13 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep220.i = getelementptr i8, ptr %10, i64 %13
-  %14 = shl nsw i64 %11, 2
+  %14 = shl nuw nsw i64 %11, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep219.i, ptr align 4 %scevgep220.i, i64 %14, i1 false), !tbaa !51
   %15 = add i64 %result_offset.0.lcssa.i, %conv63.pre-phi.i
   %16 = sub i64 %15, %update_info_offset.0.lcssa.i
@@ -97903,13 +97903,13 @@ for.cond23.preheader.i.i:                         ; preds = %for.body.i.i, %for.
 for.body25.i.preheader.i:                         ; preds = %for.cond23.preheader.i.i
   %scevgep223.i = getelementptr i8, ptr %result_values.i, i64 %result_offset.7.i
   %scevgep224.i = getelementptr i8, ptr %6, i64 %bidx.0.lcssa.i.i
-  %58 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %58 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep223.i, ptr align 1 %scevgep224.i, i64 %58, i1 false), !tbaa !50
   %59 = shl i64 %result_offset.7.i, 2
   %scevgep225.i = getelementptr i8, ptr %result_ids.i, i64 %59
   %60 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep226.i = getelementptr i8, ptr %28, i64 %60
-  %61 = shl nsw i64 %58, 2
+  %61 = shl nuw nsw i64 %58, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep225.i, ptr align 4 %scevgep226.i, i64 %61, i1 false), !tbaa !51
   %62 = add i64 %result_offset.7.i, %58
   br label %_ZN6duckdbL23MergeUpdateLoopInternalIhhNS_20ExtractStandardEntryEEEvPNS_10UpdateInfoEPT0_S3_S5_PlmRKNS_15SelectionVectorE.exit
@@ -98020,14 +98020,14 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %scevgep.i = getelementptr i8, ptr %result_values.i, i64 %11
   %12 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 1
   %scevgep212.i = getelementptr i8, ptr %7, i64 %12
-  %13 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
-  %14 = shl nsw i64 %13, 1
+  %13 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %14 = shl nuw nsw i64 %13, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %scevgep.i, ptr align 2 %scevgep212.i, i64 %14, i1 false), !tbaa !938
   %15 = shl i64 %result_offset.0.lcssa.i, 2
   %scevgep213.i = getelementptr i8, ptr %result_ids.i, i64 %15
   %16 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep214.i = getelementptr i8, ptr %10, i64 %16
-  %17 = shl nsw i64 %13, 2
+  %17 = shl nuw nsw i64 %13, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep213.i, ptr align 4 %scevgep214.i, i64 %17, i1 false), !tbaa !51
   %18 = add i64 %result_offset.0.lcssa.i, %conv63.pre-phi.i
   %19 = sub i64 %18, %update_info_offset.0.lcssa.i
@@ -98363,14 +98363,14 @@ for.body25.i.preheader.i:                         ; preds = %for.cond23.preheade
   %scevgep217.i = getelementptr i8, ptr %result_values.i, i64 %62
   %63 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 1
   %scevgep218.i = getelementptr i8, ptr %6, i64 %63
-  %64 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
-  %65 = shl nsw i64 %64, 1
+  %64 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %65 = shl nuw nsw i64 %64, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %scevgep217.i, ptr align 2 %scevgep218.i, i64 %65, i1 false), !tbaa !938
   %66 = shl i64 %result_offset.7.i, 2
   %scevgep219.i = getelementptr i8, ptr %result_ids.i, i64 %66
   %67 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep220.i = getelementptr i8, ptr %31, i64 %67
-  %68 = shl nsw i64 %64, 2
+  %68 = shl nuw nsw i64 %64, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep219.i, ptr align 4 %scevgep220.i, i64 %68, i1 false), !tbaa !51
   %69 = add i64 %result_offset.7.i, %64
   br label %_ZN6duckdbL23MergeUpdateLoopInternalIttNS_20ExtractStandardEntryEEEvPNS_10UpdateInfoEPT0_S3_S5_PlmRKNS_15SelectionVectorE.exit
@@ -98482,8 +98482,8 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %scevgep.i = getelementptr i8, ptr %result_values.i, i64 %11
   %12 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep212.i = getelementptr i8, ptr %7, i64 %12
-  %13 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
-  %14 = shl nsw i64 %13, 2
+  %13 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %14 = shl nuw nsw i64 %13, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i, ptr align 4 %scevgep212.i, i64 %14, i1 false), !tbaa !51
   %scevgep213.i = getelementptr i8, ptr %result_ids.i, i64 %11
   %scevgep214.i = getelementptr i8, ptr %10, i64 %12
@@ -98821,8 +98821,8 @@ for.body25.i.preheader.i:                         ; preds = %for.cond23.preheade
   %scevgep217.i = getelementptr i8, ptr %result_values.i, i64 %59
   %60 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep218.i = getelementptr i8, ptr %6, i64 %60
-  %61 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
-  %62 = shl nsw i64 %61, 2
+  %61 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %62 = shl nuw nsw i64 %61, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep217.i, ptr align 4 %scevgep218.i, i64 %62, i1 false), !tbaa !51
   %scevgep219.i = getelementptr i8, ptr %result_ids.i, i64 %59
   %scevgep220.i = getelementptr i8, ptr %28, i64 %60
@@ -98936,14 +98936,14 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %scevgep.i = getelementptr i8, ptr %result_values.i, i64 %11
   %12 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 3
   %scevgep218.i = getelementptr i8, ptr %7, i64 %12
-  %13 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
-  %14 = shl nsw i64 %13, 3
+  %13 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %14 = shl nuw nsw i64 %13, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep.i, ptr align 8 %scevgep218.i, i64 %14, i1 false), !tbaa !18
   %15 = shl i64 %result_offset.0.lcssa.i, 2
   %scevgep219.i = getelementptr i8, ptr %result_ids.i, i64 %15
   %16 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep220.i = getelementptr i8, ptr %10, i64 %16
-  %17 = shl nsw i64 %13, 2
+  %17 = shl nuw nsw i64 %13, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep219.i, ptr align 4 %scevgep220.i, i64 %17, i1 false), !tbaa !51
   %18 = add i64 %result_offset.0.lcssa.i, %conv63.pre-phi.i
   %19 = sub i64 %18, %update_info_offset.0.lcssa.i
@@ -99279,14 +99279,14 @@ for.body25.i.preheader.i:                         ; preds = %for.cond23.preheade
   %scevgep223.i = getelementptr i8, ptr %result_values.i, i64 %62
   %63 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 3
   %scevgep224.i = getelementptr i8, ptr %6, i64 %63
-  %64 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
-  %65 = shl nsw i64 %64, 3
+  %64 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %65 = shl nuw nsw i64 %64, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep223.i, ptr align 8 %scevgep224.i, i64 %65, i1 false), !tbaa !18
   %66 = shl i64 %result_offset.8.i, 2
   %scevgep225.i = getelementptr i8, ptr %result_ids.i, i64 %66
   %67 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep226.i = getelementptr i8, ptr %31, i64 %67
-  %68 = shl nsw i64 %64, 2
+  %68 = shl nuw nsw i64 %64, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep225.i, ptr align 4 %scevgep226.i, i64 %68, i1 false), !tbaa !51
   %69 = add i64 %result_offset.8.i, %64
   br label %_ZN6duckdbL23MergeUpdateLoopInternalImmNS_20ExtractStandardEntryEEEvPNS_10UpdateInfoEPT0_S3_S5_PlmRKNS_15SelectionVectorE.exit
@@ -99398,14 +99398,14 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %scevgep.i = getelementptr i8, ptr %result_ids.i, i64 %11
   %12 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep219.i = getelementptr i8, ptr %10, i64 %12
-  %13 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
-  %14 = shl nsw i64 %13, 2
+  %13 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %14 = shl nuw nsw i64 %13, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i, ptr align 4 %scevgep219.i, i64 %14, i1 false), !tbaa !51
   %15 = shl i64 %result_offset.0.lcssa.i, 4
   %scevgep220.i = getelementptr i8, ptr %result_values.i, i64 %15
   %16 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 4
   %scevgep221.i = getelementptr i8, ptr %7, i64 %16
-  %17 = shl nsw i64 %13, 4
+  %17 = shl nuw nsw i64 %13, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep220.i, ptr align 8 %scevgep221.i, i64 %17, i1 false)
   %18 = add i64 %result_offset.0.lcssa.i, %conv63.pre-phi.i
   %19 = sub i64 %18, %update_info_offset.0.lcssa.i
@@ -99563,7 +99563,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end15.i.i, %whil
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %33 = load ptr, ptr %sel, align 8, !tbaa !72
   %tobool.not.i77.i.i = icmp eq ptr %33, null
-  %34 = sub i64 %count, %aidx.0.lcssa.i.i
+  %34 = sub nuw i64 %count, %aidx.0.lcssa.i.i
   %xtraiter38 = and i64 %34, 1
   %lcmp.mod39.not = icmp eq i64 %xtraiter38, 0
   br i1 %tobool.not.i77.i.i, label %for.body.us.i.i.preheader, label %for.body.i.i.preheader
@@ -99733,14 +99733,14 @@ for.body25.i.preheader.i:                         ; preds = %for.cond23.preheade
   %scevgep222.i = getelementptr i8, ptr %result_ids.i, i64 %54
   %55 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep223.i = getelementptr i8, ptr %29, i64 %55
-  %56 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
-  %57 = shl nsw i64 %56, 2
+  %56 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %57 = shl nuw nsw i64 %56, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep222.i, ptr align 4 %scevgep223.i, i64 %57, i1 false), !tbaa !51
   %58 = shl i64 %result_offset.8.i, 4
   %scevgep224.i = getelementptr i8, ptr %result_values.i, i64 %58
   %59 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 4
   %scevgep225.i = getelementptr i8, ptr %6, i64 %59
-  %60 = shl nsw i64 %56, 4
+  %60 = shl nuw nsw i64 %56, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep224.i, ptr align 8 %scevgep225.i, i64 %60, i1 false)
   %61 = add i64 %result_offset.8.i, %56
   br label %_ZN6duckdbL23MergeUpdateLoopInternalINS_9hugeint_tES1_NS_20ExtractStandardEntryEEEvPNS_10UpdateInfoEPT0_S4_S6_PlmRKNS_15SelectionVectorE.exit
@@ -99852,8 +99852,8 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %scevgep.i = getelementptr i8, ptr %result_values.i, i64 %11
   %12 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep212.i = getelementptr i8, ptr %7, i64 %12
-  %13 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
-  %14 = shl nsw i64 %13, 2
+  %13 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %14 = shl nuw nsw i64 %13, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i, ptr align 4 %scevgep212.i, i64 %14, i1 false), !tbaa !1035
   %scevgep213.i = getelementptr i8, ptr %result_ids.i, i64 %11
   %scevgep214.i = getelementptr i8, ptr %10, i64 %12
@@ -100191,8 +100191,8 @@ for.body25.i.preheader.i:                         ; preds = %for.cond23.preheade
   %scevgep217.i = getelementptr i8, ptr %result_values.i, i64 %59
   %60 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep218.i = getelementptr i8, ptr %6, i64 %60
-  %61 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
-  %62 = shl nsw i64 %61, 2
+  %61 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %62 = shl nuw nsw i64 %61, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep217.i, ptr align 4 %scevgep218.i, i64 %62, i1 false), !tbaa !1035
   %scevgep219.i = getelementptr i8, ptr %result_ids.i, i64 %59
   %scevgep220.i = getelementptr i8, ptr %28, i64 %60
@@ -100306,14 +100306,14 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %scevgep.i = getelementptr i8, ptr %result_values.i, i64 %11
   %12 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 3
   %scevgep212.i = getelementptr i8, ptr %7, i64 %12
-  %13 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
-  %14 = shl nsw i64 %13, 3
+  %13 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %14 = shl nuw nsw i64 %13, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep.i, ptr align 8 %scevgep212.i, i64 %14, i1 false), !tbaa !1048
   %15 = shl i64 %result_offset.0.lcssa.i, 2
   %scevgep213.i = getelementptr i8, ptr %result_ids.i, i64 %15
   %16 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep214.i = getelementptr i8, ptr %10, i64 %16
-  %17 = shl nsw i64 %13, 2
+  %17 = shl nuw nsw i64 %13, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep213.i, ptr align 4 %scevgep214.i, i64 %17, i1 false), !tbaa !51
   %18 = add i64 %result_offset.0.lcssa.i, %conv63.pre-phi.i
   %19 = sub i64 %18, %update_info_offset.0.lcssa.i
@@ -100649,14 +100649,14 @@ for.body25.i.preheader.i:                         ; preds = %for.cond23.preheade
   %scevgep217.i = getelementptr i8, ptr %result_values.i, i64 %62
   %63 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 3
   %scevgep218.i = getelementptr i8, ptr %6, i64 %63
-  %64 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
-  %65 = shl nsw i64 %64, 3
+  %64 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %65 = shl nuw nsw i64 %64, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep217.i, ptr align 8 %scevgep218.i, i64 %65, i1 false), !tbaa !1048
   %66 = shl i64 %result_offset.7.i, 2
   %scevgep219.i = getelementptr i8, ptr %result_ids.i, i64 %66
   %67 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep220.i = getelementptr i8, ptr %31, i64 %67
-  %68 = shl nsw i64 %64, 2
+  %68 = shl nuw nsw i64 %64, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep219.i, ptr align 4 %scevgep220.i, i64 %68, i1 false), !tbaa !51
   %69 = add i64 %result_offset.7.i, %64
   br label %_ZN6duckdbL23MergeUpdateLoopInternalIddNS_20ExtractStandardEntryEEEvPNS_10UpdateInfoEPT0_S3_S5_PlmRKNS_15SelectionVectorE.exit
@@ -100768,14 +100768,14 @@ while.body65.lr.ph.i:                             ; preds = %while.cond61.prehea
   %scevgep.i = getelementptr i8, ptr %result_ids.i, i64 %11
   %12 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep219.i = getelementptr i8, ptr %10, i64 %12
-  %13 = sub nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
-  %14 = shl nsw i64 %13, 2
+  %13 = sub nuw nsw i64 %conv63.pre-phi.i, %update_info_offset.0.lcssa.i
+  %14 = shl nuw nsw i64 %13, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i, ptr align 4 %scevgep219.i, i64 %14, i1 false), !tbaa !51
   %15 = shl i64 %result_offset.0.lcssa.i, 4
   %scevgep220.i = getelementptr i8, ptr %result_values.i, i64 %15
   %16 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 4
   %scevgep221.i = getelementptr i8, ptr %7, i64 %16
-  %17 = shl nsw i64 %13, 4
+  %17 = shl nuw nsw i64 %13, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep220.i, ptr align 8 %scevgep221.i, i64 %17, i1 false)
   %18 = add i64 %result_offset.0.lcssa.i, %conv63.pre-phi.i
   %19 = sub i64 %18, %update_info_offset.0.lcssa.i
@@ -100933,7 +100933,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end15.i.i, %whil
 for.body.i.preheader.i:                           ; preds = %for.cond.preheader.i.i
   %33 = load ptr, ptr %sel, align 8, !tbaa !72
   %tobool.not.i77.i.i = icmp eq ptr %33, null
-  %34 = sub i64 %count, %aidx.0.lcssa.i.i
+  %34 = sub nuw i64 %count, %aidx.0.lcssa.i.i
   %xtraiter38 = and i64 %34, 1
   %lcmp.mod39.not = icmp eq i64 %xtraiter38, 0
   br i1 %tobool.not.i77.i.i, label %for.body.i.us.i.preheader, label %for.body.i.i.preheader
@@ -101103,14 +101103,14 @@ for.body25.i.preheader.i:                         ; preds = %for.cond23.preheade
   %scevgep222.i = getelementptr i8, ptr %result_ids.i, i64 %54
   %55 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep223.i = getelementptr i8, ptr %29, i64 %55
-  %56 = sub nsw i64 %conv82.i, %bidx.0.lcssa.i.i
-  %57 = shl nsw i64 %56, 2
+  %56 = sub nuw nsw i64 %conv82.i, %bidx.0.lcssa.i.i
+  %57 = shl nuw nsw i64 %56, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep222.i, ptr align 4 %scevgep223.i, i64 %57, i1 false), !tbaa !51
   %58 = shl i64 %result_offset.7.i, 4
   %scevgep224.i = getelementptr i8, ptr %result_values.i, i64 %58
   %59 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 4
   %scevgep225.i = getelementptr i8, ptr %6, i64 %59
-  %60 = shl nsw i64 %56, 4
+  %60 = shl nuw nsw i64 %56, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep224.i, ptr align 8 %scevgep225.i, i64 %60, i1 false)
   %61 = add i64 %result_offset.7.i, %56
   br label %_ZN6duckdbL23MergeUpdateLoopInternalINS_10interval_tES1_NS_20ExtractStandardEntryEEEvPNS_10UpdateInfoEPT0_S4_S6_PlmRKNS_15SelectionVectorE.exit
@@ -101215,14 +101215,14 @@ while.body68.lr.ph.i:                             ; preds = %while.cond64.prehea
   %scevgep.i = getelementptr i8, ptr %result_ids.i, i64 %11
   %12 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 2
   %scevgep225.i = getelementptr i8, ptr %10, i64 %12
-  %13 = sub nsw i64 %conv66.i, %update_info_offset.0.lcssa.i
-  %14 = shl nsw i64 %13, 2
+  %13 = sub nuw nsw i64 %conv66.i, %update_info_offset.0.lcssa.i
+  %14 = shl nuw nsw i64 %13, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i, ptr align 4 %scevgep225.i, i64 %14, i1 false), !tbaa !51
   %15 = shl i64 %result_offset.0.lcssa.i, 4
   %scevgep226.i = getelementptr i8, ptr %result_values.i, i64 %15
   %16 = shl nuw nsw i64 %update_info_offset.0.lcssa.i, 4
   %scevgep227.i = getelementptr i8, ptr %7, i64 %16
-  %17 = shl nsw i64 %13, 4
+  %17 = shl nuw nsw i64 %13, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep226.i, ptr align 8 %scevgep227.i, i64 %17, i1 false)
   %18 = sub i64 %result_offset.0.lcssa.i, %update_info_offset.0.lcssa.i
   %19 = add i64 %18, %conv66.i
@@ -101566,14 +101566,14 @@ for.body25.i.preheader.i:                         ; preds = %for.cond23.preheade
   %scevgep228.i = getelementptr i8, ptr %result_ids.i, i64 %49
   %50 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 2
   %scevgep229.i = getelementptr i8, ptr %34, i64 %50
-  %51 = sub nsw i64 %conv85.i, %bidx.0.lcssa.i.i
-  %52 = shl nsw i64 %51, 2
+  %51 = sub nuw nsw i64 %conv85.i, %bidx.0.lcssa.i.i
+  %52 = shl nuw nsw i64 %51, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep228.i, ptr align 4 %scevgep229.i, i64 %52, i1 false), !tbaa !51
   %53 = shl i64 %result_offset.7.i, 4
   %scevgep230.i = getelementptr i8, ptr %result_values.i, i64 %53
   %54 = shl nuw nsw i64 %bidx.0.lcssa.i.i, 4
   %scevgep231.i = getelementptr i8, ptr %6, i64 %54
-  %55 = shl nsw i64 %51, 4
+  %55 = shl nuw nsw i64 %51, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep230.i, ptr align 8 %scevgep231.i, i64 %55, i1 false)
   %56 = add i64 %result_offset.7.i, %51
   br label %_ZN6duckdbL23MergeUpdateLoopInternalINS_8string_tES1_NS_20ExtractStandardEntryEEEvPNS_10UpdateInfoEPT0_S4_S6_PlmRKNS_15SelectionVectorE.exit
@@ -105332,7 +105332,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !2354
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64
@@ -105504,7 +105504,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN6duckdb17RowGroupWriteDataESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 

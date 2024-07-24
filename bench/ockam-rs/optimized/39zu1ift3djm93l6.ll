@@ -719,7 +719,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %15 = load i64, ptr %14, align 8, !noundef !13
   %.not = icmp ult i64 %13, %15
   %16 = select i1 %.not, i64 0, i64 %15
-  %.0 = sub i64 %13, %16
+  %.0 = sub nuw i64 %13, %16
   %17 = sub i64 %15, %.0
   %.not17 = icmp ult i64 %17, %7
   store i64 %.0, ptr %0, align 8
@@ -731,7 +731,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 21:                                               ; preds = %10
-  %22 = sub i64 %7, %17
+  %22 = sub nuw i64 %7, %17
   store i64 %15, ptr %18, align 8
   store i64 0, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 24
@@ -766,7 +766,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %15 = load i64, ptr %14, align 8, !noundef !13
   %.not = icmp ult i64 %13, %15
   %16 = select i1 %.not, i64 0, i64 %15
-  %.0 = sub i64 %13, %16
+  %.0 = sub nuw i64 %13, %16
   %17 = sub i64 %15, %.0
   %.not17 = icmp ult i64 %17, %7
   store i64 %.0, ptr %0, align 8
@@ -778,7 +778,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 21:                                               ; preds = %10
-  %22 = sub i64 %7, %17
+  %22 = sub nuw i64 %7, %17
   store i64 %15, ptr %18, align 8
   store i64 0, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1713,7 +1713,7 @@ define hidden { i64, ptr } @"_ZN94_$LT$tokio..io..util..write_all..WriteAll$LT$W
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %18, i64 %.sroa.2.0.copyload
-  %25 = sub i64 %19, %.sroa.2.0.copyload
+  %25 = sub nuw i64 %19, %.sroa.2.0.copyload
   store ptr %24, ptr %4, align 8
   store i64 %25, ptr %5, align 8
   %26 = icmp eq i64 %.sroa.2.0.copyload, 0

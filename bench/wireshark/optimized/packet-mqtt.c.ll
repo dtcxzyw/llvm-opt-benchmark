@@ -1450,7 +1450,7 @@ proto_item_set_generated.exit:                    ; preds = %245, %249, %252
   br i1 %.not57.i, label %316, label %311
 
 311:                                              ; preds = %307
-  %312 = sub i64 %278, %310
+  %312 = sub nuw i64 %278, %310
   %313 = getelementptr i8, ptr %277, i64 %312
   %314 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %313, ptr noundef nonnull dereferenceable(1) %309) #7
   %315 = icmp eq i32 %314, 0

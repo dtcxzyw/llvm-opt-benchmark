@@ -82985,7 +82985,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
   br i1 %cmp85, label %if.then86, label %if.end93
 
 if.then86:                                        ; preds = %invoke.cont83
-  %sub88 = sub i32 %60, %sub
+  %sub88 = sub nuw i32 %60, %sub
   %call90 = invoke noundef ptr @_ZN3smt12theory_arithINS_6mi_extEE5powerEP4exprj(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull %var.addr.3, i32 noundef %sub88)
           to label %invoke.cont89 unwind label %lpad60
 
@@ -185326,7 +185326,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
   br i1 %cmp85, label %if.then86, label %if.end93
 
 if.then86:                                        ; preds = %invoke.cont83
-  %sub88 = sub i32 %60, %sub
+  %sub88 = sub nuw i32 %60, %sub
   %call90 = invoke noundef ptr @_ZN3smt12theory_arithINS_5i_extEE5powerEP4exprj(ptr noundef nonnull align 8 dereferenceable(1544) %this, ptr noundef nonnull %var.addr.3, i32 noundef %sub88)
           to label %invoke.cont89 unwind label %lpad60
 
@@ -285175,7 +285175,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
   br i1 %cmp85, label %if.then86, label %if.end93
 
 if.then86:                                        ; preds = %invoke.cont83
-  %sub88 = sub i32 %60, %sub
+  %sub88 = sub nuw i32 %60, %sub
   %call90 = invoke noundef ptr @_ZN3smt12theory_arithINS_7inf_extEE5powerEP4exprj(ptr noundef nonnull align 8 dereferenceable(1736) %this, ptr noundef nonnull %var.addr.3, i32 noundef %sub88)
           to label %invoke.cont89 unwind label %lpad60
 

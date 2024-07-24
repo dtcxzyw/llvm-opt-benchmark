@@ -12289,7 +12289,7 @@ invoke.cont4.i.i:                                 ; preds = %if.end10
   store ptr %7, ptr %agg.result, align 8, !tbaa !33, !alias.scope !307
   %8 = load ptr, ptr %this, align 8, !tbaa !21, !noalias !307
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %5
-  %sub.i.i.i = sub i64 %6, %5
+  %sub.i.i.i = sub nuw i64 %6, %5
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #25, !noalias !307
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !92, !noalias !307
@@ -18273,7 +18273,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorISt13unordered_mapImS_IP15CraftDefinitionSaIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS4_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 

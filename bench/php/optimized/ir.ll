@@ -3166,7 +3166,7 @@ define hidden i32 @ir_folding(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   br i1 %456, label %1603, label %457
 
 457:                                              ; preds = %453
-  %458 = sub i64 %455, %454
+  %458 = sub nuw i64 %455, %454
   store i64 %458, ptr %.sroa.0, align 8
   br label %1735
 

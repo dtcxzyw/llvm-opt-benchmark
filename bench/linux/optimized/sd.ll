@@ -1137,7 +1137,7 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #3 align 16 {
   br i1 %164, label %165, label %168
 
 165:                                              ; preds = %163
-  %166 = sub i64 %157, %111
+  %166 = sub nuw i64 %157, %111
   %167 = trunc i64 %166 to i32
   br label %168
 
@@ -1545,7 +1545,7 @@ define internal i32 @sd_done(ptr noundef %0) #3 align 16 {
   %96 = getelementptr inbounds i8, ptr %0, i64 240
   %97 = load i32, ptr %96, align 8
   %98 = sub i32 %87, %97
-  %99 = sub i64 %90, %86
+  %99 = sub nuw i64 %90, %86
   %100 = trunc i64 %99 to i32
   %101 = mul i32 %82, %100
   %102 = call i32 @llvm.umin.i32(i32 %101, i32 %98)
@@ -1613,7 +1613,7 @@ define internal i32 @sd_done(ptr noundef %0) #3 align 16 {
   %143 = getelementptr inbounds i8, ptr %0, i64 240
   %144 = load i32, ptr %143, align 8
   %145 = sub i32 %134, %144
-  %146 = sub i64 %137, %133
+  %146 = sub nuw i64 %137, %133
   %147 = trunc i64 %146 to i32
   %148 = mul i32 %129, %147
   %149 = call i32 @llvm.umin.i32(i32 %148, i32 %145)
@@ -7008,7 +7008,7 @@ define internal fastcc i32 @sd_completed_bytes(ptr nocapture noundef readonly %0
   %30 = getelementptr inbounds i8, ptr %0, i64 240
   %31 = load i32, ptr %30, align 8
   %32 = sub i32 %21, %31
-  %33 = sub i64 %24, %20
+  %33 = sub nuw i64 %24, %20
   %34 = trunc i64 %33 to i32
   %35 = mul i32 %16, %34
   %36 = call i32 @llvm.umin.i32(i32 %35, i32 %32)

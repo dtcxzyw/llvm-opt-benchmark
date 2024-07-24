@@ -56,7 +56,7 @@ define void @dggglm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 35:                                               ; preds = %32
   %36 = icmp slt i32 %27, 0
-  %37 = sub nsw i32 %26, %33
+  %37 = sub nuw nsw i32 %26, %33
   %38 = icmp slt i32 %27, %37
   %39 = select i1 %36, i1 true, i1 %38
   br i1 %39, label %.thread10.sink.split, label %40

@@ -5403,7 +5403,7 @@ define dso_local ptr @blk_mq_dequeue_from_ctx(ptr nocapture noundef readonly %0,
   %39 = shl nuw i32 1, %36
   %40 = select i1 %35, i32 %38, i32 %39
   %41 = sub i32 %40, %32
-  %42 = sub i32 %30, %33
+  %42 = sub nuw i32 %30, %33
   %43 = call i32 @llvm.umin.i32(i32 %41, i32 %42)
   %44 = add i32 %43, %33
   %45 = load ptr, ptr %19, align 8

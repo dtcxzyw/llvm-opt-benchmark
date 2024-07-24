@@ -3527,8 +3527,8 @@ for.body45.preheader.i:                           ; preds = %for.cond41.preheade
   %123 = zext nneg i32 %122 to i64
   %scevgep.i = getelementptr i8, ptr @indirect_reg_alloc_order, i64 %123
   %scevgep57.i = getelementptr i8, ptr @tcg_target_reg_alloc_order, i64 %123
-  %narrow = sub nuw nsw i32 124, %122
-  %124 = zext nneg i32 %narrow to i64
+  %narrow.i = sub nuw nsw i32 124, %122
+  %124 = zext nneg i32 %narrow.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(1) %scevgep57.i, i64 %124, i1 false)
   br label %tcg_context_init.exit
 
@@ -22685,8 +22685,8 @@ if.then37:                                        ; preds = %tcg_out_sib_offset.
 
 if.else39:                                        ; preds = %tcg_out_sib_offset.exit
   %add40 = or disjoint i32 %cond17, 141
-  %sub41 = sub nsw i32 %notmask, %notmask67
-  %conv42 = zext i32 %sub41 to i64
+  %sub41 = sub nuw nsw i32 %notmask, %notmask67
+  %conv42 = zext nneg i32 %sub41 to i64
   tail call fastcc void @tcg_out_modrm_offset(ptr noundef nonnull %s, i32 noundef %add40, i32 noundef 6, i32 noundef %addrlo, i64 noundef %conv42)
   br label %if.end43
 

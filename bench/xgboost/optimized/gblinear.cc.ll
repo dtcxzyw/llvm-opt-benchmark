@@ -9225,7 +9225,7 @@ _ZN7xgboost6linalg6TensorIfLi2EE4ViewENS_9DeviceOrdE.exit: ; preds = %.preheader
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %_ZN7xgboost6linalg6TensorIfLi2EE4ViewENS_9DeviceOrdE.exit
-  %88 = sub i64 %78, %85
+  %88 = sub nuw i64 %78, %85
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %71, i64 noundef %88)
   %.pre = load ptr, ptr %71, align 8
   %.pre45 = load ptr, ptr %79, align 8
@@ -9682,7 +9682,7 @@ define linkonce_odr void @_ZN7xgboost3gbm8GBLinear31PredictInteractionContributi
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %6
-  %33 = sub i64 %23, %30
+  %33 = sub nuw i64 %23, %30
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %33)
   %.pre = load ptr, ptr %7, align 8
   %.pre8 = load ptr, ptr %24, align 8
@@ -9968,7 +9968,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %100 = sub nsw i64 %90, %97
+  %100 = sub nuw nsw i64 %90, %97
   call void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %92, i64 noundef %100, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %.pre = load ptr, ptr %3, align 8
   %.pre49 = load ptr, ptr %91, align 8
@@ -10026,7 +10026,7 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit: 
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit
-  %130 = sub nsw i64 %120, %127
+  %130 = sub nuw nsw i64 %120, %127
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %122, i64 noundef %130, ptr noundef nonnull align 4 dereferenceable(4) %11)
   %.pre50 = load ptr, ptr %4, align 8
   %.pre51 = load ptr, ptr %121, align 8
@@ -12648,7 +12648,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %43
-  %54 = sub i64 %44, %51
+  %54 = sub nuw i64 %44, %51
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %54)
   %.pre.i.i.i.i = load i64, ptr %3, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i.i.i
@@ -13089,7 +13089,7 @@ _ZN7xgboost6linalg6TensorIfLi2EE4ViewENS_9DeviceOrdE.exit: ; preds = %.preheader
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %_ZN7xgboost6linalg6TensorIfLi2EE4ViewENS_9DeviceOrdE.exit
-  %92 = sub i64 %82, %89
+  %92 = sub nuw i64 %82, %89
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %92)
   br label %_ZN7xgboost7DMatrix10GetBatchesINS_10SparsePageEEENS_8BatchSetIT_EEv.exit
 
@@ -16186,7 +16186,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -16364,7 +16364,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

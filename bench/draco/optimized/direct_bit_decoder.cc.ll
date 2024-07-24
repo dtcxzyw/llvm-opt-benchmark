@@ -137,7 +137,7 @@ _ZN5draco16DirectBitDecoder5ClearEv.exit:         ; preds = %2, %6
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %25
-  %36 = sub nsw i64 %27, %33
+  %36 = sub nuw nsw i64 %27, %33
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %36)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 

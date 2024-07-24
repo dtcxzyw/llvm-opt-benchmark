@@ -41,7 +41,7 @@ if.end10:                                         ; preds = %entry
   br i1 %cmp13.not, label %if.end16, label %fail
 
 if.end16:                                         ; preds = %if.end10
-  %sub = sub nsw i32 %call7, %add
+  %sub = sub nuw nsw i32 %call7, %add
   %4 = load i8, ptr %fdt, align 1
   %conv.i38 = zext i8 %4 to i32
   %shl.i39 = shl nuw i32 %conv.i38, 24
@@ -113,7 +113,7 @@ if.then31:                                        ; preds = %if.end25
   br i1 %cmp33.not, label %if.end36, label %fail
 
 if.end36:                                         ; preds = %if.then31
-  %sub39 = sub i32 %or10.i76, %stroffset
+  %sub39 = sub nuw i32 %or10.i76, %stroffset
   %spec.select129 = tail call i32 @llvm.umin.i32(i32 %sub39, i32 %sub)
   br label %if.end73
 
@@ -150,7 +150,7 @@ if.end64:                                         ; preds = %lor.lhs.false58
 
 if.end73:                                         ; preds = %if.end36, %if.end64, %if.end25
   %len.0.in = phi i32 [ %sub, %if.end25 ], [ %spec.select, %if.end64 ], [ %spec.select129, %if.end36 ]
-  %len.0 = zext i32 %len.0.in to i64
+  %len.0 = zext nneg i32 %len.0.in to i64
   %idx.ext74 = zext nneg i32 %add to i64
   %add.ptr75 = getelementptr i8, ptr %fdt, i64 %idx.ext74
   %call76 = tail call ptr @memchr(ptr noundef %add.ptr75, i32 noundef 0, i64 noundef %len.0) #10

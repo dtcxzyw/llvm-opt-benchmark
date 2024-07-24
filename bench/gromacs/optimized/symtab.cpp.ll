@@ -1362,7 +1362,7 @@ define void @_ZN11StringTableC2EPN3gmx11ISerializerE(ptr noundef nonnull align 8
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %14
-  %26 = sub nsw i64 %16, %23
+  %26 = sub nuw nsw i64 %16, %23
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %26)
           to label %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 

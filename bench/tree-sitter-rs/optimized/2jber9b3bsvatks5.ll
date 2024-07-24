@@ -1098,7 +1098,7 @@ define internal noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8, !nonnull !17, !align !321, !noundef !17
   %9 = getelementptr inbounds i8, ptr %8, i64 %2
-  %10 = sub i64 %5, %2
+  %10 = sub nuw i64 %5, %2
   %11 = icmp eq i64 %2, 1
   br i1 %11, label %13, label %12
 
@@ -1316,9 +1316,9 @@ define internal noalias noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..R
 _ZN4core2io12borrowed_buf14BorrowedCursor6append17h7eb1767e30bb8431E.exit: ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !17
-  %12 = sub i64 %5, %7
+  %12 = sub nuw i64 %5, %7
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %12, i64 %11)
-  %13 = sub i64 %11, %.0.sroa.speculated.i
+  %13 = sub nuw i64 %11, %.0.sroa.speculated.i
   %14 = load ptr, ptr %0, align 8, !nonnull !17, !align !321, !noundef !17
   %15 = getelementptr inbounds i8, ptr %14, i64 %.0.sroa.speculated.i
   %16 = load ptr, ptr %1, align 8, !noalias !380, !nonnull !17, !align !321, !noundef !17

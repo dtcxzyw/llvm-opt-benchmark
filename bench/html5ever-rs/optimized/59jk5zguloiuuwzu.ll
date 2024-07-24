@@ -101,7 +101,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !4
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.0 = sub i64 %5, %7
+  %.0 = sub nuw i64 %5, %7
   ret i64 %.0
 }
 
@@ -119,7 +119,7 @@ define hidden noundef align 8 ptr @"_ZN5alloc11collections9vec_deque21VecDeque$L
   %10 = load i64, ptr %0, align 8, !alias.scope !14, !noundef !4
   %.not.i = icmp ult i64 %9, %10
   %11 = select i1 %.not.i, i64 0, i64 %10
-  %.0.i = sub i64 %9, %11
+  %.0.i = sub nuw i64 %9, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %13, i64 %.0.i
@@ -190,7 +190,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN5alloc11colle
   %10 = load i64, ptr %0, align 8, !alias.scope !20, !noundef !4
   %.not.i = icmp ult i64 %9, %10
   %11 = select i1 %.not.i, i64 0, i64 %10
-  %.0.i = sub i64 %9, %11
+  %.0.i = sub nuw i64 %9, %11
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %13, i64 %.0.i
@@ -225,7 +225,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop
   %10 = load i64, ptr %1, align 8, !alias.scope !23, !noundef !4
   %.not.i = icmp ult i64 %9, %10
   %11 = select i1 %.not.i, i64 0, i64 %10
-  %.0.i = sub i64 %9, %11
+  %.0.i = sub nuw i64 %9, %11
   store i64 %.0.i, ptr %7, align 8
   %12 = add i64 %4, -1
   store i64 %12, ptr %3, align 8
@@ -306,7 +306,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %37 = load i64, ptr %0, align 8, !alias.scope !32, !noundef !4
   %.not.i = icmp ult i64 %36, %37
   %38 = select i1 %.not.i, i64 0, i64 %37
-  %.0.i = sub i64 %36, %38
+  %.0.i = sub nuw i64 %36, %38
   %39 = getelementptr inbounds i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %40, i64 %.0.i

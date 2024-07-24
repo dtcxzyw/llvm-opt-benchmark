@@ -212,7 +212,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @rtl_fw_request_firmware(
   %36 = getelementptr inbounds i8, ptr %12, i64 40
   %37 = load i32, ptr %36, align 1
   %38 = zext i32 %37 to i64
-  %39 = sub i64 %14, %33
+  %39 = sub nuw i64 %14, %33
   %40 = lshr i64 %39, 2
   %41 = icmp ult i64 %40, %38
   br i1 %41, label %.critedge, label %42

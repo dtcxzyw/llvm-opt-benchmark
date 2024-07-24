@@ -46,7 +46,7 @@ if.then4:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %in, i64 %sub, i1 false)
-  %sub10 = sub i64 %len, %sub
+  %sub10 = sub nuw i64 %len, %sub
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %sub
   store i32 0, ptr %c, align 4
   tail call fastcc void @mdc2_body(ptr noundef nonnull %c, ptr noundef nonnull %data, i64 noundef 8)

@@ -1589,7 +1589,7 @@ define dso_local ptr @getKeyJsonValueFromContainer(ptr noundef %0, ptr nocapture
 14:                                               ; preds = %8, %65
   %.03552 = phi i32 [ 0, %8 ], [ %.1, %65 ]
   %.03651 = phi i32 [ %6, %8 ], [ %.137, %65 ]
-  %15 = sub i32 %.03651, %.03552
+  %15 = sub nuw i32 %.03651, %.03552
   %16 = lshr i32 %15, 1
   %17 = add i32 %16, %.03552
   %18 = zext i32 %17 to i64

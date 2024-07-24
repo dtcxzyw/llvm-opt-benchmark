@@ -23866,12 +23866,12 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end26
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18
@@ -24096,12 +24096,12 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sink3.i, i64 %shr.i.sink.i
-  %sub = sub i64 %new_size, %shr.i.sink.i
+  %sub = sub nuw i64 %new_size, %shr.i.sink.i
   br label %if.end26
 
 if.else18:                                        ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sink3.i, i64 %new_size
-  %sub25 = sub nsw i64 %shr.i.sink.i, %new_size
+  %sub25 = sub nuw nsw i64 %shr.i.sink.i, %new_size
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.else18

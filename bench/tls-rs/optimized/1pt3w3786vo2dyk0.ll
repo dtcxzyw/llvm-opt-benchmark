@@ -4870,7 +4870,7 @@ define void @"_ZN87_$LT$rustls..msgs..handshake..ClientExtension$u20$as$u20$rust
   %37 = extractvalue { i16, i16 } %35, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1167)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1170)
-  %38 = sub i64 %18, %24
+  %38 = sub nuw i64 %18, %24
   %39 = icmp ult i64 %38, 2
   br i1 %39, label %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h04f3cde3a5bed1f4E.exit", label %40
 
@@ -4910,7 +4910,7 @@ define void @"_ZN87_$LT$rustls..msgs..handshake..ClientExtension$u20$as$u20$rust
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1180)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1183)
-  %53 = sub i64 %18, %41
+  %53 = sub nuw i64 %18, %41
   %54 = icmp ult i64 %53, %52
   br i1 %54, label %65, label %55
 
@@ -5987,7 +5987,7 @@ define void @"_ZN87_$LT$rustls..msgs..handshake..ServerExtension$u20$as$u20$rust
   %32 = extractvalue { i16, i16 } %30, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1408)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1411)
-  %33 = sub i64 %13, %19
+  %33 = sub nuw i64 %13, %19
   %34 = icmp ult i64 %33, 2
   br i1 %34, label %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h04f3cde3a5bed1f4E.exit", label %35
 
@@ -6027,7 +6027,7 @@ define void @"_ZN87_$LT$rustls..msgs..handshake..ServerExtension$u20$as$u20$rust
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1421)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1424)
-  %48 = sub i64 %13, %36
+  %48 = sub nuw i64 %13, %36
   %49 = icmp ult i64 %48, %47
   br i1 %49, label %60, label %50
 
@@ -8836,7 +8836,7 @@ define void @"_ZN91_$LT$rustls..msgs..handshake..HelloRetryExtension$u20$as$u20$
   %26 = extractvalue { i16, i16 } %24, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2005)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2008)
-  %27 = sub i64 %7, %13
+  %27 = sub nuw i64 %7, %13
   %28 = icmp ult i64 %27, 2
   br i1 %28, label %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h04f3cde3a5bed1f4E.exit", label %29
 
@@ -8876,7 +8876,7 @@ define void @"_ZN91_$LT$rustls..msgs..handshake..HelloRetryExtension$u20$as$u20$
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2018)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2021)
-  %42 = sub i64 %7, %30
+  %42 = sub nuw i64 %7, %30
   %43 = icmp ult i64 %42, %41
   br i1 %43, label %54, label %44
 
@@ -10856,7 +10856,7 @@ define void @"_ZN92_$LT$rustls..msgs..handshake..CertificateExtension$u20$as$u20
   %27 = extractvalue { i16, i16 } %25, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2550)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2553)
-  %28 = sub i64 %8, %14
+  %28 = sub nuw i64 %8, %14
   %29 = icmp ult i64 %28, 2
   br i1 %29, label %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h04f3cde3a5bed1f4E.exit", label %30
 
@@ -10896,7 +10896,7 @@ define void @"_ZN92_$LT$rustls..msgs..handshake..CertificateExtension$u20$as$u20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2563)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2566)
-  %43 = sub i64 %8, %31
+  %43 = sub nuw i64 %8, %31
   %44 = icmp ult i64 %43, %42
   br i1 %44, label %56, label %45
 
@@ -14067,7 +14067,7 @@ define void @"_ZN88_$LT$rustls..msgs..handshake..CertReqExtension$u20$as$u20$rus
   %28 = extractvalue { i16, i16 } %26, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3387)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3390)
-  %29 = sub i64 %9, %15
+  %29 = sub nuw i64 %9, %15
   %30 = icmp ult i64 %29, 2
   br i1 %30, label %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h04f3cde3a5bed1f4E.exit", label %31
 
@@ -14107,7 +14107,7 @@ define void @"_ZN88_$LT$rustls..msgs..handshake..CertReqExtension$u20$as$u20$rus
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3400)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3403)
-  %44 = sub i64 %9, %32
+  %44 = sub nuw i64 %9, %32
   %45 = icmp ult i64 %44, %43
   br i1 %45, label %56, label %46
 
@@ -14957,7 +14957,7 @@ define void @"_ZN97_$LT$rustls..msgs..handshake..NewSessionTicketExtension$u20$a
   %23 = extractvalue { i16, i16 } %21, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3640)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3643)
-  %24 = sub i64 %4, %10
+  %24 = sub nuw i64 %4, %10
   %25 = icmp ult i64 %24, 2
   br i1 %25, label %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h04f3cde3a5bed1f4E.exit", label %26
 
@@ -14996,7 +14996,7 @@ define void @"_ZN97_$LT$rustls..msgs..handshake..NewSessionTicketExtension$u20$a
   %38 = zext i16 %37 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3653)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3656)
-  %39 = sub i64 %4, %27
+  %39 = sub nuw i64 %4, %27
   %40 = icmp ult i64 %39, %38
   br i1 %40, label %52, label %41
 
@@ -15400,7 +15400,7 @@ define void @"_ZN100_$LT$rustls..msgs..handshake..NewSessionTicketPayloadTls13$u
   %27 = tail call i32 @llvm.bswap.i32(i32 %26)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3788)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3791)
-  %28 = sub i64 %11, %17
+  %28 = sub nuw i64 %11, %17
   %29 = icmp ult i64 %28, 4
   br i1 %29, label %45, label %30
 
@@ -16749,7 +16749,7 @@ define hidden void @_ZN6rustls4msgs9handshake23HandshakeMessagePayload12read_ver
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4171)
-  %59 = sub i64 %35, %41
+  %59 = sub nuw i64 %35, %41
   %60 = icmp ult i64 %59, %58
   br i1 %60, label %72, label %61
 
@@ -17774,7 +17774,7 @@ _ZN6rustls4msgs5codec5Codec12get_encoding17h70fb4bdcc373f64cE.exit: ; preds = %2
   %53 = phi i64 [ %47, %.thread ], [ %50, %48 ]
   %54 = phi ptr [ %46, %.thread ], [ %49, %48 ]
   %.112 = phi i64 [ 0, %.thread ], [ %34, %48 ]
-  %55 = sub i64 %53, %.112
+  %55 = sub nuw i64 %53, %.112
   store i64 %55, ptr %54, align 8, !alias.scope !4245
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5777dfd3e4249c38E.exit"
 
@@ -17967,7 +17967,7 @@ define void @"_ZN96_$LT$rustls..msgs..handshake..HpkeSymmetricCipherSuite$u20$as
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4309)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4312)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4315)
-  %21 = sub i64 %4, %10
+  %21 = sub nuw i64 %4, %10
   %22 = icmp ult i64 %21, 2
   br i1 %22, label %"_ZN76_$LT$rustls..msgs..enums..HpkeAead$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17hc01446e570540ae0E.exit", label %23
 
@@ -18209,7 +18209,7 @@ define void @"_ZN85_$LT$rustls..msgs..handshake..HpkeKeyConfig$u20$as$u20$rustls
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4399)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4402)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4405)
-  %23 = sub i64 %8, %13
+  %23 = sub nuw i64 %8, %13
   %24 = icmp ult i64 %23, 2
   br i1 %24, label %"_ZN75_$LT$rustls..msgs..enums..HpkeKem$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h59b8792ef4071123E.exit", label %25
 
@@ -19102,7 +19102,7 @@ define void @"_ZN81_$LT$rustls..msgs..handshake..EchConfig$u20$as$u20$rustls..ms
   %..i.i = zext i1 %23 to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4638)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4641)
-  %24 = sub i64 %6, %12
+  %24 = sub nuw i64 %6, %12
   %25 = icmp ult i64 %24, 2
   br i1 %25, label %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h04f3cde3a5bed1f4E.exit", label %26
 
@@ -19144,7 +19144,7 @@ define void @"_ZN81_$LT$rustls..msgs..handshake..EchConfig$u20$as$u20$rustls..ms
   %38 = zext i16 %37 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4651)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4654)
-  %39 = sub i64 %6, %27
+  %39 = sub nuw i64 %6, %27
   %40 = icmp ult i64 %39, %38
   br i1 %40, label %54, label %41
 

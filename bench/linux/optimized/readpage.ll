@@ -122,7 +122,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef %
   unreachable
 
 59:                                               ; preds = %54
-  %60 = sub i32 %56, %55
+  %60 = sub nuw i32 %56, %55
   store i32 %60, ptr %34, align 8
   %61 = zext i32 %55 to i64
   %62 = load i64, ptr %35, align 8
@@ -268,7 +268,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef %
 153:                                              ; preds = %146
   %154 = trunc i64 %151 to i32
   store i32 %154, ptr %31, align 8
-  %155 = sub i64 %99, %151
+  %155 = sub nuw i64 %99, %151
   %156 = trunc i64 %155 to i32
   store i32 %156, ptr %30, align 4
   %157 = call i32 @ext4_map_blocks(ptr noundef null, ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0) #7

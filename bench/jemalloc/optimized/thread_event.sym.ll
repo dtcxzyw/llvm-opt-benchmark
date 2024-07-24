@@ -96,7 +96,7 @@ if.then:                                          ; preds = %land.end
   br i1 %cmp14, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.then
-  %sub17 = sub i64 %9, %sub
+  %sub17 = sub nuw i64 %9, %sub
   br label %if.end23
 
 if.else:                                          ; preds = %if.then
@@ -131,7 +131,7 @@ if.then68:                                        ; preds = %if.end29
   br i1 %cmp73, label %if.then75, label %if.else77
 
 if.then75:                                        ; preds = %if.then68
-  %sub76 = sub i64 %11, %sub
+  %sub76 = sub nuw i64 %11, %sub
   br label %if.end84
 
 if.else77:                                        ; preds = %if.then68
@@ -168,7 +168,7 @@ if.then98:                                        ; preds = %if.end90
   br i1 %cmp103, label %if.then105, label %if.else107
 
 if.then105:                                       ; preds = %if.then98
-  %sub106 = sub i64 %13, %sub
+  %sub106 = sub nuw i64 %13, %sub
   br label %if.end114
 
 if.else107:                                       ; preds = %if.then98
@@ -201,7 +201,7 @@ if.then125:                                       ; preds = %if.end120
   br i1 %cmp130, label %if.then132, label %if.else134
 
 if.then132:                                       ; preds = %if.then125
-  %sub133 = sub i64 %15, %sub
+  %sub133 = sub nuw i64 %15, %sub
   br label %if.end141
 
 if.else134:                                       ; preds = %if.then125
@@ -234,7 +234,7 @@ if.then152:                                       ; preds = %if.end147
   br i1 %cmp157, label %if.then159, label %if.else161
 
 if.then159:                                       ; preds = %if.then152
-  %sub160 = sub i64 %17, %sub
+  %sub160 = sub nuw i64 %17, %sub
   br label %if.end168
 
 if.else161:                                       ; preds = %if.then152

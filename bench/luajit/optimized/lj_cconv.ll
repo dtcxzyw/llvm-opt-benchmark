@@ -688,7 +688,7 @@ for.body278:                                      ; preds = %for.body278.lr.ph, 
   %dsize.2431 = phi i32 [ %3, %for.body278.lr.ph ], [ %sub283, %for.body278 ]
   %add.ptr280 = getelementptr inbounds i8, ptr %dp.addr.0432, i64 %idx.ext279
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr280, ptr align 1 %dp.tr425, i64 %idx.ext279, i1 false)
-  %sub283 = sub i32 %dsize.2431, %39
+  %sub283 = sub nuw i32 %dsize.2431, %39
   %cmp276 = icmp ugt i32 %sub283, %39
   br i1 %cmp276, label %for.body278, label %sw.epilog, !llvm.loop !6
 

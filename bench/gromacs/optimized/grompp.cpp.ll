@@ -4104,7 +4104,7 @@ _ZL15rm_interactionsiN3gmx8ArrayRefI19MoleculeInformationEE.exit185.thread.i: ; 
   br i1 %954, label %955, label %957
 
 955:                                              ; preds = %_ZL15rm_interactionsiN3gmx8ArrayRefI19MoleculeInformationEE.exit185.thread.i
-  %956 = sub nsw i64 %946, %953
+  %956 = sub nuw nsw i64 %946, %953
   invoke void @_ZNSt6vectorI13gmx_moltype_tSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %945, i64 noundef %956)
           to label %_ZNSt6vectorI13gmx_moltype_tSaIS0_EE6resizeEm.exit.i.i unwind label %.loopexit.split-lp45.loopexit.split-lp.i
 
@@ -5959,7 +5959,7 @@ _ZL10gen_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEPKcS7_15RefCo
   br i1 %1662, label %1663, label %1692
 
 1663:                                             ; preds = %1647
-  %1664 = sub nsw i64 %1654, %1661
+  %1664 = sub nuw nsw i64 %1654, %1661
   %1665 = getelementptr inbounds i8, ptr %127, i64 104
   %1666 = load ptr, ptr %1665, align 8
   %1667 = ptrtoint ptr %1666 to i64
@@ -5981,7 +5981,7 @@ _ZSt27__uninitialized_default_n_aIP14gmx_cmapdata_tmS0_ET_S2_T0_RSaIT1_E.exit.i:
   br label %_ZNSt6vectorI14gmx_cmapdata_tSaIS0_EE6resizeEm.exit.i
 
 1674:                                             ; preds = %1663
-  %1675 = icmp ult i64 %1671, %1664
+  %1675 = icmp slt i32 %1650, 0
   br i1 %1675, label %.invoke1097, label %_ZNKSt6vectorI14gmx_cmapdata_tSaIS0_EE12_M_check_lenEmPKc.exit.i
 
 .invoke1097:                                      ; preds = %2240, %_ZL14init_cmap_gridP10gmx_cmap_tii.exit, %1674
@@ -6094,7 +6094,7 @@ _ZNSt6vectorI14gmx_cmapdata_tSaIS0_EE6resizeEm.exit.i: ; preds = %_ZSt27__uninit
   br i1 %1711, label %1712, label %1714
 
 1712:                                             ; preds = %1701
-  %1713 = sub nsw i64 %1700, %1710
+  %1713 = sub nuw nsw i64 %1700, %1710
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1703, i64 noundef %1713)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -16546,7 +16546,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -16567,7 +16567,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23

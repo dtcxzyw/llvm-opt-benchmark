@@ -1840,7 +1840,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i: ; preds = %38, %
   br i1 %47, label %.split.us.i, label %.lr.ph.split.split.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit.i": ; preds = %44
-  %50 = sub i64 %46, %24
+  %50 = sub nuw i64 %46, %24
   %51 = getelementptr inbounds i8, ptr %1, i64 %50
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(1) %27, i64 %24), !alias.scope !449, !noalias !443
   %52 = icmp eq i32 %bcmp.i.i, 0
@@ -3299,7 +3299,7 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %30 = getelementptr inbounds i8, ptr %22, i64 %20
   %31 = load i8, ptr %30, align 1, !alias.scope !555, !noundef !4
   %32 = icmp sgt i8 %31, -65
-  %33 = sub i64 %24, %20
+  %33 = sub nuw i64 %24, %20
   br i1 %32, label %36, label %35
 
 34:                                               ; preds = %4

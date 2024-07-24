@@ -130,7 +130,7 @@ define range(i64 0, 4294967296) i64 @mz_adler32(i64 noundef %0, ptr noundef read
   br i1 %12, label %.lr.ph80.preheader, label %._crit_edge
 
 .lr.ph80.preheader:                               ; preds = %.preheader
-  %13 = sub nsw i64 %.089, %11
+  %13 = sub nuw nsw i64 %.089, %11
   br label %.lr.ph80
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4228,7 +4228,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   br i1 %1040, label %.lr.ph1821.preheader, label %._crit_edge1822
 
 .lr.ph1821.preheader:                             ; preds = %.preheader
-  %1041 = sub nsw i64 %.01831, %1039
+  %1041 = sub nuw nsw i64 %.01831, %1039
   br label %.lr.ph1821
 
 .lr.ph1812:                                       ; preds = %.lr.ph1812.preheader, %.lr.ph1812
@@ -8601,7 +8601,7 @@ mz_zip_array_ensure_capacity.exit367:             ; preds = %222
   br label %378
 
 370:                                              ; preds = %356
-  %371 = sub i32 %.0309381, %366
+  %371 = sub nuw i32 %.0309381, %366
   %372 = zext nneg i32 %366 to i64
   %373 = getelementptr inbounds i8, ptr %.0308382, i64 %372
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8829,7 +8829,7 @@ mz_zip_reader_end_internal.exit:                  ; preds = %20, %13, %41, %91, 
 define internal i64 @mz_zip_mem_read_func(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #9 {
   %5 = load i64, ptr %0, align 8
   %.not = icmp ugt i64 %5, %1
-  %6 = sub i64 %5, %1
+  %6 = sub nuw i64 %5, %1
   %. = tail call i64 @llvm.umin.i64(i64 %6, i64 %3)
   %7 = select i1 %.not, i64 %., i64 0
   %8 = getelementptr inbounds i8, ptr %0, i64 104

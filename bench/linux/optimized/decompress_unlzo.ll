@@ -292,7 +292,7 @@ define dso_local noundef range(i32 -1, 1) i32 @unlzo(ptr noundef %0, i64 noundef
 
 110:                                              ; preds = %107
   %111 = getelementptr i8, ptr %101, i64 %102
-  %112 = sub nsw i64 %108, %102
+  %112 = sub nuw nsw i64 %108, %102
   %113 = call i64 %2(ptr noundef %111, i64 noundef %112) #7
   store i64 %113, ptr %8, align 8
   %114 = call i64 @llvm.smax.i64(i64 %113, i64 0)

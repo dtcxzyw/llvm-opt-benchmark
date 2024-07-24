@@ -1660,7 +1660,7 @@ define dso_local void @_ZN25cmDependsJavaParserHelper5ErrorEPKc(ptr noundef nonn
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %2
   %16 = extractvalue { i64, ptr } %11, 1
-  %17 = sub i64 %12, %13
+  %17 = sub nuw i64 %12, %13
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %17, i64 30)
   %18 = getelementptr inbounds i8, ptr %16, i64 %13
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %18, i64 noundef %.sroa.speculated.i)

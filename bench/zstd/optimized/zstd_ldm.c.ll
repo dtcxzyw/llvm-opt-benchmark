@@ -123,7 +123,7 @@ entry:
   %sh_prom.i = zext nneg i32 %params.val23 to i64
   %notmask11.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask11.i, -1
-  %sub5.i = sub nsw i32 %spec.select.i, %params.val23
+  %sub5.i = sub nuw nsw i32 %spec.select.i, %params.val23
   %narrow.i = select i1 %or.cond.not.i, i32 %sub5.i, i32 0
   %shl7.i = zext nneg i32 %narrow.i to i64
   %sub10.sink.i = shl i64 %sub.i, %shl7.i
@@ -575,7 +575,7 @@ if.end.i53:                                       ; preds = %cond.end13.i
   %sh_prom.i.i = zext nneg i32 %params.val154.i to i64
   %notmask11.i.i = shl nsw i64 -1, %sh_prom.i.i
   %sub.i.i = xor i64 %notmask11.i.i, -1
-  %sub5.i.i = sub nsw i32 %spec.select.i.i, %params.val154.i
+  %sub5.i.i = sub nuw nsw i32 %spec.select.i.i, %params.val154.i
   %narrow.i.i = select i1 %or.cond.not.i.i, i32 %sub5.i.i, i32 0
   %shl7.i.i = zext nneg i32 %narrow.i.i to i64
   %sub10.sink.i.i = shl i64 %sub.i.i, %shl7.i.i
@@ -1326,7 +1326,7 @@ if.then:                                          ; preds = %while.body
   br label %while.end
 
 if.end:                                           ; preds = %while.body
-  %sub10 = sub i64 %srcSize.addr.033, %conv
+  %sub10 = sub nuw i64 %srcSize.addr.033, %conv
   store i32 0, ptr %litLength, align 4
   %matchLength = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %4 = load i32, ptr %matchLength, align 4
@@ -1363,7 +1363,7 @@ if.end32:                                         ; preds = %if.then27, %if.then
   br label %while.end
 
 if.end35:                                         ; preds = %if.end
-  %sub38 = sub i64 %sub10, %conv12
+  %sub38 = sub nuw i64 %sub10, %conv12
   store i32 0, ptr %matchLength, align 4
   %8 = load i64, ptr %pos, align 8
   %inc41 = add i64 %8, 1
@@ -1410,7 +1410,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp4.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %sub = sub i32 %currPos.022, %add3
+  %sub = sub nuw i32 %currPos.022, %add3
   %inc = add nuw i64 %2, 1
   store i64 %inc, ptr %pos, align 8
   %cond = icmp eq i32 %sub, 0
@@ -1527,7 +1527,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp4.not.i, label %if.else.i102, label %if.then.i100
 
 if.then.i100:                                     ; preds = %while.body.i
-  %sub.i = sub i32 %currPos.022.i, %add3.i
+  %sub.i = sub nuw i32 %currPos.022.i, %add3.i
   %inc.i = add nuw i64 %12, 1
   store i64 %inc.i, ptr %pos.i, align 8
   %cond.i101 = icmp eq i32 %sub.i, 0
@@ -1605,7 +1605,7 @@ if.then.i.i:                                      ; preds = %while.body.i.i
   br label %maybeSplitSequence.exit
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %sub10.i.i = sub i64 %srcSize.addr.033.i.i, %conv.i.i
+  %sub10.i.i = sub nuw nsw i64 %srcSize.addr.033.i.i, %conv.i.i
   store i32 0, ptr %litLength.i.i, align 4
   %matchLength.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %20 = load i32, ptr %matchLength.i.i, align 4
@@ -1642,7 +1642,7 @@ if.end32.i.i:                                     ; preds = %if.then27.i.i, %if.
   br label %maybeSplitSequence.exit
 
 if.end35.i.i:                                     ; preds = %if.end.i.i
-  %sub38.i.i = sub i64 %sub10.i.i, %conv12.i.i
+  %sub38.i.i = sub nuw nsw i64 %sub10.i.i, %conv12.i.i
   store i32 0, ptr %matchLength.i.i, align 4
   %24 = load i64, ptr %pos, align 8
   %inc41.i.i = add i64 %24, 1

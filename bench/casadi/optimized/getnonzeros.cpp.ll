@@ -817,7 +817,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES6_ET0_T_S8_S7_.ex
   br i1 %63, label %64, label %96
 
 64:                                               ; preds = %54
-  %65 = sub i64 %55, %62
+  %65 = sub nuw i64 %55, %62
   %66 = getelementptr inbounds i8, ptr %8, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = ptrtoint ptr %67 to i64
@@ -2418,7 +2418,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %99, %102, %_ZNSt6ve
   br i1 %115, label %116, label %147
 
 116:                                              ; preds = %_ZNSt6vectorIxSaIxEED2Ev.exit
-  %117 = sub nsw i64 %108, %114
+  %117 = sub nuw nsw i64 %108, %114
   %118 = load ptr, ptr %44, align 8
   %119 = ptrtoint ptr %118 to i64
   %120 = sub i64 %119, %111
@@ -2549,7 +2549,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES6_ET0_T_S8_S7_.ex
   br i1 %171, label %172, label %204
 
 172:                                              ; preds = %163
-  %173 = sub i64 %164, %170
+  %173 = sub nuw i64 %164, %170
   %174 = load ptr, ptr %46, align 8
   %175 = ptrtoint ptr %174 to i64
   %176 = sub i64 %175, %167
@@ -3480,7 +3480,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit56:                  ; preds = %104, %107, %_ZNSt6v
   br i1 %137, label %138, label %170
 
 138:                                              ; preds = %._crit_edge.thread
-  %139 = sub nsw i64 %130, %136
+  %139 = sub nuw nsw i64 %130, %136
   %140 = load ptr, ptr %43, align 8
   %141 = ptrtoint ptr %140 to i64
   %142 = sub i64 %141, %133
@@ -6369,7 +6369,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
-  %94 = sub i64 %84, %91
+  %94 = sub nuw i64 %84, %91
   call void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %94)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre11.i = load ptr, ptr %85, align 8

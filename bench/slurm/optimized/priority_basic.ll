@@ -255,7 +255,7 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
   br label %49
 
 47:                                               ; preds = %30
-  %48 = sub i64 %37, %32
+  %48 = sub nuw i64 %37, %32
   store i64 %48, ptr %36, align 8
   br label %49
 
@@ -316,7 +316,7 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
   br label %94
 
 77:                                               ; preds = %60
-  %78 = sub i64 %67, %62
+  %78 = sub nuw i64 %67, %62
   store i64 %78, ptr %66, align 8
   %79 = call i32 @get_log_level() #7
   %80 = icmp sgt i32 %79, 7

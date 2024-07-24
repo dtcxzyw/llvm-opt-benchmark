@@ -4357,7 +4357,7 @@ switch.lookup:                                    ; preds = %1250
 
 1277:                                             ; preds = %._crit_edge.thread.i.i
   %1278 = load i32, ptr @hf_rtp_midi_sj_chapter_x_invalid_data, align 4
-  %1279 = sub i32 %1205, %.2.i89.i
+  %1279 = sub nuw i32 %1205, %.2.i89.i
   %1280 = tail call ptr @proto_tree_add_item(ptr noundef %1208, i32 noundef %1278, ptr noundef %0, i32 noundef %.2127.i.i, i32 noundef %1279, i32 noundef 0) #2
   br label %decode_sj_chapter_x.exit.i
 
@@ -4779,7 +4779,7 @@ decode_cj_chapter_m.exit.i:                       ; preds = %1514, %1421
 
 1546:                                             ; preds = %1538
   %1547 = add nuw nsw i32 %1545, 1
-  %1548 = sub nsw i32 %1547, %1544
+  %1548 = sub nuw nsw i32 %1547, %1544
   br label %1551
 
 1549:                                             ; preds = %1538
@@ -4798,7 +4798,7 @@ decode_cj_chapter_m.exit.i:                       ; preds = %1514, %1421
   %spec.select.i184.i = select i1 %or.cond7.i.i, i32 128, i32 %1542
   %1555 = shl nuw nsw i32 %spec.select.i184.i, 1
   %1556 = add nuw nsw i32 %1555, 2
-  %1557 = add nsw i32 %1556, %.092.i.i
+  %1557 = add nuw nsw i32 %1556, %.092.i.i
   %1558 = load i32, ptr @ett_rtp_midi_cj_chapter_n, align 4
   %1559 = tail call ptr @proto_tree_add_subtree(ptr noundef %1330, ptr noundef %0, i32 noundef %.3160.i, i32 noundef %1557, i32 noundef %1558, ptr noundef null, ptr noundef nonnull @.str.1639) #2
   %1560 = load i32, ptr @hf_rtp_midi_cj_chapter_n_bflag, align 4

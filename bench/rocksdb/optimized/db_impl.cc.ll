@@ -15403,7 +15403,7 @@ if.then:                                          ; preds = %_ZN7rocksdb6StatusD
 
 if.then6:                                         ; preds = %if.then
   %seqno_to_time_mapping_ = getelementptr inbounds i8, ptr %this, i64 6544
-  %sub = sub i64 %4, %populate_historical_seconds
+  %sub = sub nuw i64 %4, %populate_historical_seconds
   %call9 = invoke noundef zeroext i1 @_ZN7rocksdb18SeqnoToTimeMapping11PrePopulateEmmmm(ptr noundef nonnull align 8 dereferenceable(97) %seqno_to_time_mapping_, i64 noundef 1, i64 noundef %call, i64 noundef %sub, i64 noundef %4)
           to label %if.end15 unwind label %lpad7
 
@@ -33263,7 +33263,7 @@ if.end174:                                        ; preds = %invoke.cont150
   br i1 %cmp.i298, label %if.then.i303, label %if.else.i
 
 if.then.i303:                                     ; preds = %if.end174
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values, i64 noundef %sub.i)
           to label %invoke.cont176 unwind label %lpad175
 
@@ -33303,7 +33303,7 @@ if.then178:                                       ; preds = %invoke.cont176
   br i1 %cmp.i310, label %if.then.i321, label %if.else.i311
 
 if.then.i321:                                     ; preds = %if.then178
-  %sub.i322 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i309
+  %sub.i322 = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i309
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %timestamps, i64 noundef %sub.i322)
           to label %if.end180 unwind label %lpad175
 

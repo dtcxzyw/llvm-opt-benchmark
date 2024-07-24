@@ -567,7 +567,7 @@ define hidden noundef zeroext i1 @_ZN11ClassLoader16string_ends_withEPKcS1_(ptr 
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %3, %4
+  %7 = sub nuw i64 %3, %4
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %9 = tail call i32 @strncmp(ptr noundef %8, ptr noundef %1, i64 noundef %4) #21
   %10 = icmp eq i32 %9, 0

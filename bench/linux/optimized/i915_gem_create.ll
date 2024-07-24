@@ -802,7 +802,7 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
 
 141:                                              ; preds = %125
   %142 = getelementptr i8, ptr %127, i64 %139
-  %143 = sub i64 %128, %139
+  %143 = sub nuw nsw i64 %128, %139
   %144 = add nuw nsw i64 %126, 1
   %145 = icmp eq i64 %144, %124
   br i1 %145, label %.loopexit19, label %125, !llvm.loop !25
@@ -851,7 +851,7 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
 
 173:                                              ; preds = %157
   %174 = getelementptr i8, ptr %159, i64 %171
-  %175 = sub i64 %160, %171
+  %175 = sub nuw nsw i64 %160, %171
   %176 = add nuw nsw i64 %158, 1
   %177 = icmp eq i64 %176, %156
   br i1 %177, label %.loopexit18, label %157, !llvm.loop !25

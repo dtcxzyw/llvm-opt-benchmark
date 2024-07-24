@@ -199,7 +199,7 @@ if.then86:                                        ; preds = %if.end77
   br label %fail
 
 if.end87:                                         ; preds = %if.end77
-  %sub95 = sub i64 %13, %15
+  %sub95 = sub nuw i64 %13, %15
   %cmp96 = icmp ugt i64 %sub95, 134217728
   br i1 %cmp96, label %if.then98, label %if.end99
 

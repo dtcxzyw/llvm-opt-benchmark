@@ -1530,7 +1530,7 @@ if.then.i:                                        ; preds = %while.end
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv.i125, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i125, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorIN3irr2io13SZipFileEntryESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %FileInfo, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayINS_2io13SZipFileEntryEE10reallocateEjb.exit
 

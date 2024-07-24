@@ -6692,7 +6692,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %1, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i, %2
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %2
   %4 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %4, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1

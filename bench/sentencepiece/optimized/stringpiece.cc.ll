@@ -271,7 +271,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece4findEcm(ptr nocapture noun
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 %2
   %10 = sext i8 %1 to i32
-  %11 = sub nsw i64 %5, %2
+  %11 = sub nuw nsw i64 %5, %2
   %12 = tail call noundef ptr @memchr(ptr noundef %9, i32 noundef %10, i64 noundef %11) #16
   %.not10 = icmp eq ptr %12, null
   %13 = ptrtoint ptr %12 to i64
@@ -401,7 +401,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece13find_first_ofES1_m(ptr no
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %3
   %17 = sext i8 %14 to i32
-  %18 = sub nsw i64 %7, %3
+  %18 = sub nuw nsw i64 %7, %3
   %19 = tail call noundef ptr @memchr(ptr noundef %16, i32 noundef %17, i64 noundef %18) #16
   %.not10.i.i = icmp eq ptr %19, null
   %20 = ptrtoint ptr %19 to i64

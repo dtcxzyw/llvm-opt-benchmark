@@ -1452,14 +1452,14 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %sub.i.i = sub i64 %val_size, %2
+  %sub.i.i = sub nuw i64 %val_size, %2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %val, i64 %2
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 %.lobit.i, i64 %sub.i.i, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %val, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   br label %return
 
 if.else.i.i:                                      ; preds = %if.then
-  %sub1.i.i = sub i64 %2, %val_size
+  %sub1.i.i = sub nuw i64 %2, %val_size
   %add.ptr2.i.i = getelementptr i8, ptr %1, i64 %val_size
   %cmp3.not.i.i.i = icmp eq i64 %2, %val_size
   br i1 %cmp3.not.i.i.i, label %lor.lhs.false.i.i, label %for.body.i.i.i
@@ -1502,14 +1502,14 @@ if.then3:                                         ; preds = %entry
   br i1 %cmp.i.i8, label %if.then.i.i26, label %if.else.i.i9
 
 if.then.i.i26:                                    ; preds = %if.then3
-  %sub.i.i27 = sub i64 %val_size, %8
+  %sub.i.i27 = sub nuw i64 %val_size, %8
   %add.ptr.i.i28 = getelementptr inbounds i8, ptr %val, i64 %8
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i28, i8 0, i64 %sub.i.i27, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %val, ptr readonly align 1 %7, i64 %8, i1 false)
   br label %return
 
 if.else.i.i9:                                     ; preds = %if.then3
-  %sub1.i.i10 = sub i64 %8, %val_size
+  %sub1.i.i10 = sub nuw i64 %8, %val_size
   %add.ptr2.i.i11 = getelementptr i8, ptr %7, i64 %val_size
   %cmp3.not.i.i.i12 = icmp eq i64 %8, %val_size
   br i1 %cmp3.not.i.i.i12, label %lor.lhs.false.i.i22, label %for.body.i.i.i13
@@ -1582,13 +1582,13 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then2
-  %sub.i.i = sub i64 %2, %val_size
+  %sub.i.i = sub nuw i64 %2, %val_size
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %val_size
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 %.lobit.i, i64 %sub.i.i, i1 false)
   br label %cond.true.sink.split
 
 if.else.i.i:                                      ; preds = %if.then2
-  %sub1.i.i = sub i64 %val_size, %2
+  %sub1.i.i = sub nuw i64 %val_size, %2
   %add.ptr2.i.i = getelementptr i8, ptr %val, i64 %2
   %cmp3.not.i.i.i = icmp eq i64 %2, %val_size
   br i1 %cmp3.not.i.i.i, label %lor.lhs.false.i.i, label %for.body.i.i.i
@@ -1694,14 +1694,14 @@ if.then3:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then3
-  %sub.i.i = sub i64 %val_size, %4
+  %sub.i.i = sub nuw i64 %val_size, %4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %val, i64 %4
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %sub.i.i, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %val, ptr readonly align 1 %3, i64 %4, i1 false)
   br label %return
 
 if.else.i.i:                                      ; preds = %if.then3
-  %sub1.i.i = sub i64 %4, %val_size
+  %sub1.i.i = sub nuw i64 %4, %val_size
   %add.ptr2.i.i = getelementptr i8, ptr %3, i64 %val_size
   %cmp3.not.i.i.i = icmp eq i64 %4, %val_size
   br i1 %cmp3.not.i.i.i, label %lor.lhs.false.i.i, label %for.body.i.i.i
@@ -1764,14 +1764,14 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then2
-  %sub.i.i = sub i64 %2, %val_size
+  %sub.i.i = sub nuw i64 %2, %val_size
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %val_size
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 0, i64 %sub.i.i, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr readonly align 1 %val, i64 %val_size, i1 false)
   br label %cond.true
 
 if.else.i.i:                                      ; preds = %if.then2
-  %sub1.i.i = sub i64 %val_size, %2
+  %sub1.i.i = sub nuw i64 %val_size, %2
   %add.ptr2.i.i = getelementptr i8, ptr %val, i64 %2
   %cmp3.not.i.i.i = icmp eq i64 %2, %val_size
   br i1 %cmp3.not.i.i.i, label %lor.lhs.false.i.i, label %for.body.i.i.i
@@ -1811,14 +1811,14 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp.i.i16, label %if.then.i.i31, label %if.else.i.i17
 
 if.then.i.i31:                                    ; preds = %if.then6
-  %sub.i.i32 = sub i64 %5, %val_size
+  %sub.i.i32 = sub nuw i64 %5, %val_size
   %add.ptr.i.i33 = getelementptr inbounds i8, ptr %0, i64 %val_size
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i33, i8 0, i64 %sub.i.i32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr readonly align 1 %val, i64 %val_size, i1 false)
   br label %cond.true
 
 if.else.i.i17:                                    ; preds = %if.then6
-  %sub1.i.i18 = sub i64 %val_size, %5
+  %sub1.i.i18 = sub nuw i64 %val_size, %5
   %add.ptr2.i.i19 = getelementptr i8, ptr %val, i64 %5
   %cmp3.not.i.i.i20 = icmp eq i64 %5, %val_size
   br i1 %cmp3.not.i.i.i20, label %lor.lhs.false.i.i30, label %for.body.i.i.i21
@@ -3436,14 +3436,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub i64 %dest_len, %src_len
+  %sub.i = sub nuw i64 %dest_len, %src_len
   %add.ptr.i = getelementptr inbounds i8, ptr %dest, i64 %src_len
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest, ptr nonnull readonly align 1 %src, i64 %src_len, i1 false)
   br label %return
 
 if.else.i:                                        ; preds = %if.end
-  %sub1.i = sub i64 %src_len, %dest_len
+  %sub1.i = sub nuw i64 %src_len, %dest_len
   %add.ptr2.i = getelementptr i8, ptr %src, i64 %dest_len
   %cmp3.not.i.i = icmp eq i64 %src_len, %dest_len
   br i1 %cmp3.not.i.i, label %lor.lhs.false.i, label %for.body.i.i

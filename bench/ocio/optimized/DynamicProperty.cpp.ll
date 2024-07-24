@@ -1572,7 +1572,7 @@ invoke.cont:                                      ; preds = %entry, %if.then.i.i
   br i1 %cmp.i7, label %if.then.i14, label %if.else.i8
 
 if.then.i14:                                      ; preds = %invoke.cont
-  %sub.i15 = sub i64 %mul, %sub.ptr.div.i.i6
+  %sub.i15 = sub nuw i64 %mul, %sub.ptr.div.i.i6
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_coefsOffsetsArray, i64 noundef %sub.i15)
           to label %invoke.cont5 unwind label %lpad
 

@@ -123,7 +123,7 @@ define dso_local i64 @pm_runtime_active_time(ptr noundef %0) local_unnamed_addr 
   br i1 %12, label %22, label %13
 
 13:                                               ; preds = %8
-  %14 = sub i64 %11, %10
+  %14 = sub nuw i64 %11, %10
   %15 = getelementptr inbounds i8, ptr %0, i64 452
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 2
@@ -160,7 +160,7 @@ define dso_local i64 @pm_runtime_suspended_time(ptr noundef %0) #0 align 16 {
   br i1 %12, label %22, label %13
 
 13:                                               ; preds = %8
-  %14 = sub i64 %11, %10
+  %14 = sub nuw i64 %11, %10
   %15 = getelementptr inbounds i8, ptr %0, i64 452
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 2
@@ -744,7 +744,7 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   br i1 %158, label %167, label %159
 
 159:                                              ; preds = %155
-  %160 = sub i64 %157, %156
+  %160 = sub nuw i64 %157, %156
   %161 = load i32, ptr %29, align 4
   %162 = icmp eq i32 %161, 2
   %163 = select i1 %162, i64 488, i64 480
@@ -870,7 +870,7 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   br i1 %234, label %243, label %235
 
 235:                                              ; preds = %231
-  %236 = sub i64 %233, %232
+  %236 = sub nuw i64 %233, %232
   %237 = load i32, ptr %29, align 4
   %238 = icmp eq i32 %237, 2
   %239 = select i1 %238, i64 488, i64 480
@@ -1043,7 +1043,7 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   br i1 %330, label %339, label %331
 
 331:                                              ; preds = %327
-  %332 = sub i64 %329, %328
+  %332 = sub nuw i64 %329, %328
   %333 = load i32, ptr %29, align 4
   %334 = icmp eq i32 %333, 2
   %335 = select i1 %334, i64 488, i64 480
@@ -2020,7 +2020,7 @@ split:                                            ; preds = %140, %137, %._crit_
   br i1 %170, label %179, label %171
 
 171:                                              ; preds = %166
-  %172 = sub i64 %169, %168
+  %172 = sub nuw i64 %169, %168
   %173 = load i32, ptr %27, align 4
   %174 = icmp eq i32 %173, 2
   %175 = select i1 %174, i64 488, i64 480
@@ -2147,7 +2147,7 @@ split:                                            ; preds = %140, %137, %._crit_
   br i1 %251, label %260, label %252
 
 252:                                              ; preds = %247
-  %253 = sub i64 %250, %249
+  %253 = sub nuw i64 %250, %249
   %254 = load i32, ptr %27, align 4
   %255 = icmp eq i32 %254, 2
   %256 = select i1 %255, i64 488, i64 480
@@ -2185,7 +2185,7 @@ split:                                            ; preds = %140, %137, %._crit_
   br i1 %275, label %284, label %276
 
 276:                                              ; preds = %271
-  %277 = sub i64 %274, %273
+  %277 = sub nuw i64 %274, %273
   %278 = load i32, ptr %27, align 4
   %279 = icmp eq i32 %278, 2
   %280 = select i1 %279, i64 488, i64 480
@@ -2630,7 +2630,7 @@ define dso_local i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef %1) #0
   br i1 %153, label %162, label %154
 
 154:                                              ; preds = %149
-  %155 = sub i64 %152, %151
+  %155 = sub nuw i64 %152, %151
   %156 = load i32, ptr %88, align 4
   %157 = icmp eq i32 %156, 2
   %158 = select i1 %157, i64 488, i64 480
@@ -3017,7 +3017,7 @@ define dso_local void @__pm_runtime_disable(ptr noundef %0, i1 noundef zeroext %
   br i1 %42, label %52, label %43
 
 43:                                               ; preds = %38
-  %44 = sub i64 %41, %40
+  %44 = sub nuw i64 %41, %40
   %45 = getelementptr inbounds i8, ptr %0, i64 452
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, 2
@@ -3914,7 +3914,7 @@ define dso_local i32 @pm_runtime_force_suspend(ptr noundef %0) #0 align 16 {
   br i1 %75, label %84, label %76
 
 76:                                               ; preds = %71
-  %77 = sub i64 %74, %73
+  %77 = sub nuw i64 %74, %73
   %78 = load i32, ptr %2, align 4
   %79 = icmp eq i32 %78, 2
   %80 = select i1 %79, i64 488, i64 480
@@ -3978,7 +3978,7 @@ define dso_local i32 @pm_runtime_force_resume(ptr noundef %0) #0 align 16 {
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %13
-  %19 = sub i64 %16, %15
+  %19 = sub nuw i64 %16, %15
   %20 = load i32, ptr %2, align 4
   %21 = icmp eq i32 %20, 2
   %22 = select i1 %21, i64 488, i64 480

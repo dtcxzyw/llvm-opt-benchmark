@@ -134,7 +134,7 @@ define range(i32 -1, 1) i32 @mew_lzma(ptr noundef %0, ptr noundef %1, i32 nounde
 
 61:                                               ; preds = %53
   %62 = sub i32 %54, %58
-  %63 = sub i32 %59, %58
+  %63 = sub nuw i32 %59, %58
   store i32 %63, ptr %25, align 4
   %64 = lshr i32 %57, 5
   %65 = sub i32 %56, %64
@@ -214,7 +214,7 @@ lzma_486248.exit.us.us:                           ; preds = %76, %70
 
 106:                                              ; preds = %101
   %107 = sub i32 %84, %105
-  %108 = sub i32 %83, %105
+  %108 = sub nuw i32 %83, %105
   store i32 %108, ptr %25, align 4
   %109 = lshr i32 %104, 5
   %110 = sub i32 %103, %109
@@ -291,7 +291,7 @@ lzma_486248.exit571.us.us:                        ; preds = %121, %115
 
 148:                                              ; preds = %142
   %149 = sub i32 %129, %146
-  %150 = sub i32 %128, %146
+  %150 = sub nuw i32 %128, %146
   store i32 %150, ptr %25, align 4
   %151 = lshr i32 %145, 5
   %152 = sub i32 %144, %151
@@ -368,7 +368,7 @@ lzma_486248.exit587.us.us:                        ; preds = %163, %157
 
 190:                                              ; preds = %184
   %191 = sub i32 %171, %188
-  %192 = sub i32 %170, %188
+  %192 = sub nuw i32 %170, %188
   store i32 %192, ptr %25, align 4
   %193 = lshr i32 %187, 5
   %194 = sub i32 %186, %193
@@ -471,7 +471,7 @@ lzma_486248.exit599.us.us:                        ; preds = %205, %199
 
 240:                                              ; preds = %234
   %241 = sub i32 %171, %238
-  %242 = sub i32 %170, %238
+  %242 = sub nuw i32 %170, %238
   store i32 %242, ptr %25, align 4
   %243 = lshr i32 %237, 5
   %244 = sub i32 %236, %243
@@ -640,7 +640,7 @@ lzma_486248.exit611.us.us:                        ; preds = %255, %249
 
 322:                                              ; preds = %316
   %323 = sub i32 %301, %320
-  %324 = sub i32 %300, %320
+  %324 = sub nuw i32 %300, %320
   store i32 %324, ptr %25, align 4
   %325 = lshr i32 %319, 5
   %326 = sub i32 %318, %325
@@ -774,7 +774,7 @@ lzma_486248.exit638.us.us:                        ; preds = %337, %331
 
 396:                                              ; preds = %390
   %397 = sub i32 %379, %394
-  %398 = sub i32 %380, %394
+  %398 = sub nuw i32 %380, %394
   store i32 %398, ptr %25, align 4
   %399 = lshr i32 %393, 5
   %400 = sub i32 %392, %399
@@ -1041,7 +1041,7 @@ lzma_486248.exit650.us.us:                        ; preds = %411, %405
 
 535:                                              ; preds = %529
   %536 = sub i32 %84, %533
-  %537 = sub i32 %83, %533
+  %537 = sub nuw i32 %83, %533
   store i32 %537, ptr %25, align 4
   %538 = lshr i32 %532, 5
   %539 = sub i32 %531, %538
@@ -1139,7 +1139,7 @@ lzma_486248.exit686.us.us:                        ; preds = %550, %544
 
 587:                                              ; preds = %581
   %588 = sub i32 %561, %585
-  %589 = sub i32 %562, %585
+  %589 = sub nuw i32 %562, %585
   store i32 %589, ptr %25, align 4
   %590 = lshr i32 %584, 5
   %591 = sub i32 %583, %590
@@ -1241,7 +1241,7 @@ lzma_486248.exit674.us.us:                        ; preds = %602, %596
 
 639:                                              ; preds = %633
   %640 = sub i32 %618, %637
-  %641 = sub i32 %617, %637
+  %641 = sub nuw i32 %617, %637
   store i32 %641, ptr %25, align 4
   %642 = lshr i32 %636, 5
   %643 = sub i32 %635, %642
@@ -1357,7 +1357,7 @@ lzma_486248.exit662.us.us:                        ; preds = %654, %648
 
 699:                                              ; preds = %693
   %700 = sub i32 %685, %697
-  %701 = sub i32 %687, %697
+  %701 = sub nuw i32 %687, %697
   %702 = lshr i32 %696, 5
   %703 = sub i32 %695, %702
   br label %708
@@ -1786,7 +1786,7 @@ define internal fastcc range(i32 -1, 2) i32 @lzma_486248(ptr nocapture noundef %
 
 37:                                               ; preds = %23
   %38 = sub i32 %25, %29
-  %39 = sub i32 %31, %29
+  %39 = sub nuw i32 %31, %29
   store i32 %38, ptr %24, align 8
   store i32 %39, ptr %30, align 4
   %40 = lshr i32 %28, 5
@@ -1993,7 +1993,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr nocapture noundef %
   %17 = zext i1 %.not61.us to i32
   %.1.us = or disjoint i32 %15, %17
   %18 = select i1 %.not61.us, i32 %16, i32 0
-  %.145.us = sub i32 %.044.us, %18
+  %.145.us = sub nuw i32 %.044.us, %18
   %19 = add i32 %.043.us, -1
   %.not65.us = icmp eq i32 %19, 0
   br i1 %.not65.us, label %.loopexit68, label %.preheader.split.us
@@ -2007,7 +2007,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr nocapture noundef %
   %21 = shl i32 %.042, 1
   %.not61 = icmp uge i32 %.044, %20
   %22 = select i1 %.not61, i32 %20, i32 0
-  %.145 = sub i32 %.044, %22
+  %.145 = sub nuw i32 %.044, %22
   %23 = zext i1 %.not61 to i32
   %.1 = or disjoint i32 %21, %23
   %24 = icmp ult i32 %.047, 33554432
@@ -2184,7 +2184,7 @@ define range(i32 -1, 1) i32 @lzma_upack_esi_50(ptr nocapture noundef %0, i32 nou
   br i1 %18, label %9, label %19
 
 19:                                               ; preds = %15
-  %20 = sub i32 %17, %2
+  %20 = sub nuw i32 %17, %2
   store i32 %20, ptr %5, align 4
   br label %.loopexit
 

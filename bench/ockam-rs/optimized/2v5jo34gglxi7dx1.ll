@@ -6175,7 +6175,7 @@ define hidden void @"_ZN4core3ptr139drop_in_place$LT$crossbeam_queue..array_queu
   br i1 %12, label %17, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %25
 
 15:                                               ; preds = %11
@@ -6211,7 +6211,7 @@ define hidden void @"_ZN4core3ptr139drop_in_place$LT$crossbeam_queue..array_queu
   %31 = add i64 %.sroa.0.015.i, %8
   %32 = icmp ult i64 %31, %27
   %33 = select i1 %32, i64 0, i64 %27
-  %.05.i = sub i64 %31, %33
+  %.05.i = sub nuw i64 %31, %33
   %34 = getelementptr inbounds { { i64 }, { { [9 x i64] } } }, ptr %29, i64 %.05.i, i32 1, i32 0, i32 0, i64 1
   invoke void @"_ZN4core3ptr70drop_in_place$LT$sqlx_sqlite..connection..worker..ConnectionWorker$GT$17hab5869e62232b254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34)
           to label %.noexc unwind label %36
@@ -39547,7 +39547,7 @@ define hidden void @"_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$
   br i1 %12, label %17, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %25
 
 15:                                               ; preds = %11
@@ -39587,7 +39587,7 @@ define hidden void @"_ZN91_$LT$crossbeam_queue..array_queue..ArrayQueue$LT$T$GT$
   %32 = add i64 %.sroa.0.015, %8
   %33 = icmp ult i64 %32, %27
   %34 = select i1 %33, i64 0, i64 %27
-  %.05 = sub i64 %32, %34
+  %.05 = sub nuw i64 %32, %34
   %35 = getelementptr inbounds { { i64 }, { { [9 x i64] } } }, ptr %29, i64 %.05, i32 1, i32 0, i32 0, i64 1
   tail call void @"_ZN4core3ptr70drop_in_place$LT$sqlx_sqlite..connection..worker..ConnectionWorker$GT$17hab5869e62232b254E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35)
   %exitcond.not = icmp eq i64 %31, %.0

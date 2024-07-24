@@ -53183,7 +53183,7 @@ invoke.cont7:                                     ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i69.invoke, label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  %sub.i.i = sub i64 %2, %cond.i
+  %sub.i.i = sub nuw i64 %2, %cond.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 3)
   %call4.i.i.i21 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
           to label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i unwind label %lpad9.loopexit.split-lp.loopexit
@@ -53336,7 +53336,7 @@ invoke.cont21:                                    ; preds = %_ZNSt6vectorIPN4abs
   br i1 %cmp.i.i.i38, label %if.then.i.i.i69.invoke, label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %invoke.cont21
-  %sub.i.i39 = sub i64 %2, %cond.i37
+  %sub.i.i39 = sub nuw i64 %2, %cond.i37
   %.sroa.speculated.i.i40 = call i64 @llvm.umin.i64(i64 %sub.i.i39, i64 3)
   %add.ptr.i.i42 = getelementptr inbounds i8, ptr %3, i64 %cond.i37
   br i1 %tobool, label %cond.true.i, label %cond.false.i
@@ -57146,7 +57146,7 @@ invoke.cont7:                                     ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i702.invoke, label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  %sub.i.i = sub i64 %6, %cond.i
+  %sub.i.i = sub nuw i64 %6, %cond.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 3)
   %call4.i.i.i90 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
           to label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -57179,7 +57179,7 @@ invoke.cont21:                                    ; preds = %_ZN4absl13cord_inte
   %add.i941549 = phi i64 [ %add.i94, %for.body18.backedge ], [ 6, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ]
   %i.010501548 = phi i64 [ %i.01050.be, %for.body18.backedge ], [ 1, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ]
   %tree.010511547 = phi ptr [ %tree.01051.be, %for.body18.backedge ], [ %call.i.i91, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ]
-  %sub.i.i100 = sub i64 %6, %cond.i981550
+  %sub.i.i100 = sub nuw i64 %6, %cond.i981550
   %.sroa.speculated.i.i101 = call i64 @llvm.umin.i64(i64 %sub.i.i100, i64 3)
   %add.ptr.i.i103 = getelementptr inbounds i8, ptr %7, i64 %cond.i981550
   br i1 %tobool, label %cond.true.i, label %cond.false.i
@@ -57461,7 +57461,7 @@ invoke.cont56:                                    ; preds = %_ZNSt6vectorIPN4abs
   br i1 %cmp.i.i.i150, label %if.then.i.i.i702.invoke, label %invoke.cont60
 
 invoke.cont60:                                    ; preds = %invoke.cont56
-  %sub.i.i152 = sub i64 %6, %cond.i149
+  %sub.i.i152 = sub nuw i64 %6, %cond.i149
   %.sroa.speculated.i.i153 = call i64 @llvm.umin.i64(i64 %sub.i.i152, i64 3)
   %add.ptr.i.i155 = getelementptr inbounds i8, ptr %7, i64 %cond.i149
   br i1 %tobool, label %cond.true.i163, label %cond.false.i161
@@ -57908,7 +57908,7 @@ invoke.cont171:                                   ; preds = %_ZNSt6vectorIPN4abs
   br i1 %cmp.i.i.i319, label %if.then.i.i.i702.invoke, label %invoke.cont175
 
 invoke.cont175:                                   ; preds = %invoke.cont171
-  %sub.i.i321 = sub i64 %6, %cond.i318
+  %sub.i.i321 = sub nuw i64 %6, %cond.i318
   %.sroa.speculated.i.i322 = call i64 @llvm.umin.i64(i64 %sub.i.i321, i64 3)
   %add.ptr.i.i324 = getelementptr inbounds i8, ptr %7, i64 %cond.i318
   br i1 %tobool, label %cond.true.i332, label %cond.false.i330
@@ -58267,7 +58267,7 @@ invoke.cont266:                                   ; preds = %_ZNSt6vectorIPN4abs
   br i1 %cmp.i.i.i468, label %if.then.i.i.i702.invoke, label %invoke.cont270
 
 invoke.cont270:                                   ; preds = %invoke.cont266
-  %sub.i.i470 = sub i64 %6, %cond.i467
+  %sub.i.i470 = sub nuw i64 %6, %cond.i467
   %.sroa.speculated.i.i471 = call i64 @llvm.umin.i64(i64 %sub.i.i470, i64 3)
   %add.ptr.i.i473 = getelementptr inbounds i8, ptr %7, i64 %cond.i467
   br i1 %tobool, label %cond.true.i481, label %cond.false.i479
@@ -58716,7 +58716,7 @@ invoke.cont381:                                   ; preds = %_ZNSt6vectorIPN4abs
   br i1 %cmp.i.i.i637, label %if.then.i.i.i702.invoke, label %invoke.cont385
 
 invoke.cont385:                                   ; preds = %invoke.cont381
-  %sub.i.i639 = sub i64 %6, %cond.i636
+  %sub.i.i639 = sub nuw i64 %6, %cond.i636
   %.sroa.speculated.i.i640 = call i64 @llvm.umin.i64(i64 %sub.i.i639, i64 3)
   %add.ptr.i.i642 = getelementptr inbounds i8, ptr %7, i64 %cond.i636
   br i1 %tobool, label %cond.true.i650, label %cond.false.i648

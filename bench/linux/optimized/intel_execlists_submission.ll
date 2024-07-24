@@ -2089,7 +2089,7 @@ define dso_local void @intel_execlists_show_requests(ptr nocapture noundef reado
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = sub i32 %19, %3
+  %31 = sub nuw i32 %19, %3
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef %31) #17
   br label %32
 
@@ -2162,7 +2162,7 @@ define dso_local void @intel_execlists_show_requests(ptr nocapture noundef reado
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
-  %71 = sub i32 %62, %3
+  %71 = sub nuw i32 %62, %3
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.3, i32 noundef %71) #17
   br label %72
 
@@ -2220,7 +2220,7 @@ define dso_local void @intel_execlists_show_requests(ptr nocapture noundef reado
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %102
-  %105 = sub i32 %96, %3
+  %105 = sub nuw i32 %96, %3
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.4, i32 noundef %105) #17
   br label %106
 

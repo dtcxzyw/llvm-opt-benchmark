@@ -1568,7 +1568,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17he29e9eb31f9c6139E(ptr no
   br i1 %or.cond6.i, label %32, label %"_ZN72_$LT$flate2..gz..write..GzDecoder$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h0ef9ee5775823830E.exit.thread"
 
 32:                                               ; preds = %27
-  %33 = sub i64 %.sroa.4.039, %.cast.i
+  %33 = sub nuw i64 %.sroa.4.039, %.cast.i
   %34 = sub nuw nsw i64 8, %30
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %33, i64 %34)
   %35 = add i64 %.0.sroa.speculated.i.i, %.cast.i
@@ -7322,7 +7322,7 @@ define hidden void @_ZN6brotli3enc7cluster23BrotliClusterHistograms17h30f25034c3
   %.277388 = phi i64 [ %389, %387 ], [ 0, %.lr.ph387.preheader.preheader ]
   %umin = call i64 @llvm.umin.i64(i64 %indvars.iv, i64 64)
   %umax = call i64 @llvm.umax.i64(i64 %umin, i64 1)
-  %93 = sub i64 %3, %.277388
+  %93 = sub nuw i64 %3, %.277388
   %.0.sroa.speculated.i122 = call noundef i64 @llvm.umin.i64(i64 %93, i64 64)
   br label %.lr.ph387
 
@@ -8570,7 +8570,7 @@ define hidden void @_ZN6brotli3enc7cluster23BrotliClusterHistograms17h6183d16ff4
   %.277388 = phi i64 [ %389, %387 ], [ 0, %.lr.ph387.preheader.preheader ]
   %umin = call i64 @llvm.umin.i64(i64 %indvars.iv, i64 64)
   %umax = call i64 @llvm.umax.i64(i64 %umin, i64 1)
-  %93 = sub i64 %3, %.277388
+  %93 = sub nuw i64 %3, %.277388
   %.0.sroa.speculated.i122 = call noundef i64 @llvm.umin.i64(i64 %93, i64 64)
   br label %.lr.ph387
 

@@ -939,7 +939,7 @@ define internal range(i32 0, 256) i32 @dissect_usb_vid_descriptor(ptr noundef %0
 
 28:                                               ; preds = %26
   %29 = load i32, ptr @hf_usb_vid_descriptor_data, align 4
-  %30 = sub nsw i32 %9, %.028.i
+  %30 = sub nuw nsw i32 %9, %.028.i
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %29, ptr noundef %10, i32 noundef %.028.i, i32 noundef %30, i32 noundef 0) #4
   br label %.critedge
 
@@ -1192,7 +1192,7 @@ dissect_usb_video_camera_terminal.exit.i:         ; preds = %176, %dissect_usb_v
 
 179:                                              ; preds = %dissect_usb_video_camera_terminal.exit.i
   %180 = load i32, ptr @hf_usb_vid_descriptor_data, align 4
-  %181 = sub nsw i32 %9, %.2.i
+  %181 = sub nuw nsw i32 %9, %.2.i
   %182 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %180, ptr noundef %10, i32 noundef %.2.i, i32 noundef %181, i32 noundef 0) #4
   br label %183
 

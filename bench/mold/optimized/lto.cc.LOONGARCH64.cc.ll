@@ -1000,7 +1000,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %cmp.i59, label %if.then.i63, label %if.else.i60
 
 if.then.i63:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
-  %sub.i = sub nsw i64 %add80, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %add80, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIN4mold3elf6ElfSymINS1_11LOONGARCH64EEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %lto_elf_syms, i64 noundef %sub.i)
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL14plugin_symbolsE, i64 8), align 8
   %.pre124 = load ptr, ptr @_ZN4mold3elfL14plugin_symbolsE, align 8

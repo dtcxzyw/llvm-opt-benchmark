@@ -1295,7 +1295,7 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef
 15:                                               ; preds = %.thread
   %16 = lshr i64 %.096119, 1
   %17 = shl i64 1048576, %16
-  %18 = sub i64 %14, %12
+  %18 = sub nuw i64 %14, %12
   %19 = tail call i64 @llvm.umin.i64(i64 %17, i64 %18)
   %. = tail call i64 @llvm.umin.i64(i64 %19, i64 1099511627776)
   %20 = lshr i64 %., 9
@@ -1310,7 +1310,7 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef
   br i1 %.not113, label %26, label %.loopexit
 
 26:                                               ; preds = %15
-  %27 = sub nsw i64 %., %.097
+  %27 = sub nuw nsw i64 %., %.097
   %28 = lshr i64 %27, 12
   %29 = icmp ult i64 %28, %1
   br i1 %29, label %30, label %40

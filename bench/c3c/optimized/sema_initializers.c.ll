@@ -258,7 +258,7 @@ type_flatten.exit62:                              ; preds = %54
   br i1 %103, label %104, label %112
 
 104:                                              ; preds = %96
-  %105 = sub i32 %102, %90
+  %105 = sub nuw i32 %102, %90
   %106 = zext i32 %105 to i64
   %107 = load i64, ptr %4, align 8
   %108 = load i64, ptr %48, align 8

@@ -3037,7 +3037,7 @@ do.body:                                          ; preds = %cond.end57, %if.the
 
 cond.true49:                                      ; preds = %do.body
   %9 = load ptr, ptr %arrayidx50, align 8
-  %sub51 = sub i64 %add46, %cond
+  %sub51 = sub nuw i64 %add46, %cond
   %arrayidx52 = getelementptr inbounds ptr, ptr %9, i64 %sub51
   br label %cond.end57
 
@@ -4276,7 +4276,7 @@ if.end32:                                         ; preds = %for.body
 
 if.end36:                                         ; preds = %if.end32
   %add.ptr37 = getelementptr inbounds i8, ptr %buf, i64 %l.042
-  %sub38 = sub i64 %bufsize, %l.042
+  %sub38 = sub nuw i64 %bufsize, %l.042
   %conv43 = uitofp i64 %8 to float
   %9 = load i64, ptr %htSize, align 8
   %conv45 = uitofp i64 %9 to float

@@ -2360,8 +2360,8 @@ define internal fastcc void @_ZN14regex_automata6hybrid3dfa5Cache13search_finish
 
 4:                                                ; preds = %2
   %.not.i = icmp ugt i64 %.sroa.4.0.copyload, %1
-  %5 = sub i64 %1, %.sroa.4.0.copyload
-  %6 = sub i64 %.sroa.4.0.copyload, %1
+  %5 = sub nuw i64 %1, %.sroa.4.0.copyload
+  %6 = sub nuw i64 %.sroa.4.0.copyload, %1
   %.0.i = select i1 %.not.i, i64 %6, i64 %5
   %7 = getelementptr inbounds i8, ptr %0, i64 344
   %8 = load i64, ptr %7, align 8, !noundef !9
@@ -2850,8 +2850,8 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i382: ;
   %.sroa.545.0.copyload.i = load i64, ptr %.sroa.545.0..sroa_idx.i, align 8, !alias.scope !767, !noalias !828
   %.sroa.444.0.copyload.i = load i64, ptr %.sroa.444.0..sroa_idx.i, align 8, !alias.scope !767, !noalias !828
   %.not.i616 = icmp ugt i64 %.sroa.444.0.copyload.i, %.sroa.545.0.copyload.i
-  %224 = sub i64 %.sroa.545.0.copyload.i, %.sroa.444.0.copyload.i
-  %225 = sub i64 %.sroa.444.0.copyload.i, %.sroa.545.0.copyload.i
+  %224 = sub nuw i64 %.sroa.545.0.copyload.i, %.sroa.444.0.copyload.i
+  %225 = sub nuw i64 %.sroa.444.0.copyload.i, %.sroa.545.0.copyload.i
   %.0.i617 = select i1 %.not.i616, i64 %225, i64 %224
   %226 = getelementptr inbounds i8, ptr %2, i64 344
   %227 = load i64, ptr %226, align 8, !alias.scope !767, !noalias !828, !noundef !9
@@ -4023,8 +4023,8 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i256: ;
   %.sroa.545.0.copyload.i23 = load i64, ptr %.sroa.545.0..sroa_idx.i22, align 8, !alias.scope !1062, !noalias !1119
   %.sroa.444.0.copyload.i21 = load i64, ptr %.sroa.444.0..sroa_idx.i20, align 8, !alias.scope !1062, !noalias !1119
   %.not.i742 = icmp ugt i64 %.sroa.444.0.copyload.i21, %.sroa.545.0.copyload.i23
-  %656 = sub i64 %.sroa.545.0.copyload.i23, %.sroa.444.0.copyload.i21
-  %657 = sub i64 %.sroa.444.0.copyload.i21, %.sroa.545.0.copyload.i23
+  %656 = sub nuw i64 %.sroa.545.0.copyload.i23, %.sroa.444.0.copyload.i21
+  %657 = sub nuw i64 %.sroa.444.0.copyload.i21, %.sroa.545.0.copyload.i23
   %.0.i743 = select i1 %.not.i742, i64 %657, i64 %656
   %658 = getelementptr inbounds i8, ptr %2, i64 344
   %659 = load i64, ptr %658, align 8, !alias.scope !1062, !noalias !1119, !noundef !9
@@ -4966,8 +4966,8 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i172: ;
   %.sroa.545.0.copyload.i74 = load i64, ptr %.sroa.545.0..sroa_idx.i73, align 8, !alias.scope !1321, !noalias !1381
   %.sroa.444.0.copyload.i72 = load i64, ptr %.sroa.444.0..sroa_idx.i71, align 8, !alias.scope !1321, !noalias !1381
   %.not.i865 = icmp ugt i64 %.sroa.444.0.copyload.i72, %.sroa.545.0.copyload.i74
-  %984 = sub i64 %.sroa.545.0.copyload.i74, %.sroa.444.0.copyload.i72
-  %985 = sub i64 %.sroa.444.0.copyload.i72, %.sroa.545.0.copyload.i74
+  %984 = sub nuw i64 %.sroa.545.0.copyload.i74, %.sroa.444.0.copyload.i72
+  %985 = sub nuw i64 %.sroa.444.0.copyload.i72, %.sroa.545.0.copyload.i74
   %.0.i866 = select i1 %.not.i865, i64 %985, i64 %984
   %986 = getelementptr inbounds i8, ptr %2, i64 344
   %987 = load i64, ptr %986, align 8, !alias.scope !1321, !noalias !1381, !noundef !9
@@ -5717,8 +5717,8 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i: ; pr
   %.sroa.545.0.copyload.i116 = load i64, ptr %.sroa.545.0..sroa_idx.i115, align 8, !alias.scope !1519, !noalias !1579
   %.sroa.444.0.copyload.i114 = load i64, ptr %.sroa.444.0..sroa_idx.i113, align 8, !alias.scope !1519, !noalias !1579
   %.not.i953 = icmp ugt i64 %.sroa.444.0.copyload.i114, %.sroa.545.0.copyload.i116
-  %1267 = sub i64 %.sroa.545.0.copyload.i116, %.sroa.444.0.copyload.i114
-  %1268 = sub i64 %.sroa.444.0.copyload.i114, %.sroa.545.0.copyload.i116
+  %1267 = sub nuw i64 %.sroa.545.0.copyload.i116, %.sroa.444.0.copyload.i114
+  %1268 = sub nuw i64 %.sroa.444.0.copyload.i114, %.sroa.545.0.copyload.i116
   %.0.i954 = select i1 %.not.i953, i64 %1268, i64 %1267
   %1269 = getelementptr inbounds i8, ptr %2, i64 344
   %1270 = load i64, ptr %1269, align 8, !alias.scope !1519, !noalias !1579, !noundef !9
@@ -6584,8 +6584,8 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit: ; preds
   %.sroa.530.0.copyload.i = load i64, ptr %.sroa.530.0..sroa_idx.i, align 8, !alias.scope !1686, !noalias !1748
   %.sroa.429.0.copyload.i = load i64, ptr %.sroa.429.0..sroa_idx.i, align 8, !alias.scope !1686, !noalias !1748
   %.not.i214 = icmp ugt i64 %.sroa.429.0.copyload.i, %.sroa.530.0.copyload.i
-  %155 = sub i64 %.sroa.530.0.copyload.i, %.sroa.429.0.copyload.i
-  %156 = sub i64 %.sroa.429.0.copyload.i, %.sroa.530.0.copyload.i
+  %155 = sub nuw i64 %.sroa.530.0.copyload.i, %.sroa.429.0.copyload.i
+  %156 = sub nuw i64 %.sroa.429.0.copyload.i, %.sroa.530.0.copyload.i
   %.0.i215 = select i1 %.not.i214, i64 %156, i64 %155
   %157 = getelementptr inbounds i8, ptr %2, i64 344
   %158 = load i64, ptr %157, align 8, !alias.scope !1686, !noalias !1748, !noundef !9
@@ -7023,8 +7023,8 @@ _ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit: ; pr
 
 _ZN14regex_automata6hybrid3dfa5Cache13search_finish17h4048cce97b222203E.exit: ; preds = %334
   %.not.i.i252 = icmp ugt i64 %.sroa.4.0.copyload.i, %21
-  %336 = sub i64 %21, %.sroa.4.0.copyload.i
-  %337 = sub i64 %.sroa.4.0.copyload.i, %21
+  %336 = sub nuw i64 %21, %.sroa.4.0.copyload.i
+  %337 = sub nuw i64 %.sroa.4.0.copyload.i, %21
   %.0.i.i253 = select i1 %.not.i.i252, i64 %337, i64 %336
   %338 = getelementptr inbounds i8, ptr %2, i64 344
   %339 = load i64, ptr %338, align 8, !alias.scope !1901, !noalias !1683, !noundef !9
@@ -7514,8 +7514,8 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit319: ; pr
   %.sroa.530.0.copyload.i11 = load i64, ptr %.sroa.530.0..sroa_idx.i10, align 8, !alias.scope !1937, !noalias !1999
   %.sroa.429.0.copyload.i9 = load i64, ptr %.sroa.429.0..sroa_idx.i8, align 8, !alias.scope !1937, !noalias !1999
   %.not.i325 = icmp ugt i64 %.sroa.429.0.copyload.i9, %.sroa.530.0.copyload.i11
-  %494 = sub i64 %.sroa.530.0.copyload.i11, %.sroa.429.0.copyload.i9
-  %495 = sub i64 %.sroa.429.0.copyload.i9, %.sroa.530.0.copyload.i11
+  %494 = sub nuw i64 %.sroa.530.0.copyload.i11, %.sroa.429.0.copyload.i9
+  %495 = sub nuw i64 %.sroa.429.0.copyload.i9, %.sroa.530.0.copyload.i11
   %.0.i326 = select i1 %.not.i325, i64 %495, i64 %494
   %496 = getelementptr inbounds i8, ptr %2, i64 344
   %497 = load i64, ptr %496, align 8, !alias.scope !1937, !noalias !1999, !noundef !9
@@ -7886,8 +7886,8 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit357: ; pr
 
 _ZN14regex_automata6hybrid3dfa5Cache13search_finish17h4048cce97b222203E.exit369: ; preds = %640
   %.not.i.i367 = icmp ugt i64 %.sroa.4.0.copyload.i365, %21
-  %642 = sub i64 %21, %.sroa.4.0.copyload.i365
-  %643 = sub i64 %.sroa.4.0.copyload.i365, %21
+  %642 = sub nuw i64 %21, %.sroa.4.0.copyload.i365
+  %643 = sub nuw i64 %.sroa.4.0.copyload.i365, %21
   %.0.i.i368 = select i1 %.not.i.i367, i64 %643, i64 %642
   %644 = getelementptr inbounds i8, ptr %2, i64 344
   %645 = load i64, ptr %644, align 8, !alias.scope !2121, !noalias !1934, !noundef !9
@@ -8345,8 +8345,8 @@ _ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit: ; pr
 
 155:                                              ; preds = %103
   %.not.i184 = icmp ugt i64 %.sroa.440.0.copyload.i, %.sroa.541.0.copyload.i
-  %156 = sub i64 %.sroa.541.0.copyload.i, %.sroa.440.0.copyload.i
-  %157 = sub i64 %.sroa.440.0.copyload.i, %.sroa.541.0.copyload.i
+  %156 = sub nuw i64 %.sroa.541.0.copyload.i, %.sroa.440.0.copyload.i
+  %157 = sub nuw i64 %.sroa.440.0.copyload.i, %.sroa.541.0.copyload.i
   %.0.i185 = select i1 %.not.i184, i64 %157, i64 %156
   %158 = getelementptr inbounds i8, ptr %1, i64 344
   %159 = load i64, ptr %158, align 8, !alias.scope !2157, !noalias !2216, !noundef !9
@@ -8572,8 +8572,8 @@ _ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit159: ; preds =
 
 240:                                              ; preds = %232
   %.not.i.i198 = icmp ugt i64 %.sroa.4.0.copyload.i, %27
-  %241 = sub i64 %27, %.sroa.4.0.copyload.i
-  %242 = sub i64 %.sroa.4.0.copyload.i, %27
+  %241 = sub nuw i64 %27, %.sroa.4.0.copyload.i
+  %242 = sub nuw i64 %.sroa.4.0.copyload.i, %27
   %.0.i.i199 = select i1 %.not.i.i198, i64 %242, i64 %241
   %243 = getelementptr inbounds i8, ptr %1, i64 344
   %244 = load i64, ptr %243, align 8, !alias.scope !2299, !noalias !2162, !noundef !9
@@ -9333,8 +9333,8 @@ _ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit297: ;
 
 506:                                              ; preds = %455
   %.not.i298 = icmp ugt i64 %.sroa.440.0.copyload.i13, %.sroa.541.0.copyload.i15
-  %507 = sub i64 %.sroa.541.0.copyload.i15, %.sroa.440.0.copyload.i13
-  %508 = sub i64 %.sroa.440.0.copyload.i13, %.sroa.541.0.copyload.i15
+  %507 = sub nuw i64 %.sroa.541.0.copyload.i15, %.sroa.440.0.copyload.i13
+  %508 = sub nuw i64 %.sroa.440.0.copyload.i13, %.sroa.541.0.copyload.i15
   %.0.i299 = select i1 %.not.i298, i64 %508, i64 %507
   %509 = getelementptr inbounds i8, ptr %1, i64 344
   %510 = load i64, ptr %509, align 8, !alias.scope !2396, !noalias !2462, !noundef !9
@@ -9523,8 +9523,8 @@ _ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit: ; preds = %"
 
 566:                                              ; preds = %558
   %.not.i.i324 = icmp ugt i64 %.sroa.4.0.copyload.i322, %27
-  %567 = sub i64 %27, %.sroa.4.0.copyload.i322
-  %568 = sub i64 %.sroa.4.0.copyload.i322, %27
+  %567 = sub nuw i64 %27, %.sroa.4.0.copyload.i322
+  %568 = sub nuw i64 %.sroa.4.0.copyload.i322, %27
   %.0.i.i325 = select i1 %.not.i.i324, i64 %568, i64 %567
   %569 = getelementptr inbounds i8, ptr %1, i64 344
   %570 = load i64, ptr %569, align 8, !alias.scope !2543, !noalias !2401, !noundef !9
@@ -10072,8 +10072,8 @@ _ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit: ; pr
 
 166:                                              ; preds = %106
   %.not.i88 = icmp ugt i64 %.sroa.435.0.copyload, %.sroa.536.0.copyload
-  %167 = sub i64 %.sroa.536.0.copyload, %.sroa.435.0.copyload
-  %168 = sub i64 %.sroa.435.0.copyload, %.sroa.536.0.copyload
+  %167 = sub nuw i64 %.sroa.536.0.copyload, %.sroa.435.0.copyload
+  %168 = sub nuw i64 %.sroa.435.0.copyload, %.sroa.536.0.copyload
   %.0.i89 = select i1 %.not.i88, i64 %168, i64 %167
   %169 = getelementptr inbounds i8, ptr %1, i64 344
   %170 = load i64, ptr %169, align 8, !noundef !9
@@ -10449,8 +10449,8 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit118: ; pr
 
 284:                                              ; preds = %276
   %.not.i.i126 = icmp ugt i64 %.sroa.4.0.copyload.i, %14
-  %285 = sub i64 %14, %.sroa.4.0.copyload.i
-  %286 = sub i64 %.sroa.4.0.copyload.i, %14
+  %285 = sub nuw i64 %14, %.sroa.4.0.copyload.i
+  %286 = sub nuw i64 %.sroa.4.0.copyload.i, %14
   %.0.i.i127 = select i1 %.not.i.i126, i64 %286, i64 %285
   %287 = getelementptr inbounds i8, ptr %1, i64 344
   %288 = load i64, ptr %287, align 8, !alias.scope !2759, !noundef !9

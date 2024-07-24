@@ -3734,7 +3734,7 @@ if.then34:                                        ; preds = %invoke.cont32
   br i1 %or.cond18, label %if.then40, label %if.else106
 
 if.then40:                                        ; preds = %if.then34
-  %sub = sub i64 %call35, %call36
+  %sub = sub nuw i64 %call35, %call36
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) %textureRef, i64 noundef %call36, i64 noundef %sub)
           to label %invoke.cont42 unwind label %lpad21.loopexit.loopexit.split-lp
 

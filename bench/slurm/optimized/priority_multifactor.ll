@@ -4225,7 +4225,7 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
 
 182:                                              ; preds = %180
   %183 = icmp ugt i32 %121, %.0104
-  %184 = sub i32 %121, %.0104
+  %184 = sub nuw i32 %121, %.0104
   %185 = uitofp i32 %184 to double
   %186 = sitofp i32 %121 to double
   %187 = fdiv double %185, %186
@@ -5005,7 +5005,7 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, 
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %13
-  %23 = sub i64 %20, %15
+  %23 = sub nuw i64 %20, %15
   store i64 %23, ptr %19, align 8
   br label %34
 
@@ -5093,7 +5093,7 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, 
   br label %85
 
 83:                                               ; preds = %56
-  %84 = sub i64 %71, %66
+  %84 = sub nuw i64 %71, %66
   store i64 %84, ptr %70, align 8
   br label %85
 
@@ -5166,7 +5166,7 @@ define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly %0
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %12
-  %22 = sub i64 %19, %14
+  %22 = sub nuw i64 %19, %14
   store i64 %22, ptr %18, align 8
   br label %33
 
@@ -5254,7 +5254,7 @@ define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly %0
   br label %84
 
 82:                                               ; preds = %55
-  %83 = sub i64 %70, %65
+  %83 = sub nuw i64 %70, %65
   store i64 %83, ptr %69, align 8
   br label %84
 

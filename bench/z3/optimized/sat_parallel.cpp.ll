@@ -1323,7 +1323,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %invoke.cont
 for.body.preheader.i:                             ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
   %idx.ext = zext i32 %2 to i64
   %add.ptr = getelementptr inbounds %"class.sat::literal", ptr %3, i64 %idx.ext
-  %sub = sub i32 %4, %2
+  %sub = sub nuw i32 %4, %2
   %wide.trip.count.i = zext i32 %sub to i64
   br label %for.body.i
 

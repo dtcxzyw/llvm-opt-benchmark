@@ -1330,7 +1330,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @sub_interval(ptr noundef %
   br label %49
 
 27:                                               ; preds = %23
-  %28 = sub i64 %16, %8
+  %28 = sub nuw i64 %16, %8
   store i64 %28, ptr %14, align 8
   store i64 %8, ptr %10, align 8
   br label %49

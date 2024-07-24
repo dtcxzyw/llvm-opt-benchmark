@@ -12219,8 +12219,8 @@ _validate_bcast_exclude.exit:                     ; preds = %.lr.ph.i1260
   br label %1803
 
 654:                                              ; preds = %648
-  %655 = sub nsw i32 %649, %650
-  %656 = add nsw i32 %655, 1
+  %655 = sub nuw nsw i32 %649, %650
+  %656 = add nuw nsw i32 %655, 1
   %657 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 636), align 4
   %658 = icmp ugt i32 %657, %656
   br i1 %658, label %659, label %667

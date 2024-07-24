@@ -188,7 +188,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly %0, ptr noundef 
 
 102:                                              ; preds = %101
   %103 = uitofp i64 %98 to double
-  %104 = sub i64 %94, %98
+  %104 = sub nuw i64 %94, %98
   %105 = uitofp i64 %104 to double
   %106 = fdiv double %103, %105
   %107 = tail call double @llvm.ceil.f64(double %106)
@@ -197,7 +197,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly %0, ptr noundef 
 
 109:                                              ; preds = %101
   %110 = uitofp i64 %94 to double
-  %111 = sub i64 %98, %94
+  %111 = sub nuw i64 %98, %94
   %112 = uitofp i64 %111 to double
   %113 = fdiv double %110, %112
   %114 = tail call double @llvm.ceil.f64(double %113)

@@ -5293,7 +5293,7 @@ entry:
   %cmp2.not = icmp ne i64 %call1, -1
   %cmp3 = icmp ugt i64 %call1, %add
   %or.cond = and i1 %cmp2.not, %cmp3
-  %sub = sub i64 %call1, %add
+  %sub = sub nuw i64 %call1, %add
   %cond7 = select i1 %or.cond, i64 %sub, i64 -1
   tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef %add, i64 noundef %cond7)
   ret void

@@ -243,7 +243,7 @@ if.end:                                           ; preds = %sw.bb8
   br i1 %or.cond.i, label %if.then.i, label %copy_bytes_.exit
 
 if.then.i:                                        ; preds = %if.end
-  %sub = sub i32 %2, %div78
+  %sub = sub nuw i32 %2, %div78
   %conv.i = zext i32 %sub to i64
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #27
   %cmp2.i = icmp eq ptr %call.i.i, null
@@ -3133,7 +3133,7 @@ if.then31:                                        ; preds = %if.end28
   %3 = load i8, ptr %num_indices, align 1
   %idx.ext = zext i8 %3 to i64
   %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %storemerge, i64 %idx.ext
-  %sub = sub nsw i64 %mul9, %mul
+  %sub = sub nuw nsw i64 %mul9, %mul
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %sub, i1 false)
   br label %if.end36
 
@@ -3466,7 +3466,7 @@ if.then49:                                        ; preds = %if.end46
   %7 = load i32, ptr %num_tracks, align 4
   %idx.ext = zext i32 %7 to i64
   %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %storemerge, i64 %idx.ext
-  %sub = sub nsw i64 %mul11, %mul
+  %sub = sub nuw nsw i64 %mul11, %mul
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %sub, i1 false)
   br label %if.end55
 

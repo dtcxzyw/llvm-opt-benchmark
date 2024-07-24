@@ -7796,7 +7796,7 @@ define hidden void @"_ZN5flume13Chan$LT$T$GT$12pull_pending17h06eb784118286612E.
   %33 = load i64, ptr %21, align 8, !alias.scope !1134, !noundef !42
   %.not.i = icmp ult i64 %32, %33
   %34 = select i1 %.not.i, i64 0, i64 %33
-  %.0.i = sub i64 %32, %34
+  %.0.i = sub nuw i64 %32, %34
   store i64 %.0.i, ptr %20, align 8, !alias.scope !1134
   %35 = add i64 %28, -1
   store i64 %35, ptr %19, align 8, !alias.scope !1134
@@ -7999,7 +7999,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   %109 = add i64 %108, %107
   %.not.i4 = icmp ult i64 %109, %106
   %110 = select i1 %.not.i4, i64 0, i64 %106
-  %.0.i5 = sub i64 %109, %110
+  %.0.i5 = sub nuw i64 %109, %110
   %111 = load ptr, ptr %0, align 8, !alias.scope !1148, !noalias !1151, !nonnull !42, !noundef !42
   %112 = getelementptr inbounds { i64, [5 x i64] }, ptr %111, i64 %.0.i5
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %112, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
@@ -8095,7 +8095,7 @@ define hidden void @"_ZN5flume13Chan$LT$T$GT$12pull_pending17h595d717ca8de8b91E.
   %35 = load i64, ptr %22, align 8, !alias.scope !1160, !noundef !42
   %.not.i = icmp ult i64 %34, %35
   %36 = select i1 %.not.i, i64 0, i64 %35
-  %.0.i = sub i64 %34, %36
+  %.0.i = sub nuw i64 %34, %36
   store i64 %.0.i, ptr %21, align 8, !alias.scope !1160
   %37 = add i64 %30, -1
   store i64 %37, ptr %20, align 8, !alias.scope !1160
@@ -8304,7 +8304,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   %111 = add i64 %110, %109
   %.not.i4 = icmp ult i64 %111, %108
   %112 = select i1 %.not.i4, i64 0, i64 %108
-  %.0.i5 = sub i64 %111, %112
+  %.0.i5 = sub nuw i64 %111, %112
   %113 = load ptr, ptr %0, align 8, !alias.scope !1179, !noalias !1182, !nonnull !42, !noundef !42
   %114 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, [3 x i64] }, ptr } }, ptr %113, i64 %.0.i5
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %114, ptr noundef nonnull align 8 dereferenceable(96) %7, i64 96, i1 false)
@@ -8378,7 +8378,7 @@ define hidden void @"_ZN5flume13Chan$LT$T$GT$28try_wake_receiver_if_pending17ha6
   %17 = load i64, ptr %9, align 8, !alias.scope !1191, !noundef !42
   %.not.i = icmp ult i64 %16, %17
   %18 = select i1 %.not.i, i64 0, i64 %17
-  %.0.i = sub i64 %16, %18
+  %.0.i = sub nuw i64 %16, %18
   store i64 %.0.i, ptr %8, align 8, !alias.scope !1191
   %19 = add i64 %12, -1
   store i64 %19, ptr %6, align 8, !alias.scope !1191
@@ -8939,7 +8939,7 @@ common.resume:                                    ; preds = %32, %171, %.thread6
   %42 = load i64, ptr %41, align 8, !alias.scope !1266, !noalias !1263, !noundef !42
   %.not.i = icmp ult i64 %40, %42
   %43 = select i1 %.not.i, i64 0, i64 %42
-  %.0.i = sub i64 %40, %43
+  %.0.i = sub nuw i64 %40, %43
   store i64 %.0.i, ptr %38, align 8, !alias.scope !1266, !noalias !1263
   %44 = add i64 %36, -1
   store i64 %44, ptr %35, align 8, !alias.scope !1266, !noalias !1263
@@ -9210,7 +9210,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   %137 = add i64 %136, %134
   %.not.i31 = icmp ult i64 %137, %133
   %138 = select i1 %.not.i31, i64 0, i64 %133
-  %.0.i32 = sub i64 %137, %138
+  %.0.i32 = sub nuw i64 %137, %138
   %139 = load ptr, ptr %120, align 8, !alias.scope !1297, !noalias !1302, !nonnull !42, !noundef !42
   %140 = getelementptr inbounds { ptr, ptr }, ptr %139, i64 %.0.i32
   store ptr %104, ptr %140, align 8
@@ -9431,7 +9431,7 @@ common.resume:                                    ; preds = %51, %484, %.thread7
   %61 = load i64, ptr %60, align 8, !alias.scope !1331, !noalias !1328, !noundef !42
   %.not.i = icmp ult i64 %59, %61
   %62 = select i1 %.not.i, i64 0, i64 %61
-  %.0.i = sub i64 %59, %62
+  %.0.i = sub nuw i64 %59, %62
   store i64 %.0.i, ptr %57, align 8, !alias.scope !1331, !noalias !1328
   %63 = add i64 %55, -1
   store i64 %63, ptr %54, align 8, !alias.scope !1331, !noalias !1328
@@ -9719,7 +9719,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   %159 = add i64 %158, %156
   %.not.i30 = icmp ult i64 %159, %155
   %160 = select i1 %.not.i30, i64 0, i64 %155
-  %.0.i31 = sub i64 %159, %160
+  %.0.i31 = sub nuw i64 %159, %160
   %161 = load ptr, ptr %142, align 8, !alias.scope !1361, !noalias !1366, !nonnull !42, !noundef !42
   %162 = getelementptr inbounds { ptr, ptr }, ptr %161, i64 %.0.i31
   store ptr %125, ptr %162, align 8
@@ -10437,7 +10437,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   %401 = load i64, ptr %400, align 8, !alias.scope !1454, !noalias !1457, !noundef !42
   %.not.i.i.i = icmp ult i64 %399, %401
   %402 = select i1 %.not.i.i.i, i64 0, i64 %401
-  %.0.i.i.i = sub i64 %399, %402
+  %.0.i.i.i = sub nuw i64 %399, %402
   store i64 %.0.i.i.i, ptr %397, align 8, !alias.scope !1454, !noalias !1457
   %403 = add i64 %393, -1
   store i64 %403, ptr %392, align 8, !alias.scope !1454, !noalias !1457
@@ -10586,7 +10586,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   %456 = load i64, ptr %455, align 8, !alias.scope !1485, !noalias !1488, !noundef !42
   %.not.i.i54.i = icmp ult i64 %454, %456
   %457 = select i1 %.not.i.i54.i, i64 0, i64 %456
-  %.0.i.i55.i = sub i64 %454, %457
+  %.0.i.i55.i = sub nuw i64 %454, %457
   store i64 %.0.i.i55.i, ptr %452, align 8, !alias.scope !1485, !noalias !1488
   %458 = add i64 %448, -1
   store i64 %458, ptr %447, align 8, !alias.scope !1485, !noalias !1488
@@ -11029,7 +11029,7 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17hc6e79adfb73f9eb9E"(ptr no
   %128 = add i64 %127, %125
   %.not.i73 = icmp ult i64 %128, %124
   %129 = select i1 %.not.i73, i64 0, i64 %124
-  %.0.i74 = sub i64 %128, %129
+  %.0.i74 = sub nuw i64 %128, %129
   %130 = getelementptr inbounds { ptr, ptr }, ptr %123, i64 %.0.i74
   store ptr %87, ptr %130, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 8
@@ -11137,7 +11137,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   %166 = add i64 %165, %163
   %.not.i = icmp ult i64 %166, %162
   %167 = select i1 %.not.i, i64 0, i64 %162
-  %.0.i = sub i64 %166, %167
+  %.0.i = sub nuw i64 %166, %167
   %168 = load ptr, ptr %72, align 8, !alias.scope !1506, !noalias !1509, !nonnull !42, !noundef !42
   %169 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, [3 x i64] }, ptr } }, ptr %168, i64 %.0.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %169, ptr noundef nonnull align 8 dereferenceable(96) %19, i64 96, i1 false)
@@ -11168,7 +11168,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   %183 = load i64, ptr %182, align 8, !alias.scope !1568, !noundef !42
   %.not.i85 = icmp ult i64 %181, %183
   %184 = select i1 %.not.i85, i64 0, i64 %183
-  %.0.i86 = sub i64 %181, %184
+  %.0.i86 = sub nuw i64 %181, %184
   store i64 %.0.i86, ptr %179, align 8, !alias.scope !1568
   %185 = add i64 %175, -1
   store i64 %185, ptr %176, align 8, !alias.scope !1568
@@ -11419,7 +11419,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   %274 = add i64 %273, %271
   %.not.i92 = icmp ult i64 %274, %270
   %275 = select i1 %.not.i92, i64 0, i64 %270
-  %.0.i93 = sub i64 %274, %275
+  %.0.i93 = sub nuw i64 %274, %275
   %276 = load ptr, ptr %256, align 8, !alias.scope !1597, !noalias !1600, !nonnull !42, !noundef !42
   %277 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, [3 x i64] }, ptr } }, ptr %276, i64 %.0.i93
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %277, ptr noundef nonnull align 8 dereferenceable(96) %23, i64 96, i1 false)
@@ -11561,7 +11561,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   %330 = add i64 %329, %327
   %.not.i106 = icmp ult i64 %330, %326
   %331 = select i1 %.not.i106, i64 0, i64 %326
-  %.0.i107 = sub i64 %330, %331
+  %.0.i107 = sub nuw i64 %330, %331
   %332 = load ptr, ptr %310, align 8, !alias.scope !1615, !noalias !1618, !nonnull !42, !noundef !42
   %333 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, [3 x i64] }, ptr } }, ptr %332, i64 %.0.i107
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %333, ptr noundef nonnull align 8 dereferenceable(96) %20, i64 96, i1 false)

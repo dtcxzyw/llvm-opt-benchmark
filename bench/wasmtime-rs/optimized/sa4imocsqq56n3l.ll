@@ -24207,7 +24207,7 @@ _ZN17cranelift_codegen9legalizer16expand_cond_trap17hdbc44eb3fad28901E.exit: ; p
   %393 = add nuw nsw i64 %391, 1
   %394 = load i32, ptr %65, align 4, !alias.scope !2634, !noalias !2625, !noundef !4
   %395 = load i32, ptr %66, align 8, !alias.scope !2634, !noalias !2625, !noundef !4
-  %396 = sub nsw i64 %393, %392
+  %396 = sub nuw nsw i64 %393, %392
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h70c34632efa658fcE.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %396, i32 noundef %395, i32 noundef %394), !noalias !2625
   %.pre.i177 = load i64, ptr %61, align 8, !alias.scope !2639, !noalias !2625
   %397 = icmp ugt i64 %.pre.i177, %391
@@ -24299,7 +24299,7 @@ _ZN17cranelift_codegen9flowgraph16ControlFlowGraph15recompute_block17hf1708e89ff
   %421 = add nuw nsw i64 %419, 1
   %422 = load i32, ptr %65, align 4, !alias.scope !2666, !noalias !2657, !noundef !4
   %423 = load i32, ptr %66, align 8, !alias.scope !2666, !noalias !2657, !noundef !4
-  %424 = sub nsw i64 %421, %420
+  %424 = sub nuw nsw i64 %421, %420
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h70c34632efa658fcE.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %424, i32 noundef %423, i32 noundef %422), !noalias !2657
   %.pre.i173 = load i64, ptr %61, align 8, !alias.scope !2671, !noalias !2657
   %425 = icmp ugt i64 %.pre.i173, %419
@@ -24390,7 +24390,7 @@ _ZN17cranelift_codegen9flowgraph16ControlFlowGraph15recompute_block17hf1708e89ff
   %448 = add nuw nsw i64 %446, 1
   %449 = load i32, ptr %65, align 4, !alias.scope !2698, !noalias !2689, !noundef !4
   %450 = load i32, ptr %66, align 8, !alias.scope !2698, !noalias !2689, !noundef !4
-  %451 = sub nsw i64 %448, %447
+  %451 = sub nuw nsw i64 %448, %447
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h70c34632efa658fcE.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %451, i32 noundef %450, i32 noundef %449), !noalias !2689
   %.pre.i170 = load i64, ptr %61, align 8, !alias.scope !2703, !noalias !2689
   %452 = icmp ugt i64 %.pre.i170, %446
@@ -27587,7 +27587,7 @@ _ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit: ;
   br label %.thread.i
 
 240:                                              ; preds = %235
-  %241 = sub nsw i64 %238, %.pre141
+  %241 = sub nuw nsw i64 %238, %.pre141
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17had34e05582d9f06cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %241, i64 noundef 0)
           to label %..thread.i_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 

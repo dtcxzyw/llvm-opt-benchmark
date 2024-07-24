@@ -612,7 +612,7 @@ if.end9:                                          ; preds = %if.end4
   %call11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #12
   %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %call11, i64 noundef %call214)
   %add = add i64 %call214, 2
-  %reass.sub = sub i64 %call5, %call214
+  %reass.sub = sub nuw i64 %call5, %call214
   %sub13 = add i64 %reass.sub, -2
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %key, ptr noundef nonnull align 8 dereferenceable(32) %text, i64 noundef %add, i64 noundef %sub13)
   %2 = load ptr, ptr %_M_parent.i.i.i.i, align 8

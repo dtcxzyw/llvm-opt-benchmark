@@ -891,7 +891,7 @@ define dso_local void @seq_vprintf(ptr nocapture noundef %0, ptr nocapture nound
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr i8, ptr %10, i64 %5
-  %12 = sub i64 %7, %5
+  %12 = sub nuw i64 %7, %5
   %13 = tail call i32 @vsnprintf(ptr noundef %11, i64 noundef %12, ptr noundef %1, ptr noundef %2) #28
   %14 = load i64, ptr %4, align 8
   %15 = sext i32 %13 to i64
@@ -925,7 +925,7 @@ define dso_local void @seq_printf(ptr nocapture noundef %0, ptr nocapture nounde
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr i8, ptr %10, i64 %5
-  %12 = sub i64 %7, %5
+  %12 = sub nuw i64 %7, %5
   %13 = call i32 @vsnprintf(ptr noundef %11, i64 noundef %12, ptr noundef %1, ptr noundef nonnull %3) #28
   %14 = load i64, ptr %4, align 8
   %15 = sext i32 %13 to i64
@@ -954,7 +954,7 @@ define dso_local void @seq_bprintf(ptr nocapture noundef %0, ptr noundef %1, ptr
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr i8, ptr %10, i64 %5
-  %12 = sub i64 %7, %5
+  %12 = sub nuw i64 %7, %5
   %13 = tail call i32 @bstr_printf(ptr noundef %11, i64 noundef %12, ptr noundef %1, ptr noundef %2) #28
   %14 = load i64, ptr %4, align 8
   %15 = sext i32 %13 to i64

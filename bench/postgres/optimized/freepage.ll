@@ -1752,7 +1752,7 @@ FreePageBtreeAdjustAncestorKeys.exit.loopexit:    ; preds = %427, %456
   br i1 %466, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %463
-  %467 = sub i32 %461, %465
+  %467 = sub nuw i32 %461, %465
   %468 = getelementptr inbounds i8, ptr %0, i64 16
   %469 = tail call i32 @llvm.umax.i32(i32 %467, i32 1)
   %umax = zext i32 %469 to i64
@@ -3006,7 +3006,7 @@ define internal fastcc void @FreePageBtreeRemove(ptr noundef %0, ptr noundef %1,
   %13 = getelementptr [254 x %struct.FreePageBtreeLeafKey], ptr %12, i64 0, i64 %2
   %14 = add nuw i64 %2, 1
   %15 = getelementptr [254 x %struct.FreePageBtreeLeafKey], ptr %12, i64 0, i64 %14
-  %16 = sub i64 %9, %2
+  %16 = sub nuw i64 %9, %2
   %17 = shl i64 %16, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 %17, i1 false)
   %18 = icmp eq i64 %2, 0

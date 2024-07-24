@@ -4255,7 +4255,7 @@ invoke.cont149:                                   ; preds = %if.then146, %if.the
   br i1 %cmp151, label %if.then152, label %if.end164
 
 if.then152:                                       ; preds = %invoke.cont149
-  %sub = sub nsw i64 %retval.0.i, %add.i
+  %sub = sub nuw nsw i64 %retval.0.i, %add.i
   %conv153 = trunc i64 %sub to i32
   invoke void @_ZN7rocksdb13CompactionJob29AcquireSubcompactionResourcesEi(ptr noundef nonnull align 8 dereferenceable(1456) %this, i32 noundef %conv153)
           to label %invoke.cont156 unwind label %lpad26.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -26437,7 +26437,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableRea
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %12 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds %"struct.rocksdb::TableReader::Anchor", ptr %12, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i48 = icmp eq ptr %1, %__position.coerce

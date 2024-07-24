@@ -61,7 +61,7 @@ stream_read_bits.exit.i:                          ; preds = %28, %18
   br i1 %37, label %38, label %60
 
 38:                                               ; preds = %stream_read_bits.exit.i
-  %39 = sub i32 %10, %36
+  %39 = sub nuw i32 %10, %36
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %9, i64 16
   %42 = load ptr, ptr %41, align 8
@@ -311,7 +311,7 @@ rev_decode_block_int64_4.exit:                    ; preds = %134
   br i1 %139, label %140, label %163
 
 140:                                              ; preds = %135
-  %141 = sub i32 %10, %138
+  %141 = sub nuw i32 %10, %138
   %142 = zext i32 %141 to i64
   %143 = getelementptr inbounds i8, ptr %9, i64 16
   %144 = load ptr, ptr %143, align 8

@@ -1083,7 +1083,7 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17hf8c54ada4
   br i1 %.not.i21, label %.lr.ph.preheader, label %"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834.exit"
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.preheader
-  %12 = sub i64 %5, %.promoted48.i
+  %12 = sub nuw i64 %5, %.promoted48.i
   br label %.lr.ph
 
 ._crit_edge.i:                                    ; preds = %.lr.ph, %8

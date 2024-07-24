@@ -2003,7 +2003,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit: ; pred
   br i1 %63, label %64, label %96
 
 64:                                               ; preds = %39
-  %65 = sub nsw i64 %58, %62
+  %65 = sub nuw nsw i64 %58, %62
   %66 = ptrtoint ptr %.sroa.21.1139 to i64
   %67 = sub i64 %66, %59
   %68 = sdiv exact i64 %67, 24
@@ -2033,7 +2033,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit: ; pred
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !37
 
 78:                                               ; preds = %64
-  %79 = icmp ult i64 %70, %65
+  %79 = icmp ugt i64 %58, 384307168202282325
   br i1 %79, label %80, label %_ZNKSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78
@@ -3330,7 +3330,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit: ; preds = %.l
   br i1 %63, label %64, label %96
 
 64:                                               ; preds = %39
-  %65 = sub nsw i64 %58, %62
+  %65 = sub nuw nsw i64 %58, %62
   %66 = ptrtoint ptr %.sroa.21.1139 to i64
   %67 = sub i64 %66, %59
   %68 = sdiv exact i64 %67, 24
@@ -3360,7 +3360,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit: ; preds = %.l
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !49
 
 78:                                               ; preds = %64
-  %79 = icmp ult i64 %70, %65
+  %79 = icmp ugt i64 %58, 384307168202282325
   br i1 %79, label %80, label %_ZNKSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 80:                                               ; preds = %78

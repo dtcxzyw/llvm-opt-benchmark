@@ -901,7 +901,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %20, %23
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %63
-  %75 = sub nsw i64 %65, %72
+  %75 = sub nuw nsw i64 %65, %72
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %64, i64 noundef %75)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %.loopexit.split-lp
 

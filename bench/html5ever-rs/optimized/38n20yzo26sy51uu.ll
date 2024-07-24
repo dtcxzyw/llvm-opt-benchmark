@@ -216,7 +216,7 @@ select.unfold:                                    ; preds = %15, %9, %12
   br i1 %.not100, label %23, label %25
 
 23:                                               ; preds = %select.unfold
-  %24 = sub nsw i64 %.sroa.7.0.i102.ph, %22
+  %24 = sub nuw nsw i64 %.sroa.7.0.i102.ph, %22
   store i16 3, ptr %0, align 8
   %.sroa.013.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %24, ptr %.sroa.013.sroa.5.0..sroa_idx, align 8
@@ -432,7 +432,7 @@ select.unfold165:                                 ; preds = %116, %109, %113
 
 123:                                              ; preds = %select.unfold165
   %124 = sub nsw i64 %3, %103
-  %125 = sub nsw i64 %.sroa.7.0.i.ph, %121
+  %125 = sub nuw nsw i64 %.sroa.7.0.i.ph, %121
   store i16 3, ptr %0, align 8
   %.sroa.040.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %125, ptr %.sroa.040.sroa.5.0..sroa_idx, align 8

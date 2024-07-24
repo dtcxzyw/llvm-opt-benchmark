@@ -2724,7 +2724,7 @@ define internal i64 @sapi_fcgi_read_post(ptr noundef %0, i64 noundef %1) #0 {
 
 .lr.ph:                                           ; preds = %2, %7
   %.01620 = phi i64 [ %9, %7 ], [ 0, %2 ]
-  %11 = sub i64 %spec.select, %.01620
+  %11 = sub nuw i64 %spec.select, %.01620
   %12 = tail call i64 @llvm.umin.i64(i64 %11, i64 2147483647)
   %13 = trunc nuw nsw i64 %12 to i32
   %14 = getelementptr inbounds i8, ptr %0, i64 %.01620
@@ -3542,7 +3542,7 @@ define internal i64 @sapi_cgi_read_post(ptr nocapture noundef %0, i64 noundef %1
 .lr.ph:                                           ; preds = %2, %12
   %.015 = phi i64 [ %14, %12 ], [ 0, %2 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 %.015
-  %8 = sub i64 %6, %.015
+  %8 = sub nuw i64 %6, %.015
   %9 = tail call i64 @read(i32 noundef 0, ptr noundef %7, i64 noundef %8) #28
   %10 = trunc i64 %9 to i32
   %11 = icmp slt i32 %10, 1

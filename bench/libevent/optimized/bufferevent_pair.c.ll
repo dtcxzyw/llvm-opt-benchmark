@@ -603,7 +603,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then
-  %sub = sub i64 %4, %call3
+  %sub = sub nuw i64 %4, %call3
   %5 = load ptr, ptr %output, align 8
   %6 = load ptr, ptr %input, align 8
   %call11 = tail call i32 @evbuffer_remove_buffer(ptr noundef %5, ptr noundef %6, i64 noundef %sub) #3

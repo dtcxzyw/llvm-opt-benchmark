@@ -627,7 +627,7 @@ define ptr @php_escape_shell_cmd(ptr noundef %0) local_unnamed_addr #0 {
   %.0162182 = phi i64 [ %.3165, %51 ], [ 0, %10 ]
   %.0166181 = phi i64 [ %52, %51 ], [ 0, %10 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 %.0166181
-  %17 = sub i64 %2, %.0166181
+  %17 = sub nuw i64 %2, %.0166181
   %18 = tail call i32 @mblen(ptr noundef %16, i64 noundef %17) #10
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %51, label %20
@@ -878,7 +878,7 @@ define ptr @php_escape_shell_arg(ptr noundef %0) local_unnamed_addr #0 {
   %.0152162 = phi i64 [ %.2, %42 ], [ 1, %10 ]
   %.0153161 = phi i64 [ %43, %42 ], [ 0, %10 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 %.0153161
-  %18 = sub i64 %2, %.0153161
+  %18 = sub nuw i64 %2, %.0153161
   %19 = tail call i32 @mblen(ptr noundef %17, i64 noundef %18) #10
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %42, label %21

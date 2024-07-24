@@ -2742,7 +2742,7 @@ if.end157.i:                                      ; preds = %ZSTDMT_releaseBuffe
   br i1 %cmp162.i, label %if.then164.i, label %if.end170.i
 
 if.then164.i:                                     ; preds = %if.end157.i
-  %sub169.i = sub i64 %cSize30.0116.i, %153
+  %sub169.i = sub nuw i64 %cSize30.0116.i, %153
   br label %ZSTDMT_flushProduced.exit
 
 if.end170.i:                                      ; preds = %if.end81.i, %if.end157.i

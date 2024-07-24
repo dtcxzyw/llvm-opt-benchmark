@@ -7055,7 +7055,7 @@ define internal fastcc i32 @dissect_dcm_main(ptr noundef %0, ptr noundef %1, ptr
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %1, i64 332
   store i32 %.04587, ptr %37, align 4
-  %38 = sub i32 %33, %34
+  %38 = sub nuw i32 %33, %34
   %39 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 %38, ptr %39, align 8
   %40 = call i32 @tvb_captured_length(ptr noundef %0) #10

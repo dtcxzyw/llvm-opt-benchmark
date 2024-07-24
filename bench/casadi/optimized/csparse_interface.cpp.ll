@@ -449,7 +449,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi16CsparseInterface8init_memEPv(pt
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %4
-  %28 = sub i64 %18, %25
+  %28 = sub nuw i64 %18, %25
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %28)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -480,7 +480,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %27, %29, %31, %33
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %45 = sub i64 %35, %42
+  %45 = sub nuw i64 %35, %42
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %45)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit21
 
@@ -578,7 +578,7 @@ _ZN6casadi11copy_vectorIxiEEvPKT_RSt6vectorIT0_SaIS5_EE.exit25: ; preds = %.lr.p
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %_ZN6casadi11copy_vectorIxiEEvPKT_RSt6vectorIT0_SaIS5_EE.exit25
-  %108 = sub nsw i64 %98, %105
+  %108 = sub nuw nsw i64 %98, %105
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %108)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 

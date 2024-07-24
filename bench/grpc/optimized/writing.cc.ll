@@ -1542,7 +1542,7 @@ _ZN12_GLOBAL__N_118StreamWriteContext21FlushTrailingMetadataEv.exit: ; preds = %
   br i1 %cmp6, label %if.then7, label %if.end26
 
 if.then7:                                         ; preds = %_ZN12_GLOBAL__N_118StreamWriteContext21FlushTrailingMetadataEv.exit
-  %sub = sub i64 %206, %58
+  %sub = sub nuw i64 %206, %58
   store i64 %sub, ptr %num_stream_bytes, align 8
   %byte_counter = getelementptr inbounds i8, ptr %51, i64 2160
   %207 = load i64, ptr %byte_counter, align 8

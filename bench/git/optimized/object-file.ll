@@ -6455,7 +6455,7 @@ if.then8:                                         ; preds = %entry
   %add.ptr10 = getelementptr inbounds i8, ptr %call1, i64 %conv5
   %next_out = getelementptr inbounds i8, ptr %stream, i64 152
   store ptr %add.ptr10, ptr %next_out, align 8
-  %sub12 = sub i64 %size, %conv5
+  %sub12 = sub nuw i64 %size, %conv5
   %avail_out = getelementptr inbounds i8, ptr %stream, i64 120
   store i64 %sub12, ptr %avail_out, align 8
   br label %while.cond

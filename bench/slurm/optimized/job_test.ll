@@ -4368,7 +4368,7 @@ _build_gres_mc_data.exit:                         ; preds = %472, %476, %479
   br label %1457
 
 1435:                                             ; preds = %1427
-  %1436 = sub i64 %1403, %1431
+  %1436 = sub nuw i64 %1403, %1431
   %1437 = icmp ugt i64 %.0563.ph, %1436
   br i1 %1437, label %1438, label %.thread824
 
@@ -6141,7 +6141,7 @@ define internal fastcc ptr @_allocate_sc(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not409, label %160, label %.thread
 
 160:                                              ; preds = %159
-  %161 = sub i32 %141, %.0344.lcssa
+  %161 = sub nuw i32 %141, %.0344.lcssa
   %162 = trunc i32 %161 to i16
   %163 = and i32 %161, 65535
   %164 = icmp eq i32 %163, 1

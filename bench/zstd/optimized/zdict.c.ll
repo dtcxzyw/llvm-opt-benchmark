@@ -2190,7 +2190,7 @@ if.end:                                           ; preds = %for.body
 
 if.then10:                                        ; preds = %if.end
   %4 = trunc nuw i64 %indvars.iv to i32
-  %sub = sub i32 %3, %elt.sroa.0.sroa.0.0.extract.trunc
+  %sub = sub nuw i32 %3, %elt.sroa.0.sroa.0.0.extract.trunc
   %length17 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %length17, align 4
   %add18 = add i32 %5, %sub

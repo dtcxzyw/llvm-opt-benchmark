@@ -1505,7 +1505,7 @@ define noundef i32 @H5VM_array_fill(ptr nocapture noundef %0, ptr nocapture noun
   %.02528 = phi i64 [ %9, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.031, ptr align 1 %0, i64 %.02528, i1 false)
   %7 = getelementptr inbounds i8, ptr %.031, i64 %.02528
-  %8 = sub i64 %.02330, %.02429
+  %8 = sub nuw i64 %.02330, %.02429
   %9 = shl i64 %.02528, 1
   %10 = shl i64 %.02429, 1
   %.not = icmp ult i64 %8, %10

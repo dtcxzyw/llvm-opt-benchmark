@@ -2442,7 +2442,7 @@ HUF_readDTableX2.exit:                            ; preds = %for.end38.i, %for.c
 
 if.end3:                                          ; preds = %HUF_readDTableX2.exit
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub = sub i64 %cSrcSize, %call.i
+  %sub = sub nuw i64 %cSrcSize, %call.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %bitD1.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %bitD2.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %bitD3.i)
@@ -3719,7 +3719,7 @@ HUF_readDTableX4.exit:                            ; preds = %if.end36.i.i, %for.
 
 if.end3:                                          ; preds = %HUF_readDTableX4.exit
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub = sub i64 %cSrcSize, %call.i
+  %sub = sub nuw i64 %cSrcSize, %call.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %bitD1.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %bitD2.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %bitD3.i)

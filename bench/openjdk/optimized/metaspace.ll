@@ -826,7 +826,7 @@ _ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb.exit: ; preds = %41, %35
   br i1 %80, label %81, label %106
 
 81:                                               ; preds = %79
-  %82 = sub i64 %5, %69
+  %82 = sub nuw i64 %5, %69
   %83 = udiv i64 %82, 100
   %84 = zext i32 %1 to i64
   %85 = mul i64 %83, %84

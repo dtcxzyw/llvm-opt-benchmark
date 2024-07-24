@@ -18861,7 +18861,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !6221
   %9 = icmp eq i32 %bcmp.i, 0
@@ -117643,7 +117643,7 @@ _ZN6hir_ty5infer5unify14InferenceTable12new_type_var17hbfebd25775aa1702E.exit: ;
           to label %.body75 unwind label %151
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hbb8a447a6a0ab434E.llvm.6579604558243679033.exit.i.i": ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit74"
-  %140 = sub i64 %137, %.0.sroa.speculated.i.i
+  %140 = sub nuw i64 %137, %.0.sroa.speculated.i.i
   %141 = getelementptr inbounds i8, ptr %41, i64 360
   %142 = load ptr, ptr %141, align 8, !alias.scope !30191, !nonnull !9, !noundef !9
   %143 = getelementptr inbounds ptr, ptr %142, i64 %.0.sroa.speculated.i.i
@@ -117653,7 +117653,7 @@ _ZN6hir_ty5infer5unify14InferenceTable12new_type_var17hbfebd25775aa1702E.exit: ;
 
 144:                                              ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit74"
   %145 = getelementptr inbounds i8, ptr %41, i64 352
-  %146 = sub i64 %.0.sroa.speculated.i.i, %137
+  %146 = sub nuw i64 %.0.sroa.speculated.i.i, %137
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h9438eef5decf9766E.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %145, i64 noundef %146)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h1313ac1502fa0f53E.exit_crit_edge.i" unwind label %138
 
@@ -123454,7 +123454,7 @@ _ZN6hir_ty5infer5unify14InferenceTable12new_type_var17hbfebd25775aa1702E.exit.i:
           to label %.body75.i unwind label %154, !noalias !31135
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hbb8a447a6a0ab434E.llvm.6579604558243679033.exit.i.i.i": ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit74.i"
-  %143 = sub i64 %140, %.0.sroa.speculated.i.i.i
+  %143 = sub nuw i64 %140, %.0.sroa.speculated.i.i.i
   %144 = getelementptr inbounds i8, ptr %44, i64 360
   %145 = load ptr, ptr %144, align 8, !alias.scope !31227, !noalias !31135, !nonnull !9, !noundef !9
   %146 = getelementptr inbounds ptr, ptr %145, i64 %.0.sroa.speculated.i.i.i
@@ -123464,7 +123464,7 @@ _ZN6hir_ty5infer5unify14InferenceTable12new_type_var17hbfebd25775aa1702E.exit.i:
 
 147:                                              ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit74.i"
   %148 = getelementptr inbounds i8, ptr %44, i64 352
-  %149 = sub i64 %.0.sroa.speculated.i.i.i, %140
+  %149 = sub nuw i64 %.0.sroa.speculated.i.i.i, %140
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h9438eef5decf9766E.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %148, i64 noundef %149)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h1313ac1502fa0f53E.exit_crit_edge.i.i" unwind label %141, !noalias !31135
 

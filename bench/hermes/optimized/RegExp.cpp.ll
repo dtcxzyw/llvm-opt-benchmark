@@ -1436,8 +1436,8 @@ if.then:                                          ; preds = %_ZN6hermes2vm5vmisa
 
 if.then13:                                        ; preds = %if.then
   %conv = zext nneg i32 %add to i64
-  %sub = sub nsw i32 %and.i, %add
-  %conv24 = zext i32 %sub to i64
+  %sub = sub nuw nsw i32 %and.i, %add
+  %conv24 = zext nneg i32 %sub to i64
   %call27 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %regExpLastInput, i64 noundef %conv, i64 noundef %conv24) #13
   %11 = extractvalue { i32, i64 } %call27, 0
   %12 = extractvalue { i32, i64 } %call27, 1
@@ -3757,7 +3757,7 @@ if.end604:                                        ; preds = %if.end598, %if.end5
   br i1 %cmp605.not, label %for.inc616, label %if.then606
 
 if.then606:                                       ; preds = %if.end604
-  %sub608 = sub i32 %conv330, %nextSourcePosition.0706
+  %sub608 = sub nuw i32 %conv330, %nextSourcePosition.0706
   %add.i = add i32 %nextSourcePosition.0706, %retval.sroa.2.8.extract.trunc.i
   %bf.value.i = and i32 %add.i, 1073741823
   %bf.set.i = or disjoint i32 %bf.value.i, %bf.clear3.i
@@ -6662,7 +6662,7 @@ cond.true.i.i.i.i:                                ; preds = %_ZNK6hermes2vm13Her
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i.i, %56
   %87 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, ptr null, ptr %87
-  %sub.i11.i.i.i = sub i32 %conv.i.i.i, %85
+  %sub.i11.i.i.i = sub nuw i32 %conv.i.i.i, %85
   %cmp.i.i.i.i.i208 = icmp ult i32 %sub.i11.i.i.i, 4096
   br i1 %cmp.i.i.i.i.i208, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -7103,7 +7103,7 @@ cond.true.i.i.i.i:                                ; preds = %_ZNK6hermes2vm13Her
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i.i, %1
   %44 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, ptr null, ptr %44
-  %sub.i11.i.i.i = sub i32 %conv.i.i.i, %42
+  %sub.i11.i.i.i = sub nuw i32 %conv.i.i.i, %42
   %cmp.i.i.i.i.i29 = icmp ult i32 %sub.i11.i.i.i, 4096
   br i1 %cmp.i.i.i.i.i29, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 

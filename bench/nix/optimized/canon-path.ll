@@ -1211,7 +1211,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
           to label %_ZN7testing8internal8EqHelper7CompareISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESt9nullopt_tTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit unwind label %86
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm.exit.i: ; preds = %189, %190
-  %197 = sub i64 %185, %.1.i.i
+  %197 = sub nuw i64 %185, %.1.i.i
   %198 = getelementptr inbounds i8, ptr %188, i64 %.1.i.i
   store i64 %197, ptr %11, align 8, !alias.scope !9
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
@@ -2069,7 +2069,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %484, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i358, label %479, !llvm.loop !12
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i358: ; preds = %479, %480
-  %485 = sub i64 %475, %.1.i.i355
+  %485 = sub nuw i64 %475, %.1.i.i355
   %486 = getelementptr inbounds i8, ptr %478, i64 %.1.i.i355
   store i64 %485, ptr %32, align 8, !alias.scope !27
   %.sroa.24.0..sroa_idx.i360 = getelementptr inbounds i8, ptr %32, i64 8
@@ -2962,7 +2962,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %774, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i519, label %769, !llvm.loop !12
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i519: ; preds = %769, %770
-  %775 = sub i64 %765, %.1.i.i516
+  %775 = sub nuw i64 %765, %.1.i.i516
   %776 = getelementptr inbounds i8, ptr %768, i64 %.1.i.i516
   store i64 %775, ptr %52, align 8, !alias.scope !58
   %.sroa.24.0..sroa_idx.i521 = getelementptr inbounds i8, ptr %52, i64 8
@@ -3863,7 +3863,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %1066, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i681, label %1061, !llvm.loop !12
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i681: ; preds = %1061, %1062
-  %1067 = sub i64 %1057, %.1.i.i678
+  %1067 = sub nuw i64 %1057, %.1.i.i678
   %1068 = getelementptr inbounds i8, ptr %1060, i64 %.1.i.i678
   store i64 %1067, ptr %72, align 8, !alias.scope !89
   %.sroa.24.0..sroa_idx.i683 = getelementptr inbounds i8, ptr %72, i64 8
@@ -4725,7 +4725,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %155, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, label %150, !llvm.loop !12
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %150, %151
-  %156 = sub i64 %146, %.1.i.i
+  %156 = sub nuw i64 %146, %.1.i.i
   %157 = getelementptr inbounds i8, ptr %149, i64 %.1.i.i
   store i64 %156, ptr %12, align 8, !alias.scope !115
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 8
@@ -5443,7 +5443,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %386, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i237, label %381, !llvm.loop !12
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i237: ; preds = %381, %382
-  %387 = sub i64 %377, %.1.i.i234
+  %387 = sub nuw i64 %377, %.1.i.i234
   %388 = getelementptr inbounds i8, ptr %380, i64 %.1.i.i234
   store i64 %387, ptr %28, align 8, !alias.scope !141
   %.sroa.24.0..sroa_idx.i239 = getelementptr inbounds i8, ptr %28, i64 8
@@ -7284,7 +7284,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZNS
   br i1 %.not.i39, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i, label %.invoke
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i: ; preds = %60
-  %62 = sub i64 %.sroa.0170.0195, %61
+  %62 = sub nuw i64 %.sroa.0170.0195, %61
   %63 = getelementptr inbounds i8, ptr %.sroa.6173.0196, i64 %61
   %.not6.i = icmp eq i64 %.sroa.0170.0195, %61
   br i1 %.not6.i, label %_ZN3nix9CanonPath8IteratorppEv.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
@@ -7677,7 +7677,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i97: ; preds = %_Z
   br i1 %.not.i90, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i91, label %.invoke232
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i91: ; preds = %185
-  %187 = sub i64 %.sroa.0155.0199, %186
+  %187 = sub nuw i64 %.sroa.0155.0199, %186
   %188 = getelementptr inbounds i8, ptr %.sroa.6.0200, i64 %186
   %.not6.i92 = icmp eq i64 %.sroa.0155.0199, %186
   br i1 %.not6.i92, label %_ZN3nix9CanonPath8IteratorppEv.exit99, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i93

@@ -546,7 +546,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e58
   br label %.thread.i
 
 116:                                              ; preds = %111
-  %117 = sub nsw i64 %114, %.pre37
+  %117 = sub nuw nsw i64 %114, %.pre37
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h51253fb1008579cfE.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %117, i64 noundef 0)
           to label %..thread.i_crit_edge unwind label %.loopexit
 

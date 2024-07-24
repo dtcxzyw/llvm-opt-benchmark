@@ -1209,7 +1209,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %231 = load i32, ptr @hf_sapms_logon_name, align 4
   %232 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %231, ptr noundef %0, i32 noundef 124, i32 noundef %229, i32 noundef 0) #4
   %233 = add nuw nsw i32 %229, 124
-  %234 = sub nsw i32 %228, %229
+  %234 = sub nuw nsw i32 %228, %229
   br label %235
 
 235:                                              ; preds = %230, %217
@@ -1230,7 +1230,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %243 = load i32, ptr @hf_sapms_logon_prot, align 4
   %244 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %243, ptr noundef %0, i32 noundef %239, i32 noundef %241, i32 noundef 0) #4
   %245 = add nuw nsw i32 %239, %241
-  %246 = sub nsw i32 %240, %241
+  %246 = sub nuw nsw i32 %240, %241
   br label %247
 
 247:                                              ; preds = %242, %235
@@ -1251,7 +1251,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %255 = load i32, ptr @hf_sapms_logon_host, align 4
   %256 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %255, ptr noundef %0, i32 noundef %251, i32 noundef %253, i32 noundef 0) #4
   %257 = add nuw nsw i32 %251, %253
-  %258 = sub nsw i32 %252, %253
+  %258 = sub nuw nsw i32 %252, %253
   br label %259
 
 259:                                              ; preds = %254, %247
@@ -1272,7 +1272,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %267 = load i32, ptr @hf_sapms_logon_misc, align 4
   %268 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %267, ptr noundef %0, i32 noundef %263, i32 noundef %265, i32 noundef 0) #4
   %269 = add nuw nsw i32 %263, %265
-  %270 = sub nsw i32 %264, %265
+  %270 = sub nuw nsw i32 %264, %265
   br label %271
 
 271:                                              ; preds = %266, %259

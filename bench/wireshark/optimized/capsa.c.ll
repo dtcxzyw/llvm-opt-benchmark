@@ -397,7 +397,7 @@ define internal fastcc i32 @capsa_read_packet(i16 %.96.val.0.val, ptr noundef %0
   store i32 %65, ptr %66, align 8
   %67 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %2, i32 noundef %.053, ptr noundef %3, ptr noundef %4) #5
   %.not59 = icmp eq i32 %67, 0
-  %68 = sub nsw i32 %.054, %48
+  %68 = sub nuw nsw i32 %.054, %48
   %spec.select60 = select i1 %.not59, i32 -1, i32 %68
   br label %69
 

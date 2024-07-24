@@ -985,7 +985,7 @@ if.end440:                                        ; preds = %if.then434
   %56 = load ptr, ptr %input445, align 8
   %add.ptr446 = getelementptr inbounds i8, ptr %56, i64 %conv83
   store ptr %add.ptr446, ptr %input445, align 8
-  %sub449 = sub i64 %54, %conv83
+  %sub449 = sub nuw i64 %54, %conv83
   store i64 %sub449, ptr %length436, align 8
   %orig_len451 = getelementptr inbounds i8, ptr %arrayidx435, i64 16
   %57 = load i64, ptr %orig_len451, align 8

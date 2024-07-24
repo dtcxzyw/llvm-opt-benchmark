@@ -1552,7 +1552,7 @@ if.then.i436:                                     ; preds = %for.body601
   %add.i437 = add i64 %sub.i, %233
   %and.i438 = and i64 %add.i437, %sub1.i
   %sub.ptr.sub.i439 = sub i64 %and.i438, %233
-  %sub2.i440 = sub i64 %space.0567, %a.0570
+  %sub2.i440 = sub nuw i64 %space.0567, %a.0570
   %cmp3.not.i441 = icmp ult i64 %sub2.i440, %sub.ptr.sub.i439
   br i1 %cmp3.not.i441, label %_ZN5eastl5alignEmmRPvRm.exit445, label %if.then4.i442
 
@@ -1611,7 +1611,7 @@ if.then.i453:                                     ; preds = %for.body629
   %add.i455 = add i64 %sub.i454, %236
   %and.i457 = and i64 %add.i455, %sub1.i456575
   %sub.ptr.sub.i458 = sub i64 %and.i457, %236
-  %sub2.i459 = sub i64 %space.2571, %a623.0574
+  %sub2.i459 = sub nuw i64 %space.2571, %a623.0574
   %cmp3.not.i460 = icmp ult i64 %sub2.i459, %sub.ptr.sub.i458
   br i1 %cmp3.not.i460, label %_ZN5eastl13align_advanceEmmPvmPS0_Pm.exit, label %if.then4.i461
 

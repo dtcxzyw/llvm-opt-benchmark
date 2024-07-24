@@ -357,7 +357,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %inl, %conv
+  %sub = sub nuw i64 %inl, %conv
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body

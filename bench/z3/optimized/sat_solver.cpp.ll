@@ -32496,14 +32496,14 @@ _ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %entry, %if.then.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i20
 
 if.then.i20:                                      ; preds = %_ZN6vectorIjLb0EjE5resetEv.exit
-  %sub.i = sub i32 %1, %num_scopes
+  %sub.i = sub nuw i32 %1, %num_scopes
   store i32 %sub.i, ptr %m_scopes.i, align 8
   %m_last.i = getelementptr inbounds i8, ptr %this, i64 4020
   br label %_ZN18scoped_limit_trail3popEj.exit
 
 if.else.i:                                        ; preds = %_ZN6vectorIjLb0EjE5resetEv.exit
   %m_vars_lim = getelementptr inbounds i8, ptr %this, i64 4008
-  %sub4.i = sub i32 %num_scopes, %1
+  %sub4.i = sub nuw i32 %num_scopes, %1
   store i32 0, ptr %m_scopes.i, align 8
   %2 = load ptr, ptr %m_vars_lim, align 8
   %cmp.i.i = icmp eq ptr %2, null
@@ -39923,7 +39923,7 @@ while.body:                                       ; preds = %invoke.cont43
   br i1 %cmp49, label %if.then50, label %if.end56
 
 if.then50:                                        ; preds = %while.body
-  %sub = sub i32 %57, %58
+  %sub = sub nuw i32 %57, %58
   invoke void @_ZN3sat6solver3popEj(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 noundef %sub)
           to label %if.end56 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 

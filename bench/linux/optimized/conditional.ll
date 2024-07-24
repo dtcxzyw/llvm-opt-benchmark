@@ -452,7 +452,7 @@ define dso_local i32 @cond_read_bool(ptr nocapture noundef readnone %0, ptr noun
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr align 1 %34, i64 %30, i1 false)
   %35 = getelementptr i8, ptr %34, i64 %30
   store ptr %35, ptr %2, align 8
-  %36 = sub i64 %31, %30
+  %36 = sub nuw i64 %31, %30
   store i64 %36, ptr %8, align 8
   %37 = getelementptr i8, ptr %27, i64 %30
   store i8 0, ptr %37, align 1

@@ -1548,7 +1548,7 @@ define void @_ZN4ring4test8from_hex17hb8aa8766cb73b6d7E(ptr noalias nocapture no
   %.sroa.6.092 = phi i64 [ %2, %.lr.ph ], [ %36, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfc6b01a6da327d4cE.exit" ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.092, i64 2)
   %35 = getelementptr inbounds i8, ptr %.sroa.054.093, i64 %.0.sroa.speculated.i.i
-  %36 = sub i64 %.sroa.6.092, %.0.sroa.speculated.i.i
+  %36 = sub nuw i64 %.sroa.6.092, %.0.sroa.speculated.i.i
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.8)
   %37 = load i8, ptr %.sroa.054.093, align 1, !noundef !8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)

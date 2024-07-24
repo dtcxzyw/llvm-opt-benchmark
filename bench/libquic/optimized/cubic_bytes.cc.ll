@@ -170,7 +170,7 @@ if.then19:                                        ; preds = %if.then14
   br label %if.end55
 
 if.else:                                          ; preds = %if.then14
-  %sub = sub i64 %8, %current_congestion_window
+  %sub = sub nuw i64 %8, %current_congestion_window
   %mul = mul i64 %sub, 1836805
   %conv = uitofp i64 %mul to double
   %call21 = tail call double @cbrt(double noundef %conv) #7

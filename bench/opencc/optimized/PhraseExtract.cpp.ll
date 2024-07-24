@@ -5668,7 +5668,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4has
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %42
-  %59 = sub nsw i64 %49, %56
+  %59 = sub nuw nsw i64 %49, %56
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %59)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %.loopexit.split-lp
 

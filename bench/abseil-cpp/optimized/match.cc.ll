@@ -179,7 +179,7 @@ entry:
   br i1 %cmp.not, label %land.end, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
-  %sub = sub i64 %text.coerce0, %suffix.coerce0
+  %sub = sub nuw i64 %text.coerce0, %suffix.coerce0
   %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %sub
   %call5.i = invoke noundef i32 @_ZN4absl16strings_internal10memcasecmpEPKcS2_m(ptr noundef %add.ptr.i, ptr noundef %suffix.coerce1, i64 noundef %suffix.coerce0)
           to label %_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit unwind label %terminate.lpad.i

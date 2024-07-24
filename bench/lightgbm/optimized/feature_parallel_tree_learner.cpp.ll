@@ -1856,7 +1856,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -2345,7 +2345,7 @@ define linkonce_odr void @_ZN8LightGBM21SyncUpGlobalBestSplitEPcS0_PNS_9SplitInf
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %5
-  %157 = sub nsw i64 %147, %154
+  %157 = sub nuw nsw i64 %147, %154
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %157)
   %.pre.i = load ptr, ptr %56, align 8
   %.pre34.i = load i32, ptr %53, align 8
@@ -2431,7 +2431,7 @@ _ZN8LightGBM9SplitInfo8CopyFromEPKc.exit:         ; preds = %156, %158, %160, %1
   br i1 %206, label %207, label %209
 
 207:                                              ; preds = %_ZN8LightGBM9SplitInfo8CopyFromEPKc.exit
-  %208 = sub nsw i64 %198, %205
+  %208 = sub nuw nsw i64 %198, %205
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %110, i64 noundef %208)
   %.pre.i16 = load ptr, ptr %110, align 8
   %.pre34.i17 = load i32, ptr %107, align 8

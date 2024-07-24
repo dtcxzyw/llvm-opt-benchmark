@@ -4488,7 +4488,7 @@ define void @_ZN6htif_t11clear_chunkEmm(ptr noundef nonnull align 8 dereferencea
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.012 = phi i64 [ %26, %.lr.ph ], [ 0, %3 ]
   %13 = add i64 %.012, %1
-  %14 = sub i64 %2, %.012
+  %14 = sub nuw i64 %2, %.012
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8

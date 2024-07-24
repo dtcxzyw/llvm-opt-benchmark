@@ -462,7 +462,7 @@ define dso_local void @force_page_cache_ra(ptr noundef %0, i64 noundef %1) local
   br i1 %42, label %48, label %43
 
 43:                                               ; preds = %39
-  %44 = sub i64 %41, %32
+  %44 = sub nuw i64 %41, %32
   %45 = icmp ult i64 %44, %33
   %46 = add i64 %44, 1
   %47 = select i1 %45, i64 %46, i64 %33
@@ -498,7 +498,7 @@ define internal fastcc void @do_page_cache_ra(ptr noundef %0, i64 noundef %1) un
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %11
-  %16 = sub i64 %13, %7
+  %16 = sub nuw i64 %13, %7
   %17 = icmp ult i64 %16, %1
   %18 = add i64 %16, 1
   %19 = select i1 %17, i64 %18, i64 %1
@@ -534,7 +534,7 @@ define dso_local void @page_cache_ra_order(ptr noundef %0, ptr nocapture noundef
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %18
-  %23 = sub i64 %20, %15
+  %23 = sub nuw i64 %20, %15
   %24 = icmp ult i64 %23, %12
   %25 = add i64 %23, 1
   %26 = select i1 %24, i64 %25, i64 %12
@@ -638,7 +638,7 @@ define dso_local void @page_cache_sync_ra(ptr noundef %0, i64 noundef %1) #0 ali
   br i1 %62, label %68, label %63
 
 63:                                               ; preds = %59
-  %64 = sub i64 %61, %52
+  %64 = sub nuw i64 %61, %52
   %65 = icmp ult i64 %64, %53
   %66 = add i64 %64, 1
   %67 = select i1 %65, i64 %66, i64 %53
@@ -933,7 +933,7 @@ define internal fastcc void @ondemand_readahead(ptr noundef %0, ptr noundef %1, 
   br i1 %177, label %183, label %178
 
 178:                                              ; preds = %174
-  %179 = sub i64 %176, %162
+  %179 = sub nuw i64 %176, %162
   %180 = icmp ult i64 %179, %169
   %181 = add i64 %179, 1
   %182 = select i1 %180, i64 %181, i64 %169

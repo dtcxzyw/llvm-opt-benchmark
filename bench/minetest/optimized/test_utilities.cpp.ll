@@ -4437,7 +4437,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 _Z4trimSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %str.coerce0, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %str.coerce0, %front.0.lcssa.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %str.coerce1, i64 %front.0.lcssa.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
@@ -6086,7 +6086,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceISt17basic_string_viewIcS2_EEENSt9enable_ifIXsr6__and_ISt14is_convertibleIRKT_S7_ESt6__not_IS9_IPSB_PKS4_EESE_IS9_ISC_PKcEEEE5valueERS4_E4typeEmmSC_.exit.i: ; preds = %while.body.i
-  %sub.i.i.i.i = sub i64 %1, %start.022.i
+  %sub.i.i.i.i = sub nuw i64 %1, %start.022.i
   %spec.select.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 5)
   %call3.i.i.i46 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %test_str, i64 noundef %start.022.i, i64 noundef %spec.select.i.i.i.i, ptr noundef nonnull @.str.122, i64 noundef 5)
           to label %call3.i.i.i.noexc unwind label %lpad.loopexit

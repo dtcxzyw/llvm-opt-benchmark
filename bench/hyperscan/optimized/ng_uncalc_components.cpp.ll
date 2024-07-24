@@ -6670,7 +6670,7 @@ invoke.cont1.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i11.i:                             ; preds = %invoke.cont1.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i5.i.i.i, %invoke.cont1.i.i.i ]
   %f.addr.0.i.i.i = phi ptr [ %first, %if.then.i ], [ %add.ptr.i.i.i.i17, %invoke.cont1.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i, %4
   %mul.i.i12.i = shl i64 %sub.i, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i, ptr align 4 %f.addr.0.i.i.i, i64 %mul.i.i12.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EEvRT_T0_NS0_16allocator_traitsIS6_E9size_typeET1_SB_.exit

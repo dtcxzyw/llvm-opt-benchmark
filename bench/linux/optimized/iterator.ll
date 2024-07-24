@@ -79,7 +79,7 @@ define dso_local noundef range(i64 -12, 4294967296) i64 @netfs_extract_user_iter
   br label %.loopexit10
 
 37:                                               ; preds = %33
-  %38 = sub i64 %27, %29
+  %38 = sub nuw i64 %27, %29
   %39 = load i64, ptr %6, align 8
   %40 = add i64 %39, %29
   %41 = add i64 %40, 4095
@@ -218,7 +218,7 @@ define dso_local i64 @netfs_limit_iter(ptr nocapture noundef readonly %0, i64 no
   br i1 %34, label %40, label %35
 
 35:                                               ; preds = %30
-  %36 = sub i64 %26, %33
+  %36 = sub nuw i64 %26, %33
   %37 = sub i64 %25, %33
   %38 = add nuw nsw i64 %24, 1
   %39 = icmp eq i64 %37, 0
@@ -302,7 +302,7 @@ define dso_local i64 @netfs_limit_iter(ptr nocapture noundef readonly %0, i64 no
   br i1 %89, label %187, label %90
 
 90:                                               ; preds = %88
-  %91 = sub i64 %80, %1
+  %91 = sub nuw i64 %80, %1
   %92 = tail call i64 @llvm.umin.i64(i64 %91, i64 %2)
   tail call void @__rcu_read_lock() #7
   %93 = call ptr @xas_find(ptr noundef nonnull %5, i64 noundef -1) #7

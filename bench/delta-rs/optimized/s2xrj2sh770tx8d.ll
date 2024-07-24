@@ -46001,7 +46001,7 @@ define internal fastcc void @"_ZN11arrow_array7builder17primitive_builder25Primi
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.exit.i
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   %22 = load i64, ptr %21, align 8, !alias.scope !14233, !noundef !4
   %23 = icmp ugt i64 %15, %22
@@ -125679,7 +125679,7 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %529, %535
           to label %593 unwind label %591, !noalias !34446
 
 578:                                              ; preds = %571
-  %579 = sub i64 %564, %573
+  %579 = sub nuw i64 %564, %573
   %580 = sub i64 %566, %573
   %581 = add i64 %580, %579
   invoke void @_ZN5bytes5bytes5Bytes5slice17hd8323589a2612679E(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 %569, i64 noundef %579, i64 noundef %581)

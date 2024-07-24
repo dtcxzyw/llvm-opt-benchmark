@@ -237,7 +237,7 @@ _ZN3gmx9HashedMapIiE5clearEv.exit.i:              ; preds = %.lr.ph.i.i, %20
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %.critedge.i.i
-  %58 = sub nsw i64 %49, %55
+  %58 = sub nuw nsw i64 %49, %55
   tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %58)
   br label %_ZN3gmx9HashedMapIiE6resizeEi.exit.i
 
@@ -2900,7 +2900,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEPiiET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i32, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
@@ -3039,7 +3039,7 @@ _ZNSt10unique_ptrI24gmx_domdec_constraints_tSt14default_deleteIS0_EED2Ev.exit: ;
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %_ZNSt10unique_ptrI24gmx_domdec_constraints_tSt14default_deleteIS0_EED2Ev.exit
-  %28 = sub nsw i64 %19, %25
+  %28 = sub nuw nsw i64 %19, %25
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %28)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -3075,7 +3075,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %27, %29, %31, %33
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %50 = sub nsw i64 %40, %47
+  %50 = sub nuw nsw i64 %40, %47
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %50)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit39
 
@@ -3186,7 +3186,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit39:             ; preds = %49, %51, %53, %55
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 126:                                              ; preds = %107
-  %127 = sub nsw i64 %109, %120
+  %127 = sub nuw nsw i64 %109, %120
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %108, ptr %111, i32 %113, i64 noundef %127, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
@@ -3278,7 +3278,7 @@ _ZNSt10unique_ptrIN3gmx9HashedMapIiEESt14default_deleteIS2_EED2Ev.exit: ; preds 
   br i1 %167, label %168, label %170
 
 168:                                              ; preds = %_ZNSt10unique_ptrIN3gmx9HashedMapIiEESt14default_deleteIS2_EED2Ev.exit
-  %169 = sub nsw i64 %159, %166
+  %169 = sub nuw nsw i64 %159, %166
   tail call void @_ZNSt6vectorI15InteractionListSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %158, i64 noundef %169)
   br label %_ZNSt6vectorI15InteractionListSaIS0_EE6resizeEm.exit
 
@@ -3360,7 +3360,7 @@ _ZNSt10unique_ptrI24gmx_domdec_specat_comm_tSt14default_deleteIS0_EED2Ev.exit: ;
   br i1 %196, label %197, label %199
 
 197:                                              ; preds = %_ZNSt10unique_ptrI24gmx_domdec_specat_comm_tSt14default_deleteIS0_EED2Ev.exit
-  %198 = sub nsw i64 %188, %195
+  %198 = sub nuw nsw i64 %188, %195
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %186, i64 noundef %198)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 

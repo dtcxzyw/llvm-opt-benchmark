@@ -2163,7 +2163,7 @@ if.end.i3:                                        ; preds = %_ZN11hb_vector_tIN1
   br i1 %cmp3.i5, label %if.then6.i, label %if.end24
 
 if.then6.i:                                       ; preds = %if.end.i3
-  %sub.i.i = sub i32 %cond.i, %15
+  %sub.i.i = sub nuw i32 %cond.i, %15
   %mul.i.i = shl i32 %sub.i.i, 3
   %tobool.not.i.i9.i = icmp eq i32 %mul.i.i, 0
   br i1 %tobool.not.i.i9.i, label %if.end24, label %if.end.i.i.i
@@ -2311,7 +2311,7 @@ if.end:                                           ; preds = %if.then28.i, %if.el
   br i1 %brmerge.not, label %if.then6, label %if.end15
 
 if.then6:                                         ; preds = %if.end
-  %sub.i = sub i32 %cond, %5
+  %sub.i = sub nuw i32 %cond, %5
   %mul.i = mul i32 %sub.i, 72
   %tobool.not.i.i9 = icmp eq i32 %mul.i, 0
   br i1 %tobool.not.i.i9, label %if.end15, label %if.end.i.i

@@ -1797,7 +1797,7 @@ _ZN6syntax3ast8AstToken4text17h5341158ba1a441fdE.exit.i.i: ; preds = %10, %4
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 %14
   %21 = load i8, ptr %20, align 1, !alias.scope !405, !noalias !400, !noundef !8
   %22 = icmp sgt i8 %21, -65
-  %23 = sub i64 %.sroa.3.0.i.i.i.i, %14
+  %23 = sub nuw i64 %.sroa.3.0.i.i.i.i, %14
   br i1 %22, label %25, label %24
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %17
@@ -1959,7 +1959,7 @@ _ZN6syntax3ast8AstToken4text17he4181367e3125193E.exit.i.i: ; preds = %10, %4
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 %14
   %21 = load i8, ptr %20, align 1, !alias.scope !443, !noalias !438, !noundef !8
   %22 = icmp sgt i8 %21, -65
-  %23 = sub i64 %.sroa.3.0.i.i.i.i, %14
+  %23 = sub nuw i64 %.sroa.3.0.i.i.i.i, %14
   br i1 %22, label %25, label %24
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %17
@@ -2058,7 +2058,7 @@ _ZN6syntax3ast8AstToken4text17h4b4f98d942a79e1bE.exit.i.i: ; preds = %10, %4
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 %14
   %21 = load i8, ptr %20, align 1, !alias.scope !459, !noalias !454, !noundef !8
   %22 = icmp sgt i8 %21, -65
-  %23 = sub i64 %.sroa.3.0.i.i.i.i, %14
+  %23 = sub nuw i64 %.sroa.3.0.i.i.i.i, %14
   br i1 %22, label %25, label %24
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %17
@@ -5157,15 +5157,15 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hdb734e9928883627E.exit.i.i.
   br i1 %or.cond.i.i.i, label %.invoke.i.i, label %319
 
 319:                                              ; preds = %"_ZN4core3ptr176drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$alloc..string..String$C$core..option..Option$LT$hir_def..per_ns..Namespace$GT$$RP$$GT$$GT$17hf22c145ef72d0e3aE.exit172.i.i"
-  %320 = sub i32 %.sroa.02.0.copyload.i.i.i.i.i.i, %.069.i.i
-  %321 = sub i32 %.sroa.4.0.copyload.i.i.i.i.i.i, %.069.i.i
+  %320 = sub nuw i32 %.sroa.02.0.copyload.i.i.i.i.i.i, %.069.i.i
+  %321 = sub nuw i32 %.sroa.4.0.copyload.i.i.i.i.i.i, %.069.i.i
   %.not.i.not.i176.i.i = icmp ult i32 %320, %.0.i.i.i.i
   %.not.i11.not.i177.i.i = icmp ult i32 %321, %.0.i.i.i.i
   %or.cond.i178.i.i = or i1 %.not.i.not.i176.i.i, %.not.i11.not.i177.i.i
   br i1 %or.cond.i178.i.i, label %.invoke.i.i, label %322
 
 322:                                              ; preds = %319
-  %323 = sub i32 %320, %.0.i.i.i.i
+  %323 = sub nuw i32 %320, %.0.i.i.i.i
   %324 = load i32, ptr %65, align 4, !noalias !1376, !noundef !8
   %325 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %323, i32 %324)
   %326 = extractvalue { i32, i1 } %325, 1
@@ -5173,7 +5173,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hdb734e9928883627E.exit.i.i.
   br i1 %326, label %.invoke.i.i, label %328
 
 328:                                              ; preds = %322
-  %329 = sub i32 %321, %.0.i.i.i.i
+  %329 = sub nuw i32 %321, %.0.i.i.i.i
   %330 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %329, i32 %324)
   %331 = extractvalue { i32, i1 } %330, 1
   br i1 %331, label %.invoke.i.i, label %332
@@ -6660,15 +6660,15 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hd6dc7f8ae7c2cad2E.exit.i.i.
   br i1 %or.cond.i.i.i, label %.invoke.i.i, label %323
 
 323:                                              ; preds = %"_ZN4core3ptr176drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$alloc..string..String$C$core..option..Option$LT$hir_def..per_ns..Namespace$GT$$RP$$GT$$GT$17hf22c145ef72d0e3aE.exit173.i.i"
-  %324 = sub i32 %.sroa.02.0.copyload.i.i.i.i.i.i, %.069.i.i
-  %325 = sub i32 %.sroa.4.0.copyload.i.i.i.i.i.i, %.069.i.i
+  %324 = sub nuw i32 %.sroa.02.0.copyload.i.i.i.i.i.i, %.069.i.i
+  %325 = sub nuw i32 %.sroa.4.0.copyload.i.i.i.i.i.i, %.069.i.i
   %.not.i.not.i177.i.i = icmp ult i32 %324, %.0.i.i.i.i
   %.not.i11.not.i178.i.i = icmp ult i32 %325, %.0.i.i.i.i
   %or.cond.i179.i.i = or i1 %.not.i.not.i177.i.i, %.not.i11.not.i178.i.i
   br i1 %or.cond.i179.i.i, label %.invoke.i.i, label %326
 
 326:                                              ; preds = %323
-  %327 = sub i32 %324, %.0.i.i.i.i
+  %327 = sub nuw i32 %324, %.0.i.i.i.i
   %328 = load i32, ptr %68, align 4, !noalias !1814, !noundef !8
   %329 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %327, i32 %328)
   %330 = extractvalue { i32, i1 } %329, 1
@@ -6676,7 +6676,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hd6dc7f8ae7c2cad2E.exit.i.i.
   br i1 %330, label %.invoke.i.i, label %332
 
 332:                                              ; preds = %326
-  %333 = sub i32 %325, %.0.i.i.i.i
+  %333 = sub nuw i32 %325, %.0.i.i.i.i
   %334 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %333, i32 %328)
   %335 = extractvalue { i32, i1 } %334, 1
   br i1 %335, label %.invoke.i.i, label %336
@@ -20297,22 +20297,22 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h82052422b8f60d91E.exit.i.i.
   br i1 %or.cond.i.i.i.i.i.i, label %.invoke.i.i.i.i.i, label %572
 
 572:                                              ; preds = %"_ZN4core3ptr176drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$alloc..string..String$C$core..option..Option$LT$hir_def..per_ns..Namespace$GT$$RP$$GT$$GT$17hf22c145ef72d0e3aE.exit172.i.i.i.i.i"
-  %573 = sub i32 %.sroa.02.0.copyload.i.i.i.i.i.i.i.i.i, %.069.i.i.i.i.i
-  %574 = sub i32 %.sroa.4.0.copyload.i.i.i.i.i.i.i.i.i, %.069.i.i.i.i.i
+  %573 = sub nuw i32 %.sroa.02.0.copyload.i.i.i.i.i.i.i.i.i, %.069.i.i.i.i.i
+  %574 = sub nuw i32 %.sroa.4.0.copyload.i.i.i.i.i.i.i.i.i, %.069.i.i.i.i.i
   %.not.i.not.i176.i.i.i.i.i = icmp ult i32 %573, %.0.i.i.i.i.i.i.i72
   %.not.i11.not.i177.i.i.i.i.i = icmp ult i32 %574, %.0.i.i.i.i.i.i.i72
   %or.cond.i178.i.i.i.i.i = or i1 %.not.i.not.i176.i.i.i.i.i, %.not.i11.not.i177.i.i.i.i.i
   br i1 %or.cond.i178.i.i.i.i.i, label %.invoke.i.i.i.i.i, label %575
 
 575:                                              ; preds = %572
-  %576 = sub i32 %573, %.0.i.i.i.i.i.i.i72
+  %576 = sub nuw i32 %573, %.0.i.i.i.i.i.i.i72
   %577 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %576, i32 %.0.i.i.i)
   %578 = extractvalue { i32, i1 } %577, 1
   %579 = extractvalue { i32, i1 } %577, 0
   br i1 %578, label %.invoke.i.i.i.i.i, label %580
 
 580:                                              ; preds = %575
-  %581 = sub i32 %574, %.0.i.i.i.i.i.i.i72
+  %581 = sub nuw i32 %574, %.0.i.i.i.i.i.i.i72
   %582 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %581, i32 %.0.i.i.i)
   %583 = extractvalue { i32, i1 } %582, 1
   br i1 %583, label %.invoke.i.i.i.i.i, label %584
@@ -30896,7 +30896,7 @@ _ZN6syntax3ast8AstToken4text17he4181367e3125193E.exit: ; preds = %4, %10
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %14
   %21 = load i8, ptr %20, align 1, !alias.scope !7568, !noundef !8
   %22 = icmp sgt i8 %21, -65
-  %23 = sub i64 %.sroa.3.0.i.i, %14
+  %23 = sub nuw i64 %.sroa.3.0.i.i, %14
   br i1 %22, label %25, label %24
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %17
@@ -30993,7 +30993,7 @@ _ZN6syntax3ast8AstToken4text17h4b4f98d942a79e1bE.exit: ; preds = %4, %10
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %14
   %21 = load i8, ptr %20, align 1, !alias.scope !7576, !noundef !8
   %22 = icmp sgt i8 %21, -65
-  %23 = sub i64 %.sroa.3.0.i.i, %14
+  %23 = sub nuw i64 %.sroa.3.0.i.i, %14
   br i1 %22, label %25, label %24
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %17
@@ -31090,7 +31090,7 @@ _ZN6syntax3ast8AstToken4text17h5341158ba1a441fdE.exit: ; preds = %4, %10
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %14
   %21 = load i8, ptr %20, align 1, !alias.scope !7584, !noundef !8
   %22 = icmp sgt i8 %21, -65
-  %23 = sub i64 %.sroa.3.0.i.i, %14
+  %23 = sub nuw i64 %.sroa.3.0.i.i, %14
   br i1 %22, label %25, label %24
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %17

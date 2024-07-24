@@ -1926,7 +1926,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -3126,7 +3126,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %0, i64 368
-  %sub.sink.i = sub nsw i64 %conv, %1
+  %sub.sink.i = sub nuw nsw i64 %conv, %1
   %3 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %3, i64 %sub.sink.i, i32 2
   %x.0.copyload.i = load i64, ptr %sh_flags, align 1

@@ -3967,7 +3967,7 @@ define internal fastcc void @_ZN2cv4rgbdL19preparePyramidCloudERKSt6vectorINS_3M
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %80
-  %95 = sub nsw i64 %86, %92
+  %95 = sub nuw nsw i64 %86, %92
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %95)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %131
 
@@ -13373,7 +13373,7 @@ define internal fastcc void @_ZN2cv4rgbdL24buildPyramidCameraMatrixERKNS_3MatEiR
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %3
-  %18 = sub nsw i64 %8, %15
+  %18 = sub nuw nsw i64 %8, %15
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %18)
   br label %24
 

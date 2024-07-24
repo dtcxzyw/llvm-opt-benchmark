@@ -129,7 +129,7 @@ define hidden void @_ZN17ThreadHeapSampler18check_for_samplingEP7oopDescmm(ptr n
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = sub i64 %6, %5
+  %9 = sub nuw i64 %6, %5
   br label %_ZN17ThreadHeapSampler16pick_next_sampleEm.exit
 
 10:                                               ; preds = %4

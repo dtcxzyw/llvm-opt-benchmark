@@ -12624,7 +12624,7 @@ _ZN7xgboost8BatchSetINS_13SortedCSCPageEED2Ev.exit: ; preds = %_ZN7xgboost13Batc
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %_ZN7xgboost8BatchSetINS_13SortedCSCPageEED2Ev.exit
-  %164 = sub nsw i64 %155, %161
+  %164 = sub nuw nsw i64 %155, %161
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %164)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 
@@ -15076,7 +15076,7 @@ define linkonce_odr void @_ZN7xgboost4tree13TreeEvaluatorC2ERKNS0_10TrainParamEj
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %38
-  %50 = sub nsw i64 %40, %47
+  %50 = sub nuw nsw i64 %40, %47
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr %42, i64 noundef %50, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %28
 
@@ -15220,7 +15220,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %96
-  %108 = sub nsw i64 %98, %105
+  %108 = sub nuw nsw i64 %98, %105
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr %100, i64 noundef %108, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit29 unwind label %28
 
@@ -15955,7 +15955,7 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit: 
   br i1 %75, label %76, label %108
 
 76:                                               ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit
-  %77 = sub nsw i64 %71, %74
+  %77 = sub nuw nsw i64 %71, %74
   %78 = ptrtoint ptr %.sroa.24.0.lcssa to i64
   %79 = sub i64 %78, %72
   %80 = ashr exact i64 %79, 2
@@ -16706,7 +16706,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -18341,7 +18341,7 @@ define linkonce_odr void @_ZN7xgboost4tree8ColMaker7Builder8InitDataERKSt6vector
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %3
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %30)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -19120,7 +19120,7 @@ _ZNSt6vectorIS_IN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EESaIS5_EE5clearEv.ex
   br i1 %412, label %413, label %415
 
 413:                                              ; preds = %_ZNSt6vectorIS_IN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EESaIS5_EE5clearEv.exit
-  %414 = sub nsw i64 %405, %411
+  %414 = sub nuw nsw i64 %405, %411
   invoke void @_ZNSt6vectorIS_IN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %379, ptr %406, i64 noundef %414, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %_ZNSt6vectorIS_IN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EESaIS5_EE6resizeEmRKS5_.exit unwind label %512
 
@@ -19609,7 +19609,7 @@ define linkonce_odr void @_ZN7xgboost4tree8ColMaker7Builder11InitNewNodeERKSt6ve
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %16
-  %28 = sub nsw i64 %18, %25
+  %28 = sub nuw nsw i64 %18, %25
   invoke void @_ZNSt6vectorIN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.056.063, ptr %20, i64 noundef %28, ptr noundef nonnull align 8 dereferenceable(104) %6)
           to label %_ZNSt6vectorIN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EE6resizeEmRKS3_.exit unwind label %49
 
@@ -19690,7 +19690,7 @@ _ZN7xgboost4tree8ColMaker11ThreadEntryD2Ev.exit:  ; preds = %_ZNSt6vectorIN7xgbo
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %._crit_edge
-  %66 = sub nsw i64 %55, %63
+  %66 = sub nuw nsw i64 %55, %63
   invoke void @_ZNSt6vectorIN7xgboost4tree8ColMaker9NodeEntryESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr %58, i64 noundef %66, ptr noundef nonnull align 8 dereferenceable(104) %7)
           to label %_ZNSt6vectorIN7xgboost4tree8ColMaker9NodeEntryESaIS3_EE6resizeEmRKS3_.exit unwind label %107
 
@@ -22779,7 +22779,7 @@ _ZSt13move_backwardIPSt6vectorIN7xgboost4tree8ColMaker11ThreadEntryESaIS4_EES7_E
   br label %common.resume
 
 95:                                               ; preds = %_ZNSt6vectorIS_IN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EESaIS5_EE16_Temporary_valueC2IJRKS5_EEEPS7_DpOT_.exit
-  %96 = sub i64 %2, %45
+  %96 = sub nuw i64 %2, %45
   %97 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIN7xgboost4tree8ColMaker11ThreadEntryESaIS4_EEmS6_ET_S8_T0_RKT1_(ptr noundef %41, i64 noundef %96, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %_ZSt24__uninitialized_fill_n_aIPSt6vectorIN7xgboost4tree8ColMaker11ThreadEntryESaIS4_EEmS6_S6_ET_S8_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -24125,7 +24125,7 @@ _ZSt13move_backwardIPN7xgboost4tree8ColMaker11ThreadEntryES4_ET0_T_S6_S5_.exit: 
   br label %_ZNSt6vectorIN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EE16_Temporary_valueD2Ev.exit
 
 107:                                              ; preds = %_ZNSt6vectorIN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EE16_Temporary_valueC2IJRKS3_EEEPS5_DpOT_.exit
-  %108 = sub i64 %2, %45
+  %108 = sub nuw i64 %2, %45
   %109 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN7xgboost4tree8ColMaker11ThreadEntryEmS3_ET_S5_T0_RKT1_(ptr noundef %10, i64 noundef %108, ptr noundef nonnull align 8 dereferenceable(104) %16)
           to label %_ZSt24__uninitialized_fill_n_aIPN7xgboost4tree8ColMaker11ThreadEntryEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -24756,7 +24756,7 @@ _ZSt13move_backwardIPN7xgboost4tree8ColMaker9NodeEntryES4_ET0_T_S6_S5_.exit: ; p
   br label %_ZNSt6vectorIN7xgboost4tree8ColMaker9NodeEntryESaIS3_EE16_Temporary_valueD2Ev.exit
 
 107:                                              ; preds = %_ZNSt6vectorIN7xgboost4tree8ColMaker9NodeEntryESaIS3_EE16_Temporary_valueC2IJRKS3_EEEPS5_DpOT_.exit
-  %108 = sub i64 %2, %45
+  %108 = sub nuw i64 %2, %45
   %109 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN7xgboost4tree8ColMaker9NodeEntryEmS3_ET_S5_T0_RKT1_(ptr noundef %10, i64 noundef %108, ptr noundef nonnull align 8 dereferenceable(104) %16)
           to label %_ZSt24__uninitialized_fill_n_aIPN7xgboost4tree8ColMaker9NodeEntryEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 

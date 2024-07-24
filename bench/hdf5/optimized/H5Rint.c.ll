@@ -213,7 +213,7 @@ H5R__encode_obj_token.exit:                       ; preds = %5
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %.055.ph, i64 %29
-  %32 = sub i64 %.053.ph, %29
+  %32 = sub nuw i64 %.053.ph, %29
   br label %33
 
 33:                                               ; preds = %H5R__encode_obj_token.exit, %30, %28
@@ -258,7 +258,7 @@ H5R__encode_obj_token.exit:                       ; preds = %5
   %55 = getelementptr inbounds i8, ptr %.156, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr readonly align 1 %0, i64 %38, i1 false)
   %56 = getelementptr inbounds i8, ptr %.156, i64 %41
-  %57 = sub i64 %.154, %41
+  %57 = sub nuw i64 %.154, %41
   br label %.thread
 
 .thread:                                          ; preds = %42, %40, %50

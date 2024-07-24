@@ -8813,7 +8813,7 @@ define internal fastcc void @_ZN2cv3dnnL5to32sERKSt6vectorIS1_INS_6Point_IfEESaI
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %2
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   tail call void @_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %19)
   br label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE6resizeEm.exit
 
@@ -13347,7 +13347,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -15795,7 +15795,7 @@ _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3
   br i1 %784, label %785, label %787
 
 785:                                              ; preds = %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEEPFbRKSA_SG_EEvT_SJ_SJ_T0_.exit
-  %786 = sub nsw i64 %494, %783
+  %786 = sub nuw nsw i64 %494, %783
   invoke void @_ZNSt6vectorISt4pairIS_IiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEESaIS7_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %786)
           to label %._ZNSt6vectorISt4pairIS_IiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEESaIS7_EE6resizeEm.exit_crit_edge unwind label %.body262
 

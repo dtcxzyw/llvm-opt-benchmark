@@ -15489,7 +15489,7 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit:            ; preds = %.noexc394, %_ZN2cv1
   br i1 %247, label %248, label %279
 
 248:                                              ; preds = %238
-  %249 = sub nsw i64 %242, %246
+  %249 = sub nuw nsw i64 %242, %246
   %250 = ptrtoint ptr %.sroa.30.2528 to i64
   %251 = sub i64 %250, %243
   %252 = ashr exact i64 %251, 3
@@ -15836,7 +15836,7 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit397:         ; preds = %279, %_ZNSt12_Vecto
   br i1 %400, label %401, label %432
 
 401:                                              ; preds = %391
-  %402 = sub nsw i64 %395, %399
+  %402 = sub nuw nsw i64 %395, %399
   %403 = ptrtoint ptr %.sroa.30.7542 to i64
   %404 = sub i64 %403, %396
   %405 = ashr exact i64 %404, 3

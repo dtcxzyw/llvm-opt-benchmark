@@ -318,7 +318,7 @@ define dso_local ptr @i915_gem_stolen_lmem_setup(ptr noundef %0, i16 noundef zer
   br label %135
 
 102:                                              ; preds = %95
-  %103 = sub i64 %53, %99
+  %103 = sub nuw i64 %53, %99
   %104 = and i64 %103, -1048576
   br label %105
 
@@ -1162,7 +1162,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @i915_gem_init_stolen(ptr n
 
 250:                                              ; preds = %247
   store i64 %244, ptr %2, align 8
-  %251 = sub i64 %248, %244
+  %251 = sub nuw i64 %248, %244
   store i64 %251, ptr %3, align 8
   br label %453
 

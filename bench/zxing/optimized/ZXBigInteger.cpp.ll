@@ -508,7 +508,7 @@ define internal fastcc void @_ZN5ZXingL6AddMagERKSt6vectorImSaImEES4_RS2_(ptr no
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %3
-  %42 = sub nsw i64 %32, %39
+  %42 = sub nuw nsw i64 %32, %39
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %42)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -641,7 +641,7 @@ define internal fastcc void @_ZN5ZXingL6SubMagERKSt6vectorImSaImEES4_RS2_(ptr no
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %3
-  %27 = sub nsw i64 %10, %24
+  %27 = sub nuw nsw i64 %10, %24
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %27)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -1099,7 +1099,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit67:              ; preds = %20, %26
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit67
-  %47 = sub nsw i64 %40, %44
+  %47 = sub nuw nsw i64 %40, %44
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr %27, i64 noundef %47, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit unwind label %70
 
@@ -1699,7 +1699,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
-  %121 = sub nsw i64 %112, %118
+  %121 = sub nuw nsw i64 %112, %118
   invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %121)
           to label %._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge unwind label %180
 
@@ -2724,7 +2724,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

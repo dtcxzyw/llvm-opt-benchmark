@@ -347,7 +347,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
 
 _ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %136, %134
   %137 = getelementptr inbounds i8, ptr %.0107178.i, i64 %135
-  %138 = sub i32 %.0108177.i, %132
+  %138 = sub nuw i32 %.0108177.i, %132
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.i.cont, label %_ZL9hb_memcpyPvPKvm.exit.i.else
 
 _ZL9hb_memcpyPvPKvm.exit.i.else:                  ; preds = %_ZL9hb_memcpyPvPKvm.exit.i
@@ -620,7 +620,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
 
 _ZL9hb_memcpyPvPKvm.exit.i43:                     ; preds = %264, %262
   %265 = getelementptr inbounds i8, ptr %.0109180.i, i64 %263
-  %266 = sub i32 %.0110179.i, %260
+  %266 = sub nuw i32 %.0110179.i, %260
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.i43.cont, label %_ZL9hb_memcpyPvPKvm.exit.i43.else
 
 _ZL9hb_memcpyPvPKvm.exit.i43.else:                ; preds = %_ZL9hb_memcpyPvPKvm.exit.i43
@@ -776,7 +776,7 @@ define hidden i32 @hb_buffer_serialize_unicode(ptr noundef %0, i32 noundef %1, i
 
 _ZL9hb_memcpyPvPKvm.exit.us.i:                    ; preds = %50, %48
   %51 = getelementptr inbounds i8, ptr %.04159.us.i, i64 %49
-  %52 = sub i32 %.04258.us.i, %46
+  %52 = sub nuw i32 %.04258.us.i, %46
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.us.i.cont, label %_ZL9hb_memcpyPvPKvm.exit.us.i.else
 
 _ZL9hb_memcpyPvPKvm.exit.us.i.else:               ; preds = %_ZL9hb_memcpyPvPKvm.exit.us.i
@@ -832,7 +832,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i.cont:               ; preds = %_ZL9hb_memcpyPvPKvm
 
 _ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %69, %67
   %70 = getelementptr inbounds i8, ptr %.04159.i, i64 %68
-  %71 = sub i32 %.04258.i, %65
+  %71 = sub nuw i32 %.04258.i, %65
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.i.cont, label %_ZL9hb_memcpyPvPKvm.exit.i.else
 
 _ZL9hb_memcpyPvPKvm.exit.i.else:                  ; preds = %_ZL9hb_memcpyPvPKvm.exit.i
@@ -940,7 +940,7 @@ _ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize
 
 _ZL9hb_memcpyPvPKvm.exit.us.i39:                  ; preds = %109, %107
   %110 = getelementptr inbounds i8, ptr %.04563.us.i, i64 %108
-  %111 = sub i32 %.04662.us.i, %105
+  %111 = sub nuw i32 %.04662.us.i, %105
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont, label %_ZL9hb_memcpyPvPKvm.exit.us.i39.else
 
 _ZL9hb_memcpyPvPKvm.exit.us.i39.else:             ; preds = %_ZL9hb_memcpyPvPKvm.exit.us.i39
@@ -1000,7 +1000,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i39.cont:             ; preds = %_ZL9hb_memcpyPvPKvm
 
 _ZL9hb_memcpyPvPKvm.exit.i30:                     ; preds = %129, %127
   %130 = getelementptr inbounds i8, ptr %.04563.i, i64 %128
-  %131 = sub i32 %.04662.i, %125
+  %131 = sub nuw i32 %.04662.i, %125
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.i30.cont, label %_ZL9hb_memcpyPvPKvm.exit.i30.else
 
 _ZL9hb_memcpyPvPKvm.exit.i30.else:                ; preds = %_ZL9hb_memcpyPvPKvm.exit.i30

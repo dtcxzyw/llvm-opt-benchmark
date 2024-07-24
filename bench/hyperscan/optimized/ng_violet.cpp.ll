@@ -36550,7 +36550,7 @@ if.then.i.i119:                                   ; preds = %if.then.i
   br i1 %cmp.i25.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i119
-  %sub.i.i311.i = sub nsw i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i
+  %sub.i.i311.i = sub nuw nsw i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %retval.1.i, ptr %32, i64 noundef %sub.i.i311.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i)
           to label %if.end.i.i unwind label %lpad21.i
 
@@ -36911,7 +36911,7 @@ if.then.i367.i:                                   ; preds = %if.then108.i
   br i1 %cmp.i25.i368.i, label %if.then.i.i384.i, label %if.else.i.i369.i
 
 if.then.i.i384.i:                                 ; preds = %if.then.i367.i
-  %sub.i.i385.i = sub nsw i64 %add.i.i.i.i, %sub.ptr.div.i.i.i360.i
+  %sub.i.i385.i = sub nuw nsw i64 %add.i.i.i.i, %sub.ptr.div.i.i.i360.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %retval.1.i97, ptr %84, i64 noundef %sub.i.i385.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i355.i)
           to label %if.end.i371.i unwind label %lpad109.i
 
@@ -54101,7 +54101,7 @@ if.then12:                                        ; preds = %if.end10
   unreachable
 
 if.end14:                                         ; preds = %if.end10
-  %sub = sub i32 %1, %0
+  %sub = sub nuw i32 %1, %0
   %cmp.i23 = icmp ugt i32 %sub, 2147483646
   br i1 %cmp.i23, label %do.end.i, label %return
 

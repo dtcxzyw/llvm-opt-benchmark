@@ -254,7 +254,7 @@ cond.true.i:                                      ; preds = %entry
   %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %2
   %3 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %3
-  %sub.i = sub i32 %index, %0
+  %sub.i = sub nuw i32 %index, %0
   %cmp.i.i = icmp ult i32 %sub.i, 4096
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -386,7 +386,7 @@ entry:
   br i1 %cmp, label %land.rhs, label %if.end.thread
 
 land.rhs:                                         ; preds = %entry
-  %sub = sub i32 %newLength, %1
+  %sub = sub nuw i32 %newLength, %1
   %cmp4 = icmp ugt i32 %sub, 1047529472
   br i1 %cmp4, label %if.then, label %if.end
 
@@ -753,7 +753,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i86, %14
   %15 = inttoptr i64 %add.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %15
-  %sub = sub i32 %index, %1
+  %sub = sub nuw i32 %index, %1
   %cmp.i.i.i = icmp ult i32 %sub, 4096
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -1326,9 +1326,9 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvRN
 
 if.else:                                          ; preds = %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_18SegmentedArrayBaseINS0_13HermesValue32EEEEENS0_13MutableHandleIT_EEPS7_.exit
   %cmp95 = icmp ult i32 %2, %index
-  %sub97 = sub i32 %index, %2
+  %sub97 = sub nuw i32 %index, %2
   %cmp98 = icmp ugt i32 %sub97, 1048576
-  %or.cond = and i1 %cmp95, %cmp98
+  %or.cond = select i1 %cmp95, i1 %cmp98, i1 false
   br i1 %or.cond, label %if.then104, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.else

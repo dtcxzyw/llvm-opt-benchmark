@@ -35469,7 +35469,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %96, label %97, label %_ZN12_GLOBAL__N_131cmLocalGeneratorCheckObjectNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit.thread60
 
 97:                                               ; preds = %92
-  %98 = sub i64 %95, %93
+  %98 = sub nuw i64 %95, %93
   %99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   %100 = icmp ugt i64 %99, %98
   br i1 %100, label %101, label %_ZN12_GLOBAL__N_131cmLocalGeneratorCheckObjectNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit.thread
@@ -35530,7 +35530,7 @@ _ZN12_GLOBAL__N_131cmLocalGeneratorCheckObjectNameERNSt7__cxx1112basic_stringIcS
 
 120:                                              ; preds = %115
   %121 = extractvalue { i64, ptr } %116, 1
-  %122 = sub i64 %117, %.023.i.i
+  %122 = sub nuw i64 %117, %.023.i.i
   %123 = getelementptr inbounds i8, ptr %121, i64 %.023.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !1163)
@@ -50220,7 +50220,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %56 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
-  %57 = sub nsw i64 %9, %20
+  %57 = sub nuw nsw i64 %9, %20
   %58 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %56, i64 %57
   store ptr %58, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1

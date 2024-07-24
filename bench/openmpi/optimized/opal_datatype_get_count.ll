@@ -149,7 +149,7 @@ define i64 @opal_datatype_get_element_count(ptr nocapture noundef readonly %0, i
 
 69:                                               ; preds = %.lr.ph
   %70 = add i64 %58, %.16592
-  %71 = sub i64 %.193, %61
+  %71 = sub nuw i64 %.193, %61
   %72 = add i32 %.491, 1
   %73 = zext i32 %72 to i64
   %74 = getelementptr inbounds %union.dt_elem_desc, ptr %12, i64 %73
@@ -312,7 +312,7 @@ define noundef i32 @opal_datatype_set_element_count(ptr nocapture noundef readon
   %76 = mul i64 %71, %69
   %77 = add i64 %57, %76
   store i64 %77, ptr %2, align 8
-  %78 = sub i64 %.187, %69
+  %78 = sub nuw i64 %.187, %69
   %79 = add i64 %.486, 1
   %80 = getelementptr inbounds %union.dt_elem_desc, ptr %22, i64 %79
   %81 = load i16, ptr %80, align 8

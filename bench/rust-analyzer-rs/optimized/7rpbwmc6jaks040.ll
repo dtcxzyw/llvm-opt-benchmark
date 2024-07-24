@@ -945,7 +945,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i: ; preds = %53, %
   br i1 %64, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2c8aa1603d2e7280E.exit", label %.lr.ph.split.split.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b4b7d7fe261252eE.exit.i": ; preds = %59
-  %67 = sub i64 %61, %17
+  %67 = sub nuw i64 %61, %17
   %68 = getelementptr inbounds i8, ptr %.val, i64 %67
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %15, i64 %17), !alias.scope !128, !noalias !122
   %69 = icmp eq i32 %bcmp.i.i, 0
@@ -1156,7 +1156,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %12 = getelementptr inbounds i8, ptr %1, i64 %9
   %13 = load i8, ptr %12, align 1, !alias.scope !178, !noalias !172, !noundef !7
   %14 = icmp sgt i8 %13, -65
-  %15 = sub i64 %2, %9
+  %15 = sub nuw i64 %2, %9
   br i1 %14, label %"_ZN4stdx11trim_indent28_$u7b$$u7b$closure$u7d$$u7d$17h0165a6fb90c428f4E.llvm.15028059726034733731.exit", label %34
 
 16:                                               ; preds = %3
@@ -1712,7 +1712,7 @@ define hidden { ptr, i64 } @"_ZN4stdx11trim_indent28_$u7b$$u7b$closure$u7d$$u7d$
   %11 = getelementptr inbounds i8, ptr %1, i64 %8
   %12 = load i8, ptr %11, align 1, !alias.scope !337, !noundef !7
   %13 = icmp sgt i8 %12, -65
-  %14 = sub i64 %2, %8
+  %14 = sub nuw i64 %2, %8
   br i1 %13, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit", label %33
 
 15:                                               ; preds = %3

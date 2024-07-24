@@ -136,7 +136,7 @@ if.end8:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end8
   %deltas_ = getelementptr inbounds i8, ptr %this, i64 8
-  %sub.i = sub nsw i64 %conv10, %sub.ptr.sub.i.i
+  %sub.i = sub nuw nsw i64 %conv10, %sub.ptr.sub.i.i
   tail call void @_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %deltas_, i64 noundef %sub.i)
   br label %_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE6resizeEm.exit
 
@@ -386,7 +386,7 @@ if.else:                                          ; preds = %for.inc.i, %if.then
 
 if.then.i.i25:                                    ; preds = %if.else
   %overflowBuckets_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %sub.i.i = sub nsw i64 %add.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %add.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %overflowBuckets_.i, i64 noundef %sub.i.i)
   %.pre.i = load i16, ptr %overflows_.i17, align 8
   %.pre18.i = sext i16 %.pre.i to i64
@@ -421,7 +421,7 @@ _ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i: ; preds = %if
 
 if.then.i13.i:                                    ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i
   %overflowValues_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %sub.i14.i = sub i64 %add5.pre-phi.i, %sub.ptr.sub.i.i5.i
+  %sub.i14.i = sub nuw i64 %add5.pre-phi.i, %sub.ptr.sub.i.i5.i
   tail call void @_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %overflowValues_.i, i64 noundef %sub.i14.i)
   %.pre17.i = load i16, ptr %overflows_.i17, align 8
   %.pre20.i = sext i16 %.pre17.i to i64
@@ -600,7 +600,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %overflowBuckets_ = getelementptr inbounds i8, ptr %this, i64 48
-  %sub.i = sub nsw i64 %add, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %add, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %overflowBuckets_, i64 noundef %sub.i)
   %.pre = load i16, ptr %overflows_, align 8
   %.pre18 = sext i16 %.pre to i64
@@ -635,7 +635,7 @@ _ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit: ; preds = %if.t
 
 if.then.i13:                                      ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit
   %overflowValues_ = getelementptr inbounds i8, ptr %this, i64 80
-  %sub.i14 = sub i64 %add5.pre-phi, %sub.ptr.sub.i.i5
+  %sub.i14 = sub nuw i64 %add5.pre-phi, %sub.ptr.sub.i.i5
   tail call void @_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %overflowValues_, i64 noundef %sub.i14)
   %.pre17 = load i16, ptr %overflows_, align 8
   %.pre20 = sext i16 %.pre17 to i64
@@ -1722,7 +1722,7 @@ if.then:                                          ; preds = %invoke.cont12
   br i1 %cmp.i17, label %if.then.i20, label %if.else.i
 
 if.then.i20:                                      ; preds = %if.then
-  %sub.i = sub nsw i64 %conv18, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv18, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %overflowBuckets_, i64 noundef %sub.i)
           to label %if.then.i20.invoke.cont19_crit_edge unwind label %lpad6
 
@@ -1757,7 +1757,7 @@ invoke.cont19:                                    ; preds = %if.then.i20.invoke.
   br i1 %cmp.i27, label %if.then.i34, label %if.else.i28
 
 if.then.i34:                                      ; preds = %invoke.cont19
-  %sub.i35 = sub i64 %conv22.pre-phi, %sub.ptr.sub.i.i26
+  %sub.i35 = sub nuw i64 %conv22.pre-phi, %sub.ptr.sub.i.i26
   invoke void @_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %overflowValues_, i64 noundef %sub.i35)
           to label %if.then.i34.invoke.cont23_crit_edge unwind label %lpad6
 
@@ -2040,7 +2040,7 @@ if.else.i:                                        ; preds = %if.then.i35
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  %sub.i.i.i = sub nsw i64 %add.i.i, %sub.ptr.div.i.i.i.i
+  %sub.i.i.i = sub nuw nsw i64 %add.i.i, %sub.ptr.div.i.i.i.i
   %22 = load ptr, ptr %_M_end_of_storage.i55, align 8
   %sub.ptr.lhs.cast.i56 = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i57 = sub i64 %sub.ptr.lhs.cast.i56, %sub.ptr.lhs.cast.i.i.i.i
@@ -2186,7 +2186,7 @@ _ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i.i: ; preds = %
   br i1 %cmp.i6.i.i, label %if.then.i13.i.i, label %if.else.i7.i.i
 
 if.then.i13.i.i:                                  ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i.i
-  %sub.i14.i.i = sub i64 %add5.pre-phi.i.i, %sub.ptr.sub.i.i5.i.i
+  %sub.i14.i.i = sub nuw i64 %add5.pre-phi.i.i, %sub.ptr.sub.i.i5.i.i
   %35 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i42 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i43 = sub i64 %sub.ptr.lhs.cast.i42, %sub.ptr.lhs.cast.i.i3.i.i
@@ -2480,7 +2480,7 @@ if.else:                                          ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %if.else
   %overflowBuckets_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %sub.i.i = sub nsw i64 %add.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %add.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %overflowBuckets_.i, i64 noundef %sub.i.i)
   %.pre.i = load i16, ptr %overflows_.i, align 8
   %.pre18.i = sext i16 %.pre.i to i64
@@ -2515,7 +2515,7 @@ _ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i: ; preds = %if
 
 if.then.i13.i:                                    ; preds = %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i
   %overflowValues_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %sub.i14.i = sub i64 %add5.pre-phi.i, %sub.ptr.sub.i.i5.i
+  %sub.i14.i = sub nuw i64 %add5.pre-phi.i, %sub.ptr.sub.i.i5.i
   tail call void @_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %overflowValues_.i, i64 noundef %sub.i14.i)
   %.pre17.i = load i16, ptr %overflows_.i, align 8
   %.pre20.i = sext i16 %.pre17.i to i64

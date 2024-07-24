@@ -17886,7 +17886,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit379: ; preds = %if.end.i371, %
   %retval.i362.sroa.0.0 = phi ptr [ %58, %if.then.i376 ], [ %add.ptr.i374, %if.end.i371 ]
   %call145 = tail call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i362.sroa.0.0) #30
   %conv = sext i32 %call145 to i64
-  %sub.i = sub i64 %call67, %call97
+  %sub.i = sub nuw i64 %call67, %call97
   %cmp1.i.not = icmp ult i64 %sub.i, %conv
   br i1 %cmp1.i.not, label %do.body153, label %lor.lhs.false.i350
 
@@ -29391,7 +29391,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit304: ; preds = %if.end.i296, %
   %retval.i287.sroa.0.0 = phi ptr [ %58, %if.then.i301 ], [ %add.ptr.i299, %if.end.i296 ]
   %call145 = tail call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i287.sroa.0.0) #30
   %conv = sext i32 %call145 to i64
-  %sub.i = sub i64 %call67, %call97
+  %sub.i = sub nuw i64 %call67, %call97
   %cmp1.i.not = icmp ult i64 %sub.i, %conv
   br i1 %cmp1.i.not, label %do.body153, label %do.body157
 

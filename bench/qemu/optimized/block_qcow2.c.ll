@@ -3291,7 +3291,7 @@ if.end:                                           ; preds = %land.lhs.true20, %l
 
 for.body:                                         ; preds = %if.end, %for.body
   %offset.025 = phi i64 [ %add35, %for.body ], [ 0, %if.end ]
-  %sub26 = sub i64 %mul22, %offset.025
+  %sub26 = sub nuw i64 %mul22, %offset.025
   %cond = tail call i64 @llvm.umin.i64(i64 %sub26, i64 %conv25)
   %call29 = tail call i32 @qcow2_cluster_discard(ptr noundef %bs, i64 noundef %offset.025, i64 noundef %cond, i32 noundef 3, i1 noundef zeroext true) #22
   %cmp30 = icmp sgt i32 %call29, -1
@@ -5356,7 +5356,7 @@ if.then271:                                       ; preds = %sw.epilog
   br i1 %cmp281, label %if.then283, label %if.end291
 
 if.then283:                                       ; preds = %if.then271
-  %sub284 = sub i64 %offset, %mul280
+  %sub284 = sub nuw i64 %offset, %mul280
   %call285 = call i32 @qcow2_subcluster_zeroize(ptr noundef %bs, i64 noundef %mul280, i64 noundef %sub284, i32 noundef 0) #22
   %cmp286 = icmp slt i32 %call285, 0
   br i1 %cmp286, label %if.then288, label %if.end291
@@ -8119,7 +8119,7 @@ if.end4:                                          ; preds = %while.body
 
 lor.lhs.false:                                    ; preds = %if.end4
   %conv = zext i32 %13 to i64
-  %sub11 = sub i64 %end_offset, %add
+  %sub11 = sub nuw i64 %end_offset, %add
   %cmp12 = icmp ult i64 %sub11, %conv
   br i1 %cmp12, label %if.then14, label %if.end15
 
@@ -10770,7 +10770,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %new_length, %offset
+  %sub = sub nuw i64 %new_length, %offset
   %tobool.not43 = icmp eq i64 %sub, 0
   br i1 %tobool.not43, label %while.end, label %while.body.lr.ph
 
@@ -11097,7 +11097,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
 
 if.then14:                                        ; preds = %if.end
   %add.ptr = getelementptr i8, ptr %call, i64 %bytes
-  %sub = sub i64 %conv11, %bytes
+  %sub = sub nuw i64 %conv11, %bytes
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %sub, i1 false)
   br label %if.end17
 

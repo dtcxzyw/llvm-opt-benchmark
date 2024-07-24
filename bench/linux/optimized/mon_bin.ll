@@ -347,7 +347,7 @@ define internal i64 @mon_bin_read(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %114, label %117, label %115
 
 115:                                              ; preds = %102
-  %116 = sub i32 %111, %113
+  %116 = sub nuw i32 %111, %113
   store i32 %116, ptr %13, align 8
   br label %117
 
@@ -626,7 +626,7 @@ define internal i64 @mon_bin_ioctl(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %138, label %141, label %139
 
 139:                                              ; preds = %122
-  %140 = sub i32 %136, %137
+  %140 = sub nuw i32 %136, %137
   store i32 %140, ptr %114, align 8
   br label %141
 
@@ -726,7 +726,7 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
   br i1 %198, label %201, label %199
 
 199:                                              ; preds = %182
-  %200 = sub i32 %196, %197
+  %200 = sub nuw i32 %196, %197
   store i32 %200, ptr %174, align 8
   br label %201
 
@@ -973,7 +973,7 @@ define internal i64 @mon_bin_compat_ioctl(ptr nocapture noundef readonly %0, i32
   br i1 %65, label %68, label %66
 
 66:                                               ; preds = %49
-  %67 = sub i32 %63, %64
+  %67 = sub nuw i32 %63, %64
   store i32 %67, ptr %41, align 8
   br label %68
 
@@ -1481,7 +1481,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr noca
   br i1 %71, label %74, label %72
 
 72:                                               ; preds = %.loopexit5
-  %73 = sub i32 %69, %70
+  %73 = sub nuw i32 %69, %70
   store i32 %73, ptr %11, align 8
   br label %74
 
@@ -1742,7 +1742,7 @@ define internal void @mon_bin_error(ptr noundef %0, ptr noundef %1, i32 noundef 
   %15 = add i32 %14, 64
   %16 = icmp ult i32 %15, %10
   %17 = select i1 %16, i32 0, i32 %10
-  %spec.select = sub i32 %15, %17
+  %spec.select = sub nuw i32 %15, %17
   store i32 %spec.select, ptr %13, align 4
   %18 = icmp eq i32 %14, -1
   br i1 %18, label %.thread, label %19
@@ -2010,7 +2010,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   br i1 %116, label %119, label %117
 
 117:                                              ; preds = %112
-  %118 = sub i32 %115, %55
+  %118 = sub nuw i32 %115, %55
   store i32 %118, ptr %113, align 4
   br label %119
 

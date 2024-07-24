@@ -1303,7 +1303,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h33aee7c4d35ccb63E"
 
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h94fec850c2f4915fE.llvm.4097280427338753871.exit"
   %18 = getelementptr inbounds i8, ptr %11, i64 24
-  %19 = sub i64 %5, %1
+  %19 = sub nuw i64 %5, %1
   %20 = mul i64 %19, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 8 %11, i64 %20, i1 false)
   br label %23
@@ -2546,7 +2546,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %53,
   br i1 %64, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h3fa4b148ca638eb6E.exit.i", label %.lr.ph.split.split.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h243c4a2e816388d0E.exit.i.i": ; preds = %59
-  %67 = sub i64 %61, %17
+  %67 = sub nuw i64 %61, %17
   %68 = getelementptr inbounds i8, ptr %.val.i, i64 %67
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %15, i64 %17), !alias.scope !535, !noalias !529
   %69 = icmp eq i32 %bcmp.i.i.i, 0

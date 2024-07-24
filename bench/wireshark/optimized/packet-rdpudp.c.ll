@@ -857,8 +857,8 @@ copy_address_wmem.exit.i:                         ; preds = %62, %52
   %276 = getelementptr inbounds i8, ptr %271, i64 8
   %277 = load i16, ptr %276, align 8
   %278 = icmp ugt i16 %277, %275
-  %279 = sub i16 %277, %275
-  %280 = sub i16 %275, %277
+  %279 = sub nuw i16 %277, %275
+  %280 = sub nuw i16 %275, %277
   %281 = select i1 %278, i16 %279, i16 %280
   %282 = icmp ult i16 %281, 8000
   br i1 %282, label %283, label %290
@@ -1092,8 +1092,8 @@ proto_item_set_generated.exit.i:                  ; preds = %315, %312, %307
   %413 = getelementptr inbounds i8, ptr %408, i64 8
   %414 = load i16, ptr %413, align 8
   %415 = icmp ugt i16 %414, %412
-  %416 = sub i16 %414, %412
-  %417 = sub i16 %412, %414
+  %416 = sub nuw i16 %414, %412
+  %417 = sub nuw i16 %412, %414
   %418 = select i1 %415, i16 %416, i16 %417
   %419 = icmp ult i16 %418, 8000
   br i1 %419, label %420, label %427

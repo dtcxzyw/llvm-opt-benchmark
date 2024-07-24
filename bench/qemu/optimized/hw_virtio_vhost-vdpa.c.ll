@@ -3469,7 +3469,7 @@ trace_vhost_vdpa_listener_region_del.exit:        ; preds = %int128_get64.exit, 
   br i1 %cmp.i81.not, label %if.end47, label %return
 
 if.end47:                                         ; preds = %trace_vhost_vdpa_listener_region_del.exit
-  %sub.i89 = sub nsw i128 %a.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i80
+  %sub.i89 = sub nuw nsw i128 %a.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i80
   %retval.sroa.0.0.extract.trunc.i90 = trunc i128 %sub.i89 to i64
   %retval.sroa.2.0.extract.shift.i91 = lshr i128 %sub.i89, 64
   %retval.sroa.2.0.extract.trunc.i92 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i91 to i64
@@ -4334,7 +4334,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %trace_vhost_vdpa_dump_config.exit
   %b.06 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %trace_vhost_vdpa_dump_config.exit ]
-  %sub = sub i32 %config_len, %b.06
+  %sub = sub nuw i32 %config_len, %b.06
   call void @qemu_hexdump_line(ptr noundef nonnull %line, i32 noundef %b.06, ptr noundef %config, i32 noundef %sub, i1 noundef zeroext false) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4

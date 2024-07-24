@@ -251,7 +251,7 @@ make_empty_cache_entry.exit:                      ; preds = %if.end.i.i, %if.the
   br i1 %cmp.not.i, label %if.then.i.i, label %remove_index_entry_at.exit
 
 if.then.i.i:                                      ; preds = %make_empty_cache_entry.exit
-  %sub.i = sub i32 %dec.i, %nr
+  %sub.i = sub nuw i32 %dec.i, %nr
   %conv.i = zext i32 %sub.i to i64
   %11 = load ptr, ptr %istate, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %11, i64 %idxprom
@@ -381,7 +381,7 @@ entry:
   br i1 %cmp.not, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %entry
-  %sub = sub i32 %dec, %pos
+  %sub = sub nuw i32 %dec, %pos
   %conv = zext i32 %sub to i64
   %4 = load ptr, ptr %istate, align 8
   %add.ptr = getelementptr inbounds ptr, ptr %4, i64 %idxprom
@@ -544,7 +544,7 @@ while.body.i:                                     ; preds = %ce_same_name.exit.l
   br i1 %cmp.not.i.i, label %remove_index_entry_at.exit.i, label %if.end56.i
 
 remove_index_entry_at.exit.i:                     ; preds = %while.body.i
-  %sub.i44.i = sub i32 %dec.i.i, %sub2758.i
+  %sub.i44.i = sub nuw i32 %dec.i.i, %sub2758.i
   %conv.i45.i = zext i32 %sub.i44.i to i64
   %16 = load ptr, ptr %istate, align 8
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %16, i64 %idxprom45.i
@@ -718,7 +718,7 @@ if.end28.i.i.i:                                   ; preds = %if.end15.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i.i.i, label %remove_index_entry_at.exit.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end28.i.i.i
-  %sub.i.i.i.i = sub i32 %dec.i.i.i.i, %42
+  %sub.i.i.i.i = sub nuw i32 %dec.i.i.i.i, %42
   %conv.i.i.i.i = zext i32 %sub.i.i.i.i to i64
   %46 = load ptr, ptr %istate, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %46, i64 %idxprom.i.i.i.i
@@ -846,7 +846,7 @@ if.end52.i.i.i:                                   ; preds = %if.then49.i.i.i
   br i1 %cmp.not.i.i23.i.i, label %if.then.i.i.i25.i.i, label %for.cond.outer.i.i.i.backedge
 
 if.then.i.i.i25.i.i:                              ; preds = %if.end52.i.i.i
-  %sub.i43.i.i.i = sub i32 %dec.i.i22.i.i, %call40.i.i.i
+  %sub.i43.i.i.i = sub nuw i32 %dec.i.i22.i.i, %call40.i.i.i
   %conv.i.i26.i.i = zext i32 %sub.i43.i.i.i to i64
   %61 = load ptr, ptr %istate, align 8
   %add.ptr.i.i27.i.i = getelementptr inbounds ptr, ptr %61, i64 %idxprom45.i.i.i
@@ -2108,7 +2108,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp.not.i, label %if.then.i.i, label %remove_index_entry_at.exit
 
 if.then.i.i:                                      ; preds = %while.body
-  %sub.i = sub i32 %dec.i, %spec.select
+  %sub.i = sub nuw i32 %dec.i, %spec.select
   %conv.i = zext i32 %sub.i to i64
   %5 = load ptr, ptr %istate, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom.i
@@ -8118,7 +8118,7 @@ if.then24.i:                                      ; preds = %if.then20.i
   unreachable
 
 if.end27.i:                                       ; preds = %if.then20.i
-  %sub.i = sub nsw i64 %conv21.i, %call18.i
+  %sub.i = sub nuw nsw i64 %conv21.i, %call18.i
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end27.i, %if.then17.i

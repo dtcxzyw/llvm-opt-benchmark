@@ -5377,7 +5377,7 @@ define internal range(i32 -1, 2) i32 @H5VL__file_open_find_connector_cb(i32 %0, 
   br i1 %83, label %84, label %100
 
 84:                                               ; preds = %82
-  %85 = sub nsw i64 %76, %48
+  %85 = sub nuw nsw i64 %76, %48
   %86 = call i32 @H5Epop(i64 noundef 0, i64 noundef %85) #6
   %87 = icmp slt i32 %86, 0
   br i1 %87, label %88, label %100

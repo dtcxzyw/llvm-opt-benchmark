@@ -1752,7 +1752,7 @@ define hidden void @_ZN2cv8tracking4impl3tld15TrackerTLDModel19integrateAddition
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %16
-  %27 = sub nsw i64 %13, %24
+  %27 = sub nuw nsw i64 %13, %24
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %27)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 

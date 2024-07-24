@@ -110,7 +110,7 @@ define range(i32 0, 2) i32 @cli_scanicon(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %26
-  %34 = sub i32 %31, %30
+  %34 = sub nuw i32 %31, %30
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.2, i32 noundef %34, i32 noundef %31) #13
   br label %35
 
@@ -474,7 +474,7 @@ define internal range(i32 0, 2) i32 @icon_scan_cb(ptr nocapture noundef %0, i32 
   br i1 %or.cond623.not.i, label %63, label %fmap_readn.exit.thread.i
 
 63:                                               ; preds = %60
-  %64 = sub i64 %62, %61
+  %64 = sub nuw i64 %62, %61
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %64, i64 40)
   %65 = load ptr, ptr %45, align 8
   %66 = call ptr %65(ptr noundef nonnull %22, i64 noundef %61, i64 noundef %spec.select.i.i, i32 noundef 0) #13

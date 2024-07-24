@@ -1024,7 +1024,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br i1 %cmp9.not.i, label %for.body21.lr.ph.i, label %if.end45
 
 for.body21.lr.ph.i:                               ; preds = %for.end.i
-  %sub.i = sub i64 %29, %33
+  %sub.i = sub nuw i64 %29, %33
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 16)
   %umax.i = call i64 @llvm.umax.i64(i64 %spec.store.select.i, i64 1)
   %invariant.gep.i = getelementptr i8, ptr %KX, i64 %33
@@ -1075,7 +1075,7 @@ for.end.i70:                                      ; preds = %for.end.loopexit.i6
   br i1 %cmp9.not.i71, label %for.body21.lr.ph.i72, label %ctr_XOR.exit85
 
 for.body21.lr.ph.i72:                             ; preds = %for.end.i70
-  %sub.i73 = sub i64 %in1len, %38
+  %sub.i73 = sub nuw i64 %in1len, %38
   %spec.store.select.i74 = call i64 @llvm.umin.i64(i64 %sub.i73, i64 16)
   %umax.i76 = call i64 @llvm.umax.i64(i64 %spec.store.select.i74, i64 1)
   %invariant.gep.i77 = getelementptr i8, ptr %in1, i64 %38
@@ -1127,7 +1127,7 @@ for.end.i104:                                     ; preds = %for.end.loopexit.i1
   br i1 %cmp9.not.i105, label %for.body21.lr.ph.i106, label %if.end45
 
 for.body21.lr.ph.i106:                            ; preds = %for.end.i104
-  %sub.i107 = sub i64 %in2len, %44
+  %sub.i107 = sub nuw i64 %in2len, %44
   %spec.store.select.i108 = call i64 @llvm.umin.i64(i64 %sub.i107, i64 16)
   %umax.i110 = call i64 @llvm.umax.i64(i64 %spec.store.select.i108, i64 1)
   %invariant.gep.i111 = getelementptr i8, ptr %in2, i64 %44

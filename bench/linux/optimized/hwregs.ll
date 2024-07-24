@@ -349,7 +349,7 @@ acpi_hw_get_access_bit_width.exit:                ; preds = %71, %17, %27, %64
 
 102:                                              ; preds = %95
   store i64 0, ptr %4, align 8
-  %103 = sub i8 %98, %83
+  %103 = sub nuw i8 %98, %83
   br label %116
 
 104:                                              ; preds = %95
@@ -553,7 +553,7 @@ acpi_hw_get_access_bit_width.exit:                ; preds = %69, %15, %25, %62
   br i1 %103, label %106, label %104
 
 104:                                              ; preds = %93
-  %105 = sub i8 %96, %81
+  %105 = sub nuw i8 %96, %81
   br label %117
 
 106:                                              ; preds = %93

@@ -662,7 +662,7 @@ trace_vnc_job_clamp_rect.exit.discard_crit_edge.i.i: ; preds = %trace_vnc_job_cl
   br label %discard.i.i
 
 if.end.i.i:                                       ; preds = %trace_vnc_job_clamp_rect.exit.i.i
-  %sub.i.i = sub i64 %54, %conv.i.i
+  %sub.i.i = sub nuw i64 %54, %conv.i.i
   %conv7.i.i = sext i32 %55 to i64
   %cond.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %conv7.i.i)
   %conv10.i.i = trunc i64 %cond.i.i to i32
@@ -678,7 +678,7 @@ if.end16.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp19.not.i.i, label %if.end22.i.i, label %discard.i.i
 
 if.end22.i.i:                                     ; preds = %if.end16.i.i
-  %sub26.i.i = sub i64 %56, %conv18.i.i
+  %sub26.i.i = sub nuw i64 %56, %conv18.i.i
   %57 = load i32, ptr %h.i.i, align 4
   %conv28.i.i = sext i32 %57 to i64
   %cond35.i.i = call i64 @llvm.umin.i64(i64 %sub26.i.i, i64 %conv28.i.i)

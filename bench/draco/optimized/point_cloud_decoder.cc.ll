@@ -1236,7 +1236,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %1
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %68
-  %73 = sub nsw i64 %70, %67
+  %73 = sub nuw nsw i64 %70, %67
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %73)
   %.pre = load ptr, ptr %34, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit

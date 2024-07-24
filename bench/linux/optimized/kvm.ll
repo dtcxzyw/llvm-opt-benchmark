@@ -1807,7 +1807,7 @@ define internal fastcc void @__send_ipi_mask(ptr nocapture noundef readonly %0, 
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %33
-  %39 = sub i32 %14, %30
+  %39 = sub nuw i32 %14, %30
   %40 = zext nneg i32 %39 to i128
   %41 = shl i128 %31, %40
   store i128 %41, ptr %4, align 16

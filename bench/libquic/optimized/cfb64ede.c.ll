@@ -263,7 +263,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %l.0252 = phi i64 [ %length, %while.body.lr.ph ], [ %sub, %if.end239 ]
   %v1.0251 = phi i32 [ %or26, %while.body.lr.ph ], [ %v1.1, %if.end239 ]
   %v0.0250 = phi i32 [ %or12, %while.body.lr.ph ], [ %v0.1, %if.end239 ]
-  %sub = sub i64 %l.0252, %conv
+  %sub = sub nuw i64 %l.0252, %conv
   store i32 %v0.0250, ptr %ti, align 4
   store i32 %v1.0251, ptr %arrayidx30, align 4
   call void @DES_encrypt3(ptr noundef nonnull %ti, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) #3
@@ -535,7 +535,7 @@ while.body244:                                    ; preds = %while.body244.lr.ph
   %l.1260 = phi i64 [ %length, %while.body244.lr.ph ], [ %sub245, %sw.epilog471 ]
   %v1.2259 = phi i32 [ %or26, %while.body244.lr.ph ], [ %v1.3, %sw.epilog471 ]
   %v0.2258 = phi i32 [ %or12, %while.body244.lr.ph ], [ %v0.3, %sw.epilog471 ]
-  %sub245 = sub i64 %l.1260, %conv
+  %sub245 = sub nuw i64 %l.1260, %conv
   store i32 %v0.2258, ptr %ti, align 4
   store i32 %v1.2259, ptr %arrayidx247, align 4
   call void @DES_encrypt3(ptr noundef nonnull %ti, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) #3

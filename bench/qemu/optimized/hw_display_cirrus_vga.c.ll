@@ -669,7 +669,7 @@ if.end16:                                         ; preds = %if.end
   %tobool25.not = icmp eq i8 %4, 0
   %arrayidx48 = getelementptr i8, ptr %s1, i64 612
   %5 = load i8, ptr %arrayidx48, align 1
-  %sub56 = sub i32 %scr_y, %1
+  %sub56 = sub nuw i32 %scr_y, %1
   br i1 %tobool25.not, label %if.else45, label %if.then26
 
 if.then26:                                        ; preds = %if.end16

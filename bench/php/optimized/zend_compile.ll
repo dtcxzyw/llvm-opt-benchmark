@@ -11456,7 +11456,7 @@ define internal fastcc noundef zeroext i1 @array_is_const_ex(ptr nocapture nound
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
-  %8 = sub i32 %5, %4
+  %8 = sub nuw i32 %5, %4
   store i32 %8, ptr %1, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8

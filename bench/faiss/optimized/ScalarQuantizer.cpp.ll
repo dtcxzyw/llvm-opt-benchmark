@@ -411,7 +411,7 @@ define void @_ZN5faiss15ScalarQuantizer5trainEmPKf(ptr noundef nonnull align 8 d
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %.thread7
-  %51 = sub nsw i64 %41, %48
+  %51 = sub nuw nsw i64 %41, %48
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %51)
   %.pre.i = load ptr, ptr %39, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i

@@ -69,7 +69,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %0 = load i8, ptr %call3, align 1
-  %sub.i = sub i64 %text.coerce0, %pos
+  %sub.i = sub nuw i64 %text.coerce0, %pos
   %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %pos
   %conv.i.i = sext i8 %0 to i32
   %call.i.i = tail call ptr @memchr(ptr noundef %add.ptr.i, i32 noundef %conv.i.i, i64 noundef %sub.i) #10
@@ -127,7 +127,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end10
   br i1 %cmp4.not.i.i.i.i, label %if.end6.i.i.i.i, label %return
 
 if.end6.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %sub.i.i.i.i = sub i64 %text.coerce0, %pos
+  %sub.i.i.i.i = sub nuw i64 %text.coerce0, %pos
   %cmp11.not20.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %2
   br i1 %cmp11.not20.i.i.i.i, label %return, label %while.body.lr.ph.i.i.i.i
 
@@ -141,7 +141,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %if.end6.i.i.i.i
 while.body.i.i.i.i:                               ; preds = %if.end19.i.i.i.i, %while.body.lr.ph.i.i.i.i
   %__len.022.i.i.i.i = phi i64 [ %sub.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %sub.ptr.sub22.i.i.i.i, %if.end19.i.i.i.i ]
   %__first.021.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %if.end19.i.i.i.i ]
-  %sub12.i.i.i.i = sub i64 %__len.022.i.i.i.i, %2
+  %sub12.i.i.i.i = sub nuw i64 %__len.022.i.i.i.i, %2
   %add.i.i.i.i = add i64 %sub12.i.i.i.i, 1
   %cmp.i.i.i.i.i = icmp eq i64 %add.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %return, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
@@ -200,7 +200,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %0 = load i8, ptr %this, align 1
-  %sub.i = sub i64 %text.coerce0, %pos
+  %sub.i = sub nuw i64 %text.coerce0, %pos
   %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %pos
   %conv.i.i = sext i8 %0 to i32
   %call.i.i = tail call ptr @memchr(ptr noundef %add.ptr.i, i32 noundef %conv.i.i, i64 noundef %sub.i) #10
@@ -338,7 +338,7 @@ declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 no
 define dso_local { i64, ptr } @_ZNK4absl8ByLength4FindESt17basic_string_viewIcSt11char_traitsIcEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %text.coerce0, ptr %text.coerce1, i64 noundef %pos) local_unnamed_addr #4 align 2 {
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit:
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %text.coerce0, i64 %pos)
-  %sub.i = sub i64 %text.coerce0, %.sroa.speculated
+  %sub.i = sub nuw i64 %text.coerce0, %.sroa.speculated
   %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %.sroa.speculated
   %0 = load i64, ptr %this, align 8
   %cmp.not = icmp ugt i64 %sub.i, %0

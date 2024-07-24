@@ -76,7 +76,7 @@ do.body:                                          ; preds = %if.end76, %if.end6
   br i1 %cmp.not.i, label %dtls1_max_record_size.exit, label %if.then10
 
 dtls1_max_record_size.exit:                       ; preds = %do.body
-  %sub.i = sub nsw i64 %conv.i, %call.i
+  %sub.i = sub nuw nsw i64 %conv.i, %call.i
   %call2.i = call ptr @SSL_get_wbio(ptr noundef nonnull %ssl) #13
   %call3.i = call i64 @BIO_wpending(ptr noundef %call2.i) #13
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %sub.i, i64 %call3.i)
@@ -104,7 +104,7 @@ if.end17:                                         ; preds = %if.then10, %dtls1_m
   br i1 %cmp.not.i49, label %dtls1_max_record_size.exit56, label %if.then21
 
 dtls1_max_record_size.exit56:                     ; preds = %if.end17
-  %sub.i52 = sub nsw i64 %conv.i47, %call.i48
+  %sub.i52 = sub nuw nsw i64 %conv.i47, %call.i48
   %call2.i53 = call ptr @SSL_get_wbio(ptr noundef nonnull %ssl) #13
   %call3.i54 = call i64 @BIO_wpending(ptr noundef %call2.i53) #13
   %spec.select.i55 = call i64 @llvm.usub.sat.i64(i64 %sub.i52, i64 %call3.i54)
@@ -116,7 +116,7 @@ if.then21:                                        ; preds = %if.end17, %dtls1_ma
   br label %err
 
 if.end22:                                         ; preds = %dtls1_max_record_size.exit56
-  %sub23 = add i64 %spec.select.i55, -12
+  %sub23 = add nsw i64 %spec.select.i55, -12
   %8 = load i32, ptr %init_num24, align 8
   %conv25 = sext i32 %8 to i64
   %spec.select = call i64 @llvm.umin.i64(i64 %sub23, i64 %conv25)
@@ -1226,7 +1226,7 @@ entry:
   br i1 %cmp.not.i, label %dtls1_max_record_size.exit, label %if.then
 
 dtls1_max_record_size.exit:                       ; preds = %entry
-  %sub.i = sub nsw i64 %conv.i, %call.i
+  %sub.i = sub nuw nsw i64 %conv.i, %call.i
   %call2.i = tail call ptr @SSL_get_wbio(ptr noundef nonnull %ssl) #13
   %call3.i = tail call i64 @BIO_wpending(ptr noundef %call2.i) #13
   %cmp.not = icmp ugt i64 %sub.i, %call3.i

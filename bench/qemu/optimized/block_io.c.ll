@@ -1744,7 +1744,7 @@ if.then16:                                        ; preds = %if.end14
   br label %return
 
 if.end18:                                         ; preds = %if.end14
-  %sub20 = sub i64 %0, %qiov_offset
+  %sub20 = sub nuw i64 %0, %qiov_offset
   %cmp21 = icmp ult i64 %sub20, %bytes
   br i1 %cmp21, label %if.then22, label %return
 
@@ -2380,7 +2380,7 @@ if.end.i:                                         ; preds = %if.end6
   br i1 %cmp1.i27, label %if.then13, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %sub4.i = sub i64 %sub.i, %9
+  %sub4.i = sub nuw i64 %sub.i, %9
   %tail.i = getelementptr inbounds i8, ptr %pad, i64 32
   %13 = load i64, ptr %tail.i, align 8
   %cmp5.i = icmp ult i64 %sub4.i, %13

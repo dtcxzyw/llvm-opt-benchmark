@@ -4729,7 +4729,7 @@ _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.ex
   %9 = load ptr, ptr %s, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %conv11.i
   store ptr %add.ptr.i.i, ptr %s, align 8
-  %sub.i.i = sub i64 %7, %conv11.i
+  %sub.i.i = sub nuw i64 %7, %conv11.i
   store i64 %sub.i.i, ptr %length_.i, align 8
   %tobool16.not = icmp eq i32 %call6.i, 0
   br i1 %tobool16.not, label %return, label %if.end18
@@ -4790,7 +4790,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit43: ; preds = %_ZN4absl7debia
   %add = add nuw i64 %call23, 1
   %add.ptr.i40 = getelementptr inbounds i8, ptr %12, i64 %add
   store ptr %add.ptr.i40, ptr %s, align 8
-  %sub.i41 = sub i64 %13, %add
+  %sub.i41 = sub nuw i64 %13, %add
   store i64 %sub.i41, ptr %length_.i, align 8
   %call34 = call fastcc noundef zeroext i1 @_ZN3re2L11IsValidUTF8EN4absl7debian211string_viewEPNS_12RegexpStatusE(ptr %12, i64 %call23, ptr noundef %status)
   br i1 %call34, label %_ZN4absl7debian211string_view13remove_prefixEm.exit43.if.end37_crit_edge, label %return
@@ -4987,7 +4987,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit: ; preds = %if.then10
   %5 = load ptr, ptr %sp, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %conv11
   store ptr %add.ptr.i, ptr %sp, align 8
-  %sub.i = sub i64 %4, %conv11
+  %sub.i = sub nuw i64 %4, %conv11
   store i64 %sub.i, ptr %length_.i, align 8
   br label %return
 
@@ -5061,7 +5061,7 @@ if.then15.i:                                      ; preds = %if.end13.i
 
 _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit: ; preds = %if.then10.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %t.sroa.0.0, i64 %conv11.i
-  %sub.i.i = sub i64 %t.sroa.5.0, %conv11.i
+  %sub.i.i = sub nuw i64 %t.sroa.5.0, %conv11.i
   %cmp = icmp slt i32 %call6.i, 0
   br i1 %cmp, label %return, label %while.cond, !llvm.loop !48
 
@@ -5399,7 +5399,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i: ; preds = %if.then10.i
   %7 = load ptr, ptr %s, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %conv11.i
   store ptr %add.ptr.i.i, ptr %s, align 8
-  %sub.i.i = sub i64 %6, %conv11.i
+  %sub.i.i = sub nuw i64 %6, %conv11.i
   store i64 %sub.i.i, ptr %length_.i, align 8
   %8 = icmp sgt i32 %call6.i, -1
   br label %return
@@ -5499,7 +5499,7 @@ _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.ex
   %6 = load ptr, ptr %s, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %conv11.i
   store ptr %add.ptr.i.i, ptr %s, align 8
-  %sub.i.i = sub i64 %5, %conv11.i
+  %sub.i.i = sub nuw i64 %5, %conv11.i
   store i64 %sub.i.i, ptr %length_.i, align 8
   %cmp9 = icmp slt i32 %call6.i, 0
   br i1 %cmp9, label %return, label %if.end11
@@ -6138,7 +6138,7 @@ cond.false.i.i120:                                ; preds = %if.end28.i
 _ZN3re2L11ParseCCNameEPN4absl7debian211string_viewENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit: ; preds = %if.end28.i
   %add.ptr.i.i118 = getelementptr inbounds i8, ptr %14, i64 %sub.ptr.sub23.i
   store ptr %add.ptr.i.i118, ptr %s, align 8
-  %sub.i.i119 = sub nsw i64 %13, %sub.ptr.sub23.i
+  %sub.i.i119 = sub nuw nsw i64 %13, %sub.ptr.sub23.i
   store i64 %sub.i.i119, ptr %whole_class.sroa.3.0..sroa_idx, align 8
   %sign.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   %29 = load i32, ptr %sign.i, align 8
@@ -6548,7 +6548,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit: ; preds = %if.end58
   %18 = load ptr, ptr %s, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %add
   store ptr %add.ptr.i, ptr %s, align 8
-  %sub.i = sub i64 %17, %add
+  %sub.i = sub nuw i64 %17, %add
   store i64 %sub.i, ptr %length_.i57, align 8
   br label %return
 
@@ -6606,7 +6606,7 @@ if.then15.i:                                      ; preds = %if.end13.i
 _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit: ; preds = %if.then10.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 %conv11.i
   store ptr %add.ptr.i.i, ptr %t, align 8
-  %sub.i.i = sub i64 %19, %conv11.i
+  %sub.i.i = sub nuw i64 %19, %conv11.i
   store i64 %sub.i.i, ptr %length_.i, align 8
   %cmp72 = icmp slt i32 %call6.i, 0
   br i1 %cmp72, label %return, label %if.end74
@@ -6812,7 +6812,7 @@ lpad:                                             ; preds = %init
   resume { ptr, i32 } %3
 
 if.end5:                                          ; preds = %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit
-  %sub.i.i = sub i64 %t.sroa.5.0, %conv11.i
+  %sub.i.i = sub nuw i64 %t.sroa.5.0, %conv11.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %t.sroa.0.0, i64 %conv11.i
   %4 = load ptr, ptr @_ZZN3re2L18IsValidCaptureNameEN4absl7debian211string_viewEE2cc, align 8
   %call6 = call noundef zeroext i1 @_ZNK3re29CharClass8ContainsEi(ptr noundef nonnull align 8 dereferenceable(20) %4, i32 noundef %2)
@@ -7055,7 +7055,7 @@ invoke.cont15:                                    ; preds = %if.then10.i
   %10 = load ptr, ptr %t, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %conv11.i
   store ptr %add.ptr.i.i, ptr %t, align 8
-  %sub.i.i = sub i64 %9, %conv11.i
+  %sub.i.i = sub nuw i64 %9, %conv11.i
   store i64 %sub.i.i, ptr %s.sroa.3.0.t.sroa_idx, align 8
   %cmp17 = icmp slt i32 %call6.i34, 0
   br i1 %cmp17, label %cleanup, label %if.end19
@@ -7136,7 +7136,7 @@ invoke.cont34:                                    ; preds = %if.then10.i49
   %17 = load ptr, ptr %t, align 8
   %add.ptr.i.i53 = getelementptr inbounds i8, ptr %17, i64 %conv11.i50
   store ptr %add.ptr.i.i53, ptr %t, align 8
-  %sub.i.i54 = sub i64 %16, %conv11.i50
+  %sub.i.i54 = sub nuw i64 %16, %conv11.i50
   store i64 %sub.i.i54, ptr %s.sroa.3.0.t.sroa_idx, align 8
   %cmp36 = icmp slt i32 %call6.i63, 0
   br i1 %cmp36, label %cleanup, label %if.end405.invoke
@@ -7925,7 +7925,7 @@ invoke.cont313:                                   ; preds = %if.then10.i312
   %91 = load ptr, ptr %t, align 8
   %add.ptr.i.i316 = getelementptr inbounds i8, ptr %91, i64 %conv11.i313
   store ptr %add.ptr.i.i316, ptr %t, align 8
-  %sub.i.i317 = sub i64 %90, %conv11.i313
+  %sub.i.i317 = sub nuw i64 %90, %conv11.i313
   store i64 %sub.i.i317, ptr %s.sroa.3.0.t.sroa_idx, align 8
   %cmp315 = icmp slt i32 %call6.i327, 0
   br i1 %cmp315, label %cleanup, label %if.end317

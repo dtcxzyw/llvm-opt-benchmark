@@ -32584,7 +32584,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine11EngineInner12execute_func17
           to label %.noexc29 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 111:                                              ; preds = %107
-  %112 = sub i64 %104, %102
+  %112 = sub nuw i64 %104, %102
   invoke void @_ZN5wasmi6engine5stack6values10ValueStack12extend_zeros17h016eb30aad190240E(ptr noalias noundef nonnull align 8 dereferenceable(40) %43, i64 noundef %112)
           to label %.noexc30 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -32936,7 +32936,7 @@ _ZN5wasmi6engine5stack5Stack14call_host_impl17h49955e1756acd828E.exit.i: ; preds
           to label %.noexc49 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 242:                                              ; preds = %238
-  %243 = sub i64 %235, %234
+  %243 = sub nuw i64 %235, %234
   invoke void @_ZN5wasmi6engine5stack6values10ValueStack12extend_zeros17h016eb30aad190240E(ptr noalias noundef nonnull align 8 dereferenceable(40) %43, i64 noundef %243)
           to label %.noexc50 unwind label %.loopexit
 
@@ -37689,7 +37689,7 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i.i.i: ; preds = 
   br i1 %64, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i.i", label %.lr.ph.split.split.i.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit.i.i.i.i": ; preds = %59
-  %67 = sub i64 %61, %17
+  %67 = sub nuw i64 %61, %17
   %68 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %67
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %15, i64 %17), !alias.scope !8542, !noalias !8536
   %69 = icmp eq i32 %bcmp.i.i.i.i.i, 0
@@ -40769,7 +40769,7 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17ha171a7
   %14 = or i64 %11, %13
   store i64 %14, ptr %12, align 8
   %15 = icmp ugt i64 %8, 8
-  br i1 %15, label %43, label %16
+  br i1 %15, label %42, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 24
@@ -40800,19 +40800,18 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17ha171a7
   %39 = xor i64 %32, %14
   store i64 %39, ptr %0, align 8
   %.not = icmp eq i64 %8, 0
-  %40 = shl nuw nsw i64 %8, 3
-  %41 = sub nsw i64 64, %40
-  %42 = lshr i64 %2, %41
-  %.0 = select i1 %.not, i64 0, i64 %42
+  %40 = sub nsw i64 64, %9
+  %41 = lshr i64 %2, %40
+  %.0 = select i1 %.not, i64 0, i64 %41
   store i64 %.0, ptr %12, align 8
-  br label %45
+  br label %44
 
-43:                                               ; preds = %3
-  %44 = add i64 %8, 8
-  store i64 %44, ptr %7, align 8
-  br label %45
+42:                                               ; preds = %3
+  %43 = add i64 %8, 8
+  store i64 %43, ptr %7, align 8
+  br label %44
 
-45:                                               ; preds = %16, %43
+44:                                               ; preds = %16, %42
   ret void
 }
 
@@ -43217,7 +43216,7 @@ define void @_ZN5typst11foundations7content7Content7guarded17h9434853a33f7fca7E(
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit.i"
 
 22:                                               ; preds = %20
-  %23 = sub nsw i64 %12, %19
+  %23 = sub nuw nsw i64 %12, %19
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h630f21ea2c9a89d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %23, i64 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit.i" unwind label %5
 

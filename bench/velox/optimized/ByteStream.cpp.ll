@@ -1489,7 +1489,7 @@ for.body22.lr.ph:                                 ; preds = %if.end19
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit
   %i.3174 = phi i64 [ %i.2, %for.body22.lr.ph ], [ %add33, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit ]
-  %sub = sub i64 %numBits, %i.3174
+  %sub = sub nuw i64 %numBits, %i.3174
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 8)
   %add26 = add i64 %i.3174, %sourceOffset
   %div9.i105 = lshr i64 %add26, 3

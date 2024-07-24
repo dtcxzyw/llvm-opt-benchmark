@@ -4204,7 +4204,7 @@ define zeroext i16 @de_mid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %147, label %148, label %152
 
 148:                                              ; preds = %145
-  %149 = sub i32 %4, %146
+  %149 = sub nuw i32 %4, %146
   %150 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %149) #6
   %151 = add i32 %149, %.1
   %.pre = sub i32 %151, %3
@@ -5051,7 +5051,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 485:                                              ; preds = %469
   %486 = load i32, ptr @hf_gsm_a_spare_bits, align 4
-  %487 = sub i32 %480, %483
+  %487 = sub nuw i32 %480, %483
   %488 = call ptr @proto_tree_add_bits_item(ptr noundef %476, i32 noundef %486, ptr noundef %0, i32 noundef %483, i32 noundef %487, i32 noundef 0) #6
   br label %489
 
@@ -5696,7 +5696,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %884, label %885, label %888
 
 885:                                              ; preds = %881
-  %886 = sub i32 %4, %883
+  %886 = sub nuw i32 %4, %883
   %887 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_extraneous_data, ptr noundef %0, i32 noundef %882, i32 noundef %886) #6
   br label %888
 

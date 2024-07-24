@@ -15468,7 +15468,7 @@ if.then111:                                       ; preds = %invoke.cont109
   store ptr null, ptr %q, align 8
   %m_manager.i168 = getelementptr inbounds i8, ptr %q, i64 8
   store ptr %43, ptr %m_manager.i168, align 8
-  %sub = sub i32 %call4, %call6
+  %sub = sub nuw i32 %call4, %call6
   %44 = load ptr, ptr %shift, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i169)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i170)
@@ -15618,7 +15618,7 @@ if.else:                                          ; preds = %invoke.cont109
   store ptr null, ptr %short_shift, align 8
   %m_manager.i220 = getelementptr inbounds i8, ptr %short_shift, i64 8
   store ptr %43, ptr %m_manager.i220, align 8
-  %sub149 = sub i32 %call6, %call4
+  %sub149 = sub nuw i32 %call6, %call4
   %call152 = invoke noundef ptr @_ZNK7bv_util10mk_numeralEmj(ptr noundef nonnull align 8 dereferenceable(24) %m_bv_util, i64 noundef 0, i32 noundef %sub149)
           to label %invoke.cont151 unwind label %lpad150
 
@@ -54167,7 +54167,7 @@ lpad819.body:                                     ; preds = %arraydestroy.body14
   br label %ehcleanup1005
 
 if.else:                                          ; preds = %invoke.cont884
-  %sub905 = sub i32 %add765, %call132
+  %sub905 = sub nuw i32 %add765, %call132
   %383 = load ptr, ptr %res_sig, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.addr.i1362)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i1363)
@@ -67732,7 +67732,7 @@ if.then:                                          ; preds = %invoke.cont165
   store ptr null, ptr %sig_rest, align 8
   %m_manager.i272 = getelementptr inbounds i8, ptr %sig_rest, i64 8
   store ptr %71, ptr %m_manager.i272, align 8
-  %sub174 = sub i32 %11, %add
+  %sub174 = sub nuw i32 %11, %add
   %add175 = add i32 %sub174, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.addr.i273)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %params.i274)
@@ -68019,7 +68019,7 @@ lpad176:                                          ; preds = %if.then2.i.i.i374, 
   br label %ehcleanup385
 
 if.else:                                          ; preds = %invoke.cont165
-  %sub210 = sub i32 %add, %11
+  %sub210 = sub nuw i32 %add, %11
   store ptr null, ptr %extra_zeros, align 8
   %m_manager.i384 = getelementptr inbounds i8, ptr %extra_zeros, i64 8
   store ptr %71, ptr %m_manager.i384, align 8
@@ -70444,7 +70444,7 @@ invoke.cont94:                                    ; preds = %_ZN11ast_manager7in
 
 if.then97:                                        ; preds = %invoke.cont94
   %15 = load ptr, ptr %sig, align 8
-  %sub = sub i32 %add, %call2
+  %sub = sub nuw i32 %add, %call2
   %call104 = invoke noundef ptr @_ZNK7bv_util10mk_numeralEmj(ptr noundef nonnull align 8 dereferenceable(24) %m_bv_util, i64 noundef 0, i32 noundef %sub)
           to label %invoke.cont103 unwind label %lpad93
 
@@ -76379,7 +76379,7 @@ if.then:                                          ; preds = %invoke.cont104
   %m_manager.i160 = getelementptr inbounds i8, ptr %sig_rest, i64 8
   store ptr %32, ptr %m_manager.i160, align 8
   %sub = add i32 %12, -1
-  %sub112 = sub i32 %12, %add
+  %sub112 = sub nuw i32 %12, %add
   %add113 = add i32 %sub112, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.addr.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %params.i)
@@ -76656,7 +76656,7 @@ lpad114:                                          ; preds = %if.then2.i.i.i243, 
   br label %ehcleanup321
 
 if.else:                                          ; preds = %invoke.cont104
-  %sub148 = sub i32 %add, %12
+  %sub148 = sub nuw i32 %add, %12
   store ptr null, ptr %extra_zeros, align 8
   %m_manager.i253 = getelementptr inbounds i8, ptr %extra_zeros, i64 8
   store ptr %32, ptr %m_manager.i253, align 8

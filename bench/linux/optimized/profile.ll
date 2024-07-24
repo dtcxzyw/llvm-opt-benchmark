@@ -836,7 +836,7 @@ define internal i64 @read_profile(ptr nocapture readnone %0, ptr noundef %1, i64
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %.thread
-  %71 = sub i64 %68, %6
+  %71 = sub nuw i64 %68, %6
   %72 = tail call i64 @llvm.umin.i64(i64 %71, i64 %2)
   %73 = icmp ult i64 %6, 4
   %74 = icmp ne i64 %72, 0

@@ -3204,7 +3204,7 @@ define hidden void @_ZN2cv13AKAZEFeatures24Find_Scale_Space_ExtremaERSt6vectorIN
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %2
-  %23 = sub nsw i64 %13, %20
+  %23 = sub nuw nsw i64 %13, %20
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %23)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %150
 

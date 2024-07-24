@@ -234,28 +234,28 @@ define dso_local zeroext i1 @asymmetric_key_id_partial(ptr noundef readonly %0, 
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
-  br i1 %5, label %6, label %19
+  br i1 %5, label %6, label %18
 
 6:                                                ; preds = %2
   %7 = load i16, ptr %0, align 2
   %8 = load i16, ptr %1, align 2
   %9 = icmp ult i16 %7, %8
-  br i1 %9, label %19, label %10
+  br i1 %9, label %18, label %10
 
 10:                                               ; preds = %6
   %11 = zext i16 %8 to i64
-  %12 = zext i16 %7 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 2
-  %14 = sub nsw i64 %12, %11
-  %15 = getelementptr i8, ptr %13, i64 %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 2
-  %17 = tail call i32 @bcmp(ptr %15, ptr %16, i64 %11)
-  %18 = icmp eq i32 %17, 0
-  br label %19
+  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %narrow = sub nuw i16 %7, %8
+  %13 = zext i16 %narrow to i64
+  %14 = getelementptr i8, ptr %12, i64 %13
+  %15 = getelementptr inbounds i8, ptr %1, i64 2
+  %16 = tail call i32 @bcmp(ptr %14, ptr %15, i64 %11)
+  %17 = icmp eq i32 %16, 0
+  br label %18
 
-19:                                               ; preds = %10, %6, %2
-  %20 = phi i1 [ %18, %10 ], [ false, %2 ], [ false, %6 ]
-  ret i1 %20
+18:                                               ; preds = %10, %6, %2
+  %19 = phi i1 [ %17, %10 ], [ false, %2 ], [ false, %6 ]
+  ret i1 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
@@ -958,38 +958,38 @@ define internal zeroext i1 @asymmetric_key_cmp_partial(ptr nocapture noundef rea
   %11 = getelementptr inbounds i8, ptr %6, i64 2
   br label %12
 
-12:                                               ; preds = %30, %10
-  %13 = phi i1 [ true, %30 ], [ false, %10 ]
-  %14 = phi i64 [ 1, %30 ], [ 0, %10 ]
+12:                                               ; preds = %29, %10
+  %13 = phi i1 [ true, %29 ], [ false, %10 ]
+  %14 = phi i64 [ 1, %29 ], [ 0, %10 ]
   %15 = getelementptr [3 x ptr], ptr %4, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %30, label %18
+  br i1 %17, label %29, label %18
 
 18:                                               ; preds = %12
   %19 = load i16, ptr %16, align 2
   %20 = load i16, ptr %6, align 2
   %21 = icmp ult i16 %19, %20
-  br i1 %21, label %30, label %22
+  br i1 %21, label %29, label %22
 
 22:                                               ; preds = %18
   %23 = zext i16 %20 to i64
-  %24 = zext i16 %19 to i64
-  %25 = getelementptr inbounds i8, ptr %16, i64 2
-  %26 = sub nsw i64 %24, %23
-  %27 = getelementptr i8, ptr %25, i64 %26
-  %28 = tail call i32 @bcmp(ptr %27, ptr %11, i64 %23)
-  %29 = icmp eq i32 %28, 0
-  br label %30
+  %24 = getelementptr inbounds i8, ptr %16, i64 2
+  %narrow = sub nuw i16 %19, %20
+  %25 = zext i16 %narrow to i64
+  %26 = getelementptr i8, ptr %24, i64 %25
+  %27 = tail call i32 @bcmp(ptr %26, ptr %11, i64 %23)
+  %28 = icmp eq i32 %27, 0
+  br label %29
 
-30:                                               ; preds = %22, %18, %12
-  %31 = phi i1 [ %29, %22 ], [ false, %12 ], [ false, %18 ]
-  %32 = or i1 %13, %31
-  br i1 %32, label %.loopexit, label %12, !llvm.loop !15
+29:                                               ; preds = %22, %18, %12
+  %30 = phi i1 [ %28, %22 ], [ false, %12 ], [ false, %18 ]
+  %31 = or i1 %13, %30
+  br i1 %31, label %.loopexit, label %12, !llvm.loop !15
 
-.loopexit:                                        ; preds = %30, %2
-  %33 = phi i1 [ false, %2 ], [ %31, %30 ]
-  ret i1 %33
+.loopexit:                                        ; preds = %29, %2
+  %32 = phi i1 [ false, %2 ], [ %30, %29 ]
+  ret i1 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)

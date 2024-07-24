@@ -2354,7 +2354,7 @@ define hidden void @"_ZN7memmap211MmapOptions7get_len28_$u7b$$u7b$closure$u7d$$u
   br label %38
 
 19:                                               ; preds = %12
-  %20 = sub i64 %.cast, %15
+  %20 = sub nuw i64 %.cast, %15
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %20, ptr %21, align 8
   br label %38
@@ -3216,7 +3216,7 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$5write17ha195d
   %28 = add i64 %27, %25
   %.not.i.i.i = icmp ult i64 %28, %24
   %29 = select i1 %.not.i.i.i, i64 0, i64 %24
-  %.0.i.i.i = sub i64 %28, %29
+  %.0.i.i.i = sub nuw i64 %28, %29
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !495, !noalias !498, !nonnull !7, !noundef !7
   %32 = getelementptr inbounds { i64, ptr }, ptr %31, i64 %.0.i.i.i
@@ -3237,7 +3237,7 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$5write17ha195d
   %40 = load i64, ptr %0, align 8, !alias.scope !506, !noundef !7
   %.not.i.i = icmp ult i64 %39, %40
   %41 = select i1 %.not.i.i, i64 0, i64 %40
-  %.0.i.i = sub i64 %39, %41
+  %.0.i.i = sub nuw i64 %39, %41
   store i64 %.0.i.i, ptr %26, align 8, !alias.scope !503
   %42 = add i64 %37, -1
   store i64 %42, ptr %19, align 8, !alias.scope !503
@@ -3276,7 +3276,7 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$5write17hc5c7d
   %13 = load i64, ptr %0, align 8, !alias.scope !514, !noundef !7
   %.not.i.i = icmp ult i64 %12, %13
   %14 = select i1 %.not.i.i, i64 0, i64 %13
-  %.0.i.i = sub i64 %12, %14
+  %.0.i.i = sub nuw i64 %12, %14
   store i64 %.0.i.i, ptr %7, align 8, !alias.scope !512
   %15 = add i64 %10, -1
   store i64 %15, ptr %4, align 8, !alias.scope !512
@@ -3743,7 +3743,7 @@ default.unreachable49:                            ; preds = %127, %74, %40
   %65 = add i64 %64, %63
   %.not.i.i.i = icmp ult i64 %65, %62
   %66 = select i1 %.not.i.i.i, i64 0, i64 %62
-  %.0.i.i.i = sub i64 %65, %66
+  %.0.i.i.i = sub nuw i64 %65, %66
   %67 = load ptr, ptr %37, align 8, !alias.scope !605, !noalias !608, !nonnull !7, !noundef !7
   %68 = getelementptr inbounds { i64, ptr }, ptr %67, i64 %.0.i.i.i
   store i64 %45, ptr %68, align 8, !noalias !608
@@ -4025,7 +4025,7 @@ define hidden noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$7enqueu
   %45 = add i64 %44, %42
   %.not.i.i = icmp ult i64 %45, %41
   %46 = select i1 %.not.i.i, i64 0, i64 %41
-  %.0.i.i = sub i64 %45, %46
+  %.0.i.i = sub nuw i64 %45, %46
   %47 = getelementptr inbounds i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8, !alias.scope !667, !noalias !670, !nonnull !7, !noundef !7
   %49 = getelementptr inbounds { i64, ptr }, ptr %48, i64 %.0.i.i
@@ -4090,7 +4090,7 @@ define hidden noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$7enqueu
   %28 = add i64 %27, %25
   %.not.i.i = icmp ult i64 %28, %24
   %29 = select i1 %.not.i.i, i64 0, i64 %24
-  %.0.i.i = sub i64 %28, %29
+  %.0.i.i = sub nuw i64 %28, %29
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !680, !noalias !683, !nonnull !7, !noundef !7
   %32 = getelementptr inbounds { i64, ptr }, ptr %31, i64 %.0.i.i

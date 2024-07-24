@@ -785,7 +785,7 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
   br i1 %194, label %195, label %197
 
 195:                                              ; preds = %188
-  %196 = sub i64 %193, %190
+  %196 = sub nuw i64 %193, %190
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.22, i64 noundef %196) #11
   br label %670
 

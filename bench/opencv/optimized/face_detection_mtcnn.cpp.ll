@@ -28839,7 +28839,7 @@ _ZSt13move_backwardIPN2cv4gapi9GNetParamES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN2cv4gapi9GNetParamESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %17
   %52 = getelementptr inbounds i8, ptr %2, i64 %19
   %53 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv4gapi9GNetParamESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_(ptr %52, ptr %3, ptr noundef %13)
-  %54 = sub nsw i64 %9, %20
+  %54 = sub nuw nsw i64 %9, %20
   %55 = load ptr, ptr %12, align 8
   %56 = getelementptr inbounds %"struct.cv::gapi::GNetParam", ptr %55, i64 %54
   store ptr %56, ptr %12, align 8
@@ -30203,7 +30203,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv11GCompileArgE
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv11GCompileArgESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv11GCompileArgESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN2cv11GCompileArgESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %97 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv11GCompileArgESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %14, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN2cv11GCompileArgESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %98 = sub nsw i64 %10, %21
+  %98 = sub nuw nsw i64 %10, %21
   %99 = getelementptr inbounds %"struct.cv::GCompileArg", ptr %97, i64 %98
   store ptr %99, ptr %13, align 8
   %.not11.i.i.i.i.i54 = icmp eq ptr %14, %1
@@ -41822,7 +41822,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6custom12_GLOBAL__N_14FaceESt6vect
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6custom12_GLOBAL__N_14FaceESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.i.i: ; preds = %33, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6custom12_GLOBAL__N_14FaceESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit.i.i
   %36 = phi ptr [ %17, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6custom12_GLOBAL__N_14FaceESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit.i.i ], [ %.pre.i.i, %33 ]
-  %37 = sub nsw i64 %13, %23
+  %37 = sub nuw nsw i64 %13, %23
   %38 = getelementptr inbounds %"struct.custom::(anonymous namespace)::Face", ptr %36, i64 %37
   store ptr %38, ptr %16, align 8
   %.not.i.i.i.i.i.i.i.i.i58.i.i = icmp eq ptr %17, %1

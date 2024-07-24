@@ -4199,7 +4199,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit28: ; preds = %89
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit28
-  %101 = sub i64 %92, %98
+  %101 = sub nuw i64 %92, %98
   invoke void @_ZNSt6vectorIPvSaIS0_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS0_S2_EEmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %.040, ptr %93, i64 noundef %101, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %_ZNSt6vectorIPvSaIS0_EE6resizeEmRKS0_.exit unwind label %108
 
@@ -6398,7 +6398,7 @@ _ZSt13move_backwardIPPvS1_ET0_T_S3_S2_.exit:      ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPPvmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds ptr, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

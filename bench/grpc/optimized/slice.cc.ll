@@ -983,7 +983,7 @@ do.end37:                                         ; preds = %do.body29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes43, ptr align 1 %3, i64 %split, i1 false)
   %add.ptr49 = getelementptr inbounds i8, ptr %3, i64 %split
   store ptr %add.ptr49, ptr %bytes46, align 8
-  %sub52 = sub i64 %2, %split
+  %sub52 = sub nuw i64 %2, %split
   store i64 %sub52, ptr %data30, align 8
   br label %if.end83
 

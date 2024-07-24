@@ -316,7 +316,7 @@ _ZN6Assimp15Q3BSPFileParser11getVerticesEv.exit:  ; preds = %for.body.i8, %_ZN6A
   br i1 %cmp.i.i22, label %if.then.i.i30, label %if.else.i.i23
 
 if.then.i.i30:                                    ; preds = %_ZN6Assimp15Q3BSPFileParser11getVerticesEv.exit
-  %sub.i.i31 = sub nsw i64 %div3.i, %sub.ptr.div.i.i.i21
+  %sub.i.i31 = sub nuw nsw i64 %div3.i, %sub.ptr.div.i.i.i21
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_Indices.i, i64 noundef %sub.i.i31)
   br label %_ZN6Assimp15Q3BSPFileParser10getIndicesEv.exit
 
@@ -888,7 +888,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -1104,7 +1104,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %div, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %div, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIPN6Assimp5Q3BSP12sQ3BSPVertexESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_Vertices, i64 noundef %sub.i)
   br label %_ZNSt6vectorIPN6Assimp5Q3BSP12sQ3BSPVertexESaIS3_EE6resizeEm.exit
 
@@ -1143,7 +1143,7 @@ _ZNSt6vectorIPN6Assimp5Q3BSP12sQ3BSPVertexESaIS3_EE6resizeEm.exit: ; preds = %if
   br i1 %cmp.i9, label %if.then.i16, label %if.else.i10
 
 if.then.i16:                                      ; preds = %_ZNSt6vectorIPN6Assimp5Q3BSP12sQ3BSPVertexESaIS3_EE6resizeEm.exit
-  %sub.i17 = sub nsw i64 %div91, %sub.ptr.div.i.i8
+  %sub.i17 = sub nuw nsw i64 %div91, %sub.ptr.div.i.i8
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_Indices, i64 noundef %sub.i17)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -1182,7 +1182,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %if.then.i16, %if.el
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %sub.i32 = sub nsw i64 %div16, %sub.ptr.div.i.i23
+  %sub.i32 = sub nuw nsw i64 %div16, %sub.ptr.div.i.i23
   tail call void @_ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_Faces, i64 noundef %sub.i32)
   br label %_ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE6resizeEm.exit
 
@@ -1221,7 +1221,7 @@ _ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE6resizeEm.exit: ; preds = %if.t
   br i1 %cmp.i39, label %if.then.i46, label %if.else.i40
 
 if.then.i46:                                      ; preds = %_ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE6resizeEm.exit
-  %sub.i47 = sub nsw i64 %div23, %sub.ptr.div.i.i38
+  %sub.i47 = sub nuw nsw i64 %div23, %sub.ptr.div.i.i38
   tail call void @_ZNSt6vectorIPN6Assimp5Q3BSP13sQ3BSPTextureESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_Textures, i64 noundef %sub.i47)
   br label %_ZNSt6vectorIPN6Assimp5Q3BSP13sQ3BSPTextureESaIS3_EE6resizeEm.exit
 
@@ -1260,7 +1260,7 @@ _ZNSt6vectorIPN6Assimp5Q3BSP13sQ3BSPTextureESaIS3_EE6resizeEm.exit: ; preds = %i
   br i1 %cmp.i54, label %if.then.i61, label %if.else.i55
 
 if.then.i61:                                      ; preds = %_ZNSt6vectorIPN6Assimp5Q3BSP13sQ3BSPTextureESaIS3_EE6resizeEm.exit
-  %sub.i62 = sub nsw i64 %div30, %sub.ptr.div.i.i53
+  %sub.i62 = sub nuw nsw i64 %div30, %sub.ptr.div.i.i53
   tail call void @_ZNSt6vectorIPN6Assimp5Q3BSP14sQ3BSPLightmapESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_Lightmaps, i64 noundef %sub.i62)
   br label %_ZNSt6vectorIPN6Assimp5Q3BSP14sQ3BSPLightmapESaIS3_EE6resizeEm.exit
 
@@ -1358,7 +1358,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %div3, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %div3, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_Indices, i64 noundef %sub.i)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 

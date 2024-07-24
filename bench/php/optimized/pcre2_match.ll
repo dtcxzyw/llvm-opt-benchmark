@@ -1803,8 +1803,8 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9278, label %89, label %.loopexit
 
 89:                                               ; preds = %87
-  %90 = sub nsw i64 %86, %88
-  %91 = shl nsw i64 %90, 10
+  %90 = sub nuw nsw i64 %86, %88
+  %91 = shl nuw nsw i64 %90, 10
   %92 = trunc i64 %77 to i32
   %93 = and i32 %92, 1023
   %.not9279 = icmp eq i32 %93, 0

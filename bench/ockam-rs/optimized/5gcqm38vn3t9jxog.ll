@@ -6287,7 +6287,7 @@ define hidden { i64, ptr } @"_ZN94_$LT$tokio..io..util..write_all..WriteAll$LT$W
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds i8, ptr %23, i64 %.sroa.2.0.copyload
-  %30 = sub i64 %24, %.sroa.2.0.copyload
+  %30 = sub nuw i64 %24, %.sroa.2.0.copyload
   store ptr %29, ptr %5, align 8
   store i64 %30, ptr %6, align 8
   %31 = icmp eq i64 %.sroa.2.0.copyload, 0
@@ -6354,7 +6354,7 @@ define hidden { i64, ptr } @"_ZN94_$LT$tokio..io..util..write_all..WriteAll$LT$W
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %18, i64 %.sroa.2.0.copyload
-  %25 = sub i64 %19, %.sroa.2.0.copyload
+  %25 = sub nuw i64 %19, %.sroa.2.0.copyload
   store ptr %24, ptr %4, align 8
   store i64 %25, ptr %5, align 8
   %26 = icmp eq i64 %.sroa.2.0.copyload, 0

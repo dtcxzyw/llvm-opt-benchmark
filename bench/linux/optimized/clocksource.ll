@@ -770,7 +770,7 @@ define dso_local i64 @clocksource_stop_suspend_timing(ptr noundef readnone %0, i
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %.pre, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = sub i64 %11, %12
+  %17 = sub nuw i64 %11, %12
   %18 = and i64 %16, %17
   %19 = lshr i64 %16, 1
   %20 = xor i64 %19, -1

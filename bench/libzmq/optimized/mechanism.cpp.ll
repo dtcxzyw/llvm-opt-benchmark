@@ -1709,7 +1709,7 @@ lpad8:                                            ; preds = %do.end.thread.i.i, 
 
 if.end15:                                         ; preds = %if.end7
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr11, i64 %or10.i
-  %sub17 = sub i64 %sub12, %or10.i
+  %sub17 = sub nuw i64 %sub12, %or10.i
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str.8) #25
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %land.lhs.true, label %if.else

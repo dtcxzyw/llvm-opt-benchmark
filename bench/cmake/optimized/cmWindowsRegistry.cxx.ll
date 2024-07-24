@@ -648,7 +648,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %35
 85:                                               ; preds = %91, %.lr.ph.i.i.i
   %.033.i.i.i = phi i64 [ %78, %.lr.ph.i.i.i ], [ %94, %91 ]
   %.02132.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i ], [ %92, %91 ]
-  %86 = sub i64 %.033.i.i.i, %.sroa.028.0.i
+  %86 = sub nuw i64 %.033.i.i.i, %.sroa.028.0.i
   %87 = add i64 %86, 1
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
@@ -691,7 +691,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread34.i: ; pred
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit20.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread34.i
-  %101 = sub i64 %78, %98
+  %101 = sub nuw i64 %78, %98
   %102 = getelementptr inbounds i8, ptr %74, i64 %98
   store i64 %101, ptr %32, align 8
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 648

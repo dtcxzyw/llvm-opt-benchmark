@@ -9970,7 +9970,7 @@ _ZNSt5arrayIlLm256EE4fillERKl.exit.i.i.i.i.i:     ; preds = %.lr.ph.i.i.i.i.i.i.
   %.014.i.i.i.i.i = phi i64 [ %3012, %.lr.ph.i.i.i.i.i966 ], [ 0, %.preheader.i.i.i.i.i ]
   %3007 = getelementptr inbounds i8, ptr %3001, i64 %.014.i.i.i.i.i
   %3008 = load i8, ptr %3007, align 1, !noalias !179
-  %3009 = sub i64 %3006, %.014.i.i.i.i.i
+  %3009 = sub nuw i64 %3006, %.014.i.i.i.i.i
   %3010 = zext i8 %3008 to i64
   %3011 = getelementptr inbounds [256 x i64], ptr %12, i64 0, i64 %3010
   store i64 %3009, ptr %3011, align 8, !alias.scope !176, !noalias !173
@@ -17887,7 +17887,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg4PathESt6ve
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg4PathESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg4PathESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg4PathESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %56 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg4PathESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg4PathESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %57 = sub nsw i64 %9, %20
+  %57 = sub nuw nsw i64 %9, %20
   %58 = getelementptr inbounds %"struct.vcpkg::Path", ptr %56, i64 %57
   store ptr %58, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1
@@ -20443,7 +20443,7 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN
 
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg4PathESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg4PathESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg4PathESt6vectorIS4_SaIS4_EEEEEmEvRT_T0_.exit
   %45 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg4PathESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg4PathESt6vectorIS4_SaIS4_EEEEEmEvRT_T0_.exit ]
-  %46 = sub nsw i64 %9, %20
+  %46 = sub nuw nsw i64 %9, %20
   %47 = getelementptr inbounds %"struct.vcpkg::Path", ptr %45, i64 %46
   store ptr %47, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1

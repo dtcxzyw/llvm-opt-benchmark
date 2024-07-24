@@ -895,7 +895,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %3, %sub.ptr.sub.i.i
+  %sub.i = sub nuw i64 %3, %sub.ptr.sub.i.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %temp, i64 16
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i6 = ptrtoint ptr %6 to i64

@@ -385,7 +385,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit: ; preds = %2, %15
   %25 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %13
   %26 = load i8, ptr %25, align 1, !alias.scope !52, !noundef !7
   %27 = icmp sgt i8 %26, -65
-  %28 = sub i64 %.sroa.3.0.i, %13
+  %28 = sub nuw i64 %.sroa.3.0.i, %13
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %22

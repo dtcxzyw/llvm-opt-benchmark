@@ -608,9 +608,9 @@ entry:
   %1 = load i32, ptr %num_sources, align 4
   %shl = shl i32 %1, 2
   %cmp.not.i = icmp ule i32 %0, %conv
-  %sub.i = sub i32 %conv, %0
+  %sub.i = sub nuw i32 %conv, %0
   %cmp1.i = icmp ult i32 %sub.i, %shl
-  %2 = and i1 %cmp.not.i, %cmp1.i
+  %2 = select i1 %cmp.not.i, i1 %cmp1.i, i1 false
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -630,9 +630,9 @@ if.else:                                          ; preds = %entry
   %add = add i32 %1, 31
   %shr7 = lshr i32 %add, 3
   %cmp.not.i44 = icmp ule i32 %5, %conv
-  %sub.i45 = sub i32 %conv, %5
+  %sub.i45 = sub nuw i32 %conv, %5
   %cmp1.i46 = icmp ult i32 %sub.i45, %shr7
-  %6 = and i1 %cmp.not.i44, %cmp1.i46
+  %6 = select i1 %cmp.not.i44, i1 %cmp1.i46, i1 false
   br i1 %6, label %if.then9, label %if.else18
 
 if.then9:                                         ; preds = %if.else
@@ -655,9 +655,9 @@ if.else18:                                        ; preds = %if.else
   %11 = load i32, ptr %enable_stride, align 16
   %mul = mul i32 %11, %10
   %cmp.not.i47 = icmp ule i32 %9, %conv
-  %sub.i48 = sub i32 %conv, %9
+  %sub.i48 = sub nuw i32 %conv, %9
   %cmp1.i49 = icmp ult i32 %sub.i48, %mul
-  %12 = and i1 %cmp.not.i47, %cmp1.i49
+  %12 = select i1 %cmp.not.i47, i1 %cmp1.i49, i1 false
   br i1 %12, label %if.then21, label %if.else41
 
 if.then21:                                        ; preds = %if.else18
@@ -693,9 +693,9 @@ if.else41:                                        ; preds = %if.else18
   %17 = load i32, ptr %context_stride, align 8
   %mul44 = mul i32 %17, %10
   %cmp.not.i50 = icmp ule i32 %16, %conv
-  %sub.i51 = sub i32 %conv, %16
+  %sub.i51 = sub nuw i32 %conv, %16
   %cmp1.i52 = icmp ult i32 %sub.i51, %mul44
-  %18 = and i1 %cmp.not.i50, %cmp1.i52
+  %18 = select i1 %cmp.not.i50, i1 %cmp1.i52, i1 false
   br i1 %18, label %if.then46, label %do.body
 
 if.then46:                                        ; preds = %if.else41
@@ -871,9 +871,9 @@ entry:
   %1 = load i32, ptr %num_sources, align 4
   %shl = shl i32 %1, 2
   %cmp.not.i = icmp ule i32 %0, %conv
-  %sub.i = sub i32 %conv, %0
+  %sub.i = sub nuw i32 %conv, %0
   %cmp1.i = icmp ult i32 %sub.i, %shl
-  %2 = and i1 %cmp.not.i, %cmp1.i
+  %2 = select i1 %cmp.not.i, i1 %cmp1.i, i1 false
   br i1 %2, label %if.then, label %if.else21
 
 if.then:                                          ; preds = %entry
@@ -920,9 +920,9 @@ if.else21:                                        ; preds = %entry
   %add24 = add i32 %1, 31
   %shr25 = lshr i32 %add24, 3
   %cmp.not.i63 = icmp ule i32 %6, %conv
-  %sub.i64 = sub i32 %conv, %6
+  %sub.i64 = sub nuw i32 %conv, %6
   %cmp1.i65 = icmp ult i32 %sub.i64, %shr25
-  %7 = and i1 %cmp.not.i63, %cmp1.i65
+  %7 = select i1 %cmp.not.i63, i1 %cmp1.i65, i1 false
   br i1 %7, label %do.body, label %if.else33
 
 do.body:                                          ; preds = %if.else21
@@ -944,9 +944,9 @@ if.else33:                                        ; preds = %if.else21
   %11 = load i32, ptr %enable_stride, align 16
   %mul = mul i32 %11, %10
   %cmp.not.i66 = icmp ule i32 %9, %conv
-  %sub.i67 = sub i32 %conv, %9
+  %sub.i67 = sub nuw i32 %conv, %9
   %cmp1.i68 = icmp ult i32 %sub.i67, %mul
-  %12 = and i1 %cmp.not.i66, %cmp1.i68
+  %12 = select i1 %cmp.not.i66, i1 %cmp1.i68, i1 false
   br i1 %12, label %if.then36, label %if.else71
 
 if.then36:                                        ; preds = %if.else33
@@ -993,9 +993,9 @@ if.else71:                                        ; preds = %if.else33
   %17 = load i32, ptr %context_stride, align 8
   %mul74 = mul i32 %17, %10
   %cmp.not.i71 = icmp ule i32 %16, %conv
-  %sub.i72 = sub i32 %conv, %16
+  %sub.i72 = sub nuw i32 %conv, %16
   %cmp1.i73 = icmp ult i32 %sub.i72, %mul74
-  %18 = and i1 %cmp.not.i71, %cmp1.i73
+  %18 = select i1 %cmp.not.i71, i1 %cmp1.i73, i1 false
   br i1 %18, label %if.then76, label %do.body145
 
 if.then76:                                        ; preds = %if.else71

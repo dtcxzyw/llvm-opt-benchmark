@@ -220,8 +220,8 @@ _ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit: ; preds = %9, %10
   %20 = load ptr, ptr %19, align 8
   %21 = shl nuw nsw i64 %5, 3
   %scevgep.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = sub nsw i64 %6, %5
-  %23 = shl nsw i64 %22, 3
+  %22 = sub nuw nsw i64 %6, %5
+  %23 = shl nuw nsw i64 %22, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %23, i1 false)
   %24 = and i64 %2, 63
   %.not.i19 = icmp eq i64 %24, 0
@@ -330,8 +330,8 @@ _ZN20ShenandoahMarkBitMap20clear_range_of_wordsEmm.exit.i: ; preds = %12, %11
   %22 = load ptr, ptr %21, align 8
   %23 = shl nuw nsw i64 %5, 3
   %scevgep.i.i.i = getelementptr i8, ptr %22, i64 %23
-  %24 = sub nsw i64 %6, %5
-  %25 = shl nsw i64 %24, 3
+  %24 = sub nuw nsw i64 %6, %5
+  %25 = shl nuw nsw i64 %24, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %25, i1 false)
   %26 = and i64 %2, 63
   %.not.i19.i = icmp eq i64 %26, 0

@@ -3586,7 +3586,7 @@ define hidden void @_ZN5uu_dd6Output12write_blocks17h21582c48f16c671dE(ptr noali
   %.sroa.017.041 = phi ptr [ %2, %.lr.ph ], [ %32, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17hbfeeba27831307faE.exit" ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.01942, i64 %14)
   %32 = getelementptr inbounds i8, ptr %.sroa.017.041, i64 %.0.sroa.speculated.i.i
-  %33 = sub i64 %.sroa.6.01942, %.0.sroa.speculated.i.i
+  %33 = sub nuw i64 %.sroa.6.01942, %.0.sroa.speculated.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !396
   br label %.lr.ph.split.i
 
@@ -4631,7 +4631,7 @@ _ZN5uu_dd17below_count_limit17h8b03ab5b472a07aaE.exit: ; preds = %229
 236:                                              ; preds = %_ZN5uu_dd17below_count_limit17h8b03ab5b472a07aaE.exit
   %237 = getelementptr inbounds i8, ptr %230, i64 112
   %238 = load i64, ptr %237, align 8, !noundef !5
-  %239 = sub i64 %.val103, %234
+  %239 = sub nuw i64 %.val103, %234
   %240 = mul i64 %238, %239
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %66, i64 %240)
   br label %_ZN5uu_dd15calc_loop_bsize17hf78077c0528a93faE.exit
@@ -4680,7 +4680,7 @@ _ZN5uu_dd15calc_loop_bsize17hf78077c0528a93faE.exit: ; preds = %229, %241, %236
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h4ee485f2d69161d3E.exit.i"
 
 251:                                              ; preds = %_ZN5uu_dd15calc_loop_bsize17hf78077c0528a93faE.exit
-  %252 = sub i64 %.0.i123, %249
+  %252 = sub nuw i64 %.0.i123, %249
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h37b2c2dfead61723E.llvm.3015548344323866763"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %252, i8 noundef -35)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h4ee485f2d69161d3E.exit.i_crit_edge" unwind label %.body130.thread273.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4773,7 +4773,7 @@ _ZN5uu_dd15calc_loop_bsize17hf78077c0528a93faE.exit: ; preds = %229, %241, %236
 
 281:                                              ; preds = %277
   %282 = add i64 %.03163.i.i, 1
-  %283 = sub i64 %266, %.cast.i.i
+  %283 = sub nuw i64 %266, %.cast.i.i
   br i1 %261, label %284, label %287
 
 284:                                              ; preds = %281
@@ -4904,7 +4904,7 @@ _ZN5uu_dd15calc_loop_bsize17hf78077c0528a93faE.exit: ; preds = %229, %241, %236
   %.sroa.030.038.i.i = phi ptr [ %325, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h346b0c642f4739f7E.exit.i.i" ], [ %319, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h80324ab0dd331f4fE.exit.i.i.preheader" ]
   %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.039.i.i, i64 %316)
   %325 = getelementptr inbounds i8, ptr %.sroa.030.038.i.i, i64 %.0.sroa.speculated.i.i.i.i
-  %326 = sub i64 %.sroa.6.039.i.i, %.0.sroa.speculated.i.i.i.i
+  %326 = sub nuw i64 %.sroa.6.039.i.i, %.0.sroa.speculated.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !607
   invoke void @"_ZN46_$LT$uu_dd..Input$u20$as$u20$std..io..Read$GT$4read17h9564f2066c038058E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 1 %.sroa.030.038.i.i, i64 noundef %.0.sroa.speculated.i.i.i.i)
           to label %.noexc134 unwind label %.body130.thread273.loopexit.split-lp.loopexit
@@ -4997,10 +4997,10 @@ _ZN5uu_dd11read_helper12perform_swab17hba8c97738742d3dfE.exit.i: ; preds = %354,
   br i1 %.not.not6.i.i, label %_ZN5uu_dd11read_helper12perform_swab17hba8c97738742d3dfE.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %354
-  %spec.select.i.i.i12.i.i = add i64 %356, -1
-  %357 = lshr i64 %spec.select.i.i.i12.i.i, 1
+  %spec.select.i.i.i.i.i = add i64 %356, -1
+  %357 = lshr i64 %spec.select.i.i.i.i.i, 1
   %358 = xor i64 %357, -1
-  %359 = add i64 %spec.select.i.i.i12.i.i, %358
+  %359 = add i64 %spec.select.i.i.i.i.i, %358
   br label %.lr.ph.i44.i
 
 .lr.ph.i44.i:                                     ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h4890feffe3936504E.exit.i.i", %.lr.ph.preheader.i.i

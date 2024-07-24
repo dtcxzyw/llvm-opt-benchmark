@@ -45766,7 +45766,7 @@ if.end4.i:                                        ; preds = %if.end.i259
 
 invoke.cont300:                                   ; preds = %if.end4.i
   %136 = load i32, ptr %m_push_pob_max_depth.i, align 4
-  %sub.i = sub i32 %135, %bf.cast.i.i257
+  %sub.i = sub nuw i32 %135, %bf.cast.i.i257
   %cmp11.i260.not = icmp ugt i32 %sub.i, %136
   br i1 %cmp11.i260.not, label %for.inc, label %if.then302
 
@@ -51087,7 +51087,7 @@ if.end4:                                          ; preds = %if.end
 lor.rhs:                                          ; preds = %if.end4
   %m_push_pob_max_depth = getelementptr inbounds i8, ptr %this, i64 676
   %4 = load i32, ptr %m_push_pob_max_depth, align 4
-  %sub = sub i32 %3, %bf.cast.i
+  %sub = sub nuw i32 %3, %bf.cast.i
   %cmp11 = icmp ule i32 %sub, %4
   br label %return
 

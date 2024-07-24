@@ -144,13 +144,13 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %25, i64 9223372036854775807)
   %26 = load i64, ptr %23, align 8
   %27 = icmp ult i64 %spec.store.select.i, %26
-  %28 = sub i64 %spec.store.select.i, %26
+  %28 = sub nuw i64 %spec.store.select.i, %26
   %29 = icmp ult i64 %28, %20
-  %or.cond.i = or i1 %27, %29
+  %or.cond.i = select i1 %27, i1 true, i1 %29
   br i1 %or.cond.i, label %update_size.exit.thread, label %30
 
 30:                                               ; preds = %11
-  %31 = add i64 %26, %20
+  %31 = add nuw i64 %26, %20
   store i64 %31, ptr %23, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 96
   %33 = getelementptr inbounds i8, ptr %0, i64 80
@@ -160,13 +160,13 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %spec.store.select.i74 = tail call i64 @llvm.umin.i64(i64 %36, i64 9223372036854775807)
   %37 = load i64, ptr %32, align 8
   %38 = icmp ult i64 %spec.store.select.i74, %37
-  %39 = sub i64 %spec.store.select.i74, %37
+  %39 = sub nuw i64 %spec.store.select.i74, %37
   %40 = icmp ult i64 %39, %22
-  %or.cond.i75 = or i1 %38, %40
+  %or.cond.i75 = select i1 %38, i1 true, i1 %40
   br i1 %or.cond.i75, label %update_size.exit.thread, label %41
 
 41:                                               ; preds = %30
-  %42 = add i64 %37, %22
+  %42 = add nuw i64 %37, %22
   store i64 %42, ptr %32, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 224
   %44 = load i8, ptr %43, align 8

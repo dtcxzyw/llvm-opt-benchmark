@@ -950,7 +950,7 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %28
-  %34 = sub i64 %26, %31
+  %34 = sub nuw i64 %26, %31
   %35 = lshr i64 %34, 5
   %36 = sub i64 %26, %35
   br label %37
@@ -1147,7 +1147,7 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
   br i1 %171, label %176, label %172
 
 172:                                              ; preds = %157
-  %173 = sub i64 %149, %168
+  %173 = sub nuw i64 %149, %168
   %174 = lshr i64 %173, 3
   %175 = add i64 %174, %168
   br label %176
@@ -1391,7 +1391,7 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
   br i1 %75, label %76, label %83
 
 76:                                               ; preds = %74
-  %77 = sub i64 %58, %57
+  %77 = sub nuw i64 %58, %57
   %78 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %77, i32 -1) #12, !srcloc !39
   %79 = ashr i32 %78, 1
   %80 = zext nneg i32 %79 to i64

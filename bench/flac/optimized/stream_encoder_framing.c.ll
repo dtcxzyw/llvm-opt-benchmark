@@ -620,7 +620,7 @@ sw.epilog:                                        ; preds = %for.inc290, %for.co
   br i1 %cmp369, label %return, label %if.end372
 
 if.end372:                                        ; preds = %sw.epilog
-  %sub373 = sub i32 %call368, %call1
+  %sub373 = sub nuw i32 %call368, %call1
   %rem = and i32 %sub373, 7
   %cmp374.not = icmp eq i32 %rem, 0
   br i1 %cmp374.not, label %lor.lhs.false, label %return

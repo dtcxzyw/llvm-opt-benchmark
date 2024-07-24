@@ -1693,7 +1693,7 @@ define hidden void @_ZN16G1YoungCollector34enqueue_candidates_as_root_regionsEv(
   %8 = icmp ult i32 %.sroa.3.012, %7
   %.sink.i = select i1 %8, i64 16, i64 40
   %9 = select i1 %8, i32 0, i32 %7
-  %.sink6.i = sub i32 %.sroa.3.012, %9
+  %.sink6.i = sub nuw i32 %.sroa.3.012, %9
   %10 = getelementptr inbounds i8, ptr %3, i64 %.sink.i
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %.sink6.i to i64
@@ -1804,7 +1804,7 @@ define hidden void @_ZN16G1YoungCollector28post_evacuate_collection_setEP10G1Eva
   %64 = icmp ult i32 %.sroa.3.012.i, %63
   %.sink.i.i = select i1 %64, i64 16, i64 40
   %65 = select i1 %64, i32 0, i32 %63
-  %.sink6.i.i = sub i32 %.sroa.3.012.i, %65
+  %.sink6.i.i = sub nuw i32 %.sroa.3.012.i, %65
   %66 = getelementptr inbounds i8, ptr %59, i64 %.sink.i.i
   %67 = load ptr, ptr %66, align 8
   %68 = sext i32 %.sink6.i.i to i64

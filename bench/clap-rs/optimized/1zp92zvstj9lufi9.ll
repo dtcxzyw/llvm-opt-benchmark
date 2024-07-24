@@ -11734,7 +11734,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h4071f31e38dfad4cE"
           to label %10 unwind label %23
 
 .thread5:                                         ; preds = %3
-  %9 = sub i64 %1, %7
+  %9 = sub nuw i64 %1, %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hacbd61dea1097db6E.llvm.7780793174254504545"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
@@ -11866,7 +11866,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h3a0e6064a4aa0f29
   br i1 %6, label %"_ZN4core3ptr57drop_in_place$LT$$u5b$std..ffi..os_str..OsString$u5d$$GT$17h6c7934701097ebf9E.llvm.7780793174254504545.exit", label %7
 
 7:                                                ; preds = %2
-  %8 = sub i64 %5, %1
+  %8 = sub nuw i64 %5, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !28, !noundef !28
   %11 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %10, i64 %1
@@ -11945,7 +11945,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h95503f15f0f11fe7
   br i1 %6, label %"_ZN4core3ptr103drop_in_place$LT$$u5b$core..option..Option$LT$clap_builder..builder..styled_str..StyledStr$GT$$u5d$$GT$17h5ea3ad858c0737d3E.llvm.7780793174254504545.exit", label %7
 
 7:                                                ; preds = %2
-  %8 = sub i64 %5, %1
+  %8 = sub nuw i64 %5, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !28, !noundef !28
   %11 = getelementptr inbounds { i64, [2 x i64] }, ptr %10, i64 %1

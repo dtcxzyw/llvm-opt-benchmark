@@ -7605,7 +7605,7 @@ _ZN4llvh9BitVector10init_wordsENS_15MutableArrayRefImEEb.exit.i.i.i.i.i: ; preds
   br i1 %cmp.i.i.i.i.i.i.i378, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4llvh9BitVector10init_wordsENS_15MutableArrayRefImEEb.exit.i.i.i.i.i
-  %sub.i7.i.i.i.i.i.i.i = sub i64 %.pre.i.i.i.i.i, %conv.i.i.i.i.i.i.i
+  %sub.i7.i.i.i.i.i.i.i = sub nuw i64 %.pre.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %487 = load ptr, ptr %484, align 8, !noalias !97
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %487, i64 %conv.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl i64 %sub.i7.i.i.i.i.i.i.i, 3

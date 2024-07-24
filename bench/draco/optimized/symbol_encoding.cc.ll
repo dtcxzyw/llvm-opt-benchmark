@@ -1925,7 +1925,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds =
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKhmEvRT_T0_.exit
   %45 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %12, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
-  %46 = sub i64 %8, %18
+  %46 = sub nuw i64 %8, %18
   %47 = getelementptr inbounds i8, ptr %45, i64 %46
   store ptr %47, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %12, %1
@@ -2081,7 +2081,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi5EE6Creat
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -7603,7 +7603,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi1EE6Creat
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -9564,7 +9564,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi2EE6Creat
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -11525,7 +11525,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi3EE6Creat
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -13486,7 +13486,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi4EE6Creat
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -15447,7 +15447,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi6EE6Creat
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -17408,7 +17408,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi7EE6Creat
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -19369,7 +19369,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi8EE6Creat
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -21330,7 +21330,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi9EE6Creat
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -23292,7 +23292,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi10EE6Crea
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -25254,7 +25254,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi11EE6Crea
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -27216,7 +27216,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi12EE6Crea
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -29178,7 +29178,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi13EE6Crea
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -31140,7 +31140,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi14EE6Crea
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -33102,7 +33102,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi15EE6Crea
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -35064,7 +35064,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi16EE6Crea
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -37026,7 +37026,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi17EE6Crea
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -38988,7 +38988,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi18EE6Crea
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 

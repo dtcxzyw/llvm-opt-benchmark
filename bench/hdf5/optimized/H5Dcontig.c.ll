@@ -2087,7 +2087,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_readvv_sieve_cb(i64 noundef %0
   br i1 %or.cond, label %74, label %77
 
 74:                                               ; preds = %60
-  %75 = sub i64 %67, %62
+  %75 = sub nuw i64 %67, %62
   %76 = getelementptr inbounds i8, ptr %10, i64 %75
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull align 1 %76, i64 %2, i1 false)
   br label %140
@@ -2293,7 +2293,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_writevv_sieve_cb(i64 noundef %
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %28, i64 %2
-  %40 = sub i64 %36, %2
+  %40 = sub nuw i64 %36, %2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %39, i8 0, i64 %40, i1 false)
   br label %41
 
@@ -2361,7 +2361,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_writevv_sieve_cb(i64 noundef %
   br i1 %or.cond, label %82, label %86
 
 82:                                               ; preds = %68
-  %83 = sub i64 %75, %70
+  %83 = sub nuw i64 %75, %70
   %84 = getelementptr inbounds i8, ptr %10, i64 %83
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %78, i64 %2, i1 false)
   %85 = getelementptr inbounds i8, ptr %7, i64 32

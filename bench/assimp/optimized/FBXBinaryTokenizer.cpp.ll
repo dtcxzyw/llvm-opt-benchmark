@@ -1606,7 +1606,7 @@ if.end77:                                         ; preds = %for.end
   br i1 %cmp81, label %if.then82, label %if.end132
 
 if.then82:                                        ; preds = %if.end77
-  %sub84 = sub i64 %cond, %sub.ptr.sub.i299
+  %sub84 = sub nuw i64 %cond, %sub.ptr.sub.i299
   %cmp85 = icmp ult i64 %sub84, %cond79
   br i1 %cmp85, label %if.then86, label %if.end95
 

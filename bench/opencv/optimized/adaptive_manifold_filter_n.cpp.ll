@@ -962,7 +962,7 @@ define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN6filterERKN2cv11
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %125
-  %137 = sub nsw i64 %127, %134
+  %137 = sub nuw nsw i64 %127, %134
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %137)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i
 
@@ -1110,7 +1110,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i: ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %197, label %198, label %200
 
 198:                                              ; preds = %186
-  %199 = sub nsw i64 %189, %196
+  %199 = sub nuw nsw i64 %189, %196
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %157, i64 noundef %199)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i.i
 
@@ -1346,7 +1346,7 @@ _ZN12_GLOBAL__N_123AdaptiveManifoldFilterN15initSrcAndJointERKN2cv11_InputArrayE
   br i1 %284, label %285, label %287
 
 285:                                              ; preds = %_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN15initSrcAndJointERKN2cv11_InputArrayES4_.exit.i
-  %286 = sub nsw i64 %276, %283
+  %286 = sub nuw nsw i64 %276, %283
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %274, i64 noundef %286)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i
 
@@ -1385,7 +1385,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i:   ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %302, label %303, label %305
 
 303:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i
-  %304 = sub nsw i64 %294, %301
+  %304 = sub nuw nsw i64 %294, %301
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %292, i64 noundef %304)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit25.i
 
@@ -1440,7 +1440,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit25.i: ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %326, label %327, label %329
 
 327:                                              ; preds = %._crit_edge.i
-  %328 = sub nsw i64 %318, %325
+  %328 = sub nuw nsw i64 %318, %325
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %328)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit31.i
 
@@ -1479,7 +1479,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit31.i: ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %344, label %345, label %347
 
 345:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit31.i
-  %346 = sub nsw i64 %336, %343
+  %346 = sub nuw nsw i64 %336, %343
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %334, i64 noundef %346)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit37.i
 
@@ -2723,7 +2723,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN33buildMa
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %72
-  %86 = sub nsw i64 %76, %83
+  %86 = sub nuw nsw i64 %76, %83
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %73, i64 noundef %86)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
@@ -3200,7 +3200,7 @@ exp2.i.i.i.noexc:                                 ; preds = %114
   br i1 %285, label %286, label %288
 
 286:                                              ; preds = %277
-  %287 = sub nsw i64 %278, %284
+  %287 = sub nuw nsw i64 %278, %284
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %73, i64 noundef %287)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
@@ -5909,7 +5909,7 @@ exp2.i.i.i.noexc:                                 ; preds = %42
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %63
-  %76 = sub nsw i64 %66, %73
+  %76 = sub nuw nsw i64 %66, %73
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %76)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -6167,7 +6167,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11mapPara
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %4
-  %23 = sub nsw i64 %13, %20
+  %23 = sub nuw nsw i64 %13, %20
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %23)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 

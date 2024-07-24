@@ -408,8 +408,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 71:                                               ; preds = %62
   %72 = getelementptr { [3 x i64] }, ptr %70, i64 %.sroa.725.0.i
   %73 = getelementptr i8, ptr %72, i64 24
-  %74 = sub nsw i64 %69, %.sroa.725.0.i
-  %75 = mul nsw i64 %74, 24
+  %74 = sub nuw nsw i64 %69, %.sroa.725.0.i
+  %75 = mul nuw nsw i64 %74, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %73, ptr nonnull align 8 %72, i64 %75, i1 false), !alias.scope !59, !noalias !62
   br label %81
 

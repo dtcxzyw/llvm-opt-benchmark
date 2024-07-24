@@ -1374,7 +1374,7 @@ define range(i32 -1, 2) i32 @H5G__node_by_idx(ptr noundef %0, ptr nocapture noun
   br i1 %or.cond, label %13, label %._crit_edge
 
 13:                                               ; preds = %8
-  %14 = sub i64 %9, %11
+  %14 = sub nuw i64 %9, %11
   %15 = getelementptr inbounds i8, ptr %4, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 264

@@ -1514,7 +1514,7 @@ _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
 
 _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES3_iET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES3_iET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEmEvRT_T0_.exit
   %52 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES3_iET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEmEvRT_T0_.exit ]
-  %53 = sub nsw i64 %9, %20
+  %53 = sub nuw nsw i64 %9, %20
   %54 = getelementptr inbounds i32, ptr %52, i64 %53
   store ptr %54, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i41 = icmp eq ptr %13, %1
@@ -1654,7 +1654,7 @@ define linkonce_odr void @_ZN5ZXing6Pdf41713BarcodeMatrix4initEii(ptr noundef no
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %3
-  %14 = sub nsw i64 %4, %11
+  %14 = sub nuw nsw i64 %4, %11
   tail call void @_ZNSt6vectorIN5ZXing6Pdf41710BarcodeRowESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14)
   br label %_ZNSt6vectorIN5ZXing6Pdf41710BarcodeRowESaIS2_EE6resizeEm.exit
 
@@ -1745,7 +1745,7 @@ _ZNSt6vectorIN5ZXing6Pdf41710BarcodeRowESaIS2_EE6resizeEm.exit: ; preds = %13, %
   br label %_ZN5ZXing6Pdf41710BarcodeRow4initEi.exit
 
 55:                                               ; preds = %38
-  %56 = sub i64 %33, %51
+  %56 = sub nuw i64 %33, %51
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr %42, i32 %44, i64 noundef %56, i1 noundef zeroext false)
   br label %_ZN5ZXing6Pdf41710BarcodeRow4initEi.exit
 
@@ -2538,7 +2538,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit:
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i32, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1

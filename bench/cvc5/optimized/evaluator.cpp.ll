@@ -9632,7 +9632,7 @@ lpad1763:                                         ; preds = %if.then1760, %invok
   br label %ehcleanup3026
 
 if.else1769:                                      ; preds = %invoke.cont1752
-  %sub.i3854 = sub nsw i64 %sub.ptr.div.i.i3835, %sub.ptr.div.i.i3840
+  %sub.i3854 = sub nuw nsw i64 %sub.ptr.div.i.i3835, %sub.ptr.div.i.i3840
   invoke void @_ZNK4cvc58internal6String6substrEmm(ptr nonnull sret(%"class.cvc5::internal::String") align 8 %ref.tmp1771, ptr noundef nonnull align 8 dereferenceable(24) %936, i64 noundef %sub.i3854, i64 noundef %sub.ptr.div.i.i3840)
           to label %invoke.cont1774 unwind label %lpad120.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 

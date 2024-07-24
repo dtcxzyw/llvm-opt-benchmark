@@ -1745,7 +1745,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$9ends_with
   br i1 %.not.i.i, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17h04f53986d163ac01E.llvm.8694052628166008924.exit", label %5
 
 5:                                                ; preds = %4
-  %6 = sub i64 %1, %3
+  %6 = sub nuw i64 %1, %3
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %7, i64 %3), !alias.scope !294
   %8 = icmp eq i32 %bcmp.i.i.i, 0
@@ -1877,7 +1877,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h635fa6c89c6f82adE.exit", label %5
 
 5:                                                ; preds = %4
-  %6 = sub i64 %3, %1
+  %6 = sub nuw i64 %3, %1
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %7, i64 %1), !alias.scope !338
   %8 = icmp eq i32 %bcmp.i.i, 0

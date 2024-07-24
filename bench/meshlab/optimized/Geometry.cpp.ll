@@ -199,7 +199,7 @@ define noundef zeroext i1 @_ZN21BufferedReadWriteFile5writeEPKvm(ptr nocapture n
   %18 = load ptr, ptr %11, align 8
   %19 = tail call i64 @fwrite(ptr noundef %16, i64 noundef 1, i64 noundef %17, ptr noundef %18)
   %20 = getelementptr inbounds i8, ptr %.01523, i64 %.024
-  %21 = sub i64 %.01622, %.024
+  %21 = sub nuw i64 %.01622, %.024
   store i64 0, ptr %7, align 8
   %22 = load i64, ptr %5, align 8
   %.not19 = icmp ugt i64 %22, %21

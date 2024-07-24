@@ -2631,7 +2631,7 @@ if.end38.i:                                       ; preds = %if.then33.i
   %conv2.i36.i = zext i8 %arrayidx40.val32.i to i16
   %or.i37.i = or disjoint i16 %shl.i35.i, %conv2.i36.i
   %conv42.i = zext i16 %or.i37.i to i32
-  %sub.i = sub i32 %helloSz, %add34.i
+  %sub.i = sub nuw i32 %helloSz, %add34.i
   %cmp43.not.i = icmp eq i32 %sub.i, %conv42.i
   br i1 %cmp43.not.i, label %if.end46.i, label %DoTls13SupportedVersions.exit.thread
 
@@ -5598,7 +5598,7 @@ if.then148:                                       ; preds = %land.lhs.true142
 if.then.i:                                        ; preds = %if.then148
   %20 = load ptr, ptr %certificate150, align 8
   %21 = load ptr, ptr %20, align 8
-  %sub.i = sub i32 %certSz.0, %18
+  %sub.i = sub nuw i32 %certSz.0, %18
   %cond.i.i = call noundef i32 @llvm.umin.i32(i32 %sub.i, i32 %fragSz.2192)
   %idx.ext.i = zext i32 %18 to i64
   %add.ptr.i151 = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i
@@ -5724,11 +5724,11 @@ if.then.i173:                                     ; preds = %NextCert.exit, %if.
   %offset.2212 = phi i32 [ 0, %NextCert.exit ], [ %offset.1, %if.end201 ]
   %len.2209 = phi i32 [ %add.i156, %NextCert.exit ], [ %len.1, %if.end201 ]
   %idx.3206 = phi i32 [ %add1.i, %NextCert.exit ], [ %idx.1, %if.end201 ]
-  %sub.i174 = sub i32 %len.2209, %offset.2212
+  %sub.i174 = sub nuw i32 %len.2209, %offset.2212
   %cond.i.i175 = call noundef i32 @llvm.umin.i32(i32 %sub.i174, i32 %fragSz.4)
   %idx.ext.i176 = zext i32 %offset.2212 to i64
   %add.ptr.i177 = getelementptr inbounds i8, ptr %p.3215, i64 %idx.ext.i176
-  %conv.i178 = zext i32 %cond.i.i175 to i64
+  %conv.i178 = zext nneg i32 %cond.i.i175 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr203217, ptr readonly align 1 %add.ptr.i177, i64 %conv.i178, i1 false)
   %cmp1.not.i179 = icmp ult i32 %sub.i174, %fragSz.4
   br i1 %cmp1.not.i179, label %if.then.i173.if.end4.i159_crit_edge, label %AddCertExt.exit180
@@ -5751,12 +5751,12 @@ if.end4.i159:                                     ; preds = %if.then.i173.if.end
   br i1 %cmp12.not.i164, label %AddCertExt.exit180, label %if.then14.i165
 
 if.then14.i165:                                   ; preds = %if.end4.i159
-  %inc.i166 = add i32 %i.0.i160, 1
-  %idxprom.i167 = zext i32 %i.0.i160 to i64
+  %inc.i166 = add nuw nsw i32 %i.0.i160, 1
+  %idxprom.i167 = zext nneg i32 %i.0.i160 to i64
   %arrayidx.i168 = getelementptr inbounds i8, ptr %add.ptr203216, i64 %idxprom.i167
   store i8 0, ptr %arrayidx.i168, align 1
-  %inc15.i169 = add i32 %i.0.i160, 2
-  %idxprom16.i170 = zext i32 %inc.i166 to i64
+  %inc15.i169 = add nuw nsw i32 %i.0.i160, 2
+  %idxprom16.i170 = zext nneg i32 %inc.i166 to i64
   %arrayidx17.i171 = getelementptr inbounds i8, ptr %add.ptr203216, i64 %idxprom16.i170
   store i8 0, ptr %arrayidx17.i171, align 1
   br label %AddCertExt.exit180

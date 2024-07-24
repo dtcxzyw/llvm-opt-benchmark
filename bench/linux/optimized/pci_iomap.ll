@@ -36,7 +36,7 @@ define dso_local ptr @pci_iomap_range(ptr nocapture noundef readonly %0, i32 nou
   br i1 %18, label %19, label %35
 
 19:                                               ; preds = %4
-  %20 = sub i64 %13, %2
+  %20 = sub nuw i64 %13, %2
   %21 = add i64 %8, %2
   %22 = icmp eq i64 %3, 0
   %23 = tail call i64 @llvm.umin.i64(i64 %20, i64 %3)
@@ -98,7 +98,7 @@ define dso_local ptr @pci_iomap_wc_range(ptr nocapture noundef readonly %0, i32 
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %18
-  %26 = sub i64 %13, %2
+  %26 = sub nuw i64 %13, %2
   %27 = icmp eq i64 %3, 0
   %28 = tail call i64 @llvm.umin.i64(i64 %26, i64 %3)
   %29 = select i1 %27, i64 %26, i64 %28

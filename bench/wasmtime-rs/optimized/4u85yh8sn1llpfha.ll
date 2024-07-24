@@ -4309,7 +4309,7 @@ define noundef ptr @"_ZN102_$LT$wasmtime_runtime..memory..MmapMemory$u20$as$u20$
 
 41:                                               ; preds = %36
   %42 = add i64 %38, %14
-  %43 = sub i64 %1, %38
+  %43 = sub nuw i64 %1, %38
   %44 = tail call noundef ptr @_ZN16wasmtime_runtime4mmap4Mmap15make_accessible17h30aab8843badc801E(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %42, i64 noundef %43)
   %45 = icmp eq ptr %44, null
   br i1 %45, label %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit.thread, label %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_limit17h3b40bb73f32c953aE.exit
@@ -6166,7 +6166,7 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit: ; preds = %3, %16
   unreachable
 
 29:                                               ; preds = %24
-  %30 = sub i64 %26, %2
+  %30 = sub nuw i64 %26, %2
   %.not3 = icmp ult i64 %30, %1
   br i1 %.not3, label %31, label %32
 

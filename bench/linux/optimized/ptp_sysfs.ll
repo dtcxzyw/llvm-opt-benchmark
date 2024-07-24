@@ -706,7 +706,7 @@ define internal noundef i64 @n_vclocks_store(ptr noundef %0, ptr nocapture readn
   br i1 %52, label %53, label %.loopexit
 
 53:                                               ; preds = %.loopexit7
-  %54 = sub i32 %50, %51
+  %54 = sub nuw i32 %50, %51
   store i32 %54, ptr %6, align 4
   %55 = call i32 @device_for_each_child_reverse(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull @unregister_vclock) #12
   store i32 1, ptr %6, align 4

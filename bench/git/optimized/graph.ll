@@ -2547,7 +2547,7 @@ sw.epilog:                                        ; preds = %for.body.i.i181, %g
   br i1 %cmp.i225, label %if.then.i227, label %return
 
 if.then.i227:                                     ; preds = %sw.epilog
-  %sub.i228 = sub i64 %conv.i224, %270
+  %sub.i228 = sub nuw i64 %conv.i224, %270
   %271 = load ptr, ptr %line, align 8
   tail call void @strbuf_addchars(ptr noundef %271, i32 noundef 32, i64 noundef %sub.i228) #15
   br label %return
@@ -2907,7 +2907,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %cmp.i, label %if.then.i, label %graph_pad_horizontally.exit
 
 if.then.i:                                        ; preds = %for.end
-  %sub.i = sub i64 %conv.i, %19
+  %sub.i = sub nuw i64 %conv.i, %19
   tail call void @strbuf_addchars(ptr noundef %18, i32 noundef 32, i64 noundef %sub.i) #15
   br label %graph_pad_horizontally.exit
 

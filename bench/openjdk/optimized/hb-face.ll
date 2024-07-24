@@ -3268,7 +3268,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i: ; pre
   br i1 %72, label %73, label %83
 
 73:                                               ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
-  %74 = sub i32 %51, %71
+  %74 = sub nuw i32 %51, %71
   %75 = shl i32 %74, 3
   %.not.i.i.i = icmp eq i32 %75, 0
   br i1 %.not.i.i.i, label %83, label %76
@@ -3415,7 +3415,7 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread: ; preds = %25, %13, 
   br i1 %brmerge.not, label %30, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit
 
 30:                                               ; preds = %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread
-  %31 = sub i32 %5, %28
+  %31 = sub nuw i32 %5, %28
   %32 = mul i32 %31, 72
   %.not.i.i = icmp eq i32 %32, 0
   br i1 %.not.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit, label %33
@@ -4746,7 +4746,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i: ; pre
   br i1 %130, label %131, label %.noexc26
 
 131:                                              ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
-  %132 = sub i32 %108, %129
+  %132 = sub nuw i32 %108, %129
   %133 = shl i32 %132, 3
   %.not.i.i.i31 = icmp eq i32 %133, 0
   br i1 %.not.i.i.i31, label %.noexc26, label %134
@@ -5314,7 +5314,7 @@ _ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit45: ; pr
   %125 = add i32 %spec.select, %.sroa.speculated
   %126 = sub i32 %125, %spec.select38
   %.not35 = icmp ult i32 %126, %3
-  %127 = sub i32 %3, %spec.select
+  %127 = sub nuw i32 %3, %spec.select
   %128 = add i32 %127, %spec.select38
   %.0 = select i1 %.not35, i32 %.sroa.speculated, i32 %128
   %129 = load i32, ptr %24, align 8

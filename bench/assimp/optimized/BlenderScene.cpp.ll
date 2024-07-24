@@ -7229,11 +7229,10 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %25 = shl nuw nsw i32 %i.0.lcssa44, 2
   %26 = zext nneg i32 %25 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %26
-  %27 = shl i32 %i.0.lcssa44, 2
-  %28 = sub i32 8, %27
-  %29 = zext i32 %28 to i64
-  %30 = add nuw nsw i64 %29, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %30, i1 false)
+  %27 = shl nuw nsw i32 %i.0.lcssa44, 2
+  %narrow = sub nsw i32 12, %27
+  %28 = zext i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %28, i1 false)
   br label %try.cont
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -7246,8 +7245,8 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.037, 1
   %conv18 = zext nneg i32 %inc to i64
-  %31 = load i64, ptr %array_sizes, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %31, i64 3)
+  %29 = load i64, ptr %array_sizes, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 3)
   %cmp = icmp ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !9
 }
@@ -15609,7 +15608,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %catch.dispatch, %lpad35, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %32, %lpad35 ], [ %.pn18, %catch.dispatch ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %30, %lpad35 ], [ %.pn18, %catch.dispatch ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -15665,11 +15664,10 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %25 = shl nuw nsw i32 %i.0.lcssa44, 2
   %26 = zext nneg i32 %25 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %26
-  %27 = shl i32 %i.0.lcssa44, 2
-  %28 = sub i32 8, %27
-  %29 = zext i32 %28 to i64
-  %30 = add nuw nsw i64 %29, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %30, i1 false)
+  %27 = shl nuw nsw i32 %i.0.lcssa44, 2
+  %narrow = sub nsw i32 12, %27
+  %28 = zext i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %28, i1 false)
   br label %try.cont
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -15682,22 +15680,22 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.037, 1
   %conv18 = zext nneg i32 %inc to i64
-  %31 = load i64, ptr %array_sizes, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %31, i64 3)
+  %29 = load i64, ptr %array_sizes, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 3)
   %cmp = icmp ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !31
 
 lpad35:                                           ; preds = %catch
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %lpad35
-  %33 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #20
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #20
   unreachable
 }
 
@@ -15872,7 +15870,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %catch.dispatch, %lpad35, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %32, %lpad35 ], [ %.pn18, %catch.dispatch ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %30, %lpad35 ], [ %.pn18, %catch.dispatch ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -15928,11 +15926,10 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %25 = shl nuw nsw i32 %i.0.lcssa47, 2
   %26 = zext nneg i32 %25 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %26
-  %27 = shl i32 %i.0.lcssa47, 2
-  %28 = sub i32 8, %27
-  %29 = zext i32 %28 to i64
-  %30 = add nuw nsw i64 %29, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %30, i1 false)
+  %27 = shl nuw nsw i32 %i.0.lcssa47, 2
+  %narrow = sub nsw i32 12, %27
+  %28 = zext i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %28, i1 false)
   br label %try.cont
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -15945,22 +15942,22 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.040, 1
   %conv18 = zext nneg i32 %inc to i64
-  %31 = load i64, ptr %array_sizes, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %31, i64 3)
+  %29 = load i64, ptr %array_sizes, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 3)
   %cmp = icmp ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !32
 
 lpad35:                                           ; preds = %call.i.noexc21, %catch
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %lpad35
-  %33 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #20
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #20
   unreachable
 }
 
@@ -18845,9 +18842,9 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %i.0.lcssa47 = phi i32 [ %inc, %for.cond23.preheader ], [ 0, %for.cond.preheader ]
   %25 = zext nneg i32 %i.0.lcssa47 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %25
-  %narrow = sub i32 240, %i.0.lcssa47
-  %26 = zext i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %26, i1 false)
+  %narrow = sub nuw nsw i32 240, %i.0.lcssa47
+  %26 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %26, i1 false)
   br label %try.cont
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -19101,9 +19098,9 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %i.0.lcssa44 = phi i32 [ %inc, %for.cond23.preheader ], [ 0, %for.cond.preheader ]
   %25 = zext nneg i32 %i.0.lcssa44 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %25
-  %narrow = sub i32 240, %i.0.lcssa44
-  %26 = zext i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %26, i1 false)
+  %narrow = sub nuw nsw i32 240, %i.0.lcssa44
+  %26 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %26, i1 false)
   br label %try.cont
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -20386,7 +20383,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %catch.dispatch, %lpad35, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %32, %lpad35 ], [ %.pn18, %catch.dispatch ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %30, %lpad35 ], [ %.pn18, %catch.dispatch ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -20442,11 +20439,10 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %25 = shl nuw nsw i32 %i.0.lcssa48, 2
   %26 = zext nneg i32 %25 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %26
-  %27 = shl i32 %i.0.lcssa48, 2
-  %28 = sub i32 164, %27
-  %29 = zext i32 %28 to i64
-  %30 = add nuw nsw i64 %29, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %30, i1 false)
+  %27 = shl nuw nsw i32 %i.0.lcssa48, 2
+  %narrow = sub nsw i32 168, %27
+  %28 = zext i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %28, i1 false)
   br label %try.cont
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -20459,22 +20455,22 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.041, 1
   %conv18 = zext nneg i32 %inc to i64
-  %31 = load i64, ptr %array_sizes, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %31, i64 42)
+  %29 = load i64, ptr %array_sizes, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 42)
   %cmp = icmp ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !38
 
 lpad35:                                           ; preds = %call.i.noexc21, %catch
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %lpad35
-  %33 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #20
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #20
   unreachable
 }
 
@@ -29530,7 +29526,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -29892,7 +29888,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -33264,7 +33260,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -33615,7 +33611,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -34842,7 +34838,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -35107,7 +35103,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -36243,7 +36239,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -36592,7 +36588,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -37565,7 +37561,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -37914,7 +37910,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -38813,7 +38809,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -39162,7 +39158,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -40197,7 +40193,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -40558,7 +40554,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -41611,7 +41607,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -41969,7 +41965,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -43799,7 +43795,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -44149,7 +44145,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -45120,7 +45116,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -45469,7 +45465,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -46430,7 +46426,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -46781,7 +46777,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -47454,7 +47450,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender5MFaceESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MFaceEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -47874,7 +47870,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender6MTFaceESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_6MTFaceEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -48310,7 +48306,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender5TFaceESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5TFaceEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -48719,7 +48715,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender5MVertESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MVertEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -49153,7 +49149,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender5MEdgeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MEdgeEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -49573,7 +49569,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender5MLoopESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MLoopEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -49994,7 +49990,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender7MLoopUVESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_7MLoopUVEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -50414,7 +50410,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender8MLoopColESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_8MLoopColEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -50835,7 +50831,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender5MPolyESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_5MPolyEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -51255,7 +51251,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender8MTexPolyESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_8MTexPolyEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -51675,7 +51671,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender11MDeformVertESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_11MDeformVertEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -52168,7 +52164,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender4MColESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_4MColEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -52536,7 +52532,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorISt10shared_ptrIN6Assimp7Blender8MaterialEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -53037,7 +53033,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -53390,7 +53386,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -54605,7 +54601,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %if.end12
   br i1 %cmp.i.i36, label %if.then.i.i46, label %if.else.i.i
 
 if.then.i.i46:                                    ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
-  %sub.i.i = sub i64 %div, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %div, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN6Assimp7Blender13MDeformWeightESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out, i64 noundef %sub.i.i)
   br label %_ZNK6Assimp7Blender9Structure9_allocateINS0_13MDeformWeightEEEPT_RNS0_6vectorIS4_EERm.exit
 
@@ -55896,7 +55892,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -56245,7 +56241,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -57162,7 +57158,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -57513,7 +57509,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 
@@ -58558,7 +58554,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end23
 
@@ -58907,7 +58903,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %4, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %4, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt3mapIN6Assimp7Blender7PointerESt10shared_ptrINS2_8ElemBaseEESt4lessIS3_ESaISt4pairIKS3_S6_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %if.end
 

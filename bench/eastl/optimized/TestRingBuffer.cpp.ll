@@ -3454,7 +3454,7 @@ invoke.cont4:                                     ; preds = %if.then, %_ZN5eastl
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %invoke.cont4
-  %sub8 = sub i64 %3, %n
+  %sub8 = sub nuw i64 %3, %n
   %cmp.i.i.i.i = icmp sgt i64 %sub8, -1
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else9.i.i.i.i
@@ -6212,7 +6212,7 @@ invoke.cont4:                                     ; preds = %if.then, %.noexc
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %invoke.cont4
-  %sub8 = sub i64 %3, %n
+  %sub8 = sub nuw i64 %3, %n
   %cmp.i.i.i.i = icmp sgt i64 %sub8, -1
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else9.i.i.i.i
@@ -9118,7 +9118,7 @@ invoke.cont4:                                     ; preds = %_ZN5eastl8destructI
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %invoke.cont4
-  %sub8 = sub i64 %3, %n
+  %sub8 = sub nuw i64 %3, %n
   %cmp.i.i.i.i = icmp sgt i64 %sub8, -1
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i10, label %if.else9.i.i.i.i
@@ -13053,7 +13053,7 @@ invoke.cont4:                                     ; preds = %if.then
   br i1 %cmp5, label %if.then6, label %invoke.cont11
 
 if.then6:                                         ; preds = %invoke.cont4
-  %sub8 = sub i64 %12, %n
+  %sub8 = sub nuw i64 %12, %n
   invoke void @_ZN5eastl20ring_buffer_iteratorIiPiRiNS_5dequeIiNS_9allocatorELj64EEEE9incrementElNS_26random_access_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(40) %itCopyBegin, i64 noundef %sub8)
           to label %invoke.cont9 unwind label %lpad
 
@@ -17739,7 +17739,7 @@ invoke.cont4:                                     ; preds = %if.then
   br i1 %cmp5, label %if.then6, label %invoke.cont11
 
 if.then6:                                         ; preds = %invoke.cont4
-  %sub8 = sub i64 %12, %n
+  %sub8 = sub nuw i64 %12, %n
   invoke void @_ZN5eastl20ring_buffer_iteratorI7Align64PS1_RS1_NS_5dequeIS1_NS_9allocatorELj4EEEE9incrementElNS_26random_access_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(40) %itCopyBegin, i64 noundef %sub8)
           to label %invoke.cont9 unwind label %lpad
 
@@ -23129,7 +23129,7 @@ invoke.cont4:                                     ; preds = %if.then.i.i, %invok
   br i1 %cmp5, label %if.then6, label %invoke.cont11
 
 if.then6:                                         ; preds = %invoke.cont4
-  %sub8 = sub i64 %24, %n
+  %sub8 = sub nuw i64 %24, %n
   invoke void @_ZN5eastl20ring_buffer_iteratorI10TestObjectPS1_RS1_NS_5dequeIS1_NS_9allocatorELj8EEEE9incrementElNS_26random_access_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(40) %itCopyBegin, i64 noundef %sub8)
           to label %invoke.cont9 unwind label %lpad
 
@@ -28008,7 +28008,7 @@ invoke.cont4:                                     ; preds = %call.i.i.i.i.i.i.i.
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %invoke.cont4
-  %sub8 = sub i64 %12, %n
+  %sub8 = sub nuw i64 %12, %n
   %cmp1.i.i.i.i = icmp sgt i64 %sub8, 0
   br i1 %cmp1.i.i.i.i, label %while.body.i.i.i.i.preheader, label %invoke.cont9
 
@@ -31420,7 +31420,7 @@ invoke.cont4:                                     ; preds = %call.i6.i.i.i.i.i.i
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %invoke.cont4
-  %sub8 = sub i64 %12, %n
+  %sub8 = sub nuw i64 %12, %n
   %cmp1.i.i.i.i = icmp sgt i64 %sub8, 0
   br i1 %cmp1.i.i.i.i, label %while.body.i.i.i.i.preheader, label %invoke.cont9
 
@@ -35209,7 +35209,7 @@ invoke.cont4:                                     ; preds = %if.then.i.i, %invok
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %invoke.cont4
-  %sub8 = sub i64 %15, %n
+  %sub8 = sub nuw i64 %15, %n
   %cmp1.i.i.i.i = icmp sgt i64 %sub8, 0
   br i1 %cmp1.i.i.i.i, label %while.body.i.i.i.i.preheader, label %invoke.cont9
 
@@ -40178,7 +40178,7 @@ invoke.cont4:                                     ; preds = %if.else.i, %for.bod
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %invoke.cont4
-  %sub8 = sub i64 %6, %n
+  %sub8 = sub nuw i64 %6, %n
   %cmp.i.i.i.i = icmp sgt i64 %sub8, -1
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else9.i.i.i.i
@@ -43248,7 +43248,7 @@ invoke.cont4:                                     ; preds = %invoke.cont4.sink.s
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %invoke.cont4
-  %sub8 = sub i64 %8, %n
+  %sub8 = sub nuw i64 %8, %n
   %cmp.i.i.i.i = icmp sgt i64 %sub8, -1
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else9.i.i.i.i
@@ -61034,7 +61034,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl8destructI
   br i1 %cmp4, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %invoke.cont
-  %sub7 = sub i64 %3, %n
+  %sub7 = sub nuw i64 %3, %n
   %cmp.i.i.i.i = icmp sgt i64 %sub7, -1
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else9.i.i.i.i
@@ -63268,7 +63268,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mpEnd4.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %mpEnd4.i, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
   store ptr %2, ptr %agg.tmp4, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
@@ -66955,7 +66955,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mpEnd4.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %mpEnd4.i, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
   store ptr %2, ptr %agg.tmp4, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
@@ -70632,7 +70632,7 @@ entry:
 if.then:                                          ; preds = %entry
   %mpEnd4.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %mpEnd4.i, align 8
-  %sub = sub i64 %n, %add11.i.i
+  %sub = sub nuw i64 %n, %add11.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4)
   store ptr %2, ptr %agg.tmp4, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4, i64 8

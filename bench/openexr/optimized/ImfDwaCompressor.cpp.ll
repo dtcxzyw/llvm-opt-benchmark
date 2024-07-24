@@ -644,7 +644,7 @@ if.end42:                                         ; preds = %if.end, %if.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end42
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN7Imf_3_219SimdAlignedBuffer64IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %_dctData, i64 noundef %sub.i)
           to label %invoke.cont43 unwind label %lpad31.loopexit.split-lp.loopexit.split-lp
 
@@ -2416,7 +2416,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN7Imf_3_219SimdAlignedBuffer64IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %_dctData, i64 noundef %sub.i)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -17229,7 +17229,7 @@ if.then:                                          ; preds = %for.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN7Imf_3_213DwaCompressor11ChannelDataESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %chanData, i64 noundef %sub.i)
           to label %if.end unwind label %ehcleanup240.thread182.loopexit.split-lp.loopexit.split-lp
 
@@ -17749,7 +17749,7 @@ if.then226:                                       ; preds = %for.end223
   br i1 %cmp.i134, label %if.then.i141, label %if.else.i135
 
 if.then.i141:                                     ; preds = %if.then226
-  %sub.i142 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i133
+  %sub.i142 = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i133
   invoke void @_ZNSt6vectorIN7Imf_3_213DwaCompressor13CscChannelSetESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %cscData, i64 noundef %sub.i142)
           to label %for.body232.preheader unwind label %ehcleanup240.loopexit.split-lp
 

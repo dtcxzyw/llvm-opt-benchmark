@@ -539,7 +539,7 @@ if.end29:                                         ; preds = %if.end21, %reset_ls
   br i1 %cmp33, label %if.then35, label %if.end40
 
 if.then35:                                        ; preds = %if.end29
-  %sub = sub i64 %conv30, %12
+  %sub = sub nuw i64 %conv30, %12
   tail call void @strbuf_grow(ptr noundef nonnull %cache, i64 noundef %sub) #12
   br label %if.end40
 

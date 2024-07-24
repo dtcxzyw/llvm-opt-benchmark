@@ -1910,7 +1910,7 @@ define range(i32 -1, 2) i32 @H5FS_sect_try_extend(ptr noundef %0, ptr noundef %1
   %51 = load i64, ptr %25, align 8
   %52 = add i64 %51, %4
   store i64 %52, ptr %25, align 8
-  %53 = sub i64 %48, %4
+  %53 = sub nuw i64 %48, %4
   store i64 %53, ptr %27, align 8
   %54 = getelementptr inbounds i8, ptr %47, i64 48
   %55 = load ptr, ptr %54, align 8

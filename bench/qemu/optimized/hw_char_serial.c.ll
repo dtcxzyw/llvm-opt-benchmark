@@ -1860,7 +1860,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %3 = load i8, ptr %recv_fifo_itl.i, align 8
   %conv5.i = zext i8 %3 to i32
   %cmp6.not.i = icmp ugt i32 %2, %conv5.i
-  %sub.i = sub nsw i32 %conv5.i, %2
+  %sub.i = sub nuw nsw i32 %conv5.i, %2
   %spec.select.i = select i1 %cmp6.not.i, i32 1, i32 %sub.i
   br label %serial_can_receive.exit
 

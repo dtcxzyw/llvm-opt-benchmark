@@ -350,7 +350,7 @@ ft_gzip_file_reset.exit.thread:                   ; preds = %8
   br i1 %24, label %25, label %43
 
 25:                                               ; preds = %22
-  %26 = sub i64 %1, %23
+  %26 = sub nuw i64 %1, %23
   %27 = getelementptr inbounds i8, ptr %0, i64 8352
   %28 = getelementptr inbounds i8, ptr %0, i64 8344
   br label %29

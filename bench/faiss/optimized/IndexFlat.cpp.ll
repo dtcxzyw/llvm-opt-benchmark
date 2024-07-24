@@ -799,7 +799,7 @@ define void @_ZN5faiss11IndexFlat1D3addElPKf(ptr noundef nonnull align 8 derefer
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %7
-  %20 = sub i64 %10, %17
+  %20 = sub nuw i64 %10, %17
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %20)
   %.pre.i = load i64, ptr %9, align 8
   %.pre = load ptr, ptr %8, align 8
@@ -1538,7 +1538,7 @@ define void @_ZN5faiss11IndexFlatL212sync_l2normsEv(ptr noundef nonnull align 8 
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %4, %11
+  %14 = sub nuw i64 %4, %11
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %14)
   %.pre = load ptr, ptr %2, align 8
   %.pre1 = load i64, ptr %3, align 8
@@ -1972,7 +1972,7 @@ define void @_ZN5faiss11IndexFlat1D18update_permutationEv(ptr noundef nonnull al
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %4, %11
+  %14 = sub nuw i64 %4, %11
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %14)
   %.pre = load i64, ptr %3, align 8
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit

@@ -1058,7 +1058,6 @@ for.body78:                                       ; preds = %for.body78.lr.ph, %
   %35 = load i8, ptr %indexed_length85, align 1
   %add87 = add i8 %35, %34
   %entries_offset.i57 = getelementptr inbounds i8, ptr %add.ptr.i52, i64 8
-  %conv100 = zext i8 %add87 to i64
   br label %while.body91
 
 while.body91:                                     ; preds = %for.body78, %if.end149
@@ -1076,9 +1075,8 @@ while.body91:                                     ; preds = %for.body78, %if.end
   br i1 %or.cond, label %if.then102, label %if.else147
 
 if.then102:                                       ; preds = %while.body91
-  %conv96 = zext i8 %39 to i64
-  %sub106 = sub nsw i64 %conv100, %conv96
-  %sh_prom = and i64 %sub106, 4294967295
+  %narrow = sub nuw i8 %add87, %39
+  %sh_prom = zext nneg i8 %narrow to i64
   %shl107 = shl nuw i64 1, %sh_prom
   %add110 = add i64 %shl107, %j.0201
   store i64 %add110, ptr %ref.tmp109, align 8
@@ -1100,7 +1098,7 @@ if.else116:                                       ; preds = %_ZN7logging11CheckL
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then102, %_ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %if.else116
-  %cmp124.not197 = icmp eq i64 %sh_prom, 0
+  %cmp124.not197 = icmp eq i8 %add87, %39
   br i1 %cmp124.not197, label %if.end149, label %for.body125
 
 for.body125:                                      ; preds = %if.end122, %_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.exit113
@@ -1707,7 +1705,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64

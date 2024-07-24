@@ -533,7 +533,7 @@ if.then37:                                        ; preds = %if.end35
   %9 = load i64, ptr %packet_length10, align 8
   %add39 = add i64 %9, %n.addr.0
   store i64 %add39, ptr %packet_length10, align 8
-  %sub40 = sub i64 %0, %n.addr.0
+  %sub40 = sub nuw i64 %0, %n.addr.0
   store i64 %sub40, ptr %left1, align 8
   %offset42 = getelementptr inbounds i8, ptr %rl, i64 1720
   %10 = load i64, ptr %offset42, align 8
@@ -665,7 +665,7 @@ while.end:                                        ; preds = %if.end123
   %.pre170 = load i64, ptr %offset46, align 8
   %add134 = add i64 %.pre170, %n.addr.2
   store i64 %add134, ptr %offset46, align 8
-  %sub135 = sub i64 %add124, %n.addr.2
+  %sub135 = sub nuw i64 %add124, %n.addr.2
   store i64 %sub135, ptr %left1, align 8
   %22 = load i64, ptr %packet_length10, align 8
   %add138 = add i64 %22, %n.addr.2
@@ -1150,7 +1150,7 @@ if.then200:                                       ; preds = %for.body
   br label %return
 
 if.end201:                                        ; preds = %for.body
-  %sub203 = sub i64 %56, %mac_size.0
+  %sub203 = sub nuw i64 %56, %mac_size.0
   store i64 %sub203, ptr %length197, align 8
   %data204 = getelementptr inbounds i8, ptr %arrayidx196, i64 32
   %57 = load ptr, ptr %data204, align 8
@@ -2747,7 +2747,7 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false
   br i1 %cmp14, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %lor.lhs.false12
-  %sub17 = sub i64 %2, %1
+  %sub17 = sub nuw i64 %2, %1
   %call18 = call i32 @WPACKET_allocate_bytes(ptr noundef %thispkt, i64 noundef %sub17, ptr noundef null) #12
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.then, label %if.end
@@ -2951,7 +2951,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds [33 x %struct.wpacket_st], ptr %pkt, i64 0, i64 %j.0105
   %arrayidx20 = getelementptr inbounds [33 x %struct.tls_rl_record_st], ptr %wr, i64 0, i64 %j.0105
   %cmp21 = icmp ult i64 %j.0105, %8
-  %sub = sub i64 %j.0105, %8
+  %sub = sub nuw i64 %j.0105, %8
   %arrayidx22 = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %sub
   %cond = select i1 %cmp21, ptr %prefixtempl, ptr %arrayidx22
   %9 = load ptr, ptr %funcs, align 8
@@ -3137,7 +3137,7 @@ for.body111:                                      ; preds = %for.cond107.prehead
   %arrayidx112 = getelementptr inbounds [33 x %struct.wpacket_st], ptr %pkt, i64 0, i64 %j.1108
   %arrayidx113 = getelementptr inbounds [33 x %struct.tls_rl_record_st], ptr %wr, i64 0, i64 %j.1108
   %cmp114 = icmp ult i64 %j.1108, %34
-  %sub118 = sub i64 %j.1108, %34
+  %sub118 = sub nuw i64 %j.1108, %34
   %arrayidx119 = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %sub118
   %cond121 = select i1 %cmp114, ptr %prefixtempl, ptr %arrayidx119
   %35 = load ptr, ptr %funcs, align 8

@@ -1302,7 +1302,7 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i.i: ; preds
   %38 = getelementptr inbounds i8, ptr %17, i64 %32
   %39 = load i8, ptr %38, align 1, !alias.scope !218, !noalias !225, !noundef !4
   %40 = icmp sgt i8 %39, -65
-  %41 = sub i64 %19, %32
+  %41 = sub nuw i64 %19, %32
   br i1 %40, label %_ZN3url3Url5slice17h19dad34b833947ccE.exit.i.i.i, label %42
 
 42:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i", %35

@@ -10036,7 +10036,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h9da36c4dd3a94
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1779)
   %21 = icmp ult i64 %20, %1
@@ -11219,7 +11219,7 @@ common.resume:                                    ; preds = %317, %289, %.loopex
   %253 = load i64, ptr %252, align 8, !alias.scope !1967, !noalias !1968
   store i64 %253, ptr %.sroa.0.0153.lcssa192, align 8, !alias.scope !1967, !noalias !1968
   store ptr %250, ptr %252, align 8, !alias.scope !1967, !noalias !1968
-  %254 = sub i64 %.sroa.14.0152.lcssa178, %247
+  %254 = sub nuw i64 %.sroa.14.0152.lcssa178, %247
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %247, i64 %254)
   %255 = lshr i64 %.sroa.14.0152.lcssa178, 3
   %256 = icmp uge i64 %.0.sroa.speculated.i, %255
@@ -12287,7 +12287,7 @@ common.resume:                                    ; preds = %.loopexit.i69, %.lo
   %329 = load i64, ptr %328, align 8, !alias.scope !2224, !noalias !2225
   store i64 %329, ptr %.sroa.0.0173224, align 8, !alias.scope !2224, !noalias !2225
   store ptr %326, ptr %328, align 8, !alias.scope !2224, !noalias !2225
-  %330 = sub i64 %.sroa.14.0172207, %323
+  %330 = sub nuw i64 %.sroa.14.0172207, %323
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %323, i64 %330)
   %331 = lshr i64 %.sroa.14.0172207, 3
   %332 = icmp uge i64 %.0.sroa.speculated.i, %331

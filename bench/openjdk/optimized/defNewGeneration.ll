@@ -955,7 +955,7 @@ _ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit: ; preds = %_ZNK16D
   br i1 %43, label %44, label %_ZN16DefNewGeneration6expandEm.exit
 
 44:                                               ; preds = %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit
-  %45 = sub i64 %42, %23
+  %45 = sub nuw i64 %42, %23
   %46 = tail call noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 noundef %45, i1 noundef zeroext false) #19
   %47 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
   %48 = icmp sgt i32 %47, 0

@@ -373,7 +373,7 @@ invoke.cont:                                      ; preds = %.noexc
 while.body:                                       ; preds = %invoke.cont, %if.end28
   %2 = phi i64 [ %7, %if.end28 ], [ %0, %invoke.cont ]
   %readCount.025 = phi i64 [ %add, %if.end28 ], [ 0, %invoke.cont ]
-  %sub = sub i64 %2, %readCount.025
+  %sub = sub nuw i64 %2, %readCount.025
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 65535)
   %conv21 = trunc nuw nsw i64 %spec.store.select to i32
   %call24 = invoke i32 @unzReadCurrentFile(ptr noundef %zip_handle, ptr noundef nonnull %call13, i32 noundef %conv21)
@@ -604,7 +604,7 @@ sw.bb10:                                          ; preds = %entry
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %sw.bb10
-  %sub = sub i64 %3, %pOffset
+  %sub = sub nuw i64 %3, %pOffset
   %m_SeekPtr16 = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %sub, ptr %m_SeekPtr16, align 8
   br label %return

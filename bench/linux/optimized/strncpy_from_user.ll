@@ -22,7 +22,7 @@ define dso_local i64 @strncpy_from_user(ptr nocapture noundef writeonly %0, ptr 
   br i1 %8, label %9, label %.thread7, !prof !7
 
 9:                                                ; preds = %5
-  %10 = sub i64 %6, %7
+  %10 = sub nuw i64 %6, %7
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 %2)
   %12 = add i64 %11, %7
   %13 = icmp sgt i64 %12, -1

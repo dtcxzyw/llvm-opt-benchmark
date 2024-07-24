@@ -12706,7 +12706,7 @@ thread-pre-split:                                 ; preds = %158, %175, %181, %1
 
 252:                                              ; preds = %241
   %253 = getelementptr i8, ptr %243, i64 %250
-  %254 = sub i64 %244, %250
+  %254 = sub nuw nsw i64 %244, %250
   %255 = add nuw nsw i64 %242, 1
   %256 = icmp eq i64 %255, %240
   br i1 %256, label %.loopexit35, label %241, !llvm.loop !227
@@ -12745,7 +12745,7 @@ thread-pre-split:                                 ; preds = %158, %175, %181, %1
 
 278:                                              ; preds = %267
   %279 = getelementptr i8, ptr %269, i64 %276
-  %280 = sub i64 %270, %276
+  %280 = sub nuw nsw i64 %270, %276
   %281 = add nuw nsw i64 %268, 1
   %282 = icmp eq i64 %281, %266
   br i1 %282, label %.loopexit34, label %267, !llvm.loop !227
@@ -12782,7 +12782,7 @@ thread-pre-split:                                 ; preds = %158, %175, %181, %1
 
 302:                                              ; preds = %291
   %303 = getelementptr i8, ptr %293, i64 %300
-  %304 = sub i64 %294, %300
+  %304 = sub nuw nsw i64 %294, %300
   %305 = add nuw nsw i64 %292, 1
   %306 = icmp eq i64 %305, %290
   br i1 %306, label %.loopexit33, label %291, !llvm.loop !227
@@ -12816,7 +12816,7 @@ thread-pre-split:                                 ; preds = %158, %175, %181, %1
 
 325:                                              ; preds = %314
   %326 = getelementptr i8, ptr %316, i64 %323
-  %327 = sub i64 %317, %323
+  %327 = sub nuw nsw i64 %317, %323
   %328 = add nuw nsw i64 %315, 1
   %329 = icmp eq i64 %328, %313
   br i1 %329, label %.loopexit, label %314, !llvm.loop !227

@@ -1578,7 +1578,7 @@ _ZN3syn3lit5value4byte17h974d316fd1183218E.exit108.thread: ; preds = %41
   %50 = getelementptr inbounds i8, ptr %32, i64 %44
   %51 = load i8, ptr %50, align 1, !alias.scope !156, !noundef !4
   %52 = icmp sgt i8 %51, -65
-  %53 = sub i64 %29, %44
+  %53 = sub nuw i64 %29, %44
   br i1 %52, label %55, label %54
 
 54:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i111", %47
@@ -2079,7 +2079,7 @@ _ZN3syn3lit5value4byte17h974d316fd1183218E.exit57: ; preds = %57
   %71 = getelementptr inbounds i8, ptr %1, i64 %65
   %72 = load i8, ptr %71, align 1, !alias.scope !205, !noundef !4
   %73 = icmp sgt i8 %72, -65
-  %74 = sub i64 %2, %65
+  %74 = sub nuw i64 %2, %65
   br i1 %73, label %77, label %76
 
 75:                                               ; preds = %_ZN3syn3lit5value4byte17h974d316fd1183218E.exit57.thread, %_ZN3syn3lit5value4byte17h974d316fd1183218E.exit57
@@ -3067,7 +3067,7 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit168: ; preds = %"_ZN4core3str21_$
   %103 = getelementptr inbounds i8, ptr %.sroa.0.2343615, i64 %93
   %104 = load i8, ptr %103, align 1, !alias.scope !334, !noundef !4
   %105 = icmp sgt i8 %104, -65
-  %106 = sub i64 %.sroa.29.2342616, %93
+  %106 = sub nuw i64 %.sroa.29.2342616, %93
   br i1 %105, label %107, label %.invoke
 
 107:                                              ; preds = %97, %100, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i179"
@@ -3234,7 +3234,7 @@ _ZN5alloc6string6String6insert17ha7cafdf735acddb6E.exit: ; preds = %128
   br label %_ZN3syn6bigint6BigInt18reserve_two_digits17h4f4c0bfc99af2498E.llvm.17896666486873179654.exit.i
 
 165:                                              ; preds = %.noexc184
-  %166 = sub i64 %163, %154
+  %166 = sub nuw i64 %163, %154
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17ha652c22a5e781e7dE.llvm.4937409023006880071"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %166, i8 noundef 0)
           to label %.noexc185 unwind label %.loopexit273
 
@@ -3686,7 +3686,7 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h8473f019ae83b75bE(ptr n
   br label %132
 
 123:                                              ; preds = %116
-  %124 = sub i64 %.sroa.6177.sroa.6.0, %.0100239
+  %124 = sub nuw i64 %.sroa.6177.sroa.6.0, %.0100239
   %125 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1dce2dd76bbd8857E"(i64 noundef %124, i1 noundef zeroext false)
           to label %.noexc161 unwind label %.thread
 

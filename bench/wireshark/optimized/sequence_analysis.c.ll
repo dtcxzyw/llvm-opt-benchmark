@@ -1668,8 +1668,8 @@ define internal fastcc void @overwrite(ptr noundef %0, ptr noundef %1, i32 nound
 
 6:                                                ; preds = %4
   %7 = icmp ugt i32 %2, %3
-  %8 = sub i32 %2, %3
-  %9 = sub i32 %3, %2
+  %8 = sub nuw i32 %2, %3
+  %9 = sub nuw i32 %3, %2
   %.031.in = select i1 %7, i32 %8, i32 %9
   %.029.in = tail call i32 @llvm.umin.i32(i32 %2, i32 %3)
   %.029 = zext i32 %.029.in to i64

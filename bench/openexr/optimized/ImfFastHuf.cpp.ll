@@ -388,7 +388,7 @@ for.body111:                                      ; preds = %for.body111.prehead
   %arrayidx113 = getelementptr inbounds [59 x i64], ptr %codeCount, i64 0, i64 %indvars.iv160
   %24 = load i64, ptr %arrayidx113, align 8
   %conv114 = uitofp i64 %24 to double
-  %25 = sub nsw i64 %19, %indvars.iv160
+  %25 = sub nuw nsw i64 %19, %indvars.iv160
   %shl118 = shl i64 2, %25
   %conv119 = sitofp i64 %shl118 to double
   %mul = fmul double %conv119, %conv114
@@ -435,9 +435,7 @@ delete.notnull:                                   ; preds = %for.end144, %invoke
   %idxprom158 = zext i8 %29 to i64
   %arrayidx159 = getelementptr inbounds [59 x i64], ptr %offset, i64 0, i64 %idxprom158
   store i64 0, ptr %arrayidx159, align 8
-  %conv162 = zext i8 %29 to i64
   %30 = load i8, ptr %_minCodeLength, align 8
-  %conv166 = zext i8 %30 to i64
   %cmp167.not.not144 = icmp ugt i8 %29, %30
   br i1 %cmp167.not.not144, label %for.body168.preheader, label %for.end179
 
@@ -477,11 +475,11 @@ for.body201.preheader:                            ; preds = %invoke.cont182
   %39 = shl nuw nsw i64 %38, 3
   %scevgep = getelementptr i8, ptr %mapping, i64 %39
   %scevgep182 = getelementptr i8, ptr %offset, i64 %39
-  %40 = sub nsw i64 %conv162, %conv166
-  %41 = shl nsw i64 %40, 3
-  %42 = and i64 %41, 34359738360
-  %43 = add nuw nsw i64 %42, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %scevgep182, i64 %43, i1 false)
+  %narrow = sub nuw i8 %29, %30
+  %40 = zext i8 %narrow to i64
+  %41 = shl nuw nsw i64 %40, 3
+  %42 = add nuw nsw i64 %41, 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %scevgep182, i64 %42, i1 false)
   br label %for.cond212.preheader
 
 for.cond212.preheader:                            ; preds = %for.body201.preheader, %invoke.cont182
@@ -490,22 +488,22 @@ for.cond212.preheader:                            ; preds = %for.body201.prehead
 
 for.body217:                                      ; preds = %for.cond212.preheader, %if.end239
   %i209.sroa.0.0151 = phi ptr [ %incdec.ptr.i77, %if.end239 ], [ %symbols.sroa.0.0.lcssa, %for.cond212.preheader ]
-  %44 = load i64, ptr %i209.sroa.0.0151, align 8
-  %conv221 = and i64 %44, 63
+  %43 = load i64, ptr %i209.sroa.0.0151, align 8
+  %conv221 = and i64 %43, 63
   %arrayidx226 = getelementptr inbounds [59 x i64], ptr %mapping, i64 0, i64 %conv221
-  %45 = load i64, ptr %arrayidx226, align 8
-  %46 = load i32, ptr %_numSymbols, align 4
-  %conv228 = sext i32 %46 to i64
-  %cmp229.not = icmp ult i64 %45, %conv228
+  %44 = load i64, ptr %arrayidx226, align 8
+  %45 = load i32, ptr %_numSymbols, align 4
+  %conv228 = sext i32 %45 to i64
+  %cmp229.not = icmp ult i64 %44, %conv228
   br i1 %cmp229.not, label %if.end239, label %if.then230
 
 if.then230:                                       ; preds = %for.body217
-  %47 = load ptr, ptr %_idToSymbol, align 8
-  %isnull232 = icmp eq ptr %47, null
+  %46 = load ptr, ptr %_idToSymbol, align 8
+  %isnull232 = icmp eq ptr %46, null
   br i1 %isnull232, label %delete.end234, label %delete.notnull233
 
 delete.notnull233:                                ; preds = %if.then230
-  tail call void @_ZdaPv(ptr noundef nonnull %47) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %46) #17
   br label %delete.end234
 
 delete.end234:                                    ; preds = %delete.notnull233, %if.then230
@@ -519,18 +517,18 @@ invoke.cont238:                                   ; preds = %delete.end234
           to label %unreachable unwind label %lpad12.loopexit.split-lp
 
 lpad237:                                          ; preds = %delete.end234
-  %48 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception236) #14
   br label %ehcleanup
 
 if.end239:                                        ; preds = %for.body217
-  %shr = lshr i64 %44, 6
+  %shr = lshr i64 %43, 6
   %conv224 = trunc i64 %shr to i32
-  %49 = load ptr, ptr %_idToSymbol, align 8
-  %arrayidx243 = getelementptr inbounds i32, ptr %49, i64 %45
+  %48 = load ptr, ptr %_idToSymbol, align 8
+  %arrayidx243 = getelementptr inbounds i32, ptr %48, i64 %44
   store i32 %conv224, ptr %arrayidx243, align 4
-  %inc246 = add nuw i64 %45, 1
+  %inc246 = add nuw i64 %44, 1
   store i64 %inc246, ptr %arrayidx226, align 8
   %incdec.ptr.i77 = getelementptr inbounds i8, ptr %i209.sroa.0.0151, i64 8
   %cmp.i76.not = icmp eq ptr %incdec.ptr.i77, %symbols.sroa.6.0.lcssa
@@ -541,16 +539,16 @@ for.end249:                                       ; preds = %if.end239, %for.con
           to label %try.cont unwind label %lpad251
 
 lpad251:                                          ; preds = %for.end249
-  %50 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  %52 = tail call ptr @__cxa_begin_catch(ptr %51) #14
-  %53 = load ptr, ptr %_idToSymbol, align 8
-  %isnull254 = icmp eq ptr %53, null
+  %50 = extractvalue { ptr, i32 } %49, 0
+  %51 = tail call ptr @__cxa_begin_catch(ptr %50) #14
+  %52 = load ptr, ptr %_idToSymbol, align 8
+  %isnull254 = icmp eq ptr %52, null
   br i1 %isnull254, label %delete.end256, label %delete.notnull255
 
 delete.notnull255:                                ; preds = %lpad251
-  tail call void @_ZdaPv(ptr noundef nonnull %53) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %52) #17
   br label %delete.end256
 
 delete.end256:                                    ; preds = %delete.notnull255, %lpad251
@@ -559,7 +557,7 @@ delete.end256:                                    ; preds = %delete.notnull255, 
           to label %unreachable unwind label %lpad258
 
 lpad258:                                          ; preds = %delete.end256
-  %54 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %ehcleanup unwind label %terminate.lpad
@@ -577,7 +575,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %try.cont, %if.then.
 
 ehcleanup:                                        ; preds = %lpad12.loopexit, %lpad12.loopexit.split-lp, %lpad258, %lpad237, %lpad54, %lpad36, %lpad23, %lpad
   %symbols.sroa.0.0106 = phi ptr [ %symbols.sroa.0.0128, %lpad ], [ %symbols.sroa.0.0128, %lpad23 ], [ %symbols.sroa.0.0128, %lpad36 ], [ %symbols.sroa.0.0128, %lpad54 ], [ %symbols.sroa.0.0.lcssa, %lpad237 ], [ %symbols.sroa.0.0.lcssa, %lpad258 ], [ %symbols.sroa.0.0128, %lpad12.loopexit ], [ %symbols.sroa.0.0108, %lpad12.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %5, %lpad23 ], [ %7, %lpad36 ], [ %8, %lpad54 ], [ %48, %lpad237 ], [ %54, %lpad258 ], [ %lpad.loopexit, %lpad12.loopexit ], [ %lpad.loopexit.split-lp, %lpad12.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %5, %lpad23 ], [ %7, %lpad36 ], [ %8, %lpad54 ], [ %47, %lpad237 ], [ %53, %lpad258 ], [ %lpad.loopexit, %lpad12.loopexit ], [ %lpad.loopexit.split-lp, %lpad12.loopexit.split-lp ]
   %tobool.not.i.i.i78 = icmp eq ptr %symbols.sroa.0.0106, null
   br i1 %tobool.not.i.i.i78, label %_ZNSt6vectorImSaImEED2Ev.exit80, label %if.then.i.i.i79
 
@@ -589,10 +587,10 @@ _ZNSt6vectorImSaImEED2Ev.exit80:                  ; preds = %ehcleanup, %if.then
   resume { ptr, i32 } %.pn
 
 terminate.lpad:                                   ; preds = %lpad258
-  %55 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #18
+  %55 = extractvalue { ptr, i32 } %54, 0
+  tail call void @__clang_call_terminate(ptr %55) #18
   unreachable
 
 unreachable:                                      ; preds = %delete.end256, %invoke.cont238

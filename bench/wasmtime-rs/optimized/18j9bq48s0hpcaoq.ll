@@ -2440,7 +2440,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h6fcdd7953e9d0
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !339)
   %21 = icmp ult i64 %20, %1
@@ -3205,7 +3205,7 @@ _ZN4core5slice4sort12choose_pivot17h0bb8a99f04245d53E.exit: ; preds = %"_ZN4core
   %222 = load i32, ptr %221, align 4, !alias.scope !408, !noalias !409
   store i32 %222, ptr %.sroa.0.0113.lcssa139, align 4, !alias.scope !408, !noalias !409
   store i32 %110, ptr %221, align 4, !alias.scope !408, !noalias !409
-  %223 = sub i64 %.sroa.14.0112.lcssa131, %217
+  %223 = sub nuw i64 %.sroa.14.0112.lcssa131, %217
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %217, i64 %223)
   %224 = lshr i64 %.sroa.14.0112.lcssa131, 3
   %225 = icmp uge i64 %.0.sroa.speculated.i, %224

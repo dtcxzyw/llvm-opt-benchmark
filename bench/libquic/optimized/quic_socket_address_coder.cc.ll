@@ -163,7 +163,7 @@ if.end5:                                          ; preds = %sw.epilog
   %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %ip, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call5.i.i.i.i1.i.i17, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, i64 %ip_length.0, i1 false)
-  %sub7 = sub i64 %sub, %ip_length.0
+  %sub7 = sub nuw i64 %sub, %ip_length.0
   %cmp8.not = icmp eq i64 %sub7, 2
   br i1 %cmp8.not, label %if.end10, label %if.then.i.i.i
 

@@ -9,7 +9,7 @@ define ptr @memmem(ptr noundef readonly %0, i64 noundef %1, ptr nocapture nounde
   br i1 %5, label %.loopexit, label %.preheader22
 
 .preheader22:                                     ; preds = %4
-  %6 = sub i64 %1, %3
+  %6 = sub nuw i64 %1, %3
   %.not = icmp eq i64 %1, %3
   br i1 %.not, label %.loopexit, label %.preheader
 

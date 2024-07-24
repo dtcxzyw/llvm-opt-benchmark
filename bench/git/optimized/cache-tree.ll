@@ -1646,7 +1646,7 @@ if.end44:                                         ; preds = %if.then39
   store i32 %conv.i.i, ptr %algo.i, align 4
   %add.ptr = getelementptr inbounds i8, ptr %incdec.ptr34, i64 %conv40
   store ptr %add.ptr, ptr %buf, align 8
-  %sub = sub i64 %dec35, %conv40
+  %sub = sub nuw i64 %dec35, %conv40
   store i64 %sub, ptr %size, align 8
   br label %if.end46
 

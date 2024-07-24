@@ -143,7 +143,7 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %5, align 8
-  %81 = sub nsw i32 %35, %77
+  %81 = sub nuw nsw i32 %35, %77
   tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %80, ptr noundef nonnull @.str.2, i32 noundef %81) #6
   br label %82
 

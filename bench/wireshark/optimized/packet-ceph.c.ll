@@ -4240,7 +4240,7 @@ c_warn_ver.exit.i:                                ; preds = %290, %287, %280
   br i1 %345, label %c_warn_unused.exit.i.i, label %351
 
 c_warn_unused.exit.i.i:                           ; preds = %344
-  %346 = sub i32 %279, %.1.i
+  %346 = sub nuw i32 %279, %.1.i
   %347 = load ptr, ptr %254, align 8
   %348 = icmp eq i32 %346, 1
   %349 = select i1 %348, ptr @.str.1564, ptr @.str.1686
@@ -4252,7 +4252,7 @@ c_warn_unused.exit.i.i:                           ; preds = %344
   br i1 %.not18.i16.i.i, label %c_warn_size.exit.i, label %352
 
 352:                                              ; preds = %351
-  %353 = sub i32 %.1.i, %279
+  %353 = sub nuw i32 %.1.i, %279
   %354 = load ptr, ptr %254, align 8
   %355 = icmp eq i32 %353, 1
   %356 = select i1 %355, ptr @.str.1564, ptr @.str.1686
@@ -4711,7 +4711,7 @@ c_dissect_msg_client_req.exit:                    ; preds = %._crit_edge.i379, %
   br i1 %701, label %c_warn_unused.exit.i.i.i, label %707
 
 c_warn_unused.exit.i.i.i:                         ; preds = %682
-  %702 = sub i32 %694, %700
+  %702 = sub nuw i32 %694, %700
   %703 = load ptr, ptr %663, align 8
   %704 = icmp eq i32 %702, 1
   %705 = select i1 %704, ptr @.str.1564, ptr @.str.1686
@@ -4723,7 +4723,7 @@ c_warn_unused.exit.i.i.i:                         ; preds = %682
   br i1 %.not18.i16.i.i.i, label %c_warn_size.exit.i.i, label %708
 
 708:                                              ; preds = %707
-  %709 = sub i32 %700, %694
+  %709 = sub nuw i32 %700, %694
   %710 = load ptr, ptr %663, align 8
   %711 = icmp eq i32 %709, 1
   %712 = select i1 %711, ptr @.str.1564, ptr @.str.1686
@@ -4746,7 +4746,7 @@ c_warn_size.exit.i.i:                             ; preds = %708, %707, %c_warn_
   br i1 %724, label %c_warn_unused.exit.i56.i.i, label %730
 
 c_warn_unused.exit.i56.i.i:                       ; preds = %c_warn_size.exit.i.i
-  %725 = sub i32 %723, %722
+  %725 = sub nuw i32 %723, %722
   %726 = load ptr, ptr %663, align 8
   %727 = icmp eq i32 %725, 1
   %728 = select i1 %727, ptr @.str.1564, ptr @.str.1686
@@ -4758,7 +4758,7 @@ c_warn_unused.exit.i56.i.i:                       ; preds = %c_warn_size.exit.i.
   br i1 %.not18.i16.i54.i.i, label %c_warn_size.exit57.i.i, label %731
 
 731:                                              ; preds = %730
-  %732 = sub i32 %722, %723
+  %732 = sub nuw i32 %722, %723
   %733 = load ptr, ptr %663, align 8
   %734 = icmp eq i32 %732, 1
   %735 = select i1 %734, ptr @.str.1564, ptr @.str.1686
@@ -4779,7 +4779,7 @@ c_warn_size.exit57.i.i:                           ; preds = %731, %730, %c_warn_
   br i1 %745, label %c_warn_unused.exit.i60.i.i, label %751
 
 c_warn_unused.exit.i60.i.i:                       ; preds = %c_warn_size.exit57.i.i
-  %746 = sub i32 %744, %742
+  %746 = sub nuw i32 %744, %742
   %747 = load ptr, ptr %663, align 8
   %748 = icmp eq i32 %746, 1
   %749 = select i1 %748, ptr @.str.1564, ptr @.str.1686
@@ -4791,7 +4791,7 @@ c_warn_unused.exit.i60.i.i:                       ; preds = %c_warn_size.exit57.
   br i1 %.not18.i16.i58.i.i, label %c_warn_size.exit61.i.i, label %752
 
 752:                                              ; preds = %751
-  %753 = sub i32 %742, %744
+  %753 = sub nuw i32 %742, %744
   %754 = load ptr, ptr %663, align 8
   %755 = icmp eq i32 %753, 1
   %756 = select i1 %755, ptr @.str.1564, ptr @.str.1686
@@ -4804,7 +4804,7 @@ c_warn_size.exit61.i.i:                           ; preds = %752, %751, %c_warn_
   br i1 %759, label %c_warn_unused.exit.i64.i.i, label %765
 
 c_warn_unused.exit.i64.i.i:                       ; preds = %c_warn_size.exit61.i.i
-  %760 = sub i32 %694, %758
+  %760 = sub nuw i32 %694, %758
   %761 = load ptr, ptr %663, align 8
   %762 = icmp eq i32 %760, 1
   %763 = select i1 %762, ptr @.str.1564, ptr @.str.1686
@@ -4816,7 +4816,7 @@ c_warn_unused.exit.i64.i.i:                       ; preds = %c_warn_size.exit61.
   br i1 %.not18.i16.i62.i.i, label %c_dissect_osdmap_inc.exit.i, label %766
 
 766:                                              ; preds = %765
-  %767 = sub i32 %758, %694
+  %767 = sub nuw i32 %758, %694
   %768 = load ptr, ptr %663, align 8
   %769 = icmp eq i32 %767, 1
   %770 = select i1 %769, ptr @.str.1564, ptr @.str.1686
@@ -5008,7 +5008,7 @@ c_dissect_osdmap_inc.exit.i:                      ; preds = %766, %765, %c_warn_
   br i1 %886, label %c_warn_unused.exit.i.i393, label %892
 
 c_warn_unused.exit.i.i393:                        ; preds = %885
-  %887 = sub i32 %22, %.2109.i
+  %887 = sub nuw i32 %22, %.2109.i
   %888 = load ptr, ptr %797, align 8
   %889 = icmp eq i32 %887, 1
   %890 = select i1 %889, ptr @.str.1564, ptr @.str.1686
@@ -5020,7 +5020,7 @@ c_warn_unused.exit.i.i393:                        ; preds = %885
   br i1 %.not18.i16.i.i391, label %c_warn_size.exit.i392, label %893
 
 893:                                              ; preds = %892
-  %894 = sub i32 %.2109.i, %22
+  %894 = sub nuw i32 %.2109.i, %22
   %895 = load ptr, ptr %797, align 8
   %896 = icmp eq i32 %894, 1
   %897 = select i1 %896, ptr @.str.1564, ptr @.str.1686
@@ -5231,7 +5231,7 @@ c_warn_size.exit.i392:                            ; preds = %893, %892, %c_warn_
   br i1 %1030, label %c_warn_unused.exit.i.i.i406, label %1036
 
 c_warn_unused.exit.i.i.i406:                      ; preds = %1023
-  %1031 = sub i32 %1029, %1027
+  %1031 = sub nuw i32 %1029, %1027
   %1032 = load ptr, ptr %906, align 8
   %1033 = icmp eq i32 %1031, 1
   %1034 = select i1 %1033, ptr @.str.1564, ptr @.str.1686
@@ -5243,7 +5243,7 @@ c_warn_unused.exit.i.i.i406:                      ; preds = %1023
   br i1 %.not18.i16.i.i.i405, label %c_dissect_redirect.exit.i, label %1037
 
 1037:                                             ; preds = %1036
-  %1038 = sub i32 %1027, %1029
+  %1038 = sub nuw i32 %1027, %1029
   %1039 = load ptr, ptr %906, align 8
   %1040 = icmp eq i32 %1038, 1
   %1041 = select i1 %1040, ptr @.str.1564, ptr @.str.1686
@@ -5262,7 +5262,7 @@ c_dissect_redirect.exit.i:                        ; preds = %1037, %1036, %c_war
   br i1 %1044, label %c_warn_unused.exit.i.i403, label %1050
 
 c_warn_unused.exit.i.i403:                        ; preds = %.thread112.i
-  %1045 = sub i32 %22, %.5.i
+  %1045 = sub nuw i32 %22, %.5.i
   %1046 = load ptr, ptr %906, align 8
   %1047 = icmp eq i32 %1045, 1
   %1048 = select i1 %1047, ptr @.str.1564, ptr @.str.1686
@@ -5274,7 +5274,7 @@ c_warn_unused.exit.i.i403:                        ; preds = %.thread112.i
   br i1 %.not18.i16.i.i401, label %c_warn_size.exit.i402, label %1051
 
 1051:                                             ; preds = %1050
-  %1052 = sub i32 %.5.i, %22
+  %1052 = sub nuw i32 %.5.i, %22
   %1053 = load ptr, ptr %906, align 8
   %1054 = icmp eq i32 %1052, 1
   %1055 = select i1 %1054, ptr @.str.1564, ptr @.str.1686
@@ -5598,7 +5598,7 @@ c_dissect_msg_poolop.exit:                        ; preds = %1143, %1172, %1177,
   br i1 %1292, label %c_warn_unused.exit.i.i420, label %1298
 
 c_warn_unused.exit.i.i420:                        ; preds = %._crit_edge.i417
-  %1293 = sub i32 %22, %.045.lcssa.i
+  %1293 = sub nuw i32 %22, %.045.lcssa.i
   %1294 = load ptr, ptr %1233, align 8
   %1295 = icmp eq i32 %1293, 1
   %1296 = select i1 %1295, ptr @.str.1564, ptr @.str.1686
@@ -5610,7 +5610,7 @@ c_warn_unused.exit.i.i420:                        ; preds = %._crit_edge.i417
   br i1 %.not18.i16.i.i418, label %c_dissect_msg_mon_cmd_ack.exit, label %1299
 
 1299:                                             ; preds = %1298
-  %1300 = sub i32 %.045.lcssa.i, %22
+  %1300 = sub nuw i32 %.045.lcssa.i, %22
   %1301 = load ptr, ptr %1233, align 8
   %1302 = icmp eq i32 %1300, 1
   %1303 = select i1 %1302, ptr @.str.1564, ptr @.str.1686
@@ -5758,7 +5758,7 @@ c_dissect_msg_mon_cmd_ack.exit:                   ; preds = %c_warn_unused.exit.
   br i1 %1407, label %c_warn_unused.exit.i.i427, label %1413
 
 c_warn_unused.exit.i.i427:                        ; preds = %1375
-  %1408 = sub i32 %1406, %1405
+  %1408 = sub nuw i32 %1406, %1405
   %1409 = load ptr, ptr %1350, align 8
   %1410 = icmp eq i32 %1408, 1
   %1411 = select i1 %1410, ptr @.str.1564, ptr @.str.1686
@@ -5770,7 +5770,7 @@ c_warn_unused.exit.i.i427:                        ; preds = %1375
   br i1 %.not18.i16.i.i424, label %c_warn_size.exit.i425, label %1414
 
 1414:                                             ; preds = %1413
-  %1415 = sub i32 %1405, %1406
+  %1415 = sub nuw i32 %1405, %1406
   %1416 = load ptr, ptr %1350, align 8
   %1417 = icmp eq i32 %1415, 1
   %1418 = select i1 %1417, ptr @.str.1564, ptr @.str.1686
@@ -6066,7 +6066,7 @@ c_dissect_msg_mon_probe.exit:                     ; preds = %._crit_edge.i441, %
   br i1 %1620, label %c_warn_unused.exit.i.i.i446, label %1626
 
 c_warn_unused.exit.i.i.i446:                      ; preds = %1590
-  %1621 = sub i32 %1619, %1617
+  %1621 = sub nuw i32 %1619, %1617
   %1622 = load ptr, ptr %1591, align 8
   %1623 = icmp eq i32 %1621, 1
   %1624 = select i1 %1623, ptr @.str.1564, ptr @.str.1686
@@ -6078,7 +6078,7 @@ c_warn_unused.exit.i.i.i446:                      ; preds = %1590
   br i1 %.not18.i16.i.i.i444, label %c_dissect_osd_peerstat.exit.i, label %1627
 
 1627:                                             ; preds = %1626
-  %1628 = sub i32 %1617, %1619
+  %1628 = sub nuw i32 %1617, %1619
   %1629 = load ptr, ptr %1591, align 8
   %1630 = icmp eq i32 %1628, 1
   %1631 = select i1 %1630, ptr @.str.1564, ptr @.str.1686
@@ -6218,7 +6218,7 @@ c_dissect_msg_osd_ping.exit:                      ; preds = %c_dissect_osd_peers
   br i1 %1726, label %c_warn_unused.exit.i.i.i454, label %1732
 
 c_warn_unused.exit.i.i.i454:                      ; preds = %.thread.i.i
-  %1727 = sub i32 %1725, %.2.i.i
+  %1727 = sub nuw i32 %1725, %.2.i.i
   %1728 = load ptr, ptr %1645, align 8
   %1729 = icmp eq i32 %1727, 1
   %1730 = select i1 %1729, ptr @.str.1564, ptr @.str.1686
@@ -6230,7 +6230,7 @@ c_warn_unused.exit.i.i.i454:                      ; preds = %.thread.i.i
   br i1 %.not18.i16.i.i.i448, label %c_dissect_osd_superblock.exit.i, label %1733
 
 1733:                                             ; preds = %1732
-  %1734 = sub i32 %.2.i.i, %1725
+  %1734 = sub nuw i32 %.2.i.i, %1725
   %1735 = load ptr, ptr %1645, align 8
   %1736 = icmp eq i32 %1734, 1
   %1737 = select i1 %1736, ptr @.str.1564, ptr @.str.1686
@@ -6392,7 +6392,7 @@ c_dissect_osd_superblock.exit.i:                  ; preds = %1733, %1732, %c_war
   br i1 %1831, label %c_warn_unused.exit.i.i.i465, label %1837
 
 c_warn_unused.exit.i.i.i465:                      ; preds = %1826
-  %1832 = sub i32 %1830, %1828
+  %1832 = sub nuw i32 %1830, %1828
   %1833 = load ptr, ptr %1765, align 8
   %1834 = icmp eq i32 %1832, 1
   %1835 = select i1 %1834, ptr @.str.1564, ptr @.str.1686
@@ -6404,7 +6404,7 @@ c_warn_unused.exit.i.i.i465:                      ; preds = %1826
   br i1 %.not18.i16.i.i.i463, label %1844, label %1838
 
 1838:                                             ; preds = %1837
-  %1839 = sub i32 %1828, %1830
+  %1839 = sub nuw i32 %1828, %1830
   %1840 = load ptr, ptr %1765, align 8
   %1841 = icmp eq i32 %1839, 1
   %1842 = select i1 %1841, ptr @.str.1564, ptr @.str.1686
@@ -6436,7 +6436,7 @@ c_warn_unused.exit.i.i.i465:                      ; preds = %1826
   br i1 %1861, label %c_warn_unused.exit.i.i.i.i, label %1867
 
 c_warn_unused.exit.i.i.i.i:                       ; preds = %1847
-  %1862 = sub i32 %1860, %1858
+  %1862 = sub nuw i32 %1860, %1858
   %1863 = load ptr, ptr %1765, align 8
   %1864 = icmp eq i32 %1862, 1
   %1865 = select i1 %1864, ptr @.str.1564, ptr @.str.1686
@@ -6448,7 +6448,7 @@ c_warn_unused.exit.i.i.i.i:                       ; preds = %1847
   br i1 %.not18.i16.i.i.i.i, label %c_dissect_perfstat.exit.i.i, label %1868
 
 1868:                                             ; preds = %1867
-  %1869 = sub i32 %1858, %1860
+  %1869 = sub nuw i32 %1858, %1860
   %1870 = load ptr, ptr %1765, align 8
   %1871 = icmp eq i32 %1869, 1
   %1872 = select i1 %1871, ptr @.str.1564, ptr @.str.1686
@@ -6469,7 +6469,7 @@ c_dissect_perfstat.exit.i.i:                      ; preds = %1868, %1867, %c_war
   br i1 %1877, label %c_warn_unused.exit.i78.i.i, label %1883
 
 c_warn_unused.exit.i78.i.i:                       ; preds = %.thread.i.i456
-  %1878 = sub i32 %1876, %.3.i.i
+  %1878 = sub nuw i32 %1876, %.3.i.i
   %1879 = load ptr, ptr %1765, align 8
   %1880 = icmp eq i32 %1878, 1
   %1881 = select i1 %1880, ptr @.str.1564, ptr @.str.1686
@@ -6481,7 +6481,7 @@ c_warn_unused.exit.i78.i.i:                       ; preds = %.thread.i.i456
   br i1 %.not18.i16.i76.i.i, label %c_dissect_osd_stat.exit.i, label %1884
 
 1884:                                             ; preds = %1883
-  %1885 = sub i32 %.3.i.i, %1876
+  %1885 = sub nuw i32 %.3.i.i, %1876
   %1886 = load ptr, ptr %1765, align 8
   %1887 = icmp eq i32 %1885, 1
   %1888 = select i1 %1887, ptr @.str.1564, ptr @.str.1686
@@ -6753,7 +6753,7 @@ c_dissect_osd_stat.exit.i:                        ; preds = %1884, %1883, %c_war
   br i1 %2070, label %c_warn_unused.exit.i.i50.i, label %2076
 
 c_warn_unused.exit.i.i50.i:                       ; preds = %.thread184.i.i
-  %2071 = sub i32 %2069, %.10.i.i
+  %2071 = sub nuw i32 %2069, %.10.i.i
   %2072 = load ptr, ptr %1765, align 8
   %2073 = icmp eq i32 %2071, 1
   %2074 = select i1 %2073, ptr @.str.1564, ptr @.str.1686
@@ -6765,7 +6765,7 @@ c_warn_unused.exit.i.i50.i:                       ; preds = %.thread184.i.i
   br i1 %.not18.i16.i.i49.i, label %c_dissect_pg_stats.exit.i, label %2077
 
 2077:                                             ; preds = %2076
-  %2078 = sub i32 %.10.i.i, %2069
+  %2078 = sub nuw i32 %.10.i.i, %2069
   %2079 = load ptr, ptr %1765, align 8
   %2080 = icmp eq i32 %2078, 1
   %2081 = select i1 %2080, ptr @.str.1564, ptr @.str.1686
@@ -6842,7 +6842,7 @@ c_dissect_msg_pgstats.exit:                       ; preds = %c_dissect_pg_stats.
   br i1 %2127, label %c_warn_unused.exit.i.i.i473, label %2133
 
 c_warn_unused.exit.i.i.i473:                      ; preds = %2105
-  %2128 = sub i32 %2126, %2125
+  %2128 = sub nuw i32 %2126, %2125
   %2129 = load ptr, ptr %2091, align 8
   %2130 = icmp eq i32 %2128, 1
   %2131 = select i1 %2130, ptr @.str.1564, ptr @.str.1686
@@ -6854,7 +6854,7 @@ c_warn_unused.exit.i.i.i473:                      ; preds = %2105
   br i1 %.not18.i16.i.i.i469, label %c_dissect_pg_create.exit.i, label %2134
 
 2134:                                             ; preds = %2133
-  %2135 = sub i32 %2125, %2126
+  %2135 = sub nuw i32 %2125, %2126
   %2136 = load ptr, ptr %2091, align 8
   %2137 = icmp eq i32 %2135, 1
   %2138 = select i1 %2137, ptr @.str.1564, ptr @.str.1686
@@ -6956,7 +6956,7 @@ c_dissect_pg_create.exit.i:                       ; preds = %2134, %2133, %c_war
   br i1 %2211, label %c_warn_unused.exit.i.i477, label %2217
 
 c_warn_unused.exit.i.i477:                        ; preds = %.thread.i
-  %2212 = sub i32 %22, %.2.i474
+  %2212 = sub nuw i32 %22, %.2.i474
   %2213 = load ptr, ptr %2142, align 8
   %2214 = icmp eq i32 %2212, 1
   %2215 = select i1 %2214, ptr @.str.1564, ptr @.str.1686
@@ -6968,7 +6968,7 @@ c_warn_unused.exit.i.i477:                        ; preds = %.thread.i
   br i1 %.not18.i16.i.i475, label %c_warn_size.exit.i476, label %2218
 
 2218:                                             ; preds = %2217
-  %2219 = sub i32 %.2.i474, %22
+  %2219 = sub nuw i32 %.2.i474, %22
   %2220 = load ptr, ptr %2142, align 8
   %2221 = icmp eq i32 %2219, 1
   %2222 = select i1 %2221, ptr @.str.1564, ptr @.str.1686
@@ -7241,7 +7241,7 @@ c_dissect_msg_mon_sub.exit:                       ; preds = %2336, %.lr.ph.i480,
   br i1 %2384, label %c_warn_unused.exit.i, label %2391
 
 c_warn_unused.exit.i:                             ; preds = %c_dissect_msg_mon_sub.exit
-  %2385 = sub i32 %2383, %2382
+  %2385 = sub nuw i32 %2383, %2382
   %2386 = getelementptr inbounds i8, ptr %3, i64 40
   %2387 = load ptr, ptr %2386, align 8
   %2388 = icmp eq i32 %2385, 1
@@ -7363,7 +7363,7 @@ define internal fastcc i32 @c_dissect_monmap(ptr noundef %0, ptr noundef %1, i32
   br i1 %18, label %c_warn_unused.exit.i, label %25
 
 c_warn_unused.exit.i:                             ; preds = %10
-  %19 = sub i32 %9, %17
+  %19 = sub nuw i32 %9, %17
   %20 = getelementptr inbounds i8, ptr %3, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq i32 %19, 1
@@ -7376,7 +7376,7 @@ c_warn_unused.exit.i:                             ; preds = %10
   br i1 %.not18.i16.i, label %c_warn_size.exit, label %26
 
 26:                                               ; preds = %25
-  %27 = sub i32 %17, %9
+  %27 = sub nuw i32 %17, %9
   %28 = getelementptr inbounds i8, ptr %3, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq i32 %27, 1
@@ -7442,7 +7442,7 @@ c_warn_size.exit:                                 ; preds = %c_warn_unused.exit.
   br i1 %71, label %c_warn_unused.exit.i67, label %78
 
 c_warn_unused.exit.i67:                           ; preds = %._crit_edge
-  %72 = sub i32 %9, %70
+  %72 = sub nuw i32 %9, %70
   %73 = getelementptr inbounds i8, ptr %3, i64 40
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq i32 %72, 1
@@ -7455,7 +7455,7 @@ c_warn_unused.exit.i67:                           ; preds = %._crit_edge
   br i1 %.not18.i16.i65, label %c_warn_size.exit68, label %79
 
 79:                                               ; preds = %78
-  %80 = sub i32 %70, %9
+  %80 = sub nuw i32 %70, %9
   %81 = getelementptr inbounds i8, ptr %3, i64 40
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq i32 %80, 1
@@ -7663,7 +7663,7 @@ define internal fastcc noundef i32 @c_dissect_osdmap(ptr noundef %0, ptr noundef
   br i1 %25, label %c_warn_unused.exit.i, label %32
 
 c_warn_unused.exit.i:                             ; preds = %4
-  %26 = sub i32 %17, %24
+  %26 = sub nuw i32 %17, %24
   %27 = getelementptr inbounds i8, ptr %3, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq i32 %26, 1
@@ -7676,7 +7676,7 @@ c_warn_unused.exit.i:                             ; preds = %4
   br i1 %.not18.i16.i, label %c_warn_size.exit, label %33
 
 33:                                               ; preds = %32
-  %34 = sub i32 %24, %17
+  %34 = sub nuw i32 %24, %17
   %35 = getelementptr inbounds i8, ptr %3, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq i32 %34, 1
@@ -7878,7 +7878,7 @@ c_dissect_encoded.exit:                           ; preds = %144, %147, %148
   br i1 %187, label %c_warn_unused.exit.i.i.i, label %193
 
 c_warn_unused.exit.i.i.i:                         ; preds = %c_dissect_encoded.exit
-  %188 = sub i32 %156, %186
+  %188 = sub nuw i32 %156, %186
   %189 = load ptr, ptr %78, align 8
   %190 = icmp eq i32 %188, 1
   %191 = select i1 %190, ptr @.str.1564, ptr @.str.1686
@@ -7890,7 +7890,7 @@ c_warn_unused.exit.i.i.i:                         ; preds = %c_dissect_encoded.e
   br i1 %.not18.i16.i.i.i, label %c_dissect_snapinfo.exit.i, label %194
 
 194:                                              ; preds = %193
-  %195 = sub i32 %186, %156
+  %195 = sub nuw i32 %186, %156
   %196 = load ptr, ptr %78, align 8
   %197 = icmp eq i32 %195, 1
   %198 = select i1 %197, ptr @.str.1564, ptr @.str.1686
@@ -8074,7 +8074,7 @@ c_dissect_snapinfo.exit.i:                        ; preds = %194, %193, %c_warn_
   br i1 %311, label %c_warn_unused.exit.i.i220.i, label %317
 
 c_warn_unused.exit.i.i220.i:                      ; preds = %._crit_edge.i.i
-  %312 = sub i32 %310, %.043.lcssa.i.i
+  %312 = sub nuw i32 %310, %.043.lcssa.i.i
   %313 = load ptr, ptr %78, align 8
   %314 = icmp eq i32 %312, 1
   %315 = select i1 %314, ptr @.str.1564, ptr @.str.1686
@@ -8086,7 +8086,7 @@ c_warn_unused.exit.i.i220.i:                      ; preds = %._crit_edge.i.i
   br i1 %.not18.i16.i.i219.i, label %c_warn_size.exit.i.i, label %318
 
 318:                                              ; preds = %317
-  %319 = sub i32 %.043.lcssa.i.i, %310
+  %319 = sub nuw i32 %.043.lcssa.i.i, %310
   %320 = load ptr, ptr %78, align 8
   %321 = icmp eq i32 %319, 1
   %322 = select i1 %321, ptr @.str.1564, ptr @.str.1686
@@ -8110,7 +8110,7 @@ c_warn_size.exit.i.i:                             ; preds = %318, %317, %c_warn_
   br i1 %331, label %c_warn_unused.exit.i46.i.i, label %337
 
 c_warn_unused.exit.i46.i.i:                       ; preds = %329
-  %332 = sub i32 %330, %.1.i.i
+  %332 = sub nuw i32 %330, %.1.i.i
   %333 = load ptr, ptr %78, align 8
   %334 = icmp eq i32 %332, 1
   %335 = select i1 %334, ptr @.str.1564, ptr @.str.1686
@@ -8122,7 +8122,7 @@ c_warn_unused.exit.i46.i.i:                       ; preds = %329
   br i1 %.not18.i16.i44.i.i, label %c_dissect_hitset_params.exit.i, label %338
 
 338:                                              ; preds = %337
-  %339 = sub i32 %.1.i.i, %330
+  %339 = sub nuw i32 %.1.i.i, %330
   %340 = load ptr, ptr %78, align 8
   %341 = icmp eq i32 %339, 1
   %342 = select i1 %341, ptr @.str.1564, ptr @.str.1686
@@ -8182,7 +8182,7 @@ c_dissect_hitset_params.exit.i:                   ; preds = %338, %337, %c_warn_
   br i1 %390, label %c_warn_unused.exit.i.i, label %396
 
 c_warn_unused.exit.i.i:                           ; preds = %c_dissect_hitset_params.exit.i
-  %391 = sub i32 %389, %388
+  %391 = sub nuw i32 %389, %388
   %392 = load ptr, ptr %78, align 8
   %393 = icmp eq i32 %391, 1
   %394 = select i1 %393, ptr @.str.1564, ptr @.str.1686
@@ -8194,7 +8194,7 @@ c_warn_unused.exit.i.i:                           ; preds = %c_dissect_hitset_pa
   br i1 %.not18.i16.i.i, label %c_dissect_pgpool.exit, label %397
 
 397:                                              ; preds = %396
-  %398 = sub i32 %388, %389
+  %398 = sub nuw i32 %388, %389
   %399 = load ptr, ptr %78, align 8
   %400 = icmp eq i32 %398, 1
   %401 = select i1 %400, ptr @.str.1564, ptr @.str.1686
@@ -8465,7 +8465,7 @@ c_dissect_pgpool.exit:                            ; preds = %c_warn_unused.exit.
   br i1 %526, label %c_warn_unused.exit.i342, label %533
 
 c_warn_unused.exit.i342:                          ; preds = %.loopexit
-  %527 = sub i32 %525, %.12
+  %527 = sub nuw i32 %525, %.12
   %528 = getelementptr inbounds i8, ptr %3, i64 40
   %529 = load ptr, ptr %528, align 8
   %530 = icmp eq i32 %527, 1
@@ -8478,7 +8478,7 @@ c_warn_unused.exit.i342:                          ; preds = %.loopexit
   br i1 %.not18.i16.i340, label %c_warn_size.exit343, label %534
 
 534:                                              ; preds = %533
-  %535 = sub i32 %.12, %525
+  %535 = sub nuw i32 %.12, %525
   %536 = getelementptr inbounds i8, ptr %3, i64 40
   %537 = load ptr, ptr %536, align 8
   %538 = icmp eq i32 %535, 1
@@ -8703,7 +8703,7 @@ c_dissect_osdinfo.exit:                           ; preds = %556, %566, %569
   br i1 %666, label %c_warn_unused.exit.i.i345, label %672
 
 c_warn_unused.exit.i.i345:                        ; preds = %.thread.i
-  %667 = sub i32 %665, %.1.i
+  %667 = sub nuw i32 %665, %.1.i
   %668 = load ptr, ptr %634, align 8
   %669 = icmp eq i32 %667, 1
   %670 = select i1 %669, ptr @.str.1564, ptr @.str.1686
@@ -8715,7 +8715,7 @@ c_warn_unused.exit.i.i345:                        ; preds = %.thread.i
   br i1 %.not18.i16.i.i344, label %c_dissect_osd_xinfo.exit, label %673
 
 673:                                              ; preds = %672
-  %674 = sub i32 %.1.i, %665
+  %674 = sub nuw i32 %.1.i, %665
   %675 = load ptr, ptr %634, align 8
   %676 = icmp eq i32 %674, 1
   %677 = select i1 %676, ptr @.str.1564, ptr @.str.1686
@@ -8752,7 +8752,7 @@ c_dissect_osd_xinfo.exit:                         ; preds = %c_warn_unused.exit.
   br i1 %686, label %c_warn_unused.exit.i348, label %693
 
 c_warn_unused.exit.i348:                          ; preds = %._crit_edge486
-  %687 = sub i32 %685, %.19.lcssa
+  %687 = sub nuw i32 %685, %.19.lcssa
   %688 = getelementptr inbounds i8, ptr %3, i64 40
   %689 = load ptr, ptr %688, align 8
   %690 = icmp eq i32 %687, 1
@@ -8765,7 +8765,7 @@ c_warn_unused.exit.i348:                          ; preds = %._crit_edge486
   br i1 %.not18.i16.i346, label %c_warn_size.exit349, label %694
 
 694:                                              ; preds = %693
-  %695 = sub i32 %.19.lcssa, %685
+  %695 = sub nuw i32 %.19.lcssa, %685
   %696 = getelementptr inbounds i8, ptr %3, i64 40
   %697 = load ptr, ptr %696, align 8
   %698 = icmp eq i32 %695, 1
@@ -8780,7 +8780,7 @@ c_warn_size.exit349:                              ; preds = %c_warn_unused.exit.
   br i1 %702, label %c_warn_unused.exit.i352, label %709
 
 c_warn_unused.exit.i352:                          ; preds = %c_warn_size.exit349
-  %703 = sub i32 %17, %701
+  %703 = sub nuw i32 %17, %701
   %704 = getelementptr inbounds i8, ptr %3, i64 40
   %705 = load ptr, ptr %704, align 8
   %706 = icmp eq i32 %703, 1
@@ -8793,7 +8793,7 @@ c_warn_unused.exit.i352:                          ; preds = %c_warn_size.exit349
   br i1 %.not18.i16.i350, label %c_warn_size.exit353, label %710
 
 710:                                              ; preds = %709
-  %711 = sub i32 %701, %17
+  %711 = sub nuw i32 %701, %17
   %712 = getelementptr inbounds i8, ptr %3, i64 40
   %713 = load ptr, ptr %712, align 8
   %714 = icmp eq i32 %711, 1
@@ -9008,7 +9008,7 @@ define internal fastcc noundef i32 @c_dissect_object_locator(ptr noundef %0, i32
   br i1 %69, label %c_warn_unused.exit.i, label %76
 
 c_warn_unused.exit.i:                             ; preds = %.thread55
-  %70 = sub i32 %68, %.259
+  %70 = sub nuw i32 %68, %.259
   %71 = getelementptr inbounds i8, ptr %4, i64 40
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq i32 %70, 1
@@ -9021,7 +9021,7 @@ c_warn_unused.exit.i:                             ; preds = %.thread55
   br i1 %.not18.i16.i, label %c_warn_size.exit, label %77
 
 77:                                               ; preds = %76
-  %78 = sub i32 %.259, %68
+  %78 = sub nuw i32 %.259, %68
   %79 = getelementptr inbounds i8, ptr %4, i64 40
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq i32 %78, 1
@@ -9162,7 +9162,7 @@ define internal fastcc noundef i32 @c_dissect_statcollection(ptr noundef %0, i32
   br i1 %32, label %c_warn_unused.exit.i, label %39
 
 c_warn_unused.exit.i:                             ; preds = %._crit_edge
-  %33 = sub i32 %31, %.031.lcssa
+  %33 = sub nuw i32 %31, %.031.lcssa
   %34 = getelementptr inbounds i8, ptr %4, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq i32 %33, 1
@@ -9175,7 +9175,7 @@ c_warn_unused.exit.i:                             ; preds = %._crit_edge
   br i1 %.not18.i16.i, label %c_warn_size.exit, label %40
 
 40:                                               ; preds = %39
-  %41 = sub i32 %.031.lcssa, %31
+  %41 = sub nuw i32 %.031.lcssa, %31
   %42 = getelementptr inbounds i8, ptr %4, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq i32 %41, 1
@@ -9291,7 +9291,7 @@ define internal fastcc i32 @c_dissect_statsum(ptr noundef %0, ptr noundef %1, i3
   br i1 %82, label %c_warn_unused.exit.i, label %89
 
 c_warn_unused.exit.i:                             ; preds = %.thread101
-  %83 = sub i32 %81, %.4
+  %83 = sub nuw i32 %81, %.4
   %84 = getelementptr inbounds i8, ptr %3, i64 40
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq i32 %83, 1
@@ -9304,7 +9304,7 @@ c_warn_unused.exit.i:                             ; preds = %.thread101
   br i1 %.not18.i16.i, label %c_warn_size.exit, label %90
 
 90:                                               ; preds = %89
-  %91 = sub i32 %.4, %81
+  %91 = sub nuw i32 %.4, %81
   %92 = getelementptr inbounds i8, ptr %3, i64 40
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq i32 %91, 1

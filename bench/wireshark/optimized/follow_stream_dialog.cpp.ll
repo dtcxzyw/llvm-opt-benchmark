@@ -3658,7 +3658,7 @@ define void @_ZN18FollowStreamDialog31cbDirectionsCurrentIndexChangedEi(ptr noun
   br i1 %3, label %switch.lookup, label %6
 
 switch.lookup:                                    ; preds = %2
-  %switch.offset = sub nsw i32 2, %1
+  %switch.offset = sub nuw nsw i32 2, %1
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 %switch.offset, ptr %4, align 8
   %5 = tail call noundef i32 @_ZN18FollowStreamDialog10readStreamEv(ptr noundef nonnull align 8 dereferenceable(444) %0)

@@ -299,7 +299,7 @@ define void @_Z28dd_resize_atominfo_and_stateP10t_forcerecP7t_statei(ptr noundef
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
-  %15 = sub nsw i64 %5, %12
+  %15 = sub nuw nsw i64 %5, %12
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %15)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 

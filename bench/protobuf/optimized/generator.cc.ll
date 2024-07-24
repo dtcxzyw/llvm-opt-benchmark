@@ -841,7 +841,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %20
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %20
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %20
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i, align 8
   store ptr %add.ptr15.i, ptr %proto.sroa.2.0.call87.sroa_idx, align 8
@@ -889,7 +889,7 @@ if.end111:                                        ; preds = %if.then109, %do.bod
   br i1 %cmp112, label %if.then113, label %if.end119
 
 if.then113:                                       ; preds = %if.end111
-  %sub = sub i64 %next_pos.0, %pos.0
+  %sub = sub nuw i64 %next_pos.0, %pos.0
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(32) %second, i64 noundef %pos.0, i64 noundef %sub)
           to label %invoke.cont116 unwind label %lpad3.loopexit.split-lp.loopexit
 
@@ -2857,7 +2857,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %if
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr15.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %3
+  %sub.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.ptr.sub.i.i)
   store i64 %.sroa.speculated.i.i.i, ptr %curr_.i, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24

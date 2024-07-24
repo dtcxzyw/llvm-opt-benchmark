@@ -1955,7 +1955,7 @@ proto_item_set_hidden.exit157:                    ; preds = %proto_item_set_gene
   %.0118308 = phi i32 [ 0, %.lr.ph310 ], [ %.1119, %421 ]
   %.0122307 = phi ptr [ null, %.lr.ph310 ], [ %.0229, %421 ]
   %.0231306 = phi i32 [ %1, %.lr.ph310 ], [ %422, %421 ]
-  %177 = sub i32 %27, %.0231306
+  %177 = sub nuw i32 %27, %.0231306
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
@@ -2222,7 +2222,7 @@ proto_item_set_generated.exit198:                 ; preds = %225, %222, %219, %2
 
 .lr.ph289:                                        ; preds = %293, %301
   %.079.i288 = phi i32 [ %307, %301 ], [ %.1232, %293 ]
-  %297 = sub i32 %287, %.079.i288
+  %297 = sub nuw i32 %287, %.079.i288
   %298 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %.079.i288, i32 noundef %297, ptr noundef nonnull %12, i32 noundef 2) #11
   %299 = icmp eq i32 %298, 0
   br i1 %299, label %300, label %301

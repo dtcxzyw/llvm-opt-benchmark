@@ -4267,7 +4267,7 @@ if.then.i.i109:                                   ; preds = %for.body42
   br i1 %cmp.i, label %if.then.i, label %.noexc114
 
 if.then.i:                                        ; preds = %if.then.i.i109
-  %sub.i = sub i64 %add.i.i102, %sub.ptr.sub.i.i.i107
+  %sub.i = sub nuw i64 %add.i.i102, %sub.ptr.sub.i.i.i107
   %44 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i8.i, %sub.ptr.lhs.cast.i.i.i105
@@ -4960,7 +4960,7 @@ if.then.i.i109:                                   ; preds = %for.body42
   br i1 %cmp.i, label %if.then.i, label %.noexc114
 
 if.then.i:                                        ; preds = %if.then.i.i109
-  %sub.i = sub i64 %add.i.i102, %sub.ptr.sub.i.i.i107
+  %sub.i = sub nuw i64 %add.i.i102, %sub.ptr.sub.i.i.i107
   %44 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i8.i, %sub.ptr.lhs.cast.i.i.i105
@@ -9383,7 +9383,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64

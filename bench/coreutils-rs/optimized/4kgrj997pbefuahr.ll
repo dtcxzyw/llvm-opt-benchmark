@@ -524,8 +524,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %87 = add nuw nsw i64 %.sroa.725.0.i, 1
   %88 = getelementptr inbounds i128, ptr %.sroa.06.0.i, i64 %.sroa.725.0.i
   %89 = getelementptr inbounds i128, ptr %.sroa.06.0.i, i64 %87
-  %90 = sub nsw i64 %85, %.sroa.725.0.i
-  %91 = shl nsw i64 %90, 4
+  %90 = sub nuw nsw i64 %85, %.sroa.725.0.i
+  %91 = shl nuw nsw i64 %90, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %89, ptr nonnull align 16 %88, i64 %91, i1 false), !alias.scope !86, !noalias !81
   %92 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 176
   %93 = getelementptr inbounds { [2 x i64] }, ptr %92, i64 %.sroa.725.0.i

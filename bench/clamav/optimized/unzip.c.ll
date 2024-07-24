@@ -921,7 +921,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 143:                                              ; preds = %.lr.ph175, %158
   %.3174 = phi i32 [ 0, %.lr.ph175 ], [ %145, %158 ]
   %.0101173 = phi i32 [ 0, %.lr.ph175 ], [ %148, %158 ]
-  %144 = sub i32 %11, %.0101173
+  %144 = sub nuw i32 %11, %.0101173
   %145 = add i32 %.3174, 1
   %146 = call fastcc i32 @parse_local_file_header(ptr noundef %8, i32 noundef %.0101173, i32 noundef %144, ptr noundef nonnull %2, i32 noundef %145, ptr noundef null, ptr noundef nonnull %3, ptr noundef %0, i32 noundef 1, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef null)
   %.not128 = icmp eq i32 %146, 0
@@ -2020,7 +2020,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
 119:                                              ; preds = %112
   %120 = zext i16 %114 to i64
   %121 = getelementptr inbounds i8, ptr %54, i64 %120
-  %122 = sub i32 %55, %115
+  %122 = sub nuw i32 %55, %115
   %.not163 = icmp eq i32 %.0139, 0
   br i1 %.not163, label %123, label %124
 

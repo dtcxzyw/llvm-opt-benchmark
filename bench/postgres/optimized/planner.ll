@@ -965,7 +965,7 @@ list_length.exit:                                 ; preds = %94
   unreachable
 
 switch.lookup:                                    ; preds = %184
-  %switch.offset = sub nsw i32 4, %170
+  %switch.offset = sub nuw nsw i32 4, %170
   br label %select_rowmark_type.exit.i
 
 select_rowmark_type.exit.i:                       ; preds = %switch.lookup, %182, %176, %158
@@ -6268,7 +6268,7 @@ define dso_local i32 @select_rowmark_type(ptr noundef %0, i32 noundef %1) local_
   unreachable
 
 switch.lookup:                                    ; preds = %17
-  %switch.offset = sub nsw i32 4, %1
+  %switch.offset = sub nuw nsw i32 4, %1
   br label %22
 
 22:                                               ; preds = %switch.lookup, %9, %2, %15

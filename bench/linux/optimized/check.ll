@@ -210,7 +210,7 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
   br i1 %34, label %35, label %51
 
 35:                                               ; preds = %.preheader
-  %36 = sub nsw i64 %33, %28
+  %36 = sub nuw nsw i64 %33, %28
   %37 = call i32 @memblock_reserve(i64 noundef %28, i64 noundef %36) #7
   %38 = load i64, ptr %1, align 8
   %39 = load i32, ptr @num_scan_areas, align 4

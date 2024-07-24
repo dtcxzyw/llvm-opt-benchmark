@@ -2202,7 +2202,7 @@ if.then424:                                       ; preds = %invoke.cont419
 
 if.then431:                                       ; preds = %if.then424
   store i64 %add428, ptr %memtable_payload_bytes, align 8
-  %sub = sub i64 %add428, %add429
+  %sub = sub nuw i64 %add428, %add429
   br label %if.end434.sink.split
 
 if.else432:                                       ; preds = %if.then424

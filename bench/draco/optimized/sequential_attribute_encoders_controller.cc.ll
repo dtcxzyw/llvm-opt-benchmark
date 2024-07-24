@@ -540,7 +540,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttribu
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -1182,7 +1182,7 @@ _ZNK5draco17AttributesEncoder27GetLocalIdForPointAttributeEi.exit: ; preds = %2
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 38:                                               ; preds = %30
-  %39 = sub nsw i64 %32, %28
+  %39 = sub nuw nsw i64 %32, %28
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr %19, i32 %21, i64 noundef %39, i1 noundef zeroext false)
   %.pre = load ptr, ptr %17, align 8
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
@@ -1950,7 +1950,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds =
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKhmEvRT_T0_.exit
   %45 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %12, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
-  %46 = sub i64 %8, %18
+  %46 = sub nuw i64 %8, %18
   %47 = getelementptr inbounds i8, ptr %45, i64 %46
   store ptr %47, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %12, %1

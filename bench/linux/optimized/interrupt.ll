@@ -167,7 +167,7 @@ select.unfold:                                    ; preds = %21, %7
   br label %513
 
 69:                                               ; preds = %58
-  %70 = sub nsw i32 %.pre-phi74, %62
+  %70 = sub nuw nsw i32 %.pre-phi74, %62
   %71 = add nuw nsw i32 %60, 2
   %72 = getelementptr inbounds i8, ptr %0, i64 3240
   %73 = load i32, ptr %72, align 8

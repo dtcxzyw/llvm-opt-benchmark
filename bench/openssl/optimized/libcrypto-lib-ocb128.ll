@@ -436,13 +436,13 @@ if.end.i:                                         ; preds = %ocb_ntz.exit
   br i1 %cmp2.not.i, label %while.body.i41.preheader, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %sub.i = sub nsw i64 %conv, %4
-  %5 = and i64 %sub.i, -4
+  %sub.i = sub nuw nsw i64 %conv, %4
+  %5 = and i64 %sub.i, 4294967292
   %and.i = add nuw nsw i64 %4, 4
-  %add6.i = add i64 %and.i, %5
+  %add6.i = add nuw nsw i64 %and.i, %5
   store i64 %add6.i, ptr %max_l_index.i, align 8
   %6 = load ptr, ptr %l7.i, align 8
-  %mul.i = shl i64 %add6.i, 4
+  %mul.i = shl nuw nsw i64 %add6.i, 4
   %call.i = call ptr @CRYPTO_realloc(ptr noundef %6, i64 noundef %mul.i, ptr noundef nonnull @.str, i32 noundef 113) #6
   %cmp9.i = icmp eq ptr %call.i, null
   br i1 %cmp9.i, label %return, label %if.end11.i
@@ -603,14 +603,14 @@ if.end.i:                                         ; preds = %while.end
   br i1 %cmp2.not.i, label %while.body.lr.ph.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %sub.i = sub nsw i64 %3, %5
-  %6 = and i64 %sub.i, -4
+  %sub.i = sub nuw nsw i64 %3, %5
+  %6 = and i64 %sub.i, 60
   %and.i = add nuw nsw i64 %5, 4
-  %add6.i = add i64 %and.i, %6
+  %add6.i = add nuw nsw i64 %and.i, %6
   store i64 %add6.i, ptr %max_l_index.i, align 8
   %l7.i = getelementptr inbounds i8, ptr %ctx, i64 88
   %7 = load ptr, ptr %l7.i, align 8
-  %mul.i = shl i64 %add6.i, 4
+  %mul.i = shl nuw nsw i64 %add6.i, 4
   %call.i = tail call ptr @CRYPTO_realloc(ptr noundef %7, i64 noundef %mul.i, ptr noundef nonnull @.str, i32 noundef 113) #6
   %cmp9.i = icmp eq ptr %call.i, null
   br i1 %cmp9.i, label %return, label %if.end11.i
@@ -723,13 +723,13 @@ if.end.i71:                                       ; preds = %ocb_ntz.exit
   br i1 %cmp2.not.i73, label %while.body.i85.preheader, label %if.then3.i74
 
 if.then3.i74:                                     ; preds = %if.end.i71
-  %sub.i75 = sub nsw i64 %conv, %19
-  %20 = and i64 %sub.i75, -4
+  %sub.i75 = sub nuw nsw i64 %conv, %19
+  %20 = and i64 %sub.i75, 4294967292
   %and.i76 = add nuw nsw i64 %19, 4
-  %add6.i77 = add i64 %and.i76, %20
+  %add6.i77 = add nuw nsw i64 %and.i76, %20
   store i64 %add6.i77, ptr %max_l_index.i72, align 8
   %21 = load ptr, ptr %l7.i78, align 8
-  %mul.i79 = shl i64 %add6.i77, 4
+  %mul.i79 = shl nuw nsw i64 %add6.i77, 4
   %call.i80 = call ptr @CRYPTO_realloc(ptr noundef %21, i64 noundef %mul.i79, ptr noundef nonnull @.str, i32 noundef 113) #6
   %cmp9.i81 = icmp eq ptr %call.i80, null
   br i1 %cmp9.i81, label %return, label %if.end11.i82
@@ -908,14 +908,14 @@ if.end.i:                                         ; preds = %while.end
   br i1 %cmp2.not.i, label %while.body.lr.ph.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %sub.i = sub nsw i64 %3, %5
-  %6 = and i64 %sub.i, -4
+  %sub.i = sub nuw nsw i64 %3, %5
+  %6 = and i64 %sub.i, 60
   %and.i = add nuw nsw i64 %5, 4
-  %add6.i = add i64 %and.i, %6
+  %add6.i = add nuw nsw i64 %and.i, %6
   store i64 %add6.i, ptr %max_l_index.i, align 8
   %l7.i = getelementptr inbounds i8, ptr %ctx, i64 88
   %7 = load ptr, ptr %l7.i, align 8
-  %mul.i = shl i64 %add6.i, 4
+  %mul.i = shl nuw nsw i64 %add6.i, 4
   %call.i = tail call ptr @CRYPTO_realloc(ptr noundef %7, i64 noundef %mul.i, ptr noundef nonnull @.str, i32 noundef 113) #6
   %cmp9.i = icmp eq ptr %call.i, null
   br i1 %cmp9.i, label %return, label %if.end11.i
@@ -1030,13 +1030,13 @@ if.end.i71:                                       ; preds = %ocb_ntz.exit
   br i1 %cmp2.not.i73, label %while.body.i85.preheader, label %if.then3.i74
 
 if.then3.i74:                                     ; preds = %if.end.i71
-  %sub.i75 = sub nsw i64 %conv, %19
-  %20 = and i64 %sub.i75, -4
+  %sub.i75 = sub nuw nsw i64 %conv, %19
+  %20 = and i64 %sub.i75, 4294967292
   %and.i76 = add nuw nsw i64 %19, 4
-  %add6.i77 = add i64 %and.i76, %20
+  %add6.i77 = add nuw nsw i64 %and.i76, %20
   store i64 %add6.i77, ptr %max_l_index.i72, align 8
   %21 = load ptr, ptr %l7.i78, align 8
-  %mul.i79 = shl i64 %add6.i77, 4
+  %mul.i79 = shl nuw nsw i64 %add6.i77, 4
   %call.i80 = call ptr @CRYPTO_realloc(ptr noundef %21, i64 noundef %mul.i79, ptr noundef nonnull @.str, i32 noundef 113) #6
   %cmp9.i81 = icmp eq ptr %call.i80, null
   br i1 %cmp9.i81, label %return, label %if.end11.i82

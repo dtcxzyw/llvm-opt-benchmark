@@ -2766,11 +2766,12 @@ define hidden { i64, i64 } @"_ZN47_$LT$u32$u20$as$u20$core..iter..range..Step$GT
   %3 = load i32, ptr %0, align 4, !noundef !49
   %4 = load i32, ptr %1, align 4, !noundef !49
   %.not = icmp ule i32 %3, %4
-  %5 = sub i32 %4, %3
+  %5 = sub nuw i32 %4, %3
   %6 = zext i32 %5 to i64
+  %.sroa.3.0 = select i1 %.not, i64 %6, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %6, 1
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.3.0, 1
   ret { i64, i64 } %8
 }
 
@@ -10963,7 +10964,7 @@ define void @"_ZN186_$LT$$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$wasmtime_envir
   br i1 %.not, label %6, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h98ef2c26d5e54db5E.exit"
 
 6:                                                ; preds = %2
-  %7 = sub i64 %1, %5
+  %7 = sub nuw i64 %1, %5
   %8 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf06f4c450f12b39dE"(i64 noundef %7, i1 noundef zeroext true), !noalias !3084
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1

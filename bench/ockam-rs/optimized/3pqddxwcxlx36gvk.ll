@@ -6094,7 +6094,7 @@ define void @_ZN10ockam_core7routing7message13local_message12LocalMessage20next_
   %9 = load i64, ptr %8, align 8, !alias.scope !1032, !noalias !1035, !noundef !7
   %.not.i.i = icmp ult i64 %7, %9
   %10 = select i1 %.not.i.i, i64 0, i64 %9
-  %.03.i.i = sub i64 %7, %10
+  %.03.i.i = sub nuw i64 %7, %10
   %11 = load ptr, ptr %1, align 8, !alias.scope !1032, !noalias !1035, !nonnull !7, !noundef !7
   %12 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %11, i64 %.03.i.i
   %13 = getelementptr inbounds i8, ptr %12, i64 24
@@ -6192,7 +6192,7 @@ define void @_ZN10ockam_core7routing7message13local_message12LocalMessage22pop_f
   %12 = load i64, ptr %11, align 8, !alias.scope !1070, !noalias !1071, !noundef !7
   %.not.i.i = icmp ult i64 %10, %12
   %13 = select i1 %.not.i.i, i64 0, i64 %12
-  %.0.i.i = sub i64 %10, %13
+  %.0.i.i = sub nuw i64 %10, %13
   store i64 %.0.i.i, ptr %8, align 8, !alias.scope !1070, !noalias !1071
   %14 = add i64 %6, -1
   store i64 %14, ptr %5, align 8, !alias.scope !1070, !noalias !1071

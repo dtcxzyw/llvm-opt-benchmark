@@ -751,7 +751,7 @@ do.end38:                                         ; preds = %while.body
   %35 = load ptr, ptr %buffer, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %35, i64 %sp.0255
   %add.ptr40 = getelementptr inbounds i8, ptr %add.ptr39, i64 %idx.neg
-  %sub = sub i64 %cond, %sp.0255
+  %sub = sub nuw i64 %cond, %sp.0255
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %chunks.i1177.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %emask_chunks.i1178.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %base_index.i1179.i)
@@ -2999,7 +2999,7 @@ if.end75:                                         ; preds = %if.end71
   %40 = load ptr, ptr %buffer, align 8
   %add.ptr77 = getelementptr inbounds i8, ptr %40, i64 %sp.1
   %add.ptr79 = getelementptr inbounds i8, ptr %add.ptr77, i64 %idx.neg
-  %sub80 = sub i64 %cond, %sp.1
+  %sub80 = sub nuw i64 %cond, %sp.1
   %call81 = call fastcc signext i8 @nfaExecLimEx128_Stream_First(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr79, i64 noundef %sub80, ptr noundef nonnull %ctx, i64 noundef %sp.1, ptr noundef nonnull %final_look76)
   %cmp83 = icmp eq i8 %call81, 0
   %.pre196 = load i32, ptr %cur, align 8
@@ -4940,7 +4940,7 @@ do.end48:                                         ; preds = %if.end42
   %13 = load ptr, ptr %buffer, align 8
   %add.ptr49 = getelementptr inbounds i8, ptr %13, i64 %sp.2
   %add.ptr51 = getelementptr inbounds i8, ptr %add.ptr49, i64 %idx.neg
-  %sub52 = sub i64 %add15, %sp.2
+  %sub52 = sub nuw i64 %add15, %sp.2
   call fastcc void @nfaExecLimEx128_Stream_Silent(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr51, i64 noundef %sub52, ptr noundef nonnull %ctx, i64 noundef %sp.2)
   br label %scan_done
 

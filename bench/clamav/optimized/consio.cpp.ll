@@ -119,7 +119,7 @@ _ZL15IsCommentUnsafePKwm.exit:                    ; preds = %.loopexit.i, %.lr.p
 
 .critedge:                                        ; preds = %_ZL15IsCommentUnsafePKwm.exit, %.critedge
   %.018 = phi i64 [ %36, %.critedge ], [ 0, %_ZL15IsCommentUnsafePKwm.exit ]
-  %31 = sub i64 %1, %.018
+  %31 = sub nuw i64 %1, %.018
   %32 = call i64 @llvm.umin.i64(i64 %31, i64 1024)
   %33 = getelementptr inbounds i32, ptr %0, i64 %.018
   %34 = call ptr @wcsncpy(ptr noundef nonnull %3, ptr noundef %33, i64 noundef %32) #7

@@ -343,7 +343,7 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
   %39 = ptrtoint ptr %28 to i64
   %40 = ptrtoint ptr %35 to i64
   %41 = sub i64 %39, %40
-  %42 = sub i64 %.sroa.2.0.copyload.i.i.i.i, %34
+  %42 = sub nuw i64 %.sroa.2.0.copyload.i.i.i.i, %34
   %43 = call noundef i64 @llvm.umin.i64(i64 %41, i64 %42)
   %44 = icmp sgt i64 %43, -1
   br i1 %44, label %_ZNK4absl7debian211string_view6substrEmm.exit.i.i.i, label %45
@@ -473,7 +473,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %85 = ptrtoint ptr %74 to i64
   %86 = ptrtoint ptr %81 to i64
   %87 = sub i64 %85, %86
-  %88 = sub i64 %.sroa.2.0.copyload.i.i, %80
+  %88 = sub nuw i64 %.sroa.2.0.copyload.i.i, %80
   %89 = call noundef i64 @llvm.umin.i64(i64 %87, i64 %88)
   %90 = icmp sgt i64 %89, -1
   br i1 %90, label %_ZNK4absl7debian211string_view6substrEmm.exit.i, label %91
@@ -586,7 +586,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not.i, label %_ZN4absl7debian28EndsWithENS0_11string_viewES1_.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = sub nsw i64 %4, %8
+  %14 = sub nuw nsw i64 %4, %8
   %15 = getelementptr inbounds i8, ptr %3, i64 %14
   %bcmp.i = tail call i32 @bcmp(ptr %15, ptr %7, i64 %8)
   %16 = icmp eq i32 %bcmp.i, 0

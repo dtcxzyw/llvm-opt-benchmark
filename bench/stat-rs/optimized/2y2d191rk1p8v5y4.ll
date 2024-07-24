@@ -2249,7 +2249,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
 _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit4: ; preds = %15, %19
   %.sroa.02.0.i.i3 = phi double [ %18, %15 ], [ %22, %19 ]
   %23 = fsub double %.sroa.02.0.i.i, %.sroa.02.0.i.i3
-  %24 = sub i64 %0, %1
+  %24 = sub nuw i64 %0, %1
   %25 = icmp ugt i64 %24, 170
   tail call void @llvm.experimental.noalias.scope.decl(metadata !500)
   br i1 %25, label %26, label %30
@@ -2322,7 +2322,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
 _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3: ; preds = %15, %19
   %.sroa.02.0.i.i2 = phi double [ %18, %15 ], [ %22, %19 ]
   %23 = fsub double %.sroa.02.0.i.i, %.sroa.02.0.i.i2
-  %24 = sub i64 %0, %1
+  %24 = sub nuw i64 %0, %1
   %25 = icmp ugt i64 %24, 170
   tail call void @llvm.experimental.noalias.scope.decl(metadata !533)
   br i1 %25, label %26, label %30

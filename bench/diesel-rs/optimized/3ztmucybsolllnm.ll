@@ -3063,7 +3063,7 @@ common.resume:                                    ; preds = %.body, %26
   %102 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.6.046
   %103 = load i8, ptr %102, align 1, !alias.scope !434, !noundef !5
   %104 = icmp sgt i8 %103, -65
-  %105 = sub i64 %.val31, %.sroa.6.046
+  %105 = sub nuw i64 %.val31, %.sroa.6.046
   br i1 %104, label %116, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit.thread.i"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h07ce1ccbaddd9e15E.exit.thread.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i", %99

@@ -1536,7 +1536,7 @@ if.then15.i.i.i:                                  ; preds = %if.then12.i.i.i
   br i1 %cmp.i73.i.i.i, label %if.then.i.i.i71.i, label %if.else.i.i.i56.i
 
 if.then.i.i.i71.i:                                ; preds = %if.then15.i.i.i
-  %sub.i.i.i.i = sub i64 %add16.i.i.i, %sub.ptr.div.i.i.i.i
+  %sub.i.i.i.i = sub nuw i64 %add16.i.i.i, %sub.ptr.div.i.i.i.i
   %sub.ptr.lhs.cast.i13.i.i.i.i = ptrtoint ptr %overlaps.sroa.12.1.i to i64
   %sub.ptr.sub.i14.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i13.i.i.i.i, %sub.ptr.lhs.cast.i.i.i.i
   %sub.ptr.div.i15.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i14.i.i.i.i, 24
@@ -1555,7 +1555,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIN12_GLOBAL__N_112StringPackerIhE7Ov
   br label %if.end17.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i71.i
-  %cmp.i.i.i75.i.i.i = icmp ult i64 %sub.i.i.i.i72.i, %sub.i.i.i.i
+  %cmp.i.i.i75.i.i.i = icmp ugt i64 %add16.i.i.i, 384307168202282325
   br i1 %cmp.i.i.i75.i.i.i, label %if.then.i.i.i.i.i79.i, label %_ZNKSt6vectorIS_IN12_GLOBAL__N_112StringPackerIhE7OverlapESaIS3_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i79.i:                            ; preds = %if.else.i.i.i.i.i
@@ -3257,7 +3257,7 @@ if.then15.i.i.i577:                               ; preds = %if.then12.i.i.i571
   br i1 %cmp.i73.i.i.i579, label %if.then.i.i.i71.i643, label %if.else.i.i.i56.i580
 
 if.then.i.i.i71.i643:                             ; preds = %if.then15.i.i.i577
-  %sub.i.i.i.i644 = sub i64 %add16.i.i.i578, %sub.ptr.div.i.i.i.i575
+  %sub.i.i.i.i644 = sub nuw i64 %add16.i.i.i578, %sub.ptr.div.i.i.i.i575
   %sub.ptr.lhs.cast.i13.i.i.i.i645 = ptrtoint ptr %overlaps.sroa.12.1.i301 to i64
   %sub.ptr.sub.i14.i.i.i.i646 = sub i64 %sub.ptr.lhs.cast.i13.i.i.i.i645, %sub.ptr.lhs.cast.i.i.i.i572
   %sub.ptr.div.i15.i.i.i.i647 = sdiv exact i64 %sub.ptr.sub.i14.i.i.i.i646, 24
@@ -3276,7 +3276,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIN12_GLOBAL__N_112StringPackerIDsE7O
   br label %if.end17.i.i.i582
 
 if.else.i.i.i.i.i653:                             ; preds = %if.then.i.i.i71.i643
-  %cmp.i.i.i75.i.i.i654 = icmp ult i64 %sub.i.i.i.i72.i649, %sub.i.i.i.i644
+  %cmp.i.i.i75.i.i.i654 = icmp ugt i64 %add16.i.i.i578, 384307168202282325
   br i1 %cmp.i.i.i75.i.i.i654, label %if.then.i.i.i.i.i79.i675, label %_ZNKSt6vectorIS_IN12_GLOBAL__N_112StringPackerIDsE7OverlapESaIS3_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i79.i675:                         ; preds = %if.else.i.i.i.i.i653
@@ -6475,7 +6475,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIPKhmEv
 
 _ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKhmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIPKhmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
+  %sub = sub nuw i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   %add.ptr36 = getelementptr inbounds i8, ptr %2, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %1, %__position.coerce
@@ -7483,7 +7483,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIPKDsmE
 
 _ZSt22__uninitialized_copy_aIPKDsPDsDsET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKDsmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIPKDsmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr inbounds i16, ptr %2, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %1, %__position.coerce
@@ -7588,7 +7588,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -8787,7 +8787,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_hET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
+  %sub = sub nuw i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
   %add.ptr50 = getelementptr inbounds i8, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i31 = icmp eq ptr %1, %__position.coerce

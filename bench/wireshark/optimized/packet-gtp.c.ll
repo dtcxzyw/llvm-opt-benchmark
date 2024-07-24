@@ -15763,7 +15763,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_scef_pdn_conn(ptr noundef %0
 
 45:                                               ; preds = %5
   %46 = add i32 %40, %36
-  %47 = sub nsw i32 %11, %43
+  %47 = sub nuw nsw i32 %11, %43
   %48 = call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef nonnull %2, ptr noundef nonnull @ei_gtp_undecoded, ptr noundef %0, i32 noundef %46, i32 noundef %47) #13
   br label %49
 

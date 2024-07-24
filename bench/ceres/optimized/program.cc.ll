@@ -2393,7 +2393,7 @@ _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread.thread: ; preds = 
   br i1 %122, label %123, label %125
 
 123:                                              ; preds = %._crit_edge147
-  %124 = sub nsw i64 %.058.lcssa, %.lcssa
+  %124 = sub nuw nsw i64 %.058.lcssa, %.lcssa
   invoke void @_ZNSt6vectorIPN5ceres8internal13ResidualBlockESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %124)
           to label %_ZNSt6vectorIPN5ceres8internal13ResidualBlockESaIS3_EE6resizeEm.exit unwind label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i72.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2538,7 +2538,7 @@ _ZNSt6vectorIPdSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPdSaIS
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %._crit_edge156
-  %185 = sub nsw i64 %178, %182
+  %185 = sub nuw nsw i64 %178, %182
   invoke void @_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %185)
           to label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EE6resizeEm.exit unwind label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i72.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

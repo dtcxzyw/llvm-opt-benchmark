@@ -301,7 +301,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17hd0
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %1, i64 %7
-  %12 = sub i64 %2, %7
+  %12 = sub nuw i64 %2, %7
   %13 = lshr i64 %12, 4
   %14 = and i64 %12, 15
   %15 = and i64 %12, -16

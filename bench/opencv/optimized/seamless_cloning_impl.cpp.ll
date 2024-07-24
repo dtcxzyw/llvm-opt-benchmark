@@ -1557,7 +1557,7 @@ define hidden void @_ZN2cv7Cloning13initVariablesERKNS_3MatES3_(ptr noundef nonn
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %53
-  %68 = sub nsw i64 %58, %65
+  %68 = sub nuw nsw i64 %58, %65
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %68)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -1647,7 +1647,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %67, %69, %71, %73
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %._crit_edge
-  %112 = sub nsw i64 %102, %109
+  %112 = sub nuw nsw i64 %102, %109
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %100, i64 noundef %112)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit56
 

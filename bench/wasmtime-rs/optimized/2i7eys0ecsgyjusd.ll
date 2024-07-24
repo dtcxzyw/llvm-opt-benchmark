@@ -675,7 +675,7 @@ define hidden { i32, i32 } @_ZN18cranelift_frontend3ssa10SSABuilder8find_var17h3
   br label %.thread.i
 
 39:                                               ; preds = %34
-  %40 = sub nsw i64 %37, %.pre59
+  %40 = sub nuw nsw i64 %37, %.pre59
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h51253fb1008579cfE.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %40, i64 noundef 0)
   %.pre.pre = load i64, ptr %7, align 8, !alias.scope !68
   br label %.thread.i

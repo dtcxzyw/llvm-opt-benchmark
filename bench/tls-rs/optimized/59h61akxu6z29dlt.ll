@@ -12045,8 +12045,8 @@ _ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls1
   %417 = extractvalue { i32, i1 } %415, 1
   %spec.select.i404 = select i1 %417, i32 -1, i32 %416
   %418 = icmp ult i32 %411, %spec.select.i404
-  %419 = sub i32 %spec.select.i404, %411
-  %420 = sub i32 %411, %spec.select.i404
+  %419 = sub nuw i32 %spec.select.i404, %411
+  %420 = sub nuw i32 %411, %spec.select.i404
   %.08.i = select i1 %418, i32 %419, i32 %420
   %421 = icmp ult i32 %.08.i, 60001
   %422 = zext i1 %421 to i8
@@ -16224,7 +16224,7 @@ define void @_ZN6rustls4quic4Quic8write_hs17h6e7523eb0d69c6f3E(ptr noalias nocap
   %34 = add i64 %33, 1
   %.not.i.i = icmp ult i64 %34, %20
   %35 = select i1 %.not.i.i, i64 0, i64 %20
-  %.0.i.i = sub i64 %34, %35
+  %.0.i.i = sub nuw i64 %34, %35
   store i64 %.0.i.i, ptr %19, align 8, !alias.scope !3624, !noalias !3627
   %36 = add i64 %32, -1
   store i64 %36, ptr %18, align 8, !alias.scope !3624, !noalias !3627
@@ -16276,7 +16276,7 @@ define void @_ZN6rustls4quic4Quic8write_hs17h6e7523eb0d69c6f3E(ptr noalias nocap
 54:                                               ; preds = %48
   %.not.i.i26 = icmp ult i64 %.0.i.i, %20
   %55 = select i1 %.not.i.i26, i64 0, i64 %20
-  %.0.i.i27 = sub i64 %.0.i.i, %55
+  %.0.i.i27 = sub nuw i64 %.0.i.i, %55
   %56 = getelementptr inbounds { i8, [7 x i8], { { i64, ptr }, i64 } }, ptr %22, i64 %.0.i.i27
   %57 = load i8, ptr %56, align 8, !range !334, !noundef !4
   %58 = trunc nuw i8 %57 to i1

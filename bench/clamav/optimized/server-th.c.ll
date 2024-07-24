@@ -2227,7 +2227,7 @@ get_cmd.exit.i:                                   ; preds = %989
 1093:                                             ; preds = %1090
   %1094 = load ptr, ptr %893, align 8
   %1095 = getelementptr inbounds i8, ptr %1094, i64 %.1.i
-  %1096 = sub i64 %1091, %.1.i
+  %1096 = sub nuw i64 %1091, %.1.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %1094, ptr align 1 %1095, i64 %1096, i1 false)
   %1097 = load i64, ptr %936, align 8
   %1098 = sub i64 %1097, %.1.i

@@ -279,7 +279,7 @@ _Z20pme_gpu_task_enabledPK9gmx_pme_t.exit38.thread: ; preds = %49, %51, %_Z20pme
   br i1 %.not.i39, label %65, label %63
 
 63:                                               ; preds = %53
-  %64 = sub i64 %60, %62
+  %64 = sub nuw i64 %60, %62
   br label %67
 
 65:                                               ; preds = %53

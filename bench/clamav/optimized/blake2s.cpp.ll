@@ -101,77 +101,78 @@ define void @_ZN16Blake2ThreadData6UpdateEv(ptr nocapture noundef nonnull readon
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp ugt i64 %3, 511
-  br i1 %4, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %4, label %.split.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %1
+.split.preheader:                                 ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  br label %.lr.ph
+  br label %.split
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL14blake2s_updateP13blake2s_statePKhm.exit
-  %.09 = phi ptr [ %38, %_ZL14blake2s_updateP13blake2s_statePKhm.exit ], [ %6, %.lr.ph.preheader ]
-  %.048 = phi i64 [ %39, %_ZL14blake2s_updateP13blake2s_statePKhm.exit ], [ %3, %.lr.ph.preheader ]
+.split:                                           ; preds = %.split.preheader, %.thread.i
+  %.013 = phi ptr [ %17, %.thread.i ], [ %6, %.split.preheader ]
+  %.0412 = phi i64 [ %18, %.thread.i ], [ %3, %.split.preheader ]
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 272
   %9 = getelementptr inbounds i8, ptr %7, i64 240
   %10 = getelementptr inbounds i8, ptr %7, i64 256
   %.pre.i = load i64, ptr %8, align 8
-  br label %11
+  %11 = sub i64 128, %.pre.i
+  %12 = icmp ult i64 %11, 64
+  br i1 %12, label %.lr.ph, label %.thread.i
 
-11:                                               ; preds = %19, %.lr.ph
-  %12 = phi i64 [ %.pre.i, %.lr.ph ], [ %36, %19 ]
-  %.033.i = phi ptr [ %.09, %.lr.ph ], [ %.1.i, %19 ]
-  %.02832.i = phi i64 [ 64, %.lr.ph ], [ %37, %19 ]
-  %13 = sub i64 128, %12
-  %14 = icmp ugt i64 %.02832.i, %13
-  %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 %12
-  br i1 %14, label %19, label %.thread.i
+.thread.i:                                        ; preds = %.lr.ph, %.split
+  %.lcssa = phi i64 [ %.pre.i, %.split ], [ %40, %.lr.ph ]
+  %.033.i.lcssa = phi ptr [ %.013, %.split ], [ %.1.i, %.lr.ph ]
+  %.02832.i.lcssa = phi i64 [ 64, %.split ], [ %41, %.lr.ph ]
+  %13 = load ptr, ptr %9, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 %.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %.033.i.lcssa, i64 %.02832.i.lcssa, i1 false)
+  %15 = load i64, ptr %8, align 8
+  %16 = add i64 %15, %.02832.i.lcssa
+  store i64 %16, ptr %8, align 8
+  %17 = getelementptr inbounds i8, ptr %.013, i64 512
+  %18 = add i64 %.0412, -512
+  %19 = icmp ugt i64 %18, 511
+  br i1 %19, label %.split, label %._crit_edge, !llvm.loop !7
 
-.thread.i:                                        ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 1 dereferenceable(1) %.033.i, i64 %.02832.i, i1 false)
-  %17 = load i64, ptr %8, align 8
-  %18 = add i64 %17, %.02832.i
-  store i64 %18, ptr %8, align 8
-  br label %_ZL14blake2s_updateP13blake2s_statePKhm.exit
-
-19:                                               ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %.033.i, i64 %13, i1 false)
-  %20 = load i64, ptr %8, align 8
-  %21 = add i64 %20, %13
-  store i64 %21, ptr %8, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = load i32, ptr %22, align 4
-  %24 = add i32 %23, 64
-  store i32 %24, ptr %22, align 4
-  %25 = load ptr, ptr %10, align 8
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp ult i32 %26, 64
-  %28 = zext i1 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %25, i64 4
+.lr.ph:                                           ; preds = %.split, %.lr.ph
+  %20 = phi i64 [ %42, %.lr.ph ], [ %11, %.split ]
+  %.02832.i9 = phi i64 [ %41, %.lr.ph ], [ 64, %.split ]
+  %.033.i8 = phi ptr [ %.1.i, %.lr.ph ], [ %.013, %.split ]
+  %21 = phi i64 [ %40, %.lr.ph ], [ %.pre.i, %.split ]
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 %21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %.033.i8, i64 %20, i1 false)
+  %24 = load i64, ptr %8, align 8
+  %25 = add i64 %24, %20
+  store i64 %25, ptr %8, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = load i32, ptr %26, align 4
+  %28 = add i32 %27, 64
+  store i32 %28, ptr %26, align 4
+  %29 = load ptr, ptr %10, align 8
   %30 = load i32, ptr %29, align 4
-  %31 = add i32 %30, %28
-  store i32 %31, ptr %29, align 4
-  %32 = load ptr, ptr %9, align 8
-  tail call fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr noundef nonnull %7, ptr noundef %32)
-  %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %33, ptr noundef nonnull align 1 dereferenceable(64) %34, i64 64, i1 false)
-  %35 = load i64, ptr %8, align 8
-  %36 = add i64 %35, -64
-  %37 = sub i64 %.02832.i, %13
-  store i64 %36, ptr %8, align 8
-  %.1.i = getelementptr inbounds i8, ptr %.033.i, i64 %13
-  %.not.i = icmp eq i64 %37, 0
-  br i1 %.not.i, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit, label %11, !llvm.loop !7
+  %31 = icmp ult i32 %30, 64
+  %32 = zext i1 %31 to i32
+  %33 = getelementptr inbounds i8, ptr %29, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = add i32 %34, %32
+  store i32 %35, ptr %33, align 4
+  %36 = load ptr, ptr %9, align 8
+  tail call fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr noundef nonnull %7, ptr noundef %36)
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %37, ptr noundef nonnull align 1 dereferenceable(64) %38, i64 64, i1 false)
+  %39 = load i64, ptr %8, align 8
+  %40 = add i64 %39, -64
+  %41 = sub nuw i64 %.02832.i9, %20
+  store i64 %40, ptr %8, align 8
+  %.1.i = getelementptr inbounds i8, ptr %.033.i8, i64 %20
+  %42 = sub i64 192, %39
+  %43 = icmp ugt i64 %41, %42
+  br i1 %43, label %.lr.ph, label %.thread.i
 
-_ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %19, %.thread.i
-  %38 = getelementptr inbounds i8, ptr %.09, i64 512
-  %39 = add i64 %.048, -512
-  %40 = icmp ugt i64 %39, 511
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !8
-
-._crit_edge:                                      ; preds = %_ZL14blake2s_updateP13blake2s_statePKhm.exit, %1
+._crit_edge:                                      ; preds = %.thread.i, %1
   ret void
 }
 
@@ -181,185 +182,186 @@ define void @_Z15blake2sp_updateP14blake2sp_statePKhm(ptr nocapture noundef %0, 
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 512, %5
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %49, label %7
+  br i1 %.not, label %51, label %7
 
 7:                                                ; preds = %3
   %.not57 = icmp ugt i64 %6, %2
-  br i1 %.not57, label %49, label %8
+  br i1 %.not57, label %51, label %8
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %0, i64 2592
   %10 = getelementptr inbounds i8, ptr %9, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %1, i64 %6, i1 false)
-  br label %11
+  br label %.split
 
-11:                                               ; preds = %8, %_ZL14blake2s_updateP13blake2s_statePKhm.exit
-  %.04966 = phi i64 [ 0, %8 ], [ %45, %_ZL14blake2s_updateP13blake2s_statePKhm.exit ]
-  %12 = getelementptr inbounds [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.04966
-  %13 = shl nuw nsw i64 %.04966, 6
-  %14 = getelementptr inbounds i8, ptr %9, i64 %13
-  %15 = getelementptr inbounds i8, ptr %12, i64 272
-  %16 = getelementptr inbounds i8, ptr %12, i64 240
-  %17 = getelementptr inbounds i8, ptr %12, i64 256
-  %.pre.i = load i64, ptr %15, align 8
-  br label %18
+.split:                                           ; preds = %8, %.thread.i
+  %.04968 = phi i64 [ 0, %8 ], [ %23, %.thread.i ]
+  %11 = getelementptr inbounds [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.04968
+  %12 = shl nuw nsw i64 %.04968, 6
+  %13 = getelementptr inbounds i8, ptr %9, i64 %12
+  %14 = getelementptr inbounds i8, ptr %11, i64 272
+  %15 = getelementptr inbounds i8, ptr %11, i64 240
+  %16 = getelementptr inbounds i8, ptr %11, i64 256
+  %.pre.i = load i64, ptr %14, align 8
+  %17 = sub i64 128, %.pre.i
+  %18 = icmp ult i64 %17, 64
+  br i1 %18, label %.lr.ph, label %.thread.i
 
-18:                                               ; preds = %26, %11
-  %19 = phi i64 [ %.pre.i, %11 ], [ %43, %26 ]
-  %.033.i = phi ptr [ %14, %11 ], [ %.1.i, %26 ]
-  %.02832.i = phi i64 [ 64, %11 ], [ %44, %26 ]
-  %20 = sub i64 128, %19
-  %21 = icmp ugt i64 %.02832.i, %20
-  %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 %19
-  br i1 %21, label %26, label %.thread.i
+.thread.i:                                        ; preds = %.lr.ph, %.split
+  %.lcssa62 = phi i64 [ %.pre.i, %.split ], [ %44, %.lr.ph ]
+  %.033.i.lcssa = phi ptr [ %13, %.split ], [ %.1.i, %.lr.ph ]
+  %.02832.i.lcssa = phi i64 [ 64, %.split ], [ %45, %.lr.ph ]
+  %19 = load ptr, ptr %15, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 %.lcssa62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %.033.i.lcssa, i64 %.02832.i.lcssa, i1 false)
+  %21 = load i64, ptr %14, align 8
+  %22 = add i64 %21, %.02832.i.lcssa
+  store i64 %22, ptr %14, align 8
+  %23 = add nuw nsw i64 %.04968, 1
+  %exitcond.not = icmp eq i64 %23, 8
+  br i1 %exitcond.not, label %48, label %.split, !llvm.loop !8
 
-.thread.i:                                        ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %.033.i, i64 %.02832.i, i1 false)
-  %24 = load i64, ptr %15, align 8
-  %25 = add i64 %24, %.02832.i
-  store i64 %25, ptr %15, align 8
-  br label %_ZL14blake2s_updateP13blake2s_statePKhm.exit
+.lr.ph:                                           ; preds = %.split, %.lr.ph
+  %24 = phi i64 [ %46, %.lr.ph ], [ %17, %.split ]
+  %.02832.i65 = phi i64 [ %45, %.lr.ph ], [ 64, %.split ]
+  %.033.i64 = phi ptr [ %.1.i, %.lr.ph ], [ %13, %.split ]
+  %25 = phi i64 [ %44, %.lr.ph ], [ %.pre.i, %.split ]
+  %26 = load ptr, ptr %15, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 %25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %.033.i64, i64 %24, i1 false)
+  %28 = load i64, ptr %14, align 8
+  %29 = add i64 %28, %24
+  store i64 %29, ptr %14, align 8
+  %30 = load ptr, ptr %16, align 8
+  %31 = load i32, ptr %30, align 4
+  %32 = add i32 %31, 64
+  store i32 %32, ptr %30, align 4
+  %33 = load ptr, ptr %16, align 8
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp ult i32 %34, 64
+  %36 = zext i1 %35 to i32
+  %37 = getelementptr inbounds i8, ptr %33, i64 4
+  %38 = load i32, ptr %37, align 4
+  %39 = add i32 %38, %36
+  store i32 %39, ptr %37, align 4
+  %40 = load ptr, ptr %15, align 8
+  tail call fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr noundef nonnull %11, ptr noundef %40)
+  %41 = load ptr, ptr %15, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %41, ptr noundef nonnull align 1 dereferenceable(64) %42, i64 64, i1 false)
+  %43 = load i64, ptr %14, align 8
+  %44 = add i64 %43, -64
+  %45 = sub nuw i64 %.02832.i65, %24
+  store i64 %44, ptr %14, align 8
+  %.1.i = getelementptr inbounds i8, ptr %.033.i64, i64 %24
+  %46 = sub i64 192, %43
+  %47 = icmp ugt i64 %45, %46
+  br i1 %47, label %.lr.ph, label %.thread.i
 
-26:                                               ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %.033.i, i64 %20, i1 false)
-  %27 = load i64, ptr %15, align 8
-  %28 = add i64 %27, %20
-  store i64 %28, ptr %15, align 8
-  %29 = load ptr, ptr %17, align 8
-  %30 = load i32, ptr %29, align 4
-  %31 = add i32 %30, 64
-  store i32 %31, ptr %29, align 4
-  %32 = load ptr, ptr %17, align 8
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp ult i32 %33, 64
-  %35 = zext i1 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %32, i64 4
-  %37 = load i32, ptr %36, align 4
-  %38 = add i32 %37, %35
-  store i32 %38, ptr %36, align 4
-  %39 = load ptr, ptr %16, align 8
-  tail call fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr noundef nonnull %12, ptr noundef %39)
-  %40 = load ptr, ptr %16, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %40, ptr noundef nonnull align 1 dereferenceable(64) %41, i64 64, i1 false)
-  %42 = load i64, ptr %15, align 8
-  %43 = add i64 %42, -64
-  %44 = sub i64 %.02832.i, %20
-  store i64 %43, ptr %15, align 8
-  %.1.i = getelementptr inbounds i8, ptr %.033.i, i64 %20
-  %.not.i = icmp eq i64 %44, 0
-  br i1 %.not.i, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit, label %18, !llvm.loop !7
+48:                                               ; preds = %.thread.i
+  %49 = getelementptr inbounds i8, ptr %1, i64 %6
+  %50 = sub i64 %2, %6
+  br label %51
 
-_ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %26, %.thread.i
-  %45 = add nuw nsw i64 %.04966, 1
-  %exitcond.not = icmp eq i64 %45, 8
-  br i1 %exitcond.not, label %46, label %11, !llvm.loop !9
+51:                                               ; preds = %48, %7, %3
+  %.050 = phi i64 [ 0, %48 ], [ %5, %7 ], [ 0, %3 ]
+  %.048 = phi i64 [ %50, %48 ], [ %2, %7 ], [ %2, %3 ]
+  %.0 = phi ptr [ %49, %48 ], [ %1, %7 ], [ %1, %3 ]
+  %52 = icmp ugt i64 %.048, 511
+  br i1 %52, label %.preheader.us, label %.split73.us
 
-46:                                               ; preds = %_ZL14blake2s_updateP13blake2s_statePKhm.exit
-  %47 = getelementptr inbounds i8, ptr %1, i64 %6
-  %48 = sub i64 %2, %6
-  br label %49
+.preheader.us:                                    ; preds = %51, %_ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us
+  %.04770.us = phi i64 [ %92, %_ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us ], [ 0, %51 ]
+  %53 = shl nuw nsw i64 %.04770.us, 6
+  %54 = getelementptr inbounds i8, ptr %.0, i64 %53
+  %55 = getelementptr inbounds [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.04770.us
+  %56 = getelementptr inbounds i8, ptr %55, i64 272
+  %57 = getelementptr inbounds i8, ptr %55, i64 240
+  %58 = getelementptr inbounds i8, ptr %55, i64 256
+  %.pre.i.i.us.us.pre = load i64, ptr %56, align 8
+  br label %.split.i.us.us
 
-49:                                               ; preds = %46, %7, %3
-  %.050 = phi i64 [ 0, %46 ], [ %5, %7 ], [ 0, %3 ]
-  %.048 = phi i64 [ %48, %46 ], [ %2, %7 ], [ %2, %3 ]
-  %.0 = phi ptr [ %47, %46 ], [ %1, %7 ], [ %1, %3 ]
-  %50 = icmp ugt i64 %.048, 511
-  br i1 %50, label %.preheader.us, label %.split70.us
+.split.i.us.us:                                   ; preds = %.thread.i.i.us.us, %.preheader.us
+  %.pre.i.i.us.us = phi i64 [ %88, %.thread.i.i.us.us ], [ %.pre.i.i.us.us.pre, %.preheader.us ]
+  %.013.i.us.us = phi ptr [ %89, %.thread.i.i.us.us ], [ %54, %.preheader.us ]
+  %.0412.i.us.us = phi i64 [ %90, %.thread.i.i.us.us ], [ %.048, %.preheader.us ]
+  %59 = sub i64 128, %.pre.i.i.us.us
+  %60 = icmp ult i64 %59, 64
+  br i1 %60, label %.lr.ph.i.us.us, label %.thread.i.i.us.us
 
-.preheader.us:                                    ; preds = %49, %_ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us
-  %.04768.us = phi i64 [ %87, %_ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us ], [ 0, %49 ]
-  %51 = shl nuw nsw i64 %.04768.us, 6
-  %52 = getelementptr inbounds i8, ptr %.0, i64 %51
-  %53 = getelementptr inbounds [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.04768.us
-  %54 = getelementptr inbounds i8, ptr %53, i64 272
-  %55 = getelementptr inbounds i8, ptr %53, i64 240
-  %56 = getelementptr inbounds i8, ptr %53, i64 256
-  %.pre.i.i.us.us.pre = load i64, ptr %54, align 8
-  br label %.lr.ph.i.us.us
+.lr.ph.i.us.us:                                   ; preds = %.split.i.us.us, %.lr.ph.i.us.us
+  %61 = phi i64 [ %83, %.lr.ph.i.us.us ], [ %59, %.split.i.us.us ]
+  %.02832.i9.i.us.us = phi i64 [ %82, %.lr.ph.i.us.us ], [ 64, %.split.i.us.us ]
+  %.033.i8.i.us.us = phi ptr [ %.1.i.i.us.us, %.lr.ph.i.us.us ], [ %.013.i.us.us, %.split.i.us.us ]
+  %62 = phi i64 [ %81, %.lr.ph.i.us.us ], [ %.pre.i.i.us.us, %.split.i.us.us ]
+  %63 = load ptr, ptr %57, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 %62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %.033.i8.i.us.us, i64 %61, i1 false)
+  %65 = load i64, ptr %56, align 8
+  %66 = add i64 %65, %61
+  store i64 %66, ptr %56, align 8
+  %67 = load ptr, ptr %58, align 8
+  %68 = load i32, ptr %67, align 4
+  %69 = add i32 %68, 64
+  store i32 %69, ptr %67, align 4
+  %70 = load ptr, ptr %58, align 8
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp ult i32 %71, 64
+  %73 = zext i1 %72 to i32
+  %74 = getelementptr inbounds i8, ptr %70, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = add i32 %75, %73
+  store i32 %76, ptr %74, align 4
+  %77 = load ptr, ptr %57, align 8
+  tail call fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr noundef nonnull %55, ptr noundef %77)
+  %78 = load ptr, ptr %57, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %78, ptr noundef nonnull align 1 dereferenceable(64) %79, i64 64, i1 false)
+  %80 = load i64, ptr %56, align 8
+  %81 = add i64 %80, -64
+  %82 = sub nuw i64 %.02832.i9.i.us.us, %61
+  store i64 %81, ptr %56, align 8
+  %.1.i.i.us.us = getelementptr inbounds i8, ptr %.033.i8.i.us.us, i64 %61
+  %83 = sub i64 192, %80
+  %84 = icmp ugt i64 %82, %83
+  br i1 %84, label %.lr.ph.i.us.us, label %.thread.i.i.us.us
 
-.lr.ph.i.us.us:                                   ; preds = %_ZL14blake2s_updateP13blake2s_statePKhm.exit.i.us.us, %.preheader.us
-  %.pre.i.i.us.us = phi i64 [ %.pre.i.i.us.us81, %_ZL14blake2s_updateP13blake2s_statePKhm.exit.i.us.us ], [ %.pre.i.i.us.us.pre, %.preheader.us ]
-  %.09.i.us.us = phi ptr [ %84, %_ZL14blake2s_updateP13blake2s_statePKhm.exit.i.us.us ], [ %52, %.preheader.us ]
-  %.048.i.us.us = phi i64 [ %85, %_ZL14blake2s_updateP13blake2s_statePKhm.exit.i.us.us ], [ %.048, %.preheader.us ]
-  br label %57
+.thread.i.i.us.us:                                ; preds = %.lr.ph.i.us.us, %.split.i.us.us
+  %.lcssa.i.us.us = phi i64 [ %.pre.i.i.us.us, %.split.i.us.us ], [ %81, %.lr.ph.i.us.us ]
+  %.033.i.lcssa.i.us.us = phi ptr [ %.013.i.us.us, %.split.i.us.us ], [ %.1.i.i.us.us, %.lr.ph.i.us.us ]
+  %.02832.i.lcssa.i.us.us = phi i64 [ 64, %.split.i.us.us ], [ %82, %.lr.ph.i.us.us ]
+  %85 = load ptr, ptr %57, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 %.lcssa.i.us.us
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %86, ptr noundef nonnull align 1 dereferenceable(1) %.033.i.lcssa.i.us.us, i64 %.02832.i.lcssa.i.us.us, i1 false)
+  %87 = load i64, ptr %56, align 8
+  %88 = add i64 %87, %.02832.i.lcssa.i.us.us
+  store i64 %88, ptr %56, align 8
+  %89 = getelementptr inbounds i8, ptr %.013.i.us.us, i64 512
+  %90 = add i64 %.0412.i.us.us, -512
+  %91 = icmp ugt i64 %90, 511
+  br i1 %91, label %.split.i.us.us, label %_ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us, !llvm.loop !7
 
-57:                                               ; preds = %65, %.lr.ph.i.us.us
-  %58 = phi i64 [ %.pre.i.i.us.us, %.lr.ph.i.us.us ], [ %82, %65 ]
-  %.033.i.i.us.us = phi ptr [ %.09.i.us.us, %.lr.ph.i.us.us ], [ %.1.i.i.us.us, %65 ]
-  %.02832.i.i.us.us = phi i64 [ 64, %.lr.ph.i.us.us ], [ %83, %65 ]
-  %59 = sub i64 128, %58
-  %60 = icmp ugt i64 %.02832.i.i.us.us, %59
-  %61 = load ptr, ptr %55, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 %58
-  br i1 %60, label %65, label %.thread.i.i.us.us
+_ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us: ; preds = %.thread.i.i.us.us
+  %92 = add nuw nsw i64 %.04770.us, 1
+  %exitcond78.not = icmp eq i64 %92, 8
+  br i1 %exitcond78.not, label %.split73.us, label %.preheader.us, !llvm.loop !9
 
-.thread.i.i.us.us:                                ; preds = %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %.033.i.i.us.us, i64 %.02832.i.i.us.us, i1 false)
-  %63 = load i64, ptr %54, align 8
-  %64 = add i64 %63, %.02832.i.i.us.us
-  store i64 %64, ptr %54, align 8
-  br label %_ZL14blake2s_updateP13blake2s_statePKhm.exit.i.us.us
+.split73.us:                                      ; preds = %_ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us, %51
+  %93 = and i64 %.048, 511
+  %.not58 = icmp eq i64 %93, 0
+  br i1 %.not58, label %99, label %94
 
-65:                                               ; preds = %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %.033.i.i.us.us, i64 %59, i1 false)
-  %66 = load i64, ptr %54, align 8
-  %67 = add i64 %66, %59
-  store i64 %67, ptr %54, align 8
-  %68 = load ptr, ptr %56, align 8
-  %69 = load i32, ptr %68, align 4
-  %70 = add i32 %69, 64
-  store i32 %70, ptr %68, align 4
-  %71 = load ptr, ptr %56, align 8
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp ult i32 %72, 64
-  %74 = zext i1 %73 to i32
-  %75 = getelementptr inbounds i8, ptr %71, i64 4
-  %76 = load i32, ptr %75, align 4
-  %77 = add i32 %76, %74
-  store i32 %77, ptr %75, align 4
-  %78 = load ptr, ptr %55, align 8
-  tail call fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr noundef nonnull %53, ptr noundef %78)
-  %79 = load ptr, ptr %55, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %79, ptr noundef nonnull align 1 dereferenceable(64) %80, i64 64, i1 false)
-  %81 = load i64, ptr %54, align 8
-  %82 = add i64 %81, -64
-  %83 = sub i64 %.02832.i.i.us.us, %59
-  store i64 %82, ptr %54, align 8
-  %.1.i.i.us.us = getelementptr inbounds i8, ptr %.033.i.i.us.us, i64 %59
-  %.not.i.i.us.us = icmp eq i64 %83, 0
-  br i1 %.not.i.i.us.us, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit.i.us.us, label %57, !llvm.loop !7
+94:                                               ; preds = %.split73.us
+  %95 = and i64 %.048, -512
+  %96 = getelementptr inbounds i8, ptr %.0, i64 %95
+  %97 = getelementptr inbounds i8, ptr %0, i64 2592
+  %98 = getelementptr inbounds i8, ptr %97, i64 %.050
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr align 1 %96, i64 %93, i1 false)
+  br label %99
 
-_ZL14blake2s_updateP13blake2s_statePKhm.exit.i.us.us: ; preds = %65, %.thread.i.i.us.us
-  %.pre.i.i.us.us81 = phi i64 [ %64, %.thread.i.i.us.us ], [ %82, %65 ]
-  %84 = getelementptr inbounds i8, ptr %.09.i.us.us, i64 512
-  %85 = add i64 %.048.i.us.us, -512
-  %86 = icmp ugt i64 %85, 511
-  br i1 %86, label %.lr.ph.i.us.us, label %_ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us, !llvm.loop !8
-
-_ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us: ; preds = %_ZL14blake2s_updateP13blake2s_statePKhm.exit.i.us.us
-  %87 = add nuw nsw i64 %.04768.us, 1
-  %exitcond79.not = icmp eq i64 %87, 8
-  br i1 %exitcond79.not, label %.split70.us, label %.preheader.us, !llvm.loop !10
-
-.split70.us:                                      ; preds = %_ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us, %49
-  %88 = and i64 %.048, 511
-  %.not58 = icmp eq i64 %88, 0
-  br i1 %.not58, label %94, label %89
-
-89:                                               ; preds = %.split70.us
-  %90 = and i64 %.048, -512
-  %91 = getelementptr inbounds i8, ptr %.0, i64 %90
-  %92 = getelementptr inbounds i8, ptr %0, i64 2592
-  %93 = getelementptr inbounds i8, ptr %92, i64 %.050
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr align 1 %91, i64 %88, i1 false)
-  br label %94
-
-94:                                               ; preds = %89, %.split70.us
-  %95 = add i64 %88, %.050
-  store i64 %95, ptr %4, align 8
+99:                                               ; preds = %94, %.split73.us
+  %100 = add i64 %93, %.050
+  store i64 %100, ptr %4, align 8
   ret void
 }
 
@@ -379,141 +381,145 @@ define void @_Z14blake2sp_finalP14blake2sp_statePh(ptr nocapture noundef %0, ptr
   %8 = getelementptr inbounds i8, ptr %0, i64 2544
   %9 = getelementptr inbounds i8, ptr %0, i64 2560
   %.pre.i24.pre = load i64, ptr %7, align 8
-  br label %50
+  br label %.split
 
 10:                                               ; preds = %2, %_ZL14blake2s_updateP13blake2s_statePKhm.exit
-  %.02038 = phi i64 [ 0, %2 ], [ %49, %_ZL14blake2s_updateP13blake2s_statePKhm.exit ]
+  %.02042 = phi i64 [ 0, %2 ], [ %52, %_ZL14blake2s_updateP13blake2s_statePKhm.exit ]
   %11 = load i64, ptr %4, align 8
-  %12 = shl nuw nsw i64 %.02038, 6
+  %12 = shl nuw nsw i64 %.02042, 6
   %13 = icmp ugt i64 %11, %12
   br i1 %13, label %.lr.ph.i, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit
 
 .lr.ph.i:                                         ; preds = %10
-  %14 = getelementptr inbounds [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.02038
-  %15 = sub i64 %11, %12
+  %14 = getelementptr inbounds [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.02042
+  %15 = sub nuw i64 %11, %12
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %15, i64 64)
   %16 = getelementptr inbounds i8, ptr %5, i64 %12
   %17 = getelementptr inbounds i8, ptr %14, i64 272
   %18 = getelementptr inbounds i8, ptr %14, i64 240
   %19 = getelementptr inbounds i8, ptr %14, i64 256
   %.pre.i = load i64, ptr %17, align 8
-  br label %20
+  %20 = sub i64 128, %.pre.i
+  %21 = icmp ugt i64 %spec.store.select, %20
+  br i1 %21, label %.lr.ph, label %.thread.i
 
-20:                                               ; preds = %28, %.lr.ph.i
-  %21 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %45, %28 ]
-  %.033.i = phi ptr [ %16, %.lr.ph.i ], [ %.1.i, %28 ]
-  %.02832.i = phi i64 [ %spec.store.select, %.lr.ph.i ], [ %46, %28 ]
-  %22 = sub i64 128, %21
-  %23 = icmp ugt i64 %.02832.i, %22
-  %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 %21
-  br i1 %23, label %28, label %.thread.i
-
-.thread.i:                                        ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %.033.i, i64 %.02832.i, i1 false)
-  %26 = load i64, ptr %17, align 8
-  %27 = add i64 %26, %.02832.i
-  store i64 %27, ptr %17, align 8
+.thread.i:                                        ; preds = %.lr.ph, %.lr.ph.i
+  %.lcssa36 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %46, %.lr.ph ]
+  %.033.i.lcssa = phi ptr [ %16, %.lr.ph.i ], [ %.1.i, %.lr.ph ]
+  %.02832.i.lcssa = phi i64 [ %spec.store.select, %.lr.ph.i ], [ %47, %.lr.ph ]
+  %22 = load ptr, ptr %18, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 %.lcssa36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %.033.i.lcssa, i64 %.02832.i.lcssa, i1 false)
+  %24 = load i64, ptr %17, align 8
+  %25 = add i64 %24, %.02832.i.lcssa
+  store i64 %25, ptr %17, align 8
   br label %_ZL14blake2s_updateP13blake2s_statePKhm.exit
 
-28:                                               ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %.033.i, i64 %22, i1 false)
-  %29 = load i64, ptr %17, align 8
-  %30 = add i64 %29, %22
-  store i64 %30, ptr %17, align 8
-  %31 = load ptr, ptr %19, align 8
-  %32 = load i32, ptr %31, align 4
-  %33 = add i32 %32, 64
-  store i32 %33, ptr %31, align 4
-  %34 = load ptr, ptr %19, align 8
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp ult i32 %35, 64
-  %37 = zext i1 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %34, i64 4
-  %39 = load i32, ptr %38, align 4
-  %40 = add i32 %39, %37
-  store i32 %40, ptr %38, align 4
-  %41 = load ptr, ptr %18, align 8
-  tail call fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr noundef nonnull %14, ptr noundef %41)
+.lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
+  %26 = phi i64 [ %48, %.lr.ph ], [ %20, %.lr.ph.i ]
+  %.02832.i39 = phi i64 [ %47, %.lr.ph ], [ %spec.store.select, %.lr.ph.i ]
+  %.033.i38 = phi ptr [ %.1.i, %.lr.ph ], [ %16, %.lr.ph.i ]
+  %27 = phi i64 [ %46, %.lr.ph ], [ %.pre.i, %.lr.ph.i ]
+  %28 = load ptr, ptr %18, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 %27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %.033.i38, i64 %26, i1 false)
+  %30 = load i64, ptr %17, align 8
+  %31 = add i64 %30, %26
+  store i64 %31, ptr %17, align 8
+  %32 = load ptr, ptr %19, align 8
+  %33 = load i32, ptr %32, align 4
+  %34 = add i32 %33, 64
+  store i32 %34, ptr %32, align 4
+  %35 = load ptr, ptr %19, align 8
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp ult i32 %36, 64
+  %38 = zext i1 %37 to i32
+  %39 = getelementptr inbounds i8, ptr %35, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = add i32 %40, %38
+  store i32 %41, ptr %39, align 4
   %42 = load ptr, ptr %18, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %42, ptr noundef nonnull align 1 dereferenceable(64) %43, i64 64, i1 false)
-  %44 = load i64, ptr %17, align 8
-  %45 = add i64 %44, -64
-  %46 = sub i64 %.02832.i, %22
-  store i64 %45, ptr %17, align 8
-  %.1.i = getelementptr inbounds i8, ptr %.033.i, i64 %22
-  %.not.i = icmp eq i64 %46, 0
-  br i1 %.not.i, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit, label %20, !llvm.loop !7
+  tail call fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr noundef nonnull %14, ptr noundef %42)
+  %43 = load ptr, ptr %18, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %43, ptr noundef nonnull align 1 dereferenceable(64) %44, i64 64, i1 false)
+  %45 = load i64, ptr %17, align 8
+  %46 = add i64 %45, -64
+  %47 = sub nuw i64 %.02832.i39, %26
+  store i64 %46, ptr %17, align 8
+  %.1.i = getelementptr inbounds i8, ptr %.033.i38, i64 %26
+  %48 = sub i64 192, %45
+  %49 = icmp ugt i64 %47, %48
+  br i1 %49, label %.lr.ph, label %.thread.i
 
-_ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %28, %.thread.i, %10
-  %47 = getelementptr inbounds [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.02038
-  %48 = getelementptr inbounds [8 x [32 x i8]], ptr %3, i64 0, i64 %.02038
-  call fastcc void @_ZL13blake2s_finalP13blake2s_statePh(ptr noundef %47, ptr noundef nonnull %48)
-  %49 = add nuw nsw i64 %.02038, 1
-  %exitcond.not = icmp eq i64 %49, 8
-  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !11
+_ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %.thread.i, %10
+  %50 = getelementptr inbounds [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.02042
+  %51 = getelementptr inbounds [8 x [32 x i8]], ptr %3, i64 0, i64 %.02042
+  call fastcc void @_ZL13blake2s_finalP13blake2s_statePh(ptr noundef %50, ptr noundef nonnull %51)
+  %52 = add nuw nsw i64 %.02042, 1
+  %exitcond.not = icmp eq i64 %52, 8
+  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !10
 
-50:                                               ; preds = %.preheader, %_ZL14blake2s_updateP13blake2s_statePKhm.exit30
-  %.pre.i24 = phi i64 [ %.pre.i24.pre, %.preheader ], [ %.pre.i2449, %_ZL14blake2s_updateP13blake2s_statePKhm.exit30 ]
-  %.039 = phi i64 [ 0, %.preheader ], [ %79, %_ZL14blake2s_updateP13blake2s_statePKhm.exit30 ]
-  %51 = getelementptr inbounds [8 x [32 x i8]], ptr %3, i64 0, i64 %.039
-  br label %52
+.split:                                           ; preds = %.preheader, %.thread.i27
+  %.pre.i24 = phi i64 [ %.pre.i24.pre, %.preheader ], [ %59, %.thread.i27 ]
+  %.049 = phi i64 [ 0, %.preheader ], [ %60, %.thread.i27 ]
+  %53 = getelementptr inbounds [8 x [32 x i8]], ptr %3, i64 0, i64 %.049
+  %54 = sub i64 128, %.pre.i24
+  %55 = icmp ult i64 %54, 32
+  br i1 %55, label %.lr.ph45, label %.thread.i27
 
-52:                                               ; preds = %60, %50
-  %53 = phi i64 [ %.pre.i24, %50 ], [ %77, %60 ]
-  %.033.i25 = phi ptr [ %51, %50 ], [ %.1.i28, %60 ]
-  %.02832.i26 = phi i64 [ 32, %50 ], [ %78, %60 ]
-  %54 = sub i64 128, %53
-  %55 = icmp ugt i64 %.02832.i26, %54
+.thread.i27:                                      ; preds = %.lr.ph45, %.split
+  %.lcssa = phi i64 [ %.pre.i24, %.split ], [ %81, %.lr.ph45 ]
+  %.033.i25.lcssa = phi ptr [ %53, %.split ], [ %.1.i28, %.lr.ph45 ]
+  %.02832.i26.lcssa = phi i64 [ 32, %.split ], [ %82, %.lr.ph45 ]
   %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 %53
-  br i1 %55, label %60, label %.thread.i27
-
-.thread.i27:                                      ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull align 1 dereferenceable(1) %.033.i25, i64 %.02832.i26, i1 false)
+  %57 = getelementptr inbounds i8, ptr %56, i64 %.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull align 1 dereferenceable(1) %.033.i25.lcssa, i64 %.02832.i26.lcssa, i1 false)
   %58 = load i64, ptr %7, align 8
-  %59 = add i64 %58, %.02832.i26
+  %59 = add i64 %58, %.02832.i26.lcssa
   store i64 %59, ptr %7, align 8
-  br label %_ZL14blake2s_updateP13blake2s_statePKhm.exit30
+  %60 = add nuw nsw i64 %.049, 1
+  %exitcond54.not = icmp eq i64 %60, 8
+  br i1 %exitcond54.not, label %85, label %.split, !llvm.loop !11
 
-60:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 1 %.033.i25, i64 %54, i1 false)
-  %61 = load i64, ptr %7, align 8
-  %62 = add i64 %61, %54
-  store i64 %62, ptr %7, align 8
-  %63 = load ptr, ptr %9, align 8
-  %64 = load i32, ptr %63, align 4
-  %65 = add i32 %64, 64
-  store i32 %65, ptr %63, align 4
-  %66 = load ptr, ptr %9, align 8
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp ult i32 %67, 64
-  %69 = zext i1 %68 to i32
-  %70 = getelementptr inbounds i8, ptr %66, i64 4
+.lr.ph45:                                         ; preds = %.split, %.lr.ph45
+  %61 = phi i64 [ %83, %.lr.ph45 ], [ %54, %.split ]
+  %.02832.i2644 = phi i64 [ %82, %.lr.ph45 ], [ 32, %.split ]
+  %.033.i2543 = phi ptr [ %.1.i28, %.lr.ph45 ], [ %53, %.split ]
+  %62 = phi i64 [ %81, %.lr.ph45 ], [ %.pre.i24, %.split ]
+  %63 = load ptr, ptr %8, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 %62
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %.033.i2543, i64 %61, i1 false)
+  %65 = load i64, ptr %7, align 8
+  %66 = add i64 %65, %61
+  store i64 %66, ptr %7, align 8
+  %67 = load ptr, ptr %9, align 8
+  %68 = load i32, ptr %67, align 4
+  %69 = add i32 %68, 64
+  store i32 %69, ptr %67, align 4
+  %70 = load ptr, ptr %9, align 8
   %71 = load i32, ptr %70, align 4
-  %72 = add i32 %71, %69
-  store i32 %72, ptr %70, align 4
-  %73 = load ptr, ptr %8, align 8
-  tail call fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr noundef nonnull %6, ptr noundef %73)
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %74, ptr noundef nonnull align 1 dereferenceable(64) %75, i64 64, i1 false)
-  %76 = load i64, ptr %7, align 8
-  %77 = add i64 %76, -64
-  %78 = sub i64 %.02832.i26, %54
-  store i64 %77, ptr %7, align 8
-  %.1.i28 = getelementptr inbounds i8, ptr %.033.i25, i64 %54
-  %.not.i29 = icmp eq i64 %78, 0
-  br i1 %.not.i29, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit30, label %52, !llvm.loop !7
+  %72 = icmp ult i32 %71, 64
+  %73 = zext i1 %72 to i32
+  %74 = getelementptr inbounds i8, ptr %70, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = add i32 %75, %73
+  store i32 %76, ptr %74, align 4
+  %77 = load ptr, ptr %8, align 8
+  tail call fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr noundef nonnull %6, ptr noundef %77)
+  %78 = load ptr, ptr %8, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %78, ptr noundef nonnull align 1 dereferenceable(64) %79, i64 64, i1 false)
+  %80 = load i64, ptr %7, align 8
+  %81 = add i64 %80, -64
+  %82 = sub nuw i64 %.02832.i2644, %61
+  store i64 %81, ptr %7, align 8
+  %.1.i28 = getelementptr inbounds i8, ptr %.033.i2543, i64 %61
+  %83 = sub i64 192, %80
+  %84 = icmp ugt i64 %82, %83
+  br i1 %84, label %.lr.ph45, label %.thread.i27
 
-_ZL14blake2s_updateP13blake2s_statePKhm.exit30:   ; preds = %60, %.thread.i27
-  %.pre.i2449 = phi i64 [ %59, %.thread.i27 ], [ %77, %60 ]
-  %79 = add nuw nsw i64 %.039, 1
-  %exitcond47.not = icmp eq i64 %79, 8
-  br i1 %exitcond47.not, label %80, label %50, !llvm.loop !12
-
-80:                                               ; preds = %_ZL14blake2s_updateP13blake2s_statePKhm.exit30
+85:                                               ; preds = %.thread.i27
   tail call fastcc void @_ZL13blake2s_finalP13blake2s_statePh(ptr noundef nonnull %6, ptr noundef %1)
   ret void
 }
@@ -604,7 +610,7 @@ _ZL21blake2s_set_lastblockP13blake2s_state.exit:  ; preds = %24, %40
   store i32 %55, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %58, label %52, !llvm.loop !13
+  br i1 %exitcond.not, label %58, label %52, !llvm.loop !12
 
 58:                                               ; preds = %52
   ret void
@@ -889,7 +895,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nocapt
   %243 = tail call i32 @llvm.fshl.i32(i32 %242, i32 %242, i32 25)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.preheader, label %35, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader, label %35, !llvm.loop !13
 
 244:                                              ; preds = %.preheader, %244
   %.076 = phi i64 [ 0, %.preheader ], [ %255, %244 ]
@@ -906,7 +912,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nocapt
   store i32 %254, ptr %246, align 4
   %255 = add nuw nsw i64 %.076, 1
   %exitcond93.not = icmp eq i64 %255, 8
-  br i1 %exitcond93.not, label %256, label %244, !llvm.loop !15
+  br i1 %exitcond93.not, label %256, label %244, !llvm.loop !14
 
 256:                                              ; preds = %244
   ret void
@@ -940,4 +946,3 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

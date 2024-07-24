@@ -560,7 +560,7 @@ define hidden void @"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTak
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h39c075903c244adcE.exit": ; preds = %14
   %24 = getelementptr inbounds i8, ptr %4, i64 %.011.i
-  %25 = sub i64 %6, %.011.i
+  %25 = sub nuw i64 %6, %.011.i
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %24, ptr %26, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16

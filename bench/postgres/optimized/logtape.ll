@@ -1242,7 +1242,7 @@ ltsReadBlock.exit:                                ; preds = %39
   br i1 %62, label %27, label %63, !llvm.loop !14
 
 63:                                               ; preds = %59
-  %64 = sub i64 %61, %1
+  %64 = sub nuw i64 %61, %1
   %65 = trunc i64 %64 to i32
   br label %66
 

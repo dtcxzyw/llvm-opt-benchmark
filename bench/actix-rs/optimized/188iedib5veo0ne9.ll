@@ -7373,7 +7373,7 @@ common.resume:                                    ; preds = %229, %202, %.body.t
           to label %common.resume unwind label %116, !noalias !1139
 
 111:                                              ; preds = %85
-  %112 = sub i64 %94, %86
+  %112 = sub nuw i64 %94, %86
   %113 = getelementptr inbounds i8, ptr %26, i64 8
   %114 = load ptr, ptr %113, align 8, !alias.scope !1143, !noalias !1139, !noundef !21
   %115 = getelementptr inbounds i8, ptr %114, i64 %86
@@ -7493,7 +7493,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit: ; preds = %81, %11
           to label %common.resume unwind label %156, !noalias !1163
 
 151:                                              ; preds = %125
-  %152 = sub i64 %134, %126
+  %152 = sub nuw i64 %134, %126
   %153 = getelementptr inbounds i8, ptr %20, i64 8
   %154 = load ptr, ptr %153, align 8, !alias.scope !1167, !noalias !1163, !noundef !21
   %155 = getelementptr inbounds i8, ptr %154, i64 %126
@@ -7636,7 +7636,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit29: ; preds = %121, 
           to label %.body.thread unwind label %198, !noalias !1186
 
 193:                                              ; preds = %.noexc41
-  %194 = sub i64 %176, %167
+  %194 = sub nuw i64 %176, %167
   %195 = getelementptr inbounds i8, ptr %14, i64 8
   %196 = load ptr, ptr %195, align 8, !alias.scope !1190, !noalias !1186, !noundef !21
   %197 = getelementptr inbounds i8, ptr %196, i64 %167
@@ -7773,7 +7773,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit29: ; preds = %121, 
           to label %common.resume unwind label %242, !noalias !1209
 
 237:                                              ; preds = %211
-  %238 = sub i64 %220, %212
+  %238 = sub nuw i64 %220, %212
   %239 = getelementptr inbounds i8, ptr %8, i64 8
   %240 = load ptr, ptr %239, align 8, !alias.scope !1213, !noalias !1209, !noundef !21
   %241 = getelementptr inbounds i8, ptr %240, i64 %212
@@ -9852,7 +9852,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %common.resume unwind label %158, !noalias !1347
 
 153:                                              ; preds = %126
-  %154 = sub i64 %136, %127
+  %154 = sub nuw i64 %136, %127
   %155 = getelementptr inbounds i8, ptr %16, i64 8
   %156 = load ptr, ptr %155, align 8, !alias.scope !1348, !noalias !1347, !noundef !21
   %157 = getelementptr inbounds i8, ptr %156, i64 %127
@@ -9971,7 +9971,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit: ; preds = %124, %1
           to label %common.resume unwind label %198, !noalias !1371
 
 193:                                              ; preds = %166
-  %194 = sub i64 %176, %167
+  %194 = sub nuw i64 %176, %167
   %195 = getelementptr inbounds i8, ptr %10, i64 8
   %196 = load ptr, ptr %195, align 8, !alias.scope !1372, !noalias !1371, !noundef !21
   %197 = getelementptr inbounds i8, ptr %196, i64 %167
@@ -10936,7 +10936,7 @@ define void @_ZN10actix_http2h210dispatcher16prepare_response17h072919c43fd4f54f
           to label %.body72 unwind label %254, !noalias !1531
 
 249:                                              ; preds = %.noexc41
-  %250 = sub i64 %232, %223
+  %250 = sub nuw i64 %232, %223
   store i64 %250, ptr %231, align 8, !alias.scope !1532, !noalias !1531
   %251 = getelementptr inbounds i8, ptr %21, i64 8
   %252 = load ptr, ptr %251, align 8, !alias.scope !1532, !noalias !1531, !noundef !21

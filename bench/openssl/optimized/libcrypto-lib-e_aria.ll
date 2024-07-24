@@ -352,7 +352,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @CRYPTO_cfb128_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
-  %sub = sub i64 %inl.addr.023, %chunk.124
+  %sub = sub nuw i64 %inl.addr.023, %chunk.124
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.022, i64 %chunk.124
   %add.ptr5 = getelementptr inbounds i8, ptr %out.addr.021, i64 %chunk.124
   %spec.select19 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.124)
@@ -431,7 +431,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %inl, %conv
+  %sub = sub nuw i64 %inl, %conv
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -533,7 +533,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @CRYPTO_cfb128_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
-  %sub = sub i64 %inl.addr.023, %chunk.124
+  %sub = sub nuw i64 %inl.addr.023, %chunk.124
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.022, i64 %chunk.124
   %add.ptr5 = getelementptr inbounds i8, ptr %out.addr.021, i64 %chunk.124
   %spec.select19 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.124)
@@ -604,7 +604,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %inl, %conv
+  %sub = sub nuw i64 %inl, %conv
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -706,7 +706,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @CRYPTO_cfb128_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
-  %sub = sub i64 %inl.addr.023, %chunk.124
+  %sub = sub nuw i64 %inl.addr.023, %chunk.124
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.022, i64 %chunk.124
   %add.ptr5 = getelementptr inbounds i8, ptr %out.addr.021, i64 %chunk.124
   %spec.select19 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.124)
@@ -777,7 +777,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %inl, %conv
+  %sub = sub nuw i64 %inl, %conv
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -823,7 +823,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @CRYPTO_cfb128_1_encrypt(ptr noundef %in.addr.025, ptr noundef %out.addr.024, i64 noundef %cond, ptr noundef %call4, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call5, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call6 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
-  %sub = sub i64 %inl.addr.026, %chunk.127
+  %sub = sub nuw i64 %inl.addr.026, %chunk.127
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.025, i64 %chunk.127
   %add.ptr7 = getelementptr inbounds i8, ptr %out.addr.024, i64 %chunk.127
   %spec.select22 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.127)
@@ -866,7 +866,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @CRYPTO_cfb128_1_encrypt(ptr noundef %in.addr.025, ptr noundef %out.addr.024, i64 noundef %cond, ptr noundef %call4, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call5, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call6 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
-  %sub = sub i64 %inl.addr.026, %chunk.127
+  %sub = sub nuw i64 %inl.addr.026, %chunk.127
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.025, i64 %chunk.127
   %add.ptr7 = getelementptr inbounds i8, ptr %out.addr.024, i64 %chunk.127
   %spec.select22 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.127)
@@ -905,7 +905,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @CRYPTO_cfb128_1_encrypt(ptr noundef %in.addr.025, ptr noundef %out.addr.024, i64 noundef %cond, ptr noundef %call4, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call5, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call6 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
-  %sub = sub i64 %inl.addr.026, %chunk.127
+  %sub = sub nuw i64 %inl.addr.026, %chunk.127
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.025, i64 %chunk.127
   %add.ptr7 = getelementptr inbounds i8, ptr %out.addr.024, i64 %chunk.127
   %spec.select22 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.127)
@@ -940,7 +940,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @CRYPTO_cfb128_8_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
-  %sub = sub i64 %inl.addr.023, %chunk.124
+  %sub = sub nuw i64 %inl.addr.023, %chunk.124
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.022, i64 %chunk.124
   %add.ptr5 = getelementptr inbounds i8, ptr %out.addr.021, i64 %chunk.124
   %spec.select19 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.124)
@@ -977,7 +977,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @CRYPTO_cfb128_8_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
-  %sub = sub i64 %inl.addr.023, %chunk.124
+  %sub = sub nuw i64 %inl.addr.023, %chunk.124
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.022, i64 %chunk.124
   %add.ptr5 = getelementptr inbounds i8, ptr %out.addr.021, i64 %chunk.124
   %spec.select19 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.124)
@@ -1012,7 +1012,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @CRYPTO_cfb128_8_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef %call2, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
   %call4 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
-  %sub = sub i64 %inl.addr.023, %chunk.124
+  %sub = sub nuw i64 %inl.addr.023, %chunk.124
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.022, i64 %chunk.124
   %add.ptr5 = getelementptr inbounds i8, ptr %out.addr.021, i64 %chunk.124
   %spec.select19 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.124)

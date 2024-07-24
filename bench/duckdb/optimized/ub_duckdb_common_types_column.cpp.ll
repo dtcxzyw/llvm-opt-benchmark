@@ -7415,7 +7415,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN6duckdb19UnifiedVectorFormatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %vector_data, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN6duckdb19UnifiedVectorFormatESaIS1_EE6resizeEm.exit
 

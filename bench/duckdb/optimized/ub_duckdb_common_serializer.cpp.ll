@@ -4207,7 +4207,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %size, %call2
+  %sub = sub nuw i64 %size, %call2
   br label %if.end
 
 if.else:                                          ; preds = %entry

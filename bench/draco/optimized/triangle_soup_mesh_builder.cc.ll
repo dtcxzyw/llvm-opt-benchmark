@@ -76,7 +76,7 @@ _ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit
-  %23 = sub nsw i64 %12, %20
+  %23 = sub nuw nsw i64 %12, %20
   call void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr %15, i64 noundef %23, ptr noundef nonnull align 4 dereferenceable(12) %3)
   br label %_ZN5draco4Mesh11SetNumFacesEm.exit
 
@@ -284,7 +284,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder25SetAttributeValuesForFaceEiNS_9
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %47
-  %52 = sub nsw i64 %49, %45
+  %52 = sub nuw nsw i64 %49, %45
   call void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr %40, i64 noundef %52, ptr noundef nonnull align 4 dereferenceable(12) %7)
   %.pre.i = load ptr, ptr %38, align 8
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
@@ -378,7 +378,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder31SetPerFaceAttributeValueForFace
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %45
-  %50 = sub nsw i64 %47, %43
+  %50 = sub nuw nsw i64 %47, %43
   call void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr %38, i64 noundef %50, ptr noundef nonnull align 4 dereferenceable(12) %5)
   %.pre.i = load ptr, ptr %36, align 8
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
@@ -600,7 +600,7 @@ _ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm
   br i1 %.not.i.i.i, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %.preheader.i.i.i, !llvm.loop !9
 
 41:                                               ; preds = %14
-  %42 = sub i64 %2, %17
+  %42 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %42, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

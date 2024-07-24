@@ -205,11 +205,11 @@ define hidden noundef nonnull ptr @_ZN14ZMarkStripeSet17stripe_for_workerEjj(ptr
   br label %21
 
 13:                                               ; preds = %3
-  %14 = sub nsw i64 %9, %8
+  %14 = sub nuw nsw i64 %9, %8
   %15 = uitofp i64 %5 to double
   %16 = uitofp nneg i64 %7 to double
   %17 = fdiv double %15, %16
-  %18 = uitofp i64 %14 to double
+  %18 = uitofp nneg i64 %14 to double
   %19 = fmul double %17, %18
   %20 = fptoui double %19 to i64
   br label %21

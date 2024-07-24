@@ -1096,7 +1096,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 30:                                               ; preds = %26
   %31 = zext i32 %28 to i64
   %32 = getelementptr i8, ptr %3, i64 %31
-  %33 = sub i32 %4, %28
+  %33 = sub nuw i32 %4, %28
   %34 = zext i32 %33 to i64
   %35 = getelementptr [0 x %struct.mirror], ptr %25, i64 0, i64 %27, i32 3
   %36 = load ptr, ptr %35, align 8
@@ -1160,7 +1160,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 75:                                               ; preds = %.loopexit
   %76 = zext i32 %72 to i64
   %77 = getelementptr i8, ptr %3, i64 %76
-  %78 = sub i32 %4, %72
+  %78 = sub nuw i32 %4, %72
   %79 = zext i32 %78 to i64
   %80 = load ptr, ptr %11, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 136
@@ -1194,7 +1194,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 103:                                              ; preds = %97
   %104 = zext i32 %101 to i64
   %105 = getelementptr i8, ptr %3, i64 %104
-  %106 = sub i32 %4, %101
+  %106 = sub nuw i32 %4, %101
   %107 = zext i32 %106 to i64
   %108 = getelementptr inbounds i8, ptr %8, i64 280
   %109 = load i32, ptr %108, align 8
@@ -1223,7 +1223,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 124:                                              ; preds = %119
   %125 = zext i32 %122 to i64
   %126 = getelementptr i8, ptr %3, i64 %125
-  %127 = sub i32 %4, %122
+  %127 = sub nuw i32 %4, %122
   %128 = zext i32 %127 to i64
   %129 = getelementptr [0 x %struct.mirror], ptr %118, i64 0, i64 %121
   %130 = getelementptr inbounds i8, ptr %129, i64 24
@@ -1263,7 +1263,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 154:                                              ; preds = %152
   %155 = zext i32 %143 to i64
   %156 = getelementptr i8, ptr %3, i64 %155
-  %157 = sub i32 %4, %143
+  %157 = sub nuw i32 %4, %143
   %158 = zext i32 %157 to i64
   %159 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %156, i64 noundef %158, ptr noundef nonnull @.str.44, i32 noundef %150) #12
   %.pre30 = load i64, ptr %144, align 8
@@ -1284,7 +1284,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 168:                                              ; preds = %166
   %169 = zext i32 %163 to i64
   %170 = getelementptr i8, ptr %3, i64 %169
-  %171 = sub i32 %4, %163
+  %171 = sub nuw i32 %4, %163
   %172 = zext i32 %171 to i64
   %173 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %170, i64 noundef %172, ptr noundef nonnull @.str.45) #12
   %.pre31.pre = load i64, ptr %144, align 8
@@ -1308,7 +1308,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 184:                                              ; preds = %177
   %185 = zext i32 %179 to i64
   %186 = getelementptr i8, ptr %3, i64 %185
-  %187 = sub i32 %4, %179
+  %187 = sub nuw i32 %4, %179
   %188 = zext i32 %187 to i64
   %189 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %186, i64 noundef %188, ptr noundef nonnull @.str.46) #12
   br label %336
@@ -1340,7 +1340,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 208:                                              ; preds = %205
   %209 = zext i32 %206 to i64
   %210 = getelementptr i8, ptr %3, i64 %209
-  %211 = sub i32 %4, %206
+  %211 = sub nuw i32 %4, %206
   %212 = zext i32 %211 to i64
   %213 = getelementptr inbounds i8, ptr %8, i64 280
   %214 = load i32, ptr %213, align 8
@@ -1368,7 +1368,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 228:                                              ; preds = %224
   %229 = zext i32 %226 to i64
   %230 = getelementptr i8, ptr %3, i64 %229
-  %231 = sub i32 %4, %226
+  %231 = sub nuw i32 %4, %226
   %232 = zext i32 %231 to i64
   %233 = getelementptr [0 x %struct.mirror], ptr %223, i64 0, i64 %225, i32 3
   %234 = load ptr, ptr %233, align 8
@@ -1386,7 +1386,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 242:                                              ; preds = %238
   %243 = zext i32 %240 to i64
   %244 = getelementptr i8, ptr %3, i64 %243
-  %245 = sub i32 %4, %240
+  %245 = sub nuw i32 %4, %240
   %246 = zext i32 %245 to i64
   %247 = getelementptr [0 x %struct.mirror], ptr %223, i64 0, i64 %225
   %248 = getelementptr inbounds i8, ptr %247, i64 8
@@ -1443,7 +1443,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 282:                                              ; preds = %.loopexit23
   %283 = zext i32 %280 to i64
   %284 = getelementptr i8, ptr %3, i64 %283
-  %285 = sub i32 %4, %280
+  %285 = sub nuw i32 %4, %280
   %286 = zext i32 %285 to i64
   %287 = getelementptr inbounds i8, ptr %8, i64 24
   %288 = load i64, ptr %287, align 8
@@ -1462,7 +1462,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 297:                                              ; preds = %293
   %298 = zext i32 %295 to i64
   %299 = getelementptr i8, ptr %3, i64 %298
-  %300 = sub i32 %4, %295
+  %300 = sub nuw i32 %4, %295
   %301 = zext i32 %300 to i64
   %302 = getelementptr inbounds i8, ptr %8, i64 24
   %303 = load i64, ptr %302, align 8
@@ -1481,7 +1481,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 312:                                              ; preds = %308
   %313 = zext i32 %310 to i64
   %314 = getelementptr i8, ptr %3, i64 %313
-  %315 = sub i32 %4, %310
+  %315 = sub nuw i32 %4, %310
   %316 = zext i32 %315 to i64
   %317 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %314, i64 noundef %316, ptr noundef nonnull @.str.53) #12
   br label %318
@@ -1503,7 +1503,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 330:                                              ; preds = %318
   %331 = zext i32 %328 to i64
   %332 = getelementptr i8, ptr %3, i64 %331
-  %333 = sub i32 %4, %328
+  %333 = sub nuw i32 %4, %328
   %334 = zext i32 %333 to i64
   %335 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %332, i64 noundef %334, ptr noundef nonnull @.str.54) #12
   br label %336

@@ -802,7 +802,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cr
   br label %14
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hcc251ce4b38c037dE.exit": ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7ab8591e8fdee786E.llvm.7808069312437652055.exit"
-  %12 = sub i64 %5, %11
+  %12 = sub nuw i64 %5, %11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !36
   store i8 %.sroa.0.0, ptr %3, align 8, !noalias !28
   %.sroa.5.0..sroa_idx5 = getelementptr inbounds i8, ptr %3, i64 1
@@ -860,7 +860,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cranelift_e
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hcc251ce4b38c037dE.exit"
 
 13:                                               ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7ab8591e8fdee786E.llvm.7808069312437652055.exit"
-  %14 = sub i64 %5, %11
+  %14 = sub nuw i64 %5, %11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !52
   store i8 %.sroa.0.0, ptr %3, align 8, !noalias !44
   %.sroa.5.0..sroa_idx5 = getelementptr inbounds i8, ptr %3, i64 1
@@ -915,7 +915,7 @@ define internal fastcc noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cr
   %.sroa.6.0 = select i1 %12, i32 undef, i32 %9
   %.sroa.4.0 = select i1 %12, i32 undef, i32 %.sroa.5.0.i.i
   %.sroa.5.0 = select i1 %12, i32 undef, i32 %7
-  %13 = sub i64 %3, %11
+  %13 = sub nuw i64 %3, %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !67
   store i32 %5, ptr %2, align 4, !noalias !59
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4

@@ -15936,7 +15936,7 @@ if.else:                                          ; preds = %if.then27
   %conv.i.i139 = zext nneg i8 %19 to i64
   %sub.i.i140 = sub nsw i64 23, %conv.i.i139
   %cond.i141 = select i1 %tobool.i.i137, i64 %20, i64 %sub.i.i140
-  %sub63 = sub i64 %sub.ptr.sub5, %sub.ptr.sub32
+  %sub63 = sub nuw i64 %sub.ptr.sub5, %sub.ptr.sub32
   %add64 = add i64 %cond.i141, %sub63
   %add64.fr = freeze i64 %add64
   br i1 %tobool.i.i137, label %.thread, label %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit148

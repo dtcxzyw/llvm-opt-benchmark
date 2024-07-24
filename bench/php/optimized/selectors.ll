@@ -1142,7 +1142,7 @@ lxb_tag_id_by_name.exit:                          ; preds = %10
   br i1 %.not139, label %lxb_selectors_match_class.exit, label %192
 
 192:                                              ; preds = %189
-  %193 = sub i64 %191, %188
+  %193 = sub nuw i64 %191, %188
   %194 = load ptr, ptr %spec.store.select, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 %193
   br i1 %131, label %196, label %198

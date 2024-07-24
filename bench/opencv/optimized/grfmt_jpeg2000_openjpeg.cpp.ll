@@ -1276,7 +1276,7 @@ common.resume:                                    ; preds = %31, %41, %67, %82, 
 
 ._crit_edge:                                      ; preds = %120
   %162 = icmp ugt i32 %.0.i, %92
-  %163 = sub i32 %92, %.0.i
+  %163 = sub nuw i32 %92, %.0.i
   %164 = trunc i32 %163 to i8
   %165 = select i1 %162, i8 0, i8 %164
   %166 = getelementptr inbounds i8, ptr %0, i64 185

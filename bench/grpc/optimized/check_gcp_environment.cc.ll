@@ -70,7 +70,7 @@ while.end15.i:                                    ; preds = %while.body14.i, %la
 
 if.then17.i:                                      ; preds = %while.end15.i, %while.end.i
   %start.0.lcssa24.i = phi i64 [ %start.0.lcssa.i, %while.end15.i ], [ 0, %while.end.i ]
-  %sub18.i = sub i64 %end.0.i, %start.0.lcssa24.i
+  %sub18.i = sub nuw i64 %end.0.i, %start.0.lcssa24.i
   %add.i = add i64 %sub18.i, 2
   %call19.i = tail call ptr @gpr_zalloc(i64 noundef %add.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %start.0.lcssa24.i

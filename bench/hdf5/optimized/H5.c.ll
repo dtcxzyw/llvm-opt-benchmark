@@ -318,7 +318,7 @@ define void @H5_term_library() #0 {
   br i1 %.not51, label %45, label %48
 
 45:                                               ; preds = %.thread
-  %46 = sub i64 %.13860, %.pre-phi
+  %46 = sub nuw nsw i64 %.13860, %.pre-phi
   %47 = getelementptr inbounds i8, ptr %.14158, i64 %.pre-phi
   br label %48
 

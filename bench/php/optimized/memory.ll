@@ -138,7 +138,7 @@ define internal noundef i64 @php_stream_memory_write(ptr nocapture noundef reado
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %.0177, i64 24
   %58 = getelementptr inbounds i8, ptr %57, i64 %12
-  %59 = sub i64 %54, %12
+  %59 = sub nuw i64 %54, %12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %58, i8 0, i64 %59, i1 false)
   br label %81
 
@@ -230,7 +230,7 @@ define internal i64 @php_stream_memory_read(ptr nocapture noundef %0, ptr nounde
 15:                                               ; preds = %3
   %16 = add i64 %7, %2
   %17 = icmp ugt i64 %16, %10
-  %18 = sub i64 %10, %7
+  %18 = sub nuw i64 %10, %7
   %spec.select = select i1 %17, i64 %18, i64 %2
   %.not19 = icmp eq i64 %spec.select, 0
   br i1 %.not19, label %25, label %19

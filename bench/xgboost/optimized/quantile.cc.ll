@@ -4265,7 +4265,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %100 = sub nsw i64 %90, %97
+  %100 = sub nuw nsw i64 %90, %97
   invoke void @_ZNSt6vectorIN7xgboost6common15WQuantileSketchIffEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %100)
           to label %_ZNSt6vectorIN7xgboost6common15WQuantileSketchIffEESaIS3_EE6resizeEm.exit unwind label %78
 
@@ -4393,7 +4393,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit50
-  %149 = sub nsw i64 %139, %146
+  %149 = sub nuw nsw i64 %139, %146
   invoke void @_ZNSt6vectorISt3setIfSt4lessIfESaIfEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %149)
           to label %_ZNSt6vectorISt3setIfSt4lessIfESaIfEESaIS4_EE6resizeEm.exit unwind label %78
 
@@ -5378,7 +5378,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %._crit_edge
-  %140 = sub nsw i64 %130, %137
+  %140 = sub nuw nsw i64 %130, %137
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %132, i64 noundef %140, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit105 unwind label %.loopexit.split-lp211
 
@@ -5827,7 +5827,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %296 = sub i64 %286, %293
+  %296 = sub nuw i64 %286, %293
   invoke void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS4_S6_EEmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %288, i64 noundef %296, ptr noundef nonnull align 4 dereferenceable(16) %20)
           to label %._ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit_crit_edge unwind label %.loopexit.split-lp
 
@@ -5880,7 +5880,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit: ;
   unreachable
 
 318:                                              ; preds = %315
-  %319 = sub i64 %306, %310
+  %319 = sub nuw i64 %306, %310
   br label %320
 
 320:                                              ; preds = %318, %316
@@ -6587,7 +6587,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit68
-  %144 = sub nsw i64 %135, %141
+  %144 = sub nuw nsw i64 %135, %141
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %144)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %87
 
@@ -6622,7 +6622,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %149, %147, %145, %1
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %165 = sub nsw i64 %155, %162
+  %165 = sub nuw nsw i64 %155, %162
   invoke void @_ZNSt6vectorIN7xgboost6common22QuantileSketchTemplateIffNS1_9WQSummaryIffEEE16SummaryContainerESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %165)
           to label %_ZNSt6vectorIN7xgboost6common22QuantileSketchTemplateIffNS1_9WQSummaryIffEEE16SummaryContainerESaIS6_EE6resizeEm.exit unwind label %87
 
@@ -9541,7 +9541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %31
-  %48 = sub nsw i64 %38, %45
+  %48 = sub nuw nsw i64 %38, %45
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr %40, i64 noundef %48, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit unwind label %121
 
@@ -11132,7 +11132,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %100 = sub nsw i64 %90, %97
+  %100 = sub nuw nsw i64 %90, %97
   invoke void @_ZNSt6vectorIN7xgboost6common16WXQuantileSketchIffEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %100)
           to label %_ZNSt6vectorIN7xgboost6common16WXQuantileSketchIffEESaIS3_EE6resizeEm.exit unwind label %78
 
@@ -11260,7 +11260,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit50
-  %149 = sub nsw i64 %139, %146
+  %149 = sub nuw nsw i64 %139, %146
   invoke void @_ZNSt6vectorISt3setIfSt4lessIfESaIfEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %149)
           to label %_ZNSt6vectorISt3setIfSt4lessIfESaIfEESaIS4_EE6resizeEm.exit unwind label %78
 
@@ -12004,7 +12004,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %._crit_edge
-  %140 = sub nsw i64 %130, %137
+  %140 = sub nuw nsw i64 %130, %137
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %132, i64 noundef %140, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit105 unwind label %.loopexit.split-lp211
 
@@ -12453,7 +12453,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %296 = sub i64 %286, %293
+  %296 = sub nuw i64 %286, %293
   invoke void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS4_S6_EEmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %288, i64 noundef %296, ptr noundef nonnull align 4 dereferenceable(16) %20)
           to label %._ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit_crit_edge unwind label %.loopexit.split-lp
 
@@ -12506,7 +12506,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEmRKS4_.exit: ;
   unreachable
 
 318:                                              ; preds = %315
-  %319 = sub i64 %306, %310
+  %319 = sub nuw i64 %306, %310
   br label %320
 
 320:                                              ; preds = %318, %316
@@ -13154,7 +13154,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit68
-  %144 = sub nsw i64 %135, %141
+  %144 = sub nuw nsw i64 %135, %141
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %144)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %87
 
@@ -13189,7 +13189,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %149, %147, %145, %1
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %165 = sub nsw i64 %155, %162
+  %165 = sub nuw nsw i64 %155, %162
   invoke void @_ZNSt6vectorIN7xgboost6common22QuantileSketchTemplateIffNS1_10WXQSummaryIffEEE16SummaryContainerESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %165)
           to label %_ZNSt6vectorIN7xgboost6common22QuantileSketchTemplateIffNS1_10WXQSummaryIffEEE16SummaryContainerESaIS6_EE6resizeEm.exit unwind label %87
 
@@ -15511,7 +15511,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %31
-  %48 = sub nsw i64 %38, %45
+  %48 = sub nuw nsw i64 %38, %45
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr %40, i64 noundef %48, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit unwind label %121
 
@@ -17810,7 +17810,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit.i.i:    ; preds = %.lr.ph79.i.i
   br i1 %188, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i.i.i.i, label %194
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i.i.i.i: ; preds = %_ZNK7xgboost18HostSparsePageViewixEm.exit.i.i
-  %189 = sub nsw i64 %179, %187
+  %189 = sub nuw nsw i64 %179, %187
   invoke void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %180, i64 noundef %189)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
@@ -19887,7 +19887,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -20615,7 +20615,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %5
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %26
-  %36 = sub nsw i64 %25, %33
+  %36 = sub nuw nsw i64 %25, %33
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.067.088, ptr %28, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -22343,7 +22343,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   br i1 %48, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %35
-  %49 = sub i64 %39, %47
+  %49 = sub nuw i64 %39, %47
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %49)
   %50 = load ptr, ptr %41, align 8
   %51 = load ptr, ptr %40, align 8
@@ -22566,7 +22566,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   br i1 %14, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %1
-  %15 = sub i64 %5, %13
+  %15 = sub nuw i64 %5, %13
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %15)
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %6, align 8
@@ -23384,7 +23384,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %12
-  %26 = sub i64 %16, %23
+  %26 = sub nuw i64 %16, %23
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
   %.pre = load ptr, ptr %5, align 8
   %.pre11 = load ptr, ptr %4, align 8
@@ -23416,7 +23416,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit: ; pred
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit
-  %36 = sub i64 %1, %.pre-phi20
+  %36 = sub nuw i64 %1, %.pre-phi20
   call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %33, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %.pre12 = load ptr, ptr %5, align 8
   %.pre13 = load ptr, ptr %4, align 8
@@ -24418,7 +24418,7 @@ _ZSt13move_backwardIPN7xgboost6common9WQSummaryIffEES4_ET0_T_S6_S5_.exit: ; pred
   br i1 %.not.i.i.i, label %_ZSt4fillIPN7xgboost6common9WQSummaryIffEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !307
 
 33:                                               ; preds = %14
-  %34 = sub i64 %2, %17
+  %34 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %34, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -25157,7 +25157,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %5
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %26
-  %36 = sub nsw i64 %25, %33
+  %36 = sub nuw nsw i64 %25, %33
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.067.088, ptr %28, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -27530,7 +27530,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %5
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %26
-  %36 = sub nsw i64 %25, %33
+  %36 = sub nuw nsw i64 %25, %33
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.067.088, ptr %28, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -29185,7 +29185,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %5
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %26
-  %36 = sub nsw i64 %25, %33
+  %36 = sub nuw nsw i64 %25, %33
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.067.088, ptr %28, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -30998,7 +30998,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %5
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %26
-  %36 = sub nsw i64 %25, %33
+  %36 = sub nuw nsw i64 %25, %33
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.067.088, ptr %28, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -32652,7 +32652,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %5
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %26
-  %36 = sub nsw i64 %25, %33
+  %36 = sub nuw nsw i64 %25, %33
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.067.088, ptr %28, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -35568,7 +35568,7 @@ _ZSt13move_backwardIPN7xgboost6common9WQSummaryIffE5EntryES5_ET0_T_S7_S6_.exit: 
   br i1 %.not.i.i.i, label %_ZSt4fillIPN7xgboost6common9WQSummaryIffE5EntryES4_EvT_S6_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !483
 
 33:                                               ; preds = %14
-  %34 = sub i64 %2, %17
+  %34 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %34, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common9WQSummaryIffE5EntryEmS4_S4_ET_S6_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -36909,7 +36909,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %54, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %40
-  %55 = sub nsw i64 %45, %53
+  %55 = sub nuw nsw i64 %45, %53
   invoke void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %46, i64 noundef %55)
           to label %.noexc unwind label %76
 
@@ -37077,7 +37077,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   br i1 %19, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %7
-  %20 = sub i64 %10, %18
+  %20 = sub nuw i64 %10, %18
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %20)
   br label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit.sink.split
 
@@ -37101,7 +37101,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; pr
   br i1 %37, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i17, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i17: ; preds = %21
-  %38 = sub nsw i64 %28, %36
+  %38 = sub nuw nsw i64 %28, %36
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %38)
   br label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit.sink.split
 
@@ -37263,7 +37263,7 @@ _ZN7xgboost6common9WQSummaryIffE5Queue11MakeSummaryEPS2_.exit: ; preds = %.crite
   br i1 %120, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i20, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit22
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i20: ; preds = %110
-  %121 = sub i64 %108, %119
+  %121 = sub nuw i64 %108, %119
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %112, i64 noundef %121)
   %122 = load ptr, ptr %113, align 8
   %123 = load ptr, ptr %112, align 8
@@ -37930,7 +37930,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %125, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %115
-  %126 = sub nsw i64 %50, %124
+  %126 = sub nuw nsw i64 %50, %124
   call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %117, i64 noundef %126)
   %127 = load ptr, ptr %118, align 8
   %128 = load ptr, ptr %117, align 8
@@ -38041,7 +38041,7 @@ _ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit17: ; preds = %_ZNK7x
   unreachable
 
 26:                                               ; preds = %23
-  %27 = sub i64 %22, %19
+  %27 = sub nuw i64 %22, %19
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -38130,7 +38130,7 @@ _ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit22: ; preds = %_ZNK7x
   unreachable
 
 69:                                               ; preds = %66
-  %70 = sub i64 %29, %57
+  %70 = sub nuw i64 %29, %57
   br label %71
 
 71:                                               ; preds = %69, %67
@@ -38168,7 +38168,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   br i1 %15, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %3
-  %16 = sub nsw i64 %6, %14
+  %16 = sub nuw nsw i64 %6, %14
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %16)
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %7, align 8
@@ -38776,7 +38776,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %5
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %26
-  %36 = sub nsw i64 %25, %33
+  %36 = sub nuw nsw i64 %25, %33
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.067.088, ptr %28, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -39947,7 +39947,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -40268,7 +40268,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %43, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContainer7ReserveEm.exitthread-pre-split
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread
-  %44 = sub nsw i64 %34, %42
+  %44 = sub nuw nsw i64 %34, %42
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %44)
   %45 = load ptr, ptr %36, align 8
   %46 = load ptr, ptr %35, align 8
@@ -41137,7 +41137,7 @@ _ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit17: ; preds = %_ZNK7x
   unreachable
 
 26:                                               ; preds = %23
-  %27 = sub i64 %22, %19
+  %27 = sub nuw i64 %22, %19
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -41226,7 +41226,7 @@ _ZNK7xgboost6common4SpanImLm18446744073709551615EEixEm.exit22: ; preds = %_ZNK7x
   unreachable
 
 69:                                               ; preds = %66
-  %70 = sub i64 %29, %57
+  %70 = sub nuw i64 %29, %57
   br label %71
 
 71:                                               ; preds = %69, %67
@@ -42571,7 +42571,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %54, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %40
-  %55 = sub nsw i64 %45, %53
+  %55 = sub nuw nsw i64 %45, %53
   invoke void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %46, i64 noundef %55)
           to label %.noexc unwind label %76
 
@@ -42739,7 +42739,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   br i1 %19, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %7
-  %20 = sub i64 %10, %18
+  %20 = sub nuw i64 %10, %18
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %20)
   br label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit.sink.split
 
@@ -42763,7 +42763,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; pr
   br i1 %37, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i17, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i17: ; preds = %21
-  %38 = sub nsw i64 %28, %36
+  %38 = sub nuw nsw i64 %28, %36
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %38)
   br label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit.sink.split
 
@@ -42925,7 +42925,7 @@ _ZN7xgboost6common9WQSummaryIffE5Queue11MakeSummaryEPS2_.exit: ; preds = %.crite
   br i1 %120, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i20, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit22
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i20: ; preds = %110
-  %121 = sub i64 %108, %119
+  %121 = sub nuw i64 %108, %119
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %112, i64 noundef %121)
   %122 = load ptr, ptr %113, align 8
   %123 = load ptr, ptr %112, align 8
@@ -44216,7 +44216,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %125, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %115
-  %126 = sub nsw i64 %50, %124
+  %126 = sub nuw nsw i64 %50, %124
   call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %117, i64 noundef %126)
   %127 = load ptr, ptr %118, align 8
   %128 = load ptr, ptr %117, align 8
@@ -44297,7 +44297,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   br i1 %15, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %3
-  %16 = sub nsw i64 %6, %14
+  %16 = sub nuw nsw i64 %6, %14
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %16)
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %7, align 8
@@ -44905,7 +44905,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %5
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %26
-  %36 = sub nsw i64 %25, %33
+  %36 = sub nuw nsw i64 %25, %33
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.067.088, ptr %28, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -46086,7 +46086,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   br i1 %48, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %35
-  %49 = sub i64 %39, %47
+  %49 = sub nuw i64 %39, %47
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %49)
   %50 = load ptr, ptr %41, align 8
   %51 = load ptr, ptr %40, align 8
@@ -46225,7 +46225,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   br i1 %14, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exit
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %1
-  %15 = sub i64 %5, %13
+  %15 = sub nuw i64 %5, %13
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %15)
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %6, align 8
@@ -46320,7 +46320,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %12
-  %26 = sub i64 %16, %23
+  %26 = sub nuw i64 %16, %23
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
   %.pre = load ptr, ptr %5, align 8
   %.pre11 = load ptr, ptr %4, align 8
@@ -46352,7 +46352,7 @@ _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit: ; pred
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit
-  %36 = sub i64 %1, %.pre-phi20
+  %36 = sub nuw i64 %1, %.pre-phi20
   call void @_ZNSt6vectorIN7xgboost6common10WXQSummaryIffEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %33, i64 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %.pre12 = load ptr, ptr %5, align 8
   %.pre13 = load ptr, ptr %4, align 8
@@ -46475,7 +46475,7 @@ _ZSt13move_backwardIPN7xgboost6common10WXQSummaryIffEES4_ET0_T_S6_S5_.exit: ; pr
   br i1 %.not.i.i.i, label %_ZSt4fillIPN7xgboost6common10WXQSummaryIffEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !652
 
 33:                                               ; preds = %14
-  %34 = sub i64 %2, %17
+  %34 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %34, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost6common10WXQSummaryIffEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -46823,7 +46823,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %43, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i, label %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQSummaryIffEEE16SummaryContainer7ReserveEm.exitthread-pre-split
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i: ; preds = %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread
-  %44 = sub nsw i64 %34, %42
+  %44 = sub nuw nsw i64 %34, %42
   tail call void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %44)
   %45 = load ptr, ptr %36, align 8
   %46 = load ptr, ptr %35, align 8
@@ -47714,7 +47714,7 @@ _ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE4InitEmd.exit.i
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE4InitEmd.exit.i
-  %78 = sub i64 %68, %75
+  %78 = sub nuw i64 %68, %75
   invoke void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %65, i64 noundef %78)
           to label %"_ZZN7xgboost6common19HostSketchContainerC1EPKNS_7ContextEiNS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbENK3$_0clImEEDaT_.exit" unwind label %84
 

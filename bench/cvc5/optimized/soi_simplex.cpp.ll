@@ -3188,7 +3188,7 @@ for.end:                                          ; preds = %for.body, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
-  %sub.i = sub nsw i64 %conv19, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv19, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %d_qeConflict, i64 noundef %sub.i)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -5835,7 +5835,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %sub.i.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %d_posVector.i, ptr %0, i64 noundef %sub.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i)
   br label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i
 
@@ -5865,7 +5865,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i:          ; preds = %invoke.cont.i.i.i, 
   br i1 %cmp.i7.i, label %if.then.i12.i, label %if.else.i8.i
 
 if.then.i12.i:                                    ; preds = %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i
-  %sub.i13.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i6.i
+  %sub.i13.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i6.i
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %d_image.i, i64 noundef %sub.i13.i)
   br label %_ZN4cvc58internal8DenseMapIjE12increaseSizeEj.exit
 
@@ -6054,7 +6054,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i32, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 
@@ -6211,7 +6211,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %sub.i.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %d_posVector.i, ptr %0, i64 noundef %sub.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i)
   br label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i
 
@@ -6254,7 +6254,7 @@ if.then.i5.i:                                     ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZN4cvc58internal8DenseMapIbE12increaseSizeEj.exit
 
 if.else.i3.i:                                     ; preds = %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i
-  %sub.i4.i = sub nsw i64 %conv.i, %add.i.i.i.i
+  %sub.i4.i = sub nuw nsw i64 %conv.i, %add.i.i.i.i
   call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %d_image.i, ptr %2, i32 %3, i64 noundef %sub.i4.i, i1 noundef zeroext false)
   br label %_ZN4cvc58internal8DenseMapIbE12increaseSizeEj.exit
 

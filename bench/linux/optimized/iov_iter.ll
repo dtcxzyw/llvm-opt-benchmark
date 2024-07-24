@@ -4288,7 +4288,7 @@ define internal fastcc void @iov_iter_iovec_advance(ptr noundef %0, i64 noundef 
   br i1 %26, label %.loopexit, label %27, !prof !11
 
 27:                                               ; preds = %.preheader
-  %28 = sub i64 %23, %25
+  %28 = sub nuw i64 %23, %25
   %29 = getelementptr i8, ptr %22, i64 16
   %30 = icmp ult ptr %29, %20
   br i1 %30, label %.preheader, label %.loopexit, !llvm.loop !71
@@ -4349,7 +4349,7 @@ define internal fastcc void @iov_iter_bvec_advance(ptr nocapture noundef %0, i64
   br i1 %22, label %.loopexit, label %23, !prof !11
 
 23:                                               ; preds = %.preheader
-  %24 = sub i64 %18, %21
+  %24 = sub nuw i64 %18, %21
   %25 = getelementptr i8, ptr %17, i64 16
   %26 = icmp ult ptr %25, %15
   br i1 %26, label %.preheader, label %.loopexit, !llvm.loop !72
@@ -4403,12 +4403,12 @@ define dso_local void @iov_iter_revert(ptr nocapture noundef %0, i64 noundef %1)
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %14
-  %19 = sub i64 %16, %1
+  %19 = sub nuw i64 %16, %1
   store i64 %19, ptr %15, align 8
   br label %54
 
 20:                                               ; preds = %14
-  %21 = sub nsw i64 %1, %16
+  %21 = sub nuw nsw i64 %1, %16
   switch i8 %12, label %39 [
     i8 4, label %22
     i8 0, label %22
@@ -4437,12 +4437,12 @@ define dso_local void @iov_iter_revert(ptr nocapture noundef %0, i64 noundef %1)
   %35 = add i64 %28, 1
   store i64 %35, ptr %25, align 8
   %36 = icmp ugt i64 %29, %34
-  %37 = sub i64 %29, %34
+  %37 = sub nuw i64 %29, %34
   br i1 %36, label %27, label %.thread
 
 .thread:                                          ; preds = %27
   store ptr %31, ptr %8, align 8
-  %38 = sub nsw i64 %34, %29
+  %38 = sub nuw nsw i64 %34, %29
   store i64 %38, ptr %15, align 8
   br label %54
 
@@ -4462,12 +4462,12 @@ define dso_local void @iov_iter_revert(ptr nocapture noundef %0, i64 noundef %1)
   %50 = add i64 %44, 1
   store i64 %50, ptr %41, align 8
   %51 = icmp ugt i64 %45, %49
-  %52 = sub i64 %45, %49
+  %52 = sub nuw i64 %45, %49
   br i1 %51, label %43, label %.thread11
 
 .thread11:                                        ; preds = %43
   store ptr %47, ptr %8, align 8
-  %53 = sub i64 %49, %45
+  %53 = sub nuw i64 %49, %45
   store i64 %53, ptr %15, align 8
   br label %54
 

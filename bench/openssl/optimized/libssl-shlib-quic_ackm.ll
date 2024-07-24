@@ -2492,7 +2492,7 @@ land.lhs.true:                                    ; preds = %ackm_fill_rx_ack_ra
 
 if.then:                                          ; preds = %land.lhs.true
   %delay_time = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %retval.sroa.0.0.i = tail call i64 @llvm.usub.sat.i64(i64 %call, i64 %7)
+  %retval.sroa.0.0.i = sub nuw i64 %call, %7
   store i64 %retval.sroa.0.0.i, ptr %delay_time, align 8
   br label %if.end
 

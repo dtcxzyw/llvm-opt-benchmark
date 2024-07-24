@@ -315,7 +315,7 @@ define hidden void @_ZN10ockam_core7routing5route5Route6create17h06c4bcee506a9cb
   %33 = add i64 %32, %31
   %.not.i.i = icmp ult i64 %33, %30
   %34 = select i1 %.not.i.i, i64 0, i64 %30
-  %.0.i.i = sub i64 %33, %34
+  %.0.i.i = sub nuw i64 %33, %34
   %35 = load ptr, ptr %5, align 8, !alias.scope !30, !noalias !33, !nonnull !10, !noundef !10
   %36 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %35, i64 %.0.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !35

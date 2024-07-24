@@ -571,7 +571,7 @@ define hidden { i64, i64 } @_ZN8lz4_flex5block8compress17compress_internal17h01a
 
 53:                                               ; preds = %35
   %54 = trunc i64 %.0.copyload.i49 to i32
-  %55 = sub nsw i64 %43, %7
+  %55 = sub nuw nsw i64 %43, %7
   %56 = getelementptr inbounds i8, ptr %0, i64 %55
   %.0.copyload = load i32, ptr %56, align 1
   %57 = icmp eq i32 %.0.copyload, %54
@@ -961,7 +961,7 @@ define hidden { i64, i64 } @_ZN8lz4_flex5block8compress17compress_internal17h7b0
   br i1 %54, label %.sink.split, label %36
 
 55:                                               ; preds = %36
-  %56 = sub nsw i64 %45, %7
+  %56 = sub nuw nsw i64 %45, %7
   %57 = getelementptr inbounds i8, ptr %0, i64 %56
   %.0.copyload = load i32, ptr %57, align 1
   %58 = icmp eq i32 %.0.copyload, %.0.copyload.i49

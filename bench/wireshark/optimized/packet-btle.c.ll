@@ -3637,7 +3637,7 @@ proto_item_set_hidden.exit2567:                   ; preds = %1377, %1383, %1386
   br i1 %.not2488, label %1428, label %1426
 
 1426:                                             ; preds = %1423
-  %1427 = sub i32 %1425, %1407
+  %1427 = sub nuw i32 %1425, %1407
   store i32 %1427, ptr %1424, align 4
   br label %1437
 

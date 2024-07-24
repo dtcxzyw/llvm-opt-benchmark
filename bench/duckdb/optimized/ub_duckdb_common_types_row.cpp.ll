@@ -16865,7 +16865,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %sw.bb
   br i1 %cmp, label %if.then.i, label %invoke.cont20
 
 if.then.i:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %sub.i = sub i64 %add, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %add, %sub.ptr.div.i
   invoke void @_ZNSt6vectorIN6duckdb12BufferHandleESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %pinned_handles, i64 noundef %sub.i)
           to label %if.then.i.invoke.cont20_crit_edge unwind label %lpad
 
@@ -20158,7 +20158,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN6duckdb21TupleDataVectorFormatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %vector_data, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN6duckdb21TupleDataVectorFormatESaIS1_EE6resizeEm.exit
 

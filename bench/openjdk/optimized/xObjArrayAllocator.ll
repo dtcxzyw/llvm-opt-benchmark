@@ -224,7 +224,7 @@ _ZN7oopDesc17release_set_klassEPP12HeapWordImplP5Klass.exit: ; preds = %46, %55
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN7oopDesc17release_set_klassEPP12HeapWordImplP5Klass.exit, %.lr.ph.i.preheader.i.i
   %.02225 = phi i64 [ 0, %_ZN7oopDesc17release_set_klassEPP12HeapWordImplP5Klass.exit ], [ %71, %.lr.ph.i.preheader.i.i ]
-  %65 = sub i64 %38, %.02225
+  %65 = sub nuw i64 %38, %.02225
   %66 = call noundef i64 @llvm.umin.i64(i64 %65, i64 8192)
   %67 = load ptr, ptr %3, align 8
   %68 = getelementptr inbounds ptr, ptr %67, i64 %35

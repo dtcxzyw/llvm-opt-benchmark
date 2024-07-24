@@ -1483,13 +1483,13 @@ for.cond10.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.
   br label %for.cond10.preheader.i
 
 for.cond10.preheader.i:                           ; preds = %for.inc110.i, %for.cond10.preheader.lr.ph.i
-  %.pre.i7 = phi i32 [ %.pre.pre.i, %for.cond10.preheader.lr.ph.i ], [ %.pre91.i, %for.inc110.i ]
+  %.pre.i7 = phi i32 [ %.pre.pre.i, %for.cond10.preheader.lr.ph.i ], [ %.pre92.i, %for.inc110.i ]
   %r.071.i = phi i32 [ 0, %for.cond10.preheader.lr.ph.i ], [ %inc111.i, %for.inc110.i ]
   br label %for.cond14.preheader.i
 
 for.cond14.preheader.i:                           ; preds = %for.inc107.i, %for.cond10.preheader.i
-  %.pre93.i = phi i32 [ %.pre.i7, %for.cond10.preheader.i ], [ %.pre91.i, %for.inc107.i ]
-  %15 = phi i32 [ %.pre.i7, %for.cond10.preheader.i ], [ %32, %for.inc107.i ]
+  %.pre94.i = phi i32 [ %.pre.i7, %for.cond10.preheader.i ], [ %.pre92.i, %for.inc107.i ]
+  %15 = phi i32 [ %.pre.i7, %for.cond10.preheader.i ], [ %33, %for.inc107.i ]
   %s.069.i = phi i32 [ 0, %for.cond10.preheader.i ], [ %inc108.i, %for.inc107.i ]
   %cmp1665.not.i = icmp eq i32 %15, 0
   br i1 %cmp1665.not.i, label %for.inc107.i, label %for.body18.lr.ph.i
@@ -1500,28 +1500,27 @@ for.body18.lr.ph.i:                               ; preds = %for.cond14.preheade
 
 for.body18.i:                                     ; preds = %for.inc77.i, %for.body18.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body18.lr.ph.i ], [ %indvars.iv.next.i, %for.inc77.i ]
-  %indvars27 = trunc i64 %indvars.iv.i to i32
+  %indvars25 = trunc i64 %indvars.iv.i to i32
   %16 = load i32, ptr %threads, align 8
   %17 = zext i32 %16 to i64
   %cmp19.not.i = icmp ult i64 %indvars.iv.i, %17
   br i1 %cmp19.not.i, label %if.end39.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %for.body18.i
-  %sub.i = sub i32 %indvars27, %16
-  %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %call.i, i64 %idxprom.i
-  %18 = load ptr, ptr %arrayidx.i, align 8
-  %call23.i = tail call i32 @ossl_crypto_thread_join(ptr noundef %18, ptr noundef null) #9
+  %18 = sub nuw nsw i64 %indvars.iv.i, %17
+  %arrayidx.i = getelementptr inbounds ptr, ptr %call.i, i64 %18
+  %19 = load ptr, ptr %arrayidx.i, align 8
+  %call23.i = tail call i32 @ossl_crypto_thread_join(ptr noundef %19, ptr noundef null) #9
   %cmp24.i = icmp eq i32 %call23.i, 0
   br i1 %cmp24.i, label %fail.i, label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then21.i
-  %19 = load i32, ptr %threads, align 8
-  %sub29.i = sub i32 %indvars27, %19
+  %20 = load i32, ptr %threads, align 8
+  %sub29.i = sub i32 %indvars25, %20
   %idxprom30.i = zext i32 %sub29.i to i64
   %arrayidx31.i = getelementptr inbounds ptr, ptr %call.i, i64 %idxprom30.i
-  %20 = load ptr, ptr %arrayidx31.i, align 8
-  %call32.i = tail call i32 @ossl_crypto_thread_clean(ptr noundef %20) #9
+  %21 = load ptr, ptr %arrayidx31.i, align 8
+  %call32.i = tail call i32 @ossl_crypto_thread_clean(ptr noundef %21) #9
   %cmp33.i = icmp eq i32 %call32.i, 0
   br i1 %cmp33.i, label %fail.i, label %if.end36.i
 
@@ -1530,98 +1529,102 @@ if.end36.i:                                       ; preds = %if.end27.i
   store ptr null, ptr %arrayidx38.i, align 8
   br label %if.end39.i
 
-if.end39.i:                                       ; preds = %if.end36.i, %for.body18.i
+if.end39.i:                                       ; preds = %for.body18.i, %if.end36.i
   %arrayidx42.i = getelementptr inbounds %struct.ARGON2_THREAD_DATA, ptr %call4.i, i64 %indvars.iv.i
   %ctx43.i = getelementptr inbounds i8, ptr %arrayidx42.i, i64 16
   store ptr %ctx, ptr %ctx43.i, align 8
   store i32 %r.071.i, ptr %arrayidx42.i, align 8
   %p.sroa.2.0.pos.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx42.i, i64 4
-  store i32 %indvars27, ptr %p.sroa.2.0.pos.sroa_idx.i, align 4
+  store i32 %indvars25, ptr %p.sroa.2.0.pos.sroa_idx.i, align 4
   %p.sroa.3.0.pos.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx42.i, i64 8
   store i8 %conv40.i, ptr %p.sroa.3.0.pos.sroa_idx.i, align 8
   %p.sroa.41.0.pos.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx42.i, i64 12
   store i32 0, ptr %p.sroa.41.0.pos.sroa_idx.i, align 4
-  %21 = load ptr, ptr %libctx.i, align 8
-  %call48.i = tail call ptr @ossl_crypto_thread_start(ptr noundef %21, ptr noundef nonnull @fill_segment_thr, ptr noundef nonnull %arrayidx42.i) #9
+  %22 = load ptr, ptr %libctx.i, align 8
+  %call48.i = tail call ptr @ossl_crypto_thread_start(ptr noundef %22, ptr noundef nonnull @fill_segment_thr, ptr noundef nonnull %arrayidx42.i) #9
   %arrayidx50.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv.i
   store ptr %call48.i, ptr %arrayidx50.i, align 8
   %cmp53.i = icmp eq ptr %call48.i, null
   br i1 %cmp53.i, label %for.cond56.preheader.i, label %for.inc77.i
 
 for.cond56.preheader.i:                           ; preds = %if.end39.i
-  %cmp5772.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp5772.not.i, label %if.then115.i, label %for.body59.i
+  %cmp5772.not.i = icmp eq i32 %indvars25, 0
+  br i1 %cmp5772.not.i, label %if.then115.i, label %for.body59.preheader.i
 
-for.body59.i:                                     ; preds = %for.cond56.preheader.i, %if.end73.i
-  %indvars.iv83.i = phi i64 [ %indvars.iv.next84.i, %if.end73.i ], [ 0, %for.cond56.preheader.i ]
-  %arrayidx61.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv83.i
-  %22 = load ptr, ptr %arrayidx61.i, align 8
-  %call62.i = tail call i32 @ossl_crypto_thread_join(ptr noundef %22, ptr noundef null) #9
+for.body59.preheader.i:                           ; preds = %for.cond56.preheader.i
+  %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
+  br label %for.body59.i
+
+for.body59.i:                                     ; preds = %if.end73.i, %for.body59.preheader.i
+  %indvars.iv84.i = phi i64 [ 0, %for.body59.preheader.i ], [ %indvars.iv.next85.i, %if.end73.i ]
+  %arrayidx61.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv84.i
+  %23 = load ptr, ptr %arrayidx61.i, align 8
+  %call62.i = tail call i32 @ossl_crypto_thread_join(ptr noundef %23, ptr noundef null) #9
   %cmp63.i = icmp eq i32 %call62.i, 0
   br i1 %cmp63.i, label %fail.i, label %if.end66.i
 
 if.end66.i:                                       ; preds = %for.body59.i
-  %23 = load ptr, ptr %arrayidx61.i, align 8
-  %call69.i = tail call i32 @ossl_crypto_thread_clean(ptr noundef %23) #9
+  %24 = load ptr, ptr %arrayidx61.i, align 8
+  %call69.i = tail call i32 @ossl_crypto_thread_clean(ptr noundef %24) #9
   %cmp70.i = icmp eq i32 %call69.i, 0
   br i1 %cmp70.i, label %fail.i, label %if.end73.i
 
 if.end73.i:                                       ; preds = %if.end66.i
   store ptr null, ptr %arrayidx61.i, align 8
-  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
-  %exitcond90.not.i = icmp eq i64 %indvars.iv.next84.i, %indvars.iv.i
-  br i1 %exitcond90.not.i, label %fail.i, label %for.body59.i, !llvm.loop !12
+  %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
+  %exitcond91.not.i = icmp eq i64 %indvars.iv.next85.i, %wide.trip.count.i
+  br i1 %exitcond91.not.i, label %fail.i, label %for.body59.i, !llvm.loop !12
 
 for.inc77.i:                                      ; preds = %if.end39.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %24 = load i32, ptr %lanes.i3, align 4
-  %25 = zext i32 %24 to i64
-  %cmp16.i = icmp ult i64 %indvars.iv.next.i, %25
+  %25 = load i32, ptr %lanes.i3, align 4
+  %26 = zext i32 %25 to i64
+  %cmp16.i = icmp ult i64 %indvars.iv.next.i, %26
   br i1 %cmp16.i, label %for.body18.i, label %for.end79.i, !llvm.loop !13
 
 for.end79.i:                                      ; preds = %for.inc77.i
-  %26 = load i32, ptr %threads, align 8
-  %sub82.i = sub i32 %24, %26
-  %cmp8567.i = icmp ult i32 %sub82.i, %24
+  %27 = load i32, ptr %threads, align 8
+  %sub82.i = sub i32 %25, %27
+  %cmp8567.i = icmp ult i32 %sub82.i, %25
   br i1 %cmp8567.i, label %for.body87.preheader.i, label %for.inc107.i
 
 for.body87.preheader.i:                           ; preds = %for.end79.i
-  %27 = zext i32 %sub82.i to i64
+  %28 = zext i32 %sub82.i to i64
   br label %for.body87.i
 
 for.body87.i:                                     ; preds = %if.end101.i, %for.body87.preheader.i
-  %indvars.iv80.i = phi i64 [ %27, %for.body87.preheader.i ], [ %indvars.iv.next81.i, %if.end101.i ]
-  %arrayidx89.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv80.i
-  %28 = load ptr, ptr %arrayidx89.i, align 8
-  %call90.i = tail call i32 @ossl_crypto_thread_join(ptr noundef %28, ptr noundef null) #9
+  %indvars.iv81.i = phi i64 [ %28, %for.body87.preheader.i ], [ %indvars.iv.next82.i, %if.end101.i ]
+  %arrayidx89.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv81.i
+  %29 = load ptr, ptr %arrayidx89.i, align 8
+  %call90.i = tail call i32 @ossl_crypto_thread_join(ptr noundef %29, ptr noundef null) #9
   %cmp91.i = icmp eq i32 %call90.i, 0
   br i1 %cmp91.i, label %fail.i, label %if.end94.i
 
 if.end94.i:                                       ; preds = %for.body87.i
-  %29 = load ptr, ptr %arrayidx89.i, align 8
-  %call97.i = tail call i32 @ossl_crypto_thread_clean(ptr noundef %29) #9
+  %30 = load ptr, ptr %arrayidx89.i, align 8
+  %call97.i = tail call i32 @ossl_crypto_thread_clean(ptr noundef %30) #9
   %cmp98.i = icmp eq i32 %call97.i, 0
   br i1 %cmp98.i, label %fail.i, label %if.end101.i
 
 if.end101.i:                                      ; preds = %if.end94.i
   store ptr null, ptr %arrayidx89.i, align 8
-  %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
-  %30 = load i32, ptr %lanes.i3, align 4
-  %31 = zext i32 %30 to i64
-  %cmp85.i = icmp ult i64 %indvars.iv.next81.i, %31
+  %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
+  %31 = load i32, ptr %lanes.i3, align 4
+  %32 = zext i32 %31 to i64
+  %cmp85.i = icmp ult i64 %indvars.iv.next82.i, %32
   br i1 %cmp85.i, label %for.body87.i, label %for.inc107.i, !llvm.loop !14
 
 for.inc107.i:                                     ; preds = %if.end101.i, %for.end79.i, %for.cond14.preheader.i
-  %.pre91.i = phi i32 [ %24, %for.end79.i ], [ %.pre93.i, %for.cond14.preheader.i ], [ %30, %if.end101.i ]
-  %32 = phi i32 [ %24, %for.end79.i ], [ 0, %for.cond14.preheader.i ], [ %30, %if.end101.i ]
+  %.pre92.i = phi i32 [ %25, %for.end79.i ], [ %.pre94.i, %for.cond14.preheader.i ], [ %31, %if.end101.i ]
+  %33 = phi i32 [ %25, %for.end79.i ], [ 0, %for.cond14.preheader.i ], [ %31, %if.end101.i ]
   %inc108.i = add nuw nsw i32 %s.069.i, 1
   %exitcond.not.i8 = icmp eq i32 %inc108.i, 4
   br i1 %exitcond.not.i8, label %for.inc110.i, label %for.cond14.preheader.i, !llvm.loop !15
 
 for.inc110.i:                                     ; preds = %for.inc107.i
   %inc111.i = add nuw i32 %r.071.i, 1
-  %33 = load i32, ptr %passes.i6, align 8
-  %cmp8.i = icmp ult i32 %inc111.i, %33
+  %34 = load i32, ptr %passes.i6, align 8
+  %cmp8.i = icmp ult i32 %inc111.i, %34
   br i1 %cmp8.i, label %for.cond10.preheader.i, label %for.end112.i, !llvm.loop !16
 
 for.end112.i:                                     ; preds = %for.inc110.i, %for.cond.preheader.i

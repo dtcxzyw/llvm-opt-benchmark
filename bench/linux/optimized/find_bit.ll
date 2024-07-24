@@ -216,7 +216,7 @@ define dso_local i64 @__find_nth_bit(ptr nocapture noundef readonly %0, i64 noun
   br i1 %16, label %.loopexit8, label %17
 
 17:                                               ; preds = %12
-  %18 = sub i64 %7, %15
+  %18 = sub nuw i64 %7, %15
   %19 = add i64 %6, 1
   %20 = shl i64 %19, 6
   %21 = icmp ugt i64 %20, %1
@@ -306,7 +306,7 @@ define dso_local i64 @__find_nth_and_bit(ptr nocapture noundef readonly %0, ptr 
   br i1 %20, label %.loopexit8, label %21
 
 21:                                               ; preds = %13
-  %22 = sub i64 %8, %19
+  %22 = sub nuw i64 %8, %19
   %23 = add i64 %7, 1
   %24 = shl i64 %23, 6
   %25 = icmp ugt i64 %24, %2
@@ -400,7 +400,7 @@ define dso_local i64 @__find_nth_andnot_bit(ptr nocapture noundef readonly %0, p
   br i1 %21, label %.loopexit8, label %22
 
 22:                                               ; preds = %13
-  %23 = sub i64 %8, %20
+  %23 = sub nuw i64 %8, %20
   %24 = add i64 %7, 1
   %25 = shl i64 %24, 6
   %26 = icmp ugt i64 %25, %2
@@ -498,7 +498,7 @@ define dso_local i64 @__find_nth_and_andnot_bit(ptr nocapture noundef readonly %
   br i1 %25, label %.loopexit8, label %26
 
 26:                                               ; preds = %14
-  %27 = sub i64 %9, %24
+  %27 = sub nuw i64 %9, %24
   %28 = add i64 %8, 1
   %29 = shl i64 %28, 6
   %30 = icmp ugt i64 %29, %3

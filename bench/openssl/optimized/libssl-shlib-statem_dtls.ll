@@ -138,7 +138,7 @@ if.end48:                                         ; preds = %if.end40, %if.else,
   %15 = load ptr, ptr %d1, align 8
   %mtu54 = getelementptr inbounds i8, ptr %15, i64 304
   %16 = load i64, ptr %mtu54, align 8
-  %sub60 = sub i64 %16, %add52
+  %sub60 = sub nuw i64 %16, %add52
   %curr_mtu.0 = call i64 @llvm.usub.sat.i64(i64 %16, i64 %add52)
   %cmp63 = icmp ult i64 %curr_mtu.0, 13
   br i1 %cmp63, label %if.then65, label %if.end85

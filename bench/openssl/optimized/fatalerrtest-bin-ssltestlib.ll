@@ -699,8 +699,8 @@ if.then53:                                        ; preds = %land.lhs.true50
 if.then56:                                        ; preds = %if.then53
   %idx.ext = zext nneg i32 %add to i64
   %add.ptr = getelementptr inbounds i8, ptr %rec.055, i64 %idx.ext
-  %sub57 = sub nsw i32 %rem.056, %add
-  %conv58 = zext i32 %sub57 to i64
+  %sub57 = sub nuw nsw i32 %rem.056, %add
+  %conv58 = zext nneg i32 %sub57 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %rec.055, ptr nonnull align 1 %add.ptr, i64 %conv58, i1 false)
   br label %if.end59
 

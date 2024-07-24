@@ -1027,7 +1027,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit.i: ; preds = %51
   %161 = getelementptr inbounds i8, ptr %147, i64 %152
   %162 = load i8, ptr %161, align 1, !alias.scope !154, !noalias !159, !noundef !9
   %163 = icmp sgt i8 %162, -65
-  %164 = sub i64 %149, %152
+  %164 = sub nuw i64 %149, %152
   br i1 %163, label %166, label %165
 
 165:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %158

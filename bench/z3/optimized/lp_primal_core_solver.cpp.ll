@@ -6812,7 +6812,7 @@ _ZNKSt7__cxx114listIjSaIjEE13_M_resize_posERm.exit: ; preds = %entry
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNKSt7__cxx114listIjSaIjEE13_M_resize_posERm.exit
-  %sub14.i = sub i64 %__new_size, %0
+  %sub14.i = sub nuw i64 %__new_size, %0
   tail call void @_ZNSt7__cxx114listIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub14.i)
   br label %if.end
 

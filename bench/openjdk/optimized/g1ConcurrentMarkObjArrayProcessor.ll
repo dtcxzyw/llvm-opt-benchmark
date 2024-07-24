@@ -699,8 +699,8 @@ define hidden noundef i64 @_ZN21G1CMObjArrayProcessor13process_sliceEPP12HeapWor
 .lr.ph.i.i.i:                                     ; preds = %27, %.lr.ph.i.i.i
   %40 = phi i32 [ %45, %.lr.ph.i.i.i ], [ %39, %27 ]
   %.014.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i ], [ %37, %27 ]
-  %41 = sub nsw i32 %40, %38
-  %42 = shl nsw i32 %41, 2
+  %41 = sub nuw nsw i32 %40, %38
+  %42 = shl nuw nsw i32 %41, 2
   %43 = zext nneg i32 %42 to i64
   %.neg.i.i.i = shl nsw i64 -1, %43
   %44 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 %.neg.i.i.i

@@ -2102,7 +2102,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$9ends_with
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !alias.scope !524, !noalias !527, !nonnull !4, !noundef !4
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %7, ptr nonnull readonly %9, i64 %5), !alias.scope !529, !noalias !524
   %10 = icmp eq i32 %bcmp.i.i.i, 0
@@ -2423,7 +2423,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$RF$alloc..string..String$u20$as$u2
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %8 = sub i64 %2, %5
+  %8 = sub nuw i64 %2, %5
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %7, ptr nonnull readonly %9, i64 %5), !alias.scope !680
   %10 = icmp eq i32 %bcmp.i.i, 0

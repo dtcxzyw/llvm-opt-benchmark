@@ -1379,7 +1379,7 @@ define range(i32 -2, 1) i32 @mca_fcoll_dynamic_gen2_break_file_view(ptr nocaptur
   %64 = mul nsw i64 %63, %53
   %65 = sub nsw i64 %64, %.0237
   %.not = icmp ult i64 %.0248, %65
-  %66 = sub i64 %.0248, %65
+  %66 = sub nuw i64 %.0248, %65
   %.0244 = tail call i64 @llvm.umin.i64(i64 %.0248, i64 %65)
   %.0236 = select i1 %.not, i64 0, i64 %64
   %67 = inttoptr i64 %.0237 to ptr
@@ -1416,7 +1416,7 @@ define range(i32 -2, 1) i32 @mca_fcoll_dynamic_gen2_break_file_view(ptr nocaptur
 86:                                               ; preds = %79
   store i64 %.1245, ptr %85, align 8
   %87 = add i64 %.3, %.1245
-  %88 = sub i64 %.3241, %.1245
+  %88 = sub nuw i64 %.3241, %.1245
   %89 = icmp eq i64 %88, 0
   br i1 %89, label %90, label %104
 

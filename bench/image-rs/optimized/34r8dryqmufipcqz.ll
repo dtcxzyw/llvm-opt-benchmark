@@ -2666,7 +2666,7 @@ define hidden void @"_ZN152_$LT$exr..image..write..channels..SpecificChannelsWri
   %.sroa.791.0379 = phi i64 [ %76, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.exit.i.lr.ph" ], [ %119, %"_ZN240_$LT$exr..image..recursive..Recursive$LT$Inner$C$exr..image..write..channels..SampleWriter$LT$Sample$GT$$GT$$u20$as$u20$exr..image..write..channels..RecursivePixelWriter$LT$exr..image..recursive..Recursive$LT$InnerPixel$C$Sample$GT$$GT$$GT$12write_pixels17hc2280f5209913be5E.exit" ]
   %.sroa.490.0378 = phi ptr [ %64, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.exit.i.lr.ph" ], [ %118, %"_ZN240_$LT$exr..image..recursive..Recursive$LT$Inner$C$exr..image..write..channels..SampleWriter$LT$Sample$GT$$GT$$u20$as$u20$exr..image..write..channels..RecursivePixelWriter$LT$exr..image..recursive..Recursive$LT$InnerPixel$C$Sample$GT$$GT$$GT$12write_pixels17hc2280f5209913be5E.exit" ]
   %118 = getelementptr inbounds i8, ptr %.sroa.490.0378, i64 %67
-  %119 = sub i64 %.sroa.791.0379, %67
+  %119 = sub nuw i64 %.sroa.791.0379, %67
   %120 = icmp eq ptr %.sroa.490.0378, null
   br i1 %120, label %.noexc25, label %127
 
@@ -3867,7 +3867,7 @@ define hidden void @"_ZN152_$LT$exr..image..write..channels..SpecificChannelsWri
   %.sroa.7109.0542 = phi i64 [ %89, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.exit.i.lr.ph" ], [ %141, %"_ZN240_$LT$exr..image..recursive..Recursive$LT$Inner$C$exr..image..write..channels..SampleWriter$LT$Sample$GT$$GT$$u20$as$u20$exr..image..write..channels..RecursivePixelWriter$LT$exr..image..recursive..Recursive$LT$InnerPixel$C$Sample$GT$$GT$$GT$12write_pixels17hbfbea7d28591c155E.exit" ]
   %.sroa.4108.0541 = phi ptr [ %77, %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6257def3ddbaff24E.exit.i.lr.ph" ], [ %140, %"_ZN240_$LT$exr..image..recursive..Recursive$LT$Inner$C$exr..image..write..channels..SampleWriter$LT$Sample$GT$$GT$$u20$as$u20$exr..image..write..channels..RecursivePixelWriter$LT$exr..image..recursive..Recursive$LT$InnerPixel$C$Sample$GT$$GT$$GT$12write_pixels17hbfbea7d28591c155E.exit" ]
   %140 = getelementptr inbounds i8, ptr %.sroa.4108.0541, i64 %80
-  %141 = sub i64 %.sroa.7109.0542, %80
+  %141 = sub nuw i64 %.sroa.7109.0542, %80
   %142 = icmp eq ptr %.sroa.4108.0541, null
   br i1 %142, label %.noexc25, label %149
 
@@ -6902,7 +6902,7 @@ define hidden void @"_ZN170_$LT$exr..image..read..specific_channels..SpecificCha
   %.sroa.5221.0588 = phi i64 [ %130, %.lr.ph590 ], [ %189, %.loopexit ]
   %.sroa.0.0587 = phi ptr [ %133, %.lr.ph590 ], [ %188, %.loopexit ]
   %188 = getelementptr inbounds i8, ptr %.sroa.0.0587, i64 %120
-  %189 = sub i64 %.sroa.5221.0588, %120
+  %189 = sub nuw i64 %.sroa.5221.0588, %120
   %190 = add i64 %.sroa.12.0589, 1
   %191 = load ptr, ptr %134, align 8, !nonnull !19, !noundef !19
   %192 = load i64, ptr %135, align 8, !noundef !19
@@ -10200,7 +10200,7 @@ define hidden void @"_ZN170_$LT$exr..image..read..specific_channels..SpecificCha
   %.sroa.5221.0588 = phi i64 [ %130, %.lr.ph590 ], [ %189, %.loopexit ]
   %.sroa.0.0587 = phi ptr [ %133, %.lr.ph590 ], [ %188, %.loopexit ]
   %188 = getelementptr inbounds i8, ptr %.sroa.0.0587, i64 %120
-  %189 = sub i64 %.sroa.5221.0588, %120
+  %189 = sub nuw i64 %.sroa.5221.0588, %120
   %190 = add i64 %.sroa.12.0589, 1
   %191 = load ptr, ptr %134, align 8, !nonnull !19, !noundef !19
   %192 = load i64, ptr %135, align 8, !noundef !19

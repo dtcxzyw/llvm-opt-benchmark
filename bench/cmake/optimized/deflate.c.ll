@@ -938,7 +938,7 @@ read_buf.exit:                                    ; preds = %75, %100
   br i1 %185, label %186, label %194
 
 186:                                              ; preds = %183
-  %187 = sub nsw i64 %184, %168
+  %187 = sub nuw nsw i64 %184, %168
   %188 = sub i64 %169, %168
   %spec.select = tail call i64 @llvm.umin.i64(i64 %187, i64 %188)
   %189 = load ptr, ptr %8, align 8
@@ -2188,7 +2188,7 @@ thread-pre-split426:                              ; preds = %222
   %396 = load i64, ptr %370, align 8
   %397 = load ptr, ptr %369, align 8
   %398 = getelementptr inbounds i8, ptr %397, i64 %379
-  %399 = sub i64 %390, %379
+  %399 = sub nuw i64 %390, %379
   %400 = trunc i64 %399 to i32
   %401 = tail call i64 @cm_zlib_crc32(i64 noundef %396, ptr noundef %398, i32 noundef %400) #10
   store i64 %401, ptr %370, align 8
@@ -2280,7 +2280,7 @@ flush_pending.exit414:                            ; preds = %402, %411, %427
   %446 = load i64, ptr %445, align 8
   %447 = load ptr, ptr %434, align 8
   %448 = getelementptr inbounds i8, ptr %447, i64 %.0355.lcssa
-  %449 = sub i64 %439, %.0355.lcssa
+  %449 = sub nuw i64 %439, %.0355.lcssa
   %450 = trunc i64 %449 to i32
   %451 = tail call i64 @cm_zlib_crc32(i64 noundef %446, ptr noundef %448, i32 noundef %450) #10
   store i64 %451, ptr %445, align 8
@@ -2331,7 +2331,7 @@ flush_pending.exit414:                            ; preds = %402, %411, %427
   %474 = load i64, ptr %461, align 8
   %475 = load ptr, ptr %462, align 8
   %476 = getelementptr inbounds i8, ptr %475, i64 %.0353
-  %477 = sub i64 %466, %.0353
+  %477 = sub nuw i64 %466, %.0353
   %478 = trunc i64 %477 to i32
   %479 = tail call i64 @cm_zlib_crc32(i64 noundef %474, ptr noundef %476, i32 noundef %478) #10
   store i64 %479, ptr %461, align 8
@@ -2426,7 +2426,7 @@ flush_pending.exit416._crit_edge:                 ; preds = %flush_pending.exit4
   %528 = load i64, ptr %461, align 8
   %529 = load ptr, ptr %462, align 8
   %530 = getelementptr inbounds i8, ptr %529, i64 %.1354
-  %531 = sub i64 %525, %.1354
+  %531 = sub nuw i64 %525, %.1354
   %532 = trunc i64 %531 to i32
   %533 = tail call i64 @cm_zlib_crc32(i64 noundef %528, ptr noundef %530, i32 noundef %532) #10
   store i64 %533, ptr %461, align 8
@@ -2477,7 +2477,7 @@ flush_pending.exit416._crit_edge:                 ; preds = %flush_pending.exit4
   %556 = load i64, ptr %543, align 8
   %557 = load ptr, ptr %544, align 8
   %558 = getelementptr inbounds i8, ptr %557, i64 %.0351
-  %559 = sub i64 %548, %.0351
+  %559 = sub nuw i64 %548, %.0351
   %560 = trunc i64 %559 to i32
   %561 = tail call i64 @cm_zlib_crc32(i64 noundef %556, ptr noundef %558, i32 noundef %560) #10
   store i64 %561, ptr %543, align 8
@@ -2572,7 +2572,7 @@ flush_pending.exit418._crit_edge:                 ; preds = %flush_pending.exit4
   %610 = load i64, ptr %543, align 8
   %611 = load ptr, ptr %544, align 8
   %612 = getelementptr inbounds i8, ptr %611, i64 %.1
-  %613 = sub i64 %607, %.1
+  %613 = sub nuw i64 %607, %.1
   %614 = trunc i64 %613 to i32
   %615 = tail call i64 @cm_zlib_crc32(i64 noundef %610, ptr noundef %612, i32 noundef %614) #10
   store i64 %615, ptr %543, align 8
@@ -3284,7 +3284,7 @@ define internal range(i32 0, 4) i32 @deflate_stored(ptr noundef %0, i32 noundef 
   br i1 %28, label %split, label %29
 
 29:                                               ; preds = %21
-  %30 = sub i32 %27, %24
+  %30 = sub nuw i32 %27, %24
   %31 = load i32, ptr %14, align 4
   %32 = load i64, ptr %15, align 8
   %33 = trunc i64 %32 to i32

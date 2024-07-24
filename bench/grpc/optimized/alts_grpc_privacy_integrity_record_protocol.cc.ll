@@ -169,7 +169,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %sub10 = sub i64 %0, %add
+  %sub10 = sub nuw i64 %0, %add
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %unprotected_slice, i64 noundef %sub10)
   %3 = load ptr, ptr %unprotected_slice, align 8
   %tobool.not = icmp eq ptr %3, null

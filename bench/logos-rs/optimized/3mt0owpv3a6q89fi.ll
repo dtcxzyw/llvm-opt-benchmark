@@ -3639,7 +3639,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17he9897f5104ec52bfE"(ptr al
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %15, i64 4
-  %21 = sub i64 %5, %1
+  %21 = sub nuw i64 %5, %1
   %22 = shl i64 %21, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %20, ptr align 4 %15, i64 %22, i1 false)
   br label %17

@@ -1334,7 +1334,7 @@ if.then381:                                       ; preds = %land.lhs.true373
   %add.ptr = getelementptr inbounds i8, ptr %66, i64 %idx.ext
   %add384 = add i32 %sub377, %spec.select
   %cmp387 = icmp ugt i32 %add384, %68
-  %sub391 = sub i32 %68, %sub377
+  %sub391 = sub nuw i32 %68, %sub377
   %cond392 = select i1 %cmp387, i32 %sub391, i32 %spec.select
   %conv393 = zext i32 %cond392 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %next.10, i64 %conv393, i1 false)
@@ -2228,7 +2228,7 @@ do.body1050:                                      ; preds = %do.body1050.loopexi
   %bits.31.lcssa = phi i32 [ %bits.30.lcssa, %while.cond1026.preheader ], [ %146, %do.body1050.loopexit ]
   %sh_prom1053 = zext nneg i8 %here.sroa.16.0.copyload.lcssa to i64
   %shr1054 = lshr i64 %hold.31.lcssa, %sh_prom1053
-  %sub1057 = sub i32 %bits.31.lcssa, %conv980.lcssa1541
+  %sub1057 = sub nuw i32 %bits.31.lcssa, %conv980.lcssa1541
   %cmp1061 = icmp eq i32 %inc11941589.lcssa15931597, 0
   br i1 %cmp1061, label %if.then1063, label %if.end1066
 
@@ -2590,7 +2590,7 @@ do.body1371:                                      ; preds = %do.body1371.loopexi
   %here.sroa.0.0.copyload53 = load i8, ptr %arrayidx1346.lcssa, align 2
   %sh_prom1374 = zext nneg i8 %here.sroa.16.0.copyload56.lcssa to i64
   %shr1375 = lshr i64 %hold.40.lcssa, %sh_prom1374
-  %sub1378 = sub i32 %bits.40.lcssa, %conv1299.lcssa
+  %sub1378 = sub nuw i32 %bits.40.lcssa, %conv1299.lcssa
   br label %do.body1386
 
 do.body1386:                                      ; preds = %for.end1318, %do.body1371
@@ -2696,7 +2696,7 @@ do.end1457:                                       ; preds = %if.end1445, %while.
   store i32 %add1464, ptr %length1723, align 4
   %sh_prom1467 = zext nneg i32 %175 to i64
   %shr1468 = lshr i64 %hold.43.lcssa, %sh_prom1467
-  %sub1470 = sub i32 %bits.43.lcssa, %175
+  %sub1470 = sub nuw i32 %bits.43.lcssa, %175
   %178 = load i32, ptr %back1288, align 4
   %add1475 = add i32 %178, %175
   store i32 %add1475, ptr %back1288, align 4
@@ -2854,7 +2854,7 @@ do.body1559:                                      ; preds = %do.body1559.loopexi
   %here.sroa.0.0.copyload55 = load i8, ptr %arrayidx1534.lcssa, align 2
   %sh_prom1562 = zext nneg i8 %here.sroa.16.0.copyload58.lcssa to i64
   %shr1563 = lshr i64 %hold.47.lcssa, %sh_prom1562
-  %sub1566 = sub i32 %bits.47.lcssa, %conv1490.lcssa
+  %sub1566 = sub nuw i32 %bits.47.lcssa, %conv1490.lcssa
   %190 = load i32, ptr %back1288, align 4
   %add1572 = add nsw i32 %190, %conv1490.lcssa
   br label %do.body1574
@@ -2940,7 +2940,7 @@ do.end1629:                                       ; preds = %if.end1617, %while.
   store i32 %add1636, ptr %offset, align 8
   %sh_prom1639 = zext nneg i32 %192 to i64
   %shr1640 = lshr i64 %hold.50.lcssa, %sh_prom1639
-  %sub1642 = sub i32 %bits.50.lcssa, %192
+  %sub1642 = sub nuw i32 %bits.50.lcssa, %192
   %195 = load i32, ptr %back1288, align 4
   %add1647 = add i32 %195, %192
   store i32 %add1647, ptr %back1288, align 4
@@ -2970,7 +2970,7 @@ if.end1654:                                       ; preds = %sw.bb1650
   br i1 %cmp1657, label %if.then1659, label %if.else1692
 
 if.then1659:                                      ; preds = %if.end1654
-  %sub1661 = sub i32 %196, %sub1655
+  %sub1661 = sub nuw i32 %196, %sub1655
   %197 = load i32, ptr %whave, align 8
   %cmp1662 = icmp ugt i32 %sub1661, %197
   br i1 %cmp1662, label %if.then1664, label %if.end1670
@@ -2991,13 +2991,13 @@ if.end1670:                                       ; preds = %if.then1664, %if.th
   br i1 %cmp1671, label %if.then1673, label %if.else1679
 
 if.then1673:                                      ; preds = %if.end1670
-  %sub1675 = sub i32 %sub1661, %199
+  %sub1675 = sub nuw i32 %sub1661, %199
   %200 = load i32, ptr %wsize, align 4
   %sub1676 = sub i32 %200, %sub1675
   br label %if.end1685
 
 if.else1679:                                      ; preds = %if.end1670
-  %sub1682 = sub i32 %199, %sub1661
+  %sub1682 = sub nuw i32 %199, %sub1661
   br label %if.end1685
 
 if.end1685:                                       ; preds = %if.else1679, %if.then1673

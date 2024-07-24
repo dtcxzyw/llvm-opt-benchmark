@@ -2510,7 +2510,7 @@ invoke.cont334:                                   ; preds = %_ZN5eastl10VectorBa
 
 if.then.i1101:                                    ; preds = %invoke.cont334
   %sub.ptr.lhs.cast.i1095 = ptrtoint ptr %add.ptr.i929 to i64
-  %sub.i = sub nsw i64 %div135, %sub.ptr.div.i7194
+  %sub.i = sub nuw nsw i64 %div135, %sub.ptr.div.i7194
   %sub.ptr.lhs.cast.i.i1103 = ptrtoint ptr %buffer.sroa.18.2 to i64
   %sub.ptr.sub.i.i1104 = sub i64 %sub.ptr.lhs.cast.i.i1103, %sub.ptr.lhs.cast.i1095
   %sub.ptr.div.i.i1105 = ashr exact i64 %sub.ptr.sub.i.i1104, 3

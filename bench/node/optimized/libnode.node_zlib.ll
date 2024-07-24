@@ -4844,9 +4844,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321: ; preds = %if.end.i313, %
 do.body123:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321
   %call130 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i340.sroa.0.092) #22
   %cmp.i = icmp ule i64 %ref.tmp91.sroa.365.0.extract.shift, %call130
-  %sub.i = sub i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
+  %sub.i = sub nuw i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
   %cmp1.i = icmp uge i64 %sub.i, %ref.tmp107.sroa.368.0.extract.shift
-  %retval.0.i = and i1 %cmp.i, %cmp1.i
+  %retval.0.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %retval.0.i, label %do.end140, label %do.body137
 
 do.body137:                                       ; preds = %do.body123
@@ -4962,9 +4962,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
 do.body207:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %call214 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i268.sroa.0.096) #22
   %cmp.i77 = icmp ule i64 %ref.tmp175.sroa.371.0.extract.shift, %call214
-  %sub.i78 = sub i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
+  %sub.i78 = sub nuw i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
   %cmp1.i79 = icmp uge i64 %sub.i78, %ref.tmp191.sroa.374.0.extract.shift
-  %retval.0.i80 = and i1 %cmp.i77, %cmp1.i79
+  %retval.0.i80 = select i1 %cmp.i77, i1 %cmp1.i79, i1 false
   br i1 %retval.0.i80, label %do.end224, label %do.body221
 
 do.body221:                                       ; preds = %do.body207
@@ -5362,9 +5362,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321: ; preds = %if.end.i313, %
 do.body123:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321
   %call130 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i340.sroa.0.094) #22
   %cmp.i = icmp ule i64 %ref.tmp91.sroa.365.0.extract.shift, %call130
-  %sub.i = sub i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
+  %sub.i = sub nuw i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
   %cmp1.i = icmp uge i64 %sub.i, %ref.tmp107.sroa.368.0.extract.shift
-  %retval.0.i = and i1 %cmp.i, %cmp1.i
+  %retval.0.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %retval.0.i, label %do.end140, label %do.body137
 
 do.body137:                                       ; preds = %do.body123
@@ -5480,9 +5480,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
 do.body207:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %call214 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i268.sroa.0.098) #22
   %cmp.i77 = icmp ule i64 %ref.tmp175.sroa.371.0.extract.shift, %call214
-  %sub.i78 = sub i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
+  %sub.i78 = sub nuw i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
   %cmp1.i79 = icmp uge i64 %sub.i78, %ref.tmp191.sroa.374.0.extract.shift
-  %retval.0.i80 = and i1 %cmp.i77, %cmp1.i79
+  %retval.0.i80 = select i1 %cmp.i77, i1 %cmp1.i79, i1 false
   br i1 %retval.0.i80, label %do.end224, label %do.body221
 
 do.body221:                                       ; preds = %do.body207
@@ -10273,9 +10273,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321: ; preds = %if.end.i313, %
 do.body123:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321
   %call130 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i340.sroa.0.092) #22
   %cmp.i = icmp ule i64 %ref.tmp91.sroa.365.0.extract.shift, %call130
-  %sub.i = sub i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
+  %sub.i = sub nuw i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
   %cmp1.i = icmp uge i64 %sub.i, %ref.tmp107.sroa.368.0.extract.shift
-  %retval.0.i = and i1 %cmp.i, %cmp1.i
+  %retval.0.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %retval.0.i, label %do.end140, label %do.body137
 
 do.body137:                                       ; preds = %do.body123
@@ -10390,9 +10390,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
 do.body207:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %call214 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i268.sroa.0.096) #22
   %cmp.i77 = icmp ule i64 %ref.tmp175.sroa.371.0.extract.shift, %call214
-  %sub.i78 = sub i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
+  %sub.i78 = sub nuw i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
   %cmp1.i79 = icmp uge i64 %sub.i78, %ref.tmp191.sroa.374.0.extract.shift
-  %retval.0.i80 = and i1 %cmp.i77, %cmp1.i79
+  %retval.0.i80 = select i1 %cmp.i77, i1 %cmp1.i79, i1 false
   br i1 %retval.0.i80, label %do.end224, label %do.body221
 
 do.body221:                                       ; preds = %do.body207
@@ -10790,9 +10790,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321: ; preds = %if.end.i313, %
 do.body123:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321
   %call130 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i340.sroa.0.094) #22
   %cmp.i = icmp ule i64 %ref.tmp91.sroa.365.0.extract.shift, %call130
-  %sub.i = sub i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
+  %sub.i = sub nuw i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
   %cmp1.i = icmp uge i64 %sub.i, %ref.tmp107.sroa.368.0.extract.shift
-  %retval.0.i = and i1 %cmp.i, %cmp1.i
+  %retval.0.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %retval.0.i, label %do.end140, label %do.body137
 
 do.body137:                                       ; preds = %do.body123
@@ -10907,9 +10907,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
 do.body207:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %call214 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i268.sroa.0.098) #22
   %cmp.i77 = icmp ule i64 %ref.tmp175.sroa.371.0.extract.shift, %call214
-  %sub.i78 = sub i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
+  %sub.i78 = sub nuw i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
   %cmp1.i79 = icmp uge i64 %sub.i78, %ref.tmp191.sroa.374.0.extract.shift
-  %retval.0.i80 = and i1 %cmp.i77, %cmp1.i79
+  %retval.0.i80 = select i1 %cmp.i77, i1 %cmp1.i79, i1 false
   br i1 %retval.0.i80, label %do.end224, label %do.body221
 
 do.body221:                                       ; preds = %do.body207
@@ -12934,9 +12934,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321: ; preds = %if.end.i313, %
 do.body123:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321
   %call130 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i340.sroa.0.092) #22
   %cmp.i = icmp ule i64 %ref.tmp91.sroa.365.0.extract.shift, %call130
-  %sub.i = sub i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
+  %sub.i = sub nuw i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
   %cmp1.i = icmp uge i64 %sub.i, %ref.tmp107.sroa.368.0.extract.shift
-  %retval.0.i = and i1 %cmp.i, %cmp1.i
+  %retval.0.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %retval.0.i, label %do.end140, label %do.body137
 
 do.body137:                                       ; preds = %do.body123
@@ -13051,9 +13051,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
 do.body207:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %call214 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i268.sroa.0.096) #22
   %cmp.i77 = icmp ule i64 %ref.tmp175.sroa.371.0.extract.shift, %call214
-  %sub.i78 = sub i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
+  %sub.i78 = sub nuw i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
   %cmp1.i79 = icmp uge i64 %sub.i78, %ref.tmp191.sroa.374.0.extract.shift
-  %retval.0.i80 = and i1 %cmp.i77, %cmp1.i79
+  %retval.0.i80 = select i1 %cmp.i77, i1 %cmp1.i79, i1 false
   br i1 %retval.0.i80, label %do.end224, label %do.body221
 
 do.body221:                                       ; preds = %do.body207
@@ -13451,9 +13451,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321: ; preds = %if.end.i313, %
 do.body123:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit321
   %call130 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i340.sroa.0.094) #22
   %cmp.i = icmp ule i64 %ref.tmp91.sroa.365.0.extract.shift, %call130
-  %sub.i = sub i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
+  %sub.i = sub nuw i64 %call130, %ref.tmp91.sroa.365.0.extract.shift
   %cmp1.i = icmp uge i64 %sub.i, %ref.tmp107.sroa.368.0.extract.shift
-  %retval.0.i = and i1 %cmp.i, %cmp1.i
+  %retval.0.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %retval.0.i, label %do.end140, label %do.body137
 
 do.body137:                                       ; preds = %do.body123
@@ -13568,9 +13568,9 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
 do.body207:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %call214 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_6ObjectEEE(ptr %retval.i268.sroa.0.098) #22
   %cmp.i77 = icmp ule i64 %ref.tmp175.sroa.371.0.extract.shift, %call214
-  %sub.i78 = sub i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
+  %sub.i78 = sub nuw i64 %call214, %ref.tmp175.sroa.371.0.extract.shift
   %cmp1.i79 = icmp uge i64 %sub.i78, %ref.tmp191.sroa.374.0.extract.shift
-  %retval.0.i80 = and i1 %cmp.i77, %cmp1.i79
+  %retval.0.i80 = select i1 %cmp.i77, i1 %cmp1.i79, i1 false
   br i1 %retval.0.i80, label %do.end224, label %do.body221
 
 do.body221:                                       ; preds = %do.body207

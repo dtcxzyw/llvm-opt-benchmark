@@ -4780,7 +4780,7 @@ _ZN4Node7del_outEPS_.exit:                        ; preds = %20, %8, %2
   br i1 %28, label %.lr.ph.preheader.i, label %_ZN4Copy23conjoint_words_to_lowerEPKP12HeapWordImplPS1_m.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN4Node7del_outEPS_.exit
-  %29 = sub i32 %27, %1
+  %29 = sub nuw i32 %27, %1
   %30 = zext i32 %29 to i64
   %31 = getelementptr ptr, ptr %.pre21, i64 %5
   %32 = add nuw i32 %1, 1

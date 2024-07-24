@@ -4849,7 +4849,7 @@ _ZNSt6vectorIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkES
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %._crit_edge55
-  %149 = sub i64 %139, %146
+  %149 = sub nuw i64 %139, %146
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %134, i64 noundef %149)
   %.pre59 = load ptr, ptr %134, align 8
   %.pre60 = load ptr, ptr %140, align 8

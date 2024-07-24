@@ -402,7 +402,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit
-  %121 = sub nsw i64 %111, %118
+  %121 = sub nuw nsw i64 %111, %118
   invoke void @_ZNSt6vectorIPN5logos5PointESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %110, i64 noundef %121)
           to label %_ZNSt6vectorIPN5logos5PointESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp
 

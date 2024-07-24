@@ -11740,7 +11740,7 @@ if.end.i.i:                                       ; preds = %while.cond
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %3 = load ptr, ptr %str, align 8
-  %sub.i.i = sub i64 %2, %start_pos.0
+  %sub.i.i = sub nuw i64 %2, %start_pos.0
   %cmp8.not25.i.i = icmp ult i64 %sub.i.i, %1
   br i1 %cmp8.not25.i.i, label %while.end, label %while.body.lr.ph.i.i
 
@@ -11755,7 +11755,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end5.i.i
 while.body.i.i:                                   ; preds = %if.end17.i.i, %while.body.lr.ph.i.i
   %__len.027.i.i = phi i64 [ %sub.i.i, %while.body.lr.ph.i.i ], [ %sub.ptr.sub20.i.i, %if.end17.i.i ]
   %__first.026.i.i = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.end17.i.i ]
-  %sub9.i.i = sub i64 %__len.027.i.i, %1
+  %sub9.i.i = sub nuw i64 %__len.027.i.i, %1
   %add.i.i = add i64 %sub9.i.i, 1
   %cmp.i.i.i = icmp eq i64 %add.i.i, 0
   br i1 %cmp.i.i.i, label %while.end, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
@@ -11799,7 +11799,7 @@ if.then.i.i.i:                                    ; preds = %while.body
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit: ; preds = %while.body
   %5 = load i64, ptr %_M_string_length.i.i6, align 8
   %6 = load ptr, ptr %to, align 8
-  %sub.i.i.i = sub i64 %2, %retval.0.i.i
+  %sub.i.i.i = sub nuw i64 %2, %retval.0.i.i
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %1)
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %str, i64 noundef %retval.0.i.i, i64 noundef %spec.select.i.i.i, ptr noundef %6, i64 noundef %5)
   %7 = load i64, ptr %_M_string_length.i.i6, align 8

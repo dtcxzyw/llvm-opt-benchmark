@@ -273,7 +273,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %6
   br i1 %75, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hb4dbdfe1583d0fdbE.exit.i.i", label %.lr.ph.split.split.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7d2b48d76a394aa8E.exit.i.i.i": ; preds = %70
-  %78 = sub i64 %72, %17
+  %78 = sub nuw i64 %72, %17
   %79 = getelementptr inbounds i8, ptr %.val.i.i, i64 %78
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %79, ptr nonnull readonly %15, i64 %17), !alias.scope !29, !noalias !19
   %80 = icmp eq i32 %bcmp.i.i.i.i, 0

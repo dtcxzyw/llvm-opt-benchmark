@@ -366,7 +366,7 @@ define dso_local void @intel_dsb_finish(ptr noundef %0) local_unnamed_addr #0 al
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = sub i32 %16, %14
+  %20 = sub nuw i32 %16, %14
   %21 = zext i32 %20 to i64
   tail call void @intel_dsb_buffer_memset(ptr noundef %19, i32 noundef %13, i32 noundef 0, i64 noundef %21) #8
   br label %22

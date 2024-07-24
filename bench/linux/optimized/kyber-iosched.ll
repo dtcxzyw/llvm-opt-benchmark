@@ -1908,7 +1908,7 @@ define internal fastcc i32 @calculate_percentile(ptr nocapture noundef %0, i32 n
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %39
-  %46 = sub i32 %41, %43
+  %46 = sub nuw i32 %41, %43
   %47 = add nuw nsw i64 %40, 1
   %48 = icmp eq i64 %47, 7
   br i1 %48, label %.loopexit, label %39, !llvm.loop !58

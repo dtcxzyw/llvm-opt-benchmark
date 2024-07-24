@@ -1652,7 +1652,7 @@ while.body.i:                                     ; preds = %while.cond.i, %whil
   %tx_time.047.i = phi double [ 0.000000e+00, %while.body.lr.ph.i ], [ %add.i, %while.cond.i ]
   %xfer_bytes.046.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add108.i, %while.cond.i ]
   %rx_time.045.i = phi double [ 0.000000e+00, %while.body.lr.ph.i ], [ %rx_time.1.i, %while.cond.i ]
-  %sub35.i = sub i64 %throughput.012132605, %xfer_bytes.046.i
+  %sub35.i = sub nuw i64 %throughput.012132605, %xfer_bytes.046.i
   %conv36.i = trunc i64 %sub35.i to i32
   %cond.i.i = call noundef i32 @llvm.umin.i32(i32 %block.08392656, i32 %conv36.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i72.i)

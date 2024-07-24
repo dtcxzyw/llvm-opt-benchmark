@@ -153,7 +153,7 @@ land.lhs.true25:                                  ; preds = %land.lhs.true, %if.
   br i1 %cmp27, label %land.lhs.true29, label %if.end60
 
 land.lhs.true29:                                  ; preds = %land.lhs.true25
-  %sub31 = sub i64 %plen.0, %add26
+  %sub31 = sub nuw i64 %plen.0, %add26
   %tobool32.not = icmp ult i64 %sub31, 64
   br i1 %tobool32.not, label %if.end60, label %if.then33
 

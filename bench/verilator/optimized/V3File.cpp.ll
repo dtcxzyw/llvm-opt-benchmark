@@ -7657,7 +7657,7 @@ _ZN9V3OutFile10writeBlockEv.exit:                 ; preds = %_ZN9V3OutFile10writ
   store i64 %18, ptr %9, align 8
   store i64 0, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %.01417, i64 %.019
-  %20 = sub i64 %.01318, %.019
+  %20 = sub nuw i64 %.01318, %.019
   %.not = icmp ult i64 %20, 131072
   br i1 %.not, label %._crit_edge, label %_ZN9V3OutFile10writeBlockEv.exit, !llvm.loop !103
 

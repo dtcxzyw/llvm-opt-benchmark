@@ -2398,7 +2398,7 @@ define linkonce_odr noundef i32 @_ZNKSt17basic_string_viewIwSt11char_traitsIwEE7
   unreachable
 
 9:                                                ; preds = %5
-  %10 = sub i64 %6, %1
+  %10 = sub nuw i64 %6, %1
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 %2)
   %12 = tail call i64 @llvm.umin.i64(i64 %11, i64 %3)
   %13 = icmp eq i64 %12, 0

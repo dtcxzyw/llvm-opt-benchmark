@@ -2617,7 +2617,7 @@ define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodul
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %7
-  %21 = sub i64 %1, %18
+  %21 = sub nuw i64 %1, %18
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %13, i64 noundef %21, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit
 
@@ -2647,7 +2647,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit: ; preds = %20,
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit
-  %37 = sub i64 %1, %34
+  %37 = sub nuw i64 %1, %34
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr %29, i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit27
 
@@ -2677,7 +2677,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit27: ; preds = %3
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit27
-  %53 = sub i64 %1, %50
+  %53 = sub nuw i64 %1, %50
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr %45, i64 noundef %53, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit29
 
@@ -2707,7 +2707,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit29: ; preds = %5
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit29
-  %69 = sub i64 %1, %66
+  %69 = sub nuw i64 %1, %66
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr %61, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit31
 
@@ -2737,7 +2737,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit31: ; preds = %6
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit31
-  %85 = sub i64 %1, %82
+  %85 = sub nuw i64 %1, %82
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr %77, i64 noundef %85, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit33
 
@@ -2767,7 +2767,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit33: ; preds = %8
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit33
-  %101 = sub i64 %1, %98
+  %101 = sub nuw i64 %1, %98
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr %93, i64 noundef %101, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit35
 
@@ -2797,7 +2797,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit35: ; preds = %1
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit35
-  %117 = sub i64 %1, %114
+  %117 = sub nuw i64 %1, %114
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr %109, i64 noundef %117, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit37
 
@@ -2827,7 +2827,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit37: ; preds = %1
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit37
-  %133 = sub i64 %1, %130
+  %133 = sub nuw i64 %1, %130
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr %125, i64 noundef %133, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit39
 
@@ -2857,7 +2857,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit39: ; preds = %1
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit39
-  %149 = sub i64 %3, %146
+  %149 = sub nuw i64 %3, %146
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %139, i64 noundef %149)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -2887,7 +2887,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %148, %150, %152, %1
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %165 = sub i64 %3, %162
+  %165 = sub nuw i64 %3, %162
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %155, i64 noundef %165)
   %.pre = load ptr, ptr %156, align 8
   %.pre43 = load ptr, ptr %155, align 8
@@ -2982,7 +2982,7 @@ define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodul
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %7
-  %37 = sub i64 %3, %34
+  %37 = sub nuw i64 %3, %34
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %37)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -3012,7 +3012,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %36, %38, %40, %42
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %53 = sub i64 %3, %50
+  %53 = sub nuw i64 %3, %50
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %53)
   %.pre = load ptr, ptr %44, align 8
   %.pre20 = load ptr, ptr %43, align 8
@@ -5020,7 +5020,7 @@ define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodul
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %7
-  %21 = sub i64 %1, %18
+  %21 = sub nuw i64 %1, %18
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %13, i64 noundef %21, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit
 
@@ -5050,7 +5050,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit: ; preds = %20,
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit
-  %37 = sub i64 %1, %34
+  %37 = sub nuw i64 %1, %34
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr %29, i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit27
 
@@ -5080,7 +5080,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit27: ; preds = %3
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit27
-  %53 = sub i64 %1, %50
+  %53 = sub nuw i64 %1, %50
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr %45, i64 noundef %53, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit29
 
@@ -5110,7 +5110,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit29: ; preds = %5
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit29
-  %69 = sub i64 %1, %66
+  %69 = sub nuw i64 %1, %66
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr %61, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit31
 
@@ -5140,7 +5140,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit31: ; preds = %6
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit31
-  %85 = sub i64 %1, %82
+  %85 = sub nuw i64 %1, %82
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr %77, i64 noundef %85, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit33
 
@@ -5170,7 +5170,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit33: ; preds = %8
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit33
-  %101 = sub i64 %1, %98
+  %101 = sub nuw i64 %1, %98
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr %93, i64 noundef %101, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit35
 
@@ -5200,7 +5200,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit35: ; preds = %1
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit35
-  %117 = sub i64 %1, %114
+  %117 = sub nuw i64 %1, %114
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr %109, i64 noundef %117, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit37
 
@@ -5230,7 +5230,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit37: ; preds = %1
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit37
-  %133 = sub i64 %1, %130
+  %133 = sub nuw i64 %1, %130
   tail call void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr %125, i64 noundef %133, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit39
 
@@ -5260,7 +5260,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit39: ; preds = %1
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEmRKS1_.exit39
-  %149 = sub i64 %3, %146
+  %149 = sub nuw i64 %3, %146
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %139, i64 noundef %149)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -5290,7 +5290,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %148, %150, %152, %1
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %165 = sub i64 %3, %162
+  %165 = sub nuw i64 %3, %162
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %155, i64 noundef %165)
   %.pre = load ptr, ptr %156, align 8
   %.pre43 = load ptr, ptr %155, align 8
@@ -5385,7 +5385,7 @@ define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodul
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %7
-  %37 = sub i64 %3, %34
+  %37 = sub nuw i64 %3, %34
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %37)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -5415,7 +5415,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %36, %38, %40, %42
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %53 = sub i64 %3, %50
+  %53 = sub nuw i64 %3, %50
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %53)
   %.pre = load ptr, ptr %44, align 8
   %.pre20 = load ptr, ptr %43, align 8
@@ -10439,7 +10439,7 @@ define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseI11colvarvalued
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %7
-  %29 = sub i64 %3, %26
+  %29 = sub nuw i64 %3, %26
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %29)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -10469,7 +10469,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %28, %30, %32, %34
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %45 = sub i64 %3, %42
+  %45 = sub nuw i64 %3, %42
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %45)
   %.pre = load ptr, ptr %36, align 8
   %.pre28 = load ptr, ptr %35, align 8
@@ -10564,7 +10564,7 @@ define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseI11colvarvalued
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %7
-  %37 = sub i64 %3, %34
+  %37 = sub nuw i64 %3, %34
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %37)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -10594,7 +10594,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %36, %38, %40, %42
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %53 = sub i64 %3, %50
+  %53 = sub nuw i64 %3, %50
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %53)
   %.pre = load ptr, ptr %44, align 8
   %.pre20 = load ptr, ptr %43, align 8
@@ -14102,7 +14102,7 @@ define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseI11colvarvalued
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %7
-  %29 = sub i64 %3, %26
+  %29 = sub nuw i64 %3, %26
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %29)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -14132,7 +14132,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %28, %30, %32, %34
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %45 = sub i64 %3, %42
+  %45 = sub nuw i64 %3, %42
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %45)
   %.pre = load ptr, ptr %36, align 8
   %.pre28 = load ptr, ptr %35, align 8
@@ -14227,7 +14227,7 @@ define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseI11colvarvalued
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %7
-  %37 = sub i64 %3, %34
+  %37 = sub nuw i64 %3, %34
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %37)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -14257,7 +14257,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %36, %38, %40, %42
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %53 = sub i64 %3, %50
+  %53 = sub nuw i64 %3, %50
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %53)
   %.pre = load ptr, ptr %44, align 8
   %.pre20 = load ptr, ptr %43, align 8
@@ -26056,7 +26056,7 @@ _ZSt13move_backwardIPN12colvarmodule7rvectorES2_ET0_T_S4_S3_.exit: ; preds = %26
   br i1 %.not.i.i.i, label %_ZSt4fillIPN12colvarmodule7rvectorES1_EvT_S3_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !264
 
 32:                                               ; preds = %14
-  %33 = sub i64 %2, %17
+  %33 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN12colvarmodule7rvectorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -28452,7 +28452,7 @@ define linkonce_odr void @_ZNSt6vectorI11colvarvalueSaIS0_EE6resizeEmRKS0_(ptr n
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3
-  %13 = sub i64 %1, %10
+  %13 = sub nuw i64 %1, %10
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS0_S2_EEmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %5, i64 noundef %13, ptr noundef nonnull align 8 dereferenceable(168) %2)
   br label %_ZNSt6vectorI11colvarvalueSaIS0_EE15_M_erase_at_endEPS0_.exit
 
@@ -28673,7 +28673,7 @@ _ZSt13move_backwardIP11colvarvalueS1_ET0_T_S3_S2_.exit: ; preds = %.noexc, %_ZSt
   br label %191
 
 53:                                               ; preds = %15
-  %54 = sub i64 %2, %21
+  %54 = sub nuw i64 %2, %21
   %.not13.i.i.i.i = icmp eq i64 %54, 0
   br i1 %.not13.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIP11colvarvaluemS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

@@ -471,7 +471,7 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %or.cond140, label %53, label %135
 
 53:                                               ; preds = %39
-  %54 = sub nsw i32 %.0112199, %22
+  %54 = sub nuw nsw i32 %.0112199, %22
   %55 = call i32 @pg_utf_mblen_private(ptr noundef %41) #8
   %56 = icmp slt i32 %54, %55
   br i1 %56, label %57, label %61

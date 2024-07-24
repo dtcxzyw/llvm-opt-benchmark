@@ -1358,7 +1358,7 @@ dissect_wimaxmacphy_dl_subframe_descriptor.exit.i: ; preds = %._crit_edge.loopex
 272:                                              ; preds = %dissect_wimaxmacphy_dl_subframe_descriptor.exit.i
   %273 = add nuw nsw i32 %.0.lcssa.i.i, 4
   %274 = load i32, ptr @hf_wimaxmacphy_unknown, align 4
-  %275 = sub nsw i32 %270, %.0.lcssa.i.i
+  %275 = sub nuw nsw i32 %270, %.0.lcssa.i.i
   %276 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %274, ptr noundef %0, i32 noundef %273, i32 noundef %275, i32 noundef 0) #3
   br label %dissect_wimaxmacphy_phy_txstart_request.exit
 
@@ -2028,7 +2028,7 @@ dissect_wimaxmacphy_ul_subframe_descriptor.exit.i: ; preds = %._crit_edge.loopex
 781:                                              ; preds = %dissect_wimaxmacphy_ul_subframe_descriptor.exit.i
   %782 = add nuw nsw i32 %.0.lcssa.i.i132, 4
   %783 = load i32, ptr @hf_wimaxmacphy_unknown, align 4
-  %784 = sub nsw i32 %779, %.0.lcssa.i.i132
+  %784 = sub nuw nsw i32 %779, %.0.lcssa.i.i132
   %785 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %783, ptr noundef %0, i32 noundef %782, i32 noundef %784, i32 noundef 0) #3
   br label %dissect_wimaxmacphy_phy_rxstart_request.exit
 

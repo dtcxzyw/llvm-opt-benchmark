@@ -973,7 +973,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_create(ptr noundef %0, ptr noundef
   br i1 %90, label %91, label %103
 
 91:                                               ; preds = %87
-  %92 = sub i32 %88, %89
+  %92 = sub nuw i32 %88, %89
   %93 = load i32, ptr %32, align 8
   %94 = mul i32 %93, %92
   %95 = zext i32 %94 to i64
@@ -1734,7 +1734,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_root_double(ptr noundef %0, i64 no
   br i1 %231, label %232, label %.loopexit
 
 232:                                              ; preds = %.loopexit135
-  %233 = sub i32 %229, %230
+  %233 = sub nuw i32 %229, %230
   %234 = getelementptr inbounds i8, ptr %227, i64 320
   %235 = load ptr, ptr %234, align 8
   %236 = mul i32 %226, %233
@@ -2802,7 +2802,7 @@ H5VM_log2_gen.exit:                               ; preds = %12, %18, %24, %30
   br i1 %165, label %166, label %179
 
 166:                                              ; preds = %163
-  %167 = sub i32 %164, %161
+  %167 = sub nuw i32 %164, %161
   %168 = getelementptr inbounds i8, ptr %0, i64 320
   %169 = load ptr, ptr %168, align 8
   %170 = load i32, ptr %6, align 8

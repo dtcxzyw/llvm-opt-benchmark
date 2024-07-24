@@ -407,7 +407,7 @@ _ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE7reserveEm.exit: ; preds =
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %_ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE7reserveEm.exit
-  %46 = sub nsw i64 %14, %43
+  %46 = sub nuw nsw i64 %14, %43
   tail call void @_ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %46)
   %.pre11 = load ptr, ptr %40, align 8
   %.pre12 = load ptr, ptr %1, align 8
@@ -493,7 +493,7 @@ define internal void @_ZN2cv7optflow12_GLOBAL__N_128getAllWHTDescriptorsForImage
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   tail call void @_ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %31)
   br label %_ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE6resizeEm.exit.preheader
 
@@ -721,7 +721,7 @@ define noundef zeroext i1 @_ZN2cv7optflow7GPCTree9trainNodeEmN9__gnu_cxx17__norm
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
-  %34 = sub i64 %31, %29
+  %34 = sub nuw i64 %31, %29
   tail call void @_ZNSt6vectorIN2cv7optflow7GPCTree4NodeESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %34)
   %.pre = load ptr, ptr %22, align 8
   br label %_ZNSt6vectorIN2cv7optflow7GPCTree4NodeESaIS3_EE6resizeEm.exit
@@ -1313,7 +1313,7 @@ _ZNK2cv7optflow18GPCPatchDescriptor3dotERKNS_3VecIdLi18EEE.exit21.i: ; preds = %
   %278 = fpext float %sqrt to double
   %279 = fmul double %278, -2.000000e+02
   %280 = fdiv double %279, %54
-  %281 = sub i32 %.087331, %.091.lcssa426
+  %281 = sub nuw i32 %.087331, %.091.lcssa426
   %282 = uitofp i32 %281 to double
   %283 = fmul double %280, %282
   %284 = tail call double @exp(double noundef %283) #25
@@ -3418,7 +3418,7 @@ _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19Mag
   br i1 %231, label %232, label %255
 
 232:                                              ; preds = %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEEEvT_SB_SB_.exit
-  %233 = sub i64 %100, %97
+  %233 = sub nuw i64 %100, %97
   %234 = ptrtoint ptr %.sroa.30.0.lcssa to i64
   %235 = sub i64 %234, %94
   %236 = sdiv exact i64 %235, 12
@@ -3436,7 +3436,7 @@ _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19Mag
   br label %_ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit
 
 242:                                              ; preds = %232
-  %243 = icmp ult i64 %238, %233
+  %243 = icmp ugt i64 %100, 768614336404564650
   br i1 %243, label %244, label %_ZNKSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 244:                                              ; preds = %242
@@ -3645,7 +3645,7 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit: ; pred
   br i1 %315, label %316, label %_ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit153
 
 316:                                              ; preds = %.loopexit181
-  %317 = sub nsw i64 %314, %.pre250
+  %317 = sub nuw nsw i64 %314, %.pre250
   %318 = ptrtoint ptr %.sroa.30.3 to i64
   %319 = sub i64 %318, %.pre
   %320 = sdiv exact i64 %319, 12
@@ -3656,7 +3656,7 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit: ; pred
   br i1 %.not28.i.i139, label %323, label %_ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit153
 
 323:                                              ; preds = %316
-  %324 = icmp ult i64 %321, %317
+  %324 = icmp ugt i64 %100, 7686143364045646509
   br i1 %324, label %325, label %_ZNKSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE12_M_check_lenEmPKc.exit.i.i141
 
 325:                                              ; preds = %323
@@ -4892,7 +4892,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt4pairIN2cv6Point_IiEES3_ESaIS4_E
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -7610,7 +7610,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyINS_7optflow7GP
   br i1 %14, label %_ZNSt6vectorIN2cv7optflow7GPCTree4NodeESaIS3_EE6resizeEm.exit.thread, label %16
 
 _ZNSt6vectorIN2cv7optflow7GPCTree4NodeESaIS3_EE6resizeEm.exit.thread: ; preds = %3
-  %15 = sub i64 %.sroa.speculated, %13
+  %15 = sub nuw i64 %.sroa.speculated, %13
   tail call void @_ZNSt6vectorIN2cv7optflow7GPCTree4NodeESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15)
   br label %.lr.ph.preheader
 

@@ -6881,7 +6881,7 @@ if.end30:                                         ; preds = %invoke.cont13
   br i1 %cmp31, label %if.then34, label %if.else
 
 if.then34:                                        ; preds = %if.end30
-  %sub35 = sub i32 %sub, %e_size.1
+  %sub35 = sub nuw i32 %sub, %e_size.1
   br label %invoke.cont47
 
 if.else:                                          ; preds = %if.end30
@@ -28267,7 +28267,7 @@ if.end179:                                        ; preds = %invoke.cont16.threa
   br i1 %cmp180.not, label %if.else184, label %if.then183
 
 if.then183:                                       ; preds = %if.end179
-  %sub = sub i32 %dec, %e_size.1872
+  %sub = sub nuw i32 %dec, %e_size.1872
   br label %invoke.cont194
 
 if.else184:                                       ; preds = %if.end179

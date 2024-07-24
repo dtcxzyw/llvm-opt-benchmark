@@ -2927,7 +2927,7 @@ define internal fastcc void @_ZN6cvtestL15parseStringListERKNSt7__cxx1112basic_s
   br i1 %25, label %19, label %.critedge2, !llvm.loop !27
 
 .critedge2:                                       ; preds = %21
-  %26 = sub i64 %.030, %.1.lcssa
+  %26 = sub nuw i64 %.030, %.1.lcssa
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.1.lcssa, i64 noundef %26)
           to label %27 unwind label %34
 

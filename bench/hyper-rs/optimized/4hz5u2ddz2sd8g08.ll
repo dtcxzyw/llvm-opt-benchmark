@@ -87,7 +87,7 @@ define hidden { i64, ptr } @"_ZN82_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
 
 35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.exit.i", %34
   store i64 %23, ptr %19, align 8, !noalias !13
-  %36 = sub i64 %8, %.0.sroa.speculated.i
+  %36 = sub nuw i64 %8, %.0.sroa.speculated.i
   store i64 %36, ptr %7, align 8, !alias.scope !17
   %37 = getelementptr inbounds i8, ptr %22, i64 %.0.sroa.speculated.i
   store ptr %37, ptr %10, align 8, !alias.scope !17

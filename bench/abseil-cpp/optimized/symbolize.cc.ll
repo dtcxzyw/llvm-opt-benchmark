@@ -2554,7 +2554,7 @@ land.lhs.true.i.i:                                ; preds = %if.then3.i.i19
   br i1 %cmp6.not.i.i, label %if.end37.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %land.lhs.true.i.i
-  %sub.i.i = sub i64 %109, %111
+  %sub.i.i = sub nuw i64 %109, %111
   %phdr9.i.i = getelementptr inbounds i8, ptr %arrayidx.i18.i.i.i, i64 104
   br label %for.body.i9.i
 
@@ -2858,7 +2858,7 @@ for.body.i55.i.i.i:                               ; preds = %if.end10.i.i.i, %fo
   %i.059.i.i.i.i = phi i64 [ %add40.i.i.i.i, %for.end.i89.i.i.i ], [ 0, %if.end10.i.i.i ]
   %best_match.sroa.0.058.i.i.i.i = phi i32 [ %best_match.sroa.0.1.lcssa.i.i.i.i, %for.end.i89.i.i.i ], [ 0, %if.end10.i.i.i ]
   %best_match.sroa.32.057.i.i.i.i = phi i64 [ %best_match.sroa.32.1.lcssa.i.i.i.i, %for.end.i89.i.i.i ], [ 0, %if.end10.i.i.i ]
-  %sub.i56.i.i.i = sub i64 %div1.i.i.i.i, %i.059.i.i.i.i
+  %sub.i56.i.i.i = sub nuw i64 %div1.i.i.i.i, %i.059.i.i.i.i
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i56.i.i.i, i64 42)
   %mul4.i.i.i.i = mul nuw nsw i64 %.sroa.speculated.i.i.i.i, 24
   %mul.i.i.i.i = mul i64 %i.059.i.i.i.i, %symtab.sroa.4139.0.copyload.i.i.i

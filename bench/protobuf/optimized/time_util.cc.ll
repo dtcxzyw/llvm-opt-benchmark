@@ -586,7 +586,7 @@ if.then10:                                        ; preds = %for.cond.i.i
 invoke.cont:                                      ; preds = %if.then10
   %4 = xor i64 %conv7, -1
   %sub14 = add i64 %4, %value.coerce0
-  %sub.i = sub i64 %value.coerce0, %conv7
+  %sub.i = sub nuw i64 %value.coerce0, %conv7
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub14)
   %add.ptr.i16 = getelementptr inbounds i8, ptr %value.coerce1, i64 %conv7
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #14
@@ -633,7 +633,7 @@ if.then.i.i26.cont:                               ; preds = %if.then.i.i26.invok
 
 invoke.cont25:                                    ; preds = %if.else
   %sub24 = sub i64 %dec4.i.i, %conv7
-  %sub.i20 = sub i64 %value.coerce0, %conv7
+  %sub.i20 = sub nuw i64 %value.coerce0, %conv7
   %.sroa.speculated.i21 = call i64 @llvm.umin.i64(i64 %sub.i20, i64 %sub24)
   %add.ptr.i23 = getelementptr inbounds i8, ptr %value.coerce1, i64 %conv7
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #14
@@ -655,7 +655,7 @@ invoke.cont29:                                    ; preds = %invoke.cont25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #14
   %17 = xor i64 %__size.1.i.i, -1
   %sub35 = add i64 %17, %value.coerce0
-  %sub.i37 = sub i64 %value.coerce0, %__size.1.i.i
+  %sub.i37 = sub nuw i64 %value.coerce0, %__size.1.i.i
   %.sroa.speculated.i38 = call i64 @llvm.umin.i64(i64 %sub.i37, i64 %sub35)
   %add.ptr.i40 = getelementptr inbounds i8, ptr %value.coerce1, i64 %__size.1.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #14

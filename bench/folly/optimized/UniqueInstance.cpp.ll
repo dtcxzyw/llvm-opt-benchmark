@@ -738,7 +738,7 @@ _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE7enforc
   %cmp.i.i.i.i8.i = icmp ult i8 %3, 64
   %cond.i.i.i.i9.i = select i1 %cmp.i.i.i.i8.i, ptr %str.i, ptr %6
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i9.i, i64 %add.i
-  %sub.i.i = sub i64 %cond.i.i.i.i.i, %add.i
+  %sub.i.i = sub nuw i64 %cond.i.i.i.i.i, %add.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub4.i)
   %cmp.i.i6 = icmp ugt i64 %.sroa.speculated.i.i, 23
   br i1 %cmp.i.i6, label %if.else.i.i12, label %if.then.i.i7

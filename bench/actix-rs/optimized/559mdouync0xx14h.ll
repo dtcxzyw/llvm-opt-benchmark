@@ -1411,7 +1411,7 @@ define internal fastcc void @_ZN19brotli_decompressor6decode14WrapRingBuffer17h2
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h4c88ad7d062edf16E.exit6": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h4c88ad7d062edf16E.exit"
-  %29 = sub i64 %.val1, %14
+  %29 = sub nuw i64 %.val1, %14
   %.not.i.i7 = icmp ult i64 %29, %23
   br i1 %.not.i.i7, label %30, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h979bfd3072612463E.exit"
 
@@ -8315,7 +8315,7 @@ define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24Brot
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7e4930a90f6e5389E.exit37": ; preds = %36
-  %38 = sub nsw i64 %29, %26
+  %38 = sub nuw nsw i64 %29, %26
   %39 = getelementptr inbounds i8, ptr %0, i64 1824
   %.val27 = load ptr, ptr %39, align 8, !nonnull !15, !align !55, !noundef !15
   %40 = getelementptr inbounds i8, ptr %.val27, i64 %38
@@ -8796,7 +8796,7 @@ _ZN19brotli_decompressor6decode12DecodeSymbol17h3607ad250f015206E.exit: ; preds 
   %157 = phi i32 [ %162, %161 ], [ %164, %163 ], [ %155, %152 ]
   %.not = icmp ult i32 %157, %12
   %158 = select i1 %.not, i32 0, i32 %12
-  %spec.select = sub i32 %157, %158
+  %spec.select = sub nuw i32 %157, %158
   %159 = getelementptr inbounds i8, ptr %151, i64 4
   %160 = load i32, ptr %159, align 4, !noundef !15
   store i32 %160, ptr %151, align 8

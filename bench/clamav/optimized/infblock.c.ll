@@ -1058,7 +1058,7 @@ inflate_flush.exit817:                            ; preds = %431
   %466 = and i32 %465, %461
   %467 = add nuw nsw i32 %466, %.0704
   %468 = lshr i64 %460, %462
-  %469 = sub i32 %.sroa.128.10.lcssa, %418
+  %469 = sub nuw i32 %.sroa.128.10.lcssa, %418
   %470 = add i32 %467, %.lcssa94012331235
   %471 = icmp ugt i32 %470, %352
   br i1 %471, label %475, label %472
@@ -1443,7 +1443,7 @@ inflate_flush.exit827:                            ; preds = %607
   %643 = add i32 %641, %642
   store i32 %643, ptr %10, align 8
   %644 = lshr i64 %.sroa.54.15.lcssa, %637
-  %645 = sub i32 %.sroa.128.15.lcssa, %596
+  %645 = sub nuw i32 %.sroa.128.15.lcssa, %596
   %646 = load i8, ptr %47, align 1
   %647 = zext i8 %646 to i32
   store i32 %647, ptr %48, align 8
@@ -1691,7 +1691,7 @@ inflate_flush.exit837:                            ; preds = %731
   %767 = add i32 %765, %766
   store i32 %767, ptr %46, align 4
   %768 = lshr i64 %.sroa.54.18.lcssa, %761
-  %769 = sub i32 %.sroa.128.18.lcssa, %720
+  %769 = sub nuw i32 %.sroa.128.18.lcssa, %720
   store i32 5, ptr %37, align 8
   br label %770
 
@@ -2446,11 +2446,11 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr nocapture noundef re
   br i1 %104, label %.lr.ph253.preheader, label %.critedge
 
 .lr.ph253.preheader:                              ; preds = %.preheader
-  %105 = sub i32 %100, %.0187288
+  %105 = sub nuw i32 %100, %.0187288
   br label %.lr.ph253
 
 106:                                              ; preds = %.lr.ph253
-  %107 = sub i32 %111, %113
+  %107 = sub nuw i32 %111, %113
   %108 = add nuw nsw i32 %110, 1
   %109 = icmp ult i32 %108, %98
   br i1 %109, label %.lr.ph253, label %.critedge
@@ -2545,7 +2545,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr nocapture noundef re
   br label %163
 
 153:                                              ; preds = %145
-  %154 = sub i32 %146, %2
+  %154 = sub nuw i32 %146, %2
   %155 = zext i32 %154 to i64
   %156 = getelementptr inbounds i16, ptr %4, i64 %155
   %157 = load i16, ptr %156, align 2

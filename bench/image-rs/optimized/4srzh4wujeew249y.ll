@@ -35056,7 +35056,7 @@ _ZN5image6codecs4webp8lossless11HuffmanInfo14get_huff_index17heb13ded0a5600da3E.
 .lr.ph535:                                        ; preds = %236, %.lr.ph535
   %.1252533 = phi i16 [ %240, %.lr.ph535 ], [ %238, %236 ]
   %.1255532 = phi i16 [ %241, %.lr.ph535 ], [ %.0254542, %236 ]
-  %240 = sub i16 %.1252533, %2
+  %240 = sub nuw i16 %.1252533, %2
   %241 = add i16 %.1255532, 1
   %.not277 = icmp ult i16 %240, %2
   br i1 %.not277, label %._crit_edge536, label %.lr.ph535

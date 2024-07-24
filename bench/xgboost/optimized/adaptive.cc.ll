@@ -1281,7 +1281,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %377, label %378, label %380
 
 378:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit109
-  %379 = sub i64 %369, %376
+  %379 = sub nuw i64 %369, %376
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %379)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %269
 
@@ -5028,7 +5028,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -15836,7 +15836,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   unreachable
 
 180:                                              ; preds = %177
-  %181 = sub i64 %175, %168
+  %181 = sub nuw i64 %175, %168
   br label %182
 
 182:                                              ; preds = %180, %178
@@ -15941,7 +15941,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.i.i: ; preds
   unreachable
 
 .noexc36.i.i:                                     ; preds = %214
-  %219 = sub i64 %196, %212
+  %219 = sub nuw i64 %196, %212
   %220 = getelementptr inbounds float, ptr %192, i64 %212
   %.sink.i.i.i.i.i = select i1 %216, i64 0, i64 %198
   store i64 %205, ptr %16, align 8, !alias.scope !248

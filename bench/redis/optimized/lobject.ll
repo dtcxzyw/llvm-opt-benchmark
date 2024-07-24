@@ -696,7 +696,7 @@ if.then5:                                         ; preds = %entry
   br i1 %cmp9, label %if.then11, label %if.end
 
 if.then11:                                        ; preds = %if.then5
-  %sub12 = sub i64 %call7, %sub6
+  %sub12 = sub nuw i64 %call7, %sub6
   %add.ptr13 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %sub12
   %strlen68 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %out)
   %endptr69 = getelementptr inbounds i8, ptr %out, i64 %strlen68

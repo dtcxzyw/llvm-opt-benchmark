@@ -144,7 +144,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -1189,7 +1189,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5draco10EntryVal
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %32
-  %43 = sub nsw i64 %33, %40
+  %43 = sub nuw nsw i64 %33, %40
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %43)
   %.pre.i = load ptr, ptr %34, align 8
   %.pre5.i = load ptr, ptr %2, align 8
@@ -1833,7 +1833,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5draco10EntryVal
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %32
-  %43 = sub nsw i64 %33, %40
+  %43 = sub nuw nsw i64 %33, %40
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %43)
   %.pre.i = load ptr, ptr %34, align 8
   %.pre5.i = load ptr, ptr %2, align 8

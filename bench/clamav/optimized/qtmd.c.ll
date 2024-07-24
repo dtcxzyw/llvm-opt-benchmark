@@ -2413,7 +2413,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %1085, label %1086, label %1109
 
 1086:                                             ; preds = %1084
-  %1087 = sub i32 %.0927, %.19221803
+  %1087 = sub nuw i32 %.0927, %.19221803
   %1088 = icmp sgt i32 %1087, %1039
   br i1 %1088, label %1089, label %1090
 

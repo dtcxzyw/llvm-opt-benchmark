@@ -27418,7 +27418,7 @@ invoke.cont208:                                   ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp.i, label %if.then.i615, label %if.else.i612
 
 if.then.i615:                                     ; preds = %invoke.cont208
-  %sub.i = sub nsw i64 %div1.i.i, %sub.ptr.div.i.i611
+  %sub.i = sub nuw nsw i64 %div1.i.i, %sub.ptr.div.i.i611
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %bit_array, ptr %125, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp210)
           to label %if.then.i615.invoke.cont212_crit_edge unwind label %lpad211
 
@@ -27516,7 +27516,7 @@ invoke.cont222:                                   ; preds = %if.then7.i.i.i.i.i,
   br i1 %cmp.i628, label %if.then.i635, label %if.else.i629
 
 if.then.i635:                                     ; preds = %invoke.cont222
-  %sub.i636 = sub nsw i64 %div1.i.i622, %sub.ptr.div.i.i627
+  %sub.i636 = sub nuw nsw i64 %div1.i.i622, %sub.ptr.div.i.i627
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %bloom_array, ptr %136, i64 noundef %sub.i636, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp224)
           to label %if.then.i635.invoke.cont226_crit_edge unwind label %lpad225
 
@@ -38031,7 +38031,6 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   %3 = load ptr, ptr %vector_data, align 8, !tbaa !1173
   %4 = load ptr, ptr %3, align 8, !tbaa !25
   %tobool.not.i = icmp eq ptr %4, null
-  %conv = zext i8 %call6 to i64
   %5 = load ptr, ptr %sel_vec, align 8
   %bitmap_build_idx = getelementptr inbounds i8, ptr %this, i64 320
   %6 = load ptr, ptr %bitmap_build_idx, align 8
@@ -38053,9 +38052,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond.us, label %for.inc.us, label %if.then17.us
 
 if.then17.us:                                     ; preds = %for.body.us
-  %conv12.us = zext i8 %9 to i64
-  %sub.us = sub nsw i64 %conv12.us, %conv
-  %conv.i59.us = trunc nsw i64 %sub.us to i32
+  %narrow4 = sub nuw i8 %9, %call6
+  %sub.us = zext i8 %narrow4 to i64
+  %conv.i59.us = zext i8 %narrow4 to i32
   %arrayidx.i60.us = getelementptr inbounds i32, ptr %5, i64 %sel_idx.070.us
   store i32 %conv.i59.us, ptr %arrayidx.i60.us, align 4, !tbaa !30
   %arrayidx.i61.us = getelementptr inbounds i8, ptr %6, i64 %sub.us
@@ -38104,9 +38103,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond, label %for.inc, label %if.then17
 
 if.then17:                                        ; preds = %for.body
-  %conv12 = zext i8 %15 to i64
-  %sub = sub nsw i64 %conv12, %conv
-  %conv.i59 = trunc nsw i64 %sub to i32
+  %narrow = sub nuw i8 %15, %call6
+  %sub = zext i8 %narrow to i64
+  %conv.i59 = zext i8 %narrow to i32
   %arrayidx.i60 = getelementptr inbounds i32, ptr %5, i64 %sel_idx.070
   store i32 %conv.i59, ptr %arrayidx.i60, align 4, !tbaa !30
   %arrayidx.i61 = getelementptr inbounds i8, ptr %6, i64 %sub
@@ -38280,7 +38279,6 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   %3 = load ptr, ptr %vector_data, align 8, !tbaa !1173
   %4 = load ptr, ptr %3, align 8, !tbaa !25
   %tobool.not.i = icmp eq ptr %4, null
-  %conv = zext i16 %call6 to i64
   %5 = load ptr, ptr %sel_vec, align 8
   %bitmap_build_idx = getelementptr inbounds i8, ptr %this, i64 320
   %6 = load ptr, ptr %bitmap_build_idx, align 8
@@ -38302,9 +38300,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond.us, label %for.inc.us, label %if.then17.us
 
 if.then17.us:                                     ; preds = %for.body.us
-  %conv12.us = zext i16 %9 to i64
-  %sub.us = sub nsw i64 %conv12.us, %conv
-  %conv.i59.us = trunc nsw i64 %sub.us to i32
+  %narrow4 = sub nuw i16 %9, %call6
+  %sub.us = zext i16 %narrow4 to i64
+  %conv.i59.us = zext i16 %narrow4 to i32
   %arrayidx.i60.us = getelementptr inbounds i32, ptr %5, i64 %sel_idx.070.us
   store i32 %conv.i59.us, ptr %arrayidx.i60.us, align 4, !tbaa !30
   %arrayidx.i61.us = getelementptr inbounds i8, ptr %6, i64 %sub.us
@@ -38353,9 +38351,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond, label %for.inc, label %if.then17
 
 if.then17:                                        ; preds = %for.body
-  %conv12 = zext i16 %15 to i64
-  %sub = sub nsw i64 %conv12, %conv
-  %conv.i59 = trunc nsw i64 %sub to i32
+  %narrow = sub nuw i16 %15, %call6
+  %sub = zext i16 %narrow to i64
+  %conv.i59 = zext i16 %narrow to i32
   %arrayidx.i60 = getelementptr inbounds i32, ptr %5, i64 %sel_idx.070
   store i32 %conv.i59, ptr %arrayidx.i60, align 4, !tbaa !30
   %arrayidx.i61 = getelementptr inbounds i8, ptr %6, i64 %sub
@@ -38550,7 +38548,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond.us, label %for.inc.us, label %if.then14.us
 
 if.then14.us:                                     ; preds = %for.body.us
-  %sub.us = sub i32 %9, %call6
+  %sub.us = sub nuw i32 %9, %call6
   %conv.us = zext i32 %sub.us to i64
   %arrayidx.i53.us = getelementptr inbounds i32, ptr %5, i64 %sel_idx.063.us
   store i32 %sub.us, ptr %arrayidx.i53.us, align 4, !tbaa !30
@@ -38600,7 +38598,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond, label %for.inc, label %if.then14
 
 if.then14:                                        ; preds = %for.body
-  %sub = sub i32 %15, %call6
+  %sub = sub nuw i32 %15, %call6
   %conv = zext i32 %sub to i64
   %arrayidx.i53 = getelementptr inbounds i32, ptr %5, i64 %sel_idx.063
   store i32 %sub, ptr %arrayidx.i53, align 4, !tbaa !30
@@ -38796,7 +38794,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond.us, label %for.inc.us, label %if.then14.us
 
 if.then14.us:                                     ; preds = %for.body.us
-  %sub.us = sub i64 %9, %call6
+  %sub.us = sub nuw i64 %9, %call6
   %conv.i53.us = trunc i64 %sub.us to i32
   %arrayidx.i54.us = getelementptr inbounds i32, ptr %5, i64 %sel_idx.064.us
   store i32 %conv.i53.us, ptr %arrayidx.i54.us, align 4, !tbaa !30
@@ -38846,7 +38844,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond, label %for.inc, label %if.then14
 
 if.then14:                                        ; preds = %for.body
-  %sub = sub i64 %15, %call6
+  %sub = sub nuw i64 %15, %call6
   %conv.i53 = trunc i64 %sub to i32
   %arrayidx.i54 = getelementptr inbounds i32, ptr %5, i64 %sel_idx.064
   store i32 %conv.i53, ptr %arrayidx.i54, align 4, !tbaa !30
@@ -40501,7 +40499,6 @@ for.body26.lr.ph:                                 ; preds = %for.cond23.preheade
   %2 = load ptr, ptr %vector_data, align 8, !tbaa !1173
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %tobool.not.i103 = icmp eq ptr %3, null
-  %conv37 = zext i8 %call to i64
   %bitmap_build_idx50 = getelementptr inbounds i8, ptr %this, i64 320
   %4 = load ptr, ptr %bitmap_build_idx50, align 8
   %5 = load ptr, ptr %build_sel_vec, align 8
@@ -40530,15 +40527,15 @@ if.end34.us:                                      ; preds = %for.body26.us
   br i1 %or.cond96.us, label %cleanup.us, label %if.then44.us
 
 if.then44.us:                                     ; preds = %if.end34.us
-  %conv38.us = zext i8 %8 to i64
-  %sub48.us = sub nsw i64 %conv38.us, %conv37
+  %narrow7 = sub nuw i8 %8, %call
+  %sub48.us = zext i8 %narrow7 to i64
   %arrayidx.i110.us = getelementptr inbounds i8, ptr %4, i64 %sub48.us
   %9 = load i8, ptr %arrayidx.i110.us, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool52.not.us = icmp eq i8 %9, 0
   br i1 %tobool52.not.us, label %cleanup.us, label %if.then53.us
 
 if.then53.us:                                     ; preds = %if.then44.us
-  %conv.i111.us = trunc nsw i64 %sub48.us to i32
+  %conv.i111.us = zext i8 %narrow7 to i32
   %arrayidx.i112.us = getelementptr inbounds i32, ptr %5, i64 %sel_idx22.0121.us
   store i32 %conv.i111.us, ptr %arrayidx.i112.us, align 4, !tbaa !30
   %inc54.us = add i64 %sel_idx22.0121.us, 1
@@ -40564,7 +40561,6 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %10 = load ptr, ptr %vector_data, align 8, !tbaa !1173
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %tobool.not.i97 = icmp eq ptr %11, null
-  %conv = zext i8 %call to i64
   %bitmap_build_idx = getelementptr inbounds i8, ptr %this, i64 320
   %12 = load ptr, ptr %bitmap_build_idx, align 8
   %13 = load ptr, ptr %build_sel_vec, align 8
@@ -40583,15 +40579,15 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   br i1 %or.cond.us, label %if.end19.us, label %if.then12.us
 
 if.then12.us:                                     ; preds = %for.body.us
-  %conv7.us = zext i8 %15 to i64
-  %sub.us = sub nsw i64 %conv7.us, %conv
+  %narrow9 = sub nuw i8 %15, %call
+  %sub.us = zext i8 %narrow9 to i64
   %arrayidx.i98.us = getelementptr inbounds i8, ptr %12, i64 %sub.us
   %16 = load i8, ptr %arrayidx.i98.us, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool.not.us = icmp eq i8 %16, 0
   br i1 %tobool.not.us, label %if.end19.us, label %if.then17.us
 
 if.then17.us:                                     ; preds = %if.then12.us
-  %conv.i99.us = trunc nsw i64 %sub.us to i32
+  %conv.i99.us = zext i8 %narrow9 to i32
   %arrayidx.i100.us = getelementptr inbounds i32, ptr %13, i64 %sel_idx.0127.us
   store i32 %conv.i99.us, ptr %arrayidx.i100.us, align 4, !tbaa !30
   %inc.us = add i64 %sel_idx.0127.us, 1
@@ -40631,15 +40627,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond, label %if.end19, label %if.then12
 
 if.then12:                                        ; preds = %for.body
-  %conv7 = zext i8 %19 to i64
-  %sub = sub nsw i64 %conv7, %conv
+  %narrow8 = sub nuw i8 %19, %call
+  %sub = zext i8 %narrow8 to i64
   %arrayidx.i98 = getelementptr inbounds i8, ptr %12, i64 %sub
   %20 = load i8, ptr %arrayidx.i98, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool.not = icmp eq i8 %20, 0
   br i1 %tobool.not, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %if.then12
-  %conv.i99 = trunc nsw i64 %sub to i32
+  %conv.i99 = zext i8 %narrow8 to i32
   %arrayidx.i100 = getelementptr inbounds i32, ptr %13, i64 %sel_idx.0127
   store i32 %conv.i99, ptr %arrayidx.i100, align 4, !tbaa !30
   %inc = add i64 %sel_idx.0127, 1
@@ -40682,15 +40678,15 @@ if.end34:                                         ; preds = %for.body26
   br i1 %or.cond96, label %cleanup, label %if.then44
 
 if.then44:                                        ; preds = %if.end34
-  %conv38 = zext i8 %23 to i64
-  %sub48 = sub nsw i64 %conv38, %conv37
+  %narrow = sub nuw i8 %23, %call
+  %sub48 = zext i8 %narrow to i64
   %arrayidx.i110 = getelementptr inbounds i8, ptr %4, i64 %sub48
   %24 = load i8, ptr %arrayidx.i110, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool52.not = icmp eq i8 %24, 0
   br i1 %tobool52.not, label %cleanup, label %if.then53
 
 if.then53:                                        ; preds = %if.then44
-  %conv.i111 = trunc nsw i64 %sub48 to i32
+  %conv.i111 = zext i8 %narrow to i32
   %arrayidx.i112 = getelementptr inbounds i32, ptr %5, i64 %sel_idx22.0121
   store i32 %conv.i111, ptr %arrayidx.i112, align 4, !tbaa !30
   %inc54 = add i64 %sel_idx22.0121, 1
@@ -40847,7 +40843,6 @@ for.body26.lr.ph:                                 ; preds = %for.cond23.preheade
   %2 = load ptr, ptr %vector_data, align 8, !tbaa !1173
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %tobool.not.i103 = icmp eq ptr %3, null
-  %conv37 = zext i16 %call to i64
   %bitmap_build_idx50 = getelementptr inbounds i8, ptr %this, i64 320
   %4 = load ptr, ptr %bitmap_build_idx50, align 8
   %5 = load ptr, ptr %build_sel_vec, align 8
@@ -40876,15 +40871,15 @@ if.end34.us:                                      ; preds = %for.body26.us
   br i1 %or.cond96.us, label %cleanup.us, label %if.then44.us
 
 if.then44.us:                                     ; preds = %if.end34.us
-  %conv38.us = zext i16 %8 to i64
-  %sub48.us = sub nsw i64 %conv38.us, %conv37
+  %narrow7 = sub nuw i16 %8, %call
+  %sub48.us = zext i16 %narrow7 to i64
   %arrayidx.i110.us = getelementptr inbounds i8, ptr %4, i64 %sub48.us
   %9 = load i8, ptr %arrayidx.i110.us, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool52.not.us = icmp eq i8 %9, 0
   br i1 %tobool52.not.us, label %cleanup.us, label %if.then53.us
 
 if.then53.us:                                     ; preds = %if.then44.us
-  %conv.i111.us = trunc nsw i64 %sub48.us to i32
+  %conv.i111.us = zext i16 %narrow7 to i32
   %arrayidx.i112.us = getelementptr inbounds i32, ptr %5, i64 %sel_idx22.0121.us
   store i32 %conv.i111.us, ptr %arrayidx.i112.us, align 4, !tbaa !30
   %inc54.us = add i64 %sel_idx22.0121.us, 1
@@ -40910,7 +40905,6 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %10 = load ptr, ptr %vector_data, align 8, !tbaa !1173
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %tobool.not.i97 = icmp eq ptr %11, null
-  %conv = zext i16 %call to i64
   %bitmap_build_idx = getelementptr inbounds i8, ptr %this, i64 320
   %12 = load ptr, ptr %bitmap_build_idx, align 8
   %13 = load ptr, ptr %build_sel_vec, align 8
@@ -40929,15 +40923,15 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   br i1 %or.cond.us, label %if.end19.us, label %if.then12.us
 
 if.then12.us:                                     ; preds = %for.body.us
-  %conv7.us = zext i16 %15 to i64
-  %sub.us = sub nsw i64 %conv7.us, %conv
+  %narrow9 = sub nuw i16 %15, %call
+  %sub.us = zext i16 %narrow9 to i64
   %arrayidx.i98.us = getelementptr inbounds i8, ptr %12, i64 %sub.us
   %16 = load i8, ptr %arrayidx.i98.us, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool.not.us = icmp eq i8 %16, 0
   br i1 %tobool.not.us, label %if.end19.us, label %if.then17.us
 
 if.then17.us:                                     ; preds = %if.then12.us
-  %conv.i99.us = trunc nsw i64 %sub.us to i32
+  %conv.i99.us = zext i16 %narrow9 to i32
   %arrayidx.i100.us = getelementptr inbounds i32, ptr %13, i64 %sel_idx.0127.us
   store i32 %conv.i99.us, ptr %arrayidx.i100.us, align 4, !tbaa !30
   %inc.us = add i64 %sel_idx.0127.us, 1
@@ -40977,15 +40971,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond, label %if.end19, label %if.then12
 
 if.then12:                                        ; preds = %for.body
-  %conv7 = zext i16 %19 to i64
-  %sub = sub nsw i64 %conv7, %conv
+  %narrow8 = sub nuw i16 %19, %call
+  %sub = zext i16 %narrow8 to i64
   %arrayidx.i98 = getelementptr inbounds i8, ptr %12, i64 %sub
   %20 = load i8, ptr %arrayidx.i98, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool.not = icmp eq i8 %20, 0
   br i1 %tobool.not, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %if.then12
-  %conv.i99 = trunc nsw i64 %sub to i32
+  %conv.i99 = zext i16 %narrow8 to i32
   %arrayidx.i100 = getelementptr inbounds i32, ptr %13, i64 %sel_idx.0127
   store i32 %conv.i99, ptr %arrayidx.i100, align 4, !tbaa !30
   %inc = add i64 %sel_idx.0127, 1
@@ -41028,15 +41022,15 @@ if.end34:                                         ; preds = %for.body26
   br i1 %or.cond96, label %cleanup, label %if.then44
 
 if.then44:                                        ; preds = %if.end34
-  %conv38 = zext i16 %23 to i64
-  %sub48 = sub nsw i64 %conv38, %conv37
+  %narrow = sub nuw i16 %23, %call
+  %sub48 = zext i16 %narrow to i64
   %arrayidx.i110 = getelementptr inbounds i8, ptr %4, i64 %sub48
   %24 = load i8, ptr %arrayidx.i110, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool52.not = icmp eq i8 %24, 0
   br i1 %tobool52.not, label %cleanup, label %if.then53
 
 if.then53:                                        ; preds = %if.then44
-  %conv.i111 = trunc nsw i64 %sub48 to i32
+  %conv.i111 = zext i16 %narrow to i32
   %arrayidx.i112 = getelementptr inbounds i32, ptr %5, i64 %sel_idx22.0121
   store i32 %conv.i111, ptr %arrayidx.i112, align 4, !tbaa !30
   %inc54 = add i64 %sel_idx22.0121, 1
@@ -41221,7 +41215,7 @@ if.end28.us:                                      ; preds = %for.body20.us
   br i1 %or.cond85.us, label %cleanup.us, label %if.then34.us
 
 if.then34.us:                                     ; preds = %if.end28.us
-  %sub36.us = sub i32 %8, %call
+  %sub36.us = sub nuw i32 %8, %call
   %conv37.us = zext i32 %sub36.us to i64
   %arrayidx.i98.us = getelementptr inbounds i8, ptr %4, i64 %conv37.us
   %9 = load i8, ptr %arrayidx.i98.us, align 1, !tbaa !24, !range !17, !noundef !18
@@ -41272,7 +41266,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   br i1 %or.cond.us, label %if.end13.us, label %if.then9.us
 
 if.then9.us:                                      ; preds = %for.body.us
-  %sub.us = sub i32 %15, %call
+  %sub.us = sub nuw i32 %15, %call
   %conv.us = zext i32 %sub.us to i64
   %arrayidx.i87.us = getelementptr inbounds i8, ptr %12, i64 %conv.us
   %16 = load i8, ptr %arrayidx.i87.us, align 1, !tbaa !24, !range !17, !noundef !18
@@ -41319,7 +41313,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %sub = sub i32 %19, %call
+  %sub = sub nuw i32 %19, %call
   %conv = zext i32 %sub to i64
   %arrayidx.i87 = getelementptr inbounds i8, ptr %12, i64 %conv
   %20 = load i8, ptr %arrayidx.i87, align 1, !tbaa !24, !range !17, !noundef !18
@@ -41369,7 +41363,7 @@ if.end28:                                         ; preds = %for.body20
   br i1 %or.cond85, label %cleanup, label %if.then34
 
 if.then34:                                        ; preds = %if.end28
-  %sub36 = sub i32 %23, %call
+  %sub36 = sub nuw i32 %23, %call
   %conv37 = zext i32 %sub36 to i64
   %arrayidx.i98 = getelementptr inbounds i8, ptr %4, i64 %conv37
   %24 = load i8, ptr %arrayidx.i98, align 1, !tbaa !24, !range !17, !noundef !18
@@ -41561,7 +41555,7 @@ if.end28.us:                                      ; preds = %for.body20.us
   br i1 %or.cond84.us, label %cleanup.us, label %if.then34.us
 
 if.then34.us:                                     ; preds = %if.end28.us
-  %sub36.us = sub i64 %8, %call
+  %sub36.us = sub nuw i64 %8, %call
   %arrayidx.i98.us = getelementptr inbounds i8, ptr %4, i64 %sub36.us
   %9 = load i8, ptr %arrayidx.i98.us, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool39.not.us = icmp eq i8 %9, 0
@@ -41612,7 +41606,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   br i1 %or.cond.us, label %if.end13.us, label %if.then9.us
 
 if.then9.us:                                      ; preds = %for.body.us
-  %sub.us = sub i64 %15, %call
+  %sub.us = sub nuw i64 %15, %call
   %arrayidx.i86.us = getelementptr inbounds i8, ptr %12, i64 %sub.us
   %16 = load i8, ptr %arrayidx.i86.us, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool.not.us = icmp eq i8 %16, 0
@@ -41659,7 +41653,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %sub = sub i64 %19, %call
+  %sub = sub nuw i64 %19, %call
   %arrayidx.i86 = getelementptr inbounds i8, ptr %12, i64 %sub
   %20 = load i8, ptr %arrayidx.i86, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool.not = icmp eq i8 %20, 0
@@ -41709,7 +41703,7 @@ if.end28:                                         ; preds = %for.body20
   br i1 %or.cond84, label %cleanup, label %if.then34
 
 if.then34:                                        ; preds = %if.end28
-  %sub36 = sub i64 %23, %call
+  %sub36 = sub nuw i64 %23, %call
   %arrayidx.i98 = getelementptr inbounds i8, ptr %4, i64 %sub36
   %24 = load i8, ptr %arrayidx.i98, align 1, !tbaa !24, !range !17, !noundef !18
   %tobool39.not = icmp eq i8 %24, 0
@@ -69192,7 +69186,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !1757
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64

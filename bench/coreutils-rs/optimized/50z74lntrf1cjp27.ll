@@ -707,7 +707,7 @@ define hidden noundef range(i32 0, 1114113) i32 @"_ZN99_$LT$hashbrown..raw..RawI
   %9 = xor i16 %16, -1
   store ptr %18, ptr %8, align 8, !alias.scope !108
   store ptr %17, ptr %2, align 8, !alias.scope !108
-  %10 = sub i16 -2, %16
+  %10 = sub nuw i16 -2, %16
   %11 = and i16 %10, %9
   store i16 %11, ptr %7, align 8, !alias.scope !109
   %12 = add i64 %4, -1

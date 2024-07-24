@@ -3151,7 +3151,7 @@ _ZNSt16allocator_traitsISaIN5Yosys7FmtPartEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT
   br i1 %138, label %139, label %_ZNSt6vectorIN5Yosys7FmtPartESaIS1_EE9push_backERKS1_.exit
 
 139:                                              ; preds = %137
-  %140 = sub i64 %99, %.0.lcssa.i43
+  %140 = sub nuw i64 %99, %.0.lcssa.i43
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %140, i8 noundef signext 32, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %141 unwind label %162
@@ -6348,7 +6348,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.prehead
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.preheader, %_ZN5Yosys5RTLIL5ConstD2Ev.exit117
   %135 = phi i64 [ %208, %_ZN5Yosys5RTLIL5ConstD2Ev.exit117 ], [ %134, %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.preheader ]
   %.074363 = phi i64 [ %202, %_ZN5Yosys5RTLIL5ConstD2Ev.exit117 ], [ 0, %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.preheader ]
-  %136 = sub i64 %135, %.074363
+  %136 = sub nuw i64 %135, %.074363
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %136, i64 %128)
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   store i32 0, ptr %7, align 8, !alias.scope !47
@@ -8466,7 +8466,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  %27 = sub nsw i64 %18, %24
+  %27 = sub nuw nsw i64 %18, %24
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %19, i64 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -8700,7 +8700,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

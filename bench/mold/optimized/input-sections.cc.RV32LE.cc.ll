@@ -417,7 +417,7 @@ entry:
   %elf_sections2.sink.v.i = select i1 %cmp.i, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %1, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i, i64 0, i64 %2
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %3 = load ptr, ptr %elf_sections2.sink.i, align 8
   %add.ptr.i2.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %3, i64 %sub.sink.i
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %ref.tmp.i)
@@ -472,7 +472,7 @@ entry:
   %elf_sections2.sink.v = select i1 %cmp, i64 16, i64 368
   %elf_sections2.sink = getelementptr inbounds i8, ptr %1, i64 %elf_sections2.sink.v
   %sub = select i1 %cmp, i64 0, i64 %2
-  %sub.sink = sub nsw i64 %conv, %sub
+  %sub.sink = sub nuw nsw i64 %conv, %sub
   %3 = load ptr, ptr %elf_sections2.sink, align 8
   %add.ptr.i2 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %3, i64 %sub.sink
   ret ptr %add.ptr.i2
@@ -515,7 +515,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %entry
   %x.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
   %add.i = add i32 %x.0.copyload.i.i, 4
   %conv.i = zext i32 %add.i to i64
-  %sub.i = sub i64 %1, %conv
+  %sub.i = sub nuw i64 %1, %conv
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv.i)
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %.sroa.speculated.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %add.ptr.i, 1
@@ -595,7 +595,7 @@ _ZNK4mold3elf9CieRecordINS0_6RV32LEEE12get_contentsEv.exit: ; preds = %entry
   %x.0.copyload.i.i.i = load i32, ptr %add.ptr.i.i, align 1
   %add.i.i = add i32 %x.0.copyload.i.i.i, 4
   %conv.i.i = zext i32 %add.i.i to i64
-  %sub.i.i = sub i64 %1, %conv.i
+  %sub.i.i = sub nuw i64 %1, %conv.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %conv.i.i)
   %contents.i14 = getelementptr inbounds i8, ptr %other, i64 56
   %input_offset.i15 = getelementptr inbounds i8, ptr %other, i64 16
@@ -616,7 +616,7 @@ _ZNK4mold3elf9CieRecordINS0_6RV32LEEE12get_contentsEv.exit28: ; preds = %_ZNK4mo
   %x.0.copyload.i.i.i20 = load i32, ptr %add.ptr.i.i19, align 1
   %add.i.i21 = add i32 %x.0.copyload.i.i.i20, 4
   %conv.i.i22 = zext i32 %add.i.i21 to i64
-  %sub.i.i23 = sub i64 %4, %conv.i16
+  %sub.i.i23 = sub nuw i64 %4, %conv.i16
   %.sroa.speculated.i.i24 = tail call i64 @llvm.umin.i64(i64 %sub.i.i23, i64 %conv.i.i22)
   %cmp.i = icmp eq i64 %.sroa.speculated.i.i, %.sroa.speculated.i.i24
   br i1 %cmp.i, label %land.rhs.i, label %return
@@ -846,7 +846,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %elf_sections2.sink.v.i19 = select i1 %cmp.i18, i64 16, i64 368
   %elf_sections2.sink.i20 = getelementptr inbounds i8, ptr %file, i64 %elf_sections2.sink.v.i19
   %sub.i21 = select i1 %cmp.i18, i64 0, i64 %5
-  %sub.sink.i22 = sub nsw i64 %conv.i16.pre-phi, %sub.i21
+  %sub.sink.i22 = sub nuw nsw i64 %conv.i16.pre-phi, %sub.i21
   %6 = load ptr, ptr %elf_sections2.sink.i20, align 8
   %add.ptr.i2.i23 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %6, i64 %sub.sink.i22
   %sh_flags = getelementptr inbounds i8, ptr %add.ptr.i2.i23, i64 8
@@ -873,7 +873,7 @@ if.else:                                          ; preds = %if.end
   %elf_sections2.sink.v.i43 = select i1 %cmp.i42, i64 16, i64 368
   %elf_sections2.sink.i44 = getelementptr inbounds i8, ptr %file, i64 %elf_sections2.sink.v.i43
   %sub.i45 = select i1 %cmp.i42, i64 0, i64 %7
-  %sub.sink.i46 = sub nsw i64 %conv.i16.pre-phi, %sub.i45
+  %sub.sink.i46 = sub nuw nsw i64 %conv.i16.pre-phi, %sub.i45
   %8 = load ptr, ptr %elf_sections2.sink.i44, align 8
   %sh_addralign = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %8, i64 %sub.sink.i46, i32 8
   br label %if.end35
@@ -903,7 +903,7 @@ entry:
   %elf_sections2.sink.v.i = select i1 %cmp.i, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %1, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i, i64 0, i64 %2
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %3 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %3, i64 %sub.sink.i, i32 2
   %x.0.copyload.i = load i32, ptr %sh_flags, align 1
@@ -970,7 +970,7 @@ entry:
   %elf_sections2.sink.v.i = select i1 %cmp.i, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %1, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i, i64 0, i64 %2
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %3 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %3, i64 %sub.sink.i, i32 2
   %x.0.copyload.i = load i32, ptr %sh_flags, align 1
@@ -1283,7 +1283,7 @@ entry:
   %elf_sections2.sink.v.i = select i1 %cmp.i, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %1, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i, i64 0, i64 %2
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %3 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_type = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %3, i64 %sub.sink.i, i32 1
   %x.0.copyload.i = load i32, ptr %sh_type, align 1
@@ -1311,7 +1311,7 @@ if.then4:                                         ; preds = %if.end
   %elf_sections2.sink.v.i10 = select i1 %cmp.i9, i64 16, i64 368
   %elf_sections2.sink.i11 = getelementptr inbounds i8, ptr %7, i64 %elf_sections2.sink.v.i10
   %sub.i12 = select i1 %cmp.i9, i64 0, i64 %8
-  %sub.sink.i13 = sub nsw i64 %conv.i7, %sub.i12
+  %sub.sink.i13 = sub nuw nsw i64 %conv.i7, %sub.i12
   %9 = load ptr, ptr %elf_sections2.sink.i11, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %9, i64 %sub.sink.i13, i32 2
   %x.0.copyload.i15 = load i32, ptr %sh_flags, align 1
@@ -1437,7 +1437,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %0, i64 368
-  %sub.sink.i = sub nsw i64 %conv, %1
+  %sub.sink.i = sub nuw nsw i64 %conv, %1
   %3 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %3, i64 %sub.sink.i, i32 2
   %x.0.copyload.i = load i32, ptr %sh_flags, align 1
@@ -1684,7 +1684,7 @@ land.lhs.true:                                    ; preds = %entry
   %elf_sections2.sink.v.i = select i1 %cmp.i, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %2, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i, i64 0, i64 %3
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %4 = load ptr, ptr %elf_sections2.sink.i, align 8
   %add.ptr.i2.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %4, i64 %sub.sink.i
   %sh_flags = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 8
@@ -2425,7 +2425,7 @@ entry:
   %elf_sections2.sink.v.i = select i1 %cmp.i, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %1, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i, i64 0, i64 %2
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %3 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %3, i64 %sub.sink.i, i32 2
   %x.0.copyload.i = load i32, ptr %sh_flags, align 1
@@ -2561,7 +2561,7 @@ land.lhs.true.i:                                  ; preds = %sw.bb25
   %elf_sections2.sink.v.i.i = select i1 %cmp.i.i, i64 16, i64 368
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %.pre, i64 %elf_sections2.sink.v.i.i
   %sub.i.i = select i1 %cmp.i.i, i64 0, i64 %27
-  %sub.sink.i.i = sub nsw i64 %conv.i.i, %sub.i.i
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i.i, %sub.i.i
   %28 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %add.ptr.i2.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %28, i64 %sub.sink.i.i
   %sh_flags.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 8
@@ -3218,7 +3218,7 @@ entry:
   %elf_sections2.sink.v.i = select i1 %cmp.i, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %isec.0.val, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i, i64 0, i64 %0
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %1 = load ptr, ptr %elf_sections2.sink.i, align 8
   %add.ptr.i2.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %1, i64 %sub.sink.i
   %sh_flags = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 8
@@ -3719,7 +3719,7 @@ if.end5:                                          ; preds = %lor.lhs.false
 
 _ZNK4mold3elf12InputSectionINS0_6RV32LEEE4nameEv.exit.thread: ; preds = %if.end5
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %3, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i, %4
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %4
   %6 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %6, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i32, ptr %sh_flags.i, align 1
@@ -3920,7 +3920,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %1, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i, %2
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %2
   %4 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %4, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i32, ptr %sh_flags.i, align 1

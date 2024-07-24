@@ -560,7 +560,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   resume { ptr, i32 } %47
 
 "_ZN10actix_http4body12message_body13foreign_impls100_$LT$impl$u20$actix_http..body..message_body..MessageBody$u20$for$u20$bytes..bytes_mut..BytesMut$GT$9poll_next17h333b4f31ed1b400dE.exit": ; preds = %27
-  %56 = sub i64 %37, %28
+  %56 = sub nuw i64 %37, %28
   %57 = getelementptr inbounds i8, ptr %9, i64 8
   %58 = load ptr, ptr %57, align 8, !alias.scope !66, !noalias !62, !noundef !4
   %59 = getelementptr inbounds i8, ptr %58, i64 %28
@@ -6303,7 +6303,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !4
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.0.i = sub i64 %13, %15
+  %.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.0.i, ptr %0, align 8
@@ -6315,7 +6315,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6349,7 +6349,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !4
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.0.i = sub i64 %13, %15
+  %.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.0.i, ptr %0, align 8
@@ -6361,7 +6361,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6383,7 +6383,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !4
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.0 = sub i64 %5, %7
+  %.0 = sub nuw i64 %5, %7
   ret i64 %.0
 }
 
@@ -6395,7 +6395,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !4
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.0 = sub i64 %5, %7
+  %.0 = sub nuw i64 %5, %7
   ret i64 %.0
 }
 
@@ -7471,7 +7471,7 @@ select.unfold:                                    ; preds = %55
           to label %145 unwind label %115, !noalias !1012
 
 110:                                              ; preds = %.noexc25
-  %111 = sub i64 %93, %84
+  %111 = sub nuw i64 %93, %84
   %112 = getelementptr inbounds i8, ptr %10, i64 8
   %113 = load ptr, ptr %112, align 8, !alias.scope !1016, !noalias !1012, !noundef !4
   %114 = getelementptr inbounds i8, ptr %113, i64 %84
@@ -7945,7 +7945,7 @@ select.unfold:                                    ; preds = %57
           to label %147 unwind label %117, !noalias !1130
 
 112:                                              ; preds = %.noexc25
-  %113 = sub i64 %95, %86
+  %113 = sub nuw i64 %95, %86
   %114 = getelementptr inbounds i8, ptr %10, i64 8
   %115 = load ptr, ptr %114, align 8, !alias.scope !1134, !noalias !1130, !noundef !4
   %116 = getelementptr inbounds i8, ptr %115, i64 %86

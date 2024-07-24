@@ -2586,7 +2586,7 @@ for.body.i.i111:                                  ; preds = %_ZN6id_gen7recycleE
   br i1 %cmp2.i.i115, label %for.body.i.i111, label %if.end135.sink.split, !llvm.loop !7
 
 if.else38:                                        ; preds = %_ZNK12mpfx_manager2szEPj.exit81
-  %sub = sub i32 %add, %r.0.i75
+  %sub = sub nuw i32 %add, %r.0.i75
   %add39 = add i32 %sub, 1
   %m_buffer2 = getelementptr inbounds i8, ptr %this, i64 64
   %49 = load ptr, ptr %m_buffer2, align 8

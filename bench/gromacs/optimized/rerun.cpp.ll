@@ -2651,7 +2651,7 @@ _Z11do_per_stepll.exit188.thread:                 ; preds = %1318, %1341, %_Z11d
   br i1 %.not.i189, label %1377, label %1375
 
 1375:                                             ; preds = %.noexc191
-  %1376 = sub i64 %1371, %1374
+  %1376 = sub nuw i64 %1371, %1374
   br label %1379
 
 1377:                                             ; preds = %.noexc191

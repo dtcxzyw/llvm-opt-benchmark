@@ -1427,7 +1427,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
 645:                                              ; preds = %.backedge, %.lr.ph.i.i
   %.0105.us.i.i = phi i32 [ %.0.ph151.i.i, %.lr.ph.i.i ], [ 0, %.backedge ]
   %.048104.us.i.i = phi i64 [ %.048.ph148.i.i, %.lr.ph.i.i ], [ 0, %.backedge ]
-  %646 = sub i64 %641, %.048104.us.i.i
+  %646 = sub nuw i64 %641, %.048104.us.i.i
   %spec.store.select.us.i.i = call i64 @llvm.umin.i64(i64 %646, i64 8192)
   %.not154.i.i = icmp ne i32 %.0105.us.i.i, 0
   br i1 %.not154.i.i, label %.split.us.us.i.i, label %.split.us110.i.i
@@ -1844,7 +1844,7 @@ uv__fs_write.exit.thread.i:                       ; preds = %uv__fs_write.exit.u
   br i1 %.not17.i.i, label %.critedge.i.i, label %817
 
 817:                                              ; preds = %.lr.ph.i.i124
-  %818 = sub i64 %.01523.i.i, %816
+  %818 = sub nuw i64 %.01523.i.i, %816
   %819 = add i64 %.024.i.i, 1
   %.not.i.i125 = icmp eq i64 %818, 0
   br i1 %.not.i.i125, label %uv__fs_buf_offset.exit.i, label %.lr.ph.i.i124, !llvm.loop !15
@@ -1855,7 +1855,7 @@ uv__fs_write.exit.thread.i:                       ; preds = %uv__fs_write.exit.u
   %822 = getelementptr inbounds i8, ptr %821, i64 %.01523.i.i
   store ptr %822, ptr %820, align 8
   %823 = getelementptr inbounds i8, ptr %820, i64 8
-  %824 = sub i64 %816, %.01523.i.i
+  %824 = sub nuw i64 %816, %.01523.i.i
   store i64 %824, ptr %823, align 8
   %.pre67.i = load ptr, ptr %26, align 8
   br label %uv__fs_buf_offset.exit.i

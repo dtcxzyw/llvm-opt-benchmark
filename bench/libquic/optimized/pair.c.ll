@@ -180,7 +180,7 @@ if.then20:                                        ; preds = %if.end18
   br label %return
 
 if.end21:                                         ; preds = %if.end18
-  %sub = sub i64 %7, %bytes_read
+  %sub = sub nuw i64 %7, %bytes_read
   store i64 %sub, ptr %len.i, align 8
   %add = add i64 %9, %bytes_read
   %cmp22 = icmp eq i64 %add, %8
@@ -297,9 +297,9 @@ if.end23:                                         ; preds = %if.end20
   %size.i = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load i64, ptr %size.i, align 8
   %cmp.not.i = icmp ult i64 %add.i, %11
-  %sub.i = sub i64 %add.i, %11
+  %sub.i = sub nuw i64 %add.i, %11
   %sub3.i = sub i64 %9, %sub.i
-  %sub5.i = sub i64 %11, %add.i
+  %sub5.i = sub nuw i64 %11, %add.i
   %write_offset.0.i = select i1 %cmp.not.i, i64 %add.i, i64 %sub.i
   %max_available.0.i = select i1 %cmp.not.i, i64 %sub5.i, i64 %sub3.i
   store ptr %2, ptr %out_write_buf, align 8
@@ -696,7 +696,7 @@ do.body:                                          ; preds = %do.body, %if.end14
   %8 = load i64, ptr %size, align 8
   %cmp26.not = icmp ult i64 %add, %8
   %sub30 = select i1 %cmp26.not, i64 0, i64 %8
-  %spec.select39 = sub i64 %add, %sub30
+  %spec.select39 = sub nuw i64 %add, %sub30
   %add32 = add i64 %spec.select39, %rest.0
   %cmp34.not = icmp ugt i64 %add32, %8
   %sub38 = sub i64 %8, %spec.select39

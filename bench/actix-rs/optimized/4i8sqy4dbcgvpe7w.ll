@@ -2538,7 +2538,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hdcf8cdc27061ffcaE.exit.i: ;
   %.sroa.12.21327.i.i = phi i64 [ %433, %.split1312.lr.ph.i.i ], [ %.sroa.12.7.i.i, %._crit_edge1326.i.i ]
   %umin1698.i.i = call i64 @llvm.umin.i64(i64 %indvars.iv.i.i, i64 64)
   %umax1699.i.i = call i64 @llvm.umax.i64(i64 %umin1698.i.i, i64 1)
-  %471 = sub i64 %.0.i.i, %.12501331.i.i
+  %471 = sub nuw i64 %.0.i.i, %.12501331.i.i
   %.0.sroa.speculated.i515.i.i = call noundef i64 @llvm.umin.i64(i64 %471, i64 64)
   br label %.lr.ph1315.i.i
 
@@ -4179,7 +4179,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i": ; preds = %1046
   %1052 = getelementptr inbounds float, ptr %339, i64 %1051
-  %1053 = sub i64 %341, %1051
+  %1053 = sub nuw i64 %341, %1051
   br i1 %1006, label %._crit_edge410.i.i, label %.lr.ph409.i.i
 
 ._crit_edge410.i.i:                               ; preds = %1141, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i"
@@ -4194,7 +4194,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1274.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit188.i.i": ; preds = %._crit_edge410.i.i
-  %1056 = sub i64 %341, %1054
+  %1056 = sub nuw i64 %341, %1054
   %.not.i.i189.i.i = icmp ugt i64 %1008, %1056
   br i1 %.not.i.i189.i.i, label %1057, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit193.i.i"
 
@@ -4360,7 +4360,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1274.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i": ; preds = %.lr.ph409.i.i
-  %1137 = sub i64 %1053, %1062
+  %1137 = sub nuw i64 %1053, %1062
   %.not.i.i203.i.i = icmp ult i64 %1137, 8
   br i1 %.not.i.i203.i.i, label %1138, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i"
 
@@ -5743,7 +5743,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h805b2b64643d8961E.exit.i: ;
   %.sroa.12.21359.i.i = phi i64 [ %1547, %.split1344.lr.ph.i.i ], [ %.sroa.12.7.i.i290, %._crit_edge1358.i.i ]
   %umin1749.i.i = call i64 @llvm.umin.i64(i64 %indvars.iv.i.i283, i64 64)
   %umax1750.i.i = call i64 @llvm.umax.i64(i64 %umin1749.i.i, i64 1)
-  %1585 = sub i64 %.0.i.i237, %.12501363.i.i
+  %1585 = sub nuw i64 %.0.i.i237, %.12501363.i.i
   %.0.sroa.speculated.i515.i.i284 = call noundef i64 @llvm.umin.i64(i64 %1585, i64 64)
   br label %.lr.ph1347.i.i
 
@@ -7396,7 +7396,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i154": ; preds = %2166
   %2172 = getelementptr inbounds float, ptr %1453, i64 %2171
-  %2173 = sub i64 %1455, %2171
+  %2173 = sub nuw i64 %1455, %2171
   br i1 %2126, label %._crit_edge410.i.i167, label %.lr.ph409.i.i155
 
 ._crit_edge410.i.i167:                            ; preds = %2261, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i154"
@@ -7411,7 +7411,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1372.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit188.i.i170": ; preds = %._crit_edge410.i.i167
-  %2176 = sub i64 %1455, %2174
+  %2176 = sub nuw i64 %1455, %2174
   %.not.i.i189.i.i171 = icmp ugt i64 %2128, %2176
   br i1 %.not.i.i189.i.i171, label %2177, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit193.i.i172"
 
@@ -7577,7 +7577,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1372.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i160": ; preds = %.lr.ph409.i.i155
-  %2257 = sub i64 %2173, %2182
+  %2257 = sub nuw i64 %2173, %2182
   %.not.i.i203.i.i161 = icmp ult i64 %2257, 8
   br i1 %.not.i.i203.i.i161, label %2258, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i162"
 
@@ -8974,7 +8974,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hd9c8785c563fc95eE.exit.i: ;
   %.sroa.12.21359.i.i767 = phi i64 [ %2670, %.split1344.lr.ph.i.i752 ], [ %.sroa.12.7.i.i799, %._crit_edge1358.i.i816 ]
   %umin1749.i.i768 = call i64 @llvm.umin.i64(i64 %indvars.iv.i.i756, i64 64)
   %umax1750.i.i769 = call i64 @llvm.umax.i64(i64 %umin1749.i.i768, i64 1)
-  %2708 = sub i64 %.0.i.i653, %.12501363.i.i763
+  %2708 = sub nuw i64 %.0.i.i653, %.12501363.i.i763
   %.0.sroa.speculated.i515.i.i770 = call noundef i64 @llvm.umin.i64(i64 %2708, i64 64)
   br label %.lr.ph1347.i.i771
 
@@ -10627,7 +10627,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i567": ; preds = %3289
   %3295 = getelementptr inbounds float, ptr %2576, i64 %3294
-  %3296 = sub i64 %2578, %3294
+  %3296 = sub nuw i64 %2578, %3294
   br i1 %3249, label %._crit_edge410.i.i580, label %.lr.ph409.i.i568
 
 ._crit_edge410.i.i580:                            ; preds = %3384, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i567"
@@ -10642,7 +10642,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1372.i1013
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit188.i.i583": ; preds = %._crit_edge410.i.i580
-  %3299 = sub i64 %2578, %3297
+  %3299 = sub nuw i64 %2578, %3297
   %.not.i.i189.i.i584 = icmp ugt i64 %3251, %3299
   br i1 %.not.i.i189.i.i584, label %3300, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit193.i.i585"
 
@@ -10808,7 +10808,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1372.i1013
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i573": ; preds = %.lr.ph409.i.i568
-  %3380 = sub i64 %3296, %3305
+  %3380 = sub nuw i64 %3296, %3305
   %.not.i.i203.i.i574 = icmp ult i64 %3380, 8
   br i1 %.not.i.i203.i.i574, label %3381, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i575"
 

@@ -170,7 +170,7 @@ if.then13.i:                                      ; preds = %if.then9.i
 if.else.i:                                        ; preds = %if.then9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %data, i64 %sub.i, i1 false)
   store i32 0, ptr %num.i, align 8
-  %sub22.i = sub i64 %len, %sub.i
+  %sub22.i = sub nuw i64 %len, %sub.i
   %add.ptr23.i = getelementptr inbounds i8, ptr %data, i64 %sub.i
   tail call void @sha512_block_data_order(ptr noundef nonnull %sha, ptr noundef nonnull %u.i, i64 noundef 1) #5
   br label %if.end26.i
@@ -327,7 +327,7 @@ if.then13:                                        ; preds = %if.then9
 if.else:                                          ; preds = %if.then9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %in_data, i64 %sub, i1 false)
   store i32 0, ptr %num, align 8
-  %sub22 = sub i64 %len, %sub
+  %sub22 = sub nuw i64 %len, %sub
   %add.ptr23 = getelementptr inbounds i8, ptr %in_data, i64 %sub
   tail call void @sha512_block_data_order(ptr noundef nonnull %c, ptr noundef nonnull %u, i64 noundef 1) #5
   br label %if.end26

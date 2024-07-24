@@ -2447,7 +2447,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %if.then
-  %sub = sub i32 %k.097, %35
+  %sub = sub nuw i32 %k.097, %35
   store i32 0, ptr %arrayidx.i45, align 4
   %sub81 = sub i32 %34, %35
   %41 = load ptr, ptr %m_weights, align 8
@@ -3774,7 +3774,7 @@ if.else:                                          ; preds = %for.body13
   br i1 %cmp26.not, label %if.else28, label %for.end54.loopexit
 
 if.else28:                                        ; preds = %if.else
-  %sub = sub i32 %k.0201, %25
+  %sub = sub nuw i32 %k.0201, %25
   store i32 0, ptr %arrayidx.i66, align 4
   %26 = load ptr, ptr %m_weights, align 8
   %arrayidx.i73 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i67
@@ -18306,7 +18306,7 @@ if.else:                                          ; preds = %for.body13
   br i1 %cmp33.not, label %if.else35, label %for.end68.loopexit
 
 if.else35:                                        ; preds = %if.else
-  %sub = sub i32 %k.0234, %25
+  %sub = sub nuw i32 %k.0234, %25
   %sub36 = sub i32 %24, %25
   store i32 0, ptr %arrayidx.i89, align 4
   %26 = load ptr, ptr %m_weights, align 8
@@ -19412,7 +19412,7 @@ for.end:                                          ; preds = %for.inc
 
 if.then.i:                                        ; preds = %for.end
   %xor.i = xor i32 %call7, 1
-  %sub = sub i32 %b.1, %3
+  %sub = sub nuw i32 %b.1, %3
   store ptr null, ptr %wlits, align 8
   invoke void @_ZN6vectorISt4pairIjN3sat7literalEELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %wlits)
           to label %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE9push_backEOS3_.exit unwind label %lpad.loopexit.split-lp
@@ -19516,7 +19516,7 @@ if.else75:                                        ; preds = %if.then64
   br i1 %cmp76, label %if.then77, label %if.else86
 
 if.then77:                                        ; preds = %if.else75
-  %sub78 = sub i32 %call49, %sub
+  %sub78 = sub nuw i32 %call49, %sub
   store i32 %sub78, ptr %19, align 4
   %20 = load ptr, ptr %wlits, align 8
   %second = getelementptr inbounds i8, ptr %20, i64 4
@@ -19527,7 +19527,7 @@ if.then77:                                        ; preds = %if.else75
   br label %for.inc101
 
 if.else86:                                        ; preds = %if.else75
-  %sub87 = sub i32 %sub, %call49
+  %sub87 = sub nuw i32 %sub, %call49
   store i32 %sub87, ptr %19, align 4
   %sub91 = sub i32 %b.281, %call49
   br label %for.inc101

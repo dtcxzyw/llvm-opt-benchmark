@@ -3391,7 +3391,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn16PermuteLayerImpl14computeStridesERK
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = sub i64 %6, %13
+  %16 = sub nuw i64 %6, %13
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %16)
   %.pre = load i64, ptr %5, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
@@ -3423,7 +3423,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %15, %17, %19, %21
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %33 = sub i64 %22, %30
+  %33 = sub nuw i64 %22, %30
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %33)
   %.pre15 = load i64, ptr %5, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit12

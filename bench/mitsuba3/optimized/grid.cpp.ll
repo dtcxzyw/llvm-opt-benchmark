@@ -1711,7 +1711,7 @@ _ZN5drjit6TensorINS_12DynamicArrayIfEEED2Ev.exit327: ; preds = %_ZN5drjit9dr_vec
   br i1 %530, label %531, label %533
 
 531:                                              ; preds = %522
-  %532 = sub i64 %521, %529
+  %532 = sub nuw i64 %521, %529
   invoke void @_ZNSt3__16vectorIfNS_9allocatorIfEEE8__appendEm(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef %532)
           to label %._ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit_crit_edge unwind label %165
 

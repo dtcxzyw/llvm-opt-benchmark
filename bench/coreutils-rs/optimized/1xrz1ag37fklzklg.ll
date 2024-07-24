@@ -466,7 +466,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %104
   br i1 %115, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h330877b38caed909E.exit.i", label %.lr.ph.split.split.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h737544beba706b3fE.exit.i.i": ; preds = %110
-  %118 = sub i64 %112, %70
+  %118 = sub nuw i64 %112, %70
   %119 = getelementptr inbounds i8, ptr %.val.i, i64 %118
   %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly %119, ptr nonnull readonly %.sroa.0.sroa.3.sroa.6.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx, i64 %70), !alias.scope !61, !noalias !55
   %120 = icmp eq i32 %bcmp.i.i.i, 0

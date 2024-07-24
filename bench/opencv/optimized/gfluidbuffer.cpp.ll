@@ -1641,7 +1641,7 @@ define hidden void @_ZN2cv4gapi5fluid24ViewPrivWithoutOwnBorder8allocateEiNS_4ut
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %3
-  %15 = sub nsw i64 %5, %12
+  %15 = sub nuw nsw i64 %5, %12
   tail call void @_ZNSt6vectorIPKhSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %15)
   br label %_ZN2cv4gapi5fluid4View4Priv9initCacheEi.exit
 
@@ -1690,7 +1690,7 @@ define void @_ZN2cv4gapi5fluid4View4Priv9initCacheEi(ptr noundef nonnull align 8
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = sub nsw i64 %4, %11
+  %14 = sub nuw nsw i64 %4, %11
   tail call void @_ZNSt6vectorIPKhSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %14)
   br label %_ZNSt6vectorIPKhSaIS1_EE6resizeEm.exit
 
@@ -1873,7 +1873,7 @@ define hidden void @_ZN2cv4gapi5fluid21ViewPrivWithOwnBorder8allocateEiNS_4util8
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %3
-  %17 = sub nsw i64 %7, %14
+  %17 = sub nuw nsw i64 %7, %14
   tail call void @_ZNSt6vectorIPKhSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %17)
   br label %_ZN2cv4gapi5fluid4View4Priv9initCacheEi.exit
 
@@ -2237,7 +2237,7 @@ _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread:     ; preds = %6, %15, %_ZN2cveqIi
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
-  %34 = sub nsw i64 %24, %31
+  %34 = sub nuw nsw i64 %24, %31
   tail call void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %34)
   br label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
@@ -3308,7 +3308,7 @@ _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i:   ; preds = %31, %_ZN2cveqIiEEbR
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread.i
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %45)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit.i unwind label %68
 

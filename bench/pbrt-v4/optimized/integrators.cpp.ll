@@ -34799,7 +34799,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -45500,7 +45500,7 @@ for.body136:                                      ; preds = %for.cond134.prehead
   br i1 %cmp.i110, label %if.then.i113, label %if.else.i
 
 if.then.i113:                                     ; preds = %for.body136
-  %sub.i114 = sub nsw i64 %conv137, %sub.ptr.div.i.i
+  %sub.i114 = sub nuw nsw i64 %conv137, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %indvars.iv369.sroa.phi, i64 noundef %sub.i114)
           to label %_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE6resizeEm.exit unwind label %lpad130.loopexit.split-lp.loopexit.split-lp
 
@@ -45612,7 +45612,7 @@ for.body167:                                      ; preds = %if.then163, %for.in
   br i1 %cmp.i126, label %if.then.i133, label %if.else.i127
 
 if.then.i133:                                     ; preds = %for.body167
-  %sub.i134 = sub nsw i64 %conv170, %sub.ptr.div.i.i125
+  %sub.i134 = sub nuw nsw i64 %conv170, %sub.ptr.div.i.i125
   invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %indvars.iv377.sroa.phi, i64 noundef %sub.i134)
           to label %_ZNSt6vectorImSaImEE6resizeEm.exit unwind label %lpad130.loopexit
 

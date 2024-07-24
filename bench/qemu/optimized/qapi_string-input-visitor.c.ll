@@ -328,9 +328,9 @@ if.end9.i:                                        ; preds = %sw.bb4.i
   %7 = load i64, ptr %start.i, align 8
   %8 = load i64, ptr %end.i, align 8
   %cmp.i = icmp ugt i64 %7, %8
-  %sub.i = sub i64 %8, %7
+  %sub.i = sub nuw i64 %8, %7
   %cmp11.i = icmp ugt i64 %sub.i, 65535
-  %or.cond.i = or i1 %cmp.i, %cmp11.i
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp11.i
   br i1 %or.cond.i, label %if.then6, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end9.i

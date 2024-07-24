@@ -6436,7 +6436,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 call52.i.i.noexc:                                 ; preds = %for.cond.i.i, %for.body.i.i, %call49.i.i.noexc
   %retval.0.i7.i = phi i64 [ 0, %call49.i.i.noexc ], [ %__size.1.i.i, %for.body.i.i ], [ 0, %for.cond.i.i ]
-  %sub.i.i = sub i64 %336, %retval.0.i7.i
+  %sub.i.i = sub nuw i64 %336, %retval.0.i7.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %337, i64 %retval.0.i7.i
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %330, i64 8
   %339 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !140
@@ -10236,7 +10236,7 @@ invoke.cont62:                                    ; preds = %invoke.cont59
 
 invoke.cont64:                                    ; preds = %invoke.cont62
   %26 = extractvalue { i64, ptr } %call63, 1
-  %sub.i = sub i64 %25, %int_part_end.0.lcssa
+  %sub.i = sub nuw i64 %25, %int_part_end.0.lcssa
   %add.ptr.i56 = getelementptr inbounds i8, ptr %26, i64 %int_part_end.0.lcssa
   %cmp.not.i.i = icmp eq i64 %sub.i, 0
   br i1 %cmp.not.i.i, label %for.body21.preheader.i, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
@@ -10299,7 +10299,7 @@ if.then.i.i35.i.cont:                             ; preds = %if.then.i.i35.i.inv
   unreachable
 
 if.end18.i:                                       ; preds = %if.end15.i
-  %sub.i29.i = sub i64 %sub.i, %add.i
+  %sub.i29.i = sub nuw i64 %sub.i, %add.i
   %add.ptr.i32.i = getelementptr inbounds i8, ptr %add.ptr.i56, i64 %add.i
   %34 = sub nuw nsw i64 9, %frac_digits.0.lcssa.i
   %cmp2046.not.i = icmp eq i64 %frac_digits.0.lcssa.i, 9
@@ -10572,7 +10572,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %6, i64 %9
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %5, %9
+  %sub.i.i.i.i = sub nuw i64 %5, %9
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !212
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin3, i64 24
@@ -10745,7 +10745,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %31
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %31
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %31
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %path.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -11022,7 +11022,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then11.i.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %if.then11.i.i
-  %sub.i.i.i = sub i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %sub.i.i.i = sub nuw i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
   br label %_ZNK6google8protobuf13json_internal16MaybeOwnedString11StreamOwned6AsViewEv.exit
 
 while.end18.i.i:                                  ; preds = %while.end10.i.i
@@ -11033,7 +11033,7 @@ if.then.i.i12.i.i:                                ; preds = %while.end18.i.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit13.i.i: ; preds = %while.end18.i.i
-  %sub.i7.i.i = sub i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %sub.i7.i.i = sub nuw i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i7.i.i, i64 %3)
   br label %_ZNK6google8protobuf13json_internal16MaybeOwnedString11StreamOwned6AsViewEv.exit
 
@@ -11124,7 +11124,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end.i
   %10 = extractvalue { i64, ptr } %call5.i, 1
-  %sub.i = sub i64 %9, %1
+  %sub.i = sub nuw i64 %9, %1
   %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 %1
   %file_.i = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load ptr, ptr %file_.i, align 8, !noalias !222
@@ -11504,7 +11504,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then11.i.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %if.then11.i.i
-  %sub.i.i.i = sub i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %sub.i.i.i = sub nuw i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
   br label %_ZNK6google8protobuf13json_internal16MaybeOwnedString11StreamOwned6AsViewEv.exit
 
 while.end18.i.i:                                  ; preds = %while.end10.i.i
@@ -11515,7 +11515,7 @@ if.then.i.i12.i.i:                                ; preds = %while.end18.i.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit13.i.i: ; preds = %while.end18.i.i
-  %sub.i7.i.i = sub i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %sub.i7.i.i = sub nuw i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i7.i.i, i64 %3)
   br label %_ZNK6google8protobuf13json_internal16MaybeOwnedString11StreamOwned6AsViewEv.exit
 
@@ -12213,7 +12213,7 @@ invoke.cont23:                                    ; preds = %while.end10.i.i
   br i1 %cmp.i.i, label %if.end40, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %invoke.cont23
-  %sub.i.i.i13 = sub i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %sub.i.i.i13 = sub nuw i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
   %cmp.not.i = icmp ult i64 %sub.i.i.i13, %literal.coerce0
   br i1 %cmp.not.i, label %invoke.cont30, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
 
@@ -12428,7 +12428,7 @@ invoke.cont:                                      ; preds = %while.end10.i.i
   br i1 %cmp.i.i, label %if.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %invoke.cont
-  %sub.i.i.i = sub i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %sub.i.i.i = sub nuw i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
   %cmp.not.i = icmp ult i64 %sub.i.i.i, %literal.coerce0
   br i1 %cmp.not.i, label %cleanup, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
 
@@ -20533,7 +20533,7 @@ if.then.i.i17:                                    ; preds = %if.end16
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit18: ; preds = %if.end16
-  %sub.i12 = sub i64 %.lcssa, %end.coerce0
+  %sub.i12 = sub nuw i64 %.lcssa, %end.coerce0
   %add.ptr.i14 = getelementptr inbounds i8, ptr %agg.tmp11.sroa.2.0.copyload, i64 %end.coerce0
   store i64 %sub.i12, ptr %data, align 8
   store ptr %add.ptr.i14, ptr %agg.tmp11.sroa.2.0..sroa_idx, align 8
@@ -20608,7 +20608,7 @@ if.then.i.i35:                                    ; preds = %if.end15
   unreachable
 
 if.end18:                                         ; preds = %if.end15
-  %sub.i29 = sub i64 %5, %add
+  %sub.i29 = sub nuw i64 %5, %add
   %6 = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
   %add.ptr.i32 = getelementptr inbounds i8, ptr %6, i64 %add
   store i64 %sub.i29, ptr %data, align 8
@@ -21008,7 +21008,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 _ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPool5FieldE.exit: ; preds = %for.cond.i.i, %for.body.i.i, %entry
   %retval.0.i7.i = phi i64 [ 0, %entry ], [ %__size.1.i.i, %for.body.i.i ], [ 0, %for.cond.i.i ]
-  %sub.i.i = sub i64 %5, %retval.0.i7.i
+  %sub.i.i = sub nuw i64 %5, %retval.0.i7.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %retval.0.i7.i
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !398
@@ -21163,7 +21163,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 _ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPool5FieldE.exit: ; preds = %for.cond.i.i, %for.body.i.i, %entry
   %retval.0.i7.i = phi i64 [ 0, %entry ], [ %__size.1.i.i, %for.body.i.i ], [ 0, %for.cond.i.i ]
-  %sub.i.i = sub i64 %5, %retval.0.i7.i
+  %sub.i.i = sub nuw i64 %5, %retval.0.i7.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %retval.0.i7.i
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !405
@@ -21436,7 +21436,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 _ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPool5FieldE.exit: ; preds = %for.cond.i.i, %for.body.i.i, %if.then
   %retval.0.i7.i = phi i64 [ 0, %if.then ], [ %__size.1.i.i, %for.body.i.i ], [ 0, %for.cond.i.i ]
-  %sub.i.i = sub i64 %11, %retval.0.i7.i
+  %sub.i.i = sub nuw i64 %11, %retval.0.i7.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %retval.0.i7.i
   %call3 = call noundef i32 @_ZN6google8protobuf13json_internal15ClassifyMessageESt17basic_string_viewIcSt11char_traitsIcEE(i64 %sub.i.i, ptr %add.ptr.i.i)
   switch i32 %1, label %sw.epilog [
@@ -24398,7 +24398,7 @@ invoke.cont62:                                    ; preds = %invoke.cont59
 
 invoke.cont64:                                    ; preds = %invoke.cont62
   %26 = extractvalue { i64, ptr } %call63, 1
-  %sub.i = sub i64 %25, %int_part_end.0.lcssa
+  %sub.i = sub nuw i64 %25, %int_part_end.0.lcssa
   %add.ptr.i56 = getelementptr inbounds i8, ptr %26, i64 %int_part_end.0.lcssa
   %cmp.not.i.i = icmp eq i64 %sub.i, 0
   br i1 %cmp.not.i.i, label %for.body21.preheader.i, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
@@ -24461,7 +24461,7 @@ if.then.i.i35.i.cont:                             ; preds = %if.then.i.i35.i.inv
   unreachable
 
 if.end18.i:                                       ; preds = %if.end15.i
-  %sub.i29.i = sub i64 %sub.i, %add.i
+  %sub.i29.i = sub nuw i64 %sub.i, %add.i
   %add.ptr.i32.i = getelementptr inbounds i8, ptr %add.ptr.i56, i64 %add.i
   %34 = sub nuw nsw i64 9, %frac_digits.0.lcssa.i
   %cmp2046.not.i = icmp eq i64 %frac_digits.0.lcssa.i, 9
@@ -24734,7 +24734,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %6, i64 %9
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %5, %9
+  %sub.i.i.i.i = sub nuw i64 %5, %9
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !479
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin3, i64 24
@@ -24907,7 +24907,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %31
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %31
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %31
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %path.sroa.3.0.curr_.i.sroa_idx, align 8
@@ -26247,7 +26247,7 @@ if.then.i.i:                                      ; preds = %_ZNKSt17basic_strin
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %for.cond.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit
   %retval.0.i7 = phi i64 [ %__size.1.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit ], [ 0, %entry ], [ 0, %for.cond.i ]
-  %sub.i = sub i64 %4, %retval.0.i7
+  %sub.i = sub nuw i64 %4, %retval.0.i7
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %retval.0.i7
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %sub.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %add.ptr.i, 1
@@ -29832,7 +29832,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 _ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPool5FieldE.exit: ; preds = %for.cond.i.i, %for.body.i.i, %do.body28
   %retval.0.i7.i = phi i64 [ 0, %do.body28 ], [ 0, %for.cond.i.i ], [ %__size.1.i.i, %for.body.i.i ]
-  %sub.i.i = sub i64 %21, %retval.0.i7.i
+  %sub.i.i = sub nuw i64 %21, %retval.0.i7.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 %retval.0.i7.i
   %call3.i = call noundef i32 @_ZN6google8protobuf13json_internal15ClassifyMessageESt17basic_string_viewIcSt11char_traitsIcEE(i64 %sub.i.i, ptr %add.ptr.i.i)
   %24 = load ptr, ptr %f, align 8, !noalias !636

@@ -40645,7 +40645,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit287.i: ; preds = %380
   %535 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload.i.i, i64 %.sroa.4.1.i.i
   %536 = load i8, ptr %535, align 1, !alias.scope !12622, !noalias !12627, !noundef !23
   %537 = icmp sgt i8 %536, -65
-  %538 = sub i64 %.sroa.03.sroa.13.0.copyload.i.i, %.sroa.4.1.i.i
+  %538 = sub nuw i64 %.sroa.03.sroa.13.0.copyload.i.i, %.sroa.4.1.i.i
   br i1 %537, label %540, label %539
 
 539:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i", %532
@@ -73240,11 +73240,11 @@ common.resume.i:                                  ; preds = %40, %34
           to label %110 unwind label %40, !noalias !20806
 
 89:                                               ; preds = %87
-  %90 = sub i32 %54, %.0.i.i.i
-  %91 = sub i32 %56, %.0.i.i.i
+  %90 = sub nuw i32 %54, %.0.i.i.i
+  %91 = sub nuw i32 %56, %.0.i.i.i
   %92 = zext i32 %90 to i64
   %93 = zext i32 %91 to i64
-  %.not.i.i42.i = icmp ugt i32 %90, %91
+  %.not.i.i42.i = icmp ugt i32 %54, %56
   br i1 %.not.i.i42.i, label %109, label %94
 
 94:                                               ; preds = %89

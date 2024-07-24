@@ -2503,7 +2503,7 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter36_horizontalAnticausa
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9
-  %12 = sub i32 %3, %.01520
+  %12 = sub nuw i32 %3, %.01520
   %13 = trunc i64 %10 to i32
   %14 = mul i32 %12, %13
   %15 = zext i32 %14 to i64

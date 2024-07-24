@@ -292,7 +292,7 @@ define void @_ZN6uu_yes14prepare_buffer17h11868802ee63e8cfE(ptr noalias noundef 
 
 15:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18extend_from_within17h83281dc547aed22dE.exit"
   %16 = phi i64 [ %4, %.lr.ph ], [ %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18extend_from_within17h83281dc547aed22dE.exit" ]
-  %17 = sub i64 %12, %16
+  %17 = sub nuw i64 %12, %16
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %18 = tail call { i64, i64 } @_ZN4core5slice5index5range17h1f91a4ce3312e7ecE(i64 noundef %.0.sroa.speculated.i, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.257d8f5d0b9698c548bfffc757105d52.5.llvm.16374473169365211629), !noalias !75

@@ -16873,7 +16873,7 @@ _ZN8pybind115tupleC2IiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi
   unreachable
 
 554:                                              ; preds = %539
-  %555 = sub i64 %49, %.1209.lcssa
+  %555 = sub nuw i64 %49, %.1209.lcssa
   %556 = invoke ptr @PyTuple_New(i64 noundef %555)
           to label %.noexc405 unwind label %.loopexit766
 
@@ -31324,7 +31324,7 @@ _ZNSt6vectorIlSaIlEE5clearEv.exit:                ; preds = %_ZSt10accumulateIPK
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %_ZNSt6vectorIlSaIlEE5clearEv.exit
-  %18 = sub i64 %11, %15
+  %18 = sub nuw i64 %11, %15
   call void @_ZNSt6vectorIlSaIlEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPlS1_EEmRKl(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %10, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit.preheader
 
@@ -32322,7 +32322,7 @@ _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -34482,7 +34482,7 @@ _ZNSt6vectorIlSaIlEE5clearEv.exit:                ; preds = %_ZSt10accumulateIPK
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %_ZNSt6vectorIlSaIlEE5clearEv.exit
-  %18 = sub i64 %11, %15
+  %18 = sub nuw i64 %11, %15
   call void @_ZNSt6vectorIlSaIlEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPlS1_EEmRKl(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %10, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit.preheader
 
@@ -36406,7 +36406,7 @@ _ZNSt6vectorIlSaIlEE5clearEv.exit:                ; preds = %.critedge81, %9
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %_ZNSt6vectorIlSaIlEE5clearEv.exit
-  %18 = sub i64 %11, %15
+  %18 = sub nuw i64 %11, %15
   call void @_ZNSt6vectorIlSaIlEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPlS1_EEmRKl(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %10, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.pre134 = load ptr, ptr %7, align 8, !noalias !990
   br label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit

@@ -795,7 +795,7 @@ if.end16:                                         ; preds = %if.end8
   br i1 %cmp1725, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end16
-  %sub = sub i32 %3, %4
+  %sub = sub nuw i32 %3, %4
   %conv = trunc i32 %sub to i8
   %6 = zext i32 %4 to i64
   %7 = getelementptr i8, ptr %ctx, i64 %6
@@ -1153,7 +1153,7 @@ if.end16.i:                                       ; preds = %if.end8.i
   br i1 %cmp1725.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end16.i
-  %sub.i = sub i32 %4, %5
+  %sub.i = sub nuw i32 %4, %5
   %conv.i = trunc i32 %sub.i to i8
   %7 = zext i32 %5 to i64
   %8 = getelementptr i8, ptr %ctx, i64 %7

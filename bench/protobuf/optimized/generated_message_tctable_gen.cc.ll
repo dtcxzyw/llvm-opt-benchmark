@@ -4633,9 +4633,9 @@ lpad.loopexit.split-lp.i888:                      ; preds = %if.then.i.i.i.i50.i
 while.end.i:                                      ; preds = %for.body19.i
   %501 = and i8 %start_new_block.093.i, 1
   %cmp36.i = icmp eq i8 %501, 0
-  %sub38.i = sub i32 %498, %last_skip_entry_start.092.i
+  %sub38.i = sub nuw i32 %498, %last_skip_entry_start.092.i
   %cmp39.i = icmp ugt i32 %sub38.i, 96
-  %or.cond.i890 = and i1 %cmp36.i, %cmp39.i
+  %or.cond.i890 = select i1 %cmp36.i, i1 %cmp39.i, i1 false
   %start_new_block.1.i = select i1 %or.cond.i890, i8 1, i8 %start_new_block.093.i
   %tobool43.i = trunc nuw i8 %start_new_block.1.i to i1
   br i1 %tobool43.i, label %if.then44.i, label %if.end50.i
@@ -6557,7 +6557,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit
   %5 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit ]
-  %sub = sub i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
+  %sub = sub nuw i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
   %add.ptr50 = getelementptr inbounds i8, ptr %5, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i35 = icmp eq ptr %1, %__position.coerce
@@ -6760,7 +6760,7 @@ _ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds =
 
 _ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKcmEvRT_T0_.exit
   %5 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPKcmEvRT_T0_.exit ]
-  %sub = sub i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
+  %sub = sub nuw i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   %add.ptr36 = getelementptr inbounds i8, ptr %5, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i41 = icmp eq ptr %1, %__position.coerce

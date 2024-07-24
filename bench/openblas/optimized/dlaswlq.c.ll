@@ -94,7 +94,7 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %123
 
 63:                                               ; preds = %59
-  %64 = sub nsw i32 %28, %25
+  %64 = sub nuw nsw i32 %28, %25
   %65 = sub nsw i32 %38, %25
   %66 = srem i32 %64, %65
   store i32 %66, ptr %14, align 4, !tbaa !3

@@ -122,7 +122,7 @@ define hidden { ptr, i64 } @"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$G
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %9 = getelementptr inbounds i8, ptr %8, i64 %5
-  %10 = sub i64 %3, %5
+  %10 = sub nuw i64 %3, %5
   store ptr %9, ptr %7, align 8
   store i64 %10, ptr %2, align 8
   br label %11
@@ -503,7 +503,7 @@ define hidden void @"_ZN4core3ptr7mut_ptr41_$LT$impl$u20$$BP$mut$u20$$u5b$T$u5d$
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 %3
-  %9 = sub i64 %2, %3
+  %9 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %10, align 8

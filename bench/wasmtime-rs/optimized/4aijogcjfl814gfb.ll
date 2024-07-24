@@ -7869,7 +7869,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr47drop
   %.0.sroa.speculated.i.i90 = tail call noundef i64 @llvm.umin.i64(i64 %146, i64 4096)
   %151 = load ptr, ptr %150, align 8, !nonnull !11, !align !86, !noundef !11
   %152 = getelementptr inbounds i8, ptr %151, i64 %.0.sroa.speculated.i.i90
-  %153 = sub i64 %146, %.0.sroa.speculated.i.i90
+  %153 = sub nuw i64 %146, %.0.sroa.speculated.i.i90
   store ptr %152, ptr %150, align 8
   store i64 %153, ptr %149, align 8
   %154 = getelementptr inbounds i8, ptr %1, i64 56
@@ -35767,7 +35767,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h89c6d01bf8ed98b6E.exit.thread7
   br label %.body233.i
 
 "_ZN4core6option15Option$LT$T$GT$6unwrap17h59dcd0eabe1a2e52E.exit160.i": ; preds = %618
-  %623 = sub i32 %619, %.036.i
+  %623 = sub nuw i32 %619, %.036.i
   store i8 0, ptr %534, align 4, !noalias !4213
   store i8 0, ptr %533, align 1, !noalias !4213
   br label %793
@@ -50308,7 +50308,7 @@ common.ret:                                       ; preds = %1151, %1148, %244
           to label %.noexc247.i unwind label %.loopexit1111.i, !noalias !6499
 
 416:                                              ; preds = %.noexc246.i
-  %417 = sub i64 %.sroa.9508.8.copyload.i, %411
+  %417 = sub nuw i64 %.sroa.9508.8.copyload.i, %411
   %418 = udiv i64 %417, 1000000000
   %419 = urem i64 %417, 1000000000
   %420 = trunc nuw nsw i64 %419 to i32

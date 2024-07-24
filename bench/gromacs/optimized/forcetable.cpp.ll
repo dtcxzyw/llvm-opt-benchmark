@@ -275,7 +275,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
-  %25 = sub nsw i64 %16, %22
+  %25 = sub nuw nsw i64 %16, %22
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %25)
           to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit118 unwind label %.loopexit.split-lp
 
@@ -307,7 +307,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit118
-  %43 = sub nsw i64 %33, %40
+  %43 = sub nuw nsw i64 %33, %40
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %43)
           to label %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit121_crit_edge unwind label %.loopexit.split-lp
 
@@ -1045,7 +1045,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %11, %._ZNSt6vectorI
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %23 = sub nsw i64 %.pre-phi, %20
+  %23 = sub nuw nsw i64 %.pre-phi, %20
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %23)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit8_crit_edge unwind label %44
 
@@ -1080,7 +1080,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit8:              ; preds = %._ZNSt6vectorIdSaId
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit8
-  %38 = sub nsw i64 %.pre-phi22, %35
+  %38 = sub nuw nsw i64 %.pre-phi22, %35
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %38)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit11 unwind label %44
 
@@ -1866,7 +1866,7 @@ _ZNSt6vectorI11t_tabledataSaIS0_EE6resizeEm.exit: ; preds = %188
   br i1 %207, label %208, label %210
 
 208:                                              ; preds = %191
-  %209 = sub nsw i64 %199, %206
+  %209 = sub nuw nsw i64 %199, %206
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %194, i64 noundef %209)
           to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -5295,7 +5295,7 @@ define void @_Z29makeDispersionCorrectionTableP8_IO_FILEPK19interaction_const_tf
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %18
-  %43 = sub nsw i64 %33, %40
+  %43 = sub nuw nsw i64 %33, %40
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %30, i64 noundef %43)
           to label %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge unwind label %_ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit
 

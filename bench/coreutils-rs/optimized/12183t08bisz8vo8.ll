@@ -664,14 +664,15 @@ define hidden { ptr, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12stri
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit": ; preds = %4
   %5 = getelementptr inbounds i8, ptr %0, i64 %3
-  %6 = sub i64 %1, %3
+  %6 = sub nuw i64 %1, %3
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %3), !alias.scope !100
   %7 = icmp eq i32 %bcmp.i, 0
+  %spec.select = select i1 %7, i64 %6, i64 undef
   %spec.select6 = select i1 %7, ptr %5, ptr null
   br label %8
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit", %4
-  %.sroa.3.0 = phi i64 [ undef, %4 ], [ %6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit" ]
+  %.sroa.3.0 = phi i64 [ undef, %4 ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit" ]
   %.sroa.0.0 = phi ptr [ null, %4 ], [ %spec.select6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit" ]
   %9 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %10 = insertvalue { ptr, i64 } %9, i64 %.sroa.3.0, 1
@@ -685,7 +686,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_che
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -722,7 +723,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd2
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -902,7 +903,7 @@ define void @_ZN6uu_env13string_parser12StringParser6new_at17h5c246883672407b0E(
 
 _ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit: ; preds = %4
   %11 = getelementptr inbounds i8, ptr %1, i64 %3
-  %12 = sub i64 %2, %3
+  %12 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1068,7 +1069,7 @@ define hidden void @_ZN6uu_env13string_parser12StringParser24get_chunk_with_leng
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit": ; preds = %3
   %18 = load ptr, ptr %1, align 8, !nonnull !5, !align !125, !noundef !5
   %19 = getelementptr inbounds i8, ptr %18, i64 %2
-  %20 = sub i64 %12, %2
+  %20 = sub nuw i64 %12, %2
   %21 = icmp eq i64 %12, %2
   br i1 %21, label %22, label %27
 
@@ -1286,7 +1287,7 @@ define void @_ZN6uu_env13string_parser12StringParser13consume_chunk17hc0f361e8f2
 _ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit: ; preds = %12
   %21 = load ptr, ptr %1, align 8, !alias.scope !163, !nonnull !5, !align !125, !noundef !5
   %22 = getelementptr inbounds i8, ptr %21, i64 %13
-  %23 = sub i64 %15, %13
+  %23 = sub nuw i64 %15, %13
   %24 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %22, ptr %24, align 8, !alias.scope !163
   %25 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1401,7 +1402,7 @@ define void @_ZN6uu_env13string_parser12StringParser34consume_one_ascii_or_all_n
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds i8, ptr %15, i64 %25
-  %34 = sub i64 %14, %25
+  %34 = sub nuw i64 %14, %25
   store ptr %33, ptr %16, align 8, !alias.scope !180, !noalias !181
   store i64 %34, ptr %17, align 8, !alias.scope !180, !noalias !181
   %35 = inttoptr i64 %22 to ptr
@@ -1545,7 +1546,7 @@ define void @_ZN6uu_env13string_parser12StringParser13skip_multiple17hbcad385e03
 _ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit: ; preds = %2
   %14 = load ptr, ptr %0, align 8, !alias.scope !203, !nonnull !5, !align !125, !noundef !5
   %15 = getelementptr inbounds i8, ptr %14, i64 %6
-  %16 = sub i64 %8, %6
+  %16 = sub nuw i64 %8, %6
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %17, align 8, !alias.scope !203
   %18 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1622,7 +1623,7 @@ define void @_ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h8
 _ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit: ; preds = %22
   %34 = load ptr, ptr %0, align 8, !alias.scope !219, !nonnull !5, !align !125, !noundef !5
   %35 = getelementptr inbounds i8, ptr %34, i64 %26
-  %36 = sub i64 %28, %26
+  %36 = sub nuw i64 %28, %26
   br label %42
 
 _ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b5b0aE.exit5: ; preds = %18, %9
@@ -1667,7 +1668,7 @@ define { ptr, i64 } @_ZN6uu_env13string_parser12StringParser9substring17h9deae5b
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit": ; preds = %2
-  %13 = sub i64 %6, %7
+  %13 = sub nuw i64 %6, %7
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !5
   %16 = sub i64 %15, %7
@@ -1738,7 +1739,7 @@ define void @_ZN6uu_env13string_parser12StringParser11set_pointer17hda034046172b
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit": ; preds = %2
   %12 = load ptr, ptr %0, align 8, !nonnull !5, !align !125, !noundef !5
   %13 = getelementptr inbounds i8, ptr %12, i64 %1
-  %14 = sub i64 %6, %1
+  %14 = sub nuw i64 %6, %1
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %13, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 24

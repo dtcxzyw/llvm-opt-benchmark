@@ -2257,7 +2257,7 @@ thread-pre-split.thread:                          ; preds = %thread-pre-split, %
   unreachable
 
 127:                                              ; preds = %120
-  %128 = sub i64 %121, %119
+  %128 = sub nuw i64 %121, %119
   store i64 %128, ptr %1, align 8, !alias.scope !206, !noalias !213
   %129 = icmp eq ptr %118, null
   br i1 %129, label %.thread, label %147
@@ -5538,7 +5538,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h937de081361e9
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.025
   tail call void @llvm.experimental.noalias.scope.decl(metadata !736)
   %21 = icmp ult i64 %20, %1
@@ -6506,7 +6506,7 @@ _ZN4core5slice4sort12choose_pivot17he156a7edb75c1365E.exit: ; preds = %"_ZN4core
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.0148181, ptr noundef nonnull align 8 dereferenceable(96) %212, i64 96, i1 false), !alias.scope !843, !noalias !841
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %212, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.i38.i, i64 96, i1 false), !noalias !841
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.0.i38.i)
-  %213 = sub i64 %.sroa.14.0147170, %206
+  %213 = sub nuw i64 %.sroa.14.0147170, %206
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %206, i64 %213)
   %214 = lshr i64 %.sroa.14.0147170, 3
   %215 = icmp uge i64 %.0.sroa.speculated.i, %214
@@ -7227,7 +7227,7 @@ define hidden void @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$G
   unreachable
 
 24:                                               ; preds = %16
-  %25 = sub i64 %8, %.cast
+  %25 = sub nuw i64 %8, %.cast
   store i64 %25, ptr %7, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.cast, ptr %26, align 8
@@ -7951,7 +7951,7 @@ _ZN4snap4read14read_exact_eof17h84418fe733702a8bE.exit: ; preds = %"_ZN84_$LT$al
 ._crit_edge:                                      ; preds = %118, %4
   %.lcssa417 = phi i64 [ %26, %4 ], [ %119, %118 ]
   %.lcssa376 = phi i64 [ %27, %4 ], [ %120, %118 ]
-  %52 = sub i64 %.lcssa376, %.lcssa417
+  %52 = sub nuw i64 %.lcssa376, %.lcssa417
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %52, i64 %3)
   %53 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.lcssa417, i64 %.0.sroa.speculated.i)
   %54 = extractvalue { i64, i1 } %53, 0

@@ -3635,7 +3635,7 @@ if.end21:                                         ; preds = %land.rhs, %do.end.i
   br i1 %cmp.i.i27, label %if.then.i.i32, label %if.else.i.i28
 
 if.then.i.i32:                                    ; preds = %if.end21
-  %sub.i.i33 = sub i64 %sub.ptr.div, %24
+  %sub.i.i33 = sub nuw i64 %sub.ptr.div, %24
   %sub3.i.i.i.i.i34 = sub i64 2305843009213693951, %24
   %cmp.i.i.i.i.i35 = icmp ult i64 %sub3.i.i.i.i.i34, %sub.i.i33
   br i1 %cmp.i.i.i.i.i35, label %if.then.i.i.i.i.i50, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE15_M_check_lengthEmmPKc.exit.i.i.i.i36

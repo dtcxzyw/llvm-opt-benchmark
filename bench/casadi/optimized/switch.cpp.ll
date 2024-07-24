@@ -9589,7 +9589,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINS_8Func
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = sub i64 %4, %11
+  %14 = sub nuw i64 %4, %11
   call void @_ZNSt6vectorIN6casadi8FunctionESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %14)
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIN6casadi8FunctionESaIS1_EE6resizeEm.exit

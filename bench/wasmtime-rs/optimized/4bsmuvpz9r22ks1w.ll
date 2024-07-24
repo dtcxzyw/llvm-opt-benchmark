@@ -4623,7 +4623,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h87cba83939afbb24E(ptr noa
   %.val.i = load ptr, ptr %64, align 8, !noalias !393, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds i8, ptr %.sroa.0200.0331, i64 24
   %66 = getelementptr inbounds i8, ptr %.sroa.016.0332, i64 %.val3.i
-  %67 = sub i64 %.sroa.27.0333, %.val3.i
+  %67 = sub nuw i64 %.sroa.27.0333, %.val3.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.0332, ptr nonnull readonly align 1 %.val.i, i64 %.val3.i, i1 false), !alias.scope !400, !noalias !404
   %68 = icmp eq ptr %65, %18
   br i1 %68, label %.loopexit, label %.lr.ph334
@@ -4660,7 +4660,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h87cba83939afbb24E(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he1a34e1e7180fc48E.exit103": ; preds = %73
   %77 = getelementptr inbounds i8, ptr %.sroa.016.1327, i64 1
   %78 = getelementptr inbounds i8, ptr %77, i64 %.val3.i82
-  %79 = sub i64 %74, %.val3.i82
+  %79 = sub nuw i64 %74, %.val3.i82
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull readonly align 1 %.val.i81, i64 %.val3.i82, i1 false), !alias.scope !423, !noalias !427
   %80 = icmp eq ptr %69, %18
   br i1 %80, label %.loopexit, label %.lr.ph329
@@ -4697,7 +4697,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h87cba83939afbb24E(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he1a34e1e7180fc48E.exit126": ; preds = %85
   %89 = getelementptr inbounds i8, ptr %.sroa.016.2322, i64 2
   %90 = getelementptr inbounds i8, ptr %89, i64 %.val3.i105
-  %91 = sub i64 %86, %.val3.i105
+  %91 = sub nuw i64 %86, %.val3.i105
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull readonly align 1 %.val.i104, i64 %.val3.i105, i1 false), !alias.scope !446, !noalias !450
   %92 = icmp eq ptr %81, %18
   br i1 %92, label %.loopexit, label %.lr.ph324
@@ -4733,7 +4733,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h87cba83939afbb24E(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he1a34e1e7180fc48E.exit149": ; preds = %97
   %100 = getelementptr inbounds i8, ptr %.sroa.016.3317, i64 3
   %101 = getelementptr inbounds i8, ptr %100, i64 %.val3.i128
-  %102 = sub i64 %98, %.val3.i128
+  %102 = sub nuw i64 %98, %.val3.i128
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %100, ptr nonnull readonly align 1 %.val.i127, i64 %.val3.i128, i1 false), !alias.scope !469, !noalias !473
   %103 = icmp eq ptr %93, %18
   br i1 %103, label %.loopexit, label %.lr.ph319
@@ -4770,7 +4770,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h87cba83939afbb24E(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he1a34e1e7180fc48E.exit172": ; preds = %108
   %112 = getelementptr inbounds i8, ptr %.sroa.016.4314, i64 4
   %113 = getelementptr inbounds i8, ptr %112, i64 %.val3.i151
-  %114 = sub i64 %109, %.val3.i151
+  %114 = sub nuw i64 %109, %.val3.i151
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %112, ptr nonnull readonly align 1 %.val.i150, i64 %.val3.i151, i1 false), !alias.scope !492, !noalias !496
   %115 = icmp eq ptr %104, %18
   br i1 %115, label %.loopexit, label %.lr.ph
@@ -4793,7 +4793,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h87cba83939afbb24E(ptr noa
   br label %.invoke
 
 120:                                              ; preds = %.lr.ph339
-  %121 = sub i64 %.sroa.27.6338, %4
+  %121 = sub nuw i64 %.sroa.27.6338, %4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.5337, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !alias.scope !505, !noalias !509
   %.not.i.i187 = icmp ugt i64 %.val3.i174, %121
   br i1 %.not.i.i187, label %122, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he1a34e1e7180fc48E.exit195"
@@ -4822,7 +4822,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h87cba83939afbb24E(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he1a34e1e7180fc48E.exit195": ; preds = %120
   %123 = getelementptr inbounds i8, ptr %.sroa.016.5337, i64 %4
   %124 = getelementptr inbounds i8, ptr %123, i64 %.val3.i174
-  %125 = sub i64 %121, %.val3.i174
+  %125 = sub nuw i64 %121, %.val3.i174
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %123, ptr nonnull readonly align 1 %.val.i173, i64 %.val3.i174, i1 false), !alias.scope !515, !noalias !519
   %126 = icmp eq ptr %116, %18
   br i1 %126, label %.loopexit, label %.lr.ph339
@@ -6411,7 +6411,7 @@ define hidden { i32, ptr } @"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBu
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !633, !noalias !623, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !623
   %.pre.i = load i64, ptr %7, align 8, !alias.scope !636, !noalias !639
   br label %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E.exit
@@ -6467,7 +6467,7 @@ define hidden { i32, ptr } @"_ZN137_$LT$cranelift_codegen..ir..builder..InsertRe
   %16 = getelementptr inbounds i8, ptr %8, i64 56
   %17 = getelementptr inbounds i8, ptr %8, i64 80
   %18 = load i32, ptr %17, align 8, !alias.scope !662, !noalias !652, !noundef !4
-  %19 = sub i64 %11, %13
+  %19 = sub nuw i64 %11, %13
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %19, i32 noundef %18), !noalias !652
   %.pre.i = load i64, ptr %9, align 8, !alias.scope !665, !noalias !668
   br label %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f900166f6ece613E.exit
@@ -37700,7 +37700,7 @@ _ZN17cranelift_codegen8settings6detail8Template5enums17h142fd15db080f210E.exit: 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he1a34e1e7180fc48E.exit82.i.i": ; preds = %89
   %92 = getelementptr inbounds i8, ptr %.sroa.016.224.i.i, i64 2
   %93 = getelementptr inbounds i8, ptr %92, i64 %.val3.i.i.i
-  %94 = sub i64 %90, %.val3.i.i.i
+  %94 = sub nuw i64 %90, %.val3.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr nonnull readonly align 1 %.val.i.i.i, i64 %.val3.i.i.i, i1 false), !alias.scope !3541, !noalias !3545
   %.sroa.05.0.i.i = getelementptr inbounds i8, ptr %.sroa.05.026.i.i, i64 16
   %95 = icmp eq ptr %.sroa.05.0.i.i, %51
@@ -50548,7 +50548,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4jump17
   %20 = getelementptr inbounds i8, ptr %8, i64 56
   %21 = getelementptr inbounds i8, ptr %8, i64 80
   %22 = load i32, ptr %21, align 8, !alias.scope !6479, !noalias !6464, !noundef !4
-  %23 = sub i64 %15, %17
+  %23 = sub nuw i64 %15, %17
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %23, i32 noundef %22), !noalias !6464
   %.pre.i.i.i = load i64, ptr %13, align 8, !alias.scope !6482, !noalias !6485
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder4Jump17hf1fd5980520d2b48E.llvm.17911367524062806024.exit
@@ -50681,7 +50681,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4trap17
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !6566, !noalias !6556, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !6556
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !6569, !noalias !6572
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder4Trap17h5ea4f762e856d5a8E.llvm.17911367524062806024.exit
@@ -50730,7 +50730,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder14resum
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !6603, !noalias !6593, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !6593
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !6606, !noalias !6609
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder4Trap17h5ea4f762e856d5a8E.llvm.17911367524062806024.exit
@@ -50779,7 +50779,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder5splat1
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !6640, !noalias !6630, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !6630
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !6643, !noalias !6646
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder5Unary17hb727a0687f904131E.llvm.17911367524062806024.exit
@@ -50894,7 +50894,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   %33 = getelementptr inbounds i8, ptr %25, i64 56
   %34 = getelementptr inbounds i8, ptr %25, i64 80
   %35 = load i32, ptr %34, align 8, !alias.scope !6708, !noalias !6698, !noundef !4
-  %36 = sub i64 %28, %30
+  %36 = sub nuw i64 %28, %30
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %36, i32 noundef %35), !noalias !6698
   %.pre.i.i.i = load i64, ptr %26, align 8, !alias.scope !6711, !noalias !6714
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder10BinaryImm817h87cae9d76b161174E.llvm.17911367524062806024.exit
@@ -51218,7 +51218,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder10stack
   %15 = getelementptr inbounds i8, ptr %7, i64 56
   %16 = getelementptr inbounds i8, ptr %7, i64 80
   %17 = load i32, ptr %16, align 8, !alias.scope !6857, !noalias !6847, !noundef !4
-  %18 = sub i64 %10, %12
+  %18 = sub nuw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18, i32 noundef %17), !noalias !6847
   %.pre.i.i.i = load i64, ptr %8, align 8, !alias.scope !6860, !noalias !6863
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder9StackLoad17h6844471e29bd47c2E.llvm.17911367524062806024.exit
@@ -51303,7 +51303,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder18dynam
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !6907, !noalias !6897, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !6897
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !6910, !noalias !6913
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder16DynamicStackLoad17h643facaf7d87f16dE.llvm.17911367524062806024.exit
@@ -51386,7 +51386,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder12globa
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !6957, !noalias !6947, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !6947
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !6960, !noalias !6963
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder16UnaryGlobalValue17h1f835f657c2041b8E.llvm.17911367524062806024.exit
@@ -51627,7 +51627,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !7073, !noalias !7063, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !7063
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !7076, !noalias !7079
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h577df6da89ea6fb3E.llvm.17911367524062806024.exit
@@ -51789,7 +51789,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !7156, !noalias !7146, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !7146
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !7159, !noalias !7162
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h577df6da89ea6fb3E.llvm.17911367524062806024.exit
@@ -51872,7 +51872,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder8f32con
   %13 = getelementptr inbounds i8, ptr %5, i64 56
   %14 = getelementptr inbounds i8, ptr %5, i64 80
   %15 = load i32, ptr %14, align 8, !alias.scope !7206, !noalias !7196, !noundef !4
-  %16 = sub i64 %8, %10
+  %16 = sub nuw i64 %8, %10
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %16, i32 noundef %15), !noalias !7196
   %.pre.i.i.i = load i64, ptr %6, align 8, !alias.scope !7209, !noalias !7212
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder11UnaryIeee3217hdb4a1e88b5d0cc6fE.llvm.17911367524062806024.exit
@@ -51955,7 +51955,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder8f64con
   %13 = getelementptr inbounds i8, ptr %5, i64 56
   %14 = getelementptr inbounds i8, ptr %5, i64 80
   %15 = load i32, ptr %14, align 8, !alias.scope !7256, !noalias !7246, !noundef !4
-  %16 = sub i64 %8, %10
+  %16 = sub nuw i64 %8, %10
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %16, i32 noundef %15), !noalias !7246
   %.pre.i.i.i = load i64, ptr %6, align 8, !alias.scope !7259, !noalias !7262
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder11UnaryIeee6417hba152e010f83882fE.llvm.17911367524062806024.exit
@@ -52070,7 +52070,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   %34 = getelementptr inbounds i8, ptr %26, i64 56
   %35 = getelementptr inbounds i8, ptr %26, i64 80
   %36 = load i32, ptr %35, align 8, !alias.scope !7324, !noalias !7314, !noundef !4
-  %37 = sub i64 %29, %31
+  %37 = sub nuw i64 %29, %31
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %37, i32 noundef %36), !noalias !7314
   %.pre.i.i.i = load i64, ptr %27, align 8, !alias.scope !7327, !noalias !7330
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder7Ternary17hbd18eeb470fd7bd2E.llvm.17911367524062806024.exit
@@ -52191,7 +52191,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   %34 = getelementptr inbounds i8, ptr %26, i64 56
   %35 = getelementptr inbounds i8, ptr %26, i64 80
   %36 = load i32, ptr %35, align 8, !alias.scope !7391, !noalias !7381, !noundef !4
-  %37 = sub i64 %29, %31
+  %37 = sub nuw i64 %29, %31
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %37, i32 noundef %36), !noalias !7381
   %.pre.i.i.i = load i64, ptr %27, align 8, !alias.scope !7394, !noalias !7397
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder7Ternary17hbd18eeb470fd7bd2E.llvm.17911367524062806024.exit
@@ -52298,7 +52298,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   %27 = getelementptr inbounds i8, ptr %7, i64 56
   %28 = getelementptr inbounds i8, ptr %7, i64 80
   %29 = load i32, ptr %28, align 8, !alias.scope !7443, !noalias !7428, !noundef !4
-  %30 = sub i64 %22, %24
+  %30 = sub nuw i64 %22, %24
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %30, i32 noundef %29), !noalias !7428
   %.pre.i.i.i = load i64, ptr %20, align 8, !alias.scope !7446, !noalias !7449
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder7Ternary17h180578d4941911a2E.llvm.17911367524062806024.exit
@@ -53516,7 +53516,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   %25 = getelementptr inbounds i8, ptr %5, i64 56
   %26 = getelementptr inbounds i8, ptr %5, i64 80
   %27 = load i32, ptr %26, align 8, !alias.scope !7958, !noalias !7943, !noundef !4
-  %28 = sub i64 %20, %22
+  %28 = sub nuw i64 %20, %22
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %28, i32 noundef %27), !noalias !7943
   %.pre.i.i.i = load i64, ptr %18, align 8, !alias.scope !7961, !noalias !7964
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder5Unary17hb727a0687f904131E.llvm.17911367524062806024.exit
@@ -54122,7 +54122,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   %27 = getelementptr inbounds i8, ptr %7, i64 56
   %28 = getelementptr inbounds i8, ptr %7, i64 80
   %29 = load i32, ptr %28, align 8, !alias.scope !8221, !noalias !8206, !noundef !4
-  %30 = sub i64 %22, %24
+  %30 = sub nuw i64 %22, %24
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %30, i32 noundef %29), !noalias !8206
   %.pre.i.i.i = load i64, ptr %20, align 8, !alias.scope !8224, !noalias !8227
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder12FloatCompare17hee075e2d239c8907E.llvm.17911367524062806024.exit
@@ -54209,7 +54209,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder7bitcas
   %15 = getelementptr inbounds i8, ptr %7, i64 56
   %16 = getelementptr inbounds i8, ptr %7, i64 80
   %17 = load i32, ptr %16, align 8, !alias.scope !8271, !noalias !8261, !noundef !4
-  %18 = sub i64 %10, %12
+  %18 = sub nuw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18, i32 noundef %17), !noalias !8261
   %.pre.i.i.i = load i64, ptr %8, align 8, !alias.scope !8274, !noalias !8277
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder12LoadNoOffset17haaf09c57cb62afaaE.llvm.17911367524062806024.exit
@@ -54294,7 +54294,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder16scala
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !8321, !noalias !8311, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !8311
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !8324, !noalias !8327
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder5Unary17hb727a0687f904131E.llvm.17911367524062806024.exit
@@ -54377,7 +54377,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder7uexten
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !8371, !noalias !8361, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !8361
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !8374, !noalias !8377
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder5Unary17hb727a0687f904131E.llvm.17911367524062806024.exit
@@ -54460,7 +54460,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder7sexten
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !8421, !noalias !8411, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !8411
   %.pre.i.i.i = load i64, ptr %7, align 8, !alias.scope !8424, !noalias !8427
   br label %_ZN17cranelift_codegen2ir7builder11InstBuilder5Unary17hb727a0687f904131E.llvm.17911367524062806024.exit
@@ -54593,7 +54593,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder10Bina
   %18 = getelementptr inbounds i8, ptr %10, i64 56
   %19 = getelementptr inbounds i8, ptr %10, i64 80
   %20 = load i32, ptr %19, align 8, !alias.scope !8491, !noalias !8481, !noundef !4
-  %21 = sub i64 %13, %15
+  %21 = sub nuw i64 %13, %15
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %21, i32 noundef %20), !noalias !8481
   %.pre.i.i = load i64, ptr %11, align 8, !alias.scope !8494, !noalias !8497
   br label %"_ZN137_$LT$cranelift_codegen..ir..builder..InsertReuseBuilder$LT$IIB$C$Array$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17h6523491c71d11054E.llvm.17911367524062806024.exit"
@@ -54694,7 +54694,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder16Dyna
   %15 = getelementptr inbounds i8, ptr %7, i64 56
   %16 = getelementptr inbounds i8, ptr %7, i64 80
   %17 = load i32, ptr %16, align 8, !alias.scope !8543, !noalias !8533, !noundef !4
-  %18 = sub i64 %10, %12
+  %18 = sub nuw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18, i32 noundef %17), !noalias !8533
   %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !8546, !noalias !8549
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"
@@ -54742,7 +54742,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder12Floa
   %17 = getelementptr inbounds i8, ptr %9, i64 56
   %18 = getelementptr inbounds i8, ptr %9, i64 80
   %19 = load i32, ptr %18, align 8, !alias.scope !8576, !noalias !8566, !noundef !4
-  %20 = sub i64 %12, %14
+  %20 = sub nuw i64 %12, %14
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %20, i32 noundef %19), !noalias !8566
   %.pre.i.i = load i64, ptr %10, align 8, !alias.scope !8579, !noalias !8582
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"
@@ -54844,7 +54844,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder4Jump1
   %15 = getelementptr inbounds i8, ptr %7, i64 56
   %16 = getelementptr inbounds i8, ptr %7, i64 80
   %17 = load i32, ptr %16, align 8, !alias.scope !8630, !noalias !8620, !noundef !4
-  %18 = sub i64 %10, %12
+  %18 = sub nuw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18, i32 noundef %17), !noalias !8620
   %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !8633, !noalias !8636
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"
@@ -54942,7 +54942,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder12Load
   %16 = getelementptr inbounds i8, ptr %8, i64 56
   %17 = getelementptr inbounds i8, ptr %8, i64 80
   %18 = load i32, ptr %17, align 8, !alias.scope !8684, !noalias !8674, !noundef !4
-  %19 = sub i64 %11, %13
+  %19 = sub nuw i64 %11, %13
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %19, i32 noundef %18), !noalias !8674
   %.pre.i.i = load i64, ptr %9, align 8, !alias.scope !8687, !noalias !8690
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"
@@ -54992,7 +54992,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder9Stack
   %16 = getelementptr inbounds i8, ptr %8, i64 56
   %17 = getelementptr inbounds i8, ptr %8, i64 80
   %18 = load i32, ptr %17, align 8, !alias.scope !8717, !noalias !8707, !noundef !4
-  %19 = sub i64 %11, %13
+  %19 = sub nuw i64 %11, %13
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %19, i32 noundef %18), !noalias !8707
   %.pre.i.i = load i64, ptr %9, align 8, !alias.scope !8720, !noalias !8723
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"
@@ -55094,7 +55094,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder7Terna
   %17 = getelementptr inbounds i8, ptr %9, i64 56
   %18 = getelementptr inbounds i8, ptr %9, i64 80
   %19 = load i32, ptr %18, align 8, !alias.scope !8771, !noalias !8761, !noundef !4
-  %20 = sub i64 %12, %14
+  %20 = sub nuw i64 %12, %14
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %20, i32 noundef %19), !noalias !8761
   %.pre.i.i = load i64, ptr %10, align 8, !alias.scope !8774, !noalias !8777
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"
@@ -55149,7 +55149,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder7Terna
   %19 = getelementptr inbounds i8, ptr %11, i64 56
   %20 = getelementptr inbounds i8, ptr %11, i64 80
   %21 = load i32, ptr %20, align 8, !alias.scope !8807, !noalias !8797, !noundef !4
-  %22 = sub i64 %14, %16
+  %22 = sub nuw i64 %14, %16
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %22, i32 noundef %21), !noalias !8797
   %.pre.i.i = load i64, ptr %12, align 8, !alias.scope !8810, !noalias !8813
   br label %"_ZN137_$LT$cranelift_codegen..ir..builder..InsertReuseBuilder$LT$IIB$C$Array$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17h6523491c71d11054E.llvm.17911367524062806024.exit"
@@ -55202,7 +55202,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder4Trap1
   %16 = getelementptr inbounds i8, ptr %8, i64 56
   %17 = getelementptr inbounds i8, ptr %8, i64 80
   %18 = load i32, ptr %17, align 8, !alias.scope !8838, !noalias !8828, !noundef !4
-  %19 = sub i64 %11, %13
+  %19 = sub nuw i64 %11, %13
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %19, i32 noundef %18), !noalias !8828
   %.pre.i.i = load i64, ptr %9, align 8, !alias.scope !8841, !noalias !8844
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"
@@ -55252,7 +55252,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder5Unary
   %15 = getelementptr inbounds i8, ptr %7, i64 56
   %16 = getelementptr inbounds i8, ptr %7, i64 80
   %17 = load i32, ptr %16, align 8, !alias.scope !8871, !noalias !8861, !noundef !4
-  %18 = sub i64 %10, %12
+  %18 = sub nuw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18, i32 noundef %17), !noalias !8861
   %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !8874, !noalias !8877
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"
@@ -55300,7 +55300,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder16Unar
   %15 = getelementptr inbounds i8, ptr %7, i64 56
   %16 = getelementptr inbounds i8, ptr %7, i64 80
   %17 = load i32, ptr %16, align 8, !alias.scope !8904, !noalias !8894, !noundef !4
-  %18 = sub i64 %10, %12
+  %18 = sub nuw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18, i32 noundef %17), !noalias !8894
   %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !8907, !noalias !8910
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"
@@ -55394,7 +55394,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder11Unar
   %15 = getelementptr inbounds i8, ptr %7, i64 56
   %16 = getelementptr inbounds i8, ptr %7, i64 80
   %17 = load i32, ptr %16, align 8, !alias.scope !8958, !noalias !8948, !noundef !4
-  %18 = sub i64 %10, %12
+  %18 = sub nuw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18, i32 noundef %17), !noalias !8948
   %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !8961, !noalias !8964
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"
@@ -55442,7 +55442,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder11Unar
   %15 = getelementptr inbounds i8, ptr %7, i64 56
   %16 = getelementptr inbounds i8, ptr %7, i64 80
   %17 = load i32, ptr %16, align 8, !alias.scope !8991, !noalias !8981, !noundef !4
-  %18 = sub i64 %10, %12
+  %18 = sub nuw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18, i32 noundef %17), !noalias !8981
   %.pre.i.i = load i64, ptr %8, align 8, !alias.scope !8994, !noalias !8997
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"
@@ -55538,7 +55538,7 @@ _ZN17cranelift_codegen2ir12instructions15InstructionData22sign_extend_immediates
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   %16 = load i32, ptr %15, align 8, !alias.scope !9045, !noalias !9035, !noundef !4
-  %17 = sub i64 %9, %11
+  %17 = sub nuw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17, i32 noundef %16), !noalias !9035
   %.pre.i.i = load i64, ptr %7, align 8, !alias.scope !9048, !noalias !9051
   br label %"_ZN124_$LT$cranelift_codegen..ir..builder..InsertBuilder$LT$IIB$GT$$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17hdeca71d448b937eeE.llvm.17911367524062806024.exit"

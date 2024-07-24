@@ -997,7 +997,7 @@ if.end30.i:                                       ; preds = %if.then25.i
   br i1 %cmp35.i, label %if.then37.i, label %if.end52.i
 
 if.then37.i:                                      ; preds = %if.end30.i
-  %sub42.i = sub i64 %conv32.i, %call34.i
+  %sub42.i = sub nuw i64 %conv32.i, %call34.i
   %add.ptr43.i = getelementptr inbounds i8, ptr %8, i64 %sub42.i
   %call47.i = call fastcc i32 @ia5ncasecmp(ptr noundef nonnull %ulabel.i, ptr noundef %add.ptr43.i, i64 noundef %call34.i)
   %cmp48.i = icmp eq i32 %call47.i, 0

@@ -1238,7 +1238,7 @@ define internal fastcc range(i32 2, 65539) i32 @awdl_add_tagged_field(ptr nounde
 
 50:                                               ; preds = %47
   %51 = load i32, ptr @hf_awdl_tag_padding, align 4
-  %52 = sub nsw i32 %.058, %41
+  %52 = sub nuw nsw i32 %.058, %41
   %53 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %51, ptr noundef %38, i32 noundef %41, i32 noundef %52, i32 noundef 0) #5
   br label %54
 

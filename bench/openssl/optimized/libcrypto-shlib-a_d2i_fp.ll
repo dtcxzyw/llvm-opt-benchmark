@@ -235,7 +235,7 @@ if.else72:                                        ; preds = %if.else
   br i1 %cmp74, label %if.then76, label %if.end118
 
 if.then76:                                        ; preds = %if.else72
-  %sub78 = sub i64 %4, %sub73
+  %sub78 = sub nuw i64 %4, %sub73
   %cmp79 = icmp ugt i64 %sub78, 2147483647
   %6 = xor i64 %len.1, -1
   %cmp83 = icmp ugt i64 %sub78, %6

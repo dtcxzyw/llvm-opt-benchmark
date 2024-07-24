@@ -224,7 +224,7 @@ if.end7:                                          ; preds = %while.body, %if.end
   br i1 %cmp, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end7
-  %sub = sub i64 %7, %6
+  %sub = sub nuw i64 %7, %6
   %chunk_size = getelementptr inbounds i8, ptr %q, i64 48
   %8 = load i64, ptr %chunk_size, align 8
   %mul = mul i64 %8, %sub
@@ -804,7 +804,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %sub = sub i64 %offset.addr.016, %sub.i
+  %sub = sub nuw i64 %offset.addr.016, %sub.i
   %c.0 = load ptr, ptr %c.017, align 8
   %tobool.not = icmp eq ptr %c.0, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !12

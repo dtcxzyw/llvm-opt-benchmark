@@ -34185,7 +34185,7 @@ _ZNSt6vectorIN4crow8mustache6ActionESaIS2_EE17_M_realloc_insertIJNS1_10ActionTyp
 1002:                                             ; preds = %997
   %1003 = sub i64 %993, %975
   store ptr %52, ptr %25, align 8, !tbaa !5, !alias.scope !607
-  %1004 = sub i64 %998, %975
+  %1004 = sub nuw i64 %998, %975
   %1005 = call noundef i64 @llvm.umin.i64(i64 %1004, i64 %1003)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #33, !noalias !607
   store i64 %1005, ptr %3, align 8, !tbaa !10, !noalias !607
@@ -34356,7 +34356,7 @@ _ZNSt6vectorIN4crow8mustache6ActionESaIS2_EE17_M_realloc_insertIJNS1_10ActionTyp
 1077:                                             ; preds = %1071
   %1078 = sub i64 %991, %1060
   store ptr %54, ptr %26, align 8, !tbaa !5, !alias.scope !611
-  %1079 = sub i64 %1073, %1060
+  %1079 = sub nuw i64 %1073, %1060
   %1080 = call noundef i64 @llvm.umin.i64(i64 %1079, i64 %1078)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #33, !noalias !611
   store i64 %1080, ptr %2, align 8, !tbaa !10, !noalias !611
@@ -35899,7 +35899,7 @@ define linkonce_odr dso_local void @_ZNK4crow8mustache10template_t15render_inter
   store ptr %67, ptr %12, align 8, !tbaa !5, !alias.scope !664
   %95 = load ptr, ptr %44, align 8, !tbaa !12, !noalias !664
   %96 = getelementptr inbounds i8, ptr %95, i64 %86
-  %97 = sub i64 %89, %86
+  %97 = sub nuw i64 %89, %86
   %98 = call noundef i64 @llvm.umin.i64(i64 %97, i64 %94)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #33, !noalias !664
   store i64 %98, ptr %11, align 8, !tbaa !10, !noalias !664
@@ -36111,7 +36111,7 @@ define linkonce_odr dso_local void @_ZNK4crow8mustache10template_t15render_inter
   store ptr %50, ptr %14, align 8, !tbaa !5, !alias.scope !672
   %200 = load ptr, ptr %44, align 8, !tbaa !12, !noalias !672
   %201 = getelementptr inbounds i8, ptr %200, i64 %191
-  %202 = sub i64 %194, %191
+  %202 = sub nuw i64 %194, %191
   %203 = call noundef i64 @llvm.umin.i64(i64 %202, i64 %199)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #33, !noalias !672
   store i64 %203, ptr %10, align 8, !tbaa !10, !noalias !672
@@ -36882,7 +36882,7 @@ define linkonce_odr dso_local void @_ZNK4crow8mustache10template_t15render_inter
   store ptr %48, ptr %24, align 8, !tbaa !5, !alias.scope !685
   %538 = load ptr, ptr %44, align 8, !tbaa !12, !noalias !685
   %539 = getelementptr inbounds i8, ptr %538, i64 %529
-  %540 = sub i64 %532, %529
+  %540 = sub nuw i64 %532, %529
   %541 = call noundef i64 @llvm.umin.i64(i64 %540, i64 %537)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33, !noalias !685
   store i64 %541, ptr %8, align 8, !tbaa !10, !noalias !685
@@ -37229,7 +37229,7 @@ define linkonce_odr dso_local void @_ZNK4crow8mustache10template_t15render_inter
   store ptr %45, ptr %25, align 8, !tbaa !5, !alias.scope !692
   %718 = load ptr, ptr %44, align 8, !tbaa !12, !noalias !692
   %719 = getelementptr inbounds i8, ptr %718, i64 %709
-  %720 = sub i64 %712, %709
+  %720 = sub nuw i64 %712, %709
   %721 = call noundef i64 @llvm.umin.i64(i64 %720, i64 %717)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33, !noalias !692
   store i64 %721, ptr %7, align 8, !tbaa !10, !noalias !692
@@ -37849,7 +37849,7 @@ define linkonce_odr dso_local void @_ZNK4crow8mustache10template_t15render_fragm
   %70 = ashr exact i64 %69, 32
   %71 = getelementptr inbounds i8, ptr %3, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !15
-  %73 = sub i64 %63, %61
+  %73 = sub nuw i64 %63, %61
   %74 = tail call noundef i64 @llvm.umin.i64(i64 %73, i64 %70)
   %75 = load ptr, ptr %67, align 8, !tbaa !12
   %76 = getelementptr inbounds i8, ptr %75, i64 %61
@@ -38524,7 +38524,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZNK4crow8mustache10template_t12find_
   store ptr %169, ptr %7, align 8, !tbaa !5, !alias.scope !721
   %227 = load ptr, ptr %1, align 8, !tbaa !12, !noalias !721
   %228 = getelementptr inbounds i8, ptr %227, i64 %216
-  %229 = sub i64 %219, %216
+  %229 = sub nuw i64 %219, %216
   %230 = call noundef i64 @llvm.umin.i64(i64 %229, i64 %226)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33, !noalias !721
   store i64 %230, ptr %5, align 8, !tbaa !10, !noalias !721
@@ -39323,7 +39323,7 @@ define internal fastcc void @_ZN4crow7utilityL17sanitize_filenameERNSt7__cxx1112
   ]
 
 83:                                               ; preds = %80, %80, %80, %80, %77
-  %84 = sub i64 %12, %53
+  %84 = sub nuw i64 %12, %53
   %85 = tail call noundef i64 @llvm.umin.i64(i64 %84, i64 2)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %53, i64 noundef %85)
   br label %361
@@ -39389,7 +39389,7 @@ define internal fastcc void @_ZN4crow7utilityL17sanitize_filenameERNSt7__cxx1112
   ]
 
 127:                                              ; preds = %124, %124, %124, %124, %121
-  %128 = sub i64 %12, %97
+  %128 = sub nuw i64 %12, %97
   %129 = tail call noundef i64 @llvm.umin.i64(i64 %128, i64 2)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %97, i64 noundef %129)
   %130 = load ptr, ptr %0, align 8, !tbaa !12
@@ -39479,7 +39479,7 @@ define internal fastcc void @_ZN4crow7utilityL17sanitize_filenameERNSt7__cxx1112
   ]
 
 188:                                              ; preds = %185, %185, %185, %185, %181
-  %189 = sub i64 %136, %149
+  %189 = sub nuw i64 %136, %149
   %190 = tail call noundef i64 @llvm.umin.i64(i64 %189, i64 3)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %149, i64 noundef %190)
   br label %361
@@ -39558,7 +39558,7 @@ define internal fastcc void @_ZN4crow7utilityL17sanitize_filenameERNSt7__cxx1112
   ]
 
 241:                                              ; preds = %238, %238, %238, %238, %234
-  %242 = sub i64 %12, %202
+  %242 = sub nuw i64 %12, %202
   %243 = tail call noundef i64 @llvm.umin.i64(i64 %242, i64 3)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %202, i64 noundef %243)
   br label %361
@@ -39624,7 +39624,7 @@ define internal fastcc void @_ZN4crow7utilityL17sanitize_filenameERNSt7__cxx1112
   ]
 
 285:                                              ; preds = %282, %282, %282, %282, %279
-  %286 = sub i64 %12, %255
+  %286 = sub nuw i64 %12, %255
   %287 = tail call noundef i64 @llvm.umin.i64(i64 %286, i64 2)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %255, i64 noundef %287)
   br label %361
@@ -39690,7 +39690,7 @@ define internal fastcc void @_ZN4crow7utilityL17sanitize_filenameERNSt7__cxx1112
   ]
 
 329:                                              ; preds = %326, %326, %326, %326, %323
-  %330 = sub i64 %12, %299
+  %330 = sub nuw i64 %12, %299
   %331 = tail call noundef i64 @llvm.umin.i64(i64 %330, i64 2)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %299, i64 noundef %331)
   br label %361
@@ -49453,7 +49453,7 @@ define linkonce_odr dso_local void @_ZNK4crow9multipart7message12get_boundaryERK
   store ptr %18, ptr %0, align 8, !tbaa !5, !alias.scope !874
   %19 = load ptr, ptr %2, align 8, !tbaa !12, !noalias !874
   %20 = getelementptr inbounds i8, ptr %19, i64 %12
-  %21 = sub i64 %14, %12
+  %21 = sub nuw i64 %14, %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33, !noalias !874
   store i64 %21, ptr %5, align 8, !tbaa !10, !noalias !874
   %22 = icmp ugt i64 %21, 15
@@ -52537,7 +52537,7 @@ define linkonce_odr dso_local void @_ZN4crow9multipart7message18parse_section_he
   store ptr %48, ptr %20, align 8, !tbaa !5, !alias.scope !917
   %202 = load ptr, ptr %17, align 8, !tbaa !12, !noalias !917
   %203 = getelementptr inbounds i8, ptr %202, i64 %196
-  %204 = sub i64 %197, %196
+  %204 = sub nuw i64 %197, %196
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #33, !noalias !917
   store i64 %204, ptr %10, align 8, !tbaa !10, !noalias !917
   %205 = icmp ugt i64 %204, 15
@@ -52858,7 +52858,7 @@ define linkonce_odr dso_local void @_ZN4crow9multipart7message18parse_section_he
   store ptr %54, ptr %23, align 8, !tbaa !5, !alias.scope !923
   %335 = load ptr, ptr %21, align 8, !tbaa !12, !noalias !923
   %336 = getelementptr inbounds i8, ptr %335, i64 %329
-  %337 = sub i64 %330, %329
+  %337 = sub nuw i64 %330, %329
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33, !noalias !923
   store i64 %337, ptr %8, align 8, !tbaa !10, !noalias !923
   %338 = icmp ugt i64 %337, 15
@@ -58664,7 +58664,7 @@ define linkonce_odr dso_local void @_ZN4crow6ServerINS_4CrowIJ17ExampleMiddlewar
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.loopexit46
-  %34 = sub nsw i64 %24, %31
+  %34 = sub nuw nsw i64 %24, %31
   call void @_ZNSt6vectorISt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESaIS8_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %34)
   br label %53
 
@@ -58717,7 +58717,7 @@ define linkonce_odr dso_local void @_ZN4crow6ServerINS_4CrowIJ17ExampleMiddlewar
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %53
-  %64 = sub nsw i64 %24, %61
+  %64 = sub nuw nsw i64 %24, %61
   call void @_ZNSt6vectorIPN4crow6detail10task_timerESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %64)
   br label %71
 
@@ -61767,7 +61767,7 @@ define linkonce_odr dso_local void @_ZN4crow8response27set_static_file_info_unsa
   store ptr %30, ptr %6, align 8, !tbaa !5, !alias.scope !1111
   %31 = load ptr, ptr %1, align 8, !tbaa !12, !noalias !1111
   %32 = getelementptr inbounds i8, ptr %31, i64 %24
-  %33 = sub i64 %26, %24
+  %33 = sub nuw i64 %26, %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33, !noalias !1111
   store i64 %33, ptr %5, align 8, !tbaa !10, !noalias !1111
   %34 = icmp ugt i64 %33, 15
@@ -96767,7 +96767,7 @@ _ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm.exit: ; preds = %22
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %29
-  %38 = sub i64 %28, %35
+  %38 = sub nuw i64 %28, %35
   invoke void @_ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %38)
           to label %45 unwind label %47
 
@@ -103298,7 +103298,7 @@ define linkonce_odr dso_local void @_ZNK4crow4Trie4findERKNSt7__cxx1112basic_str
   %888 = sub i64 %885, %30
   store ptr %157, ptr %20, align 8, !tbaa !5, !alias.scope !1989
   %889 = getelementptr inbounds i8, ptr %227, i64 %30
-  %890 = sub i64 %224, %30
+  %890 = sub nuw i64 %224, %30
   %891 = call noundef i64 @llvm.umin.i64(i64 %890, i64 %888)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #33, !noalias !1989
   store i64 %891, ptr %9, align 8, !tbaa !10, !noalias !1989
@@ -112014,7 +112014,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4asio6detail21write_buffer_sequenc
   br i1 %160, label %.loopexit, label %161
 
 161:                                              ; preds = %156
-  %162 = sub i64 %150, %159
+  %162 = sub nuw i64 %150, %159
   %163 = add i64 %79, 1
   %164 = icmp ne ptr %84, %22
   %165 = icmp ne i64 %162, 0
@@ -112039,7 +112039,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4asio6detail21write_buffer_sequenc
 
 177:                                              ; preds = %.preheader
   %178 = getelementptr inbounds i8, ptr %169, i64 16
-  %179 = sub i64 %168, %171
+  %179 = sub nuw i64 %168, %171
   %180 = add i64 %167, 1
   %181 = icmp ne ptr %178, %22
   %182 = icmp ne i64 %179, 0
@@ -112587,7 +112587,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4asio6detail21write_buffer_sequenc
   br i1 %164, label %.loopexit, label %165
 
 165:                                              ; preds = %160
-  %166 = sub i64 %154, %163
+  %166 = sub nuw i64 %154, %163
   %167 = add i64 %81, 1
   %168 = icmp ne ptr %88, %24
   %169 = icmp ne i64 %166, 0
@@ -112612,7 +112612,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4asio6detail21write_buffer_sequenc
 
 181:                                              ; preds = %.preheader
   %182 = getelementptr inbounds i8, ptr %173, i64 16
-  %183 = sub i64 %172, %175
+  %183 = sub nuw i64 %172, %175
   %184 = add i64 %171, 1
   %185 = icmp ne ptr %182, %24
   %186 = icmp ne i64 %183, 0
@@ -113400,7 +113400,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail8write_opINS_19basic_stream_s
   br i1 %96, label %.loopexit19, label %97
 
 97:                                               ; preds = %90
-  %98 = sub i64 %2, %95
+  %98 = sub nuw i64 %2, %95
   %99 = add i64 %85, 1
   store i64 %99, ptr %84, align 8, !tbaa !2178
   %100 = getelementptr inbounds i8, ptr %86, i64 16
@@ -113432,7 +113432,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail8write_opINS_19basic_stream_s
   br label %.loopexit20
 
 116:                                              ; preds = %.preheader18
-  %117 = sub i64 %106, %110
+  %117 = sub nuw i64 %106, %110
   %118 = add i64 %108, 1
   store i64 %118, ptr %84, align 8, !tbaa !2178
   %119 = getelementptr inbounds i8, ptr %107, i64 16

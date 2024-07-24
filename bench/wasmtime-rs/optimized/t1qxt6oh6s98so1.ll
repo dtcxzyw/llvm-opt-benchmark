@@ -1045,7 +1045,7 @@ define internal fastcc noundef range(i32 1, 0) i32 @"_ZN13wasmtime_slab13Slab$LT
   unreachable
 
 12:                                               ; preds = %2
-  %13 = sub i64 %5, %8
+  %13 = sub nuw i64 %5, %8
   %.not5.i.i = icmp ult i64 %13, %.0.sroa.speculated.i.i
   br i1 %.not5.i.i, label %14, label %"_ZN13wasmtime_slab13Slab$LT$T$GT$15double_capacity17ha08ec2eac16173d1E.exit"
 
@@ -17365,7 +17365,7 @@ default.unreachable1.i.i.i:                       ; preds = %31
   br i1 %37, label %43, label %38
 
 38:                                               ; preds = %32
-  %39 = sub i32 %34, %36
+  %39 = sub nuw i32 %34, %36
   %40 = load ptr, ptr %11, align 8, !alias.scope !5516, !noalias !5515, !nonnull !4, !align !15, !noundef !4
   %41 = load i32, ptr %40, align 4, !noalias !5519, !noundef !4
   %42 = add i32 %39, %41
@@ -17457,7 +17457,7 @@ default.unreachable1.i.i.i21:                     ; preds = %69
   br i1 %75, label %81, label %76
 
 76:                                               ; preds = %70
-  %77 = sub i32 %72, %74
+  %77 = sub nuw i32 %72, %74
   %78 = load ptr, ptr %20, align 8, !alias.scope !5536, !noalias !5535, !nonnull !4, !align !15, !noundef !4
   %79 = load i32, ptr %78, align 4, !noalias !5539, !noundef !4
   %80 = add i32 %77, %79
@@ -17581,7 +17581,7 @@ default.unreachable1.i.i.i:                       ; preds = %31
   br i1 %37, label %43, label %38
 
 38:                                               ; preds = %32
-  %39 = sub i32 %34, %36
+  %39 = sub nuw i32 %34, %36
   %40 = load ptr, ptr %11, align 8, !alias.scope !5556, !noalias !5555, !nonnull !4, !align !15, !noundef !4
   %41 = load i32, ptr %40, align 4, !noalias !5559, !noundef !4
   %42 = add i32 %39, %41
@@ -17673,7 +17673,7 @@ default.unreachable1.i.i.i21:                     ; preds = %69
   br i1 %75, label %81, label %76
 
 76:                                               ; preds = %70
-  %77 = sub i32 %72, %74
+  %77 = sub nuw i32 %72, %74
   %78 = load ptr, ptr %20, align 8, !alias.scope !5576, !noalias !5575, !nonnull !4, !align !15, !noundef !4
   %79 = load i32, ptr %78, align 4, !noalias !5579, !noundef !4
   %80 = add i32 %77, %79
@@ -23588,7 +23588,7 @@ define void @_ZN8wasmtime7runtime11instantiate14CompiledModule19func_by_text_off
   br i1 %or.cond, label %28, label %23
 
 23:                                               ; preds = %15
-  %24 = sub i32 %7, %17
+  %24 = sub nuw i32 %7, %17
   %25 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.3.0.i.i, ptr %25, align 4
   %26 = getelementptr inbounds i8, ptr %0, i64 8

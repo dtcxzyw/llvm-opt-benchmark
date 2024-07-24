@@ -256,7 +256,7 @@ define hidden void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local
   br i1 %160, label %161, label %241
 
 161:                                              ; preds = %149
-  %162 = sub nsw i32 %153, %159
+  %162 = sub nuw nsw i32 %153, %159
   %163 = icmp ugt i32 %162, %27
   br i1 %163, label %164, label %166
 
@@ -288,7 +288,7 @@ define hidden void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local
   br i1 %.not333, label %176, label %.preheader, !llvm.loop !4
 
 176:                                              ; preds = %.preheader
-  %177 = sub nsw i32 %.0251, %162
+  %177 = sub nuw nsw i32 %.0251, %162
   %178 = zext nneg i32 %153 to i64
   %179 = sub nsw i64 0, %178
   %180 = getelementptr inbounds i8, ptr %174, i64 %179
@@ -302,7 +302,7 @@ define hidden void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local
   %184 = sub i32 %52, %162
   %185 = zext i32 %184 to i64
   %186 = getelementptr inbounds i8, ptr %50, i64 %185
-  %187 = sub i32 %162, %29
+  %187 = sub nuw nsw i32 %162, %29
   %188 = icmp ult i32 %187, %.0251
   br i1 %188, label %.preheader487, label %219
 
@@ -319,7 +319,7 @@ define hidden void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local
   br i1 %.not331, label %193, label %.preheader487, !llvm.loop !6
 
 193:                                              ; preds = %.preheader487
-  %194 = sub nsw i32 %.0251, %187
+  %194 = sub nuw nsw i32 %.0251, %187
   %195 = icmp ult i32 %29, %194
   br i1 %195, label %.preheader486, label %219
 
@@ -336,14 +336,14 @@ define hidden void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local
   br i1 %.not332, label %200, label %.preheader486, !llvm.loop !7
 
 200:                                              ; preds = %.preheader486
-  %201 = sub i32 %194, %29
+  %201 = sub nuw i32 %194, %29
   %202 = zext nneg i32 %153 to i64
   %203 = sub nsw i64 0, %202
   %204 = getelementptr inbounds i8, ptr %198, i64 %203
   br label %219
 
 205:                                              ; preds = %181
-  %206 = sub i32 %29, %162
+  %206 = sub nuw i32 %29, %162
   %207 = zext i32 %206 to i64
   %208 = getelementptr inbounds i8, ptr %50, i64 %207
   %209 = icmp ult i32 %162, %.0251
@@ -362,7 +362,7 @@ define hidden void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local
   br i1 %.not330, label %214, label %.preheader488, !llvm.loop !8
 
 214:                                              ; preds = %.preheader488
-  %215 = sub nsw i32 %.0251, %162
+  %215 = sub nuw nsw i32 %.0251, %162
   %216 = zext nneg i32 %153 to i64
   %217 = sub nsw i64 0, %216
   %218 = getelementptr inbounds i8, ptr %212, i64 %217

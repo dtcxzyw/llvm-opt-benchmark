@@ -1204,7 +1204,7 @@ if.end22:                                         ; preds = %land.lhs.true.i
   store ptr %30, ptr %magnic_number, align 8
   store i64 %conv.i, ptr %size_.i28, align 8
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %30, i64 %conv.i
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i, %conv.i
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i, %conv.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(16) %magnic_number, i1 noundef zeroext false)
           to label %invoke.cont24 unwind label %lpad5
@@ -1685,7 +1685,7 @@ if.end22:                                         ; preds = %land.lhs.true.i
   store i64 %conv.i, ptr %size_.i45, align 8
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %31, i64 %conv.i
   store ptr %add.ptr.i5.i, ptr %enc_slice, align 8
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i, %conv.i
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i, %conv.i
   store i64 %sub.i.i, ptr %size_.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(16) %block_key, i1 noundef zeroext false)
@@ -1786,7 +1786,7 @@ if.end54:                                         ; preds = %land.lhs.true.i78
   store i64 %conv.i82, ptr %size_.i69, align 8
   %add.ptr.i5.i86 = getelementptr inbounds i8, ptr %34, i64 %conv.i82
   store ptr %add.ptr.i5.i86, ptr %enc_slice, align 8
-  %sub.i.i87 = sub i64 %sub.ptr.sub.i.i81, %conv.i82
+  %sub.i.i87 = sub nuw i64 %sub.ptr.sub.i.i81, %conv.i82
   store i64 %sub.i.i87, ptr %size_.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i70)
   invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(16) %cf_name, i1 noundef zeroext false)

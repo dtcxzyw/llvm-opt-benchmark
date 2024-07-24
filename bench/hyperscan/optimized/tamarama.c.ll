@@ -1487,7 +1487,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   br i1 %or.cond64.us, label %if.then.us, label %if.else
 
 if.then.us:                                       ; preds = %while.body.us
-  %sub19.us = sub i32 %10, %0
+  %sub19.us = sub nuw i32 %10, %0
   %event.0.us = add i32 %sub19.us, %6
   %12 = load i32, ptr %end.i72, align 4
   %tobool.i73.not.us = icmp eq i32 %12, 0

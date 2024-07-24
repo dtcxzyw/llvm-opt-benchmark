@@ -173,7 +173,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 94:                                               ; preds = %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 1 %.0510784, i64 %3, i1 false)
-  %95 = sub i64 %26, %3
+  %95 = sub nuw i64 %26, %3
   br label %96
 
 96:                                               ; preds = %92, %94, %86
@@ -1166,7 +1166,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %594 = getelementptr inbounds i8, ptr %9, i64 %.5590908
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %594, ptr nonnull align 1 %12, i64 %586, i1 false)
   %595 = add i64 %.5590908, %586
-  %596 = sub i64 %.5578909, %586
+  %596 = sub nuw i64 %.5578909, %586
   br label %597
 
 597:                                              ; preds = %.critedge772, %593, %590
@@ -1476,7 +1476,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %787 = getelementptr inbounds i8, ptr %9, i64 %.4589
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %787, ptr nonnull align 1 %12, i64 %779, i1 false)
   %788 = add i64 %.4589, %779
-  %789 = sub i64 %.4577, %779
+  %789 = sub nuw i64 %.4577, %779
   br label %.backedge
 
 .loopexit834:                                     ; preds = %218, %212
@@ -1534,7 +1534,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %814 = getelementptr inbounds i8, ptr %.0510784, i64 %801
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %813, ptr nonnull align 1 %814, i64 %802, i1 false)
   %815 = add i64 %802, %803
-  %816 = sub i64 %804, %802
+  %816 = sub nuw i64 %804, %802
   br label %817
 
 817:                                              ; preds = %810, %812, %796

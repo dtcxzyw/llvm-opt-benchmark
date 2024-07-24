@@ -104,7 +104,7 @@ define void @_ZN7memif_t4readEmmPv(ptr nocapture noundef nonnull readonly align 
   %40 = getelementptr inbounds i8, ptr %39, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %37)
-  %43 = sub i64 %.1, %.060
+  %43 = sub nuw i64 %.1, %.060
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %43, i64 %42)
   %44 = getelementptr inbounds i8, ptr %.039, i64 %.060
   %45 = load ptr, ptr %37, align 8
@@ -239,7 +239,7 @@ define void @_ZN7memif_t5writeEmmPKv(ptr nocapture noundef nonnull readonly alig
   %.081 = phi i64 [ %67, %.lr.ph83 ], [ 0, %._crit_edge.thread ]
   %60 = load ptr, ptr %5, align 8
   %61 = add i64 %.081, %.053
-  %62 = sub i64 %.1, %.081
+  %62 = sub nuw i64 %.1, %.081
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %62, i64 %59)
   %63 = getelementptr inbounds i8, ptr %.054, i64 %.081
   %64 = load ptr, ptr %60, align 8

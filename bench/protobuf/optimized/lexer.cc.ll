@@ -3390,7 +3390,7 @@ invoke.cont23:                                    ; preds = %while.end10.i.i
   br i1 %cmp.i.i, label %if.end40, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %invoke.cont23
-  %sub.i.i.i13 = sub i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %sub.i.i.i13 = sub nuw i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
   %cmp.not.i = icmp ult i64 %sub.i.i.i13, %literal.coerce0
   br i1 %cmp.not.i, label %invoke.cont30, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
 
@@ -4116,7 +4116,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then11.i.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %if.then11.i.i
-  %sub.i.i.i = sub i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %sub.i.i.i = sub nuw i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
   br label %_ZNK6google8protobuf13json_internal16MaybeOwnedString11StreamOwned6AsViewEv.exit
 
 while.end18.i.i:                                  ; preds = %while.end10.i.i
@@ -4127,7 +4127,7 @@ if.then.i.i12.i.i:                                ; preds = %while.end18.i.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit13.i.i: ; preds = %while.end18.i.i
-  %sub.i7.i.i = sub i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %sub.i7.i.i = sub nuw i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i7.i.i, i64 %3)
   br label %_ZNK6google8protobuf13json_internal16MaybeOwnedString11StreamOwned6AsViewEv.exit
 
@@ -7551,7 +7551,7 @@ invoke.cont:                                      ; preds = %while.end10.i.i
   br i1 %cmp.i.i, label %if.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %invoke.cont
-  %sub.i.i.i = sub i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %sub.i.i.i = sub nuw i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
   %cmp.not.i = icmp ult i64 %sub.i.i.i, %literal.coerce0
   br i1 %cmp.not.i, label %cleanup, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
 

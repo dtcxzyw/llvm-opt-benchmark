@@ -1681,8 +1681,8 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
 106:                                              ; preds = %92
   %107 = add nuw nsw i64 %.sroa.726.0.i.i, 1
   %108 = getelementptr inbounds i64, ptr %103, i64 %107
-  %109 = sub nsw i64 %102, %.sroa.726.0.i.i
-  %110 = shl nsw i64 %109, 3
+  %109 = sub nuw nsw i64 %102, %.sroa.726.0.i.i
+  %110 = shl nuw nsw i64 %109, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %108, ptr nonnull align 8 %104, i64 %110, i1 false), !alias.scope !246, !noalias !241
   store i64 %38, ptr %104, align 8, !alias.scope !246, !noalias !241
   %111 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 96
@@ -1690,7 +1690,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull readonly align 8 dereferenceable(104) %13, i64 104, i1 false), !noalias !249
   %112 = getelementptr inbounds { [13 x i64] }, ptr %111, i64 %.sroa.726.0.i.i
   %113 = getelementptr inbounds { [13 x i64] }, ptr %111, i64 %107
-  %114 = mul nsw i64 %109, 104
+  %114 = mul nuw nsw i64 %109, 104
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %113, ptr nonnull align 8 %112, i64 %114, i1 false), !alias.scope !253, !noalias !255
   br label %122
 
@@ -2611,15 +2611,15 @@ define hidden noundef align 8 dereferenceable(32) ptr @"_ZN5alloc11collections5b
 103:                                              ; preds = %90
   %104 = add nuw nsw i64 %.sroa.726.0.i.i, 1
   %105 = getelementptr inbounds i16, ptr %100, i64 %104
-  %106 = sub nsw i64 %99, %.sroa.726.0.i.i
-  %107 = shl nsw i64 %106, 1
+  %106 = sub nuw nsw i64 %99, %.sroa.726.0.i.i
+  %107 = shl nuw nsw i64 %106, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %105, ptr nonnull align 2 %101, i64 %107, i1 false), !alias.scope !403, !noalias !398
   store i16 %38, ptr %101, align 2, !alias.scope !403, !noalias !398
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !406
   %108 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.06.0.i.i, i64 %.sroa.726.0.i.i
   %109 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.06.0.i.i, i64 %104
-  %110 = shl nsw i64 %106, 5
+  %110 = shl nuw nsw i64 %106, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %109, ptr nonnull align 8 %108, i64 %110, i1 false), !alias.scope !410, !noalias !412
   br label %116
 
@@ -3784,8 +3784,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 19:                                               ; preds = %17
-  %20 = sub nsw i64 %8, %1
-  %21 = trunc i64 %20 to i16
+  %20 = sub nuw nsw i64 %8, %1
+  %21 = trunc nuw i64 %20 to i16
   store i16 %21, ptr %6, align 2
   %22 = trunc nuw nsw i64 %14 to i16
   store i16 %22, ptr %11, align 2
@@ -3797,7 +3797,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %27 = getelementptr inbounds { [13 x i64] }, ptr %26, i64 %1
   %28 = mul nuw nsw i64 %13, 104
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %26, i64 %28, i1 false)
-  %29 = add nsw i64 %20, 1
+  %29 = add nuw nsw i64 %20, 1
   %30 = sub nuw nsw i64 %8, %29
   %31 = add nsw i64 %1, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !570)
@@ -3917,10 +3917,10 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   unreachable
 
 19:                                               ; preds = %17
-  %20 = sub nsw i64 %13, %1
+  %20 = sub nuw nsw i64 %13, %1
   %21 = trunc nuw nsw i64 %14 to i16
   store i16 %21, ptr %6, align 2
-  %22 = trunc i64 %20 to i16
+  %22 = trunc nuw i64 %20 to i16
   store i16 %22, ptr %11, align 2
   %23 = add nsw i64 %1, -1
   %24 = getelementptr i64, ptr %10, i64 %1
@@ -3965,10 +3965,10 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %46 = mul nuw nsw i64 %23, 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull readonly align 8 %26, i64 %46, i1 false), !alias.scope !598
   %47 = getelementptr inbounds i64, ptr %43, i64 %1
-  %48 = shl nsw i64 %20, 3
+  %48 = shl nuw nsw i64 %20, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 8 %47, i64 %48, i1 false)
   %49 = getelementptr inbounds { [13 x i64] }, ptr %26, i64 %1
-  %50 = mul nsw i64 %20, 104
+  %50 = mul nuw nsw i64 %20, 104
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 8 %49, i64 %50, i1 false)
   %51 = getelementptr inbounds i8, ptr %0, i64 32
   %52 = load i64, ptr %51, align 8, !noundef !7
@@ -3984,7 +3984,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
 56:                                               ; preds = %41
   br i1 %.not43, label %57, label %.lr.ph.i.preheader
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit66": ; preds = %.lr.ph.i63, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit", %55
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit66": ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit", %55
   ret void
 
 57:                                               ; preds = %56, %55
@@ -3998,8 +3998,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %61 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull readonly align 8 %58, i64 %61, i1 false), !alias.scope !602
   %62 = getelementptr inbounds ptr, ptr %58, i64 %1
-  %63 = add nsw i64 %48, 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %58, ptr nonnull align 8 %62, i64 %63, i1 false)
+  %63 = add nuw nsw i64 %48, 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %58, ptr noundef nonnull align 8 dereferenceable(1) %62, i64 %63, i1 false)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -4016,12 +4016,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %exitcond.not.i = icmp eq i64 %.sroa.0.06.i, %14
   br i1 %exitcond.not.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit", label %.lr.ph.i
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit": ; preds = %.lr.ph.i
-  %.not72 = icmp eq i64 %20, -1
-  br i1 %.not72, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit66", label %.lr.ph.i63
-
-.lr.ph.i63:                                       ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit", %.lr.ph.i63
-  %.sroa.0.06.i64 = phi i64 [ %70, %.lr.ph.i63 ], [ 0, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit" ]
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit": ; preds = %.lr.ph.i, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit"
+  %.sroa.0.06.i64 = phi i64 [ %70, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit" ], [ 0, %.lr.ph.i ]
   %70 = add nuw nsw i64 %.sroa.0.06.i64, 1
   %71 = icmp ult i64 %.sroa.0.06.i64, 12
   tail call void @llvm.assume(i1 %71)
@@ -4032,7 +4028,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %75 = getelementptr inbounds i8, ptr %73, i64 1240
   store i16 %74, ptr %75, align 8
   %exitcond.not.i65 = icmp eq i64 %.sroa.0.06.i64, %20
-  br i1 %exitcond.not.i65, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit66", label %.lr.ph.i63
+  br i1 %exitcond.not.i65, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit66", label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12640,14 +12636,14 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter16s
   %25 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %17
   %26 = load i8, ptr %25, align 1, !noundef !7
   %27 = icmp ugt i8 %13, %15
-  %28 = sub i8 %13, %15
-  %29 = sub i8 %15, %13
+  %28 = sub nuw i8 %13, %15
+  %29 = sub nuw i8 %15, %13
   %.0 = select i1 %27, i8 %28, i8 %29
   %30 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %21
   %31 = load i8, ptr %30, align 1, !noundef !7
   %32 = icmp ugt i8 %26, %31
-  %33 = sub i8 %26, %31
-  %34 = sub i8 %31, %26
+  %33 = sub nuw i8 %26, %31
+  %34 = sub nuw i8 %31, %26
   %.02 = select i1 %32, i8 %33, i8 %34
   %35 = zext i8 %.0 to i32
   %36 = shl nuw nsw i32 %35, 1
@@ -12690,8 +12686,8 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13s
   %21 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %15
   %22 = load i8, ptr %21, align 1, !noundef !7
   %23 = icmp ugt i8 %20, %22
-  %24 = sub i8 %20, %22
-  %25 = sub i8 %22, %20
+  %24 = sub nuw i8 %20, %22
+  %25 = sub nuw i8 %22, %20
   %.07 = select i1 %23, i8 %24, i8 %25
   %.not = icmp ugt i8 %.07, %0
   br i1 %.not, label %74, label %27
@@ -12710,8 +12706,8 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13s
   %32 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %29
   %33 = load i8, ptr %32, align 1, !noundef !7
   %34 = icmp ugt i8 %22, %33
-  %35 = sub i8 %22, %33
-  %36 = sub i8 %33, %22
+  %35 = sub nuw i8 %22, %33
+  %36 = sub nuw i8 %33, %22
   %.08 = select i1 %34, i8 %35, i8 %36
   %.not54 = icmp ugt i8 %.08, %0
   br i1 %.not54, label %74, label %38
@@ -12729,8 +12725,8 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13s
   %42 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %39
   %43 = load i8, ptr %42, align 1, !noundef !7
   %44 = icmp ugt i8 %33, %43
-  %45 = sub i8 %33, %43
-  %46 = sub i8 %43, %33
+  %45 = sub nuw i8 %33, %43
+  %46 = sub nuw i8 %43, %33
   %.09 = select i1 %44, i8 %45, i8 %46
   %.not55 = icmp ugt i8 %.09, %0
   br i1 %.not55, label %74, label %48
@@ -12759,8 +12755,8 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13s
   %58 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %52
   %59 = load i8, ptr %58, align 1, !noundef !7
   %60 = icmp ugt i8 %57, %59
-  %61 = sub i8 %57, %59
-  %62 = sub i8 %59, %57
+  %61 = sub nuw i8 %57, %59
+  %62 = sub nuw i8 %59, %57
   %.010 = select i1 %60, i8 %61, i8 %62
   %.not56 = icmp ugt i8 %.010, %0
   br i1 %.not56, label %74, label %64
@@ -12778,8 +12774,8 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13s
   %68 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %65
   %69 = load i8, ptr %68, align 1, !noundef !7
   %70 = icmp ugt i8 %59, %69
-  %71 = sub i8 %59, %69
-  %72 = sub i8 %69, %59
+  %71 = sub nuw i8 %59, %69
+  %72 = sub nuw i8 %69, %59
   %.011 = select i1 %70, i8 %71, i8 %72
   %.not57 = icmp ugt i8 %.011, %0
   br i1 %.not57, label %74, label %75
@@ -12800,8 +12796,8 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13s
   %78 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %4
   %79 = load i8, ptr %78, align 1, !noundef !7
   %80 = icmp ugt i8 %69, %79
-  %81 = sub i8 %69, %79
-  %82 = sub i8 %79, %69
+  %81 = sub nuw i8 %69, %79
+  %82 = sub nuw i8 %79, %69
   %.012 = select i1 %80, i8 %81, i8 %82
   %83 = icmp ule i8 %.012, %0
   br label %74
@@ -12833,8 +12829,8 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter18h
   %16 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %10
   %17 = load i8, ptr %16, align 1, !noundef !7
   %18 = icmp ugt i8 %15, %17
-  %19 = sub i8 %15, %17
-  %20 = sub i8 %17, %15
+  %19 = sub nuw i8 %15, %17
+  %20 = sub nuw i8 %17, %15
   %.03 = select i1 %18, i8 %19, i8 %20
   %21 = icmp ugt i8 %.03, %0
   br i1 %21, label %39, label %23
@@ -12862,8 +12858,8 @@ define internal fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter18h
   %32 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %3
   %33 = load i8, ptr %32, align 1, !noundef !7
   %34 = icmp ugt i8 %31, %33
-  %35 = sub i8 %31, %33
-  %36 = sub i8 %33, %31
+  %35 = sub nuw i8 %31, %33
+  %36 = sub nuw i8 %33, %31
   %.04 = select i1 %34, i8 %35, i8 %36
   %37 = icmp ugt i8 %.04, %0
   br label %39
@@ -13513,7 +13509,7 @@ define noundef zeroext i1 @_ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a
 
 13:                                               ; preds = %2
   %14 = sub i32 %4, %9
-  %15 = sub i32 %12, %10
+  %15 = sub nuw i32 %12, %10
   store i32 %15, ptr %11, align 4
   br label %16
 
@@ -13623,7 +13619,7 @@ define noundef i8 @_ZN5image6codecs4webp3vp810BoolReader12read_literal17hc4aca77
 
 22:                                               ; preds = %13
   %23 = sub i32 %.lcssa9, %20
-  %24 = sub i32 %15, %21
+  %24 = sub nuw i32 %15, %21
   store i32 %24, ptr %5, align 4, !alias.scope !1615
   br label %25
 
@@ -13742,7 +13738,7 @@ define noundef i32 @_ZN5image6codecs4webp3vp810BoolReader23read_magnitude_and_si
 
 22:                                               ; preds = %13
   %23 = sub i32 %.lcssa9.i, %20
-  %24 = sub i32 %15, %21
+  %24 = sub nuw i32 %15, %21
   store i32 %24, ptr %5, align 4, !alias.scope !1627
   br label %25
 
@@ -13824,7 +13820,7 @@ _ZN5image6codecs4webp3vp810BoolReader12read_literal17hc4aca77d03c9d955E.exit: ; 
 
 66:                                               ; preds = %_ZN5image6codecs4webp3vp810BoolReader12read_literal17hc4aca77d03c9d955E.exit
   %67 = sub i32 %.promoted.i2, %64
-  %68 = sub i32 %.promoted11.i3, %65
+  %68 = sub nuw i32 %.promoted11.i3, %65
   store i32 %68, ptr %58, align 4, !alias.scope !1624
   br label %69
 
@@ -13920,7 +13916,7 @@ define noundef range(i8 0, -127) i8 @_ZN5image6codecs4webp3vp810BoolReader14read
 
 29:                                               ; preds = %20
   %30 = sub i32 %.lcssa19, %27
-  %31 = sub i32 %17, %28
+  %31 = sub nuw i32 %17, %28
   store i32 %31, ptr %8, align 4, !alias.scope !1632
   br label %32
 
@@ -14026,7 +14022,7 @@ define noundef zeroext i1 @_ZN5image6codecs4webp3vp810BoolReader9read_flag17h680
 
 15:                                               ; preds = %1
   %16 = sub i32 %.promoted.i, %13
-  %17 = sub i32 %.promoted11.i, %14
+  %17 = sub nuw i32 %.promoted11.i, %14
   store i32 %17, ptr %3, align 4, !alias.scope !1638
   br label %18
 
@@ -14848,7 +14844,7 @@ define internal fastcc void @"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$26up
 
 31:                                               ; preds = %20
   %32 = sub i32 %.promoted130, %29
-  %33 = sub i32 %21, %30
+  %33 = sub nuw i32 %21, %30
   store i32 %33, ptr %3, align 4, !alias.scope !1675
   br label %34
 
@@ -14956,7 +14952,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit: ; pred
 
 70:                                               ; preds = %60
   %71 = sub i32 %.lcssa9.i, %68
-  %72 = sub i32 %63, %69
+  %72 = sub nuw i32 %63, %69
   store i32 %72, ptr %3, align 4, !alias.scope !1684
   br label %73
 
@@ -15098,7 +15094,7 @@ define internal fastcc void @"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$25re
 
 19:                                               ; preds = %10
   %20 = sub i32 %.lcssa9.i, %17
-  %21 = sub i32 %12, %18
+  %21 = sub nuw i32 %12, %18
   store i32 %21, ptr %3, align 4, !alias.scope !1688
   br label %22
 
@@ -15172,7 +15168,7 @@ _ZN5image6codecs4webp3vp810BoolReader12read_literal17hc4aca77d03c9d955E.exit: ; 
 
 57:                                               ; preds = %_ZN5image6codecs4webp3vp810BoolReader12read_literal17hc4aca77d03c9d955E.exit
   %58 = sub i32 %.lcssa10.i, %55
-  %59 = sub i32 %.promoted11.i.i, %56
+  %59 = sub nuw i32 %.promoted11.i.i, %56
   store i32 %59, ptr %3, align 4, !alias.scope !1701
   br label %60
 
@@ -15257,7 +15253,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit: ; pred
 
 93:                                               ; preds = %85
   %94 = sub i32 %.promoted.i.i17, %91
-  %95 = sub i32 %.promoted11.i.i18, %92
+  %95 = sub nuw i32 %.promoted11.i.i18, %92
   store i32 %95, ptr %3, align 4, !alias.scope !1702
   br label %96
 
@@ -15342,7 +15338,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit27: ; pr
 
 129:                                              ; preds = %121
   %130 = sub i32 %.promoted.i.i28, %127
-  %131 = sub i32 %.promoted11.i.i29, %128
+  %131 = sub nuw i32 %.promoted11.i.i29, %128
   store i32 %131, ptr %3, align 4, !alias.scope !1712
   br label %132
 
@@ -15427,7 +15423,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit38: ; pr
 
 165:                                              ; preds = %157
   %166 = sub i32 %.promoted.i.i39, %163
-  %167 = sub i32 %.promoted11.i.i40, %164
+  %167 = sub nuw i32 %.promoted11.i.i40, %164
   store i32 %167, ptr %3, align 4, !alias.scope !1722
   br label %168
 
@@ -15512,7 +15508,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit49: ; pr
 
 201:                                              ; preds = %193
   %202 = sub i32 %.promoted.i.i50, %199
-  %203 = sub i32 %.promoted11.i.i51, %200
+  %203 = sub nuw i32 %.promoted11.i.i51, %200
   store i32 %203, ptr %3, align 4, !alias.scope !1737
   br label %204
 
@@ -15719,7 +15715,7 @@ define internal fastcc void @"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$28re
 
 16:                                               ; preds = %1
   %17 = sub i32 %.promoted.i.i, %14
-  %18 = sub i32 %.promoted11.i.i, %15
+  %18 = sub nuw i32 %.promoted11.i.i, %15
   store i32 %18, ptr %4, align 4, !alias.scope !1750
   br label %19
 
@@ -15803,7 +15799,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit: ; pred
 
 53:                                               ; preds = %44
   %54 = sub i32 %.promoted.i.i13, %51
-  %55 = sub i32 %.promoted11.i.i14, %52
+  %55 = sub nuw i32 %.promoted11.i.i14, %52
   store i32 %55, ptr %4, align 4, !alias.scope !1761
   br label %56
 
@@ -15876,7 +15872,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit23: ; pr
 
 88:                                               ; preds = %79
   %89 = sub i32 %.promoted.i.i24, %86
-  %90 = sub i32 %.promoted11.i.i25, %87
+  %90 = sub nuw i32 %.promoted11.i.i25, %87
   store i32 %90, ptr %4, align 4, !alias.scope !1772
   br label %91
 
@@ -15978,7 +15974,7 @@ define internal fastcc void @"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$20re
 
 16:                                               ; preds = %1
   %17 = sub i32 %.promoted.i.i, %14
-  %18 = sub i32 %.promoted11.i.i, %15
+  %18 = sub nuw i32 %.promoted11.i.i, %15
   store i32 %18, ptr %4, align 4, !alias.scope !1782
   br label %19
 
@@ -16045,7 +16041,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit: ; pred
 
 49:                                               ; preds = %_ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit
   %50 = sub i32 %.lcssa10.i.i, %47
-  %51 = sub i32 %.promoted11.i.i30, %48
+  %51 = sub nuw i32 %.promoted11.i.i30, %48
   store i32 %51, ptr %4, align 4, !alias.scope !1795
   br label %52
 
@@ -16131,7 +16127,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit39: ; pr
 
 85:                                               ; preds = %79
   %86 = sub i32 %.lcssa10.i.i35, %83
-  %87 = sub i32 %.promoted11.i.i41, %84
+  %87 = sub nuw i32 %.promoted11.i.i41, %84
   store i32 %87, ptr %4, align 4, !alias.scope !1805
   br label %88
 
@@ -16206,7 +16202,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit50: ; pr
 
 121:                                              ; preds = %.preheader104
   %122 = sub i32 %.promoted.i.i51, %119
-  %123 = sub i32 %.promoted11.i.i52, %120
+  %123 = sub nuw i32 %.promoted11.i.i52, %120
   store i32 %123, ptr %4, align 4, !alias.scope !1813
   br label %124
 
@@ -16279,7 +16275,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit61: ; pr
 
 155:                                              ; preds = %.preheader103
   %156 = sub i32 %.promoted.i.i62, %153
-  %157 = sub i32 %.promoted11.i.i63, %154
+  %157 = sub nuw i32 %.promoted11.i.i63, %154
   store i32 %157, ptr %4, align 4, !alias.scope !1824
   br label %158
 
@@ -16357,7 +16353,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit72: ; pr
 
 190:                                              ; preds = %181
   %191 = sub i32 %.lcssa10.i.i79130145, %188
-  %192 = sub i32 %182, %189
+  %192 = sub nuw i32 %182, %189
   store i32 %192, ptr %4, align 4, !alias.scope !1837
   br label %193
 
@@ -16438,7 +16434,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_flag17h680320a6fac1c64dE.exit83: ; pr
 
 232:                                              ; preds = %221
   %233 = sub i32 %.lcssa9.i, %230
-  %234 = sub i32 %225, %231
+  %234 = sub nuw i32 %225, %231
   store i32 %234, ptr %4, align 4, !alias.scope !1844
   br label %235
 
@@ -16689,7 +16685,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5image6codecs4webp3vp819Vp8Decode
 
 68:                                               ; preds = %58
   %69 = sub i32 %60, %65
-  %70 = sub i32 %67, %66
+  %70 = sub nuw i32 %67, %66
   store i32 %70, ptr %20, align 4, !alias.scope !1851
   br label %71
 
@@ -16784,7 +16780,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.us: ; p
 
 113:                                              ; preds = %104
   %114 = sub i32 %106, %110
-  %115 = sub i32 %112, %111
+  %115 = sub nuw i32 %112, %111
   store i32 %115, ptr %20, align 4, !alias.scope !1856
   br label %116
 
@@ -17502,7 +17498,7 @@ common.resume:                                    ; preds = %1653, %1680, %1689,
 
 238:                                              ; preds = %224
   %239 = sub i32 %.promoted.i.i.i, %236
-  %240 = sub i32 %.promoted11.i.i.i, %237
+  %240 = sub nuw i32 %.promoted11.i.i.i, %237
   store i32 %240, ptr %228, align 4, !alias.scope !2004, !noalias !1889
   br label %241
 
@@ -17573,7 +17569,7 @@ common.resume:                                    ; preds = %1653, %1680, %1689,
 
 278:                                              ; preds = %264
   %279 = sub i32 %.promoted.i.i, %276
-  %280 = sub i32 %.promoted11.i.i, %277
+  %280 = sub nuw i32 %.promoted11.i.i, %277
   store i32 %280, ptr %266, align 4, !alias.scope !2018, !noalias !1889
   br label %281
 
@@ -17639,7 +17635,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i.i: ; 
 
 311:                                              ; preds = %_ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i.i
   %312 = sub i32 %.lcssa10.i.i, %309
-  %313 = sub i32 %.promoted11.i142.i, %310
+  %313 = sub nuw i32 %.promoted11.i142.i, %310
   store i32 %313, ptr %266, align 4, !alias.scope !2029, !noalias !1889
   br label %314
 
@@ -17752,7 +17748,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i151.i:
 
 353:                                              ; preds = %345
   %354 = sub i32 %.promoted.i.i158.i, %351
-  %355 = sub i32 %.promoted11.i.i159.i, %352
+  %355 = sub nuw i32 %.promoted11.i.i159.i, %352
   store i32 %355, ptr %228, align 4, !alias.scope !2040, !noalias !1889
   br label %356
 
@@ -17839,7 +17835,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i151.i:
 
 392:                                              ; preds = %383
   %393 = sub i32 %.lcssa9.i174.i, %390
-  %394 = sub i32 %385, %391
+  %394 = sub nuw i32 %385, %391
   store i32 %394, ptr %228, align 4, !alias.scope !2048, !noalias !1889
   br label %395
 
@@ -17924,7 +17920,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i179.i:
 
 435:                                              ; preds = %426
   %436 = sub i32 %.lcssa9.i191.i, %433
-  %437 = sub i32 %428, %434
+  %437 = sub nuw i32 %428, %434
   store i32 %437, ptr %228, align 4, !alias.scope !2056, !noalias !1889
   br label %438
 
@@ -18000,7 +17996,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i196.i:
 
 474:                                              ; preds = %467
   %475 = sub i32 %.lcssa10.i198.i, %472
-  %476 = sub i32 %.promoted11.i.i204.i, %473
+  %476 = sub nuw i32 %.promoted11.i.i204.i, %473
   store i32 %476, ptr %228, align 4, !alias.scope !2067, !noalias !1889
   br label %477
 
@@ -18083,7 +18079,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i196.i:
 
 513:                                              ; preds = %504
   %514 = sub i32 %.lcssa9.i219.i, %511
-  %515 = sub i32 %506, %512
+  %515 = sub nuw i32 %506, %512
   store i32 %515, ptr %228, align 4, !alias.scope !2075, !noalias !1889
   br label %516
 
@@ -18277,7 +18273,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i224.i:
   %.sroa.6.0109170.i.i = phi i64 [ %577, %.lr.ph.i.i ], [ %591, %646 ]
   %.0.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0109170.i.i, i64 3)
   %590 = getelementptr inbounds i8, ptr %.sroa.0.0171.i.i, i64 %.0.sroa.speculated.i.i.i.i.i
-  %591 = sub i64 %.sroa.6.0109170.i.i, %.0.sroa.speculated.i.i.i.i.i
+  %591 = sub nuw i64 %.sroa.6.0109170.i.i, %.0.sroa.speculated.i.i.i.i.i
   %592 = add nuw nsw i64 %.sroa.11.0172.i.i, 1
   %.not.i.i = icmp ugt i64 %.sroa.6.0109170.i.i, 2
   br i1 %.not.i.i, label %622, label %616
@@ -19199,14 +19195,14 @@ _ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit174
   %921 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %913
   %922 = load i8, ptr %921, align 1, !alias.scope !2180, !noalias !2179, !noundef !7
   %923 = icmp ugt i8 %910, %912
-  %924 = sub i8 %910, %912
-  %925 = sub i8 %912, %910
+  %924 = sub nuw i8 %910, %912
+  %925 = sub nuw i8 %912, %910
   %.0.i172 = select i1 %923, i8 %924, i8 %925
   %926 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %917
   %927 = load i8, ptr %926, align 1, !alias.scope !2180, !noalias !2179, !noundef !7
   %928 = icmp ugt i8 %922, %927
-  %929 = sub i8 %922, %927
-  %930 = sub i8 %927, %922
+  %929 = sub nuw i8 %922, %927
+  %930 = sub nuw i8 %927, %922
   %.02.i173 = select i1 %928, i8 %929, i8 %930
   %931 = zext i8 %.0.i172 to i32
   %932 = shl nuw nsw i32 %931, 1
@@ -19326,8 +19322,8 @@ _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit.i: ;
   %975 = getelementptr inbounds [0 x i8], ptr %.val184.i, i64 0, i64 %969
   %976 = load i8, ptr %975, align 1, !noalias !2179, !noundef !7
   %977 = icmp ugt i8 %974, %976
-  %978 = sub i8 %974, %976
-  %979 = sub i8 %976, %974
+  %978 = sub nuw i8 %974, %976
+  %979 = sub nuw i8 %976, %974
   %.03.i203 = select i1 %977, i8 %978, i8 %979
   %980 = icmp ugt i8 %.03.i203, %.0.i474.i
   br i1 %980, label %995, label %982
@@ -19351,8 +19347,8 @@ _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit.i: ;
   %989 = getelementptr inbounds [0 x i8], ptr %.val184.i, i64 0, i64 %963
   %990 = load i8, ptr %989, align 1, !alias.scope !2184, !noalias !2179, !noundef !7
   %991 = icmp ugt i8 %988, %990
-  %992 = sub i8 %988, %990
-  %993 = sub i8 %990, %988
+  %992 = sub nuw i8 %988, %990
+  %993 = sub nuw i8 %990, %988
   %.04.i204 = select i1 %991, i8 %992, i8 %993
   %994 = icmp ugt i8 %.04.i204, %.0.i474.i
   br label %995
@@ -19465,8 +19461,8 @@ _ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit171:
   %1051 = getelementptr inbounds [0 x i8], ptr %.val182.i, i64 0, i64 %1045
   %1052 = load i8, ptr %1051, align 1, !noalias !2179, !noundef !7
   %1053 = icmp ugt i8 %1050, %1052
-  %1054 = sub i8 %1050, %1052
-  %1055 = sub i8 %1052, %1050
+  %1054 = sub nuw i8 %1050, %1052
+  %1055 = sub nuw i8 %1052, %1050
   %.03.i187 = select i1 %1053, i8 %1054, i8 %1055
   %1056 = icmp ugt i8 %.03.i187, %.0.i474.i
   br i1 %1056, label %1071, label %1058
@@ -19490,8 +19486,8 @@ _ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit171:
   %1065 = getelementptr inbounds [0 x i8], ptr %.val182.i, i64 0, i64 %963
   %1066 = load i8, ptr %1065, align 1, !alias.scope !2195, !noalias !2179, !noundef !7
   %1067 = icmp ugt i8 %1064, %1066
-  %1068 = sub i8 %1064, %1066
-  %1069 = sub i8 %1066, %1064
+  %1068 = sub nuw i8 %1064, %1066
+  %1069 = sub nuw i8 %1066, %1064
   %.04.i188 = select i1 %1067, i8 %1068, i8 %1069
   %1070 = icmp ugt i8 %.04.i188, %.0.i474.i
   br label %1071
@@ -19613,8 +19609,8 @@ _ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit168:
   %1132 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %1126
   %1133 = load i8, ptr %1132, align 1, !noalias !2179, !noundef !7
   %1134 = icmp ugt i8 %1131, %1133
-  %1135 = sub i8 %1131, %1133
-  %1136 = sub i8 %1133, %1131
+  %1135 = sub nuw i8 %1131, %1133
+  %1136 = sub nuw i8 %1133, %1131
   %.03.i162 = select i1 %1134, i8 %1135, i8 %1136
   %1137 = icmp ugt i8 %.03.i162, %.0.i474.i
   br i1 %1137, label %1155, label %1139
@@ -19642,8 +19638,8 @@ _ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit168:
   %1148 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %1120
   %1149 = load i8, ptr %1148, align 1, !alias.scope !2206, !noalias !2179, !noundef !7
   %1150 = icmp ugt i8 %1147, %1149
-  %1151 = sub i8 %1147, %1149
-  %1152 = sub i8 %1149, %1147
+  %1151 = sub nuw i8 %1147, %1149
+  %1152 = sub nuw i8 %1149, %1147
   %.04.i163 = select i1 %1150, i8 %1151, i8 %1152
   %1153 = icmp ugt i8 %.04.i163, %.0.i474.i
   br label %1155
@@ -19856,14 +19852,14 @@ _ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit: ;
   %1239 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %1231
   %1240 = load i8, ptr %1239, align 1, !alias.scope !2217, !noalias !2179, !noundef !7
   %1241 = icmp ugt i8 %1228, %1230
-  %1242 = sub i8 %1228, %1230
-  %1243 = sub i8 %1230, %1228
+  %1242 = sub nuw i8 %1228, %1230
+  %1243 = sub nuw i8 %1230, %1228
   %.0.i149 = select i1 %1241, i8 %1242, i8 %1243
   %1244 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %1235
   %1245 = load i8, ptr %1244, align 1, !alias.scope !2217, !noalias !2179, !noundef !7
   %1246 = icmp ugt i8 %1240, %1245
-  %1247 = sub i8 %1240, %1245
-  %1248 = sub i8 %1245, %1240
+  %1247 = sub nuw i8 %1240, %1245
+  %1248 = sub nuw i8 %1245, %1240
   %.02.i = select i1 %1246, i8 %1247, i8 %1248
   %1249 = zext i8 %.0.i149 to i32
   %1250 = shl nuw nsw i32 %1249, 1
@@ -20066,8 +20062,8 @@ _ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit: ; 
   %1339 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %1333
   %1340 = load i8, ptr %1339, align 1, !noalias !2179, !noundef !7
   %1341 = icmp ugt i8 %1338, %1340
-  %1342 = sub i8 %1338, %1340
-  %1343 = sub i8 %1340, %1338
+  %1342 = sub nuw i8 %1338, %1340
+  %1343 = sub nuw i8 %1340, %1338
   %.03.i = select i1 %1341, i8 %1342, i8 %1343
   %1344 = icmp ugt i8 %.03.i, %.0.i474.i
   br i1 %1344, label %1362, label %1346
@@ -20095,8 +20091,8 @@ _ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit: ; 
   %1355 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %1327
   %1356 = load i8, ptr %1355, align 1, !alias.scope !2229, !noalias !2179, !noundef !7
   %1357 = icmp ugt i8 %1354, %1356
-  %1358 = sub i8 %1354, %1356
-  %1359 = sub i8 %1356, %1354
+  %1358 = sub nuw i8 %1354, %1356
+  %1359 = sub nuw i8 %1356, %1354
   %.04.i = select i1 %1357, i8 %1358, i8 %1359
   %1360 = icmp ugt i8 %.04.i, %.0.i474.i
   br label %1362
@@ -20258,14 +20254,14 @@ _ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit.i:
   %1434 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %1426
   %1435 = load i8, ptr %1434, align 1, !noalias !2179, !noundef !7
   %1436 = icmp ugt i8 %1423, %1425
-  %1437 = sub i8 %1423, %1425
-  %1438 = sub i8 %1425, %1423
+  %1437 = sub nuw i8 %1423, %1425
+  %1438 = sub nuw i8 %1425, %1423
   %.0.i210.i = select i1 %1436, i8 %1437, i8 %1438
   %1439 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %1430
   %1440 = load i8, ptr %1439, align 1, !noalias !2179, !noundef !7
   %1441 = icmp ugt i8 %1435, %1440
-  %1442 = sub i8 %1435, %1440
-  %1443 = sub i8 %1440, %1435
+  %1442 = sub nuw i8 %1435, %1440
+  %1443 = sub nuw i8 %1440, %1435
   %.02.i.i = select i1 %1441, i8 %1442, i8 %1443
   %1444 = zext i8 %.0.i210.i to i32
   %1445 = shl nuw nsw i32 %1444, 1
@@ -20362,14 +20358,14 @@ _ZN5image6codecs4webp11loop_filter16simple_threshold17h517d5dee5e47eb31E.exit225
   %1492 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %1484
   %1493 = load i8, ptr %1492, align 1, !noalias !2179, !noundef !7
   %1494 = icmp ugt i8 %1481, %1483
-  %1495 = sub i8 %1481, %1483
-  %1496 = sub i8 %1483, %1481
+  %1495 = sub nuw i8 %1481, %1483
+  %1496 = sub nuw i8 %1483, %1481
   %.0.i223.i = select i1 %1494, i8 %1495, i8 %1496
   %1497 = getelementptr inbounds [0 x i8], ptr %.val186.i, i64 0, i64 %1488
   %1498 = load i8, ptr %1497, align 1, !noalias !2179, !noundef !7
   %1499 = icmp ugt i8 %1493, %1498
-  %1500 = sub i8 %1493, %1498
-  %1501 = sub i8 %1498, %1493
+  %1500 = sub nuw i8 %1493, %1498
+  %1501 = sub nuw i8 %1498, %1493
   %.02.i224.i = select i1 %1499, i8 %1500, i8 %1501
   %1502 = zext i8 %.0.i223.i to i32
   %1503 = shl nuw nsw i32 %1502, 1
@@ -20517,7 +20513,7 @@ _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit205.i
 
 1567:                                             ; preds = %1557
   %1568 = sub i32 %1559, %1564
-  %1569 = sub i32 %1566, %1565
+  %1569 = sub nuw i32 %1566, %1565
   store i32 %1569, ptr %726, align 4, !alias.scope !2271, !noalias !2267
   br label %1570
 
@@ -20596,7 +20592,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i: ; pr
 
 1608:                                             ; preds = %1598
   %1609 = sub i32 %1600, %1605
-  %1610 = sub i32 %1607, %1606
+  %1610 = sub nuw i32 %1607, %1606
   store i32 %1610, ptr %726, align 4, !alias.scope !2276, !noalias !2267
   store i32 %1609, ptr %725, align 8, !alias.scope !2276, !noalias !2267
   %1611 = icmp ult i32 %1609, 128
@@ -21546,7 +21542,7 @@ _ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit.loopexit.i: ; pr
   br label %1898
 
 1894:                                             ; preds = %1898
-  %1895 = sub i64 %.sroa.5.039.i.i, %.0.sroa.speculated.i.i.i.i
+  %1895 = sub nuw i64 %.sroa.5.039.i.i, %.0.sroa.speculated.i.i.i.i
   %1896 = add nuw nsw i64 %.040.i.i, 21
   %1897 = icmp eq i64 %1895, 0
   br i1 %1897, label %_ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit.loopexit.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.exit.i.i"
@@ -21948,7 +21944,7 @@ _ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit132.loopexit.i: ;
   %.sroa.017.038.i.i126 = phi ptr [ %2060, %2055 ], [ %2063, %2066 ]
   %.0.sroa.speculated.i.i.i.i127 = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.039.i.i125, i64 4)
   %2063 = getelementptr inbounds i32, ptr %.sroa.017.038.i.i126, i64 %.0.sroa.speculated.i.i.i.i127
-  %2064 = sub i64 %.sroa.5.039.i.i125, %.0.sroa.speculated.i.i.i.i127
+  %2064 = sub nuw i64 %.sroa.5.039.i.i125, %.0.sroa.speculated.i.i.i.i127
   %2065 = getelementptr inbounds i8, ptr %4, i64 %.040.i.i124
   br label %2069
 
@@ -21987,7 +21983,7 @@ _ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit.i: ; preds = %20
   %.sroa.017.038.i127.i = phi ptr [ %2082, %_ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit.i ], [ %2083, %2086 ]
   %.0.sroa.speculated.i.i.i128.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.039.i126.i, i64 4)
   %2083 = getelementptr inbounds i32, ptr %.sroa.017.038.i127.i, i64 %.0.sroa.speculated.i.i.i128.i
-  %2084 = sub i64 %.sroa.5.039.i126.i, %.0.sroa.speculated.i.i.i128.i
+  %2084 = sub nuw i64 %.sroa.5.039.i126.i, %.0.sroa.speculated.i.i.i128.i
   %2085 = getelementptr inbounds i8, ptr %3, i64 %.040.i125.i
   br label %2089
 
@@ -22427,7 +22423,7 @@ define void @_ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E(ptr noal
   %.sroa.017.038 = phi ptr [ %2, %6 ], [ %11, %20 ]
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.5.039, i64 4)
   %11 = getelementptr inbounds i32, ptr %.sroa.017.038, i64 %.0.sroa.speculated.i.i
-  %12 = sub i64 %.sroa.5.039, %.0.sroa.speculated.i.i
+  %12 = sub nuw i64 %.sroa.5.039, %.0.sroa.speculated.i.i
   %13 = add i64 %.040, 4
   %14 = icmp ugt i64 %.040, -5
   br i1 %14, label %17, label %15
@@ -24447,7 +24443,7 @@ _ZN5image6codecs4webp3vp815predict_bdcpred17h353272dfad87dd28E.exit: ; preds = %
   %.sroa.017.038.i = phi ptr [ %1062, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4b93207571d4e66fE.exit" ], [ %1065, %1074 ]
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.5.039.i, i64 4)
   %1065 = getelementptr inbounds i32, ptr %.sroa.017.038.i, i64 %.0.sroa.speculated.i.i.i
-  %1066 = sub i64 %.sroa.5.039.i, %.0.sroa.speculated.i.i.i
+  %1066 = sub nuw i64 %.sroa.5.039.i, %.0.sroa.speculated.i.i.i
   %1067 = add i64 %.040.i, 4
   %1068 = icmp ugt i64 %.040.i, -5
   br i1 %1068, label %1071, label %1069

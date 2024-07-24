@@ -34897,7 +34897,7 @@ get_page_alignment.exit:                          ; preds = %13, %15
 
 28:                                               ; preds = %get_page_alignment.exit
   %29 = inttoptr i64 %26 to ptr
-  %30 = sub i64 %24, %26
+  %30 = sub nuw i64 %24, %26
   %31 = tail call i32 @posix_madvise(ptr noundef %29, i64 noundef %30, i32 noundef 4) #18
   %32 = tail call i32 @madvise(ptr noundef %29, i64 noundef %30, i32 noundef 8) #18
   br label %33
@@ -93228,7 +93228,7 @@ sljit_emit_op_flags.exit:                         ; preds = %2298, %2305
   br i1 %.not.i1750, label %2460, label %sljit_emit_op2.exit1753
 
 2460:                                             ; preds = %2459
-  %2461 = sub nsw i64 %.012763532, %.41283
+  %2461 = sub nuw nsw i64 %.012763532, %.41283
   store i32 0, ptr %2144, align 8
   %2462 = call fastcc i32 @emit_cum_binary(ptr noundef nonnull %5, i32 noundef 84082944, i32 noundef 1, i64 noundef 0, i32 noundef 1, i64 noundef 0, i32 noundef 127, i64 noundef %2461)
   br label %sljit_emit_op2.exit1753
@@ -93237,7 +93237,7 @@ sljit_emit_op_flags.exit:                         ; preds = %2298, %2305
   br i1 %.not.i1750, label %2464, label %sljit_emit_op2.exit1753
 
 2464:                                             ; preds = %2463
-  %2465 = sub nsw i64 %.41283, %.012763532
+  %2465 = sub nuw nsw i64 %.41283, %.012763532
   store i32 0, ptr %2144, align 8
   %2466 = call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %5, i32 noundef 757803304, i32 noundef 1, i64 noundef 0, i32 noundef 1, i64 noundef 0, i32 noundef 127, i64 noundef %2465)
   br label %sljit_emit_op2.exit1753
@@ -100087,8 +100087,8 @@ sljit_emit_op1.exit100:                           ; preds = %178
   br i1 %182, label %sljit_emit_op1.exit100.thread, label %sljit_emit_op1.exit105
 
 sljit_emit_op1.exit100.thread:                    ; preds = %emit_mov.exit164, %sljit_emit_op1.exit100
-  %.in = sub nsw i32 %.073, %.074
-  %183 = zext i32 %.in to i64
+  %.in = sub nuw nsw i32 %.073, %.074
+  %183 = zext nneg i32 %.in to i64
   store i32 0, ptr %179, align 8
   %184 = tail call fastcc i32 @emit_mov(ptr noundef nonnull %4, i32 noundef 3, i64 noundef 0, i32 noundef 127, i64 noundef %183)
   br label %sljit_emit_op1.exit105
@@ -100385,8 +100385,8 @@ sljit_emit_op1.exit149:                           ; preds = %309
   br i1 %313, label %sljit_emit_op2.exit153, label %sljit_emit_op2u.exit
 
 sljit_emit_op2.exit153:                           ; preds = %sljit_emit_op1.exit149, %emit_mov.exit173
-  %.in246 = sub nsw i32 %.073, %.074
-  %314 = zext i32 %.in246 to i64
+  %.in246 = sub nuw nsw i32 %.073, %.074
+  %314 = zext nneg i32 %.in246 to i64
   store i32 0, ptr %310, align 8
   %315 = tail call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %4, i32 noundef 757803304, i32 noundef 2, i64 noundef 0, i32 noundef 2, i64 noundef 0, i32 noundef 127, i64 noundef %314)
   %.pr240.pre = load i32, ptr %4, align 8

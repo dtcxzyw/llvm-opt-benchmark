@@ -749,7 +749,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEES
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %59
-  %76 = sub nsw i64 %65, %73
+  %76 = sub nuw nsw i64 %65, %73
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr %68, i64 noundef %76, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit unwind label %53
 
@@ -1610,7 +1610,7 @@ _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit: ; p
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %22
-  %36 = sub nsw i64 %24, %33
+  %36 = sub nuw nsw i64 %24, %33
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr %28, i64 noundef %36, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit unwind label %44
 
@@ -1868,7 +1868,7 @@ _ZSt13move_backwardIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4
   br i1 %.not.i.i.i, label %_ZSt4fillIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !15
 
 39:                                               ; preds = %14
-  %40 = sub i64 %2, %18
+  %40 = sub nuw i64 %2, %18
   %.not7.i.i.i.i = icmp eq i64 %40, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -2137,7 +2137,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds =
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKhmEvRT_T0_.exit
   %45 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %12, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
-  %46 = sub i64 %8, %18
+  %46 = sub nuw i64 %8, %18
   %47 = getelementptr inbounds i8, ptr %45, i64 %46
   store ptr %47, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %12, %1
@@ -3357,7 +3357,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco40MeshPredictionSchemeParallelo
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %19)
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit.i
 
@@ -4448,7 +4448,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco56MeshPredictionSchemeConstrain
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %6
-  %26 = sub nsw i64 %16, %23
+  %26 = sub nuw nsw i64 %16, %23
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit.i
 
@@ -4548,7 +4548,7 @@ _ZN5draco37PredictionSchemeWrapEncodingTransformIiiE4InitEPKiii.exit: ; preds = 
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %.preheader446
-  %70 = sub nsw i64 %16, %67
+  %70 = sub nuw nsw i64 %16, %67
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %60, i64 noundef %70)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %76
 
@@ -4622,7 +4622,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %98 = sub nsw i64 %16, %95
+  %98 = sub nuw nsw i64 %16, %95
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %98)
           to label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i162.thread unwind label %227
 
@@ -6900,7 +6900,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco44MeshPredictionSchemeTexCoords
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %6
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %21)
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit.i
 
@@ -9988,7 +9988,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco40MeshPredictionSchemeParallelo
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %19)
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit.i
 
@@ -10923,7 +10923,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco56MeshPredictionSchemeConstrain
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %6
-  %26 = sub nsw i64 %16, %23
+  %26 = sub nuw nsw i64 %16, %23
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit.i
 
@@ -11023,7 +11023,7 @@ _ZN5draco37PredictionSchemeWrapEncodingTransformIiiE4InitEPKiii.exit: ; preds = 
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %.preheader440
-  %70 = sub nsw i64 %16, %67
+  %70 = sub nuw nsw i64 %16, %67
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %60, i64 noundef %70)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %76
 
@@ -11097,7 +11097,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %98 = sub nsw i64 %16, %95
+  %98 = sub nuw nsw i64 %16, %95
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %98)
           to label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i162.thread unwind label %218
 
@@ -12801,7 +12801,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco44MeshPredictionSchemeTexCoords
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %6
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %21)
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit.i
 
@@ -15044,7 +15044,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco28PredictionSchemeDeltaEncoderI
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %19)
   br label %_ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit.i
 

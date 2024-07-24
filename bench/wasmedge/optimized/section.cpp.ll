@@ -1424,7 +1424,7 @@ _ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdg
   br label %119
 
 73:                                               ; preds = %64
-  %74 = sub i64 %67, %66
+  %74 = sub nuw i64 %67, %66
   call void @_ZN8WasmEdge7FileMgr9readBytesEm(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.235") align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 noundef %74), !noalias !7
   %75 = load i8, ptr %9, align 8, !noalias !7
   %76 = trunc i8 %75 to i1
@@ -2096,7 +2096,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13ImportSectionE(pt
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !40
   br label %_ZNSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE6resizeEm.exit.i.i.i.i
 
@@ -2317,7 +2317,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST15FunctionSectionE(
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %54
-  %65 = sub nsw i64 %55, %62
+  %65 = sub nuw nsw i64 %55, %62
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %65), !noalias !59
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit.i.i.i.i
 
@@ -2548,7 +2548,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST12TableSectionE(ptr
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !80
   br label %_ZNSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE6resizeEm.exit.i.i.i.i
 
@@ -2768,7 +2768,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13MemorySectionE(pt
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST10MemoryTypeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !98
   br label %_ZNSt6vectorIN8WasmEdge3AST10MemoryTypeESaIS2_EE6resizeEm.exit.i.i.i.i
 
@@ -2977,7 +2977,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13GlobalSectionE(pt
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !116
   br label %_ZNSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE6resizeEm.exit.i.i.i.i
 
@@ -3197,7 +3197,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13ExportSectionE(pt
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST10ExportDescESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !134
   br label %_ZNSt6vectorIN8WasmEdge3AST10ExportDescESaIS2_EE6resizeEm.exit.i.i.i.i
 
@@ -3538,7 +3538,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST14ElementSectionE(p
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST14ElementSegmentESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !159
   br label %_ZNSt6vectorIN8WasmEdge3AST14ElementSegmentESaIS2_EE6resizeEm.exit.i.i.i.i
 
@@ -3754,7 +3754,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11CodeSectionE(ptr 
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST11CodeSegmentESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !178
   br label %_ZNSt6vectorIN8WasmEdge3AST11CodeSegmentESaIS2_EE6resizeEm.exit.i.i.i.i
 
@@ -3970,7 +3970,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11DataSectionE(ptr 
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST11DataSegmentESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !197
   br label %_ZNSt6vectorIN8WasmEdge3AST11DataSegmentESaIS2_EE6resizeEm.exit.i.i.i.i
 
@@ -4314,7 +4314,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST10TagSectionE(ptr d
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST7TagTypeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !221
   br label %_ZNSt6vectorIN8WasmEdge3AST7TagTypeESaIS2_EE6resizeEm.exit.i.i.i.i
 
@@ -5973,7 +5973,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component12AliasSe
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST9Component5AliasESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !266
   br label %_ZNSt6vectorIN8WasmEdge3AST9Component5AliasESaIS3_EE6resizeEm.exit.i.i.i.i
 
@@ -6386,7 +6386,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component15CoreTyp
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorISt7variantIJN8WasmEdge3AST12FunctionTypeENS2_9Component10ModuleTypeEEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !303
   br label %_ZNSt6vectorISt7variantIJN8WasmEdge3AST12FunctionTypeENS2_9Component10ModuleTypeEEESaIS6_EE6resizeEm.exit.i.i.i.i
 
@@ -6607,7 +6607,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component11TypeSec
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %52
-  %63 = sub nsw i64 %53, %60
+  %63 = sub nuw nsw i64 %53, %60
   call void @_ZNSt6vectorISt7variantIJS0_IJN8WasmEdge3AST9Component11PrimValTypeENS3_6RecordENS3_9VariantTyENS3_4ListENS3_5TupleENS3_5FlagsENS3_4EnumENS3_6OptionENS3_6ResultENS3_3OwnENS3_6BorrowEEENS3_8FuncTypeENS3_13ComponentTypeENS3_12InstanceTypeEEESaISJ_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %63), !noalias !321
   br label %_ZNSt6vectorISt7variantIJS0_IJN8WasmEdge3AST9Component11PrimValTypeENS3_6RecordENS3_9VariantTyENS3_4ListENS3_5TupleENS3_5FlagsENS3_4EnumENS3_6OptionENS3_6ResultENS3_3OwnENS3_6BorrowEEENS3_8FuncTypeENS3_13ComponentTypeENS3_12InstanceTypeEEESaISJ_EE6resizeEm.exit.i.i.i.i
 
@@ -6958,7 +6958,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component12CanonSe
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorISt7variantIJN8WasmEdge3AST9Component4LiftENS3_5LowerENS3_11ResourceNewENS3_12ResourceDropENS3_11ResourceRepEEESaIS9_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !346
   br label %_ZNSt6vectorISt7variantIJN8WasmEdge3AST9Component4LiftENS3_5LowerENS3_11ResourceNewENS3_12ResourceDropENS3_11ResourceRepEEESaIS9_EE6resizeEm.exit.i.i.i.i
 
@@ -7214,7 +7214,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component13ImportS
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST9Component6ImportESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !365
   br label %_ZNSt6vectorIN8WasmEdge3AST9Component6ImportESaIS3_EE6resizeEm.exit.i.i.i.i
 
@@ -7430,7 +7430,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component13ExportS
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %51
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   call void @_ZNSt6vectorIN8WasmEdge3AST9Component6ExportESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %62), !noalias !384
   br label %_ZNSt6vectorIN8WasmEdge3AST9Component6ExportESaIS3_EE6resizeEm.exit.i.i.i.i
 
@@ -8387,7 +8387,7 @@ define linkonce_odr hidden void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnu
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorImSaImEE15_M_erase_at_endEPm.exit
 
@@ -8421,7 +8421,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt5tupleIJhmmS_IhSaIhEEEESaIS3_EE6
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorISt5tupleIJhmmS_IhSaIhEEEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorISt5tupleIJhmmS_IhSaIhEEEESaIS3_EE15_M_erase_at_endEPS3_.exit
 
@@ -10914,7 +10914,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 116:                                              ; preds = %114
   %117 = zext i32 %38 to i64
-  %118 = sub nsw i64 %117, %111
+  %118 = sub nuw nsw i64 %117, %111
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 119:                                              ; preds = %108
@@ -11138,7 +11138,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 226:                                              ; preds = %224
   %227 = zext i32 %146 to i64
-  %228 = sub nsw i64 %227, %221
+  %228 = sub nuw nsw i64 %227, %221
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit179
 
 229:                                              ; preds = %218
@@ -11359,7 +11359,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 332:                                              ; preds = %330
   %333 = zext i32 %254 to i64
-  %334 = sub nsw i64 %333, %327
+  %334 = sub nuw nsw i64 %333, %327
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit203
 
 335:                                              ; preds = %324
@@ -11585,7 +11585,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 437:                                              ; preds = %435
   %438 = zext i32 %361 to i64
-  %439 = sub nsw i64 %438, %432
+  %439 = sub nuw nsw i64 %438, %432
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit231
 
 440:                                              ; preds = %429
@@ -27489,7 +27489,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 115:                                              ; preds = %113
   %116 = zext i32 %39 to i64
-  %117 = sub nsw i64 %116, %110
+  %117 = sub nuw nsw i64 %116, %110
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 118:                                              ; preds = %107
@@ -27719,7 +27719,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 221:                                              ; preds = %219
   %222 = zext i32 %143 to i64
-  %223 = sub nsw i64 %222, %216
+  %223 = sub nuw nsw i64 %222, %216
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit177
 
 224:                                              ; preds = %213
@@ -27946,7 +27946,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 328:                                              ; preds = %326
   %329 = zext i32 %249 to i64
-  %330 = sub nsw i64 %329, %323
+  %330 = sub nuw nsw i64 %329, %323
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit204
 
 331:                                              ; preds = %320
@@ -28172,7 +28172,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 430:                                              ; preds = %428
   %431 = zext i32 %353 to i64
-  %432 = sub nsw i64 %431, %425
+  %432 = sub nuw nsw i64 %431, %425
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit235
 
 433:                                              ; preds = %422
@@ -30193,7 +30193,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 121:                                              ; preds = %119
   %122 = zext i32 %43 to i64
-  %123 = sub nsw i64 %122, %116
+  %123 = sub nuw nsw i64 %122, %116
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 124:                                              ; preds = %113
@@ -30424,7 +30424,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 231:                                              ; preds = %229
   %232 = zext i32 %150 to i64
-  %233 = sub nsw i64 %232, %226
+  %233 = sub nuw nsw i64 %232, %226
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit192
 
 234:                                              ; preds = %223
@@ -30652,7 +30652,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 338:                                              ; preds = %336
   %339 = zext i32 %259 to i64
-  %340 = sub nsw i64 %339, %333
+  %340 = sub nuw nsw i64 %339, %333
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit223
 
 341:                                              ; preds = %330
@@ -30878,7 +30878,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 440:                                              ; preds = %438
   %441 = zext i32 %363 to i64
-  %442 = sub nsw i64 %441, %435
+  %442 = sub nuw nsw i64 %441, %435
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit258
 
 443:                                              ; preds = %432
@@ -35832,7 +35832,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit:
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_hET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit, %28
   %31 = phi ptr [ %12, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit ], [ %.pre, %28 ]
-  %32 = sub i64 %8, %18
+  %32 = sub nuw i64 %8, %18
   %33 = getelementptr inbounds i8, ptr %31, i64 %32
   store ptr %33, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %12, %1
@@ -49833,7 +49833,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt7variantIJN8WasmEdge3AST9Compone
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorISt7variantIJN8WasmEdge3AST9Component15CoreInstantiateENS3_13InlineExportsINS3_8CoreSortEEEEESaIS8_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorISt7variantIJN8WasmEdge3AST9Component15CoreInstantiateENS3_13InlineExportsINS3_8CoreSortEEEEESaIS8_EE15_M_erase_at_endEPS8_.exit
 
@@ -50990,7 +50990,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt7variantIJN8WasmEdge3AST9Compone
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorISt7variantIJN8WasmEdge3AST9Component11InstantiateENS3_13InlineExportsIS0_IJNS3_8CoreSortENS3_8SortCaseEEEEEEESaISA_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorISt7variantIJN8WasmEdge3AST9Component11InstantiateENS3_13InlineExportsIS0_IJNS3_8CoreSortENS3_8SortCaseEEEEEEESaISA_EE15_M_erase_at_endEPSA_.exit
 

@@ -1407,7 +1407,7 @@ define hidden void @_ZN13CollectedHeap17fill_with_objectsEPP12HeapWordImplmb(ptr
 20:                                               ; preds = %.lr.ph, %_ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit
   %.020 = phi ptr [ %0, %.lr.ph ], [ %39, %_ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit ]
   %.01719 = phi i64 [ %1, %.lr.ph ], [ %40, %_ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit ]
-  %21 = sub i64 %.01719, %13
+  %21 = sub nuw i64 %.01719, %13
   %.not = icmp ult i64 %21, %12
   %22 = select i1 %.not, i64 %12, i64 0
   %23 = sub i64 %13, %22

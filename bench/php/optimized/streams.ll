@@ -2154,7 +2154,7 @@ define noundef ptr @php_stream_get_record(ptr noundef %0, i64 noundef %1, ptr no
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %31
   %.0121141.us = phi i64 [ %26, %31 ], [ %15, %.lr.ph ]
-  %20 = sub i64 %1, %.0121141.us
+  %20 = sub nuw i64 %1, %.0121141.us
   %21 = load i64, ptr %18, align 8
   %..us = tail call i64 @llvm.umin.i64(i64 %20, i64 %21)
   %22 = add i64 %..us, %.0121141.us
@@ -2177,7 +2177,7 @@ define noundef ptr @php_stream_get_record(ptr noundef %0, i64 noundef %1, ptr no
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %41
   %.0121141 = phi i64 [ %39, %41 ], [ %15, %.lr.ph ]
-  %33 = sub i64 %1, %.0121141
+  %33 = sub nuw i64 %1, %.0121141
   %34 = load i64, ptr %18, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %33, i64 %34)
   %35 = add i64 %., %.0121141

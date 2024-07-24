@@ -990,7 +990,7 @@ invoke.cont52:                                    ; preds = %invoke.cont39
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont52
-  %sub.i = sub i64 %20, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %20, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorI11epoll_eventSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %events_, i64 noundef %sub.i)
           to label %invoke.cont56 unwind label %lpad38
 

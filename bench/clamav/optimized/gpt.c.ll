@@ -176,7 +176,7 @@ define i32 @cli_scangpt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br i1 %or.cond.not.i, label %23, label %gpt_check_mbr.exit
 
 23:                                               ; preds = %21
-  %24 = sub i64 %18, %22
+  %24 = sub nuw i64 %18, %22
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %24, i64 66)
   %25 = getelementptr inbounds i8, ptr %16, i64 104
   %26 = load ptr, ptr %25, align 8
@@ -246,7 +246,7 @@ gpt_check_mbr.exit:                               ; preds = %21, %23, %fmap_read
   br i1 %or.cond.not, label %43, label %fmap_readn.exit.thread
 
 43:                                               ; preds = %.loopexit
-  %44 = sub i64 %42, %.092
+  %44 = sub nuw i64 %42, %.092
   %spec.select.i = call i64 @llvm.umin.i64(i64 %44, i64 92)
   %45 = getelementptr inbounds i8, ptr %40, i64 104
   %46 = load ptr, ptr %45, align 8
@@ -279,7 +279,7 @@ fmap_readn.exit.thread:                           ; preds = %43, %.loopexit, %fm
   br i1 %or.cond101.not, label %55, label %fmap_readn.exit85.thread
 
 55:                                               ; preds = %51
-  %56 = sub i64 %54, %49
+  %56 = sub nuw i64 %54, %49
   %spec.select.i82 = call i64 @llvm.umin.i64(i64 %56, i64 92)
   %57 = getelementptr inbounds i8, ptr %52, i64 104
   %58 = load ptr, ptr %57, align 8
@@ -315,7 +315,7 @@ fmap_readn.exit85.thread:                         ; preds = %55, %51, %fmap_read
   br i1 %or.cond102.not, label %67, label %.sink.split
 
 67:                                               ; preds = %63
-  %68 = sub i64 %66, %49
+  %68 = sub nuw i64 %66, %49
   %spec.select.i87 = call i64 @llvm.umin.i64(i64 %68, i64 92)
   %69 = getelementptr inbounds i8, ptr %64, i64 104
   %70 = load ptr, ptr %69, align 8
@@ -645,7 +645,7 @@ define internal fastcc i32 @gpt_partition_intersection(ptr noundef %0, ptr nocap
   br i1 %or.cond38.not, label %32, label %fmap_readn.exit.thread
 
 32:                                               ; preds = %28
-  %33 = sub i64 %31, %.01940
+  %33 = sub nuw i64 %31, %.01940
   %spec.select.i = call i64 @llvm.umin.i64(i64 %33, i64 128)
   %34 = getelementptr inbounds i8, ptr %29, i64 104
   %35 = load ptr, ptr %34, align 8
@@ -842,7 +842,7 @@ define internal fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr nocapture no
   br i1 %or.cond62.not, label %117, label %fmap_readn.exit.thread
 
 117:                                              ; preds = %113
-  %118 = sub i64 %116, %.03766
+  %118 = sub nuw i64 %116, %.03766
   %spec.select.i = call i64 @llvm.umin.i64(i64 %118, i64 128)
   %119 = getelementptr inbounds i8, ptr %114, i64 104
   %120 = load ptr, ptr %119, align 8

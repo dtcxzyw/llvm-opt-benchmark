@@ -10154,7 +10154,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %9
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN10myprotocol3GetESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %22)
   br label %_ZNSt6vectorIN10myprotocol3GetESaIS1_EE6resizeEm.exit
 

@@ -750,7 +750,7 @@ do.body372:                                       ; preds = %do.body372.loopexit
   %bits.8.lcssa = phi i32 [ %bits.7.lcssa, %while.cond343.preheader ], [ %59, %do.body372.loopexit ]
   %sh_prom375 = zext nneg i8 %here.sroa.16.0.copyload.lcssa to i64
   %shr376 = lshr i64 %hold.8.lcssa, %sh_prom375
-  %sub379 = sub i32 %bits.8.lcssa, %conv293.lcssa679
+  %sub379 = sub nuw i32 %bits.8.lcssa, %conv293.lcssa679
   %60 = load i32, ptr %have203, align 4
   %cmp382 = icmp eq i32 %60, 0
   br i1 %cmp382, label %if.then384, label %if.end387
@@ -1183,7 +1183,7 @@ do.body702:                                       ; preds = %do.body702.loopexit
   %here.sroa.0.0.copyload29 = load i8, ptr %arrayidx671.lcssa, align 2
   %sh_prom705 = zext nneg i8 %here.sroa.16.0.copyload32.lcssa to i64
   %shr706 = lshr i64 %hold.16.lcssa, %sh_prom705
-  %sub709 = sub i32 %bits.16.lcssa, %conv618.lcssa
+  %sub709 = sub nuw i32 %bits.16.lcssa, %conv618.lcssa
   br label %do.body712
 
 do.body712:                                       ; preds = %for.end643, %do.body702
@@ -1314,7 +1314,7 @@ do.end797:                                        ; preds = %do.end797.loopexit,
   store i32 %add804, ptr %length723, align 4
   %sh_prom807 = zext nneg i32 %.lcssa572 to i64
   %shr808 = lshr i64 %hold.18.lcssa, %sh_prom807
-  %sub810 = sub i32 %bits.18.lcssa, %.lcssa572
+  %sub810 = sub nuw i32 %bits.18.lcssa, %.lcssa572
   br label %if.end812
 
 if.end812:                                        ; preds = %do.end797, %if.end762
@@ -1491,7 +1491,7 @@ do.body904:                                       ; preds = %do.body904.loopexit
   %here.sroa.0.0.copyload31 = load i8, ptr %arrayidx873.lcssa, align 2
   %sh_prom907 = zext nneg i8 %here.sroa.16.0.copyload34.lcssa to i64
   %shr908 = lshr i64 %hold.21.lcssa, %sh_prom907
-  %sub911 = sub i32 %bits.21.lcssa, %conv823.lcssa
+  %sub911 = sub nuw i32 %bits.21.lcssa, %conv823.lcssa
   br label %do.body914
 
 do.body914:                                       ; preds = %for.end848, %do.body904
@@ -1582,7 +1582,7 @@ do.end968:                                        ; preds = %do.end968.loopexit,
   store i32 %add975, ptr %offset, align 8
   %sh_prom978 = zext nneg i32 %.lcssa590 to i64
   %shr979 = lshr i64 %hold.23.lcssa, %sh_prom978
-  %sub981 = sub i32 %bits.23.lcssa, %.lcssa590
+  %sub981 = sub nuw i32 %bits.23.lcssa, %.lcssa590
   br label %if.end983
 
 if.end983:                                        ; preds = %do.end968, %if.end930
@@ -1632,7 +1632,7 @@ do.end1014:                                       ; preds = %if.then1005.do.end1
   %idx.ext1026 = zext i32 %144 to i64
   %idx.neg = sub nsw i64 0, %idx.ext1026
   %sub1023 = select i1 %cmp1018, i32 %sub1017, i32 0
-  %copy.4 = sub i32 %left.5, %sub1023
+  %copy.4 = sub nuw i32 %left.5, %sub1023
   %idx.ext1021.pn = select i1 %cmp1018, i64 %idx.ext1021, i64 %idx.neg
   %from.0 = getelementptr i8, ptr %put.5, i64 %idx.ext1021.pn
   %145 = load i32, ptr %length723, align 4
@@ -1666,7 +1666,7 @@ sw.bb1049:                                        ; preds = %for.cond
 
 if.then1053:                                      ; preds = %sw.bb1049
   %149 = load ptr, ptr %window, align 8
-  %sub1056 = sub i32 %148, %left.0
+  %sub1056 = sub nuw i32 %148, %left.0
   %call1057 = call i32 %out(ptr noundef %out_desc, ptr noundef %149, i32 noundef %sub1056) #4
   %tobool1058.not = icmp eq i32 %call1057, 0
   %spec.select506 = select i1 %tobool1058.not, i32 1, i32 -5

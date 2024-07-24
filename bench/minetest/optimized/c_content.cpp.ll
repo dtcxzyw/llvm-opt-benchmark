@@ -14632,7 +14632,7 @@ if.end18:                                         ; preds = %invoke.cont6
   br i1 %cmp21, label %if.then.i, label %if.end25
 
 if.then.i:                                        ; preds = %if.end18
-  %sub.i = sub nsw i64 %conv20, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %conv20, %sub.ptr.div.i
   invoke void @_ZNSt6vectorI9ItemStackSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i64 noundef %sub.i)
           to label %if.end25 unwind label %lpad5
 

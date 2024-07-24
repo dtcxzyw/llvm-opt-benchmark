@@ -2432,7 +2432,7 @@ if.end.i17:                                       ; preds = %if.else.i
   br i1 %cmp6.i, label %if.then7.i, label %if.else9.i
 
 if.then7.i:                                       ; preds = %if.end.i17
-  %sub8.i = sub i64 %16, %size.addr.0.i
+  %sub8.i = sub nuw i64 %16, %size.addr.0.i
   store i64 %sub8.i, ptr @mem_avail, align 8
   br label %memory_allocate.exit
 

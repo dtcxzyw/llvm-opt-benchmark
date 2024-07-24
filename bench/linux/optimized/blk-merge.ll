@@ -2920,7 +2920,7 @@ define internal fastcc zeroext i1 @bio_will_gap(ptr nocapture noundef readonly %
   br i1 %64, label %.loopexit, label %65
 
 65:                                               ; preds = %.preheader
-  %66 = sub i32 %59, %63
+  %66 = sub nuw i32 %59, %63
   %67 = add i32 %60, 1
   %68 = icmp eq i32 %66, 0
   br i1 %68, label %.loopexit, label %.preheader, !llvm.loop !60

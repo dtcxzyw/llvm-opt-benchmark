@@ -3418,7 +3418,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
   br i1 %277, label %278, label %289
 
 278:                                              ; preds = %._crit_edge172
-  %279 = sub i32 %.lcssa165, %276
+  %279 = sub nuw i32 %.lcssa165, %276
   %280 = mul i32 %279, %.lcssa
   %281 = zext i32 %280 to i64
   %282 = call noalias ptr @H5FL_seq_calloc(ptr noundef nonnull @H5_H5HF_indirect_ptr_t_seq_free_list, i64 noundef %281) #9

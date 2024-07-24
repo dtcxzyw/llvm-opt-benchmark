@@ -71,7 +71,7 @@ define hidden void @_ZN3vas2ot13HungarianAlgoC2ERKN2cv4Mat_IfEE(ptr noundef nonn
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %2
-  %29 = sub nsw i64 %19, %26
+  %29 = sub nuw nsw i64 %19, %26
   invoke void @_ZNSt6vectorIPiSaIS0_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS0_S2_EEmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %21, i64 noundef %29, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %._ZNSt6vectorIPiSaIS0_EE6resizeEmRKS0_.exit_crit_edge unwind label %71
 
@@ -506,7 +506,7 @@ define hidden noundef i32 @_ZN3vas2ot13HungarianAlgo13InitHungarianEi(ptr nounde
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %18
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %32)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
@@ -553,7 +553,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %31, %33, %35, %_ZSt
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %52)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit49
 
@@ -617,7 +617,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit49:  ; preds = %51, %53, %55, %_ZSt
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %.lr.ph
-  %78 = sub nsw i64 %68, %75
+  %78 = sub nuw nsw i64 %68, %75
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr %70, i64 noundef %78, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -651,7 +651,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %77, %79, %81, %83
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
-  %97 = sub nsw i64 %87, %94
+  %97 = sub nuw nsw i64 %87, %94
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr %89, i64 noundef %97, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit52
 
@@ -1636,7 +1636,7 @@ _ZSt13move_backwardIPPiS1_ET0_T_S3_S2_.exit:      ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPPimS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds ptr, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -1914,7 +1914,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

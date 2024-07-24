@@ -6108,7 +6108,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %add12.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %add12.i.i.i, %sub.ptr.div.i
   tail call void @_ZNSt5dequeImSaImEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i), !noalias !66
   %.pre.i = load ptr, ptr %_M_start, align 8, !noalias !69
   %.pre4.i = load ptr, ptr %_M_first.i10, align 8, !noalias !69
@@ -6242,7 +6242,7 @@ if.then19:                                        ; preds = %if.else
   br i1 %cmp.i41, label %if.then.i53, label %if.end.i42
 
 if.then.i53:                                      ; preds = %if.then19
-  %sub4.i = sub i64 %add12.i.i.i, %sub.i40
+  %sub4.i = sub nuw i64 %add12.i.i.i, %sub.i40
   tail call void @_ZNSt5dequeImSaImEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !87
   %.pre.i54 = load ptr, ptr %_M_finish, align 8
   %.pre4.i55 = load ptr, ptr %_M_last.i35, align 8
@@ -6883,7 +6883,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i23 = sub i64 %__n, %sub.ptr.div.i22
+  %sub.i23 = sub nuw i64 %__n, %sub.ptr.div.i22
   tail call void @_ZNSt5dequeImSaImEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i23), !noalias !122
   %.pre.i = load ptr, ptr %_M_start, align 8
   %.pre4.i = load ptr, ptr %_M_first.i18, align 8
@@ -7333,7 +7333,7 @@ if.else51:                                        ; preds = %entry
   br i1 %cmp.i280, label %if.then.i307, label %if.end.i281
 
 if.then.i307:                                     ; preds = %if.else51
-  %sub4.i = sub i64 %__n, %sub.i279
+  %sub4.i = sub nuw i64 %__n, %sub.i279
   tail call void @_ZNSt5dequeImSaImEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !181
   %.pre.i308 = load ptr, ptr %_M_finish.i, align 8
   %.pre4.i309 = load ptr, ptr %_M_last.i274, align 8

@@ -1102,7 +1102,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br i1 %217, label %224, label %218
 
 218:                                              ; preds = %209
-  %219 = sub i32 %211, %216
+  %219 = sub nuw i32 %211, %216
   %220 = load ptr, ptr %210, align 8
   %221 = icmp eq ptr %220, %50
   %222 = icmp eq ptr %220, null

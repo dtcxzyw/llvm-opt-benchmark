@@ -5511,7 +5511,7 @@ if.end:                                           ; preds = %_ZN8facebook5velox4
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %sub.i.i = sub nsw i64 %conv.i.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %sub.i.i)
   %.pre.i3 = load ptr, ptr %9, align 8
   %.pre4.i4 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -9848,7 +9848,7 @@ invoke.cont14:                                    ; preds = %_ZNSt10shared_ptrIK
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont14
-  %sub.i = sub nsw i64 %sub.ptr.div.i14, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i14, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %inputOrder_, i64 noundef %sub.i)
           to label %if.then.i.invoke.cont18_crit_edge unwind label %lpad13
 
@@ -10305,7 +10305,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -10327,7 +10327,7 @@ _ZSt27__uninitialized_default_n_aIPN8facebook5velox15SelectivityInfoEmS2_ET_S4_T
   br label %if.end6
 
 if.else.i:                                        ; preds = %if.then
-  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  %cmp.i.i = icmp ugt i64 %__new_size, 384307168202282325
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN8facebook5velox15SelectivityInfoESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i:                                      ; preds = %if.else.i

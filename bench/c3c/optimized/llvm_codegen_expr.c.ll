@@ -6144,7 +6144,7 @@ declare i32 @type_size(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @llvm_coerce_int_ptr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %2, %3
-  br i1 %5, label %53, label %6
+  br i1 %5, label %52, label %6
 
 6:                                                ; preds = %4
   %7 = tail call i32 @LLVMGetTypeKind(ptr noundef %3) #10
@@ -6174,55 +6174,55 @@ define dso_local ptr @llvm_coerce_int_ptr(ptr noundef %0, ptr noundef %1, ptr no
 21:                                               ; preds = %17, %18
   %22 = phi ptr [ %20, %18 ], [ %3, %17 ]
   %.not = icmp eq ptr %22, %.043
-  br i1 %.not, label %48, label %23
+  br i1 %.not, label %47, label %23
 
 23:                                               ; preds = %21
   %24 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 272), align 8
   %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %44
+  br i1 %25, label %26, label %43
 
 26:                                               ; preds = %23
   %27 = tail call i32 @llvm_abi_size(ptr noundef %0, ptr noundef %22) #10
   %28 = tail call i32 @llvm_abi_size(ptr noundef %0, ptr noundef %.043) #10
   %29 = icmp ugt i32 %28, %27
-  br i1 %29, label %30, label %37
+  br i1 %29, label %30, label %36
 
 30:                                               ; preds = %26
-  %31 = sub i32 %28, %27
-  %32 = shl i32 %31, 3
-  %33 = tail call ptr @llvm_emit_lshr_fixed(ptr noundef %0, ptr noundef %.042, i32 noundef %32) #10
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call ptr @LLVMBuildTrunc(ptr noundef %35, ptr noundef %33, ptr noundef %22, ptr noundef nonnull @.str.3) #10
-  br label %48
+  %narrow = sub nuw i32 %28, %27
+  %31 = shl i32 %narrow, 3
+  %32 = tail call ptr @llvm_emit_lshr_fixed(ptr noundef %0, ptr noundef %.042, i32 noundef %31) #10
+  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call ptr @LLVMBuildTrunc(ptr noundef %34, ptr noundef %32, ptr noundef %22, ptr noundef nonnull @.str.3) #10
+  br label %47
 
-37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %0, i64 64
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call ptr @LLVMBuildZExt(ptr noundef %39, ptr noundef %.042, ptr noundef %22, ptr noundef nonnull @.str.3) #10
-  %41 = sub i32 %27, %28
-  %42 = shl i32 %41, 3
-  %43 = tail call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %40, i32 noundef %42) #10
-  br label %48
+36:                                               ; preds = %26
+  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call ptr @LLVMBuildZExt(ptr noundef %38, ptr noundef %.042, ptr noundef %22, ptr noundef nonnull @.str.3) #10
+  %40 = sub nuw i32 %27, %28
+  %41 = shl i32 %40, 3
+  %42 = tail call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %39, i32 noundef %41) #10
+  br label %47
 
-44:                                               ; preds = %23
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr @LLVMBuildIntCast2(ptr noundef %46, ptr noundef %.042, ptr noundef %22, i32 noundef 0, ptr noundef nonnull @.str.3) #10
-  br label %48
+43:                                               ; preds = %23
+  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call ptr @LLVMBuildIntCast2(ptr noundef %45, ptr noundef %.042, ptr noundef %22, i32 noundef 0, ptr noundef nonnull @.str.3) #10
+  br label %47
 
-48:                                               ; preds = %44, %37, %30, %21
-  %.1 = phi ptr [ %36, %30 ], [ %43, %37 ], [ %47, %44 ], [ %.042, %21 ]
-  br i1 %8, label %49, label %53
+47:                                               ; preds = %43, %36, %30, %21
+  %.1 = phi ptr [ %35, %30 ], [ %42, %36 ], [ %46, %43 ], [ %.042, %21 ]
+  br i1 %8, label %48, label %52
 
-49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call ptr @LLVMBuildIntToPtr(ptr noundef %51, ptr noundef %.1, ptr noundef %3, ptr noundef nonnull @.str.3) #10
-  br label %53
+48:                                               ; preds = %47
+  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call ptr @LLVMBuildIntToPtr(ptr noundef %50, ptr noundef %.1, ptr noundef %3, ptr noundef nonnull @.str.3) #10
+  br label %52
 
-53:                                               ; preds = %48, %49, %4
-  %.0 = phi ptr [ %1, %4 ], [ %52, %49 ], [ %.1, %48 ]
+52:                                               ; preds = %47, %48, %4
+  %.0 = phi ptr [ %1, %4 ], [ %51, %48 ], [ %.1, %47 ]
   ret ptr %.0
 }
 
@@ -9635,7 +9635,7 @@ llvm_emit_real.exit:                              ; preds = %83, %88, %92
 210:                                              ; preds = %207
   %211 = getelementptr inbounds i8, ptr %0, i64 168
   %212 = load ptr, ptr %211, align 8
-  %213 = sub i32 %.1, %194
+  %213 = sub nuw i32 %.1, %194
   %214 = tail call ptr @LLVMArrayType(ptr noundef %212, i32 noundef %213) #10
   br label %224
 
@@ -9940,7 +9940,7 @@ define dso_local ptr @llvm_emit_const_bitstruct(ptr noundef %0, ptr nocapture no
 
 80:                                               ; preds = %78
   %81 = call ptr @LLVMConstAllOnes(ptr noundef %23) #10
-  %82 = sub i32 %32, %48
+  %82 = sub nuw i32 %32, %48
   %83 = call ptr @llvm_emit_lshr_fixed(ptr noundef %0, ptr noundef %81, i32 noundef %82) #10
   %84 = call i32 @LLVMIsNull(ptr noundef %83) #10
   %.not118 = icmp eq i32 %84, 0

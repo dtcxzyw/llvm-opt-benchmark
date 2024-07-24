@@ -509,7 +509,7 @@ thread-pre-split:                                 ; preds = %37, %67
   %63 = getelementptr inbounds i8, ptr %1, i64 %57
   %64 = load i8, ptr %63, align 1, !alias.scope !96, !noundef !5
   %65 = icmp sgt i8 %64, -65
-  %66 = sub i64 %2, %57
+  %66 = sub nuw i64 %2, %57
   br i1 %65, label %74, label %.invoke
 
 67:                                               ; preds = %.noexc42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h23a5e21eecb9a844E.exit.i"
@@ -629,7 +629,7 @@ thread-pre-split:                                 ; preds = %37, %67
   %113 = getelementptr inbounds i8, ptr %1, i64 %107
   %114 = load i8, ptr %113, align 1, !alias.scope !115, !noundef !5
   %115 = icmp sgt i8 %114, -65
-  %116 = sub i64 %2, %107
+  %116 = sub nuw i64 %2, %107
   br i1 %115, label %125, label %.invoke
 
 117:                                              ; preds = %.noexc1.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h23a5e21eecb9a844E.exit.i.i"
@@ -1539,7 +1539,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   %83 = getelementptr inbounds i8, ptr %72, i64 %77
   %84 = load i8, ptr %83, align 1, !alias.scope !199, !noalias !204, !noundef !5
   %85 = icmp sgt i8 %84, -65
-  %86 = sub i64 %74, %77
+  %86 = sub nuw i64 %74, %77
   br i1 %85, label %88, label %87
 
 87:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i.i", %80
@@ -1712,7 +1712,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   %145 = getelementptr inbounds i8, ptr %134, i64 %139
   %146 = load i8, ptr %145, align 1, !alias.scope !214, !noalias !204, !noundef !5
   %147 = icmp sgt i8 %146, -65
-  %148 = sub i64 %136, %139
+  %148 = sub nuw i64 %136, %139
   br i1 %147, label %150, label %149
 
 149:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i114.i", %142
@@ -1884,7 +1884,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   %208 = getelementptr inbounds i8, ptr %197, i64 %202
   %209 = load i8, ptr %208, align 1, !alias.scope !228, !noalias !204, !noundef !5
   %210 = icmp sgt i8 %209, -65
-  %211 = sub i64 %199, %202
+  %211 = sub nuw i64 %199, %202
   br i1 %210, label %213, label %212
 
 212:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i138.i", %205
@@ -1988,7 +1988,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   %253 = getelementptr inbounds i8, ptr %242, i64 %247
   %254 = load i8, ptr %253, align 1, !alias.scope !245, !noalias !204, !noundef !5
   %255 = icmp sgt i8 %254, -65
-  %256 = sub i64 %244, %247
+  %256 = sub nuw i64 %244, %247
   br i1 %255, label %258, label %257
 
 257:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i159.i", %250
@@ -2092,7 +2092,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   %298 = getelementptr inbounds i8, ptr %287, i64 %292
   %299 = load i8, ptr %298, align 1, !alias.scope !262, !noalias !204, !noundef !5
   %300 = icmp sgt i8 %299, -65
-  %301 = sub i64 %289, %292
+  %301 = sub nuw i64 %289, %292
   br i1 %300, label %303, label %302
 
 302:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i180.i", %295

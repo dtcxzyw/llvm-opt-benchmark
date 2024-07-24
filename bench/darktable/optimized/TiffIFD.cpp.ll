@@ -1074,7 +1074,7 @@ define hidden void @_ZN8rawspeed7TiffIFD14parseMakerNoteEPNS_11NORangesSetINS_6B
 
 43:                                               ; preds = %40
   %44 = sub i64 %30, %28
-  %45 = sub i64 %19, %28
+  %45 = sub nuw i64 %19, %28
   %46 = call i64 @llvm.umin.i64(i64 %45, i64 %44)
   %47 = getelementptr inbounds i8, ptr %17, i64 %28
   %48 = getelementptr inbounds i8, ptr %5, i64 16
@@ -3093,7 +3093,7 @@ define hidden void @_ZNK8rawspeed11TiffRootIFD5getIDEv(ptr dead_on_unwind noalia
 
 50:                                               ; preds = %47
   %51 = sub i64 %37, %35
-  %52 = sub i64 %26, %35
+  %52 = sub nuw i64 %26, %35
   %53 = call i64 @llvm.umin.i64(i64 %52, i64 %51)
   %54 = getelementptr inbounds i8, ptr %24, i64 %35
   %55 = getelementptr inbounds i8, ptr %3, i64 16
@@ -3345,7 +3345,7 @@ define hidden void @_ZNK8rawspeed11TiffRootIFD5getIDEv(ptr dead_on_unwind noalia
 
 160:                                              ; preds = %157
   %161 = sub i64 %147, %145
-  %162 = sub i64 %136, %145
+  %162 = sub nuw i64 %136, %145
   %163 = call i64 @llvm.umin.i64(i64 %162, i64 %161)
   %164 = getelementptr inbounds i8, ptr %134, i64 %145
   %165 = getelementptr inbounds i8, ptr %5, i64 16

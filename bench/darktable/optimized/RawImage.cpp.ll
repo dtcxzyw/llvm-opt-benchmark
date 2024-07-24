@@ -858,7 +858,7 @@ define hidden void @_ZN8rawspeed12RawImageData17createBadPixelMapEv(ptr noundef 
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %24
-  %41 = sub i64 %32, %38
+  %41 = sub nuw i64 %32, %38
   call void @_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS3_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr %34, i64 noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %2)
   br label %48
 

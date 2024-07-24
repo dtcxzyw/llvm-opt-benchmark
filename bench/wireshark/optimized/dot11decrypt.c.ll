@@ -2574,7 +2574,7 @@ Dot11DecryptGetTkLen.exit101:                     ; preds = %switch.lookup175, %
 106:                                              ; preds = %98
   %107 = getelementptr i8, ptr %0, i64 %11
   %108 = getelementptr i8, ptr %12, i64 8
-  %109 = sub i32 %103, %1
+  %109 = sub nuw i32 %103, %1
   %110 = zext i32 %109 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %107, ptr align 1 %108, i64 %110, i1 false)
   tail call void @g_free(ptr noundef %10) #14

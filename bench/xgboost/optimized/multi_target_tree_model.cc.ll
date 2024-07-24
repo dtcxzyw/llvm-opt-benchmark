@@ -1477,7 +1477,7 @@ define linkonce_odr void @_ZN7xgboost13LoadModelImplILb1ELb1EEEvRKNS_4JsonEPSt6v
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %8
-  %50 = sub nsw i64 %40, %47
+  %50 = sub nuw nsw i64 %40, %47
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %50)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -1615,7 +1615,7 @@ define linkonce_odr void @_ZN7xgboost13LoadModelImplILb1ELb0EEEvRKNS_4JsonEPSt6v
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %8
-  %50 = sub nsw i64 %40, %47
+  %50 = sub nuw nsw i64 %40, %47
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %50)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -1752,7 +1752,7 @@ define linkonce_odr void @_ZN7xgboost13LoadModelImplILb0ELb1EEEvRKNS_4JsonEPSt6v
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %8
-  %50 = sub nsw i64 %40, %47
+  %50 = sub nuw nsw i64 %40, %47
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %50)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -1915,7 +1915,7 @@ define linkonce_odr void @_ZN7xgboost13LoadModelImplILb0ELb0EEEvRKNS_4JsonEPSt6v
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %8
-  %50 = sub nsw i64 %40, %47
+  %50 = sub nuw nsw i64 %40, %47
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %50)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -4395,7 +4395,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %124, label %_ZNK7xgboost6common4SpanIfLm18446744073709551615EE7subspanEmm.exit.preheader, label %132
 
 .thread59:                                        ; preds = %117
-  %125 = sub nsw i64 %113, %115
+  %125 = sub nuw nsw i64 %113, %115
   %126 = icmp ne ptr %109, null
   %127 = icmp eq i64 %125, 0
   %128 = or i1 %126, %127
@@ -4957,7 +4957,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %222, label %223, label %225
 
 223:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit129
-  %224 = sub nsw i64 %186, %221
+  %224 = sub nuw nsw i64 %186, %221
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr %216, i64 noundef %224, ptr noundef nonnull align 4 dereferenceable(4) %27)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -4986,7 +4986,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %223, %225, %227, %2
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
-  %238 = sub nsw i64 %186, %235
+  %238 = sub nuw nsw i64 %186, %235
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %147, ptr %230, i64 noundef %238, ptr noundef nonnull align 4 dereferenceable(4) %28)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit131
 
@@ -5015,7 +5015,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit131:         ; preds = %237, %239, %241, %2
   br i1 %250, label %251, label %253
 
 251:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit131
-  %252 = sub nsw i64 %186, %249
+  %252 = sub nuw nsw i64 %186, %249
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr %244, i64 noundef %252, ptr noundef nonnull align 4 dereferenceable(4) %29)
   %.pre = load ptr, ptr %70, align 8
   %.pre267 = load ptr, ptr %69, align 8
@@ -5168,7 +5168,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %311, label %312, label %314
 
 312:                                              ; preds = %298
-  %313 = sub nsw i64 %186, %310
+  %313 = sub nuw nsw i64 %186, %310
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %303, i64 noundef %313)
   %.pre270 = load ptr, ptr %303, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -5204,7 +5204,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %312, %314, %316, %3
   br i1 %330, label %331, label %333
 
 331:                                              ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %332 = sub nsw i64 %186, %329
+  %332 = sub nuw nsw i64 %186, %329
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %322, ptr %324, i64 noundef %332, ptr noundef nonnull align 4 dereferenceable(4) %32)
   %.pre271 = load ptr, ptr %322, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
@@ -5248,7 +5248,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %331, %333, %335, %3
   br i1 %356, label %357, label %359
 
 357:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
-  %358 = sub i64 %348, %355
+  %358 = sub nuw i64 %348, %355
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %343, i64 noundef %358)
   %.pre272 = load ptr, ptr %181, align 8, !noalias !42
   %.pre273 = load ptr, ptr %349, align 8, !noalias !42
@@ -5707,7 +5707,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -6986,7 +6986,7 @@ define linkonce_odr void @_ZZN7xgboost13LoadModelImplILb1ELb1EEEvRKNS_4JsonEPSt6
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %32)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -7067,7 +7067,7 @@ define linkonce_odr void @_ZZN7xgboost13LoadModelImplILb1ELb1EEEvRKNS_4JsonEPSt6
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %32)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -8448,7 +8448,7 @@ define linkonce_odr void @_ZZN7xgboost13LoadModelImplILb1ELb0EEEvRKNS_4JsonEPSt6
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %32)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -8526,7 +8526,7 @@ define linkonce_odr void @_ZZN7xgboost13LoadModelImplILb1ELb0EEEvRKNS_4JsonEPSt6
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %32)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -8812,7 +8812,7 @@ define linkonce_odr void @_ZZN7xgboost13LoadModelImplILb0ELb1EEEvRKNS_4JsonEPSt6
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %32)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -8893,7 +8893,7 @@ define linkonce_odr void @_ZZN7xgboost13LoadModelImplILb0ELb1EEEvRKNS_4JsonEPSt6
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %32)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -10026,7 +10026,7 @@ define linkonce_odr void @_ZZN7xgboost13LoadModelImplILb0ELb0EEEvRKNS_4JsonEPSt6
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %32)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -10107,7 +10107,7 @@ define linkonce_odr void @_ZZN7xgboost13LoadModelImplILb0ELb0EEEvRKNS_4JsonEPSt6
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %32)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -10437,7 +10437,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -10714,7 +10714,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

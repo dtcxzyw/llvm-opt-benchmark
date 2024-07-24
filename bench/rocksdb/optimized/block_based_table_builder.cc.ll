@@ -4828,7 +4828,7 @@ invoke.cont19:                                    ; preds = %_ZNSt6vectorImSaImE
   %add = add i64 %buffer_idx.0191, %rem
   %cmp21.not = icmp ult i64 %add, %sub.ptr.div.i
   %sub23 = select i1 %cmp21.not, i64 0, i64 %sub.ptr.div.i
-  %spec.select = sub i64 %add, %sub23
+  %spec.select = sub nuw i64 %add, %sub23
   %inc = add nuw i64 %i.0190, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !44

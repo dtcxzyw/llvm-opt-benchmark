@@ -3940,7 +3940,7 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %52, %31, %24
   br i1 %or.cond, label %72, label %83
 
 72:                                               ; preds = %67
-  %73 = sub i64 %1, %.pre136.pre138.pre140
+  %73 = sub nuw i64 %1, %.pre136.pre138.pre140
   %74 = getelementptr inbounds i8, ptr %3, i64 524848
   %75 = load i64, ptr %74, align 8
   %.not121 = icmp ult i64 %73, %75
@@ -5406,7 +5406,7 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %506
 616:                                              ; preds = %612
   %617 = load i32, ptr %564, align 8
   %618 = add i64 %614, %2
-  %619 = sub i64 %613, %614
+  %619 = sub nuw i64 %613, %614
   %620 = getelementptr inbounds i8, ptr %606, i64 %614
   %621 = call i32 @H5F_block_read(ptr noundef %0, i32 noundef %617, i64 noundef %618, i64 noundef %619, ptr noundef nonnull %620) #9
   %622 = icmp slt i32 %621, 0
@@ -6213,10 +6213,10 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %506
   br i1 %1083, label %1091, label %1084
 
 1084:                                             ; preds = %1078
-  %.1 = call i64 @llvm.usub.sat.i64(i64 %1082, i64 %1080)
+  %.1 = sub nuw i64 %1082, %1080
   %1085 = getelementptr inbounds i8, ptr %14, i64 168
   %1086 = load i64, ptr %1085, align 8
-  %1087 = add i64 %1086, %.1
+  %1087 = add i64 %.1, %1086
   %1088 = getelementptr inbounds i8, ptr %14, i64 48
   %1089 = load i64, ptr %1088, align 8
   %1090 = icmp ult i64 %1087, %1089

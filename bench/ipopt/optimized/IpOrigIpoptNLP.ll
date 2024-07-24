@@ -22797,7 +22797,7 @@ _ZSt13move_backwardIPPKN5Ipopt12TaggedObjectES4_ET0_T_S6_S5_.exit: ; preds = %24
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPPKN5Ipopt12TaggedObjectEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds ptr, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

@@ -3482,7 +3482,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h6547eecff750083a
   br i1 %5, label %"_ZN4core3ptr109drop_in_place$LT$$u5b$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$u5d$$GT$17hdff64e23c0dd18d2E.llvm.9340333246167201960.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !47, !noundef !47
   %10 = getelementptr inbounds ptr, ptr %9, i64 %1
@@ -3543,7 +3543,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17ha0a1a7a034082774
   br i1 %5, label %"_ZN4core3ptr110drop_in_place$LT$$u5b$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..worker..Worker$GT$$u5d$$GT$17h8943579ff1ef9bd2E.llvm.9340333246167201960.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !47, !noundef !47
   %10 = getelementptr inbounds ptr, ptr %9, i64 %1
@@ -6792,7 +6792,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler14current_thread134_$LT$impl$u20
   %43 = add i64 %42, %40
   %.not.i.i.i = icmp ult i64 %43, %39
   %44 = select i1 %.not.i.i.i, i64 0, i64 %39
-  %.0.i.i.i = sub i64 %43, %44
+  %.0.i.i.i = sub nuw i64 %43, %44
   %45 = getelementptr inbounds i8, ptr %20, i64 72
   %46 = load ptr, ptr %45, align 8, !alias.scope !1245, !nonnull !47, !noundef !47
   %47 = getelementptr inbounds ptr, ptr %46, i64 %.0.i.i.i

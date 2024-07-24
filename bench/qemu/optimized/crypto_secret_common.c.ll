@@ -360,7 +360,7 @@ if.then45.i:                                      ; preds = %lor.lhs.false.i, %i
   br label %if.then.i.i.i
 
 if.end49.i:                                       ; preds = %lor.lhs.false.i
-  %sub53.i = sub i64 %13, %conv42.i
+  %sub53.i = sub nuw i64 %13, %conv42.i
   store i64 %sub53.i, ptr %ciphertextlen.i, align 8
   %arrayidx54.i = getelementptr i8, ptr %storemerge.i, i64 %sub53.i
   store i8 0, ptr %arrayidx54.i, align 1

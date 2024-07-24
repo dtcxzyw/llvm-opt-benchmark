@@ -7010,7 +7010,7 @@ if.end:                                           ; preds = %entry, %vfio_pci_lo
   %conv6 = zext i32 %32 to i64
   %cmp = icmp ugt i64 %conv6, %addr
   %conv8 = zext i32 %size to i64
-  %sub = sub nsw i64 %conv6, %addr
+  %sub = sub nuw nsw i64 %conv6, %addr
   %cond = call i64 @llvm.umin.i64(i64 %sub, i64 %conv8)
   %cond16 = select i1 %cmp, i64 %cond, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %val.sroa.0, ptr align 1 %add.ptr, i64 %cond16, i1 false)

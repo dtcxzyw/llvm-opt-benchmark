@@ -748,7 +748,7 @@ if.else.i:                                        ; preds = %if.then10
   %6 = load i64, ptr %offset, align 8
   %add24 = add i64 %6, %sub
   store i64 %add24, ptr %offset, align 8
-  %sub25 = sub i64 %0, %sub
+  %sub25 = sub nuw i64 %0, %sub
   %7 = load ptr, ptr %frame, align 8
   %8 = load i32, ptr %7, align 1
   %conv = zext i32 %8 to i64

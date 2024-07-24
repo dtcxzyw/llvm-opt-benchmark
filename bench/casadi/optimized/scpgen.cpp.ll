@@ -4326,7 +4326,7 @@ _ZN6casadi2MXC2ERKS0_.exit465:                    ; preds = %448
   br i1 %465, label %466, label %468
 
 466:                                              ; preds = %_ZN6casadi2MXC2ERKS0_.exit465
-  %467 = sub nsw i64 %457, %464
+  %467 = sub nuw nsw i64 %457, %464
   invoke void @_ZNSt6vectorIN6casadi6Scpgen3VarESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %450, i64 noundef %467)
           to label %._ZNSt6vectorIN6casadi6Scpgen3VarESaIS2_EE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp1311
 
@@ -11369,7 +11369,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi6Scpgen8init_memEPv(ptr noundef n
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %4
-  %23 = sub nsw i64 %13, %20
+  %23 = sub nuw nsw i64 %13, %20
   tail call void @_ZNSt6vectorIN6casadi12ScpgenMemory6VarMemESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %23)
   br label %_ZNSt6vectorIN6casadi12ScpgenMemory6VarMemESaIS2_EE6resizeEm.exit
 

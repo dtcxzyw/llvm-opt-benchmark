@@ -185,7 +185,7 @@ define hidden void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$
   br label %11
 
 11:                                               ; preds = %9, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6332a5b11f30c370E.llvm.16116537380482378334.exit"
-  %12 = sub i64 %6, %.0.sroa.speculated.i
+  %12 = sub nuw i64 %6, %.0.sroa.speculated.i
   %13 = getelementptr inbounds i8, ptr %7, i64 %.0.sroa.speculated.i
   store ptr %13, ptr %1, align 8
   store i64 %12, ptr %5, align 8
@@ -304,7 +304,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_che
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -341,7 +341,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8b
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1102,7 +1102,7 @@ define hidden void @"_ZN71_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$
   unreachable
 
 .thread7.i:                                       ; preds = %21, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6332a5b11f30c370E.llvm.16116537380482378334.exit.i.i"
-  %29 = sub i64 %18, %.0.sroa.speculated.i.i.i
+  %29 = sub nuw i64 %18, %.0.sroa.speculated.i.i.i
   %30 = getelementptr inbounds i8, ptr %19, i64 %.0.sroa.speculated.i.i.i
   store ptr %30, ptr %1, align 8, !alias.scope !115, !noalias !116
   store i64 %29, ptr %17, align 8, !alias.scope !115, !noalias !116
@@ -1139,7 +1139,7 @@ define hidden void @"_ZN71_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$
   br label %"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h4089662e31f1fc1eE.llvm.16116537380482378334.exit"
 
 "_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h4089662e31f1fc1eE.llvm.16116537380482378334.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6332a5b11f30c370E.llvm.16116537380482378334.exit.i", %41
-  %43 = sub i64 %38, %.0.sroa.speculated.i.i
+  %43 = sub nuw i64 %38, %.0.sroa.speculated.i.i
   %44 = getelementptr inbounds i8, ptr %39, i64 %.0.sroa.speculated.i.i
   store ptr %44, ptr %1, align 8, !alias.scope !132, !noalias !136
   store i64 %43, ptr %37, align 8, !alias.scope !132, !noalias !136
@@ -1243,7 +1243,7 @@ define hidden void @"_ZN74_$LT$flate2..bufreader..BufReader$LT$R$GT$$u20$as$u20$
   unreachable
 
 .thread7:                                         ; preds = %17, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6332a5b11f30c370E.llvm.16116537380482378334.exit.i"
-  %25 = sub i64 %14, %.0.sroa.speculated.i.i
+  %25 = sub nuw i64 %14, %.0.sroa.speculated.i.i
   %26 = getelementptr inbounds i8, ptr %15, i64 %.0.sroa.speculated.i.i
   store ptr %26, ptr %1, align 8, !alias.scope !159, !noalias !164
   store i64 %25, ptr %13, align 8, !alias.scope !159, !noalias !164

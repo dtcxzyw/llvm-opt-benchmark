@@ -1272,7 +1272,7 @@ _ZN10ZPageCache20flush_per_numa_listsEP22ZPageCacheFlushClosureP6ZValueI15ZPerNU
   br i1 %131, label %132, label %184
 
 132:                                              ; preds = %_ZN10ZPageCache20flush_per_numa_listsEP22ZPageCacheFlushClosureP6ZValueI15ZPerNUMAStorage5ZListI5ZPageEEPS6_.exit
-  %133 = sub i64 %128, %130
+  %133 = sub nuw i64 %128, %130
   %134 = getelementptr inbounds i8, ptr %2, i64 16
   %135 = load i64, ptr %134, align 8
   %136 = icmp eq i64 %135, 0
@@ -1389,7 +1389,7 @@ define hidden noundef i64 @_ZN10ZPageCache18flush_for_uncommitEmP5ZListI5ZPageEP
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %4
-  %14 = sub i64 %11, %7
+  %14 = sub nuw i64 %11, %7
   store i64 %14, ptr %3, align 8
   br label %24
 
@@ -1564,7 +1564,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN33ZPageCacheFlushForUncommitCl
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %12, align 8
-  %14 = sub i64 %6, %8
+  %14 = sub nuw i64 %6, %8
   %15 = tail call noundef i64 @llvm.umin.i64(i64 %13, i64 %14)
   store i64 %15, ptr %12, align 8
   br label %28

@@ -383,7 +383,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %sub = sub i64 %add, %conv
+  %sub = sub nuw i64 %add, %conv
   %conv8 = zext i32 %size.addr.030 to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv8)
   %3 = load ptr, ptr %arrayidx, align 8

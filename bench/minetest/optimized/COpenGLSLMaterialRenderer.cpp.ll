@@ -1642,7 +1642,7 @@ if.then.i166:                                     ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i166
-  %sub.i.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %UniformInfo, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayINS_5video25COpenGLSLMaterialRenderer12SUniformInfoEE10reallocateEjb.exit
 
@@ -2044,7 +2044,7 @@ if.then.i222:                                     ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i227, label %if.then.i.i244, label %if.else.i.i228
 
 if.then.i.i244:                                   ; preds = %if.then.i222
-  %sub.i.i245 = sub nsw i64 %conv.i219, %sub.ptr.div.i.i.i226
+  %sub.i.i245 = sub nuw nsw i64 %conv.i219, %sub.ptr.div.i.i.i226
   call void @_ZNSt6vectorIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %UniformInfo94, i64 noundef %sub.i.i245)
   br label %_ZN3irr4core5arrayINS_5video25COpenGLSLMaterialRenderer12SUniformInfoEE10reallocateEjb.exit246
 

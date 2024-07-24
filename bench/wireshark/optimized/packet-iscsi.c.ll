@@ -1759,7 +1759,7 @@ thread-pre-split:                                 ; preds = %398
 433:                                              ; preds = %430
   %434 = getelementptr inbounds i8, ptr %1, i64 332
   store i32 %.0460, ptr %434, align 4
-  %435 = sub nsw i32 %.2468, %.0465
+  %435 = sub nuw nsw i32 %.2468, %.0465
   br label %.thread640.sink.split
 
 436:                                              ; preds = %430, %.critedge629.thread654
@@ -2338,7 +2338,7 @@ select.unfold:                                    ; preds = %66, %58, %70
   br i1 %271, label %272, label %proto_item_set_generated.exit1619
 
 272:                                              ; preds = %253
-  %273 = sub i32 %16, %269
+  %273 = sub nuw i32 %16, %269
   %274 = call i32 @llvm.umin.i32(i32 %273, i32 %5)
   %275 = icmp sgt i32 %274, 0
   br i1 %275, label %276, label %279
@@ -2413,7 +2413,7 @@ select.unfold:                                    ; preds = %66, %58, %70
   br i1 %320, label %321, label %proto_item_set_generated.exit1619
 
 321:                                              ; preds = %300
-  %322 = sub i32 %16, %318
+  %322 = sub nuw i32 %16, %318
   %323 = call i32 @llvm.umin.i32(i32 %322, i32 %5)
   %324 = icmp sgt i32 %323, 0
   br i1 %324, label %325, label %328
@@ -2593,7 +2593,7 @@ select.unfold:                                    ; preds = %66, %58, %70
   br i1 %428, label %429, label %handleDataSegment.exit1606
 
 429:                                              ; preds = %.loopexit
-  %430 = sub i32 %16, %426
+  %430 = sub nuw i32 %16, %426
   %431 = call i32 @llvm.umin.i32(i32 %430, i32 %5)
   %432 = icmp sgt i32 %431, 0
   br i1 %432, label %433, label %436
@@ -4494,7 +4494,7 @@ define internal fastcc i32 @handleDataSegment(ptr nocapture noundef readonly %0,
   br i1 %8, label %9, label %30
 
 9:                                                ; preds = %7
-  %10 = sub i32 %5, %3
+  %10 = sub nuw i32 %5, %3
   %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 %4)
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %16
@@ -4601,7 +4601,7 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
   br i1 %12, label %13, label %125
 
 13:                                               ; preds = %8
-  %14 = sub i32 %6, %4
+  %14 = sub nuw i32 %6, %4
   %15 = tail call i32 @llvm.umin.i32(i32 %14, i32 %5)
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %17, label %109

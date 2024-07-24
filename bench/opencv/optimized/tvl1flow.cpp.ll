@@ -775,7 +775,7 @@ _ZNK2cv11_InputArray6getMatEi.exit177:            ; preds = %67, %70
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %152
-  %167 = sub nsw i64 %157, %164
+  %167 = sub nuw nsw i64 %157, %164
   invoke void @_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %156, i64 noundef %167)
           to label %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -814,7 +814,7 @@ _ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit
-  %185 = sub nsw i64 %175, %182
+  %185 = sub nuw nsw i64 %175, %182
   invoke void @_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %173, i64 noundef %185)
           to label %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit193 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -853,7 +853,7 @@ _ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit193: ; preds = %_ZSt8_DestroyIPN
   br i1 %201, label %202, label %204
 
 202:                                              ; preds = %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit193
-  %203 = sub nsw i64 %193, %200
+  %203 = sub nuw nsw i64 %193, %200
   invoke void @_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %191, i64 noundef %203)
           to label %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit200 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -892,7 +892,7 @@ _ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit200: ; preds = %_ZSt8_DestroyIPN
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit200
-  %221 = sub nsw i64 %211, %218
+  %221 = sub nuw nsw i64 %211, %218
   invoke void @_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %209, i64 noundef %221)
           to label %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit207 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -931,7 +931,7 @@ _ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit207: ; preds = %_ZSt8_DestroyIPN
   br i1 %237, label %238, label %240
 
 238:                                              ; preds = %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit207
-  %239 = sub nsw i64 %229, %236
+  %239 = sub nuw nsw i64 %229, %236
   invoke void @_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %227, i64 noundef %239)
           to label %245 unwind label %.loopexit.split-lp.loopexit.split-lp
 

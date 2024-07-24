@@ -115,7 +115,7 @@ define void @mpool_flush(ptr noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds i8, ptr %.02936, i64 %12
-  %18 = sub i64 %14, %12
+  %18 = sub nuw i64 %14, %12
   %19 = tail call i32 @munmap(ptr noundef nonnull %17, i64 noundef %18) #10
   store i64 %12, ptr %13, align 8
   br label %20
@@ -146,7 +146,7 @@ define void @mpool_flush(ptr noundef %0) local_unnamed_addr #0 {
 
 36:                                               ; preds = %._crit_edge
   %37 = getelementptr inbounds i8, ptr %0, i64 %31
-  %38 = sub i64 %34, %31
+  %38 = sub nuw i64 %34, %31
   %39 = tail call i32 @munmap(ptr noundef nonnull %37, i64 noundef %38) #10
   %40 = add i64 %31, -832
   store i64 %40, ptr %32, align 8

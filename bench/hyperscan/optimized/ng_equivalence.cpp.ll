@@ -806,7 +806,7 @@ invoke.cont1.i.i.i.i.i:                           ; preds = %if.then.i.i108.i
 invoke.cont1.i.i11.i.i.i:                         ; preds = %invoke.cont1.i.i.i.i.i, %if.then.i.i108.i
   %out_start.addr.0.i.i.i = phi ptr [ %28, %if.then.i.i108.i ], [ %add.ptr.i5.i.i.i.i.i, %invoke.cont1.i.i.i.i.i ]
   %f.addr.0.i.i.i.i.i = phi ptr [ %24, %if.then.i.i108.i ], [ %add.ptr.i.i.i.i17.i.i, %invoke.cont1.i.i.i.i.i ]
-  %sub.i.i111.i = sub i64 %25, %29
+  %sub.i.i111.i = sub nuw i64 %25, %29
   %mul.i.i12.i.i.i = shl i64 %sub.i.i111.i, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i.i, ptr align 4 %f.addr.0.i.i.i.i.i, i64 %mul.i.i12.i.i.i, i1 false), !noalias !7
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EEvRT_T0_NS0_16allocator_traitsIS6_E9size_typeET1_SB_.exit.i.i
@@ -3357,7 +3357,7 @@ call5.i.i.i.i.i.i.i.noexc.i79:                    ; preds = %if.then.i74.i
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i81, align 8
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i78.i, i64 48
   store i64 2, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i82, align 8
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.idx = shl i64 %__k.val3.i.i, 2
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.idx = shl nsw i64 %__k.val3.i.i, 2
   %cmp.i339 = icmp ugt i64 %__k.val3.i.i, 2
   br i1 %cmp.i339, label %if.then.i347, label %if.end20.i
 
@@ -6218,7 +6218,7 @@ invoke.cont1.i.i.i.i.i.i:                         ; preds = %if.then.i.i397.i.i
 invoke.cont1.i.i11.i.i.i.i:                       ; preds = %invoke.cont1.i.i.i.i.i.i, %if.then.i.i397.i.i
   %out_start.addr.0.i.i.i.i = phi ptr [ %653, %if.then.i.i397.i.i ], [ %add.ptr.i5.i.i.i.i.i.i, %invoke.cont1.i.i.i.i.i.i ]
   %f.addr.0.i.i.i.i.i.i = phi ptr [ %650, %if.then.i.i397.i.i ], [ %add.ptr.i.i.i.i17.i.i.i, %invoke.cont1.i.i.i.i.i.i ]
-  %sub.i.i.i.i = sub i64 %649, %654
+  %sub.i.i.i.i = sub nuw i64 %649, %654
   %mul.i.i12.i.i.i.i = shl i64 %sub.i.i.i.i, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i.i.i, ptr align 4 %f.addr.0.i.i.i.i.i.i, i64 %mul.i.i12.i.i.i.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EEvRT_T0_NS0_16allocator_traitsIS6_E9size_typeET1_SB_.exit.i.i.i
@@ -6450,7 +6450,7 @@ invoke.cont1.i.i.i.i462.i.i:                      ; preds = %if.then.i.i460.i.i
 invoke.cont1.i.i11.i.i466.i.i:                    ; preds = %invoke.cont1.i.i.i.i462.i.i, %if.then.i.i460.i.i
   %out_start.addr.0.i.i467.i.i = phi ptr [ %672, %if.then.i.i460.i.i ], [ %add.ptr.i5.i.i.i.i465.i.i, %invoke.cont1.i.i.i.i462.i.i ]
   %f.addr.0.i.i.i.i468.i.i = phi ptr [ %669, %if.then.i.i460.i.i ], [ %add.ptr.i.i.i.i17.i464.i.i, %invoke.cont1.i.i.i.i462.i.i ]
-  %sub.i.i469.i.i = sub i64 %668, %673
+  %sub.i.i469.i.i = sub nuw i64 %668, %673
   %mul.i.i12.i.i470.i.i = shl i64 %sub.i.i469.i.i, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i467.i.i, ptr align 4 %f.addr.0.i.i.i.i468.i.i, i64 %mul.i.i12.i.i470.i.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EEvRT_T0_NS0_16allocator_traitsIS6_E9size_typeET1_SB_.exit.i459.i.i
@@ -8105,7 +8105,7 @@ invoke.cont3.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i.i:                               ; preds = %invoke.cont3.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i.i.i.i10, %invoke.cont3.i.i.i ]
   %f.sroa.0.0.i.i.i = phi ptr [ %first.coerce, %if.then.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont3.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i.i, %4
   %mul.i.i9.i = shl i64 %sub.i, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i, ptr align 4 %f.sroa.0.0.i.i.i, i64 %mul.i.i9.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaIvEvEENS_13move_iteratorIPjEES6_EEvRT_T0_NS0_16allocator_traitsIS8_E9size_typeET1_SD_.exit
@@ -8767,7 +8767,7 @@ invoke.cont1.i.i.i:                               ; preds = %if.then.i
 _ZN5boost9container18copy_n_source_destINS0_12vec_iteratorIPjLb1EEEmS3_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S7_E4typeES7_T0_RS8_.exit.i: ; preds = %invoke.cont1.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %7, %if.then.i ], [ %add.ptr.i.i.i.i10, %invoke.cont1.i.i.i ]
   %agg.tmp.sroa.0.0.i.i = phi ptr [ %1, %if.then.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont1.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i.i, %8
+  %sub.i = sub nuw i64 %sub.ptr.div.i.i, %8
   %mul.i.i10.i = shl i64 %sub.i, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i, ptr align 4 %agg.tmp.sroa.0.0.i.i, i64 %mul.i.i10.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaIvEvEENS0_12vec_iteratorIPjLb1EEES6_EEvRT_T0_NS0_16allocator_traitsIS8_E9size_typeET1_SD_.exit

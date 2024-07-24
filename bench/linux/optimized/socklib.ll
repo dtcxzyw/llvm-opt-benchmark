@@ -403,7 +403,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   br i1 %24, label %25, label %58
 
 25:                                               ; preds = %16
-  %26 = sub i32 %23, %3
+  %26 = sub nuw i32 %23, %3
   %27 = sub i32 %14, %26
   %28 = icmp ne i32 %27, 0
   br i1 %28, label %31, label %29
@@ -473,7 +473,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   br label %60
 
 58:                                               ; preds = %16
-  %59 = sub i32 %3, %23
+  %59 = sub nuw i32 %3, %23
   br label %60
 
 60:                                               ; preds = %.thread, %58
@@ -485,7 +485,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   br i1 %65, label %66, label %94
 
 66:                                               ; preds = %60
-  %67 = sub i32 %64, %61
+  %67 = sub nuw i32 %64, %61
   %68 = icmp ne i32 %62, %67
   br i1 %68, label %72, label %69
 
@@ -530,7 +530,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   br label %96
 
 94:                                               ; preds = %60
-  %95 = sub i32 %61, %64
+  %95 = sub nuw i32 %61, %64
   br label %96
 
 96:                                               ; preds = %.thread15, %94

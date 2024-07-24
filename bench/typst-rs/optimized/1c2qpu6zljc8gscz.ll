@@ -5808,7 +5808,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4bacc3e138438490E(ptr noa
   %.sroa.0.0.i.i.i.i.i = select i1 %73, ptr %.sroa.0199.0330, ptr %79
   %80 = getelementptr inbounds i8, ptr %.sroa.0199.0330, i64 16
   %81 = getelementptr inbounds i8, ptr %.sroa.016.0331, i64 %.sroa.3.0.i.i.i.i.i
-  %82 = sub i64 %.sroa.27.0332, %.sroa.3.0.i.i.i.i.i
+  %82 = sub nuw i64 %.sroa.27.0332, %.sroa.3.0.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.0331, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i, i1 false), !alias.scope !1407, !noalias !1411
   %83 = icmp eq ptr %80, %18
   br i1 %83, label %.loopexit, label %.lr.ph333
@@ -5851,7 +5851,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4bacc3e138438490E(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h19fc51ee464c4055E.exit102": ; preds = %94
   %98 = getelementptr inbounds i8, ptr %.sroa.016.1326, i64 1
   %99 = getelementptr inbounds i8, ptr %98, i64 %.sroa.3.0.i.i.i.i.i80
-  %100 = sub i64 %95, %.sroa.3.0.i.i.i.i.i80
+  %100 = sub nuw i64 %95, %.sroa.3.0.i.i.i.i.i80
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i81, i64 %.sroa.3.0.i.i.i.i.i80, i1 false), !alias.scope !1439, !noalias !1443
   %101 = icmp eq ptr %84, %18
   br i1 %101, label %.loopexit, label %.lr.ph328
@@ -5894,7 +5894,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4bacc3e138438490E(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h19fc51ee464c4055E.exit125": ; preds = %112
   %116 = getelementptr inbounds i8, ptr %.sroa.016.2321, i64 2
   %117 = getelementptr inbounds i8, ptr %116, i64 %.sroa.3.0.i.i.i.i.i103
-  %118 = sub i64 %113, %.sroa.3.0.i.i.i.i.i103
+  %118 = sub nuw i64 %113, %.sroa.3.0.i.i.i.i.i103
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %116, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i104, i64 %.sroa.3.0.i.i.i.i.i103, i1 false), !alias.scope !1471, !noalias !1475
   %119 = icmp eq ptr %102, %18
   br i1 %119, label %.loopexit, label %.lr.ph323
@@ -5936,7 +5936,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4bacc3e138438490E(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h19fc51ee464c4055E.exit148": ; preds = %130
   %133 = getelementptr inbounds i8, ptr %.sroa.016.3316, i64 3
   %134 = getelementptr inbounds i8, ptr %133, i64 %.sroa.3.0.i.i.i.i.i126
-  %135 = sub i64 %131, %.sroa.3.0.i.i.i.i.i126
+  %135 = sub nuw i64 %131, %.sroa.3.0.i.i.i.i.i126
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %133, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i127, i64 %.sroa.3.0.i.i.i.i.i126, i1 false), !alias.scope !1503, !noalias !1507
   %136 = icmp eq ptr %120, %18
   br i1 %136, label %.loopexit, label %.lr.ph318
@@ -5979,7 +5979,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4bacc3e138438490E(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h19fc51ee464c4055E.exit171": ; preds = %147
   %151 = getelementptr inbounds i8, ptr %.sroa.016.4313, i64 4
   %152 = getelementptr inbounds i8, ptr %151, i64 %.sroa.3.0.i.i.i.i.i149
-  %153 = sub i64 %148, %.sroa.3.0.i.i.i.i.i149
+  %153 = sub nuw i64 %148, %.sroa.3.0.i.i.i.i.i149
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %151, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i150, i64 %.sroa.3.0.i.i.i.i.i149, i1 false), !alias.scope !1535, !noalias !1539
   %154 = icmp eq ptr %137, %18
   br i1 %154, label %.loopexit, label %.lr.ph
@@ -6008,7 +6008,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4bacc3e138438490E(ptr noa
   br label %.invoke
 
 165:                                              ; preds = %.lr.ph338
-  %166 = sub i64 %.sroa.27.6337, %4
+  %166 = sub nuw i64 %.sroa.27.6337, %4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.5336, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !alias.scope !1557, !noalias !1561
   %.not.i.i186 = icmp ugt i64 %.sroa.3.0.i.i.i.i.i172, %166
   br i1 %.not.i.i186, label %167, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h19fc51ee464c4055E.exit194"
@@ -6037,7 +6037,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h4bacc3e138438490E(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h19fc51ee464c4055E.exit194": ; preds = %165
   %168 = getelementptr inbounds i8, ptr %.sroa.016.5336, i64 %4
   %169 = getelementptr inbounds i8, ptr %168, i64 %.sroa.3.0.i.i.i.i.i172
-  %170 = sub i64 %166, %.sroa.3.0.i.i.i.i.i172
+  %170 = sub nuw i64 %166, %.sroa.3.0.i.i.i.i.i172
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %168, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i173, i64 %.sroa.3.0.i.i.i.i.i172, i1 false), !alias.scope !1567, !noalias !1571
   %171 = icmp eq ptr %155, %18
   br i1 %171, label %.loopexit, label %.lr.ph338
@@ -9424,7 +9424,7 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h345d47
   %14 = or i64 %11, %13
   store i64 %14, ptr %12, align 8
   %15 = icmp ugt i64 %8, 8
-  br i1 %15, label %43, label %16
+  br i1 %15, label %42, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9455,19 +9455,18 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h345d47
   %39 = xor i64 %32, %14
   store i64 %39, ptr %0, align 8
   %.not = icmp eq i64 %8, 0
-  %40 = shl nuw nsw i64 %8, 3
-  %41 = sub nsw i64 64, %40
-  %42 = lshr i64 %2, %41
-  %.0 = select i1 %.not, i64 0, i64 %42
+  %40 = sub nsw i64 64, %9
+  %41 = lshr i64 %2, %40
+  %.0 = select i1 %.not, i64 0, i64 %41
   store i64 %.0, ptr %12, align 8
-  br label %45
+  br label %44
 
-43:                                               ; preds = %3
-  %44 = add i64 %8, 8
-  store i64 %44, ptr %7, align 8
-  br label %45
+42:                                               ; preds = %3
+  %43 = add i64 %8, 8
+  store i64 %43, ptr %7, align 8
+  br label %44
 
-45:                                               ; preds = %16, %43
+44:                                               ; preds = %16, %42
   ret void
 }
 
@@ -9613,7 +9612,7 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hd60a62
   %14 = or i64 %11, %13
   store i64 %14, ptr %12, align 8
   %15 = icmp ugt i64 %8, 8
-  br i1 %15, label %43, label %16
+  br i1 %15, label %42, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9644,19 +9643,18 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hd60a62
   %39 = xor i64 %32, %14
   store i64 %39, ptr %0, align 8
   %.not = icmp eq i64 %8, 0
-  %40 = shl nuw nsw i64 %8, 3
-  %41 = sub nsw i64 64, %40
-  %42 = lshr i64 %2, %41
-  %.0 = select i1 %.not, i64 0, i64 %42
+  %40 = sub nsw i64 64, %9
+  %41 = lshr i64 %2, %40
+  %.0 = select i1 %.not, i64 0, i64 %41
   store i64 %.0, ptr %12, align 8
-  br label %45
+  br label %44
 
-43:                                               ; preds = %3
-  %44 = add i64 %8, 8
-  store i64 %44, ptr %7, align 8
-  br label %45
+42:                                               ; preds = %3
+  %43 = add i64 %8, 8
+  store i64 %43, ptr %7, align 8
+  br label %44
 
-45:                                               ; preds = %16, %43
+44:                                               ; preds = %16, %42
   ret void
 }
 

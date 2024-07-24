@@ -1734,7 +1734,7 @@ sw.bb17:                                          ; preds = %if.end
 if.end23:                                         ; preds = %sw.bb17
   %value25 = getelementptr inbounds i8, ptr %rec, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 8 %value25, i64 %conv19, i1 false)
-  %sub.i37 = sub i64 %sub.i, %conv19
+  %sub.i37 = sub nuw i64 %sub.i, %conv19
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
@@ -1847,7 +1847,7 @@ sw.bb:                                            ; preds = %reftable_ref_record
 if.end14:                                         ; preds = %sw.bb
   %value = getelementptr inbounds i8, ptr %rec, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %value, ptr nonnull align 1 %add.ptr.i, i64 %conv10, i1 false)
-  %sub.i26 = sub i64 %sub.i, %conv10
+  %sub.i26 = sub nuw i64 %sub.i, %conv10
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %reftable_ref_record_release.exit
@@ -2286,7 +2286,7 @@ if.end10:                                         ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %s.coerce0, i64 %conv11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %spec.store.select1, i64 %conv11, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %s.coerce0, i64 %conv
-  %sub.i = sub i64 %s.coerce1, %conv
+  %sub.i = sub nuw i64 %s.coerce1, %conv
   %name = getelementptr inbounds i8, ptr %rec, i64 40
   %3 = load ptr, ptr %name, align 8
   %tobool16.not = icmp eq ptr %3, null
@@ -2696,7 +2696,7 @@ if.end57:                                         ; preds = %if.end51
   %add.ptr77 = getelementptr inbounds i8, ptr %in.coerce0, i64 %conv60
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %add.ptr77, i64 %conv60, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %in.coerce0, i64 %conv53
-  %sub.i = sub i64 %in.coerce1, %conv53
+  %sub.i = sub nuw i64 %in.coerce1, %conv53
   %cmp.i.i = icmp eq i64 %conv53, %in.coerce1
   br i1 %cmp.i.i, label %done, label %if.end.i.i
 

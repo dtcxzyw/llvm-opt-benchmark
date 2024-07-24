@@ -99,7 +99,7 @@ if.then:                                          ; preds = %for.cond.i.i, %entr
   br label %if.end13
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit
-  %sub.i = sub i64 %cond.i2.i, %__size.1.i.i
+  %sub.i = sub nuw i64 %cond.i2.i, %__size.1.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %__size.1.i.i
   br label %if.end13
 
@@ -154,7 +154,7 @@ for.body.i.i49:                                   ; preds = %for.cond.i.i46
   br i1 %cmp.i.i.i52, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit63, label %for.cond.i.i46, !llvm.loop !4
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit63: ; preds = %for.body.i.i49
-  %sub.i56 = sub i64 %cond.i2.i33, %__size.1.i.i47
+  %sub.i56 = sub nuw i64 %cond.i2.i33, %__size.1.i.i47
   %cmp.i66 = icmp eq i64 %sub.i56, 3
   br i1 %cmp.i66, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i69, label %if.end35
 

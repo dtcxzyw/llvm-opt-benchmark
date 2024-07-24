@@ -20639,7 +20639,7 @@ do.body.i:                                        ; preds = %if.end6.i, %if.end.
   br i1 %cmp4.not.not.not.i, label %if.end6.i, label %if.then196
 
 if.end6.i:                                        ; preds = %do.body.i
-  %sub.i = sub i64 %amount.addr.0.i, %available.0.i
+  %sub.i = sub nuw i64 %amount.addr.0.i, %available.0.i
   %next_.i.i = getelementptr inbounds i8, ptr %nextBuf.0.i, i64 32
   %212 = load ptr, ptr %next_.i.i, align 8, !tbaa !181
   %213 = load i64, ptr %212, align 8, !tbaa !187

@@ -300,7 +300,7 @@ define ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = sub i32 %18, %11
+  %20 = sub nuw i32 %18, %11
   br label %_tvb_captured_length_remaining.exit
 
 21:                                               ; preds = %10
@@ -518,7 +518,7 @@ define ptr @tvb_new_octet_right_aligned(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %.not26.i.i.i, label %_tvb_captured_length_remaining.exit.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = sub i32 %17, %10
+  %19 = sub nuw i32 %17, %10
   br label %_tvb_captured_length_remaining.exit
 
 20:                                               ; preds = %9
@@ -1499,7 +1499,7 @@ compute_offset.exit:                              ; preds = %23, %9
   br i1 %.not12, label %39, label %37
 
 37:                                               ; preds = %compute_offset.exit
-  %38 = sub i32 %36, %.0
+  %38 = sub nuw i32 %36, %.0
   ret i32 %38
 
 39:                                               ; preds = %compute_offset.exit
@@ -10107,7 +10107,7 @@ validate_offset.exit.sink.split.i:                ; preds = %57, %45
   unreachable
 
 check_offset_length.exit:                         ; preds = %61
-  %68 = sub i32 %62, %63
+  %68 = sub nuw i32 %62, %63
   %69 = zext i32 %63 to i64
   %70 = getelementptr i8, ptr %.0.i35, i64 %69
   %71 = zext i32 %68 to i64

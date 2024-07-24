@@ -4221,7 +4221,7 @@ invoke.cont18.i:                                  ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.not.i80.i, label %if.end.i81.i, label %invoke.cont19.i
 
 if.end.i81.i:                                     ; preds = %invoke.cont18.i
-  %sub.i82.i = sub i64 %sub.ptr.sub.i.i79.i, %max_len
+  %sub.i82.i = sub nuw i64 %sub.ptr.sub.i.i79.i, %max_len
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %103, i64 %sub.i82.i
   %sub.ptr.lhs.cast.i18.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %cmp.i23.not.i.i.i.i = icmp eq ptr %102, %add.ptr.i.i.i
@@ -4256,7 +4256,7 @@ invoke.cont19.i:                                  ; preds = %invoke.cont.i.i.i.i
   br i1 %cmp.not.i87.i, label %if.end.i88.i, label %invoke.cont20.i342
 
 if.end.i88.i:                                     ; preds = %invoke.cont19.i
-  %sub.i89.i = sub i64 %sub.ptr.sub.i.i86.i, %max_len
+  %sub.i89.i = sub nuw i64 %sub.ptr.sub.i.i86.i, %max_len
   %add.ptr.i.i90.i = getelementptr inbounds i8, ptr %106, i64 %sub.i89.i
   %sub.ptr.lhs.cast.i18.i.i91.i = ptrtoint ptr %add.ptr.i.i90.i to i64
   %cmp.i23.not.i.i.i92.i = icmp eq ptr %105, %add.ptr.i.i90.i

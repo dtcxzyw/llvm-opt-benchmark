@@ -22561,7 +22561,7 @@ if.else:                                          ; preds = %_ZNK5boost16cpp_reg
 if.end82:                                         ; preds = %if.else
   %idx.ext = zext i8 %cond.i62 to i64
   %add.ptr86 = getelementptr inbounds i8, ptr %_map, i64 %idx.ext
-  %sub = sub i8 %cond.i69, %cond.i62
+  %sub = sub nuw i8 %cond.i69, %cond.i62
   %conv90 = zext i8 %sub to i64
   %add = add nuw nsw i64 %conv90, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr86, i8 1, i64 %add, i1 false)
@@ -31552,7 +31552,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !266
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not6.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not6.i.i.i.i, label %invoke.cont27, label %for.inc.i.i.i.i
 

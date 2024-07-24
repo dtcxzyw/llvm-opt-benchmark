@@ -518,7 +518,7 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h05
   %24 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
   %25 = load i8, ptr %24, align 1, !alias.scope !31, !noundef !12
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %3, %.sroa.8.0.ph
+  %27 = sub nuw i64 %3, %.sroa.8.0.ph
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %23, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"

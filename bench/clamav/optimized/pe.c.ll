@@ -949,9 +949,9 @@ define i32 @cli_rawaddr(i32 noundef %0, ptr nocapture noundef readonly %1, i16 n
 16:                                               ; preds = %.lr.ph
   %17 = load i32, ptr %13, align 4
   %.not34 = icmp ule i32 %17, %0
-  %18 = sub i32 %0, %17
+  %18 = sub nuw i32 %0, %17
   %19 = icmp ugt i32 %15, %18
-  %or.cond = and i1 %.not34, %19
+  %or.cond = select i1 %.not34, i1 %19, i1 false
   br i1 %or.cond, label %22, label %20
 
 20:                                               ; preds = %.lr.ph, %16
@@ -1035,9 +1035,9 @@ define void @findres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
 35:                                               ; preds = %.lr.ph.i
   %36 = load i32, ptr %32, align 4
   %.not34.i = icmp ule i32 %36, %18
-  %37 = sub i32 %18, %36
+  %37 = sub nuw i32 %18, %36
   %38 = icmp ugt i32 %34, %37
-  %or.cond.i = and i1 %.not34.i, %38
+  %or.cond.i = select i1 %.not34.i, i1 %38, i1 false
   br i1 %or.cond.i, label %41, label %39
 
 39:                                               ; preds = %35, %.lr.ph.i
@@ -1156,9 +1156,9 @@ cli_rawaddr.exit:                                 ; preds = %39, %26, %29, %41
 98:                                               ; preds = %.lr.ph.i112
   %99 = load i32, ptr %95, align 4
   %.not34.i116 = icmp ule i32 %99, %84
-  %100 = sub i32 %84, %99
+  %100 = sub nuw i32 %84, %99
   %101 = icmp ugt i32 %97, %100
-  %or.cond.i117 = and i1 %.not34.i116, %101
+  %or.cond.i117 = select i1 %.not34.i116, i1 %101, i1 false
   br i1 %or.cond.i117, label %104, label %102
 
 102:                                              ; preds = %98, %.lr.ph.i112
@@ -1277,9 +1277,9 @@ cli_rawaddr.exit123:                              ; preds = %102, %89, %92, %104
 161:                                              ; preds = %.lr.ph.i127
   %162 = load i32, ptr %158, align 4
   %.not34.i131 = icmp ule i32 %162, %147
-  %163 = sub i32 %147, %162
+  %163 = sub nuw i32 %147, %162
   %164 = icmp ugt i32 %160, %163
-  %or.cond.i132 = and i1 %.not34.i131, %164
+  %or.cond.i132 = select i1 %.not34.i131, i1 %164, i1 false
   br i1 %or.cond.i132, label %167, label %165
 
 165:                                              ; preds = %161, %.lr.ph.i127
@@ -1934,7 +1934,7 @@ scan_pe_mdb.exit._crit_edge:                      ; preds = %scan_pe_mdb.exit
   br i1 %297, label %304, label %298
 
 298:                                              ; preds = %296
-  %299 = sub i64 %295, %294
+  %299 = sub nuw i64 %295, %294
   %spec.select.i = call i64 @llvm.umin.i64(i64 %299, i64 4096)
   %300 = getelementptr inbounds i8, ptr %41, i64 104
   %301 = load ptr, ptr %300, align 8
@@ -3903,9 +3903,9 @@ fmap_readn.exit:                                  ; preds = %303, %291
 
 1311:                                             ; preds = %1299
   %1312 = icmp uge i32 %1304, %1262
-  %1313 = sub i32 %1304, %1262
+  %1313 = sub nuw i32 %1304, %1262
   %.not2493 = icmp ult i32 %1313, %1280
-  %or.cond2779 = and i1 %1312, %.not2493
+  %or.cond2779 = select i1 %1312, i1 %.not2493, i1 false
   br i1 %or.cond2779, label %1315, label %1314
 
 1314:                                             ; preds = %1311
@@ -4209,7 +4209,7 @@ cli_rawaddr.exit:                                 ; preds = %1428
   br i1 %1465, label %1470, label %1466
 
 1466:                                             ; preds = %1454
-  %1467 = sub i32 %1461, %1464
+  %1467 = sub nuw i32 %1461, %1464
   %1468 = getelementptr inbounds i8, ptr %1463, i64 12
   %1469 = load i32, ptr %1468, align 4
   %.not2510 = icmp ult i32 %1467, %1469
@@ -4266,7 +4266,7 @@ cli_rawaddr.exit:                                 ; preds = %1428
   br i1 %1491, label %.loopexit2953, label %1492
 
 1492:                                             ; preds = %1487
-  %1493 = sub i32 %1483, %1490
+  %1493 = sub nuw i32 %1483, %1490
   %1494 = getelementptr inbounds i8, ptr %1489, i64 4
   %1495 = load i32, ptr %1494, align 4
   %.not2515 = icmp ult i32 %1493, %1495
@@ -4553,7 +4553,7 @@ cli_rawaddr.exit:                                 ; preds = %1428
   br i1 %.not2531, label %1860, label %1638
 
 1638:                                             ; preds = %1630
-  %1639 = sub i32 %1632, %1637
+  %1639 = sub nuw i32 %1632, %1637
   %1640 = add i32 %1637, -224
   %1641 = icmp ugt i32 %1639, %1640
   br i1 %1641, label %cli_rawaddr.exit2823, label %1860
@@ -4590,7 +4590,7 @@ cli_rawaddr.exit2823:                             ; preds = %1638
   br i1 %1659, label %1664, label %1660
 
 1660:                                             ; preds = %1657
-  %1661 = sub i32 %1647, %1658
+  %1661 = sub nuw i32 %1647, %1658
   %1662 = getelementptr inbounds i8, ptr %1636, i64 8
   %1663 = load i32, ptr %1662, align 4
   %.not2533 = icmp ult i32 %1661, %1663
@@ -4700,7 +4700,7 @@ cli_rawaddr.exit2823:                             ; preds = %1638
   br i1 %1716, label %1720, label %1717
 
 1717:                                             ; preds = %1710
-  %1718 = sub i32 %1713, %1715
+  %1718 = sub nuw i32 %1713, %1715
   %1719 = load i32, ptr %1695, align 4
   %.not2539 = icmp ult i32 %1718, %1719
   br i1 %.not2539, label %1721, label %1720
@@ -7498,7 +7498,7 @@ get_pe_property.exit:                             ; preds = %19, %24, %29
   br i1 %or.cond899.not, label %37, label %fmap_readn.exit.thread
 
 37:                                               ; preds = %31
-  %38 = sub i64 %36, %35
+  %38 = sub nuw i64 %36, %35
   %spec.select.i = call i64 @llvm.umin.i64(i64 %38, i64 2)
   %39 = getelementptr inbounds i8, ptr %0, i64 104
   %40 = load ptr, ptr %39, align 8
@@ -7537,7 +7537,7 @@ fmap_readn.exit.thread:                           ; preds = %37, %31, %fmap_read
   br i1 %or.cond900.not, label %51, label %fmap_readn.exit829.thread
 
 51:                                               ; preds = %44
-  %52 = sub i64 %50, %49
+  %52 = sub nuw i64 %50, %49
   %spec.select.i827 = call i64 @llvm.umin.i64(i64 %52, i64 4)
   %53 = load ptr, ptr %39, align 8
   %54 = call ptr %53(ptr noundef nonnull %0, i64 noundef %49, i64 noundef %spec.select.i827, i32 noundef 0) #20
@@ -7582,7 +7582,7 @@ fmap_readn.exit829.thread:                        ; preds = %51, %44, %fmap_read
   br i1 %or.cond901.not, label %68, label %fmap_readn.exit833.thread
 
 68:                                               ; preds = %62
-  %69 = sub i64 %67, %66
+  %69 = sub nuw i64 %67, %66
   %spec.select.i831 = call i64 @llvm.umin.i64(i64 %69, i64 24)
   %70 = load ptr, ptr %39, align 8
   %71 = call ptr %70(ptr noundef nonnull %0, i64 noundef %66, i64 noundef %spec.select.i831, i32 noundef 0) #20
@@ -7934,7 +7934,7 @@ fmap_readn.exit833.thread:                        ; preds = %68, %62, %fmap_read
   br i1 %or.cond902.not, label %197, label %fmap_readn.exit837.thread
 
 197:                                              ; preds = %189
-  %198 = sub i64 %196, %194
+  %198 = sub nuw i64 %196, %194
   %spec.select.i835 = call i64 @llvm.umin.i64(i64 %198, i64 96)
   %199 = load ptr, ptr %39, align 8
   %200 = call ptr %199(ptr noundef nonnull %0, i64 noundef %194, i64 noundef %spec.select.i835, i32 noundef 0) #20
@@ -7977,7 +7977,7 @@ fmap_readn.exit837.thread:                        ; preds = %197, %189, %fmap_re
   br i1 %or.cond903.not, label %214, label %fmap_readn.exit841.thread
 
 214:                                              ; preds = %209
-  %215 = sub i64 %213, %202
+  %215 = sub nuw i64 %213, %202
   %spec.select.i839 = call i64 @llvm.umin.i64(i64 %215, i64 16)
   %216 = load ptr, ptr %39, align 8
   %217 = call ptr %216(ptr noundef nonnull %0, i64 noundef %202, i64 noundef %spec.select.i839, i32 noundef 0) #20
@@ -9328,7 +9328,7 @@ thread-pre-split:                                 ; preds = %686
   br i1 %898, label %._crit_edge944, label %.lr.ph943
 
 899:                                              ; preds = %.loopexit
-  %900 = sub nsw i32 %880, %897
+  %900 = sub nuw nsw i32 %880, %897
   %901 = add nsw i32 %897, -6
   %902 = ptrtoint ptr %.2677940 to i64
   %903 = sub i64 %902, %864
@@ -9424,7 +9424,7 @@ define internal fastcc noundef i64 @fmap_readn(ptr noundef %0, ptr nocapture nou
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %9
-  %12 = sub i64 %6, %2
+  %12 = sub nuw i64 %6, %2
   %spec.select = tail call i64 @llvm.umin.i64(i64 %12, i64 %3)
   %13 = getelementptr inbounds i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
@@ -9714,9 +9714,9 @@ define internal fastcc void @cli_parseres_special(i32 noundef %0, i32 noundef %1
 24:                                               ; preds = %.lr.ph.i
   %25 = load i32, ptr %21, align 4
   %.not34.i = icmp ule i32 %25, %1
-  %26 = sub i32 %1, %25
+  %26 = sub nuw i32 %1, %25
   %27 = icmp ugt i32 %23, %26
-  %or.cond.i = and i1 %.not34.i, %27
+  %or.cond.i = select i1 %.not34.i, i1 %27, i1 false
   br i1 %or.cond.i, label %30, label %28
 
 28:                                               ; preds = %24, %.lr.ph.i
@@ -9873,9 +9873,9 @@ cli_rawaddr.exit:                                 ; preds = %28, %16, %18, %30
 100:                                              ; preds = %.lr.ph.i109
   %101 = load i32, ptr %97, align 4
   %.not34.i113 = icmp ule i32 %101, %89
-  %102 = sub i32 %89, %101
+  %102 = sub nuw i32 %89, %101
   %103 = icmp ugt i32 %99, %102
-  %or.cond.i114 = and i1 %.not34.i113, %103
+  %or.cond.i114 = select i1 %.not34.i113, i1 %103, i1 false
   br i1 %or.cond.i114, label %cli_rawaddr.exit120.thread147, label %104
 
 104:                                              ; preds = %100, %.lr.ph.i109
@@ -9942,9 +9942,9 @@ cli_rawaddr.exit120:                              ; preds = %88
 134:                                              ; preds = %.lr.ph.i122
   %135 = load i32, ptr %131, align 4
   %.not34.i126 = icmp ule i32 %135, %121
-  %136 = sub i32 %121, %135
+  %136 = sub nuw i32 %121, %135
   %137 = icmp ugt i32 %133, %136
-  %or.cond.i127 = and i1 %.not34.i126, %137
+  %or.cond.i127 = select i1 %.not34.i126, i1 %137, i1 false
   br i1 %or.cond.i127, label %140, label %138
 
 138:                                              ; preds = %134, %.lr.ph.i122
@@ -10550,7 +10550,7 @@ define i32 @cli_check_auth_header(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %or.cond206.not, label %73, label %.thread.thread
 
 73:                                               ; preds = %72
-  %74 = sub nsw i64 %39, %62
+  %74 = sub nuw nsw i64 %39, %62
   %spec.select.i = call i64 @llvm.umin.i64(i64 %74, i64 8)
   %75 = getelementptr inbounds i8, ptr %7, i64 104
   %76 = load ptr, ptr %75, align 8
@@ -10606,7 +10606,7 @@ fmap_readn.exit:                                  ; preds = %73
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %90
-  %93 = sub i64 %39, %52
+  %93 = sub nuw i64 %39, %52
   %94 = trunc i64 %93 to i32
   %95 = trunc nuw i64 %52 to i32
   %96 = getelementptr inbounds i8, ptr %40, i64 16
@@ -11161,9 +11161,9 @@ define internal fastcc noundef i32 @hash_imptbl(ptr nocapture noundef readonly %
 32:                                               ; preds = %.lr.ph.i
   %33 = load i32, ptr %29, align 4
   %.not34.i = icmp ule i32 %33, %12
-  %34 = sub i32 %12, %33
+  %34 = sub nuw i32 %12, %33
   %35 = icmp ugt i32 %31, %34
-  %or.cond.i = and i1 %.not34.i, %35
+  %or.cond.i = select i1 %.not34.i, i1 %35, i1 false
   br i1 %or.cond.i, label %cli_rawaddr.exit.thread131, label %36
 
 36:                                               ; preds = %32, %.lr.ph.i
@@ -11300,9 +11300,9 @@ cli_rawaddr.exit.thread:                          ; preds = %36, %26, %46, %cli_
 99:                                               ; preds = %.lr.ph.i99
   %100 = load i32, ptr %96, align 4
   %.not34.i103 = icmp ule i32 %100, %.sroa.3124.0.copyload
-  %101 = sub i32 %.sroa.3124.0.copyload, %100
+  %101 = sub nuw i32 %.sroa.3124.0.copyload, %100
   %102 = icmp ugt i32 %98, %101
-  %or.cond.i104 = and i1 %.not34.i103, %102
+  %or.cond.i104 = select i1 %.not34.i103, i1 %102, i1 false
   br i1 %or.cond.i104, label %cli_rawaddr.exit110.thread139, label %103
 
 103:                                              ; preds = %99, %.lr.ph.i99
@@ -11335,7 +11335,7 @@ cli_rawaddr.exit110.thread:                       ; preds = %93, %113, %cli_rawa
   br label %.loopexit
 
 116:                                              ; preds = %113
-  %117 = sub i64 %10, %114
+  %117 = sub nuw i64 %10, %114
   %118 = tail call i64 @llvm.umin.i64(i64 %117, i64 256)
   %119 = load ptr, ptr %53, align 8
   %120 = tail call ptr %119(ptr noundef %8, i64 noundef %114, i64 noundef %118, i32 noundef 0) #20
@@ -11397,9 +11397,9 @@ cli_rawaddr.exit110.thread:                       ; preds = %93, %113, %cli_rawa
 141:                                              ; preds = %.lr.ph.i.i
   %142 = load i32, ptr %138, align 4
   %.not34.i.i = icmp ule i32 %142, %.sroa.0.0.copyload
-  %143 = sub i32 %.sroa.0.0.copyload, %142
+  %143 = sub nuw i32 %.sroa.0.0.copyload, %142
   %144 = icmp ugt i32 %140, %143
-  %or.cond.i.i = and i1 %.not34.i.i, %144
+  %or.cond.i.i = select i1 %.not34.i.i, i1 %144, i1 false
   br i1 %or.cond.i.i, label %147, label %145
 
 145:                                              ; preds = %141, %.lr.ph.i.i
@@ -11454,9 +11454,9 @@ cli_rawaddr.exit.thread.thread.i:                 ; preds = %135
 165:                                              ; preds = %.lr.ph.i249.i
   %166 = load i32, ptr %162, align 4
   %.not34.i253.i = icmp ule i32 %166, %.sroa.4.0.copyload
-  %167 = sub i32 %.sroa.4.0.copyload, %166
+  %167 = sub nuw i32 %.sroa.4.0.copyload, %166
   %168 = icmp ugt i32 %164, %167
-  %or.cond.i254.i = and i1 %.not34.i253.i, %168
+  %or.cond.i254.i = select i1 %.not34.i253.i, i1 %168, i1 false
   br i1 %or.cond.i254.i, label %171, label %169
 
 169:                                              ; preds = %165, %.lr.ph.i249.i
@@ -11534,7 +11534,7 @@ cli_rawaddr.exit260.thread.i:                     ; preds = %cli_rawaddr.exit260
   %193 = phi i64 [ %186, %.lr.ph99.i ], [ %311, %310 ]
   %.298.i = phi i32 [ %.112.i, %.lr.ph99.i ], [ %200, %310 ]
   %.018797.i = phi i64 [ 0, %.lr.ph99.i ], [ %.2189.i, %310 ]
-  %194 = sub i64 %192, %193
+  %194 = sub nuw i64 %192, %193
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %194, i64 4)
   %195 = load ptr, ptr %189, align 8
   %196 = tail call ptr %195(ptr noundef nonnull %128, i64 noundef %193, i64 noundef %spec.select.i.i, i32 noundef 0) #20
@@ -11587,9 +11587,9 @@ fmap_readn.exit.i:                                ; preds = %191
 214:                                              ; preds = %.lr.ph.i265.i
   %215 = load i32, ptr %211, align 4
   %.not34.i269.i = icmp ule i32 %215, %.sroa.01.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..i
-  %216 = sub i32 %.sroa.01.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..i, %215
+  %216 = sub nuw i32 %.sroa.01.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..i, %215
   %217 = icmp ugt i32 %213, %216
-  %or.cond.i270.i = and i1 %.not34.i269.i, %217
+  %or.cond.i270.i = select i1 %.not34.i269.i, i1 %217, i1 false
   br i1 %or.cond.i270.i, label %220, label %218
 
 218:                                              ; preds = %214, %.lr.ph.i265.i
@@ -11816,7 +11816,7 @@ cli_rawaddr.exit276.i:                            ; preds = %218, %220, %208, %2
   %315 = phi i64 [ %186, %.lr.ph82.i ], [ %432, %.thread44.i ]
   %.381.i = phi i32 [ %.112.i, %.lr.ph82.i ], [ %322, %.thread44.i ]
   %.319080.i = phi i64 [ 0, %.lr.ph82.i ], [ %.5.i, %.thread44.i ]
-  %316 = sub i64 %314, %315
+  %316 = sub nuw i64 %314, %315
   %spec.select.i281.i = tail call i64 @llvm.umin.i64(i64 %316, i64 8)
   %317 = load ptr, ptr %187, align 8
   %318 = tail call ptr %317(ptr noundef nonnull %128, i64 noundef %315, i64 noundef %spec.select.i281.i, i32 noundef 0) #20
@@ -11864,9 +11864,9 @@ fmap_readn.exit283.i:                             ; preds = %313
 335:                                              ; preds = %.lr.ph.i285.i
   %336 = load i32, ptr %332, align 4
   %.not34.i289.i = icmp ule i32 %336, %324
-  %337 = sub i32 %324, %336
+  %337 = sub nuw i32 %324, %336
   %338 = icmp ugt i32 %334, %337
-  %or.cond.i290.i = and i1 %.not34.i289.i, %338
+  %or.cond.i290.i = select i1 %.not34.i289.i, i1 %338, i1 false
   br i1 %or.cond.i290.i, label %cli_rawaddr.exit296.thread38.i, label %339
 
 339:                                              ; preds = %335, %.lr.ph.i285.i

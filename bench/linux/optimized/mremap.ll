@@ -1343,7 +1343,7 @@ define internal fastcc i64 @__se_sys_mremap(i64 noundef %0, i64 noundef %1, i64 
 
 197:                                              ; preds = %188
   %198 = add i64 %185, %183
-  %199 = sub i64 %184, %185
+  %199 = sub nuw i64 %184, %185
   %200 = call i32 @__mm_populate(i64 noundef %198, i64 noundef %199, i32 noundef 1) #7
   br label %201
 
@@ -1527,7 +1527,7 @@ define internal fastcc i64 @mremap_to(i64 noundef %0, i64 noundef %1, i64 nounde
 
 68:                                               ; preds = %66
   %69 = add i64 %3, %0
-  %70 = sub i64 %1, %3
+  %70 = sub nuw i64 %1, %3
   %71 = tail call i32 @do_munmap(ptr noundef %12, i64 noundef %69, i64 noundef %70, ptr noundef %7) #7
   %72 = sext i32 %71 to i64
   %73 = icmp eq i32 %71, 0

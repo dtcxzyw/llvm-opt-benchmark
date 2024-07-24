@@ -5204,7 +5204,7 @@ if.end:                                           ; preds = %invoke.cont3
   br i1 %cmp.i18, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %result, i64 noundef %sub.i)
           to label %_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE6resizeEm.exit unwind label %lpad2.loopexit.split-lp
 
@@ -5439,7 +5439,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp.i66, label %if.then.i77, label %if.else.i67
 
 if.then.i77:                                      ; preds = %for.end
-  %sub.i78 = sub i64 %result_size.1, %sub.ptr.div.i.i65
+  %sub.i78 = sub nuw i64 %result_size.1, %sub.ptr.div.i.i65
   invoke void @_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %result, i64 noundef %sub.i78)
           to label %invoke.cont36 unwind label %lpad2.loopexit.split-lp
 

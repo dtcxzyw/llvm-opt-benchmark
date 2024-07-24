@@ -3639,7 +3639,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %conv.i
-  %sub3 = sub i64 %sub, %conv.i
+  %sub3 = sub nuw i64 %sub, %conv.i
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 58, ptr %add.ptr, align 1
   %incdec.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 2

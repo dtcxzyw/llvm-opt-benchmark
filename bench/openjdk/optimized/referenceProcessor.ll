@@ -2551,7 +2551,7 @@ define hidden void @_ZN18ReferenceProcessor14balance_queuesEP14DiscoveredList(pt
 
 30:                                               ; preds = %23
   %.sink = sub i64 %24, %22
-  %31 = sub i64 %12, %28
+  %31 = sub nuw i64 %12, %28
   %32 = tail call noundef i64 @llvm.umin.i64(i64 %.sink, i64 %31)
   %33 = load i8, ptr @UseCompressedOops, align 1
   %34 = trunc i8 %33 to i1

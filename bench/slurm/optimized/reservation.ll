@@ -17647,7 +17647,7 @@ define internal fastcc range(i32 0, 2017) i32 @_pick_nodes_ordered(ptr noundef %
   br label %559
 
 138:                                              ; preds = %122
-  %139 = trunc i64 %.0152248 to i32
+  %139 = trunc nuw i64 %.0152248 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -18476,7 +18476,7 @@ _pick_node_cnt.exit:                              ; preds = %403, %452, %454
   br label %503
 
 503:                                              ; preds = %502, %478
-  %504 = sub i64 %.0152248, %473
+  %504 = sub nuw nsw i64 %.0152248, %473
   %.1153 = call i64 @llvm.usub.sat.i64(i64 %.0152248, i64 %473)
   %505 = load ptr, ptr %114, align 8
   %.not206 = icmp eq ptr %505, null

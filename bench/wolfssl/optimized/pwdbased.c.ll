@@ -647,8 +647,8 @@ if.else151:                                       ; preds = %if.else139
   br i1 %cmp152, label %if.then154, label %if.else167
 
 if.then154:                                       ; preds = %if.else151
-  %sub157 = sub nsw i32 %call16.fr, %call135
-  %conv158 = zext i32 %sub157 to i64
+  %sub157 = sub nuw nsw i32 %call16.fr, %call135
+  %conv158 = zext nneg i32 %sub157 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr120, i8 0, i64 %conv158, i1 false)
   %add.ptr163 = getelementptr inbounds i8, ptr %add.ptr120, i64 %idx.ext
   %idx.ext164 = zext nneg i32 %call135 to i64

@@ -283,7 +283,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit53:   ; preds = %_ZNSt6vectorIP6aiMe
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit53
-  %sub.i = sub nsw i64 %conv9.pre-phi, %sub.ptr.div.i.i58
+  %sub.i = sub nuw nsw i64 %conv9.pre-phi, %sub.ptr.div.i.i58
   tail call void @_ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %meshes, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE6resizeEm.exit
 

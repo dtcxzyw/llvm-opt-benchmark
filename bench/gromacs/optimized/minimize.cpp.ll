@@ -3508,7 +3508,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_Z15wallcycle_start
   br i1 %.not.i61, label %345, label %343
 
 343:                                              ; preds = %332
-  %344 = sub i64 %339, %342
+  %344 = sub nuw i64 %339, %342
   br label %347
 
 345:                                              ; preds = %332
@@ -4302,7 +4302,7 @@ define internal fastcc noundef zeroext i1 @_ZL10do_em_stepPK9t_commrecPK10t_inpu
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74
-  %77 = sub nsw i64 %73, %65
+  %77 = sub nuw nsw i64 %73, %65
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %58, i64 noundef %77)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -4632,7 +4632,7 @@ define internal fastcc void @_ZL9finish_emPK9t_commrecP10gmx_mdoutfP23gmx_wallti
   br i1 %.not.i.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = sub i64 %18, %20
+  %22 = sub nuw i64 %18, %20
   br label %25
 
 23:                                               ; preds = %11
@@ -5724,7 +5724,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -5745,7 +5745,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23
@@ -6655,7 +6655,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i537.thread: ; pr
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %.lr.ph
-  %123 = sub nsw i64 %86, %120
+  %123 = sub nuw nsw i64 %86, %120
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0692.0825, i64 noundef %123)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %136
 
@@ -6744,7 +6744,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i537: ; preds = %
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %.lr.ph828
-  %156 = sub nsw i64 %86, %153
+  %156 = sub nuw nsw i64 %86, %153
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0688.0827, i64 noundef %156)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit549 unwind label %.loopexit806
 

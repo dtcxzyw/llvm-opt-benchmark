@@ -15715,7 +15715,7 @@ define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_
   br i1 %17, label %18, label %31
 
 18:                                               ; preds = %16
-  %19 = sub i64 %.033, %.01732
+  %19 = sub nuw i64 %.033, %.01732
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.01732, i64 noundef %19)
           to label %20 unwind label %.loopexit
 

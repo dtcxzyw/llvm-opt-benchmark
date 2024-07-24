@@ -77,7 +77,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hcbe8b3213ffbd486E.exit"
 
 14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit"
-  %15 = sub i64 %1, %12
+  %15 = sub nuw i64 %1, %12
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc13d90eef3c54482E.llvm.7371537965014501254"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %15)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hcbe8b3213ffbd486E.exit" unwind label %27
 
@@ -276,7 +276,7 @@ define noundef double @"_ZN113_$LT$statrs..distribution..bernoulli..Bernoulli$u2
   br i1 %.not.i, label %7, label %"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf17h768a3c98d1b35a99E.exit"
 
 7:                                                ; preds = %2
-  %8 = sub i64 %6, %1
+  %8 = sub nuw i64 %6, %1
   %9 = uitofp i64 %8 to double
   %10 = uitofp i64 %1 to double
   %11 = fadd double %10, 1.000000e+00
@@ -319,7 +319,7 @@ define noundef double @"_ZN113_$LT$statrs..distribution..bernoulli..Bernoulli$u2
 7:                                                ; preds = %2
   %8 = uitofp i64 %1 to double
   %9 = fadd double %8, 1.000000e+00
-  %10 = sub i64 %6, %1
+  %10 = sub nuw i64 %6, %1
   %11 = uitofp i64 %10 to double
   %12 = load double, ptr %0, align 8, !alias.scope !44, !noundef !7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !44

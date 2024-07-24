@@ -512,7 +512,7 @@ if.then2.i.i:                                     ; preds = %dirtylimit_dirty_ri
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.else.i.i
 
 if.then4.i.i:                                     ; preds = %if.then2.i.i
-  %sub.i7.i = sub i64 %12, %9
+  %sub.i7.i = sub nuw i64 %12, %9
   %mul.i.i = mul i64 %sub.i7.i, 100
   %div.i.i = udiv i64 %mul.i.i, %12
   %mul5.i.i = mul i64 %div.i.i, %div.i.i.i
@@ -525,7 +525,7 @@ if.then4.i.i:                                     ; preds = %if.then2.i.i
   br label %if.end22.i.i
 
 if.else.i.i:                                      ; preds = %if.then2.i.i
-  %sub11.i.i = sub i64 %9, %12
+  %sub11.i.i = sub nuw i64 %9, %12
   %mul12.i.i = mul i64 %sub11.i.i, 100
   %div13.i.i = udiv i64 %mul12.i.i, %9
   %mul14.i.i = mul i64 %div13.i.i, %div.i.i.i

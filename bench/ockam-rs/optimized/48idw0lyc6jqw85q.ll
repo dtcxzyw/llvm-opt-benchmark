@@ -45509,7 +45509,7 @@ common.ret:                                       ; preds = %555, %528, %305, %1
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %135, i64 %582)
   %583 = load ptr, ptr %580, align 8, !alias.scope !6377, !nonnull !5, !align !969, !noundef !5
   %584 = getelementptr inbounds i8, ptr %583, i64 %.0.sroa.speculated.i.i
-  %585 = sub i64 %135, %.0.sroa.speculated.i.i
+  %585 = sub nuw i64 %135, %.0.sroa.speculated.i.i
   store ptr %584, ptr %580, align 8, !alias.scope !6377
   store i64 %585, ptr %579, align 8, !alias.scope !6377
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %34)
@@ -47739,7 +47739,7 @@ common.ret:                                       ; preds = %555, %528, %305, %1
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %135, i64 %582)
   %583 = load ptr, ptr %580, align 8, !alias.scope !6733, !nonnull !5, !align !969, !noundef !5
   %584 = getelementptr inbounds i8, ptr %583, i64 %.0.sroa.speculated.i.i
-  %585 = sub i64 %135, %.0.sroa.speculated.i.i
+  %585 = sub nuw i64 %135, %.0.sroa.speculated.i.i
   store ptr %584, ptr %580, align 8, !alias.scope !6733
   store i64 %585, ptr %579, align 8, !alias.scope !6733
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %34)

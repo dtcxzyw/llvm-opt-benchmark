@@ -255,7 +255,7 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit:                ; preds = %.lr.ph.i, %98, %115
   br i1 %.not.i, label %190, label %188
 
 188:                                              ; preds = %177
-  %189 = sub i64 %184, %187
+  %189 = sub nuw i64 %184, %187
   br label %192
 
 190:                                              ; preds = %177
@@ -394,7 +394,7 @@ _Z11do_per_stepll.exit:                           ; preds = %251
   br i1 %.not.i181, label %271, label %269
 
 269:                                              ; preds = %258
-  %270 = sub i64 %265, %268
+  %270 = sub nuw i64 %265, %268
   br label %273
 
 271:                                              ; preds = %258
@@ -749,7 +749,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191: ; preds = %251, %
   br i1 %.not.i192, label %519, label %517
 
 517:                                              ; preds = %506
-  %518 = sub i64 %513, %516
+  %518 = sub nuw i64 %513, %516
   br label %521
 
 519:                                              ; preds = %506
@@ -918,7 +918,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread: ; p
   br i1 %.not.i208, label %622, label %620
 
 620:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread
-  %621 = sub i64 %616, %619
+  %621 = sub nuw i64 %616, %619
   br label %624
 
 622:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread
@@ -1250,7 +1250,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2
   br i1 %.not.i, label %175, label %173
 
 173:                                              ; preds = %162
-  %174 = sub i64 %169, %172
+  %174 = sub nuw i64 %169, %172
   br label %177
 
 175:                                              ; preds = %162
@@ -1509,7 +1509,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaI
   br i1 %.not.i139, label %355, label %353
 
 353:                                              ; preds = %342
-  %354 = sub i64 %349, %352
+  %354 = sub nuw i64 %349, %352
   br label %357
 
 355:                                              ; preds = %342
@@ -1577,7 +1577,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -1598,7 +1598,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23

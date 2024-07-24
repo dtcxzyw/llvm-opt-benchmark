@@ -2280,9 +2280,9 @@ entry:
   %counter1 = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load i64, ptr %counter1, align 8
   %cmp = icmp ugt i64 %0, %1
-  %sub = sub i64 %0, %1
+  %sub = sub nuw i64 %0, %1
   %cmp4 = icmp ult i64 %sub, 2048
-  %or.cond = and i1 %cmp, %cmp4
+  %or.cond = select i1 %cmp, i1 %cmp4, i1 false
   %retval.0 = select i1 %or.cond, i32 1, i32 -1
   ret i32 %retval.0
 }

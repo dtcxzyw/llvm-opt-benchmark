@@ -23725,7 +23725,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..blocking..po
   %11 = add i64 %10, %5
   %.not.i.i.i.i.i = icmp ult i64 %11, %.val2.pre.i
   %12 = select i1 %.not.i.i.i.i.i, i64 0, i64 %.val2.pre.i
-  %.0.i.i.i.i.i = sub i64 %11, %12
+  %.0.i.i.i.i.i = sub nuw i64 %11, %12
   %13 = sub i64 %.val2.pre.i, %.0.i.i.i.i.i
   %.not.i.i.i.i = icmp ult i64 %13, %8
   %14 = add i64 %.0.i.i.i.i.i, %8
@@ -30878,13 +30878,13 @@ define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..collections.
   %13 = load i64, ptr %0, align 8, !alias.scope !11533, !noalias !11531, !noundef !5
   %.not.i.i.i.i = icmp ult i64 %12, %13
   %14 = select i1 %.not.i.i.i.i, i64 0, i64 %13
-  %.0.i.i.i.i = sub i64 %12, %14
+  %.0.i.i.i.i = sub nuw i64 %12, %14
   %15 = sub i64 %13, %.0.i.i.i.i
   %.not.i.i.i = icmp ult i64 %15, %7
   br i1 %.not.i.i.i, label %16, label %18
 
 16:                                               ; preds = %9
-  %17 = sub i64 %7, %15
+  %17 = sub nuw i64 %7, %15
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17h4ca82708d31791b0E.exit.i"
 
 18:                                               ; preds = %9

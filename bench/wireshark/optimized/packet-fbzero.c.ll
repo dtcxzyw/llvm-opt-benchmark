@@ -310,7 +310,7 @@ proto_item_set_generated.exit.thread.i.i.i:       ; preds = %.lr.ph275.i.i.i
   br label %107
 
 86:                                               ; preds = %.lr.ph275.i.i.i
-  %87 = sub i32 %83, %.0219271.i.i.i
+  %87 = sub nuw i32 %83, %.0219271.i.i.i
   %88 = add i32 %.0219271.i.i.i, %68
   %89 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %88, i32 noundef %87) #3
   %.not234.i.i.i = icmp eq i32 %89, 0

@@ -1444,8 +1444,8 @@ define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 nound
   br i1 %.not88, label %29, label %25
 
 25:                                               ; preds = %20
-  %reass.sub = sub nsw i64 %spec.select94, %2
-  %26 = add nsw i64 %reass.sub, 1
+  %reass.sub = sub nuw nsw i64 %spec.select94, %2
+  %26 = add nuw nsw i64 %reass.sub, 1
   %27 = load ptr, ptr @None_Receiver, align 8
   %28 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext false, i64 noundef %26, ptr noundef %27)
   br label %37

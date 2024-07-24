@@ -1311,7 +1311,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn24ConvolutionLayerInt8Impl8finalizeER
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %78
-  %92 = sub nsw i64 %82, %89
+  %92 = sub nuw nsw i64 %82, %89
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %79, i64 noundef %92)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %204
 
@@ -1350,7 +1350,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %97, %95, %93, %91
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %100
-  %114 = sub nsw i64 %104, %111
+  %114 = sub nuw nsw i64 %104, %111
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %101, i64 noundef %114)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %206
 
@@ -5472,7 +5472,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -7126,7 +7126,7 @@ _ZNSt6vectorImSaImEEaSERKS1_.exit304:             ; preds = %_ZSt4copyIN9__gnu_c
   br i1 %552, label %553, label %586
 
 553:                                              ; preds = %535
-  %554 = sub nsw i64 %544, %551
+  %554 = sub nuw nsw i64 %544, %551
   %555 = getelementptr inbounds i8, ptr %37, i64 192
   %556 = load ptr, ptr %555, align 8
   %557 = ptrtoint ptr %556 to i64
@@ -9619,7 +9619,7 @@ _ZSt13move_backwardIPSt6vectorIiSaIiEES3_ET0_T_S5_S4_.exit: ; preds = %_ZNSt6vec
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE16_Temporary_valueD2Ev.exit
 
 76:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE16_Temporary_valueC2IJRKS1_EEEPS3_DpOT_.exit
-  %77 = sub i64 %2, %38
+  %77 = sub nuw i64 %2, %38
   %78 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RKT1_(ptr noundef %10, i64 noundef %77, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %_ZSt24__uninitialized_fill_n_aIPSt6vectorIiSaIiEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 

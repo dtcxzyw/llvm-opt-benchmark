@@ -1292,7 +1292,7 @@ sw.epilog:                                        ; preds = %expand_2_i64.exit, 
 
 if.then54:                                        ; preds = %sw.epilog
   %add55 = add i32 %dofs.addr.1, %oprsz.addr.1
-  %sub56 = sub i32 %maxsz.addr.1, %oprsz.addr.1
+  %sub56 = sub nuw i32 %maxsz.addr.1, %oprsz.addr.1
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add55, i32 noundef %sub56, i32 noundef %sub56, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end57
 
@@ -1734,7 +1734,7 @@ sw.epilog:                                        ; preds = %expand_2i_i64.exit,
 
 if.then57:                                        ; preds = %sw.epilog
   %add58 = add i32 %dofs.addr.1, %oprsz.addr.1
-  %sub59 = sub i32 %maxsz.addr.1, %oprsz.addr.1
+  %sub59 = sub nuw i32 %maxsz.addr.1, %oprsz.addr.1
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add58, i32 noundef %sub59, i32 noundef %sub59, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end60
 
@@ -2015,7 +2015,7 @@ if.end58:                                         ; preds = %if.then36, %tcg_gen
 
 if.then61:                                        ; preds = %if.end58
   %add62 = add i32 %dofs.addr.2, %oprsz.addr.2
-  %sub63 = sub i32 %maxsz.addr.2, %oprsz.addr.2
+  %sub63 = sub nuw i32 %maxsz.addr.2, %oprsz.addr.2
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add62, i32 noundef %sub63, i32 noundef %sub63, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end64
 
@@ -2485,7 +2485,7 @@ sw.epilog:                                        ; preds = %expand_3_i64.exit, 
 
 if.then56:                                        ; preds = %sw.epilog
   %add57 = add i32 %dofs.addr.1, %oprsz.addr.1
-  %sub58 = sub i32 %maxsz.addr.1, %oprsz.addr.1
+  %sub58 = sub nuw i32 %maxsz.addr.1, %oprsz.addr.1
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add57, i32 noundef %sub58, i32 noundef %sub58, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end59
 
@@ -2857,7 +2857,7 @@ sw.epilog:                                        ; preds = %expand_3i_i64.exit,
 
 if.then58:                                        ; preds = %sw.epilog
   %add59 = add i32 %dofs.addr.1, %oprsz.addr.1
-  %sub60 = sub i32 %maxsz.addr.1, %oprsz.addr.1
+  %sub60 = sub nuw i32 %maxsz.addr.1, %oprsz.addr.1
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add59, i32 noundef %sub60, i32 noundef %sub60, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end61
 
@@ -3289,7 +3289,7 @@ sw.epilog:                                        ; preds = %expand_4_i64.exit, 
 
 if.then58:                                        ; preds = %sw.epilog
   %add59 = add i32 %dofs.addr.1, %oprsz.addr.1
-  %sub60 = sub i32 %maxsz.addr.1, %oprsz.addr.1
+  %sub60 = sub nuw i32 %maxsz.addr.1, %oprsz.addr.1
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add59, i32 noundef %sub60, i32 noundef %sub60, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end61
 
@@ -3666,7 +3666,7 @@ sw.epilog:                                        ; preds = %expand_4i_i64.exit,
 
 if.then51:                                        ; preds = %sw.epilog
   %add52 = add i32 %dofs.addr.1, %oprsz.addr.1
-  %sub53 = sub i32 %maxsz.addr.1, %oprsz.addr.1
+  %sub53 = sub nuw i32 %maxsz.addr.1, %oprsz.addr.1
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add52, i32 noundef %sub53, i32 noundef %sub53, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end54
 
@@ -3754,7 +3754,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
 
 if.then2:                                         ; preds = %check_size_align.exit
   %add = add i32 %oprsz, %dofs
-  %sub = sub nsw i32 %maxsz, %oprsz
+  %sub = sub nuw nsw i32 %maxsz, %oprsz
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add, i32 noundef %sub, i32 noundef %sub, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end3
 
@@ -4211,7 +4211,7 @@ done:                                             ; preds = %for.end126, %for.en
 
 if.then193:                                       ; preds = %done
   %add194 = add i32 %oprsz.addr.0169, %dofs.tr240362
-  %sub = sub i32 %maxsz.tr242360, %oprsz.addr.0169
+  %sub = sub nuw i32 %maxsz.tr242360, %oprsz.addr.0169
   br label %if.end5
 
 if.end195:                                        ; preds = %done, %if.end190, %if.end152, %if.end71
@@ -4413,7 +4413,7 @@ if.end56:                                         ; preds = %for.body, %if.then2
 
 if.then59:                                        ; preds = %if.end56
   %add60 = add i32 %oprsz, %dofs
-  %sub = sub i32 %maxsz, %oprsz
+  %sub = sub nuw i32 %maxsz, %oprsz
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add60, i32 noundef %sub, i32 noundef %sub, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end182
 
@@ -4545,7 +4545,7 @@ if.end170:                                        ; preds = %for.body91, %for.bo
 
 if.then173:                                       ; preds = %if.end170
   %add174 = add i32 %oprsz, %dofs
-  %sub175 = sub i32 %maxsz, %oprsz
+  %sub175 = sub nuw i32 %maxsz, %oprsz
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add174, i32 noundef %sub175, i32 noundef %sub175, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end182
 
@@ -4639,7 +4639,7 @@ sw.epilog:                                        ; preds = %for.body25, %for.bo
 
 if.then35:                                        ; preds = %sw.epilog
   %add36 = add i32 %oprsz, %dofs
-  %sub = sub i32 %maxsz, %oprsz
+  %sub = sub nuw i32 %maxsz, %oprsz
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add36, i32 noundef %sub, i32 noundef %sub, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end37
 
@@ -6390,7 +6390,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
 
 if.then2.i:                                       ; preds = %check_size_align.exit.i
   %add.i = add i32 %oprsz, %aofs
-  %sub.i = sub nsw i32 %maxsz, %oprsz
+  %sub.i = sub nuw nsw i32 %maxsz, %oprsz
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add.i, i32 noundef %sub.i, i32 noundef %sub.i, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end
 
@@ -6470,7 +6470,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
 
 if.then2.i:                                       ; preds = %check_size_align.exit.i
   %add.i = add i32 %oprsz, %aofs
-  %sub.i = sub nsw i32 %maxsz, %oprsz
+  %sub.i = sub nuw nsw i32 %maxsz, %oprsz
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add.i, i32 noundef %sub.i, i32 noundef %sub.i, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end
 
@@ -7117,7 +7117,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
 
 if.then2.i:                                       ; preds = %check_size_align.exit.i
   %add.i = add i32 %oprsz, %dofs
-  %sub.i = sub nsw i32 %maxsz, %oprsz
+  %sub.i = sub nuw nsw i32 %maxsz, %oprsz
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add.i, i32 noundef %sub.i, i32 noundef %sub.i, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end11
 
@@ -7296,7 +7296,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
 
 if.then2.i:                                       ; preds = %check_size_align.exit.i
   %add.i = add i32 %oprsz, %dofs
-  %sub.i = sub nsw i32 %maxsz, %oprsz
+  %sub.i = sub nuw nsw i32 %maxsz, %oprsz
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add.i, i32 noundef %sub.i, i32 noundef %sub.i, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end11
 
@@ -7511,7 +7511,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
 
 if.then2.i:                                       ; preds = %check_size_align.exit.i
   %add.i = add i32 %oprsz, %dofs
-  %sub.i = sub nsw i32 %maxsz, %oprsz
+  %sub.i = sub nuw nsw i32 %maxsz, %oprsz
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add.i, i32 noundef %sub.i, i32 noundef %sub.i, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end11
 
@@ -7682,7 +7682,7 @@ check_size_align.exit.i:                          ; preds = %do.body1.i.i, %do.b
 
 if.then2.i:                                       ; preds = %check_size_align.exit.i
   %add.i = add i32 %oprsz, %dofs
-  %sub.i = sub nsw i32 %maxsz, %oprsz
+  %sub.i = sub nuw nsw i32 %maxsz, %oprsz
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add.i, i32 noundef %sub.i, i32 noundef %sub.i, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end11
 
@@ -7823,7 +7823,7 @@ check_size_align.exit.i.i:                        ; preds = %do.body1.i.i.i, %do
 
 if.then2.i.i:                                     ; preds = %check_size_align.exit.i.i
   %add.i.i = add i32 %oprsz, %dofs
-  %sub.i.i = sub nsw i32 %maxsz, %oprsz
+  %sub.i.i = sub nuw nsw i32 %maxsz, %oprsz
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add.i.i, i32 noundef %sub.i.i, i32 noundef %sub.i.i, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %tcg_gen_gvec_rotli.exit
 
@@ -8272,7 +8272,7 @@ clear_tail:                                       ; preds = %for.body.i133, %for
 
 if.then64:                                        ; preds = %clear_tail
   %add65 = add i32 %dofs.addr.4, %oprsz.addr.4
-  %sub66 = sub i32 %maxsz.addr.4, %oprsz.addr.4
+  %sub66 = sub nuw i32 %maxsz.addr.4, %oprsz.addr.4
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add65, i32 noundef %sub66, i32 noundef %sub66, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end67
 
@@ -9159,7 +9159,7 @@ sw.epilog:                                        ; preds = %expand_cmp_i64.exit
 
 if.then50:                                        ; preds = %sw.epilog
   %add51 = add i32 %dofs.addr.1, %oprsz.addr.1
-  %sub52 = sub i32 %maxsz.addr.1, %oprsz.addr.1
+  %sub52 = sub nuw i32 %maxsz.addr.1, %oprsz.addr.1
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add51, i32 noundef %sub52, i32 noundef %sub52, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end53
 
@@ -9893,7 +9893,7 @@ if.end74:                                         ; preds = %for.end, %for.end55
 
 if.then77:                                        ; preds = %if.end74
   %add78 = add i32 %dofs.addr.2, %oprsz.addr.2
-  %sub79 = sub i32 %maxsz.addr.2, %oprsz.addr.2
+  %sub79 = sub nuw i32 %maxsz.addr.2, %oprsz.addr.2
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add78, i32 noundef %sub79, i32 noundef %sub79, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end80
 

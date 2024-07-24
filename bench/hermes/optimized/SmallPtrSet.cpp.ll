@@ -842,11 +842,11 @@ _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %_ZSt11swap_rangesIP
   br i1 %cmp60, label %if.then.i.i.i.i.i57, label %if.else
 
 if.then.i.i.i.i.i57:                              ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit
-  %idx.ext67 = zext i32 %33 to i64
   %34 = load ptr, ptr %this, align 8
   %add.ptr64 = getelementptr inbounds i8, ptr %34, i64 %add.ptr64.idx
-  %35 = sub nsw i64 %idx.ext67, %idx.ext55
-  %gepdiff69 = shl nsw i64 %35, 3
+  %narrow = sub nuw i32 %33, %30
+  %35 = zext i32 %narrow to i64
+  %gepdiff69 = shl nuw nsw i64 %35, 3
   %36 = load ptr, ptr %RHS, align 8
   %add.ptr71 = getelementptr inbounds ptr, ptr %36, i64 %idx.ext55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr71, ptr align 8 %add.ptr64, i64 %gepdiff69, i1 false)

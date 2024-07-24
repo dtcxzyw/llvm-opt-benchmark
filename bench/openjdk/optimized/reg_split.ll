@@ -3486,7 +3486,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   br i1 %889, label %890, label %894
 
 890:                                              ; preds = %tailrecurse.i
-  %891 = sub i32 %881, %883
+  %891 = sub nuw i32 %881, %883
   %892 = and i32 %891, 1
   %893 = icmp eq i32 %892, 0
   br i1 %893, label %896, label %894
@@ -3865,7 +3865,7 @@ _ZN4Node7set_reqEjPS_.exit887:                    ; preds = %1082, %1071, %1046
 1088:                                             ; preds = %_ZN4Node7set_reqEjPS_.exit887
   %1089 = getelementptr inbounds ptr, ptr %.0.i.i.i826, i64 %878
   %1090 = load ptr, ptr %1089, align 8
-  %1091 = trunc nuw i64 %indvars.iv1711 to i32
+  %1091 = trunc i64 %indvars.iv1711 to i32
   %1092 = sub i32 %1091, %842
   %1093 = and i32 %1092, 1
   %1094 = icmp eq i32 %1093, 0

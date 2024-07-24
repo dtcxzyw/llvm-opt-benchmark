@@ -1791,7 +1791,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_isolate_range(ptr
 
 38:                                               ; preds = %36
   store i64 %1, ptr %27, align 8
-  %39 = sub i64 %1, %29
+  %39 = sub nuw i64 %1, %29
   %40 = sub i64 %31, %39
   store i64 %40, ptr %30, align 8
   %41 = load i64, ptr %25, align 8
@@ -2263,7 +2263,7 @@ define dso_local void @memblock_enforce_memory_limit(i64 noundef %0) local_unnam
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %.preheader
-  %14 = sub i64 %9, %11
+  %14 = sub nuw i64 %9, %11
   %15 = getelementptr i8, ptr %8, i64 24
   %16 = icmp ult ptr %15, %6
   br i1 %16, label %.preheader, label %.thread, !llvm.loop !60
@@ -2460,7 +2460,7 @@ define dso_local void @memblock_mem_limit_remove_map(i64 noundef %0) local_unnam
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %.preheader
-  %14 = sub i64 %9, %11
+  %14 = sub nuw i64 %9, %11
   %15 = getelementptr i8, ptr %8, i64 24
   %16 = icmp ult ptr %15, %6
   br i1 %16, label %.preheader, label %.thread, !llvm.loop !60
@@ -2788,7 +2788,7 @@ define dso_local void @memblock_trim_memory(i64 noundef %0) local_unnamed_addr #
 
 25:                                               ; preds = %23
   store i64 %18, ptr %11, align 8
-  %26 = sub i64 %19, %18
+  %26 = sub nuw i64 %19, %18
   store i64 %26, ptr %13, align 8
   br label %33
 
@@ -2955,7 +2955,7 @@ define internal fastcc i64 @free_low_memory_core_early() unnamed_addr #4 section
 
 16:                                               ; preds = %.preheader
   call fastcc void @__free_pages_memory(i64 noundef %11, i64 noundef %14) #22
-  %17 = sub nsw i64 %14, %11
+  %17 = sub nuw nsw i64 %14, %11
   br label %18
 
 18:                                               ; preds = %16, %.preheader
@@ -3312,7 +3312,7 @@ define internal fastcc range(i64 4096, 1) i64 @__memblock_find_range_top_down(i6
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %14
-  %25 = sub i64 %22, %2
+  %25 = sub nuw i64 %22, %2
   %26 = and i64 %25, %13
   %27 = icmp ult i64 %26, %18
   br i1 %27, label %28, label %.loopexit

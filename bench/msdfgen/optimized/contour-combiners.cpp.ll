@@ -424,7 +424,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.i24, label %if.then.i27, label %if.else.i
 
 if.then.i27:                                      ; preds = %for.end
-  %sub.i = sub nsw i64 %sub.ptr.div.i18, %sub.ptr.div.i.i23
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i18, %sub.ptr.div.i.i23
   invoke void @_ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %edgeSelectors, i64 noundef %sub.i)
           to label %invoke.cont19 unwind label %lpad.loopexit.split-lp
 
@@ -904,7 +904,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.i24, label %if.then.i27, label %if.else.i
 
 if.then.i27:                                      ; preds = %for.end
-  %sub.i = sub nsw i64 %sub.ptr.div.i18, %sub.ptr.div.i.i23
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i18, %sub.ptr.div.i.i23
   invoke void @_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %edgeSelectors, i64 noundef %sub.i)
           to label %invoke.cont19 unwind label %lpad.loopexit.split-lp
 
@@ -1374,7 +1374,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.i24, label %if.then.i27, label %if.else.i
 
 if.then.i27:                                      ; preds = %for.end
-  %sub.i = sub nsw i64 %sub.ptr.div.i18, %sub.ptr.div.i.i23
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i18, %sub.ptr.div.i.i23
   invoke void @_ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %edgeSelectors, i64 noundef %sub.i)
           to label %invoke.cont19 unwind label %lpad.loopexit.split-lp
 
@@ -2031,7 +2031,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.i24, label %if.then.i27, label %if.else.i
 
 if.then.i27:                                      ; preds = %for.end
-  %sub.i = sub nsw i64 %sub.ptr.div.i18, %sub.ptr.div.i.i23
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i18, %sub.ptr.div.i.i23
   invoke void @_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %edgeSelectors, i64 noundef %sub.i)
           to label %invoke.cont19 unwind label %lpad.loopexit.split-lp
 

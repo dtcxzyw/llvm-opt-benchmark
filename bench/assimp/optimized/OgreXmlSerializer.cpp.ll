@@ -4086,7 +4086,7 @@ if.then35:                                        ; preds = %if.end34
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then35
-  %sub.i = sub nsw i64 %conv38, %sub.ptr.div.i.i166
+  %sub.i = sub nuw nsw i64 %conv38, %sub.ptr.div.i.i166
   call void @_ZNSt6vectorIS_I10aiVector3tIfESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %uvs37, i64 noundef %sub.i)
   %.pre = load ptr, ptr %_M_finish.i.i162, align 8
   br label %_ZNSt6vectorIS_I10aiVector3tIfESaIS1_EESaIS3_EE6resizeEm.exit
@@ -13548,7 +13548,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64

@@ -554,7 +554,7 @@ if.end341.thread:                                 ; preds = %if.end316
   br i1 %cmp3421001, label %if.then344, label %if.else347.thread
 
 if.else347.thread:                                ; preds = %if.end341.thread
-  %sub3491017 = sub nsw i32 1043, %spec.select1055
+  %sub3491017 = sub nuw nsw i32 1043, %spec.select1055
   br label %if.then.i528
 
 if.then344:                                       ; preds = %if.end341.thread1196, %if.end341.thread, %if.end341
@@ -697,7 +697,7 @@ if.then4.i:                                       ; preds = %if.else.i
 if.end.i:                                         ; preds = %if.else.i
   %shr7.i = lshr i32 %63, %64
   store i32 %shr7.i, ptr %nd, align 16
-  %sub.i = sub nsw i32 %sub3491031, %64
+  %sub.i = sub nuw nsw i32 %sub3491031, %64
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.else347.thread1202, %if.end.i

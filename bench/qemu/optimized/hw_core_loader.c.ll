@@ -1114,7 +1114,7 @@ if.end37:                                         ; preds = %if.then34, %if.end2
 while.body:                                       ; preds = %if.end37, %sw.epilog
   %off.036 = phi i64 [ %add, %sw.epilog ], [ 16, %if.end37 ]
   %add.ptr = getelementptr i8, ptr %spec.select, i64 %off.036
-  %sub = sub nsw i64 %cond, %off.036
+  %sub = sub nuw nsw i64 %cond, %off.036
   %call43 = call i64 @read(i32 noundef %call, ptr noundef %add.ptr, i64 noundef %sub) #23
   switch i64 %call43, label %sw.epilog [
     i64 0, label %sw.bb
@@ -2397,7 +2397,7 @@ if.end252.i:                                      ; preds = %if.else219.i
 
 if.then255.i:                                     ; preds = %if.end252.i
   %add261.i = add i64 %addr.0.i, %149
-  %sub262.i = sub i64 %mem_size.0.i, %149
+  %sub262.i = sub nuw i64 %mem_size.0.i, %149
   %bf.set266.i = and i32 %.compoundliteral263.sroa.0.0293.i, -67108864
   %bf.clear268.i = or disjoint i32 %bf.set266.i, 1
   %call295.i = tail call i32 @address_space_set(ptr noundef nonnull %cond.i, i64 noundef %add261.i, i8 noundef zeroext 0, i64 noundef %sub262.i, i32 %bf.clear268.i) #23
@@ -3662,7 +3662,7 @@ if.end263.i:                                      ; preds = %if.else229.i
 
 if.then266.i:                                     ; preds = %if.end263.i
   %add273.i = add i64 %addr.0.i127, %conv226.i
-  %sub274.i = sub i32 %mem_size.0.i125, %335
+  %sub274.i = sub nuw i32 %mem_size.0.i125, %335
   %conv275.i = zext i32 %sub274.i to i64
   %bf.set279.i = and i32 %.compoundliteral276.sroa.0.0294.i, -67108864
   %bf.clear281.i = or disjoint i32 %bf.set279.i, 1
@@ -5279,7 +5279,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %or.cond, label %for.end, label %if.end14
 
 if.end14:                                         ; preds = %if.end8
-  %sub = sub i64 %2, %addr
+  %sub = sub nuw i64 %2, %addr
   %add.ptr = getelementptr i8, ptr %dest, i64 %sub
   %datasize = getelementptr inbounds i8, ptr %rom.046, i64 24
   %4 = load i64, ptr %datasize, align 8
@@ -5306,7 +5306,7 @@ if.end23:                                         ; preds = %if.then22, %if.end1
 
 if.then27:                                        ; preds = %if.end23
   %add.ptr28 = getelementptr i8, ptr %add.ptr, i64 %spec.select
-  %sub31 = sub i64 %7, %6
+  %sub31 = sub nuw i64 %7, %6
   %add.ptr32 = getelementptr i8, ptr %add.ptr28, i64 %sub31
   %cmp34 = icmp ugt ptr %add.ptr32, %add.ptr17
   %sub.ptr.rhs.cast37 = ptrtoint ptr %add.ptr28 to i64

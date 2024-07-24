@@ -5088,7 +5088,7 @@ _ZZN7AstNode11foreachImplI16AstInitialStaticZN12BeginVisitor5visitEP12AstNodeFTa
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %47
-  %57 = sub nsw i64 %54, %53
+  %57 = sub nuw nsw i64 %54, %53
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %57)
           to label %._ZZN7AstNode11foreachImplI16AstInitialStaticZN12BeginVisitor5visitEP12AstNodeFTaskEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit22_crit_edge unwind label %.loopexit
 

@@ -266,7 +266,7 @@ lor.lhs.false6:                                   ; preds = %switch.lookup
 
 if.end10:                                         ; preds = %lor.lhs.false6
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %conv
-  %sub = sub i64 %bufsize, %conv
+  %sub = sub nuw i64 %bufsize, %conv
   %2 = add i32 %fail_info, -1
   %or.cond1 = icmp ult i32 %2, -2
   br i1 %or.cond1, label %if.then16, label %if.end54
@@ -283,7 +283,7 @@ lor.lhs.false20:                                  ; preds = %if.then16
 
 if.end25:                                         ; preds = %lor.lhs.false20
   %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv21
-  %sub29 = sub i64 %sub, %conv21
+  %sub29 = sub nuw i64 %sub, %conv21
   br label %for.body
 
 for.body:                                         ; preds = %if.end25, %for.inc
@@ -313,7 +313,7 @@ lor.lhs.false42:                                  ; preds = %switch.lookup110
 
 if.end47:                                         ; preds = %lor.lhs.false42
   %add.ptr49 = getelementptr inbounds i8, ptr %write_ptr.099, i64 %conv43
-  %sub51 = sub i64 %bufsize.addr.097, %conv43
+  %sub51 = sub nuw i64 %bufsize.addr.097, %conv43
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end47
@@ -348,7 +348,7 @@ lor.lhs.false66:                                  ; preds = %if.then62
 
 if.end71:                                         ; preds = %lor.lhs.false66
   %add.ptr73 = getelementptr inbounds i8, ptr %write_ptr.2, i64 %conv67
-  %sub75 = sub i64 %bufsize.addr.2, %conv67
+  %sub75 = sub nuw i64 %bufsize.addr.2, %conv67
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end71, %if.end54
@@ -371,7 +371,7 @@ lor.lhs.false88:                                  ; preds = %if.then81
   br i1 %cmp90.not, label %for.body101.lr.ph, label %return
 
 for.body101.lr.ph:                                ; preds = %lor.lhs.false88
-  %sub97 = sub i64 %bufsize.addr.3, %conv89
+  %sub97 = sub nuw i64 %bufsize.addr.3, %conv89
   %add.ptr95 = getelementptr inbounds i8, ptr %write_ptr.3, i64 %conv89
   %sub106 = add nsw i32 %call78, -1
   br label %for.body101
@@ -396,7 +396,7 @@ lor.lhs.false113:                                 ; preds = %for.body101
 
 if.end118:                                        ; preds = %lor.lhs.false113
   %add.ptr120 = getelementptr inbounds i8, ptr %write_ptr.4103, i64 %conv114
-  %sub122 = sub i64 %bufsize.addr.4101, %conv114
+  %sub122 = sub nuw i64 %bufsize.addr.4101, %conv114
   %inc124 = add nuw nsw i32 %i.0102, 1
   %exitcond107.not = icmp eq i32 %inc124, %call78
   br i1 %exitcond107.not, label %return, label %for.body101, !llvm.loop !7

@@ -270,7 +270,7 @@ if.then6:                                         ; preds = %SSL_AEAD_CTX_max_ov
   br label %return
 
 if.end7:                                          ; preds = %SSL_AEAD_CTX_max_overhead.exit
-  %sub = sub i64 %in_len, %add.i
+  %sub = sub nuw i64 %in_len, %add.i
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end7, %if.end3
@@ -359,7 +359,7 @@ if.end30:                                         ; preds = %if.then24
   %add.ptr = getelementptr inbounds i8, ptr %nonce, i64 %nonce_len.0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %in, i64 %conv26, i1 false)
   %add.ptr36 = getelementptr inbounds i8, ptr %in, i64 %conv26
-  %sub39 = sub i64 %in_len, %conv26
+  %sub39 = sub nuw i64 %in_len, %conv26
   br label %if.end45
 
 if.else40:                                        ; preds = %if.end22

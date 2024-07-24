@@ -746,9 +746,9 @@ if.else13:                                        ; preds = %if.end6
 land.lhs.true1.i68:                               ; preds = %if.else13
   %8 = load i64, ptr %iov.addr.0.sroa.gep267, align 8
   %cmp.not.i70 = icmp ult i64 %8, %iov_ofs.0
-  %sub.i71 = sub i64 %8, %iov_ofs.0
+  %sub.i71 = sub nuw i64 %8, %iov_ofs.0
   %cmp5.not.i72 = icmp ult i64 %sub.i71, 22
-  %or.cond13.i73 = or i1 %cmp.not.i70, %cmp5.not.i72
+  %or.cond13.i73 = select i1 %cmp.not.i70, i1 true, i1 %cmp5.not.i72
   br i1 %or.cond13.i73, label %if.else.i65, label %if.then.i74
 
 if.then.i74:                                      ; preds = %land.lhs.true1.i68
@@ -949,9 +949,9 @@ land.lhs.true89.i:                                ; preds = %land.lhs.true79.i
 land.lhs.true1.i.i:                               ; preds = %land.lhs.true89.i
   %48 = load i64, ptr %iov.addr.0.sroa.phi, align 8
   %cmp.not.i.i = icmp ult i64 %48, %add91.i
-  %sub.i.i = sub i64 %48, %add91.i
+  %sub.i.i = sub nuw i64 %48, %add91.i
   %cmp5.not.i.i = icmp ult i64 %sub.i.i, 40
-  %or.cond13.i.i = or i1 %cmp.not.i.i, %cmp5.not.i.i
+  %or.cond13.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp5.not.i.i
   br i1 %or.cond13.i.i, label %iov_to_buf.exit.i, label %iov_to_buf.exit.thread.i
 
 iov_to_buf.exit.thread.i:                         ; preds = %land.lhs.true1.i.i

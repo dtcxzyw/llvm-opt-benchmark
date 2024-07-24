@@ -320,7 +320,7 @@ if.then25:                                        ; preds = %if.then10
   br i1 %cmp27, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %if.then25
-  %sub32 = sub i64 %4, %5
+  %sub32 = sub nuw i64 %4, %5
   store i64 %sub32, ptr %call, align 8
   %arrayidx37 = getelementptr inbounds [4292 x i8], ptr %buf, i64 0, i64 %5
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %buf, ptr nonnull align 1 %arrayidx37, i64 %sub32, i1 false)

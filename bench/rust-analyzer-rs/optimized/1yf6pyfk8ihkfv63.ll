@@ -38820,7 +38820,7 @@ _ZN3url3Url5slice17ha74933a0618d3d0aE.exit:       ; preds = %2, %20, %"_ZN4core3
   %35 = getelementptr inbounds i8, ptr %.val, i64 %29
   %36 = load i8, ptr %35, align 1, !alias.scope !7138, !noalias !7145, !noundef !9
   %37 = icmp sgt i8 %36, -65
-  %38 = sub i64 %.val1, %29
+  %38 = sub nuw i64 %.val1, %29
   br i1 %37, label %_ZN3url3Url5slice17hc7e3416beb6fc935E.exit.i, label %39
 
 39:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %32
@@ -59366,7 +59366,7 @@ define hidden void @_ZN5alloc6string6String13replace_range17he15d9f00360bb768E(p
 _ZN4core5slice5index5range17h4358a272d1b4c9a9E.exit: ; preds = %28
   store i64 %1, ptr %9, align 8, !alias.scope !12065, !noalias !12066
   %32 = getelementptr inbounds i8, ptr %8, i64 %1
-  %33 = sub i64 %10, %2
+  %33 = sub nuw i64 %10, %2
   %34 = getelementptr inbounds i8, ptr %8, i64 %2
   store ptr %32, ptr %6, align 8, !alias.scope !12053, !noalias !12069
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
@@ -62104,7 +62104,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %24 = getelementptr inbounds i8, ptr %10, i64 %16
   %25 = load i8, ptr %24, align 1, !alias.scope !12538, !noalias !12543, !noundef !9
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %12, %16
+  %27 = sub nuw i64 %12, %16
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %21
@@ -62435,7 +62435,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !12558
   %67 = icmp eq i32 %bcmp.i, 0
@@ -72169,7 +72169,7 @@ _ZN3std2fs14read_to_string17hdd6ae2b8432326f5E.exit.i: ; preds = %142, %138, %.n
   %175 = getelementptr inbounds i8, ptr %.sroa.01.0.i, i64 %169
   %176 = load i8, ptr %175, align 1, !alias.scope !15492, !noalias !15491, !noundef !9
   %177 = icmp sgt i8 %176, -65
-  %178 = sub i64 %.sroa.7.0.i, %169
+  %178 = sub nuw i64 %.sroa.7.0.i, %169
   br i1 %177, label %188, label %.thread.invoke.i
 
 179:                                              ; preds = %165

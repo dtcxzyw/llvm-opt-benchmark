@@ -10289,7 +10289,7 @@ invoke.cont396:                                   ; preds = %invoke.cont394
   br i1 %cmp.i1077, label %if.then.i1086, label %if.else.i1078
 
 if.then.i1086:                                    ; preds = %invoke.cont396
-  %sub.i = sub nsw i64 %sub.ptr.div.i1069, %sub.ptr.div.i.i1076
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i1069, %sub.ptr.div.i.i1076
   invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %expected_types398, i64 noundef %sub.i)
           to label %invoke.cont399 unwind label %lpad393
 
@@ -10326,7 +10326,7 @@ invoke.cont399:                                   ; preds = %invoke.cont.i.i1085
   br i1 %cmp.i1093, label %if.then.i1110, label %if.else.i1094
 
 if.then.i1110:                                    ; preds = %invoke.cont399
-  %sub.i1111 = sub nsw i64 %sub.ptr.div.i1069, %sub.ptr.div.i.i1092
+  %sub.i1111 = sub nuw nsw i64 %sub.ptr.div.i1069, %sub.ptr.div.i.i1092
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %expected_names, i64 noundef %sub.i1111)
           to label %invoke.cont400 unwind label %lpad393
 
@@ -108892,7 +108892,7 @@ for.body.i.i.i.i.i147:                            ; preds = %_ZSt13move_backward
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit: ; preds = %if.then9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
   %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_(ptr %incdec.ptr.i.i.i, ptr %__last.coerce, ptr noundef %1)
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %27 = load ptr, ptr %_M_finish, align 8, !tbaa !18
   %add.ptr50 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %27, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8, !tbaa !18

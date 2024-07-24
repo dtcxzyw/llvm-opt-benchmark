@@ -1848,7 +1848,7 @@ switch.early.test:                                ; preds = %.lr.ph179
   %136 = getelementptr inbounds i8, ptr %.3, i64 %134
   %137 = getelementptr inbounds i8, ptr %136, i64 2
   %138 = getelementptr inbounds i8, ptr %136, i64 1
-  %139 = sub i64 %133, %134
+  %139 = sub nuw i64 %133, %134
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %137, ptr nonnull align 1 %138, i64 %139, i1 false)
   store i8 47, ptr %136, align 1
   store i8 0, ptr %138, align 1

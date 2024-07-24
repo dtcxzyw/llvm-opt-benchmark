@@ -968,7 +968,7 @@ define noundef range(i8 0, 4) i8 @_ZN5uu_nl16SectionDelimiter5parse17hf7dd07c185
   %112 = getelementptr inbounds i8, ptr %.sroa.0.sroa.12.0.copyload, i64 %.sroa.4.1
   %113 = load i8, ptr %112, align 1, !alias.scope !134, !noalias !139, !noundef !16
   %114 = icmp sgt i8 %113, -65
-  %115 = sub i64 %.sroa.0.sroa.13.0.copyload, %.sroa.4.1
+  %115 = sub nuw i64 %.sroa.0.sroa.13.0.copyload, %.sroa.4.1
   br i1 %114, label %117, label %116
 
 116:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i", %109

@@ -888,16 +888,16 @@ define dso_local void @e1000_reset(ptr noundef %0) local_unnamed_addr #4 align 1
   br i1 %43, label %44, label %55
 
 44:                                               ; preds = %29
-  %45 = sub nsw i32 %40, %35
+  %45 = sub nuw nsw i32 %40, %35
   %46 = icmp ult i32 %45, %36
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %44
-  %48 = sub nsw i32 %36, %45
+  %48 = sub nuw nsw i32 %36, %45
   %49 = load i32, ptr %3, align 8
   %50 = add i32 %49, -6
   %51 = icmp ult i32 %50, 5
-  %52 = and i32 %48, -8
+  %52 = and i32 %48, 65528
   %53 = select i1 %51, i32 %52, i32 %48
   %54 = tail call i32 @llvm.umax.i32(i32 %53, i32 %42)
   br label %55
@@ -908,7 +908,7 @@ define dso_local void @e1000_reset(ptr noundef %0) local_unnamed_addr #4 align 1
   %58 = load ptr, ptr %2, align 8
   %59 = getelementptr i8, ptr %58, i64 4096
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %57, ptr elementtype(i32) %59) #16, !srcloc !6
-  %60 = shl i32 %57, 10
+  %60 = shl nuw i32 %57, 10
   %61 = mul i32 %57, 9216
   %62 = udiv i32 %61, 10
   %63 = load i32, ptr %56, align 8
@@ -6331,7 +6331,7 @@ thread-pre-split.thread:                          ; preds = %110, %114, %155, %1
   br i1 %255, label %270, label %256
 
 256:                                              ; preds = %253
-  %257 = sub i32 %254, %235
+  %257 = sub nuw i32 %254, %235
   store i32 %257, ptr %236, align 4
   br label %270
 

@@ -1011,7 +1011,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.exit
   br i1 %100, label %101, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17h32f48e54a6a57165E.exit.i.i
 
 101:                                              ; preds = %89
-  %102 = sub nsw i64 %97, %99
+  %102 = sub nuw nsw i64 %97, %99
   %103 = getelementptr inbounds i8, ptr %1, i64 208
   %104 = load i64, ptr %103, align 8, !alias.scope !118, !noalias !103, !noundef !23
   %105 = icmp ugt i64 %97, %104
@@ -1288,7 +1288,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3ec5b38a9b37e3e2E.exi
   br i1 %245, label %246, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17h32f48e54a6a57165E.exit.i.i41
 
 246:                                              ; preds = %234
-  %247 = sub nsw i64 %242, %244
+  %247 = sub nuw nsw i64 %242, %244
   %248 = getelementptr inbounds i8, ptr %1, i64 48
   %249 = load i64, ptr %248, align 8, !alias.scope !177, !noundef !23
   %250 = icmp ugt i64 %242, %249

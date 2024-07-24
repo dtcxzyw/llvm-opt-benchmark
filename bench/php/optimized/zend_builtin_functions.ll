@@ -857,7 +857,7 @@ define hidden void @zif_func_get_arg(ptr nocapture noundef readonly %0, ptr noca
   %74 = sext i32 %73 to i64
   %75 = getelementptr %struct._zval_struct, ptr %19, i64 %74
   %76 = getelementptr i8, ptr %75, i64 80
-  %77 = sub nsw i64 %12, %67
+  %77 = sub nuw nsw i64 %12, %67
   %78 = getelementptr inbounds %struct._zval_struct, ptr %76, i64 %77
   br label %83
 

@@ -19396,7 +19396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
 
 70:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit
   %71 = getelementptr inbounds i8, ptr %3, i64 32
-  %72 = sub nsw i64 %68, %65
+  %72 = sub nuw nsw i64 %68, %65
   call void @_ZNSt6vectorIiN7glslang14pool_allocatorIiEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS3_EEmRKi(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr %60, i64 noundef %72, ptr noundef nonnull align 4 dereferenceable(4) %9)
   br label %_ZNSt6vectorIiN7glslang14pool_allocatorIiEEE6resizeEmRKi.exit
 
@@ -19520,7 +19520,7 @@ _ZN7glslang7TVectorINS_8TTypeLocEEC2ERKS2_.exit:  ; preds = %.lr.ph.i.i.i, %_ZNS
 
 45:                                               ; preds = %_ZN7glslang7TVectorINS_8TTypeLocEEC2ERKS2_.exit
   %46 = getelementptr inbounds i8, ptr %3, i64 32
-  %47 = sub nsw i64 %43, %36
+  %47 = sub nuw nsw i64 %43, %36
   call void @_ZNSt6vectorIiN7glslang14pool_allocatorIiEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS3_EEmRKi(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr %31, i64 noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %9)
   br label %_ZNSt6vectorIiN7glslang14pool_allocatorIiEEE6resizeEmRKi.exit
 
@@ -47463,7 +47463,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8_
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %2
-  %18 = sub i64 %12, %2
+  %18 = sub nuw i64 %12, %2
   %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 %3)
   %19 = icmp ugt i64 %spec.select.i.i, 15
   br i1 %19, label %20, label %._crit_edge.i.i
@@ -51618,7 +51618,7 @@ define linkonce_odr noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIc
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8_M_checkEmPKc.exit: ; preds = %4
-  %9 = sub i64 %6, %1
+  %9 = sub nuw i64 %6, %1
   %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %2)
   %10 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %10, i64 %spec.select.i)
@@ -71024,7 +71024,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySi
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEES4_S7_ET0_T_SB_SA_RT1_.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEES4_S7_ET0_T_SB_SA_RT1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEmEvRT_T0_.exit
   %35 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEES4_S7_ET0_T_SB_SA_RT1_.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEmEvRT_T0_.exit ]
-  %36 = sub nsw i64 %9, %20
+  %36 = sub nuw nsw i64 %9, %20
   %37 = getelementptr %"struct.glslang::TArraySize", ptr %35, i64 %36
   store ptr %37, ptr %12, align 8
   %.not8.i.i44 = icmp eq ptr %13, %1
@@ -76292,7 +76292,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKPN7glslang12TInter
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKPN7glslang12TIntermTypedESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEEPP11TIntermNodeNS8_ISD_EEET0_T_SH_SG_RT1_.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKPN7glslang12TIntermTypedESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEEPP11TIntermNodeNS8_ISD_EEET0_T_SH_SG_RT1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPN7glslang12TIntermTypedESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEEmEvRT_T0_.exit
   %43 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKPN7glslang12TIntermTypedESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEEPP11TIntermNodeNS8_ISD_EEET0_T_SH_SG_RT1_.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPN7glslang12TIntermTypedESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEEmEvRT_T0_.exit ]
-  %44 = sub nsw i64 %9, %20
+  %44 = sub nuw nsw i64 %9, %20
   %45 = getelementptr ptr, ptr %43, i64 %44
   store ptr %45, ptr %12, align 8
   %.not8.i.i43 = icmp eq ptr %13, %1
@@ -79516,7 +79516,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !518
 
 35:                                               ; preds = %14
-  %36 = sub i64 %2, %18
+  %36 = sub nuw i64 %2, %18
   %.not8.i = icmp eq i64 %36, 0
   br i1 %.not8.i, label %_ZSt24__uninitialized_fill_n_aIPimiN7glslang14pool_allocatorIiEEET_S4_T0_RKT1_RT2_.exit, label %.lr.ph.i
 

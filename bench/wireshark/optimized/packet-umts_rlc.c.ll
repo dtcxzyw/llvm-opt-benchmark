@@ -2405,11 +2405,11 @@ define internal fastcc signext range(i16 -1, 256) i16 @rlc_decode_li(i32 noundef
   %exitcond221 = icmp eq i64 %indvars.iv.next219, 16
   br i1 %exitcond221, label %.split196.us, label %.split.us, !llvm.loop !8
 
-.split:                                           ; preds = %._crit_edge, %79
-  %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 0, %._crit_edge ]
-  %.1146 = phi i32 [ %44, %79 ], [ %7, %._crit_edge ]
-  %.1143 = phi i8 [ %46, %79 ], [ %15, %._crit_edge ]
-  %.0139 = phi i16 [ %.1, %79 ], [ 0, %._crit_edge ]
+.split:                                           ; preds = %._crit_edge, %78
+  %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %._crit_edge ]
+  %.1146 = phi i32 [ %44, %78 ], [ %7, %._crit_edge ]
+  %.1143 = phi i8 [ %46, %78 ], [ %15, %._crit_edge ]
+  %.0139 = phi i16 [ %.1, %78 ], [ 0, %._crit_edge ]
   %.not154 = icmp eq i8 %.1143, 0
   br i1 %.not154, label %.split184.us, label %42
 
@@ -2436,13 +2436,13 @@ define internal fastcc signext range(i16 -1, 256) i16 @rlc_decode_li(i32 noundef
 50:                                               ; preds = %42, %42, %42
   %51 = getelementptr inbounds i8, ptr %47, i64 2
   store i16 0, ptr %51, align 2
-  br i1 %16, label %79, label %52
+  br i1 %16, label %78, label %52
 
 52:                                               ; preds = %50
   %53 = trunc nuw nsw i64 %indvars.iv to i8
   %54 = tail call fastcc ptr @tree_add_li(i32 noundef 2, ptr noundef nonnull %47, i8 noundef zeroext %53, i32 noundef %7, i32 noundef 1, ptr noundef %1, ptr noundef %3)
   %55 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %54, ptr noundef nonnull @ei_rlc_li_reserved) #14
-  br label %87
+  br label %86
 
 56:                                               ; preds = %42
   %57 = zext nneg i16 %49 to i32
@@ -2460,59 +2460,59 @@ define internal fastcc signext range(i16 -1, 256) i16 @rlc_decode_li(i32 noundef
   store i16 0, ptr %64, align 2
   %65 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef nonnull %47, i8 noundef zeroext %63, i32 noundef %7, i32 noundef 1, ptr noundef %1, ptr noundef %3)
   %66 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %65, ptr noundef nonnull @ei_rlc_li_incorrect_warn) #14
-  br label %87
+  br label %86
 
 67:                                               ; preds = %56
-  %68 = sub nsw i16 %49, %.0139
+  %narrow = sub nuw nsw i16 %49, %.0139
   br label %.sink.split
 
 .split187.us:                                     ; preds = %26
-  %69 = trunc nuw nsw i64 %indvars.iv218 to i8
-  %70 = tail call fastcc ptr @tree_add_li(i32 noundef 2, ptr noundef nonnull %22, i8 noundef zeroext %69, i32 noundef %7, i32 noundef 0, ptr noundef %1, ptr noundef %3)
-  %71 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %70, ptr noundef nonnull @ei_rlc_li_reserved) #14
-  br label %87
+  %68 = trunc nuw nsw i64 %indvars.iv218 to i8
+  %69 = tail call fastcc ptr @tree_add_li(i32 noundef 2, ptr noundef nonnull %22, i8 noundef zeroext %68, i32 noundef %7, i32 noundef 0, ptr noundef %1, ptr noundef %3)
+  %70 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %69, ptr noundef nonnull @ei_rlc_li_reserved) #14
+  br label %86
 
 .split191.us:                                     ; preds = %30
-  %72 = getelementptr inbounds i8, ptr %22, i64 2
-  %73 = trunc nuw nsw i64 %indvars.iv218 to i8
-  store i16 0, ptr %72, align 2
-  %74 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef nonnull %22, i8 noundef zeroext %73, i32 noundef %7, i32 noundef 0, ptr noundef %1, ptr noundef %3)
-  %75 = load i16, ptr %22, align 8
-  %76 = zext i16 %75 to i32
-  %77 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %74, ptr noundef nonnull @ei_rlc_li_incorrect_mal, ptr noundef nonnull @.str.101, i32 noundef %76) #14
-  br label %87
+  %71 = getelementptr inbounds i8, ptr %22, i64 2
+  %72 = trunc nuw nsw i64 %indvars.iv218 to i8
+  store i16 0, ptr %71, align 2
+  %73 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef nonnull %22, i8 noundef zeroext %72, i32 noundef %7, i32 noundef 0, ptr noundef %1, ptr noundef %3)
+  %74 = load i16, ptr %22, align 8
+  %75 = zext i16 %74 to i32
+  %76 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %73, ptr noundef nonnull @ei_rlc_li_incorrect_mal, ptr noundef nonnull @.str.101, i32 noundef %75) #14
+  br label %86
 
 .sink.split:                                      ; preds = %42, %42, %42, %42, %67
-  %.sink = phi i16 [ %68, %67 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ]
+  %.sink = phi i16 [ %narrow, %67 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ]
   %.1.ph = phi i16 [ %49, %67 ], [ %.0139, %42 ], [ %.0139, %42 ], [ %.0139, %42 ], [ %.0139, %42 ]
-  %78 = getelementptr inbounds i8, ptr %47, i64 2
-  store i16 %.sink, ptr %78, align 2
-  br label %79
+  %77 = getelementptr inbounds i8, ptr %47, i64 2
+  store i16 %.sink, ptr %77, align 2
+  br label %78
 
-79:                                               ; preds = %.sink.split, %50
+78:                                               ; preds = %.sink.split, %50
   %.1 = phi i16 [ %.0139, %50 ], [ %.1.ph, %.sink.split ]
-  %80 = trunc nuw nsw i64 %indvars.iv to i8
-  %81 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef nonnull %47, i8 noundef zeroext %80, i32 noundef %7, i32 noundef %5, ptr noundef %1, ptr noundef %3)
-  %82 = getelementptr inbounds i8, ptr %47, i64 8
-  store ptr %81, ptr %82, align 8
+  %79 = trunc nuw nsw i64 %indvars.iv to i8
+  %80 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef nonnull %47, i8 noundef zeroext %79, i32 noundef %7, i32 noundef %5, ptr noundef %1, ptr noundef %3)
+  %81 = getelementptr inbounds i8, ptr %47, i64 8
+  store ptr %80, ptr %81, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond, label %.split196.us, label %.split, !llvm.loop !8
 
-.split196.us:                                     ; preds = %79, %38
-  %83 = getelementptr i8, ptr %4, i64 248
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %84, ptr noundef nonnull @ei_rlc_li_too_many) #14
-  br label %87
+.split196.us:                                     ; preds = %78, %38
+  %82 = getelementptr i8, ptr %4, i64 248
+  %83 = load ptr, ptr %82, align 8
+  %84 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %83, ptr noundef nonnull @ei_rlc_li_too_many) #14
+  br label %86
 
 .split184.us:                                     ; preds = %.split, %.split.us
   %.us-phi185.in = phi i64 [ %indvars.iv218, %.split.us ], [ %indvars.iv, %.split ]
   %.us-phi185 = trunc i64 %.us-phi185.in to i16
-  %86 = and i16 %.us-phi185, 255
-  br label %87
+  %85 = and i16 %.us-phi185, 255
+  br label %86
 
-87:                                               ; preds = %.split184.us, %.split196.us, %.split191.us, %.split187.us, %62, %52
-  %.0 = phi i16 [ -1, %62 ], [ -1, %.split196.us ], [ -1, %52 ], [ -1, %.split191.us ], [ -1, %.split187.us ], [ %86, %.split184.us ]
+86:                                               ; preds = %.split184.us, %.split196.us, %.split191.us, %.split187.us, %62, %52
+  %.0 = phi i16 [ -1, %62 ], [ -1, %.split196.us ], [ -1, %52 ], [ -1, %.split191.us ], [ -1, %.split187.us ], [ %85, %.split184.us ]
   ret i16 %.0
 }
 

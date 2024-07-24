@@ -4183,7 +4183,7 @@ invoke.cont3.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i.i:                               ; preds = %invoke.cont3.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i.i.i.i10, %invoke.cont3.i.i.i ]
   %f.sroa.0.0.i.i.i = phi ptr [ %first.coerce, %if.then.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont3.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i.i, %4
   %mul.i.i9.i = shl i64 %sub.i, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %out_start.addr.0.i, ptr align 8 %f.sroa.0.0.i.i.i, i64 %mul.i.i9.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEENS_13move_iteratorIPSB_EESF_EEvRT_T0_NS0_16allocator_traitsISH_E9size_typeET1_SM_.exit
@@ -8802,7 +8802,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub nsw i64 %sub.i.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %sub.i.i.i.i, %sub.ptr.div.i
   tail call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i), !noalias !499
   %.pre.i = load ptr, ptr %_M_start, align 8, !noalias !502
   %.pre4.i = load ptr, ptr %_M_first.i, align 8, !noalias !502
@@ -8909,7 +8909,7 @@ if.then19:                                        ; preds = %if.else
   br i1 %cmp.i13, label %if.then.i20, label %if.end.i14
 
 if.then.i20:                                      ; preds = %if.then19
-  %sub4.i = sub nsw i64 %sub.i.i.i.i, %sub.i12
+  %sub4.i = sub nuw nsw i64 %sub.i.i.i.i, %sub.i12
   tail call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !515
   %.pre.i21 = load ptr, ptr %_M_finish, align 8
   %.pre4.i22 = load ptr, ptr %_M_last.i7, align 8
@@ -9090,7 +9090,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i23 = sub i64 %__n, %sub.ptr.div.i22
+  %sub.i23 = sub nuw i64 %__n, %sub.ptr.div.i22
   tail call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i23), !noalias !530
   %.pre.i = load ptr, ptr %_M_start, align 8
   %.pre4.i = load ptr, ptr %_M_first.i18, align 8
@@ -9663,7 +9663,7 @@ if.else51:                                        ; preds = %entry
   br i1 %cmp.i269, label %if.then.i296, label %if.end.i270
 
 if.then.i296:                                     ; preds = %if.else51
-  %sub4.i = sub i64 %__n, %sub.i268
+  %sub4.i = sub nuw i64 %__n, %sub.i268
   tail call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !604
   %.pre.i297 = load ptr, ptr %_M_finish.i, align 8
   %.pre4.i298 = load ptr, ptr %_M_last.i263, align 8
@@ -13771,7 +13771,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %add12.i.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %add12.i.i.i.i, %sub.ptr.div.i
   tail call void @_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i), !noalias !790
   %.pre.i = load ptr, ptr %_M_start, align 8, !noalias !793
   %.pre4.i = load ptr, ptr %_M_first.i, align 8, !noalias !793
@@ -13901,7 +13901,7 @@ if.then19:                                        ; preds = %if.else
   br i1 %cmp.i40, label %if.then.i47, label %if.end.i41
 
 if.then.i47:                                      ; preds = %if.then19
-  %sub4.i = sub i64 %add12.i.i.i.i, %sub.i39
+  %sub4.i = sub nuw i64 %add12.i.i.i.i, %sub.i39
   tail call void @_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !806
   %.pre.i48 = load ptr, ptr %_M_finish, align 8
   %.pre4.i49 = load ptr, ptr %_M_last.i34, align 8
@@ -14134,7 +14134,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i23 = sub i64 %__n, %sub.ptr.div.i22
+  %sub.i23 = sub nuw i64 %__n, %sub.ptr.div.i22
   tail call void @_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i23), !noalias !821
   %.pre.i = load ptr, ptr %_M_start, align 8
   %.pre4.i = load ptr, ptr %_M_first.i18, align 8
@@ -14662,7 +14662,7 @@ if.else51:                                        ; preds = %entry
   br i1 %cmp.i292, label %if.then.i320, label %if.end.i293
 
 if.then.i320:                                     ; preds = %if.else51
-  %sub4.i = sub i64 %__n, %sub.i291
+  %sub4.i = sub nuw i64 %__n, %sub.i291
   tail call void @_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !896
   %.pre.i321 = load ptr, ptr %_M_finish.i, align 8
   %.pre4.i322 = load ptr, ptr %_M_last.i286, align 8

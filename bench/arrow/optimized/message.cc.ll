@@ -13998,9 +13998,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %15 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %15 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %15, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -14419,9 +14419,9 @@ if.end5.i:                                        ; preds = %if.end.i
   %mul.i = shl nuw nsw i64 %conv.i, 2
   %add.i = add nuw nsw i64 %mul.i, 4
   %cmp.i.i = icmp ugt i64 %2, %add.i
-  %sub.i.i = sub i64 %2, %add.i
+  %sub.i.i = sub nuw i64 %2, %add.i
   %cmp3.i.i = icmp uge i64 %sub.i.i, %sub.ptr.sub.i
-  %6 = and i1 %cmp.i.i, %cmp3.i.i
+  %6 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
   br label %lor.end
 
 lor.end:                                          ; preds = %if.end5.i, %if.end.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %lor.rhs, %entry
@@ -14531,9 +14531,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %15 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %15 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %15, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -14622,9 +14622,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6Of
   %mul.i.i = shl nuw nsw i64 %conv.i.i53, 2
   %add.i.i55 = add nuw nsw i64 %mul.i.i, 4
   %cmp.i.i.i56 = icmp ugt i64 %2, %add.i.i55
-  %sub.i.i.i57 = sub i64 %2, %add.i.i55
+  %sub.i.i.i57 = sub nuw i64 %2, %add.i.i55
   %cmp3.i.i.i58 = icmp uge i64 %sub.i.i.i57, %sub.ptr.sub.i.i42
-  %24 = and i1 %cmp.i.i.i56, %cmp3.i.i.i58
+  %24 = select i1 %cmp.i.i.i56, i1 %cmp3.i.i.i58, i1 false
   br i1 %24, label %for.cond.preheader.i, label %land.end
 
 for.cond.preheader.i:                             ; preds = %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf5FieldEEEjEEbPKNS0_6VectorIT0_T1_EE.exit
@@ -14837,9 +14837,9 @@ if.end5.i:                                        ; preds = %if.end.i
   %mul.i = shl nuw nsw i64 %conv.i, 2
   %add.i = add nuw nsw i64 %mul.i, 4
   %cmp.i.i = icmp ugt i64 %2, %add.i
-  %sub.i.i = sub i64 %2, %add.i
+  %sub.i.i = sub nuw i64 %2, %add.i
   %cmp3.i.i = icmp uge i64 %sub.i.i, %sub.ptr.sub.i
-  %6 = and i1 %cmp.i.i, %cmp3.i.i
+  %6 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
   br label %lor.end
 
 lor.end:                                          ; preds = %if.end5.i, %if.end.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %lor.rhs, %entry
@@ -14926,9 +14926,9 @@ if.end5.i:                                        ; preds = %if.end.i
   %mul.i = shl nuw nsw i64 %conv.i, 3
   %add.i = or disjoint i64 %mul.i, 4
   %cmp.i.i = icmp ugt i64 %2, %add.i
-  %sub.i.i = sub i64 %2, %add.i
+  %sub.i.i = sub nuw i64 %2, %add.i
   %cmp3.i.i = icmp uge i64 %sub.i.i, %sub.ptr.sub.i
-  %6 = and i1 %cmp.i.i, %cmp3.i.i
+  %6 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
   br label %lor.end
 
 lor.end:                                          ; preds = %if.end5.i, %if.end.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %lor.rhs, %entry
@@ -15000,9 +15000,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %15 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %15 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %15, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -15070,9 +15070,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKh
   %add.i.i43 = add nuw nsw i64 %conv.i.i41, 4
   %add8.i.i = add i64 %add.i.i43, %sub.ptr.sub.i.i30
   %cmp.i.i.i44 = icmp ule i64 %2, %add.i.i43
-  %sub.i.i.i45 = sub i64 %2, %add.i.i43
+  %sub.i.i.i45 = sub nuw i64 %2, %add.i.i43
   %cmp3.i.i.i46 = icmp ult i64 %sub.i.i.i45, %sub.ptr.sub.i.i30
-  %.not6.i = or i1 %cmp.i.i.i44, %cmp3.i.i.i46
+  %.not6.i = select i1 %cmp.i.i.i44, i1 true, i1 %cmp3.i.i.i46
   %sub.i.i47 = add i64 %2, -1
   %cmp3.i.not.i = icmp ult i64 %sub.i.i47, %add8.i.i
   %or.cond.i48 = or i1 %cmp3.i.not.i, %.not6.i
@@ -15442,9 +15442,9 @@ land.lhs.true5.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i: ; preds = %land.lhs.true5.i.i.i.i
   %cmp.i17.i.i.i.i = icmp ugt i64 %2, %conv8.i.i.i.i
-  %sub.i.i.i.i.i = sub i64 %2, %conv8.i.i.i.i
+  %sub.i.i.i.i.i = sub nuw i64 %2, %conv8.i.i.i.i
   %cmp3.i.i.i.i.i = icmp uge i64 %sub.i.i.i.i.i, %sub.i.i.i.i
-  %13 = and i1 %cmp.i17.i.i.i.i, %cmp3.i.i.i.i.i
+  %13 = select i1 %cmp.i17.i.i.i.i, i1 %cmp3.i.i.i.i.i, i1 false
   br i1 %13, label %land.rhs.i.i, label %return
 
 land.rhs.i.i:                                     ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i
@@ -15538,9 +15538,9 @@ land.lhs.true5.i.i.i.i89:                         ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i97: ; preds = %land.lhs.true5.i.i.i.i89
   %cmp.i17.i.i.i.i98 = icmp ugt i64 %16, %conv8.i.i.i.i91
-  %sub.i.i.i.i.i99 = sub i64 %16, %conv8.i.i.i.i91
+  %sub.i.i.i.i.i99 = sub nuw i64 %16, %conv8.i.i.i.i91
   %cmp3.i.i.i.i.i100 = icmp uge i64 %sub.i.i.i.i.i99, %sub.i.i.i.i73
-  %27 = and i1 %cmp.i17.i.i.i.i98, %cmp3.i.i.i.i.i100
+  %27 = select i1 %cmp.i17.i.i.i.i98, i1 %cmp3.i.i.i.i.i100, i1 false
   br i1 %27, label %land.rhs.i.i101, label %return
 
 land.rhs.i.i101:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i97
@@ -15618,9 +15618,9 @@ land.lhs.true5.i.i.i.i135:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i143: ; preds = %land.lhs.true5.i.i.i.i135
   %cmp.i17.i.i.i.i144 = icmp ugt i64 %30, %conv8.i.i.i.i137
-  %sub.i.i.i.i.i145 = sub i64 %30, %conv8.i.i.i.i137
+  %sub.i.i.i.i.i145 = sub nuw i64 %30, %conv8.i.i.i.i137
   %cmp3.i.i.i.i.i146 = icmp uge i64 %sub.i.i.i.i.i145, %sub.i.i.i.i119
-  %41 = and i1 %cmp.i17.i.i.i.i144, %cmp3.i.i.i.i.i146
+  %41 = select i1 %cmp.i17.i.i.i.i144, i1 %cmp3.i.i.i.i.i146, i1 false
   br i1 %41, label %land.rhs.i.i147, label %return
 
 land.rhs.i.i147:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i143
@@ -15698,9 +15698,9 @@ land.lhs.true5.i.i.i.i181:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i189: ; preds = %land.lhs.true5.i.i.i.i181
   %cmp.i17.i.i.i.i190 = icmp ugt i64 %44, %conv8.i.i.i.i183
-  %sub.i.i.i.i.i191 = sub i64 %44, %conv8.i.i.i.i183
+  %sub.i.i.i.i.i191 = sub nuw i64 %44, %conv8.i.i.i.i183
   %cmp3.i.i.i.i.i192 = icmp uge i64 %sub.i.i.i.i.i191, %sub.i.i.i.i165
-  %55 = and i1 %cmp.i17.i.i.i.i190, %cmp3.i.i.i.i.i192
+  %55 = select i1 %cmp.i17.i.i.i.i190, i1 %cmp3.i.i.i.i.i192, i1 false
   br i1 %55, label %land.rhs.i.i193, label %return
 
 land.rhs.i.i193:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i189
@@ -15818,9 +15818,9 @@ land.lhs.true5.i.i.i.i242:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i250: ; preds = %land.lhs.true5.i.i.i.i242
   %cmp.i17.i.i.i.i251 = icmp ugt i64 %58, %conv8.i.i.i.i244
-  %sub.i.i.i.i.i252 = sub i64 %58, %conv8.i.i.i.i244
+  %sub.i.i.i.i.i252 = sub nuw i64 %58, %conv8.i.i.i.i244
   %cmp3.i.i.i.i.i253 = icmp uge i64 %sub.i.i.i.i.i252, %sub.i.i.i.i226
-  %69 = and i1 %cmp.i17.i.i.i.i251, %cmp3.i.i.i.i.i253
+  %69 = select i1 %cmp.i17.i.i.i.i251, i1 %cmp3.i.i.i.i.i253, i1 false
   br i1 %69, label %land.rhs.i.i254, label %return
 
 land.rhs.i.i254:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i250
@@ -15898,9 +15898,9 @@ land.lhs.true5.i.i.i.i288:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i296: ; preds = %land.lhs.true5.i.i.i.i288
   %cmp.i17.i.i.i.i297 = icmp ugt i64 %72, %conv8.i.i.i.i290
-  %sub.i.i.i.i.i298 = sub i64 %72, %conv8.i.i.i.i290
+  %sub.i.i.i.i.i298 = sub nuw i64 %72, %conv8.i.i.i.i290
   %cmp3.i.i.i.i.i299 = icmp uge i64 %sub.i.i.i.i.i298, %sub.i.i.i.i272
-  %83 = and i1 %cmp.i17.i.i.i.i297, %cmp3.i.i.i.i.i299
+  %83 = select i1 %cmp.i17.i.i.i.i297, i1 %cmp3.i.i.i.i.i299, i1 false
   br i1 %83, label %land.rhs.i.i300, label %return
 
 land.rhs.i.i300:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i296
@@ -16018,9 +16018,9 @@ land.lhs.true5.i.i.i.i349:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i357: ; preds = %land.lhs.true5.i.i.i.i349
   %cmp.i17.i.i.i.i358 = icmp ugt i64 %86, %conv8.i.i.i.i351
-  %sub.i.i.i.i.i359 = sub i64 %86, %conv8.i.i.i.i351
+  %sub.i.i.i.i.i359 = sub nuw i64 %86, %conv8.i.i.i.i351
   %cmp3.i.i.i.i.i360 = icmp uge i64 %sub.i.i.i.i.i359, %sub.i.i.i.i333
-  %97 = and i1 %cmp.i17.i.i.i.i358, %cmp3.i.i.i.i.i360
+  %97 = select i1 %cmp.i17.i.i.i.i358, i1 %cmp3.i.i.i.i.i360, i1 false
   br i1 %97, label %land.rhs.i.i361, label %return
 
 land.rhs.i.i361:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i357
@@ -16098,9 +16098,9 @@ land.lhs.true5.i.i.i.i395:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i403: ; preds = %land.lhs.true5.i.i.i.i395
   %cmp.i17.i.i.i.i404 = icmp ugt i64 %100, %conv8.i.i.i.i397
-  %sub.i.i.i.i.i405 = sub i64 %100, %conv8.i.i.i.i397
+  %sub.i.i.i.i.i405 = sub nuw i64 %100, %conv8.i.i.i.i397
   %cmp3.i.i.i.i.i406 = icmp uge i64 %sub.i.i.i.i.i405, %sub.i.i.i.i379
-  %111 = and i1 %cmp.i17.i.i.i.i404, %cmp3.i.i.i.i.i406
+  %111 = select i1 %cmp.i17.i.i.i.i404, i1 %cmp3.i.i.i.i.i406, i1 false
   br i1 %111, label %land.rhs.i.i407, label %return
 
 land.rhs.i.i407:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i403
@@ -16178,9 +16178,9 @@ land.lhs.true5.i.i.i.i441:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i449: ; preds = %land.lhs.true5.i.i.i.i441
   %cmp.i17.i.i.i.i450 = icmp ugt i64 %114, %conv8.i.i.i.i443
-  %sub.i.i.i.i.i451 = sub i64 %114, %conv8.i.i.i.i443
+  %sub.i.i.i.i.i451 = sub nuw i64 %114, %conv8.i.i.i.i443
   %cmp3.i.i.i.i.i452 = icmp uge i64 %sub.i.i.i.i.i451, %sub.i.i.i.i425
-  %125 = and i1 %cmp.i17.i.i.i.i450, %cmp3.i.i.i.i.i452
+  %125 = select i1 %cmp.i17.i.i.i.i450, i1 %cmp3.i.i.i.i.i452, i1 false
   br i1 %125, label %land.rhs.i.i453, label %return
 
 land.rhs.i.i453:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i449
@@ -16258,9 +16258,9 @@ land.lhs.true5.i.i.i.i487:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i495: ; preds = %land.lhs.true5.i.i.i.i487
   %cmp.i17.i.i.i.i496 = icmp ugt i64 %128, %conv8.i.i.i.i489
-  %sub.i.i.i.i.i497 = sub i64 %128, %conv8.i.i.i.i489
+  %sub.i.i.i.i.i497 = sub nuw i64 %128, %conv8.i.i.i.i489
   %cmp3.i.i.i.i.i498 = icmp uge i64 %sub.i.i.i.i.i497, %sub.i.i.i.i471
-  %139 = and i1 %cmp.i17.i.i.i.i496, %cmp3.i.i.i.i.i498
+  %139 = select i1 %cmp.i17.i.i.i.i496, i1 %cmp3.i.i.i.i.i498, i1 false
   br i1 %139, label %land.rhs.i.i499, label %return
 
 land.rhs.i.i499:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i495
@@ -16338,9 +16338,9 @@ land.lhs.true5.i.i.i.i533:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i541: ; preds = %land.lhs.true5.i.i.i.i533
   %cmp.i17.i.i.i.i542 = icmp ugt i64 %142, %conv8.i.i.i.i535
-  %sub.i.i.i.i.i543 = sub i64 %142, %conv8.i.i.i.i535
+  %sub.i.i.i.i.i543 = sub nuw i64 %142, %conv8.i.i.i.i535
   %cmp3.i.i.i.i.i544 = icmp uge i64 %sub.i.i.i.i.i543, %sub.i.i.i.i517
-  %153 = and i1 %cmp.i17.i.i.i.i542, %cmp3.i.i.i.i.i544
+  %153 = select i1 %cmp.i17.i.i.i.i542, i1 %cmp3.i.i.i.i.i544, i1 false
   br i1 %153, label %land.rhs.i.i545, label %return
 
 land.rhs.i.i545:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i541
@@ -16418,9 +16418,9 @@ land.lhs.true5.i.i.i.i579:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i587: ; preds = %land.lhs.true5.i.i.i.i579
   %cmp.i17.i.i.i.i588 = icmp ugt i64 %156, %conv8.i.i.i.i581
-  %sub.i.i.i.i.i589 = sub i64 %156, %conv8.i.i.i.i581
+  %sub.i.i.i.i.i589 = sub nuw i64 %156, %conv8.i.i.i.i581
   %cmp3.i.i.i.i.i590 = icmp uge i64 %sub.i.i.i.i.i589, %sub.i.i.i.i563
-  %167 = and i1 %cmp.i17.i.i.i.i588, %cmp3.i.i.i.i.i590
+  %167 = select i1 %cmp.i17.i.i.i.i588, i1 %cmp3.i.i.i.i.i590, i1 false
   br i1 %167, label %land.rhs.i.i591, label %return
 
 land.rhs.i.i591:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i587
@@ -16498,9 +16498,9 @@ land.lhs.true5.i.i.i.i625:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i633: ; preds = %land.lhs.true5.i.i.i.i625
   %cmp.i17.i.i.i.i634 = icmp ugt i64 %170, %conv8.i.i.i.i627
-  %sub.i.i.i.i.i635 = sub i64 %170, %conv8.i.i.i.i627
+  %sub.i.i.i.i.i635 = sub nuw i64 %170, %conv8.i.i.i.i627
   %cmp3.i.i.i.i.i636 = icmp uge i64 %sub.i.i.i.i.i635, %sub.i.i.i.i609
-  %181 = and i1 %cmp.i17.i.i.i.i634, %cmp3.i.i.i.i.i636
+  %181 = select i1 %cmp.i17.i.i.i.i634, i1 %cmp3.i.i.i.i.i636, i1 false
   br i1 %181, label %land.rhs.i.i637, label %return
 
 land.rhs.i.i637:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i633
@@ -16578,9 +16578,9 @@ land.lhs.true5.i.i.i.i671:                        ; preds = %land.lhs.true.i.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i679: ; preds = %land.lhs.true5.i.i.i.i671
   %cmp.i17.i.i.i.i680 = icmp ugt i64 %184, %conv8.i.i.i.i673
-  %sub.i.i.i.i.i681 = sub i64 %184, %conv8.i.i.i.i673
+  %sub.i.i.i.i.i681 = sub nuw i64 %184, %conv8.i.i.i.i673
   %cmp3.i.i.i.i.i682 = icmp uge i64 %sub.i.i.i.i.i681, %sub.i.i.i.i655
-  %195 = and i1 %cmp.i17.i.i.i.i680, %cmp3.i.i.i.i.i682
+  %195 = select i1 %cmp.i17.i.i.i.i680, i1 %cmp3.i.i.i.i.i682, i1 false
   br i1 %195, label %land.rhs.i.i683, label %return
 
 land.rhs.i.i683:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit.i.i679
@@ -16661,9 +16661,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -16786,9 +16786,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -16894,9 +16894,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -17042,9 +17042,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -17150,9 +17150,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -17278,9 +17278,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -17368,9 +17368,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKh
   %add.i.i49 = add nuw nsw i64 %conv.i.i47, 4
   %add8.i.i = add i64 %add.i.i49, %sub.ptr.sub.i.i36
   %cmp.i.i.i50 = icmp ule i64 %2, %add.i.i49
-  %sub.i.i.i51 = sub i64 %2, %add.i.i49
+  %sub.i.i.i51 = sub nuw i64 %2, %add.i.i49
   %cmp3.i.i.i52 = icmp ult i64 %sub.i.i.i51, %sub.ptr.sub.i.i36
-  %.not6.i = or i1 %cmp.i.i.i50, %cmp3.i.i.i52
+  %.not6.i = select i1 %cmp.i.i.i50, i1 true, i1 %cmp3.i.i.i52
   %sub.i.i53 = add i64 %2, -1
   %cmp3.i.not.i = icmp ult i64 %sub.i.i53, %add8.i.i
   %or.cond.i54 = or i1 %cmp3.i.not.i, %.not6.i
@@ -17460,9 +17460,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -17568,9 +17568,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -17659,9 +17659,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPK
   %mul.i.i = shl nuw nsw i64 %conv.i.i47, 2
   %add.i.i49 = add nuw nsw i64 %mul.i.i, 4
   %cmp.i.i.i50 = icmp ugt i64 %2, %add.i.i49
-  %sub.i.i.i51 = sub i64 %2, %add.i.i49
+  %sub.i.i.i51 = sub nuw i64 %2, %add.i.i49
   %cmp3.i.i.i52 = icmp uge i64 %sub.i.i.i51, %sub.ptr.sub.i.i36
-  %22 = and i1 %cmp.i.i.i50, %cmp3.i.i.i52
+  %22 = select i1 %cmp.i.i.i50, i1 %cmp3.i.i.i52, i1 false
   br i1 %22, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i19, %land.lhs.true, %land.lhs.true3, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS0_6VectorIT0_T1_EE.exit
@@ -17714,9 +17714,9 @@ if.end5.i:                                        ; preds = %if.end.i
   %mul.i = shl nuw nsw i64 %conv.i, 2
   %add.i = add nuw nsw i64 %mul.i, 4
   %cmp.i.i = icmp ugt i64 %2, %add.i
-  %sub.i.i = sub i64 %2, %add.i
+  %sub.i.i = sub nuw i64 %2, %add.i
   %cmp3.i.i = icmp uge i64 %sub.i.i, %sub.ptr.sub.i
-  %6 = and i1 %cmp.i.i, %cmp3.i.i
+  %6 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
   br label %lor.end
 
 lor.end:                                          ; preds = %if.end5.i, %if.end.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %lor.rhs, %entry
@@ -17793,9 +17793,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -17901,9 +17901,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -18009,9 +18009,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -18114,9 +18114,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -18217,9 +18217,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %15 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %15 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %15, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -18432,9 +18432,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %15 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %15 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %15, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -18616,9 +18616,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %15 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %15 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %15, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -18712,9 +18712,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6a
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i49, 4
   %add.i.i.i51 = or disjoint i64 %mul.i.i.i, 4
   %cmp.i.i.i.i52 = icmp ugt i64 %2, %add.i.i.i51
-  %sub.i.i.i.i53 = sub i64 %2, %add.i.i.i51
+  %sub.i.i.i.i53 = sub nuw i64 %2, %add.i.i.i51
   %cmp3.i.i.i.i54 = icmp uge i64 %sub.i.i.i.i53, %sub.ptr.sub.i.i.i
-  %25 = and i1 %cmp.i.i.i.i52, %cmp3.i.i.i.i54
+  %25 = select i1 %cmp.i.i.i.i52, i1 %cmp3.i.i.i.i54, i1 false
   br i1 %25, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i25, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6apache5arrow7flatbuf9FieldNodeEjEEbPKNS0_6VectorIPKT0_T1_EE.exit
@@ -18778,9 +18778,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6a
   %mul.i.i.i121 = shl nuw nsw i64 %conv.i.i.i118, 4
   %add.i.i.i122 = or disjoint i64 %mul.i.i.i121, 4
   %cmp.i.i.i.i123 = icmp ugt i64 %2, %add.i.i.i122
-  %sub.i.i.i.i124 = sub i64 %2, %add.i.i.i122
+  %sub.i.i.i.i124 = sub nuw i64 %2, %add.i.i.i122
   %cmp3.i.i.i.i125 = icmp uge i64 %sub.i.i.i.i124, %sub.ptr.sub.i.i.i104
-  %31 = and i1 %cmp.i.i.i.i123, %cmp3.i.i.i.i125
+  %31 = select i1 %cmp.i.i.i.i123, i1 %cmp3.i.i.i.i125, i1 false
   br i1 %31, label %land.lhs.true13, label %land.end
 
 land.lhs.true13:                                  ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i59, %land.lhs.true, %land.lhs.true3, %land.lhs.true8, %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6apache5arrow7flatbuf6BufferEjEEbPKNS0_6VectorIPKT0_T1_EE.exit
@@ -18895,9 +18895,9 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 4
   %add.i.i = or disjoint i64 %mul.i.i, 4
   %cmp.i.i.i = icmp ugt i64 %2, %add.i.i
-  %sub.i.i.i = sub i64 %2, %add.i.i
+  %sub.i.i.i = sub nuw i64 %2, %add.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.ptr.sub.i.i
-  %6 = and i1 %cmp.i.i.i, %cmp3.i.i.i
+  %6 = select i1 %cmp.i.i.i, i1 %cmp3.i.i.i, i1 false
   br label %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6apache5arrow7flatbuf6BufferEjEEbPKNS0_6VectorIT0_T1_EE.exit
 
 _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6apache5arrow7flatbuf6BufferEjEEbPKNS0_6VectorIT0_T1_EE.exit: ; preds = %entry, %lor.rhs.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i, %if.end.i.i, %if.end5.i.i
@@ -18946,9 +18946,9 @@ if.end5.i:                                        ; preds = %if.end.i
   %mul.i = shl nuw nsw i64 %conv.i, 3
   %add.i = or disjoint i64 %mul.i, 4
   %cmp.i.i = icmp ugt i64 %2, %add.i
-  %sub.i.i = sub i64 %2, %add.i
+  %sub.i.i = sub nuw i64 %2, %add.i
   %cmp3.i.i = icmp uge i64 %sub.i.i, %sub.ptr.sub.i
-  %6 = and i1 %cmp.i.i, %cmp3.i.i
+  %6 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
   br label %lor.end
 
 lor.end:                                          ; preds = %if.end5.i, %if.end.i, %_ZNK22arrow_vendored_private11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %lor.rhs, %entry
@@ -19025,9 +19025,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -19142,9 +19142,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %15 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %15 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %15, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -19298,9 +19298,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6Of
   %mul.i.i = shl nuw nsw i64 %conv.i.i100, 2
   %add.i.i102 = add nuw nsw i64 %mul.i.i, 4
   %cmp.i.i.i103 = icmp ugt i64 %28, %add.i.i102
-  %sub.i.i.i104 = sub i64 %28, %add.i.i102
+  %sub.i.i.i104 = sub nuw i64 %28, %add.i.i102
   %cmp3.i.i.i105 = icmp uge i64 %sub.i.i.i104, %sub.ptr.sub.i.i89
-  %34 = and i1 %cmp.i.i.i103, %cmp3.i.i.i105
+  %34 = select i1 %cmp.i.i.i103, i1 %cmp3.i.i.i105, i1 false
   br i1 %34, label %_ZNK3org6apache5arrow7flatbuf6Tensor5shapeEv.exit119, label %land.end
 
 _ZNK3org6apache5arrow7flatbuf6Tensor5shapeEv.exit119: ; preds = %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEEjEEbPKNS0_6VectorIT0_T1_EE.exit
@@ -19573,9 +19573,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -19668,9 +19668,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKh
   %add.i.i49 = add nuw nsw i64 %conv.i.i47, 4
   %add8.i.i = add i64 %add.i.i49, %sub.ptr.sub.i.i36
   %cmp.i.i.i50 = icmp ule i64 %2, %add.i.i49
-  %sub.i.i.i51 = sub i64 %2, %add.i.i49
+  %sub.i.i.i51 = sub nuw i64 %2, %add.i.i49
   %cmp3.i.i.i52 = icmp ult i64 %sub.i.i.i51, %sub.ptr.sub.i.i36
-  %.not6.i = or i1 %cmp.i.i.i50, %cmp3.i.i.i52
+  %.not6.i = select i1 %cmp.i.i.i50, i1 true, i1 %cmp3.i.i.i52
   %sub.i.i53 = add i64 %2, -1
   %cmp3.i.not.i = icmp ult i64 %sub.i.i53, %add8.i.i
   %or.cond.i54 = or i1 %cmp3.i.not.i, %.not6.i
@@ -19755,9 +19755,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %15 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %15 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %15, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -19911,9 +19911,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6Of
   %mul.i.i = shl nuw nsw i64 %conv.i.i102, 2
   %add.i.i104 = add nuw nsw i64 %mul.i.i, 4
   %cmp.i.i.i105 = icmp ugt i64 %28, %add.i.i104
-  %sub.i.i.i106 = sub i64 %28, %add.i.i104
+  %sub.i.i.i106 = sub nuw i64 %28, %add.i.i104
   %cmp3.i.i.i107 = icmp uge i64 %sub.i.i.i106, %sub.ptr.sub.i.i91
-  %34 = and i1 %cmp.i.i.i105, %cmp3.i.i.i107
+  %34 = select i1 %cmp.i.i.i105, i1 %cmp3.i.i.i107, i1 false
   br i1 %34, label %_ZNK3org6apache5arrow7flatbuf12SparseTensor5shapeEv.exit121, label %land.end
 
 _ZNK3org6apache5arrow7flatbuf12SparseTensor5shapeEv.exit121: ; preds = %_ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJENS0_6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEEjEEbPKNS0_6VectorIT0_T1_EE.exit
@@ -20123,9 +20123,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %15 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %15 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %15, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -20261,9 +20261,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEljEEbPK
   %mul.i.i = shl nuw nsw i64 %conv.i.i76, 3
   %add.i.i78 = or disjoint i64 %mul.i.i, 4
   %cmp.i.i.i79 = icmp ugt i64 %31, %add.i.i78
-  %sub.i.i.i80 = sub i64 %31, %add.i.i78
+  %sub.i.i.i80 = sub nuw i64 %31, %add.i.i78
   %cmp3.i.i.i81 = icmp uge i64 %sub.i.i.i80, %sub.ptr.sub.i.i65
-  %35 = and i1 %cmp.i.i.i79, %cmp3.i.i.i81
+  %35 = select i1 %cmp.i.i.i79, i1 %cmp3.i.i.i81, i1 false
   %cmp.i.i85 = icmp ugt i16 %21, 8
   %or.cond = and i1 %cmp.i.i85, %35
   br i1 %or.cond, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i86, label %land.end
@@ -20392,9 +20392,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %15 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %15 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %15, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -20622,9 +20622,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %15 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %15 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %15, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -20749,9 +20749,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier12VerifyVectorITpTnRiJEN3org6a
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i78, 4
   %add.i.i.i80 = or disjoint i64 %mul.i.i.i, 4
   %cmp.i.i.i.i81 = icmp ugt i64 %25, %add.i.i.i80
-  %sub.i.i.i.i82 = sub i64 %25, %add.i.i.i80
+  %sub.i.i.i.i82 = sub nuw i64 %25, %add.i.i.i80
   %cmp3.i.i.i.i83 = icmp uge i64 %sub.i.i.i.i82, %sub.ptr.sub.i.i.i
-  %31 = and i1 %cmp.i.i.i.i81, %cmp3.i.i.i.i83
+  %31 = select i1 %cmp.i.i.i.i81, i1 %cmp3.i.i.i.i83, i1 false
   %cmp.i.i87 = icmp ugt i16 %21, 8
   %or.cond = and i1 %cmp.i.i87, %31
   br i1 %or.cond, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i88, label %land.end
@@ -20934,9 +20934,9 @@ land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit: ; preds = %land.lhs.true5.i.i
   %cmp.i17.i.i = icmp ugt i64 %2, %conv8.i.i
-  %sub.i.i.i = sub i64 %2, %conv8.i.i
+  %sub.i.i.i = sub nuw i64 %2, %conv8.i.i
   %cmp3.i.i.i = icmp uge i64 %sub.i.i.i, %sub.i.i
-  %13 = and i1 %cmp.i17.i.i, %cmp3.i.i.i
+  %13 = select i1 %cmp.i17.i.i, i1 %cmp3.i.i.i, i1 false
   br i1 %13, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table16VerifyTableStartERNS0_8VerifierE.exit
@@ -21004,9 +21004,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKh
   %add.i.i33 = add nuw nsw i64 %conv.i.i31, 4
   %add8.i.i = add i64 %add.i.i33, %sub.ptr.sub.i.i20
   %cmp.i.i.i34 = icmp ule i64 %2, %add.i.i33
-  %sub.i.i.i35 = sub i64 %2, %add.i.i33
+  %sub.i.i.i35 = sub nuw i64 %2, %add.i.i33
   %cmp3.i.i.i36 = icmp ult i64 %sub.i.i.i35, %sub.ptr.sub.i.i20
-  %.not6.i = or i1 %cmp.i.i.i34, %cmp3.i.i.i36
+  %.not6.i = select i1 %cmp.i.i.i34, i1 true, i1 %cmp3.i.i.i36
   %sub.i.i37 = add i64 %2, -1
   %cmp3.i.not.i = icmp ult i64 %sub.i.i37, %add8.i.i
   %or.cond.i38 = or i1 %cmp3.i.not.i, %.not6.i
@@ -21078,9 +21078,9 @@ _ZNK22arrow_vendored_private11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKh
   %add.i.i104 = add nuw nsw i64 %conv.i.i101, 4
   %add8.i.i105 = add i64 %add.i.i104, %sub.ptr.sub.i.i88
   %cmp.i.i.i106 = icmp ule i64 %2, %add.i.i104
-  %sub.i.i.i107 = sub i64 %2, %add.i.i104
+  %sub.i.i.i107 = sub nuw i64 %2, %add.i.i104
   %cmp3.i.i.i108 = icmp ult i64 %sub.i.i.i107, %sub.ptr.sub.i.i88
-  %.not6.i109 = or i1 %cmp.i.i.i106, %cmp3.i.i.i108
+  %.not6.i109 = select i1 %cmp.i.i.i106, i1 true, i1 %cmp3.i.i.i108
   %sub.i.i110 = add i64 %2, -1
   %cmp3.i.not.i111 = icmp ult i64 %sub.i.i110, %add8.i.i105
   %or.cond.i112 = or i1 %cmp3.i.not.i111, %.not6.i109

@@ -5517,7 +5517,7 @@ phar_set_inode.exit:                              ; preds = %155, %165
   br i1 %or.cond.i, label %247, label %251
 
 247:                                              ; preds = %242
-  %248 = sub i64 %240, %245
+  %248 = sub nuw i64 %240, %245
   %249 = getelementptr inbounds i8, ptr %241, i64 %248
   %bcmp.i = call i32 @bcmp(ptr %244, ptr %249, i64 %245)
   %250 = icmp eq i32 %bcmp.i, 0

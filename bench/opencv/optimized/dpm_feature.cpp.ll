@@ -281,7 +281,7 @@ define hidden void @_ZN2cv3dpm19ParalComputePyramid10initializeEv(ptr nocapture 
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %65
-  %79 = sub nsw i64 %69, %76
+  %79 = sub nuw nsw i64 %69, %76
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %79)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
@@ -324,7 +324,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %78, %80, %82, %_ZSt
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
-  %101 = sub nsw i64 %91, %98
+  %101 = sub nuw nsw i64 %91, %98
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %86, i64 noundef %101)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -1608,7 +1608,7 @@ define hidden void @_ZN2cv3dpm7Feature21projectFeaturePyramidERKNS_3MatERKSt6vec
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %21
-  %40 = sub nsw i64 %30, %37
+  %40 = sub nuw nsw i64 %30, %37
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %40)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 

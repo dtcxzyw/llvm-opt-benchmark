@@ -22208,7 +22208,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$rayon..vec..Drain$LT$$RF$usi
   %35 = load ptr, ptr %34, align 8, !noalias !10645, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds ptr, ptr %35, i64 %3
   %37 = getelementptr inbounds ptr, ptr %35, i64 %5
-  %38 = sub i64 %10, %5
+  %38 = sub nuw i64 %10, %5
   %39 = shl i64 %38, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 8 %37, i64 %39, i1 false), !noalias !10645
   %40 = add i64 %38, %3
@@ -37570,7 +37570,7 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$rayon..vec..Drain$LT$$LP$$LP
   %35 = load ptr, ptr %34, align 8, !noalias !18556, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %35, i64 %3
   %37 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %35, i64 %5
-  %38 = sub i64 %10, %5
+  %38 = sub nuw i64 %10, %5
   %39 = mul i64 %38, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 8 %37, i64 %39, i1 false), !noalias !18556
   %40 = add i64 %38, %3
@@ -42432,7 +42432,7 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds ptr, ptr %35, i64 %3
   %37 = getelementptr inbounds ptr, ptr %35, i64 %5
-  %38 = sub i64 %10, %5
+  %38 = sub nuw i64 %10, %5
   %39 = shl i64 %38, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 8 %37, i64 %39, i1 false)
   %40 = add i64 %38, %3
@@ -42506,7 +42506,7 @@ define hidden void @"_ZN68_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$core..ops..
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %35, i64 %3
   %37 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %35, i64 %5
-  %38 = sub i64 %10, %5
+  %38 = sub nuw i64 %10, %5
   %39 = mul i64 %38, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 8 %37, i64 %39, i1 false)
   %40 = add i64 %38, %3

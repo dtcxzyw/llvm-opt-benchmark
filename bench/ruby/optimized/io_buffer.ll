@@ -1587,7 +1587,7 @@ define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) local
 
 30:                                               ; preds = %28
   %31 = getelementptr i8, ptr %23, i64 %.val
-  %32 = sub i64 %1, %.val
+  %32 = sub nuw i64 %1, %.val
   tail call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)
   br label %io_buffer_resize_clear.exit
 
@@ -1644,7 +1644,7 @@ io_buffer_free.exit:                              ; preds = %37, %39
 
 53:                                               ; preds = %50
   %54 = getelementptr i8, ptr %46, i64 %.val44
-  %55 = sub i64 %1, %.val44
+  %55 = sub nuw i64 %1, %.val44
   tail call void @llvm.memset.p0.i64(ptr align 1 %54, i8 0, i64 %55, i1 false)
   br label %io_buffer_resize_clear.exit46
 
@@ -1716,7 +1716,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %72, %io_buffer_init
 
 74:                                               ; preds = %ruby_nonempty_memcpy.exit.i
   %75 = getelementptr i8, ptr %.sroa.0.0.i50, i64 %.val.i
-  %76 = sub i64 %1, %.val.i
+  %76 = sub nuw i64 %1, %.val.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %75, i8 0, i64 %76, i1 false)
   br label %io_buffer_resize_clear.exit.i
 
@@ -5696,7 +5696,7 @@ io_buffer_extract_offset.exit:                    ; preds = %20, %18, %9
 io_buffer_default_length.exit:                    ; preds = %.thread, %36
   %.val22 = phi i64 [ %.val20, %.thread ], [ %.val, %36 ]
   %storemerge1821 = phi i64 [ 0, %.thread ], [ %storemerge, %36 ]
-  %41 = sub i64 %.val22, %storemerge1821
+  %41 = sub nuw i64 %.val22, %storemerge1821
   br label %io_buffer_extract_length.exit
 
 io_buffer_extract_length.exit:                    ; preds = %34, %32, %io_buffer_default_length.exit
@@ -6591,7 +6591,7 @@ io_buffer_extract_offset.exit:                    ; preds = %17, %15
 
 35:                                               ; preds = %.thread, %31
   %storemerge1820 = phi i64 [ 0, %.thread ], [ %storemerge, %31 ]
-  %36 = sub i64 %1, %storemerge1820
+  %36 = sub nuw i64 %1, %storemerge1820
   %37 = tail call fastcc i64 @io_buffer_buffer_type_size(i64 noundef %0)
   %38 = udiv i64 %36, %37
   br label %io_buffer_extract_count.exit
@@ -7412,7 +7412,7 @@ io_buffer_extract_offset.exit:                    ; preds = %5
 io_buffer_default_length.exit:                    ; preds = %.thread, %37
   %.val23 = phi i64 [ %.val21, %.thread ], [ %.val, %37 ]
   %storemerge1822 = phi i64 [ 0, %.thread ], [ %storemerge19, %37 ]
-  %42 = sub i64 %.val23, %storemerge1822
+  %42 = sub nuw i64 %.val23, %storemerge1822
   br label %io_buffer_extract_length.exit
 
 io_buffer_extract_length.exit:                    ; preds = %35, %33, %io_buffer_default_length.exit

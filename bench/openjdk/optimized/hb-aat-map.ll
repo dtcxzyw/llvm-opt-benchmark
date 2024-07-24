@@ -637,7 +637,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.th
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i
-  %25 = sub i32 %5, %22
+  %25 = sub nuw i32 %5, %22
   %26 = mul i32 %25, 24
   %.not.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i, label %34, label %27
@@ -833,7 +833,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.th
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i
-  %38 = sub i32 %23, %.sroa.17.0268
+  %38 = sub nuw i32 %23, %.sroa.17.0268
   %39 = mul i32 %38, 24
   %.not.i.i.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i.i.i, label %45, label %40
@@ -935,7 +935,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.th
   br i1 %73, label %74, label %82
 
 74:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78
-  %75 = sub i32 %60, %.sroa.17.1
+  %75 = sub nuw i32 %60, %.sroa.17.1
   %76 = mul i32 %75, 24
   %.not.i.i.i.i80 = icmp eq i32 %76, 0
   br i1 %.not.i.i.i.i80, label %82, label %77
@@ -1078,7 +1078,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.th
   br i1 %119, label %120, label %129
 
 120:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i99
-  %121 = sub i32 %118, %.sroa.17.0.lcssa334342349
+  %121 = sub nuw i32 %118, %.sroa.17.0.lcssa334342349
   %122 = mul i32 %121, 24
   %.not.i.i.i.i101 = icmp eq i32 %122, 0
   br i1 %.not.i.i.i.i101, label %129, label %123

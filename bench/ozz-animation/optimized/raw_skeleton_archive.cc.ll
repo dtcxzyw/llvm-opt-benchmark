@@ -139,7 +139,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animatio
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %2
-  %25 = sub nsw i64 %15, %22
+  %25 = sub nuw nsw i64 %15, %22
   call void @_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %25)
   br label %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
@@ -591,7 +591,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline11Raw
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %8
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   call void @_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %31)
   br label %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 

@@ -158,7 +158,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.th
   %35 = load i64, ptr %34, align 8, !alias.scope !21, !noundef !20
   %.not.i.i = icmp ult i64 %33, %35
   %36 = select i1 %.not.i.i, i64 0, i64 %35
-  %.0.i.i = sub i64 %33, %36
+  %.0.i.i = sub nuw i64 %33, %36
   store i64 %.0.i.i, ptr %31, align 8, !alias.scope !21
   %37 = add i64 %27, -1
   store i64 %37, ptr %26, align 8, !alias.scope !21
@@ -226,7 +226,7 @@ define hidden { i64, i64 } @"_ZN12sharded_slab3tid12Registration8register28_$u7b
   %12 = load i64, ptr %11, align 8, !alias.scope !29, !noundef !20
   %.not.i = icmp ult i64 %10, %12
   %13 = select i1 %.not.i, i64 0, i64 %12
-  %.0.i = sub i64 %10, %13
+  %.0.i = sub nuw i64 %10, %13
   store i64 %.0.i, ptr %8, align 8, !alias.scope !29
   %14 = add i64 %4, -1
   store i64 %14, ptr %3, align 8, !alias.scope !29
@@ -10787,7 +10787,7 @@ _ZN4core3ops8function6FnOnce9call_once17hea93dad3ff343b51E.exit.i: ; preds = %44
   %94 = add i64 %93, %91
   %.not.i.i = icmp ult i64 %94, %90
   %95 = select i1 %.not.i.i, i64 0, i64 %90
-  %.0.i.i = sub i64 %94, %95
+  %.0.i.i = sub nuw i64 %94, %95
   %96 = load ptr, ptr %76, align 8, !alias.scope !1171, !noalias !1176, !nonnull !20, !noundef !20
   %97 = getelementptr inbounds { ptr, ptr }, ptr %96, i64 %.0.i.i
   store ptr %77, ptr %97, align 8, !noalias !1157

@@ -6954,7 +6954,7 @@ if.then.i:                                        ; preds = %entry
 invoke.cont4:                                     ; preds = %entry
   %2 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %__pos
-  %sub.i = sub i64 %1, %__pos
+  %sub.i = sub nuw i64 %1, %__pos
   %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %cmp.i6 = icmp ugt i64 %spec.select.i, 15
   br i1 %cmp.i6, label %if.then.i7, label %entry.if.end_crit_edge.i
@@ -29989,7 +29989,7 @@ for.cond.i.i.i.i.i.i.i:                           ; preds = %if.then.i9
   %25 = load ptr, ptr %handler, align 8
   %26 = load ptr, ptr %buffers_.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 %add.i.i.i.i.i.i.i.i
-  %sub.i.i.i.i.i.i.i.i.i = sub i64 %24, %add.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i.i.i.i.i = sub nuw i64 %24, %add.i.i.i.i.i.i.i.i
   %spec.select.i2.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i, align 8
   %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i, i64 8
@@ -30294,7 +30294,7 @@ for.cond.i.i:                                     ; preds = %entry
   %buffers_3.i.i = getelementptr inbounds i8, ptr %f, i64 8
   %4 = load ptr, ptr %buffers_3.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %add.i.i.i
-  %sub.i.i.i.i = sub i64 %2, %add.i.i.i
+  %sub.i.i.i.i = sub nuw i64 %2, %add.i.i.i
   %spec.select.i2.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i, ptr %ref.tmp.i.i, align 8
   %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
@@ -30470,7 +30470,7 @@ if.then:                                          ; preds = %invoke.cont2
 for.cond.i.i.i.i.i.i.i.i:                         ; preds = %if.then
   %10 = load ptr, ptr %buffers_.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %add.i.i.i.i.i.i.i.i.i
-  %sub.i.i.i.i.i.i.i.i.i.i = sub i64 %9, %add.i.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i.i.i.i.i.i = sub nuw i64 %9, %add.i.i.i.i.i.i.i.i.i
   %spec.select.i2.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i.i.i.i.i.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
@@ -31260,7 +31260,7 @@ _ZNSt5dequeINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5rati
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit22
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit22: ; preds = %if.then14, %_ZNSt5dequeINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESaIS8_EE9pop_frontEv.exit, %if.then19
-  %sub.i15 = sub i64 %all_res.sroa.0.062, %.sroa.speculated
+  %sub.i15 = sub nuw i64 %all_res.sroa.0.062, %.sroa.speculated
   %add.ptr.i18 = getelementptr inbounds i8, ptr %all_res.sroa.6.063, i64 %.sroa.speculated
   %tobool.not = icmp eq i64 %sub.i15, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !506

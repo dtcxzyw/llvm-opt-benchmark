@@ -2463,7 +2463,7 @@ if.then.i.i:                                      ; preds = %_ZSt11find_if_notIP
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
-  %sub.i = sub i64 %str.coerce0, %sub.ptr.sub
+  %sub.i = sub nuw i64 %str.coerce0, %sub.ptr.sub
   %add.ptr.i4 = getelementptr inbounds i8, ptr %str.coerce1, i64 %sub.ptr.sub
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %sub.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %add.ptr.i4, 1

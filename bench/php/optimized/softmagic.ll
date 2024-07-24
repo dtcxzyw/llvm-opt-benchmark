@@ -1198,7 +1198,7 @@ cvt_flip.exit.thread604:                          ; preds = %79, %cvt_flip.exit
   %288 = getelementptr inbounds i8, ptr %1, i64 5
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i64
-  %291 = sub i64 %4, %72
+  %291 = sub nuw i64 %4, %72
   %292 = icmp ult i64 %291, %290
   br i1 %292, label %mconvert.exit, label %293
 
@@ -1346,9 +1346,9 @@ cvt_flip.exit578:                                 ; preds = %306
 cvt_flip.exit578.thread610:                       ; preds = %311, %cvt_flip.exit578
   %333 = zext i32 %23 to i64
   %334 = icmp ugt i64 %333, %4
-  %335 = sub i64 %4, %333
+  %335 = sub nuw i64 %4, %333
   %336 = icmp ult i64 %335, 2
-  %or.cond547 = or i1 %334, %336
+  %or.cond547 = select i1 %334, i1 true, i1 %336
   br i1 %or.cond547, label %mconvert.exit, label %337
 
 337:                                              ; preds = %cvt_flip.exit578.thread610
@@ -1382,9 +1382,9 @@ cvt_flip.exit578.thread610:                       ; preds = %311, %cvt_flip.exit
 cvt_flip.exit578.thread613:                       ; preds = %311, %cvt_flip.exit578
   %355 = zext i32 %23 to i64
   %356 = icmp ugt i64 %355, %4
-  %357 = sub i64 %4, %355
+  %357 = sub nuw i64 %4, %355
   %358 = icmp ult i64 %357, 2
-  %or.cond549 = or i1 %356, %358
+  %or.cond549 = select i1 %356, i1 true, i1 %358
   br i1 %or.cond549, label %mconvert.exit, label %359
 
 359:                                              ; preds = %cvt_flip.exit578.thread613
@@ -1400,9 +1400,9 @@ cvt_flip.exit578.thread613:                       ; preds = %311, %cvt_flip.exit
 365:                                              ; preds = %311, %cvt_flip.exit578
   %366 = zext i32 %23 to i64
   %367 = icmp ugt i64 %366, %4
-  %368 = sub i64 %4, %366
+  %368 = sub nuw i64 %4, %366
   %369 = icmp ult i64 %368, 2
-  %or.cond551 = or i1 %367, %369
+  %or.cond551 = select i1 %367, i1 true, i1 %369
   br i1 %or.cond551, label %mconvert.exit, label %370
 
 370:                                              ; preds = %365
@@ -1422,9 +1422,9 @@ cvt_flip.exit578.thread616:                       ; preds = %311, %cvt_flip.exit
   %.0.i577619 = phi i32 [ 8, %311 ], [ %309, %cvt_flip.exit578.thread616.fold.split ]
   %376 = zext i32 %23 to i64
   %377 = icmp ugt i64 %376, %4
-  %378 = sub i64 %4, %376
+  %378 = sub nuw i64 %4, %376
   %379 = icmp ult i64 %378, 4
-  %or.cond553 = or i1 %377, %379
+  %or.cond553 = select i1 %377, i1 true, i1 %379
   br i1 %or.cond553, label %mconvert.exit, label %380
 
 380:                                              ; preds = %cvt_flip.exit578.thread616
@@ -1470,9 +1470,9 @@ cvt_flip.exit578.thread620:                       ; preds = %311, %cvt_flip.exit
   %.0.i577623 = phi i32 [ 11, %311 ], [ %309, %cvt_flip.exit578.thread620.fold.split ]
   %406 = zext i32 %23 to i64
   %407 = icmp ugt i64 %406, %4
-  %408 = sub i64 %4, %406
+  %408 = sub nuw i64 %4, %406
   %409 = icmp ult i64 %408, 4
-  %or.cond555 = or i1 %407, %409
+  %or.cond555 = select i1 %407, i1 true, i1 %409
   br i1 %or.cond555, label %mconvert.exit, label %410
 
 410:                                              ; preds = %cvt_flip.exit578.thread620
@@ -1509,9 +1509,9 @@ cvt_flip.exit578.thread620:                       ; preds = %311, %cvt_flip.exit
 431:                                              ; preds = %311, %cvt_flip.exit578
   %432 = zext i32 %23 to i64
   %433 = icmp ugt i64 %432, %4
-  %434 = sub i64 %4, %432
+  %434 = sub nuw i64 %4, %432
   %435 = icmp ult i64 %434, 4
-  %or.cond557 = or i1 %433, %435
+  %or.cond557 = select i1 %433, i1 true, i1 %435
   br i1 %or.cond557, label %mconvert.exit, label %436
 
 436:                                              ; preds = %431
@@ -1553,9 +1553,9 @@ cvt_flip.exit578.thread620:                       ; preds = %311, %cvt_flip.exit
 462:                                              ; preds = %311, %cvt_flip.exit578
   %463 = zext i32 %23 to i64
   %464 = icmp ugt i64 %463, %4
-  %465 = sub i64 %4, %463
+  %465 = sub nuw i64 %4, %463
   %466 = icmp ult i64 %465, 4
-  %or.cond559 = or i1 %464, %466
+  %or.cond559 = select i1 %464, i1 true, i1 %466
   br i1 %or.cond559, label %mconvert.exit, label %467
 
 467:                                              ; preds = %462
@@ -1571,9 +1571,9 @@ cvt_flip.exit578.thread620:                       ; preds = %311, %cvt_flip.exit
 cvt_flip.exit578.thread624:                       ; preds = %311, %cvt_flip.exit578
   %473 = zext i32 %23 to i64
   %474 = icmp ugt i64 %473, %4
-  %475 = sub i64 %4, %473
+  %475 = sub nuw i64 %4, %473
   %476 = icmp ult i64 %475, 8
-  %or.cond561 = or i1 %474, %476
+  %or.cond561 = select i1 %474, i1 true, i1 %476
   br i1 %or.cond561, label %mconvert.exit, label %477
 
 477:                                              ; preds = %cvt_flip.exit578.thread624
@@ -1585,9 +1585,9 @@ cvt_flip.exit578.thread624:                       ; preds = %311, %cvt_flip.exit
 cvt_flip.exit578.thread627:                       ; preds = %311, %cvt_flip.exit578
   %480 = zext i32 %23 to i64
   %481 = icmp ugt i64 %480, %4
-  %482 = sub i64 %4, %480
+  %482 = sub nuw i64 %4, %480
   %483 = icmp ult i64 %482, 8
-  %or.cond563 = or i1 %481, %483
+  %or.cond563 = select i1 %481, i1 true, i1 %483
   br i1 %or.cond563, label %mconvert.exit, label %484
 
 484:                                              ; preds = %cvt_flip.exit578.thread627
@@ -1641,7 +1641,7 @@ cvt_flip.exit578.thread627:                       ; preds = %311, %cvt_flip.exit
   %527 = getelementptr inbounds i8, ptr %1, i64 5
   %528 = load i8, ptr %527, align 1
   %529 = zext i8 %528 to i64
-  %530 = sub i64 %4, %524
+  %530 = sub nuw i64 %4, %524
   %531 = icmp ult i64 %530, %529
   br i1 %531, label %mconvert.exit, label %532
 
@@ -1784,33 +1784,33 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
 583:                                              ; preds = %578, %578, %578
   %584 = zext i32 %579 to i64
   %585 = icmp ugt i64 %584, %4
-  %586 = sub i64 %4, %584
+  %586 = sub nuw i64 %4, %584
   %587 = icmp ult i64 %586, 2
-  %or.cond566 = or i1 %585, %587
+  %or.cond566 = select i1 %585, i1 true, i1 %587
   br i1 %or.cond566, label %mconvert.exit, label %726
 
 588:                                              ; preds = %578, %578, %578, %578, %578, %578, %578, %578, %578, %578, %578, %578, %578, %578, %578
   %589 = zext i32 %579 to i64
   %590 = icmp ugt i64 %589, %4
-  %591 = sub i64 %4, %589
+  %591 = sub nuw i64 %4, %589
   %592 = icmp ult i64 %591, 4
-  %or.cond568 = or i1 %590, %592
+  %or.cond568 = select i1 %590, i1 true, i1 %592
   br i1 %or.cond568, label %mconvert.exit, label %726
 
 593:                                              ; preds = %578, %578, %578
   %594 = zext i32 %579 to i64
   %595 = icmp ugt i64 %594, %4
-  %596 = sub i64 %4, %594
+  %596 = sub nuw i64 %4, %594
   %597 = icmp ult i64 %596, 8
-  %or.cond570 = or i1 %595, %597
+  %or.cond570 = select i1 %595, i1 true, i1 %597
   br i1 %or.cond570, label %mconvert.exit, label %726
 
 598:                                              ; preds = %578
   %599 = zext i32 %579 to i64
   %600 = icmp ugt i64 %599, %4
-  %601 = sub i64 %4, %599
+  %601 = sub nuw i64 %4, %599
   %602 = icmp ult i64 %601, 16
-  %or.cond572 = or i1 %600, %602
+  %or.cond572 = select i1 %600, i1 true, i1 %602
   br i1 %or.cond572, label %mconvert.exit, label %726
 
 603:                                              ; preds = %578, %578, %578, %578
@@ -1822,7 +1822,7 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
   %607 = getelementptr inbounds i8, ptr %1, i64 5
   %608 = load i8, ptr %607, align 1
   %609 = zext i8 %608 to i64
-  %610 = sub i64 %4, %604
+  %610 = sub nuw i64 %4, %604
   %611 = icmp ult i64 %610, %609
   br i1 %611, label %mconvert.exit, label %726
 
@@ -3439,7 +3439,7 @@ define internal fastcc i32 @magiccheck(ptr noundef %0, ptr noundef %1) unnamed_a
 
 161:                                              ; preds = %.critedge
   %162 = getelementptr inbounds i8, ptr %74, i64 %.1349424
-  %163 = sub i64 %147, %.1349424
+  %163 = sub nuw i64 %147, %.1349424
   %164 = load i32, ptr %148, align 4
   %165 = tail call fastcc i64 @file_strncmp(ptr noundef nonnull %5, ptr noundef nonnull %162, i64 noundef %spec.select, i64 noundef %163, i32 noundef %164)
   %166 = icmp eq i64 %165, 0
@@ -4791,7 +4791,7 @@ define internal fastcc void @mcopy(ptr nocapture noundef %0, ptr nocapture nound
   %.0126 = select i1 %.not152, i64 0, i64 %34
   %36 = freeze i64 %.0126
   %.0124 = select i1 %.not152, i64 %34, i64 %35
-  %37 = sub i64 %6, %24
+  %37 = sub nuw i64 %6, %24
   %38 = add nsw i64 %.0124, -1
   %or.cond.not = icmp ult i64 %38, %37
   %.1125 = select i1 %or.cond.not, i64 %.0124, i64 %37
@@ -4996,7 +4996,7 @@ define internal fastcc void @mcopy(ptr nocapture noundef %0, ptr nocapture nound
   br label %125
 
 118:                                              ; preds = %.thread
-  %119 = sub i64 %6, %116
+  %119 = sub nuw i64 %6, %116
   %..0129 = tail call i64 @llvm.umin.i64(i64 %119, i64 %.0129167)
   %120 = getelementptr inbounds i8, ptr %4, i64 %116
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 1 %120, i64 %..0129, i1 false)
@@ -5817,7 +5817,7 @@ define internal fastcc range(i32 -1, 1) i32 @varexpand(ptr nocapture noundef rea
 12:                                               ; preds = %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05795, ptr align 1 %.05894, i64 %11, i1 false)
   %13 = getelementptr inbounds i8, ptr %.05795, i64 %11
-  %14 = sub i64 %.06093, %11
+  %14 = sub nuw i64 %.06093, %11
   %15 = getelementptr inbounds i8, ptr %8, i64 2
   %16 = load i8, ptr %15, align 1
   %.not69 = icmp eq i8 %16, 0
@@ -5883,7 +5883,7 @@ define internal fastcc range(i32 -1, 1) i32 @varexpand(ptr nocapture noundef rea
   %.059 = select i1 %.not77, ptr %27, ptr %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr nonnull align 1 %.059, i64 %.0, i1 false)
   %43 = getelementptr inbounds i8, ptr %13, i64 %.0
-  %44 = sub i64 %14, %.0
+  %44 = sub nuw i64 %14, %.0
   %45 = getelementptr inbounds i8, ptr %.055, i64 1
   %46 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) @.str.39) #25
   %.not = icmp eq ptr %46, null

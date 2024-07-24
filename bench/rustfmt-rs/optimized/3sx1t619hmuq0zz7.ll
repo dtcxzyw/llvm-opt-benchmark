@@ -21781,7 +21781,7 @@ _ZN4core5slice6memchr12memchr_naive17h80d69771a2a986d1E.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !3038
   %67 = icmp eq i32 %bcmp.i, 0
@@ -21845,7 +21845,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %.not.us, label %31, label %26
 
 26:                                               ; preds = %24
-  %27 = sub i64 %25, %17
+  %27 = sub nuw i64 %25, %17
   %28 = add i64 %27, %14
   %29 = icmp ugt i64 %27, %28
   %30 = icmp ugt i64 %28, %5
@@ -21886,7 +21886,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.split
 
 44:                                               ; preds = %39
-  %45 = sub i64 %40, %17
+  %45 = sub nuw i64 %40, %17
   %46 = add i64 %45, %14
   %47 = icmp ugt i64 %45, %46
   %48 = icmp ugt i64 %46, %5
@@ -25606,7 +25606,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit156.i.i.i: ; preds = %7
 787:                                              ; preds = %.noexc160.i.i.i
   %788 = extractvalue { ptr, i64 } %785, 0
   %789 = extractvalue { ptr, i64 } %783, 0
-  %790 = sub i64 %784, %786
+  %790 = sub nuw i64 %784, %786
   %791 = getelementptr inbounds i8, ptr %789, i64 %790
   %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %788, ptr nonnull readonly %791, i64 %786), !alias.scope !3772
   %792 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
@@ -25659,7 +25659,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit156.i.i.i: ; preds = %7
 812:                                              ; preds = %.noexc162.i.i.i
   %813 = extractvalue { ptr, i64 } %810, 0
   %814 = extractvalue { ptr, i64 } %808, 0
-  %815 = sub i64 %809, %811
+  %815 = sub nuw i64 %809, %811
   %816 = getelementptr inbounds i8, ptr %814, i64 %815
   %bcmp.i.i.i4.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %813, ptr nonnull readonly %816, i64 %811), !alias.scope !3785
   %817 = icmp eq i32 %bcmp.i.i.i4.i.i.i.i, 0
@@ -26106,7 +26106,7 @@ default.unreachable146:                           ; preds = %47
   unreachable
 
 47:                                               ; preds = %4
-  %48 = sub i64 %46, %44
+  %48 = sub nuw i64 %46, %44
   %49 = getelementptr inbounds i8, ptr %3, i64 24
   %50 = load i64, ptr %49, align 8, !alias.scope !3821, !noalias !3824, !noundef !10
   %51 = load <2 x i64>, ptr %3, align 8, !alias.scope !3821, !noalias !3824
@@ -28319,11 +28319,11 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly6chains20ChainFor
   br i1 %.not.i156, label %341, label %123
 
 123:                                              ; preds = %119
-  %124 = sub i64 %122, %120
+  %124 = sub nuw i64 %122, %120
   br label %132
 
 125:                                              ; preds = %103
-  %126 = sub i64 %118, %116
+  %126 = sub nuw i64 %118, %116
   %127 = load <2 x i64>, ptr %4, align 8, !alias.scope !4181, !noalias !4184
   %128 = getelementptr inbounds i8, ptr %4, i64 24
   %129 = load i64, ptr %128, align 8, !alias.scope !4181, !noalias !4184, !noundef !10
@@ -28332,7 +28332,7 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly6chains20ChainFor
   br label %_ZN15rustfmt_nightly5shape5Shape11offset_left17hac40967f303a7b96E.exit.thread
 
 130:                                              ; preds = %101
-  %131 = sub i64 %70, %102
+  %131 = sub nuw i64 %70, %102
   br label %132
 
 132:                                              ; preds = %123, %130
@@ -28397,7 +28397,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
 _ZN15rustfmt_nightly5shape5Shape11offset_left17hac40967f303a7b96E.exit: ; preds = %151, %155
   %.sroa.9271.2 = phi i64 [ %153, %151 ], [ %156, %155 ]
   %.sroa.13.2 = phi i64 [ %152, %151 ], [ %156, %155 ]
-  %.sroa.11.2 = sub i64 %.sroa.10.0.ph, %65
+  %.sroa.11.2 = sub nuw i64 %.sroa.10.0.ph, %65
   %157 = extractelement <2 x i64> %133, i64 0
   store i64 %157, ptr %29, align 8
   %.sroa.9271.8..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
@@ -28678,7 +28678,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h03824509b92771cbE.exit: ; preds = 
   br i1 %.not.i184, label %244, label %239
 
 239:                                              ; preds = %224
-  %240 = sub i64 %238, %236
+  %240 = sub nuw i64 %238, %236
   %241 = getelementptr inbounds i8, ptr %4, i64 24
   %242 = load i64, ptr %241, align 8, !alias.scope !4247, !noalias !4250, !noundef !10
   %243 = load <2 x i64>, ptr %4, align 8, !alias.scope !4247, !noalias !4250
@@ -28924,7 +28924,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   br i1 %.not.i203, label %342, label %311
 
 311:                                              ; preds = %296
-  %312 = sub i64 %310, %308
+  %312 = sub nuw i64 %310, %308
   %313 = load <2 x i64>, ptr %4, align 8, !alias.scope !4267, !noalias !4270
   %314 = getelementptr inbounds i8, ptr %4, i64 24
   %315 = load i64, ptr %314, align 8, !alias.scope !4267, !noalias !4270, !noundef !10
@@ -29491,7 +29491,7 @@ define noundef zeroext i1 @"_ZN104_$LT$rustfmt_nightly..chains..ChainFormatterBl
 
 74:                                               ; preds = %72
   %75 = add i64 %73, %31
-  %76 = sub i64 %36, %73
+  %76 = sub nuw i64 %36, %73
   store <2 x i64> %37, ptr %9, align 16
   store i64 %76, ptr %.sroa.6.sroa.6.0..sroa_idx, align 16
   store i64 %75, ptr %.sroa.6.sroa.7.0..sroa_idx, align 8
@@ -29914,7 +29914,7 @@ define noundef zeroext i1 @"_ZN105_$LT$rustfmt_nightly..chains..ChainFormatterVi
   %67 = getelementptr inbounds i8, ptr %47, i64 %61
   %68 = load i8, ptr %67, align 1, !alias.scope !4457, !noundef !10
   %69 = icmp sgt i8 %68, -65
-  %70 = sub i64 %46, %61
+  %70 = sub nuw i64 %46, %61
   br i1 %69, label %75, label %74
 
 .noexc78:                                         ; preds = %.invoke
@@ -30101,7 +30101,7 @@ _ZN15rustfmt_nightly6chains13ChainItemKind13is_block_like17h2cb23c7cb75d15c7E.ex
 
 133:                                              ; preds = %131
   %134 = add i64 %132, %23
-  %135 = sub i64 %25, %132
+  %135 = sub nuw i64 %25, %132
   store i64 %26, ptr %17, align 8
   %.sroa.6.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
   store i64 %134, ptr %.sroa.6.sroa.5.0..sroa_idx, align 8
@@ -30360,7 +30360,7 @@ define void @"_ZN105_$LT$rustfmt_nightly..chains..ChainFormatterVisual$u20$as$u2
   %17 = getelementptr inbounds i8, ptr %3, i64 24
   %18 = load i64, ptr %17, align 8, !alias.scope !4521, !noalias !4522, !noundef !10
   %19 = add i64 %18, %6
-  %20 = sub i64 %15, %6
+  %20 = sub nuw i64 %15, %6
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %11, ptr %21, align 8, !alias.scope !4511, !noalias !4514
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -30892,7 +30892,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.th
   %77 = getelementptr inbounds i8, ptr %10, i64 24
   %78 = load i64, ptr %77, align 8, !alias.scope !4587, !noalias !4592, !noundef !10
   %79 = add i64 %78, %.sroa.531.0.copyload
-  %80 = sub i64 %69, %.sroa.531.0.copyload
+  %80 = sub nuw i64 %69, %.sroa.531.0.copyload
   %81 = load ptr, ptr %40, align 8, !nonnull !10, !align !11, !noundef !10
   %82 = load i8, ptr %81, align 8, !range !239, !noundef !10
   %83 = icmp eq i8 %82, 17
@@ -32565,7 +32565,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.9097680112167513710.exit: ; preds 
   br label %103
 
 106:                                              ; preds = %88
-  %107 = sub i64 %99, %97
+  %107 = sub nuw i64 %99, %97
   %108 = load i64, ptr %5, align 8, !alias.scope !4936, !noalias !4939, !noundef !10
   %109 = getelementptr inbounds i8, ptr %5, i64 24
   %110 = load i64, ptr %109, align 8, !alias.scope !4936, !noalias !4939, !noundef !10
@@ -32877,7 +32877,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   br label %215
 
 210:                                              ; preds = %205
-  %211 = sub i64 %208, %207
+  %211 = sub nuw i64 %208, %207
   %212 = load i64, ptr %124, align 8, !alias.scope !4983, !noalias !4986, !noundef !10
   br label %215
 
@@ -33403,7 +33403,7 @@ define hidden void @_ZN15rustfmt_nightly8closures20rewrite_last_closure17h6af07b
   %113 = getelementptr inbounds i8, ptr %3, i64 24
   %114 = load i64, ptr %113, align 8, !alias.scope !5039, !noalias !5044, !noundef !10
   %115 = add i64 %114, %.sroa.519.0.copyload
-  %116 = sub i64 %108, %.sroa.519.0.copyload
+  %116 = sub nuw i64 %108, %.sroa.519.0.copyload
   %117 = getelementptr inbounds i8, ptr %1, i64 48
   %118 = load ptr, ptr %117, align 8, !noalias !5047, !nonnull !10, !noundef !10
   %119 = getelementptr inbounds i8, ptr %118, i64 16
@@ -36728,7 +36728,7 @@ default.unreachable464:                           ; preds = %292
   br i1 %.not.i213, label %324, label %322
 
 322:                                              ; preds = %317
-  %323 = sub i64 %321, %319
+  %323 = sub nuw i64 %321, %319
   %.not.i.i = icmp ult i64 %323, %.sroa.6111.0
   br i1 %.not.i.i, label %325, label %326
 
@@ -36747,7 +36747,7 @@ default.unreachable464:                           ; preds = %292
   %.pn473.in = getelementptr inbounds i8, ptr %3, i64 24
   %.pn473 = load i64, ptr %.pn473.in, align 8, !noundef !10
   %.sink = add i64 %.pn473, %.sroa.6111.0
-  %.sink468 = sub i64 %.pn472, %.sroa.6111.0
+  %.sink468 = sub nuw i64 %.pn472, %.sroa.6111.0
   %.sink469.in = getelementptr inbounds i8, ptr %3, i64 8
   %.sink469 = load i64, ptr %.sink469.in, align 8, !noundef !10
   store i64 %storemerge, ptr %58, align 8
@@ -36837,7 +36837,7 @@ default.unreachable464:                           ; preds = %292
   %356 = getelementptr inbounds i8, ptr %337, i64 %350
   %357 = load i8, ptr %356, align 1, !alias.scope !5556, !noundef !10
   %358 = icmp sgt i8 %357, -65
-  %359 = sub i64 %339, %350
+  %359 = sub nuw i64 %339, %350
   br i1 %358, label %363, label %.invoke470
 
 .noexc225:                                        ; preds = %.invoke471
@@ -36964,7 +36964,7 @@ default.unreachable464:                           ; preds = %292
   %407 = getelementptr inbounds i8, ptr %390, i64 %401
   %408 = load i8, ptr %407, align 1, !alias.scope !5577, !noundef !10
   %409 = icmp sgt i8 %408, -65
-  %410 = sub i64 %389, %401
+  %410 = sub nuw i64 %389, %401
   br i1 %409, label %417, label %.invoke470
 
 .noexc239:                                        ; preds = %.invoke
@@ -37016,7 +37016,7 @@ _ZN15rustfmt_nightly5utils23trimmed_last_line_width17ha767721a6d860234E.exit243:
   br i1 %.not.i.i.i244, label %_ZN15rustfmt_nightly5shape5Shape9sub_width17ha9d02b228e8f27efE.exit.thread.i, label %426
 
 426:                                              ; preds = %424
-  %427 = sub i64 %.sroa.7314.0.copyload, %425
+  %427 = sub nuw i64 %.sroa.7314.0.copyload, %425
   %.not.i.i245 = icmp ult i64 %427, 5
   %brmerge75.i = or i1 %.not145., %.not.i.i245
   br i1 %brmerge75.i, label %_ZN15rustfmt_nightly5shape5Shape9sub_width17ha9d02b228e8f27efE.exit.thread.i, label %439
@@ -38159,7 +38159,7 @@ _ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit: ; preds = %8,
 81:                                               ; preds = %_ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit
   %82 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !5765, !noalias !5768, !noundef !10
   %83 = add i64 %.sroa.41.0.copyload, %78
-  %84 = sub i64 %80, %78
+  %84 = sub nuw i64 %80, %78
   %85 = getelementptr inbounds i8, ptr %57, i64 8
   store i64 %.sroa.0.0.copyload, ptr %85, align 8, !alias.scope !5770, !noalias !5773
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %57, i64 16
@@ -38579,7 +38579,7 @@ thread-pre-split:                                 ; preds = %.invoke
   %270 = getelementptr inbounds i8, ptr %173, i64 %264
   %271 = load i8, ptr %270, align 1, !alias.scope !5809, !noundef !10
   %272 = icmp sgt i8 %271, -65
-  %273 = sub i64 %174, %264
+  %273 = sub nuw i64 %174, %264
   br i1 %272, label %274, label %.invoke108
 
 274:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i", %267, %262
@@ -38725,7 +38725,7 @@ _ZN15rustfmt_nightly5utils12extra_offset17h0ec178fcabfe23b8E.exit150: ; preds = 
   %328 = load <2 x i64>, ptr %4, align 8, !alias.scope !5826, !noalias !5831
   %329 = load i64, ptr %.sroa.41.0..sroa_idx, align 8, !alias.scope !5826, !noalias !5831, !noundef !10
   %330 = add i64 %329, %325
-  %331 = sub i64 %326, %325
+  %331 = sub nuw i64 %326, %325
   %332 = load i64, ptr %.fca.1.gep, align 8, !noundef !10
   %.not.i = icmp ult i64 %331, %332
   br i1 %.not.i, label %_ZN15rustfmt_nightly5shape5Shape9sub_width17ha9d02b228e8f27efE.exit, label %_ZN15rustfmt_nightly5shape5Shape9sub_width17ha9d02b228e8f27efE.exit.thread
@@ -38737,7 +38737,7 @@ _ZN15rustfmt_nightly5shape5Shape9sub_width17ha9d02b228e8f27efE.exit: ; preds = %
   br label %422
 
 _ZN15rustfmt_nightly5shape5Shape9sub_width17ha9d02b228e8f27efE.exit.thread: ; preds = %327
-  %334 = sub i64 %331, %332
+  %334 = sub nuw i64 %331, %332
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46)
   %335 = load i8, ptr %51, align 1, !range !34, !noundef !10
   %336 = trunc nuw i8 %335 to i1
@@ -41303,7 +41303,7 @@ _ZN15rustfmt_nightly5utils18semicolon_for_stmt17hcd660d52c7d36dedE.exit: ; preds
   %102 = phi i64 [ %90, %.thread65 ], [ %100, %.thread58 ]
   %103 = phi ptr [ @anon.21b0228450bcd23381d410927297c89c.416.llvm.9097680112167513710, %.thread65 ], [ %98, %.thread58 ]
   %104 = phi i64 [ 0, %.thread65 ], [ %97, %.thread58 ]
-  %105 = sub i64 %102, %104
+  %105 = sub nuw i64 %102, %104
   %106 = getelementptr inbounds i8, ptr %2, i64 24
   %107 = load i64, ptr %106, align 8, !alias.scope !6376, !noalias !6378, !noundef !10
   %108 = load <2 x i64>, ptr %2, align 8, !alias.scope !6376, !noalias !6378

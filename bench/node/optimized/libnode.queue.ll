@@ -5473,11 +5473,11 @@ _ZNOSt8optionalImE5valueEv.exit:                  ; preds = %for.body
   br i1 %cmp22, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %_ZNOSt8optionalImE5valueEv.exit
-  %sub24 = sub i64 %start.addr.080, %8
+  %sub24 = sub nuw i64 %start.addr.080, %8
   br label %for.inc
 
 if.end25:                                         ; preds = %_ZNOSt8optionalImE5valueEv.exit
-  %sub28 = sub i64 %8, %start.addr.080
+  %sub28 = sub nuw i64 %8, %start.addr.080
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub28, i64 %remaining.079)
   %10 = load ptr, ptr %__begin3.sroa.0.075, align 8
   %add = add i64 %.sroa.speculated, %start.addr.080

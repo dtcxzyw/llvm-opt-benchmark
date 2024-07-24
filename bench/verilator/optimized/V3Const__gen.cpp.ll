@@ -13960,7 +13960,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %20
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   tail call void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %31)
   br label %.sink.split
 
@@ -20413,7 +20413,7 @@ _ZN8AstConstC2EP8FileLineNS_7BitTrueEb.exit264:   ; preds = %_ZN8AstConstC2EP8Fi
 
 503:                                              ; preds = %.thread, %497
   %504 = phi i32 [ %499, %.thread ], [ %465, %497 ]
-  %505 = sub i32 %504, %.6145
+  %505 = sub nuw i32 %504, %.6145
   %506 = uitofp i32 %505 to double
   %507 = load double, ptr %3, align 8
   %508 = fadd double %507, %506
@@ -25285,7 +25285,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrIN21ConstBitOpTre
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -26037,7 +26037,7 @@ define linkonce_odr dso_local void @_ZN21ConstBitOpTreeVisitor8Restorer10restore
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %9
-  %23 = sub i64 %13, %20
+  %23 = sub nuw i64 %13, %20
   tail call void @_ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %23)
   br label %_ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE6resizeEm.exit
 
@@ -26563,7 +26563,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt4pairIP11AstNodeExprN21ConstB
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -32848,7 +32848,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %50
-  %60 = sub nsw i64 %57, %56
+  %60 = sub nuw nsw i64 %57, %56
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %60)
           to label %._ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20_crit_edge unwind label %.loopexit
 
@@ -33271,7 +33271,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %56
-  %66 = sub nsw i64 %63, %62
+  %66 = sub nuw nsw i64 %63, %62
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %66)
           to label %._ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20_crit_edge unwind label %.loopexit
 

@@ -312,9 +312,9 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
 116:                                              ; preds = %144, %.lr.ph.i.i
   %.181.i.i = phi i32 [ %.045.i.i, %.lr.ph.i.i ], [ %146, %144 ]
   %117 = icmp ult i32 %.val60.i.i, %.181.i.i
-  %118 = sub i32 %.val60.i.i, %.181.i.i
+  %118 = sub nuw i32 %.val60.i.i, %.181.i.i
   %119 = icmp ult i32 %118, 4
-  %or.cond.i.i.i = or i1 %117, %119
+  %or.cond.i.i.i = select i1 %117, i1 true, i1 %119
   br i1 %or.cond.i.i.i, label %nstrace_set_start_time.exit.threadthread-pre-split.sink.split, label %nstrace_ensure_buflen.exit.i.i
 
 nstrace_ensure_buflen.exit.i.i:                   ; preds = %116
@@ -764,9 +764,9 @@ ns_hrtime2nsec.exit209:                           ; preds = %98, %108, %110, %11
 150:                                              ; preds = %.lr.ph
   %.val204 = load i32, ptr %14, align 4
   %151 = icmp ult i32 %.val204, %.1268
-  %152 = sub i32 %.val204, %.1268
+  %152 = sub nuw i32 %.val204, %.1268
   %153 = icmp ult i32 %152, 12
-  %or.cond.i = or i1 %151, %153
+  %or.cond.i = select i1 %151, i1 true, i1 %153
   br i1 %or.cond.i, label %nstrace_ensure_buflen.exit.thread, label %nstrace_ensure_buflen.exit
 
 nstrace_ensure_buflen.exit.thread:                ; preds = %150
@@ -802,9 +802,9 @@ nstrace_ensure_buflen.exit:                       ; preds = %150
 167:                                              ; preds = %.lr.ph
   %.val205 = load i32, ptr %14, align 4
   %168 = icmp ult i32 %.val205, %.1268
-  %169 = sub i32 %.val205, %.1268
+  %169 = sub nuw i32 %.val205, %.1268
   %170 = icmp ult i32 %169, 12
-  %or.cond.i211 = or i1 %168, %170
+  %or.cond.i211 = select i1 %168, i1 true, i1 %170
   br i1 %or.cond.i211, label %nstrace_ensure_buflen.exit213.thread, label %nstrace_ensure_buflen.exit213
 
 nstrace_ensure_buflen.exit213.thread:             ; preds = %167
@@ -847,9 +847,9 @@ nstrace_ensure_buflen.exit213:                    ; preds = %167
 191:                                              ; preds = %.lr.ph
   %.val206 = load i32, ptr %14, align 4
   %192 = icmp ult i32 %.val206, %.1268
-  %193 = sub i32 %.val206, %.1268
+  %193 = sub nuw i32 %.val206, %.1268
   %194 = icmp ult i32 %193, 12
-  %or.cond.i214 = or i1 %192, %194
+  %or.cond.i214 = select i1 %192, i1 true, i1 %194
   br i1 %or.cond.i214, label %nstrace_ensure_buflen.exit216.thread, label %nstrace_ensure_buflen.exit216
 
 nstrace_ensure_buflen.exit216.thread:             ; preds = %191
@@ -3134,9 +3134,9 @@ ns_hrtime2nsec.exit1104:                          ; preds = %497, %507, %509, %5
 1181:                                             ; preds = %.lr.ph
   %.val1084 = load i32, ptr %14, align 4
   %1182 = icmp ult i32 %.val1084, %.11280
-  %1183 = sub i32 %.val1084, %.11280
+  %1183 = sub nuw i32 %.val1084, %.11280
   %1184 = icmp ult i32 %1183, 8
-  %or.cond.i = or i1 %1182, %1184
+  %or.cond.i = select i1 %1182, i1 true, i1 %1184
   br i1 %or.cond.i, label %nstrace_ensure_buflen.exit.thread, label %nstrace_ensure_buflen.exit
 
 nstrace_ensure_buflen.exit.thread:                ; preds = %1181
@@ -3185,9 +3185,9 @@ nstrace_ensure_buflen.exit1108:                   ; preds = %1189, %1200
   %1207 = phi i32 [ %1206, %1200 ], [ %1188, %1189 ]
   %1208 = add i32 %1207, %.11280
   %1209 = icmp ult i32 %.val1084, %1208
-  %1210 = sub i32 %.val1084, %1208
+  %1210 = sub nuw i32 %.val1084, %1208
   %1211 = icmp ult i32 %1210, 8
-  %or.cond.i1109 = or i1 %1209, %1211
+  %or.cond.i1109 = select i1 %1209, i1 true, i1 %1211
   br i1 %or.cond.i1109, label %nstrace_ensure_buflen.exit1111.thread, label %nstrace_ensure_buflen.exit1111
 
 nstrace_ensure_buflen.exit1111.thread:            ; preds = %nstrace_ensure_buflen.exit1108
@@ -3212,9 +3212,9 @@ nstrace_ensure_buflen.exit1111:                   ; preds = %nstrace_ensure_bufl
 1219:                                             ; preds = %.lr.ph
   %.val1087 = load i32, ptr %14, align 4
   %1220 = icmp ult i32 %.val1087, %.11280
-  %1221 = sub i32 %.val1087, %.11280
+  %1221 = sub nuw i32 %.val1087, %.11280
   %1222 = icmp ult i32 %1221, 8
-  %or.cond.i1112 = or i1 %1220, %1222
+  %or.cond.i1112 = select i1 %1220, i1 true, i1 %1222
   br i1 %or.cond.i1112, label %nstrace_ensure_buflen.exit1114.thread, label %nstrace_ensure_buflen.exit1114
 
 nstrace_ensure_buflen.exit1114.thread:            ; preds = %1219
@@ -3294,9 +3294,9 @@ nstrace_ensure_buflen.exit1117:                   ; preds = %1234
 1264:                                             ; preds = %.lr.ph
   %.val1089 = load i32, ptr %14, align 4
   %1265 = icmp ult i32 %.val1089, %.11280
-  %1266 = sub i32 %.val1089, %.11280
+  %1266 = sub nuw i32 %.val1089, %.11280
   %1267 = icmp ult i32 %1266, 8
-  %or.cond.i1118 = or i1 %1265, %1267
+  %or.cond.i1118 = select i1 %1265, i1 true, i1 %1267
   br i1 %or.cond.i1118, label %nstrace_ensure_buflen.exit1120.thread, label %nstrace_ensure_buflen.exit1120
 
 nstrace_ensure_buflen.exit1120.thread:            ; preds = %1264
@@ -4795,9 +4795,9 @@ select.unfold399:                                 ; preds = %._crit_edge
   %295 = phi i32 [ %293, %287 ], [ %53, %286 ]
   %296 = add nuw nsw i32 %295, %.1459
   %297 = icmp ult i32 %.val383, %296
-  %298 = sub i32 %.val383, %296
+  %298 = sub nuw i32 %.val383, %296
   %299 = icmp ult i32 %298, 8
-  %or.cond.i387 = or i1 %297, %299
+  %or.cond.i387 = select i1 %297, i1 true, i1 %299
   br i1 %or.cond.i387, label %300, label %nstrace_ensure_buflen.exit389
 
 300:                                              ; preds = %294
@@ -5262,9 +5262,9 @@ define internal fastcc range(i32 0, 2) i32 @nstrace_set_start_time_v20(ptr nocap
 15:                                               ; preds = %.lr.ph, %63
   %.183 = phi i32 [ %.051, %.lr.ph ], [ %64, %63 ]
   %16 = icmp ult i32 %.val62, %.183
-  %17 = sub i32 %.val62, %.183
+  %17 = sub nuw i32 %.val62, %.183
   %18 = icmp ult i32 %17, 3
-  %or.cond.i = or i1 %16, %18
+  %or.cond.i = select i1 %16, i1 true, i1 %18
   br i1 %or.cond.i, label %nstrace_ensure_buflen.exit.thread, label %nstrace_ensure_buflen.exit
 
 nstrace_ensure_buflen.exit.thread:                ; preds = %15

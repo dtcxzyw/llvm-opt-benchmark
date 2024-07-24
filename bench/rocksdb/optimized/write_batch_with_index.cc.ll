@@ -909,7 +909,7 @@ if.then.i:                                        ; preds = %if.then4
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv3.i, %sub.ptr.div.i.i
+  %sub.i.i = sub nuw nsw i64 %conv3.i, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIPKN7rocksdb10ComparatorESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %cf_comparators_.i, ptr %0, i64 noundef %sub.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   %.pre.i = load ptr, ptr %cf_comparators_.i, align 8
   br label %_ZN7rocksdb25WriteBatchEntryComparator18SetComparatorForCFEjPKNS_10ComparatorE.exit
@@ -6209,7 +6209,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds ptr, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 

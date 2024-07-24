@@ -243,7 +243,7 @@ define ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) local_unnam
   unreachable
 
 10:                                               ; preds = %2
-  %11 = sub i32 %6, %7
+  %11 = sub nuw i32 %6, %7
   %12 = load i32, ptr %4, align 4
   %13 = call ptr @tvb_new(ptr noundef nonnull @tvb_subset_ops) #5
   %14 = getelementptr inbounds i8, ptr %13, i64 56

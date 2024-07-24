@@ -29,7 +29,7 @@ define dso_local i32 @pg_wcswidth(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
   %spec.select = add i32 %9, %.01519
   %10 = getelementptr i8, ptr %.021, i64 %5
-  %11 = sub i64 %.01420, %5
+  %11 = sub nuw i64 %.01420, %5
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 

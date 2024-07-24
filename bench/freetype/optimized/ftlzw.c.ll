@@ -156,7 +156,7 @@ define internal i64 @ft_lzw_stream_io(ptr nocapture noundef readonly %0, i64 nou
   br i1 %9, label %10, label %30
 
 10:                                               ; preds = %4
-  %11 = sub i64 %8, %1
+  %11 = sub nuw i64 %8, %1
   %12 = getelementptr inbounds i8, ptr %6, i64 4344
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 240
@@ -204,7 +204,7 @@ ft_lzw_file_reset.exit.thread.i:                  ; preds = %20
   br i1 %32, label %33, label %54
 
 33:                                               ; preds = %30
-  %34 = sub i64 %1, %31
+  %34 = sub nuw i64 %1, %31
   %35 = getelementptr inbounds i8, ptr %6, i64 4352
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %6, i64 4344

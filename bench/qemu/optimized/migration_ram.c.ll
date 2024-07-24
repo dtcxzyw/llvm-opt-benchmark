@@ -3118,7 +3118,7 @@ if.then6:                                         ; preds = %for.body, %lor.rhs
   br label %for.end
 
 if.end9:                                          ; preds = %lor.rhs
-  %sub = sub i64 %2, %1
+  %sub = sub nuw i64 %2, %1
   %sub.len.addr.0 = call i64 @llvm.umin.i64(i64 %len.addr.0, i64 %sub)
   %shr = lshr i64 %1, 12
   %shr17 = lshr i64 %sub.len.addr.0, 12
@@ -4751,7 +4751,7 @@ if.else.i:                                        ; preds = %if.end3.i
   unreachable
 
 if.end7.i:                                        ; preds = %if.end3.i
-  %sub.i = sub i64 %call4.i, %call1.i62
+  %sub.i = sub nuw i64 %call4.i, %call1.i62
   br label %land.lhs.true.i63
 
 land.lhs.true.i63:                                ; preds = %if.end7.i, %if.end.i, %migrate_ram_is_ignored.exit.i, %while.body34
@@ -9289,7 +9289,7 @@ sw.bb:                                            ; preds = %if.end7
 
 if.then8:                                         ; preds = %sw.bb
   %idstr9 = getelementptr inbounds i8, ptr %call1, i64 76
-  %sub = sub i64 %new_size, %old_size
+  %sub = sub nuw i64 %new_size, %old_size
   %call11 = call i32 @ram_discard_range(ptr noundef nonnull %idstr9, i64 noundef %old_size, i64 noundef %sub)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end17, label %if.then13

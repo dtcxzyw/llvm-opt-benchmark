@@ -61,7 +61,7 @@ stream_read_bits.exit.i:                          ; preds = %28, %18
   br i1 %37, label %38, label %60
 
 38:                                               ; preds = %stream_read_bits.exit.i
-  %39 = sub i32 %10, %36
+  %39 = sub nuw i32 %10, %36
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %9, i64 16
   %42 = load ptr, ptr %41, align 8
@@ -233,7 +233,7 @@ rev_decode_block_int32_3.exit:                    ; preds = %115
   br i1 %120, label %121, label %144
 
 121:                                              ; preds = %116
-  %122 = sub i32 %10, %119
+  %122 = sub nuw i32 %10, %119
   %123 = zext i32 %122 to i64
   %124 = getelementptr inbounds i8, ptr %9, i64 16
   %125 = load ptr, ptr %124, align 8
@@ -498,7 +498,7 @@ define internal fastcc i32 @decode_ints_uint32(ptr noalias nocapture noundef %0,
   br label %stream_read_bits.exit.i
 
 30:                                               ; preds = %11
-  %31 = sub i64 %.sroa.0.0120.i, %14
+  %31 = sub nuw i64 %.sroa.0.0120.i, %14
   %32 = lshr i64 %.sroa.9.0118.i, %14
   %notmask.i.i = shl nsw i64 -1, %14
   %33 = xor i64 %notmask.i.i, -1
@@ -691,7 +691,7 @@ decode_few_ints_uint32.exit:                      ; preds = %.loopexit.i, %.lr.p
   br label %stream_read_bits.exit.i27
 
 99:                                               ; preds = %.lr.ph106.i
-  %100 = sub i64 %.sroa.0.0104.i, %83
+  %100 = sub nuw i64 %.sroa.0.0104.i, %83
   %101 = lshr i64 %.sroa.11.0102.i, %83
   %notmask.i.i26 = shl nsw i64 -1, %83
   %102 = xor i64 %notmask.i.i26, -1

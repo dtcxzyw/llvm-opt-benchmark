@@ -230,12 +230,12 @@ define void @pmix_ptl_base_send_handler(i32 noundef %0, i16 noundef signext %1, 
   %80 = load ptr, ptr %48, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 %69
   store ptr %81, ptr %48, align 8
-  %82 = sub i64 %77, %69
+  %82 = sub nuw i64 %77, %69
   br label %97
 
 83:                                               ; preds = %76
   store i8 1, ptr %51, align 8
-  %84 = sub nsw i64 %69, %77
+  %84 = sub nuw nsw i64 %69, %77
   %85 = getelementptr inbounds i8, ptr %6, i64 288
   %86 = load ptr, ptr %85, align 8
   %.not43.i = icmp eq ptr %86, null

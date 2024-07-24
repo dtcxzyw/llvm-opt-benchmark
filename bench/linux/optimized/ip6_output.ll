@@ -2774,7 +2774,7 @@ define dso_local i32 @ip6_fragment(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %128, label %470, label %129
 
 129:                                              ; preds = %125
-  %130 = sub i32 %126, %37
+  %130 = sub nuw i32 %126, %37
   %131 = add i32 %130, -8
   %132 = load ptr, ptr %43, align 8
   %133 = load i16, ptr %45, align 4
@@ -4310,7 +4310,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br i1 %74, label %75, label %122
 
 75:                                               ; preds = %.thread
-  %76 = sub i32 %47, %71
+  %76 = sub nuw i32 %47, %71
   %77 = and i32 %76, -8
   %78 = add i32 %77, %71
   %79 = icmp ult i32 %78, 9

@@ -35,7 +35,7 @@ define void @pg_sha1_update(ptr noundef %0, ptr nocapture noundef readonly %1, i
   %9 = and i8 %8, 63
   %10 = zext nneg i8 %9 to i64
   %11 = sub nuw nsw i64 64, %10
-  %12 = sub i64 %2, %.025
+  %12 = sub nuw i64 %2, %.025
   %13 = tail call i64 @llvm.umin.i64(i64 %11, i64 %12)
   %14 = getelementptr [64 x i8], ptr %5, i64 0, i64 %10
   %15 = getelementptr i8, ptr %1, i64 %.025

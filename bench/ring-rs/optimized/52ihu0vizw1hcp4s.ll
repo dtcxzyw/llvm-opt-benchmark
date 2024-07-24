@@ -1817,7 +1817,7 @@ define hidden { ptr, i64 } @_ZN4ring3rsa10public_key5Inner12exponentiate17hcd4c5
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h2303a783267c09e5E.exit.invoke.i", label %50
 
 50:                                               ; preds = %49
-  %51 = sub nsw i64 %43, %2
+  %51 = sub nuw nsw i64 %43, %2
   %52 = getelementptr inbounds i8, ptr %3, i64 %51
   br label %53
 

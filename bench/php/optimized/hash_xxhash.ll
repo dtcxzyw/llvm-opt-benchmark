@@ -2019,7 +2019,7 @@ define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %
   br i1 %.not, label %81, label %10
 
 10:                                               ; preds = %7
-  %11 = sub nsw i64 %4, %9
+  %11 = sub nuw nsw i64 %4, %9
   %12 = shl i64 %8, 3
   %13 = getelementptr inbounds i8, ptr %5, i64 %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)

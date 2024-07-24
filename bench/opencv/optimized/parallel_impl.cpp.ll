@@ -1344,7 +1344,7 @@ define hidden noundef zeroext i1 @_ZN2cv10ThreadPool12reconfigure_Ej(ptr noundef
   br label %142
 
 20:                                               ; preds = %15
-  %21 = sub nsw i64 %13, %5
+  %21 = sub nuw nsw i64 %13, %5
   %22 = icmp ugt i64 %21, 576460752303423487
   br i1 %22, label %.noexc, label %.lr.ph39.preheader
 
@@ -2084,7 +2084,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE15_M_erase_at_endEPS3_.exit
 

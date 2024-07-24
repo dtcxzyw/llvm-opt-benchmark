@@ -4637,7 +4637,7 @@ define dso_local void @hba_getauthmethod(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %61, label %check_hostname.exit.thread.i, label %62
 
 62:                                               ; preds = %58
-  %63 = sub i64 %60, %59
+  %63 = sub nuw i64 %60, %59
   %64 = getelementptr i8, ptr %55, i64 %63
   br label %hostname_match.exit.i.i
 

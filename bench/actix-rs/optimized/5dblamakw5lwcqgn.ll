@@ -759,7 +759,7 @@ define hidden void @"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_im
   unreachable
 
 17:                                               ; preds = %2
-  %18 = sub i64 %8, %1
+  %18 = sub nuw i64 %8, %1
   store i64 %18, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !noundef !7
@@ -899,7 +899,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   unreachable
 
 "_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd2715435d24d73c0E.llvm.17229325763486607172.exit": ; preds = %39
-  %50 = sub i64 %41, %27
+  %50 = sub nuw i64 %41, %27
   store i64 %50, ptr %7, align 8, !alias.scope !94
   %51 = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !94, !noundef !7
   %52 = getelementptr inbounds i8, ptr %51, i64 %27
@@ -1402,7 +1402,7 @@ select.unfold:                                    ; preds = %55
           to label %144 unwind label %114, !noalias !209
 
 109:                                              ; preds = %.noexc26
-  %110 = sub i64 %92, %83
+  %110 = sub nuw i64 %92, %83
   %111 = getelementptr inbounds i8, ptr %10, i64 8
   %112 = load ptr, ptr %111, align 8, !alias.scope !213, !noalias !209, !noundef !7
   %113 = getelementptr inbounds i8, ptr %112, i64 %83

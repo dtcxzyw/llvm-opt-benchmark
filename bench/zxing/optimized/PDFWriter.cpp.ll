@@ -487,7 +487,7 @@ define linkonce_odr void @_ZN5ZXing6Pdf41713BarcodeMatrix15getScaledMatrixEiiRSt
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %4
-  %23 = sub i64 %13, %20
+  %23 = sub nuw i64 %13, %20
   tail call void @_ZNSt6vectorIS_IbSaIbEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %23)
   %.pre = load ptr, ptr %14, align 8
   br label %_ZNSt6vectorIS_IbSaIbEESaIS1_EE6resizeEm.exit
@@ -605,7 +605,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L11RotateArrayERKSt6vectorIS1_IbSaI
   br i1 %28, label %_ZNSt6vectorIS_IbSaIbEESaIS1_EE6resizeEm.exit.thread, label %30
 
 _ZNSt6vectorIS_IbSaIbEESaIS1_EE6resizeEm.exit.thread: ; preds = %2
-  %29 = sub i64 %20, %27
+  %29 = sub nuw i64 %20, %27
   tail call void @_ZNSt6vectorIS_IbSaIbEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %29)
   br label %.lr.ph
 
@@ -750,7 +750,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us:                ; preds = %.lr.ph32.us, %_ZNSt
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 96:                                               ; preds = %79
-  %97 = sub i64 %9, %92
+  %97 = sub nuw i64 %9, %92
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %81, ptr %83, i32 %85, i64 noundef %97, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
@@ -1420,7 +1420,7 @@ define linkonce_odr void @_ZNK5ZXing6Pdf41710BarcodeRow12getScaledRowEiRSt6vecto
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 36:                                               ; preds = %3
-  %37 = sub i64 %16, %27
+  %37 = sub nuw i64 %16, %27
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %18, i32 %20, i64 noundef %37, i1 noundef zeroext false)
   %.pre = load ptr, ptr %17, align 8
   %.pre14 = load i32, ptr %19, align 8

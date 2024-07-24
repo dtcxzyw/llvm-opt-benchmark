@@ -9127,7 +9127,7 @@ entry:
 
 for.body.preheader.i:                             ; preds = %entry
   %atomic-temp.0.i.i.i = inttoptr i64 %1 to ptr
-  %3 = sub i64 %0, %2
+  %3 = sub nuw i64 %0, %2
   %.neg = add nuw i64 %2, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0

@@ -3279,108 +3279,108 @@ define range(i32 -1, 1) i32 @H5Dscatter(ptr noundef readonly %0, ptr noundef %1,
   %80 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1579, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.73) #6
   br label %.thread
 
-81:                                               ; preds = %116
-  %82 = sub nsw i64 %.047115, %92
-  %83 = icmp sgt i64 %82, 0
-  br i1 %83, label %.lr.ph, label %.loopexit
+81:                                               ; preds = %115
+  %82 = sub nuw nsw i64 %.047115, %91
+  %.not124 = icmp eq i64 %82, 0
+  br i1 %.not124, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %81
   %.047115 = phi i64 [ %82, %81 ], [ %62, %.preheader ]
-  %84 = call i32 %0(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #6
-  %85 = icmp slt i32 %84, 0
-  br i1 %85, label %86, label %90
+  %83 = call i32 %0(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #6
+  %84 = icmp slt i32 %83, 0
+  br i1 %84, label %85, label %89
 
-86:                                               ; preds = %.lr.ph
-  %87 = load i64, ptr @H5E_DATASET_g, align 8
-  %88 = load i64, ptr @H5E_CALLBACK_g, align 8
-  %89 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1586, i64 noundef %87, i64 noundef %88, ptr noundef nonnull @.str.74) #6
+85:                                               ; preds = %.lr.ph
+  %86 = load i64, ptr @H5E_DATASET_g, align 8
+  %87 = load i64, ptr @H5E_CALLBACK_g, align 8
+  %88 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1586, i64 noundef %86, i64 noundef %87, ptr noundef nonnull @.str.74) #6
   br label %.loopexit
 
-90:                                               ; preds = %.lr.ph
-  %91 = load i64, ptr %7, align 8
-  %92 = udiv i64 %91, %55
-  %93 = urem i64 %91, %55
-  %94 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %94, null
-  br i1 %.not, label %95, label %99
+89:                                               ; preds = %.lr.ph
+  %90 = load i64, ptr %7, align 8
+  %91 = udiv i64 %90, %55
+  %92 = urem i64 %90, %55
+  %93 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %93, null
+  br i1 %.not, label %94, label %98
 
-95:                                               ; preds = %90
-  %96 = load i64, ptr @H5E_ARGS_g, align 8
-  %97 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %98 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1593, i64 noundef %96, i64 noundef %97, ptr noundef nonnull @.str.75) #6
+94:                                               ; preds = %89
+  %95 = load i64, ptr @H5E_ARGS_g, align 8
+  %96 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %97 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1593, i64 noundef %95, i64 noundef %96, ptr noundef nonnull @.str.75) #6
   br label %.loopexit
 
-99:                                               ; preds = %90
-  %100 = icmp eq i64 %91, 0
-  br i1 %100, label %101, label %105
+98:                                               ; preds = %89
+  %99 = icmp eq i64 %90, 0
+  br i1 %99, label %100, label %104
 
-101:                                              ; preds = %99
-  %102 = load i64, ptr @H5E_ARGS_g, align 8
-  %103 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %104 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1595, i64 noundef %102, i64 noundef %103, ptr noundef nonnull @.str.76) #6
+100:                                              ; preds = %98
+  %101 = load i64, ptr @H5E_ARGS_g, align 8
+  %102 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %103 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1595, i64 noundef %101, i64 noundef %102, ptr noundef nonnull @.str.76) #6
   br label %.loopexit
 
-105:                                              ; preds = %99
-  %.not61 = icmp eq i64 %93, 0
-  br i1 %.not61, label %110, label %106
+104:                                              ; preds = %98
+  %.not61 = icmp eq i64 %92, 0
+  br i1 %.not61, label %109, label %105
 
-106:                                              ; preds = %105
-  %107 = load i64, ptr @H5E_ARGS_g, align 8
-  %108 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %109 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1597, i64 noundef %107, i64 noundef %108, ptr noundef nonnull @.str.77) #6
+105:                                              ; preds = %104
+  %106 = load i64, ptr @H5E_ARGS_g, align 8
+  %107 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %108 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1597, i64 noundef %106, i64 noundef %107, ptr noundef nonnull @.str.77) #6
   br label %.loopexit
 
-110:                                              ; preds = %105
-  %111 = icmp ugt i64 %92, %.047115
-  br i1 %111, label %112, label %116
+109:                                              ; preds = %104
+  %110 = icmp ugt i64 %91, %.047115
+  br i1 %110, label %111, label %115
 
-112:                                              ; preds = %110
-  %113 = load i64, ptr @H5E_ARGS_g, align 8
-  %114 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %115 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1599, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.78) #6
+111:                                              ; preds = %109
+  %112 = load i64, ptr @H5E_ARGS_g, align 8
+  %113 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %114 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1599, i64 noundef %112, i64 noundef %113, ptr noundef nonnull @.str.78) #6
   br label %.loopexit
 
-116:                                              ; preds = %110
-  %117 = call i32 @H5D__scatter_mem(ptr noundef nonnull %94, ptr noundef nonnull %69, i64 noundef %92, ptr noundef nonnull %4) #6
-  %118 = icmp slt i32 %117, 0
-  br i1 %118, label %119, label %81
+115:                                              ; preds = %109
+  %116 = call i32 @H5D__scatter_mem(ptr noundef nonnull %93, ptr noundef nonnull %69, i64 noundef %91, ptr noundef nonnull %4) #6
+  %117 = icmp slt i32 %116, 0
+  br i1 %117, label %118, label %81
 
-119:                                              ; preds = %116
-  %120 = load i64, ptr @H5E_DATASET_g, align 8
-  %121 = load i64, ptr @H5E_CANTCOPY_g, align 8
-  %122 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1603, i64 noundef %120, i64 noundef %121, ptr noundef nonnull @.str.79) #6
+118:                                              ; preds = %115
+  %119 = load i64, ptr @H5E_DATASET_g, align 8
+  %120 = load i64, ptr @H5E_CANTCOPY_g, align 8
+  %121 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1603, i64 noundef %119, i64 noundef %120, ptr noundef nonnull @.str.79) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %81, %.preheader, %86, %95, %101, %106, %112, %119
-  %123 = phi i1 [ true, %86 ], [ true, %101 ], [ true, %106 ], [ true, %112 ], [ true, %119 ], [ true, %95 ], [ false, %.preheader ], [ false, %81 ]
-  %.045 = phi i32 [ -1, %86 ], [ -1, %101 ], [ -1, %106 ], [ -1, %112 ], [ -1, %119 ], [ -1, %95 ], [ 0, %.preheader ], [ 0, %81 ]
-  %124 = call i32 @H5S_select_iter_release(ptr noundef nonnull %69) #6
-  %125 = icmp slt i32 %124, 0
-  br i1 %125, label %126, label %.thread
+.loopexit:                                        ; preds = %81, %.preheader, %85, %94, %100, %105, %111, %118
+  %122 = phi i1 [ true, %85 ], [ true, %100 ], [ true, %105 ], [ true, %111 ], [ true, %118 ], [ true, %94 ], [ false, %.preheader ], [ false, %81 ]
+  %.045 = phi i32 [ -1, %85 ], [ -1, %100 ], [ -1, %105 ], [ -1, %111 ], [ -1, %118 ], [ -1, %94 ], [ 0, %.preheader ], [ 0, %81 ]
+  %123 = call i32 @H5S_select_iter_release(ptr noundef nonnull %69) #6
+  %124 = icmp slt i32 %123, 0
+  br i1 %124, label %125, label %.thread
 
-126:                                              ; preds = %.loopexit
-  %127 = load i64, ptr @H5E_DATASET_g, align 8
-  %128 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %129 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1611, i64 noundef %127, i64 noundef %128, ptr noundef nonnull @.str.80) #6
+125:                                              ; preds = %.loopexit
+  %126 = load i64, ptr @H5E_DATASET_g, align 8
+  %127 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %128 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dscatter, i32 noundef 1611, i64 noundef %126, i64 noundef %127, ptr noundef nonnull @.str.80) #6
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit, %126, %.thread.thread78
-  %.187 = phi i1 [ true, %.thread.thread78 ], [ true, %126 ], [ %123, %.loopexit ]
-  %.14686 = phi i32 [ -1, %.thread.thread78 ], [ -1, %126 ], [ %.045, %.loopexit ]
-  %130 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %69) #6
-  %131 = call i32 @H5CX_pop(i1 noundef zeroext true) #6
-  br i1 %.187, label %.thread101, label %134
+.thread:                                          ; preds = %.loopexit, %125, %.thread.thread78
+  %.187 = phi i1 [ true, %.thread.thread78 ], [ true, %125 ], [ %122, %.loopexit ]
+  %.14686 = phi i32 [ -1, %.thread.thread78 ], [ -1, %125 ], [ %.045, %.loopexit ]
+  %129 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %69) #6
+  %130 = call i32 @H5CX_pop(i1 noundef zeroext true) #6
+  br i1 %.187, label %.thread101, label %133
 
 .thread106:                                       ; preds = %71, %64, %57, %50, %44, %37, %30
-  %132 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #6
+  %131 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #6
   br label %.thread101
 
 .thread101:                                       ; preds = %16, %23, %.thread106, %.thread
   %.1467695105 = phi i32 [ %.14686, %.thread ], [ -1, %.thread106 ], [ -1, %23 ], [ -1, %16 ]
-  %133 = call i32 @H5E_dump_api_stack() #6
-  br label %134
+  %132 = call i32 @H5E_dump_api_stack() #6
+  br label %133
 
-134:                                              ; preds = %.thread101, %.thread
+133:                                              ; preds = %.thread101, %.thread
   %.1467695104 = phi i32 [ %.1467695105, %.thread101 ], [ %.14686, %.thread ]
   ret i32 %.1467695104
 }

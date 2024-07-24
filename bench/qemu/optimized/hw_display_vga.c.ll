@@ -3643,8 +3643,8 @@ if.then240.i:                                     ; preds = %land.lhs.true236.i
   br i1 %cmp255.not.not.i, label %if.end278.i, label %if.then260.i
 
 if.then260.i:                                     ; preds = %if.then240.i
-  %sub261.i = sub nsw i32 %spec.select161.i, %and244.i
-  %add262.i = add nsw i32 %sub261.i, 1
+  %sub261.i = sub nuw nsw i32 %spec.select161.i, %and244.i
+  %add262.i = add nuw nsw i32 %sub261.i, 1
   %mul263.i = mul i32 %and244.i, %call.i169.i
   %idx.ext264.i = sext i32 %mul263.i to i64
   %add.ptr265.i = getelementptr i8, ptr %d1.0427.i, i64 %idx.ext264.i

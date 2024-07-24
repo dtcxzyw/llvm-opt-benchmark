@@ -21062,7 +21062,7 @@ define internal noundef i64 @new_offset_store(ptr noundef %0, ptr noundef %1, i6
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %18
-  %24 = sub i64 %19, %21
+  %24 = sub nuw i64 %19, %21
   %25 = getelementptr inbounds i8, ptr %6, i64 288
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %24, %26
@@ -26242,7 +26242,7 @@ define internal noundef i32 @md_seq_show(ptr noundef %0, ptr noundef %1) #0 alig
   br i1 %182, label %.thread15, label %183
 
 183:                                              ; preds = %178
-  %184 = sub i64 %169, %181
+  %184 = sub nuw i64 %169, %181
   %185 = tail call i64 @llvm.umax.i64(i64 %184, i64 3)
   br label %.thread15
 

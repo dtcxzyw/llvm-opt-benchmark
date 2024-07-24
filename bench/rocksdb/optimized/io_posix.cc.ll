@@ -6457,7 +6457,7 @@ ehcleanup23:                                      ; preds = %ehcleanup22, %lpad9
 if.else:                                          ; preds = %entry
   %add = add i64 %n, %offset
   %cmp25 = icmp ugt i64 %add, %3
-  %sub = sub i64 %3, %offset
+  %sub = sub nuw i64 %3, %offset
   %spec.select = select i1 %cmp25, i64 %sub, i64 %n
   %mmapped_region_ = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load ptr, ptr %mmapped_region_, align 8
@@ -11648,7 +11648,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end11
 
 if.then5:                                         ; preds = %if.end
-  %sub7 = sub i64 %div, %1
+  %sub7 = sub nuw i64 %div, %1
   %mul = mul i64 %1, %0
   %mul9 = mul i64 %sub7, %0
   %vtable = load ptr, ptr %this, align 8

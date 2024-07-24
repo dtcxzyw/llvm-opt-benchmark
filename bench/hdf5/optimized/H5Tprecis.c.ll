@@ -391,7 +391,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__set_precision(ptr nocapture no
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, %1
   %49 = icmp ugt i64 %48, %43
-  %50 = sub i64 %43, %1
+  %50 = sub nuw i64 %43, %1
   %spec.select = select i1 %49, i64 %50, i64 %47
   br label %51
 

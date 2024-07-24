@@ -1235,7 +1235,7 @@ _ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_dealloc
   br i1 %387, label %388, label %412
 
 388:                                              ; preds = %.noexc105
-  %389 = sub nsw i64 %352, %386
+  %389 = sub nuw nsw i64 %352, %386
   %390 = ptrtoint ptr %381 to i64
   %391 = sub i64 %390, %384
   %392 = ashr exact i64 %391, 2
@@ -1460,7 +1460,7 @@ _ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_dealloc
   br i1 %479, label %480, label %504
 
 480:                                              ; preds = %.noexc108
-  %481 = sub nsw i64 %444, %478
+  %481 = sub nuw nsw i64 %444, %478
   %482 = ptrtoint ptr %473 to i64
   %483 = sub i64 %482, %476
   %484 = ashr exact i64 %483, 2
@@ -1598,7 +1598,7 @@ _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEE17resizeWithP
   br i1 %535, label %536, label %567
 
 536:                                              ; preds = %527
-  %537 = sub nsw i64 %528, %534
+  %537 = sub nuw nsw i64 %528, %534
   %538 = load ptr, ptr %262, align 8
   %539 = ptrtoint ptr %538 to i64
   %540 = sub i64 %539, %531
@@ -1713,7 +1713,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %571, %569, %567, %.
   br i1 %582, label %583, label %614
 
 583:                                              ; preds = %574
-  %584 = sub nsw i64 %575, %581
+  %584 = sub nuw nsw i64 %575, %581
   %585 = load ptr, ptr %263, align 8
   %586 = ptrtoint ptr %585 to i64
   %587 = sub i64 %586, %578
@@ -1828,7 +1828,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit184.i:          ; preds = %618, %616, %614, %.
   br i1 %628, label %629, label %660
 
 629:                                              ; preds = %621
-  %630 = sub nsw i64 %.pre1878, %627
+  %630 = sub nuw nsw i64 %.pre1878, %627
   %631 = load ptr, ptr %264, align 8
   %632 = ptrtoint ptr %631 to i64
   %633 = sub i64 %632, %624
@@ -1942,7 +1942,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit186.i:          ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %674, label %675, label %706
 
 675:                                              ; preds = %667
-  %676 = sub nsw i64 %.pre1878, %673
+  %676 = sub nuw nsw i64 %.pre1878, %673
   %677 = load ptr, ptr %265, align 8
   %678 = ptrtoint ptr %677 to i64
   %679 = sub i64 %678, %670
@@ -2046,7 +2046,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit188.i:          ; preds = %_ZSt27__uninitializ
   br i1 %717, label %718, label %744
 
 718:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit188.i
-  %719 = sub nsw i64 %.pre1878, %716
+  %719 = sub nuw nsw i64 %.pre1878, %716
   %720 = load ptr, ptr %266, align 8
   %721 = ptrtoint ptr %720 to i64
   %722 = sub i64 %721, %713
@@ -2066,7 +2066,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit188.i:          ; preds = %_ZSt27__uninitializ
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
 
 729:                                              ; preds = %718
-  %730 = icmp ult i64 %725, %719
+  %730 = icmp slt i32 %.1124.lcssa295303.i, 0
   br i1 %730, label %.invoke3197, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE12_M_check_lenEmPKc.exit.i
 
 _ZNKSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE12_M_check_lenEmPKc.exit.i: ; preds = %729
@@ -2141,7 +2141,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
   br i1 %755, label %756, label %779
 
 756:                                              ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
-  %757 = sub nsw i64 %.pre1878, %754
+  %757 = sub nuw nsw i64 %.pre1878, %754
   %758 = load ptr, ptr %268, align 8
   %759 = ptrtoint ptr %758 to i64
   %760 = sub i64 %759, %751
@@ -2161,7 +2161,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
   br label %.noexc116
 
 767:                                              ; preds = %756
-  %768 = icmp ult i64 %763, %757
+  %768 = icmp slt i32 %.1124.lcssa295303.i, 0
   br i1 %768, label %.invoke3197, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %767
@@ -2645,7 +2645,7 @@ _ZL18gmx_pmeonly_switchPSt6vectorIP9gmx_pme_tSaIS1_EEPKiffPK9t_commrecPK10t_inpu
   br i1 %.not.i.i140, label %949, label %947
 
 947:                                              ; preds = %.noexc141
-  %948 = sub i64 %945, %946
+  %948 = sub nuw i64 %945, %946
   br label %950
 
 949:                                              ; preds = %.noexc141
@@ -3000,7 +3000,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit149: ; preds = %1026, 
   br i1 %.not.i150, label %1147, label %1145
 
 1145:                                             ; preds = %.noexc152
-  %1146 = sub i64 %1143, %1144
+  %1146 = sub nuw i64 %1143, %1144
   br label %1148
 
 1147:                                             ; preds = %.noexc152
@@ -3547,7 +3547,7 @@ _ZN3gmx6detail17computePaddedSizeIfEEll.exit.i:   ; preds = %32, %22
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.noexc
-  %46 = sub nsw i64 %30, %43
+  %46 = sub nuw nsw i64 %30, %43
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %46)
           to label %.noexc14 unwind label %71
 
@@ -3876,7 +3876,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %29, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !80
 
 36:                                               ; preds = %15
-  %37 = sub i64 %2, %19
+  %37 = sub nuw i64 %2, %19
   %.not8.i = icmp eq i64 %37, 0
   br i1 %.not8.i, label %_ZSt24__uninitialized_fill_n_aIPfmfN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RKT1_RT2_.exit, label %.lr.ph.i
 

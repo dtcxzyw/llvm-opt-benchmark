@@ -547,7 +547,7 @@ define hidden void @"_ZN193_$LT$$LT$alloc..collections..vec_deque..into_iter..In
   %12 = load i64, ptr %11, align 8, !noundef !4
   %.not = icmp ult i64 %10, %12
   %13 = select i1 %.not, i64 0, i64 %12
-  %.0 = sub i64 %10, %13
+  %.0 = sub nuw i64 %10, %13
   store i64 %.0, ptr %8, align 8
   ret void
 }
@@ -4190,7 +4190,7 @@ define hidden void @"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..collections..vec
   %12 = load i64, ptr %11, align 8, !noalias !1390, !noundef !4
   %.not.i = icmp ult i64 %10, %12
   %13 = select i1 %.not.i, i64 0, i64 %12
-  %.0.i = sub i64 %10, %13
+  %.0.i = sub nuw i64 %10, %13
   store i64 %.0.i, ptr %8, align 8, !noalias !1390
   ret void
 }

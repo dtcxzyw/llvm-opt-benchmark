@@ -2903,7 +2903,7 @@ if.end:                                           ; preds = %entry
   %cmp.i = icmp ult i64 %add2, 4097
   %cmp2.not.i = icmp ult i64 %call.i, %add2
   %or.cond.i = select i1 %cmp.i, i1 %cmp2.not.i, i1 false
-  %sub4.i = sub nsw i64 %add2, %call.i
+  %sub4.i = sub nuw nsw i64 %add2, %call.i
   %cmp5.not.i = icmp ult i64 %call1.i, %sub4.i
   %or.cond19.i = select i1 %or.cond.i, i1 %cmp5.not.i, i1 false
   br i1 %or.cond19.i, label %if.end.i, label %if.then7
@@ -2965,7 +2965,7 @@ entry:
   %cmp.i = icmp ult i64 %sub.i, 4097
   %cmp2.not.i = icmp ult i64 %call.i, %sub.i
   %or.cond.i = select i1 %cmp.i, i1 %cmp2.not.i, i1 false
-  %sub4.i = sub nsw i64 %sub.i, %call.i
+  %sub4.i = sub nuw nsw i64 %sub.i, %call.i
   %cmp5.not.i = icmp ult i64 %call1.i, %sub4.i
   %or.cond19.i = select i1 %or.cond.i, i1 %cmp5.not.i, i1 false
   br i1 %or.cond19.i, label %if.end.i, label %join_relfile.exit

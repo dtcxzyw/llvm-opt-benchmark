@@ -29384,7 +29384,7 @@ define void @_ZN5image6codecs3hdr7decoder11HdrMetadata18update_header_info17h84a
   %45 = getelementptr inbounds i8, ptr %31, i64 %36
   %46 = load i8, ptr %45, align 1, !alias.scope !3110, !noalias !3115, !noundef !14
   %47 = icmp sgt i8 %46, -65
-  %48 = sub i64 %33, %36
+  %48 = sub nuw i64 %33, %36
   br i1 %47, label %50, label %49
 
 49:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i.i.i.i", %42

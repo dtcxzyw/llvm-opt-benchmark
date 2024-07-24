@@ -1177,7 +1177,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit70: ; preds = %126, %127
   %137 = ptrtoint ptr %.0.i63 to i64
   %138 = sub i64 %136, %137
   %.010.i67 = select i1 %135, i64 %138, i64 0
-  %139 = sub i64 %111, %80
+  %139 = sub nuw i64 %111, %80
   %140 = icmp ult i64 %.010.i67, %139
   br i1 %140, label %141, label %168
 

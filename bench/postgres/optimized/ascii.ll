@@ -105,8 +105,8 @@ define internal fastcc noundef ptr @encode_to_ascii(ptr noundef returned %0, i32
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %21
-  %24 = sub nsw i32 %19, %.0.i
-  %25 = sext i32 %24 to i64
+  %24 = sub nuw nsw i32 %19, %.0.i
+  %25 = zext nneg i32 %24 to i64
   %26 = getelementptr i8, ptr %.018.i, i64 %25
   %27 = load i8, ptr %26, align 1
   br label %28

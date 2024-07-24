@@ -37606,7 +37606,7 @@ if.then13:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %add = add i64 %sub.ptr.div.i, %total_columns.084
-  %sub19 = sub i64 %current_position.083, %sub.ptr.div.i
+  %sub19 = sub nuw i64 %current_position.083, %sub.ptr.div.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.082, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body

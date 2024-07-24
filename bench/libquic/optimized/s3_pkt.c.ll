@@ -26,7 +26,7 @@ if.then.i:                                        ; preds = %entry
   br label %ssl3_write_bytes.exit
 
 if.end.i:                                         ; preds = %entry
-  %sub.i = sub i32 %len, %1
+  %sub.i = sub nuw i32 %len, %1
   %max_send_fragment.i = getelementptr inbounds i8, ptr %ssl, i64 280
   %2 = load i16, ptr %max_send_fragment.i, align 8
   %conv625.i = zext i16 %2 to i32
@@ -101,7 +101,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i32 %len, %1
+  %sub = sub nuw i32 %len, %1
   %max_send_fragment = getelementptr inbounds i8, ptr %ssl, i64 280
   %2 = load i16, ptr %max_send_fragment, align 8
   %conv625 = zext i16 %2 to i32

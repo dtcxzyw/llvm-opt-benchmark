@@ -1503,7 +1503,7 @@ define dso_local i32 @dma_mmap_pages(ptr nocapture readnone %0, ptr noundef %1, 
   %13 = load i64, ptr %1, align 8
   %14 = sub i64 %12, %13
   %15 = lshr i64 %14, 12
-  %16 = sub nsw i64 %6, %8
+  %16 = sub nuw nsw i64 %6, %8
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %28, label %18
 
@@ -1814,7 +1814,7 @@ define dso_local i32 @dma_mmap_noncontiguous(ptr nocapture noundef readonly %0, 
   %24 = load i64, ptr %1, align 8
   %25 = sub i64 %23, %24
   %26 = lshr i64 %25, 12
-  %27 = sub nsw i64 %17, %19
+  %27 = sub nuw nsw i64 %17, %19
   %28 = icmp ugt i64 %26, %27
   br i1 %28, label %59, label %29
 
@@ -1841,7 +1841,7 @@ define dso_local i32 @dma_mmap_noncontiguous(ptr nocapture noundef readonly %0, 
   %45 = load i64, ptr %1, align 8
   %46 = sub i64 %44, %45
   %47 = lshr i64 %46, 12
-  %48 = sub nsw i64 %38, %40
+  %48 = sub nuw nsw i64 %38, %40
   %49 = icmp ugt i64 %47, %48
   br i1 %49, label %59, label %50
 

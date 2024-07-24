@@ -2724,7 +2724,7 @@ agxblen.exit.thread.i:                            ; preds = %8
   %17 = zext i8 %.val.i.i to i64
   %18 = sub nsw i64 31, %17
   %19 = icmp ult i64 %18, %9
-  br i1 %19, label %26, label %35
+  br i1 %19, label %26, label %36
 
 agxbsizeof.exit.i.i:                              ; preds = %agxblen.exit.i
   %20 = icmp eq i64 %12, 0
@@ -2739,74 +2739,75 @@ agxbsizeof.exit.i.i:                              ; preds = %agxblen.exit.i
   br label %.thread41.i
 
 26:                                               ; preds = %agxblen.exit.thread.i
-  %27 = add nuw nsw i64 %17, %9
-  %spec.select.i.i = call i64 @llvm.umax.i64(i64 %27, i64 62)
-  %28 = call noalias ptr @calloc(i64 noundef %spec.select.i.i, i64 noundef 1) #20
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %gv_calloc.exit.i.i
+  %27 = sub nuw nsw i64 %9, %18
+  %28 = call i64 @llvm.umax.i64(i64 %27, i64 31)
+  %spec.select.i.i = add nuw nsw i64 %28, 31
+  %29 = call noalias ptr @calloc(i64 noundef %spec.select.i.i, i64 noundef 1) #20
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %gv_calloc.exit.i.i
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.6, i64 noundef %spec.select.i.i) #21
+31:                                               ; preds = %26
+  %32 = load ptr, ptr @stderr, align 8
+  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.6, i64 noundef %spec.select.i.i) #21
   call fastcc void @graphviz_exit() #22
   unreachable
 
 gv_calloc.exit.i.i:                               ; preds = %26
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 8 %0, i64 %17, i1 false)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %17, ptr %33, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 8 %0, i64 %17, i1 false)
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %17, ptr %34, align 8
   br label %.thread41.i
 
 .thread41.i:                                      ; preds = %gv_calloc.exit.i.i, %agxbsizeof.exit.i.i
   %.pre = phi i64 [ %.pre.pre, %agxbsizeof.exit.i.i ], [ %17, %gv_calloc.exit.i.i ]
   %spec.select3742.i.i = phi i64 [ %spec.select34.i.i, %agxbsizeof.exit.i.i ], [ %spec.select.i.i, %gv_calloc.exit.i.i ]
-  %.0.i33.i = phi ptr [ %25, %agxbsizeof.exit.i.i ], [ %28, %gv_calloc.exit.i.i ]
+  %.0.i33.i = phi ptr [ %25, %agxbsizeof.exit.i.i ], [ %29, %gv_calloc.exit.i.i ]
   store ptr %.0.i33.i, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %spec.select3742.i.i, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %spec.select3742.i.i, ptr %35, align 8
   store i8 -1, ptr %10, align 1
-  br label %37
+  br label %38
 
 ._crit_edge.i:                                    ; preds = %agxblen.exit.i
   %.pre.i = load ptr, ptr %0, align 8
-  br label %37
+  br label %38
 
-35:                                               ; preds = %agxblen.exit.thread.i
-  %36 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %17
+36:                                               ; preds = %agxblen.exit.thread.i
+  %37 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %17
   br label %agxbnext.exit.i
 
-37:                                               ; preds = %._crit_edge.i, %.thread41.i
-  %38 = phi i64 [ %14, %._crit_edge.i ], [ %.pre, %.thread41.i ]
-  %39 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.0.i33.i, %.thread41.i ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 %38
+38:                                               ; preds = %._crit_edge.i, %.thread41.i
+  %39 = phi i64 [ %14, %._crit_edge.i ], [ %.pre, %.thread41.i ]
+  %40 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.0.i33.i, %.thread41.i ]
+  %41 = getelementptr inbounds i8, ptr %40, i64 %39
   br label %agxbnext.exit.i
 
-agxbnext.exit.i:                                  ; preds = %37, %35
-  %41 = phi ptr [ %36, %35 ], [ %40, %37 ]
-  %42 = call i32 @vsnprintf(ptr noundef %41, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #19
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %44, label %vagxbprint.exit
+agxbnext.exit.i:                                  ; preds = %38, %36
+  %42 = phi ptr [ %37, %36 ], [ %41, %38 ]
+  %43 = call i32 @vsnprintf(ptr noundef %42, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #19
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %45, label %vagxbprint.exit
 
-44:                                               ; preds = %agxbnext.exit.i
+45:                                               ; preds = %agxbnext.exit.i
   %.val.i = load i8, ptr %10, align 1
   %.not.i = icmp eq i8 %.val.i, -1
-  br i1 %.not.i, label %48, label %45
+  br i1 %.not.i, label %49, label %46
 
-45:                                               ; preds = %44
-  %46 = trunc i32 %42 to i8
-  %47 = add i8 %.val.i, %46
-  store i8 %47, ptr %10, align 1
+46:                                               ; preds = %45
+  %47 = trunc i32 %43 to i8
+  %48 = add i8 %.val.i, %47
+  store i8 %48, ptr %10, align 1
   br label %vagxbprint.exit
 
-48:                                               ; preds = %44
-  %49 = zext nneg i32 %42 to i64
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  %51 = load i64, ptr %50, align 8
-  %52 = add i64 %51, %49
-  store i64 %52, ptr %50, align 8
+49:                                               ; preds = %45
+  %50 = zext nneg i32 %43 to i64
+  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = load i64, ptr %51, align 8
+  %53 = add i64 %52, %50
+  store i64 %53, ptr %51, align 8
   br label %vagxbprint.exit
 
-vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %45, %48
+vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %46, %49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
@@ -2946,7 +2947,7 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = sub i64 %10, %9
+  %23 = sub nuw i64 %10, %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %22, i8 0, i64 %23, i1 false)
   br label %gv_realloc.exit
 

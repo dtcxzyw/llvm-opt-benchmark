@@ -6098,11 +6098,9 @@ if.else36:                                        ; preds = %if.else
 if.else43:                                        ; preds = %if.else36
   %maybeYesCompositions.i = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load ptr, ptr %maybeYesCompositions.i, align 8
-  %conv.i30 = zext i16 %7 to i32
-  %conv2.i = zext i16 %20 to i32
-  %sub.i31 = sub nsw i32 %conv.i30, %conv2.i
-  %shr.i32 = ashr i32 %sub.i31, 1
-  %idx.ext.i33 = sext i32 %shr.i32 to i64
+  %narrow = sub nuw i16 %7, %20
+  %22 = lshr i16 %narrow, 1
+  %idx.ext.i33 = zext nneg i16 %22 to i64
   %add.ptr.i34 = getelementptr inbounds i16, ptr %21, i64 %idx.ext.i33
   br label %if.end47
 
@@ -6117,8 +6115,8 @@ if.end52:                                         ; preds = %if.end47
 
 if.then.i:                                        ; preds = %if.end52
   %conv.i37 = shl nuw nsw i32 %b, 1
-  %22 = load i16, ptr %list.0, align 2
-  %conv224.i = zext i16 %22 to i32
+  %23 = load i16, ptr %list.0, align 2
+  %conv224.i = zext i16 %23 to i32
   %cmp325.i = icmp ugt i32 %conv.i37, %conv224.i
   br i1 %cmp325.i, label %while.body.i, label %while.end.i
 
@@ -6129,8 +6127,8 @@ while.body.i:                                     ; preds = %if.then.i, %while.b
   %add.i40 = or disjoint i32 %and.i39, 2
   %idx.ext.i41 = zext nneg i32 %add.i40 to i64
   %add.ptr.i42 = getelementptr inbounds i16, ptr %list.addr.026.i, i64 %idx.ext.i41
-  %23 = load i16, ptr %add.ptr.i42, align 2
-  %conv2.i43 = zext i16 %23 to i32
+  %24 = load i16, ptr %add.ptr.i42, align 2
+  %conv2.i43 = zext i16 %24 to i32
   %cmp3.i = icmp ugt i32 %conv.i37, %conv2.i43
   br i1 %cmp3.i, label %while.body.i, label %while.end.i, !llvm.loop !25
 
@@ -6145,8 +6143,8 @@ if.then9.i:                                       ; preds = %while.end.i
   %and11.i = and i32 %conv2.lcssa.i, 1
   %tobool.not.i = icmp eq i32 %and11.i, 0
   %arrayidx17.i = getelementptr inbounds i8, ptr %list.addr.0.lcssa.i, i64 2
-  %24 = load i16, ptr %arrayidx17.i, align 2
-  %conv18.i = zext i16 %24 to i32
+  %25 = load i16, ptr %arrayidx17.i, align 2
+  %conv18.i = zext i16 %25 to i32
   br i1 %tobool.not.i, label %_ZN6icu_7515Normalizer2Impl7combineEPKti.exit, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.then9.i
@@ -6163,8 +6161,8 @@ if.else19.i:                                      ; preds = %if.end52
 
 for.cond.i:                                       ; preds = %for.cond.i.backedge, %if.else19.i
   %list.addr.1.i = phi ptr [ %list.0, %if.else19.i ], [ %list.addr.1.i.be, %for.cond.i.backedge ]
-  %25 = load i16, ptr %list.addr.1.i, align 2
-  %conv26.i = zext i16 %25 to i32
+  %26 = load i16, ptr %list.addr.1.i, align 2
+  %conv26.i = zext i16 %26 to i32
   %cmp27.i = icmp ugt i32 %conv25.i, %conv26.i
   br i1 %cmp27.i, label %if.then28.i, label %if.else34.i
 
@@ -6182,13 +6180,13 @@ if.else34.i:                                      ; preds = %for.cond.i
 
 if.then39.i:                                      ; preds = %if.else34.i
   %arrayidx41.i = getelementptr inbounds i8, ptr %list.addr.1.i, i64 2
-  %26 = load i16, ptr %arrayidx41.i, align 2
-  %conv42.i = zext i16 %26 to i32
+  %27 = load i16, ptr %arrayidx41.i, align 2
+  %conv42.i = zext i16 %27 to i32
   %cmp43.i = icmp ugt i32 %conv40.i, %conv42.i
   br i1 %cmp43.i, label %if.then44.i, label %if.else52.i
 
 if.then44.i:                                      ; preds = %if.then39.i
-  %tobool47.not.i = icmp sgt i16 %25, -1
+  %tobool47.not.i = icmp sgt i16 %26, -1
   br i1 %tobool47.not.i, label %if.else49.i, label %_ZN6icu_7515Normalizer2Impl7combineEPKti.exit
 
 if.else49.i:                                      ; preds = %if.then44.i
@@ -6213,8 +6211,8 @@ return.sink.split.i:                              ; preds = %if.then57.i, %if.th
   %list.addr.1.lcssa33.sink.i = phi ptr [ %list.addr.1.i, %if.then57.i ], [ %list.addr.0.lcssa.i, %if.then12.i ]
   %shl60.sink.i = phi i32 [ %shl60.i, %if.then57.i ], [ %shl14.i, %if.then12.i ]
   %arrayidx61.i = getelementptr inbounds i8, ptr %list.addr.1.lcssa33.sink.i, i64 4
-  %27 = load i16, ptr %arrayidx61.i, align 2
-  %conv62.i = zext i16 %27 to i32
+  %28 = load i16, ptr %arrayidx61.i, align 2
+  %conv62.i = zext i16 %28 to i32
   %or63.i = or disjoint i32 %shl60.sink.i, %conv62.i
   br label %_ZN6icu_7515Normalizer2Impl7combineEPKti.exit
 

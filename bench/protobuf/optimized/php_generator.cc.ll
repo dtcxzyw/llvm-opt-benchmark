@@ -7012,7 +7012,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %45
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %45
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %45
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i49, align 8
   store ptr %add.ptr15.i, ptr %agg.tmp52.sroa.2.0..sroa_idx, align 8
@@ -9973,7 +9973,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i101: ; preds = %i
   %add.ptr15.i103 = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i96, i64 %389
   %sub.ptr.rhs.cast.i104 = ptrtoint ptr %add.ptr15.i103 to i64
   %sub.ptr.sub.i105 = sub i64 %sub.ptr.lhs.cast.i102, %sub.ptr.rhs.cast.i104
-  %sub.i.i106 = sub i64 %retval.sroa.0.0.copyload.i.i94, %389
+  %sub.i.i106 = sub nuw i64 %retval.sroa.0.0.copyload.i.i94, %389
   %.sroa.speculated.i.i107 = call i64 @llvm.umin.i64(i64 %sub.i.i106, i64 %sub.ptr.sub.i105)
   store i64 %.sroa.speculated.i.i107, ptr %curr_.i, align 8
   store ptr %add.ptr15.i103, ptr %agg.tmp14.sroa.2.0..sroa_idx, align 8
@@ -14805,7 +14805,7 @@ if.then.i.i64.cont:                               ; preds = %if.then.i.i64.invok
 invoke.cont82:                                    ; preds = %while.body
   %sub80 = sub nsw i32 %first_index.0134, %start_index.0135
   %conv81 = sext i32 %sub80 to i64
-  %sub.i = sub i64 %.sroa.speculated.i, %conv79
+  %sub.i = sub nuw i64 %.sroa.speculated.i, %conv79
   %.sroa.speculated.i59 = call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv81)
   %add.ptr.i61 = getelementptr inbounds i8, ptr %2, i64 %conv79
   invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp77, i64 %.sroa.speculated.i59, ptr %add.ptr.i61, i1 noundef zeroext true)
@@ -14841,7 +14841,7 @@ invoke.cont95:                                    ; preds = %invoke.cont94
   br i1 %cmp.i.i69, label %if.then.i.i71, label %if.end99
 
 if.then.i.i71:                                    ; preds = %invoke.cont95
-  %sub.i.i = sub i64 %.sroa.speculated.i, %conv96
+  %sub.i.i = sub nuw i64 %.sroa.speculated.i, %conv96
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %conv96
   %call.i.i.i73 = call ptr @memchr(ptr noundef nonnull %add.ptr.i.i, i32 noundef 47, i64 noundef %sub.i.i) #24
   %tobool.not.i.i74 = icmp eq ptr %call.i.i.i73, null
@@ -14894,7 +14894,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit92: ; preds 
 invoke.cont113:                                   ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit92
   %sub111 = sub nsw i32 %first_index.1145, %file_name_start.0
   %conv112 = sext i32 %sub111 to i64
-  %sub.i94 = sub i64 %.sroa.speculated.i, %conv110
+  %sub.i94 = sub nuw i64 %.sroa.speculated.i, %conv110
   %.sroa.speculated.i95 = call i64 @llvm.umin.i64(i64 %sub.i94, i64 %conv112)
   %add.ptr.i97 = getelementptr inbounds i8, ptr %2, i64 %conv110
   invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp108, i64 %.sroa.speculated.i95, ptr %add.ptr.i97, i1 noundef zeroext true)
@@ -19593,7 +19593,7 @@ if.then.i.i10:                                    ; preds = %if.then3
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.then3
-  %sub.i = sub i64 %0, %add
+  %sub.i = sub nuw i64 %0, %add
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %add
   store i64 %sub.i, ptr %ref.tmp7, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i11 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
@@ -20517,7 +20517,7 @@ if.then.i.i10:                                    ; preds = %if.then3
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.then3
-  %sub.i = sub i64 %0, %add
+  %sub.i = sub nuw i64 %0, %add
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %add
   store i64 %sub.i, ptr %ref.tmp7, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i11 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
@@ -24845,7 +24845,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i.i, i64 %6
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i, %6
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i.i, %6
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !750
   store ptr %add.ptr15.i.i.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i, align 8, !alias.scope !750
@@ -24920,7 +24920,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %17
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %17
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %17
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %_M_str.i, align 8
@@ -25092,7 +25092,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterI
 
 _ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_6ByCharENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_6ByCharENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_6ByCharENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit
   %7 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_6ByCharENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_6ByCharENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
@@ -31262,7 +31262,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %6
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %6
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %6
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -31466,7 +31466,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %8
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %8
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i, align 8
   store ptr %add.ptr15.i, ptr %_M_str.i, align 8
@@ -31614,7 +31614,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterI
 
 _ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit
   %7 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr %"class.std::basic_string_view", ptr %7, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i42 = icmp eq ptr %1, %__position.coerce
@@ -31912,7 +31912,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i, i64 %6
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i, %6
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i, %6
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24

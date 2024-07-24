@@ -2228,7 +2228,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
   %343 = getelementptr inbounds i8, ptr %342, i64 16
   %344 = load i32, ptr %343, align 8
   %345 = zext i32 %344 to i64
-  %346 = sub i64 %339, %336
+  %346 = sub nuw i64 %339, %336
   %347 = icmp ult i64 %346, %345
   br i1 %347, label %348, label %355
 

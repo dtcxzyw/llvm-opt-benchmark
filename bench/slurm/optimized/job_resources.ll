@@ -948,7 +948,7 @@ job_res_job_action_string.exit145:                ; preds = %40, %switch.lookup2
   br label %109
 
 107:                                              ; preds = %85
-  %108 = sub i64 %96, %99
+  %108 = sub nuw i64 %96, %99
   store i64 %108, ptr %95, align 8
   br label %109
 

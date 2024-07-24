@@ -1657,7 +1657,7 @@ dissect_payload.exit:                             ; preds = %174, %177, %identif
   unreachable
 
 257:                                              ; preds = %254
-  %258 = sub i32 %213, %.2
+  %258 = sub nuw i32 %213, %.2
   %259 = getelementptr inbounds i8, ptr %.1, i64 20
   %260 = load i32, ptr %259, align 4
   %261 = call ptr @fragment_add_check(ptr noundef nonnull @ftdi_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %260, ptr noundef nonnull %.1, i32 noundef %.2, i32 noundef %258, i32 noundef 0) #8

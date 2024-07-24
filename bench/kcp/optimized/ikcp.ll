@@ -844,7 +844,7 @@ if.then5:                                         ; preds = %if.then2
   br i1 %cmp8, label %if.then9, label %if.end67
 
 if.then9:                                         ; preds = %if.then5
-  %sub = sub i32 %4, %3
+  %sub = sub nuw i32 %4, %3
   %cond = tail call i32 @llvm.smin.i32(i32 %sub, i32 %len)
   %add = add i32 %cond, %3
   %conv.i = sext i32 %add to i64

@@ -226,7 +226,7 @@ define void @rb_Digest_SHA256_Update(ptr nocapture noundef %0, ptr nocapture nou
   %20 = load i64, ptr %6, align 8
   %21 = add i64 %20, %19
   store i64 %21, ptr %6, align 8
-  %22 = sub i64 %2, %13
+  %22 = sub nuw i64 %2, %13
   %23 = getelementptr inbounds i8, ptr %1, i64 %13
   tail call void @rb_Digest_SHA256_Transform(ptr noundef nonnull %0, ptr noundef nonnull %14)
   br label %25

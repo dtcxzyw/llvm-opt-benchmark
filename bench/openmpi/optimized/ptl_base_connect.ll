@@ -182,7 +182,7 @@ define range(i32 -25, 1) i32 @pmix_ptl_base_send_blocking(i32 noundef %0, ptr no
 .lr.ph.split.us:                                  ; preds = %11, %.outer
   %.014.ph35 = phi i64 [ %39, %.outer ], [ 0, %11 ]
   %12 = getelementptr inbounds i8, ptr %1, i64 %.014.ph35
-  %13 = sub i64 %2, %.014.ph35
+  %13 = sub nuw i64 %2, %.014.ph35
   %14 = tail call i64 @send(i32 noundef %0, ptr noundef %12, i64 noundef %13, i32 noundef 0) #13
   %15 = and i64 %14, 2147483648
   %.not.us33 = icmp eq i64 %15, 0
@@ -294,7 +294,7 @@ define range(i32 -25, 1) i32 @pmix_ptl_base_recv_blocking(i32 noundef %0, ptr no
 .lr.ph.split.us:                                  ; preds = %11, %.outer
   %.012.ph34 = phi i64 [ %48, %.outer ], [ 0, %11 ]
   %12 = getelementptr inbounds i8, ptr %1, i64 %.012.ph34
-  %13 = sub i64 %2, %.012.ph34
+  %13 = sub nuw i64 %2, %.012.ph34
   %14 = tail call i64 @recv(i32 noundef %0, ptr noundef %12, i64 noundef %13, i32 noundef 256) #13
   %15 = trunc i64 %14 to i32
   %16 = icmp eq i32 %15, 0

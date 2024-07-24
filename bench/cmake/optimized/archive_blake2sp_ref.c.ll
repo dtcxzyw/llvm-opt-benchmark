@@ -323,7 +323,7 @@ define dso_local i32 @blake2sp_final(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
-  %18 = sub i64 %14, %15
+  %18 = sub nuw i64 %14, %15
   %spec.store.select = call i64 @llvm.umin.i64(i64 %18, i64 64)
   %19 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.02530
   %20 = getelementptr inbounds i8, ptr %11, i64 %15
@@ -464,7 +464,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br label %68
 
 60:                                               ; preds = %._crit_edge.us
-  %61 = sub nsw i64 %71, %57
+  %61 = sub nuw nsw i64 %71, %57
   %62 = call i64 @llvm.umin.i64(i64 %61, i64 64)
   %63 = call i32 @blake2s_update(ptr noundef nonnull %59, ptr noundef nonnull %70, i64 noundef %62) #7
   br label %64
@@ -497,7 +497,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 76:                                               ; preds = %.split
   %77 = getelementptr inbounds i8, ptr %2, i64 %74
-  %78 = sub nsw i64 %3, %74
+  %78 = sub nuw nsw i64 %3, %74
   %79 = call i64 @llvm.umin.i64(i64 %78, i64 64)
   %80 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %10, i64 0, i64 %.269
   %81 = call i32 @blake2s_update(ptr noundef nonnull %80, ptr noundef %77, i64 noundef %79) #7

@@ -797,7 +797,7 @@ _ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit124: ; preds = %.lr.ph
   br label %49
 
 54:                                               ; preds = %49
-  %55 = sub i64 %.0107, %.0144
+  %55 = sub nuw i64 %.0107, %.0144
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %57, label %59
 
@@ -831,7 +831,7 @@ _ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit124: ; preds = %.lr.ph
   br label %.backedge
 
 68:                                               ; preds = %63
-  %69 = sub i64 %.2109, %.0144
+  %69 = sub nuw i64 %.2109, %.0144
   %70 = icmp eq i64 %69, %.sroa.084.0145
   br i1 %70, label %71, label %.backedge
 
@@ -1142,7 +1142,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %22
   %136 = getelementptr inbounds i8, ptr %122, i64 %127
   %137 = load i8, ptr %136, align 1, !alias.scope !131, !noalias !136, !noundef !4
   %138 = icmp sgt i8 %137, -65
-  %139 = sub i64 %124, %127
+  %139 = sub nuw i64 %124, %127
   br i1 %138, label %141, label %140
 
 140:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %133
@@ -2456,7 +2456,7 @@ _ZN6uucore8features11version_cmp21version_non_digit_cmp17ha9f3b3cb810a870bE.exit
   %307 = getelementptr inbounds i8, ptr %.sroa.0148.1, i64 %134
   %308 = load i8, ptr %307, align 1, !alias.scope !254, !noundef !4
   %309 = icmp sgt i8 %308, -65
-  %310 = sub i64 %.sroa.14158.1, %134
+  %310 = sub nuw i64 %.sroa.14158.1, %134
   br i1 %309, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit243", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit243.thread"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit243": ; preds = %_ZN6uucore8features11version_cmp21version_non_digit_cmp17ha9f3b3cb810a870bE.exit.thread321, %304, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i242"
@@ -2787,7 +2787,7 @@ _ZN4core3str7pattern8Searcher11next_reject17h9778596a4295aa97E.llvm.615688637316
   %462 = getelementptr inbounds i8, ptr %198, i64 %362
   %463 = load i8, ptr %462, align 1, !alias.scope !330, !noundef !4
   %464 = icmp sgt i8 %463, -65
-  %465 = sub i64 %311, %362
+  %465 = sub nuw i64 %311, %362
   br i1 %464, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit273", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit273.thread"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit273": ; preds = %457, %459, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i272"
@@ -2812,7 +2812,7 @@ _ZN4core3str7pattern8Searcher11next_reject17h9778596a4295aa97E.llvm.615688637316
   %472 = getelementptr inbounds i8, ptr %313, i64 %411
   %473 = load i8, ptr %472, align 1, !alias.scope !335, !noundef !4
   %474 = icmp sgt i8 %473, -65
-  %475 = sub i64 %312, %411
+  %475 = sub nuw i64 %312, %411
   br i1 %474, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit277", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit277.thread"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit277": ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit273", %469, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i276"

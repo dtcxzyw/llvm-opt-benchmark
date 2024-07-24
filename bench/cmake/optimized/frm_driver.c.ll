@@ -2954,7 +2954,7 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %43, label %44, label %.loopexit
 
 44:                                               ; preds = %40
-  %45 = sub i32 %42, %17
+  %45 = sub nuw i32 %42, %17
   %46 = getelementptr inbounds i8, ptr %0, i64 2
   %47 = load i16, ptr %46, align 2
   %48 = sext i16 %47 to i32
@@ -3060,7 +3060,7 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %112, label %113, label %.thread
 
 113:                                              ; preds = %97
-  %114 = sub i32 %.086, %111
+  %114 = sub nuw i32 %.086, %111
   %115 = zext i32 %114 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %107, i8 32, i64 %115, i1 false)
   br label %.thread

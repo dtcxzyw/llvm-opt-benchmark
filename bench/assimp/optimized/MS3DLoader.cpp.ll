@@ -2028,7 +2028,7 @@ invoke.cont148:                                   ; preds = %invoke.cont145
   br i1 %cmp.i467, label %if.then.i470, label %if.else.i
 
 if.then.i470:                                     ; preds = %invoke.cont148
-  %sub.i = sub nsw i64 %conv151, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv151, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %triangles150, i64 noundef %sub.i)
           to label %_ZNSt6vectorIjSaIjEE6resizeEm.exit unwind label %lpad142.loopexit
 
@@ -5655,7 +5655,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64

@@ -10508,7 +10508,7 @@ define dso_local range(i64 -107, 4294967296) i64 @ZSTD_copySequencesToSeqStoreNo
 65:                                               ; preds = %63
   %66 = sub i32 %52, %.0183259
   %67 = icmp ult i32 %66, %64
-  %68 = sub i32 %64, %66
+  %68 = sub nuw i32 %64, %66
   %.1192 = select i1 %67, i32 %68, i32 %.0191255
   %69 = tail call i32 @llvm.usub.sat.i32(i32 %64, i32 %66)
   %.0180 = sub i32 %60, %69

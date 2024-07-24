@@ -17067,7 +17067,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EE7subspanEmm.exit: ; preds = %
   %58 = getelementptr inbounds i8, ptr %41, i64 64
   %.sroa.0.0.copyload.i = load i32, ptr %58, align 8, !noalias !257
   %59 = getelementptr inbounds float, ptr %50, i64 %47
-  %60 = sub i64 %45, %47
+  %60 = sub nuw i64 %45, %47
   %61 = getelementptr inbounds i8, ptr %0, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %62, align 8
@@ -17721,7 +17721,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc68, %_ZNSt6ve
   unreachable
 
 147:                                              ; preds = %143
-  %148 = sub nsw i64 %121, %141
+  %148 = sub nuw nsw i64 %121, %141
   %149 = getelementptr inbounds double, ptr %117, i64 %141
   %.sink.i.i.i72 = select i1 %144, i64 0, i64 %111
   store i64 3, ptr %21, align 8, !alias.scope !290
@@ -17756,7 +17756,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc68, %_ZNSt6ve
   unreachable
 
 159:                                              ; preds = %155
-  %160 = sub nsw i64 %121, %153
+  %160 = sub nuw nsw i64 %121, %153
   %161 = getelementptr inbounds double, ptr %117, i64 %153
   %.sink.i.i.i80 = select i1 %156, i64 0, i64 %111
   store i64 3, ptr %22, align 8, !alias.scope !296
@@ -21246,7 +21246,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EE7subspanEmm.exit: ; preds = %
   unreachable
 
 57:                                               ; preds = %51
-  %58 = sub i64 %47, %49
+  %58 = sub nuw i64 %47, %49
   %59 = getelementptr inbounds float, ptr %52, i64 %49
   %60 = getelementptr inbounds i8, ptr %43, i64 64
   %.sroa.0.0.copyload.i = load i32, ptr %60, align 8, !noalias !412

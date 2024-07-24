@@ -914,12 +914,12 @@ if.then10:                                        ; preds = %if.then8
 
 if.end11:                                         ; preds = %if.then8
   store i16 4095, ptr %arrayidx.i, align 2
-  %sub12 = sub nsw i32 %unchangedLength, %sub
+  %sub12 = sub nuw nsw i32 %unchangedLength, %sub
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end5, %if.end11, %_ZNK6icu_755Edits8lastUnitEv.exit
   %unchangedLength.addr.0 = phi i32 [ %sub12, %if.end11 ], [ %unchangedLength, %_ZNK6icu_755Edits8lastUnitEv.exit ], [ %unchangedLength, %if.end5 ]
-  %cmp1469 = icmp sgt i32 %unchangedLength.addr.0, 4095
+  %cmp1469 = icmp ugt i32 %unchangedLength.addr.0, 4095
   br i1 %cmp1469, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end13

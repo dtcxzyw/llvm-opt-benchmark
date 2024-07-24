@@ -361,7 +361,7 @@ define dso_local ptr @win64_reclassify_hva_arg(ptr nocapture noundef %0, ptr noc
   br i1 %.not12, label %19, label %16
 
 16:                                               ; preds = %12
-  %17 = sub i32 %14, %15
+  %17 = sub nuw i32 %14, %15
   store i32 %17, ptr %13, align 4
   %18 = call ptr @abi_arg_new_direct_by_reg(i1 noundef zeroext true) #5
   br label %19
@@ -532,7 +532,7 @@ define dso_local void @c_abi_func_create_win64(ptr nocapture noundef %0) local_u
   br i1 %.not12.i.i, label %win64_reclassify_hva_arg.exit.i, label %59
 
 59:                                               ; preds = %57
-  %60 = sub i32 %46, %58
+  %60 = sub nuw i32 %46, %58
   %61 = call ptr @abi_arg_new_direct_by_reg(i1 noundef zeroext true) #5
   br label %win64_reclassify_hva_arg.exit.i
 

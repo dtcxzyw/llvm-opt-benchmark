@@ -184,7 +184,7 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
   br i1 %61, label %62, label %78
 
 62:                                               ; preds = %58
-  %63 = sub i64 %3, %60
+  %63 = sub nuw i64 %3, %60
   %64 = load i64, ptr %7, align 8
   %65 = sub i64 %36, %64
   %66 = call i64 @llvm.umin.i64(i64 %63, i64 %65)

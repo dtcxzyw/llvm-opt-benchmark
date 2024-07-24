@@ -5460,7 +5460,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN
   br i1 %157, label %158, label %160
 
 158:                                              ; preds = %.loopexit130
-  %159 = sub nsw i64 %149, %156
+  %159 = sub nuw nsw i64 %149, %156
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %159)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -22889,7 +22889,7 @@ _ZN2cv3Mat5beginIiEENS_12MatIterator_IT_EEv.exit288: ; preds = %444, %445
   br i1 %459, label %460, label %462
 
 460:                                              ; preds = %451
-  %461 = sub nsw i64 %128, %458
+  %461 = sub nuw nsw i64 %128, %458
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %453, i64 noundef %461, ptr noundef nonnull align 4 dereferenceable(4) %53)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %432
 
@@ -52679,7 +52679,7 @@ _ZN11opencv_onnx9NodeProto10add_outputERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %87, label %88, label %120
 
 88:                                               ; preds = %78
-  %89 = sub nsw i64 %80, %86
+  %89 = sub nuw nsw i64 %80, %86
   %90 = load ptr, ptr %38, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = sub i64 %91, %83
@@ -70421,7 +70421,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -70767,7 +70767,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorI
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %57 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %58 = sub nsw i64 %9, %20
+  %58 = sub nuw nsw i64 %9, %20
   %59 = getelementptr inbounds %"class.cv::Mat", ptr %57, i64 %58
   store ptr %59, ptr %12, align 8
   %.not11.i.i.i.i.i54 = icmp eq ptr %13, %1

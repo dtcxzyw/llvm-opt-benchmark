@@ -4154,7 +4154,7 @@ if.then.i.i:                                      ; preds = %do.body
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %do.body
-  %sub.i = sub i64 %file_path.sroa.0.0, %add
+  %sub.i = sub nuw i64 %file_path.sroa.0.0, %add
   %add.ptr.i = getelementptr inbounds i8, ptr %file_path.sroa.10.0, i64 %add
   %cmp.i10 = icmp eq i64 %sub.i, 0
   br i1 %cmp.i10, label %do.end, label %if.then.i13

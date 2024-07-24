@@ -10112,7 +10112,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   unreachable
 
 26:                                               ; preds = %19
-  %27 = sub i64 %20, %18
+  %27 = sub nuw i64 %20, %18
   store i64 %27, ptr %1, align 8, !alias.scope !2077, !noalias !2067
   %28 = icmp ugt ptr %17, inttoptr (i64 32 to ptr)
   br i1 %28, label %.noexc, label %43
@@ -15952,7 +15952,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4
   %26 = getelementptr inbounds i8, ptr %.val, i64 %18
   %27 = load i8, ptr %26, align 1, !alias.scope !3302, !noalias !3307, !noundef !13
   %28 = icmp sgt i8 %27, -65
-  %29 = sub i64 %.val5, %18
+  %29 = sub nuw i64 %.val5, %18
   br i1 %28, label %31, label %30
 
 30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %23

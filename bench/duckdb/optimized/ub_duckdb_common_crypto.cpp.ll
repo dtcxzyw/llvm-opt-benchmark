@@ -60,7 +60,7 @@ if.end16:                                         ; preds = %if.then12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %input, i64 %conv13, i1 false)
   tail call fastcc void @_ZN6duckdbL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in)
   %add.ptr24 = getelementptr inbounds i8, ptr %input, i64 %conv13
-  %sub26 = sub i64 %len, %conv13
+  %sub26 = sub nuw i64 %len, %conv13
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end16, %entry
@@ -838,7 +838,7 @@ if.end16.i:                                       ; preds = %if.then12.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %data, i64 %conv13.i, i1 false)
   tail call fastcc void @_ZN6duckdbL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i)
   %add.ptr24.i = getelementptr inbounds i8, ptr %data, i64 %conv13.i
-  %sub26.i = sub i64 %call2, %conv13.i
+  %sub26.i = sub nuw i64 %call2, %conv13.i
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end16.i, %entry

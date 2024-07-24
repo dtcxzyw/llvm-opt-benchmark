@@ -7190,7 +7190,7 @@ if.then.i.i:                                      ; preds = %if.end23
 _ZNKSt17basic_string_viewIwSt11char_traitsIwEE6substrEmm.exit: ; preds = %if.end23
   %sub25 = sub i32 %prefix_end.1, %prefix_start.1
   %conv26 = zext i32 %sub25 to i64
-  %sub.i = sub i64 %4, %conv24
+  %sub.i = sub nuw i64 %4, %conv24
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv26)
   %add.ptr.i201 = getelementptr inbounds i32, ptr %3, i64 %conv24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %completions) #26
@@ -7617,7 +7617,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7replaceEmmPKwm.exit.i: ; p
   %_M_string_length.i.i284 = getelementptr inbounds i8, ptr %add.ptr.i263, i64 8
   %66 = load i64, ptr %_M_string_length.i.i284, align 8, !tbaa !46
   %67 = load ptr, ptr %add.ptr.i263, align 8, !tbaa !43
-  %sub.i.i.i = sub i64 %65, %conv24
+  %sub.i.i.i = sub nuw i64 %65, %conv24
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %conv128)
   %call3.i.i287 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE10_M_replaceEmmPKwm(ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i, i64 noundef %conv24, i64 noundef %spec.select.i.i.i, ptr noundef %67, i64 noundef %66)
           to label %invoke.cont129 unwind label %lpad123
@@ -7938,7 +7938,7 @@ invoke.cont4.i.i:                                 ; preds = %entry
   store ptr %15, ptr %ref.tmp, align 8, !tbaa !68, !alias.scope !142
   %16 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !43, !noalias !142
   %add.ptr.i.i10 = getelementptr inbounds i32, ptr %16, i64 %conv
-  %sub.i.i.i = sub i64 %4, %conv
+  %sub.i.i.i = sub nuw i64 %4, %conv
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %conv6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #26, !noalias !142
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !31, !noalias !142
@@ -9114,7 +9114,7 @@ invoke.cont4.i.i:                                 ; preds = %if.end10
   store ptr %7, ptr %agg.result, align 8, !tbaa !68, !alias.scope !157
   %8 = load ptr, ptr %this, align 8, !tbaa !43, !noalias !157
   %add.ptr.i.i = getelementptr inbounds i32, ptr %8, i64 %5
-  %sub.i.i.i = sub i64 %6, %5
+  %sub.i.i.i = sub nuw i64 %6, %5
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #26, !noalias !157
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !31, !noalias !157
@@ -9297,7 +9297,7 @@ invoke.cont4.i.i52:                               ; preds = %_ZNKSt7__cxx1112bas
   store ptr %14, ptr %text, align 8, !tbaa !68, !alias.scope !163
   %15 = load ptr, ptr %message, align 8, !tbaa !43, !noalias !163
   %add.ptr.i.i53 = getelementptr inbounds i32, ptr %15, i64 %add
-  %sub.i.i.i54 = sub i64 %13, %add
+  %sub.i.i.i54 = sub nuw i64 %13, %add
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i49) #26, !noalias !163
   store i64 %sub.i.i.i54, ptr %__dnew.i.i.i49, align 8, !tbaa !31, !noalias !163
   %cmp.i15.i.i55 = icmp ugt i64 %sub.i.i.i54, 3

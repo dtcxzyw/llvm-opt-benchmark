@@ -3641,7 +3641,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.llvm
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h554d430186713f3aE.exit" unwind label %49
 
 44:                                               ; preds = %16
-  %45 = sub i64 %26, %17
+  %45 = sub nuw i64 %26, %17
   store i64 %45, ptr %25, align 8, !alias.scope !626
   %46 = getelementptr inbounds i8, ptr %8, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !626, !noundef !7
@@ -4415,7 +4415,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !737
   %67 = icmp eq i32 %bcmp.i, 0
@@ -5001,7 +5001,7 @@ select.unfold:                                    ; preds = %60
           to label %.body36.thread unwind label %121, !noalias !846
 
 116:                                              ; preds = %.noexc35
-  %117 = sub i64 %99, %89
+  %117 = sub nuw i64 %99, %89
   %118 = getelementptr inbounds i8, ptr %9, i64 8
   %119 = load ptr, ptr %118, align 8, !alias.scope !850, !noalias !846, !noundef !7
   %120 = getelementptr inbounds i8, ptr %119, i64 %89
@@ -5712,7 +5712,7 @@ default.unreachable11:                            ; preds = %5
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %24
-  %27 = sub i64 %2, %8
+  %27 = sub nuw i64 %2, %8
   %28 = add i64 %2, -1
   br label %.sink.split
 
@@ -6550,7 +6550,7 @@ define void @_ZN9actix_web4http6header6Writer4take17h6b3594f1be7405a6E(ptr noali
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h554d430186713f3aE.exit.i" unwind label %49, !noalias !1062
 
 44:                                               ; preds = %17
-  %45 = sub i64 %27, %18
+  %45 = sub nuw i64 %27, %18
   store i64 %45, ptr %26, align 8, !alias.scope !1063, !noalias !1062
   %46 = getelementptr inbounds i8, ptr %8, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !1063, !noalias !1062, !noundef !7
@@ -9354,7 +9354,7 @@ define void @"_ZN91_$LT$actix_web..types..payload..HttpMessageBody$u20$as$u20$co
           to label %.thread unwind label %65, !noalias !1523
 
 60:                                               ; preds = %.noexc
-  %61 = sub i64 %43, %34
+  %61 = sub nuw i64 %43, %34
   %62 = getelementptr inbounds i8, ptr %9, i64 8
   %63 = load ptr, ptr %62, align 8, !alias.scope !1524, !noalias !1523, !noundef !7
   %64 = getelementptr inbounds i8, ptr %63, i64 %34

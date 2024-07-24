@@ -576,7 +576,7 @@ define dso_local noundef i32 @badblocks_set(ptr noundef %0, i64 noundef %1, i32 
   br i1 %170, label %171, label %176
 
 171:                                              ; preds = %167
-  %172 = sub nsw i64 %161, %32
+  %172 = sub nuw nsw i64 %161, %32
   %173 = tail call i64 @llvm.umin.i64(i64 %33, i64 %172)
   %174 = trunc i64 %173 to i32
   %175 = add i32 %29, 1
@@ -849,7 +849,7 @@ default.unreachable87:                            ; preds = %195
   br i1 %352, label %353, label %356
 
 353:                                              ; preds = %350
-  %354 = sub nsw i64 %.pre-phi83, %32
+  %354 = sub nuw nsw i64 %.pre-phi83, %32
   %355 = tail call i64 @llvm.umin.i64(i64 %33, i64 %354)
   br label %376
 
@@ -1329,10 +1329,10 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
 136:                                              ; preds = %134
   %137 = add nuw nsw i64 %23, %24
   %138 = shl nuw i64 %137, 9
-  %139 = sub nsw i64 %88, %24
+  %139 = sub nuw nsw i64 %88, %24
   %140 = and i64 %83, -9223372036854775808
-  %141 = or i64 %139, %140
-  %142 = or i64 %141, %138
+  %141 = or disjoint i64 %139, %140
+  %142 = or i64 %138, %141
   store i64 %142, ptr %82, align 8
   br label %167
 

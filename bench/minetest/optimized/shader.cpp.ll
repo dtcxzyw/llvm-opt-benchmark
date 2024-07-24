@@ -9172,7 +9172,7 @@ if.then.i.i50:                                    ; preds = %while.end
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit51: ; preds = %while.end
-  %sub.i45 = sub i64 %program.coerce0, %prev.0.lcssa
+  %sub.i45 = sub nuw i64 %program.coerce0, %prev.0.lcssa
   %add.ptr.i47 = getelementptr inbounds i8, ptr %program.coerce1, i64 %prev.0.lcssa
   %call2.i52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef %add.ptr.i47, i64 noundef %sub.i45)
   %vtable.i107 = load ptr, ptr %call2.i52, align 8, !tbaa !58

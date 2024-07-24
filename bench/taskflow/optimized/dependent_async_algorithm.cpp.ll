@@ -6936,7 +6936,7 @@ for.body8.lr.ph:                                  ; preds = %for.cond6.preheader
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %_ZNSt6vectorIPN2tf4NodeESaIS2_EED2Ev.exit
   %j.032 = phi i64 [ 1, %for.body8.lr.ph ], [ %inc, %_ZNSt6vectorIPN2tf4NodeESaIS2_EED2Ev.exit ]
-  %sub = sub i64 %i.029, %j.032
+  %sub = sub nuw i64 %i.029, %j.032
   %5 = load ptr, ptr %0, align 8
   %arrayidx.i10 = getelementptr inbounds ptr, ptr %5, i64 %sub
   %6 = load ptr, ptr %arrayidx.i10, align 8
@@ -9663,7 +9663,7 @@ for.end:                                          ; preds = %for.body, %_ZSt9par
   br i1 %cmp.i2, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
-  %sub.i = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit
 
@@ -16167,7 +16167,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %num_workers, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %num_workers, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorISt5stackINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt5dequeIS9_SaIS9_EEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %_stacks, i64 noundef %sub.i)
   br label %_ZNSt6vectorISt5stackINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt5dequeIS9_SaIS9_EEESaISD_EE6resizeEm.exit
 
@@ -16607,7 +16607,7 @@ entry:
   br i1 %cmp, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %add12.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %add12.i.i.i, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIS_IN2tf7SegmentESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i8, i64 noundef %sub.i)
   %.pre = load ptr, ptr %_stacks, align 8
   %add.ptr.i37.phi.trans.insert = getelementptr inbounds %"class.std::stack", ptr %.pre, i64 %0
@@ -17286,7 +17286,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIS_IS_IN2tf7SegmentESaIS1_EESaIS3_EESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -18811,7 +18811,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then5.i.i.i.i, %
   %ref.tmp.sroa.10.0.i.i.i = phi ptr [ %ref.tmp.sroa.10.6.i.i.i, %if.end26.i.i.i.i.i ], [ %beg.sroa.0.0.copyload.i.i.i, %if.then5.i.i.i.i ]
   %ref.tmp.sroa.0.0.i.i.i.i = phi i64 [ %ref.tmp.sroa.0.2.i.i.i.i, %if.end26.i.i.i.i.i ], [ 0, %if.then5.i.i.i.i ]
   %curr_b.090.i.i.i.i.i = phi i64 [ %curr_b.17.i.i.i.i.i, %if.end26.i.i.i.i.i ], [ %9, %if.then5.i.i.i.i ]
-  %sub.i.i.i.i.i = sub i64 %sub.ptr.div.i.i.i.i.i.i, %curr_b.090.i.i.i.i.i
+  %sub.i.i.i.i.i = sub nuw i64 %sub.ptr.div.i.i.i.i.i.i, %curr_b.090.i.i.i.i.i
   %cmp5.i.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, %mul3.i.i.i.i.i
   br i1 %cmp5.i.i.i.i.i, label %while.body7.preheader.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -19339,7 +19339,7 @@ entry:
 while.body.i:                                     ; preds = %entry, %if.end26.i
   %ref.tmp.sroa.0.0 = phi i64 [ %ref.tmp.sroa.0.2, %if.end26.i ], [ 0, %entry ]
   %curr_b.090.i = phi i64 [ %curr_b.17.i, %if.end26.i ], [ %10, %entry ]
-  %sub.i = sub i64 %3, %curr_b.090.i
+  %sub.i = sub nuw i64 %3, %curr_b.090.i
   %cmp5.i = icmp ult i64 %sub.i, %mul3.i
   br i1 %cmp5.i, label %while.body7.preheader.i, label %if.else.i
 
@@ -19716,7 +19716,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then5.i.i.i.i, %
   %ref.tmp.sroa.20.0.i.i.i = phi ptr [ %ref.tmp.sroa.20.6.i.i.i, %if.end26.i.i.i.i.i ], [ %d_beg.sroa.0.0.copyload.i.i.i, %if.then5.i.i.i.i ]
   %ref.tmp.sroa.0.0.i.i.i.i = phi i64 [ %ref.tmp.sroa.0.2.i.i.i.i, %if.end26.i.i.i.i.i ], [ 0, %if.then5.i.i.i.i ]
   %curr_b.0107.i.i.i.i.i = phi i64 [ %curr_b.17.i.i.i.i.i, %if.end26.i.i.i.i.i ], [ %9, %if.then5.i.i.i.i ]
-  %sub.i.i.i.i.i = sub i64 %sub.ptr.div.i.i.i.i.i.i, %curr_b.0107.i.i.i.i.i
+  %sub.i.i.i.i.i = sub nuw i64 %sub.ptr.div.i.i.i.i.i.i, %curr_b.0107.i.i.i.i.i
   %cmp5.i.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i, %mul3.i.i.i.i.i
   br i1 %cmp5.i.i.i.i.i, label %while.body7.preheader.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -20258,7 +20258,7 @@ entry:
 while.body.i:                                     ; preds = %entry, %if.end26.i
   %ref.tmp.sroa.0.0 = phi i64 [ %ref.tmp.sroa.0.2, %if.end26.i ], [ 0, %entry ]
   %curr_b.0107.i = phi i64 [ %curr_b.17.i, %if.end26.i ], [ %10, %entry ]
-  %sub.i = sub i64 %3, %curr_b.0107.i
+  %sub.i = sub nuw i64 %3, %curr_b.0107.i
   %cmp5.i = icmp ult i64 %sub.i, %mul3.i
   br i1 %cmp5.i, label %while.body7.preheader.i, label %if.else.i
 
@@ -21133,7 +21133,7 @@ if.end:                                           ; preds = %entry
   %6 = load ptr, ptr %5, align 8
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %6, i64 %2
   store ptr %add.ptr.i.i.i, ptr %5, align 8
-  %sub = sub i64 %4, %2
+  %sub = sub nuw i64 %4, %2
   %cmp2 = icmp eq i64 %sub, 1
   br i1 %cmp2, label %if.then3, label %if.end6
 
@@ -21227,7 +21227,7 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end26
   %curr_b.092 = phi i64 [ %1, %while.body.lr.ph ], [ %curr_b.17, %if.end26 ]
-  %sub = sub i64 %N, %curr_b.092
+  %sub = sub nuw i64 %N, %curr_b.092
   %cmp5 = icmp ult i64 %sub, %mul3
   br i1 %cmp5, label %while.body7.preheader, label %if.else
 

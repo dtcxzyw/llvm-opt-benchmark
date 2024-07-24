@@ -4539,7 +4539,7 @@ do.end31:                                         ; preds = %do.body17
   br i1 %cmp35.not, label %if.end42, label %if.then36
 
 if.then36:                                        ; preds = %do.end31
-  %sub39 = sub i64 %10, %12
+  %sub39 = sub nuw i64 %10, %12
   store i64 %sub39, ptr %length.addr, align 8
   %13 = load i64, ptr %outgoing_length_.i, align 8
   %add.i = add i64 %13, %12
@@ -8668,7 +8668,7 @@ do.body13:                                        ; preds = %do.body6
   unreachable
 
 do.end16:                                         ; preds = %do.body6
-  %sub = sub i64 %2, %1
+  %sub = sub nuw i64 %2, %1
   store i64 %sub, ptr %read_len, align 8
   %session_ = getelementptr inbounds i8, ptr %this, i64 168
   %3 = load ptr, ptr %session_, align 8
@@ -12302,7 +12302,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64

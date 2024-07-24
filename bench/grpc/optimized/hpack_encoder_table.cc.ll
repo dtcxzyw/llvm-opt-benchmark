@@ -107,7 +107,7 @@ if.then17.i:                                      ; preds = %do.end8.i
   unreachable
 
 _ZN9grpc_core17HPackEncoderTable8EvictOneEv.exit: ; preds = %do.end8.i
-  %sub.i = sub i32 %sub.i4450, %conv13.i
+  %sub.i = sub nuw i32 %sub.i4450, %conv13.i
   store i32 %sub.i, ptr %table_size_, align 4
   %dec.i = add i32 %9, -1
   store i32 %dec.i, ptr %table_elems_, align 8
@@ -150,7 +150,7 @@ if.then17.i25:                                    ; preds = %do.end8.i10
   unreachable
 
 _ZN9grpc_core17HPackEncoderTable8EvictOneEv.exit28: ; preds = %do.end8.i10
-  %sub.i23 = sub i32 %sub.i233743, %conv13.i21
+  %sub.i23 = sub nuw i32 %sub.i233743, %conv13.i21
   store i32 %sub.i23, ptr %table_size_, align 4
   %dec.i24 = add i32 %11, -1
   store i32 %dec.i24, ptr %table_elems_, align 8
@@ -236,7 +236,7 @@ if.then17:                                        ; preds = %do.end8
   unreachable
 
 do.end19:                                         ; preds = %do.end8
-  %sub = sub i32 %5, %conv13
+  %sub = sub nuw i32 %5, %conv13
   store i32 %sub, ptr %table_size_, align 4
   %dec = add i32 %1, -1
   store i32 %dec, ptr %table_elems_, align 8
@@ -321,7 +321,7 @@ if.then17.i:                                      ; preds = %do.end8.i
   unreachable
 
 _ZN9grpc_core17HPackEncoderTable8EvictOneEv.exit: ; preds = %do.end8.i
-  %sub.i = sub i32 %sub.i1216, %conv13.i
+  %sub.i = sub nuw i32 %sub.i1216, %conv13.i
   store i32 %sub.i, ptr %table_size_, align 4
   %dec.i = add i32 %dec.i17, -1
   store i32 %dec.i, ptr %table_elems_.i, align 8

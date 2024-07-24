@@ -1911,7 +1911,7 @@ define hidden noalias ptr @cf_get_basename(ptr nocapture noundef readonly %0) lo
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %.lr.ph
-  %15 = sub i64 %9, %12
+  %15 = sub nuw i64 %9, %12
   %16 = getelementptr i8, ptr %8, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -1
   %18 = load i8, ptr %17, align 1
@@ -4170,7 +4170,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
   %39 = icmp eq i32 %.05983, 0
   %40 = icmp eq i64 %.084, 0
   %or.cond = and i1 %39, %40
-  %41 = sub i64 %37, %38
+  %41 = sub nuw i64 %37, %38
   %42 = icmp ult i64 %41, %6
   %or.cond79 = select i1 %or.cond, i1 %42, i1 false
   br i1 %or.cond79, label %.loopexit, label %43
@@ -4327,7 +4327,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
   %36 = icmp eq i32 %.05984, 0
   %37 = icmp eq i64 %.085, 0
   %or.cond = and i1 %36, %37
-  %38 = sub i64 %34, %35
+  %38 = sub nuw i64 %34, %35
   %39 = icmp ult i64 %38, %6
   %or.cond80 = select i1 %or.cond, i1 %39, i1 false
   br i1 %or.cond80, label %.loopexit, label %40
@@ -4777,7 +4777,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %52 = icmp eq i32 %.05682, 0
   %53 = icmp eq i64 %.083, 0
   %or.cond = and i1 %52, %53
-  %54 = sub i64 %43, %51
+  %54 = sub nuw i64 %43, %51
   %55 = icmp ult i64 %54, %11
   %or.cond73 = select i1 %or.cond, i1 %55, i1 false
   br i1 %or.cond73, label %.loopexit, label %56
@@ -6457,7 +6457,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 
 34:                                               ; preds = %19
   %35 = getelementptr i8, ptr %23, i64 %.0
-  %36 = sub nsw i64 %32, %.0
+  %36 = sub nuw nsw i64 %32, %.0
   %37 = load ptr, ptr %4, align 8
   %38 = call ptr @ws_memmem(ptr noundef %35, i64 noundef %36, ptr noundef %37, i64 noundef %9) #21
   %.not32 = icmp eq ptr %38, null

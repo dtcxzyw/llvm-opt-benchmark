@@ -2485,9 +2485,9 @@ getdbname.exit:                                   ; preds = %49, %51
 144:                                              ; preds = %143
   %145 = load i32, ptr %7, align 4
   %146 = icmp ule i32 %145, %.3303
-  %147 = sub i32 %145, %.3303
+  %147 = sub nuw i32 %145, %.3303
   %.not346 = icmp ult i32 %147, %142
-  %or.cond384 = or i1 %146, %.not346
+  %or.cond384 = select i1 %146, i1 true, i1 %.not346
   br i1 %or.cond384, label %151, label %148
 
 148:                                              ; preds = %144, %143
@@ -2675,7 +2675,7 @@ getdbname.exit:                                   ; preds = %49, %51
   br i1 %216, label %217, label %219
 
 217:                                              ; preds = %213
-  %218 = sub i32 %215, %.0299
+  %218 = sub nuw i32 %215, %.0299
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.188, i32 noundef %218) #25
   br label %219
 

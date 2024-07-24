@@ -1434,7 +1434,7 @@ define range(i32 -2, 1) i32 @mca_fcoll_vulcan_break_file_view(ptr nocapture noun
   %62 = mul i64 %61, %10
   %63 = sub i64 %62, %.0237
   %.not = icmp ult i64 %.0248, %63
-  %64 = sub i64 %.0248, %63
+  %64 = sub nuw i64 %.0248, %63
   %.0244 = tail call i64 @llvm.umin.i64(i64 %.0248, i64 %63)
   %.0236 = select i1 %.not, i64 0, i64 %62
   %65 = inttoptr i64 %.0237 to ptr
@@ -1473,7 +1473,7 @@ define range(i32 -2, 1) i32 @mca_fcoll_vulcan_break_file_view(ptr nocapture noun
 85:                                               ; preds = %78
   store i64 %.1245, ptr %84, align 8
   %86 = add i64 %.3, %.1245
-  %87 = sub i64 %.3241, %.1245
+  %87 = sub nuw i64 %.3241, %.1245
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %89, label %103
 

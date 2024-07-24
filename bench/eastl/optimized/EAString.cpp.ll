@@ -2554,7 +2554,7 @@ _ZN2EA4StdC6StrlenEPKDs.exit:                     ; preds = %for.body.i, %for.bo
 
 if.then:                                          ; preds = %_ZN2EA4StdC6StrlenEPKDs.exit
   %add.ptr = getelementptr inbounds i8, ptr %pDestination, i64 %retval.0.in.i
-  %sub = sub i64 %nDestCapacity, %retval.0.i
+  %sub = sub nuw i64 %nDestCapacity, %retval.0.i
   %call2 = tail call noundef i32 @_ZN2EA4StdC7StrlcpyEPDsPKcmm(ptr noundef %add.ptr, ptr noundef nonnull %pSource, i64 noundef %sub, i64 noundef -1)
   br label %if.end
 
@@ -2627,7 +2627,7 @@ _ZN2EA4StdC6StrlenEPKDi.exit:                     ; preds = %do.body.i
 
 if.then:                                          ; preds = %_ZN2EA4StdC6StrlenEPKDi.exit
   %add.ptr = getelementptr inbounds i32, ptr %pDestination, i64 %inc.i7
-  %sub = sub i64 %nDestCapacity, %inc.i7
+  %sub = sub nuw i64 %nDestCapacity, %inc.i7
   %call2 = tail call noundef i32 @_ZN2EA4StdC7StrlcpyEPDiPKcmm(ptr noundef %add.ptr, ptr noundef nonnull %pSource, i64 noundef %sub, i64 noundef -1)
   br label %if.end
 
@@ -2715,7 +2715,7 @@ _ZN2EA4StdC17StrlenUTF8DecodedEPKc.exit:          ; preds = %while.body.i, %_ZN2
 
 if.then:                                          ; preds = %_ZN2EA4StdC17StrlenUTF8DecodedEPKc.exit
   %add.ptr = getelementptr inbounds i8, ptr %pDestination, i64 %nLength.0.lcssa.i
-  %sub = sub i64 %nDestCapacity, %nLength.0.lcssa.i
+  %sub = sub nuw i64 %nDestCapacity, %nLength.0.lcssa.i
   br label %while.body.i10
 
 while.body.i10:                                   ; preds = %if.end89.i, %if.then
@@ -2862,7 +2862,7 @@ _ZN2EA4StdC17StrlenUTF8DecodedEPKc.exit:          ; preds = %while.body.i, %_ZN2
 
 if.then:                                          ; preds = %_ZN2EA4StdC17StrlenUTF8DecodedEPKc.exit
   %add.ptr = getelementptr inbounds i8, ptr %pDestination, i64 %nLength.0.lcssa.i
-  %sub = sub i64 %nDestCapacity, %nLength.0.lcssa.i
+  %sub = sub nuw i64 %nDestCapacity, %nLength.0.lcssa.i
   %call2 = tail call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDimm(ptr noundef nonnull %add.ptr, ptr noundef %pSource, i64 noundef %sub, i64 noundef -1)
   br label %if.end
 
@@ -2945,7 +2945,7 @@ _ZN2EA4StdC6StrlenEPKDs.exit:                     ; preds = %for.body.i, %for.bo
 
 if.then:                                          ; preds = %_ZN2EA4StdC6StrlenEPKDs.exit
   %add.ptr = getelementptr inbounds i8, ptr %pDestination, i64 %retval.0.in.i
-  %sub = sub i64 %nDestCapacity, %retval.0.i
+  %sub = sub nuw i64 %nDestCapacity, %retval.0.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end5.i, %if.then
@@ -3065,7 +3065,7 @@ _ZN2EA4StdC6StrlenEPKDi.exit:                     ; preds = %do.body.i
 
 if.then:                                          ; preds = %_ZN2EA4StdC6StrlenEPKDi.exit
   %add.ptr = getelementptr inbounds i32, ptr %pDestination, i64 %inc.i
-  %sub = sub i64 %nDestCapacity, %inc.i
+  %sub = sub nuw i64 %nDestCapacity, %inc.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end5.i, %if.then

@@ -1627,7 +1627,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   br label %274
 
 269:                                              ; preds = %263
-  %270 = sub i32 %.3486, %265
+  %270 = sub nuw i32 %.3486, %265
   %271 = lshr i32 %270, 1
   %272 = load ptr, ptr %261, align 8
   %273 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.2618, ptr noundef nonnull @.str.29, i32 noundef %271, ptr noundef nonnull @.str.3, ptr noundef %272) #18
@@ -7179,7 +7179,7 @@ define internal fastcc void @print_aligned_vertical_line(ptr nocapture noundef r
   br i1 %36, label %.lr.ph.split.us.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.thread133
-  %37 = sub nsw i32 %spec.store.select136, %2
+  %37 = sub nuw nsw i32 %spec.store.select136, %2
   br label %67
 
 .lr.ph:                                           ; preds = %31

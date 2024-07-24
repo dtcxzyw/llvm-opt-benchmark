@@ -147,7 +147,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %.sroa.01.0.i10137 = phi i64 [ %6, %"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE.exit.thread" ], [ 0, %4 ]
   %6 = add nuw i64 %.sroa.01.0.i10137, 1
   %7 = getelementptr inbounds i8, ptr %2, i64 %.sroa.01.0.i10137
-  %8 = sub i64 %3, %.sroa.01.0.i10137
+  %8 = sub nuw i64 %3, %.sroa.01.0.i10137
   %9 = icmp ugt i64 %8, 2
   br i1 %9, label %10, label %"_ZN4core6option15Option$LT$T$GT$6filter17h964f92e41562c76dE.exit.thread"
 
@@ -301,7 +301,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
   %.sroa.01.0.i138 = phi i64 [ 0, %.noexc6.lr.ph ], [ %70, %.noexc8.thread ]
   %70 = add nuw i64 %.sroa.01.0.i138, 1
   %71 = getelementptr inbounds i8, ptr %.sroa.0.1147, i64 %.sroa.01.0.i138
-  %72 = sub i64 %.sroa.9.1148, %.sroa.01.0.i138
+  %72 = sub nuw i64 %.sroa.9.1148, %.sroa.01.0.i138
   %73 = icmp ugt i64 %72, 2
   br i1 %73, label %74, label %.noexc8.thread
 

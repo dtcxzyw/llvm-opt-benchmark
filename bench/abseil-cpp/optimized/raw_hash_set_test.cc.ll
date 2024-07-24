@@ -72396,7 +72396,7 @@ invoke.cont10.i:                                  ; preds = %for.end.i.i.i, %for
   br i1 %cmp.i.i81, label %if.then.i.i84, label %invoke.cont16.i
 
 if.then.i.i84:                                    ; preds = %invoke.cont10.i
-  %sub.i.i85 = sub i64 %add.i80, %sub.ptr.div.i.i79
+  %sub.i.i85 = sub nuw i64 %add.i80, %sub.ptr.div.i.i79
   %sub.ptr.lhs.cast.i105 = ptrtoint ptr %probe_histogram.i.sroa.20.2 to i64
   %sub.ptr.sub.i106 = sub i64 %sub.ptr.lhs.cast.i105, %sub.ptr.lhs.cast.i.i76
   %sub.ptr.div.i107 = ashr exact i64 %sub.ptr.sub.i106, 3
@@ -72547,7 +72547,7 @@ invoke.cont9.i:                                   ; preds = %while.end.i.i.i.i, 
   br i1 %cmp.i24.i, label %if.then.i27.i, label %invoke.cont17.i
 
 if.then.i27.i:                                    ; preds = %invoke.cont9.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i23.i, %sub.ptr.div.i18.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i23.i, %sub.ptr.div.i18.i
   %66 = load ptr, ptr %_M_end_of_storage.i, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %66 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i15.i
@@ -74839,7 +74839,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES2_lET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds i64, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i35 = icmp eq ptr %1, %__position.coerce
@@ -77550,7 +77550,7 @@ invoke.cont10.i.i:                                ; preds = %for.end.i.i.i.i, %f
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont16.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont10.i.i
-  %sub.i.i.i = sub i64 %add.i32.i, %sub.ptr.div.i.i.i
+  %sub.i.i.i = sub nuw i64 %add.i32.i, %sub.ptr.div.i.i.i
   %sub.ptr.lhs.cast.i133.i = ptrtoint ptr %probe_histogram.sroa.19.1.i to i64
   %sub.ptr.sub.i134.i = sub i64 %sub.ptr.lhs.cast.i133.i, %sub.ptr.lhs.cast.i.i.i
   %sub.ptr.div.i135.i = ashr exact i64 %sub.ptr.sub.i134.i, 3
@@ -77701,7 +77701,7 @@ invoke.cont21.i:                                  ; preds = %while.end.i.i.i.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont29.i
 
 if.then.i.i:                                      ; preds = %invoke.cont21.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i42.i, %sub.ptr.div.i37.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i42.i, %sub.ptr.div.i37.i
   %70 = load ptr, ptr %_M_end_of_storage.i, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %70 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i34.i

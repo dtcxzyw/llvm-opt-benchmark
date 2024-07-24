@@ -13146,7 +13146,7 @@ _ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %1181, label %1182, label %1213
 
 1182:                                             ; preds = %1175
-  %1183 = sub nsw i64 %1180, %1179
+  %1183 = sub nuw nsw i64 %1180, %1179
   %1184 = ptrtoint ptr %.sroa.20.1.i to i64
   %1185 = sub i64 %1184, %1176
   %1186 = ashr exact i64 %1185, 3
@@ -20841,7 +20841,7 @@ _ZN9V3OutFile10writeBlockEv.exit:                 ; preds = %_ZN9V3OutFile10writ
   store i64 %18, ptr %9, align 8
   store i64 0, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %.01417, i64 %.019
-  %20 = sub i64 %.01318, %.019
+  %20 = sub nuw i64 %.01318, %.019
   %.not = icmp ult i64 %20, 131072
   br i1 %.not, label %._crit_edge, label %_ZN9V3OutFile10writeBlockEv.exit, !llvm.loop !194
 

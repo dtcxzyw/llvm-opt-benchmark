@@ -147,7 +147,7 @@ define internal i32 @dissect_mcp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 22:                                               ; preds = %.lr.ph, %131
   %.0181206 = phi i32 [ 0, %.lr.ph ], [ %132, %131 ]
   %.0184205 = phi i32 [ 1, %.lr.ph ], [ %.1185, %131 ]
-  %23 = sub nsw i32 %19, %.0181206
+  %23 = sub nuw nsw i32 %19, %.0181206
   %24 = icmp ult i32 %23, 2
   br i1 %24, label %25, label %27
 
@@ -356,7 +356,7 @@ define internal i32 @dissect_mcp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %.loopexit
-  %136 = sub nsw i32 %19, %.1
+  %136 = sub nuw nsw i32 %19, %.1
   %137 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_mcp_trailing_bytes, ptr noundef %0, i32 noundef %.1, i32 noundef %136) #2
   br label %138
 

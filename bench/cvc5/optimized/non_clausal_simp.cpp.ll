@@ -2828,7 +2828,7 @@ cond.true521:                                     ; preds = %for.inc515
   br i1 %cmp.i1918, label %if.then.i1925, label %if.else.i
 
 if.then.i1925:                                    ; preds = %cond.true521
-  %sub.i = sub i64 %j.3, %.pre3657
+  %sub.i = sub nuw i64 %j.3, %.pre3657
   invoke void @_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %d_learnedLiterals.i626, i64 noundef %sub.i)
           to label %invoke.cont535 unwind label %lpad162.loopexit.split-lp.loopexit.split-lp
 

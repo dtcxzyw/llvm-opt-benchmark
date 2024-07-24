@@ -656,7 +656,7 @@ define void @_ZN5faiss18ArrayInvertedLists6resizeEmm(ptr nocapture noundef nonnu
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = sub i64 %2, %13
+  %16 = sub nuw i64 %2, %13
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %16)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
@@ -950,7 +950,7 @@ define noundef i64 @_ZNK5faiss19HStackInvertedLists13get_single_idEmm(ptr nocapt
   ret i64 %21
 
 22:                                               ; preds = %.lr.ph
-  %23 = sub i64 %.01825, %15
+  %23 = sub nuw i64 %.01825, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load ptr, ptr %6, align 8
   %25 = load ptr, ptr %5, align 8
@@ -1055,7 +1055,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %17
   ret ptr %20
 
 32:                                               ; preds = %.lr.ph
-  %33 = sub i64 %.02028, %15
+  %33 = sub nuw i64 %.02028, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load ptr, ptr %6, align 8
   %35 = load ptr, ptr %5, align 8
@@ -4183,7 +4183,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %3, %._ZNSt6vectorIS
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
-  %19 = sub i64 %1, %16
+  %19 = sub nuw i64 %1, %16
   invoke void @_ZNSt6vectorIS_IhSaIhEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %19)
           to label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit unwind label %27
 
@@ -4504,7 +4504,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64

@@ -6484,7 +6484,7 @@ GC_compute_heap_usage_percent.exit:               ; preds = %12, %23, %27
 
 40:                                               ; preds = %38
   %41 = load i64, ptr @GC_arrays, align 8
-  %42 = sub i64 %37, %10
+  %42 = sub nuw i64 %37, %10
   %43 = icmp ugt i64 %41, %42
   br i1 %43, label %110, label %44
 
@@ -8296,7 +8296,7 @@ GC_find_header.exit:                              ; preds = %15
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds i8, ptr %0, i64 %1
-  %66 = sub i64 %27, %1
+  %66 = sub nuw i64 %27, %1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %65, i8 0, i64 %66, i1 false)
   br label %75
 
@@ -17207,7 +17207,7 @@ define noundef ptr @GC_custom_push_range(ptr noundef %0, ptr noundef %1, ptr nou
 
 10:                                               ; preds = %4
   %11 = inttoptr i64 %7 to ptr
-  %12 = sub i64 %9, %7
+  %12 = sub nuw i64 %9, %7
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %.not.i = icmp ult ptr %13, %3
   br i1 %.not.i, label %GC_custom_push_proc.exit, label %14
@@ -21897,7 +21897,7 @@ clear_soft_dirty_bits.exit.i.i.i:                 ; preds = %91
   %115 = sub i64 %112, %114
   %spec.select.i.i.i = select i1 %.not.i13.i.i, i64 0, i64 %115
   %116 = icmp ult i64 %spec.select.i.i.i, 16384
-  %117 = sub i64 16384, %spec.select.i.i.i
+  %117 = sub nuw i64 16384, %spec.select.i.i.i
   %118 = sub i64 0, %112
   %119 = and i64 %117, %118
   %120 = select i1 %116, i64 %119, i64 0
@@ -23869,7 +23869,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr @GC_current_warn_proc, align 8
-  %26 = sub i64 %21, %22
+  %26 = sub nuw i64 %21, %22
   %27 = lshr i64 %26, 10
   tail call void %25(ptr noundef nonnull @.str.93, i64 noundef %27) #38
   br label %28
@@ -26151,7 +26151,7 @@ GC_get_maps_len.exit.thread.i:                    ; preds = %GC_get_maps_len.exi
   %26 = sub i64 %23, %25
   %spec.select.i.i = select i1 %.not.i.i, i64 0, i64 %26
   %27 = icmp ult i64 %spec.select.i.i, %17
-  %28 = sub i64 %17, %spec.select.i.i
+  %28 = sub nuw i64 %17, %spec.select.i.i
   %29 = sub i64 0, %23
   %30 = and i64 %28, %29
   %31 = select i1 %27, i64 %30, i64 0
@@ -26543,7 +26543,7 @@ GC_get_maps_len.exit34.thread.i:                  ; preds = %GC_get_maps_len.exi
 .lr.ph.i36.i:                                     ; preds = %.preheader72.i, %209
   %.01316.i.i = phi i64 [ %210, %209 ], [ 0, %.preheader72.i ]
   %203 = getelementptr inbounds i8, ptr %201, i64 %.01316.i.i
-  %204 = sub i64 %202, %.01316.i.i
+  %204 = sub nuw i64 %202, %.01316.i.i
   %205 = tail call i64 @read(i32 noundef %194, ptr noundef %203, i64 noundef %204) #38
   %206 = icmp slt i64 %205, 0
   br i1 %206, label %GC_repeat_read.exit.thread.i, label %207
@@ -32621,7 +32621,7 @@ GC_cond_register_dynamic_libraries.exit:          ; preds = %.preheader.i21.i.i,
 223:                                              ; preds = %._crit_edge.i
   %224 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 384), align 8
   %225 = getelementptr inbounds %union.toggle_ref_u, ptr %224, i64 %.120.i
-  %226 = sub i64 %219, %.120.i
+  %226 = sub nuw i64 %219, %.120.i
   %227 = shl i64 %226, 3
   call void @llvm.memset.p0.i64(ptr align 8 %225, i8 0, i64 %227, i1 false)
   store i64 %.120.i, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 392), align 8
@@ -35965,7 +35965,7 @@ define internal fastcc void @alloc_mark_stack(i64 noundef %0) unnamed_addr #1 {
   %14 = sub i64 %11, %13
   %spec.select.i = select i1 %.not.i, i64 0, i64 %14
   %15 = icmp ult i64 %spec.select.i, %9
-  %16 = sub i64 %9, %spec.select.i
+  %16 = sub nuw i64 %9, %spec.select.i
   %17 = sub i64 0, %11
   %18 = and i64 %16, %17
   %19 = select i1 %15, i64 %18, i64 0
@@ -36619,7 +36619,7 @@ GC_notify_all_marker.exit35:                      ; preds = %71, %70
 
 83:                                               ; preds = %26
   %84 = inttoptr i64 %27 to ptr
-  %85 = sub i64 %27, %.pre-phi
+  %85 = sub nuw i64 %27, %.pre-phi
   %86 = ashr exact i64 %85, 4
   %87 = add nsw i64 %86, 1
   br label %GC_release_mark_lock.exit39
@@ -37316,7 +37316,7 @@ GC_handle_protected_regions_limit.exit:           ; preds = %70, %75, %GC_unprot
   %118 = sub i64 %115, %117
   %spec.select.i = select i1 %.not.i, i64 0, i64 %118
   %119 = icmp ult i64 %spec.select.i, %111
-  %120 = sub i64 %111, %spec.select.i
+  %120 = sub nuw i64 %111, %spec.select.i
   %121 = sub i64 0, %115
   %122 = and i64 %120, %121
   %123 = select i1 %119, i64 %122, i64 0
@@ -41738,7 +41738,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_collect_or_expand(i64 noundef %0,
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %59
-  %63 = sub i64 %60, %42
+  %63 = sub nuw i64 %60, %42
   %64 = lshr i64 %63, 12
   %65 = icmp ugt i64 %.1, %64
   br i1 %65, label %66, label %68

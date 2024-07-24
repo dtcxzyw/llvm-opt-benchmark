@@ -620,7 +620,7 @@ dissect_scsi_smc_volume_tag.exit.i:               ; preds = %180, %177
   %212 = load i32, ptr @hf_scsi_smc_identifier, align 4
   %213 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %212, ptr noundef %0, i32 noundef %206, i32 noundef %208, i32 noundef 0) #3
   %214 = add i32 %206, %208
-  %215 = sub nsw i32 %207, %208
+  %215 = sub nuw nsw i32 %207, %208
   br label %216
 
 216:                                              ; preds = %211, %201

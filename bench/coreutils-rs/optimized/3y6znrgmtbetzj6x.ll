@@ -844,7 +844,7 @@ _ZN3std4path4Path4join17h48a3c1543e4d991aE.exit:  ; preds = %108
   %180 = load i64, ptr %53, align 8, !alias.scope !153, !noalias !151, !noundef !5
   %.not.i.i = icmp ult i64 %179, %180
   %181 = select i1 %.not.i.i, i64 0, i64 %180
-  %.0.i.i = sub i64 %179, %181
+  %.0.i.i = sub nuw i64 %179, %181
   store i64 %.0.i.i, ptr %143, align 8, !alias.scope !149, !noalias !151
   %182 = add i64 %177, -1
   store i64 %182, ptr %144, align 8, !alias.scope !149, !noalias !151

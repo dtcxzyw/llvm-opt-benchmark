@@ -1666,7 +1666,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %8 = phi i64 [ %11, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbabfcabf49896194E.llvm.17892916829254103521.exit.us.i" ], [ %.sroa.7.0.copyload, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbabfcabf49896194E.llvm.17892916829254103521.exit.us.preheader.i" ]
   %9 = phi ptr [ %10, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbabfcabf49896194E.llvm.17892916829254103521.exit.us.i" ], [ %.sroa.0.0.copyload, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbabfcabf49896194E.llvm.17892916829254103521.exit.us.preheader.i" ]
   %10 = getelementptr inbounds i8, ptr %9, i64 %.sroa.111.0.copyload
-  %11 = sub i64 %8, %.sroa.111.0.copyload
+  %11 = sub nuw i64 %8, %.sroa.111.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !401)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !404)
   %12 = load i8, ptr %9, align 1, !alias.scope !430, !noalias !431, !noundef !4
@@ -2328,7 +2328,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %7 = phi i64 [ %10, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76c0367c0a1646a5E.llvm.17892916829254103521.exit.i" ], [ %.sroa.6.0.copyload, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76c0367c0a1646a5E.llvm.17892916829254103521.exit.preheader.i" ]
   %8 = phi ptr [ %9, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76c0367c0a1646a5E.llvm.17892916829254103521.exit.i" ], [ %.sroa.0.0.copyload, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76c0367c0a1646a5E.llvm.17892916829254103521.exit.preheader.i" ]
   %9 = getelementptr inbounds i8, ptr %8, i64 %.sroa.91.0.copyload
-  %10 = sub i64 %7, %.sroa.91.0.copyload
+  %10 = sub nuw i64 %7, %.sroa.91.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !594)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !595)
   %11 = load i8, ptr %8, align 1, !alias.scope !599, !noalias !600, !noundef !4
@@ -6810,7 +6810,7 @@ define hidden void @_ZN3exr2io4Data8read_vec17h13450aa0842a8e7dE.llvm.1789291682
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he49516c19fa5ff24E.exit.i"
 
 24:                                               ; preds = %20
-  %25 = sub i64 %.0.sroa.speculated.i23.i, %21
+  %25 = sub nuw i64 %.0.sroa.speculated.i23.i, %21
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4392ec429b04a86cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %25, i64 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he49516c19fa5ff24E.exit.i" unwind label %.loopexit
 
@@ -6976,7 +6976,7 @@ define hidden void @_ZN3exr2io4Data8read_vec17h32b9a8fd692fd47eE.llvm.1789291682
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he49516c19fa5ff24E.exit.i"
 
 24:                                               ; preds = %20
-  %25 = sub i64 %.0.sroa.speculated.i23.i, %21
+  %25 = sub nuw i64 %.0.sroa.speculated.i23.i, %21
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4392ec429b04a86cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %25, i64 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he49516c19fa5ff24E.exit.i" unwind label %.loopexit
 
@@ -7949,7 +7949,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0f9329
 117:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit"
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0, i64 %65)
   %118 = getelementptr inbounds i8, ptr %.sroa.0393.0, i64 %.0.sroa.speculated.i.i
-  %119 = sub i64 %.sroa.6.0, %.0.sroa.speculated.i.i
+  %119 = sub nuw i64 %.sroa.6.0, %.0.sroa.speculated.i.i
   %.val334 = load i64, ptr %107, align 8, !noundef !4
   %120 = icmp eq i64 %.val334, 0
   br i1 %120, label %121, label %188
@@ -8076,7 +8076,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0f9329
 153:                                              ; preds = %150
   %.0.sroa.speculated.i.i347 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6399.0, i64 %65)
   %154 = getelementptr inbounds i8, ptr %.sroa.0398.0, i64 %.0.sroa.speculated.i.i347
-  %155 = sub i64 %.sroa.6399.0, %.0.sroa.speculated.i.i347
+  %155 = sub nuw i64 %.sroa.6399.0, %.0.sroa.speculated.i.i347
   %156 = invoke noundef ptr @"_ZN8fdeflate8compress29StoredOnlyCompressor$LT$W$GT$10write_data17h53af271ab8b52d5fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27, ptr noalias noundef nonnull readonly align 1 @anon.a41bcb3e661f14a8805e9b353793d812.31, i64 noundef 1)
           to label %169 unwind label %177
 
@@ -8386,7 +8386,7 @@ switch.lookup:                                    ; preds = %89
 250:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit359"
   %.0.sroa.speculated.i.i360 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6405.0, i64 %65)
   %251 = getelementptr inbounds i8, ptr %.sroa.0404.0, i64 %.0.sroa.speculated.i.i360
-  %252 = sub i64 %.sroa.6405.0, %.0.sroa.speculated.i.i360
+  %252 = sub nuw i64 %.sroa.6405.0, %.0.sroa.speculated.i.i360
   %253 = load ptr, ptr %220, align 8, !nonnull !4, !noundef !4
   %254 = load i64, ptr %221, align 8, !noundef !4
   %255 = invoke noundef i8 @_ZN3png6filter6filter17h8d4a945868af29deE(i8 noundef %82, i1 noundef zeroext %84, i8 noundef %74, ptr noalias noundef nonnull readonly align 1 %.sroa.089.1, i64 noundef %.sroa.591.1, ptr noalias noundef nonnull readonly align 1 %.sroa.0404.0, i64 noundef %.0.sroa.speculated.i.i360, ptr noalias noundef nonnull align 1 %253, i64 noundef %254)
@@ -8612,7 +8612,7 @@ switch.lookup:                                    ; preds = %89
   %.sroa.0412.0512 = phi ptr [ %335, %358 ], [ %334, %.lr.ph.preheader ]
   %.0.sroa.speculated.i.i369 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6413.0513, i64 2147483643)
   %335 = getelementptr inbounds i8, ptr %.sroa.0412.0512, i64 %.0.sroa.speculated.i.i369
-  %336 = sub i64 %.sroa.6413.0513, %.0.sroa.speculated.i.i369
+  %336 = sub nuw i64 %.sroa.6413.0513, %.0.sroa.speculated.i.i369
   %.val340 = load i64, ptr %330, align 8, !noundef !4
   %337 = icmp ult i64 %.val340, 4
   br i1 %337, label %.invoke, label %342
@@ -9089,7 +9089,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h3045c3
 117:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit"
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0, i64 %65)
   %118 = getelementptr inbounds i8, ptr %.sroa.0393.0, i64 %.0.sroa.speculated.i.i
-  %119 = sub i64 %.sroa.6.0, %.0.sroa.speculated.i.i
+  %119 = sub nuw i64 %.sroa.6.0, %.0.sroa.speculated.i.i
   %.val334 = load i64, ptr %107, align 8, !noundef !4
   %120 = icmp eq i64 %.val334, 0
   br i1 %120, label %121, label %188
@@ -9216,7 +9216,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h3045c3
 153:                                              ; preds = %150
   %.0.sroa.speculated.i.i347 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6399.0, i64 %65)
   %154 = getelementptr inbounds i8, ptr %.sroa.0398.0, i64 %.0.sroa.speculated.i.i347
-  %155 = sub i64 %.sroa.6399.0, %.0.sroa.speculated.i.i347
+  %155 = sub nuw i64 %.sroa.6399.0, %.0.sroa.speculated.i.i347
   %156 = invoke noundef ptr @"_ZN8fdeflate8compress29StoredOnlyCompressor$LT$W$GT$10write_data17h53af271ab8b52d5fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27, ptr noalias noundef nonnull readonly align 1 @anon.a41bcb3e661f14a8805e9b353793d812.31, i64 noundef 1)
           to label %169 unwind label %177
 
@@ -9526,7 +9526,7 @@ switch.lookup:                                    ; preds = %89
 250:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit359"
   %.0.sroa.speculated.i.i360 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6405.0, i64 %65)
   %251 = getelementptr inbounds i8, ptr %.sroa.0404.0, i64 %.0.sroa.speculated.i.i360
-  %252 = sub i64 %.sroa.6405.0, %.0.sroa.speculated.i.i360
+  %252 = sub nuw i64 %.sroa.6405.0, %.0.sroa.speculated.i.i360
   %253 = load ptr, ptr %220, align 8, !nonnull !4, !noundef !4
   %254 = load i64, ptr %221, align 8, !noundef !4
   %255 = invoke noundef i8 @_ZN3png6filter6filter17h8d4a945868af29deE(i8 noundef %82, i1 noundef zeroext %84, i8 noundef %74, ptr noalias noundef nonnull readonly align 1 %.sroa.089.1, i64 noundef %.sroa.591.1, ptr noalias noundef nonnull readonly align 1 %.sroa.0404.0, i64 noundef %.0.sroa.speculated.i.i360, ptr noalias noundef nonnull align 1 %253, i64 noundef %254)
@@ -9752,7 +9752,7 @@ switch.lookup:                                    ; preds = %89
   %.sroa.0412.0512 = phi ptr [ %335, %358 ], [ %334, %.lr.ph.preheader ]
   %.0.sroa.speculated.i.i369 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6413.0513, i64 2147483643)
   %335 = getelementptr inbounds i8, ptr %.sroa.0412.0512, i64 %.0.sroa.speculated.i.i369
-  %336 = sub i64 %.sroa.6413.0513, %.0.sroa.speculated.i.i369
+  %336 = sub nuw i64 %.sroa.6413.0513, %.0.sroa.speculated.i.i369
   %.val340 = load i64, ptr %330, align 8, !noundef !4
   %337 = icmp ult i64 %.val340, 4
   br i1 %337, label %.invoke, label %342
@@ -9983,7 +9983,7 @@ define internal fastcc void @"_ZN3png7encoder15Writer$LT$W$GT$23write_zlib_encod
   ret void
 
 9:                                                ; preds = %"_ZN3png7encoder15Writer$LT$W$GT$11write_chunk17hc710c71509724b17E.exit"
-  %10 = sub i64 %.sroa.6.021, %.0.sroa.speculated.i.i
+  %10 = sub nuw i64 %.sroa.6.021, %.0.sroa.speculated.i.i
   %11 = getelementptr inbounds i8, ptr %.sroa.014.020, i64 %.0.sroa.speculated.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %12 = icmp eq i64 %10, 0
@@ -10024,7 +10024,7 @@ define internal fastcc void @"_ZN3png7encoder15Writer$LT$W$GT$23write_zlib_encod
   ret void
 
 9:                                                ; preds = %"_ZN3png7encoder15Writer$LT$W$GT$11write_chunk17h9bf4450c842e9ca8E.exit"
-  %10 = sub i64 %.sroa.6.021, %.0.sroa.speculated.i.i
+  %10 = sub nuw i64 %.sroa.6.021, %.0.sroa.speculated.i.i
   %11 = getelementptr inbounds i8, ptr %.sroa.014.020, i64 %.0.sroa.speculated.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %12 = icmp eq i64 %10, 0
@@ -12857,7 +12857,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17he324a97948453d
   %13 = phi i64 [ %16, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbabfcabf49896194E.llvm.17892916829254103521.exit.us" ], [ %.promoted, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbabfcabf49896194E.llvm.17892916829254103521.exit.us.preheader" ]
   %14 = phi ptr [ %15, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbabfcabf49896194E.llvm.17892916829254103521.exit.us" ], [ %.promoted8, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbabfcabf49896194E.llvm.17892916829254103521.exit.us.preheader" ]
   %15 = getelementptr inbounds i8, ptr %14, i64 %5
-  %16 = sub i64 %13, %5
+  %16 = sub nuw i64 %13, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3030)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3033)
   %17 = load i8, ptr %14, align 1, !alias.scope !3059, !noalias !3060, !noundef !4
@@ -12884,7 +12884,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17he324a97948453d
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   %24 = getelementptr inbounds i8, ptr %.promoted8, i64 %5
-  %25 = sub i64 %.promoted, %5
+  %25 = sub nuw i64 %.promoted, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3030)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3033)
   store ptr %24, ptr %0, align 8, !alias.scope !3027
@@ -12940,7 +12940,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17he9ba03499f7e9d
   %12 = phi i64 [ %15, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76c0367c0a1646a5E.llvm.17892916829254103521.exit" ], [ %.promoted, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76c0367c0a1646a5E.llvm.17892916829254103521.exit.preheader" ]
   %13 = phi ptr [ %14, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76c0367c0a1646a5E.llvm.17892916829254103521.exit" ], [ %.promoted8, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h76c0367c0a1646a5E.llvm.17892916829254103521.exit.preheader" ]
   %14 = getelementptr inbounds i8, ptr %13, i64 %5
-  %15 = sub i64 %12, %5
+  %15 = sub nuw i64 %12, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3091)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3092)
   %16 = load i8, ptr %13, align 1, !alias.scope !3096, !noalias !3097, !noundef !4
@@ -19812,7 +19812,7 @@ define hidden { ptr, i64 } @"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !nonnull !4, !align !133, !noundef !4
   %9 = getelementptr inbounds i8, ptr %8, i64 %5
-  %10 = sub i64 %3, %5
+  %10 = sub nuw i64 %3, %5
   store ptr %9, ptr %0, align 8
   store i64 %10, ptr %2, align 8
   br label %11
@@ -23214,7 +23214,7 @@ switch.lookup:                                    ; preds = %109
   br label %170
 
 168:                                              ; preds = %164
-  %169 = sub nsw i8 %155, %161
+  %169 = sub nuw nsw i8 %155, %161
   br label %170
 
 170:                                              ; preds = %168, %166
@@ -23687,7 +23687,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br i1 %249, label %258, label %250
 
 250:                                              ; preds = %248
-  %251 = sub i64 %.sroa.5445.0.copyload, %spec.select.i.i
+  %251 = sub nuw i64 %.sroa.5445.0.copyload, %spec.select.i.i
   br label %"_ZN3png7decoder15Reader$LT$R$GT$4info17haf6332fcfbc4d8b0E.exit.i.i"
 
 "_ZN3png7decoder15Reader$LT$R$GT$4info17haf6332fcfbc4d8b0E.exit.i.i": ; preds = %250, %"_ZN86_$LT$image..codecs..png..PngDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17ha2422e1f31610308E.exit.i.i"
@@ -23871,7 +23871,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br i1 %305, label %317, label %306
 
 306:                                              ; preds = %304
-  %307 = sub i64 %.sroa.5449.0.copyload, %303
+  %307 = sub nuw i64 %.sroa.5449.0.copyload, %303
   br label %308
 
 308:                                              ; preds = %306, %295
@@ -24158,7 +24158,7 @@ switch.lookup771:                                 ; preds = %91
   br i1 %420, label %424, label %421
 
 421:                                              ; preds = %419
-  %422 = sub i64 %.sroa.5468.0.copyload, %spec.select.i.i288
+  %422 = sub nuw i64 %.sroa.5468.0.copyload, %spec.select.i.i288
   br label %423
 
 423:                                              ; preds = %421, %switch.lookup771
@@ -27332,7 +27332,7 @@ switch.lookup112:                                 ; preds = %141
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h35f3c7b8be2f5eadE.exit.i.i": ; preds = %.lr.ph74.i.i
-  %247 = sub i64 %.sroa.513.073.i.i, %.0.sroa.speculated.i.i.i.i
+  %247 = sub nuw i64 %.sroa.513.073.i.i, %.0.sroa.speculated.i.i.i.i
   %248 = getelementptr inbounds i8, ptr %.sroa.012.072.i.i, i64 %.0.sroa.speculated.i.i.i.i
   %249 = getelementptr inbounds i8, ptr %.sroa.012.072.i.i, i64 2
   %.0.copyload.i.i.i = load i8, ptr %.sroa.012.072.i.i, align 1, !alias.scope !6903, !noalias !6906
@@ -27456,7 +27456,7 @@ switch.lookup112:                                 ; preds = %141
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h35f3c7b8be2f5eadE.exit206.i.i": ; preds = %.lr.ph.i.i
-  %278 = sub i64 %.sroa.519.071.i.i, %.0.sroa.speculated.i.i199.i.i
+  %278 = sub nuw i64 %.sroa.519.071.i.i, %.0.sroa.speculated.i.i199.i.i
   %279 = getelementptr inbounds i8, ptr %.sroa.018.070.i.i, i64 %.0.sroa.speculated.i.i199.i.i
   %280 = getelementptr inbounds i8, ptr %.sroa.018.070.i.i, i64 2
   %.0.copyload.i203.i.i = load i8, ptr %.sroa.018.070.i.i, align 1, !alias.scope !6913, !noalias !6916
@@ -28053,7 +28053,7 @@ define void @_ZN5image6codecs3dxt15decode_dxt1_row17hc239b534651561e0E(ptr noali
   %.sroa.0.026 = phi ptr [ %16, %.loopexit ], [ %0, %13 ]
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.59.027, i64 8)
   %16 = getelementptr inbounds i8, ptr %.sroa.0.026, i64 %.0.sroa.speculated.i.i.i
-  %17 = sub i64 %.sroa.59.027, %.0.sroa.speculated.i.i.i
+  %17 = sub nuw i64 %.sroa.59.027, %.0.sroa.speculated.i.i.i
   %18 = add i64 %.sroa.10.028, 1
   %19 = icmp ugt i64 %.sroa.59.027, 7
   br i1 %19, label %_ZN5image6codecs3dxt17decode_dxt1_block17h7469876f76da662cE.exit, label %20
@@ -28138,7 +28138,7 @@ define void @_ZN5image6codecs3dxt15decode_dxt3_row17h0a232c7083fbdec4E(ptr noali
   %.sroa.0.027 = phi ptr [ %16, %.loopexit ], [ %0, %13 ]
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.59.028, i64 16)
   %16 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 %.0.sroa.speculated.i.i.i
-  %17 = sub i64 %.sroa.59.028, %.0.sroa.speculated.i.i.i
+  %17 = sub nuw i64 %.sroa.59.028, %.0.sroa.speculated.i.i.i
   %18 = add i64 %.sroa.10.029, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7005)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7008)
@@ -28261,7 +28261,7 @@ define void @_ZN5image6codecs3dxt15decode_dxt5_row17h3aa59ea21dd30546E(ptr noali
   %.sroa.0.028 = phi ptr [ %0, %.lr.ph ], [ %21, %.loopexit ]
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.59.029, i64 16)
   %21 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 %.0.sroa.speculated.i.i.i
-  %22 = sub i64 %.sroa.59.029, %.0.sroa.speculated.i.i.i
+  %22 = sub nuw i64 %.sroa.59.029, %.0.sroa.speculated.i.i.i
   %23 = add i64 %.sroa.10.030, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7020)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7023)
@@ -29352,7 +29352,7 @@ _ZN5image6codecs3dxt17encode_dxt1_block17hcf9a767386ac76a9E.exit: ; preds = %27,
 "_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.i": ; preds = %_ZN5image6codecs3dxt17encode_dxt1_block17hcf9a767386ac76a9E.exit
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.521.0, i64 8)
   %19 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.0.sroa.speculated.i.i.i
-  %20 = sub i64 %.sroa.521.0, %.0.sroa.speculated.i.i.i
+  %20 = sub nuw nsw i64 %.sroa.521.0, %.0.sroa.speculated.i.i.i
   %21 = icmp eq ptr %.sroa.0.0, null
   br i1 %21, label %22, label %23
 
@@ -29482,7 +29482,7 @@ _ZN5image6codecs3dxt17encode_dxt3_block17hc4c919e145631981E.exit.loopexit: ; pre
   %.sroa.0.041 = phi ptr [ %20, %_ZN5image6codecs3dxt17encode_dxt3_block17hc4c919e145631981E.exit.loopexit ], [ %15, %10 ]
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.522.042, i64 16)
   %20 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 %.0.sroa.speculated.i.i.i
-  %21 = sub i64 %.sroa.522.042, %.0.sroa.speculated.i.i.i
+  %21 = sub nuw nsw i64 %.sroa.522.042, %.0.sroa.speculated.i.i.i
   %22 = icmp eq ptr %.sroa.0.041, null
   br i1 %22, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.i._crit_edge", label %23
 
@@ -29656,7 +29656,7 @@ define void @_ZN5image6codecs3dxt15encode_dxt5_row17hfebf0fab4d2dcf4aE(ptr noali
   %.sroa.0.050 = phi ptr [ %20, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.i.lr.ph" ], [ %33, %174 ]
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.522.051, i64 16)
   %33 = getelementptr inbounds i8, ptr %.sroa.0.050, i64 %.0.sroa.speculated.i.i.i
-  %34 = sub i64 %.sroa.522.051, %.0.sroa.speculated.i.i.i
+  %34 = sub nuw nsw i64 %.sroa.522.051, %.0.sroa.speculated.i.i.i
   %35 = icmp eq ptr %.sroa.0.050, null
   br i1 %35, label %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.i._crit_edge", label %36
 
@@ -30345,7 +30345,7 @@ switch.lookup:                                    ; preds = %22
   br label %83
 
 81:                                               ; preds = %77
-  %82 = sub nsw i8 %68, %74
+  %82 = sub nuw nsw i8 %68, %74
   br label %83
 
 83:                                               ; preds = %81, %79
@@ -31188,7 +31188,7 @@ switch.lookup281:                                 ; preds = %"_ZN5image6codecs3t
   br i1 %239, label %240, label %.lr.ph.i.i136
 
 240:                                              ; preds = %.lr.ph.i.i136
-  %241 = sub i64 %.sroa.6.023.i, %.0.sroa.speculated.i.i.i
+  %241 = sub nuw i64 %.sroa.6.023.i, %.0.sroa.speculated.i.i.i
   %242 = mul i64 %238, %220
   %243 = add i64 %242, %219
   %244 = add i64 %243, %220
@@ -31249,7 +31249,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.i: ; preds =
   br i1 %264, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h35f3c7b8be2f5eadE.exit.i", label %.split17.us.i.invoke, !prof !85
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h35f3c7b8be2f5eadE.exit.i": ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.i"
-  %265 = sub i64 %.sroa.5.08.i, %.0.sroa.speculated.i.i.i143
+  %265 = sub nuw i64 %.sroa.5.08.i, %.0.sroa.speculated.i.i.i143
   %266 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 %.0.sroa.speculated.i.i.i143
   %267 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 2
   %.0.copyload.i.i = load i8, ptr %.sroa.01.07.i, align 1, !alias.scope !7481, !noalias !7486
@@ -32193,7 +32193,7 @@ switch.lookup339:                                 ; preds = %"_ZN5image6codecs3t
   br i1 %271, label %272, label %.lr.ph.i.i138
 
 272:                                              ; preds = %.lr.ph.i.i138
-  %273 = sub i64 %.sroa.6.023.i, %.0.sroa.speculated.i.i.i
+  %273 = sub nuw i64 %.sroa.6.023.i, %.0.sroa.speculated.i.i.i
   %274 = mul i64 %270, %252
   %275 = add i64 %274, %251
   %276 = add i64 %275, %252
@@ -32254,7 +32254,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit.i: ; preds =
   br i1 %296, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h35f3c7b8be2f5eadE.exit.i", label %.split17.us.i.invoke, !prof !85
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h35f3c7b8be2f5eadE.exit.i": ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.i"
-  %297 = sub i64 %.sroa.5.08.i, %.0.sroa.speculated.i.i.i145
+  %297 = sub nuw i64 %.sroa.5.08.i, %.0.sroa.speculated.i.i.i145
   %298 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 %.0.sroa.speculated.i.i.i145
   %299 = getelementptr inbounds i8, ptr %.sroa.01.07.i, i64 2
   %.0.copyload.i.i = load i8, ptr %.sroa.01.07.i, align 1, !alias.scope !7667, !noalias !7672
@@ -32542,7 +32542,7 @@ switch.lookup:
   %.sroa.6.0124 = phi i64 [ %2, %.lr.ph ], [ %28, %165 ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0124, i64 %switch.load)
   %27 = getelementptr inbounds i8, ptr %.sroa.02.0125, i64 %.0.sroa.speculated.i.i
-  %28 = sub i64 %.sroa.6.0124, %.0.sroa.speculated.i.i
+  %28 = sub nuw i64 %.sroa.6.0124, %.0.sroa.speculated.i.i
   %.not = icmp eq ptr %.sroa.038.0126, null
   br i1 %.not, label %97, label %96
 

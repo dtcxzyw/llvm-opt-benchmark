@@ -6324,7 +6324,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %106, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h83be7457eb6a3163E.exit", label %107
 
 107:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hd999312d9cc0d7d9E.exit"
-  %108 = sub i64 %105, %103
+  %108 = sub nuw i64 %105, %103
   %109 = getelementptr inbounds i8, ptr %0, i64 8
   %110 = load ptr, ptr %109, align 8, !alias.scope !1049, !nonnull !7, !noundef !7
   %111 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [4 x i64] }, { { { ptr, ptr }, ptr }, i64 }, i64 }, ptr %110, i64 %103
@@ -28625,7 +28625,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h08c3d99ea5ea5b
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h26286f6d5542b974E.exit.i.i.i.i"
 
 63:                                               ; preds = %60
-  %64 = sub i64 %.0.sroa.speculated.i.i.i.i.i, %62
+  %64 = sub nuw i64 %.0.sroa.speculated.i.i.i.i.i, %62
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd1221cdd09f4196cE.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val5.i, i64 noundef %64)
           to label %.noexc unwind label %.loopexit
 
@@ -62841,7 +62841,7 @@ define hidden { i64, ptr } @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hbb8a447a6a0ab434E.llvm.6579604558243679033.exit.i": ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15386)
-  %7 = sub i64 %6, %.0.sroa.speculated.i
+  %7 = sub nuw i64 %6, %.0.sroa.speculated.i
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !15389, !nonnull !7, !noundef !7
   %10 = getelementptr inbounds ptr, ptr %9, i64 %.0.sroa.speculated.i
@@ -62850,7 +62850,7 @@ define hidden { i64, ptr } @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hca5f3dbe6dfed724E.exit"
 
 11:                                               ; preds = %2
-  %12 = sub i64 %.0.sroa.speculated.i, %6
+  %12 = sub nuw i64 %.0.sroa.speculated.i, %6
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h324f9b766d798508E.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   %.pre = load i64, ptr %5, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hca5f3dbe6dfed724E.exit"
@@ -62891,7 +62891,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN8la_arena3map42ArenaMap$LT$la_arena
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17he1f03b390c4231acE.exit"
 
 8:                                                ; preds = %3
-  %9 = sub i64 %.0.sroa.speculated.i, %7
+  %9 = sub nuw i64 %.0.sroa.speculated.i, %7
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hba6817514deb6d3bE.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %9)
   %.pre = load i64, ptr %6, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17he1f03b390c4231acE.exit"
@@ -62939,7 +62939,7 @@ define hidden { ptr, ptr } @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hd74203c84cdd0825E.exit"
 
 13:                                               ; preds = %4
-  %14 = sub i64 %.0.sroa.speculated.i, %10
+  %14 = sub nuw i64 %.0.sroa.speculated.i, %10
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h182423c92aca24cfE.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hd74203c84cdd0825E.exit_crit_edge" unwind label %.body
 
@@ -63003,7 +63003,7 @@ define hidden void @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h11dea00f1d13f96cE.exit" unwind label %9
 
 12:                                               ; preds = %4
-  %13 = sub i64 %.0.sroa.speculated.i, %8
+  %13 = sub nuw i64 %.0.sroa.speculated.i, %8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0aeb936dd8f890e9E.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %13)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h11dea00f1d13f96cE.exit" unwind label %9
 
@@ -63052,7 +63052,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN8la_arena3map42ArenaMap$LT$la_arena
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h2699219ed12e2d7dE.exit"
 
 8:                                                ; preds = %3
-  %9 = sub i64 %.0.sroa.speculated.i, %7
+  %9 = sub nuw i64 %.0.sroa.speculated.i, %7
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h79f4ff0050b0b8dcE.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %9)
   %.pre = load i64, ptr %6, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h2699219ed12e2d7dE.exit"
@@ -63095,7 +63095,7 @@ define hidden noundef ptr @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$
           to label %28 unwind label %26
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hbb8a447a6a0ab434E.llvm.6579604558243679033.exit.i": ; preds = %3
-  %11 = sub i64 %8, %.0.sroa.speculated.i
+  %11 = sub nuw i64 %8, %.0.sroa.speculated.i
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !15405, !nonnull !7, !noundef !7
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.0.sroa.speculated.i
@@ -63104,7 +63104,7 @@ define hidden noundef ptr @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17he3b88f67b7be0c6cE.exit" unwind label %9
 
 15:                                               ; preds = %3
-  %16 = sub i64 %.0.sroa.speculated.i, %8
+  %16 = sub nuw i64 %.0.sroa.speculated.i, %8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc1c315bf84fdf280E.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %16)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17he3b88f67b7be0c6cE.exit_crit_edge" unwind label %9
 
@@ -63161,7 +63161,7 @@ define hidden noundef ptr @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$
           to label %28 unwind label %26
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hbb8a447a6a0ab434E.llvm.6579604558243679033.exit.i": ; preds = %3
-  %11 = sub i64 %8, %.0.sroa.speculated.i
+  %11 = sub nuw i64 %8, %.0.sroa.speculated.i
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !15410, !nonnull !7, !noundef !7
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.0.sroa.speculated.i
@@ -63170,7 +63170,7 @@ define hidden noundef ptr @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h4d1e794bb9294349E.exit" unwind label %9
 
 15:                                               ; preds = %3
-  %16 = sub i64 %.0.sroa.speculated.i, %8
+  %16 = sub nuw i64 %.0.sroa.speculated.i, %8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h661396daa831973bE.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %16)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h4d1e794bb9294349E.exit_crit_edge" unwind label %9
 
@@ -63227,7 +63227,7 @@ define hidden noundef ptr @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$
           to label %28 unwind label %26
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hbb8a447a6a0ab434E.llvm.6579604558243679033.exit.i": ; preds = %3
-  %11 = sub i64 %8, %.0.sroa.speculated.i
+  %11 = sub nuw i64 %8, %.0.sroa.speculated.i
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !15415, !nonnull !7, !noundef !7
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.0.sroa.speculated.i
@@ -63236,7 +63236,7 @@ define hidden noundef ptr @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hab64589910c176d4E.exit" unwind label %9
 
 15:                                               ; preds = %3
-  %16 = sub i64 %.0.sroa.speculated.i, %8
+  %16 = sub nuw i64 %.0.sroa.speculated.i, %8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h32252fd2fa2e49d9E.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %16)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hab64589910c176d4E.exit_crit_edge" unwind label %9
 
@@ -63289,7 +63289,7 @@ define hidden { i32, i32 } @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h26286f6d5542b974E.exit"
 
 8:                                                ; preds = %3
-  %9 = sub i64 %.0.sroa.speculated.i, %7
+  %9 = sub nuw i64 %.0.sroa.speculated.i, %7
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd1221cdd09f4196cE.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %9)
   %.pre = load i64, ptr %6, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h26286f6d5542b974E.exit"
@@ -63332,7 +63332,7 @@ define hidden void @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h3e6f8b2529316b81E.exit"
 
 9:                                                ; preds = %4
-  %10 = sub i64 %.0.sroa.speculated.i, %8
+  %10 = sub nuw i64 %.0.sroa.speculated.i, %8
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3e75ec6bde5aa19dE.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %10)
   %.pre = load i64, ptr %7, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h3e6f8b2529316b81E.exit"
@@ -63374,7 +63374,7 @@ define hidden noundef ptr @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$
           to label %28 unwind label %26
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hbb8a447a6a0ab434E.llvm.6579604558243679033.exit.i": ; preds = %3
-  %11 = sub i64 %8, %.0.sroa.speculated.i
+  %11 = sub nuw i64 %8, %.0.sroa.speculated.i
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !15430, !nonnull !7, !noundef !7
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.0.sroa.speculated.i
@@ -63383,7 +63383,7 @@ define hidden noundef ptr @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h1313ac1502fa0f53E.exit" unwind label %9
 
 15:                                               ; preds = %3
-  %16 = sub i64 %.0.sroa.speculated.i, %8
+  %16 = sub nuw i64 %.0.sroa.speculated.i, %8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h9438eef5decf9766E.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %16)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h1313ac1502fa0f53E.exit_crit_edge" unwind label %9
 
@@ -63436,7 +63436,7 @@ define hidden { i32, i32 } @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h4295962f4f9f084aE.exit"
 
 8:                                                ; preds = %3
-  %9 = sub i64 %.0.sroa.speculated.i, %7
+  %9 = sub nuw i64 %.0.sroa.speculated.i, %7
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd636fbf3a6f118f1E.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %9)
   %.pre = load i64, ptr %6, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h4295962f4f9f084aE.exit"
@@ -63485,7 +63485,7 @@ define hidden void @"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h1d536f062fe0a447E.exit" unwind label %9
 
 12:                                               ; preds = %4
-  %13 = sub i64 %.0.sroa.speculated.i, %8
+  %13 = sub nuw i64 %.0.sroa.speculated.i, %8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h002846977f61639bE.llvm.6579604558243679033"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %13)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h1d536f062fe0a447E.exit" unwind label %9
 
@@ -69152,7 +69152,7 @@ define hidden void @"_ZN96_$LT$hashbrown..raw..RawDrain$LT$T$C$A$GT$$u20$as$u20$
   %9 = xor i16 %16, -1
   store ptr %18, ptr %8, align 8, !alias.scope !16453
   store ptr %17, ptr %1, align 8, !alias.scope !16453
-  %10 = sub i16 -2, %16
+  %10 = sub nuw i16 -2, %16
   %11 = and i16 %10, %9
   store i16 %11, ptr %7, align 8, !alias.scope !16454
   %12 = add i64 %4, -1
@@ -70789,7 +70789,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !16521
   store ptr %18, ptr %3, align 8, !alias.scope !16521
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !16522
   %13 = add i64 %5, -1
@@ -70861,7 +70861,7 @@ define hidden { i32, i32 } @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$
   %9 = xor i16 %16, -1
   store ptr %18, ptr %8, align 8, !alias.scope !16534
   store ptr %17, ptr %2, align 8, !alias.scope !16534
-  %10 = sub i16 -2, %16
+  %10 = sub nuw i16 -2, %16
   %11 = and i16 %10, %9
   store i16 %11, ptr %7, align 8, !alias.scope !16535
   %12 = add i64 %4, -1
@@ -70933,7 +70933,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !16547
   store ptr %18, ptr %3, align 8, !alias.scope !16547
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !16548
   %13 = add i64 %5, -1
@@ -71006,7 +71006,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !16560
   store ptr %18, ptr %3, align 8, !alias.scope !16560
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !16561
   %13 = add i64 %5, -1
@@ -71078,7 +71078,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !16573
   store ptr %18, ptr %3, align 8, !alias.scope !16573
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !16574
   %13 = add i64 %5, -1
@@ -71151,7 +71151,7 @@ define hidden { i32, ptr } @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$
   %9 = xor i16 %16, -1
   store ptr %18, ptr %8, align 8, !alias.scope !16586
   store ptr %17, ptr %2, align 8, !alias.scope !16586
-  %10 = sub i16 -2, %16
+  %10 = sub nuw i16 -2, %16
   %11 = and i16 %10, %9
   store i16 %11, ptr %7, align 8, !alias.scope !16587
   %12 = add i64 %4, -1
@@ -71225,7 +71225,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !16599
   store ptr %18, ptr %3, align 8, !alias.scope !16599
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !16600
   %13 = add i64 %5, -1
@@ -86249,7 +86249,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h09f3d5
   %13 = xor i16 %20, -1
   store ptr %22, ptr %7, align 8, !alias.scope !19909
   store ptr %21, ptr %0, align 8, !alias.scope !19909
-  %14 = sub i16 -2, %20
+  %14 = sub nuw i16 -2, %20
   %15 = and i16 %14, %13
   store i16 %15, ptr %6, align 8, !alias.scope !19916
   %16 = add i64 %12, -1
@@ -86341,7 +86341,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h19406a
   %9 = xor i16 %16, -1
   store ptr %18, ptr %6, align 8, !alias.scope !19942
   store ptr %17, ptr %0, align 8, !alias.scope !19942
-  %10 = sub i16 -2, %16
+  %10 = sub nuw i16 -2, %16
   %11 = and i16 %10, %9
   store i16 %11, ptr %5, align 8, !alias.scope !19943
   %12 = add i64 %8, -1
@@ -86457,7 +86457,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h1e780d
   %9 = xor i16 %16, -1
   store ptr %18, ptr %6, align 8, !alias.scope !19983
   store ptr %17, ptr %0, align 8, !alias.scope !19983
-  %10 = sub i16 -2, %16
+  %10 = sub nuw i16 -2, %16
   %11 = and i16 %10, %9
   store i16 %11, ptr %5, align 8, !alias.scope !19984
   %12 = add i64 %8, -1
@@ -86530,7 +86530,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h51472e
   %10 = xor i16 %17, -1
   store ptr %19, ptr %6, align 8, !alias.scope !19993
   store ptr %18, ptr %0, align 8, !alias.scope !19993
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %5, align 8, !alias.scope !20000
   %13 = add i64 %9, -1
@@ -86605,7 +86605,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h7391e4
   %9 = xor i16 %16, -1
   store ptr %18, ptr %6, align 8, !alias.scope !20015
   store ptr %17, ptr %0, align 8, !alias.scope !20015
-  %10 = sub i16 -2, %16
+  %10 = sub nuw i16 -2, %16
   %11 = and i16 %10, %9
   store i16 %11, ptr %5, align 8, !alias.scope !20016
   %12 = add i64 %8, -1
@@ -86681,7 +86681,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17ha9d436
   %13 = xor i16 %20, -1
   store ptr %22, ptr %7, align 8, !alias.scope !20025
   store ptr %21, ptr %0, align 8, !alias.scope !20025
-  %14 = sub i16 -2, %20
+  %14 = sub nuw i16 -2, %20
   %15 = and i16 %14, %13
   store i16 %15, ptr %6, align 8, !alias.scope !20032
   %16 = add i64 %12, -1

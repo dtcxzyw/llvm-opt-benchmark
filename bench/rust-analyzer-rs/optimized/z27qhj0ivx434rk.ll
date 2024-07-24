@@ -758,7 +758,7 @@ common.resume:                                    ; preds = %130, %"_ZN4core3ptr
   br i1 %54, label %55, label %"_ZN9itertools11lazy_buffer19LazyBuffer$LT$I$GT$7prefill17h78bb1892b0072011E.exit"
 
 55:                                               ; preds = %51
-  %56 = sub i64 %20, %53
+  %56 = sub nuw i64 %20, %53
   %57 = getelementptr inbounds i8, ptr %1, i64 64
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h4159961dfdd969e8E.llvm.10122841070676192969"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, i64 noundef %56)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 56

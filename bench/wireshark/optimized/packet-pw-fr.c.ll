@@ -122,7 +122,7 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.39) #2
   %13 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.40) #2
-  br label %106
+  br label %105
 
 14:                                               ; preds = %4
   %15 = tail call i32 @dissect_try_cw_first_nibble(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2
@@ -131,7 +131,7 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 16:                                               ; preds = %14
   %17 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  br label %106
+  br label %105
 
 18:                                               ; preds = %14
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
@@ -161,7 +161,7 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %37
 
 33:                                               ; preds = %29
-  %34 = sub nsw i32 %23, %22
+  %34 = sub nuw nsw i32 %23, %22
   br label %37
 
 35:                                               ; preds = %18
@@ -262,39 +262,39 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
 87:                                               ; preds = %84, %82
   %88 = load i32, ptr @hf_cw_seq, align 4
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %88, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
-  %90 = icmp sgt i32 %.093, 0
-  br i1 %90, label %91, label %95
+  %.not111 = icmp eq i32 %.093, 0
+  br i1 %.not111, label %94, label %90
 
-91:                                               ; preds = %87
-  %92 = load i32, ptr @hf_cw_padding, align 4
-  %93 = add nuw nsw i32 %.092, 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %92, ptr noundef %0, i32 noundef %93, i32 noundef %.093, i32 noundef 0) #2
-  br label %95
+90:                                               ; preds = %87
+  %91 = load i32, ptr @hf_cw_padding, align 4
+  %92 = add nuw nsw i32 %.092, 4
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %91, ptr noundef %0, i32 noundef %92, i32 noundef %.093, i32 noundef 0) #2
+  br label %94
 
-95:                                               ; preds = %91, %87
-  %96 = and i32 %spec.select109, 32
-  %.not107 = icmp eq i32 %96, 0
-  br i1 %.not107, label %99, label %97
+94:                                               ; preds = %90, %87
+  %95 = and i32 %spec.select109, 32
+  %.not107 = icmp eq i32 %95, 0
+  br i1 %.not107, label %98, label %96
 
-97:                                               ; preds = %95
-  %98 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %52, ptr noundef nonnull @ei_payload_size_invalid, ptr noundef nonnull @.str.48) #2
-  br label %99
+96:                                               ; preds = %94
+  %97 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %52, ptr noundef nonnull @ei_payload_size_invalid, ptr noundef nonnull @.str.48) #2
+  br label %98
 
-99:                                               ; preds = %97, %95
-  br i1 %38, label %104, label %100
+98:                                               ; preds = %96, %94
+  br i1 %38, label %103, label %99
 
-100:                                              ; preds = %99
-  %101 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef %.092) #2
-  %102 = load ptr, ptr @fr_stripped_address_handle, align 8
-  %103 = tail call i32 @call_dissector(ptr noundef %102, ptr noundef %101, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %104
+99:                                               ; preds = %98
+  %100 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef %.092) #2
+  %101 = load ptr, ptr @fr_stripped_address_handle, align 8
+  %102 = tail call i32 @call_dissector(ptr noundef %101, ptr noundef %100, ptr noundef nonnull %1, ptr noundef %2) #2
+  br label %103
 
-104:                                              ; preds = %100, %99
-  %105 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  br label %106
+103:                                              ; preds = %99, %98
+  %104 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  br label %105
 
-106:                                              ; preds = %104, %16, %7
-  %.0 = phi i32 [ 1, %7 ], [ %17, %16 ], [ %105, %104 ]
+105:                                              ; preds = %103, %16, %7
+  %.0 = phi i32 [ 1, %7 ], [ %17, %16 ], [ %104, %103 ]
   ret i32 %.0
 }
 

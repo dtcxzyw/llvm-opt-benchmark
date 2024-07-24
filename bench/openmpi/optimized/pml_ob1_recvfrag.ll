@@ -72,224 +72,223 @@ define void @ompi_pml_ob1_append_frag_to_ordered_list(ptr nocapture noundef %0, 
   br i1 %14, label %19, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %.pn.in141 = getelementptr inbounds i8, ptr %7, i64 16
-  %.pn142 = load volatile ptr, ptr %.pn.in141, align 8
-  %.0111.in143 = getelementptr inbounds i8, ptr %.pn142, i64 68
-  %.0111144 = load i16, ptr %.0111.in143, align 4
+  %.pn.in142 = getelementptr inbounds i8, ptr %7, i64 16
+  %.pn143 = load volatile ptr, ptr %.pn.in142, align 8
+  %.0111.in144 = getelementptr inbounds i8, ptr %.pn143, i64 68
+  %.0111145 = load i16, ptr %.0111.in144, align 4
   %15 = icmp ugt i16 %11, %13
-  %16 = icmp ugt i16 %11, %.0111144
-  %17 = icmp ult i16 %13, %.0111144
+  %16 = icmp ugt i16 %11, %.0111145
+  %17 = icmp ult i16 %13, %.0111145
   %18 = and i1 %16, %17
-  %or.cond135145 = select i1 %15, i1 %18, i1 false
-  br i1 %or.cond135145, label %.lr.ph, label %.critedge2
+  %or.cond136146 = select i1 %15, i1 %18, i1 false
+  br i1 %or.cond136146, label %.lr.ph, label %.critedge2
 
 19:                                               ; preds = %9
-  %20 = sub i16 %13, %11
-  br label %21
+  %narrow = sub nuw i16 %13, %11
+  br label %20
 
-21:                                               ; preds = %21, %19
-  %.0114 = phi ptr [ %7, %19 ], [ %23, %21 ]
-  %.0113 = phi i16 [ %20, %19 ], [ %26, %21 ]
-  %22 = getelementptr inbounds i8, ptr %.0114, i64 24
-  %23 = load volatile ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 68
-  %25 = load i16, ptr %24, align 4
-  %26 = sub i16 %25, %11
-  %27 = icmp uge i16 %11, %25
-  %28 = icmp ule i16 %.0113, %26
-  %or.cond.not139 = or i1 %27, %28
-  %.not = icmp eq ptr %23, %7
-  %or.cond136 = or i1 %.not, %or.cond.not139
-  br i1 %or.cond136, label %.critedge2, label %21, !llvm.loop !4
+20:                                               ; preds = %20, %19
+  %.0114 = phi ptr [ %7, %19 ], [ %22, %20 ]
+  %.0113 = phi i16 [ %narrow, %19 ], [ %25, %20 ]
+  %21 = getelementptr inbounds i8, ptr %.0114, i64 24
+  %22 = load volatile ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 68
+  %24 = load i16, ptr %23, align 4
+  %25 = sub i16 %24, %11
+  %26 = icmp uge i16 %11, %24
+  %27 = icmp ule i16 %.0113, %25
+  %or.cond.not140 = select i1 %26, i1 true, i1 %27
+  %.not = icmp eq ptr %22, %7
+  %or.cond137 = or i1 %.not, %or.cond.not140
+  br i1 %or.cond137, label %.critedge2, label %20, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0111147 = phi i16 [ %.0111, %.lr.ph ], [ %.0111144, %.preheader ]
-  %.pn.in146 = phi ptr [ %.pn.in, %.lr.ph ], [ %.pn.in141, %.preheader ]
-  %29 = load volatile ptr, ptr %.pn.in146, align 8
-  %.pn.in = getelementptr inbounds i8, ptr %29, i64 16
+  %.0111148 = phi i16 [ %.0111, %.lr.ph ], [ %.0111145, %.preheader ]
+  %.pn.in147 = phi ptr [ %.pn.in, %.lr.ph ], [ %.pn.in142, %.preheader ]
+  %28 = load volatile ptr, ptr %.pn.in147, align 8
+  %.pn.in = getelementptr inbounds i8, ptr %28, i64 16
   %.pn = load volatile ptr, ptr %.pn.in, align 8
   %.0111.in = getelementptr inbounds i8, ptr %.pn, i64 68
   %.0111 = load i16, ptr %.0111.in, align 4
-  %30 = icmp ugt i16 %11, %.0111147
-  %31 = icmp ugt i16 %11, %.0111
-  %32 = icmp ult i16 %.0111147, %.0111
-  %33 = and i1 %31, %32
-  %or.cond135 = select i1 %30, i1 %33, i1 false
-  br i1 %or.cond135, label %.lr.ph, label %.critedge2, !llvm.loop !6
+  %29 = icmp ugt i16 %11, %.0111148
+  %30 = icmp ugt i16 %11, %.0111
+  %31 = icmp ult i16 %.0111148, %.0111
+  %32 = and i1 %30, %31
+  %or.cond136 = select i1 %29, i1 %32, i1 false
+  br i1 %or.cond136, label %.lr.ph, label %.critedge2, !llvm.loop !6
 
-.critedge2:                                       ; preds = %.lr.ph, %21, %.preheader
-  %.2 = phi ptr [ %7, %.preheader ], [ %23, %21 ], [ %29, %.lr.ph ]
-  %34 = getelementptr inbounds i8, ptr %.2, i64 144
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %45
+.critedge2:                                       ; preds = %.lr.ph, %20, %.preheader
+  %.2 = phi ptr [ %7, %.preheader ], [ %22, %20 ], [ %28, %.lr.ph ]
+  %33 = getelementptr inbounds i8, ptr %.2, i64 144
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %44
 
-37:                                               ; preds = %.critedge2
-  %38 = getelementptr inbounds i8, ptr %.2, i64 68
-  %39 = load i16, ptr %38, align 4
-  %40 = zext i16 %39 to i32
-  %41 = add nuw nsw i32 %40, 1
-  %42 = zext i16 %11 to i32
-  %43 = icmp eq i32 %41, %42
-  br i1 %43, label %44, label %61
+36:                                               ; preds = %.critedge2
+  %37 = getelementptr inbounds i8, ptr %.2, i64 68
+  %38 = load i16, ptr %37, align 4
+  %39 = zext i16 %38 to i32
+  %40 = add nuw nsw i32 %39, 1
+  %41 = zext i16 %11 to i32
+  %42 = icmp eq i32 %40, %41
+  br i1 %42, label %43, label %60
 
-44:                                               ; preds = %37
-  store ptr %1, ptr %34, align 8
-  br label %82
+43:                                               ; preds = %36
+  store ptr %1, ptr %33, align 8
+  br label %79
 
-45:                                               ; preds = %.critedge2
-  %46 = getelementptr inbounds i8, ptr %35, i64 24
-  %47 = load volatile ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 68
-  %49 = load i16, ptr %48, align 4
-  %50 = zext i16 %49 to i32
-  %51 = add nuw nsw i32 %50, 1
-  %52 = zext i16 %11 to i32
-  %53 = icmp eq i32 %51, %52
-  br i1 %53, label %54, label %61
+44:                                               ; preds = %.critedge2
+  %45 = getelementptr inbounds i8, ptr %34, i64 24
+  %46 = load volatile ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 68
+  %48 = load i16, ptr %47, align 4
+  %49 = zext i16 %48 to i32
+  %50 = add nuw nsw i32 %49, 1
+  %51 = zext i16 %11 to i32
+  %52 = icmp eq i32 %50, %51
+  br i1 %52, label %53, label %60
 
-54:                                               ; preds = %45
-  store volatile ptr %47, ptr %5, align 8
-  %55 = getelementptr inbounds i8, ptr %47, i64 16
-  %56 = load volatile ptr, ptr %55, align 8
-  store volatile ptr %56, ptr %4, align 8
-  %57 = load volatile ptr, ptr %5, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
-  store volatile ptr %1, ptr %58, align 8
-  %59 = load volatile ptr, ptr %4, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
-  store volatile ptr %1, ptr %60, align 8
-  br label %82
+53:                                               ; preds = %44
+  store volatile ptr %46, ptr %5, align 8
+  %54 = getelementptr inbounds i8, ptr %46, i64 16
+  %55 = load volatile ptr, ptr %54, align 8
+  store volatile ptr %55, ptr %4, align 8
+  %56 = load volatile ptr, ptr %5, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  store volatile ptr %1, ptr %57, align 8
+  %58 = load volatile ptr, ptr %4, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  store volatile ptr %1, ptr %59, align 8
+  br label %79
 
-61:                                               ; preds = %45, %37
+60:                                               ; preds = %44, %36
   store volatile ptr %.2, ptr %5, align 8
-  %62 = getelementptr inbounds i8, ptr %.2, i64 16
-  %63 = load volatile ptr, ptr %62, align 8
-  store volatile ptr %63, ptr %4, align 8
-  %64 = load volatile ptr, ptr %5, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
-  store volatile ptr %1, ptr %65, align 8
-  %66 = load volatile ptr, ptr %4, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
-  store volatile ptr %1, ptr %67, align 8
-  %68 = load i16, ptr %10, align 4
-  %.not130 = icmp ult i16 %68, %2
-  br i1 %.not130, label %82, label %69
+  %61 = getelementptr inbounds i8, ptr %.2, i64 16
+  %62 = load volatile ptr, ptr %61, align 8
+  store volatile ptr %62, ptr %4, align 8
+  %63 = load volatile ptr, ptr %5, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  store volatile ptr %1, ptr %64, align 8
+  %65 = load volatile ptr, ptr %4, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  store volatile ptr %1, ptr %66, align 8
+  %67 = load i16, ptr %10, align 4
+  %.not130 = icmp ult i16 %67, %2
+  br i1 %.not130, label %79, label %68
 
-69:                                               ; preds = %61
-  %70 = zext i16 %2 to i32
-  %71 = zext i16 %68 to i32
-  %72 = sub nsw i32 %71, %70
-  %73 = tail call i32 @llvm.abs.i32(i32 %72, i1 true)
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 68
-  %76 = load i16, ptr %75, align 4
-  %77 = zext i16 %76 to i32
-  %78 = sub nsw i32 %77, %70
-  %79 = tail call i32 @llvm.abs.i32(i32 %78, i1 true)
-  %80 = icmp ult i32 %73, %79
-  br i1 %80, label %81, label %82
+68:                                               ; preds = %60
+  %69 = zext i16 %2 to i32
+  %narrow131 = sub nuw i16 %67, %2
+  %70 = zext i16 %narrow131 to i32
+  %71 = load ptr, ptr %0, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 68
+  %73 = load i16, ptr %72, align 4
+  %74 = zext i16 %73 to i32
+  %75 = sub nsw i32 %74, %69
+  %76 = tail call i32 @llvm.abs.i32(i32 %75, i1 true)
+  %77 = icmp ugt i32 %76, %70
+  br i1 %77, label %78, label %79
 
-81:                                               ; preds = %69
+78:                                               ; preds = %68
   store ptr %1, ptr %0, align 8
-  br label %82
+  br label %79
 
-82:                                               ; preds = %61, %81, %69, %54, %44
-  %.0110 = phi ptr [ %.2, %44 ], [ %1, %81 ], [ %1, %69 ], [ %1, %61 ], [ %.2, %54 ]
-  %83 = getelementptr inbounds i8, ptr %.0110, i64 16
-  %84 = load volatile ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.0110, i64 144
-  %86 = load ptr, ptr %85, align 8
-  %.not131 = icmp eq ptr %86, null
-  br i1 %.not131, label %90, label %87
+79:                                               ; preds = %60, %78, %68, %53, %43
+  %.0110 = phi ptr [ %.2, %43 ], [ %1, %78 ], [ %1, %68 ], [ %1, %60 ], [ %.2, %53 ]
+  %80 = getelementptr inbounds i8, ptr %.0110, i64 16
+  %81 = load volatile ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %.0110, i64 144
+  %83 = load ptr, ptr %82, align 8
+  %.not132 = icmp eq ptr %83, null
+  br i1 %.not132, label %87, label %84
 
-87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %86, i64 24
-  %89 = load volatile ptr, ptr %88, align 8
-  br label %90
+84:                                               ; preds = %79
+  %85 = getelementptr inbounds i8, ptr %83, i64 24
+  %86 = load volatile ptr, ptr %85, align 8
+  br label %87
 
-90:                                               ; preds = %87, %82
-  %.pn132 = phi ptr [ %89, %87 ], [ %.0110, %82 ]
-  %.0.in = getelementptr inbounds i8, ptr %.pn132, i64 68
+87:                                               ; preds = %84, %79
+  %.pn133 = phi ptr [ %86, %84 ], [ %.0110, %79 ]
+  %.0.in = getelementptr inbounds i8, ptr %.pn133, i64 68
   %.0 = load i16, ptr %.0.in, align 4
-  %91 = zext i16 %.0 to i32
-  %92 = add nuw nsw i32 %91, 1
-  %93 = getelementptr inbounds i8, ptr %84, i64 68
-  %94 = load i16, ptr %93, align 4
-  %95 = zext i16 %94 to i32
-  %96 = icmp eq i32 %92, %95
-  br i1 %96, label %97, label %132
+  %88 = zext i16 %.0 to i32
+  %89 = add nuw nsw i32 %88, 1
+  %90 = getelementptr inbounds i8, ptr %81, i64 68
+  %91 = load i16, ptr %90, align 4
+  %92 = zext i16 %91 to i32
+  %93 = icmp eq i32 %89, %92
+  br i1 %93, label %94, label %129
 
-97:                                               ; preds = %90
-  %98 = getelementptr inbounds i8, ptr %84, i64 16
-  %99 = load volatile ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
-  store volatile ptr %.0110, ptr %100, align 8
-  %101 = load volatile ptr, ptr %98, align 8
-  store volatile ptr %101, ptr %83, align 8
-  %102 = getelementptr inbounds i8, ptr %84, i64 144
-  %103 = load ptr, ptr %102, align 8
-  %.not133 = icmp eq ptr %103, null
-  br i1 %.not133, label %112, label %104
+94:                                               ; preds = %87
+  %95 = getelementptr inbounds i8, ptr %81, i64 16
+  %96 = load volatile ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 24
+  store volatile ptr %.0110, ptr %97, align 8
+  %98 = load volatile ptr, ptr %95, align 8
+  store volatile ptr %98, ptr %80, align 8
+  %99 = getelementptr inbounds i8, ptr %81, i64 144
+  %100 = load ptr, ptr %99, align 8
+  %.not134 = icmp eq ptr %100, null
+  br i1 %.not134, label %109, label %101
 
-104:                                              ; preds = %97
-  store volatile ptr %103, ptr %98, align 8
-  %105 = getelementptr inbounds i8, ptr %103, i64 24
-  %106 = load volatile ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %84, i64 24
-  store volatile ptr %106, ptr %107, align 8
-  %108 = load volatile ptr, ptr %98, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
-  store volatile ptr %84, ptr %109, align 8
-  %110 = load volatile ptr, ptr %107, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
-  store volatile ptr %84, ptr %111, align 8
-  store ptr null, ptr %102, align 8
-  br label %114
+101:                                              ; preds = %94
+  store volatile ptr %100, ptr %95, align 8
+  %102 = getelementptr inbounds i8, ptr %100, i64 24
+  %103 = load volatile ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %81, i64 24
+  store volatile ptr %103, ptr %104, align 8
+  %105 = load volatile ptr, ptr %95, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 24
+  store volatile ptr %81, ptr %106, align 8
+  %107 = load volatile ptr, ptr %104, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  store volatile ptr %81, ptr %108, align 8
+  store ptr null, ptr %99, align 8
+  br label %111
 
-112:                                              ; preds = %97
-  %113 = getelementptr inbounds i8, ptr %84, i64 24
-  store volatile ptr %84, ptr %113, align 8
-  store volatile ptr %84, ptr %98, align 8
-  br label %114
+109:                                              ; preds = %94
+  %110 = getelementptr inbounds i8, ptr %81, i64 24
+  store volatile ptr %81, ptr %110, align 8
+  store volatile ptr %81, ptr %95, align 8
+  br label %111
 
-114:                                              ; preds = %112, %104
-  %115 = load ptr, ptr %85, align 8
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %117, label %118
+111:                                              ; preds = %109, %101
+  %112 = load ptr, ptr %82, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %114, label %115
 
-117:                                              ; preds = %114
-  store ptr %84, ptr %85, align 8
-  br label %129
+114:                                              ; preds = %111
+  store ptr %81, ptr %82, align 8
+  br label %126
 
-118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %115, i64 24
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds i8, ptr %112, i64 24
+  %117 = load volatile ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  store volatile ptr %81, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %81, i64 24
   %120 = load volatile ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 16
-  store volatile ptr %84, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %84, i64 24
-  %123 = load volatile ptr, ptr %122, align 8
-  %124 = load ptr, ptr %85, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 24
-  store volatile ptr %123, ptr %125, align 8
-  %126 = load ptr, ptr %85, align 8
-  %127 = load volatile ptr, ptr %122, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 16
-  store volatile ptr %126, ptr %128, align 8
+  %121 = load ptr, ptr %82, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 24
   store volatile ptr %120, ptr %122, align 8
+  %123 = load ptr, ptr %82, align 8
+  %124 = load volatile ptr, ptr %119, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 16
+  store volatile ptr %123, ptr %125, align 8
+  store volatile ptr %117, ptr %119, align 8
+  br label %126
+
+126:                                              ; preds = %115, %114
+  %127 = load ptr, ptr %0, align 8
+  %128 = icmp eq ptr %81, %127
+  br i1 %128, label %.sink.split, label %129
+
+.sink.split:                                      ; preds = %126, %3
+  %.0110.sink = phi ptr [ %1, %3 ], [ %.0110, %126 ]
+  store ptr %.0110.sink, ptr %0, align 8
   br label %129
 
-129:                                              ; preds = %118, %117
-  %130 = load ptr, ptr %0, align 8
-  %131 = icmp eq ptr %84, %130
-  br i1 %131, label %.sink.split, label %132
-
-.sink.split:                                      ; preds = %129, %3
-  %.0110.sink = phi ptr [ %1, %3 ], [ %.0110, %129 ]
-  store ptr %.0110.sink, ptr %0, align 8
-  br label %132
-
-132:                                              ; preds = %.sink.split, %129, %90
+129:                                              ; preds = %.sink.split, %126, %87
   ret void
 }
 

@@ -204,7 +204,7 @@ if.end6.i:                                        ; preds = %if.end.i
 
 if.then11.i:                                      ; preds = %if.end6.i
   %retval.sroa.0.0.i32.i = call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i.i37, i64 %mul.i)
-  %sub.i = sub i64 %9, %cond54
+  %sub.i = sub nuw i64 %9, %cond54
   store i64 %sub.i, ptr %spare_capacity.i, align 8
   br label %if.end58.i
 

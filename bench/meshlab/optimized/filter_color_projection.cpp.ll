@@ -2141,7 +2141,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEiEvT_S7_RKT0_.exit
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEiEvT_S7_RKT0_.exit
-  %38 = sub nsw i64 %29, %35
+  %38 = sub nuw nsw i64 %29, %35
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %38)
   %.pre36 = load ptr, ptr %10, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit22
@@ -16132,7 +16132,7 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit:                ; preds = %5, %9
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %_ZNSt6vectorIfSaIfEE5clearEv.exit
-  %20 = sub nsw i64 %11, %17
+  %20 = sub nuw nsw i64 %11, %17
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %20)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -16177,7 +16177,7 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit63:              ; preds = %26, %30
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %_ZNSt6vectorIfSaIfEE5clearEv.exit63
-  %41 = sub nsw i64 %32, %38
+  %41 = sub nuw nsw i64 %32, %38
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %41)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit65
 

@@ -2764,7 +2764,7 @@ define hidden void @_ZN9uu_numfmt6format26format_and_print_delimited17h807d12707
   %63 = getelementptr inbounds i8, ptr %.sroa.08.sroa.12.0.copyload, i64 %.sroa.544.1
   %64 = load i8, ptr %63, align 1, !alias.scope !377, !noalias !382, !noundef !4
   %65 = icmp sgt i8 %64, -65
-  %66 = sub i64 %.sroa.08.sroa.13.0.copyload, %.sroa.544.1
+  %66 = sub nuw i64 %.sroa.08.sroa.13.0.copyload, %.sroa.544.1
   br i1 %65, label %68, label %67
 
 67:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i", %60

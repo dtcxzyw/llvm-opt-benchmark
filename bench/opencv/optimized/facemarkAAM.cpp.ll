@@ -2149,7 +2149,7 @@ define hidden void @_ZN2cv4face15FacemarkAAMImpl8trainingEPv(ptr noundef nonnull
   br i1 %167, label %168, label %170
 
 168:                                              ; preds = %151
-  %169 = sub nsw i64 %159, %166
+  %169 = sub nuw nsw i64 %159, %166
   invoke void @_ZNSt6vectorIN2cv4face11FacemarkAAM5Model7TextureESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %152, i64 noundef %169)
           to label %_ZNSt6vectorIN2cv4face11FacemarkAAM5Model7TextureESaIS4_EE6resizeEm.exit unwind label %322
 
@@ -5564,7 +5564,7 @@ _ZNSt16allocator_traitsISaISt6vectorIN2cv6Point_IfEESaIS3_EEEE8allocateERS6_m.ex
   br i1 %182, label %183, label %209
 
 183:                                              ; preds = %166
-  %184 = sub nsw i64 %174, %181
+  %184 = sub nuw nsw i64 %174, %181
   %185 = getelementptr inbounds i8, ptr %13, i64 16
   %186 = load ptr, ptr %185, align 8
   %187 = ptrtoint ptr %186 to i64
@@ -8232,7 +8232,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %117, label %118, label %149
 
 118:                                              ; preds = %114
-  %119 = sub nsw i64 %116, %112
+  %119 = sub nuw nsw i64 %116, %112
   %120 = ptrtoint ptr %.sroa.20.197 to i64
   %121 = sub i64 %120, %109
   %122 = ashr exact i64 %121, 2
@@ -18957,7 +18957,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EEC2ERKS4_.exit: ; preds = %.lr.ph.i.i.i.i.i, 
   br i1 %94, label %95, label %124
 
 95:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EEC2ERKS4_.exit
-  %96 = sub nsw i64 %86, %93
+  %96 = sub nuw nsw i64 %86, %93
   %97 = getelementptr inbounds i8, ptr %13, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = ptrtoint ptr %98 to i64
@@ -18979,7 +18979,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit.i
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
 106:                                              ; preds = %95
-  %107 = icmp ult i64 %103, %96
+  %107 = icmp ugt i64 %86, 384307168202282325
   br i1 %107, label %.invoke, label %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 .invoke:                                          ; preds = %228, %191, %154, %106
@@ -22766,7 +22766,7 @@ define hidden void @_ZN2cv4face15FacemarkAAMImpl9loadModelENSt7__cxx1112basic_st
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %77
-  %95 = sub nsw i64 %85, %92
+  %95 = sub nuw nsw i64 %85, %92
   invoke void @_ZNSt6vectorIN2cv4face11FacemarkAAM5Model7TextureESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %95)
           to label %_ZNSt6vectorIN2cv4face11FacemarkAAM5Model7TextureESaIS4_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -24575,7 +24575,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -27497,7 +27497,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyINS_3VecIiLi3EE
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %23
-  %34 = sub nsw i64 %24, %31
+  %34 = sub nuw nsw i64 %24, %31
   tail call void @_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %34)
   br label %_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE6resizeEm.exit
 
@@ -27674,7 +27674,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyIfLi1EEclERSt6v
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %3
-  %21 = sub i64 %11, %18
+  %21 = sub nuw i64 %11, %18
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %21)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -27935,7 +27935,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyIiLi1EEclERSt6v
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %3
-  %21 = sub i64 %11, %18
+  %21 = sub nuw i64 %11, %18
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %21)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -28009,7 +28009,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyISt6vectorINS_6
   br i1 %17, label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE6resizeEm.exit.thread, label %19
 
 _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE6resizeEm.exit.thread: ; preds = %3
-  %18 = sub i64 %.sroa.speculated, %16
+  %18 = sub nuw i64 %.sroa.speculated, %16
   tail call void @_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %18)
   br label %.lr.ph.preheader
 
@@ -28422,7 +28422,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

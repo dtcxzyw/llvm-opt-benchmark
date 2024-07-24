@@ -998,7 +998,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp3 = icmp ugt i64 %call2, %call
-  %sub = sub i64 %call, %call2
+  %sub = sub nuw i64 %call, %call2
   %retval.0 = select i1 %cmp3, i64 -5, i64 %sub
   ret i64 %retval.0
 }

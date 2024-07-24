@@ -34538,7 +34538,7 @@ while.body.i:                                     ; preds = %if.end8.i, %while.b
   %sub.ptr.sub.i35.i = phi i64 [ %sub.ptr.sub.i32.i, %while.body.lr.ph.i ], [ 1024, %if.end8.i ]
   %7 = phi ptr [ %6, %while.body.lr.ph.i ], [ %buf_.i.i, %if.end8.i ]
   %n.addr.034.i = phi i64 [ %cond.i, %while.body.lr.ph.i ], [ %sub.i, %if.end8.i ]
-  %sub.i = sub i64 %n.addr.034.i, %sub.ptr.sub.i35.i
+  %sub.i = sub nuw i64 %n.addr.034.i, %sub.ptr.sub.i35.i
   %cmp5.not.i = icmp eq ptr %add.ptr.i.i, %7
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 
@@ -34663,7 +34663,7 @@ while.body.i43:                                   ; preds = %if.end8.i51, %while
   %sub.ptr.sub.i35.i44 = phi i64 [ %sub.ptr.sub.i32.i33, %while.body.lr.ph.i39 ], [ 1024, %if.end8.i51 ]
   %23 = phi ptr [ %22, %while.body.lr.ph.i39 ], [ %buf_.i.i40, %if.end8.i51 ]
   %n.addr.034.i45 = phi i64 [ %cond.i, %while.body.lr.ph.i39 ], [ %sub.i46, %if.end8.i51 ]
-  %sub.i46 = sub i64 %n.addr.034.i45, %sub.ptr.sub.i35.i44
+  %sub.i46 = sub nuw i64 %n.addr.034.i45, %sub.ptr.sub.i35.i44
   %cmp5.not.i47 = icmp eq ptr %add.ptr.i.i29, %23
   br i1 %cmp5.not.i47, label %if.end8.i51, label %if.then6.i48
 

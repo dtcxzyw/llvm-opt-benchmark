@@ -5897,7 +5897,7 @@ if.then8:                                         ; preds = %if.end.i.i, %if.end
   br i1 %cmp, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then8
-  %sub = sub i16 %9, %lowest_unacked_seqnumber.0.ph
+  %sub = sub nuw i16 %9, %lowest_unacked_seqnumber.0.ph
   %m_window_size = getelementptr inbounds i8, ptr %this, i64 432
   %10 = load i16, ptr %m_window_size, align 8, !tbaa !188
   %cmp18 = icmp ugt i16 %sub, %10
@@ -19624,7 +19624,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !521
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64

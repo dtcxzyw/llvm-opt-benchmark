@@ -3088,7 +3088,7 @@ _ZNK13opencv_tflite5Model14operator_codesEv.exit.thread: ; preds = %_ZNK11flatbu
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %144
-  %157 = sub nsw i64 %147, %154
+  %157 = sub nuw nsw i64 %147, %154
   call void @_ZNSt6vectorIN2cv3dnn14dnn4_v2024052110DataLayoutESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr %149, i64 noundef %157, ptr noundef nonnull align 4 dereferenceable(4) %21)
   br label %_ZNSt6vectorIN2cv3dnn14dnn4_v2024052110DataLayoutESaIS3_EE6resizeEmRKS3_.exit
 
@@ -5375,7 +5375,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i104: ; preds = %196
   br i1 %227, label %228, label %230
 
 228:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i104
-  %229 = sub nsw i64 %219, %226
+  %229 = sub nuw nsw i64 %219, %226
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %216, i64 noundef %229)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %297
 
@@ -6561,7 +6561,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i108: ; preds = %202
   br i1 %233, label %234, label %236
 
 234:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i108
-  %235 = sub nsw i64 %225, %232
+  %235 = sub nuw nsw i64 %225, %232
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %222, i64 noundef %235)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %303
 
@@ -20280,7 +20280,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052117readNetFromTFLiteERKNSt7__cxx1112basic_
   br i1 %45, label %46, label %76
 
 46:                                               ; preds = %38
-  %47 = sub i64 %29, %44
+  %47 = sub nuw i64 %29, %44
   %48 = getelementptr inbounds i8, ptr %3, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
@@ -20665,9 +20665,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite12OperatorCodeEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -20756,9 +20756,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite12Op
   %96 = shl nuw nsw i64 %94, 2
   %97 = add nuw nsw i64 %96, 4
   %98 = icmp ugt i64 %13, %97
-  %99 = sub i64 %13, %97
+  %99 = sub nuw i64 %13, %97
   %100 = icmp uge i64 %99, %86
-  %101 = and i1 %98, %100
+  %101 = select i1 %98, i1 %100, i1 false
   br i1 %101, label %.preheader.i, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite12OperatorCodeEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 .preheader.i:                                     ; preds = %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite12OperatorCodeEEEjEEbPKNS_6VectorIT0_T1_EE.exit
@@ -21291,9 +21291,9 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %27 = shl nuw nsw i64 %24, 2
   %28 = add nuw nsw i64 %27, 4
   %29 = icmp ugt i64 %14, %28
-  %30 = sub i64 %14, %28
+  %30 = sub nuw i64 %14, %28
   %31 = icmp uge i64 %30, %7
-  %32 = and i1 %29, %31
+  %32 = select i1 %29, i1 %31, i1 false
   br label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %26, %19, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %3, %2
@@ -21377,9 +21377,9 @@ _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %19
   %25 = add nuw nsw i64 %23, 4
   %26 = add i64 %25, %7
   %27 = icmp ule i64 %14, %25
-  %28 = sub i64 %14, %25
+  %28 = sub nuw i64 %14, %25
   %29 = icmp ult i64 %28, %7
-  %.not10 = or i1 %27, %29
+  %.not10 = select i1 %27, i1 true, i1 %29
   %30 = add i64 %14, -1
   %.not6 = icmp ult i64 %30, %26
   %or.cond = or i1 %.not10, %.not6
@@ -21436,9 +21436,9 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %27 = shl nuw nsw i64 %24, 2
   %28 = add nuw nsw i64 %27, 4
   %29 = icmp ugt i64 %14, %28
-  %30 = sub i64 %14, %28
+  %30 = sub nuw i64 %14, %28
   %31 = icmp uge i64 %30, %7
-  %32 = and i1 %29, %31
+  %32 = select i1 %29, i1 %31, i1 false
   br label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %26, %19, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %3, %2
@@ -21523,9 +21523,9 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %27 = shl nuw nsw i64 %24, 2
   %28 = add nuw nsw i64 %27, 4
   %29 = icmp ugt i64 %14, %28
-  %30 = sub i64 %14, %28
+  %30 = sub nuw i64 %14, %28
   %31 = icmp uge i64 %30, %7
-  %32 = and i1 %29, %31
+  %32 = select i1 %29, i1 %31, i1 false
   br label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %26, %19, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %3, %2
@@ -21573,9 +21573,9 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %27 = shl nuw nsw i64 %24, 2
   %28 = add nuw nsw i64 %27, 4
   %29 = icmp ugt i64 %14, %28
-  %30 = sub i64 %14, %28
+  %30 = sub nuw i64 %14, %28
   %31 = icmp uge i64 %30, %7
-  %32 = and i1 %29, %31
+  %32 = select i1 %29, i1 %31, i1 false
   br label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %26, %19, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %3, %2
@@ -21660,9 +21660,9 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %27 = shl nuw nsw i64 %24, 2
   %28 = add nuw nsw i64 %27, 4
   %29 = icmp ugt i64 %14, %28
-  %30 = sub i64 %14, %28
+  %30 = sub nuw i64 %14, %28
   %31 = icmp uge i64 %30, %7
-  %32 = and i1 %29, %31
+  %32 = select i1 %29, i1 %31, i1 false
   br label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %26, %19, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %3, %2
@@ -21775,9 +21775,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -21862,9 +21862,9 @@ _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %8
   %93 = add nuw nsw i64 %91, 4
   %94 = add i64 %93, %84
   %95 = icmp ule i64 %13, %93
-  %96 = sub i64 %13, %93
+  %96 = sub nuw i64 %13, %93
   %97 = icmp ult i64 %96, %84
-  %.not10.i = or i1 %95, %97
+  %.not10.i = select i1 %95, i1 true, i1 %97
   %98 = add i64 %13, -1
   %.not6.i = icmp ult i64 %98, %94
   %or.cond.i14 = or i1 %.not6.i, %.not10.i
@@ -22040,9 +22040,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite6TensorEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -22111,9 +22111,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite6Ten
   %88 = shl nuw nsw i64 %86, 2
   %89 = add nuw nsw i64 %88, 4
   %90 = icmp ugt i64 %13, %89
-  %91 = sub i64 %13, %89
+  %91 = sub nuw i64 %13, %89
   %92 = icmp uge i64 %91, %78
-  %93 = and i1 %90, %92
+  %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %.preheader.i, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite6TensorEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 .preheader.i:                                     ; preds = %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite6TensorEEEjEEbPKNS_6VectorIT0_T1_EE.exit
@@ -22239,9 +22239,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %164 = shl nuw nsw i64 %162, 2
   %165 = add nuw nsw i64 %164, 4
   %166 = icmp ugt i64 %152, %165
-  %167 = sub i64 %152, %165
+  %167 = sub nuw i64 %152, %165
   %168 = icmp uge i64 %167, %147
-  %169 = and i1 %166, %168
+  %169 = select i1 %166, i1 %168, i1 false
   br i1 %169, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread59, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite6TensorEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread59: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i23, %_ZNK13opencv_tflite8SubGraph7tensorsEv.exit21.thread, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
@@ -22419,9 +22419,9 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %27 = shl nuw nsw i64 %24, 2
   %28 = add nuw nsw i64 %27, 4
   %29 = icmp ugt i64 %14, %28
-  %30 = sub i64 %14, %28
+  %30 = sub nuw i64 %14, %28
   %31 = icmp uge i64 %30, %7
-  %32 = and i1 %29, %31
+  %32 = select i1 %29, i1 %31, i1 false
   br label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %26, %19, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %3, %2
@@ -22534,9 +22534,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -22605,9 +22605,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %88 = shl nuw nsw i64 %86, 2
   %89 = add nuw nsw i64 %88, 4
   %90 = icmp ugt i64 %13, %89
-  %91 = sub i64 %13, %89
+  %91 = sub nuw i64 %13, %89
   %92 = icmp uge i64 %91, %78
-  %93 = and i1 %90, %92
+  %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread62, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread62: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
@@ -22952,9 +22952,9 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %27 = shl nuw nsw i64 %24, 2
   %28 = add nuw nsw i64 %27, 4
   %29 = icmp ugt i64 %14, %28
-  %30 = sub i64 %14, %28
+  %30 = sub nuw i64 %14, %28
   %31 = icmp uge i64 %30, %7
-  %32 = and i1 %29, %31
+  %32 = select i1 %29, i1 %31, i1 false
   br label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %26, %19, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %3, %2
@@ -23067,9 +23067,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -23138,9 +23138,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit
   %88 = shl nuw nsw i64 %86, 2
   %89 = add nuw nsw i64 %88, 4
   %90 = icmp ugt i64 %13, %89
-  %91 = sub i64 %13, %89
+  %91 = sub nuw i64 %13, %89
   %92 = icmp uge i64 %91, %78
-  %93 = and i1 %90, %92
+  %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit.thread55, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit.thread55: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit
@@ -23204,9 +23204,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit
   %124 = shl nuw nsw i64 %122, 2
   %125 = add nuw nsw i64 %124, 4
   %126 = icmp ugt i64 %13, %125
-  %127 = sub i64 %13, %125
+  %127 = sub nuw i64 %13, %125
   %128 = icmp uge i64 %127, %114
-  %129 = and i1 %126, %128
+  %129 = select i1 %126, i1 %128, i1 false
   br i1 %129, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit31.thread61, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit31.thread61: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i19, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit31
@@ -23421,9 +23421,9 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %27 = shl nuw nsw i64 %24, 2
   %28 = add nuw nsw i64 %27, 4
   %29 = icmp ugt i64 %14, %28
-  %30 = sub i64 %14, %28
+  %30 = sub nuw i64 %14, %28
   %31 = icmp uge i64 %30, %7
-  %32 = and i1 %29, %31
+  %32 = select i1 %29, i1 %31, i1 false
   br label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %26, %19, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %3, %2
@@ -23471,9 +23471,9 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %27 = shl nuw nsw i64 %24, 3
   %28 = or disjoint i64 %27, 4
   %29 = icmp ugt i64 %14, %28
-  %30 = sub i64 %14, %28
+  %30 = sub nuw i64 %14, %28
   %31 = icmp uge i64 %30, %7
-  %32 = and i1 %29, %31
+  %32 = select i1 %29, i1 %31, i1 false
   br label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %26, %19, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %3, %2
@@ -23549,9 +23549,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -23618,9 +23618,9 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
   %87 = add nuw nsw i64 %85, 4
   %88 = icmp ugt i64 %13, %87
-  %89 = sub i64 %13, %87
+  %89 = sub nuw i64 %13, %87
   %90 = icmp uge i64 %89, %78
-  %91 = and i1 %88, %90
+  %91 = select i1 %88, i1 %90, i1 false
   br i1 %91, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit.thread14, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit.thread14: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %52, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit
@@ -23670,9 +23670,9 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
 25:                                               ; preds = %19
   %26 = add nuw nsw i64 %23, 4
   %27 = icmp ugt i64 %14, %26
-  %28 = sub i64 %14, %26
+  %28 = sub nuw i64 %14, %26
   %29 = icmp uge i64 %28, %7
-  %30 = and i1 %27, %29
+  %30 = select i1 %27, i1 %29, i1 false
   br label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %25, %19, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %3, %2
@@ -23748,9 +23748,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -23819,9 +23819,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %88 = shl nuw nsw i64 %86, 2
   %89 = add nuw nsw i64 %88, 4
   %90 = icmp ugt i64 %13, %89
-  %91 = sub i64 %13, %89
+  %91 = sub nuw i64 %13, %89
   %92 = icmp uge i64 %91, %78
-  %93 = and i1 %90, %92
+  %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread44, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread44: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
@@ -23885,9 +23885,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %124 = shl nuw nsw i64 %122, 2
   %125 = add nuw nsw i64 %124, 4
   %126 = icmp ugt i64 %13, %125
-  %127 = sub i64 %13, %125
+  %127 = sub nuw i64 %13, %125
   %128 = icmp uge i64 %127, %114
-  %129 = and i1 %126, %128
+  %129 = select i1 %126, i1 %128, i1 false
   br i1 %129, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit26.thread50, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit26.thread50: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i14, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit26
@@ -24015,9 +24015,9 @@ _ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i:   ; preds = %3
   %27 = shl nuw nsw i64 %24, 2
   %28 = add nuw nsw i64 %27, 4
   %29 = icmp ugt i64 %14, %28
-  %30 = sub i64 %14, %28
+  %30 = sub nuw i64 %14, %28
   %31 = icmp uge i64 %30, %7
-  %32 = and i1 %29, %31
+  %32 = select i1 %29, i1 %31, i1 false
   br label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit: ; preds = %26, %19, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i, %3, %2
@@ -24130,9 +24130,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -24472,9 +24472,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -24543,9 +24543,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %88 = shl nuw nsw i64 %86, 2
   %89 = add nuw nsw i64 %88, 4
   %90 = icmp ugt i64 %13, %89
-  %91 = sub i64 %13, %89
+  %91 = sub nuw i64 %13, %89
   %92 = icmp uge i64 %91, %78
-  %93 = and i1 %90, %92
+  %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread14, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread14: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %52, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
@@ -24625,9 +24625,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -24696,9 +24696,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEtjEEbPKNS_6VectorIT0_T1_EE.exit
   %88 = shl nuw nsw i64 %86, 1
   %89 = add nuw nsw i64 %88, 4
   %90 = icmp ugt i64 %13, %89
-  %91 = sub i64 %13, %89
+  %91 = sub nuw i64 %13, %89
   %92 = icmp uge i64 %91, %78
-  %93 = and i1 %90, %92
+  %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEtjEEbPKNS_6VectorIT0_T1_EE.exit.thread14, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEtjEEbPKNS_6VectorIT0_T1_EE.exit.thread14: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %52, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEtjEEbPKNS_6VectorIT0_T1_EE.exit
@@ -24778,9 +24778,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -24847,9 +24847,9 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
   %87 = add nuw nsw i64 %85, 4
   %88 = icmp ugt i64 %13, %87
-  %89 = sub i64 %13, %87
+  %89 = sub nuw i64 %13, %87
   %90 = icmp uge i64 %89, %78
-  %91 = and i1 %88, %90
+  %91 = select i1 %88, i1 %90, i1 false
   br i1 %91, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit.thread14, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit.thread14: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %52, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit
@@ -24929,9 +24929,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -25000,9 +25000,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %88 = shl nuw nsw i64 %86, 2
   %89 = add nuw nsw i64 %88, 4
   %90 = icmp ugt i64 %13, %89
-  %91 = sub i64 %13, %89
+  %91 = sub nuw i64 %13, %89
   %92 = icmp uge i64 %91, %78
-  %93 = and i1 %90, %92
+  %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread20, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread20: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
@@ -25116,9 +25116,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -25207,9 +25207,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %96 = shl nuw nsw i64 %94, 2
   %97 = add nuw nsw i64 %96, 4
   %98 = icmp ugt i64 %13, %97
-  %99 = sub i64 %13, %97
+  %99 = sub nuw i64 %13, %97
   %100 = icmp uge i64 %99, %86
-  %101 = and i1 %98, %100
+  %101 = select i1 %98, i1 %100, i1 false
   br i1 %101, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread58, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread58: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i18, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
@@ -25273,9 +25273,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %132 = shl nuw nsw i64 %130, 2
   %133 = add nuw nsw i64 %132, 4
   %134 = icmp ugt i64 %13, %133
-  %135 = sub i64 %13, %133
+  %135 = sub nuw i64 %13, %133
   %136 = icmp uge i64 %135, %122
-  %137 = and i1 %134, %136
+  %137 = select i1 %134, i1 %136, i1 false
   br i1 %137, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit36.thread64, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit36.thread64: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i24, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit36
@@ -26417,9 +26417,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite10PadOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -26503,9 +26503,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite21BatchToSpaceNDOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -26589,9 +26589,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite21SpaceToBatchNDOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -26675,9 +26675,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite16TransposeOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -26761,9 +26761,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite10ExpOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -26847,9 +26847,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite13TopKV2Options6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -26933,9 +26933,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite17LogSoftmaxOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27019,9 +27019,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite17DequantizeOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27105,9 +27105,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite21MaximumMinimumOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27191,9 +27191,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite11LessOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27277,9 +27277,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite10NegOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27363,9 +27363,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite12PadV2Options6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27449,9 +27449,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite14GreaterOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27535,9 +27535,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite19GreaterEqualOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27621,9 +27621,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite16LessEqualOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27707,9 +27707,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite13SelectOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27793,9 +27793,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite12SliceOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27879,9 +27879,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite11TileOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -27965,9 +27965,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite17ExpandDimsOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28051,9 +28051,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite12EqualOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28137,9 +28137,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite15NotEqualOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28223,9 +28223,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite10PowOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28309,9 +28309,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite16LogicalOrOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28395,9 +28395,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite17LogicalAndOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28481,9 +28481,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite17LogicalNotOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28567,9 +28567,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite15FloorDivOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28653,9 +28653,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite13SquareOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28739,9 +28739,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite16ZerosLikeOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28825,9 +28825,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite11FillOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28911,9 +28911,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite15FloorModOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -28997,9 +28997,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite12RangeOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -29083,9 +29083,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite24SquaredDifferenceOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -29169,9 +29169,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite10AbsOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -29255,9 +29255,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite16ReverseV2Options6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -29341,9 +29341,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite11AddNOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -29427,9 +29427,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite15GatherNdOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -29513,9 +29513,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite10CosOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -29599,9 +29599,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite12WhereOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -29685,9 +29685,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite11RankOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -29771,9 +29771,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite17MatrixDiagOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -29857,9 +29857,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite15QuantizeOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -29943,9 +29943,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite20MatrixSetDiagOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30029,9 +30029,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite16HardSwishOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30115,9 +30115,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite26NonMaxSuppressionV4Options6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30201,9 +30201,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite26NonMaxSuppressionV5Options6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30287,9 +30287,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite16ScatterNdOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30373,9 +30373,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite15SelectV2Options6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30459,9 +30459,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite14DensifyOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30545,9 +30545,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite17SegmentSumOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30631,9 +30631,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite18BroadcastToOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30717,9 +30717,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite13Rfft2dOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30803,9 +30803,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite20HashtableFindOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30889,9 +30889,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite22HashtableImportOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -30975,9 +30975,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite20HashtableSizeOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -31061,9 +31061,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite19ReadVariableOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -31147,9 +31147,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite21AssignVariableOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -31233,9 +31233,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite25DynamicUpdateSliceOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -31319,9 +31319,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite26UnsortedSegmentProdOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -31405,9 +31405,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite25UnsortedSegmentMaxOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -31491,9 +31491,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite25UnsortedSegmentMinOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -31577,9 +31577,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite25UnsortedSegmentSumOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -31663,9 +31663,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite12ATan2Options6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -31749,9 +31749,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i.i: ; preds = %3
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i: ; preds = %39
   %49 = icmp ugt i64 %14, %42
-  %50 = sub i64 %14, %42
+  %50 = sub nuw i64 %14, %42
   %51 = icmp uge i64 %50, %22
-  %52 = and i1 %49, %51
+  %52 = select i1 %49, i1 %51, i1 false
   br i1 %52, label %53, label %_ZNK13opencv_tflite11SignOptions6VerifyERN11flatbuffers8VerifierE.exit
 
 53:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.i
@@ -31831,9 +31831,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -32018,9 +32018,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -32209,9 +32209,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -32300,9 +32300,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %96 = shl nuw nsw i64 %94, 2
   %97 = add nuw nsw i64 %96, 4
   %98 = icmp ugt i64 %13, %97
-  %99 = sub i64 %13, %97
+  %99 = sub nuw i64 %13, %97
   %100 = icmp uge i64 %99, %86
-  %101 = and i1 %98, %100
+  %101 = select i1 %98, i1 %100, i1 false
   br i1 %101, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread33, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread33: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i8, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
@@ -32366,9 +32366,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %132 = shl nuw nsw i64 %130, 2
   %133 = add nuw nsw i64 %132, 4
   %134 = icmp ugt i64 %13, %133
-  %135 = sub i64 %13, %133
+  %135 = sub nuw i64 %13, %133
   %136 = icmp uge i64 %135, %122
-  %137 = and i1 %134, %136
+  %137 = select i1 %134, i1 %136, i1 false
   br i1 %137, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit26.thread39, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit26.thread39: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i14, %52, %_ZNK11flatbuffers5Table11VerifyFieldIiEEbRKNS_8VerifierEtm.exit.thread, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread33, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit26
@@ -32448,9 +32448,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -32552,9 +32552,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -32753,9 +32753,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -32894,9 +32894,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -33015,9 +33015,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -33170,9 +33170,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -33277,9 +33277,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -33401,9 +33401,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -33522,9 +33522,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -33626,9 +33626,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -33793,9 +33793,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -33971,9 +33971,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -34092,9 +34092,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -34199,9 +34199,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -34270,9 +34270,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %88 = shl nuw nsw i64 %86, 2
   %89 = add nuw nsw i64 %88, 4
   %90 = icmp ugt i64 %13, %89
-  %91 = sub i64 %13, %89
+  %91 = sub nuw i64 %13, %89
   %92 = icmp uge i64 %91, %78
-  %93 = and i1 %90, %92
+  %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread14, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread14: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %52, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
@@ -34352,9 +34352,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -34496,9 +34496,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -34603,9 +34603,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -34707,9 +34707,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -34811,9 +34811,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -34938,9 +34938,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -35042,9 +35042,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -35163,9 +35163,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -35267,9 +35267,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -35338,9 +35338,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
   %88 = shl nuw nsw i64 %86, 2
   %89 = add nuw nsw i64 %88, 4
   %90 = icmp ugt i64 %13, %89
-  %91 = sub i64 %13, %89
+  %91 = sub nuw i64 %13, %89
   %92 = icmp uge i64 %91, %78
-  %93 = and i1 %90, %92
+  %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread14, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit.thread14: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %52, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEijEEbPKNS_6VectorIT0_T1_EE.exit
@@ -35420,9 +35420,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -35558,9 +35558,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -35745,9 +35745,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -35852,9 +35852,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -35973,9 +35973,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -36077,9 +36077,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -36238,9 +36238,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -36342,9 +36342,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -36446,9 +36446,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -36550,9 +36550,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -36714,9 +36714,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -36841,9 +36841,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -36948,9 +36948,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -37075,9 +37075,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -37270,9 +37270,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -37425,9 +37425,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -37620,9 +37620,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -37741,9 +37741,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -37848,9 +37848,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -37952,9 +37952,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -38059,9 +38059,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -38163,9 +38163,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -38290,9 +38290,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -38417,9 +38417,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -38544,9 +38544,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -38651,9 +38651,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -38789,9 +38789,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -38910,9 +38910,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -39017,9 +39017,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -39212,9 +39212,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -39353,9 +39353,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -39423,9 +39423,9 @@ _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %8
   %87 = add nuw nsw i64 %85, 4
   %88 = add i64 %87, %78
   %89 = icmp ule i64 %13, %87
-  %90 = sub i64 %13, %87
+  %90 = sub nuw i64 %13, %87
   %91 = icmp ult i64 %90, %78
-  %.not10.i = or i1 %89, %91
+  %.not10.i = select i1 %89, i1 true, i1 %91
   %92 = add i64 %13, -1
   %.not6.i = icmp ult i64 %92, %88
   %or.cond.i11 = or i1 %.not6.i, %.not10.i
@@ -39497,9 +39497,9 @@ _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i24: ; preds = 
   %125 = add nuw nsw i64 %123, 4
   %126 = add i64 %125, %116
   %127 = icmp ule i64 %13, %125
-  %128 = sub i64 %13, %125
+  %128 = sub nuw i64 %13, %125
   %129 = icmp ult i64 %128, %116
-  %.not10.i25 = or i1 %127, %129
+  %.not10.i25 = select i1 %127, i1 true, i1 %129
   %130 = add i64 %13, -1
   %.not6.i26 = icmp ult i64 %130, %126
   %or.cond.i27 = or i1 %.not6.i26, %.not10.i25
@@ -39588,9 +39588,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -39725,9 +39725,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -39796,9 +39796,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit
   %88 = shl nuw nsw i64 %86, 2
   %89 = add nuw nsw i64 %88, 4
   %90 = icmp ugt i64 %13, %89
-  %91 = sub i64 %13, %89
+  %91 = sub nuw i64 %13, %89
   %92 = icmp uge i64 %91, %78
-  %93 = and i1 %90, %92
+  %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit.thread14, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit.thread14: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %52, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEfjEEbPKNS_6VectorIT0_T1_EE.exit
@@ -39878,9 +39878,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -39982,9 +39982,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -40051,9 +40051,9 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %_ZNK11f
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit: ; preds = %81
   %87 = add nuw nsw i64 %85, 4
   %88 = icmp ugt i64 %13, %87
-  %89 = sub i64 %13, %87
+  %89 = sub nuw i64 %13, %87
   %90 = icmp uge i64 %89, %78
-  %91 = and i1 %88, %90
+  %91 = select i1 %88, i1 %90, i1 false
   br i1 %91, label %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit.thread14, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit.thread14: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %52, %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJEhjEEbPKNS_6VectorIT0_T1_EE.exit
@@ -40133,9 +40133,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -40203,9 +40203,9 @@ _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %8
   %87 = add nuw nsw i64 %85, 4
   %88 = add i64 %87, %78
   %89 = icmp ule i64 %13, %87
-  %90 = sub i64 %13, %87
+  %90 = sub nuw i64 %13, %87
   %91 = icmp ult i64 %90, %78
-  %.not10.i = or i1 %89, %91
+  %.not10.i = select i1 %89, i1 true, i1 %91
   %92 = add i64 %13, -1
   %.not6.i = icmp ult i64 %92, %88
   %or.cond.i10 = or i1 %.not6.i, %.not10.i
@@ -40314,9 +40314,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite9TensorMapEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -40385,9 +40385,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite9Ten
   %88 = shl nuw nsw i64 %86, 2
   %89 = add nuw nsw i64 %88, 4
   %90 = icmp ugt i64 %13, %89
-  %91 = sub i64 %13, %89
+  %91 = sub nuw i64 %13, %89
   %92 = icmp uge i64 %91, %78
-  %93 = and i1 %90, %92
+  %93 = select i1 %90, i1 %92, i1 false
   br i1 %93, label %.preheader.i, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite9TensorMapEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 .preheader.i:                                     ; preds = %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite9TensorMapEEEjEEbPKNS_6VectorIT0_T1_EE.exit
@@ -40513,9 +40513,9 @@ _ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite9Ten
   %164 = shl nuw nsw i64 %162, 2
   %165 = add nuw nsw i64 %164, 4
   %166 = icmp ugt i64 %152, %165
-  %167 = sub i64 %152, %165
+  %167 = sub nuw i64 %152, %165
   %168 = icmp uge i64 %167, %147
-  %169 = and i1 %166, %168
+  %169 = select i1 %166, i1 %168, i1 false
   br i1 %169, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i33, label %_ZN11flatbuffers8Verifier20VerifyVectorOfTablesIN13opencv_tflite9TensorMapEEEbPKNS_6VectorINS_6OffsetIT_EEjEE.exit
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i33: ; preds = %_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetIN13opencv_tflite9TensorMapEEEjEEbPKNS_6VectorIT0_T1_EE.exit32
@@ -40683,9 +40683,9 @@ _ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i: ; preds = %2
 
 _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %38
   %48 = icmp ugt i64 %13, %41
-  %49 = sub i64 %13, %41
+  %49 = sub nuw i64 %13, %41
   %50 = icmp uge i64 %49, %21
-  %51 = and i1 %48, %50
+  %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit.thread
 
 52:                                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
@@ -40753,9 +40753,9 @@ _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %8
   %87 = add nuw nsw i64 %85, 4
   %88 = add i64 %87, %78
   %89 = icmp ule i64 %13, %87
-  %90 = sub i64 %13, %87
+  %90 = sub nuw i64 %13, %87
   %91 = icmp ult i64 %90, %78
-  %.not10.i = or i1 %89, %91
+  %.not10.i = select i1 %89, i1 true, i1 %91
   %92 = add i64 %13, -1
   %.not6.i = icmp ult i64 %92, %88
   %or.cond.i10 = or i1 %.not6.i, %.not10.i
@@ -41619,7 +41619,7 @@ _ZSt13move_backwardIPN2cv3dnn14dnn4_v2024052110DataLayoutES4_ET0_T_S6_S5_.exit: 
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPN2cv3dnn14dnn4_v2024052110DataLayoutEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %31
-  %33 = sub i64 %2, %18
+  %33 = sub nuw i64 %2, %18
   %34 = getelementptr inbounds i32, ptr %9, i64 %33
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -44694,7 +44694,7 @@ _ZSt13move_backwardIPN2cv3MatES2_ET0_T_S4_S3_.exit: ; preds = %.noexc, %_ZSt22__
   br label %114
 
 42:                                               ; preds = %15
-  %43 = sub i64 %2, %21
+  %43 = sub nuw i64 %2, %21
   %.not13.i.i.i.i = icmp eq i64 %43, 0
   br i1 %.not13.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN2cv3MatEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

@@ -2046,7 +2046,7 @@ if.end15:                                         ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end15
-  %sub.i = sub nsw i64 %conv16, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv16, %sub.ptr.div.i.i
   %_M_end_of_storage.i39 = getelementptr inbounds i8, ptr %groups, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i.i

@@ -138,7 +138,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %_ZNSt11c
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %19
-  %22 = sub i64 %.fr11.i97206, %20
+  %22 = sub nuw i64 %.fr11.i97206, %20
   %23 = getelementptr inbounds i8, ptr %.sroa.6.0179, i64 %20
   switch i64 %22, label %60 [
     i64 4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i34

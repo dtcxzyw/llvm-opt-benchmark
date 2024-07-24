@@ -5518,7 +5518,7 @@ _ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.177949417
   %52 = getelementptr inbounds i8, ptr %44, i64 %46
   %53 = load i8, ptr %52, align 1, !alias.scope !1143, !noundef !4
   %54 = icmp sgt i8 %53, -65
-  %55 = sub i64 %45, %46
+  %55 = sub nuw i64 %45, %46
   br i1 %54, label %57, label %56
 
 56:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.llvm.17794941744620341598.exit.i", %49
@@ -10203,7 +10203,7 @@ common.resume:                                    ; preds = %.thread187, %.threa
   br i1 %89, label %_ZN12typst_syntax6parser6Parser7restore17hc05523d87b2262b0E.exit, label %90
 
 90:                                               ; preds = %84
-  %91 = sub i64 %88, %80
+  %91 = sub nuw i64 %88, %80
   %92 = getelementptr inbounds i8, ptr %0, i64 88
   %93 = load ptr, ptr %92, align 8, !alias.scope !2317, !noalias !2308, !nonnull !4, !noundef !4
   %94 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %93, i64 %80
@@ -11133,7 +11133,7 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit88: ; preds = %_ZN1
   br i1 %360, label %_ZN12typst_syntax6parser6Parser7restore17hc05523d87b2262b0E.exit40, label %361
 
 361:                                              ; preds = %358
-  %362 = sub i64 %359, %.sroa.7141.0.copyload
+  %362 = sub nuw i64 %359, %.sroa.7141.0.copyload
   %363 = load ptr, ptr %139, align 8, !alias.scope !2524, !noalias !2518, !nonnull !4, !noundef !4
   %364 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %363, i64 %.sroa.7141.0.copyload
   store i64 %.sroa.7141.0.copyload, ptr %107, align 8, !alias.scope !2524, !noalias !2518
@@ -11174,7 +11174,7 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit88: ; preds = %_ZN1
   br i1 %372, label %_ZN12typst_syntax6parser6Parser7restore17hc05523d87b2262b0E.exit45, label %373
 
 373:                                              ; preds = %370
-  %374 = sub i64 %371, %.sroa.7145.0.copyload
+  %374 = sub nuw i64 %371, %.sroa.7145.0.copyload
   %375 = load ptr, ptr %139, align 8, !alias.scope !2533, !noalias !2527, !nonnull !4, !noundef !4
   %376 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %375, i64 %.sroa.7145.0.copyload
   store i64 %.sroa.7145.0.copyload, ptr %107, align 8, !alias.scope !2533, !noalias !2527
@@ -13093,7 +13093,7 @@ _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit55.thread81: ; pr
   br i1 %66, label %73, label %67
 
 67:                                               ; preds = %64
-  %68 = sub i64 %65, %.sroa.7.0.copyload
+  %68 = sub nuw i64 %65, %.sroa.7.0.copyload
   %69 = load ptr, ptr %24, align 8, !alias.scope !2972, !noalias !2968, !nonnull !4, !noundef !4
   %70 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %69, i64 %.sroa.7.0.copyload
   store i64 %.sroa.7.0.copyload, ptr %5, align 8, !alias.scope !2972, !noalias !2968
@@ -14912,7 +14912,7 @@ _ZN12typst_syntax4node10SyntaxNode5inner17h663e2a0e3d635b85E.exit: ; preds = %.n
 
 45:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdca6fe0f0368177eE.llvm.13506474886552808233.exit.i"
   %46 = getelementptr inbounds i8, ptr %39, i64 32
-  %47 = sub i64 %34, %.0.sroa.speculated.i1
+  %47 = sub nuw i64 %34, %.0.sroa.speculated.i1
   %48 = shl i64 %47, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 8 %39, i64 %48, i1 false), !noalias !3287
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hbdf98353bdd3022bE.exit"
@@ -16303,7 +16303,7 @@ _ZN12typst_syntax4node10SyntaxNode5error17hfbce185a01cd4c02E.exit: ; preds = %.n
 
 52:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdca6fe0f0368177eE.llvm.13506474886552808233.exit.i"
   %53 = getelementptr inbounds i8, ptr %46, i64 32
-  %54 = sub i64 %40, %1
+  %54 = sub nuw i64 %40, %1
   %55 = shl i64 %54, 5
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %46, i64 %55, i1 false), !noalias !3583
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hbdf98353bdd3022bE.exit"

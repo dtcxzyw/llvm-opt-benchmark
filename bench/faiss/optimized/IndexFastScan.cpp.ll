@@ -4033,7 +4033,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -4725,7 +4725,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 71:                                               ; preds = %70
-  %72 = sub i64 %68, %65
+  %72 = sub nuw i64 %68, %65
   %73 = trunc i64 %72 to i32
   %notmask.i = shl nsw i32 -1, %73
   %74 = xor i32 %notmask.i, -1
@@ -5050,7 +5050,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -5377,7 +5377,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxItiEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load i16, ptr %1, align 2
   %8 = load i32, ptr %2, align 4
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds i16, ptr %4, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = getelementptr inbounds i32, ptr %5, i64 %9
@@ -5772,7 +5772,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %72, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 72:                                               ; preds = %71
-  %73 = sub i64 %69, %66
+  %73 = sub nuw i64 %69, %66
   %74 = trunc i64 %73 to i32
   %notmask.i = shl nsw i32 -1, %74
   %75 = xor i32 %notmask.i, -1
@@ -8783,7 +8783,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -9458,7 +9458,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i17, label %71, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 71:                                               ; preds = %70
-  %72 = sub i64 %68, %65
+  %72 = sub nuw i64 %68, %65
   %73 = trunc i64 %72 to i32
   %notmask.i = shl nsw i32 -1, %73
   %74 = xor i32 %notmask.i, -1
@@ -9767,7 +9767,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i26, label %77, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 77:                                               ; preds = %76
-  %78 = sub i64 %74, %71
+  %78 = sub nuw i64 %74, %71
   %79 = trunc i64 %78 to i32
   %notmask.i = shl nsw i32 -1, %79
   %80 = xor i32 %notmask.i, -1
@@ -10094,7 +10094,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMinItiEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load i16, ptr %1, align 2
   %8 = load i32, ptr %2, align 4
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds i16, ptr %4, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = getelementptr inbounds i32, ptr %5, i64 %9
@@ -10404,7 +10404,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i: ; preds = %_ZN5faiss12simd
   br i1 %.not.i18, label %72, label %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread
 
 72:                                               ; preds = %71
-  %73 = sub i64 %69, %66
+  %73 = sub nuw i64 %69, %66
   %74 = trunc i64 %73 to i32
   %notmask.i = shl nsw i32 -1, %74
   %75 = xor i32 %notmask.i, -1

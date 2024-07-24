@@ -399,7 +399,7 @@ define hidden noundef i64 @_ZN18G1HeapSizingPolicy29full_collection_resize_amoun
   br i1 %45, label %46, label %55
 
 46:                                               ; preds = %2
-  %47 = sub i64 %42, %7
+  %47 = sub nuw i64 %42, %7
   %48 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not28 = icmp eq ptr %48, null
   br i1 %.not28, label %66, label %49
@@ -418,7 +418,7 @@ define hidden noundef i64 @_ZN18G1HeapSizingPolicy29full_collection_resize_amoun
   br i1 %56, label %57, label %66
 
 57:                                               ; preds = %55
-  %58 = sub i64 %7, %44
+  %58 = sub nuw i64 %7, %44
   %59 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %66, label %60

@@ -1883,7 +1883,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
 if.end6.i:                                        ; preds = %if.then5.i.i
   %add6.i.i = add i64 %addr.addr.017.i, %len.addr.018.i
   %cmp10.i.i = icmp ugt i64 %add6.i.i, %add.i.i
-  %sub.i.i = sub i64 %add.i.i, %addr.addr.017.i
+  %sub.i.i = sub nuw i64 %add.i.i, %addr.addr.017.i
   %spec.select.i = select i1 %cmp10.i.i, i64 %sub.i.i, i64 %len.addr.018.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %desc.addr.016.i, ptr nonnull align 8 %add.ptr18.i.i, i64 %spec.select.i, i1 false)
   %sub.i49 = sub i64 %len.addr.018.i, %spec.select.i
@@ -2618,7 +2618,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
 if.end6.i:                                        ; preds = %if.then5.i.i
   %add6.i.i = add i64 %addr.addr.017.i, %len.addr.018.i
   %cmp10.i.i = icmp ugt i64 %add6.i.i, %add.i.i
-  %sub.i.i = sub i64 %add.i.i, %addr.addr.017.i
+  %sub.i.i = sub nuw i64 %add.i.i, %addr.addr.017.i
   %spec.select.i = select i1 %cmp10.i.i, i64 %sub.i.i, i64 %len.addr.018.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %desc.addr.016.i, ptr nonnull align 8 %add.ptr18.i.i, i64 %spec.select.i, i1 false)
   %sub.i37 = sub i64 %len.addr.018.i, %spec.select.i
@@ -2813,7 +2813,7 @@ if.end:                                           ; preds = %entry
   %2 = trunc i32 %num to i16
   %conv1 = sub i16 %1, %2
   store i16 %conv1, ptr %last_avail_idx, align 8
-  %sub3 = sub i32 %0, %num
+  %sub3 = sub nuw i32 %0, %num
   store i32 %sub3, ptr %inuse, align 4
   br label %return
 
@@ -2977,7 +2977,7 @@ for.inc.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 if.end6.i.i:                                      ; preds = %if.then5.i.i.i
   %add6.i.i.i = add i64 %addr.addr.017.i.i, %len.addr.018.i.i
   %cmp10.i.i.i = icmp ugt i64 %add6.i.i.i, %add.i.i.i
-  %sub.i.i.i = sub i64 %add.i.i.i, %addr.addr.017.i.i
+  %sub.i.i.i = sub nuw i64 %add.i.i.i, %addr.addr.017.i.i
   %spec.select.i.i = select i1 %cmp10.i.i.i, i64 %sub.i.i.i, i64 %len.addr.018.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %desc.addr.016.i.i, ptr nonnull align 8 %add.ptr18.i.i.i, i64 %spec.select.i.i, i1 false)
   %sub.i29.i = sub i64 %len.addr.018.i.i, %spec.select.i.i
@@ -5358,9 +5358,9 @@ entry:
   %counter1 = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load i64, ptr %counter1, align 8
   %cmp = icmp ugt i64 %0, %1
-  %sub = sub i64 %0, %1
+  %sub = sub nuw i64 %0, %1
   %cmp4 = icmp ult i64 %sub, 2048
-  %or.cond = and i1 %cmp, %cmp4
+  %or.cond = select i1 %cmp, i1 %cmp4, i1 false
   %retval.0 = select i1 %or.cond, i32 1, i32 -1
   ret i32 %retval.0
 }
@@ -5473,7 +5473,7 @@ if.then11:                                        ; preds = %if.then5.i, %vu_gpa
 if.end12:                                         ; preds = %if.then5.i
   %add6.i = add i64 %sz.addr.033, %pa.addr.032
   %cmp10.i = icmp ugt i64 %add6.i, %add.i
-  %sub.i = sub i64 %add.i, %pa.addr.032
+  %sub.i = sub nuw i64 %add.i, %pa.addr.032
   %spec.select = select i1 %cmp10.i, i64 %sub.i, i64 %sz.addr.033
   %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %spec.select, ptr %iov_len, align 8

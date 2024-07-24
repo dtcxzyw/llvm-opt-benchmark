@@ -163,7 +163,7 @@ for.inc.us:                                       ; preds = %invoke.cont57.us
 
 while.body.us:                                    ; preds = %invoke.cont21.us, %while.cond.us
   %done.017.us = phi i64 [ %add.us, %while.cond.us ], [ 0, %invoke.cont21.us ]
-  %sub.us = sub nsw i64 %msg_len, %done.017.us
+  %sub.us = sub nuw nsw i64 %msg_len, %done.017.us
   %.sroa.speculated.us = call i64 @llvm.umin.i64(i64 %sub.us, i64 %conv20.us)
   %add.ptr.us = getelementptr inbounds i8, ptr %msg, i64 %done.017.us
   %call35.us = invoke i32 @CMAC_Update(ptr noundef nonnull %call8, ptr noundef %add.ptr.us, i64 noundef %.sroa.speculated.us)

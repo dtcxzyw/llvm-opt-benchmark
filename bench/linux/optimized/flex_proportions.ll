@@ -108,7 +108,7 @@ define dso_local void @__fprop_inc_single(ptr noundef %0, ptr noundef %1) local_
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %8
-  %14 = sub i32 %4, %11
+  %14 = sub nuw i32 %4, %11
   %15 = icmp ult i32 %14, 64
   br i1 %15, label %16, label %20
 
@@ -174,7 +174,7 @@ define dso_local void @fprop_fraction_single(ptr noundef %0, ptr noundef %1, ptr
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %21
-  %26 = sub i32 %18, %23
+  %26 = sub nuw i32 %18, %23
   %27 = icmp ult i32 %26, 64
   br i1 %27, label %28, label %32
 
@@ -265,7 +265,7 @@ define internal fastcc void @fprop_reflect_period_percpu(i32 %.40.val, ptr nound
   br i1 %9, label %10, label %36
 
 10:                                               ; preds = %5
-  %11 = sub i32 %.40.val, %8
+  %11 = sub nuw i32 %.40.val, %8
   %12 = icmp ult i32 %11, 64
   br i1 %12, label %13, label %34
 

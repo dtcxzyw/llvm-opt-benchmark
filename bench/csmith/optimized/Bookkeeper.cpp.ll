@@ -258,7 +258,7 @@ define dso_local noundef i32 @_ZN10Bookkeeper24stat_blk_depths_for_stmtEPK9State
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = sub nsw i64 %16, %13
+  %19 = sub nuw nsw i64 %16, %13
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) @_ZN10Bookkeeper14blk_depth_cntsE, i64 noundef %19)
   br label %.lr.ph.i.preheader
 
@@ -428,7 +428,7 @@ define dso_local void @_Z12incr_counterRSt6vectorIiSaIiEEi(ptr noundef nonnull a
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = sub nsw i64 %12, %9
+  %15 = sub nuw nsw i64 %12, %9
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %15)
   br label %.lr.ph.preheader
 
@@ -1415,7 +1415,7 @@ define dso_local void @_ZN10Bookkeeper25stat_expr_depths_for_stmtEPK9Statement(p
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = sub nsw i64 %26, %23
+  %29 = sub nuw nsw i64 %26, %23
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) @_ZN10Bookkeeper15expr_depth_cntsE, i64 noundef %29)
           to label %.lr.ph.i.preheader unwind label %.loopexit.split-lp.loopexit
 
@@ -2007,7 +2007,7 @@ define dso_local void @_ZN10Bookkeeper26record_vars_with_bitfieldsEPK4Type(ptr n
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %16
-  %20 = sub nsw i64 %17, %14
+  %20 = sub nuw nsw i64 %17, %14
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) @_ZN10Bookkeeper19vars_with_bitfieldsE, i64 noundef %20)
   br label %.lr.ph.i.preheader
 
@@ -2065,7 +2065,7 @@ _Z12incr_counterRSt6vectorIiSaIiEEi.exit:         ; preds = %_Z12incr_counterRSt
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %41
-  %45 = sub nsw i64 %42, %40
+  %45 = sub nuw nsw i64 %42, %40
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) @_ZN10Bookkeeper24vars_with_full_bitfieldsE, i64 noundef %45)
   br label %.lr.ph.i8.preheader
 

@@ -1867,7 +1867,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager14splitNamePartsERKNSt7__
   br i1 %.not.not, label %10, label %23
 
 10:                                               ; preds = %7
-  %11 = sub i64 %spec.select, %.01822
+  %11 = sub nuw i64 %spec.select, %.01822
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.01822, i64 noundef %11)
           to label %12 unwind label %19
 
@@ -2102,7 +2102,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager9NameTable29internal_addO
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %3
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %13, i64 noundef %21, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
@@ -3754,7 +3754,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

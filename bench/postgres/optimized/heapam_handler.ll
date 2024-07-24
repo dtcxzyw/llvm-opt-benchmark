@@ -1598,7 +1598,7 @@ define internal double @heapam_index_build_range_scan(ptr noundef %0, ptr nounde
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %89
-  %94 = sub i32 %.pre300, %.015.i
+  %94 = sub nuw i32 %.pre300, %.015.i
   br label %heapam_scan_get_blocks_done.exit
 
 95:                                               ; preds = %89

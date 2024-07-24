@@ -1925,7 +1925,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.end
   br i1 %cmp.not, label %if.end5, label %cleanup
 
 if.end5:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %sub = sub i64 %add, %3
+  %sub = sub nuw i64 %add, %3
   %sizeClasses_.i = getelementptr inbounds i8, ptr %this, i64 960
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 968
   %4 = load ptr, ptr %_M_finish.i.i, align 8

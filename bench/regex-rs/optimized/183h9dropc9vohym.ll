@@ -3085,7 +3085,7 @@ _ZN14regex_automata3nfa8thompson12literal_trie5State12active_chunk17h0ed163a0398
 
 730:                                              ; preds = %.noexc53.i
   %731 = getelementptr inbounds i8, ptr %726, i64 8
-  %732 = sub i64 %721, %719
+  %732 = sub nuw i64 %721, %719
   %733 = shl i64 %732, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %731, ptr nonnull align 4 %726, i64 %733, i1 false), !noalias !437
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h968575aa0403150dE.exit.i.i.i"
@@ -4914,7 +4914,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
 
 1354:                                             ; preds = %.noexc121.i.i
   %1355 = getelementptr inbounds i8, ptr %1350, i64 8
-  %1356 = sub i64 %1345, %.050689.i.i
+  %1356 = sub nuw i64 %1345, %.050689.i.i
   %1357 = shl i64 %1356, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1355, ptr nonnull align 4 %1350, i64 %1357, i1 false), !noalias !789
   br label %1360
@@ -5400,7 +5400,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
 
 1513:                                             ; preds = %.noexc147.i.i
   %1514 = getelementptr inbounds i8, ptr %1509, i64 8
-  %1515 = sub i64 %1500, %.2684.i.i
+  %1515 = sub nuw i64 %1500, %.2684.i.i
   %1516 = shl i64 %1515, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1514, ptr nonnull align 4 %1509, i64 %1516, i1 false), !noalias !789
   br label %_ZN14regex_automata3nfa8thompson10range_trie9RangeTrie17add_transition_at17h571695f860556537E.exit149.i.i
@@ -5560,7 +5560,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
 
 1573:                                             ; preds = %.noexc180.i.i
   %1574 = getelementptr inbounds i8, ptr %1569, i64 8
-  %1575 = sub i64 %1560, %.2684.i.i
+  %1575 = sub nuw i64 %1560, %.2684.i.i
   %1576 = shl i64 %1575, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1574, ptr nonnull align 4 %1569, i64 %1576, i1 false), !noalias !789
   br label %_ZN14regex_automata3nfa8thompson10range_trie9RangeTrie17add_transition_at17h571695f860556537E.exit182.i.i
@@ -5698,7 +5698,7 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
 
 1615:                                             ; preds = %.noexc208.i.i
   %1616 = getelementptr inbounds i8, ptr %1611, i64 8
-  %1617 = sub i64 %1601, %.2684.i.i
+  %1617 = sub nuw i64 %1601, %.2684.i.i
   %1618 = shl i64 %1617, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1616, ptr nonnull align 4 %1611, i64 %1618, i1 false), !noalias !789
   br label %_ZN14regex_automata3nfa8thompson10range_trie9RangeTrie17add_transition_at17h571695f860556537E.exit210.i.i

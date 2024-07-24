@@ -11503,7 +11503,7 @@ while.body.i:                                     ; preds = %if.end4.i, %while.c
   %21 = load atomic i64, ptr %incdec.ptr.i monotonic, align 8
   %add.i24 = add i64 %found.0100.i, 64
   %cmp12.not.i = icmp ugt i64 %add.i24, %count
-  %sub13.i = sub i64 %count, %found.0100.i
+  %sub13.i = sub nuw i64 %count, %found.0100.i
   %cond.i = select i1 %cmp12.not.i, i64 %sub13.i, i64 64
   %cmp.i67.i = icmp ugt i64 %cond.i, 63
   br i1 %cmp.i67.i, label %mi_bitmap_mask_.exit.i28, label %if.end.i68.i
@@ -23210,7 +23210,7 @@ mi_span_queue_delete.exit.i:                      ; preds = %if.then16.i.i, %if.
 
 if.end.i26.i:                                     ; preds = %mi_span_queue_delete.exit.i
   %add.i.i = add nsw i64 %sub.ptr.div.i.i.i, %spec.store.select.i
-  %sub.i29.i = sub nsw i64 %conv11.i, %spec.store.select.i
+  %sub.i29.i = sub nuw nsw i64 %conv11.i, %spec.store.select.i
   %kind.i.i.i = getelementptr inbounds i8, ptr %.us-phi40.i, i64 240
   %21 = load i32, ptr %kind.i.i.i, align 8
   %cmp.i.i30.i = icmp eq i32 %21, 1
@@ -23245,10 +23245,9 @@ mi_span_queue_for.exit.i.i.i:                     ; preds = %if.end3.i.i.i.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %mi_span_queue_for.exit.i.i.i, %lor.lhs.false.i.i.i, %if.end.i26.i
   %cond.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %mi_span_queue_for.exit.i.i.i ], [ null, %lor.lhs.false.i.i.i ], [ null, %if.end.i26.i ]
-  %spec.store.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.i29.i, i64 1)
   %slices.i.i.i = getelementptr inbounds i8, ptr %.us-phi40.i, i64 264
   %arrayidx.i.i.i = getelementptr [513 x %struct.mi_page_s], ptr %slices.i.i.i, i64 0, i64 %add.i.i
-  %conv.i.i.i = trunc i64 %spec.store.select.i.i.i to i32
+  %conv.i.i.i = trunc nuw i64 %sub.i29.i to i32
   store i32 %conv.i.i.i, ptr %arrayidx.i.i.i, align 8
   %slice_offset.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   store i32 0, ptr %slice_offset.i.i.i, align 4
@@ -23256,8 +23255,8 @@ cond.end.i.i.i:                                   ; preds = %mi_span_queue_for.e
   br i1 %cmp4.i.i.i, label %if.then6.i.i.i, label %if.end13.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %cond.end.i.i.i
-  %add.i.i.i = add nsw i64 %add.i.i, -1
-  %sub.i.i.i = add i64 %add.i.i.i, %spec.store.select.i.i.i
+  %add.i.i.i = add nsw i64 %sub.i29.i, -1
+  %sub.i.i.i = add nsw i64 %add.i.i.i, %add.i.i
   %arrayidx8.i.i.i = getelementptr [513 x %struct.mi_page_s], ptr %slices.i.i.i, i64 0, i64 %sub.i.i.i
   store i32 0, ptr %arrayidx8.i.i.i, align 8
   %24 = mul i32 %conv.i.i.i, 80
@@ -24954,7 +24953,7 @@ while.cond.preheader:                             ; preds = %if.end8
 while.body:                                       ; preds = %while.cond.preheader, %if.end24
   %count.019 = phi i64 [ %count.1, %if.end24 ], [ 0, %while.cond.preheader ]
   %add.ptr = getelementptr i8, ptr %buf, i64 %count.019
-  %sub = sub i64 %buf_len, %count.019
+  %sub = sub nuw i64 %buf_len, %count.019
   %call.i15 = tail call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i, ptr noundef %add.ptr, i64 noundef %sub) #44
   %cmp16 = icmp slt i64 %call.i15, 1
   br i1 %cmp16, label %if.then17, label %if.else
@@ -28196,7 +28195,7 @@ if.else31:                                        ; preds = %write_size_t.exit
 
 if.then39:                                        ; preds = %if.else31
   %add.ptr40 = getelementptr i8, ptr %add.ptr21, i64 %sub
-  %sub42 = sub i64 %call1.nbytes, %sub
+  %sub42 = sub nuw i64 %call1.nbytes, %sub
   %cond48 = tail call i64 @llvm.umin.i64(i64 %sub42, i64 64)
   %save.64.save.64.save.64.save.64.arrayidx41.sroa_idx = getelementptr inbounds i8, ptr %save, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr40, ptr nonnull align 16 %save.64.save.64.save.64.save.64.arrayidx41.sroa_idx, i64 %cond48, i1 false)
@@ -28211,7 +28210,7 @@ if.end53:                                         ; preds = %if.end50
 
 if.then55:                                        ; preds = %if.end53
   %add.ptr56 = getelementptr i8, ptr %add.ptr21, i64 %or.i
-  %sub57 = sub i64 %nbytes, %or.i
+  %sub57 = sub nuw i64 %nbytes, %or.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr56, i8 -51, i64 %sub57, i1 false)
   br label %return
 

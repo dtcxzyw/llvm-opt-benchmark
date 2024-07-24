@@ -1712,7 +1712,7 @@ define hidden noundef ptr @_ZN2os7reallocEPvm8MEMFLAGSRK15NativeCallStack(ptr no
   br i1 %23, label %24, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
 24:                                               ; preds = %20
-  %25 = sub i64 %14, %22
+  %25 = sub nuw i64 %14, %22
   %26 = load i8, ptr @_ZN18MallocLimitHandler11_have_limitE, align 1
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread

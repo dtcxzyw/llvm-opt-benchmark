@@ -927,8 +927,8 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18: ; preds = %
   %.sroa.019.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
   %197 = icmp ugt i64 %.sroa.019.0.copyload.i.i, %184
   %.str.97..str.93.i.i = select i1 %197, ptr @.str.97, ptr @.str.93
-  %198 = sub i64 %.sroa.019.0.copyload.i.i, %184
-  %199 = sub i64 %184, %.sroa.019.0.copyload.i.i
+  %198 = sub nuw i64 %.sroa.019.0.copyload.i.i, %184
+  %199 = sub nuw i64 %184, %.sroa.019.0.copyload.i.i
   %200 = select i1 %197, i64 %198, i64 %199
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.87, ptr noundef nonnull %.str.97..str.93.i.i, i64 noundef %200)
   br label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i
@@ -968,8 +968,8 @@ _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i: ; pre
   %.sroa.019.0.copyload.i28.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
   %214 = icmp ugt i64 %.sroa.019.0.copyload.i28.i, %201
   %.str.97..str.93.i29.i = select i1 %214, ptr @.str.97, ptr @.str.93
-  %215 = sub i64 %.sroa.019.0.copyload.i28.i, %201
-  %216 = sub i64 %201, %.sroa.019.0.copyload.i28.i
+  %215 = sub nuw i64 %.sroa.019.0.copyload.i28.i, %201
+  %216 = sub nuw i64 %201, %.sroa.019.0.copyload.i28.i
   %217 = select i1 %214, i64 %215, i64 %216
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.88, ptr noundef nonnull %.str.97..str.93.i29.i, i64 noundef %217)
   br label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i
@@ -1009,8 +1009,8 @@ _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i: ; p
   %.sroa.019.0.copyload.i37.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
   %231 = icmp ugt i64 %.sroa.019.0.copyload.i37.i, %218
   %.str.97..str.93.i38.i = select i1 %231, ptr @.str.97, ptr @.str.93
-  %232 = sub i64 %.sroa.019.0.copyload.i37.i, %218
-  %233 = sub i64 %218, %.sroa.019.0.copyload.i37.i
+  %232 = sub nuw i64 %.sroa.019.0.copyload.i37.i, %218
+  %233 = sub nuw i64 %218, %.sroa.019.0.copyload.i37.i
   %234 = select i1 %231, i64 %232, i64 %233
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.89, ptr noundef nonnull %.str.97..str.93.i38.i, i64 noundef %234)
   br label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i

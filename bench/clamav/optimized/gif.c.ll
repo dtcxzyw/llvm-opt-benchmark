@@ -331,7 +331,7 @@ fmap_readn.exit112.thread:                        ; preds = %80, %78
   br i1 %or.cond161.not, label %96, label %fmap_readn.exit117.thread
 
 96:                                               ; preds = %94
-  %97 = sub i64 %95, %61
+  %97 = sub nuw i64 %95, %61
   %spec.select.i114 = call i64 @llvm.umin.i64(i64 %97, i64 9)
   %98 = load ptr, ptr %10, align 8
   %99 = call ptr %98(ptr noundef nonnull %9, i64 noundef %61, i64 noundef %spec.select.i114, i32 noundef 0) #4
@@ -457,7 +457,7 @@ fmap_readn.exit122.thread:                        ; preds = %117, %115
   br i1 %143, label %144, label %149
 
 144:                                              ; preds = %140
-  %145 = sub i64 %142, %141
+  %145 = sub nuw i64 %142, %141
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.44, i64 noundef %145) #4
   %146 = load i64, ptr %29, align 8
   %147 = sub i64 %146, %141

@@ -9314,8 +9314,8 @@ _ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit: ; preds = %16
   %.not3.i9.i.i = icmp slt i64 %17, 0
   %.0.i10.i.i = select i1 %.not3.i9.i.i, i64 %27, i64 %30
   %.not.i.i = icmp ult i64 %.0.i.i.i, %.0.i10.i.i
-  %31 = sub i64 %.0.i.i.i, %.0.i10.i.i
-  %32 = sub i64 %.0.i10.i.i, %.0.i.i.i
+  %31 = sub nuw i64 %.0.i.i.i, %.0.i10.i.i
+  %32 = sub nuw i64 %.0.i10.i.i, %.0.i.i.i
   %33 = select i1 %.not.i.i, i64 %32, i64 %31
   %34 = icmp ult i64 %33, 5
   br i1 %34, label %35, label %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread

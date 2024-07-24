@@ -728,7 +728,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
 
 326:                                              ; preds = %312
   %.not108 = icmp eq i32 %.pr, 0
-  br i1 %.not108, label %.thread126, label %453
+  br i1 %.not108, label %.thread126, label %451
 
 .thread126:                                       ; preds = %324, %326
   %327 = load ptr, ptr %27, align 8
@@ -882,125 +882,124 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
   br label %.thread129
 
 412:                                              ; preds = %405
-  %413 = zext i8 %409 to i64
-  %414 = zext i8 %407 to i64
-  %415 = add nuw nsw i64 %414, 2
-  %416 = sub nsw i64 %415, %413
-  %417 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 %416, ptr %417, align 8
-  %418 = getelementptr inbounds i8, ptr %327, i64 136
+  %narrow = sub nuw i8 %407, %409
+  %413 = zext i8 %narrow to i64
+  %414 = add nuw nsw i64 %413, 2
+  %415 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 %414, ptr %415, align 8
+  %416 = getelementptr inbounds i8, ptr %327, i64 136
+  %417 = load i64, ptr %416, align 8
+  %418 = getelementptr inbounds i8, ptr %327, i64 16
   %419 = load i64, ptr %418, align 8
-  %420 = getelementptr inbounds i8, ptr %327, i64 16
-  %421 = load i64, ptr %420, align 8
-  %.not115 = icmp ult i64 %419, %421
-  br i1 %.not115, label %423, label %422
+  %.not115 = icmp ult i64 %417, %419
+  br i1 %.not115, label %421, label %420
 
-422:                                              ; preds = %412
+420:                                              ; preds = %412
   store i32 3, ptr %18, align 4
   br label %.thread129
 
-423:                                              ; preds = %412
-  %424 = sub i64 %421, %419
-  %425 = add i64 %424, 1
-  %426 = call ptr @ft_mem_qalloc(ptr noundef %21, i64 noundef %425, ptr noundef nonnull %18) #11
-  %427 = getelementptr inbounds i8, ptr %327, i64 232
-  store ptr %426, ptr %427, align 8
-  %428 = load i32, ptr %18, align 4
-  %.not116 = icmp eq i32 %428, 0
-  br i1 %.not116, label %429, label %.thread129
+421:                                              ; preds = %412
+  %422 = sub nuw i64 %419, %417
+  %423 = add i64 %422, 1
+  %424 = call ptr @ft_mem_qalloc(ptr noundef %21, i64 noundef %423, ptr noundef nonnull %18) #11
+  %425 = getelementptr inbounds i8, ptr %327, i64 232
+  store ptr %424, ptr %425, align 8
+  %426 = load i32, ptr %18, align 4
+  %.not116 = icmp eq i32 %426, 0
+  br i1 %.not116, label %427, label %.thread129
 
-429:                                              ; preds = %423
-  %430 = getelementptr inbounds i8, ptr %327, i64 216
-  %431 = load ptr, ptr %430, align 8
-  %432 = load i64, ptr %418, align 8
-  %433 = getelementptr inbounds i8, ptr %431, i64 %432
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %426, ptr align 1 %433, i64 %424, i1 false)
-  %434 = load ptr, ptr %427, align 8
-  %435 = getelementptr inbounds i8, ptr %434, i64 %424
-  store i8 0, ptr %435, align 1
-  %436 = load ptr, ptr %427, align 8
-  %437 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %436) #12
-  %438 = add i64 %437, 1
-  %439 = call ptr @ft_mem_qrealloc(ptr noundef %21, i64 noundef 1, i64 noundef %425, i64 noundef %438, ptr noundef %436, ptr noundef nonnull %18) #11
-  store ptr %439, ptr %427, align 8
-  %440 = load i32, ptr %18, align 4
-  %.not117 = icmp eq i32 %440, 0
-  br i1 %.not117, label %441, label %.thread129
+427:                                              ; preds = %421
+  %428 = getelementptr inbounds i8, ptr %327, i64 216
+  %429 = load ptr, ptr %428, align 8
+  %430 = load i64, ptr %416, align 8
+  %431 = getelementptr inbounds i8, ptr %429, i64 %430
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %424, ptr align 1 %431, i64 %422, i1 false)
+  %432 = load ptr, ptr %425, align 8
+  %433 = getelementptr inbounds i8, ptr %432, i64 %422
+  store i8 0, ptr %433, align 1
+  %434 = load ptr, ptr %425, align 8
+  %435 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %434) #12
+  %436 = add i64 %435, 1
+  %437 = call ptr @ft_mem_qrealloc(ptr noundef %21, i64 noundef 1, i64 noundef %423, i64 noundef %436, ptr noundef %434, ptr noundef nonnull %18) #11
+  store ptr %437, ptr %425, align 8
+  %438 = load i32, ptr %18, align 4
+  %.not117 = icmp eq i32 %438, 0
+  br i1 %.not117, label %439, label %.thread129
 
-441:                                              ; preds = %429
-  %442 = getelementptr inbounds i8, ptr %1, i64 40
-  store ptr %439, ptr %442, align 8
-  %443 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr @.str.3, ptr %443, align 8
-  %444 = getelementptr inbounds i8, ptr %1, i64 24
-  %445 = load i64, ptr %444, align 8
-  %446 = and i64 %445, 2
-  %.not118 = icmp eq i64 %446, 0
-  %447 = and i64 %445, 1
-  %.not119 = icmp eq i64 %447, 0
-  br i1 %.not118, label %451, label %448
+439:                                              ; preds = %427
+  %440 = getelementptr inbounds i8, ptr %1, i64 40
+  store ptr %437, ptr %440, align 8
+  %441 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr @.str.3, ptr %441, align 8
+  %442 = getelementptr inbounds i8, ptr %1, i64 24
+  %443 = load i64, ptr %442, align 8
+  %444 = and i64 %443, 2
+  %.not118 = icmp eq i64 %444, 0
+  %445 = and i64 %443, 1
+  %.not119 = icmp eq i64 %445, 0
+  br i1 %.not118, label %449, label %446
 
-448:                                              ; preds = %441
-  br i1 %.not119, label %450, label %449
+446:                                              ; preds = %439
+  br i1 %.not119, label %448, label %447
 
-449:                                              ; preds = %448
-  store ptr @.str.4, ptr %443, align 8
+447:                                              ; preds = %446
+  store ptr @.str.4, ptr %441, align 8
   br label %FNT_Face_Done.exit
 
-450:                                              ; preds = %448
-  store ptr @.str.5, ptr %443, align 8
+448:                                              ; preds = %446
+  store ptr @.str.5, ptr %441, align 8
   br label %FNT_Face_Done.exit
 
-451:                                              ; preds = %441
-  br i1 %.not119, label %FNT_Face_Done.exit, label %452
+449:                                              ; preds = %439
+  br i1 %.not119, label %FNT_Face_Done.exit, label %450
 
-452:                                              ; preds = %451
-  store ptr @.str.6, ptr %443, align 8
+450:                                              ; preds = %449
+  store ptr @.str.6, ptr %441, align 8
   br label %FNT_Face_Done.exit
 
-453:                                              ; preds = %326
+451:                                              ; preds = %326
   %.not.i121 = icmp eq ptr %1, null
   br i1 %.not.i121, label %FNT_Face_Done.exit, label %.thread129
 
-.thread129:                                       ; preds = %325, %318, %330, %411, %422, %358, %403, %423, %429, %453
-  %454 = load ptr, ptr %20, align 8
-  %455 = load ptr, ptr %25, align 8
-  %456 = load ptr, ptr %27, align 8
-  %.not.i.i122 = icmp eq ptr %456, null
-  br i1 %.not.i.i122, label %fnt_font_done.exit.i, label %457
+.thread129:                                       ; preds = %325, %318, %330, %411, %420, %358, %403, %421, %427, %451
+  %452 = load ptr, ptr %20, align 8
+  %453 = load ptr, ptr %25, align 8
+  %454 = load ptr, ptr %27, align 8
+  %.not.i.i122 = icmp eq ptr %454, null
+  br i1 %.not.i.i122, label %fnt_font_done.exit.i, label %455
 
-457:                                              ; preds = %.thread129
-  %458 = getelementptr inbounds i8, ptr %456, i64 216
-  %459 = load ptr, ptr %458, align 8
-  %.not13.i.i123 = icmp eq ptr %459, null
-  br i1 %.not13.i.i123, label %461, label %460
+455:                                              ; preds = %.thread129
+  %456 = getelementptr inbounds i8, ptr %454, i64 216
+  %457 = load ptr, ptr %456, align 8
+  %.not13.i.i123 = icmp eq ptr %457, null
+  br i1 %.not13.i.i123, label %459, label %458
 
-460:                                              ; preds = %457
-  call void @FT_Stream_ReleaseFrame(ptr noundef %455, ptr noundef nonnull %458) #11
-  br label %461
+458:                                              ; preds = %455
+  call void @FT_Stream_ReleaseFrame(ptr noundef %453, ptr noundef nonnull %456) #11
+  br label %459
 
-461:                                              ; preds = %460, %457
-  %462 = getelementptr inbounds i8, ptr %456, i64 232
-  %463 = load ptr, ptr %462, align 8
-  call void @ft_mem_free(ptr noundef %454, ptr noundef %463) #11
-  store ptr null, ptr %462, align 8
-  call void @ft_mem_free(ptr noundef %454, ptr noundef nonnull %456) #11
+459:                                              ; preds = %458, %455
+  %460 = getelementptr inbounds i8, ptr %454, i64 232
+  %461 = load ptr, ptr %460, align 8
+  call void @ft_mem_free(ptr noundef %452, ptr noundef %461) #11
+  store ptr null, ptr %460, align 8
+  call void @ft_mem_free(ptr noundef %452, ptr noundef nonnull %454) #11
   store ptr null, ptr %27, align 8
   br label %fnt_font_done.exit.i
 
-fnt_font_done.exit.i:                             ; preds = %461, %.thread129
-  %464 = getelementptr inbounds i8, ptr %1, i64 64
-  %465 = load ptr, ptr %464, align 8
-  call void @ft_mem_free(ptr noundef %454, ptr noundef %465) #11
-  store ptr null, ptr %464, align 8
-  %466 = getelementptr inbounds i8, ptr %1, i64 56
-  store i32 0, ptr %466, align 8
-  %.pre141 = load i32, ptr %18, align 4
+fnt_font_done.exit.i:                             ; preds = %459, %.thread129
+  %462 = getelementptr inbounds i8, ptr %1, i64 64
+  %463 = load ptr, ptr %462, align 8
+  call void @ft_mem_free(ptr noundef %452, ptr noundef %463) #11
+  store ptr null, ptr %462, align 8
+  %464 = getelementptr inbounds i8, ptr %1, i64 56
+  store i32 0, ptr %464, align 8
+  %.pre140 = load i32, ptr %18, align 4
   br label %FNT_Face_Done.exit
 
-FNT_Face_Done.exit:                               ; preds = %fnt_font_done.exit.i, %453, %450, %449, %452, %451, %323, %315, %fnt_face_get_dll_font.exit
-  %467 = phi i32 [ %.pre141, %fnt_font_done.exit.i ], [ %.pr, %453 ], [ 0, %450 ], [ 0, %449 ], [ 0, %452 ], [ 0, %451 ], [ 0, %323 ], [ %317, %315 ], [ 0, %fnt_face_get_dll_font.exit ]
-  ret i32 %467
+FNT_Face_Done.exit:                               ; preds = %fnt_font_done.exit.i, %451, %448, %447, %450, %449, %323, %315, %fnt_face_get_dll_font.exit
+  %465 = phi i32 [ %.pre140, %fnt_font_done.exit.i ], [ %.pr, %451 ], [ 0, %448 ], [ 0, %447 ], [ 0, %450 ], [ 0, %449 ], [ 0, %323 ], [ %317, %315 ], [ 0, %fnt_face_get_dll_font.exit ]
+  ret i32 %465
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1506,7 +1505,7 @@ define internal i32 @fnt_cmap_char_next(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not, label %7, label %13
 
 7:                                                ; preds = %2
-  %8 = sub i32 %4, %6
+  %8 = sub nuw i32 %4, %6
   %9 = getelementptr inbounds i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %8, %10

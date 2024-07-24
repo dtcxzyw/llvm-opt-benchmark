@@ -4968,7 +4968,7 @@ _ZN14regex_automata4meta13reverse_inner10top_concat17h24b77c9a94e08cdfE.exit: ; 
   unreachable
 
 157:                                              ; preds = %153
-  %158 = sub i64 %154, %.sroa.01.050
+  %158 = sub nuw i64 %154, %.sroa.01.050
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h13be2a06739b2f61E"(i64 noundef %158, i1 noundef zeroext false)
           to label %163 unwind label %161
 

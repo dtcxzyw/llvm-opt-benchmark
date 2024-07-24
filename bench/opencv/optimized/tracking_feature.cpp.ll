@@ -1478,7 +1478,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit130:            ; preds = %301, %303, %304, %3
   br i1 %357, label %358, label %360
 
 358:                                              ; preds = %330
-  %359 = sub nsw i64 %349, %356
+  %359 = sub nuw nsw i64 %349, %356
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %347, i64 noundef %359)
   %.pre277 = load i32, ptr %12, align 4
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit132
@@ -1573,7 +1573,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE6resizeEm(pt
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

@@ -45031,7 +45031,7 @@ define internal fastcc void @_ZN3ide14signature_help13SignatureHelp10push_param1
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd4443cfa65844475E.exit": ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !nonnull !9, !noundef !9
-  %12 = sub i64 %9, %2
+  %12 = sub nuw i64 %9, %2
   %13 = getelementptr inbounds i8, ptr %11, i64 %12
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %1, ptr nonnull readonly %13, i64 %2), !alias.scope !10653
   %14 = icmp eq i32 %bcmp.i.i, 0

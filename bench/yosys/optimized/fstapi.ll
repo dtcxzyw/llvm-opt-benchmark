@@ -5351,7 +5351,7 @@ define i32 @fstWriterCreateEnumTable(ptr noundef %0, ptr noundef readonly %1, i3
 81:                                               ; preds = %.preheader.split
   %82 = sext i32 %.1115136 to i64
   %83 = getelementptr inbounds i8, ptr %47, i64 %82
-  %84 = sub i32 %3, %79
+  %84 = sub nuw i32 %3, %79
   %85 = zext i32 %84 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %83, i8 48, i64 %85, i1 false)
   %86 = add i32 %84, %.1115136

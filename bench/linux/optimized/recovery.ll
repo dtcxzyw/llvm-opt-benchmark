@@ -218,7 +218,7 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
 
 67:                                               ; preds = %63
   %68 = load i64, ptr %28, align 8
-  %69 = sub i64 %64, %65
+  %69 = sub nuw i64 %64, %65
   %70 = add i64 %69, %68
   store i64 %70, ptr %9, align 8
   br label %71
@@ -412,7 +412,7 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
 
 192:                                              ; preds = %186
   %193 = load i64, ptr %28, align 8
-  %194 = sub i64 %189, %190
+  %194 = sub nuw i64 %189, %190
   %195 = add i64 %194, %193
   store i64 %195, ptr %9, align 8
   br label %196
@@ -474,7 +474,7 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
 
 241:                                              ; preds = %.preheader471
   %242 = load i64, ptr %28, align 8
-  %243 = sub i64 %238, %239
+  %243 = sub nuw i64 %238, %239
   %244 = add i64 %242, %243
   br label %245
 
@@ -1749,7 +1749,7 @@ define internal fastcc void @calc_chksums(ptr noundef %0, ptr nocapture noundef 
 
 73:                                               ; preds = %67
   %74 = load i64, ptr %66, align 8
-  %75 = sub i64 %70, %71
+  %75 = sub nuw i64 %70, %71
   %76 = add i64 %75, %74
   store i64 %76, ptr %2, align 8
   br label %77

@@ -1497,7 +1497,7 @@ for.end729:                                       ; preds = %if.else719
   br i1 %cmp730, label %if.then732, label %if.end773
 
 if.then732:                                       ; preds = %for.end729
-  %sub733 = sub i32 %144, %inc723
+  %sub733 = sub nuw i32 %144, %inc723
   br i1 %tobool700.not, label %while.cond738.preheader, label %if.end756
 
 while.cond738.preheader:                          ; preds = %if.then732
@@ -3201,7 +3201,7 @@ while.end74:                                      ; preds = %while.cond63
   br i1 %cmp75, label %if.then77, label %if.end96
 
 if.then77:                                        ; preds = %while.end74
-  %sub78 = sub nsw i32 %dg.0, %cond55
+  %sub78 = sub nuw nsw i32 %dg.0, %cond55
   %cmp79 = icmp ugt i32 %sub78, 23
   br i1 %cmp79, label %if.end96, label %if.end82
 

@@ -121,7 +121,7 @@ do.end.i:                                         ; preds = %st_mult.exit.i, %do
   br i1 %cmp24.i, label %if.then26.i, label %if.end35.i
 
 if.then26.i:                                      ; preds = %do.end.i
-  %sub34.i = sub i64 %8, %conv.i
+  %sub34.i = sub nuw i64 %8, %conv.i
   %cmp.i.i.i = icmp ugt i64 %sub34.i, 1152921504606846975
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %st_mult.exit.i.i
 

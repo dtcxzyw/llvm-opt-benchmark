@@ -1058,7 +1058,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_che
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -1095,7 +1095,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h84
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -4645,7 +4645,7 @@ default.unreachable:                              ; preds = %.outer
   br label %.outer.backedge
 
 365:                                              ; preds = %353
-  %366 = sub i64 %.0356.ph, %.0337.ph
+  %366 = sub nuw i64 %.0356.ph, %.0337.ph
   %367 = icmp ult i64 %366, 6210
   br i1 %367, label %373, label %368
 
@@ -6366,7 +6366,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hbfbf7605b1beaa37E.exit": ; preds = %77
   %83 = getelementptr inbounds i64, ptr %9, i64 %.0.lcssa
-  %84 = sub i64 %10, %.0.lcssa
+  %84 = sub nuw i64 %10, %.0.lcssa
   %85 = call noundef i64 @_ZN6brotli3enc19backward_references19hash_to_binary_tree22StoreAndFindMatchesH1017h596d3ed198f90acbE.llvm.2002727345234535996(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %5, i64 noundef %4, i64 noundef %6, i64 noundef %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull align 8 %83, i64 noundef %84)
   %86 = add i64 %85, %.0.lcssa
   br label %87
@@ -8880,7 +8880,7 @@ _ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E.exit.i:
   unreachable
 
 521:                                              ; preds = %.loopexit459
-  %522 = sub i64 %.sroa.10.0, %518
+  %522 = sub nuw i64 %.sroa.10.0, %518
   %.not.i.i275 = icmp ugt i64 %501, %522
   br i1 %.not.i.i275, label %523, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit280"
 

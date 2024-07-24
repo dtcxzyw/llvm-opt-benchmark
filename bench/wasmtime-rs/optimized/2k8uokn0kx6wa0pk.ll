@@ -10015,7 +10015,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$
   %8 = xor i16 %15, -1
   store ptr %17, ptr %7, align 8, !alias.scope !1742
   store ptr %16, ptr %0, align 8, !alias.scope !1742
-  %9 = sub i16 -2, %15
+  %9 = sub nuw i16 -2, %15
   %10 = and i16 %9, %8
   store i16 %10, ptr %6, align 8, !alias.scope !1742
   br label %25
@@ -15333,7 +15333,7 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   ]
 
 664:                                              ; preds = %.lr.ph.i.i
-  %665 = sub i32 %.034.i.i, %660
+  %665 = sub nuw i32 %.034.i.i, %660
   %666 = add nuw i64 %.02233.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %666, %636
   br i1 %exitcond.not.i.i, label %.thread125.i, label %.lr.ph.i.i

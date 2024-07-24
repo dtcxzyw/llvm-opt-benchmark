@@ -159,7 +159,7 @@ if.else94.us.us:                                  ; preds = %if.end88.us.us
   br i1 %cmp95.us.us, label %if.then97.us.us, label %while.cond139.us.us.preheader
 
 if.then97.us.us:                                  ; preds = %if.else94.us.us
-  %sub98.us.us = sub i64 %spec.select, %tokenlen.2.us.us
+  %sub98.us.us = sub nuw i64 %spec.select, %tokenlen.2.us.us
   %gep = getelementptr i8, ptr %invariant.gep, i64 %sub98.us.us
   %14 = load i8, ptr %gep, align 1
   %cmp102.us.us = icmp eq i8 %14, 46

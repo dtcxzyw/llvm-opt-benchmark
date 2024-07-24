@@ -695,7 +695,7 @@ define internal fastcc void @_dissect_nhrp(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond146.i, label %dissect_nhrp_hdr.exit.thread, label %179
 
 179:                                              ; preds = %175
-  %180 = sub i32 %177, %174
+  %180 = sub nuw i32 %177, %174
   br label %183
 
 181:                                              ; preds = %127
@@ -1147,7 +1147,7 @@ dissect_nhrp_mand.exit:                           ; preds = %264, %265, %266, %2
   %400 = load i32, ptr @hf_nhrp_auth_data, align 4
   %401 = add i32 %.0156172.i, 8
   %402 = add i32 %401, %.1.i32
-  %403 = sub nsw i32 %329, %379
+  %403 = sub nuw nsw i32 %329, %379
   %404 = call ptr @proto_tree_add_item(ptr noundef %385, i32 noundef %400, ptr noundef %0, i32 noundef %402, i32 noundef %403, i32 noundef 0) #4
   %405 = load ptr, ptr %7, align 8
   %406 = load ptr, ptr %322, align 8

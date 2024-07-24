@@ -269,7 +269,7 @@ if.end22:                                         ; preds = %lor.lhs.false18
   br i1 %cmp24.not, label %if.end27, label %error
 
 if.end27:                                         ; preds = %if.end22
-  %sub28 = sub i64 %size.addr.142, %sub.ptr.sub
+  %sub28 = sub nuw i64 %size.addr.142, %sub.ptr.sub
   %add.ptr29 = getelementptr inbounds i8, ptr %data.addr.143, i64 %sub.ptr.sub
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -305,7 +305,7 @@ if.end44:                                         ; preds = %if.end39
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
   %algo.i = getelementptr inbounds i8, ptr %arrayidx46, i64 32
   store i32 %conv.i.i, ptr %algo.i, align 4
-  %sub48 = sub i64 %size.addr.245, %conv40
+  %sub48 = sub nuw i64 %size.addr.245, %conv40
   %add.ptr49 = getelementptr inbounds i8, ptr %data.addr.246, i64 %conv40
   br label %for.inc50
 

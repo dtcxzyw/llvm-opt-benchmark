@@ -1130,7 +1130,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %636, %638
   br i1 %.not.i, label %694, label %692
 
 692:                                              ; preds = %681
-  %693 = sub i64 %688, %691
+  %693 = sub nuw i64 %688, %691
   br label %696
 
 694:                                              ; preds = %681

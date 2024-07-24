@@ -1058,7 +1058,7 @@ _ZN5ZXing6ToIntsIivEESt6vectorIT_SaIS2_EERKNS_8BitArrayEiii.exit.i: ; preds = %_
   br i1 %262, label %263, label %296
 
 263:                                              ; preds = %254
-  %264 = sub nsw i64 %255, %261
+  %264 = sub nuw nsw i64 %255, %261
   %265 = getelementptr inbounds i8, ptr %19, i64 16
   %266 = load ptr, ptr %265, align 8, !noalias !14
   %267 = ptrtoint ptr %266 to i64
@@ -2961,7 +2961,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit
   %45 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %12, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit ]
-  %46 = sub i64 %8, %18
+  %46 = sub nuw i64 %8, %18
   %47 = getelementptr inbounds i8, ptr %45, i64 %46
   store ptr %47, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %12, %1

@@ -673,7 +673,7 @@ _can_use_gres_exc_topo.exit.thread.i:             ; preds = %.loopexit24.us.i, %
   br i1 %307, label %308, label %313
 
 308:                                              ; preds = %306
-  %309 = sub i64 %296, %297
+  %309 = sub nuw i64 %296, %297
   store i64 %297, ptr %295, align 8
   %sext.i = shl i64 %309, 32
   %310 = ashr exact i64 %sext.i, 32
@@ -1086,7 +1086,7 @@ _build_sock_gres_by_topo.exit:                    ; preds = %92, %._crit_edge84.
   br i1 %.not53.us.i, label %_handle_gres_exc_by_type.exit.us.i, label %501
 
 _handle_gres_exc_by_type.exit.us.i:               ; preds = %483
-  %490 = sub i64 %489, %486
+  %490 = sub nuw i64 %489, %486
   %491 = load i64, ptr %450, align 8
   %492 = load i64, ptr %451, align 8
   %493 = sub i64 %491, %492
@@ -1141,7 +1141,7 @@ _handle_gres_exc_by_type.exit.us.i:               ; preds = %483
   br i1 %.not53.i, label %519, label %558
 
 519:                                              ; preds = %512
-  %520 = sub i64 %518, %515
+  %520 = sub nuw i64 %518, %515
   br label %524
 
 .critedge.i134:                                   ; preds = %511

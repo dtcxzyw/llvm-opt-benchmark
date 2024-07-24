@@ -5251,7 +5251,7 @@ if.then183:                                       ; preds = %for.end
   %add.ptr188 = getelementptr i8, ptr %64, i64 %mul187
   %mul191 = mul i64 %add179, %conv186
   %add.ptr192 = getelementptr i8, ptr %64, i64 %mul191
-  %sub194 = sub i64 %self.val116, %add179
+  %sub194 = sub nuw i64 %self.val116, %add179
   %mul196 = mul i64 %sub194, %conv186
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr188, ptr align 1 %add.ptr192, i64 %mul196, i1 false)
   %self.val114.pre = load i64, ptr %63, align 8

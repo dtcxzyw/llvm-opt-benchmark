@@ -27249,7 +27249,7 @@ rb_io_check_closed.exit:                          ; preds = %rb_io_check_closed.
   br label %.sink.split
 
 29:                                               ; preds = %21
-  %30 = sub i64 %17, %22
+  %30 = sub nuw i64 %17, %22
   store i32 0, ptr %13, align 8
   br label %.sink.split
 

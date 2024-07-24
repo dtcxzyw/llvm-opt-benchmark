@@ -98,7 +98,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !8
   %9 = icmp eq i32 %bcmp.i, 0
@@ -546,7 +546,7 @@ default.unreachable12:                            ; preds = %2
 
 .lr.ph.i.i.i:                                     ; preds = %16
   %24 = getelementptr inbounds i8, ptr %19, i64 8
-  %25 = sub i64 %22, %18
+  %25 = sub nuw i64 %22, %18
   br label %26
 
 26:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h6a1f025f4c7cbd50E.exit.i.i.i", %.lr.ph.i.i.i

@@ -1663,7 +1663,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !176
   %67 = icmp eq i32 %bcmp.i, 0
@@ -4318,7 +4318,7 @@ _ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread: ; pred
   %254 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %250
   %255 = load i8, ptr %254, align 1, !alias.scope !885, !noalias !852, !noundef !11
   %256 = icmp sgt i8 %255, -65
-  %257 = sub i64 %.sroa.8103.0.i.i.i, %250
+  %257 = sub nuw i64 %.sroa.8103.0.i.i.i, %250
   br i1 %256, label %259, label %258
 
 258:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i147.i.i.i", %251

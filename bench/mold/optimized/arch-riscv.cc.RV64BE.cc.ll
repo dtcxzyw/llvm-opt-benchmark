@@ -4360,7 +4360,7 @@ if.end5:                                          ; preds = %lor.lhs.false
 
 _ZNK4mold3elf12InputSectionINS0_6RV64BEEE4nameEv.exit.thread: ; preds = %if.end5
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %3, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i, %4
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %4
   %6 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %6, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1
@@ -6893,7 +6893,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -7219,7 +7219,7 @@ if.then.i.i:                                      ; preds = %if.then
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.then
-  %sub.i = sub i64 %11, %cond.i.i
+  %sub.i = sub nuw i64 %11, %cond.i.i
   %12 = load ptr, ptr %_M_str.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %cond.i.i
   store i64 %sub.i, ptr %str, align 8
@@ -33630,7 +33630,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4mold3elf12_GLOBAL
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4mold3elf12_GLOBAL__N_14ExtnESt4spanIS5_Lm18446744073709551615EEEES6_S5_ET0_T_SB_SA_RSaIT1_E.exit.i.i: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4mold3elf12_GLOBAL__N_14ExtnESt4spanIS5_Lm18446744073709551615EEEES6_S5_ET0_T_SB_SA_RSaIT1_E.exit.loopexit.i.i, %if.else.i.i
   %27 = phi ptr [ %.pre.i.i, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4mold3elf12_GLOBAL__N_14ExtnESt4spanIS5_Lm18446744073709551615EEEES6_S5_ET0_T_SB_SA_RSaIT1_E.exit.loopexit.i.i ], [ %1, %if.else.i.i ]
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i.i.i.i, %sub.ptr.div.i.i.i
   %add.ptr50.i.i = getelementptr inbounds %"struct.mold::elf::(anonymous namespace)::Extn", ptr %27, i64 %sub.i.i
   store ptr %add.ptr50.i.i, ptr %_M_finish.i.i, align 8
   %cmp.i4.i.i.i.i.i45.i.i = icmp eq ptr %1, %__position.coerce
@@ -34775,7 +34775,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %1, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i, %2
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %2
   %4 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %4, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1
@@ -35982,7 +35982,7 @@ land.lhs.true1.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %land.lhs.true.i.i.i
   %elf_sections2.sink.v.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 368
   %elf_sections2.sink.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %elf_sections2.sink.v.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %9
-  %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i.i = sub nuw nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i
   %10 = load ptr, ptr %elf_sections2.sink.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %sh_flags.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %10, i64 %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 2
   %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %sh_flags.i.i.i.i.i.i.i.i.i.i.i.i, align 1
@@ -36071,7 +36071,7 @@ _ZNK4mold3elf12InputSectionINS0_6RV64BEEE8get_relsERNS0_7ContextIS2_EE.exit.i.i.
   br i1 %cmp.i96.i.i.i.i.i.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNK4mold3elf12InputSectionINS0_6RV64BEEE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %sub.i.i8.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %add.i.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %sub.i.i8.i.i.i.i.i.i.i.i.i.i.i = sub nuw nsw i64 %add.i.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %extra.i.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %sub.i.i8.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i.i.i
 

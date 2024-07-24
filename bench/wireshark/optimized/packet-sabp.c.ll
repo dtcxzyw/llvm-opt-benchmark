@@ -577,7 +577,7 @@ define internal i32 @dissect_sabp_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds i8, ptr %1, i64 332
   store i32 0, ptr %25, align 4
-  %26 = sub i32 %spec.select, %9
+  %26 = sub nuw i32 %spec.select, %9
   %27 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 %26, ptr %27, align 8
   %28 = call i32 @tvb_captured_length(ptr noundef %0) #3

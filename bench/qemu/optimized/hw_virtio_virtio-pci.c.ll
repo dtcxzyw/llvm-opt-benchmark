@@ -2993,7 +2993,7 @@ lor.lhs.false.i:                                  ; preds = %if.then5
   br i1 %cmp.i, label %if.end6, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %sub.i = sub i32 %address, %conv.i
+  %sub.i = sub nuw i32 %address, %conv.i
   %cmp4.i = icmp ugt i32 %sub.i, 7
   br i1 %cmp4.i, label %if.end6, label %if.end7.i
 
@@ -4318,7 +4318,7 @@ virtio_ioport_read.exit:                          ; preds = %virtio_bus_get_devi
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %sub = sub i64 %addr, %cond
+  %sub = sub nuw i64 %addr, %cond
   switch i32 %size, label %return [
     i32 1, label %sw.bb
     i32 2, label %sw.bb13
@@ -4602,7 +4602,7 @@ if.then89.i:                                      ; preds = %do.body.i
   br label %sw.epilog
 
 if.end7:                                          ; preds = %if.end
-  %sub = sub i64 %addr, %cond
+  %sub = sub nuw i64 %addr, %cond
   switch i32 %size, label %sw.epilog [
     i32 1, label %sw.bb
     i32 2, label %sw.bb11

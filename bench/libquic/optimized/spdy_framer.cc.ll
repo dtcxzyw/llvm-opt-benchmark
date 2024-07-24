@@ -3169,7 +3169,7 @@ if.then30:                                        ; preds = %if.end28
   br label %return
 
 if.end31:                                         ; preds = %if.end28
-  %sub = sub i64 %3, %2
+  %sub = sub nuw i64 %3, %2
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %data_len)
   br i1 %is_hpack_header_block, label %if.then36, label %if.else41
 

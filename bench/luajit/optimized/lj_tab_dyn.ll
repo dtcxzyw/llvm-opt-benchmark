@@ -2227,7 +2227,7 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %entry
   %idx.0.lcssa = phi i32 [ %call, %entry ], [ %0, %for.inc ]
-  %sub = sub i32 %idx.0.lcssa, %0
+  %sub = sub nuw i32 %idx.0.lcssa, %0
   %hmask = getelementptr inbounds i8, ptr %t, i64 52
   %7 = load i32, ptr %hmask, align 4
   %cmp7.not27 = icmp ugt i32 %sub, %7

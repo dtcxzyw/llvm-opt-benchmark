@@ -222,7 +222,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
 
 132:                                              ; preds = %127
   %133 = sub nsw i64 %125, %37
-  %134 = sub nsw i64 %130, %129
+  %134 = sub nuw nsw i64 %130, %129
   %135 = call i64 @llvm.umin.i64(i64 %134, i64 %133)
   %136 = icmp eq i64 %41, 0
   %137 = zext i1 %136 to i64
@@ -236,7 +236,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
 
 144:                                              ; preds = %132
   %145 = add i32 %142, %36
-  %146 = add nsw i64 %135, %37
+  %146 = add nuw nsw i64 %135, %37
   %.pre = load i64, ptr %21, align 8
   br label %.thread31
 
@@ -328,7 +328,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
 
 204:                                              ; preds = %198
   %205 = sub nsw i64 %196, %181
-  %206 = sub nsw i64 %202, %200
+  %206 = sub nuw nsw i64 %202, %200
   %207 = call i64 @llvm.umin.i64(i64 %206, i64 %205)
   %208 = call i32 @add_swap_extent(ptr noundef %0, i64 noundef %181, i64 noundef %207, i64 noundef %200) #7
   %209 = icmp slt i32 %208, 0
@@ -340,7 +340,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
   %213 = add nuw nsw i64 %200, %189
   %214 = call i64 @llvm.umin.i64(i64 %179, i64 %213)
   %215 = add i32 %208, %182
-  %216 = add nsw i64 %207, %181
+  %216 = add nuw nsw i64 %207, %181
   br label %.thread39
 
 .thread39:                                        ; preds = %194, %198, %210, %192

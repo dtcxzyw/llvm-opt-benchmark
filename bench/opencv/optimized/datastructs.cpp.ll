@@ -10077,7 +10077,7 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
   br i1 %.not.i129, label %171, label %169
 
 169:                                              ; preds = %165
-  %170 = sub nsw i32 %167, %168
+  %170 = sub nuw nsw i32 %167, %168
   %.not44.i = icmp ult i32 %170, %168
   br i1 %.not44.i, label %171, label %cvGetSeqElem.exit
 

@@ -651,7 +651,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %23
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %33
   %40 = extractvalue { i64, ptr } %34, 1
-  %41 = sub i64 %35, %37
+  %41 = sub nuw i64 %35, %37
   %42 = getelementptr inbounds i8, ptr %40, i64 %37
   %43 = load ptr, ptr %0, align 8
   %44 = tail call noundef ptr @_ZNK10cmMakefile16GetCMakeInstanceEv(ptr noundef nonnull align 8 dereferenceable(3520) %43)

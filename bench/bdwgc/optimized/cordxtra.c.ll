@@ -829,9 +829,9 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   %.052 = phi ptr [ %2, %9 ], [ %13, %11 ]
   %.053.fr = freeze i64 %.053
   %16 = icmp ult i64 %5, %1
-  %17 = sub i64 %5, %1
+  %17 = sub nuw i64 %5, %1
   %18 = icmp ult i64 %17, %.053.fr
-  %or.cond = or i1 %16, %18
+  %or.cond = select i1 %16, i1 true, i1 %18
   br i1 %or.cond, label %.loopexit, label %19
 
 19:                                               ; preds = %15
@@ -855,7 +855,7 @@ define i64 @CORD_str(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 .preheader:                                       ; preds = %93
   %27 = icmp ult i64 %.053.fr, 9
-  %28 = sub i64 %.053.fr, %spec.store.select
+  %28 = sub nuw i64 %.053.fr, %spec.store.select
   %29 = sub i64 %5, %.053.fr
   %30 = getelementptr inbounds i8, ptr %4, i64 32
   %31 = getelementptr inbounds i8, ptr %4, i64 16

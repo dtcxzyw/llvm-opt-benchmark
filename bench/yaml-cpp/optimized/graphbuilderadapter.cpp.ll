@@ -90,7 +90,7 @@ if.then.i:                                        ; preds = %_ZNK4YAML19GraphBui
   br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
 _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i
-  %sub.i.i.i = sub i64 %anchor, %sub.ptr.div.i.i.i
+  %sub.i.i.i = sub nuw i64 %anchor, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors.i, i64 noundef %sub.i.i.i)
   %.pre.i.i = load ptr, ptr %m_anchors.i, align 8
   br label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
@@ -226,7 +226,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit
 
 _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i:          ; preds = %if.then
-  %sub.i.i = sub i64 %anchor, %sub.ptr.div.i.i
+  %sub.i.i = sub nuw i64 %anchor, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors, i64 noundef %sub.i.i)
   %.pre.i = load ptr, ptr %m_anchors, align 8
   br label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit
@@ -457,7 +457,7 @@ if.then.i:                                        ; preds = %_ZNK4YAML19GraphBui
   br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
 _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i
-  %sub.i.i.i = sub i64 %anchor, %sub.ptr.div.i.i.i
+  %sub.i.i.i = sub nuw i64 %anchor, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors.i, i64 noundef %sub.i.i.i)
   %.pre.i.i = load ptr, ptr %m_anchors.i, align 8
   br label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
@@ -617,7 +617,7 @@ if.then.i:                                        ; preds = %_ZNSt5stackIN4YAML1
   br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
 _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i
-  %sub.i.i.i = sub i64 %anchor, %sub.ptr.div.i.i.i
+  %sub.i.i.i = sub nuw i64 %anchor, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors.i, i64 noundef %sub.i.i.i)
   %.pre.i.i = load ptr, ptr %m_anchors.i, align 8
   br label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
@@ -822,7 +822,7 @@ if.then.i:                                        ; preds = %_ZNSt5stackIN4YAML1
   br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
 _ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i
-  %sub.i.i.i = sub i64 %anchor, %sub.ptr.div.i.i.i
+  %sub.i.i.i = sub nuw i64 %anchor, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors.i, i64 noundef %sub.i.i.i)
   %.pre.i.i = load ptr, ptr %m_anchors.i, align 8
   br label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i

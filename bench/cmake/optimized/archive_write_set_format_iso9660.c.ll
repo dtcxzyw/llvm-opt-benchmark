@@ -1657,7 +1657,7 @@ wb_consume.exit.thread45.i.i:                     ; preds = %.lr.ph.i.i
   br label %zisofs_finish_entry.exit.thread
 
 83:                                               ; preds = %.lr.ph.i.i
-  %84 = sub i64 %80, %spec.select.i.i
+  %84 = sub nuw i64 %80, %spec.select.i.i
   store i64 %84, ptr %79, align 8
   %85 = icmp ult i64 %84, 2048
   br i1 %85, label %wb_consume.exit.i.i, label %wb_consume.exit.thread.i.i
@@ -2027,7 +2027,7 @@ zisofs_rewind_boot_file.exit.thread243:           ; preds = %54
   br i1 %163, label %164, label %zisofs_extract_init.exit.i.thread.i
 
 164:                                              ; preds = %160
-  %165 = sub i64 %133, %162
+  %165 = sub nuw i64 %133, %162
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %.054.i.i.i, i64 %165)
   %166 = getelementptr inbounds i8, ptr %143, i64 %162
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %.053.i.i.i, i64 %spec.select.i.i.i, i1 false)
@@ -2119,7 +2119,7 @@ zisofs_extract_init.exit.i.thread.i:              ; preds = %zisofs_extract_init
   br label %wb_write_padding_to_temp.exit.thread.i
 
 208:                                              ; preds = %203
-  %209 = sub i32 %205, %196
+  %209 = sub nuw i32 %205, %196
   store i32 %209, ptr %99, align 8
   store i64 %190, ptr %98, align 8
   %210 = load i32, ptr %101, align 8
@@ -2179,7 +2179,7 @@ wb_consume.exit.thread.i.i:                       ; preds = %.lr.ph.i.i
   br label %wb_write_padding_to_temp.exit.thread.i
 
 231:                                              ; preds = %.lr.ph.i.i
-  %232 = sub i64 %228, %..091.i.i
+  %232 = sub nuw i64 %228, %..091.i.i
   store i64 %232, ptr %227, align 8
   %233 = icmp ult i64 %232, 2048
   br i1 %233, label %wb_consume.exit.i.i, label %wb_consume.exit.thread116.i.i
@@ -6197,7 +6197,7 @@ define internal fastcc i32 @write_null(ptr noundef %0, i64 noundef %1) unnamed_a
   br label %wb_consume.exit
 
 17:                                               ; preds = %10
-  %18 = sub i64 %13, %1
+  %18 = sub nuw i64 %13, %1
   store i64 %18, ptr %12, align 8
   %19 = icmp ult i64 %18, 2048
   br i1 %19, label %20, label %wb_consume.exit
@@ -6221,7 +6221,7 @@ wb_consume.exit46.thread52:                       ; preds = %22
   br label %wb_consume.exit
 
 28:                                               ; preds = %22
-  %29 = sub i64 %25, %6
+  %29 = sub nuw i64 %25, %6
   store i64 %29, ptr %24, align 8
   %30 = icmp ult i64 %29, 2048
   br i1 %30, label %wb_consume.exit46, label %wb_consume.exit46.thread
@@ -6265,7 +6265,7 @@ wb_consume.exit49.thread57:                       ; preds = %.lr.ph
   br label %wb_consume.exit
 
 49:                                               ; preds = %.lr.ph
-  %50 = sub i64 %46, %spec.select
+  %50 = sub nuw i64 %46, %spec.select
   store i64 %50, ptr %45, align 8
   %51 = icmp ult i64 %50, 2048
   br i1 %51, label %wb_consume.exit49, label %wb_consume.exit49.thread
@@ -6305,7 +6305,7 @@ define internal fastcc i32 @wb_consume(ptr noundef %0, i64 noundef %1) unnamed_a
   br label %15
 
 10:                                               ; preds = %2
-  %11 = sub i64 %6, %1
+  %11 = sub nuw i64 %6, %1
   store i64 %11, ptr %5, align 8
   %12 = icmp ult i64 %11, 2048
   br i1 %12, label %13, label %15
@@ -6695,7 +6695,7 @@ define internal fastcc void @zisofs_detect_magic(ptr %.248.val, ptr noundef read
   br i1 %or.cond92, label %.loopexit, label %61
 
 61:                                               ; preds = %55
-  %62 = sub i32 %57, %53
+  %62 = sub nuw i32 %57, %53
   %63 = zext i32 %62 to i64
   %64 = add nuw nsw i64 %.0782, %63
   %65 = add nsw i64 %.0773, -1
@@ -6863,7 +6863,7 @@ wb_consume.exit.thread99:                         ; preds = %74
   br label %.loopexit
 
 82:                                               ; preds = %74
-  %83 = sub i64 %79, %76
+  %83 = sub nuw i64 %79, %76
   store i64 %83, ptr %78, align 8
   %84 = icmp ult i64 %83, 2048
   br i1 %84, label %wb_consume.exit, label %wb_consume.exit.thread
@@ -7039,7 +7039,7 @@ wb_consume.exit.thread45:                         ; preds = %.lr.ph
   br label %.loopexit
 
 41:                                               ; preds = %.lr.ph
-  %42 = sub i64 %38, %spec.select
+  %42 = sub nuw i64 %38, %spec.select
   store i64 %42, ptr %37, align 8
   %43 = icmp ult i64 %42, 2048
   br i1 %43, label %wb_consume.exit, label %wb_consume.exit.thread
@@ -8187,7 +8187,7 @@ wb_consume.exit.thread.i:                         ; preds = %43
   br label %_write_path_table.exit.thread
 
 49:                                               ; preds = %43
-  %50 = sub i64 %46, %38
+  %50 = sub nuw i64 %46, %38
   store i64 %50, ptr %45, align 8
   %51 = icmp ult i64 %50, 2048
   br i1 %51, label %wb_consume.exit.i, label %wb_consume.exit.thread80.i
@@ -8335,7 +8335,7 @@ wb_consume.exit78.thread.i:                       ; preds = %122
   br label %_write_path_table.exit.thread
 
 131:                                              ; preds = %122
-  %132 = sub i64 %128, %125
+  %132 = sub nuw i64 %128, %125
   store i64 %132, ptr %127, align 8
   %133 = icmp ult i64 %132, 2048
   br i1 %133, label %wb_consume.exit78.i, label %_write_path_table.exit
@@ -10660,7 +10660,7 @@ define internal fastcc i32 @isoent_cmp_joliet_identifier(ptr nocapture noundef r
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds i8, ptr %59, i64 %60
-  %66 = sub nsw i32 %52, %39
+  %66 = sub nuw nsw i32 %52, %39
   br label %67
 
 67:                                               ; preds = %68, %64
@@ -10686,7 +10686,7 @@ define internal fastcc i32 @isoent_cmp_joliet_identifier(ptr nocapture noundef r
 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds i8, ptr %57, i64 %60
-  %78 = sub nsw i32 %39, %52
+  %78 = sub nuw nsw i32 %39, %52
   br label %79
 
 79:                                               ; preds = %80, %76
@@ -10853,7 +10853,7 @@ define internal fastcc i32 @isoent_cmp_iso9660_identifier(ptr nocapture noundef 
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds i8, ptr %60, i64 %61
-  %67 = sub nsw i32 %53, %40
+  %67 = sub nuw nsw i32 %53, %40
   br label %68
 
 68:                                               ; preds = %69, %65
@@ -10879,7 +10879,7 @@ define internal fastcc i32 @isoent_cmp_iso9660_identifier(ptr nocapture noundef 
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds i8, ptr %58, i64 %61
-  %79 = sub nsw i32 %40, %53
+  %79 = sub nuw nsw i32 %40, %53
   br label %80
 
 80:                                               ; preds = %81, %77
@@ -14615,7 +14615,7 @@ wb_consume.exit.thread:                           ; preds = %22
   br label %.loopexit
 
 28:                                               ; preds = %22
-  %29 = sub i64 %26, %17
+  %29 = sub nuw i64 %26, %17
   store i64 %29, ptr %25, align 8
   %30 = icmp ult i64 %29, 2048
   br i1 %30, label %31, label %wb_consume.exit

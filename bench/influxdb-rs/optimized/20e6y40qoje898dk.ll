@@ -110,7 +110,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h2f31c2073b239055E.exit: ; preds = 
   %33 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.0.ph.i
   %34 = load i8, ptr %33, align 1, !alias.scope !26, !noundef !4
   %35 = icmp sgt i8 %34, -65
-  %36 = sub i64 %3, %.sroa.7.0.ph.i
+  %36 = sub nuw i64 %3, %.sroa.7.0.ph.i
   br i1 %35, label %38, label %37
 
 37:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit.i.i", %32

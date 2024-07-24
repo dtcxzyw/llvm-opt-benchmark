@@ -36323,7 +36323,7 @@ _ZSt22__uninitialized_copy_aIPKN2cv6Point_IiEEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.l
 
 _ZSt22__uninitialized_copy_aIPKN2cv6Point_IiEEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKN2cv6Point_IiEEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKN2cv6Point_IiEEmEvRT_T0_.exit
   %37 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKN2cv6Point_IiEEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPKN2cv6Point_IiEEmEvRT_T0_.exit ]
-  %38 = sub nsw i64 %9, %20
+  %38 = sub nuw nsw i64 %9, %20
   %39 = getelementptr %"class.cv::Point_", ptr %37, i64 %38
   store ptr %39, ptr %12, align 8
   %.not11.i.i.i.i.i57 = icmp eq ptr %13, %1
@@ -36666,7 +36666,7 @@ _ZSt13move_backwardIPSt6vectorIN2cv6Point_IiEESaIS3_EES6_ET0_T_S8_S7_.exit: ; pr
 _ZSt7advanceIPKSt6vectorIN2cv6Point_IiEESaIS3_EEmEvRT_T0_.exit: ; preds = %17
   %58 = getelementptr inbounds i8, ptr %2, i64 %19
   %59 = tail call noundef ptr @_ZSt16__do_uninit_copyIPKSt6vectorIN2cv6Point_IiEESaIS3_EEPS5_ET0_T_SA_S9_(ptr noundef %58, ptr noundef %3, ptr noundef %13)
-  %60 = sub nsw i64 %9, %20
+  %60 = sub nuw nsw i64 %9, %20
   %61 = load ptr, ptr %12, align 8
   %62 = getelementptr inbounds %"class.std::vector.313", ptr %61, i64 %60
   store ptr %62, ptr %12, align 8

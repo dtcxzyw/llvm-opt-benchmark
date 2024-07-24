@@ -6714,7 +6714,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %41,
   br i1 %49, label %.split.us.i.i, label %.lr.ph.split.split.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebcb70db04445b9fE.exit.i.i": ; preds = %46
-  %51 = sub i64 %48, %30
+  %51 = sub nuw i64 %48, %30
   %52 = getelementptr inbounds i8, ptr %1, i64 %51
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %52, ptr noundef nonnull readonly dereferenceable(1) %.sroa.0.sroa.6.0..sroa_idx, i64 %30), !alias.scope !1536, !noalias !1527
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -9986,7 +9986,7 @@ define hidden void @_ZN10hir_expand5attrs4Attr7from_tt17h260b72b422459de9E(ptr n
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hf5eae696245c393dE.exit": ; preds = %"_ZN10hir_expand5attrs4Attr7from_tt28_$u7b$$u7b$closure$u7d$$u7d$17h4b2011b8a42c7b9bE.exit.thread9.i", %32
   %34 = phi i64 [ %.012.i, %32 ], [ %4, %"_ZN10hir_expand5attrs4Attr7from_tt28_$u7b$$u7b$closure$u7d$$u7d$17h4b2011b8a42c7b9bE.exit.thread9.i" ]
   %35 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3, i64 %34
-  %36 = sub i64 %4, %34
+  %36 = sub nuw i64 %4, %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   call void @_ZN10hir_expand8mod_path15convert_path_tt17h76a010dc5ee0132bE.llvm.1819014470976533947(ptr noalias nocapture noundef nonnull sret({ i8, [39 x i8] }) align 8 dereferenceable(40) %12, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %34)

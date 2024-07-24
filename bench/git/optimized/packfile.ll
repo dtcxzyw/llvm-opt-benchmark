@@ -6457,7 +6457,7 @@ entry:
   br i1 %cmp.i.i, label %strip_suffix.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %sub.i.i = sub i64 %call.i, %call.i.i
+  %sub.i.i = sub nuw i64 %call.i, %call.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %str, i64 %sub.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr readonly %add.ptr.i.i, ptr readonly %suffix, i64 %call.i.i)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0

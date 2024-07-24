@@ -2903,7 +2903,7 @@ if.end25:                                         ; preds = %do.body22
 if.end29:                                         ; preds = %while.cond
   %add = add i64 %call15, %offset.0.ph31
   %cmp14 = icmp ult i64 %add, %retval.0.i
-  %sub = sub i64 %retval.0.i, %add
+  %sub = sub nuw i64 %retval.0.i, %add
   br i1 %cmp14, label %while.cond.outer.split, label %while.end, !llvm.loop !18
 
 while.cond.outer.split:                           ; preds = %while.cond.preheader, %if.end29

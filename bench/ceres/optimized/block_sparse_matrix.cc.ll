@@ -10703,7 +10703,7 @@ _ZN5ceres8internal14CompressedListC2Ei.exit:      ; preds = %3
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %_ZN5ceres8internal14CompressedListC2Ei.exit
-  %35 = sub nsw i64 %14, %32
+  %35 = sub nuw nsw i64 %14, %32
   invoke void @_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %27, i64 noundef %35, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEmRKS2_.exit unwind label %66
 
@@ -11197,7 +11197,7 @@ _ZN6google12Check_EQImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %63
-  %87 = sub nsw i64 %84, %74
+  %87 = sub nuw nsw i64 %84, %74
   call void @_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %87)
   br label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit
 
@@ -11627,7 +11627,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE6res
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -11904,7 +11904,7 @@ define hidden void @_ZN5ceres8internal17BlockSparseMatrix15DeleteRowBlocksEi(ptr
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %._crit_edge53
-  %116 = sub nsw i64 %106, %113
+  %116 = sub nuw nsw i64 %106, %113
   tail call void @_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %105, i64 noundef %116)
   br label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit
 
@@ -13395,7 +13395,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE6re
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -20568,7 +20568,7 @@ _ZSt13move_backwardIPN5ceres8internal14CompressedListES3_ET0_T_S5_S4_.exit: ; pr
   br label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE16_Temporary_valueD2Ev.exit
 
 99:                                               ; preds = %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE16_Temporary_valueC2IJRKS2_EEEPS4_DpOT_.exit
-  %100 = sub i64 %2, %44
+  %100 = sub nuw i64 %2, %44
   %101 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN5ceres8internal14CompressedListEmS2_ET_S4_T0_RKT1_(ptr noundef %10, i64 noundef %100, ptr noundef nonnull align 8 dereferenceable(40) %16)
           to label %_ZSt24__uninitialized_fill_n_aIPN5ceres8internal14CompressedListEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 

@@ -2605,7 +2605,7 @@ select.unfold:                                    ; preds = %55
           to label %145 unwind label %115, !noalias !611
 
 110:                                              ; preds = %.noexc25
-  %111 = sub i64 %93, %84
+  %111 = sub nuw i64 %93, %84
   %112 = getelementptr inbounds i8, ptr %10, i64 8
   %113 = load ptr, ptr %112, align 8, !alias.scope !615, !noalias !611, !noundef !7
   %114 = getelementptr inbounds i8, ptr %113, i64 %84

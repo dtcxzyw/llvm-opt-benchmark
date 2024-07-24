@@ -4084,7 +4084,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP4NodeSaIS1_EE19_M_range_insert_
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %14
-  %23 = sub nsw i64 %9, %20
+  %23 = sub nuw nsw i64 %9, %20
   tail call void @_ZNSt5dequeIP4NodeSaIS1_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %23), !noalias !59
   %.pre.i = load ptr, ptr %11, align 8, !noalias !62
   %.pre6.i = load ptr, ptr %15, align 8, !noalias !62
@@ -4230,7 +4230,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %84
-  %94 = sub nsw i64 %9, %91
+  %94 = sub nuw nsw i64 %9, %91
   tail call void @_ZNSt5dequeIP4NodeSaIS1_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %94), !noalias !79
   %.pre.i19 = load ptr, ptr %81, align 8
   %.pre6.i20 = load ptr, ptr %85, align 8
@@ -4462,7 +4462,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP4NodeSaIS1_EE13_M_insert_auxIN9
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %78
-  %86 = sub i64 %4, %83
+  %86 = sub nuw i64 %4, %83
   tail call void @_ZNSt5dequeIP4NodeSaIS1_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %86), !noalias !98
   %.pre.i = load ptr, ptr %30, align 8
   %.pre6.i = load ptr, ptr %79, align 8
@@ -5011,7 +5011,7 @@ _ZNSt15_Deque_iteratorIP4NodeRS1_PS1_EpLEl.exit.i.i.i58: ; preds = %321, %315
   br i1 %340, label %341, label %343
 
 341:                                              ; preds = %333
-  %342 = sub i64 %4, %339
+  %342 = sub nuw i64 %4, %339
   tail call void @_ZNSt5dequeIP4NodeSaIS1_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %342), !noalias !188
   %.pre.i65 = load ptr, ptr %58, align 8
   %.pre6.i66 = load ptr, ptr %334, align 8
@@ -6818,7 +6818,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_SaIS3_EEEEmEvRT_
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP4NodeSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
@@ -7554,7 +7554,7 @@ _ZSt13move_backwardIPP4NodeS2_ET0_T_S4_S3_.exit:  ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPP4NodemS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds ptr, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

@@ -5170,7 +5170,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit273:             ; preds = %if.end.i262, %_ZNSt
   br i1 %cmp.i279, label %if.then.i283, label %if.else.i280
 
 if.then.i283:                                     ; preds = %_ZN6Assimp9strtoul10EPKcPS1_.exit273
-  %sub.i284 = sub nsw i64 %conv94, %sub.ptr.div.i.i278
+  %sub.i284 = sub nuw nsw i64 %conv94, %sub.ptr.div.i.i278
   call void @_ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %indices, i64 noundef %sub.i284)
   br label %_ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE6resizeEm.exit
 
@@ -9562,7 +9562,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -9584,7 +9584,7 @@ _ZSt27__uninitialized_default_n_aIP10aiVector3tIfEmS1_ET_S3_T0_RSaIT1_E.exit.i: 
   br label %if.end6
 
 if.else.i:                                        ; preds = %if.then
-  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  %cmp.i.i = icmp ugt i64 %__new_size, 768614336404564650
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i:                                      ; preds = %if.else.i
@@ -9659,7 +9659,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64

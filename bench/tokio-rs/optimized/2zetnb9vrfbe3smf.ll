@@ -1066,7 +1066,7 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
   %61 = add i64 %60, %58
   %.not.i.i.i.i = icmp ult i64 %61, %57
   %62 = select i1 %.not.i.i.i.i, i64 0, i64 %57
-  %.0.i.i.i.i = sub i64 %61, %62
+  %.0.i.i.i.i = sub nuw i64 %61, %62
   %63 = getelementptr inbounds i8, ptr %38, i64 64
   %64 = load ptr, ptr %63, align 8, !alias.scope !203, !nonnull !19, !noundef !19
   %65 = getelementptr inbounds ptr, ptr %64, i64 %.0.i.i.i.i
@@ -1226,7 +1226,7 @@ _ZN5tokio7runtime7context9thread_id17h5538a9be9999d5adE.exit.i: ; preds = %30
   %122 = add i64 %121, %119
   %.not.i.i.i = icmp ult i64 %122, %118
   %123 = select i1 %.not.i.i.i, i64 0, i64 %118
-  %.0.i.i.i = sub i64 %122, %123
+  %.0.i.i.i = sub nuw i64 %122, %123
   %124 = getelementptr inbounds i8, ptr %1, i64 88
   %125 = load ptr, ptr %124, align 8, !alias.scope !235, !nonnull !19, !noundef !19
   %126 = getelementptr inbounds ptr, ptr %125, i64 %.0.i.i.i
@@ -1297,7 +1297,7 @@ _ZN5tokio7runtime7context9thread_id17h5538a9be9999d5adE.exit.i: ; preds = %30
   %150 = add i64 %149, %147
   %.not.i.i.i34.i = icmp ult i64 %150, %146
   %151 = select i1 %.not.i.i.i34.i, i64 0, i64 %146
-  %.0.i.i.i35.i = sub i64 %150, %151
+  %.0.i.i.i35.i = sub nuw i64 %150, %151
   %152 = getelementptr inbounds i8, ptr %1, i64 48
   %153 = load ptr, ptr %152, align 8, !alias.scope !228, !nonnull !19, !noundef !19
   %154 = getelementptr inbounds ptr, ptr %153, i64 %.0.i.i.i35.i
@@ -5273,8 +5273,8 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker7Context11maintenance17h05568a91
 _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats27tuned_global_queue_interval17hcc70b58c0019288fE.exit.i.i: ; preds = %172, %169
   %.0.i.i.i = phi i32 [ %171, %169 ], [ %.0.sroa.speculated.i1.i.i.i, %172 ]
   %177 = icmp ugt i32 %156, %.0.i.i.i
-  %178 = sub i32 %156, %.0.i.i.i
-  %179 = sub i32 %.0.i.i.i, %156
+  %178 = sub nuw i32 %156, %.0.i.i.i
+  %179 = sub nuw i32 %.0.i.i.i, %156
   %.0.i1.i.i = select i1 %177, i32 %178, i32 %179
   %180 = icmp ugt i32 %.0.i1.i.i, 2
   br i1 %180, label %181, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i
@@ -10212,7 +10212,7 @@ _ZN5tokio4task5local8LocalSet9pop_local17h3fc509218abe4c66E.exit.i: ; preds = %3
   %41 = load i64, ptr %37, align 8, !alias.scope !1667, !noundef !19
   %.not.i.i.i.i.i = icmp ult i64 %40, %41
   %42 = select i1 %.not.i.i.i.i.i, i64 0, i64 %41
-  %.0.i.i.i.i.i = sub i64 %40, %42
+  %.0.i.i.i.i.i = sub nuw i64 %40, %42
   store i64 %.0.i.i.i.i.i, ptr %38, align 8, !alias.scope !1664
   %43 = add i64 %35, -1
   store i64 %43, ptr %34, align 8, !alias.scope !1664
@@ -10255,7 +10255,7 @@ _ZN5tokio4task5local8LocalSet9pop_local17h3fc509218abe4c66E.exit.i: ; preds = %3
   %63 = add i64 %62, 1
   %.not.i.i.i.i.i.i = icmp ult i64 %63, %54
   %64 = select i1 %.not.i.i.i.i.i.i, i64 0, i64 %54
-  %.0.i.i.i.i.i.i = sub i64 %63, %64
+  %.0.i.i.i.i.i.i = sub nuw i64 %63, %64
   store i64 %.0.i.i.i.i.i.i, ptr %61, align 8, !alias.scope !1676
   %65 = add i64 %58, -1
   store i64 %65, ptr %57, align 8, !alias.scope !1676
@@ -10341,7 +10341,7 @@ common.resume:                                    ; preds = %163, %153, %156, %7
   %96 = add i64 %95, 1
   %.not.i.i.i = icmp ult i64 %96, %31
   %97 = select i1 %.not.i.i.i, i64 0, i64 %31
-  %.0.i.i.i = sub i64 %96, %97
+  %.0.i.i.i = sub nuw i64 %96, %97
   store i64 %.0.i.i.i, ptr %94, align 8, !alias.scope !1687
   %98 = add i64 %92, -1
   store i64 %98, ptr %91, align 8, !alias.scope !1687
@@ -10365,7 +10365,7 @@ common.resume:                                    ; preds = %163, %153, %156, %7
   %111 = load i64, ptr %107, align 8, !alias.scope !1693, !noundef !19
   %.not.i.i.i.i.i.i13.i = icmp ult i64 %110, %111
   %112 = select i1 %.not.i.i.i.i.i.i13.i, i64 0, i64 %111
-  %.0.i.i.i.i.i.i.i = sub i64 %110, %112
+  %.0.i.i.i.i.i.i.i = sub nuw i64 %110, %112
   store i64 %.0.i.i.i.i.i.i.i, ptr %108, align 8, !alias.scope !1690
   %113 = add i64 %104, -1
   store i64 %113, ptr %103, align 8, !alias.scope !1690
@@ -10859,7 +10859,7 @@ common.resume:                                    ; preds = %27, %72, %121, %82,
   %52 = load i64, ptr %7, align 8, !alias.scope !1746, !noundef !19
   %.not.i.i19 = icmp ult i64 %51, %52
   %53 = select i1 %.not.i.i19, i64 0, i64 %52
-  %.0.i.i = sub i64 %51, %53
+  %.0.i.i = sub nuw i64 %51, %53
   store i64 %.0.i.i, ptr %25, align 8, !alias.scope !1744
   %54 = add i64 %49, -1
   store i64 %54, ptr %22, align 8, !alias.scope !1744
@@ -10999,7 +10999,7 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i: ; pre
   %99 = load i64, ptr %4, align 8, !alias.scope !1770, !noundef !19
   %.not.i.i24 = icmp ult i64 %98, %99
   %100 = select i1 %.not.i.i24, i64 0, i64 %99
-  %.0.i.i25 = sub i64 %98, %100
+  %.0.i.i25 = sub nuw i64 %98, %100
   store i64 %.0.i.i25, ptr %80, align 8, !alias.scope !1768
   %101 = add i64 %96, -1
   store i64 %101, ptr %77, align 8, !alias.scope !1768

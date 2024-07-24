@@ -2775,7 +2775,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %19
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %19
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %19
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i, align 8
   store ptr %add.ptr15.i, ptr %line.sroa.2.0.call17.sroa_idx, align 8
@@ -2960,7 +2960,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i70: ; preds = %if
   %add.ptr15.i72 = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i65, i64 %33
   %sub.ptr.rhs.cast.i73 = ptrtoint ptr %add.ptr15.i72 to i64
   %sub.ptr.sub.i74 = sub i64 %sub.ptr.lhs.cast.i71, %sub.ptr.rhs.cast.i73
-  %sub.i.i75 = sub i64 %retval.sroa.0.0.copyload.i.i63, %33
+  %sub.i.i75 = sub nuw i64 %retval.sroa.0.0.copyload.i.i63, %33
   %.sroa.speculated.i.i76 = call i64 @llvm.umin.i64(i64 %sub.i.i75, i64 %sub.ptr.sub.i74)
   store i64 %.sroa.speculated.i.i76, ptr %curr_.i44, align 8
   store ptr %add.ptr15.i72, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i60, align 8
@@ -3293,7 +3293,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i, i64 %6
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i, %6
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i, %6
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -3429,7 +3429,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %6
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %6
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %6
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_, align 8
   store ptr %add.ptr15.i, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx.i, align 8
@@ -5543,7 +5543,7 @@ while.body.lr.ph.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i
 while.body.i.i.i.i.i.i:                           ; preds = %if.end19.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %__len.022.i.i.i.i.i.i = phi i64 [ %__args.val, %while.body.lr.ph.i.i.i.i.i.i ], [ %sub.ptr.sub22.i.i.i.i.i.i, %if.end19.i.i.i.i.i.i ]
   %__first.021.i.i.i.i.i.i = phi ptr [ %__args.val1, %while.body.lr.ph.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end19.i.i.i.i.i.i ]
-  %sub12.i.i.i.i.i.i = sub i64 %__len.022.i.i.i.i.i.i, %1
+  %sub12.i.i.i.i.i.i = sub nuw i64 %__len.022.i.i.i.i.i.i, %1
   %add.i.i.i.i.i.i = add i64 %sub12.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %add.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4absl14flags_internal9FlagsHelpERSoSt17basic_string_viewIcSt11char_traitsIcEENS1_10HelpFormatES6_E3$_0JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i.i.i
@@ -5636,7 +5636,7 @@ while.body.lr.ph.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i
 while.body.i.i.i.i.i.i:                           ; preds = %if.end19.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
   %__len.022.i.i.i.i.i.i = phi i64 [ %1, %while.body.lr.ph.i.i.i.i.i.i ], [ %sub.ptr.sub22.i.i.i.i.i.i, %if.end19.i.i.i.i.i.i ]
   %__first.021.i.i.i.i.i.i = phi ptr [ %2, %while.body.lr.ph.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end19.i.i.i.i.i.i ]
-  %sub12.i.i.i.i.i.i = sub i64 %__len.022.i.i.i.i.i.i, %4
+  %sub12.i.i.i.i.i.i = sub nuw i64 %__len.022.i.i.i.i.i.i, %4
   %add.i.i.i.i.i.i = add i64 %sub12.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %add.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end.i.i.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i.i.i
@@ -5694,7 +5694,7 @@ while.body.lr.ph.i.i.i6.i.i.i:                    ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i10.i.i.i:                         ; preds = %if.end19.i.i.i22.i.i.i, %while.body.lr.ph.i.i.i6.i.i.i
   %__len.022.i.i.i11.i.i.i = phi i64 [ %8, %while.body.lr.ph.i.i.i6.i.i.i ], [ %sub.ptr.sub22.i.i.i25.i.i.i, %if.end19.i.i.i22.i.i.i ]
   %__first.021.i.i.i12.i.i.i = phi ptr [ %9, %while.body.lr.ph.i.i.i6.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i, %if.end19.i.i.i22.i.i.i ]
-  %sub12.i.i.i13.i.i.i = sub i64 %__len.022.i.i.i11.i.i.i, %11
+  %sub12.i.i.i13.i.i.i = sub nuw i64 %__len.022.i.i.i11.i.i.i, %11
   %add.i.i.i14.i.i.i = add i64 %sub12.i.i.i13.i.i.i, 1
   %cmp.i.i.i.i15.i.i.i = icmp eq i64 %add.i.i.i14.i.i.i, 0
   br i1 %cmp.i.i.i.i15.i.i.i, label %_ZN4absl11StrContainsESt17basic_string_viewIcSt11char_traitsIcEES3_.exit32.thread.i.i.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16.i.i.i
@@ -5757,7 +5757,7 @@ while.body.lr.ph.i.i.i36.i.i.i:                   ; preds = %if.end.i.i.i34.i.i.
 while.body.i.i.i40.i.i.i:                         ; preds = %if.end19.i.i.i52.i.i.i, %while.body.lr.ph.i.i.i36.i.i.i
   %__len.022.i.i.i41.i.i.i = phi i64 [ %15, %while.body.lr.ph.i.i.i36.i.i.i ], [ %sub.ptr.sub22.i.i.i55.i.i.i, %if.end19.i.i.i52.i.i.i ]
   %__first.021.i.i.i42.i.i.i = phi ptr [ %16, %while.body.lr.ph.i.i.i36.i.i.i ], [ %incdec.ptr.i.i.i53.i.i.i, %if.end19.i.i.i52.i.i.i ]
-  %sub12.i.i.i43.i.i.i = sub i64 %__len.022.i.i.i41.i.i.i, %18
+  %sub12.i.i.i43.i.i.i = sub nuw i64 %__len.022.i.i.i41.i.i.i, %18
   %add.i.i.i44.i.i.i = add i64 %sub12.i.i.i43.i.i.i, 1
   %cmp.i.i.i.i45.i.i.i = icmp eq i64 %add.i.i.i44.i.i.i, 0
   br i1 %cmp.i.i.i.i45.i.i.i, label %return.sink.split.i.i.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i46.i.i.i

@@ -4295,7 +4295,7 @@ switch.early.test:                                ; preds = %_ZNK8G1Policy26abou
   %55 = icmp ult i32 %.sroa.3.011.i, %54
   %.sink.i.i = select i1 %55, i64 16, i64 40
   %56 = select i1 %55, i32 0, i32 %54
-  %.sink6.i.i = sub i32 %.sroa.3.011.i, %56
+  %.sink6.i.i = sub nuw i32 %.sroa.3.011.i, %56
   %57 = getelementptr inbounds i8, ptr %50, i64 %.sink.i.i
   %58 = load ptr, ptr %57, align 8
   %59 = sext i32 %.sink6.i.i to i64
@@ -4368,7 +4368,7 @@ define hidden void @_ZN8G1Policy33abandon_collection_set_candidatesEv(ptr nocapt
   %9 = icmp ult i32 %.sroa.3.011, %8
   %.sink.i = select i1 %9, i64 16, i64 40
   %10 = select i1 %9, i32 0, i32 %8
-  %.sink6.i = sub i32 %.sroa.3.011, %10
+  %.sink6.i = sub nuw i32 %.sroa.3.011, %10
   %11 = getelementptr inbounds i8, ptr %4, i64 %.sink.i
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %.sink6.i to i64

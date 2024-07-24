@@ -9739,7 +9739,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8_
   br i1 %439, label %_ZNK7glslang13TIntermediate20hasCounterBufferNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8_M_checkEmPKc.exit.i.i
-  %440 = sub i64 %436, %434
+  %440 = sub nuw i64 %436, %434
   %441 = getelementptr inbounds i8, ptr %431, i64 8
   %442 = load ptr, ptr %441, align 8
   %443 = getelementptr inbounds i8, ptr %442, i64 %440
@@ -20024,7 +20024,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %55
-  %60 = sub nsw i64 %57, %54
+  %60 = sub nuw nsw i64 %57, %54
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %60)
   %.pre.i = load ptr, ptr %47, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -29896,7 +29896,7 @@ _ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.
   br i1 %514, label %515, label %517
 
 515:                                              ; preds = %493
-  %516 = sub nsw i64 %506, %513
+  %516 = sub nuw nsw i64 %506, %513
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %497, i64 noundef %516)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -41315,7 +41315,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySi
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEES4_S7_ET0_T_SB_SA_RT1_.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEES4_S7_ET0_T_SB_SA_RT1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEmEvRT_T0_.exit
   %35 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEES4_S7_ET0_T_SB_SA_RT1_.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEmEvRT_T0_.exit ]
-  %36 = sub nsw i64 %9, %20
+  %36 = sub nuw nsw i64 %9, %20
   %37 = getelementptr %"struct.glslang::TArraySize", ptr %35, i64 %36
   store ptr %37, ptr %12, align 8
   %.not8.i.i44 = icmp eq ptr %13, %1
@@ -53625,7 +53625,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   br i1 %149, label %150, label %181
 
 150:                                              ; preds = %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit
-  %151 = sub nsw i64 %142, %148
+  %151 = sub nuw nsw i64 %142, %148
   %152 = load ptr, ptr %25, align 8
   %153 = ptrtoint ptr %152 to i64
   %154 = sub i64 %153, %145
@@ -53646,7 +53646,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIN3spv10DecorationESaIS2_EEmS4_ET_S6
   br label %_ZNSt6vectorIS_IN3spv10DecorationESaIS1_EESaIS3_EE6resizeEm.exit
 
 160:                                              ; preds = %150
-  %161 = icmp ult i64 %157, %151
+  %161 = icmp ugt i64 %142, 384307168202282325
   br i1 %161, label %162, label %_ZNKSt6vectorIS_IN3spv10DecorationESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit.i
 
 162:                                              ; preds = %160
@@ -60412,7 +60412,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3spv11IdImmediateE
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3spv11IdImmediateESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3spv11IdImmediateESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN3spv11IdImmediateESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %37 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN3spv11IdImmediateESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN3spv11IdImmediateESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %38 = sub nsw i64 %9, %20
+  %38 = sub nuw nsw i64 %9, %20
   %39 = getelementptr %"struct.spv::IdImmediate", ptr %37, i64 %38
   store ptr %39, ptr %12, align 8
   %.not7.i.i.i.i.i45 = icmp eq ptr %13, %1

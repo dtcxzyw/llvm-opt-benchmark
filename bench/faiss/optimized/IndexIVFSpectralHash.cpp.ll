@@ -571,7 +571,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %61
-  %77 = sub i64 %67, %74
+  %77 = sub nuw i64 %67, %74
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %62, i64 noundef %77)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %112
 
@@ -882,7 +882,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %215
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %._crit_edge171
-  %216 = sub i64 %177, %213
+  %216 = sub nuw i64 %177, %213
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %206, i64 noundef %216)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit108 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 

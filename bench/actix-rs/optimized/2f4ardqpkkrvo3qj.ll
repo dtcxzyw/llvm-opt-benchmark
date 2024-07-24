@@ -3827,7 +3827,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %22
   %136 = getelementptr inbounds i8, ptr %122, i64 %127
   %137 = load i8, ptr %136, align 1, !alias.scope !502, !noalias !507, !noundef !4
   %138 = icmp sgt i8 %137, -65
-  %139 = sub i64 %124, %127
+  %139 = sub nuw i64 %124, %127
   br i1 %138, label %141, label %140
 
 140:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %133
@@ -6356,7 +6356,7 @@ switch.lookup:                                    ; preds = %2
           to label %.body unwind label %156, !noalias !681
 
 151:                                              ; preds = %.noexc231
-  %152 = sub i64 %134, %125
+  %152 = sub nuw i64 %134, %125
   store i64 %152, ptr %133, align 8, !alias.scope !682, !noalias !681
   %153 = getelementptr inbounds i8, ptr %9, i64 8
   %154 = load ptr, ptr %153, align 8, !alias.scope !682, !noalias !681, !noundef !4
@@ -7334,7 +7334,7 @@ switch.lookup:                                    ; preds = %2
           to label %.body unwind label %124, !noalias !771
 
 119:                                              ; preds = %.noexc
-  %120 = sub i64 %102, %93
+  %120 = sub nuw i64 %102, %93
   store i64 %120, ptr %101, align 8, !alias.scope !772, !noalias !771
   %121 = getelementptr inbounds i8, ptr %11, i64 8
   %122 = load ptr, ptr %121, align 8, !alias.scope !772, !noalias !771, !noundef !4
@@ -9635,7 +9635,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   resume { ptr, i32 } %106
 
 180:                                              ; preds = %77
-  %181 = sub i64 %80, %79
+  %181 = sub nuw i64 %80, %79
   %182 = sub i64 %79, %62
   %.not = icmp ugt i64 %181, %182
   br i1 %.not, label %184, label %183

@@ -57565,7 +57565,7 @@ default.unreachable461:                           ; preds = %228, %2
 
 256:                                              ; preds = %252
   %257 = getelementptr inbounds i8, ptr %0, i64 376
-  %258 = sub i64 %255, %254
+  %258 = sub nuw i64 %255, %254
   store i64 %258, ptr %257, align 8, !noalias !7730
   %259 = icmp ult i64 %258, 5
   br i1 %259, label %260, label %409

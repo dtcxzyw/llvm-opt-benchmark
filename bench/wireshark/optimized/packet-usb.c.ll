@@ -4263,7 +4263,7 @@ dissect_linux_usb_iso_transfer.exit:              ; preds = %846, %._crit_edge.l
   %921 = load i32, ptr @ett_usb_win32_iso_packet, align 4
   %922 = call ptr @proto_item_add_subtree(ptr noundef %920, i32 noundef %921) #11
   %923 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.090106.i) #11
-  %924 = sub nsw i32 %903, %.094105.i
+  %924 = sub nuw nsw i32 %903, %.094105.i
   %925 = icmp eq i32 %924, 1
   br i1 %925, label %929, label %926
 

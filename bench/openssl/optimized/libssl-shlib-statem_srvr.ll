@@ -4350,7 +4350,7 @@ lor.lhs.false97:                                  ; preds = %if.end93
   store i64 %or.i.i99, ptr %remaining.i.i.i, align 8
   %add.ptr.i.i131 = getelementptr inbounds i8, ptr %add.ptr.i2.i124, i64 %or.i.i99
   store ptr %add.ptr.i.i131, ptr %pkt, align 8
-  %sub.i.i132 = sub i64 %sub.i.i125, %or.i.i99
+  %sub.i.i132 = sub nuw i64 %sub.i.i125, %or.i.i99
   store i64 %sub.i.i132, ptr %16, align 8
   %conv99 = zext nneg i32 %or.i.i111 to i64
   %cmp.i.i135 = icmp ult i64 %sub.i.i132, %conv99
@@ -4361,7 +4361,7 @@ lor.lhs.false102:                                 ; preds = %lor.lhs.false97
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %session_id98, ptr nonnull align 1 %add.ptr.i.i131, i64 %conv99, i1 false)
   %add.ptr.i.i137 = getelementptr inbounds i8, ptr %add.ptr.i.i131, i64 %conv99
   store ptr %add.ptr.i.i137, ptr %pkt, align 8
-  %sub.i.i138 = sub i64 %sub.i.i132, %conv99
+  %sub.i.i138 = sub nuw i64 %sub.i.i132, %conv99
   store i64 %sub.i.i138, ptr %16, align 8
   %conv103 = zext nneg i32 %or.i.i123 to i64
   %cmp.i.i141 = icmp ult i64 %sub.i.i138, %conv103
@@ -4370,7 +4370,7 @@ lor.lhs.false102:                                 ; preds = %lor.lhs.false97
 lor.lhs.false106:                                 ; preds = %lor.lhs.false102
   %add.ptr.i.i144 = getelementptr inbounds i8, ptr %add.ptr.i.i137, i64 %conv103
   store ptr %add.ptr.i.i144, ptr %pkt, align 8
-  %sub.i.i145 = sub i64 %sub.i.i138, %conv103
+  %sub.i.i145 = sub nuw i64 %sub.i.i138, %conv103
   store i64 %sub.i.i145, ptr %16, align 8
   %cmp108.not = icmp eq i64 %sub.i.i138, %conv103
   br i1 %cmp108.not, label %lor.lhs.false123, label %if.then110
@@ -4418,7 +4418,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false133
 lor.lhs.false136:                                 ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 35
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   store ptr %add.ptr.i.i5.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i, ptr %16, align 8
   %session_id_len139 = getelementptr inbounds i8, ptr %call40, i64 40
@@ -4469,7 +4469,7 @@ if.then153:                                       ; preds = %if.then150, %lor.lh
 if.end159:                                        ; preds = %lor.lhs.false.i170
   %add.ptr.i.i.i176 = getelementptr inbounds i8, ptr %add.ptr.i.i5.i, i64 1
   %add.ptr.i.i5.i177 = getelementptr inbounds i8, ptr %add.ptr.i.i.i176, i64 %conv.i173
-  %sub.i.i6.i178 = sub i64 %sub.i.i.i172, %conv.i173
+  %sub.i.i6.i178 = sub nuw i64 %sub.i.i.i172, %conv.i173
   store ptr %add.ptr.i.i5.i177, ptr %pkt, align 8
   store i64 %sub.i.i6.i178, ptr %16, align 8
   %dtls_cookie = getelementptr inbounds i8, ptr %call40, i64 88
@@ -4518,7 +4518,7 @@ if.then175:                                       ; preds = %if.end171, %lor.lhs
 if.end176:                                        ; preds = %lor.lhs.false.i189
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i190, i64 2
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
-  %sub.i.i7.i = sub i64 %sub.i.i.i192, %or.i.i.i
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i192, %or.i.i.i
   store ptr %add.ptr.i.i6.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i, ptr %16, align 8
   store ptr %add.ptr.i2.i.i, ptr %ciphersuites172, align 8
@@ -4543,7 +4543,7 @@ if.then179:                                       ; preds = %if.end176, %lor.lhs
 if.end180:                                        ; preds = %lor.lhs.false.i199
   %add.ptr.i.i.i205 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i, i64 1
   %add.ptr.i.i5.i206 = getelementptr inbounds i8, ptr %add.ptr.i.i.i205, i64 %conv.i202
-  %sub.i.i6.i207 = sub i64 %sub.i.i.i201, %conv.i202
+  %sub.i.i6.i207 = sub nuw i64 %sub.i.i.i201, %conv.i202
   store ptr %add.ptr.i.i5.i206, ptr %pkt, align 8
   store i64 %sub.i.i6.i207, ptr %16, align 8
   %cmp182 = icmp eq i64 %sub.i.i.i201, %conv.i202
@@ -4569,7 +4569,7 @@ lor.lhs.false.i214:                               ; preds = %if.else186
 lor.lhs.false190:                                 ; preds = %lor.lhs.false.i214
   %add.ptr.i2.i.i224 = getelementptr inbounds i8, ptr %add.ptr.i.i5.i206, i64 2
   %add.ptr.i.i6.i225 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i224, i64 %or.i.i.i220
-  %sub.i.i7.i226 = sub i64 %sub.i.i.i221, %or.i.i.i220
+  %sub.i.i7.i226 = sub nuw i64 %sub.i.i.i221, %or.i.i.i220
   store ptr %add.ptr.i.i6.i225, ptr %pkt, align 8
   store i64 %sub.i.i7.i226, ptr %16, align 8
   store ptr %add.ptr.i2.i.i224, ptr %extensions185, align 8
@@ -4771,7 +4771,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true32
 lor.lhs.false:                                    ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i, i64 1
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   store ptr %add.ptr.i.i5.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i, ptr %tmp.sroa.7.0.pkt.sroa_idx.i, align 8
   %pha_context = getelementptr inbounds i8, ptr %s, i64 2832
@@ -4827,7 +4827,7 @@ lor.lhs.false.i92:                                ; preds = %if.end50
 lor.lhs.false53:                                  ; preds = %lor.lhs.false.i92
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i93, i64 3
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or7.i.i.i
-  %sub.i.i7.i = sub i64 %sub.i.i.i95, %or7.i.i.i
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i95, %or7.i.i.i
   store ptr %add.ptr.i.i6.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i, ptr %tmp.sroa.9.0.pkt.sroa_idx.i, align 8
   %cmp55.not = icmp eq i64 %sub.i.i.i95, %or7.i.i.i
@@ -4882,7 +4882,7 @@ if.end68:                                         ; preds = %lor.lhs.false64
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %spkt.sroa.0.1161, i64 3
   store ptr %add.ptr.i2.i, ptr %certbytes, align 8
   %add.ptr.i.i104 = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 %or7.i.i
-  %sub.i.i105 = sub i64 %sub.i.i, %or7.i.i
+  %sub.i.i105 = sub nuw i64 %sub.i.i, %or7.i.i
   %18 = load ptr, ptr %0, align 8
   %19 = load ptr, ptr %propq, align 8
   %call69 = call ptr @X509_new_ex(ptr noundef %18, ptr noundef %19) #12
@@ -4961,7 +4961,7 @@ if.then104:                                       ; preds = %if.then101, %lor.lh
 if.end105:                                        ; preds = %lor.lhs.false.i108
   %add.ptr.i2.i.i118 = getelementptr inbounds i8, ptr %add.ptr.i.i104, i64 2
   %add.ptr.i.i6.i119 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i118, i64 %or.i.i.i114
-  %sub.i.i7.i120 = sub i64 %sub.i.i.i115, %or.i.i.i114
+  %sub.i.i7.i120 = sub nuw i64 %sub.i.i.i115, %or.i.i.i114
   store ptr %add.ptr.i2.i.i118, ptr %extensions, align 8
   store i64 %or.i.i.i114, ptr %remaining.i121, align 8
   %cmp106 = icmp eq i64 %chainidx.0162, 0
@@ -5246,7 +5246,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i.i, 
 if.end.i:                                         ; preds = %lor.lhs.false.i.i
   %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i.i, i64 2
   %add.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
-  %sub.i.i7.i.i = sub i64 %sub.i.i.i.i, %or.i.i.i.i
+  %sub.i.i7.i.i = sub nuw i64 %sub.i.i.i.i, %or.i.i.i.i
   store ptr %add.ptr.i.i6.i.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i.i, ptr %tmp.sroa.8.0.pkt.sroa_idx.i.i, align 8
   %cmp.i = icmp ugt i64 %or.i.i.i.i, 256
@@ -5427,7 +5427,7 @@ lor.lhs.false.i.i39:                              ; preds = %if.else.i35
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i.i39
   %add.ptr.i2.i.i.i48 = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i.i40, i64 2
   %add.ptr.i.i6.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i48, i64 %or.i.i.i.i45
-  %sub.i.i7.i.i50 = sub i64 %sub.i.i.i.i46, %or.i.i.i.i45
+  %sub.i.i7.i.i50 = sub nuw i64 %sub.i.i.i.i46, %or.i.i.i.i45
   store ptr %add.ptr.i.i6.i.i49, ptr %pkt, align 8
   store i64 %sub.i.i7.i.i50, ptr %tmp.sroa.8.0.pkt.sroa_idx.i.i36, align 8
   %cmp8.not.i = icmp eq i64 %sub.i.i.i.i46, %or.i.i.i.i45
@@ -5686,7 +5686,7 @@ lor.lhs.false.i61:                                ; preds = %if.then31
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i61
   %add.ptr.i.i21.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i62, i64 %conv.i64
   store ptr %add.ptr.i.i21.i, ptr %pkt, align 8
-  %sub.i.i22.i = sub i64 %sub.i.i.i63, %conv.i64
+  %sub.i.i22.i = sub nuw i64 %sub.i.i.i63, %conv.i64
   store i64 %sub.i.i22.i, ptr %31, align 8
   %cmp6.not.i = icmp eq i64 %sub.i.i.i63, %conv.i64
   br i1 %cmp6.not.i, label %if.end.i69, label %if.then8.i
@@ -5832,7 +5832,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 lor.lhs.false:                                    ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i, i64 1
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   store ptr %add.ptr.i.i5.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i, ptr %tmp.sroa.7.0.pkt.sroa_idx.i, align 8
   %tobool.not.i.i.i9 = icmp eq i64 %sub.i.i.i, %conv.i
@@ -5848,7 +5848,7 @@ lor.lhs.false.i10:                                ; preds = %lor.lhs.false
 lor.lhs.false3:                                   ; preds = %lor.lhs.false.i10
   %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %add.ptr.i.i5.i, i64 1
   %add.ptr.i.i5.i17 = getelementptr inbounds i8, ptr %add.ptr.i.i.i16, i64 %conv.i13
-  %sub.i.i6.i18 = sub i64 %sub.i.i.i12, %conv.i13
+  %sub.i.i6.i18 = sub nuw i64 %sub.i.i.i12, %conv.i13
   store ptr %add.ptr.i.i5.i17, ptr %pkt, align 8
   store i64 %sub.i.i6.i18, ptr %tmp.sroa.7.0.pkt.sroa_idx.i, align 8
   %cmp.not = icmp eq i64 %sub.i.i.i12, %conv.i13
@@ -7560,7 +7560,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %lor.lhs.false
   %add.ptr.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 %conv
   store ptr %add.ptr.i.i17, ptr %pkt, align 8
-  %sub.i.i18 = sub i64 %sub.i.i, %conv
+  %sub.i.i18 = sub nuw i64 %sub.i.i, %conv
   store i64 %sub.i.i18, ptr %0, align 8
   %call3 = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr.i2.i, i32 noundef %or.i.i, ptr noundef null) #12
   %A = getelementptr inbounds i8, ptr %s, i64 2936
@@ -7764,7 +7764,7 @@ if.then59:                                        ; preds = %if.end55
 if.end60:                                         ; preds = %if.end55
   %add.ptr.i.i = getelementptr inbounds i8, ptr %pkt.val37, i64 %sub.ptr.sub
   store ptr %add.ptr.i.i, ptr %pkt, align 8
-  %sub.i.i = sub i64 %pkt.val.i, %sub.ptr.sub
+  %sub.i.i = sub nuw i64 %pkt.val.i, %sub.ptr.sub
   store i64 %sub.i.i, ptr %12, align 8
   %cmp62.not = icmp eq i64 %pkt.val.i, %sub.ptr.sub
   br i1 %cmp62.not, label %if.end65, label %if.then64
@@ -8233,7 +8233,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
 PACKET_get_length_prefixed_2.exit:                ; preds = %lor.lhs.false.i
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %tmppkt.sroa.0.0.copyload, i64 6
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
-  %sub.i.i7.i = sub i64 %sub.i.i.i, %or.i.i.i
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i, %or.i.i.i
   %cmp.not = icmp eq i32 %or.i.i, 0
   br i1 %cmp.not, label %if.end7, label %return
 

@@ -839,7 +839,7 @@ CORD_len.exit:                                    ; preds = %7, %9
 15:                                               ; preds = %CORD_len.exit
   %16 = add i64 %2, %1
   %17 = icmp ugt i64 %16, %12
-  %18 = sub i64 %12, %1
+  %18 = sub nuw i64 %12, %1
   %spec.select = select i1 %17, i64 %18, i64 %2
   %19 = tail call fastcc ptr @CORD_substr_checked(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %spec.select)
   br label %CORD_len.exit.thread
@@ -1475,7 +1475,7 @@ define i32 @CORD_iter5(ptr noundef %0, i64 noundef %1, ptr nocapture noundef rea
   br i1 %.not65, label %58, label %55
 
 55:                                               ; preds = %53
-  %56 = sub i64 %.tr7084, %54
+  %56 = sub nuw i64 %.tr7084, %54
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %58, %55
@@ -1633,7 +1633,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %.tr, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = sub i64 %.tr59.ph, %53
+  %57 = sub nuw i64 %.tr59.ph, %53
   %58 = tail call i32 @CORD_riter4(ptr noundef %56, i64 noundef %57, ptr noundef %2, ptr noundef %3)
   %.not57 = icmp eq i32 %58, 0
   %59 = add i64 %53, -1
@@ -2029,7 +2029,7 @@ define void @CORD__next(ptr noundef %0) local_unnamed_addr #0 {
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %13, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = sub i64 %20, %3
+  %26 = sub nuw i64 %20, %3
   %spec.select = tail call i64 @llvm.umin.i64(i64 %26, i64 8)
   %27 = sub i64 %3, %17
   %28 = getelementptr inbounds i8, ptr %0, i64 824

@@ -535,7 +535,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue9push_back17hdb0fb6
   %27 = add i64 %26, %24
   %.not.i.i = icmp ult i64 %27, %23
   %28 = select i1 %.not.i.i, i64 0, i64 %23
-  %.0.i.i = sub i64 %27, %28
+  %.0.i.i = sub nuw i64 %27, %28
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !56, !noalias !59, !nonnull !15, !noundef !15
   %31 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %30, i64 %.0.i.i
@@ -563,7 +563,7 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
   %7 = load i64, ptr %0, align 8, !alias.scope !67, !noundef !15
   %.not.i.i = icmp ult i64 %6, %7
   %8 = select i1 %.not.i.i, i64 0, i64 %7
-  %.0.i.i = sub i64 %6, %8
+  %.0.i.i = sub nuw i64 %6, %8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !64, !nonnull !15, !noundef !15
   %11 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %10, i64 %.0.i.i
@@ -678,7 +678,7 @@ define noundef i32 @_ZN11markup5ever4util12buffer_queue11BufferQueue4next17h6ed4
   %7 = load i64, ptr %0, align 8, !noundef !15
   %.not.i.i = icmp ult i64 %6, %7
   %8 = select i1 %.not.i.i, i64 0, i64 %7
-  %.0.i.i = sub i64 %6, %8
+  %.0.i.i = sub nuw i64 %6, %8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !15, !noundef !15
   %11 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %10, i64 %.0.i.i
@@ -714,7 +714,7 @@ define noundef i32 @_ZN11markup5ever4util12buffer_queue11BufferQueue4next17h6ed4
   %24 = add i64 %6, 1
   %.not.i.i8 = icmp ult i64 %24, %7
   %25 = select i1 %.not.i.i8, i64 0, i64 %7
-  %.0.i.i9 = sub i64 %24, %25
+  %.0.i.i9 = sub nuw i64 %24, %25
   store i64 %.0.i.i9, ptr %5, align 8, !alias.scope !77, !noalias !80
   %26 = add i64 %3, -1
   store i64 %26, ptr %2, align 8, !alias.scope !77, !noalias !80
@@ -742,7 +742,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue15pop_except_from17
   %10 = load i64, ptr %1, align 8, !noundef !15
   %.not.i.i = icmp ult i64 %9, %10
   %11 = select i1 %.not.i.i, i64 0, i64 %10
-  %.0.i.i = sub i64 %9, %11
+  %.0.i.i = sub nuw i64 %9, %11
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !15, !noundef !15
   %14 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %13, i64 %.0.i.i
@@ -1087,7 +1087,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   %154 = add i64 %9, 1
   %.not.i.i49 = icmp ult i64 %154, %10
   %155 = select i1 %.not.i.i49, i64 0, i64 %10
-  %.0.i.i50 = sub i64 %154, %155
+  %.0.i.i50 = sub nuw i64 %154, %155
   store i64 %.0.i.i50, ptr %8, align 8, !alias.scope !113, !noalias !116
   %156 = add i64 %6, -1
   store i64 %156, ptr %5, align 8, !alias.scope !113, !noalias !116

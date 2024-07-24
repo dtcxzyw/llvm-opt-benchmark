@@ -442,7 +442,7 @@ define internal fastcc { ptr, i64 } @"_ZN106_$LT$core..iter..adapters..chain..Ch
   %28 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %20
   %29 = load i8, ptr %28, align 1, !alias.scope !96, !noalias !101, !noundef !16
   %30 = icmp sgt i8 %29, -65
-  %31 = sub i64 %.val5.i.i.i.i, %20
+  %31 = sub nuw i64 %.val5.i.i.i.i, %20
   br i1 %30, label %33, label %32
 
 32:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i.i", %25
@@ -9305,7 +9305,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h634fc5f4e11f3800E"
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %11, i64 40
-  %17 = sub i64 %5, %1
+  %17 = sub nuw i64 %5, %1
   %18 = mul i64 %17, 40
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %11, i64 %18, i1 false)
   br label %20
@@ -9460,7 +9460,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h0313f1149a332e4a
   br i1 %7, label %"_ZN4core3ptr49drop_in_place$LT$$u5b$just..scope..Scope$u5d$$GT$17he4522c5b7e09ad10E.llvm.4740080591946275097.exit", label %8
 
 8:                                                ; preds = %2
-  %9 = sub i64 %6, %1
+  %9 = sub nuw i64 %6, %1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !16, !noundef !16
   %12 = getelementptr inbounds { ptr, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %11, i64 %1
@@ -9541,7 +9541,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h4d539d71a609d461
   br i1 %6, label %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17hab08ace5a5033898E.llvm.4740080591946275097.exit", label %7
 
 7:                                                ; preds = %2
-  %8 = sub i64 %5, %1
+  %8 = sub nuw i64 %5, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !16, !noundef !16
   %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %10, i64 %1
@@ -9619,7 +9619,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h4f4eecb2c0c31778
   br i1 %5, label %"_ZN4core3ptr59drop_in_place$LT$$u5b$just..expression..Expression$u5d$$GT$17h832b205194beb09bE.llvm.4740080591946275097.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !16, !noundef !16
   %10 = getelementptr inbounds { i64, [15 x i64] }, ptr %9, i64 %1
@@ -9675,7 +9675,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h61685614af80d40b
   br i1 %6, label %"_ZN4core3ptr49drop_in_place$LT$$u5b$std..path..PathBuf$u5d$$GT$17hfc062796543709c7E.llvm.4740080591946275097.exit", label %7
 
 7:                                                ; preds = %2
-  %8 = sub i64 %5, %1
+  %8 = sub nuw i64 %5, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !16, !noundef !16
   %11 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %10, i64 %1

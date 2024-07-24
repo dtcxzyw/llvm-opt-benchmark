@@ -274,7 +274,7 @@ define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %29, i64 %55, i1 false)
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   store i64 %12, ptr %57, align 8
-  %58 = sub i64 %36, %6
+  %58 = sub nuw i64 %36, %6
   %59 = lshr i64 %58, 12
   %60 = getelementptr inbounds i8, ptr %56, i64 24
   store i64 %59, ptr %60, align 8
@@ -309,7 +309,7 @@ define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr align 1 %29, i64 %78, i1 false)
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   store i64 %12, ptr %80, align 8
-  %81 = sub i64 %36, %6
+  %81 = sub nuw i64 %36, %6
   %82 = lshr i64 %81, 12
   %83 = getelementptr inbounds i8, ptr %79, i64 24
   store i64 %82, ptr %83, align 8
@@ -333,8 +333,8 @@ define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr align 1 %29, i64 %94, i1 false)
   %96 = getelementptr inbounds i8, ptr %95, i64 8
   store i64 %4, ptr %96, align 8
-  %reass.sub5 = sub i64 %36, %4
-  %97 = add i64 %reass.sub5, 1
+  %reass.sub5 = sub nuw i64 %36, %4
+  %97 = add nuw i64 %reass.sub5, 1
   %98 = lshr i64 %97, 12
   %99 = getelementptr inbounds i8, ptr %95, i64 24
   store i64 %98, ptr %99, align 8

@@ -151,7 +151,7 @@ _ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit: ; preds = 
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %31
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %45)
   br label %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit19
 
@@ -603,7 +603,7 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModule11dataStartedEPNS_20Abstract
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %2
-  %18 = sub nsw i64 %8, %15
+  %18 = sub nuw nsw i64 %8, %15
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %18)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 

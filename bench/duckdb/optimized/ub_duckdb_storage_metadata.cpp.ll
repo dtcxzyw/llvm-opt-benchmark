@@ -5282,7 +5282,7 @@ if.then:                                          ; preds = %entry
   %mul.i.i = mul nuw nsw i64 %bf.lshr.i.i, 4088
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %mul.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %0
-  %sub = sub i64 %1, %0
+  %sub = sub nuw i64 %1, %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %sub, i1 false)
   br label %if.end
 

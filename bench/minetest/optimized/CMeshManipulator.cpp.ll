@@ -1412,7 +1412,7 @@ if.then.i:                                        ; preds = %sw.bb
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Vertices.i, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEE10reallocateEjb.exit
 
@@ -1507,7 +1507,7 @@ if.then.i243:                                     ; preds = %for.cond.cleanup22
   br i1 %cmp.i.i248, label %if.then.i.i255, label %if.else.i.i249
 
 if.then.i.i255:                                   ; preds = %if.then.i243
-  %sub.i.i256 = sub nsw i64 %conv.i230, %sub.ptr.div.i.i.i247
+  %sub.i.i256 = sub nuw nsw i64 %conv.i230, %sub.ptr.div.i.i.i247
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i, i64 noundef %sub.i.i256)
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 
@@ -1943,7 +1943,7 @@ if.then.i389:                                     ; preds = %sw.bb44
   br i1 %cmp.i.i394, label %if.then.i.i401, label %if.else.i.i395
 
 if.then.i.i401:                                   ; preds = %if.then.i389
-  %sub.i.i402 = sub nsw i64 %conv.i369, %sub.ptr.div.i.i.i393
+  %sub.i.i402 = sub nuw nsw i64 %conv.i369, %sub.ptr.div.i.i.i393
   tail call void @_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Vertices.i353, i64 noundef %sub.i.i402)
   br label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE10reallocateEjb.exit
 
@@ -2038,7 +2038,7 @@ if.then.i426:                                     ; preds = %for.cond.cleanup64
   br i1 %cmp.i.i431, label %if.then.i.i438, label %if.else.i.i432
 
 if.then.i.i438:                                   ; preds = %if.then.i426
-  %sub.i.i439 = sub nsw i64 %conv.i408, %sub.ptr.div.i.i.i430
+  %sub.i.i439 = sub nuw nsw i64 %conv.i408, %sub.ptr.div.i.i.i430
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i355, i64 noundef %sub.i.i439)
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit440
 
@@ -2474,7 +2474,7 @@ if.then.i655:                                     ; preds = %sw.bb97
   br i1 %cmp.i.i660, label %if.then.i.i667, label %if.else.i.i661
 
 if.then.i.i667:                                   ; preds = %if.then.i655
-  %sub.i.i668 = sub nsw i64 %conv.i635, %sub.ptr.div.i.i.i659
+  %sub.i.i668 = sub nuw nsw i64 %conv.i635, %sub.ptr.div.i.i.i659
   tail call void @_ZNSt6vectorIN3irr5video17S3DVertexTangentsESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Vertices.i619, i64 noundef %sub.i.i668)
   br label %_ZN3irr4core5arrayINS_5video17S3DVertexTangentsEE10reallocateEjb.exit
 
@@ -2569,7 +2569,7 @@ if.then.i692:                                     ; preds = %for.cond.cleanup117
   br i1 %cmp.i.i697, label %if.then.i.i704, label %if.else.i.i698
 
 if.then.i.i704:                                   ; preds = %if.then.i692
-  %sub.i.i705 = sub nsw i64 %conv.i674, %sub.ptr.div.i.i.i696
+  %sub.i.i705 = sub nuw nsw i64 %conv.i674, %sub.ptr.div.i.i.i696
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Indices.i621, i64 noundef %sub.i.i705)
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit706
 
@@ -5406,7 +5406,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Vertices, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEE10reallocateEjb.exit
 
@@ -5648,7 +5648,7 @@ if.then.i58:                                      ; preds = %for.end
   br i1 %cmp.i.i63, label %if.then.i.i70, label %if.else.i.i64
 
 if.then.i.i70:                                    ; preds = %if.then.i58
-  %sub.i.i71 = sub nsw i64 %conv.i45, %sub.ptr.div.i.i.i62
+  %sub.i.i71 = sub nuw nsw i64 %conv.i45, %sub.ptr.div.i.i.i62
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Indices, i64 noundef %sub.i.i71)
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 
@@ -6823,7 +6823,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Vertices, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE10reallocateEjb.exit
 
@@ -7065,7 +7065,7 @@ if.then.i58:                                      ; preds = %for.end
   br i1 %cmp.i.i63, label %if.then.i.i70, label %if.else.i.i64
 
 if.then.i.i70:                                    ; preds = %if.then.i58
-  %sub.i.i71 = sub nsw i64 %conv.i45, %sub.ptr.div.i.i.i62
+  %sub.i.i71 = sub nuw nsw i64 %conv.i45, %sub.ptr.div.i.i.i62
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Indices, i64 noundef %sub.i.i71)
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 
@@ -8141,7 +8141,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN3irr5video17S3DVertexTangentsESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Vertices, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayINS_5video17S3DVertexTangentsEE10reallocateEjb.exit
 
@@ -8383,7 +8383,7 @@ if.then.i58:                                      ; preds = %for.end
   br i1 %cmp.i.i63, label %if.then.i.i70, label %if.else.i.i64
 
 if.then.i.i70:                                    ; preds = %if.then.i58
-  %sub.i.i71 = sub nsw i64 %conv.i45, %sub.ptr.div.i.i.i62
+  %sub.i.i71 = sub nuw nsw i64 %conv.i45, %sub.ptr.div.i.i.i62
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Indices, i64 noundef %sub.i.i71)
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 

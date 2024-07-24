@@ -781,7 +781,7 @@ define void @_ZN14gmx_enerdata_tC2EiPKN3gmx16EnumerationArrayI34FreeEnergyPertur
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %6
-  %18 = sub nsw i64 %8, %15
+  %18 = sub nuw nsw i64 %8, %15
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.0.ptr17.i, i64 noundef %18)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i unwind label %24
 

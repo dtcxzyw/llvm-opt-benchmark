@@ -9310,7 +9310,7 @@ _ZNSt6vectorIxSaIxEEC2EmRKS0_.exit67:             ; preds = %_ZSt6fill_nIPxmxET_
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %_ZNSt6vectorIxSaIxEEC2EmRKS0_.exit67
-  %95 = sub nsw i64 %85, %92
+  %95 = sub nuw nsw i64 %85, %92
   invoke void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %95)
           to label %_ZNSt6vectorIxSaIxEE6resizeEm.exit unwind label %194
 
@@ -9516,7 +9516,7 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i95: ; preds = %.noexc99
   br i1 %177, label %178, label %180
 
 178:                                              ; preds = %169
-  %179 = sub i64 %170, %176
+  %179 = sub nuw i64 %170, %176
   invoke void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %179)
           to label %_ZNSt6vectorIxSaIxEE6resizeEm.exit111 unwind label %206
 
@@ -13501,7 +13501,7 @@ define void @_ZN6casadi8Sparsity4bandExx(ptr dead_on_unwind noalias writable sre
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit93
 
 98:                                               ; preds = %61
-  %99 = sub nsw i64 %1, %62
+  %99 = sub nuw nsw i64 %1, %62
   %100 = icmp ugt i64 %99, 1152921504606846975
   br i1 %100, label %.noexc, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -15593,7 +15593,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEENS1_IPxS6_EEET0_T
   br i1 %398, label %399, label %401
 
 399:                                              ; preds = %._crit_edge551
-  %400 = sub nsw i64 %390, %397
+  %400 = sub nuw nsw i64 %390, %397
   invoke void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %400)
           to label %_ZNSt6vectorIxSaIxEE6resizeEm.exit338 unwind label %233
 
@@ -15700,7 +15700,7 @@ _ZNSt6vectorIxSaIxEE7reserveEm.exit345:           ; preds = %423, %_ZNSt12_Vecto
   br i1 %.not576, label %448, label %446
 
 446:                                              ; preds = %_ZNSt6vectorIxSaIxEE7reserveEm.exit345
-  %447 = sub i64 %421, %445
+  %447 = sub nuw i64 %421, %445
   invoke void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %419, i64 noundef %447)
           to label %._ZNSt6vectorIxSaIxEE6resizeEm.exit348_crit_edge unwind label %233
 
@@ -15801,7 +15801,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEiEvT_S7_RKT0_.exit
   br i1 %494, label %495, label %497
 
 495:                                              ; preds = %._crit_edge510
-  %496 = sub nsw i64 %487, %493
+  %496 = sub nuw nsw i64 %487, %493
   invoke void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %420, i64 noundef %496)
           to label %_ZNSt6vectorIxSaIxEE6resizeEm.exit352 unwind label %233
 
@@ -15906,7 +15906,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit352:            ; preds = %495, %497, %499, %5
   br i1 %557, label %558, label %560
 
 558:                                              ; preds = %._crit_edge520
-  %559 = sub nsw i64 %550, %556
+  %559 = sub nuw nsw i64 %550, %556
   invoke void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %419, i64 noundef %559)
           to label %_ZNSt6vectorIxSaIxEE6resizeEm.exit355 unwind label %233
 
@@ -15965,7 +15965,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit355:            ; preds = %564, %562, %560, %5
   br i1 %591, label %592, label %623
 
 592:                                              ; preds = %._crit_edge524
-  %593 = sub nsw i64 %584, %590
+  %593 = sub nuw nsw i64 %584, %590
   %594 = load ptr, ptr %201, align 8
   %595 = ptrtoint ptr %594 to i64
   %596 = sub i64 %595, %587
@@ -16181,7 +16181,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit358:            ; preds = %627, %625, %623, %_
   br i1 %686, label %687, label %719
 
 687:                                              ; preds = %._crit_edge542
-  %688 = sub i64 %.1201.lcssa, %685
+  %688 = sub nuw i64 %.1201.lcssa, %685
   %689 = load ptr, ptr %201, align 8
   %690 = ptrtoint ptr %689 to i64
   %691 = sub i64 %690, %682
@@ -16301,7 +16301,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit361:            ; preds = %726, %724, %719, %_
   br i1 %734, label %735, label %737
 
 735:                                              ; preds = %727
-  %736 = sub i64 %.0200.lcssa581, %733
+  %736 = sub nuw i64 %.0200.lcssa581, %733
   invoke void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %736)
           to label %_ZNSt6vectorIxSaIxEE6resizeEm.exit364.invoke unwind label %233
 
@@ -20001,7 +20001,7 @@ _ZNK6casadi8Sparsity5size1Ev.exit:                ; preds = %_ZNSt6vectorIN6casa
   br i1 %297, label %298, label %329
 
 298:                                              ; preds = %282
-  %299 = sub i64 %290, %296
+  %299 = sub nuw i64 %290, %296
   %300 = load ptr, ptr %278, align 8
   %301 = ptrtoint ptr %300 to i64
   %302 = sub i64 %301, %293
@@ -20173,7 +20173,7 @@ _ZSt4copyIPKxN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEET0_T_SA_S9_.ex
   br i1 %360, label %361, label %392
 
 361:                                              ; preds = %._crit_edge
-  %362 = sub i64 %353, %359
+  %362 = sub nuw i64 %353, %359
   %363 = load ptr, ptr %280, align 8
   %364 = ptrtoint ptr %363 to i64
   %365 = sub i64 %364, %356
@@ -28306,7 +28306,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
-  %94 = sub i64 %84, %91
+  %94 = sub nuw i64 %84, %91
   call void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %94)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre11.i = load ptr, ptr %85, align 8

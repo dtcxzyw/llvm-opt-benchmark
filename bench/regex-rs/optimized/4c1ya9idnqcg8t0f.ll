@@ -447,7 +447,7 @@ _ZN12regex_syntax3hir7literal3Seq9singleton17h72802fcc184ebda0E.exit32: ; preds 
   %85 = getelementptr inbounds i8, ptr %64, i64 24
   store i8 0, ptr %85, align 8, !alias.scope !68, !noalias !71
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34), !noalias !74
-  %86 = sub i64 %83, %72
+  %86 = sub nuw i64 %83, %72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %87 = invoke { i64, i64 } @_ZN4core5slice5index5range17h39350cdc2041b606E(i64 noundef %86, i64 noundef %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.749415806964e8df3f1537fcf7f59bf9.18.llvm.9790117770016849591)
@@ -1263,7 +1263,7 @@ _ZN12regex_syntax3hir7literal7Literal16keep_first_bytes17h84fffce6d360cf98E.exit
   %377 = getelementptr inbounds i8, ptr %.sroa.0.08.i3.i.i, i64 24
   store i8 0, ptr %377, align 8, !alias.scope !267, !noalias !270
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15), !noalias !271
-  %378 = sub i64 %375, %346
+  %378 = sub nuw i64 %375, %346
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
   call void @llvm.experimental.noalias.scope.decl(metadata !275)
   %379 = invoke { i64, i64 } @_ZN4core5slice5index5range17h39350cdc2041b606E(i64 noundef %378, i64 noundef %375, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.749415806964e8df3f1537fcf7f59bf9.18.llvm.9790117770016849591)
@@ -1570,7 +1570,7 @@ _ZN12regex_syntax3hir7literal9Extractor22class_over_limit_bytes17h9dca36cd640927
   unreachable
 
 _ZN12regex_syntax3hir15ClassBytesRange3len17h688b1e3e29d08585E.exit.i.i: ; preds = %471
-  %476 = sub i8 %473, %474
+  %476 = sub nuw i8 %473, %474
   %477 = zext i8 %476 to i64
   %478 = add i64 %.056.i.i, 1
   %479 = add i64 %478, %477
@@ -1713,7 +1713,7 @@ _ZN12regex_syntax3hir7literal7Literal16keep_first_bytes17h84fffce6d360cf98E.exit
   %525 = getelementptr inbounds i8, ptr %.sroa.0.08.i3.i.i58, i64 24
   store i8 0, ptr %525, align 8, !alias.scope !380, !noalias !383
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !384
-  %526 = sub i64 %523, %494
+  %526 = sub nuw i64 %523, %494
   call void @llvm.experimental.noalias.scope.decl(metadata !385)
   call void @llvm.experimental.noalias.scope.decl(metadata !388)
   %527 = invoke { i64, i64 } @_ZN4core5slice5index5range17h39350cdc2041b606E(i64 noundef %526, i64 noundef %523, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.749415806964e8df3f1537fcf7f59bf9.18.llvm.9790117770016849591)
@@ -2536,7 +2536,7 @@ _ZN12regex_syntax3hir7literal7Literal16keep_first_bytes17h84fffce6d360cf98E.exit
   %40 = getelementptr inbounds i8, ptr %.sroa.0.08.i3, i64 24
   store i8 0, ptr %40, align 8, !alias.scope !549, !noalias !546
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !552
-  %41 = sub i64 %38, %5
+  %41 = sub nuw i64 %38, %5
   call void @llvm.experimental.noalias.scope.decl(metadata !553)
   call void @llvm.experimental.noalias.scope.decl(metadata !556)
   %42 = call { i64, i64 } @_ZN4core5slice5index5range17h39350cdc2041b606E(i64 noundef %41, i64 noundef %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.749415806964e8df3f1537fcf7f59bf9.18.llvm.9790117770016849591), !noalias !558
@@ -3558,7 +3558,7 @@ define hidden void @_ZN12regex_syntax3hir7literal3Seq15keep_last_bytes17h374fb9b
   %21 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 24
   store i8 0, ptr %21, align 8, !alias.scope !716
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !716
-  %22 = sub i64 %19, %1
+  %22 = sub nuw i64 %19, %1
   call void @llvm.experimental.noalias.scope.decl(metadata !719)
   call void @llvm.experimental.noalias.scope.decl(metadata !722)
   %23 = call { i64, i64 } @_ZN4core5slice5index5range17h39350cdc2041b606E(i64 noundef %22, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.749415806964e8df3f1537fcf7f59bf9.18.llvm.9790117770016849591), !noalias !724
@@ -4031,7 +4031,7 @@ _ZN12regex_syntax3hir7literal3Seq16keep_first_bytes17ha1d3f8fe8f429435E.llvm.125
   %184 = getelementptr inbounds i8, ptr %.sroa.0.08.i118, i64 24
   store i8 0, ptr %184, align 8, !alias.scope !808, !noalias !811
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !814
-  %185 = sub i64 %182, %.sroa.5.0.i99.pn.ph288
+  %185 = sub nuw i64 %182, %.sroa.5.0.i99.pn.ph288
   call void @llvm.experimental.noalias.scope.decl(metadata !815)
   call void @llvm.experimental.noalias.scope.decl(metadata !818)
   %186 = call { i64, i64 } @_ZN4core5slice5index5range17h39350cdc2041b606E(i64 noundef %185, i64 noundef %182, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.749415806964e8df3f1537fcf7f59bf9.18.llvm.9790117770016849591), !noalias !820
@@ -4200,7 +4200,7 @@ _ZN12regex_syntax3hir7literal3Seq16keep_first_bytes17ha1d3f8fe8f429435E.llvm.125
   %237 = getelementptr inbounds i8, ptr %.sroa.0.08.i129, i64 24
   store i8 0, ptr %237, align 8, !alias.scope !844, !noalias !841
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !847
-  %238 = sub i64 %235, %223
+  %238 = sub nuw i64 %235, %223
   call void @llvm.experimental.noalias.scope.decl(metadata !848)
   call void @llvm.experimental.noalias.scope.decl(metadata !851)
   %239 = invoke { i64, i64 } @_ZN4core5slice5index5range17h39350cdc2041b606E(i64 noundef %238, i64 noundef %235, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.749415806964e8df3f1537fcf7f59bf9.18.llvm.9790117770016849591)
@@ -5053,7 +5053,7 @@ _ZN12regex_syntax3hir7literal14PreferenceTrie4root17h732ab1ae1320ff00E.exit: ; p
 
 68:                                               ; preds = %61
   %69 = getelementptr inbounds i8, ptr %64, i64 16
-  %70 = sub i64 %58, %.019.lcssa.i.i
+  %70 = sub nuw i64 %58, %.019.lcssa.i.i
   %71 = shl i64 %70, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %64, i64 %71, i1 false)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h62ebafcbcf56dbafE.exit"

@@ -4571,7 +4571,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %call, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %call, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_data, i64 noundef %sub.i)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 

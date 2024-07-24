@@ -270,7 +270,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br i1 %102, label %103, label %115
 
 103:                                              ; preds = %101
-  %104 = sub i64 %42, %97
+  %104 = sub nuw i64 %42, %97
   %105 = call fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef %3, ptr noundef nonnull %46, i64 noundef %104)
   switch i8 %105, label %115 [
     i8 46, label %106

@@ -7246,7 +7246,7 @@ if.then15:                                        ; preds = %if.else
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end29
   %n.039 = phi i64 [ %add, %if.end29 ], [ 0, %while.cond.preheader ]
-  %sub21 = sub i64 %call11, %n.039
+  %sub21 = sub nuw i64 %call11, %n.039
   %18 = load ptr, ptr @stdin, align 8
   %call22 = tail call i64 @strbuf_fread(ptr noundef %sb, i64 noundef %sub21, ptr noundef %18) #24
   %tobool23.not = icmp eq i64 %call22, 0
@@ -7565,7 +7565,7 @@ if.end59:                                         ; preds = %land.lhs.true39
   %inc47 = add i64 %49, 1
   store i64 %inc47, ptr %arrayidx46, align 8
   %50 = load ptr, ptr %buf, align 8
-  %sub = sub i64 %44, %47
+  %sub = sub nuw i64 %44, %47
   %call57 = call fastcc ptr @diff_delta(ptr noundef nonnull %41, i64 noundef %40, ptr noundef %50, i64 noundef %44, ptr noundef nonnull %deltalen, i64 noundef %sub)
   %51 = load i32, ptr @pack_compression_level, align 4
   call void @git_deflate_init(ptr noundef nonnull %s, i32 noundef %51) #24

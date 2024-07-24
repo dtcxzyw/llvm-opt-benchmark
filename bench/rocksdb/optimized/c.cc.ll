@@ -22662,7 +22662,7 @@ entry:
   br i1 %cmp.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.thread, label %if.else.i
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.thread:        ; preds = %entry
-  %sub.i = sub i64 %num_levels, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %num_levels, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %max_bytes_for_level_multiplier_additional, i64 noundef %sub.i)
   br label %for.body.preheader
 
@@ -23479,7 +23479,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64

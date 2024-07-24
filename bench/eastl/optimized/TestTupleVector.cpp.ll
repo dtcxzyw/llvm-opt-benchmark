@@ -20203,7 +20203,7 @@ if.else.i:                                        ; preds = %if.else
   br i1 %cmp.not2.i.i.i.i.i, label %_ZN5eastl24uninitialized_fill_n_ptrIbmEEvPT_T0_RKS1_.exit.i, label %for.body.preheader.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %if.else.i
-  %sub9.i = sub i64 %n, %sub.i109
+  %sub9.i = sub nuw i64 %n, %sub.i109
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr3.i108, i8 %frombool.i, i64 %sub9.i, i1 false)
   br label %_ZN5eastl24uninitialized_fill_n_ptrIbmEEvPT_T0_RKS1_.exit.i
 
@@ -20271,7 +20271,7 @@ for.body.i.i.i133:                                ; preds = %_ZN5eastl13move_bac
   br i1 %cmp.not.i.i.i135, label %if.end85, label %for.body.i.i.i133, !llvm.loop !701
 
 if.else.i115:                                     ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE15DoInsertAndFillEmmmRKb.exit
-  %sub9.i116 = sub i64 %n, %sub.i109
+  %sub9.i116 = sub nuw i64 %n, %sub.i109
   %cmp.not2.i.i.i.i.i117 = icmp eq i64 %sub9.i116, 0
   br i1 %cmp.not2.i.i.i.i.i117, label %_ZN5eastl24uninitialized_fill_n_ptrIfmEEvPT_T0_RKS1_.exit.i, label %for.body.i.i.i.i.i
 
@@ -23439,7 +23439,7 @@ for.body.i.i24:                                   ; preds = %invoke.cont7, %for.
   br i1 %cmp.not.i.i, label %if.end, label %for.body.i.i24, !llvm.loop !721
 
 if.else:                                          ; preds = %entry
-  %sub11 = sub i64 %n, %sub
+  %sub11 = sub nuw i64 %n, %sub
   %cmp.not3.i.i29 = icmp eq i64 %sub11, 0
   br i1 %cmp.not3.i.i29, label %invoke.cont12, label %for.body.i.i33
 
@@ -24023,7 +24023,7 @@ _ZN5eastl5tupleIJRbR10TestObjectRfEEaSIRKNS0_IJbS2_fEEETnNS_9enable_ifIXsr8Inter
   br i1 %exitcond.not.i197, label %if.end146, label %while.body.i186, !llvm.loop !754
 
 if.else113:                                       ; preds = %if.else
-  %sub114 = sub i64 %sub.ptr.div, %sub
+  %sub114 = sub nuw i64 %sub.ptr.div, %sub
   br i1 %cmp3.not, label %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit227, label %for.body.i.i205.preheader
 
 for.body.i.i205.preheader:                        ; preds = %if.else113

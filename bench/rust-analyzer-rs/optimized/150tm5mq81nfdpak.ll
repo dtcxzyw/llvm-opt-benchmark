@@ -1344,7 +1344,7 @@ define hidden void @"_ZN116_$LT$rayon..iter..map_with..MapWithConsumer$LT$C$C$U$
   br label %.body
 
 26:                                               ; preds = %17
-  %27 = sub i64 %9, %2
+  %27 = sub nuw i64 %9, %2
   %28 = getelementptr inbounds ptr, ptr %7, i64 %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.sroa.4, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !277
@@ -1602,7 +1602,7 @@ define hidden void @"_ZN116_$LT$rayon..iter..map_with..MapWithConsumer$LT$C$C$U$
   br label %.body
 
 26:                                               ; preds = %17
-  %27 = sub i64 %9, %2
+  %27 = sub nuw i64 %9, %2
   %28 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %7, i64 %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.sroa.4, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !298
@@ -9009,7 +9009,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd364b3ff44568b03E.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !2083
   %67 = icmp eq i32 %bcmp.i, 0
@@ -9073,7 +9073,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %.not.us, label %33, label %28
 
 28:                                               ; preds = %25
-  %29 = sub i64 %27, %17
+  %29 = sub nuw i64 %27, %17
   %30 = add i64 %29, %14
   %31 = icmp ugt i64 %29, %30
   %32 = icmp ugt i64 %30, %5
@@ -9114,7 +9114,7 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.split
 
 48:                                               ; preds = %42
-  %49 = sub i64 %44, %17
+  %49 = sub nuw i64 %44, %17
   %50 = add i64 %49, %14
   %51 = icmp ugt i64 %49, %50
   %52 = icmp ugt i64 %50, %5
@@ -25138,7 +25138,7 @@ default.unreachable:                              ; preds = %"_ZN84_$LT$crossbea
   %295 = load i64, ptr %59, align 8, !alias.scope !5582, !noundef !7
   %.not.i.i = icmp ult i64 %294, %295
   %296 = select i1 %.not.i.i, i64 0, i64 %295
-  %.0.i.i = sub i64 %294, %296
+  %.0.i.i = sub nuw i64 %294, %296
   store i64 %.0.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !5580
   %297 = add i64 %292, -1
   store i64 %297, ptr %.sroa.4.0..sroa_idx.i105, align 8, !alias.scope !5580

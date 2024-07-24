@@ -55,7 +55,7 @@ define noundef i64 @_ZN7RawRead4ReadEm(ptr nocapture noundef nonnull align 8 der
   br i1 %11, label %12, label %53
 
 12:                                               ; preds = %5
-  %13 = sub i64 %1, %10
+  %13 = sub nuw i64 %1, %10
   %14 = sub i64 0, %13
   %15 = and i64 %14, 15
   %16 = add i64 %15, %13
@@ -533,7 +533,7 @@ define noundef i64 @_ZN7RawRead4GetBEPvm(ptr nocapture noundef nonnull align 8 d
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %1, i64 %8
-  %16 = sub i64 %2, %8
+  %16 = sub nuw i64 %2, %8
   tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %16, i1 false)
   br label %17
 

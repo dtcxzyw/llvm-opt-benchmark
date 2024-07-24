@@ -42853,7 +42853,7 @@ if.then23:                                        ; preds = %if.end21
   br i1 %cmp2641.not, label %while.cond30.preheader, label %while.body27.preheader
 
 while.body27.preheader:                           ; preds = %if.then23
-  %15 = sub nsw i32 -2, %call3.i
+  %15 = sub nuw nsw i32 -2, %call3.i
   %16 = zext nneg i32 %15 to i64
   %17 = add nuw nsw i64 %16, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %s.340, i8 48, i64 %17, i1 false)

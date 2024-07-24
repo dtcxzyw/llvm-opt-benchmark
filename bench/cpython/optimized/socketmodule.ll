@@ -8779,7 +8779,7 @@ if.then109:                                       ; preds = %cmsg_min_space.exit
   %sub.ptr.rhs.cast.i81 = ptrtoint ptr %msg.val to i64
   %sub.ptr.sub.i82 = sub i64 %sub.ptr.lhs.cast.i80, %sub.ptr.rhs.cast.i81
   %cmp1.i83 = icmp ugt i64 %sub.ptr.sub.i82, %msg.val67
-  %sub.i84 = sub i64 %msg.val67, %sub.ptr.sub.i82
+  %sub.i84 = sub nuw i64 %msg.val67, %sub.ptr.sub.i82
   %cmp114.not = icmp ult i64 %sub.i84, %12
   %or.cond111 = select i1 %cmp1.i83, i1 true, i1 %cmp114.not
   br i1 %or.cond111, label %if.then118, label %if.end119
@@ -11344,7 +11344,7 @@ if.end.i36:                                       ; preds = %lor.lhs.false.i
 
 get_cmsg_data_len.exit:                           ; preds = %if.end.i36
   %sub.i = add i64 %6, -16
-  %sub.i.i = sub i64 %msg.val32112, %sub.ptr.sub.i11.i
+  %sub.i.i = sub nuw i64 %msg.val32112, %sub.ptr.sub.i11.i
   %cmp6.not.i.not.not = icmp ult i64 %sub.i.i, %sub.i
   %sub.i.sub.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.i)
   br i1 %cmp6.not.i.not.not, label %if.then44.thread, label %if.end54
@@ -11503,7 +11503,7 @@ if.end.i49:                                       ; preds = %lor.lhs.false.i47
 
 get_cmsg_data_len.exit61:                         ; preds = %if.end.i49
   %sub.i55 = add i64 %24, -16
-  %sub.i.i56 = sub i64 %msg.val34116, %sub.ptr.sub.i11.i52
+  %sub.i.i56 = sub nuw i64 %msg.val34116, %sub.ptr.sub.i11.i52
   %cmp6.not.i57.not = icmp ult i64 %sub.i.i56, %sub.i55
   %cmsg_level115 = getelementptr inbounds i8, ptr %cmsgh.195115, i64 8
   %25 = load i32, ptr %cmsg_level115, align 8

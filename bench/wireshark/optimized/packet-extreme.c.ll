@@ -486,7 +486,7 @@ define internal i32 @dissect_edp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 46:                                               ; preds = %.lr.ph, %dissect_link_tlv.exit
   %.0150 = phi i32 [ 16, %.lr.ph ], [ %420, %dissect_link_tlv.exit ]
-  %47 = sub nsw i32 %21, %.0150
+  %47 = sub nuw nsw i32 %21, %.0150
   %48 = icmp ult i32 %47, 4
   br i1 %48, label %49, label %51
 

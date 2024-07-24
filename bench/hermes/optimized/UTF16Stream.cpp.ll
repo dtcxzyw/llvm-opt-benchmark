@@ -96,7 +96,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %sub.ptr.sub.i, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %sub.ptr.sub.i, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIDsSaIDsEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %storage_, i64 noundef %sub.i)
   %.pre9 = load ptr, ptr %_M_finish.i, align 8
   %.pre10 = load ptr, ptr %storage_, align 8
@@ -192,7 +192,7 @@ if.then.i:                                        ; preds = %if.then2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i, %sub.ptr.div.i.i
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIDsSaIDsEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %storage_, i64 noundef %sub.i.i)
   %.pre9.i = load ptr, ptr %_M_finish.i.i, align 8
   %.pre10.i = load ptr, ptr %storage_, align 8

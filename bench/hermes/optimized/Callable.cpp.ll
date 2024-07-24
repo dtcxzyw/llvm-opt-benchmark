@@ -2098,7 +2098,7 @@ cond.true.i.i:                                    ; preds = %for.body.i
   %add.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i, %19
   %25 = inttoptr i64 %add.i.i.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i, ptr null, ptr %25
-  %sub.i.i = sub i32 %conv.i, %23
+  %sub.i.i = sub nuw i32 %conv.i, %23
   %cmp.i.i31.i = icmp ult i32 %sub.i.i, 4096
   br i1 %cmp.i.i31.i, label %if.then.i.i.i, label %if.else.i.i.i
 

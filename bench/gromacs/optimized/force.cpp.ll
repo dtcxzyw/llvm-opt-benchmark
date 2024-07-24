@@ -122,7 +122,7 @@ define void @_ZN24CpuPpLongRangeNonbondedsC2EiffN3gmx8ArrayRefIKdEE22CoulombInte
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %47
-  %58 = sub nsw i64 %48, %55
+  %58 = sub nuw nsw i64 %48, %55
   invoke void @_ZNSt6vectorI19ewald_corr_thread_tSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %58)
           to label %_ZNSt6vectorI19ewald_corr_thread_tSaIS0_EE6resizeEm.exit unwind label %72
 
@@ -904,7 +904,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNK22DDB
   br i1 %.not.i63, label %291, label %289
 
 289:                                              ; preds = %278
-  %290 = sub i64 %285, %288
+  %290 = sub nuw i64 %285, %288
   br label %293
 
 291:                                              ; preds = %278

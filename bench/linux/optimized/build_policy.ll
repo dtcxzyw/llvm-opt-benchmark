@@ -6327,7 +6327,7 @@ define dso_local void @account_idle_ticks(i64 noundef %0) local_unnamed_addr #2 
   br i1 %23, label %24, label %37
 
 24:                                               ; preds = %21
-  %25 = sub i64 %2, %22
+  %25 = sub nuw i64 %2, %22
   %26 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @kernel_cpustat) #27, !srcloc !169
   %27 = inttoptr i64 %26 to ptr
   %28 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @runqueues) #27, !srcloc !170

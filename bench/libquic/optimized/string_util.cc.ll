@@ -2743,7 +2743,7 @@ do.end44:                                         ; preds = %do.cond42
   br label %return
 
 if.end45:                                         ; preds = %if.end19
-  %sub46 = sub i64 %call9, %call3
+  %sub46 = sub nuw i64 %call9, %call3
   br label %do.body47
 
 do.body47:                                        ; preds = %do.body47, %if.end45
@@ -2898,7 +2898,7 @@ do.end44:                                         ; preds = %do.cond42
   br label %return
 
 if.end45:                                         ; preds = %if.end19
-  %sub46 = sub i64 %call9, %call3
+  %sub46 = sub nuw i64 %call9, %call3
   br label %do.body47
 
 do.body47:                                        ; preds = %do.body47, %if.end45

@@ -158,7 +158,7 @@ define dso_local i32 @i915_gem_mmap_ioctl(ptr nocapture noundef readonly %0, ptr
 
 63:                                               ; preds = %56
   %64 = load i64, ptr %59, align 8
-  %65 = sub i64 %61, %58
+  %65 = sub nuw i64 %61, %58
   %66 = icmp ugt i64 %64, %65
   br i1 %66, label %.thread15, label %67
 

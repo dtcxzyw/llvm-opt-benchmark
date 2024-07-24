@@ -392,7 +392,7 @@ for.end80:                                        ; preds = %for.end80.loopexit,
 
 for.body84.preheader:                             ; preds = %for.end80
   %53 = zext i32 %k164.0.lcssa to i64
-  %54 = sub i32 %41, %k164.0.lcssa
+  %54 = sub nuw i32 %41, %k164.0.lcssa
   br label %for.body84
 
 for.body84:                                       ; preds = %for.body84.preheader, %for.body84

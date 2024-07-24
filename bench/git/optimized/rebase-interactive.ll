@@ -430,7 +430,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %14, %for.inc ]
+  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %13, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %commit_seen.sroa.27.0143 = phi ptr [ null, %for.body.lr.ph ], [ %commit_seen.sroa.27.2, %for.inc ]
   %commit_seen.sroa.14.0142 = phi i32 [ 0, %for.body.lr.ph ], [ %commit_seen.sroa.14.2, %for.inc ]
@@ -456,11 +456,11 @@ if.end.i.i:                                       ; preds = %if.then3
   %6 = zext nneg i32 %commit_seen.sroa.14.0142 to i64
   %7 = shl nuw nsw i64 %6, 3
   %scevgep = getelementptr i8, ptr %call4.i.i, i64 %7
-  %8 = sub nsw i32 %div.i.i, %commit_seen.sroa.14.0142
-  %9 = zext i32 %8 to i64
-  %10 = shl nuw nsw i64 %9, 3
-  %11 = add nuw nsw i64 %10, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %11, i1 false)
+  %8 = sub nuw nsw i32 %div.i.i, %commit_seen.sroa.14.0142
+  %9 = shl nuw nsw i32 %8, 3
+  %narrow = add nuw nsw i32 %9, 8
+  %10 = zext nneg i32 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %10, i1 false)
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.end.i.i, %if.then3
@@ -468,8 +468,8 @@ if.end12.i.i:                                     ; preds = %if.end.i.i, %if.the
   %commit_seen.sroa.27.1 = phi ptr [ %commit_seen.sroa.27.0143, %if.then3 ], [ %call4.i.i, %if.end.i.i ]
   %idxprom14.i.i = zext nneg i32 %div.i.i to i64
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %commit_seen.sroa.27.1, i64 %idxprom14.i.i
-  %12 = load ptr, ptr %arrayidx15.i.i, align 8
-  %tobool16.not.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %arrayidx15.i.i, align 8
+  %tobool16.not.i.i = icmp eq ptr %11, null
   br i1 %tobool16.not.i.i, label %if.end20.i.i, label %commit_seen_at.exit
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
@@ -478,50 +478,50 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
   br label %commit_seen_at.exit
 
 commit_seen_at.exit:                              ; preds = %if.end12.i.i, %if.end20.i.i
-  %13 = phi ptr [ %12, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
+  %12 = phi ptr [ %11, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
   %idxprom34.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx35.i.i = getelementptr inbounds i8, ptr %13, i64 %idxprom34.i.i
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %12, i64 %idxprom34.i.i
   store i8 1, ptr %arrayidx35.i.i, align 1
   %.pre = load i32, ptr %nr, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %commit_seen_at.exit
-  %14 = phi i32 [ %1, %for.body ], [ %.pre, %commit_seen_at.exit ]
+  %13 = phi i32 [ %1, %for.body ], [ %.pre, %commit_seen_at.exit ]
   %commit_seen.sroa.14.2 = phi i32 [ %commit_seen.sroa.14.0142, %for.body ], [ %commit_seen.sroa.14.1, %commit_seen_at.exit ]
   %commit_seen.sroa.27.2 = phi ptr [ %commit_seen.sroa.27.0143, %for.body ], [ %commit_seen.sroa.27.1, %commit_seen_at.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = sext i32 %14 to i64
-  %cmp1 = icmp slt i64 %indvars.iv.next, %15
+  %14 = sext i32 %13 to i64
+  %cmp1 = icmp slt i64 %indvars.iv.next, %14
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %commit_seen.sroa.14.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %commit_seen.sroa.14.2, %for.inc ]
   %commit_seen.sroa.27.0.lcssa = phi ptr [ null, %for.cond.preheader ], [ %commit_seen.sroa.27.2, %for.inc ]
   %nr6 = getelementptr inbounds i8, ptr %old_todo, i64 32
-  %16 = load i32, ptr %nr6, align 8
-  %cmp8147 = icmp sgt i32 %16, 0
+  %15 = load i32, ptr %nr6, align 8
+  %cmp8147 = icmp sgt i32 %15, 0
   br i1 %cmp8147, label %for.body9.lr.ph, label %for.end22
 
 for.body9.lr.ph:                                  ; preds = %for.end
   %items10 = getelementptr inbounds i8, ptr %old_todo, i64 24
-  %17 = zext nneg i32 %16 to i64
+  %16 = zext nneg i32 %15 to i64
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.inc21
-  %indvars.iv163 = phi i64 [ %17, %for.body9.lr.ph ], [ %indvars.iv.next164, %for.inc21 ]
+  %indvars.iv163 = phi i64 [ %16, %for.body9.lr.ph ], [ %indvars.iv.next164, %for.inc21 ]
   %commit_seen.sroa.27.3149 = phi ptr [ %commit_seen.sroa.27.0.lcssa, %for.body9.lr.ph ], [ %commit_seen.sroa.27.6, %for.inc21 ]
   %commit_seen.sroa.14.3148 = phi i32 [ %commit_seen.sroa.14.0.lcssa, %for.body9.lr.ph ], [ %commit_seen.sroa.14.6, %for.inc21 ]
   %indvars.iv.next164 = add nsw i64 %indvars.iv163, -1
-  %18 = load ptr, ptr %items10, align 8
-  %add.ptr = getelementptr inbounds %struct.todo_item, ptr %18, i64 %indvars.iv.next164
+  %17 = load ptr, ptr %items10, align 8
+  %add.ptr = getelementptr inbounds %struct.todo_item, ptr %17, i64 %indvars.iv.next164
   %commit12 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %19 = load ptr, ptr %commit12, align 8
-  %tobool13.not = icmp eq ptr %19, null
+  %18 = load ptr, ptr %commit12, align 8
+  %tobool13.not = icmp eq ptr %18, null
   br i1 %tobool13.not, label %for.inc21, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body9
-  %20 = getelementptr i8, ptr %19, i64 64
-  %.val17 = load i32, ptr %20, align 8
+  %19 = getelementptr i8, ptr %18, i64 64
+  %.val17 = load i32, ptr %19, align 8
   %div.i.i21 = udiv i32 %.val17, 524256
   %rem.i.i43 = urem i32 %.val17, 524256
   %cmp.not.i.i23 = icmp ugt i32 %commit_seen.sroa.14.3148, %div.i.i21
@@ -529,17 +529,17 @@ land.lhs.true:                                    ; preds = %for.body9
 
 if.end.i.i24:                                     ; preds = %land.lhs.true
   %add.i.i26 = add nuw nsw i32 %div.i.i21, 1
-  %21 = shl nuw nsw i32 %add.i.i26, 3
-  %mul.i.i.i28 = zext nneg i32 %21 to i64
+  %20 = shl nuw nsw i32 %add.i.i26, 3
+  %mul.i.i.i28 = zext nneg i32 %20 to i64
   %call4.i.i29 = call ptr @xrealloc(ptr noundef %commit_seen.sroa.27.3149, i64 noundef %mul.i.i.i28) #10
-  %22 = zext nneg i32 %commit_seen.sroa.14.3148 to i64
-  %23 = shl nuw nsw i64 %22, 3
-  %scevgep155 = getelementptr i8, ptr %call4.i.i29, i64 %23
-  %24 = sub nsw i32 %div.i.i21, %commit_seen.sroa.14.3148
-  %25 = zext i32 %24 to i64
-  %26 = shl nuw nsw i64 %25, 3
-  %27 = add nuw nsw i64 %26, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep155, i8 0, i64 %27, i1 false)
+  %21 = zext nneg i32 %commit_seen.sroa.14.3148 to i64
+  %22 = shl nuw nsw i64 %21, 3
+  %scevgep155 = getelementptr i8, ptr %call4.i.i29, i64 %22
+  %23 = sub nuw nsw i32 %div.i.i21, %commit_seen.sroa.14.3148
+  %24 = shl nuw nsw i32 %23, 3
+  %narrow166 = add nuw nsw i32 %24, 8
+  %25 = zext nneg i32 %narrow166 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep155, i8 0, i64 %25, i1 false)
   br label %if.end12.i.i38
 
 if.end12.i.i38:                                   ; preds = %if.end.i.i24, %land.lhs.true
@@ -547,8 +547,8 @@ if.end12.i.i38:                                   ; preds = %if.end.i.i24, %land
   %commit_seen.sroa.27.4 = phi ptr [ %commit_seen.sroa.27.3149, %land.lhs.true ], [ %call4.i.i29, %if.end.i.i24 ]
   %idxprom14.i.i40 = zext nneg i32 %div.i.i21 to i64
   %arrayidx15.i.i41 = getelementptr inbounds ptr, ptr %commit_seen.sroa.27.4, i64 %idxprom14.i.i40
-  %28 = load ptr, ptr %arrayidx15.i.i41, align 8
-  %tobool16.not.i.i42 = icmp eq ptr %28, null
+  %26 = load ptr, ptr %arrayidx15.i.i41, align 8
+  %tobool16.not.i.i42 = icmp eq ptr %26, null
   br i1 %tobool16.not.i.i42, label %if.end20.i.i48, label %commit_seen_at.exit57
 
 if.end20.i.i48:                                   ; preds = %if.end12.i.i38
@@ -557,23 +557,23 @@ if.end20.i.i48:                                   ; preds = %if.end12.i.i38
   br label %commit_seen_at.exit57
 
 commit_seen_at.exit57:                            ; preds = %if.end12.i.i38, %if.end20.i.i48
-  %29 = phi ptr [ %28, %if.end12.i.i38 ], [ %call24.i.i52, %if.end20.i.i48 ]
+  %27 = phi ptr [ %26, %if.end12.i.i38 ], [ %call24.i.i52, %if.end20.i.i48 ]
   %idxprom34.i.i46 = zext nneg i32 %rem.i.i43 to i64
-  %arrayidx35.i.i47 = getelementptr inbounds i8, ptr %29, i64 %idxprom34.i.i46
-  %30 = load i8, ptr %arrayidx35.i.i47, align 1
-  %tobool15.not = icmp eq i8 %30, 0
+  %arrayidx35.i.i47 = getelementptr inbounds i8, ptr %27, i64 %idxprom34.i.i46
+  %28 = load i8, ptr %arrayidx35.i.i47, align 1
+  %tobool15.not = icmp eq i8 %28, 0
   br i1 %tobool15.not, label %if.then16, label %for.inc21
 
 if.then16:                                        ; preds = %commit_seen_at.exit57
-  %31 = load ptr, ptr @the_repository, align 8
-  %oid = getelementptr inbounds i8, ptr %19, i64 4
-  %32 = load i32, ptr @default_abbrev, align 4
-  %call17 = call ptr @repo_find_unique_abbrev(ptr noundef %31, ptr noundef nonnull %oid, i32 noundef %32) #10
+  %29 = load ptr, ptr @the_repository, align 8
+  %oid = getelementptr inbounds i8, ptr %18, i64 4
+  %30 = load i32, ptr @default_abbrev, align 4
+  %call17 = call ptr @repo_find_unique_abbrev(ptr noundef %29, ptr noundef nonnull %oid, i32 noundef %30) #10
   %arg_len = getelementptr inbounds i8, ptr %add.ptr, i64 20
-  %33 = load i32, ptr %arg_len, align 4
+  %31 = load i32, ptr %arg_len, align 4
   %call18 = call ptr @todo_item_get_arg(ptr noundef nonnull %old_todo, ptr noundef nonnull %add.ptr) #10
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %missing, ptr noundef nonnull @.str.11, ptr noundef %call17, i32 noundef %33, ptr noundef %call18) #10
-  %.val18 = load i32, ptr %20, align 8
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %missing, ptr noundef nonnull @.str.11, ptr noundef %call17, i32 noundef %31, ptr noundef %call18) #10
+  %.val18 = load i32, ptr %19, align 8
   %div.i.i58 = udiv i32 %.val18, 524256
   %rem.i.i80 = urem i32 %.val18, 524256
   %cmp.not.i.i60 = icmp ugt i32 %commit_seen.sroa.14.4, %div.i.i58
@@ -581,17 +581,17 @@ if.then16:                                        ; preds = %commit_seen_at.exit
 
 if.end.i.i61:                                     ; preds = %if.then16
   %add.i.i63 = add nuw nsw i32 %div.i.i58, 1
-  %34 = shl nuw nsw i32 %add.i.i63, 3
-  %mul.i.i.i65 = zext nneg i32 %34 to i64
+  %32 = shl nuw nsw i32 %add.i.i63, 3
+  %mul.i.i.i65 = zext nneg i32 %32 to i64
   %call4.i.i66 = call ptr @xrealloc(ptr noundef nonnull %commit_seen.sroa.27.4, i64 noundef %mul.i.i.i65) #10
-  %35 = zext nneg i32 %commit_seen.sroa.14.4 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  %scevgep159 = getelementptr i8, ptr %call4.i.i66, i64 %36
-  %37 = sub nsw i32 %div.i.i58, %commit_seen.sroa.14.4
-  %38 = zext i32 %37 to i64
-  %39 = shl nuw nsw i64 %38, 3
-  %40 = add nuw nsw i64 %39, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep159, i8 0, i64 %40, i1 false)
+  %33 = zext nneg i32 %commit_seen.sroa.14.4 to i64
+  %34 = shl nuw nsw i64 %33, 3
+  %scevgep159 = getelementptr i8, ptr %call4.i.i66, i64 %34
+  %35 = sub nuw nsw i32 %div.i.i58, %commit_seen.sroa.14.4
+  %36 = shl nuw nsw i32 %35, 3
+  %narrow167 = add nuw nsw i32 %36, 8
+  %37 = zext nneg i32 %narrow167 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep159, i8 0, i64 %37, i1 false)
   br label %if.end12.i.i75
 
 if.end12.i.i75:                                   ; preds = %if.end.i.i61, %if.then16
@@ -599,8 +599,8 @@ if.end12.i.i75:                                   ; preds = %if.end.i.i61, %if.t
   %commit_seen.sroa.27.5 = phi ptr [ %commit_seen.sroa.27.4, %if.then16 ], [ %call4.i.i66, %if.end.i.i61 ]
   %idxprom14.i.i77 = zext nneg i32 %div.i.i58 to i64
   %arrayidx15.i.i78 = getelementptr inbounds ptr, ptr %commit_seen.sroa.27.5, i64 %idxprom14.i.i77
-  %41 = load ptr, ptr %arrayidx15.i.i78, align 8
-  %tobool16.not.i.i79 = icmp eq ptr %41, null
+  %38 = load ptr, ptr %arrayidx15.i.i78, align 8
+  %tobool16.not.i.i79 = icmp eq ptr %38, null
   br i1 %tobool16.not.i.i79, label %if.end20.i.i85, label %commit_seen_at.exit94
 
 if.end20.i.i85:                                   ; preds = %if.end12.i.i75
@@ -609,9 +609,9 @@ if.end20.i.i85:                                   ; preds = %if.end12.i.i75
   br label %commit_seen_at.exit94
 
 commit_seen_at.exit94:                            ; preds = %if.end12.i.i75, %if.end20.i.i85
-  %42 = phi ptr [ %41, %if.end12.i.i75 ], [ %call24.i.i89, %if.end20.i.i85 ]
+  %39 = phi ptr [ %38, %if.end12.i.i75 ], [ %call24.i.i89, %if.end20.i.i85 ]
   %idxprom34.i.i83 = zext nneg i32 %rem.i.i80 to i64
-  %arrayidx35.i.i84 = getelementptr inbounds i8, ptr %42, i64 %idxprom34.i.i83
+  %arrayidx35.i.i84 = getelementptr inbounds i8, ptr %39, i64 %idxprom34.i.i83
   store i8 1, ptr %arrayidx35.i.i84, align 1
   br label %for.inc21
 
@@ -625,16 +625,16 @@ for.end22:                                        ; preds = %for.inc21, %for.end
   %commit_seen.sroa.14.3.lcssa = phi i32 [ %commit_seen.sroa.14.0.lcssa, %for.end ], [ %commit_seen.sroa.14.6, %for.inc21 ]
   %commit_seen.sroa.27.3.lcssa = phi ptr [ %commit_seen.sroa.27.0.lcssa, %for.end ], [ %commit_seen.sroa.27.6, %for.inc21 ]
   %len = getelementptr inbounds i8, ptr %missing, i64 8
-  %43 = load i64, ptr %len, align 8
-  %tobool23.not = icmp eq i64 %43, 0
+  %40 = load i64, ptr %len, align 8
+  %tobool23.not = icmp eq i64 %40, 0
   br i1 %tobool23.not, label %leave_check, label %if.end25
 
 if.end25:                                         ; preds = %for.end22
   %cmp26 = icmp eq i32 %call, 2
   %spec.select = zext i1 %cmp26 to i32
-  %44 = load ptr, ptr @stderr, align 8
-  %45 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i = icmp eq i32 %45, 0
+  %41 = load ptr, ptr @stderr, align 8
+  %42 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i = icmp eq i32 %42, 0
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end25
@@ -643,15 +643,15 @@ if.end3.i:                                        ; preds = %if.end25
 
 _.exit:                                           ; preds = %if.end25, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.12, %if.end25 ]
-  %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef %retval.0.i) #12
+  %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef %retval.0.i) #12
   %buf = getelementptr inbounds i8, ptr %missing, i64 16
-  %46 = load ptr, ptr %buf, align 8
-  %47 = load ptr, ptr @stderr, align 8
-  %call31 = call i32 @fputs(ptr noundef %46, ptr noundef %47) #12
+  %43 = load ptr, ptr %buf, align 8
+  %44 = load ptr, ptr @stderr, align 8
+  %call31 = call i32 @fputs(ptr noundef %43, ptr noundef %44) #12
   call void @strbuf_release(ptr noundef nonnull %missing) #10
-  %48 = load ptr, ptr @stderr, align 8
-  %49 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i95 = icmp eq i32 %49, 0
+  %45 = load ptr, ptr @stderr, align 8
+  %46 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i95 = icmp eq i32 %46, 0
   br i1 %tobool1.not.i95, label %_.exit99, label %if.end3.i96
 
 if.end3.i96:                                      ; preds = %_.exit
@@ -660,10 +660,10 @@ if.end3.i96:                                      ; preds = %_.exit
 
 _.exit99:                                         ; preds = %_.exit, %if.end3.i96
   %retval.0.i98 = phi ptr [ %call.i97, %if.end3.i96 ], [ @.str.13, %_.exit ]
-  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef %retval.0.i98) #12
-  %50 = load ptr, ptr @stderr, align 8
-  %51 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i100 = icmp eq i32 %51, 0
+  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef %retval.0.i98) #12
+  %47 = load ptr, ptr @stderr, align 8
+  %48 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i100 = icmp eq i32 %48, 0
   br i1 %tobool1.not.i100, label %_.exit104, label %if.end3.i101
 
 if.end3.i101:                                     ; preds = %_.exit99
@@ -672,7 +672,7 @@ if.end3.i101:                                     ; preds = %_.exit99
 
 _.exit104:                                        ; preds = %_.exit99, %if.end3.i101
   %retval.0.i103 = phi ptr [ %call.i102, %if.end3.i101 ], [ @edit_todo_list_advice, %_.exit99 ]
-  %call35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef %retval.0.i103) #12
+  %call35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef %retval.0.i103) #12
   br label %leave_check
 
 leave_check:                                      ; preds = %for.end22, %_.exit104
@@ -681,16 +681,16 @@ leave_check:                                      ; preds = %for.end22, %_.exit1
   br i1 %cmp7.not.i, label %clear_commit_seen.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %leave_check
-  %52 = zext nneg i32 %commit_seen.sroa.14.3.lcssa to i64
+  %49 = zext nneg i32 %commit_seen.sroa.14.3.lcssa to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %commit_seen.sroa.27.3.lcssa, i64 %indvars.iv.i
-  %53 = load ptr, ptr %arrayidx.i, align 8
-  call void @free(ptr noundef %53) #10
+  %50 = load ptr, ptr %arrayidx.i, align 8
+  call void @free(ptr noundef %50) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %52
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %49
   br i1 %exitcond.not, label %clear_commit_seen.exit, label %for.body.i, !llvm.loop !8
 
 clear_commit_seen.exit:                           ; preds = %for.body.i, %entry, %leave_check

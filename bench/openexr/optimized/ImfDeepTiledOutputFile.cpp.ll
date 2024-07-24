@@ -5389,7 +5389,7 @@ invoke.cont257:                                   ; preds = %for.body
   br i1 %cmp259, label %if.then.i, label %if.end264
 
 if.then.i:                                        ; preds = %invoke.cont257
-  %sub.i = sub i64 %92, %sub.ptr.sub.i144
+  %sub.i = sub nuw i64 %92, %sub.ptr.sub.i144
   %95 = load ptr, ptr %_M_end_of_storage.i.i.i137, align 8
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %95 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i8.i, %sub.ptr.lhs.cast.i142

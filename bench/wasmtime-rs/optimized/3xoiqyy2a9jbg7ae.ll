@@ -76,7 +76,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN13wasmtime_slab13Slab$LT$T$GT$10a
   unreachable
 
 11:                                               ; preds = %3
-  %12 = sub i64 %4, %7
+  %12 = sub nuw i64 %4, %7
   %.not5.i.i = icmp ult i64 %12, %.0.sroa.speculated.i.i
   br i1 %.not5.i.i, label %13, label %"_ZN13wasmtime_slab13Slab$LT$T$GT$15double_capacity17hf92ef623276f9f40E.exit"
 
@@ -298,10 +298,11 @@ define hidden { i64, i64 } @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %.not = icmp ule i64 %3, %4
-  %5 = sub i64 %4, %3
+  %5 = sub nuw i64 %4, %3
+  %.sroa.3.0 = select i1 %.not, i64 %5, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %7 = insertvalue { i64, i64 } %6, i64 %5, 1
+  %7 = insertvalue { i64, i64 } %6, i64 %.sroa.3.0, 1
   ret { i64, i64 } %7
 }
 
@@ -3262,7 +3263,7 @@ define hidden noundef i32 @"_ZN96_$LT$hashbrown..raw..RawDrain$LT$T$C$A$GT$$u20$
   %8 = xor i16 %15, -1
   store ptr %17, ptr %7, align 8, !alias.scope !593
   store ptr %16, ptr %0, align 8, !alias.scope !593
-  %9 = sub i16 -2, %15
+  %9 = sub nuw i16 -2, %15
   %10 = and i16 %9, %8
   store i16 %10, ptr %6, align 8, !alias.scope !594
   %11 = add i64 %3, -1

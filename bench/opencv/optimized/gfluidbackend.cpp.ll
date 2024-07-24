@@ -10025,7 +10025,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br i1 %548, label %549, label %551
 
 549:                                              ; preds = %.loopexit574
-  %550 = sub nsw i64 %540, %547
+  %550 = sub nuw nsw i64 %540, %547
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %454, ptr %542, i64 noundef %550, ptr noundef nonnull align 4 dereferenceable(4) %33)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %.loopexit.split-lp560.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -11440,7 +11440,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %1180, label %1181, label %1183
 
 1181:                                             ; preds = %1166
-  %1182 = sub nsw i64 %1172, %1179
+  %1182 = sub nuw nsw i64 %1172, %1179
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %1129, ptr %1174, i64 noundef %1182, ptr noundef nonnull align 4 dereferenceable(4) %41)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit339 unwind label %.loopexit.split-lp560.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -14789,7 +14789,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br i1 %600, label %601, label %603
 
 601:                                              ; preds = %.loopexit379
-  %602 = sub nsw i64 %592, %599
+  %602 = sub nuw nsw i64 %592, %599
   invoke void @_ZNSt6vectorIN2cv4GArgESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %584, i64 noundef %602)
           to label %_ZNSt6vectorIN2cv4GArgESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -14846,7 +14846,7 @@ _ZNSt6vectorIN2cv4GArgESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %628, label %629, label %631
 
 629:                                              ; preds = %_ZNSt6vectorIN2cv4GArgESaIS1_EE6resizeEm.exit
-  %630 = sub nsw i64 %620, %627
+  %630 = sub nuw nsw i64 %620, %627
   invoke void @_ZNSt6vectorIN2cv4gapi5fluid4ViewESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %614, i64 noundef %630)
           to label %636 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -15489,7 +15489,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %920, label %921, label %923
 
 921:                                              ; preds = %906
-  %922 = sub nsw i64 %912, %919
+  %922 = sub nuw nsw i64 %912, %919
   invoke void @_ZNSt6vectorIPN2cv4gapi5fluid6BufferESaIS4_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS4_S6_EEmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %859, ptr %914, i64 noundef %922, ptr noundef nonnull align 8 dereferenceable(8) %29)
           to label %928 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -21639,7 +21639,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br i1 %923, label %924, label %926
 
 924:                                              ; preds = %.loopexit599
-  %925 = sub nsw i64 %915, %922
+  %925 = sub nuw nsw i64 %915, %922
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %907, ptr %917, i64 noundef %925, ptr noundef nonnull align 4 dereferenceable(4) %42)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %.loopexit.split-lp593.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -55456,7 +55456,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -56017,7 +56017,7 @@ _ZSt13move_backwardIPPN2cv4gapi5fluid6BufferES5_ET0_T_S7_S6_.exit: ; preds = %24
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPPN2cv4gapi5fluid6BufferEmS4_S4_ET_S6_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds ptr, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

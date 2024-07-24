@@ -17861,7 +17861,7 @@ for.body39:                                       ; preds = %if.end, %for.inc
 
 _ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4nameEv.exit.thread: ; preds = %for.body39
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %23, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i, %24
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %24
   %26 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %26, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1
@@ -18148,7 +18148,7 @@ init.end.i:                                       ; preds = %init.i, %init.check
 
 if.then.i.i58:                                    ; preds = %init.end.i
   %elf_sections2.sink.i.i.i = getelementptr inbounds i8, ptr %71, i64 368
-  %sub.sink.i.i.i = sub nsw i64 %conv.i.i, %72
+  %sub.sink.i.i.i = sub nuw nsw i64 %conv.i.i, %72
   %74 = load ptr, ptr %elf_sections2.sink.i.i.i, align 8
   %sh_flags.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %74, i64 %sub.sink.i.i.i, i32 2
   %x.0.copyload.i.i.i = load i64, ptr %sh_flags.i.i, align 1
@@ -18656,7 +18656,7 @@ if.end16:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end16
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %15, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i, %16
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %16
   %18 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %18, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1
@@ -19444,7 +19444,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK4mold3elf12In
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.thread: ; preds = %for.body23
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %18, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i, %19
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %19
   %24 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %24, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1
@@ -19457,7 +19457,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.thread: ; preds = %for.body23
 
 _ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4nameEv.exit66.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.thread
   %elf_sections2.sink.i.i47 = getelementptr inbounds i8, ptr %18, i64 368
-  %sub.sink.i.i48 = sub nsw i64 %conv.i, %19
+  %sub.sink.i.i48 = sub nuw nsw i64 %conv.i, %19
   %26 = load ptr, ptr %elf_sections2.sink.i.i47, align 8
   %sh_flags.i49 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %26, i64 %sub.sink.i.i48, i32 2
   %x.0.copyload.i.i50 = load i64, ptr %sh_flags.i49, align 1
@@ -19513,7 +19513,7 @@ if.then.i.i78:                                    ; preds = %if.then33
 
 if.then.i.i107:                                   ; preds = %if.then.i.i78
   %elf_sections2.sink.i.i.i = getelementptr inbounds i8, ptr %34, i64 368
-  %sub.sink.i.i.i = sub nsw i64 %conv.i.i, %35
+  %sub.sink.i.i.i = sub nuw nsw i64 %conv.i.i, %35
   %37 = load ptr, ptr %elf_sections2.sink.i.i.i, align 8
   %sh_flags.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %37, i64 %sub.sink.i.i.i, i32 2
   %x.0.copyload.i.i.i = load i64, ptr %sh_flags.i.i, align 1
@@ -20602,7 +20602,7 @@ if.then.i127:                                     ; preds = %for.body
   br i1 %cmp.i.i136, label %if.then.i.i139, label %if.else.i.i
 
 if.then.i.i139:                                   ; preds = %if.then.i127
-  %sub.i.i = sub nsw i64 %conv5.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv5.i, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorIN4mold3elf9SymbolAuxINS1_7PPC64V1EEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %symbol_aux, i64 noundef %sub.i.i)
   br label %_ZN4mold3elf6SymbolINS0_7PPC64V1EE7add_auxERNS0_7ContextIS2_EE.exit
 
@@ -26043,7 +26043,7 @@ init.end42:                                       ; preds = %init40, %init.check
   %elf_sections2.sink.v.i = select i1 %cmp.i53, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %29, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i53, i64 0, i64 %30
-  %sub.sink.i = sub nsw i64 %conv.i52, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i52, %sub.i
   %31 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %31, i64 %sub.sink.i, i32 2
   %x.0.copyload.i = load i64, ptr %sh_flags, align 1
@@ -28309,7 +28309,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -29530,7 +29530,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %1, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i, %2
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %2
   %4 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %4, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1
@@ -30884,7 +30884,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i
   %mul.i.i.i = shl i64 %and.i.i, 1
   %cmp7.i.i.i = icmp ugt i64 %mul.i.i.i, %8
-  %sub.i.i.i = sub i64 %8, %and.i.i
+  %sub.i.i.i = sub nuw i64 %8, %and.i.i
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 %sub.i.i.i, i64 %and.i.i
   br label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i
 
@@ -39491,7 +39491,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds ptr, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i31 = icmp eq ptr %1, %__position.coerce
@@ -45696,7 +45696,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %elf_sections2.sink.v.i = select i1 %cmp.i13, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %12, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i13, i64 0, i64 %13
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %14 = load ptr, ptr %elf_sections2.sink.i, align 8
   %add.ptr.i2.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %14, i64 %sub.sink.i
   %15 = load ptr, ptr %5, align 8
@@ -45726,7 +45726,7 @@ if.then14:                                        ; preds = %land.lhs.true
 
 if.then.i17:                                      ; preds = %if.then14
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %19, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i16, %20
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i16, %20
   %22 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %22, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1
@@ -45785,7 +45785,7 @@ if.end22:                                         ; preds = %land.lhs.true, %if.
 
 if.then.i.i.i20:                                  ; preds = %if.end22
   %elf_sections2.sink.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 368
-  %sub.sink.i.i.i.i = sub nsw i64 %conv.i, %13
+  %sub.sink.i.i.i.i = sub nuw nsw i64 %conv.i, %13
   %34 = load ptr, ptr %elf_sections2.sink.i.i.i.i, align 8, !noalias !740
   %sh_flags.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %34, i64 %sub.sink.i.i.i.i, i32 2
   %x.0.copyload.i.i.i.i = load i64, ptr %sh_flags.i.i.i, align 1, !noalias !740
@@ -45871,7 +45871,7 @@ if.then.i28:                                      ; preds = %_ZN4mold3elfL22is_c
 
 _ZNK4mold3elf12InputSectionINS0_7PPC64V1EE4nameEv.exit.thread.i: ; preds = %if.then.i28
   %elf_sections2.sink.i.i.i = getelementptr inbounds i8, ptr %43, i64 368
-  %sub.sink.i.i.i = sub nsw i64 %conv.i.i, %44
+  %sub.sink.i.i.i = sub nuw nsw i64 %conv.i.i, %44
   %46 = load ptr, ptr %elf_sections2.sink.i.i.i, align 8, !noalias !740
   %sh_flags.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %46, i64 %sub.sink.i.i.i, i32 2
   %x.0.copyload.i.i.i = load i64, ptr %sh_flags.i.i, align 1, !noalias !740
@@ -45913,14 +45913,14 @@ if.end7.i:                                        ; preds = %_ZN4mold3elfL22is_c
   %elf_sections2.sink.v.i.i = select i1 %cmp.i.i21, i64 16, i64 368
   %elf_sections2.sink.i.i22 = getelementptr inbounds i8, ptr %53, i64 %elf_sections2.sink.v.i.i
   %sub.i.i = select i1 %cmp.i.i21, i64 0, i64 %54
-  %sub.sink.i.i23 = sub nsw i64 %conv.i15.i, %sub.i.i
+  %sub.sink.i.i23 = sub nuw nsw i64 %conv.i15.i, %sub.i.i
   %55 = load ptr, ptr %elf_sections2.sink.i.i22, align 8, !noalias !740
   %add.ptr.i2.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %55, i64 %sub.sink.i.i23
   br i1 %cmp.i.i21, label %if.end.i33.i, label %if.then.i21.i
 
 if.then.i21.i:                                    ; preds = %if.end7.i
   %elf_sections2.sink.i.i22.i = getelementptr inbounds i8, ptr %53, i64 368
-  %sub.sink.i.i23.i = sub nsw i64 %conv.i15.i, %54
+  %sub.sink.i.i23.i = sub nuw nsw i64 %conv.i15.i, %54
   %56 = load ptr, ptr %elf_sections2.sink.i.i22.i, align 8, !noalias !740
   %sh_flags.i24.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %56, i64 %sub.sink.i.i23.i, i32 2
   %x.0.copyload.i.i25.i = load i64, ptr %sh_flags.i24.i, align 1, !noalias !740
@@ -50502,7 +50502,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf5ChunkINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds ptr, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i31 = icmp eq ptr %1, %__position.coerce
@@ -50684,7 +50684,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit: ; preds = %entry
   %2 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %__pos
-  %sub.i = sub i64 %1, %__pos
+  %sub.i = sub nuw i64 %1, %__pos
   %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %cmp.i6 = icmp ugt i64 %spec.select.i, 15
   br i1 %cmp.i6, label %if.then.i7, label %entry.if.end_crit_edge.i
@@ -53825,7 +53825,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10Object
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEPPNS3_9InputFileIS5_EESF_ET0_T_SI_SH_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEPPNS3_9InputFileIS5_EESF_ET0_T_SI_SH_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %4 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEPPNS3_9InputFileIS5_EESF_ET0_T_SI_SH_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds ptr, ptr %4, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i32 = icmp eq ptr %1, %__position.coerce
@@ -54019,7 +54019,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10Shared
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEPPNS3_9InputFileIS5_EESF_ET0_T_SI_SH_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEPPNS3_9InputFileIS5_EESF_ET0_T_SI_SH_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %4 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEPPNS3_9InputFileIS5_EESF_ET0_T_SI_SH_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds ptr, ptr %4, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i32 = icmp eq ptr %1, %__position.coerce
@@ -96679,7 +96679,7 @@ if.then.i.i:                                      ; preds = %_ZNKSt17basic_strin
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %call.i.i, i64 %__ret.0.i)
-  %sub.i = sub i64 %call.i.i, %add
+  %sub.i = sub nuw i64 %call.i.i, %add
   %add.ptr.i30 = getelementptr inbounds i8, ptr %add.ptr, i64 %add
   %26 = load ptr, ptr %this, align 8
   %call27 = call noundef ptr @_ZN4mold3elf10get_symbolINS0_7PPC64V1EEEPNS0_6SymbolIT_EERNS0_7ContextIS4_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(4584) %26, i64 %.sroa.speculated.i, ptr %add.ptr) #15
@@ -98579,7 +98579,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_7PPC64V1EEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds ptr, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i31 = icmp eq ptr %1, %__position.coerce
@@ -102006,7 +102006,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true
   %elf_sections2.sink.v.i = select i1 %cmp.i11, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %6, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i11, i64 0, i64 %7
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %8 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %8, i64 %sub.sink.i, i32 2
   %x.0.copyload.i = load i64, ptr %sh_flags, align 1
@@ -112320,7 +112320,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true
   %elf_sections2.sink.v.i = select i1 %cmp.i11, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %6, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i11, i64 0, i64 %7
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %8 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %8, i64 %sub.sink.i, i32 2
   %x.0.copyload.i = load i64, ptr %sh_flags, align 1
@@ -112396,7 +112396,7 @@ if.then32:                                        ; preds = %if.then27
   %elf_sections2.sink.v.i23 = select i1 %cmp.i22, i64 16, i64 368
   %elf_sections2.sink.i24 = getelementptr inbounds i8, ptr %23, i64 %elf_sections2.sink.v.i23
   %sub.i25 = select i1 %cmp.i22, i64 0, i64 %24
-  %sub.sink.i26 = sub nsw i64 %conv.i20, %sub.i25
+  %sub.sink.i26 = sub nuw nsw i64 %conv.i20, %sub.i25
   %25 = load ptr, ptr %elf_sections2.sink.i24, align 8
   %sh_flags34 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %25, i64 %sub.sink.i26, i32 2
   %x.0.copyload.i28 = load i64, ptr %sh_flags34, align 1
@@ -113270,7 +113270,7 @@ land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i.
   %elf_sections2.sink.v.i.i.i.i.i.i.i.i = select i1 %cmp.i10.i.i.i.i.i.i.i, i64 16, i64 368
   %elf_sections2.sink.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 %elf_sections2.sink.v.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i = select i1 %cmp.i10.i.i.i.i.i.i.i, i64 0, i64 %16
-  %sub.sink.i.i.i.i.i.i.i.i = sub nsw i64 %conv.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i
+  %sub.sink.i.i.i.i.i.i.i.i = sub nuw nsw i64 %conv.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i
   %17 = load ptr, ptr %elf_sections2.sink.i.i.i.i.i.i.i.i, align 8
   %sh_flags.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %17, i64 %sub.sink.i.i.i.i.i.i.i.i, i32 2
   %x.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %sh_flags.i.i.i.i.i.i.i, align 1

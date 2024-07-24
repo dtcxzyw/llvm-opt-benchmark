@@ -96,7 +96,7 @@ define hidden void @_ZN7memmap211MmapOptions3map17hd75ee153f7297730E(ptr noalias
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = sub i64 %.cast.i.i, %14
+  %17 = sub nuw i64 %.cast.i.i, %14
   br label %23
 
 18:                                               ; preds = %12
@@ -194,7 +194,7 @@ define hidden void @_ZN7memmap211MmapOptions7get_len17h8079b79fd419a4f2E.llvm.38
   br label %"_ZN7memmap211MmapOptions7get_len28_$u7b$$u7b$closure$u7d$$u7d$17hc6b75542f39fabb3E.llvm.3848035939780480563.exit"
 
 19:                                               ; preds = %12
-  %20 = sub i64 %.cast.i, %14
+  %20 = sub nuw i64 %.cast.i, %14
   store i64 %20, ptr %16, align 8, !alias.scope !26, !noalias !40
   br label %"_ZN7memmap211MmapOptions7get_len28_$u7b$$u7b$closure$u7d$$u7d$17hc6b75542f39fabb3E.llvm.3848035939780480563.exit"
 
@@ -251,7 +251,7 @@ define hidden void @"_ZN7memmap211MmapOptions7get_len28_$u7b$$u7b$closure$u7d$$u
   br label %23
 
 19:                                               ; preds = %11
-  %20 = sub i64 %.cast, %14
+  %20 = sub nuw i64 %.cast, %14
   store i64 %20, ptr %16, align 8
   br label %23
 
@@ -295,7 +295,7 @@ define hidden void @_ZN7memmap211MmapOptions7map_mut17h74d0dc5ed2523426E(ptr noa
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = sub i64 %.cast.i.i, %14
+  %17 = sub nuw i64 %.cast.i.i, %14
   br label %23
 
 18:                                               ; preds = %12

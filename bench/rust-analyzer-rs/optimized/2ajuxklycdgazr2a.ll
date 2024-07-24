@@ -3380,11 +3380,12 @@ define hidden { i64, i64 } @"_ZN47_$LT$u32$u20$as$u20$core..iter..range..Step$GT
   %3 = load i32, ptr %0, align 4, !noundef !4
   %4 = load i32, ptr %1, align 4, !noundef !4
   %.not = icmp ule i32 %3, %4
-  %5 = sub i32 %4, %3
+  %5 = sub nuw i32 %4, %3
   %6 = zext i32 %5 to i64
+  %.sroa.3.0 = select i1 %.not, i64 %6, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %6, 1
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.3.0, 1
   ret { i64, i64 } %8
 }
 
@@ -5526,7 +5527,7 @@ define hidden { ptr, i64 } @"_ZN4core3str6traits112_$LT$impl$u20$core..slice..in
   %9 = getelementptr inbounds i8, ptr %1, i64 %0
   %10 = load i8, ptr %9, align 1, !alias.scope !1038, !noundef !4
   %11 = icmp sgt i8 %10, -65
-  %12 = sub i64 %2, %0
+  %12 = sub nuw i64 %2, %0
   br i1 %11, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.thread", label %15
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.thread": ; preds = %3, %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit"
@@ -24978,7 +24979,7 @@ define hidden void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   br i1 %.not.us, label %33, label %28
 
 28:                                               ; preds = %25
-  %29 = sub i64 %27, %17
+  %29 = sub nuw i64 %27, %17
   %30 = add i64 %29, %14
   %31 = icmp ugt i64 %29, %30
   %32 = icmp ugt i64 %30, %5
@@ -25019,7 +25020,7 @@ define hidden void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.split
 
 48:                                               ; preds = %42
-  %49 = sub i64 %44, %17
+  %49 = sub nuw i64 %44, %17
   %50 = add i64 %49, %14
   %51 = icmp ugt i64 %49, %50
   %52 = icmp ugt i64 %50, %5

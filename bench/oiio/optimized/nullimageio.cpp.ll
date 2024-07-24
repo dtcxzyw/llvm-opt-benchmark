@@ -943,7 +943,7 @@ invoke.cont196:                                   ; preds = %if.then192
   br i1 %cmp.i109, label %if.then.i111, label %if.else.i110
 
 if.then.i111:                                     ; preds = %invoke.cont196
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %fvalue, i64 noundef %sub.i)
           to label %for.inc unwind label %lpad82.loopexit
 
@@ -1007,7 +1007,7 @@ if.then227:                                       ; preds = %for.end
   br i1 %cmp.i124, label %if.then.i129, label %if.else.i125
 
 if.then.i129:                                     ; preds = %if.then227
-  %sub.i130 = sub nsw i64 %conv230, %sub.ptr.div.i
+  %sub.i130 = sub nuw nsw i64 %conv230, %sub.ptr.div.i
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %fvalue, ptr %.pre, i64 noundef %sub.i130, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
           to label %invoke.cont231 unwind label %lpad82.loopexit.split-lp
 
@@ -1983,7 +1983,7 @@ invoke.cont30:                                    ; preds = %if.then.i53.invoke.
   br i1 %cmp.i61, label %if.then.i66, label %if.else.i62
 
 if.then.i66:                                      ; preds = %invoke.cont30
-  %sub.i67 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i60
+  %sub.i67 = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i60
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %vals, ptr %30, i64 noundef %sub.i67, ptr noundef nonnull align 4 dereferenceable(4) %31)
           to label %if.end33 unwind label %lpad.loopexit.split-lp
 
@@ -2038,7 +2038,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -3648,7 +3648,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds float, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 

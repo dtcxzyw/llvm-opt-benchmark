@@ -225,7 +225,7 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
 
 23:                                               ; preds = %20
   %24 = add i32 %13, %7
-  %25 = sub nsw i32 %8, %13
+  %25 = sub nuw nsw i32 %8, %13
   %26 = icmp ugt i32 %25, 3
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -564,12 +564,12 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
   %21 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16) #5
   %22 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #5
   %23 = icmp ugt i32 %22, %20
-  %24 = sub i32 %22, %20
-  %25 = sub i32 %20, %22
+  %24 = sub nuw i32 %22, %20
+  %25 = sub nuw i32 %20, %22
   %26 = select i1 %23, i32 %24, i32 %25
   %27 = icmp ugt i32 %21, %20
-  %28 = sub i32 %21, %20
-  %29 = sub i32 %20, %21
+  %28 = sub nuw i32 %21, %20
+  %29 = sub nuw i32 %20, %21
   %30 = select i1 %27, i32 %28, i32 %29
   %31 = icmp ult i32 %26, %30
   %.099 = select i1 %31, i32 0, i32 -2147483648

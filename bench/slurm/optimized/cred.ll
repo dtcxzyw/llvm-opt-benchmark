@@ -1029,7 +1029,7 @@ define void @format_core_allocs(ptr nocapture noundef readonly %0, ptr noundef %
   %51 = mul i32 %42, %46
   %52 = mul i32 %51, %49
   %53 = add i32 %52, %.07195
-  %54 = sub i32 %.07593, %42
+  %54 = sub nuw i32 %.07593, %42
   %55 = add i32 %.07394, 1
   %.not81 = icmp eq i32 %54, 0
   br i1 %.not81, label %.loopexit, label %39, !llvm.loop !8

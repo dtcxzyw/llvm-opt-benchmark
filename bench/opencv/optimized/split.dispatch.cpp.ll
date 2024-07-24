@@ -1283,7 +1283,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %_ZNK2cv3Ma
 
 .preheader.us:                                    ; preds = %.split.us, %.loopexit.us
   %.058102.us = phi i64 [ %85, %.loopexit.us ], [ 0, %.split.us ]
-  %81 = sub i64 %.fr106, %.058102.us
+  %81 = sub nuw i64 %.fr106, %.058102.us
   %.sroa.speculated.us = call i64 @llvm.umin.i64(i64 %.sroa.speculated77, i64 %81)
   %82 = load ptr, ptr %69, align 16
   %83 = trunc nuw nsw i64 %.sroa.speculated.us to i32

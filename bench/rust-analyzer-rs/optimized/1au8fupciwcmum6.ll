@@ -39205,7 +39205,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_che
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -39242,7 +39242,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h46
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -40448,7 +40448,7 @@ define hidden void @"_ZN87_$LT$rayon..slice..IterProducer$LT$T$GT$$u20$as$u20$ra
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h46b3ef5cce5e0376E.llvm.3466590722360702098.exit": ; preds = %4
   %11 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %3
-  %12 = sub i64 %2, %3
+  %12 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %13, align 8

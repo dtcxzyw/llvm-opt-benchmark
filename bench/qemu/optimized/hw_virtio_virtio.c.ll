@@ -651,8 +651,8 @@ if.end.i:                                         ; preds = %rcu_read_auto_lock.
   %used.i = getelementptr inbounds i8, ptr %6, i64 240
   %len.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 256
   %7 = load i64, ptr %len.i.i.i.i.i, align 16
-  %switch.i.i = icmp ult i64 %7, 4
-  br i1 %switch.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
+  %switch1.i.i = icmp ult i64 %7, 4
+  br i1 %switch1.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
@@ -671,8 +671,8 @@ virtio_lduw_phys_cached.exit.i.i:                 ; preds = %if.else8.i.i.i.i.i,
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !7
   fence acquire
   %9 = load i64, ptr %len.i.i.i.i.i, align 16
-  %cmp2.i.i.i9.i.i = icmp ugt i64 %9, 1
-  br i1 %cmp2.i.i.i9.i.i, label %if.end.i.i.i12.i.i, label %if.else.i.i.i11.i.i
+  %switch.i.i = icmp ult i64 %9, 2
+  br i1 %switch.i.i, label %if.else.i.i.i11.i.i, label %if.end.i.i.i12.i.i
 
 if.else.i.i.i11.i.i:                              ; preds = %virtio_lduw_phys_cached.exit.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
@@ -708,10 +708,10 @@ if.then6.i:                                       ; preds = %if.else.i
   %shl.i = shl i16 %conv8.i, 15
   %or.i = or i16 %shl.i, %13
   %15 = load i64, ptr %len.i.i.i.i.i, align 16
-  %cmp2.i.i.i.i.i = icmp ugt i64 %15, 1
-  br i1 %cmp2.i.i.i.i.i, label %if.end.i.i.i.i13.i, label %if.else.i.i.i.i12.i
+  %switch.i12.i = icmp ult i64 %15, 2
+  br i1 %switch.i12.i, label %if.else.i.i.i.i16.i, label %if.end.i.i.i.i13.i
 
-if.else.i.i.i.i12.i:                              ; preds = %if.then6.i
+if.else.i.i.i.i16.i:                              ; preds = %if.then6.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
   unreachable
 
@@ -737,28 +737,28 @@ vring_packed_off_wrap_write.exit.i:               ; preds = %if.else7.i.i.i.i.i,
 if.end16.i:                                       ; preds = %vring_packed_off_wrap_write.exit.i, %if.else.i, %vring_packed_event_read.exit.i
   %e.sroa.1.0.i = phi i16 [ 2, %vring_packed_off_wrap_write.exit.i ], [ 1, %vring_packed_event_read.exit.i ], [ 0, %if.else.i ]
   %17 = load i64, ptr %len.i.i.i.i.i, align 16
-  %switch.i17.i = icmp ult i64 %17, 4
-  br i1 %switch.i17.i, label %if.else.i.i.i.i23.i, label %if.end.i.i.i.i18.i
+  %switch.i18.i = icmp ult i64 %17, 4
+  br i1 %switch.i18.i, label %if.else.i.i.i.i24.i, label %if.end.i.i.i.i19.i
 
-if.else.i.i.i.i23.i:                              ; preds = %if.end16.i
+if.else.i.i.i.i24.i:                              ; preds = %if.end16.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
   unreachable
 
-if.end.i.i.i.i18.i:                               ; preds = %if.end16.i
+if.end.i.i.i.i19.i:                               ; preds = %if.end16.i
   %18 = load ptr, ptr %used.i, align 16
-  %tobool.not.i.i.i.i19.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i.i.i19.i, label %if.else7.i.i.i.i22.i, label %if.then5.i.i.i.i20.i
+  %tobool.not.i.i.i.i20.i = icmp eq ptr %18, null
+  br i1 %tobool.not.i.i.i.i20.i, label %if.else7.i.i.i.i23.i, label %if.then5.i.i.i.i21.i
 
-if.then5.i.i.i.i20.i:                             ; preds = %if.end.i.i.i.i18.i
-  %add.ptr.i.i.i.i21.i = getelementptr i8, ptr %18, i64 2
-  store i16 %e.sroa.1.0.i, ptr %add.ptr.i.i.i.i21.i, align 1
+if.then5.i.i.i.i21.i:                             ; preds = %if.end.i.i.i.i19.i
+  %add.ptr.i.i.i.i22.i = getelementptr i8, ptr %18, i64 2
+  store i16 %e.sroa.1.0.i, ptr %add.ptr.i.i.i.i22.i, align 1
   br label %vring_packed_flags_write.exit.i
 
-if.else7.i.i.i.i22.i:                             ; preds = %if.end.i.i.i.i18.i
+if.else7.i.i.i.i23.i:                             ; preds = %if.end.i.i.i.i19.i
   tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 2, i16 noundef zeroext %e.sroa.1.0.i, i32 1, ptr noundef null) #21
   br label %vring_packed_flags_write.exit.i
 
-vring_packed_flags_write.exit.i:                  ; preds = %if.else7.i.i.i.i22.i, %if.then5.i.i.i.i20.i
+vring_packed_flags_write.exit.i:                  ; preds = %if.else7.i.i.i.i23.i, %if.then5.i.i.i.i21.i
   tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i, i64 noundef 2, i64 noundef 2) #21
   br i1 %tobool2.not.i, label %if.then.i.i.i, label %if.then21.i
 
@@ -772,19 +772,19 @@ if.then.i.i.i:                                    ; preds = %if.then21.i, %vring
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
   %19 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %19, 0
-  br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i25.i, label %if.end.i.i.i.i24.i
+  br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i26.i, label %if.end.i.i.i.i25.i
 
-if.else.i.i.i.i25.i:                              ; preds = %if.then.i.i.i
+if.else.i.i.i.i26.i:                              ; preds = %if.then.i.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
   unreachable
 
-if.end.i.i.i.i24.i:                               ; preds = %if.then.i.i.i
+if.end.i.i.i.i25.i:                               ; preds = %if.then.i.i.i
   %dec.i.i.i.i.i = add i32 %19, -1
   store i32 %dec.i.i.i.i.i, ptr %depth.i.i.i.i.i, align 4
   %cmp2.not.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i, 0
   br i1 %cmp2.not.i.i.i.i.i, label %while.end.i.i.i.i.i, label %if.end3
 
-while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i24.i
+while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i25.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
   fence seq_cst
@@ -794,23 +794,23 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i24.i
   br i1 %tobool.i.i.i.i.i, label %if.end3.sink.split, label %if.end3
 
 if.else:                                          ; preds = %if.end
-  br i1 %cmp.not.i.i.i10, label %while.end.i.i.i42, label %rcu_read_auto_lock.exit.i11
+  br i1 %cmp.not.i.i.i10, label %while.end.i.i.i38, label %rcu_read_auto_lock.exit.i11
 
-while.end.i.i.i42:                                ; preds = %if.else
+while.end.i.i.i38:                                ; preds = %if.else
   %21 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
-  %conv8.i.i.i43 = and i64 %21, 4294967295
-  store atomic i64 %conv8.i.i.i43, ptr %call.i.i.i7 monotonic, align 8
+  %conv8.i.i.i39 = and i64 %21, 4294967295
+  store atomic i64 %conv8.i.i.i39, ptr %call.i.i.i7 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i11
 
-rcu_read_auto_lock.exit.i11:                      ; preds = %while.end.i.i.i42, %if.else
+rcu_read_auto_lock.exit.i11:                      ; preds = %while.end.i.i.i38, %if.else
   %22 = load ptr, ptr %vdev, align 8
   %23 = getelementptr i8, ptr %22, i64 184
   %.val.i13 = load i64, ptr %23, align 8
   %and.i.i.i14 = and i64 %.val.i13, 536870912
   %tobool.i.i.not.i15 = icmp eq i64 %and.i.i.i14, 0
-  br i1 %tobool.i.i.not.i15, label %if.else.i37, label %if.then.i
+  br i1 %tobool.i.i.not.i15, label %if.else.i36, label %if.then.i
 
 if.then.i:                                        ; preds = %rcu_read_auto_lock.exit.i11
   %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
@@ -825,28 +825,28 @@ if.end.i.i:                                       ; preds = %if.then.i
   %len.i.i.i.i.i16 = getelementptr inbounds i8, ptr %25, i64 144
   %26 = load i64, ptr %len.i.i.i.i.i16, align 16
   %switch.i.i17 = icmp ult i64 %26, 4
-  br i1 %switch.i.i17, label %if.else.i.i.i.i.i36, label %if.end.i.i.i.i.i18
+  br i1 %switch.i.i17, label %if.else.i.i.i.i.i35, label %if.end.i.i.i.i.i18
 
-if.else.i.i.i.i.i36:                              ; preds = %if.end.i.i
+if.else.i.i.i.i.i35:                              ; preds = %if.end.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
   unreachable
 
 if.end.i.i.i.i.i18:                               ; preds = %if.end.i.i
   %27 = load ptr, ptr %avail.i.i, align 16
   %tobool.not.i.i.i.i.i19 = icmp eq ptr %27, null
-  br i1 %tobool.not.i.i.i.i.i19, label %if.else8.i.i.i.i.i34, label %if.then5.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i19, label %if.else8.i.i.i.i.i33, label %if.then5.i.i.i.i.i
 
 if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i18
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %27, i64 2
   %add.ptr.val.i.i.i.i.i = load i16, ptr %add.ptr.i.i.i.i.i, align 1
   br label %virtio_lduw_phys_cached.exit.i.i20
 
-if.else8.i.i.i.i.i34:                             ; preds = %if.end.i.i.i.i.i18
-  %call10.i.i.i.i.i35 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef 2, i32 1, ptr noundef null) #21
+if.else8.i.i.i.i.i33:                             ; preds = %if.end.i.i.i.i.i18
+  %call10.i.i.i.i.i34 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef 2, i32 1, ptr noundef null) #21
   br label %virtio_lduw_phys_cached.exit.i.i20
 
-virtio_lduw_phys_cached.exit.i.i20:               ; preds = %if.else8.i.i.i.i.i34, %if.then5.i.i.i.i.i
-  %retval.0.i.i.i.i.i = phi i16 [ %add.ptr.val.i.i.i.i.i, %if.then5.i.i.i.i.i ], [ %call10.i.i.i.i.i35, %if.else8.i.i.i.i.i34 ]
+virtio_lduw_phys_cached.exit.i.i20:               ; preds = %if.else8.i.i.i.i.i33, %if.then5.i.i.i.i.i
+  %retval.0.i.i.i.i.i = phi i16 [ %add.ptr.val.i.i.i.i.i, %if.then5.i.i.i.i.i ], [ %call10.i.i.i.i.i34, %if.else8.i.i.i.i.i33 ]
   %shadow_avail_idx.i.i = getelementptr inbounds i8, ptr %vq, i64 60
   store i16 %retval.0.i.i.i.i.i, ptr %shadow_avail_idx.i.i, align 4
   br label %vring_avail_idx.exit.i
@@ -873,9 +873,9 @@ if.end3.i.i:                                      ; preds = %if.end.i6.i
   %len.i.i.i.i8.i = getelementptr inbounds i8, ptr %30, i64 256
   %34 = load i64, ptr %len.i.i.i.i8.i, align 16
   %cmp.i.i.i.i.i = icmp ugt i64 %34, %33
-  %sub.i.i.i.i.i = sub i64 %34, %33
-  %cmp2.i.i.i.i.i32 = icmp ugt i64 %sub.i.i.i.i.i, 1
-  %or.cond.i.i.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp2.i.i.i.i.i32
+  %sub.i.i.i.i.i = sub nuw i64 %34, %33
+  %cmp2.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i, 1
+  %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.end.i.i.i.i10.i, label %if.else.i.i.i.i9.i
 
 if.else.i.i.i.i9.i:                               ; preds = %if.end3.i.i
@@ -885,30 +885,30 @@ if.else.i.i.i.i9.i:                               ; preds = %if.end3.i.i
 if.end.i.i.i.i10.i:                               ; preds = %if.end3.i.i
   %35 = load ptr, ptr %used.i.i, align 16
   %tobool.not.i.i.i.i11.i = icmp eq ptr %35, null
-  br i1 %tobool.not.i.i.i.i11.i, label %if.else7.i.i.i.i.i33, label %if.then5.i.i.i.i12.i
+  br i1 %tobool.not.i.i.i.i11.i, label %if.else7.i.i.i.i.i32, label %if.then5.i.i.i.i12.i
 
 if.then5.i.i.i.i12.i:                             ; preds = %if.end.i.i.i.i10.i
   %add.ptr.i.i.i.i13.i = getelementptr i8, ptr %35, i64 %33
   store i16 %retval.0.i.i, ptr %add.ptr.i.i.i.i13.i, align 1
   br label %virtio_stw_phys_cached.exit.i.i
 
-if.else7.i.i.i.i.i33:                             ; preds = %if.end.i.i.i.i10.i
+if.else7.i.i.i.i.i32:                             ; preds = %if.end.i.i.i.i10.i
   tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %33, i16 noundef zeroext %retval.0.i.i, i32 1, ptr noundef null) #21
   br label %virtio_stw_phys_cached.exit.i.i
 
-virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i33, %if.then5.i.i.i.i12.i
+virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i32, %if.then5.i.i.i.i12.i
   tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i.i, i64 noundef %33, i64 noundef 2) #21
   br label %if.end5.i
 
-if.else.i37:                                      ; preds = %rcu_read_auto_lock.exit.i11
-  %tobool.not.i38 = icmp eq i32 %enable, 0
+if.else.i36:                                      ; preds = %rcu_read_auto_lock.exit.i11
+  %tobool.not.i37 = icmp eq i32 %enable, 0
   %caches.i.i28.i = getelementptr inbounds i8, ptr %vq, i64 40
   %36 = load atomic i64, ptr %caches.i.i28.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21
   %tobool.not.i29.i = icmp eq i64 %36, 0
-  br i1 %tobool.not.i38, label %if.else4.i, label %if.then3.i
+  br i1 %tobool.not.i37, label %if.else4.i, label %if.then3.i
 
-if.then3.i:                                       ; preds = %if.else.i37
+if.then3.i:                                       ; preds = %if.else.i36
   br i1 %tobool.not.i29.i, label %if.then7.i, label %if.end.i16.i
 
 if.end.i16.i:                                     ; preds = %if.then3.i
@@ -916,54 +916,54 @@ if.end.i16.i:                                     ; preds = %if.then3.i
   %used.i17.i = getelementptr inbounds i8, ptr %37, i64 240
   %len.i.i.i.i18.i = getelementptr inbounds i8, ptr %37, i64 256
   %38 = load i64, ptr %len.i.i.i.i18.i, align 16
-  %cmp2.i.i.i.i19.i = icmp ugt i64 %38, 1
-  br i1 %cmp2.i.i.i.i19.i, label %if.end.i.i.i.i21.i, label %if.else.i.i.i.i20.i
+  %switch.i19.i = icmp ult i64 %38, 2
+  br i1 %switch.i19.i, label %if.else.i.i.i.i27.i, label %if.end.i.i.i.i20.i
 
-if.else.i.i.i.i20.i:                              ; preds = %if.end.i16.i
+if.else.i.i.i.i27.i:                              ; preds = %if.end.i16.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
   unreachable
 
-if.end.i.i.i.i21.i:                               ; preds = %if.end.i16.i
+if.end.i.i.i.i20.i:                               ; preds = %if.end.i16.i
   %39 = load ptr, ptr %used.i17.i, align 16
-  %tobool.not.i.i.i.i22.i = icmp eq ptr %39, null
-  br i1 %tobool.not.i.i.i.i22.i, label %virtio_lduw_phys_cached.exit.i25.i, label %if.end.i.i.i12.thread.i.i
+  %tobool.not.i.i.i.i21.i = icmp eq ptr %39, null
+  br i1 %tobool.not.i.i.i.i21.i, label %virtio_lduw_phys_cached.exit.i24.i, label %if.end.i.i.i13.thread.i.i
 
-if.end.i.i.i12.thread.i.i:                        ; preds = %if.end.i.i.i.i21.i
-  %add.ptr.val.i.i.i.i23.i = load i16, ptr %39, align 1
-  %40 = and i16 %add.ptr.val.i.i.i.i23.i, -2
-  br label %if.then5.i.i.i14.i.i
+if.end.i.i.i13.thread.i.i:                        ; preds = %if.end.i.i.i.i20.i
+  %add.ptr.val.i.i.i.i22.i = load i16, ptr %39, align 1
+  %40 = and i16 %add.ptr.val.i.i.i.i22.i, -2
+  br label %if.then5.i.i.i15.i.i
 
-virtio_lduw_phys_cached.exit.i25.i:               ; preds = %if.end.i.i.i.i21.i
-  %call10.i.i.i.i26.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i17.i, i64 noundef 0, i32 1, ptr noundef null) #21
+virtio_lduw_phys_cached.exit.i24.i:               ; preds = %if.end.i.i.i.i20.i
+  %call10.i.i.i.i25.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i17.i, i64 noundef 0, i32 1, ptr noundef null) #21
   %.pre.i.i = load i64, ptr %len.i.i.i.i18.i, align 16
-  %41 = and i16 %call10.i.i.i.i26.i, -2
-  %cmp2.i.i.i10.i.i = icmp ugt i64 %.pre.i.i, 1
-  br i1 %cmp2.i.i.i10.i.i, label %if.end.i.i.i12.i.i40, label %if.else.i.i.i11.i.i39
+  %41 = and i16 %call10.i.i.i.i25.i, -2
+  %switch16.i.i = icmp ult i64 %.pre.i.i, 2
+  br i1 %switch16.i.i, label %if.else.i.i.i12.i.i, label %if.end.i.i.i13.i.i
 
-if.else.i.i.i11.i.i39:                            ; preds = %virtio_lduw_phys_cached.exit.i25.i
+if.else.i.i.i12.i.i:                              ; preds = %virtio_lduw_phys_cached.exit.i24.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
   unreachable
 
-if.end.i.i.i12.i.i40:                             ; preds = %virtio_lduw_phys_cached.exit.i25.i
+if.end.i.i.i13.i.i:                               ; preds = %virtio_lduw_phys_cached.exit.i24.i
   %.pr.i.i = load ptr, ptr %used.i17.i, align 16
-  %tobool.not.i.i.i13.i.i41 = icmp eq ptr %.pr.i.i, null
-  br i1 %tobool.not.i.i.i13.i.i41, label %if.else7.i.i.i.i27.i, label %if.then5.i.i.i14.i.i
+  %tobool.not.i.i.i14.i.i = icmp eq ptr %.pr.i.i, null
+  br i1 %tobool.not.i.i.i14.i.i, label %if.else7.i.i.i.i26.i, label %if.then5.i.i.i15.i.i
 
-if.then5.i.i.i14.i.i:                             ; preds = %if.end.i.i.i12.i.i40, %if.end.i.i.i12.thread.i.i
-  %42 = phi i16 [ %40, %if.end.i.i.i12.thread.i.i ], [ %41, %if.end.i.i.i12.i.i40 ]
-  %43 = phi ptr [ %39, %if.end.i.i.i12.thread.i.i ], [ %.pr.i.i, %if.end.i.i.i12.i.i40 ]
+if.then5.i.i.i15.i.i:                             ; preds = %if.end.i.i.i13.i.i, %if.end.i.i.i13.thread.i.i
+  %42 = phi i16 [ %40, %if.end.i.i.i13.thread.i.i ], [ %41, %if.end.i.i.i13.i.i ]
+  %43 = phi ptr [ %39, %if.end.i.i.i13.thread.i.i ], [ %.pr.i.i, %if.end.i.i.i13.i.i ]
   store i16 %42, ptr %43, align 1
-  br label %virtio_stw_phys_cached.exit.i24.i
+  br label %virtio_stw_phys_cached.exit.i23.i
 
-if.else7.i.i.i.i27.i:                             ; preds = %if.end.i.i.i12.i.i40
+if.else7.i.i.i.i26.i:                             ; preds = %if.end.i.i.i13.i.i
   tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i17.i, i64 noundef 0, i16 noundef zeroext %41, i32 1, ptr noundef null) #21
-  br label %virtio_stw_phys_cached.exit.i24.i
+  br label %virtio_stw_phys_cached.exit.i23.i
 
-virtio_stw_phys_cached.exit.i24.i:                ; preds = %if.else7.i.i.i.i27.i, %if.then5.i.i.i14.i.i
+virtio_stw_phys_cached.exit.i23.i:                ; preds = %if.else7.i.i.i.i26.i, %if.then5.i.i.i15.i.i
   tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i17.i, i64 noundef 0, i64 noundef 2) #21
   br label %if.then7.i
 
-if.else4.i:                                       ; preds = %if.else.i37
+if.else4.i:                                       ; preds = %if.else.i36
   br i1 %tobool.not.i29.i, label %if.then.i.i.i22, label %if.end.i30.i
 
 if.end.i30.i:                                     ; preds = %if.else4.i
@@ -971,50 +971,50 @@ if.end.i30.i:                                     ; preds = %if.else4.i
   %used.i31.i = getelementptr inbounds i8, ptr %44, i64 240
   %len.i.i.i.i32.i = getelementptr inbounds i8, ptr %44, i64 256
   %45 = load i64, ptr %len.i.i.i.i32.i, align 16
-  %cmp2.i.i.i.i33.i = icmp ugt i64 %45, 1
-  br i1 %cmp2.i.i.i.i33.i, label %if.end.i.i.i.i35.i, label %if.else.i.i.i.i34.i
+  %switch.i33.i = icmp ult i64 %45, 2
+  br i1 %switch.i33.i, label %if.else.i.i.i.i49.i, label %if.end.i.i.i.i34.i
 
-if.else.i.i.i.i34.i:                              ; preds = %if.end.i30.i
+if.else.i.i.i.i49.i:                              ; preds = %if.end.i30.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
   unreachable
 
-if.end.i.i.i.i35.i:                               ; preds = %if.end.i30.i
+if.end.i.i.i.i34.i:                               ; preds = %if.end.i30.i
   %46 = load ptr, ptr %used.i31.i, align 16
-  %tobool.not.i.i.i.i36.i = icmp eq ptr %46, null
-  br i1 %tobool.not.i.i.i.i36.i, label %virtio_lduw_phys_cached.exit.i41.i, label %if.end.i.i.i12.thread.i37.i
+  %tobool.not.i.i.i.i35.i = icmp eq ptr %46, null
+  br i1 %tobool.not.i.i.i.i35.i, label %virtio_lduw_phys_cached.exit.i40.i, label %if.end.i.i.i13.thread.i36.i
 
-if.end.i.i.i12.thread.i37.i:                      ; preds = %if.end.i.i.i.i35.i
-  %add.ptr.val.i.i.i.i38.i = load i16, ptr %46, align 1
-  %47 = or i16 %add.ptr.val.i.i.i.i38.i, 1
-  br label %if.then5.i.i.i14.i39.i
+if.end.i.i.i13.thread.i36.i:                      ; preds = %if.end.i.i.i.i34.i
+  %add.ptr.val.i.i.i.i37.i = load i16, ptr %46, align 1
+  %47 = or i16 %add.ptr.val.i.i.i.i37.i, 1
+  br label %if.then5.i.i.i15.i38.i
 
-virtio_lduw_phys_cached.exit.i41.i:               ; preds = %if.end.i.i.i.i35.i
-  %call10.i.i.i.i42.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i31.i, i64 noundef 0, i32 1, ptr noundef null) #21
-  %.pre.i43.i = load i64, ptr %len.i.i.i.i32.i, align 16
-  %48 = or i16 %call10.i.i.i.i42.i, 1
-  %cmp2.i.i.i10.i44.i = icmp ugt i64 %.pre.i43.i, 1
-  br i1 %cmp2.i.i.i10.i44.i, label %if.end.i.i.i12.i46.i, label %if.else.i.i.i11.i45.i
+virtio_lduw_phys_cached.exit.i40.i:               ; preds = %if.end.i.i.i.i34.i
+  %call10.i.i.i.i41.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i31.i, i64 noundef 0, i32 1, ptr noundef null) #21
+  %.pre.i42.i = load i64, ptr %len.i.i.i.i32.i, align 16
+  %48 = or i16 %call10.i.i.i.i41.i, 1
+  %switch16.i43.i = icmp ult i64 %.pre.i42.i, 2
+  br i1 %switch16.i43.i, label %if.else.i.i.i12.i48.i, label %if.end.i.i.i13.i44.i
 
-if.else.i.i.i11.i45.i:                            ; preds = %virtio_lduw_phys_cached.exit.i41.i
+if.else.i.i.i12.i48.i:                            ; preds = %virtio_lduw_phys_cached.exit.i40.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
   unreachable
 
-if.end.i.i.i12.i46.i:                             ; preds = %virtio_lduw_phys_cached.exit.i41.i
-  %.pr.i47.i = load ptr, ptr %used.i31.i, align 16
-  %tobool.not.i.i.i13.i48.i = icmp eq ptr %.pr.i47.i, null
-  br i1 %tobool.not.i.i.i13.i48.i, label %if.else7.i.i.i.i49.i, label %if.then5.i.i.i14.i39.i
+if.end.i.i.i13.i44.i:                             ; preds = %virtio_lduw_phys_cached.exit.i40.i
+  %.pr.i45.i = load ptr, ptr %used.i31.i, align 16
+  %tobool.not.i.i.i14.i46.i = icmp eq ptr %.pr.i45.i, null
+  br i1 %tobool.not.i.i.i14.i46.i, label %if.else7.i.i.i.i47.i, label %if.then5.i.i.i15.i38.i
 
-if.then5.i.i.i14.i39.i:                           ; preds = %if.end.i.i.i12.i46.i, %if.end.i.i.i12.thread.i37.i
-  %49 = phi i16 [ %47, %if.end.i.i.i12.thread.i37.i ], [ %48, %if.end.i.i.i12.i46.i ]
-  %50 = phi ptr [ %46, %if.end.i.i.i12.thread.i37.i ], [ %.pr.i47.i, %if.end.i.i.i12.i46.i ]
+if.then5.i.i.i15.i38.i:                           ; preds = %if.end.i.i.i13.i44.i, %if.end.i.i.i13.thread.i36.i
+  %49 = phi i16 [ %47, %if.end.i.i.i13.thread.i36.i ], [ %48, %if.end.i.i.i13.i44.i ]
+  %50 = phi ptr [ %46, %if.end.i.i.i13.thread.i36.i ], [ %.pr.i45.i, %if.end.i.i.i13.i44.i ]
   store i16 %49, ptr %50, align 1
-  br label %virtio_stw_phys_cached.exit.i40.i
+  br label %virtio_stw_phys_cached.exit.i39.i
 
-if.else7.i.i.i.i49.i:                             ; preds = %if.end.i.i.i12.i46.i
+if.else7.i.i.i.i47.i:                             ; preds = %if.end.i.i.i13.i44.i
   tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i31.i, i64 noundef 0, i16 noundef zeroext %48, i32 1, ptr noundef null) #21
-  br label %virtio_stw_phys_cached.exit.i40.i
+  br label %virtio_stw_phys_cached.exit.i39.i
 
-virtio_stw_phys_cached.exit.i40.i:                ; preds = %if.else7.i.i.i.i49.i, %if.then5.i.i.i14.i39.i
+virtio_stw_phys_cached.exit.i39.i:                ; preds = %if.else7.i.i.i.i47.i, %if.then5.i.i.i15.i38.i
   tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i31.i, i64 noundef 0, i64 noundef 2) #21
   br label %if.then.i.i.i22
 
@@ -1022,12 +1022,12 @@ if.end5.i:                                        ; preds = %virtio_stw_phys_cac
   %tobool6.not.i = icmp eq i32 %enable, 0
   br i1 %tobool6.not.i, label %if.then.i.i.i22, label %if.then7.i
 
-if.then7.i:                                       ; preds = %if.end5.i, %virtio_stw_phys_cached.exit.i24.i, %if.then3.i
+if.then7.i:                                       ; preds = %if.end5.i, %virtio_stw_phys_cached.exit.i23.i, %if.then3.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !11
   fence seq_cst
   br label %if.then.i.i.i22
 
-if.then.i.i.i22:                                  ; preds = %if.then7.i, %if.end5.i, %virtio_stw_phys_cached.exit.i40.i, %if.else4.i
+if.then.i.i.i22:                                  ; preds = %if.then7.i, %if.end5.i, %virtio_stw_phys_cached.exit.i39.i, %if.else4.i
   %call.i.i.i.i.i23 = tail call ptr @get_ptr_rcu_reader() #21
   %depth.i.i.i.i.i24 = getelementptr inbounds i8, ptr %call.i.i.i.i.i23, i64 12
   %51 = load i32, ptr %depth.i.i.i.i.i24, align 4
@@ -1059,7 +1059,7 @@ if.end3.sink.split:                               ; preds = %while.end.i.i.i.i.i
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
   br label %if.end3
 
-if.end3:                                          ; preds = %if.end3.sink.split, %while.end.i.i.i.i.i28, %if.end.i.i.i.i50.i, %while.end.i.i.i.i.i, %if.end.i.i.i.i24.i, %entry
+if.end3:                                          ; preds = %if.end3.sink.split, %while.end.i.i.i.i.i28, %if.end.i.i.i.i50.i, %while.end.i.i.i.i.i, %if.end.i.i.i.i25.i, %entry
   ret void
 }
 
@@ -1125,9 +1125,9 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load i64, ptr %len.i.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i.i = icmp ugt i64 %8, %add.i.i.i
-  %sub.i.i.i.i.i.i = sub i64 %8, %add.i.i.i
+  %sub.i.i.i.i.i.i = sub nuw i64 %8, %add.i.i.i
   %cmp2.i.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i.i, 1
-  %or.cond.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp2.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end7.i.i
@@ -1493,7 +1493,7 @@ entry:
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i32 %0, %num
+  %sub = sub nuw i32 %0, %num
   store i32 %sub, ptr %inuse, align 4
   %vdev = getelementptr inbounds i8, ptr %vq, i64 96
   %1 = load ptr, ptr %vdev, align 8
@@ -1707,9 +1707,9 @@ if.end.i.i:                                       ; preds = %if.end.i
   %len1.i.i.i = getelementptr inbounds i8, ptr %33, i64 256
   %36 = load i64, ptr %len1.i.i.i, align 16
   %cmp.i.i.i = icmp ule i64 %36, %35
-  %sub.i.i.i = sub i64 %36, %35
+  %sub.i.i.i = sub nuw i64 %36, %35
   %cmp3.not.i.i.i = icmp ult i64 %sub.i.i.i, 8
-  %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp3.not.i.i.i
+  %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp3.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
@@ -2322,7 +2322,7 @@ if.end60.i:                                       ; preds = %if.else58.i, %if.th
   %frombool72.i = zext i1 %cmp63.not.i to i8
   %wrap_counter.1.i = xor i8 %wrap_counter.091.i, %frombool72.i
   %sub68.i = select i1 %cmp63.not.i, i32 %30, i32 0
-  %idx.2.i = sub i32 %idx.1.i, %sub68.i
+  %idx.2.i = sub nuw i32 %idx.1.i, %sub68.i
   call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc2.i, i32 noundef %idx.2.i, i1 noundef zeroext true)
   %31 = load i16, ptr %flags.i, align 2
   %tobool3.i = trunc i8 %wrap_counter.1.i to i1
@@ -2480,9 +2480,9 @@ if.end.i.i32.i:                                   ; preds = %while.body.i
   %len.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %48, i64 144
   %51 = load i64, ptr %len.i.i.i.i.i34.i, align 16
   %cmp.i.i.i.i.i.i = icmp ugt i64 %51, %50
-  %sub.i.i.i.i.i.i = sub i64 %51, %50
+  %sub.i.i.i.i.i.i = sub nuw i64 %51, %50
   %cmp2.i.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i.i, 1
-  %or.cond.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp2.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i36.i, label %if.else.i.i.i.i.i35.i
 
 if.else.i.i.i.i.i35.i:                            ; preds = %if.end.i.i32.i
@@ -2520,9 +2520,9 @@ if.end.i38:                                       ; preds = %vring_avail_ring.ex
   %mul.i.i = shl nuw nsw i64 %conv.i47.i, 4
   %55 = load i64, ptr %len, align 16
   %cmp.i.i.i = icmp ule i64 %55, %mul.i.i
-  %sub.i.i.i = sub i64 %55, %mul.i.i
+  %sub.i.i.i = sub nuw i64 %55, %mul.i.i
   %cmp3.not.i.i.i = icmp ult i64 %sub.i.i.i, 16
-  %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp3.not.i.i.i
+  %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp3.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i48.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i38
@@ -2661,9 +2661,9 @@ if.end6.i.i:                                      ; preds = %if.end.i64.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i67.i, 4
   %70 = load i64, ptr %len1.i.i.i.i, align 16
   %cmp.i.i.i.i = icmp ule i64 %70, %mul.i.i.i
-  %sub.i.i.i.i = sub i64 %70, %mul.i.i.i
+  %sub.i.i.i.i = sub nuw i64 %70, %mul.i.i.i
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, 16
-  %or.cond.i.i.i.i = or i1 %cmp.i.i.i.i, %cmp3.not.i.i.i.i
+  %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end6.i.i
@@ -2990,9 +2990,9 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load i64, ptr %len.i.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i.i = icmp ugt i64 %10, %add.i.i.i
-  %sub.i.i.i.i.i.i = sub i64 %10, %add.i.i.i
+  %sub.i.i.i.i.i.i = sub nuw i64 %10, %add.i.i.i
   %cmp2.i.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i.i, 1
-  %or.cond.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp2.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end7.i.i
@@ -3482,9 +3482,9 @@ if.end.i.i58.i:                                   ; preds = %if.end6.i37
   %len.i.i.i.i.i60.i = getelementptr inbounds i8, ptr %83, i64 144
   %86 = load i64, ptr %len.i.i.i.i.i60.i, align 16
   %cmp.i.i.i.i.i.i40 = icmp ugt i64 %86, %85
-  %sub.i.i.i.i.i.i41 = sub i64 %86, %85
+  %sub.i.i.i.i.i.i41 = sub nuw i64 %86, %85
   %cmp2.i.i.i.i.i.i42 = icmp ugt i64 %sub.i.i.i.i.i.i41, 1
-  %or.cond.i.i.i.i.i.i43 = and i1 %cmp.i.i.i.i.i.i40, %cmp2.i.i.i.i.i.i42
+  %or.cond.i.i.i.i.i.i43 = select i1 %cmp.i.i.i.i.i.i40, i1 %cmp2.i.i.i.i.i.i42, i1 false
   br i1 %or.cond.i.i.i.i.i.i43, label %if.end.i.i.i.i.i62.i, label %if.else.i.i.i.i.i61.i
 
 if.else.i.i.i.i.i61.i:                            ; preds = %if.end.i.i58.i
@@ -3546,9 +3546,9 @@ if.end3.i.i:                                      ; preds = %if.end.i73.i
   %len.i.i.i.i.i = getelementptr inbounds i8, ptr %93, i64 256
   %97 = load i64, ptr %len.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i = icmp ugt i64 %97, %96
-  %sub.i.i.i.i.i = sub i64 %97, %96
+  %sub.i.i.i.i.i = sub nuw i64 %97, %96
   %cmp2.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i, 1
-  %or.cond.i.i.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp2.i.i.i.i.i
+  %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.end.i.i.i.i.i79, label %if.else.i.i.i.i.i78
 
 if.else.i.i.i.i.i78:                              ; preds = %if.end3.i.i
@@ -3601,9 +3601,9 @@ if.end24.i:                                       ; preds = %if.end17.i45
   %conv.i75.i = zext i16 %retval.0.i.i67.i to i64
   %mul.i.i = shl nuw nsw i64 %conv.i75.i, 4
   %cmp.i.i.i = icmp ule i64 %101, %mul.i.i
-  %sub.i.i.i = sub i64 %101, %mul.i.i
+  %sub.i.i.i = sub nuw i64 %101, %mul.i.i
   %cmp3.not.i.i.i = icmp ult i64 %sub.i.i.i, 16
-  %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp3.not.i.i.i
+  %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp3.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i76.i
 
 if.else.i.i.i:                                    ; preds = %if.end24.i
@@ -3739,9 +3739,9 @@ if.end6.i.i:                                      ; preds = %if.end.i80.i
   %mul.i.i.i58 = shl nuw nsw i64 %conv.i.i83.i, 4
   %120 = load i64, ptr %len1.i.i.i.i, align 16
   %cmp.i.i.i.i = icmp ule i64 %120, %mul.i.i.i58
-  %sub.i.i.i.i = sub i64 %120, %mul.i.i.i58
+  %sub.i.i.i.i = sub nuw i64 %120, %mul.i.i.i58
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, 16
-  %or.cond.i.i.i.i = or i1 %cmp.i.i.i.i, %cmp3.not.i.i.i.i
+  %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end6.i.i
@@ -4111,9 +4111,9 @@ if.end.i.i.i:                                     ; preds = %while.body.i9
   %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 144
   %41 = load i64, ptr %len.i.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i.i = icmp ugt i64 %41, %40
-  %sub.i.i.i.i.i.i = sub i64 %41, %40
+  %sub.i.i.i.i.i.i = sub nuw i64 %41, %40
   %cmp2.i.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i.i, 1
-  %or.cond.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp2.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
@@ -4177,9 +4177,9 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   %len.i.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 256
   %53 = load i64, ptr %len.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i = icmp ugt i64 %53, %52
-  %sub.i.i.i.i.i = sub i64 %53, %52
+  %sub.i.i.i.i.i = sub nuw i64 %53, %52
   %cmp2.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i, 1
-  %or.cond.i.i.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp2.i.i.i.i.i
+  %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.end.i.i.i.i.i18, label %if.else.i.i.i.i.i17
 
 if.else.i.i.i.i.i17:                              ; preds = %if.end3.i.i
@@ -5751,8 +5751,8 @@ if.end.i:                                         ; preds = %if.then
   %avail.i = getelementptr inbounds i8, ptr %2, i64 128
   %len.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 144
   %3 = load i64, ptr %len.i.i.i.i.i, align 16
-  %switch.i.i = icmp ult i64 %3, 4
-  br i1 %switch.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
+  %switch1.i.i = icmp ult i64 %3, 4
+  br i1 %switch1.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
@@ -5777,8 +5777,8 @@ virtio_lduw_phys_cached.exit.i.i:                 ; preds = %if.else8.i.i.i.i.i,
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !7
   fence acquire
   %5 = load i64, ptr %len.i.i.i.i.i, align 16
-  %cmp2.i.i.i9.i.i = icmp ugt i64 %5, 1
-  br i1 %cmp2.i.i.i9.i.i, label %if.end.i.i.i12.i.i, label %if.else.i.i.i11.i.i
+  %switch.i.i = icmp ult i64 %5, 2
+  br i1 %switch.i.i, label %if.else.i.i.i11.i.i, label %if.end.i.i.i12.i.i
 
 if.else.i.i.i11.i.i:                              ; preds = %virtio_lduw_phys_cached.exit.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
@@ -5885,10 +5885,10 @@ if.end.i.i:                                       ; preds = %if.then5.i
   %avail.i.i = getelementptr inbounds i8, ptr %16, i64 128
   %len.i.i.i.i.i12 = getelementptr inbounds i8, ptr %16, i64 144
   %17 = load i64, ptr %len.i.i.i.i.i12, align 16
-  %cmp2.i.i.i.i.i = icmp ugt i64 %17, 1
-  br i1 %cmp2.i.i.i.i.i, label %if.end.i.i.i.i.i14, label %if.else.i.i.i.i.i13
+  %switch.i.i13 = icmp ult i64 %17, 2
+  br i1 %switch.i.i13, label %if.else.i.i.i.i.i20, label %if.end.i.i.i.i.i14
 
-if.else.i.i.i.i.i13:                              ; preds = %if.end.i.i
+if.else.i.i.i.i.i20:                              ; preds = %if.end.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
   unreachable
 
@@ -5940,9 +5940,9 @@ if.end.i.i.i:                                     ; preds = %lor.rhs.i11
   %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 144
   %28 = load i64, ptr %len.i.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i.i = icmp ugt i64 %28, %27
-  %sub.i.i.i.i.i.i = sub i64 %28, %27
+  %sub.i.i.i.i.i.i = sub nuw i64 %28, %27
   %cmp2.i.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i.i, 1
-  %or.cond.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp2.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
@@ -8592,9 +8592,9 @@ if.end.i:                                         ; preds = %if.then13
   %len.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 144
   %11 = load i64, ptr %len.i.i.i.i, align 16
   %cmp.i.i.i.i = icmp ugt i64 %11, %10
-  %sub.i.i.i.i = sub i64 %11, %10
+  %sub.i.i.i.i = sub nuw i64 %11, %10
   %cmp2.i.i.i.i = icmp ugt i64 %sub.i.i.i.i, 1
-  %or.cond.i.i.i.i = and i1 %cmp.i.i.i.i, %cmp2.i.i.i.i
+  %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.end.i.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i
@@ -8633,9 +8633,9 @@ if.end.i57:                                       ; preds = %if.else19
   %len.i.i.i.i60 = getelementptr inbounds i8, ptr %14, i64 144
   %17 = load i64, ptr %len.i.i.i.i60, align 16
   %cmp.i.i.i.i61 = icmp ugt i64 %17, %16
-  %sub.i.i.i.i62 = sub i64 %17, %16
+  %sub.i.i.i.i62 = sub nuw i64 %17, %16
   %cmp2.i.i.i.i63 = icmp ugt i64 %sub.i.i.i.i62, 1
-  %or.cond.i.i.i.i64 = and i1 %cmp.i.i.i.i61, %cmp2.i.i.i.i63
+  %or.cond.i.i.i.i64 = select i1 %cmp.i.i.i.i61, i1 %cmp2.i.i.i.i63, i1 false
   br i1 %or.cond.i.i.i.i64, label %if.end.i.i.i.i66, label %if.else.i.i.i.i65
 
 if.else.i.i.i.i65:                                ; preds = %if.end.i57
@@ -8687,9 +8687,9 @@ if.end36:                                         ; preds = %if.end30
   %conv.i75 = zext i16 %head.0.in to i64
   %mul.i = shl nuw nsw i64 %conv.i75, 4
   %cmp.i.i = icmp ule i64 %21, %mul.i
-  %sub.i.i = sub i64 %21, %mul.i
+  %sub.i.i = sub nuw i64 %21, %mul.i
   %cmp3.not.i.i = icmp ult i64 %sub.i.i, 16
-  %or.cond.i.i = or i1 %cmp.i.i, %cmp3.not.i.i
+  %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp3.not.i.i
   br i1 %or.cond.i.i, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.end36
@@ -8765,48 +8765,48 @@ if.end.i79:                                       ; preds = %if.end54
   %avail.i80 = getelementptr inbounds i8, ptr %31, i64 128
   %len.i.i.i.i81 = getelementptr inbounds i8, ptr %31, i64 144
   %32 = load i64, ptr %len.i.i.i.i81, align 16
-  %cmp2.i.i.i.i82 = icmp ugt i64 %32, 1
-  br i1 %cmp2.i.i.i.i82, label %if.end.i.i.i.i84, label %if.else.i.i.i.i83
+  %switch.i = icmp ult i64 %32, 2
+  br i1 %switch.i, label %if.else.i.i.i.i89, label %if.end.i.i.i.i82
 
-if.else.i.i.i.i83:                                ; preds = %if.end.i79
+if.else.i.i.i.i89:                                ; preds = %if.end.i79
   call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
   unreachable
 
-if.end.i.i.i.i84:                                 ; preds = %if.end.i79
+if.end.i.i.i.i82:                                 ; preds = %if.end.i79
   %33 = load ptr, ptr %avail.i80, align 16
-  %tobool.not.i.i.i.i85 = icmp eq ptr %33, null
-  br i1 %tobool.not.i.i.i.i85, label %if.else8.i.i.i.i89, label %if.then5.i.i.i.i86
+  %tobool.not.i.i.i.i83 = icmp eq ptr %33, null
+  br i1 %tobool.not.i.i.i.i83, label %if.else8.i.i.i.i87, label %if.then5.i.i.i.i84
 
-if.then5.i.i.i.i86:                               ; preds = %if.end.i.i.i.i84
-  %add.ptr.val.i.i.i.i87 = load i16, ptr %33, align 1
+if.then5.i.i.i.i84:                               ; preds = %if.end.i.i.i.i82
+  %add.ptr.val.i.i.i.i85 = load i16, ptr %33, align 1
   br label %vring_avail_flags.exit
 
-if.else8.i.i.i.i89:                               ; preds = %if.end.i.i.i.i84
-  %call10.i.i.i.i90 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i80, i64 noundef 0, i32 1, ptr noundef null) #21
+if.else8.i.i.i.i87:                               ; preds = %if.end.i.i.i.i82
+  %call10.i.i.i.i88 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i80, i64 noundef 0, i32 1, ptr noundef null) #21
   br label %vring_avail_flags.exit
 
-vring_avail_flags.exit:                           ; preds = %if.end54, %if.then5.i.i.i.i86, %if.else8.i.i.i.i89
-  %retval.0.i88 = phi i16 [ 0, %if.end54 ], [ %add.ptr.val.i.i.i.i87, %if.then5.i.i.i.i86 ], [ %call10.i.i.i.i90, %if.else8.i.i.i.i89 ]
-  store i16 %retval.0.i88, ptr %call56, align 2
+vring_avail_flags.exit:                           ; preds = %if.end54, %if.then5.i.i.i.i84, %if.else8.i.i.i.i87
+  %retval.0.i86 = phi i16 [ 0, %if.end54 ], [ %add.ptr.val.i.i.i.i85, %if.then5.i.i.i.i84 ], [ %call10.i.i.i.i88, %if.else8.i.i.i.i87 ]
+  store i16 %retval.0.i86, ptr %call56, align 2
   %34 = load atomic i64, ptr %caches.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
-  %tobool.not.i92 = icmp eq i64 %34, 0
-  br i1 %tobool.not.i92, label %vring_avail_idx.exit, label %if.end.i93
+  %tobool.not.i91 = icmp eq i64 %34, 0
+  br i1 %tobool.not.i91, label %vring_avail_idx.exit, label %if.end.i92
 
-if.end.i93:                                       ; preds = %vring_avail_flags.exit
+if.end.i92:                                       ; preds = %vring_avail_flags.exit
   %35 = inttoptr i64 %34 to ptr
-  %avail.i94 = getelementptr inbounds i8, ptr %35, i64 128
-  %len.i.i.i.i95 = getelementptr inbounds i8, ptr %35, i64 144
-  %36 = load i64, ptr %len.i.i.i.i95, align 16
-  %switch.i = icmp ult i64 %36, 4
-  br i1 %switch.i, label %if.else.i.i.i.i104, label %if.end.i.i.i.i96
+  %avail.i93 = getelementptr inbounds i8, ptr %35, i64 128
+  %len.i.i.i.i94 = getelementptr inbounds i8, ptr %35, i64 144
+  %36 = load i64, ptr %len.i.i.i.i94, align 16
+  %switch.i95 = icmp ult i64 %36, 4
+  br i1 %switch.i95, label %if.else.i.i.i.i104, label %if.end.i.i.i.i96
 
-if.else.i.i.i.i104:                               ; preds = %if.end.i93
+if.else.i.i.i.i104:                               ; preds = %if.end.i92
   call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
   unreachable
 
-if.end.i.i.i.i96:                                 ; preds = %if.end.i93
-  %37 = load ptr, ptr %avail.i94, align 16
+if.end.i.i.i.i96:                                 ; preds = %if.end.i92
+  %37 = load ptr, ptr %avail.i93, align 16
   %tobool.not.i.i.i.i97 = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i.i97, label %if.else8.i.i.i.i102, label %if.then5.i.i.i.i98
 
@@ -8816,7 +8816,7 @@ if.then5.i.i.i.i98:                               ; preds = %if.end.i.i.i.i96
   br label %virtio_lduw_phys_cached.exit.i
 
 if.else8.i.i.i.i102:                              ; preds = %if.end.i.i.i.i96
-  %call10.i.i.i.i103 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i94, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i103 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i93, i64 noundef 2, i32 1, ptr noundef null) #21
   br label %virtio_lduw_phys_cached.exit.i
 
 virtio_lduw_phys_cached.exit.i:                   ; preds = %if.else8.i.i.i.i102, %if.then5.i.i.i.i98
@@ -8841,29 +8841,29 @@ if.end.i107:                                      ; preds = %vring_avail_idx.exi
   %used.i = getelementptr inbounds i8, ptr %39, i64 240
   %len.i.i.i.i108 = getelementptr inbounds i8, ptr %39, i64 256
   %40 = load i64, ptr %len.i.i.i.i108, align 16
-  %cmp2.i.i.i.i109 = icmp ugt i64 %40, 1
-  br i1 %cmp2.i.i.i.i109, label %if.end.i.i.i.i111, label %if.else.i.i.i.i110
+  %switch.i109 = icmp ult i64 %40, 2
+  br i1 %switch.i109, label %if.else.i.i.i.i117, label %if.end.i.i.i.i110
 
-if.else.i.i.i.i110:                               ; preds = %if.end.i107
+if.else.i.i.i.i117:                               ; preds = %if.end.i107
   call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
   unreachable
 
-if.end.i.i.i.i111:                                ; preds = %if.end.i107
+if.end.i.i.i.i110:                                ; preds = %if.end.i107
   %41 = load ptr, ptr %used.i, align 16
-  %tobool.not.i.i.i.i112 = icmp eq ptr %41, null
-  br i1 %tobool.not.i.i.i.i112, label %if.else8.i.i.i.i116, label %if.then5.i.i.i.i113
+  %tobool.not.i.i.i.i111 = icmp eq ptr %41, null
+  br i1 %tobool.not.i.i.i.i111, label %if.else8.i.i.i.i115, label %if.then5.i.i.i.i112
 
-if.then5.i.i.i.i113:                              ; preds = %if.end.i.i.i.i111
-  %add.ptr.val.i.i.i.i114 = load i16, ptr %41, align 1
+if.then5.i.i.i.i112:                              ; preds = %if.end.i.i.i.i110
+  %add.ptr.val.i.i.i.i113 = load i16, ptr %41, align 1
   br label %vring_used_flags.exit
 
-if.else8.i.i.i.i116:                              ; preds = %if.end.i.i.i.i111
-  %call10.i.i.i.i117 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 0, i32 1, ptr noundef null) #21
+if.else8.i.i.i.i115:                              ; preds = %if.end.i.i.i.i110
+  %call10.i.i.i.i116 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 0, i32 1, ptr noundef null) #21
   br label %vring_used_flags.exit
 
-vring_used_flags.exit:                            ; preds = %vring_avail_idx.exit, %if.then5.i.i.i.i113, %if.else8.i.i.i.i116
-  %retval.0.i115 = phi i16 [ 0, %vring_avail_idx.exit ], [ %add.ptr.val.i.i.i.i114, %if.then5.i.i.i.i113 ], [ %call10.i.i.i.i117, %if.else8.i.i.i.i116 ]
-  store i16 %retval.0.i115, ptr %call57, align 2
+vring_used_flags.exit:                            ; preds = %vring_avail_idx.exit, %if.then5.i.i.i.i112, %if.else8.i.i.i.i115
+  %retval.0.i114 = phi i16 [ 0, %vring_avail_idx.exit ], [ %add.ptr.val.i.i.i.i113, %if.then5.i.i.i.i112 ], [ %call10.i.i.i.i116, %if.else8.i.i.i.i115 ]
+  store i16 %retval.0.i114, ptr %call57, align 2
   %42 = load atomic i64, ptr %caches.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
   %tobool.not.i119 = icmp eq i64 %42, 0
@@ -8976,9 +8976,9 @@ if.end6.i:                                        ; preds = %if.end.i136
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 4
   %56 = load i64, ptr %len1.i.i.i, align 16
   %cmp.i.i.i = icmp ule i64 %56, %mul.i.i
-  %sub.i.i.i = sub i64 %56, %mul.i.i
+  %sub.i.i.i = sub nuw i64 %56, %mul.i.i
   %cmp3.not.i.i.i = icmp ult i64 %sub.i.i.i, 16
-  %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp3.not.i.i.i
+  %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp3.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end6.i
@@ -9059,9 +9059,9 @@ entry:
   %len1.i = getelementptr inbounds i8, ptr %cache, i64 16
   %0 = load i64, ptr %len1.i, align 16
   %cmp.i = icmp ule i64 %0, %mul
-  %sub.i = sub i64 %0, %mul
+  %sub.i = sub nuw i64 %0, %mul
   %cmp3.not.i = icmp ult i64 %sub.i, 16
-  %or.cond.i = or i1 %cmp.i, %cmp3.not.i
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp3.not.i
   br i1 %or.cond.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
@@ -9169,9 +9169,9 @@ if.end43:                                         ; preds = %if.end
   %len1.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %len1.i.i.i, align 16
   %cmp.i.i.i = icmp ule i64 %9, %add.i.i
-  %sub.i.i.i = sub i64 %9, %add.i.i
+  %sub.i.i.i = sub nuw i64 %9, %add.i.i
   %cmp3.not.i.i.i = icmp ult i64 %sub.i.i.i, 2
-  %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp3.not.i.i.i
+  %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp3.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end43
@@ -9196,9 +9196,9 @@ address_space_write_cached.exit.i.i:              ; preds = %if.else8.i.i.i, %if
   call void @address_space_cache_invalidate(ptr noundef nonnull %desc44, i64 noundef %add.i.i, i64 noundef 2) #21
   %11 = load i64, ptr %len1.i.i.i, align 16
   %cmp.i12.i.i = icmp ule i64 %11, %add3.i.i
-  %sub.i13.i.i = sub i64 %11, %add3.i.i
+  %sub.i13.i.i = sub nuw i64 %11, %add3.i.i
   %cmp3.not.i14.i.i = icmp ult i64 %sub.i13.i.i, 4
-  %or.cond.i15.i.i = or i1 %cmp.i12.i.i, %cmp3.not.i14.i.i
+  %or.cond.i15.i.i = select i1 %cmp.i12.i.i, i1 true, i1 %cmp3.not.i14.i.i
   br i1 %or.cond.i15.i.i, label %if.else.i23.i.i, label %if.end.i16.i.i
 
 if.else.i23.i.i:                                  ; preds = %address_space_write_cached.exit.i.i
@@ -9234,9 +9234,9 @@ if.end.i:                                         ; preds = %if.then.i, %vring_p
   %add.i7.i = or disjoint i64 %mul.i.i, 14
   %14 = load i64, ptr %len1.i.i.i, align 16
   %cmp.i.i.i.i.i = icmp ugt i64 %14, %add.i7.i
-  %sub.i.i.i.i.i = sub i64 %14, %add.i7.i
+  %sub.i.i.i.i.i = sub nuw i64 %14, %add.i7.i
   %cmp2.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i, 1
-  %or.cond.i.i.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp2.i.i.i.i.i
+  %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i
@@ -9277,9 +9277,9 @@ entry:
   %len.i.i.i.i = getelementptr inbounds i8, ptr %cache, i64 16
   %0 = load i64, ptr %len.i.i.i.i, align 16
   %cmp.i.i.i.i = icmp ugt i64 %0, %add.i
-  %sub.i.i.i.i = sub i64 %0, %add.i
+  %sub.i.i.i.i = sub nuw i64 %0, %add.i
   %cmp2.i.i.i.i = icmp ugt i64 %sub.i.i.i.i, 1
-  %or.cond.i.i.i.i = and i1 %cmp.i.i.i.i, %cmp2.i.i.i.i
+  %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp2.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %if.end.i.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %entry
@@ -9313,9 +9313,9 @@ if.then:                                          ; preds = %vring_packed_desc_r
 if.end:                                           ; preds = %if.then, %vring_packed_desc_read_flags.exit
   %2 = load i64, ptr %len.i.i.i.i, align 16
   %cmp.i = icmp ule i64 %2, %mul.i
-  %sub.i = sub i64 %2, %mul.i
+  %sub.i = sub nuw i64 %2, %mul.i
   %cmp3.not.i = icmp ult i64 %sub.i, 8
-  %or.cond.i = or i1 %cmp.i, %cmp3.not.i
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp3.not.i
   br i1 %or.cond.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %if.end
@@ -9342,9 +9342,9 @@ address_space_read_cached.exit:                   ; preds = %if.then6.i, %if.els
   %id = getelementptr inbounds i8, ptr %desc, i64 12
   %5 = load i64, ptr %len.i.i.i.i, align 16
   %cmp.i17 = icmp ule i64 %5, %add1
-  %sub.i18 = sub i64 %5, %add1
+  %sub.i18 = sub nuw i64 %5, %add1
   %cmp3.not.i19 = icmp ult i64 %sub.i18, 2
-  %or.cond.i20 = or i1 %cmp.i17, %cmp3.not.i19
+  %or.cond.i20 = select i1 %cmp.i17, i1 true, i1 %cmp3.not.i19
   br i1 %or.cond.i20, label %if.else.i28, label %if.end.i21
 
 if.else.i28:                                      ; preds = %address_space_read_cached.exit
@@ -9371,9 +9371,9 @@ address_space_read_cached.exit29:                 ; preds = %if.then6.i23, %if.e
   %len = getelementptr inbounds i8, ptr %desc, i64 8
   %8 = load i64, ptr %len.i.i.i.i, align 16
   %cmp.i31 = icmp ule i64 %8, %add3
-  %sub.i32 = sub i64 %8, %add3
+  %sub.i32 = sub nuw i64 %8, %add3
   %cmp3.not.i33 = icmp ult i64 %sub.i32, 4
-  %or.cond.i34 = or i1 %cmp.i31, %cmp3.not.i33
+  %or.cond.i34 = select i1 %cmp.i31, i1 true, i1 %cmp3.not.i33
   br i1 %or.cond.i34, label %if.else.i42, label %if.end.i35
 
 if.else.i42:                                      ; preds = %address_space_read_cached.exit29

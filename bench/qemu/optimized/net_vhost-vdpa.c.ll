@@ -2466,9 +2466,9 @@ land.lhs.true1.i45.i:                             ; preds = %if.end.i.land.lhs.t
   %18 = phi ptr [ %11, %if.end.thread.i ], [ %.pre74.i, %if.end.i.land.lhs.true1.i45.i_crit_edge ]
   %19 = phi i32 [ %12, %if.end.thread.i ], [ %.pre75.i, %if.end.i.land.lhs.true1.i45.i_crit_edge ]
   %cmp.not.i47.i = icmp ult i64 %17, %conv1186.i
-  %sub.i48.i = sub i64 %17, %conv1186.i
+  %sub.i48.i = sub nuw i64 %17, %conv1186.i
   %cmp5.not.i49.i = icmp ult i64 %sub.i48.i, 4
-  %or.cond13.i50.i = or i1 %cmp.not.i47.i, %cmp5.not.i49.i
+  %or.cond13.i50.i = select i1 %cmp.not.i47.i, i1 true, i1 %cmp5.not.i49.i
   br i1 %or.cond13.i50.i, label %iov_to_buf.exit53.i, label %iov_to_buf.exit53.thread.i
 
 iov_to_buf.exit53.thread.i:                       ; preds = %land.lhs.true1.i45.i

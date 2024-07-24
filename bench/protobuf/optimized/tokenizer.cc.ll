@@ -5765,7 +5765,7 @@ lpad.body:                                        ; preds = %lpad.loopexit, %lpa
   br label %eh.resume
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not7.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not7.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i
 

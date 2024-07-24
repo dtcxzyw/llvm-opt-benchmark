@@ -7007,7 +7007,7 @@ define dso_local void @_ZN20cmComputeLinkDepends16OrderLinkEntriesEv(ptr noundef
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %1
-  %23 = sub i64 %13, %20
+  %23 = sub nuw i64 %13, %20
   call void @_ZNSt6vectorIcSaIcEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPcS1_EEmRKc(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr %16, i64 noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
   br label %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit
 
@@ -7043,7 +7043,7 @@ _ZNSt6vectorIcSaIcEE6resizeEmRKc.exit:            ; preds = %22, %24, %26, %28
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr %37, i64 noundef %45, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.pre = load i64, ptr %2, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
@@ -25900,7 +25900,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPcmccET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = sub i64 %2, %16
+  %29 = sub nuw i64 %2, %16
   %30 = getelementptr inbounds i8, ptr %9, i64 %29
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 %14, i64 %29, i1 false)
   br label %_ZSt24__uninitialized_fill_n_aIPcmccET_S1_T0_RKT1_RSaIT2_E.exit
@@ -26054,7 +26054,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

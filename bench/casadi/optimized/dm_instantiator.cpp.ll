@@ -3407,7 +3407,7 @@ _ZN6casadi8SparsityaSEOS0_.exit:                  ; preds = %135
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %_ZN6casadi8SparsityaSEOS0_.exit
-  %149 = sub i64 %139, %146
+  %149 = sub nuw i64 %139, %146
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %149)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %172
 
@@ -8335,7 +8335,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %30, %33
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %._crit_edge
-  %45 = sub nsw i64 %.lcssa, %42
+  %45 = sub nuw nsw i64 %.lcssa, %42
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %45)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %30
 
@@ -12417,7 +12417,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %31, %34
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %._crit_edge
-  %46 = sub nsw i64 %.lcssa, %43
+  %46 = sub nuw nsw i64 %.lcssa, %43
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %46)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %31
 
@@ -48487,7 +48487,7 @@ define weak_odr void @_ZN6casadi6MatrixIdE11print_splitExPKdRSt6vectorINSt7__cxx
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %4
-  %17 = sub i64 %0, %14
+  %17 = sub nuw i64 %0, %14
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %17)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
@@ -56097,7 +56097,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
-  %94 = sub i64 %84, %91
+  %94 = sub nuw i64 %84, %91
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %94)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre11.i = load ptr, ptr %85, align 8
@@ -69974,7 +69974,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPddET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds double, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1

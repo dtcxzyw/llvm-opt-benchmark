@@ -380,7 +380,7 @@ clist_append.exit26:                              ; preds = %._crit_edge.i.i20, 
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds i8, ptr %66, i64 %64
-  %75 = sub i64 %65, %64
+  %75 = sub nuw i64 %65, %64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %74, i8 0, i64 %75, i1 false)
   br label %clist_shrink_to_fit.exit
 

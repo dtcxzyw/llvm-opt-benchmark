@@ -1614,7 +1614,7 @@ if.then.i:                                        ; preds = %invoke.cont38, %.no
           to label %.noexc unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %if.then.i
-  %sub.i = sub i32 %symbol.addr.011.i, %shl12.i
+  %sub.i = sub nuw i32 %symbol.addr.011.i, %shl12.i
   %inc.i = add nuw nsw i32 %k.addr.010.i, 1
   %shl.i = shl nuw i32 2, %k.addr.010.i
   %cmp.not.i = icmp ult i32 %sub.i, %shl.i

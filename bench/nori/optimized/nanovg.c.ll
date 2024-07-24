@@ -43198,28 +43198,28 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr nocapture no
   br i1 %52, label %53, label %.loopexit
 
 53:                                               ; preds = %49
-  %54 = zext nneg i8 %51 to i32
-  %55 = getelementptr inbounds [256 x i16], ptr %20, i64 0, i64 %indvars.iv101
-  %56 = load i16, ptr %55, align 2
-  %57 = zext i16 %56 to i32
-  %58 = sub nuw nsw i32 9, %54
-  %59 = shl nuw nsw i32 %57, %58
-  %60 = trunc i64 %indvars.iv101 to i8
-  %61 = zext nneg i32 %59 to i64
-  br label %62
+  %54 = getelementptr inbounds [256 x i16], ptr %20, i64 0, i64 %indvars.iv101
+  %55 = load i16, ptr %54, align 2
+  %56 = zext i16 %55 to i32
+  %narrow = sub nuw nsw i8 9, %51
+  %57 = zext nneg i8 %narrow to i32
+  %58 = shl nuw nsw i32 %56, %57
+  %59 = trunc i64 %indvars.iv101 to i8
+  %60 = zext nneg i32 %58 to i64
+  br label %61
 
-62:                                               ; preds = %53, %62
-  %indvars.iv98 = phi i64 [ 0, %53 ], [ %indvars.iv.next99, %62 ]
-  %63 = add nuw nsw i64 %indvars.iv98, %61
-  %64 = getelementptr inbounds [512 x i8], ptr %0, i64 0, i64 %63
-  store i8 %60, ptr %64, align 1
+61:                                               ; preds = %53, %61
+  %indvars.iv98 = phi i64 [ 0, %53 ], [ %indvars.iv.next99, %61 ]
+  %62 = add nuw nsw i64 %indvars.iv98, %60
+  %63 = getelementptr inbounds [512 x i8], ptr %0, i64 0, i64 %62
+  store i8 %59, ptr %63, align 1
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %65 = trunc nuw nsw i64 %indvars.iv.next99 to i32
-  %.2.highbits = lshr i32 %65, %58
-  %66 = icmp eq i32 %.2.highbits, 0
-  br i1 %66, label %62, label %.loopexit, !llvm.loop !263
+  %64 = trunc nuw nsw i64 %indvars.iv.next99 to i32
+  %.2.highbits = lshr i32 %64, %57
+  %65 = icmp eq i32 %.2.highbits, 0
+  br i1 %65, label %61, label %.loopexit, !llvm.loop !263
 
-.loopexit:                                        ; preds = %62, %49
+.loopexit:                                        ; preds = %61, %49
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count
   br i1 %exitcond104.not, label %.loopexit63, label %49, !llvm.loop !264

@@ -1535,7 +1535,7 @@ dissect_lbmsrs_stream_request.exit:               ; preds = %74, %77
   %.0169228.i = phi i32 [ %.2171.i, %92 ], [ 0, %85 ]
   %.0172227.i = phi i32 [ %.3175.i, %92 ], [ 0, %85 ]
   %.0176226.i = phi i32 [ %.3179.i, %92 ], [ 0, %85 ]
-  %95 = sub i32 %86, %.061236.i
+  %95 = sub nuw i32 %86, %.061236.i
   %96 = icmp ult i32 %95, 2
   br i1 %96, label %97, label %100
 

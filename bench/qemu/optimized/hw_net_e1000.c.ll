@@ -1359,7 +1359,7 @@ do.body.i.i:                                      ; preds = %if.end123.i.i, %if.
 if.end57.i.i:                                     ; preds = %do.body.i.i
   %add60.i.i = add i32 %split_size.0.i.i, %conv53.i.i
   %cmp61.i.i = icmp ugt i32 %add60.i.i, %add.i23.i
-  %sub.i.i = sub nsw i32 %add.i23.i, %conv53.i.i
+  %sub.i.i = sub nuw nsw i32 %add.i23.i, %conv53.i.i
   %spec.select.i.i = select i1 %cmp61.i.i, i32 %sub.i.i, i32 %split_size.0.i.i
   %conv68.i.i = zext i16 %23 to i64
   %sub69.i.i = sub nuw nsw i64 65536, %conv68.i.i
@@ -2112,7 +2112,7 @@ while.body:                                       ; preds = %iov_from_buf.exit, 
   %10 = phi i64 [ %11, %while.body ], [ %9, %iov_from_buf.exit ]
   %iov.addr.0137 = phi ptr [ %incdec.ptr, %while.body ], [ %iov, %iov_from_buf.exit ]
   %iov_ofs.0136 = phi i64 [ %sub, %while.body ], [ 4, %iov_from_buf.exit ]
-  %sub = sub i64 %iov_ofs.0136, %10
+  %sub = sub nuw i64 %iov_ofs.0136, %10
   %incdec.ptr = getelementptr i8, ptr %iov.addr.0137, i64 16
   %iov_len38 = getelementptr i8, ptr %iov.addr.0137, i64 24
   %11 = load i64, ptr %iov_len38, align 8
@@ -2237,7 +2237,7 @@ if.then72:                                        ; preds = %do.body
   br i1 %cmp73, label %if.then75, label %if.end105
 
 if.then75:                                        ; preds = %if.then72
-  %sub78 = sub i64 %size.0, %desc_offset.0
+  %sub78 = sub nuw i64 %size.0, %desc_offset.0
   %31 = load i32, ptr %rxbuf_size.i, align 16
   %conv80 = zext i32 %31 to i64
   %spec.select98 = call i64 @llvm.umin.i64(i64 %sub78, i64 %conv80)

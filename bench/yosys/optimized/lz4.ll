@@ -1532,7 +1532,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %86
 124:                                              ; preds = %118
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr align 1 %122, i64 %120, i1 false)
   %125 = getelementptr inbounds i8, ptr %70, i64 %120
-  %126 = sub i64 %113, %120
+  %126 = sub nuw i64 %113, %120
   %127 = ptrtoint ptr %125 to i64
   %128 = sub i64 %127, %48
   %129 = icmp ugt i64 %126, %128

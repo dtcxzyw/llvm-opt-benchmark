@@ -1374,7 +1374,7 @@ _ZN14ZPageAllocator17increase_capacityEm.exit:    ; preds = %28, %34
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %_ZN14ZPageAllocator17increase_capacityEm.exit
-  %38 = sub i64 %2, %33
+  %38 = sub nuw i64 %2, %33
   tail call void @_ZN10ZPageCache20flush_for_allocationEmP5ZListI5ZPageE(ptr noundef nonnull align 8 dereferenceable(64) %15, i64 noundef %38, ptr noundef %3) #13
   br label %39
 
@@ -1446,7 +1446,7 @@ _ZN14ZPageAllocator17increase_capacityEm.exit.i:  ; preds = %36, %30
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %_ZN14ZPageAllocator17increase_capacityEm.exit.i
-  %40 = sub i64 %5, %35
+  %40 = sub nuw i64 %5, %35
   tail call void @_ZN10ZPageCache20flush_for_allocationEmP5ZListI5ZPageE(ptr noundef nonnull align 8 dereferenceable(64) %17, i64 noundef %40, ptr noundef nonnull %6) #13
   br label %41
 
@@ -1842,7 +1842,7 @@ _ZN23ZListRemoveIteratorImplI5ZPageLb1EE4nextEPPS0_.exit.thread: ; preds = %19, 
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %_ZN23ZListRemoveIteratorImplI5ZPageLb1EE4nextEPPS0_.exit.thread
-  %60 = sub i64 %6, %.024.lcssa37
+  %60 = sub nuw i64 %6, %.024.lcssa37
   %61 = getelementptr inbounds i8, ptr %1, i64 40
   store i64 %60, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 232

@@ -771,9 +771,9 @@ define internal i32 @cabd_extract(ptr noundef %0, ptr noundef readonly %1, ptr n
   %42 = load i32, ptr %41, align 4
   %43 = shl i32 %42, 15
   %44 = icmp ugt i32 %13, %43
-  %45 = sub i32 %43, %13
+  %45 = sub nuw i32 %43, %13
   %46 = icmp ugt i32 %.0112, %45
-  %or.cond = or i1 %44, %46
+  %or.cond = select i1 %44, i1 true, i1 %46
   br i1 %or.cond, label %47, label %53
 
 47:                                               ; preds = %40

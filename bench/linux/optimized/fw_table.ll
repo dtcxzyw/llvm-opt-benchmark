@@ -173,7 +173,7 @@ acpi_get_entry_type.exit:                         ; preds = %31, %32, %35, %38, 
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %3, align 8
-  %92 = sub i32 %76, %5
+  %92 = sub nuw i32 %76, %5
   %93 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %0, i32 noundef %91, i32 noundef %92, i32 noundef %76) #9
   br label %.thread12
 

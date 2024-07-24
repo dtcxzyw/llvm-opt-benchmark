@@ -370,7 +370,7 @@ kingfisher_checksum.exit:                         ; preds = %48, %33
 107:                                              ; preds = %74
   %108 = load i32, ptr @hf_kingfisher_message_data, align 4
   %109 = select i1 %.not85, i32 10, i32 7
-  %110 = sub nsw i32 %29, %75
+  %110 = sub nuw nsw i32 %29, %75
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef %110, i32 noundef 0) #2
   br label %112
 

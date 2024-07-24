@@ -1363,7 +1363,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end
   %add.ptr15 = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i, i64 %5
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr15 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.i = sub i64 %retval.sroa.0.0.copyload.i, %5
+  %sub.i = sub nuw i64 %retval.sroa.0.0.copyload.i, %5
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub.ptr.sub)
   store i64 %.sroa.speculated.i, ptr %curr_, align 8
   store ptr %add.ptr15, ptr %ref.tmp.sroa.2.0.curr_.sroa_idx, align 8
@@ -1672,7 +1672,7 @@ if.then.i.i:                                      ; preds = %_ZSt11find_if_notIP
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
-  %sub.i = sub i64 %str.coerce0, %sub.ptr.sub
+  %sub.i = sub nuw i64 %str.coerce0, %sub.ptr.sub
   %add.ptr.i4 = getelementptr inbounds i8, ptr %str.coerce1, i64 %sub.ptr.sub
   %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %sub.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %add.ptr.i4, 1

@@ -4662,7 +4662,7 @@ esp_fifo_pop_buf.exit.i:                          ; preds = %if.then1.i.i, %if.e
 
 if.then57.i:                                      ; preds = %esp_fifo_pop_buf.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i78.i)
-  %sub58.i = sub nsw i32 %cond49.i, %retval.0.i.i
+  %sub58.i = sub nuw nsw i32 %cond49.i, %retval.0.i.i
   %call.i81.i = call ptr @fifo8_pop_buf(ptr noundef nonnull %fifo.i, i32 noundef %sub58.i, ptr noundef nonnull %n.i78.i) #10
   %tobool.not.i82.i = icmp eq ptr %add.ptr.i, null
   %.pre.i83.i = load i32, ptr %n.i78.i, align 4

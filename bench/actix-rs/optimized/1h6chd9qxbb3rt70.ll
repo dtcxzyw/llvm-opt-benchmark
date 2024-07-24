@@ -2296,7 +2296,7 @@ select.unfold:                                    ; preds = %55
           to label %.body26.thread unwind label %116, !noalias !305
 
 111:                                              ; preds = %.noexc25
-  %112 = sub i64 %94, %84
+  %112 = sub nuw i64 %94, %84
   %113 = getelementptr inbounds i8, ptr %9, i64 8
   %114 = load ptr, ptr %113, align 8, !alias.scope !309, !noalias !305, !noundef !57
   %115 = getelementptr inbounds i8, ptr %114, i64 %84
@@ -2708,7 +2708,7 @@ select.unfold:                                    ; preds = %55
           to label %.body26.thread unwind label %116, !noalias !399
 
 111:                                              ; preds = %.noexc25
-  %112 = sub i64 %94, %84
+  %112 = sub nuw i64 %94, %84
   %113 = getelementptr inbounds i8, ptr %9, i64 8
   %114 = load ptr, ptr %113, align 8, !alias.scope !403, !noalias !399, !noundef !57
   %115 = getelementptr inbounds i8, ptr %114, i64 %84
@@ -3120,7 +3120,7 @@ select.unfold:                                    ; preds = %55
           to label %.body26.thread unwind label %116, !noalias !493
 
 111:                                              ; preds = %.noexc25
-  %112 = sub i64 %94, %84
+  %112 = sub nuw i64 %94, %84
   %113 = getelementptr inbounds i8, ptr %9, i64 8
   %114 = load ptr, ptr %113, align 8, !alias.scope !497, !noalias !493, !noundef !57
   %115 = getelementptr inbounds i8, ptr %114, i64 %84

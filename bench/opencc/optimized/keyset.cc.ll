@@ -658,7 +658,7 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %38
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 %2
   store ptr %48, ptr %46, align 8
-  %49 = sub i64 %40, %2
+  %49 = sub nuw i64 %40, %2
   store i64 %49, ptr %39, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader

@@ -6595,7 +6595,7 @@ invoke.cont37:                                    ; preds = %invoke.cont33
   br i1 %cmp42, label %if.then43, label %if.end104
 
 if.then43:                                        ; preds = %invoke.cont37
-  %sub = sub nsw i64 %sub.ptr.div.i68, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i68, %sub.ptr.div.i
   %conv = trunc i64 %sub to i32
   %mNumMeshes = getelementptr inbounds i8, ptr %call16, i64 1120
   store i32 %conv, ptr %mNumMeshes, align 8
@@ -24382,7 +24382,7 @@ if.then5:                                         ; preds = %entry
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
-  %sub = sub i64 %1, %pOffset
+  %sub = sub nuw i64 %1, %pOffset
   %pos11 = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %sub, ptr %pos11, align 8
   br label %return

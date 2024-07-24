@@ -2393,7 +2393,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %n, %sub.ptr.sub
+  %sub = sub nuw i64 %n, %sub.ptr.sub
   %mCapacityAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -2560,7 +2560,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %n, %sub.ptr.sub
+  %sub = sub nuw i64 %n, %sub.ptr.sub
   %mCapacityAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -3567,7 +3567,7 @@ if.else:                                          ; preds = %if.then3
   br i1 %cmp.not2.i.i.i.i, label %_ZN5eastl24uninitialized_fill_n_ptrIbmEEvPT_T0_RKS1_.exit, label %for.body.preheader.i.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %if.else
-  %sub = sub i64 %n, %sub.ptr.sub7
+  %sub = sub nuw i64 %n, %sub.ptr.sub7
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 %frombool, i64 %sub, i1 false)
   %.pre = load ptr, ptr %mpEnd, align 8
   br label %_ZN5eastl24uninitialized_fill_n_ptrIbmEEvPT_T0_RKS1_.exit
@@ -5085,7 +5085,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %n, %sub.ptr.div
+  %sub = sub nuw i64 %n, %sub.ptr.div
   tail call void @_ZN5eastl6vectorIiNS_9allocatorEE17DoInsertValuesEndEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub, ptr noundef nonnull align 4 dereferenceable(4) %value)
   br label %if.end
 
@@ -5220,7 +5220,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %n, %sub.ptr.div
+  %sub = sub nuw i64 %n, %sub.ptr.div
   %mCapacityAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -6245,7 +6245,7 @@ _ZN5eastl13move_backwardIPiS1_EET0_T_S3_S2_.exit: ; preds = %if.then10, %if.then
   br label %if.end
 
 if.else:                                          ; preds = %if.then3
-  %sub = sub i64 %n, %sub.ptr.div8
+  %sub = sub nuw i64 %n, %sub.ptr.div8
   %cmp.not2.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not2.i.i.i.i, label %_ZN5eastl24uninitialized_fill_n_ptrIimEEvPT_T0_RKS1_.exit, label %for.body.i.i.i.i
 
@@ -7808,7 +7808,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %n, %sub.ptr.div
+  %sub = sub nuw i64 %n, %sub.ptr.div
   tail call void @_ZN5eastl6vectorI7Align64NS_9allocatorEE17DoInsertValuesEndEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub, ptr noundef nonnull align 64 dereferenceable(4) %value)
   br label %if.end
 
@@ -7946,7 +7946,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %n, %sub.ptr.div
+  %sub = sub nuw i64 %n, %sub.ptr.div
   tail call void @_ZN5eastl6vectorI7Align64NS_9allocatorEE17DoInsertValuesEndEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end
 
@@ -8932,7 +8932,7 @@ for.body.i.i:                                     ; preds = %_ZN5eastl13move_bac
   br i1 %cmp.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !42
 
 if.else:                                          ; preds = %if.then3
-  %sub = sub i64 %n, %sub.ptr.div8
+  %sub = sub nuw i64 %n, %sub.ptr.div8
   %cmp.not2.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not2.i.i.i.i, label %_ZN5eastl24uninitialized_fill_n_ptrI7Align64mEEvPT_T0_RKS2_.exit, label %for.body.i.i.i.i
 
@@ -10872,7 +10872,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %n, %sub.ptr.div
+  %sub = sub nuw i64 %n, %sub.ptr.div
   tail call void @_ZN5eastl6vectorI10TestObjectNS_9allocatorEE17DoInsertValuesEndEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub, ptr noundef nonnull align 8 dereferenceable(20) %value)
   br label %if.end
 
@@ -11156,7 +11156,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %n, %sub.ptr.div
+  %sub = sub nuw i64 %n, %sub.ptr.div
   tail call void @_ZN5eastl6vectorI10TestObjectNS_9allocatorEE17DoInsertValuesEndEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end
 
@@ -13135,7 +13135,7 @@ for.body.i.i33:                                   ; preds = %for.body.i.i33, %in
   br i1 %cmp.not.i.i, label %if.end, label %for.body.i.i33, !llvm.loop !65
 
 if.else:                                          ; preds = %if.then3
-  %sub = sub i64 %n, %sub.ptr.div8
+  %sub = sub nuw i64 %n, %sub.ptr.div8
   %cmp.not3.i.i38 = icmp eq i64 %sub, 0
   br i1 %cmp.not3.i.i38, label %invoke.cont24, label %for.body.i.i42
 
@@ -15355,7 +15355,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %n, %sub.ptr.sub
+  %sub = sub nuw i64 %n, %sub.ptr.sub
   %mCapacityAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -15502,7 +15502,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %n, %sub.ptr.sub
+  %sub = sub nuw i64 %n, %sub.ptr.sub
   %mCapacityAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64

@@ -11330,7 +11330,7 @@ while.body.i.i:                                   ; preds = %if.then.i, %while.b
 invoke.cont1.i.i.i:                               ; preds = %while.body.i.i, %if.then.i
   %out_start.addr.1.i = phi ptr [ %3, %if.then.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
   %f.sroa.0.0.lcssa.i.i = phi ptr [ %first.coerce, %if.then.i ], [ %incdec.ptr.i.i.i, %while.body.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i.i, %4
   %mul.i.i.i = shl i64 %sub.i, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out_start.addr.1.i, ptr align 1 %f.sroa.0.0.lcssa.i.i, i64 %mul.i.i.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorISt4pairIhhESaIvEvEENS_13move_iteratorIPS4_EES8_EEvRT_T0_NS0_16allocator_traitsISA_E9size_typeET1_SF_.exit
@@ -13229,7 +13229,7 @@ while.body.i.i:                                   ; preds = %if.then.i, %while.b
 invoke.cont1.i.i.i:                               ; preds = %while.body.i.i, %if.then.i
   %out_start.addr.1.i = phi ptr [ %3, %if.then.i ], [ %incdec.ptr1.i.i, %while.body.i.i ]
   %f.addr.0.lcssa.i.i = phi ptr [ %first, %if.then.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i, %4
   %mul.i.i.i = shl i64 %sub.i, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out_start.addr.1.i, ptr align 1 %f.addr.0.lcssa.i.i, i64 %mul.i.i.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEPS4_S7_EEvRT_T0_NS0_16allocator_traitsIS8_E9size_typeET1_SD_.exit
@@ -13969,7 +13969,7 @@ invoke.cont3.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i.i:                               ; preds = %invoke.cont3.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i.i.i.i10, %invoke.cont3.i.i.i ]
   %f.sroa.0.0.i.i.i = phi ptr [ %first.coerce, %if.then.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont3.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i.i, %4
   %mul.i.i9.i = shl i64 %sub.i, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %out_start.addr.0.i, ptr align 8 %f.sroa.0.0.i.i.i, i64 %mul.i.i9.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEENS_13move_iteratorIPSB_EESF_EEvRT_T0_NS0_16allocator_traitsISH_E9size_typeET1_SM_.exit
@@ -25389,7 +25389,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i12.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %add.i.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %add.i.i, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %acceptMask, ptr %2, i64 noundef %sub.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i)
   br label %if.end.i
 
@@ -25448,7 +25448,7 @@ if.then.i29:                                      ; preds = %_ZN5boost14dynamic_
   br i1 %cmp.i12.i30, label %if.then.i.i46, label %if.else.i.i31
 
 if.then.i.i46:                                    ; preds = %if.then.i29
-  %sub.i.i47 = sub nsw i64 %add.i.i27, %sub.ptr.div.i.i.i22
+  %sub.i.i47 = sub nuw nsw i64 %add.i.i27, %sub.ptr.div.i.i.i22
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %acceptEodMask, ptr %7, i64 noundef %sub.i.i47, ptr noundef nonnull align 8 dereferenceable(8) %v.i17)
   br label %if.end.i33
 
@@ -26017,7 +26017,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i12.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %add.i.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %add.i.i, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %accelMask, ptr %1, i64 noundef %sub.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i)
   br label %if.end.i
 
@@ -26076,7 +26076,7 @@ if.then.i82:                                      ; preds = %_ZN5boost14dynamic_
   br i1 %cmp.i12.i83, label %if.then.i.i99, label %if.else.i.i84
 
 if.then.i.i99:                                    ; preds = %if.then.i82
-  %sub.i.i100 = sub nsw i64 %add.i.i80, %sub.ptr.div.i.i.i75
+  %sub.i.i100 = sub nuw nsw i64 %add.i.i80, %sub.ptr.div.i.i.i75
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %accelFriendsMask, ptr %6, i64 noundef %sub.i.i100, ptr noundef nonnull align 8 dereferenceable(8) %v.i70)
   br label %if.end.i86
 
@@ -26475,7 +26475,7 @@ for.body.i.i.i.i.i575:                            ; preds = %invoke.cont.i.i.i10
   %45 = load ptr, ptr %stop23.i.i.i.i.i.i.i, align 8, !noalias !345
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i.i.i577 = getelementptr inbounds i8, ptr %__first.addr.011.i.i.i.i.i, i64 64
   %46 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i.i.i577, align 8, !noalias !381
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.idx = shl i64 %46, 1
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.idx = shl nsw i64 %46, 1
   %cmp.i654 = icmp ugt i64 %46, 4
   br i1 %cmp.i654, label %if.then.i667, label %if.end20.i
 
@@ -33466,7 +33466,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEPjjET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds i32, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i35 = icmp eq ptr %1, %__position.coerce
@@ -36815,7 +36815,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 
@@ -38217,7 +38217,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -38709,7 +38709,7 @@ while.body.i.i:                                   ; preds = %if.then.i, %while.b
 _ZN5boost9container18copy_n_source_destINS0_12vec_iteratorIPSt4pairIhhELb1EEEmS5_EENS0_3dtl38disable_if_memtransfer_copy_assignableIT_T1_S9_E4typeES9_T0_RSA_.exit.i: ; preds = %while.body.i.i, %if.then.i
   %agg.tmp.sroa.0.1.i = phi ptr [ %1, %if.then.i ], [ %incdec.ptr.i.i.i, %while.body.i.i ]
   %out_start.addr.1.i = phi ptr [ %7, %if.then.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i.i, %8
+  %sub.i = sub nuw i64 %sub.ptr.div.i.i, %8
   %mul.i.i.i = shl i64 %sub.i, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out_start.addr.1.i, ptr align 1 %agg.tmp.sroa.0.1.i, i64 %mul.i.i.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorISt4pairIhhESaIvEvEENS0_12vec_iteratorIPS4_Lb1EEES8_EEvRT_T0_NS0_16allocator_traitsISA_E9size_typeET1_SF_.exit

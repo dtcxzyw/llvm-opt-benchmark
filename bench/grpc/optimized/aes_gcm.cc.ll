@@ -320,7 +320,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -1498,7 +1498,7 @@ if.then95:                                        ; preds = %if.end93
 
 if.end98:                                         ; preds = %if.end93
   %add.ptr = getelementptr inbounds i8, ptr %16, i64 %23
-  %sub99 = sub i64 %17, %23
+  %sub99 = sub nuw i64 %17, %23
   %sub100 = sub i64 %total_ciphertext_length.1139, %23
   %add.ptr101 = getelementptr inbounds i8, ptr %plaintext.0140, i64 %23
   %sub102 = sub i64 %plaintext_length.0141, %23
@@ -1675,7 +1675,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %sub = sub i64 %ciphertext_and_tag_length, %0
+  %sub = sub nuw i64 %ciphertext_and_tag_length, %0
   store i64 %sub, ptr %max_plaintext_length, align 8
   br label %return
 
@@ -1991,7 +1991,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__n, %sub.ptr.sub.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i8, ptr %1, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 %2, i64 %sub, i1 false)
   br label %invoke.cont27

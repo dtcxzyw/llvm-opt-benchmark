@@ -309,7 +309,7 @@ if.then12:                                        ; preds = %while.cond, %lor.lh
 if.end13:                                         ; preds = %lor.lhs.false.i
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %extensions.sroa.0.0, i64 4
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
-  %sub.i.i7.i = sub i64 %sub.i.i.i, %or.i.i.i
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i, %or.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offset.i)
   br label %for.body.i
 
@@ -419,9 +419,9 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false16.thr
   %cmp17.not93 = phi i1 [ true, %lor.lhs.false16.thread ], [ false, %land.lhs.true ], [ true, %lor.lhs.false16 ]
   %thisex.192 = phi ptr [ null, %lor.lhs.false16.thread ], [ %thisex.1, %land.lhs.true ], [ null, %lor.lhs.false16 ]
   %cmp20 = icmp ne i32 %or.i.i, 41
+  %brmerge = or i1 %cmp.not, %cmp20
   %cmp26.not = icmp eq i64 %sub.i.i7.i, 0
-  %20 = or i1 %cmp20, %cmp26.not
-  %or.cond = or i1 %cmp.not, %20
+  %or.cond = select i1 %brmerge, i1 true, i1 %cmp26.not
   br i1 %or.cond, label %if.end28, label %if.then27
 
 if.then27:                                        ; preds = %lor.lhs.false19, %land.lhs.true, %verify_extension.exit.thread
@@ -449,9 +449,9 @@ switch.early.test:                                ; preds = %if.end28
 
 land.lhs.true45:                                  ; preds = %switch.early.test
   %arrayidx = getelementptr inbounds [29 x i8], ptr %ext, i64 0, i64 %conv29
-  %21 = load i8, ptr %arrayidx, align 1
-  %22 = and i8 %21, 2
-  %cmp48 = icmp ne i8 %22, 0
+  %20 = load i8, ptr %arrayidx, align 1
+  %21 = and i8 %20, 2
+  %cmp48 = icmp ne i8 %21, 0
   %cmp55 = icmp eq i32 %or.i.i, 65000
   %or.cond3 = select i1 %cmp52, i1 %cmp55, i1 false
   %or.cond101 = select i1 %cmp48, i1 true, i1 %or.cond3
@@ -477,8 +477,8 @@ if.then61:                                        ; preds = %if.end58
   %inc = add i64 %i.0.ph, 1
   %received_order = getelementptr inbounds i8, ptr %thisex.192, i64 32
   store i64 %i.0.ph, ptr %received_order, align 8
-  %23 = load ptr, ptr %debug_cb, align 8
-  %tobool65.not = icmp eq ptr %23, null
+  %22 = load ptr, ptr %debug_cb, align 8
+  %tobool65.not = icmp eq ptr %22, null
   br i1 %tobool65.not, label %while.cond.outer.backedge, label %if.then66
 
 while.cond.outer.backedge:                        ; preds = %if.then61, %if.then66
@@ -491,12 +491,12 @@ while.cond.outer:                                 ; preds = %while.cond.outer.ba
   br label %while.cond
 
 if.then66:                                        ; preds = %if.then61
-  %24 = load i32, ptr %server, align 8
-  %tobool69.not = icmp eq i32 %24, 0
+  %23 = load i32, ptr %server, align 8
+  %tobool69.not = icmp eq i32 %23, 0
   %lnot.ext = zext i1 %tobool69.not to i32
   %conv75 = trunc nuw nsw i64 %or.i.i.i to i32
-  %25 = load ptr, ptr %debug_arg, align 8
-  call void %23(ptr noundef nonnull %s, i32 noundef %lnot.ext, i32 noundef %or.i.i, ptr noundef nonnull %add.ptr.i2.i.i, i32 noundef %conv75, ptr noundef %25) #8
+  %24 = load ptr, ptr %debug_arg, align 8
+  call void %22(ptr noundef nonnull %s, i32 noundef %lnot.ext, i32 noundef %or.i.i, ptr noundef nonnull %add.ptr.i2.i.i, i32 noundef %conv75, ptr noundef %24) #8
   br label %while.cond.outer.backedge
 
 while.end:                                        ; preds = %while.cond
@@ -515,82 +515,82 @@ for.body:                                         ; preds = %for.cond.preheader,
   %thisexd.0100 = phi ptr [ @ext_defs, %for.cond.preheader ], [ %incdec.ptr, %for.inc ]
   %i.299 = phi i64 [ 0, %for.cond.preheader ], [ %inc101, %for.inc ]
   %init83 = getelementptr inbounds i8, ptr %thisexd.0100, i64 8
-  %26 = load ptr, ptr %init83, align 8
-  %cmp84.not = icmp eq ptr %26, null
+  %25 = load ptr, ptr %init83, align 8
+  %cmp84.not = icmp eq ptr %25, null
   br i1 %cmp84.not, label %for.inc, label %land.lhs.true86
 
 land.lhs.true86:                                  ; preds = %for.body
   %context87 = getelementptr inbounds i8, ptr %thisexd.0100, i64 4
-  %27 = load i32, ptr %context87, align 4
-  %and88 = and i32 %27, %context
+  %26 = load i32, ptr %context87, align 4
+  %and88 = and i32 %26, %context
   %cmp89.not = icmp eq i32 %and88, 0
   br i1 %cmp89.not, label %for.inc, label %land.lhs.true91
 
 land.lhs.true91:                                  ; preds = %land.lhs.true86
-  %28 = load ptr, ptr %method.i19.i, align 8
-  %ssl3_enc.i = getelementptr inbounds i8, ptr %28, i64 216
-  %29 = load ptr, ptr %ssl3_enc.i, align 8
-  %enc_flags.i = getelementptr inbounds i8, ptr %29, i64 80
-  %30 = load i32, ptr %enc_flags.i, align 8
-  %and1.i = and i32 %30, 8
+  %27 = load ptr, ptr %method.i19.i, align 8
+  %ssl3_enc.i = getelementptr inbounds i8, ptr %27, i64 216
+  %28 = load ptr, ptr %ssl3_enc.i, align 8
+  %enc_flags.i = getelementptr inbounds i8, ptr %28, i64 80
+  %29 = load i32, ptr %enc_flags.i, align 8
+  %and1.i = and i32 %29, 8
   %tobool.not.i = icmp eq i32 %and1.i, 0
   %tobool.not.not.i = xor i1 %tobool.not.i, true
   %brmerge.i = select i1 %cmp.not.i, i1 true, i1 %tobool.not.not.i
   br i1 %brmerge.i, label %if.end.i55, label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %land.lhs.true91
-  %31 = load i32, ptr %28, align 8
-  %cmp4.i = icmp sgt i32 %31, 771
-  %cmp8.i = icmp ne i32 %31, 65536
+  %30 = load i32, ptr %27, align 8
+  %cmp4.i = icmp sgt i32 %30, 771
+  %cmp8.i = icmp ne i32 %30, 65536
   %spec.select.i52 = and i1 %cmp4.i, %cmp8.i
   br label %lor.lhs.false.i53
 
 if.end.i55:                                       ; preds = %land.lhs.true91
   %tobool.not.mux.i = select i1 %cmp.not.i, i1 %tobool.not.i, i1 false
-  %and16.i = and i32 %27, 4
+  %and16.i = and i32 %26, 4
   %cmp17.not.i = icmp eq i32 %and16.i, 0
   %or.cond15.i = or i1 %cmp17.not.i, %tobool.not.mux.i
   br i1 %or.cond15.i, label %lor.lhs.false.i53, label %for.inc
 
 lor.lhs.false.i53:                                ; preds = %if.end.i55, %if.end.thread.i
   %is_tls13.031.i = phi i1 [ %spec.select.i52, %if.end.thread.i ], [ %cmp.not.i, %if.end.i55 ]
-  %32 = load i32, ptr %version18.i, align 8
-  %cmp19.i = icmp eq i32 %32, 768
-  %and21.i = and i32 %27, 8
+  %31 = load i32, ptr %version18.i, align 8
+  %cmp19.i = icmp eq i32 %31, 768
+  %and21.i = and i32 %26, 8
   %cmp22.i = icmp eq i32 %and21.i, 0
   %or.cond16.i = and i1 %cmp22.i, %cmp19.i
   br i1 %or.cond16.i, label %for.inc, label %lor.lhs.false23.i
 
 lor.lhs.false23.i:                                ; preds = %lor.lhs.false.i53
-  %and26.i = and i32 %27, 16
+  %and26.i = and i32 %26, 16
   %cmp27.not.i = icmp ne i32 %and26.i, 0
   %or.cond17.not.i = and i1 %cmp27.not.i, %is_tls13.031.i
   br i1 %or.cond17.not.i, label %for.inc, label %lor.lhs.false28.i
 
 lor.lhs.false28.i:                                ; preds = %lor.lhs.false23.i
-  %and31.i = and i32 %27, 32
+  %and31.i = and i32 %26, 32
   %cmp32.not.i = icmp eq i32 %and31.i, 0
-  %33 = or i1 %cmp35.i, %cmp32.not.i
-  %or.cond19.not.i = or i1 %33, %is_tls13.031.i
+  %32 = or i1 %cmp35.i, %cmp32.not.i
+  %or.cond19.not.i = or i1 %32, %is_tls13.031.i
   br i1 %or.cond19.not.i, label %lor.lhs.false36.i, label %for.inc
 
 lor.lhs.false36.i:                                ; preds = %lor.lhs.false28.i
-  %34 = load i32, ptr %server, align 8
-  %tobool37.i = icmp eq i32 %34, 0
+  %33 = load i32, ptr %server, align 8
+  %tobool37.i = icmp eq i32 %33, 0
   %or.cond.i = or i1 %is_tls13.031.i, %tobool37.i
   %or.cond20.i = or i1 %cmp32.not.i, %or.cond.i
   br i1 %or.cond20.i, label %extension_is_relevant.exit, label %for.inc
 
 extension_is_relevant.exit:                       ; preds = %lor.lhs.false36.i
-  %35 = load i32, ptr %hit.i, align 8
-  %tobool44.not.i = icmp ne i32 %35, 0
-  %and46.i = and i32 %27, 64
+  %34 = load i32, ptr %hit.i, align 8
+  %tobool44.not.i = icmp ne i32 %34, 0
+  %and46.i = and i32 %26, 64
   %cmp47.not.i = icmp ne i32 %and46.i, 0
   %or.cond21.i.not = and i1 %cmp47.not.i, %tobool44.not.i
   br i1 %or.cond21.i.not, label %for.inc, label %land.lhs.true95
 
 land.lhs.true95:                                  ; preds = %extension_is_relevant.exit
-  %call97 = call i32 %26(ptr noundef nonnull %s, i32 noundef %context) #8
+  %call97 = call i32 %25(ptr noundef nonnull %s, i32 noundef %context) #8
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %err, label %for.inc
 

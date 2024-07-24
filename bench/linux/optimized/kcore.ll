@@ -1409,7 +1409,7 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %87
-  %92 = sub i64 %89, %78
+  %92 = sub nuw i64 %89, %78
   %93 = icmp ult i64 %92, %88
   br i1 %93, label %94, label %95
 

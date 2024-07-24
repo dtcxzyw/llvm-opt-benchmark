@@ -5733,7 +5733,7 @@ define hidden void @_ZN2cv4face15FacemarkLBFImpl9Regressor13initRegressorENS0_11
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %2
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   tail call void @_ZNSt6vectorIN2cv4face15FacemarkLBFImpl12RandomForestESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %21)
   br label %_ZNSt6vectorIN2cv4face15FacemarkLBFImpl12RandomForestESaIS3_EE6resizeEm.exit
 
@@ -5966,7 +5966,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit21:                  ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %._crit_edge
-  %112 = sub nsw i64 %102, %109
+  %112 = sub nuw nsw i64 %102, %109
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %100, i64 noundef %112)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
@@ -11938,7 +11938,7 @@ _ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit:             ; preds = %5
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %_ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %30)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -14247,7 +14247,7 @@ define hidden void @_ZN2cv4face15FacemarkLBFImpl12RandomForest10initForestEiiidS
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %8
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   tail call void @_ZNSt6vectorIS_IN2cv4face15FacemarkLBFImpl10RandomTreeESaIS3_EESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %32)
   br label %_ZNSt6vectorIS_IN2cv4face15FacemarkLBFImpl10RandomTreeESaIS3_EESaIS5_EE6resizeEm.exit
 
@@ -14400,7 +14400,7 @@ _ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit.i:           ; preds = %.noexc23
   br i1 %100, label %101, label %134
 
 101:                                              ; preds = %_ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit.i
-  %102 = sub nsw i64 %92, %99
+  %102 = sub nuw nsw i64 %92, %99
   %103 = getelementptr inbounds i8, ptr %57, i64 128
   %104 = load ptr, ptr %103, align 8
   %105 = ptrtoint ptr %104 to i64
@@ -14690,7 +14690,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv4face15FacemarkLBFImpl10Random
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv4face15FacemarkLBFImpl10RandomTreeESaIS3_EE15_M_erase_at_endEPS3_.exit
 
@@ -14820,7 +14820,7 @@ define hidden void @_ZN2cv4face15FacemarkLBFImpl12RandomForest5trainERSt6vectorI
   br i1 %60, label %61, label %93
 
 61:                                               ; preds = %.lr.ph55
-  %62 = sub nsw i64 %54, %59
+  %62 = sub nuw nsw i64 %54, %59
   %63 = load ptr, ptr %33, align 8
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %64, %56
@@ -15722,7 +15722,7 @@ _ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit.i:           ; preds = %.noexc25
   br i1 %83, label %84, label %117
 
 84:                                               ; preds = %_ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit.i
-  %85 = sub nsw i64 %75, %82
+  %85 = sub nuw nsw i64 %75, %82
   %86 = getelementptr inbounds i8, ptr %40, i64 128
   %87 = load ptr, ptr %86, align 8
   %88 = ptrtoint ptr %87 to i64
@@ -18755,7 +18755,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyIiLi1EEclERSt6v
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %3
-  %21 = sub i64 %11, %18
+  %21 = sub nuw i64 %11, %18
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %21)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 

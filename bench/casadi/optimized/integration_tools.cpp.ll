@@ -4184,7 +4184,7 @@ _ZNSt6vectorIdSaIdEE6insertEN9__gnu_cxx17__normal_iteratorIPKdS1_EEOd.exit: ; pr
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %_ZNSt6vectorIdSaIdEE6insertEN9__gnu_cxx17__normal_iteratorIPKdS1_EEOd.exit
-  %66 = sub nsw i64 %56, %63
+  %66 = sub nuw nsw i64 %56, %63
   invoke void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %66)
           to label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp312
 
@@ -4235,7 +4235,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %65, %67, %69, %_ZSt
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %.lr.ph
-  %85 = sub nsw i64 %56, %82
+  %85 = sub nuw nsw i64 %56, %82
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %75, i64 noundef %85)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %.loopexit311
 
@@ -4279,7 +4279,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %90, %88, %86, %84
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %._crit_edge
-  %101 = sub nsw i64 %56, %98
+  %101 = sub nuw nsw i64 %56, %98
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %101)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit112 unwind label %.loopexit.split-lp312
 
@@ -12728,7 +12728,7 @@ define hidden void @_ZN6casadi13IndexRecution17dae_struct_detectERKNSt7__cxx1112
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %104
-  %114 = sub i64 %103, %111
+  %114 = sub nuw i64 %103, %111
   invoke void @_ZNSt6vectorIPN6casadi13IndexRecution14EquationStructESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr %106, i64 noundef %114, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %_ZNSt6vectorIPN6casadi13IndexRecution14EquationStructESaIS3_EE6resizeEmRKS3_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -12762,7 +12762,7 @@ _ZNSt6vectorIPN6casadi13IndexRecution14EquationStructESaIS3_EE6resizeEmRKS3_.exi
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %121
-  %131 = sub i64 %120, %128
+  %131 = sub nuw i64 %120, %128
   invoke void @_ZNSt6vectorIPN6casadi13IndexRecution14VariableStructESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr %123, i64 noundef %131, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %_ZNSt6vectorIPN6casadi13IndexRecution14VariableStructESaIS3_EE6resizeEmRKS3_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -13447,7 +13447,7 @@ _ZNSt6vectorIPN6casadi13IndexRecution14VariableStructESaIS3_EE9push_backERKS3_.e
   br i1 %377, label %378, label %380
 
 378:                                              ; preds = %364
-  %379 = sub nsw i64 %370, %376
+  %379 = sub nuw nsw i64 %370, %376
   invoke void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %379)
           to label %_ZNSt6vectorIxSaIxEE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -13482,7 +13482,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit:               ; preds = %384, %382, %380, %3
   br i1 %398, label %399, label %401
 
 399:                                              ; preds = %_ZNSt6vectorIxSaIxEE6resizeEm.exit
-  %400 = sub nsw i64 %390, %397
+  %400 = sub nuw nsw i64 %390, %397
   invoke void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %400)
           to label %_ZNSt6vectorIxSaIxEE6resizeEm.exit245 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -17845,7 +17845,7 @@ _ZN6casadi9vertsplitERKNS_2MXEx.exit916:          ; preds = %1132
   br i1 %1146, label %1147, label %1149
 
 1147:                                             ; preds = %_ZN6casadi9vertsplitERKNS_2MXEx.exit916
-  %1148 = sub nsw i64 %1138, %1145
+  %1148 = sub nuw nsw i64 %1138, %1145
   invoke void @_ZNSt6vectorIN6casadi2MXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %181, i64 noundef %1148)
           to label %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp1505
 
@@ -18244,7 +18244,7 @@ _ZN6casadi9vertsplitERKNS_2MXEx.exit957:          ; preds = %1265
   br i1 %1280, label %1281, label %1283
 
 1281:                                             ; preds = %_ZN6casadi9vertsplitERKNS_2MXEx.exit957
-  %1282 = sub nsw i64 %1272, %1279
+  %1282 = sub nuw nsw i64 %1272, %1279
   invoke void @_ZNSt6vectorIN6casadi2MXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %192, i64 noundef %1282)
           to label %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit964 unwind label %1383
 
@@ -24475,7 +24475,7 @@ _ZN6casadi9vertsplitERKNS_6MatrixINS_6SXElemEEEx.exit999: ; preds = %1225
   br i1 %1239, label %1240, label %1242
 
 1240:                                             ; preds = %_ZN6casadi9vertsplitERKNS_6MatrixINS_6SXElemEEEx.exit999
-  %1241 = sub nsw i64 %1231, %1238
+  %1241 = sub nuw nsw i64 %1231, %1238
   invoke void @_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %181, i64 noundef %1241)
           to label %_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE6resizeEm.exit unwind label %.loopexit.split-lp1918
 
@@ -24854,7 +24854,7 @@ _ZN6casadi9vertsplitERKNS_6MatrixINS_6SXElemEEEx.exit1042: ; preds = %_ZN6casadi
   br i1 %1374, label %1375, label %1377
 
 1375:                                             ; preds = %_ZN6casadi9vertsplitERKNS_6MatrixINS_6SXElemEEEx.exit1042
-  %1376 = sub nsw i64 %1366, %1373
+  %1376 = sub nuw nsw i64 %1366, %1373
   invoke void @_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %192, i64 noundef %1376)
           to label %_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE6resizeEm.exit1058 unwind label %1485
 
@@ -55049,7 +55049,7 @@ _ZSt13move_backwardIPPN6casadi13IndexRecution14EquationStructES4_ET0_T_S6_S5_.ex
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPPN6casadi13IndexRecution14EquationStructEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds ptr, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -55226,7 +55226,7 @@ _ZSt13move_backwardIPPN6casadi13IndexRecution14VariableStructES4_ET0_T_S6_S5_.ex
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPPN6casadi13IndexRecution14VariableStructEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds ptr, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -59440,7 +59440,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit:
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES2_xET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i64, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1

@@ -200,7 +200,7 @@ while.body22:                                     ; preds = %while.end, %if.end5
   %cmp28 = icmp ugt i64 %spec.store.select, %conv27
   %spec.select = select i1 %cmp28, i32 0, i32 %add26
   %sub = select i1 %cmp28, i64 %conv27, i64 0
-  %spec.select66 = sub nsw i64 %spec.store.select, %sub
+  %spec.select66 = sub nuw nsw i64 %spec.store.select, %sub
   tail call void %func(ptr noundef %in.addr.190, ptr noundef %out.addr.189, i64 noundef %spec.select66, ptr noundef %key, ptr noundef nonnull %ivec) #3
   %shr = lshr i32 %spec.select, 24
   %conv33 = trunc nuw i32 %shr to i8
@@ -231,7 +231,7 @@ do.body.i:                                        ; preds = %while.body22, %do.b
   br i1 %tobool.not.i, label %if.end50, label %do.body.i, !llvm.loop !13
 
 if.end50:                                         ; preds = %do.body.i, %while.body22
-  %mul = shl nsw i64 %spec.select66, 4
+  %mul = shl nuw nsw i64 %spec.select66, 4
   %sub51 = sub i64 %len.addr.188, %mul
   %add.ptr52 = getelementptr inbounds i8, ptr %out.addr.189, i64 %mul
   %add.ptr53 = getelementptr inbounds i8, ptr %in.addr.190, i64 %mul

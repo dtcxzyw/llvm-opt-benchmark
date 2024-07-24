@@ -7637,7 +7637,7 @@ if.then17:                                        ; preds = %if.end6
 
 if.end.i:                                         ; preds = %if.then17
   %26 = load i32, ptr %count, align 4
-  %sub.i = sub i64 %25, %22
+  %sub.i = sub nuw i64 %25, %22
   %conv.i = zext i32 %26 to i64
   %spec.select.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv.i)
   %call.i = call i64 (ptr, i64, ptr, ...) @pdu_marshal(ptr noundef nonnull %opaque, i64 noundef 7, ptr noundef nonnull @.str.14, i64 noundef %spec.select.i)

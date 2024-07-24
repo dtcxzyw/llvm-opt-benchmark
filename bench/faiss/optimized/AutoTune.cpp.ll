@@ -2311,7 +2311,7 @@ define void @_ZN5faiss17AutoTuneCriterion15set_groundtruthEiPKfPKl(ptr noundef n
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %7
-  %21 = sub i64 %11, %18
+  %21 = sub nuw i64 %11, %18
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %21)
   %.pre = load ptr, ptr %8, align 8
   %.pre9 = load i64, ptr %9, align 8
@@ -2354,7 +2354,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %31
-  %45 = sub i64 %35, %42
+  %45 = sub nuw i64 %35, %42
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %45)
   %.pre10 = load ptr, ptr %32, align 8
   %.pre11 = load i64, ptr %33, align 8

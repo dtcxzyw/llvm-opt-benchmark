@@ -3886,7 +3886,7 @@ lowpan_parse_nhc_proto.exit314:                   ; preds = %switch.lookup321, %
   br i1 %145, label %146, label %159
 
 146:                                              ; preds = %137
-  %147 = sub nsw i32 %.0293, %144
+  %147 = sub nuw nsw i32 %.0293, %144
   %148 = getelementptr i8, ptr %140, i64 %141
   switch i8 %.0.i, label %149 [
     i8 60, label %151

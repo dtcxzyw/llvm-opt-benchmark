@@ -3204,7 +3204,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %60
-  %65 = sub nsw i64 %62, %59
+  %65 = sub nuw nsw i64 %62, %59
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %52, i64 noundef %65)
   %.pre.i.i = load ptr, ptr %52, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i
@@ -3381,7 +3381,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %66
-  %71 = sub nsw i64 %68, %65
+  %71 = sub nuw nsw i64 %68, %65
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %58, i64 noundef %71)
   %.pre.i.i = load ptr, ptr %58, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i

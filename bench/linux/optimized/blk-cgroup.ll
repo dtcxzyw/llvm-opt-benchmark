@@ -2851,7 +2851,7 @@ define dso_local void @blkcg_maybe_throttle_current() local_unnamed_addr #1 alig
 
 106:                                              ; preds = %90
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %91, i64 %103, ptr elementtype(i64) %91) #16, !srcloc !73
-  %107 = sub i64 %92, %103
+  %107 = sub nuw i64 %92, %103
   br label %108
 
 108:                                              ; preds = %106, %105
@@ -3094,7 +3094,7 @@ define dso_local void @blkcg_add_delay(ptr noundef %0, i64 noundef %1, i64 nound
 
 37:                                               ; preds = %21
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %22, i64 %34, ptr elementtype(i64) %22) #16, !srcloc !73
-  %38 = sub i64 %23, %34
+  %38 = sub nuw i64 %23, %34
   br label %39
 
 39:                                               ; preds = %37, %36

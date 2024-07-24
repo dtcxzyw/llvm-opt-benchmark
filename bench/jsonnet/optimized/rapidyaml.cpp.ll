@@ -641,7 +641,7 @@ define dso_local noundef i64 @_ZN2c48to_charsENS_15basic_substringIcEENS_3fmt12r
   %13 = sub i64 0, %5
   %14 = and i64 %12, %13
   %15 = sub i64 %14, %10
-  %16 = sub i64 %1, %7
+  %16 = sub nuw i64 %1, %7
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %_ZSt5alignmmRPvRm.exit.thread, label %_ZSt5alignmmRPvRm.exit
 
@@ -779,7 +779,7 @@ define dso_local noundef zeroext i1 @_ZN2c410from_charsENS_15basic_substringIKcE
   %13 = sub i64 0, %9
   %14 = and i64 %12, %13
   %15 = sub i64 %14, %10
-  %16 = sub i64 %1, %5
+  %16 = sub nuw i64 %1, %5
   %17 = icmp ugt i64 %15, %16
   %18 = inttoptr i64 %14 to ptr
   %.not = icmp eq i64 %14, 0
@@ -1070,7 +1070,7 @@ define dso_local noundef ptr @_ZN2c420MemoryResourceLinear11do_allocateEmmPv(ptr
   %24 = sub i64 0, %2
   %25 = and i64 %23, %24
   %26 = sub i64 %25, %21
-  %27 = sub i64 %15, %1
+  %27 = sub nuw i64 %15, %1
   %28 = icmp ugt i64 %26, %27
   %.not = icmp eq i64 %25, 0
   %or.cond = or i1 %.not, %28
@@ -24474,7 +24474,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit: ; preds = %55, %68, %._crit_
   br i1 %74, label %75, label %139
 
 75:                                               ; preds = %_ZNK2c415basic_substringIKcE11begins_withES2_.exit
-  %76 = sub i64 %.sroa.4.0.copyload, %.sroa.3.0.i73768287
+  %76 = sub nuw i64 %.sroa.4.0.copyload, %.sroa.3.0.i73768287
   call void @llvm.lifetime.start.p0(i64 74, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %77 = load ptr, ptr %8, align 8
@@ -42554,7 +42554,7 @@ define dso_local { ptr, i64 } @_ZNK2c43yml6Parser15_peek_next_lineEm(ptr nocaptu
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
-  %17 = sub i64 %12, %10
+  %17 = sub nuw i64 %12, %10
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %13, %._crit_edge.us.i.i
@@ -43137,7 +43137,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread.i.i.thread: ; preds = %5
   br i1 %.not16.i.i.i, label %_ZN2c43yml4Tree11set_key_refEmNS_15basic_substringIKcEE.exit, label %.lr.ph.i.i.i39
 
 .lr.ph.i.i.i39:                                   ; preds = %64
-  %65 = sub i64 %.sroa.5.0.copyload, %.sroa.4.0.i.i
+  %65 = sub nuw i64 %.sroa.5.0.copyload, %.sroa.4.0.i.i
   %66 = getelementptr i8, ptr %.sroa.064.0.copyload, i64 %65
   br label %69
 
@@ -43618,7 +43618,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread.i.i: ; preds = %51, %_ZN
   br i1 %.not16.i.i.i, label %_ZN2c43yml4Tree11set_val_refEmNS_15basic_substringIKcEE.exit, label %.lr.ph.i.i.i29
 
 .lr.ph.i.i.i29:                                   ; preds = %60
-  %61 = sub i64 %58, %.sroa.4.0.i.i
+  %61 = sub nuw i64 %58, %.sroa.4.0.i.i
   %62 = load ptr, ptr %56, align 8
   %63 = getelementptr i8, ptr %62, i64 %61
   br label %66
@@ -50381,7 +50381,7 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit113.thread: ; preds = %.lr.ph.i10
   br i1 %.not16.i, label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit.thread, label %.lr.ph.i114
 
 .lr.ph.i114:                                      ; preds = %94
-  %95 = sub i64 %80, %.sroa.24.0.copyload
+  %95 = sub nuw i64 %80, %.sroa.24.0.copyload
   %96 = getelementptr i8, ptr %78, i64 %95
   br label %99
 
@@ -50525,7 +50525,7 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit113.thread210: ; preds = %_ZNK2c4
   br i1 %.not16.i125, label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit131.thread, label %.lr.ph.i126
 
 .lr.ph.i126:                                      ; preds = %156
-  %157 = sub i64 %154, %.sroa.2.0.copyload
+  %157 = sub nuw i64 %154, %.sroa.2.0.copyload
   %158 = load ptr, ptr %151, align 8
   %159 = getelementptr i8, ptr %158, i64 %157
   br label %162

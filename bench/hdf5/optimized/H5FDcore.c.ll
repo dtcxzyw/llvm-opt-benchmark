@@ -1476,7 +1476,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_read(ptr nocapture noundef read
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %22
-  %27 = sub i64 %24, %3
+  %27 = sub nuw i64 %24, %3
   %. = tail call i64 @llvm.umin.i64(i64 %27, i64 %4)
   %28 = getelementptr inbounds i8, ptr %0, i64 88
   %29 = load ptr, ptr %28, align 8
@@ -1931,7 +1931,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_truncate(ptr nocapture noundef 
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.042, i64 %44
-  %48 = sub i64 %.0, %44
+  %48 = sub nuw i64 %.0, %44
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %47, i8 0, i64 %48, i1 false)
   br label %49
 

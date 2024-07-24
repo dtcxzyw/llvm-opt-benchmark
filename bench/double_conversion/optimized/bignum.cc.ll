@@ -2812,7 +2812,7 @@ _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit93: ; preds = %_ZNK17double_co
   br i1 %cmp33, label %return, label %if.else
 
 if.else:                                          ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit93
-  %sub36 = sub i32 %add32, %add31
+  %sub36 = sub nuw i32 %add32, %add31
   %cmp37 = icmp ugt i32 %sub36, 1
   br i1 %cmp37, label %return, label %for.cond
 

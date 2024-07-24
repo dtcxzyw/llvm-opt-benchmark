@@ -4666,7 +4666,7 @@ define internal fastcc void @rollback_ensure_stack(ptr noundef readonly %0, ptr 
 11:                                               ; preds = %.lr.ph74
   %12 = getelementptr inbounds i8, ptr %.14872, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = sub i64 %.042.lcssa, %.04173
+  %14 = sub nuw i64 %.042.lcssa, %.04173
   %15 = getelementptr %struct.rb_ensure_entry, ptr %1, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %13, %16

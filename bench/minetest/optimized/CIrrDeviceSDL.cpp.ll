@@ -17326,7 +17326,7 @@ if.then.i:                                        ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIP13_SDL_JoystickSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Joysticks, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayIP13_SDL_JoystickE10reallocateEjb.exit
 
@@ -17397,7 +17397,7 @@ if.then.i67:                                      ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i72, label %if.then.i.i78, label %if.else.i.i73
 
 if.then.i.i78:                                    ; preds = %if.then.i67
-  %sub.i.i79 = sub nsw i64 %conv.i, %sub.ptr.div.i.i.i71
+  %sub.i.i79 = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i.i71
   tail call void @_ZNSt6vectorIN3irr13SJoystickInfoESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %joystickInfo, i64 noundef %sub.i.i79)
   br label %_ZN3irr4core5arrayINS_13SJoystickInfoEE10reallocateEjb.exit
 
@@ -22226,7 +22226,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !82
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64

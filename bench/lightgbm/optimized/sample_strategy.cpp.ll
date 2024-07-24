@@ -665,7 +665,7 @@ define linkonce_odr void @_ZN8LightGBM12GOSSStrategy17ResetSampleConfigEPKNS_6Co
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %35
-  %50 = sub nsw i64 %40, %47
+  %50 = sub nuw nsw i64 %40, %47
   tail call void @_ZNSt6vectorIiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %50)
   %.pre21 = load i32, ptr %38, align 4
   %.pre24 = sext i32 %.pre21 to i64
@@ -698,7 +698,7 @@ _ZNSt6vectorIiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEE6resizeEm.exit: ; p
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %_ZNSt6vectorIiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEE6resizeEm.exit
-  %66 = sub nsw i64 %.pre-phi, %63
+  %66 = sub nuw nsw i64 %.pre-phi, %63
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %66)
   br label %_ZN8LightGBM23ParallelPartitionRunnerIiLb0EE6ReSizeEi.exit
 
@@ -925,7 +925,7 @@ define linkonce_odr void @_ZN8LightGBM23ParallelPartitionRunnerIiLb0EEC2Eii(ptr 
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %13
-  %24 = sub nsw i64 %14, %21
+  %24 = sub nuw nsw i64 %14, %21
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %24)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %107
 
@@ -960,7 +960,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIiSaIi
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %41 = sub nsw i64 %31, %38
+  %41 = sub nuw nsw i64 %31, %38
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %41)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit6_crit_edge unwind label %107
 
@@ -995,7 +995,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit6:              ; preds = %._ZNSt6vectorIiSaIi
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit6
-  %56 = sub nsw i64 %.pre-phi, %53
+  %56 = sub nuw nsw i64 %.pre-phi, %53
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %56)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit9_crit_edge unwind label %107
 
@@ -1030,7 +1030,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit9:              ; preds = %._ZNSt6vectorIiSaIi
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit9
-  %71 = sub nsw i64 %.pre-phi37, %68
+  %71 = sub nuw nsw i64 %.pre-phi37, %68
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %71)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit12_crit_edge unwind label %107
 
@@ -1065,7 +1065,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit12:             ; preds = %._ZNSt6vectorIiSaIi
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit12
-  %86 = sub nsw i64 %.pre-phi39, %83
+  %86 = sub nuw nsw i64 %.pre-phi39, %83
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %86)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit15_crit_edge unwind label %107
 
@@ -1100,7 +1100,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit15:             ; preds = %._ZNSt6vectorIiSaIi
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit15
-  %101 = sub nsw i64 %.pre-phi41, %98
+  %101 = sub nuw nsw i64 %.pre-phi41, %98
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %101)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit18 unwind label %107
 
@@ -3206,7 +3206,7 @@ define linkonce_odr void @_ZN8LightGBM21BaggingSampleStrategy17ResetSampleConfig
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %82
-  %97 = sub nsw i64 %87, %94
+  %97 = sub nuw nsw i64 %87, %94
   tail call void @_ZNSt6vectorIiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %85, i64 noundef %97)
   %.pre = load i32, ptr %86, align 4
   %.pre46 = sext i32 %.pre to i64
@@ -3239,7 +3239,7 @@ _ZNSt6vectorIiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEE6resizeEm.exit: ; p
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %_ZNSt6vectorIiN8LightGBM6Common18AlignmentAllocatorIiLm32EEEE6resizeEm.exit
-  %113 = sub nsw i64 %.pre-phi, %110
+  %113 = sub nuw nsw i64 %.pre-phi, %110
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %103, i64 noundef %113)
   br label %_ZN8LightGBM23ParallelPartitionRunnerIiLb0EE6ReSizeEi.exit
 

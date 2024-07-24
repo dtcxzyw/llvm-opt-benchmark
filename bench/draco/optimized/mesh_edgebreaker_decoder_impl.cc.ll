@@ -3011,7 +3011,7 @@ define linkonce_odr void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_3
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_31MeshEdgebreakerTraversalDecoderEE13AttributeDataESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_31MeshEdgebreakerTraversalDecoderEE13AttributeDataESaIS4_EE15_M_erase_at_endEPS4_.exit
 
@@ -3368,7 +3368,7 @@ _ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EE9push_backERKS1_.exit: ; pr
   br i1 %111, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %112
 
 112:                                              ; preds = %109
-  %113 = sub i32 %107, %110
+  %113 = sub nuw i32 %107, %110
   %114 = load ptr, ptr %50, align 8
   %115 = load ptr, ptr %51, align 8
   %.not.i44 = icmp eq ptr %114, %115
@@ -6567,7 +6567,7 @@ define linkonce_odr void @_ZN5draco32MeshAttributeIndicesEncodingData4InitEi(ptr
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = sub nsw i64 %4, %11
+  %14 = sub nuw nsw i64 %4, %11
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %14)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -6680,7 +6680,7 @@ define weak_odr noundef zeroext i1 @_ZN5draco26MeshEdgebreakerDecoderImplINS_31M
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %2
-  %31 = sub nsw i64 %20, %28
+  %31 = sub nuw nsw i64 %20, %28
   call void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr %23, i64 noundef %31, ptr noundef nonnull align 4 dereferenceable(12) %3)
   br label %_ZN5draco4Mesh11SetNumFacesEm.exit
 
@@ -9759,7 +9759,7 @@ define linkonce_odr void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_4
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_41MeshEdgebreakerTraversalPredictiveDecoderEE13AttributeDataESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_41MeshEdgebreakerTraversalPredictiveDecoderEE13AttributeDataESaIS4_EE15_M_erase_at_endEPS4_.exit
 
@@ -10031,7 +10031,7 @@ _ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EE9push_backERKS1_.exit: ; pr
   br i1 %111, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %112
 
 112:                                              ; preds = %109
-  %113 = sub i32 %107, %110
+  %113 = sub nuw i32 %107, %110
   %114 = load ptr, ptr %50, align 8
   %115 = load ptr, ptr %51, align 8
   %.not.i44 = icmp eq ptr %114, %115
@@ -10566,7 +10566,7 @@ _ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit:     ; preds = %5
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %18
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %22, i64 noundef %30, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -13260,7 +13260,7 @@ define weak_odr noundef zeroext i1 @_ZN5draco26MeshEdgebreakerDecoderImplINS_41M
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %2
-  %31 = sub nsw i64 %20, %28
+  %31 = sub nuw nsw i64 %20, %28
   call void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr %23, i64 noundef %31, ptr noundef nonnull align 4 dereferenceable(12) %3)
   br label %_ZN5draco4Mesh11SetNumFacesEm.exit
 
@@ -16341,7 +16341,7 @@ define linkonce_odr void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_3
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_38MeshEdgebreakerTraversalValenceDecoderEE13AttributeDataESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_38MeshEdgebreakerTraversalValenceDecoderEE13AttributeDataESaIS4_EE15_M_erase_at_endEPS4_.exit
 
@@ -16613,7 +16613,7 @@ _ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EE9push_backERKS1_.exit: ; pr
   br i1 %111, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %112
 
 112:                                              ; preds = %109
-  %113 = sub i32 %107, %110
+  %113 = sub nuw i32 %107, %110
   %114 = load ptr, ptr %50, align 8
   %115 = load ptr, ptr %51, align 8
   %.not.i44 = icmp eq ptr %114, %115
@@ -17302,7 +17302,7 @@ _ZN5draco13DecoderBuffer6DecodeIaEEbPT_.exit:     ; preds = %94
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %110
-  %122 = sub nsw i64 %112, %119
+  %122 = sub nuw nsw i64 %112, %119
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr %114, i64 noundef %122, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 268
   %.pre37 = load i32, ptr %.phi.trans.insert, align 4
@@ -17341,7 +17341,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiE6resize
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiE6resizeEmRKi.exit
-  %143 = sub nsw i64 %133, %140
+  %143 = sub nuw nsw i64 %133, %140
   call void @_ZNSt6vectorIS_IjSaIjEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %132, i64 noundef %143)
   %.pre40 = load ptr, ptr %134, align 8
   br label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit
@@ -17393,7 +17393,7 @@ _ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit:    ; preds = %142, %144, %146, %_
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit
-  %167 = sub nsw i64 %157, %164
+  %167 = sub nuw nsw i64 %157, %164
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %152, i64 noundef %167)
   %.pre41 = load ptr, ptr %134, align 8
   %.pre42 = load ptr, ptr %132, align 8
@@ -17461,7 +17461,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %166, %168, %170, %1
   br i1 %203, label %204, label %206
 
 204:                                              ; preds = %192
-  %205 = sub nsw i64 %195, %202
+  %205 = sub nuw nsw i64 %195, %202
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %194, i64 noundef %205)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -20090,7 +20090,7 @@ define weak_odr noundef zeroext i1 @_ZN5draco26MeshEdgebreakerDecoderImplINS_38M
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %2
-  %31 = sub nsw i64 %20, %28
+  %31 = sub nuw nsw i64 %20, %28
   call void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr %23, i64 noundef %31, ptr noundef nonnull align 4 dereferenceable(12) %3)
   br label %_ZN5draco4Mesh11SetNumFacesEm.exit
 
@@ -22461,7 +22461,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoder
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -22955,7 +22955,7 @@ _ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm
   br i1 %.not.i.i.i, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %.preheader.i.i.i, !llvm.loop !247
 
 41:                                               ; preds = %14
-  %42 = sub i64 %2, %17
+  %42 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %42, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -23157,7 +23157,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -24049,7 +24049,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco22MeshTraversalSequencerINS_28M
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %2
-  %21 = sub nsw i64 %9, %18
+  %21 = sub nuw nsw i64 %9, %18
   tail call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %13, i64 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
   br label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
@@ -24248,7 +24248,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE7reserveEm.
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE7reserveEm.exit
-  %49 = sub nsw i64 %.pre-phi33, %46
+  %49 = sub nuw nsw i64 %.pre-phi33, %46
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr %41, i64 noundef %49, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZN5draco28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEE16OnTraversalStartEv.exit
 
@@ -24404,7 +24404,7 @@ _ZSt13move_backwardIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4
   br i1 %.not.i.i.i, label %_ZSt4fillIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !268
 
 39:                                               ; preds = %14
-  %40 = sub i64 %2, %18
+  %40 = sub nuw i64 %2, %18
   %.not7.i.i.i.i = icmp eq i64 %40, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -26114,7 +26114,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco22MeshTraversalSequencerINS_19D
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %2
-  %21 = sub nsw i64 %9, %18
+  %21 = sub nuw nsw i64 %9, %18
   tail call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %13, i64 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
   br label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 
@@ -27105,7 +27105,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco22MeshTraversalSequencerINS_19D
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %2
-  %21 = sub nsw i64 %9, %18
+  %21 = sub nuw nsw i64 %9, %18
   tail call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %13, i64 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
   br label %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
 

@@ -128,9 +128,9 @@ land.lhs.true1.i:                                 ; preds = %if.end
   %iov_len.i = getelementptr inbounds i8, ptr %l2hdr_iov, i64 8
   %0 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %0, %sub
-  %sub.i = sub i64 %0, %sub
+  %sub.i = sub nuw i64 %0, %sub
   %cmp5.not.i = icmp ult i64 %sub.i, 2
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i
+  %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
   br i1 %or.cond13.i, label %iov_to_buf.exit, label %iov_to_buf.exit.thread
 
 iov_to_buf.exit.thread:                           ; preds = %land.lhs.true1.i
@@ -173,9 +173,9 @@ land.lhs.true1.i.i:                               ; preds = %entry
   %iov_len.i.i = getelementptr inbounds i8, ptr %iov, i64 8
   %0 = load i64, ptr %iov_len.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %0, %iovoff
-  %sub.i.i = sub i64 %0, %iovoff
+  %sub.i.i = sub nuw i64 %0, %iovoff
   %cmp5.not.i.i = icmp ult i64 %sub.i.i, 18
-  %or.cond13.i.i = or i1 %cmp.not.i.i, %cmp5.not.i.i
+  %or.cond13.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp5.not.i.i
   br i1 %or.cond13.i.i, label %iov_to_buf.exit.i, label %iov_to_buf.exit.thread.i
 
 iov_to_buf.exit.thread.i:                         ; preds = %land.lhs.true1.i.i
@@ -229,9 +229,9 @@ land.lhs.true1.i.i56:                             ; preds = %if.end.i54
   %iov_len.i.i57 = getelementptr inbounds i8, ptr %iov, i64 8
   %6 = load i64, ptr %iov_len.i.i57, align 8
   %cmp.not.i.i58 = icmp ult i64 %6, %sub.i
-  %sub.i.i59 = sub i64 %6, %sub.i
+  %sub.i.i59 = sub nuw i64 %6, %sub.i
   %cmp5.not.i.i60 = icmp ult i64 %sub.i.i59, 2
-  %or.cond13.i.i61 = or i1 %cmp.not.i.i58, %cmp5.not.i.i60
+  %or.cond13.i.i61 = select i1 %cmp.not.i.i58, i1 true, i1 %cmp5.not.i.i60
   br i1 %or.cond13.i.i61, label %iov_to_buf.exit.i65, label %iov_to_buf.exit.thread.i62
 
 iov_to_buf.exit.thread.i62:                       ; preds = %land.lhs.true1.i.i56
@@ -270,9 +270,9 @@ land.lhs.true1.i:                                 ; preds = %if.end
   %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %11 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %11, %10
-  %sub.i69 = sub i64 %11, %10
+  %sub.i69 = sub nuw i64 %11, %10
   %cmp5.not.i = icmp ult i64 %sub.i69, 20
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i
+  %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
   br i1 %or.cond13.i, label %iov_to_buf.exit, label %iov_to_buf.exit.thread
 
 iov_to_buf.exit.thread:                           ; preds = %land.lhs.true1.i
@@ -355,9 +355,9 @@ land.lhs.true1.i.i77:                             ; preds = %if.end.i73
   %iov_len.i.i78 = getelementptr inbounds i8, ptr %iov, i64 8
   %23 = load i64, ptr %iov_len.i.i78, align 8
   %cmp.not.i.i79 = icmp ult i64 %23, %22
-  %sub.i.i80 = sub i64 %23, %22
+  %sub.i.i80 = sub nuw i64 %23, %22
   %cmp5.not.i.i81 = icmp ult i64 %sub.i.i80, 20
-  %or.cond13.i.i82 = or i1 %cmp.not.i.i79, %cmp5.not.i.i81
+  %or.cond13.i.i82 = select i1 %cmp.not.i.i79, i1 true, i1 %cmp5.not.i.i81
   br i1 %or.cond13.i.i82, label %_eth_copy_chunk.exit, label %_eth_copy_chunk.exit.thread119
 
 _eth_copy_chunk.exit.thread119:                   ; preds = %land.lhs.true1.i.i77
@@ -431,9 +431,9 @@ land.lhs.true1.i.i99:                             ; preds = %if.end.i91
   %iov_len.i.i100 = getelementptr inbounds i8, ptr %iov, i64 8
   %39 = load i64, ptr %iov_len.i.i100, align 8
   %cmp.not.i.i101 = icmp ult i64 %39, %22
-  %sub.i.i102 = sub i64 %39, %22
+  %sub.i.i102 = sub nuw i64 %39, %22
   %cmp5.not.i.i103 = icmp ult i64 %sub.i.i102, 8
-  %or.cond13.i.i104 = or i1 %cmp.not.i.i101, %cmp5.not.i.i103
+  %or.cond13.i.i104 = select i1 %cmp.not.i.i101, i1 true, i1 %cmp5.not.i.i103
   br i1 %or.cond13.i.i104, label %_eth_copy_chunk.exit107, label %_eth_copy_chunk.exit107.thread123
 
 _eth_copy_chunk.exit107.thread123:                ; preds = %land.lhs.true1.i.i99
@@ -488,9 +488,9 @@ land.lhs.true1.i:                                 ; preds = %if.end
   %iov_len.i = getelementptr inbounds i8, ptr %pkt, i64 8
   %0 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %0, %ip6hdr_off
-  %sub.i = sub i64 %0, %ip6hdr_off
+  %sub.i = sub nuw i64 %0, %ip6hdr_off
   %cmp5.not.i = icmp ult i64 %sub.i, 40
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i
+  %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
   br i1 %or.cond13.i, label %iov_to_buf.exit, label %iov_to_buf.exit.thread
 
 iov_to_buf.exit.thread:                           ; preds = %land.lhs.true1.i
@@ -550,9 +550,9 @@ if.end16:                                         ; preds = %if.end16.lr.ph, %et
 land.lhs.true1.i45:                               ; preds = %if.end16
   %4 = load i64, ptr %iov_len.i46, align 8
   %cmp.not.i47 = icmp ult i64 %4, %add91
-  %sub.i48 = sub i64 %4, %add91
+  %sub.i48 = sub nuw i64 %4, %add91
   %cmp5.not.i49 = icmp ult i64 %sub.i48, 2
-  %or.cond13.i50 = or i1 %cmp.not.i47, %cmp5.not.i49
+  %or.cond13.i50 = select i1 %cmp.not.i47, i1 true, i1 %cmp5.not.i49
   br i1 %or.cond13.i50, label %iov_to_buf.exit53, label %iov_to_buf.exit53.thread
 
 iov_to_buf.exit53.thread:                         ; preds = %land.lhs.true1.i45
@@ -595,9 +595,9 @@ if.end.i:                                         ; preds = %if.then29
 land.lhs.true1.i.i:                               ; preds = %if.end.i
   %9 = load i64, ptr %iov_len.i46, align 8
   %cmp.not.i.i = icmp ult i64 %9, %add31
-  %sub.i.i = sub i64 %9, %add31
+  %sub.i.i = sub nuw i64 %9, %add31
   %cmp5.not.i.i = icmp ult i64 %sub.i.i, 8
-  %or.cond13.i.i = or i1 %cmp.not.i.i, %cmp5.not.i.i
+  %or.cond13.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp5.not.i.i
   br i1 %or.cond13.i.i, label %iov_to_buf.exit.i, label %if.end5.thread.i
 
 iov_to_buf.exit.i:                                ; preds = %land.lhs.true1.i.i, %if.end.i
@@ -636,9 +636,9 @@ if.end12.land.lhs.true1.i12_crit_edge.i:          ; preds = %if.end12.i
 land.lhs.true1.i12.i:                             ; preds = %if.end12.land.lhs.true1.i12_crit_edge.i, %if.end5.thread.i
   %15 = phi i64 [ %.pre.i, %if.end12.land.lhs.true1.i12_crit_edge.i ], [ %9, %if.end5.thread.i ]
   %cmp.not.i14.i = icmp ult i64 %15, %add.i
-  %sub.i15.i = sub i64 %15, %add.i
+  %sub.i15.i = sub nuw i64 %15, %add.i
   %cmp5.not.i16.i = icmp ult i64 %sub.i15.i, 16
-  %or.cond13.i17.i = or i1 %cmp.not.i14.i, %cmp5.not.i16.i
+  %or.cond13.i17.i = select i1 %cmp.not.i14.i, i1 true, i1 %cmp5.not.i16.i
   br i1 %or.cond13.i17.i, label %iov_to_buf.exit20.i, label %iov_to_buf.exit20.thread.i
 
 iov_to_buf.exit20.thread.i:                       ; preds = %land.lhs.true1.i12.i
@@ -714,9 +714,9 @@ while.body.i:                                     ; preds = %if.then38, %if.end3
 if.end.i62:                                       ; preds = %while.body.i
   %20 = load i64, ptr %iov_len.i46, align 8
   %cmp.not.i.i63 = icmp ult i64 %20, %opt_offset.04.i
-  %sub.i.i64 = sub i64 %20, %opt_offset.04.i
+  %sub.i.i64 = sub nuw i64 %20, %opt_offset.04.i
   %cmp5.not.i.i65 = icmp ult i64 %sub.i.i64, 2
-  %or.cond13.i.i66 = or i1 %cmp.not.i.i63, %cmp5.not.i.i65
+  %or.cond13.i.i66 = select i1 %cmp.not.i.i63, i1 true, i1 %cmp5.not.i.i65
   br i1 %or.cond13.i.i66, label %iov_to_buf.exit.i70, label %iov_to_buf.exit.thread.i
 
 iov_to_buf.exit.thread.i:                         ; preds = %if.end.i62
@@ -766,9 +766,9 @@ if.end29.i:                                       ; preds = %if.then24.i
 land.lhs.true1.i19.i:                             ; preds = %if.end29.i
   %28 = load i64, ptr %iov_len.i46, align 8
   %cmp.not.i21.i = icmp ult i64 %28, %add25.i
-  %sub.i22.i = sub i64 %28, %add25.i
+  %sub.i22.i = sub nuw i64 %28, %add25.i
   %cmp5.not.i23.i = icmp ult i64 %sub.i22.i, 16
-  %or.cond13.i24.i = or i1 %cmp.not.i21.i, %cmp5.not.i23.i
+  %or.cond13.i24.i = select i1 %cmp.not.i21.i, i1 true, i1 %cmp5.not.i23.i
   br i1 %or.cond13.i24.i, label %if.else.i16.i, label %if.then.i25.i
 
 if.then.i25.i:                                    ; preds = %land.lhs.true1.i19.i
@@ -842,9 +842,9 @@ land.lhs.true1.i:                                 ; preds = %entry
   %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %0 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %0, %iovoff
-  %sub.i = sub i64 %0, %iovoff
+  %sub.i = sub nuw i64 %0, %iovoff
   %cmp5.not.i = icmp ult i64 %sub.i, 14
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i
+  %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
   br i1 %or.cond13.i, label %iov_to_buf.exit, label %iov_to_buf.exit.thread
 
 iov_to_buf.exit.thread:                           ; preds = %land.lhs.true1.i
@@ -875,9 +875,9 @@ land.lhs.true1.i19:                               ; preds = %sw.bb
   %iov_len.i20 = getelementptr inbounds i8, ptr %iov, i64 8
   %4 = load i64, ptr %iov_len.i20, align 8
   %cmp.not.i21 = icmp ult i64 %4, %add
-  %sub.i22 = sub i64 %4, %add
+  %sub.i22 = sub nuw i64 %4, %add
   %cmp5.not.i23 = icmp ult i64 %sub.i22, 4
-  %or.cond13.i24 = or i1 %cmp.not.i21, %cmp5.not.i23
+  %or.cond13.i24 = select i1 %cmp.not.i21, i1 true, i1 %cmp5.not.i23
   br i1 %or.cond13.i24, label %iov_to_buf.exit27, label %iov_to_buf.exit27.thread
 
 iov_to_buf.exit27.thread:                         ; preds = %land.lhs.true1.i19
@@ -923,9 +923,9 @@ land.lhs.true1.i32:                               ; preds = %if.then18
   %iov_len.i33 = getelementptr inbounds i8, ptr %iov, i64 8
   %15 = load i64, ptr %iov_len.i33, align 8
   %cmp.not.i34 = icmp ult i64 %15, %conv19
-  %sub.i35 = sub i64 %15, %conv19
+  %sub.i35 = sub nuw i64 %15, %conv19
   %cmp5.not.i36 = icmp ult i64 %sub.i35, 4
-  %or.cond13.i37 = or i1 %cmp.not.i34, %cmp5.not.i36
+  %or.cond13.i37 = select i1 %cmp.not.i34, i1 true, i1 %cmp5.not.i36
   br i1 %or.cond13.i37, label %iov_to_buf.exit40, label %iov_to_buf.exit40.thread
 
 iov_to_buf.exit40.thread:                         ; preds = %land.lhs.true1.i32
@@ -969,9 +969,9 @@ land.lhs.true1.i:                                 ; preds = %sw.bb
   %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %0 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %0, %iovoff
-  %sub.i = sub i64 %0, %iovoff
+  %sub.i = sub nuw i64 %0, %iovoff
   %cmp5.not.i = icmp ult i64 %sub.i, 14
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i
+  %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
   br i1 %or.cond13.i, label %if.else.i, label %sw.epilog.thread
 
 sw.epilog.thread:                                 ; preds = %land.lhs.true1.i
@@ -993,9 +993,9 @@ land.lhs.true1.i23:                               ; preds = %sw.bb1
   %iov_len.i24 = getelementptr inbounds i8, ptr %iov, i64 8
   %2 = load i64, ptr %iov_len.i24, align 8
   %cmp.not.i25 = icmp ult i64 %2, %iovoff
-  %sub.i26 = sub i64 %2, %iovoff
+  %sub.i26 = sub nuw i64 %2, %iovoff
   %cmp5.not.i27 = icmp ult i64 %sub.i26, 18
-  %or.cond13.i28 = or i1 %cmp.not.i25, %cmp5.not.i27
+  %or.cond13.i28 = select i1 %cmp.not.i25, i1 true, i1 %cmp5.not.i27
   br i1 %or.cond13.i28, label %if.else.i20, label %if.then.i29
 
 if.then.i29:                                      ; preds = %land.lhs.true1.i23
@@ -1040,9 +1040,9 @@ land.lhs.true1.i36:                               ; preds = %if.end16
   %iov_len.i37 = getelementptr inbounds i8, ptr %iov, i64 8
   %8 = load i64, ptr %iov_len.i37, align 8
   %cmp.not.i38 = icmp ult i64 %8, %add
-  %sub.i39 = sub i64 %8, %add
+  %sub.i39 = sub nuw i64 %8, %add
   %cmp5.not.i40 = icmp ult i64 %sub.i39, 4
-  %or.cond13.i41 = or i1 %cmp.not.i38, %cmp5.not.i40
+  %or.cond13.i41 = select i1 %cmp.not.i38, i1 true, i1 %cmp5.not.i40
   br i1 %or.cond13.i41, label %iov_to_buf.exit44, label %iov_to_buf.exit44.thread
 
 iov_to_buf.exit44.thread:                         ; preds = %land.lhs.true1.i36

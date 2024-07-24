@@ -991,7 +991,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i355
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.end.i355
   %42 = extractvalue { i64, ptr } %call5.i, 1
-  %sub.i.i = sub i64 %41, %33
+  %sub.i.i = sub nuw i64 %41, %33
   %add.ptr.i.i357 = getelementptr inbounds i8, ptr %42, i64 %33
   %file_.i.i = getelementptr inbounds i8, ptr %desc, i64 16
   %43 = load ptr, ptr %file_.i.i, align 8, !noalias !20
@@ -16442,7 +16442,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 _ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPool5FieldE.exit: ; preds = %for.cond.i.i, %for.body.i.i, %entry
   %retval.0.i7.i = phi i64 [ 0, %entry ], [ %__size.1.i.i, %for.body.i.i ], [ 0, %for.cond.i.i ]
-  %sub.i.i = sub i64 %4, %retval.0.i7.i
+  %sub.i.i = sub nuw i64 %4, %retval.0.i7.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %retval.0.i7.i
   %call1 = tail call noundef i32 @_ZN6google8protobuf13json_internal15ClassifyMessageESt17basic_string_viewIcSt11char_traitsIcEE(i64 %sub.i.i, ptr %add.ptr.i.i)
   %cmp = icmp eq i32 %call1, 6
@@ -19189,7 +19189,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 _ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPool5FieldE.exit: ; preds = %for.cond.i.i, %for.body.i.i, %entry
   %retval.0.i7.i = phi i64 [ 0, %entry ], [ %__size.1.i.i, %for.body.i.i ], [ 0, %for.cond.i.i ]
-  %sub.i.i = sub i64 %4, %retval.0.i7.i
+  %sub.i.i = sub nuw i64 %4, %retval.0.i7.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %retval.0.i7.i
   %call1 = tail call noundef i32 @_ZN6google8protobuf13json_internal15ClassifyMessageESt17basic_string_viewIcSt11char_traitsIcEE(i64 %sub.i.i, ptr %add.ptr.i.i)
   %cmp.not = icmp eq i32 %call1, 5
@@ -19476,7 +19476,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 _ZN6google8protobuf13json_internal10Proto3Type13FieldTypeNameEPKNS1_12ResolverPool5FieldE.exit: ; preds = %for.cond.i.i, %for.body.i.i, %for.body
   %retval.0.i7.i = phi i64 [ 0, %for.body ], [ %__size.1.i.i, %for.body.i.i ], [ 0, %for.cond.i.i ]
-  %sub.i.i = sub i64 %24, %retval.0.i7.i
+  %sub.i.i = sub nuw i64 %24, %retval.0.i7.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %25, i64 %retval.0.i7.i
   %call3 = call noundef i32 @_ZN6google8protobuf13json_internal15ClassifyMessageESt17basic_string_viewIcSt11char_traitsIcEE(i64 %sub.i.i, ptr %add.ptr.i.i)
   %cmp4 = icmp eq i32 %call3, 5

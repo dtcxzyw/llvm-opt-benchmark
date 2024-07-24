@@ -221,7 +221,7 @@ if.then204:                                       ; preds = %if.then202
   br i1 %cmp205.not, label %if.end208, label %return
 
 if.end208:                                        ; preds = %if.then204
-  %sub209 = sub i64 %add109, %md_block_size.0
+  %sub209 = sub nuw i64 %add109, %md_block_size.0
   call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef %header) #6, !callees !6
   %add.ptr = getelementptr inbounds i8, ptr %header, i64 %md_block_size.0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %first_block, ptr nonnull align 1 %add.ptr, i64 %sub209, i1 false)
@@ -353,7 +353,7 @@ if.end275:                                        ; preds = %if.end275.sink.spli
   br i1 %cmp299.not, label %if.end306, label %if.then301
 
 if.then301:                                       ; preds = %if.end275
-  %sub303 = sub nsw i64 %j.0193, %sub298
+  %sub303 = sub nuw nsw i64 %j.0193, %sub298
   %arrayidx304 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub303
   %11 = load i8, ptr %arrayidx304, align 1
   %conv1.i = zext i8 %11 to i32

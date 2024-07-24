@@ -2553,7 +2553,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE15_M_range_insertI
 32:                                               ; preds = %19
   %33 = getelementptr inbounds i8, ptr %2, i64 %21
   %34 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_(ptr %33, ptr %3, ptr noundef %14) #17
-  %35 = sub nsw i64 %10, %22
+  %35 = sub nuw nsw i64 %10, %22
   %36 = load ptr, ptr %13, align 8, !tbaa !75
   %37 = getelementptr inbounds %"class.ZXing::Result", ptr %36, i64 %35
   store ptr %37, ptr %13, align 8, !tbaa !75

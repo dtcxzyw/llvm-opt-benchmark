@@ -1889,7 +1889,7 @@ _get_job_time.exit:                               ; preds = %289, %_get_job_time
   br label %.loopexit
 
 309:                                              ; preds = %305
-  %310 = sub i32 %.0.i, %213
+  %310 = sub nuw i32 %.0.i, %213
   br label %311
 
 311:                                              ; preds = %303, %309, %217

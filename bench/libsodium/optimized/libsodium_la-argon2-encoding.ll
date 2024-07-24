@@ -383,7 +383,7 @@ u32_to_string.exit:                               ; preds = %do.body.i
 if.end21:                                         ; preds = %u32_to_string.exit
   %add23 = add nuw i64 %call18, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr8, ptr noundef nonnull align 2 dereferenceable(1) %tmp, i64 %add23, i1 false)
-  %sub25 = sub i64 %sub9, %call18
+  %sub25 = sub nuw i64 %sub9, %call18
   %cmp30 = icmp ult i64 %sub25, 4
   br i1 %cmp30, label %return, label %if.end32
 
@@ -426,7 +426,7 @@ if.end46:                                         ; preds = %u32_to_string.exit1
   %add.ptr34 = getelementptr i8, ptr %add.ptr24, i64 3
   %add48 = add nuw i64 %call43, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr34, ptr noundef nonnull align 1 dereferenceable(1) %tmp38, i64 %add48, i1 false)
-  %sub50 = sub i64 %sub35, %call43
+  %sub50 = sub nuw i64 %sub35, %call43
   %cmp55 = icmp ult i64 %sub50, 4
   br i1 %cmp55, label %return, label %if.end57
 
@@ -469,7 +469,7 @@ if.end71:                                         ; preds = %u32_to_string.exit1
   %add.ptr59 = getelementptr i8, ptr %add.ptr49, i64 3
   %add73 = add nuw i64 %call68, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr59, ptr noundef nonnull align 1 dereferenceable(1) %tmp63, i64 %add73, i1 false)
-  %sub75 = sub i64 %sub60, %call68
+  %sub75 = sub nuw i64 %sub60, %call68
   %cmp80 = icmp ult i64 %sub75, 4
   br i1 %cmp80, label %return, label %if.end82
 
@@ -512,7 +512,7 @@ if.end96:                                         ; preds = %u32_to_string.exit1
   %add.ptr84 = getelementptr i8, ptr %add.ptr74, i64 3
   %add98 = add nuw i64 %call93, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr84, ptr noundef nonnull align 1 dereferenceable(1) %tmp88, i64 %add98, i1 false)
-  %sub100 = sub i64 %sub85, %call93
+  %sub100 = sub nuw i64 %sub85, %call93
   %cmp105 = icmp ult i64 %sub100, 2
   br i1 %cmp105, label %return, label %if.end107
 

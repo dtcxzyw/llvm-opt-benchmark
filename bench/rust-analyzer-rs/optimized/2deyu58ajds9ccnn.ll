@@ -618,7 +618,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !183
   %9 = icmp eq i32 %bcmp.i, 0
@@ -958,7 +958,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !222
   %67 = icmp eq i32 %bcmp.i, 0
@@ -1855,7 +1855,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %43 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %32
   %44 = load i8, ptr %43, align 1, !alias.scope !520, !noundef !19
   %45 = icmp sgt i8 %44, -65
-  %46 = sub i64 %.sroa.3.0.i, %32
+  %46 = sub nuw i64 %.sroa.3.0.i, %32
   br i1 %45, label %48, label %47
 
 47:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %40
@@ -1965,7 +1965,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %26 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %20
   %27 = load i8, ptr %26, align 1, !alias.scope !543, !noundef !19
   %28 = icmp sgt i8 %27, -65
-  %29 = sub i64 %.sroa.3.0.i, %20
+  %29 = sub nuw i64 %.sroa.3.0.i, %20
   br i1 %28, label %31, label %30
 
 30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %23
@@ -2146,11 +2146,11 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 58:                                               ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$10text_range17h86778fb17ab354d7E.exit"
-  %59 = sub i32 %32, %.0.i.i37
-  %60 = sub i32 %34, %.0.i.i37
+  %59 = sub nuw i32 %32, %.0.i.i37
+  %60 = sub nuw i32 %34, %.0.i.i37
   %61 = zext i32 %59 to i64
   %62 = zext i32 %60 to i64
-  %.not.i.i40 = icmp ugt i32 %59, %60
+  %.not.i.i40 = icmp ugt i32 %32, %34
   br i1 %.not.i.i40, label %78, label %63
 
 63:                                               ; preds = %58
@@ -2371,11 +2371,11 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hbe6409b3e3054762E.exit: ; pr
   unreachable
 
 136:                                              ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$10text_range17h86778fb17ab354d7E.exit50"
-  %137 = sub i32 %110, %.0.i.i41
-  %138 = sub i32 %112, %.0.i.i41
+  %137 = sub nuw i32 %110, %.0.i.i41
+  %138 = sub nuw i32 %112, %.0.i.i41
   %139 = zext i32 %137 to i64
   %140 = zext i32 %138 to i64
-  %.not.i.i56 = icmp ugt i32 %137, %138
+  %.not.i.i56 = icmp ugt i32 %110, %112
   br i1 %.not.i.i56, label %156, label %141
 
 141:                                              ; preds = %136
@@ -2572,11 +2572,11 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 58:                                               ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$10text_range17h86778fb17ab354d7E.exit"
-  %59 = sub i32 %32, %.0.i.i33
-  %60 = sub i32 %34, %.0.i.i33
+  %59 = sub nuw i32 %32, %.0.i.i33
+  %60 = sub nuw i32 %34, %.0.i.i33
   %61 = zext i32 %59 to i64
   %62 = zext i32 %60 to i64
-  %.not.i.i36 = icmp ugt i32 %59, %60
+  %.not.i.i36 = icmp ugt i32 %32, %34
   br i1 %.not.i.i36, label %78, label %63
 
 63:                                               ; preds = %58
@@ -2797,11 +2797,11 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17he771121c164c0aacE.exit: ; pr
   unreachable
 
 138:                                              ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$10text_range17h86778fb17ab354d7E.exit47"
-  %139 = sub i32 %112, %.0.i.i38
-  %140 = sub i32 %114, %.0.i.i38
+  %139 = sub nuw i32 %112, %.0.i.i38
+  %140 = sub nuw i32 %114, %.0.i.i38
   %141 = zext i32 %139 to i64
   %142 = zext i32 %140 to i64
-  %.not.i.i53 = icmp ugt i32 %139, %140
+  %.not.i.i53 = icmp ugt i32 %112, %114
   br i1 %.not.i.i53, label %158, label %143
 
 143:                                              ; preds = %138
@@ -2961,11 +2961,11 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 45:                                               ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
-  %46 = sub i32 %13, %.0.i.i
-  %47 = sub i32 %15, %.0.i.i
+  %46 = sub nuw i32 %13, %.0.i.i
+  %47 = sub nuw i32 %15, %.0.i.i
   %48 = zext i32 %46 to i64
   %49 = zext i32 %47 to i64
-  %.not.i.i5 = icmp ugt i32 %46, %47
+  %.not.i.i5 = icmp ugt i32 %13, %15
   br i1 %.not.i.i5, label %65, label %50
 
 50:                                               ; preds = %45
@@ -3172,11 +3172,11 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 59:                                               ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$10text_range17h86778fb17ab354d7E.exit"
-  %60 = sub i32 %33, %.0.i.i33
-  %61 = sub i32 %35, %.0.i.i33
+  %60 = sub nuw i32 %33, %.0.i.i33
+  %61 = sub nuw i32 %35, %.0.i.i33
   %62 = zext i32 %60 to i64
   %63 = zext i32 %61 to i64
-  %.not.i.i36 = icmp ugt i32 %60, %61
+  %.not.i.i36 = icmp ugt i32 %33, %35
   br i1 %.not.i.i36, label %79, label %64
 
 64:                                               ; preds = %59
@@ -3402,11 +3402,11 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 141:                                              ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$10text_range17h86778fb17ab354d7E.exit47"
-  %142 = sub i32 %115, %.0.i.i38
-  %143 = sub i32 %117, %.0.i.i38
+  %142 = sub nuw i32 %115, %.0.i.i38
+  %143 = sub nuw i32 %117, %.0.i.i38
   %144 = zext i32 %142 to i64
   %145 = zext i32 %143 to i64
-  %.not.i.i53 = icmp ugt i32 %142, %143
+  %.not.i.i53 = icmp ugt i32 %115, %117
   br i1 %.not.i.i53, label %161, label %146
 
 146:                                              ; preds = %141
@@ -4130,7 +4130,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd440938afe653240E.exit: ; pred
   %125 = getelementptr inbounds i8, ptr %.sroa.0.0.i78, i64 %62
   %126 = load i8, ptr %125, align 1, !alias.scope !893, !noundef !19
   %127 = icmp sgt i8 %126, -65
-  %128 = sub i64 %.sroa.3.0.i46, %62
+  %128 = sub nuw i64 %.sroa.3.0.i46, %62
   br i1 %127, label %130, label %129
 
 129:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i66"
@@ -4150,7 +4150,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd440938afe653240E.exit: ; pred
   %134 = getelementptr inbounds i8, ptr %.sroa.0.0.i78, i64 %11
   %135 = load i8, ptr %134, align 1, !alias.scope !898, !noundef !19
   %136 = icmp sgt i8 %135, -65
-  %137 = sub i64 %.sroa.3.0.i46, %11
+  %137 = sub nuw i64 %.sroa.3.0.i46, %11
   br i1 %136, label %139, label %138
 
 138:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i69"

@@ -4622,7 +4622,7 @@ for.cond.backedge.i:                              ; preds = %if.end.i.i154.i, %i
   %mul12.i.i.i = mul i32 %46, %add.i.i158.i
   %idx.ext13.i.i.i = zext i32 %mul12.i.i.i to i64
   %add.ptr14.i.i.i = getelementptr i8, ptr %45, i64 %idx.ext13.i.i.i
-  %sub16.i.i.i = sub i32 %.sink242.i, %add.i.i158.i
+  %sub16.i.i.i = sub nuw i32 %.sink242.i, %add.i.i158.i
   %mul18.i.i.i = mul i32 %46, %sub16.i.i.i
   %conv.i.i.i = zext i32 %mul18.i.i.i to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i136.i, ptr align 1 %add.ptr14.i.i.i, i64 %conv.i.i.i, i1 false)
@@ -7266,7 +7266,7 @@ array_remove_slice.exit:                          ; preds = %if.end4.i
   %mul12.i = mul i32 %40, %i.0.lcssa
   %idx.ext13.i = zext i32 %mul12.i to i64
   %add.ptr14.i = getelementptr i8, ptr %39, i64 %idx.ext13.i
-  %sub16.i = sub i32 %38, %i.0.lcssa
+  %sub16.i = sub nuw i32 %38, %i.0.lcssa
   %mul18.i = mul i32 %40, %sub16.i
   %conv.i104 = zext i32 %mul18.i to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %39, ptr align 1 %add.ptr14.i, i64 %conv.i104, i1 false)
@@ -7797,7 +7797,7 @@ array_remove_slice.exit:                          ; preds = %if.end4.i
   %mul12.i = mul i32 %2, %add.i
   %idx.ext13.i = zext i32 %mul12.i to i64
   %add.ptr14.i = getelementptr i8, ptr %1, i64 %idx.ext13.i
-  %sub16.i = sub i32 %0, %add.i
+  %sub16.i = sub nuw i32 %0, %add.i
   %mul18.i = mul i32 %2, %sub16.i
   %conv.i = zext i32 %mul18.i to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr14.i, i64 %conv.i, i1 false)
@@ -8502,7 +8502,7 @@ array_remove.exit:                                ; preds = %if.end.i.i
   %mul12.i.i = mul i32 %7, %add.i.i
   %idx.ext13.i.i = zext i32 %mul12.i.i to i64
   %add.ptr14.i.i = getelementptr i8, ptr %6, i64 %idx.ext13.i.i
-  %sub16.i.i = sub i32 %5, %add.i.i
+  %sub16.i.i = sub nuw i32 %5, %add.i.i
   %mul18.i.i = mul i32 %7, %sub16.i.i
   %conv.i.i = zext i32 %mul18.i.i to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %add.ptr14.i.i, i64 %conv.i.i, i1 false)
@@ -8834,7 +8834,7 @@ while.cond:                                       ; preds = %if.end68
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %offset.addr.0116 = phi i32 [ %offset, %while.body.lr.ph ], [ %add76, %while.cond ]
   %c.1115 = phi i32 [ %c.0.lcssa, %while.body.lr.ph ], [ %retval.0.i84, %while.cond ]
-  %sub = sub i32 %call.val62, %offset.addr.0116
+  %sub = sub nuw i32 %call.val62, %offset.addr.0116
   %29 = load i32, ptr %cluster_size, align 8
   %.sub = tail call i32 @llvm.umin.i32(i32 %sub, i32 %29)
   %30 = load i32, ptr %last_cluster_of_root_directory.i75, align 4

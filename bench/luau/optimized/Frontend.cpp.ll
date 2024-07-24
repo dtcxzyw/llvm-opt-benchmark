@@ -31063,7 +31063,7 @@ _ZSt7advanceIN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_t
   %.sroa.232.0.copyload = phi i64 [ %.sroa.232.0.copyload.pre, %_ZSt7advanceIN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_NS1_16ItemInterfaceSetIS8_EESt4hashIS8_ESt8equal_toIS8_EE14const_iteratorEmEvRT_T0_.exit.loopexit ], [ %3, %62 ]
   %.sroa.031.0.copyload = phi ptr [ %.sroa.031.0.copyload.pre, %_ZSt7advanceIN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_NS1_16ItemInterfaceSetIS8_EESt4hashIS8_ESt8equal_toIS8_EE14const_iteratorEmEvRT_T0_.exit.loopexit ], [ %2, %62 ]
   %66 = call noundef ptr @_ZSt16__do_uninit_copyIN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_NS1_16ItemInterfaceSetIS8_EESt4hashIS8_ESt8equal_toIS8_EE14const_iteratorEPS8_ET0_T_SJ_SI_(ptr %.sroa.031.0.copyload, i64 %.sroa.232.0.copyload, ptr %4, i64 %5, ptr noundef %65)
-  %67 = sub i64 %16, %32
+  %67 = sub nuw i64 %16, %32
   %68 = load ptr, ptr %23, align 8
   %69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %68, i64 %67
   store ptr %69, ptr %23, align 8
@@ -39221,7 +39221,7 @@ _ZSt13move_backwardIPN4Luau9TypeErrorES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4Luau9
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4Luau9TypeErrorESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
   %53 = getelementptr inbounds i8, ptr %2, i64 %19
   %54 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN4Luau9TypeErrorESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %53, ptr %3, ptr noundef %13)
-  %55 = sub nsw i64 %9, %20
+  %55 = sub nuw nsw i64 %9, %20
   %56 = load ptr, ptr %12, align 8
   %57 = getelementptr inbounds %"struct.Luau::TypeError", ptr %56, i64 %55
   store ptr %57, ptr %12, align 8
@@ -39959,7 +39959,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %56 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
-  %57 = sub nsw i64 %9, %20
+  %57 = sub nuw nsw i64 %9, %20
   %58 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %56, i64 %57
   store ptr %58, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1
@@ -45542,7 +45542,7 @@ _ZSt13move_backwardIPN4Luau10ParseErrorES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4Luau10ParseErrorESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
   %55 = getelementptr inbounds i8, ptr %2, i64 %19
   %56 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN4Luau10ParseErrorESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %55, ptr %3, ptr noundef %13)
-  %57 = sub nsw i64 %9, %20
+  %57 = sub nuw nsw i64 %9, %20
   %58 = load ptr, ptr %12, align 8
   %59 = getelementptr inbounds %"class.Luau::ParseError", ptr %58, i64 %57
   store ptr %59, ptr %12, align 8

@@ -10924,7 +10924,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.end
   br i1 %cmp13.i, label %if.then14.i, label %_ZN7simdutf7icelake12_GLOBAL__N_127latin1_to_utf8_avx512_startEPKcmPc.exit
 
 if.then14.i:                                      ; preds = %if.end.i
-  %sub.i = sub i64 %len, %pos.1.i
+  %sub.i = sub nuw i64 %len, %pos.1.i
   %conv15.i = and i64 %sub.i, 4294967295
   %54 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %conv15.i)
   %add.ptr18.i = getelementptr inbounds i8, ptr %buf, i64 %pos.1.i
@@ -11223,7 +11223,7 @@ while.end.i:                                      ; preds = %if.end.i, %entry
   br i1 %cmp7.i, label %if.then8.i, label %if.end18.i
 
 if.then8.i:                                       ; preds = %while.end.i
-  %sub.i = sub i64 %len, %pos.0.lcssa.i
+  %sub.i = sub nuw i64 %len, %pos.0.lcssa.i
   %add.ptr10.i = getelementptr inbounds i8, ptr %buf, i64 %pos.0.lcssa.i
   %conv1.i.i = and i64 %sub.i, 4294967295
   %16 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %conv1.i.i)
@@ -11374,7 +11374,7 @@ while.end.i:                                      ; preds = %if.end.i, %entry
   br i1 %cmp7.i, label %if.then8.i, label %if.end18.i
 
 if.then8.i:                                       ; preds = %while.end.i
-  %sub.i = sub i64 %len, %pos.0.lcssa.i
+  %sub.i = sub nuw i64 %len, %pos.0.lcssa.i
   %add.ptr10.i = getelementptr inbounds i8, ptr %buf, i64 %pos.0.lcssa.i
   %conv1.i.i = and i64 %sub.i, 4294967295
   %16 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %conv1.i.i)
@@ -11636,7 +11636,7 @@ while.end.i:                                      ; preds = %_ZN7simdutf7icelake
   br i1 %cmp6.i, label %if.then.i, label %_ZN7simdutf7icelake12_GLOBAL__N_127valid_utf8_to_latin1_avx512EPKcmPc.exit
 
 if.then.i:                                        ; preds = %while.end.i
-  %sub.i = sub i64 %len, %pos.0.lcssa.i
+  %sub.i = sub nuw i64 %len, %pos.0.lcssa.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %buf, i64 %pos.0.lcssa.i
   %conv1.i.i = and i64 %sub.i, 4294967295
   %12 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 -1, i64 %conv1.i.i)
@@ -22894,7 +22894,7 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %sub = sub i64 %length, %pos.0.lcssa
+  %sub = sub nuw i64 %length, %pos.0.lcssa
   %sh_prom = trunc i64 %sub to i32
   %notmask = shl nsw i32 -1, %sh_prom
   %sub9 = xor i32 %notmask, -1
@@ -26618,7 +26618,7 @@ if.end33.i:                                       ; preds = %while.end30.i
 
 if.then35.i:                                      ; preds = %if.end33.i
   %add.ptr36.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub37.i = sub i64 %len, %pos.i.0.lcssa
+  %sub37.i = sub nuw i64 %len, %pos.i.0.lcssa
   br label %while.body.i409
 
 while.body.i409:                                  ; preds = %if.then35.i, %while.cond.backedge.i
@@ -26939,7 +26939,7 @@ if.end45.i:                                       ; preds = %while.end37.i
 
 if.then47.i:                                      ; preds = %if.end45.i
   %add.ptr48.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub49.i = sub i64 %len, %pos.i.0.lcssa
+  %sub49.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call50.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin130rewind_and_convert_with_errorsEmPKcmPc(i64 noundef %pos.i.0.lcssa, ptr noundef %add.ptr48.i, i64 noundef %sub49.i, ptr noundef %latin1_output.addr.i.0.lcssa)
   %58 = extractvalue { i32, i64 } %call50.i, 0
   %59 = extractvalue { i32, i64 } %call50.i, 1
@@ -27114,7 +27114,7 @@ while.end21.i:                                    ; preds = %if.end.i, %for.end.
 
 if.then23.i:                                      ; preds = %while.end21.i
   %add.ptr24.i = getelementptr inbounds i8, ptr %input, i64 %pos.i.0.lcssa
-  %sub25.i = sub i64 %size, %pos.i.0.lcssa
+  %sub25.i = sub nuw i64 %size, %pos.i.0.lcssa
   br label %while.body.i69
 
 while.body.i69:                                   ; preds = %if.then23.i, %while.cond.backedge.i
@@ -27596,7 +27596,7 @@ if.end33.i:                                       ; preds = %while.end30.i
 
 if.then35.i:                                      ; preds = %if.end33.i
   %add.ptr36.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub37.i = sub i64 %len, %pos.i.0.lcssa
+  %sub37.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call38.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs(ptr noundef %add.ptr36.i, i64 noundef %sub37.i, ptr noundef %utf16_output.addr.i.0.lcssa)
   %cmp39.i = icmp eq i64 %call38.i, 0
   br i1 %cmp39.i, label %_ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convertILNS_10endiannessE0EEEmPKcmPDs.exit, label %if.end41.i
@@ -28020,7 +28020,7 @@ if.end33.i:                                       ; preds = %while.end30.i
 
 if.then35.i:                                      ; preds = %if.end33.i
   %add.ptr36.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub37.i = sub i64 %len, %pos.i.0.lcssa
+  %sub37.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call38.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs(ptr noundef %add.ptr36.i, i64 noundef %sub37.i, ptr noundef %utf16_output.addr.i.0.lcssa)
   %cmp39.i = icmp eq i64 %call38.i, 0
   br i1 %cmp39.i, label %_ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convertILNS_10endiannessE1EEEmPKcmPDs.exit, label %if.end41.i
@@ -28437,7 +28437,7 @@ if.end45.i:                                       ; preds = %while.end37.i
 
 if.then47.i:                                      ; preds = %if.end45.i
   %add.ptr48.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub49.i = sub i64 %len, %pos.i.0.lcssa
+  %sub49.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call50.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1630rewind_and_convert_with_errorsILNS_10endiannessE0EEENS_6resultEmPKcmPDs(i64 noundef %pos.i.0.lcssa, ptr noundef %add.ptr48.i, i64 noundef %sub49.i, ptr noundef %utf16_output.addr.i.0.lcssa)
   %125 = extractvalue { i32, i64 } %call50.i, 0
   %126 = extractvalue { i32, i64 } %call50.i, 1
@@ -28892,7 +28892,7 @@ if.end45.i:                                       ; preds = %while.end37.i
 
 if.then47.i:                                      ; preds = %if.end45.i
   %add.ptr48.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub49.i = sub i64 %len, %pos.i.0.lcssa
+  %sub49.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call50.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1630rewind_and_convert_with_errorsILNS_10endiannessE1EEENS_6resultEmPKcmPDs(i64 noundef %pos.i.0.lcssa, ptr noundef %add.ptr48.i, i64 noundef %sub49.i, ptr noundef %utf16_output.addr.i.0.lcssa)
   %147 = extractvalue { i32, i64 } %call50.i, 0
   %148 = extractvalue { i32, i64 } %call50.i, 1
@@ -29887,7 +29887,7 @@ if.end33.i:                                       ; preds = %while.end30.i
 
 if.then35.i:                                      ; preds = %if.end33.i
   %add.ptr36.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub37.i = sub i64 %len, %pos.i.0.lcssa
+  %sub37.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call38.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf327convertEPKcmPDi(ptr noundef %add.ptr36.i, i64 noundef %sub37.i, ptr noundef %utf32_output.addr.i.0.lcssa)
   %cmp39.i = icmp eq i64 %call38.i, 0
   br i1 %cmp39.i, label %_ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf3221validating_transcoder7convertEPKcmPDi.exit, label %if.end41.i
@@ -30286,7 +30286,7 @@ if.end45.i:                                       ; preds = %while.end37.i
 
 if.then47.i:                                      ; preds = %if.end45.i
   %add.ptr48.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub49.i = sub i64 %len, %pos.i.0.lcssa
+  %sub49.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call50.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3230rewind_and_convert_with_errorsEmPKcmPDi(i64 noundef %pos.i.0.lcssa, ptr noundef %add.ptr48.i, i64 noundef %sub49.i, ptr noundef %utf32_output.addr.i.0.lcssa)
   %112 = extractvalue { i32, i64 } %call50.i, 0
   %113 = extractvalue { i32, i64 } %call50.i, 1
@@ -39930,7 +39930,7 @@ if.end111.i:                                      ; preds = %while.end108.i
 
 if.then113.i:                                     ; preds = %if.end111.i
   %add.ptr114.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub115.i = sub i64 %len, %pos.i.0.lcssa
+  %sub115.i = sub nuw i64 %len, %pos.i.0.lcssa
   br label %while.body.i283
 
 while.body.i283:                                  ; preds = %if.then113.i, %while.cond.backedge.i
@@ -40301,7 +40301,7 @@ if.end123.i:                                      ; preds = %while.end115.i
 
 if.then125.i:                                     ; preds = %if.end123.i
   %add.ptr126.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub127.i = sub i64 %len, %pos.i.0.lcssa
+  %sub127.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call128.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin130rewind_and_convert_with_errorsEmPKcmPc(i64 noundef %pos.i.0.lcssa, ptr noundef %add.ptr126.i, i64 noundef %sub127.i, ptr noundef %latin1_output.addr.i.0.lcssa)
   %89 = extractvalue { i32, i64 } %call128.i, 0
   %90 = extractvalue { i32, i64 } %call128.i, 1
@@ -40498,7 +40498,7 @@ while.end21.i:                                    ; preds = %if.end.i, %for.end.
 
 if.then23.i:                                      ; preds = %while.end21.i
   %add.ptr24.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub25.i = sub i64 %len, %pos.i.0.lcssa
+  %sub25.i = sub nuw i64 %len, %pos.i.0.lcssa
   br label %while.body.i61
 
 while.body.i61:                                   ; preds = %if.then23.i, %while.cond.backedge.i
@@ -41068,7 +41068,7 @@ if.end111.i:                                      ; preds = %while.end108.i
 
 if.then113.i:                                     ; preds = %if.end111.i
   %add.ptr114.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub115.i = sub i64 %len, %pos.i.0.lcssa
+  %sub115.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call116.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs(ptr noundef %add.ptr114.i, i64 noundef %sub115.i, ptr noundef %utf16_output.addr.i.0.lcssa)
   %cmp117.i = icmp eq i64 %call116.i, 0
   br i1 %cmp117.i, label %_ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convertILNS_10endiannessE0EEEmPKcmPDs.exit, label %if.end119.i
@@ -41590,7 +41590,7 @@ if.end111.i:                                      ; preds = %while.end108.i
 
 if.then113.i:                                     ; preds = %if.end111.i
   %add.ptr114.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub115.i = sub i64 %len, %pos.i.0.lcssa
+  %sub115.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call116.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs(ptr noundef %add.ptr114.i, i64 noundef %sub115.i, ptr noundef %utf16_output.addr.i.0.lcssa)
   %cmp117.i = icmp eq i64 %call116.i, 0
   br i1 %cmp117.i, label %_ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convertILNS_10endiannessE1EEEmPKcmPDs.exit, label %if.end119.i
@@ -42095,7 +42095,7 @@ if.end123.i:                                      ; preds = %while.end115.i
 
 if.then125.i:                                     ; preds = %if.end123.i
   %add.ptr126.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub127.i = sub i64 %len, %pos.i.0.lcssa
+  %sub127.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call128.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1630rewind_and_convert_with_errorsILNS_10endiannessE0EEENS_6resultEmPKcmPDs(i64 noundef %pos.i.0.lcssa, ptr noundef %add.ptr126.i, i64 noundef %sub127.i, ptr noundef %utf16_output.addr.i.0.lcssa)
   %153 = extractvalue { i32, i64 } %call128.i, 0
   %154 = extractvalue { i32, i64 } %call128.i, 1
@@ -42648,7 +42648,7 @@ if.end123.i:                                      ; preds = %while.end115.i
 
 if.then125.i:                                     ; preds = %if.end123.i
   %add.ptr126.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub127.i = sub i64 %len, %pos.i.0.lcssa
+  %sub127.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call128.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1630rewind_and_convert_with_errorsILNS_10endiannessE1EEENS_6resultEmPKcmPDs(i64 noundef %pos.i.0.lcssa, ptr noundef %add.ptr126.i, i64 noundef %sub127.i, ptr noundef %utf16_output.addr.i.0.lcssa)
   %185 = extractvalue { i32, i64 } %call128.i, 0
   %186 = extractvalue { i32, i64 } %call128.i, 1
@@ -43844,7 +43844,7 @@ if.end111.i:                                      ; preds = %while.end108.i
 
 if.then113.i:                                     ; preds = %if.end111.i
   %add.ptr114.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub115.i = sub i64 %len, %pos.i.0.lcssa
+  %sub115.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call116.i = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf327convertEPKcmPDi(ptr noundef %add.ptr114.i, i64 noundef %sub115.i, ptr noundef %utf32_output.addr.i.0.lcssa)
   %cmp117.i = icmp eq i64 %call116.i, 0
   br i1 %cmp117.i, label %_ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf3221validating_transcoder7convertEPKcmPDi.exit, label %if.end119.i
@@ -44356,7 +44356,7 @@ if.end123.i:                                      ; preds = %while.end115.i
 
 if.then125.i:                                     ; preds = %if.end123.i
   %add.ptr126.i = getelementptr inbounds i8, ptr %buf, i64 %pos.i.0.lcssa
-  %sub127.i = sub i64 %len, %pos.i.0.lcssa
+  %sub127.i = sub nuw i64 %len, %pos.i.0.lcssa
   %call128.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3230rewind_and_convert_with_errorsEmPKcmPDi(i64 noundef %pos.i.0.lcssa, ptr noundef %add.ptr126.i, i64 noundef %sub127.i, ptr noundef %utf32_output.addr.i.0.lcssa)
   %142 = extractvalue { i32, i64 } %call128.i, 0
   %143 = extractvalue { i32, i64 } %call128.i, 1

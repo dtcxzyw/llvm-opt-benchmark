@@ -8583,21 +8583,21 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   %106 = load ptr, ptr %105, align 8
   %107 = tail call i32 @type_size(ptr noundef %106) #10
   %108 = icmp ugt i32 %101, %107
-  br i1 %108, label %109, label %113
+  br i1 %108, label %109, label %112
 
 109:                                              ; preds = %._crit_edge
-  %110 = sub i32 %101, %107
-  %111 = getelementptr inbounds i8, ptr %1, i64 116
-  %112 = trunc i32 %110 to i16
-  store i16 %112, ptr %111, align 4
-  br label %113
+  %narrow = sub nuw i32 %101, %107
+  %110 = getelementptr inbounds i8, ptr %1, i64 116
+  %111 = trunc i32 %narrow to i16
+  store i16 %111, ptr %110, align 4
+  br label %112
 
-113:                                              ; preds = %109, %._crit_edge
+112:                                              ; preds = %109, %._crit_edge
   store i32 %101, ptr %4, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %56, %16, %113, %49, %22
-  %.086 = phi i1 [ true, %113 ], [ false, %49 ], [ false, %22 ], [ false, %16 ], [ false, %56 ]
+.loopexit:                                        ; preds = %56, %16, %112, %49, %22
+  %.086 = phi i1 [ true, %112 ], [ false, %49 ], [ false, %22 ], [ false, %16 ], [ false, %56 ]
   ret i1 %.086
 }
 
@@ -8940,7 +8940,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   br i1 %or.cond, label %171, label %175
 
 171:                                              ; preds = %167
-  %172 = sub i32 %158, %.0126197
+  %172 = sub nuw i32 %158, %.0126197
   %173 = getelementptr inbounds i8, ptr %1, i64 116
   %174 = trunc i32 %172 to i16
   store i16 %174, ptr %173, align 4

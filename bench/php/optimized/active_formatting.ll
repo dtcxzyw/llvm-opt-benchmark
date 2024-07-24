@@ -197,7 +197,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_tree_active_formatting_reconstruct_e
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call zeroext i1 @lxb_html_tree_open_elements_find_by_node_reverse(ptr noundef nonnull %0, ptr noundef %12, ptr noundef null) #8
+  %15 = tail call zeroext i1 @lxb_html_tree_open_elements_find_by_node_reverse(ptr noundef nonnull %0, ptr noundef %12, ptr noundef null) #7
   br i1 %15, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %14, %21
@@ -213,7 +213,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_tree_active_formatting_reconstruct_e
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %16
-  %22 = tail call zeroext i1 @lxb_html_tree_open_elements_find_by_node_reverse(ptr noundef %0, ptr noundef %19, ptr noundef null) #8
+  %22 = tail call zeroext i1 @lxb_html_tree_open_elements_find_by_node_reverse(ptr noundef %0, ptr noundef %19, ptr noundef null) #7
   br i1 %22, label %23, label %.preheader
 
 23:                                               ; preds = %16, %21, %.preheader
@@ -235,7 +235,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_tree_active_formatting_reconstruct_e
   %32 = load i64, ptr %31, align 8
   store i64 %32, ptr %26, align 8
   store ptr %30, ptr %27, align 8
-  %33 = call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 2) #8
+  %33 = call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 2) #7
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.loopexit, label %35
 
@@ -316,7 +316,7 @@ define hidden void @lxb_html_tree_active_formatting_push_with_check_dupl(ptr noc
   br i1 %.not29, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %8 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 1)
+  %8 = add i64 %7, -1
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   br label %11
@@ -346,7 +346,7 @@ define hidden void @lxb_html_tree_active_formatting_push_with_check_dupl(ptr noc
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %21
-  %27 = tail call zeroext i1 @lxb_dom_element_compare(ptr noundef %14, ptr noundef nonnull %1) #8
+  %27 = tail call zeroext i1 @lxb_dom_element_compare(ptr noundef %14, ptr noundef nonnull %1) #7
   %spec.select = select i1 %27, i64 %12, i64 %.02331
   %28 = zext i1 %27 to i64
   %spec.select27 = add i64 %.032, %28
@@ -366,13 +366,13 @@ define hidden void @lxb_html_tree_active_formatting_push_with_check_dupl(ptr noc
   br i1 %30, label %31, label %._crit_edge.thread
 
 31:                                               ; preds = %._crit_edge
-  tail call void @lexbor_array_delete(ptr noundef %.val28.pre37.pre, i64 noundef %.023.lcssa.ph, i64 noundef 1) #8
+  tail call void @lexbor_array_delete(ptr noundef %.val28.pre37.pre, i64 noundef %.023.lcssa.ph, i64 noundef 1) #7
   %.val28.pre = load ptr, ptr %3, align 8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %31, %._crit_edge
   %.val28 = phi ptr [ %.val28.pre, %31 ], [ %.val28.pre37.pre, %._crit_edge ], [ %4, %2 ]
-  %32 = tail call i32 @lexbor_array_push(ptr noundef %.val28, ptr noundef %1) #8
+  %32 = tail call i32 @lexbor_array_push(ptr noundef %.val28, ptr noundef %1) #7
   ret void
 }
 
@@ -384,9 +384,6 @@ declare void @lexbor_array_delete(ptr noundef, i64 noundef, i64 noundef) local_u
 
 declare i32 @lexbor_array_push(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #7
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -394,8 +391,7 @@ attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

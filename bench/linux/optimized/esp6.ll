@@ -2756,7 +2756,7 @@ define internal i32 @esp6_output(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %21
-  %34 = sub i32 %29, %31
+  %34 = sub nuw i32 %29, %31
   store i32 %34, ptr %17, align 8
   br label %35
 

@@ -431,16 +431,16 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
 
 95:                                               ; preds = %93
   %96 = getelementptr inbounds ptr, ptr %23, i64 %54
-  %97 = sub nsw i64 %91, %54
-  %98 = shl i64 %97, 3
+  %97 = sub nuw nsw i64 %91, %54
+  %98 = shl nuw i64 %97, 3
   tail call void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %96, i64 noundef %98, i64 noundef %19, i1 noundef zeroext false, ptr noundef nonnull @.str.9) #15
   tail call void @llvm.memset.p0.i64(ptr align 8 %96, i8 -1, i64 %98, i1 false)
   br label %104
 
 99:                                               ; preds = %93
   %100 = getelementptr inbounds ptr, ptr %60, i64 %91
-  %101 = sub nsw i64 %54, %91
-  %102 = shl i64 %101, 3
+  %101 = sub nuw nsw i64 %54, %91
+  %102 = shl nuw i64 %101, 3
   %103 = tail call noundef zeroext i1 @_ZN2os15uncommit_memoryEPcmb(ptr noundef %100, i64 noundef %102, i1 noundef zeroext false) #15
   br label %104
 

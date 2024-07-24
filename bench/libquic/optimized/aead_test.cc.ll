@@ -1049,7 +1049,7 @@ if.end163:                                        ; preds = %invoke.cont158
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end163
-  %sub.i = sub i64 %32, %sub.ptr.sub.i.i
+  %sub.i = sub nuw i64 %32, %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %35 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %35 to i64
@@ -1216,7 +1216,7 @@ if.else:                                          ; preds = %invoke.cont142
   br i1 %cmp.i132, label %if.then.i139, label %if.else.i133
 
 if.then.i139:                                     ; preds = %if.else
-  %sub.i140 = sub i64 %add194, %sub.ptr.sub.i.i131
+  %sub.i140 = sub nuw i64 %add194, %sub.ptr.sub.i.i131
   %_M_end_of_storage.i.i141 = getelementptr inbounds i8, ptr %out, i64 16
   %55 = load ptr, ptr %_M_end_of_storage.i.i141, align 8
   %sub.ptr.lhs.cast.i8.i142 = ptrtoint ptr %55 to i64
@@ -1489,7 +1489,7 @@ if.end252:                                        ; preds = %if.end248
   br i1 %cmp.i244, label %if.then.i251, label %if.else.i245
 
 if.then.i251:                                     ; preds = %if.end252
-  %sub.i252 = sub i64 %81, %sub.ptr.sub.i.i243
+  %sub.i252 = sub nuw i64 %81, %sub.ptr.sub.i.i243
   %_M_end_of_storage.i.i253 = getelementptr inbounds i8, ptr %out2, i64 16
   %84 = load ptr, ptr %_M_end_of_storage.i.i253, align 8
   %sub.ptr.lhs.cast.i8.i254 = ptrtoint ptr %84 to i64
@@ -2099,7 +2099,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64

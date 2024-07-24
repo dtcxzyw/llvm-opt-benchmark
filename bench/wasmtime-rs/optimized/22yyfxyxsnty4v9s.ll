@@ -20948,7 +20948,7 @@ common.resume:                                    ; preds = %.body, %27
           to label %.body unwind label %85, !noalias !3253
 
 80:                                               ; preds = %.noexc
-  %81 = sub i64 %63, %50
+  %81 = sub nuw i64 %63, %50
   store i64 %81, ptr %62, align 8, !alias.scope !3254, !noalias !3253
   %82 = getelementptr inbounds i8, ptr %7, i64 8
   %83 = load ptr, ptr %82, align 8, !alias.scope !3254, !noalias !3253, !noundef !9
@@ -21469,7 +21469,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %"_ZN4core3ptr83drop_in_place$LT$std..sync..mutex..MutexGuard$LT$bytes..bytes_mut..BytesMut$GT$$GT$17hecaec5a1cc1be411E.llvm.15947207822535676624.exit"
-  %41 = sub i64 %38, %27
+  %41 = sub nuw i64 %38, %27
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %41, ptr %42, align 8
   br label %43
@@ -22112,7 +22112,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
   %39 = load i64, ptr %35, align 8, !alias.scope !3434, !noalias !3432, !noundef !9
   %.not.i.i = icmp ult i64 %38, %39
   %40 = select i1 %.not.i.i, i64 0, i64 %39
-  %.0.i.i = sub i64 %38, %40
+  %.0.i.i = sub nuw i64 %38, %40
   store i64 %.0.i.i, ptr %36, align 8, !alias.scope !3429, !noalias !3432
   %41 = add i64 %7, -1
   store i64 %41, ptr %6, align 8, !alias.scope !3429, !noalias !3432
@@ -22316,7 +22316,7 @@ define { i64, ptr } @"_ZN105_$LT$wasmtime_wasi..write_stream..AsyncWriteStream$u
           to label %62 unwind label %.body
 
 43:                                               ; preds = %26
-  %44 = sub i64 %28, %30
+  %44 = sub nuw i64 %28, %30
   store i64 %44, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
@@ -22403,7 +22403,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
   %79 = add i64 %78, %76
   %.not.i.i = icmp ult i64 %79, %75
   %80 = select i1 %.not.i.i, i64 0, i64 %75
-  %.0.i.i = sub i64 %79, %80
+  %.0.i.i = sub nuw i64 %79, %80
   %81 = getelementptr inbounds i8, ptr %12, i64 16
   %82 = load ptr, ptr %81, align 8, !alias.scope !3449, !noalias !3452, !nonnull !9, !noundef !9
   %83 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %82, i64 %.0.i.i

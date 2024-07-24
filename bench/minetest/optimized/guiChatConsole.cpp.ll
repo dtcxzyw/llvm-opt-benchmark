@@ -5723,7 +5723,7 @@ invoke.cont4.i.i:                                 ; preds = %entry
   store ptr %3, ptr %agg.result, align 8, !tbaa !92, !alias.scope !183
   %4 = load ptr, ptr %call, align 8, !tbaa !104, !noalias !183
   %add.ptr.i.i = getelementptr inbounds i32, ptr %4, i64 %conv
-  %sub.i.i.i = sub i64 %2, %conv
+  %sub.i.i.i = sub nuw i64 %2, %conv
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %conv2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #24, !noalias !183
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !59, !noalias !183

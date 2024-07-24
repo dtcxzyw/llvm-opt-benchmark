@@ -9464,7 +9464,7 @@ invoke.cont106:                                   ; preds = %invoke.cont101
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont106
-  %sub.i = sub nsw i64 %sub.ptr.div.i451, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i451, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %types99, ptr %156, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp104)
           to label %invoke.cont108 unwind label %lpad107
 
@@ -64944,7 +64944,7 @@ lpad.body:                                        ; preds = %lpad1.i.i.i.i
   br label %eh.resume
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not12.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not12.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i
 

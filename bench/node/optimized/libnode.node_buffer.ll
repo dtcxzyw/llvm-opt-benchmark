@@ -5190,7 +5190,7 @@ if.end139:                                        ; preds = %if.end135
   %sub = sub i64 %81, %source_start.0.ph.ph
   %sub140 = sub i64 %call54, %target_start.0.ph.ph
   %spec.select = call i64 @llvm.umin.i64(i64 %sub, i64 %sub140)
-  %sub152 = sub i64 %83, %source_start.0.ph.ph
+  %sub152 = sub nuw i64 %83, %source_start.0.ph.ph
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub152, i64 %spec.select)
   %conv = trunc i64 %.sroa.speculated to i32
   %add.ptr154 = getelementptr inbounds i8, ptr %add.ptr, i64 %target_start.0.ph.ph
@@ -5836,7 +5836,7 @@ do.body132:                                       ; preds = %do.body126
 
 do.end135:                                        ; preds = %do.body126
   %sub = sub i64 %91, %source_start.0.ph.ph
-  %sub137 = sub i64 %92, %target_start.0.ph.ph
+  %sub137 = sub nuw i64 %92, %target_start.0.ph.ph
   %cmp.i98 = icmp ult i64 %sub137, %sub
   %sub141 = sub i64 %89, %source_start.0.ph.ph
   %.sroa.speculated107 = call i64 @llvm.umin.i64(i64 %sub137, i64 %sub)
@@ -15293,7 +15293,7 @@ do.body6.i24:                                     ; preds = %_ZN4node12stringsea
   unreachable
 
 do.end12.i.i:                                     ; preds = %_ZN4node12stringsearch6VectorIKtEC2EPS2_mb.exit
-  %sub = sub i64 %haystack_length, %needle_length
+  %sub = sub nuw i64 %haystack_length, %needle_length
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %sub, i64 %start_index)
   %relative_start_index.0 = select i1 %is_forward, i64 %start_index, i64 %spec.select
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp26)
@@ -15383,7 +15383,7 @@ do.body6.i24:                                     ; preds = %_ZN4node12stringsea
   unreachable
 
 do.end12.i.i:                                     ; preds = %_ZN4node12stringsearch6VectorIKhEC2EPS2_mb.exit
-  %sub = sub i64 %haystack_length, %needle_length
+  %sub = sub nuw i64 %haystack_length, %needle_length
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %sub, i64 %start_index)
   %relative_start_index.0 = select i1 %is_forward, i64 %start_index, i64 %spec.select
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp26)
@@ -16551,7 +16551,7 @@ do.body33:                                        ; preds = %do.body
   unreachable
 
 do.body37:                                        ; preds = %do.body
-  %sub39 = sub i64 %4, %pos.0
+  %sub39 = sub nuw i64 %4, %pos.0
   %cmp40 = icmp slt i64 %sub39, 0
   br i1 %cmp40, label %do.body46, label %if.end55.thread
 

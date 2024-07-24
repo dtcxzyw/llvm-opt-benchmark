@@ -2017,13 +2017,13 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   br i1 %cmp.not.i, label %if.else.i31, label %if.then.i30
 
 if.then.i30:                                      ; preds = %while.body.i
-  %sub.i = sub i64 %skip.addr.016.i, %13
+  %sub.i = sub nuw i64 %skip.addr.016.i, %13
   br label %if.end.i
 
 if.else.i31:                                      ; preds = %while.body.i
   %14 = load i64, ptr %addr.addr.014.i, align 8
   %add.i = add i64 %14, %skip.addr.016.i
-  %sub4.i = sub i64 %13, %skip.addr.016.i
+  %sub4.i = sub nuw i64 %13, %skip.addr.016.i
   tail call void @qemu_sglist_add(ptr noundef nonnull %qsgl1.i, i64 noundef %add.i, i64 noundef %sub4.i) #12
   %15 = load i64, ptr %iov_len.i29, align 8
   %sub6.i = sub i64 %copied.018.i, %skip.addr.016.i
@@ -2077,13 +2077,13 @@ while.body.i34:                                   ; preds = %while.body.i34.preh
   br i1 %cmp.not.i41, label %if.else.i56, label %if.then.i42
 
 if.then.i42:                                      ; preds = %while.body.i34
-  %sub.i43 = sub i64 %skip.addr.016.i37, %20
+  %sub.i43 = sub nuw i64 %skip.addr.016.i37, %20
   br label %if.end.i44
 
 if.else.i56:                                      ; preds = %while.body.i34
   %21 = load i64, ptr %addr.addr.014.i39, align 8
   %add.i57 = add i64 %21, %skip.addr.016.i37
-  %sub4.i58 = sub i64 %20, %skip.addr.016.i37
+  %sub4.i58 = sub nuw i64 %20, %skip.addr.016.i37
   tail call void @qemu_sglist_add(ptr noundef nonnull %qsgl1.i, i64 noundef %add.i57, i64 noundef %sub4.i58) #12
   %22 = load i64, ptr %iov_len.i40, align 8
   %sub6.i59 = sub i64 %copied.018.i35, %skip.addr.016.i37

@@ -816,7 +816,7 @@ define hidden void @_ZN16EllipticKeyPoint7convertERKSt6vectorIN2cv8KeyPointESaIS
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %10
-  %24 = sub nsw i64 %14, %21
+  %24 = sub nuw nsw i64 %14, %21
   invoke void @_ZNSt6vectorI16EllipticKeyPointSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %24)
           to label %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit unwind label %38
 
@@ -1049,7 +1049,7 @@ define hidden void @_ZN16EllipticKeyPoint7convertERKSt6vectorIS_SaIS_EERS0_IN2cv
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %8
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   invoke void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %22)
           to label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit unwind label %48
 
@@ -1203,7 +1203,7 @@ define hidden void @_ZN16EllipticKeyPoint14calcProjectionERKSt6vectorIS_SaIS_EER
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %26
-  %42 = sub nsw i64 %32, %39
+  %42 = sub nuw nsw i64 %32, %39
   tail call void @_ZNSt6vectorI16EllipticKeyPointSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %42)
   %.pre = load ptr, ptr %2, align 8
   %.pre31 = load ptr, ptr %33, align 8
@@ -2819,7 +2819,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

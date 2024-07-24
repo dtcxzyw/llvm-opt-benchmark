@@ -1180,7 +1180,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br label %.loopexit294
 
 254:                                              ; preds = %248
-  %255 = sub i32 %252, %236
+  %255 = sub nuw i32 %252, %236
   br label %.outer
 
 256:                                              ; preds = %.loopexit

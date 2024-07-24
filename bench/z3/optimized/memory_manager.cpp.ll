@@ -529,7 +529,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %s, %call
+  %sub = sub nuw i64 %s, %call
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @g_memory_thread_alloc_size)
   %1 = load i64, ptr %0, align 8
   %add = add i64 %1, %sub

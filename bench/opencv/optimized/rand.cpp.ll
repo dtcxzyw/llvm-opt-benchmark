@@ -894,7 +894,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit:      ; preds = %.noexc486, %_ZN2cv1
 
 299:                                              ; preds = %296
   %300 = trunc nuw nsw i64 %indvars.iv708 to i32
-  %301 = sub i64 %297, %295
+  %301 = sub nuw i64 %297, %295
   %302 = shl i64 %301, 32
   %303 = udiv i64 %302, %295
   %304 = trunc i64 %303 to i32

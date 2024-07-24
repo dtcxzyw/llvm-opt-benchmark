@@ -12291,7 +12291,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIN3ade5GraphESt14def
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

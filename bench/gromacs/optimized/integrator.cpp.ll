@@ -54,7 +54,7 @@ define void @_ZN5nblib8LeapFrogC2ERKNS_8TopologyERKNS_3BoxE(ptr noundef nonnull 
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %8
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %19)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %.loopexit.split-lp
 

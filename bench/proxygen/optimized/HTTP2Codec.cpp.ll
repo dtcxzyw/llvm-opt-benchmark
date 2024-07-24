@@ -2365,7 +2365,7 @@ if.then189:                                       ; preds = %if.end187.if.then18
   br i1 %cmp192, label %if.then193, label %if.end251
 
 if.then193:                                       ; preds = %if.then189
-  %sub196 = sub i64 %28, %29
+  %sub196 = sub nuw i64 %28, %29
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %bufLen.addr.167, i64 %sub196)
   %30 = load ptr, ptr %outData, align 8
   %cmp.i.not.i.i = icmp eq ptr %30, null

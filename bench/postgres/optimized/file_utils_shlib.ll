@@ -635,7 +635,7 @@ define i32 @compute_remaining_iovec(ptr noundef %0, ptr noundef readonly %1, i32
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = sub i64 %.0, %7
+  %9 = sub nuw i64 %.0, %7
   %10 = getelementptr i8, ptr %.019, i64 16
   %11 = add i32 %.018, -1
   %12 = icmp eq i32 %11, 0
@@ -724,7 +724,7 @@ pg_pwritev.exit:                                  ; preds = %10, %14
   br i1 %.not.i, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = sub i64 %.0.i22, %22
+  %24 = sub nuw i64 %.0.i22, %22
   %25 = getelementptr i8, ptr %.019.i, i64 16
   %26 = add i32 %.018.i, -1
   %27 = icmp eq i32 %26, 0
@@ -836,7 +836,7 @@ pg_pwritev_with_retry.exit.thread:                ; preds = %pg_pwritev.exit.i
   br i1 %.not.i.i, label %33, label %28
 
 28:                                               ; preds = %25
-  %29 = sub i64 %.0.i22.i, %27
+  %29 = sub nuw i64 %.0.i22.i, %27
   %30 = getelementptr i8, ptr %.019.i.i, i64 16
   %31 = add i32 %.018.i.i, -1
   %32 = icmp eq i32 %31, 0

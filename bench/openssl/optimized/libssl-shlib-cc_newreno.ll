@@ -707,13 +707,13 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %sub.i = sub i64 %2, %sub
+  %sub.i = sub nuw i64 %2, %sub
   %slow_start_thresh.i = getelementptr inbounds i8, ptr %cc, i64 72
   %3 = load i64, ptr %slow_start_thresh.i, align 8
   %cmp4.i = icmp uge i64 %2, %3
   %div10.i = lshr i64 %2, 1
   %cmp6.not.i = icmp ugt i64 %sub.i, %div10.i
-  %or.cond.i = or i1 %cmp6.not.i, %cmp4.i
+  %or.cond.i = select i1 %cmp4.i, i1 true, i1 %cmp6.not.i
   br i1 %or.cond.i, label %newreno_is_cong_limited.exit, label %if.end
 
 newreno_is_cong_limited.exit:                     ; preds = %if.end.i
@@ -746,7 +746,7 @@ if.else7:                                         ; preds = %if.else
   br i1 %cmp12.not, label %out.sink.split, label %if.then13
 
 if.then13:                                        ; preds = %if.else7
-  %sub16 = sub i64 %add9, %2
+  %sub16 = sub nuw i64 %add9, %2
   store i64 %sub16, ptr %bytes_acked, align 8
   %max_dgram_size = getelementptr inbounds i8, ptr %cc, i64 48
   %10 = load i64, ptr %max_dgram_size, align 8
@@ -849,7 +849,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %1, %0
+  %sub = sub nuw i64 %1, %0
   store i64 %sub, ptr %bytes_in_flight, align 8
   %processing_loss = getelementptr inbounds i8, ptr %cc, i64 96
   %2 = load i32, ptr %processing_loss, align 8

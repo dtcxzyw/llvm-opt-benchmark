@@ -148,7 +148,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   br i1 %60, label %93, label %61
 
 61:                                               ; preds = %58
-  %62 = sub i64 %29, %59
+  %62 = sub nuw i64 %29, %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %57, i64 %59, i1 false)
   %63 = getelementptr i8, ptr %2, i64 %59
   br label %64
@@ -170,7 +170,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   br i1 %67, label %93, label %68
 
 68:                                               ; preds = %.thread
-  %69 = sub i64 %.1116, %.082117
+  %69 = sub nuw i64 %.1116, %.082117
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.188114, ptr align 1 %.186115, i64 %.082117, i1 false)
   %70 = getelementptr i8, ptr %.188114, i64 %.082117
   br label %71

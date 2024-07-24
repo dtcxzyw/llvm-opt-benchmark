@@ -585,7 +585,7 @@ if.then22:                                        ; preds = %if.then17, %if.end2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then22
-  %sub.i = sub i64 %mul26, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul26, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -655,7 +655,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -803,7 +803,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -1492,7 +1492,7 @@ if.then22:                                        ; preds = %if.then17, %if.end2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then22
-  %sub.i = sub i64 %mul26, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul26, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -1522,7 +1522,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.els
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i22)
   br label %if.end27
 
@@ -1596,7 +1596,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -1628,7 +1628,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i18)
   br label %if.end
 
@@ -2305,7 +2305,7 @@ if.then22:                                        ; preds = %if.then17, %if.end2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then22
-  %sub.i = sub i64 %mul26, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul26, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -2335,7 +2335,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.els
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i22)
   br label %if.end27
 
@@ -2409,7 +2409,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -2441,7 +2441,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i18)
   br label %if.end
 
@@ -3118,7 +3118,7 @@ if.then22:                                        ; preds = %if.then17, %if.end2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then22
-  %sub.i = sub i64 %mul26, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul26, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -3148,7 +3148,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i8, %if.els
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i22)
   br label %if.end27
 
@@ -3222,7 +3222,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -3254,7 +3254,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i18)
   br label %if.end
 
@@ -3919,7 +3919,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -3956,7 +3956,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -4035,7 +4035,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -4065,7 +4065,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
@@ -4735,7 +4735,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -4772,7 +4772,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -4802,7 +4802,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i36 = sub i64 %mul26, %sub.ptr.div.i.i27
+  %sub.i36 = sub nuw i64 %mul26, %sub.ptr.div.i.i27
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i36)
   br label %if.end27
 
@@ -4876,7 +4876,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -4906,7 +4906,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
@@ -4936,7 +4936,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i17, %if.el
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %sub.i32 = sub i64 %mul, %sub.ptr.div.i.i23
+  %sub.i32 = sub nuw i64 %mul, %sub.ptr.div.i.i23
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i32)
   br label %if.end
 
@@ -5599,7 +5599,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -5636,7 +5636,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -5666,7 +5666,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i36 = sub i64 %mul26, %sub.ptr.div.i.i27
+  %sub.i36 = sub nuw i64 %mul26, %sub.ptr.div.i.i27
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i36)
   br label %if.end27
 
@@ -5740,7 +5740,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -5770,7 +5770,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
@@ -5800,7 +5800,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i17, %if.el
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %sub.i32 = sub i64 %mul, %sub.ptr.div.i.i23
+  %sub.i32 = sub nuw i64 %mul, %sub.ptr.div.i.i23
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i32)
   br label %if.end
 
@@ -6463,7 +6463,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -6500,7 +6500,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -6530,7 +6530,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i36 = sub i64 %mul26, %sub.ptr.div.i.i27
+  %sub.i36 = sub nuw i64 %mul26, %sub.ptr.div.i.i27
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i36)
   br label %if.end27
 
@@ -6604,7 +6604,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -6634,7 +6634,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
@@ -6664,7 +6664,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %if.then.i17, %if.el
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %sub.i32 = sub i64 %mul, %sub.ptr.div.i.i23
+  %sub.i32 = sub nuw i64 %mul, %sub.ptr.div.i.i23
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i32)
   br label %if.end
 
@@ -7327,7 +7327,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -7364,7 +7364,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -7443,7 +7443,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -7473,7 +7473,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
@@ -8143,7 +8143,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -8180,7 +8180,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -8210,7 +8210,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i36 = sub i64 %mul26, %sub.ptr.div.i.i27
+  %sub.i36 = sub nuw i64 %mul26, %sub.ptr.div.i.i27
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i36)
   br label %if.end27
 
@@ -8284,7 +8284,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -8314,7 +8314,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
@@ -8344,7 +8344,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %if.then.i17, %i
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
-  %sub.i32 = sub i64 %mul, %sub.ptr.div.i.i23
+  %sub.i32 = sub nuw i64 %mul, %sub.ptr.div.i.i23
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i32)
   br label %if.end
 
@@ -9007,7 +9007,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -9044,7 +9044,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -9074,7 +9074,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i36 = sub i64 %mul26, %sub.ptr.div.i.i27
+  %sub.i36 = sub nuw i64 %mul26, %sub.ptr.div.i.i27
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i36)
   br label %if.end27
 
@@ -9148,7 +9148,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -9178,7 +9178,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
@@ -9208,7 +9208,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %if.then.i17, %i
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
-  %sub.i32 = sub i64 %mul, %sub.ptr.div.i.i23
+  %sub.i32 = sub nuw i64 %mul, %sub.ptr.div.i.i23
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i32)
   br label %if.end
 
@@ -9871,7 +9871,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -9908,7 +9908,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -9938,7 +9938,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i21, %if.el
   br i1 %cmp.i28, label %if.then.i35, label %if.else.i29
 
 if.then.i35:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i36 = sub i64 %mul26, %sub.ptr.div.i.i27
+  %sub.i36 = sub nuw i64 %mul26, %sub.ptr.div.i.i27
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i36)
   br label %if.end27
 
@@ -10012,7 +10012,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -10042,7 +10042,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
@@ -10072,7 +10072,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %if.then.i17, %i
   br i1 %cmp.i24, label %if.then.i31, label %if.else.i25
 
 if.then.i31:                                      ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
-  %sub.i32 = sub i64 %mul, %sub.ptr.div.i.i23
+  %sub.i32 = sub nuw i64 %mul, %sub.ptr.div.i.i23
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i32)
   br label %if.end
 
@@ -10735,7 +10735,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -10772,7 +10772,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
@@ -10851,7 +10851,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -10881,7 +10881,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
@@ -11551,7 +11551,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -11588,7 +11588,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
@@ -11618,7 +11618,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.el
   br i1 %cmp.i29, label %if.then.i36, label %if.else.i30
 
 if.then.i36:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
-  %sub.i37 = sub i64 %mul26, %sub.ptr.div.i.i28
+  %sub.i37 = sub nuw i64 %mul26, %sub.ptr.div.i.i28
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i37)
   br label %if.end27
 
@@ -11692,7 +11692,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -11722,7 +11722,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
@@ -11752,7 +11752,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit19:             ; preds = %if.then.i17, %if.el
   br i1 %cmp.i25, label %if.then.i32, label %if.else.i26
 
 if.then.i32:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
-  %sub.i33 = sub i64 %mul, %sub.ptr.div.i.i24
+  %sub.i33 = sub nuw i64 %mul, %sub.ptr.div.i.i24
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i33)
   br label %if.end
 
@@ -12415,7 +12415,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -12452,7 +12452,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
@@ -12482,7 +12482,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.el
   br i1 %cmp.i29, label %if.then.i36, label %if.else.i30
 
 if.then.i36:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
-  %sub.i37 = sub i64 %mul26, %sub.ptr.div.i.i28
+  %sub.i37 = sub nuw i64 %mul26, %sub.ptr.div.i.i28
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i37)
   br label %if.end27
 
@@ -12556,7 +12556,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -12586,7 +12586,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
@@ -12616,7 +12616,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit19:             ; preds = %if.then.i17, %if.el
   br i1 %cmp.i25, label %if.then.i32, label %if.else.i26
 
 if.then.i32:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
-  %sub.i33 = sub i64 %mul, %sub.ptr.div.i.i24
+  %sub.i33 = sub nuw i64 %mul, %sub.ptr.div.i.i24
   tail call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i33)
   br label %if.end
 
@@ -13279,7 +13279,7 @@ if.then17:                                        ; preds = %_ZN19OpenColorIO_v2
   br i1 %cmp.i, label %if.then.i8, label %if.else.i
 
 if.then.i8:                                       ; preds = %if.then17
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i)
   %.pre = load i8, ptr %m_useDstBuffer, align 4
   %11 = trunc i8 %.pre to i1
@@ -13316,7 +13316,7 @@ if.then22:                                        ; preds = %if.then.i8, %invoke
   br i1 %cmp.i14, label %if.then.i21, label %if.else.i15
 
 if.then.i21:                                      ; preds = %if.then22
-  %sub.i22 = sub i64 %mul26, %sub.ptr.div.i.i13
+  %sub.i22 = sub nuw i64 %mul26, %sub.ptr.div.i.i13
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i22)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
 
@@ -13346,7 +13346,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit23:             ; preds = %if.then.i21, %if.el
   br i1 %cmp.i29, label %if.then.i36, label %if.else.i30
 
 if.then.i36:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit23
-  %sub.i37 = sub i64 %mul26, %sub.ptr.div.i.i28
+  %sub.i37 = sub nuw i64 %mul26, %sub.ptr.div.i.i28
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i37)
   br label %if.end27
 
@@ -13420,7 +13420,7 @@ if.then:                                          ; preds = %entry, %if.then.i
   br i1 %cmp.i, label %if.then.i4, label %if.else.i
 
 if.then.i4:                                       ; preds = %if.then
-  %sub.i = sub i64 %mul, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %mul, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_rgbaFloatBuffer, i64 noundef %sub.i)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -13450,7 +13450,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %if.then.i4, %if.els
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %sub.i18 = sub i64 %mul, %sub.ptr.div.i.i9
+  %sub.i18 = sub nuw i64 %mul, %sub.ptr.div.i.i9
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_inBitDepthBuffer, i64 noundef %sub.i18)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
 
@@ -13480,7 +13480,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit19:             ; preds = %if.then.i17, %if.el
   br i1 %cmp.i25, label %if.then.i32, label %if.else.i26
 
 if.then.i32:                                      ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit19
-  %sub.i33 = sub i64 %mul, %sub.ptr.div.i.i24
+  %sub.i33 = sub nuw i64 %mul, %sub.ptr.div.i.i24
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer, i64 noundef %sub.i33)
   br label %if.end
 

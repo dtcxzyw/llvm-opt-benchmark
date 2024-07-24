@@ -218,8 +218,8 @@ define dso_local void @__bitmap_shift_right(ptr nocapture noundef writeonly %0, 
   %23 = zext nneg i32 %9 to i64
   %24 = and i64 %21, 4294967295
   %25 = and i64 %18, 4294967295
-  %26 = sub nsw i32 %8, %9
-  %27 = zext i32 %26 to i64
+  %26 = sub nuw nsw i32 %8, %9
+  %27 = zext nneg i32 %26 to i64
   br i1 %17, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %15, %.split.us

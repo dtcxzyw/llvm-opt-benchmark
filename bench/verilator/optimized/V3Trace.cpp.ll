@@ -9866,7 +9866,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %20
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   tail call void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %31)
   br label %.sink.split
 
@@ -10758,7 +10758,7 @@ _ZZN7AstNode11foreachImplI9AstCAwaitZN12TraceVisitor17addActivitySetterEPS_jEUlP
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %48
-  %58 = sub nsw i64 %55, %54
+  %58 = sub nuw nsw i64 %55, %54
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %58)
           to label %._ZZN7AstNode11foreachImplI9AstCAwaitZN12TraceVisitor17addActivitySetterEPS_jEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit23_crit_edge unwind label %.loopexit
 
@@ -13258,7 +13258,7 @@ _ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %43
-  %53 = sub nsw i64 %50, %49
+  %53 = sub nuw nsw i64 %50, %49
   invoke void @_ZNSt6vectorIPK7AstNodeSaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %53)
           to label %._ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_bENKUlmE_clEm.exit20_crit_edge unwind label %.loopexit
 

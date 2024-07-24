@@ -11963,7 +11963,7 @@ define internal fastcc i32 @add_code_range_to_buf0(ptr nocapture noundef %0, ptr
   br i1 %118, label %119, label %158
 
 119:                                              ; preds = %115
-  %120 = sub i32 %.0184283287, %.0178.lcssa
+  %120 = sub nuw i32 %.0184283287, %.0178.lcssa
   %121 = shl i32 %120, 3
   %122 = add i32 %116, %121
   %123 = getelementptr inbounds i8, ptr %.0185281288, i64 12

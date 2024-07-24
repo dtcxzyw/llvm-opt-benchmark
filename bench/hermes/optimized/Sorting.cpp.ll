@@ -34,7 +34,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i32 %end, %begin
+  %sub = sub nuw i32 %end, %begin
   %0 = getelementptr inbounds i8, ptr %index, i64 8
   %conv = zext i32 %sub to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 2

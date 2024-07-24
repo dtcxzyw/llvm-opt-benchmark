@@ -3016,7 +3016,7 @@ define internal fastcc zeroext i1 @tcp_write_xmit(ptr noundef %0, i32 noundef %1
 425:                                              ; preds = %415
   %426 = lshr i32 %423, 1
   %427 = tail call i32 @llvm.umax.i32(i32 %426, i32 1)
-  %428 = sub i32 %423, %422
+  %428 = sub nuw i32 %423, %422
   %429 = tail call i32 @llvm.umin.i32(i32 %427, i32 %428)
   br label %430
 
@@ -3136,7 +3136,7 @@ define internal fastcc zeroext i1 @tcp_write_xmit(ptr noundef %0, i32 noundef %1
   %506 = getelementptr inbounds i8, ptr %345, i64 40
   %507 = load i32, ptr %506, align 8
   %508 = sub i32 %505, %507
-  %509 = sub i32 %501, %500
+  %509 = sub nuw i32 %501, %500
   %510 = load i32, ptr %320, align 8
   %511 = mul i32 %510, %509
   %512 = tail call i32 @llvm.umin.i32(i32 %508, i32 %511)
@@ -6700,12 +6700,12 @@ define dso_local ptr @tcp_make_synack(ptr noundef %0, ptr noundef %1, ptr nounde
   store i16 %171, ptr %7, align 8
   %172 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %3, ptr %172, align 8
-  %173 = sub nsw i32 %154, %168
+  %173 = sub nuw nsw i32 %154, %168
   br label %174
 
 174:                                              ; preds = %170, %160, %156, %152
   %175 = phi i32 [ %154, %152 ], [ %154, %160 ], [ %173, %170 ], [ %154, %156 ]
-  %176 = sub nsw i32 60, %175
+  %176 = sub nuw nsw i32 60, %175
   %177 = tail call ptr @skb_push(ptr noundef nonnull %9, i32 noundef %176) #18
   %178 = load ptr, ptr %13, align 8
   %179 = getelementptr inbounds i8, ptr %9, i64 192
@@ -10935,7 +10935,7 @@ define internal fastcc range(i32 -2147483607, -2147483648) i32 @tcp_syn_options(
   store i16 %144, ptr %2, align 8
   %145 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %6, ptr %145, align 8
-  %146 = sub nsw i32 %126, %140
+  %146 = sub nuw nsw i32 %126, %140
   %147 = getelementptr inbounds i8, ptr %0, i64 1884
   %148 = load i8, ptr %147, align 4
   %149 = or i8 %148, 8
@@ -10949,7 +10949,7 @@ define internal fastcc range(i32 -2147483607, -2147483648) i32 @tcp_syn_options(
 
 154:                                              ; preds = %142, %132, %128, %125
   %155 = phi i32 [ %126, %125 ], [ %126, %132 ], [ %146, %142 ], [ %126, %128 ]
-  %156 = sub nsw i32 40, %155
+  %156 = sub nuw nsw i32 40, %155
   ret i32 %156
 }
 

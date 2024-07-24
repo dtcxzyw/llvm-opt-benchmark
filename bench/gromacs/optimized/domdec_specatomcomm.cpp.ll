@@ -1063,7 +1063,7 @@ define noundef i32 @_Z26setup_specat_communicationP12gmx_domdec_tPSt6vectorIiSaI
   br i1 %77, label %78, label %110
 
 78:                                               ; preds = %64
-  %79 = sub nsw i64 %70, %76
+  %79 = sub nuw nsw i64 %70, %76
   %80 = load ptr, ptr %37, align 8
   %81 = ptrtoint ptr %80 to i64
   %82 = sub i64 %81, %73
@@ -1271,7 +1271,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
   br i1 %185, label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit, label %187
 
 _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %174
-  %186 = sub i64 %175, %184
+  %186 = sub nuw i64 %175, %184
   call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %135, ptr %176, i32 %177, i64 noundef %186, i1 noundef zeroext false)
   br label %187
 
@@ -1690,7 +1690,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit284:       ; preds = %308, %_ZNSt6vectorI
   br i1 %395, label %396, label %428
 
 396:                                              ; preds = %382
-  %397 = sub nsw i64 %388, %394
+  %397 = sub nuw nsw i64 %388, %394
   %398 = load ptr, ptr %150, align 8
   %399 = ptrtoint ptr %398 to i64
   %400 = sub i64 %399, %391
@@ -2200,7 +2200,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -2221,7 +2221,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23

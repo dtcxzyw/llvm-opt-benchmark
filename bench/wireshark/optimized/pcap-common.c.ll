@@ -1429,10 +1429,10 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %178 = icmp uge i32 %.12.i, %.033.i
   %or.cond.not13.i = and i1 %177, %178
   %179 = zext nneg i32 %.033.i to i64
-  %180 = sub i32 %.12.i, %.033.i
+  %180 = sub nuw i32 %.12.i, %.033.i
   %181 = getelementptr i8, ptr %.0321.i, i64 %179
   %182 = icmp ugt i32 %180, 3
-  %or.cond10.i = and i1 %or.cond.not13.i, %182
+  %or.cond10.i = select i1 %or.cond.not13.i, i1 %182, i1 false
   br i1 %or.cond10.i, label %.lr.ph.i, label %pcap_byteswap_linux_sll_pseudoheader.exit, !llvm.loop !9
 
 183:                                              ; preds = %6

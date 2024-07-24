@@ -165,7 +165,7 @@ stream_write_bits.exit.i:                         ; preds = %75, %rev_precision_
   br i1 %91, label %92, label %rev_encode_block_int32_2.exit
 
 92:                                               ; preds = %stream_write_bits.exit.i
-  %93 = sub i32 %11, %90
+  %93 = sub nuw i32 %11, %90
   %94 = zext i32 %93 to i64
   %95 = load i64, ptr %10, align 8
   %96 = add i64 %95, %94
@@ -295,7 +295,7 @@ fwd_order_int32.exit.i22:                         ; preds = %fwd_xform_int32_2.e
   br i1 %165, label %166, label %encode_block_int32_2.exit
 
 166:                                              ; preds = %fwd_order_int32.exit.i22
-  %167 = sub i32 %11, %164
+  %167 = sub nuw i32 %11, %164
   %168 = zext i32 %167 to i64
   %169 = load i64, ptr %10, align 8
   %170 = add i64 %169, %168

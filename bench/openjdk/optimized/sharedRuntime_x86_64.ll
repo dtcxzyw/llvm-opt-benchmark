@@ -6910,7 +6910,7 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr nocapture no
   %12 = load i64, ptr %7, align 8
   %13 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
-  %15 = sub nsw i64 %indvars.iv112, %indvars.iv
+  %15 = sub nuw nsw i64 %indvars.iv112, %indvars.iv
   %16 = getelementptr inbounds i64, ptr %1, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %14, i64 %17, i64 %.180, i64 %.16879, i64 %12) #14, !srcloc !39
@@ -7178,7 +7178,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %67 = load i64, ptr %6, align 8
   %68 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv176.i
   %69 = load i64, ptr %68, align 8
-  %70 = sub nsw i64 %indvars.iv179.i, %indvars.iv176.i
+  %70 = sub nuw nsw i64 %indvars.iv179.i, %indvars.iv176.i
   %71 = getelementptr inbounds i64, ptr %16, i64 %70
   %72 = load i64, ptr %71, align 8
   %73 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %69, i64 %72, i64 %.3124.i, i64 %.3104123.i, i64 %67) #14, !srcloc !55

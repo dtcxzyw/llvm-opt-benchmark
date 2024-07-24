@@ -53,7 +53,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
 
 25:                                               ; preds = %.preheader.us.i
   %26 = getelementptr i8, ptr %1, i64 %23
-  %27 = sub nsw i64 %3, %23
+  %27 = sub nuw nsw i64 %3, %23
   %28 = tail call i64 @pm_encoding_utf_8_char_width(ptr noundef %26, i64 noundef %27) #4
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %.preheader.us.i, label %.critedge.us.i, !llvm.loop !7
@@ -175,7 +175,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   %86 = load ptr, ptr %56, align 8
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr i8, ptr %1, i64 %83
-  %89 = sub nsw i64 %3, %83
+  %89 = sub nuw nsw i64 %3, %83
   %90 = tail call i64 %87(ptr noundef %88, i64 noundef %89) #4
   %91 = icmp eq i64 %90, 0
   br i1 %91, label %.preheader.us.i34, label %.critedge.us.i36, !llvm.loop !11
@@ -290,7 +290,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   %143 = load ptr, ptr %56, align 8
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr i8, ptr %1, i64 %140
-  %146 = sub nsw i64 %3, %140
+  %146 = sub nuw nsw i64 %3, %140
   %147 = tail call i64 %144(ptr noundef %145, i64 noundef %146) #4
   %148 = icmp eq i64 %147, 0
   br i1 %148, label %.preheader.i, label %.critedge.i, !llvm.loop !14

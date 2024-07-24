@@ -75,7 +75,7 @@ define i32 @cli_parsepng(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond189.not, label %15, label %fmap_readn.exit.thread
 
 15:                                               ; preds = %13
-  %16 = sub i64 %14, %.0
+  %16 = sub nuw i64 %14, %.0
   %spec.select.i = call i64 @llvm.umin.i64(i64 %16, i64 4)
   %17 = load ptr, ptr %11, align 8
   %18 = call ptr %17(ptr noundef nonnull %9, i64 noundef %.0, i64 noundef %spec.select.i, i32 noundef 0) #6
@@ -111,7 +111,7 @@ fmap_readn.exit:                                  ; preds = %15
   br i1 %or.cond190.not, label %33, label %fmap_readn.exit156.thread
 
 33:                                               ; preds = %31
-  %34 = sub i64 %32, %23
+  %34 = sub nuw i64 %32, %23
   %spec.select.i153 = call i64 @llvm.umin.i64(i64 %34, i64 4)
   %35 = load ptr, ptr %11, align 8
   %36 = call ptr %35(ptr noundef nonnull %9, i64 noundef %23, i64 noundef %spec.select.i153, i32 noundef 0) #6
@@ -366,7 +366,7 @@ fmap_readn.exit156.thread:                        ; preds = %33, %31, %fmap_read
   br i1 %or.cond191.not, label %126, label %fmap_readn.exit161.thread
 
 126:                                              ; preds = %124
-  %127 = sub i64 %125, %.1172
+  %127 = sub nuw i64 %125, %.1172
   %spec.select.i158 = call i64 @llvm.umin.i64(i64 %127, i64 4)
   %128 = load ptr, ptr %11, align 8
   %129 = call ptr %128(ptr noundef nonnull %9, i64 noundef %.1172, i64 noundef %spec.select.i158, i32 noundef 0) #6
@@ -421,7 +421,7 @@ fmap_readn.exit.thread:                           ; preds = %15, %13, %135, %fma
   br i1 %145, label %146, label %151
 
 146:                                              ; preds = %.thread183
-  %147 = sub i64 %144, %.3186
+  %147 = sub nuw i64 %144, %.3186
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.36, i64 noundef %147) #6
   %148 = load i64, ptr %10, align 8
   %149 = sub i64 %148, %.3186

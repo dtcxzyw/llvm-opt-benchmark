@@ -3517,7 +3517,7 @@ define range(i32 0, 2) i32 @png_icc_check_tag_table(ptr noalias noundef %0, ptr 
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = or disjoint i32 %75, %78
-  %80 = sub i32 %3, %59
+  %80 = sub nuw i32 %3, %59
   %81 = icmp ugt i32 %79, %80
   br i1 %81, label %82, label %84
 

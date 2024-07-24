@@ -2507,7 +2507,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us: ; preds = %_ZNSt6ve
   br i1 %455, label %456, label %481
 
 456:                                              ; preds = %._crit_edge254
-  %457 = sub nsw i64 %447, %454
+  %457 = sub nuw nsw i64 %447, %454
   %458 = getelementptr inbounds i8, ptr %29, i64 16
   %459 = load ptr, ptr %458, align 8
   %460 = ptrtoint ptr %459 to i64
@@ -3675,7 +3675,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -5552,7 +5552,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us: ; preds = %_ZNSt6ve
   br i1 %473, label %474, label %499
 
 474:                                              ; preds = %._crit_edge215
-  %475 = sub nsw i64 %465, %472
+  %475 = sub nuw nsw i64 %465, %472
   %476 = getelementptr inbounds i8, ptr %30, i64 16
   %477 = load ptr, ptr %476, align 8
   %478 = ptrtoint ptr %477 to i64

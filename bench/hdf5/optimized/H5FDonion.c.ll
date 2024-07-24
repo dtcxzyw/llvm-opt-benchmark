@@ -2399,7 +2399,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
 
 .lr.ph.preheader:                                 ; preds = %119
   %scevgep = getelementptr i8, ptr %28, i64 %110
-  %121 = sub nsw i64 %.0140, %110
+  %121 = sub nuw nsw i64 %.0140, %110
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %121, i1 false)
   br label %._crit_edge
 
@@ -2411,7 +2411,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
 
 .lr.ph169.preheader:                              ; preds = %._crit_edge
   %scevgep179 = getelementptr i8, ptr %28, i64 %123
-  %125 = sub i64 %27, %123
+  %125 = sub nuw i64 %27, %123
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep179, i8 0, i64 %125, i1 false)
   br label %.loopexit
 

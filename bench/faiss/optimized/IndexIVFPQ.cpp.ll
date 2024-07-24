@@ -9185,7 +9185,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPKfSaI
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %64
-  %78 = sub i64 %68, %75
+  %78 = sub nuw i64 %68, %75
   invoke void @_ZNSt6vectorIPKfSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %78)
           to label %_ZNSt6vectorIPKfSaIS1_EE6resizeEm.exit unwind label %53
 
@@ -9218,7 +9218,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64

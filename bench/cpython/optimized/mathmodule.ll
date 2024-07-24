@@ -7384,7 +7384,7 @@ if.else41.i:                                      ; preds = %if.then37.i
 
 if.then43.i:                                      ; preds = %if.else41.i
   %and44.i = and i64 %20, -9223372036854775808
-  %sub.i = sub i64 %call9.i, %and.i
+  %sub.i = sub nuw i64 %call9.i, %and.i
   %or.i = or i64 %sub.i, %and44.i
   %23 = bitcast i64 %or.i to double
   %call45.i = call ptr @PyFloat_FromDouble(double noundef %23) #15
@@ -7401,7 +7401,7 @@ if.else49.i:                                      ; preds = %if.end33.i
   br i1 %cmp50.i, label %if.then51.i, label %if.else59.i
 
 if.then51.i:                                      ; preds = %if.else49.i
-  %sub52.i = sub nsw i64 %and.i, %and34.i
+  %sub52.i = sub nuw nsw i64 %and.i, %and34.i
   %cmp53.not.i = icmp ult i64 %sub52.i, %call9.i
   br i1 %cmp53.not.i, label %if.else57.i, label %if.then54.i
 
@@ -7416,7 +7416,7 @@ if.else57.i:                                      ; preds = %if.then51.i
   br label %exit
 
 if.else59.i:                                      ; preds = %if.else49.i
-  %sub60.i = sub nsw i64 %and34.i, %and.i
+  %sub60.i = sub nuw nsw i64 %and34.i, %and.i
   %cmp61.not.i = icmp ult i64 %sub60.i, %call9.i
   br i1 %cmp61.not.i, label %if.else65.i, label %if.then62.i
 

@@ -551,7 +551,7 @@ if.end76:                                         ; preds = %if.end76.sink.split
 
 while.body80.preheader:                           ; preds = %if.end76
   %scevgep = getelementptr i8, ptr %b64, i64 %b64_pos.4
-  %9 = sub i64 %b64_len.0, %b64_pos.4
+  %9 = sub nuw i64 %b64_len.0, %b64_pos.4
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 61, i64 %9, i1 false)
   br label %do.body.preheader
 

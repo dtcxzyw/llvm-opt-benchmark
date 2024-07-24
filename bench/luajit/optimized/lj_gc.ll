@@ -594,7 +594,7 @@ entry:
   br i1 %cmp5, label %if.then7, label %if.end13
 
 if.then7:                                         ; preds = %entry
-  %sub = sub i64 %4, %5
+  %sub = sub nuw i64 %4, %5
   %debt = getelementptr inbounds i8, ptr %1, i64 88
   %6 = load i64, ptr %debt, align 8
   %add = add i64 %sub, %6
@@ -1386,12 +1386,12 @@ if.end93:                                         ; preds = %if.then85
   br i1 %cmp96.not, label %if.end113, label %land.lhs.true98
 
 land.lhs.true98:                                  ; preds = %if.end93
-  %sub103 = sub i64 %132, %134
+  %sub103 = sub nuw i64 %132, %134
   %cmp104 = icmp ugt i64 %.pre, %sub103
   br i1 %cmp104, label %if.then106, label %if.end113
 
 if.then106:                                       ; preds = %land.lhs.true98
-  %sub112 = sub i64 %.pre, %sub103
+  %sub112 = sub nuw i64 %.pre, %sub103
   store i64 %sub112, ptr %estimate115.phi.trans.insert, align 8
   br label %if.end113
 
@@ -1479,7 +1479,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp5.i, label %if.then7.i, label %if.end13.i
 
 if.then7.i:                                       ; preds = %if.end
-  %sub.i = sub i64 %11, %12
+  %sub.i = sub nuw i64 %11, %12
   %debt.i = getelementptr inbounds i8, ptr %8, i64 88
   %13 = load i64, ptr %debt.i, align 8
   %add.i = add i64 %sub.i, %13
@@ -1588,7 +1588,7 @@ land.rhs:                                         ; preds = %entry, %lj_gc_step.
   br i1 %cmp5.i, label %if.then7.i, label %if.end13.i
 
 if.then7.i:                                       ; preds = %land.rhs
-  %sub.i = sub i64 %15, %16
+  %sub.i = sub nuw i64 %15, %16
   %debt.i = getelementptr inbounds i8, ptr %12, i64 88
   %17 = load i64, ptr %debt.i, align 8
   %add.i = add i64 %sub.i, %17

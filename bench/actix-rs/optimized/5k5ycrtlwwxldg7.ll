@@ -9387,7 +9387,7 @@ common.resume.sink.split.i:                       ; preds = %271, %234, %216
   %294 = getelementptr inbounds i8, ptr %101, i64 %277
   %295 = load i8, ptr %294, align 1, !alias.scope !1531, !noundef !9
   %296 = icmp sgt i8 %295, -65
-  %297 = sub i64 %103, %277
+  %297 = sub nuw i64 %103, %277
   br i1 %296, label %300, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i111"

@@ -3105,7 +3105,7 @@ if.end41:                                         ; preds = %if.then37
 
 if.end53:                                         ; preds = %if.end41
   %add.ptr54 = getelementptr inbounds i8, ptr %add.ptr, i64 2
-  %sub56 = sub i64 %sub, %add47
+  %sub56 = sub nuw i64 %sub, %add47
   store i64 %sub56, ptr %msglen.addr, align 8
   %call57 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
   %call59 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.538, i32 noundef %or) #3
@@ -3179,7 +3179,7 @@ if.end79:                                         ; preds = %if.end75
 if.end92:                                         ; preds = %if.end79
   %add.ptr93 = getelementptr inbounds i8, ptr %19, i64 2
   store ptr %add.ptr93, ptr %msg.addr, align 8
-  %sub95 = sub i64 %20, %add88
+  %sub95 = sub nuw i64 %20, %add88
   store i64 %sub95, ptr %msglen.addr, align 8
   %call97 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.540, i32 noundef %or85) #3
   br label %while.cond98
@@ -3504,7 +3504,7 @@ if.end12:                                         ; preds = %if.end4
 
 if.end16:                                         ; preds = %if.end12
   %call18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.562, i32 noundef %or) #3
-  %sub19 = sub i64 %sub, %conv7
+  %sub19 = sub nuw i64 %sub, %conv7
   %add49 = add nuw nsw i32 %indent, 2
   %tobool304.not.i = icmp eq i32 %server, 0
   %add310.i = add nuw nsw i32 %indent, 4
@@ -4067,7 +4067,7 @@ for.body.i263.i:                                  ; preds = %do_ssl_trace_str.ex
 ssl_print_hex.exit271.i:                          ; preds = %for.body.i263.i, %do_ssl_trace_str.exit258.i
   %call5.i270.i = tail call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull @.str.12) #3
   %add.ptr227.i = getelementptr inbounds i8, ptr %add.ptr216.i, i64 %or214.i
-  %sub228.i = sub i64 %sub217.i, %or214.i
+  %sub228.i = sub nuw i64 %sub217.i, %or214.i
   %cmp196.not.i = icmp eq i64 %sub228.i, 0
   br i1 %cmp196.not.i, label %if.end52, label %for.body.i, !llvm.loop !15
 

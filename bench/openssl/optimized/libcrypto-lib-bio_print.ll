@@ -2396,7 +2396,7 @@ do.body:                                          ; preds = %do.body, %pow_10.ex
   br i1 %3, label %do.body, label %do.end, !llvm.loop !17
 
 do.end:                                           ; preds = %do.body
-  %fracpart.0 = sub i64 %intpart.0.i193, %sub85
+  %fracpart.0 = sub nuw i64 %intpart.0.i193, %sub85
   %cmp94 = icmp eq i64 %indvars.iv.next, 20
   %spec.select166.v = select i1 %cmp94, i64 %indvars.iv, i64 %indvars.iv.next
   %spec.select166 = trunc i64 %spec.select166.v to i32

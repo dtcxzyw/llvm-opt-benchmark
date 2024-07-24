@@ -240,7 +240,7 @@ for.body:                                         ; preds = %entry, %if.end
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %sub = sub i64 %cnt.09, %4
+  %sub = sub nuw i64 %cnt.09, %4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.08, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i.not, label %return, label %for.body
@@ -3336,7 +3336,7 @@ for.body.i:                                       ; preds = %entry, %if.end.i
   br i1 %cmp.i, label %_ZN4cvc58internal6theory5arith2nl12Interleaving3getEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %sub.i = sub i64 %cnt.09.i, %4
+  %sub.i = sub nuw i64 %cnt.09.i, %4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.08.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %3
   br i1 %cmp.i.not.i, label %_ZN4cvc58internal6theory5arith2nl12Interleaving3getEv.exit, label %for.body.i

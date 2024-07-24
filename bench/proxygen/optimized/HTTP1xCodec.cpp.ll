@@ -1486,7 +1486,7 @@ if.end:                                           ; preds = %invoke.cont7
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end
-  %sub = sub i64 %sub.ptr.sub.i, %call8
+  %sub = sub nuw i64 %sub.ptr.sub.i, %call8
   %24 = load ptr, ptr %crtPos_.i.i, align 8
   %25 = load ptr, ptr %crtBegin_.i.i, align 8
   %sub.ptr.lhs.cast.i18 = ptrtoint ptr %24 to i64
@@ -9615,7 +9615,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64

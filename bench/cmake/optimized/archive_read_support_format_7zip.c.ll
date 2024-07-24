@@ -4856,7 +4856,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr nocapture noundef %0, ptr nocapture 
 152:                                              ; preds = %128
   %153 = sub i32 %131, %133
   store i32 %153, ptr %84, align 8
-  %154 = sub i32 %134, %133
+  %154 = sub nuw i32 %134, %133
   store i32 %154, ptr %85, align 4
   %155 = lshr i16 %129, 5
   %156 = sub i16 %129, %155

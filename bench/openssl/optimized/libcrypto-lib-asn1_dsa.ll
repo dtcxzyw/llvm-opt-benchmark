@@ -319,7 +319,7 @@ lor.lhs.false.i:                                  ; preds = %if.then6
 if.end.i11:                                       ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   store ptr %add.ptr.i.i5.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i, ptr %0, align 8
   store ptr %add.ptr.i.i.i, ptr %subpkt, align 8
@@ -346,7 +346,7 @@ lor.lhs.false.i14:                                ; preds = %if.then11
 if.end.i18:                                       ; preds = %lor.lhs.false.i14
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %1, i64 3
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
-  %sub.i.i7.i = sub i64 %sub.i.i.i17, %or.i.i.i
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i17, %or.i.i.i
   store ptr %add.ptr.i.i6.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i, ptr %0, align 8
   store ptr %add.ptr.i2.i.i, ptr %subpkt, align 8
@@ -396,7 +396,7 @@ if.then1.i:                                       ; preds = %if.end.i4
 if.end.i7.i:                                      ; preds = %if.then1.i
   %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
   store ptr %add.ptr.i.i8.i, ptr %pkt, align 8
-  %sub.i.i9.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i9.i = sub nuw i64 %sub.i.i.i, %conv.i
   br label %if.end
 
 if.end3.i:                                        ; preds = %if.end.i4
@@ -419,7 +419,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then6.i
 if.end.i11.i:                                     ; preds = %lor.lhs.false.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 3
   %add.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %conv.i.i6
-  %sub.i.i6.i.i = sub i64 %sub.i.i.i.i, %conv.i.i6
+  %sub.i.i6.i.i = sub nuw i64 %sub.i.i.i.i, %conv.i.i6
   store ptr %add.ptr.i.i5.i.i, ptr %pkt, align 8
   br label %if.end
 
@@ -442,7 +442,7 @@ lor.lhs.false.i14.i:                              ; preds = %if.then11.i
 if.end.i18.i:                                     ; preds = %lor.lhs.false.i14.i
   %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %add.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
-  %sub.i.i7.i.i = sub i64 %sub.i.i.i17.i, %or.i.i.i.i
+  %sub.i.i7.i.i = sub nuw i64 %sub.i.i.i17.i, %or.i.i.i.i
   store ptr %add.ptr.i.i6.i.i, ptr %pkt, align 8
   br label %if.end
 

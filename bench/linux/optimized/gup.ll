@@ -1944,7 +1944,7 @@ define dso_local range(i32 -14, 1) i32 @fixup_user_fault(ptr noundef %0, i64 nou
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 256
   %20 = icmp eq i64 %19, 0
-  %21 = sub i64 %14, %1
+  %21 = sub nuw i64 %14, %1
   %22 = icmp ugt i64 %21, 65536
   %23 = or i1 %22, %20
   br i1 %23, label %.thread, label %24
@@ -2240,7 +2240,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %60 = load i64, ptr %59, align 8
   %61 = and i64 %60, 256
   %62 = icmp eq i64 %61, 0
-  %63 = sub i64 %56, %46
+  %63 = sub nuw i64 %56, %46
   %64 = icmp ugt i64 %63, 65536
   %65 = or i1 %64, %62
   br i1 %65, label %83, label %66

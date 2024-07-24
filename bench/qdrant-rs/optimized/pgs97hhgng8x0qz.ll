@@ -702,7 +702,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h8270c65349493
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %21 = icmp ult i64 %20, %1
@@ -758,7 +758,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17ha575e5d2916be
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %21 = icmp ult i64 %20, %1
@@ -1725,7 +1725,7 @@ _ZN4core5slice4sort12choose_pivot17h7559ed29547daebdE.exit: ; preds = %"_ZN4core
   %222 = load i32, ptr %221, align 4, !alias.scope !173, !noalias !174
   store i32 %222, ptr %.sroa.0.0113.lcssa139, align 4, !alias.scope !173, !noalias !174
   store i32 %110, ptr %221, align 4, !alias.scope !173, !noalias !174
-  %223 = sub i64 %.sroa.14.0112.lcssa131, %217
+  %223 = sub nuw i64 %.sroa.14.0112.lcssa131, %217
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %217, i64 %223)
   %224 = lshr i64 %.sroa.14.0112.lcssa131, 3
   %225 = icmp uge i64 %.0.sroa.speculated.i, %224
@@ -2446,7 +2446,7 @@ _ZN4core5slice4sort12choose_pivot17h1003228491836206E.exit: ; preds = %"_ZN4core
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.0114.lcssa140, ptr noundef nonnull align 4 dereferenceable(12) %222, i64 12, i1 false), !alias.scope !244, !noalias !242
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %222, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.i33.i, i64 12, i1 false), !noalias !242
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i33.i)
-  %223 = sub i64 %.sroa.14.0113.lcssa132, %218
+  %223 = sub nuw i64 %.sroa.14.0113.lcssa132, %218
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %218, i64 %223)
   %224 = lshr i64 %.sroa.14.0113.lcssa132, 3
   %225 = icmp uge i64 %.0.sroa.speculated.i, %224

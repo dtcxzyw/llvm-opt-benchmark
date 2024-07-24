@@ -47470,7 +47470,7 @@ invoke.cont4.i.i:                                 ; preds = %if.then
   store ptr %5, ptr %ref.tmp, align 8, !alias.scope !525
   %6 = load ptr, ptr %output, align 8, !noalias !525
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %at.0122
-  %sub.i.i.i = sub i64 %4, %at.0122
+  %sub.i.i.i = sub nuw i64 %4, %at.0122
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #49, !noalias !525
   store i64 %sub.i.i.i, ptr %__dnew.i.i.i, align 8, !noalias !525
   %cmp.i15.i.i = icmp ugt i64 %sub.i.i.i, 15
@@ -47600,7 +47600,7 @@ invoke.cont4.i.i54:                               ; preds = %if.end
   store ptr %3, ptr %ref.tmp7, align 8, !alias.scope !528
   %22 = load ptr, ptr %output, align 8, !noalias !528
   %add.ptr.i.i55 = getelementptr inbounds i8, ptr %22, i64 %at.0122
-  %sub.i.i.i56 = sub i64 %21, %at.0122
+  %sub.i.i.i56 = sub nuw i64 %21, %at.0122
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i56, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i51) #49, !noalias !528
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i51, align 8, !noalias !528
@@ -60293,7 +60293,7 @@ invoke.cont4.i.i45.i:                             ; preds = %if.else.i
   store ptr %8, ptr %ref.tmp6.i, align 8, !alias.scope !901
   %32 = load ptr, ptr %ref.tmp, align 8, !noalias !901
   %add.ptr.i.i46.i = getelementptr inbounds i8, ptr %32, i64 %pos.0101.i
-  %sub.i.i.i47.i = sub i64 %31, %pos.0101.i
+  %sub.i.i.i47.i = sub nuw i64 %31, %pos.0101.i
   %spec.select.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i47.i, i64 %sub.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i42.i) #49, !noalias !901
   store i64 %spec.select.i.i.i.i, ptr %__dnew.i.i.i42.i, align 8, !noalias !901

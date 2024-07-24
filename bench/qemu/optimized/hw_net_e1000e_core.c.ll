@@ -763,9 +763,9 @@ land.lhs.true1.i57:                               ; preds = %if.else13
   %iov_len.i58 = getelementptr inbounds i8, ptr %iov, i64 8
   %8 = load i64, ptr %iov_len.i58, align 8
   %cmp.not.i59 = icmp ult i64 %8, %iov_ofs.0
-  %sub.i60 = sub i64 %8, %iov_ofs.0
+  %sub.i60 = sub nuw i64 %8, %iov_ofs.0
   %cmp5.not.i61 = icmp ult i64 %sub.i60, 18
-  %or.cond13.i62 = or i1 %cmp.not.i59, %cmp5.not.i61
+  %or.cond13.i62 = select i1 %cmp.not.i59, i1 true, i1 %cmp5.not.i61
   br i1 %or.cond13.i62, label %if.else.i54, label %if.then.i63
 
 if.then.i63:                                      ; preds = %land.lhs.true1.i57
@@ -1638,7 +1638,7 @@ if.then16.i:                                      ; preds = %e1000e_read_rx_desc
   br i1 %cmp17.i, label %if.then19.i, label %if.end84.i
 
 if.then19.i:                                      ; preds = %if.then16.i
-  %sub20.i = sub i64 %call1.i105, %desc_offset.0.i
+  %sub20.i = sub nuw i64 %call1.i105, %desc_offset.0.i
   %152 = load i32, ptr %rx_desc_buf_size288.i, align 8
   %conv22.i = zext i32 %152 to i64
   %spec.select76.i = call i64 @llvm.umin.i64(i64 %sub20.i, i64 %conv22.i)

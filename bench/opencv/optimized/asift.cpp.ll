@@ -1888,7 +1888,7 @@ _ZNSt6vectorISt4pairIN2cv6Point_IfEES3_ESaIS4_EE9push_backEOS4_.exit: ; preds = 
   br i1 %689, label %690, label %723
 
 690:                                              ; preds = %._crit_edge461
-  %691 = sub nsw i64 %681, %688
+  %691 = sub nuw nsw i64 %681, %688
   %692 = getelementptr inbounds i8, ptr %64, i64 16
   %693 = load ptr, ptr %692, align 8
   %694 = ptrtoint ptr %693 to i64

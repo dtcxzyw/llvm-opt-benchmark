@@ -825,7 +825,7 @@ if.then142:                                       ; preds = %while.body
   %call147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call114, ptr noundef nonnull @.str.8, i64 noundef %62)
   %63 = load ptr, ptr %tc, align 8
   %add.ptr150 = getelementptr i8, ptr %63, i64 %chunk_start.0156
-  %sub151 = sub nsw i64 %conv139, %chunk_start.0156
+  %sub151 = sub nuw nsw i64 %conv139, %chunk_start.0156
   call void @disas(ptr noundef nonnull %call114, ptr noundef %add.ptr150, i64 noundef %sub151) #13
   %.pre = load i16, ptr %icount.i.le, align 2
   br label %if.end152
@@ -848,7 +848,7 @@ if.then156:                                       ; preds = %while.end
   %66 = call i64 @fwrite(ptr nonnull @.str.9, i64 31, i64 1, ptr nonnull %call114)
   %67 = load ptr, ptr %tc, align 8
   %add.ptr160 = getelementptr i8, ptr %67, i64 %chunk_start.0.lcssa
-  %sub162 = sub nsw i64 %conv153, %chunk_start.0.lcssa
+  %sub162 = sub nuw nsw i64 %conv153, %chunk_start.0.lcssa
   call void @disas(ptr noundef nonnull %call114, ptr noundef %add.ptr160, i64 noundef %sub162) #13
   br label %if.end163
 

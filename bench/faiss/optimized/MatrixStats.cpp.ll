@@ -275,7 +275,7 @@ define void @_ZN5faiss11MatrixStatsC2EmmPKf(ptr noundef nonnull align 8 derefere
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %42
-  %53 = sub i64 %2, %50
+  %53 = sub nuw i64 %2, %50
   invoke void @_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %53)
           to label %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp
 

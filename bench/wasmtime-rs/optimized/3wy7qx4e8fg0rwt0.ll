@@ -251,37 +251,38 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   br i1 %.not.i33, label %"_ZN5alloc11collections5btree3fix178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$29fix_right_border_of_plentiful17ha554b74d20ac87b1E.exit", label %.lr.ph.i32
 
 45:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$7last_kv17h215c660bdd49f611E.exit.i"
-  %46 = zext nneg i16 %43 to i64
-  %47 = sub nuw nsw i64 5, %46
-  %48 = getelementptr inbounds i8, ptr %37, i64 186
-  %49 = load i16, ptr %48, align 2, !noalias !18, !noundef !7
-  %50 = zext i16 %49 to i64
-  %.not.i6.i = icmp ugt i64 %47, %50
-  br i1 %.not.i6.i, label %.noexc34, label %51
+  %narrow.i = sub nuw nsw i16 5, %43
+  %46 = zext nneg i16 %narrow.i to i64
+  %47 = getelementptr inbounds i8, ptr %37, i64 186
+  %48 = load i16, ptr %47, align 2, !noalias !18, !noundef !7
+  %49 = zext nneg i16 %43 to i64
+  %.not.i6.i = icmp ult i16 %48, %narrow.i
+  br i1 %.not.i6.i, label %.noexc34, label %50
 
 .noexc34:                                         ; preds = %45
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e2192d190c206e613b03b2b794f0dab7.12, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2192d190c206e613b03b2b794f0dab7.13) #17
   unreachable
 
-51:                                               ; preds = %45
-  %52 = sub nsw i64 %50, %47
-  %53 = trunc i64 %52 to i16
-  store i16 %53, ptr %48, align 2, !noalias !18
+50:                                               ; preds = %45
+  %51 = zext i16 %48 to i64
+  %52 = sub nuw nsw i64 %51, %46
+  %53 = trunc nuw i64 %52 to i16
+  store i16 %53, ptr %47, align 2, !noalias !18
   store i16 5, ptr %42, align 2, !noalias !18
-  %54 = getelementptr inbounds { [2 x i64] }, ptr %41, i64 %47
-  %55 = shl nuw nsw i64 %46, 4
+  %54 = getelementptr inbounds { [2 x i64] }, ptr %41, i64 %46
+  %55 = shl nuw nsw i64 %49, 4
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 8 %41, i64 %55, i1 false), !noalias !18
-  %56 = add nsw i64 %52, 1
-  %57 = sub nuw nsw i64 %50, %56
-  %58 = sub nuw nsw i64 4, %46
+  %56 = add nuw nsw i64 %52, 1
+  %57 = sub nuw nsw i64 %51, %56
+  %58 = add nsw i64 %46, -1
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %_ZN5alloc11collections5btree4node13move_to_slice17h6ca3caf12adad6f8E.exit.i.i, label %.noexc35
 
-.noexc35:                                         ; preds = %51
+.noexc35:                                         ; preds = %50
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e2192d190c206e613b03b2b794f0dab7.6, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2192d190c206e613b03b2b794f0dab7.7) #17
   unreachable
 
-_ZN5alloc11collections5btree4node13move_to_slice17h6ca3caf12adad6f8E.exit.i.i: ; preds = %51
+_ZN5alloc11collections5btree4node13move_to_slice17h6ca3caf12adad6f8E.exit.i.i: ; preds = %50
   %60 = getelementptr inbounds { [2 x i64] }, ptr %37, i64 %56
   %61 = shl nuw nsw i64 %57, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull readonly align 8 %60, i64 %61, i1 false), !alias.scope !21, !noalias !18
@@ -304,13 +305,13 @@ _ZN5alloc11collections5btree4node13move_to_slice17h6ca3caf12adad6f8E.exit.i.i: ;
 
 _ZN5alloc11collections5btree4node13move_to_slice17h28999f98cd601590E.exit.i.i: ; preds = %_ZN5alloc11collections5btree4node13move_to_slice17h6ca3caf12adad6f8E.exit.i.i
   %72 = getelementptr inbounds i8, ptr %41, i64 192
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %47
-  %74 = shl nuw nsw i64 %46, 3
+  %73 = getelementptr inbounds ptr, ptr %72, i64 %46
+  %74 = shl nuw nsw i64 %49, 3
   %75 = add nuw nsw i64 %74, 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %73, ptr noundef nonnull align 8 dereferenceable(1) %72, i64 %75, i1 false), !noalias !18
   %76 = getelementptr inbounds i8, ptr %37, i64 192
   %77 = getelementptr inbounds ptr, ptr %76, i64 %56
-  %78 = shl nuw nsw i64 %47, 3
+  %78 = shl nuw nsw i64 %46, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %72, ptr nonnull readonly align 8 %77, i64 %78, i1 false), !alias.scope !29, !noalias !18
   br label %79
 

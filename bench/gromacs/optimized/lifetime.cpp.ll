@@ -624,7 +624,7 @@ _ZNSt5dequeIiSaIiEE6resizeEmRKi.exit:             ; preds = %27
   %63 = load ptr, ptr %62, align 8
   store ptr %63, ptr %11, align 8
   store ptr %34, ptr %12, align 8
-  %64 = sub nsw i64 %60, %59
+  %64 = sub nuw nsw i64 %60, %59
   call void @_ZNSt5dequeIiSaIiEE14_M_fill_insertESt15_Deque_iteratorIiRiPiEmRKi(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull %2, i64 noundef %64, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %.pre.i = load ptr, ptr %32, align 8, !noalias !17
@@ -1876,7 +1876,7 @@ define linkonce_odr void @_ZNSt5dequeIiSaIiEE6resizeEmRKi(ptr noundef nonnull al
   %40 = insertelement <4 x ptr> %39, ptr %38, i64 2
   %41 = insertelement <4 x ptr> %40, ptr %8, i64 3
   store <4 x ptr> %41, ptr %4, align 8
-  %42 = sub i64 %1, %34
+  %42 = sub nuw i64 %1, %34
   call void @_ZNSt5dequeIiSaIiEE14_M_fill_insertESt15_Deque_iteratorIiRiPiEmRKi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4, i64 noundef %42, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %72
 
@@ -1968,7 +1968,7 @@ define linkonce_odr void @_ZNSt5dequeIiSaIiEE14_M_fill_insertESt15_Deque_iterato
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %10
-  %19 = sub i64 %2, %16
+  %19 = sub nuw i64 %2, %16
   tail call void @_ZNSt5dequeIiSaIiEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %19), !noalias !60
   %.pre.i = load ptr, ptr %7, align 8
   %.pre6.i = load ptr, ptr %11, align 8
@@ -2114,7 +2114,7 @@ _ZSt22__uninitialized_fill_aISt15_Deque_iteratorIiRiPiEiiEvT_S4_RKT0_RSaIT1_E.ex
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %59
-  %69 = sub i64 %2, %66
+  %69 = sub nuw i64 %2, %66
   tail call void @_ZNSt5dequeIiSaIiEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %69), !noalias !67
   %.pre.i13 = load ptr, ptr %56, align 8
   %.pre6.i14 = load ptr, ptr %60, align 8
@@ -2353,7 +2353,7 @@ define linkonce_odr void @_ZNSt5dequeIiSaIiEE13_M_insert_auxESt15_Deque_iterator
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %80
-  %88 = sub i64 %2, %85
+  %88 = sub nuw i64 %2, %85
   tail call void @_ZNSt5dequeIiSaIiEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %88), !noalias !73
   %.pre.i = load ptr, ptr %31, align 8
   %.pre6.i = load ptr, ptr %81, align 8
@@ -2856,7 +2856,7 @@ _ZSt9__fill_a1IPiiEN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__
   br i1 %260, label %261, label %263
 
 261:                                              ; preds = %253
-  %262 = sub i64 %2, %259
+  %262 = sub nuw i64 %2, %259
   tail call void @_ZNSt5dequeIiSaIiEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %262), !noalias !134
   %.pre.i56 = load ptr, ptr %59, align 8
   %.pre6.i57 = load ptr, ptr %254, align 8

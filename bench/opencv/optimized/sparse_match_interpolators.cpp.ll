@@ -7422,7 +7422,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %501
   br i1 %574, label %575, label %577
 
 575:                                              ; preds = %._crit_edge391
-  %576 = sub nsw i64 %566, %573
+  %576 = sub nuw nsw i64 %566, %573
   invoke void @_ZNSt6vectorIS_IN2cv8ximgproc4nodeESaIS2_EESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %564, i64 noundef %576)
           to label %_ZNSt6vectorIS_IN2cv8ximgproc4nodeESaIS2_EESaIS4_EE6resizeEm.exit unwind label %469
 

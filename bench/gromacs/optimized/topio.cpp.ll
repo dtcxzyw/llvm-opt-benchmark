@@ -5509,7 +5509,7 @@ _ZL11IS_CHEMBONDi.exit.i:                         ; preds = %411
   br i1 %425, label %426, label %458
 
 426:                                              ; preds = %416
-  %427 = sub nsw i64 %418, %424
+  %427 = sub nuw nsw i64 %418, %424
   %428 = load ptr, ptr %365, align 8
   %429 = ptrtoint ptr %428 to i64
   %430 = sub i64 %429, %421
@@ -5733,7 +5733,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %488, %492
   br i1 %522, label %523, label %555
 
 523:                                              ; preds = %._crit_edge287.i
-  %524 = sub nsw i64 %.pre-phi392.i, %521
+  %524 = sub nuw nsw i64 %.pre-phi392.i, %521
   %525 = load ptr, ptr %389, align 8
   %526 = ptrtoint ptr %525 to i64
   %527 = sub i64 %526, %.lcssa247.i
@@ -6090,7 +6090,7 @@ _ZNSt12_Vector_baseIN3gmx14ExclusionBlockESaIS1_EEC2EmRKS2_.exit.thread.i.i: ; p
   br i1 %671, label %672, label %708
 
 672:                                              ; preds = %._crit_edge316.i
-  %673 = sub nsw i64 %.pre-phi390.i, %670
+  %673 = sub nuw nsw i64 %.pre-phi390.i, %670
   %674 = ptrtoint ptr %669 to i64
   %675 = ptrtoint ptr %668 to i64
   %676 = sub i64 %674, %675

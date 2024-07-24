@@ -157,7 +157,7 @@ define void @_ZN5faiss17ResidualQuantizer5trainEmPKf(ptr noundef nonnull align 8
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %3
-  %25 = sub i64 %15, %22
+  %25 = sub nuw i64 %15, %22
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %25)
   %.pre689.pre = load i64, ptr %8, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -1831,7 +1831,7 @@ define void @_ZN5faiss17ResidualQuantizer15initialize_fromERKS0_i(ptr noundef no
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %45
-  %60 = sub nsw i64 %49, %57
+  %60 = sub nuw nsw i64 %49, %57
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %50, i64 noundef %60)
   %.pre = load ptr, ptr %50, align 8
   %.pre29 = load ptr, ptr %51, align 8
@@ -1924,7 +1924,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %59, %61, %63, %65
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %103
-  %109 = sub i64 %106, %80
+  %109 = sub nuw i64 %106, %80
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %73, i64 noundef %109)
   %.pre30 = load ptr, ptr %73, align 8
   %.pre31 = load i64, ptr %84, align 8
@@ -3626,7 +3626,7 @@ define void @_ZN5faiss17ResidualQuantizer23compute_codebook_tablesEv(ptr noundef
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %1
-  %19 = sub i64 %9, %16
+  %19 = sub nuw i64 %9, %16
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %19)
   %.pre = load ptr, ptr %7, align 8
   %.pre30 = load i64, ptr %8, align 8
@@ -3702,7 +3702,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %18, %20, %22, %24
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %._crit_edge
-  %62 = sub i64 %51, %59
+  %62 = sub nuw i64 %51, %59
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %52, i64 noundef %62)
   %.pre31 = load i64, ptr %31, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit19

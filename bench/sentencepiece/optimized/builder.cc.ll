@@ -14385,7 +14385,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit: ; preds
 
 19:                                               ; preds = %17
   %20 = sub i64 %.0914.i.i, %.081
-  %21 = sub i64 %1, %.081
+  %21 = sub nuw i64 %1, %.081
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %21, i64 %20)
   %22 = getelementptr inbounds i8, ptr %2, i64 %.081
   %23 = load ptr, ptr %9, align 8
@@ -14510,7 +14510,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread: 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread.thread: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit, %15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread
   %.07996 = phi i64 [ %.079, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread ], [ %.081, %15 ], [ %.081, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit ]
   %61 = phi ptr [ %59, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread ], [ %10, %15 ], [ %10, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit ]
-  %62 = sub i64 %1, %.07996
+  %62 = sub nuw i64 %1, %.07996
   %63 = getelementptr inbounds i8, ptr %2, i64 %.07996
   %64 = getelementptr inbounds i8, ptr %0, i64 8
   %65 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14628,7 +14628,7 @@ define linkonce_odr void @_ZN4absl13StringReplaceESt17basic_string_viewIcSt11cha
 
 .lr.ph:                                           ; preds = %.preheader.split.us, %30
   %.0.us28 = phi i64 [ %34, %30 ], [ 0, %.preheader.split.us ]
-  %13 = sub i64 %0, %.0.us28
+  %13 = sub nuw i64 %0, %.0.us28
   %.not2531.i.i.us = icmp ult i64 %13, %2
   br i1 %.not2531.i.i.us, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %.lr.ph.i.i.us
 
@@ -14641,7 +14641,7 @@ define linkonce_odr void @_ZN4absl13StringReplaceESt17basic_string_viewIcSt11cha
 17:                                               ; preds = %23, %.lr.ph.i.i.us
   %.033.i.i.us = phi i64 [ %13, %.lr.ph.i.i.us ], [ %26, %23 ]
   %.02132.i.i.us = phi ptr [ %14, %.lr.ph.i.i.us ], [ %24, %23 ]
-  %18 = sub i64 %.033.i.i.us, %2
+  %18 = sub nuw i64 %.033.i.i.us, %2
   %19 = add i64 %18, 1
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.us
@@ -14693,7 +14693,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us: ; preds = %_ZN
 39:                                               ; preds = %45, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %0, %.lr.ph.i.i ], [ %48, %45 ]
   %.02132.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %46, %45 ]
-  %40 = sub i64 %.033.i.i, %2
+  %40 = sub nuw i64 %.033.i.i, %2
   %41 = add i64 %40, 1
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i

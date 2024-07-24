@@ -9771,7 +9771,7 @@ call.i.noexc:                                     ; preds = %if.then.i1
           to label %call2.i.noexc unwind label %terminate.lpad
 
 call2.i.noexc:                                    ; preds = %call.i.noexc
-  %sub.i = sub i32 %3, %4
+  %sub.i = sub nuw i32 %3, %4
   %call3.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i3, i32 noundef %sub.i)
           to label %call2.i.noexc.invoke.cont12_crit_edge unwind label %terminate.lpad
 
@@ -9797,7 +9797,7 @@ call.i.noexc8:                                    ; preds = %if.then.i6
           to label %call2.i.noexc10 unwind label %terminate.lpad
 
 call2.i.noexc10:                                  ; preds = %call.i.noexc8
-  %sub.i7 = sub i32 %6, %7
+  %sub.i7 = sub nuw i32 %6, %7
   %call3.i13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i11, i32 noundef %sub.i7)
           to label %call2.i.noexc10.invoke.cont15_crit_edge unwind label %terminate.lpad
 
@@ -9823,7 +9823,7 @@ call.i.noexc18:                                   ; preds = %if.then.i16
           to label %call2.i.noexc20 unwind label %terminate.lpad
 
 call2.i.noexc20:                                  ; preds = %call.i.noexc18
-  %sub.i17 = sub i32 %9, %10
+  %sub.i17 = sub nuw i32 %9, %10
   %call3.i23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i21, i32 noundef %sub.i17)
           to label %call2.i.noexc20.invoke.cont18_crit_edge unwind label %terminate.lpad
 
@@ -9849,7 +9849,7 @@ call.i.noexc28:                                   ; preds = %if.then.i26
           to label %call2.i.noexc30 unwind label %terminate.lpad
 
 call2.i.noexc30:                                  ; preds = %call.i.noexc28
-  %sub.i27 = sub i32 %12, %13
+  %sub.i27 = sub nuw i32 %12, %13
   %call3.i33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i31, i32 noundef %sub.i27)
           to label %call2.i.noexc30.invoke.cont21_crit_edge unwind label %terminate.lpad
 
@@ -9875,7 +9875,7 @@ call.i.noexc38:                                   ; preds = %if.then.i36
           to label %call2.i.noexc40 unwind label %terminate.lpad
 
 call2.i.noexc40:                                  ; preds = %call.i.noexc38
-  %sub.i37 = sub i32 %15, %16
+  %sub.i37 = sub nuw i32 %15, %16
   %call3.i43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i41, i32 noundef %sub.i37)
           to label %call2.i.noexc40.invoke.cont24_crit_edge unwind label %terminate.lpad
 
@@ -9901,7 +9901,7 @@ call.i.noexc48:                                   ; preds = %if.then.i46
           to label %call2.i.noexc50 unwind label %terminate.lpad
 
 call2.i.noexc50:                                  ; preds = %call.i.noexc48
-  %sub.i47 = sub i32 %18, %19
+  %sub.i47 = sub nuw i32 %18, %19
   %call3.i53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i51, i32 noundef %sub.i47)
           to label %invoke.cont27 unwind label %terminate.lpad
 
@@ -10001,7 +10001,7 @@ call.i.noexc68:                                   ; preds = %if.then.i66
           to label %call2.i.noexc70 unwind label %terminate.lpad
 
 call2.i.noexc70:                                  ; preds = %call.i.noexc68
-  %sub.i67 = sub i32 %24, %25
+  %sub.i67 = sub nuw i32 %24, %25
   %call3.i73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i71, i32 noundef %sub.i67)
           to label %call2.i.noexc70.invoke.cont55_crit_edge unwind label %terminate.lpad
 
@@ -10027,7 +10027,7 @@ call.i.noexc78:                                   ; preds = %if.then.i76
           to label %call2.i.noexc80 unwind label %terminate.lpad
 
 call2.i.noexc80:                                  ; preds = %call.i.noexc78
-  %sub.i77 = sub i32 %27, %28
+  %sub.i77 = sub nuw i32 %27, %28
   %call3.i83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i81, i32 noundef %sub.i77)
           to label %call2.i.noexc80.invoke.cont59_crit_edge unwind label %terminate.lpad
 
@@ -10053,7 +10053,7 @@ call.i.noexc88:                                   ; preds = %if.then.i86
           to label %call2.i.noexc90 unwind label %terminate.lpad
 
 call2.i.noexc90:                                  ; preds = %call.i.noexc88
-  %sub.i87 = sub i32 %30, %31
+  %sub.i87 = sub nuw i32 %30, %31
   %call3.i93 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i91, i32 noundef %sub.i87)
           to label %call2.i.noexc90.invoke.cont63_crit_edge unwind label %terminate.lpad
 
@@ -10079,7 +10079,7 @@ call.i.noexc98:                                   ; preds = %if.then.i96
           to label %call2.i.noexc100 unwind label %terminate.lpad
 
 call2.i.noexc100:                                 ; preds = %call.i.noexc98
-  %sub.i97 = sub i32 %33, %34
+  %sub.i97 = sub nuw i32 %33, %34
   %call3.i103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i101, i32 noundef %sub.i97)
           to label %call2.i.noexc100.invoke.cont67_crit_edge unwind label %terminate.lpad
 
@@ -10105,7 +10105,7 @@ call.i.noexc108:                                  ; preds = %if.then.i106
           to label %call2.i.noexc110 unwind label %terminate.lpad
 
 call2.i.noexc110:                                 ; preds = %call.i.noexc108
-  %sub.i107 = sub i32 %36, %37
+  %sub.i107 = sub nuw i32 %36, %37
   %call3.i113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i111, i32 noundef %sub.i107)
           to label %call2.i.noexc110.invoke.cont71_crit_edge unwind label %terminate.lpad
 
@@ -10131,7 +10131,7 @@ call.i.noexc118:                                  ; preds = %if.then.i116
           to label %call2.i.noexc120 unwind label %terminate.lpad
 
 call2.i.noexc120:                                 ; preds = %call.i.noexc118
-  %sub.i117 = sub i32 %39, %40
+  %sub.i117 = sub nuw i32 %39, %40
   %call3.i123 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2.i121, i32 noundef %sub.i117)
           to label %invoke.cont75 unwind label %terminate.lpad
 

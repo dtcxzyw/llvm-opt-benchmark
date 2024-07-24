@@ -875,7 +875,7 @@ define hidden void @_ZN2cv18DISOpticalFlowImpl14prepareBuffersERNS_3MatES2_S2_b(
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %5
-  %42 = sub nsw i64 %32, %39
+  %42 = sub nuw nsw i64 %32, %39
   invoke void @_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %42)
           to label %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE6resizeEm.exit unwind label %205
 
@@ -915,7 +915,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE6resizeEm.exit
-  %61 = sub nsw i64 %51, %58
+  %61 = sub nuw nsw i64 %51, %58
   invoke void @_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %48, i64 noundef %61)
           to label %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE6resizeEm.exit153 unwind label %205
 
@@ -955,7 +955,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE6resizeEm.exit153: ; preds = %_ZSt8_DestroyIPN
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE6resizeEm.exit153
-  %80 = sub nsw i64 %70, %77
+  %80 = sub nuw nsw i64 %70, %77
   invoke void @_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %80)
           to label %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE6resizeEm.exit160 unwind label %205
 
@@ -995,7 +995,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE6resizeEm.exit160: ; preds = %_ZSt8_DestroyIPN
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE6resizeEm.exit160
-  %99 = sub nsw i64 %89, %96
+  %99 = sub nuw nsw i64 %89, %96
   invoke void @_ZNSt6vectorIN2cv4Mat_IsEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %86, i64 noundef %99)
           to label %_ZNSt6vectorIN2cv4Mat_IsEESaIS2_EE6resizeEm.exit unwind label %205
 
@@ -1035,7 +1035,7 @@ _ZNSt6vectorIN2cv4Mat_IsEESaIS2_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %_ZNSt6vectorIN2cv4Mat_IsEESaIS2_EE6resizeEm.exit
-  %118 = sub nsw i64 %108, %115
+  %118 = sub nuw nsw i64 %108, %115
   invoke void @_ZNSt6vectorIN2cv4Mat_IsEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %105, i64 noundef %118)
           to label %_ZNSt6vectorIN2cv4Mat_IsEESaIS2_EE6resizeEm.exit172 unwind label %205
 
@@ -1075,7 +1075,7 @@ _ZNSt6vectorIN2cv4Mat_IsEESaIS2_EE6resizeEm.exit172: ; preds = %_ZSt8_DestroyIPN
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %_ZNSt6vectorIN2cv4Mat_IsEESaIS2_EE6resizeEm.exit172
-  %137 = sub nsw i64 %127, %134
+  %137 = sub nuw nsw i64 %127, %134
   invoke void @_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %124, i64 noundef %137)
           to label %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit unwind label %205
 
@@ -1115,7 +1115,7 @@ _ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit
-  %156 = sub nsw i64 %146, %153
+  %156 = sub nuw nsw i64 %146, %153
   invoke void @_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %143, i64 noundef %156)
           to label %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit184.preheader unwind label %205
 
@@ -1174,7 +1174,7 @@ _ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit184: ; preds = %_ZNSt6vectorIN2c
   br i1 %178, label %179, label %181
 
 179:                                              ; preds = %166
-  %180 = sub nsw i64 %170, %177
+  %180 = sub nuw nsw i64 %170, %177
   invoke void @_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %167, i64 noundef %180)
           to label %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit191 unwind label %.loopexit.split-lp
 
@@ -1214,7 +1214,7 @@ _ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit191: ; preds = %_ZSt8_DestroyIPN
   br i1 %197, label %198, label %200
 
 198:                                              ; preds = %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit191
-  %199 = sub nsw i64 %189, %196
+  %199 = sub nuw nsw i64 %189, %196
   invoke void @_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %186, i64 noundef %199)
           to label %_ZNSt6vectorIN2cv4Mat_IfEESaIS2_EE6resizeEm.exit198 unwind label %.loopexit.split-lp
 

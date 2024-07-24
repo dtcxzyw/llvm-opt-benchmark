@@ -228,7 +228,7 @@ define internal i64 @proc_read(ptr nocapture noundef %0, ptr noundef %1, i64 nou
   br i1 %.not.i, label %31, label %proc_status.exit
 
 31:                                               ; preds = %23
-  %32 = sub i64 %2, %30
+  %32 = sub nuw i64 %2, %30
   %33 = getelementptr inbounds i8, ptr %1, i64 %30
   %34 = getelementptr inbounds i8, ptr %16, i64 64
   %35 = load i16, ptr %34, align 16
@@ -355,7 +355,7 @@ proc_status.exit:                                 ; preds = %23, %31, %52, %58, 
   br i1 %.not.i42, label %119, label %proc_cmdline.exit
 
 119:                                              ; preds = %112
-  %120 = sub i64 %2, %118
+  %120 = sub nuw i64 %2, %118
   %121 = getelementptr inbounds i8, ptr %1, i64 %118
   %122 = call i64 @group_argvstr(ptr noundef nonnull %16, ptr noundef nonnull %117, i64 noundef %120) #15
   %123 = call i64 @procfs_memcpy(ptr noundef nonnull %117, i64 noundef %122, ptr noundef %121, i64 noundef %120, ptr noundef nonnull %9) #15
@@ -388,7 +388,7 @@ proc_cmdline.exit:                                ; preds = %112, %119
   br i1 %.not.i44, label %140, label %proc_stack.exit
 
 140:                                              ; preds = %131
-  %141 = sub i64 %2, %139
+  %141 = sub nuw i64 %2, %139
   %142 = getelementptr inbounds i8, ptr %1, i64 %139
   %143 = getelementptr inbounds i8, ptr %16, i64 120
   %144 = load ptr, ptr %143, align 8
@@ -432,7 +432,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   br i1 %.not.i46, label %168, label %proc_groupstatus.exit
 
 168:                                              ; preds = %158
-  %169 = sub i64 %2, %167
+  %169 = sub nuw i64 %2, %167
   %170 = getelementptr inbounds i8, ptr %1, i64 %167
   %171 = getelementptr inbounds i8, ptr %.val, i64 12
   %172 = load i32, ptr %171, align 4
@@ -554,7 +554,7 @@ proc_groupstatus.exit:                            ; preds = %209, %158, %168, %1
 
 .lr.ph.preheader.i:                               ; preds = %234
   %240 = getelementptr inbounds i8, ptr %1, i64 %238
-  %241 = sub i64 %2, %238
+  %241 = sub nuw i64 %2, %238
   br label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %266, %.lr.ph.preheader.i

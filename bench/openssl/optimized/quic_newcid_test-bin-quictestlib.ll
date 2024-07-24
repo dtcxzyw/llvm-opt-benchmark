@@ -1441,7 +1441,7 @@ if.end4:                                          ; preds = %entry
 if.then8:                                         ; preds = %if.end4
   %2 = load ptr, ptr %pplainio, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %0
-  %sub = sub i64 %newlen, %0
+  %sub = sub nuw i64 %newlen, %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %sub, i1 false)
   br label %if.end9
 
@@ -1643,7 +1643,7 @@ if.then6:                                         ; preds = %if.end4
   %handbuf = getelementptr inbounds i8, ptr %fault, i64 136
   %2 = load ptr, ptr %handbuf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %0
-  %sub = sub i64 %newlen, %0
+  %sub = sub nuw i64 %newlen, %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %sub, i1 false)
   br label %if.end7
 
@@ -1677,7 +1677,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   %handbuf.i = getelementptr inbounds i8, ptr %fault, i64 136
   %2 = load ptr, ptr %handbuf.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %0
-  %sub.i = sub i64 %add, %0
+  %sub.i = sub nuw i64 %add, %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   br label %if.end
 
@@ -1766,7 +1766,7 @@ lor.lhs.false.i33:                                ; preds = %lor.lhs.false
 do.cond:                                          ; preds = %lor.lhs.false.i33
   %add.ptr.i2.i.i42 = getelementptr inbounds i8, ptr %sub.sroa.0.1, i64 4
   %add.ptr.i.i6.i43 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i42, i64 %or.i.i.i39
-  %sub.i.i7.i = sub i64 %sub.i.i.i40, %or.i.i.i39
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i40, %or.i.i.i39
   %cmp.not = icmp eq i32 %or.i.i, %exttype
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !10
 
@@ -1829,7 +1829,7 @@ if.end32:                                         ; preds = %if.end29, %if.then3
   br i1 %cmp45, label %return, label %if.end48
 
 if.end48:                                         ; preds = %if.end32
-  %sub53 = sub i64 %0, %add44
+  %sub53 = sub nuw i64 %0, %add44
   %add.i = add i64 %sub53, 4
   %12 = load i64, ptr %handbuflen, align 8
   %handbufalloc.i.i = getelementptr inbounds i8, ptr %fault, i64 144
@@ -1847,7 +1847,7 @@ if.then6.i.i:                                     ; preds = %if.end4.i.i
   %handbuf.i.i = getelementptr inbounds i8, ptr %fault, i64 136
   %14 = load ptr, ptr %handbuf.i.i, align 8
   %add.ptr.i.i49 = getelementptr inbounds i8, ptr %14, i64 %12
-  %sub.i.i50 = sub i64 %add.i, %12
+  %sub.i.i50 = sub nuw i64 %add.i, %12
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i49, i8 0, i64 %sub.i.i50, i1 false)
   br label %qtest_fault_resize_message.exit
 
@@ -2093,7 +2093,7 @@ if.then2:                                         ; preds = %if.end
   %msg = getelementptr inbounds i8, ptr %fault, i64 224
   %2 = load ptr, ptr %msg, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %1
-  %sub = sub i64 %newlen, %1
+  %sub = sub nuw i64 %newlen, %1
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %sub, i1 false)
   br label %if.end8
 

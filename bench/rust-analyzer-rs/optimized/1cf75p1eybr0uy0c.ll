@@ -57503,7 +57503,7 @@ define internal fastcc noundef i32 @_ZN7hir_def4body5lower13ExprCollector13colle
 
 78:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6ef2584cbf8e20b2E.exit.i"
   %79 = getelementptr inbounds i8, ptr %0, i64 232
-  %80 = sub i64 %.0.sroa.speculated.i.i.i, %77
+  %80 = sub nuw i64 %.0.sroa.speculated.i.i.i, %77
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hdf1620004fbde344E.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %79, i64 noundef %80)
           to label %.noexc16 unwind label %.body
 
@@ -67860,7 +67860,7 @@ define internal fastcc noundef i32 @_ZN7hir_def4body5lower13ExprCollector10alloc
 
 28:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd9a130a8312244d0E.llvm.12542172245242916373.exit"
   %29 = getelementptr inbounds i8, ptr %0, i64 184
-  %30 = sub i64 %.0.sroa.speculated.i.i, %27
+  %30 = sub nuw i64 %.0.sroa.speculated.i.i, %27
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h9323635163049eb4E.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %30), !noalias !20286
   %.pre.i4 = load i64, ptr %26, align 8, !alias.scope !20283, !noalias !20286
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h565c94c5c2f9efc4E.llvm.14212318151792154407.exit.i"
@@ -67985,7 +67985,7 @@ define internal fastcc noundef i32 @_ZN7hir_def4body5lower13ExprCollector29alloc
 
 26:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd9a130a8312244d0E.llvm.12542172245242916373.exit"
   %27 = getelementptr inbounds i8, ptr %0, i64 184
-  %28 = sub i64 %.0.sroa.speculated.i.i, %25
+  %28 = sub nuw i64 %.0.sroa.speculated.i.i, %25
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h9323635163049eb4E.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %28), !noalias !20307
   %.pre.i3 = load i64, ptr %24, align 8, !alias.scope !20304, !noalias !20307
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h565c94c5c2f9efc4E.llvm.14212318151792154407.exit.i"
@@ -68119,7 +68119,7 @@ define internal fastcc noundef i32 @_ZN7hir_def4body5lower13ExprCollector9alloc_
 
 29:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9c8a463365de544aE.exit"
   %30 = getelementptr inbounds i8, ptr %0, i64 208
-  %31 = sub i64 %.0.sroa.speculated.i.i, %28
+  %31 = sub nuw i64 %.0.sroa.speculated.i.i, %28
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h09d1431de1466f18E.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30, i64 noundef %31), !noalias !20334
   %.pre.i4 = load i64, ptr %27, align 8, !alias.scope !20331, !noalias !20334
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hd4e00b9526fe732fE.llvm.14212318151792154407.exit.i"

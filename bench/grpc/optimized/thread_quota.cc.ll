@@ -153,7 +153,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
   resume { ptr, i32 } %1
 
 do.end:                                           ; preds = %entry
-  %sub = sub i64 %0, %num_threads
+  %sub = sub nuw i64 %0, %num_threads
   store i64 %sub, ptr %allocated_, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit3 unwind label %terminate.lpad.i2

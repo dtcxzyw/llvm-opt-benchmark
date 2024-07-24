@@ -2510,7 +2510,7 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
   %.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %12)
   %13 = load ptr, ptr %0, align 8, !alias.scope !293, !noalias !296, !nonnull !7, !align !250, !noundef !7
   %14 = getelementptr inbounds i8, ptr %13, i64 %.0.sroa.speculated.i.i.i.i.i.i
-  %15 = sub i64 %8, %.0.sroa.speculated.i.i.i.i.i.i
+  %15 = sub nuw i64 %8, %.0.sroa.speculated.i.i.i.i.i.i
   store ptr %14, ptr %0, align 8, !alias.scope !293, !noalias !296
   store i64 %15, ptr %7, align 8, !alias.scope !293, !noalias !296
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
@@ -3118,7 +3118,7 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
   %.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %12)
   %13 = load ptr, ptr %0, align 8, !alias.scope !537, !noalias !540, !nonnull !7, !align !250, !noundef !7
   %14 = getelementptr inbounds i8, ptr %13, i64 %.0.sroa.speculated.i.i.i.i.i.i
-  %15 = sub i64 %8, %.0.sroa.speculated.i.i.i.i.i.i
+  %15 = sub nuw i64 %8, %.0.sroa.speculated.i.i.i.i.i.i
   store ptr %14, ptr %0, align 8, !alias.scope !537, !noalias !540
   store i64 %15, ptr %7, align 8, !alias.scope !537, !noalias !540
   tail call void @llvm.experimental.noalias.scope.decl(metadata !542)
@@ -30894,7 +30894,7 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h58
   %24 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
   %25 = load i8, ptr %24, align 1, !alias.scope !8092, !noundef !7
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %3, %.sroa.8.0.ph
+  %27 = sub nuw i64 %3, %.sroa.8.0.ph
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %23, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i"
@@ -31065,7 +31065,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser27format_escaped_str_conte
   %23 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.0.ph
   %24 = load i8, ptr %23, align 1, !alias.scope !8108, !noundef !7
   %25 = icmp sgt i8 %24, -65
-  %26 = sub i64 %3, %.sroa.7.0.ph
+  %26 = sub nuw i64 %3, %.sroa.7.0.ph
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %22, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i"
@@ -39186,7 +39186,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i.i: ; preds = %1
   br i1 %111, label %.loopexit.i.i, label %.lr.ph.split.split.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit.i.i.i": ; preds = %106
-  %114 = sub i64 %108, %68
+  %114 = sub nuw i64 %108, %68
   %115 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i.i, i64 %114
   %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %115, ptr nonnull readonly %59, i64 %68), !alias.scope !10227, !noalias !10231
   %116 = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -72240,7 +72240,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5901e3b13cf908ea
   br i1 %5, label %"_ZN4core3ptr62drop_in_place$LT$$u5b$opentelemetry..common..KeyValue$u5d$$GT$17h7be4b07c1ca92ea4E.llvm.9060417697508566391.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %9 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [3 x i64] } }, ptr %8, i64 %1
   store i64 %1, ptr %3, align 8
@@ -72294,7 +72294,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h6e7ba27ecf1d2722
   br i1 %5, label %"_ZN4core3ptr62drop_in_place$LT$$u5b$crossbeam_channel..waker..Entry$u5d$$GT$17h25c95d6060b93d68E.llvm.9060417697508566391.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %9 = getelementptr inbounds { ptr, i64, ptr }, ptr %8, i64 %1
   store i64 %1, ptr %3, align 8
@@ -86996,7 +86996,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %24 = getelementptr inbounds i8, ptr %10, i64 %16
   %25 = load i8, ptr %24, align 1, !alias.scope !20986, !noalias !20991, !noundef !7
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %12, %16
+  %27 = sub nuw i64 %12, %16
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i.i", %21
@@ -87311,7 +87311,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !20998
   %67 = icmp eq i32 %bcmp.i, 0

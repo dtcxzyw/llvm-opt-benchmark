@@ -11283,7 +11283,7 @@ define hidden void @"_ZN95_$LT$typst..util..GroupByKey$LT$T$C$F$GT$$u20$as$u20$c
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h13c53059602569c5E.exit": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6a5ce58a5dccb1caE.exit"
   %26 = getelementptr inbounds float, ptr %4, i64 %.1.i.i
-  %27 = sub i64 %6, %.1.i.i
+  %27 = sub nuw i64 %6, %.1.i.i
   store ptr %26, ptr %1, align 8
   store i64 %27, ptr %5, align 8
   store float %..val, ptr %0, align 8
@@ -11381,7 +11381,7 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hd60a62
   %14 = or i64 %11, %13
   store i64 %14, ptr %12, align 8
   %15 = icmp ugt i64 %8, 8
-  br i1 %15, label %43, label %16
+  br i1 %15, label %42, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 24
@@ -11412,19 +11412,18 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hd60a62
   %39 = xor i64 %32, %14
   store i64 %39, ptr %0, align 8
   %.not = icmp eq i64 %8, 0
-  %40 = shl nuw nsw i64 %8, 3
-  %41 = sub nsw i64 64, %40
-  %42 = lshr i64 %2, %41
-  %.0 = select i1 %.not, i64 0, i64 %42
+  %40 = sub nsw i64 64, %9
+  %41 = lshr i64 %2, %40
+  %.0 = select i1 %.not, i64 0, i64 %41
   store i64 %.0, ptr %12, align 8
-  br label %45
+  br label %44
 
-43:                                               ; preds = %3
-  %44 = add i64 %8, 8
-  store i64 %44, ptr %7, align 8
-  br label %45
+42:                                               ; preds = %3
+  %43 = add i64 %8, 8
+  store i64 %43, ptr %7, align 8
+  br label %44
 
-45:                                               ; preds = %16, %43
+44:                                               ; preds = %16, %42
   ret void
 }
 

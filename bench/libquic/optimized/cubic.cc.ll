@@ -173,7 +173,7 @@ if.then19:                                        ; preds = %if.then14
   br label %if.end54
 
 if.else:                                          ; preds = %if.then14
-  %sub = sub i64 %8, %current_congestion_window
+  %sub = sub nuw i64 %8, %current_congestion_window
   %mul = mul i64 %sub, 2681735677
   %conv = uitofp i64 %mul to double
   %call21 = tail call double @cbrt(double noundef %conv) #7
@@ -226,7 +226,7 @@ if.end63:                                         ; preds = %if.end54, %if.end63
   %conv5925 = phi i64 [ %conv59, %if.end63 ], [ %conv5923, %if.end54 ]
   %12 = phi i64 [ %inc, %if.end63 ], [ %estimated_tcp_congestion_window_55.promoted, %if.end54 ]
   %13 = phi i64 [ %sub65, %if.end63 ], [ %acked_packets_count_.promoted, %if.end54 ]
-  %sub65 = sub i64 %13, %conv5925
+  %sub65 = sub nuw i64 %13, %conv5925
   %inc = add i64 %12, 1
   %conv56 = uitofp i64 %inc to float
   %div58 = fdiv float %conv56, %div.i

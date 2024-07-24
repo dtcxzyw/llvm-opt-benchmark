@@ -72,7 +72,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp17, label %land.lhs.true19, label %if.end50
 
 land.lhs.true19:                                  ; preds = %if.then7
-  %sub20 = sub i64 %spec.select, %md5_off.0
+  %sub20 = sub nuw i64 %spec.select, %md5_off.0
   %div141 = lshr i64 %sub20, 6
   %tobool21.not = icmp ult i64 %sub20, 64
   br i1 %tobool21.not, label %if.end50, label %land.lhs.true22
@@ -160,7 +160,7 @@ if.else83:                                        ; preds = %if.end
   br i1 %cmp91, label %land.lhs.true93, label %if.end136
 
 land.lhs.true93:                                  ; preds = %if.else83
-  %sub94 = sub i64 %len, %rc4_off.1
+  %sub94 = sub nuw i64 %len, %rc4_off.1
   %div95140 = lshr i64 %sub94, 6
   %tobool96.not = icmp ult i64 %sub94, 64
   br i1 %tobool96.not, label %if.end136, label %land.lhs.true97

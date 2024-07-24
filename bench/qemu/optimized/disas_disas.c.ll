@@ -179,7 +179,7 @@ if.then27:                                        ; preds = %if.end23
 
 for.inc:                                          ; preds = %if.end23
   %add = add i64 %pc.014, %conv24
-  %sub = sub i64 %size.addr.015, %conv24
+  %sub = sub nuw i64 %size.addr.015, %conv24
   %cmp13.not = icmp eq i64 %sub, 0
   br i1 %cmp13.not, label %for.end, label %for.body, !llvm.loop !5
 

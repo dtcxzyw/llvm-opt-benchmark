@@ -46,7 +46,7 @@ define dso_local noundef zeroext i1 @try_use_registers(ptr nocapture noundef %0,
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = sub i32 %8, %10
+  %13 = sub nuw i32 %8, %10
   store i32 %13, ptr %7, align 4
   %14 = load i32, ptr %1, align 4
   %15 = sub i32 %3, %14
@@ -1443,7 +1443,7 @@ define dso_local noundef zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %
 18:                                               ; preds = %.lr.ph64
   %19 = tail call i32 @llvm.usub.sat.i32(i32 %1, i32 %17)
   %20 = load ptr, ptr %8, align 8
-  %21 = sub i32 %2, %17
+  %21 = sub nuw i32 %2, %17
   %22 = tail call zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %20, i32 noundef %19, i32 noundef %21)
   br i1 %22, label %13, label %.loopexit
 
@@ -1484,7 +1484,7 @@ define dso_local noundef zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %
   %38 = tail call i32 @llvm.usub.sat.i32(i32 %1, i32 %36)
   %39 = getelementptr inbounds i8, ptr %33, i64 72
   %40 = load ptr, ptr %39, align 8
-  %41 = sub i32 %2, %36
+  %41 = sub nuw i32 %2, %36
   %42 = tail call zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %40, i32 noundef %38, i32 noundef %41)
   br i1 %42, label %31, label %.loopexit
 
@@ -2650,7 +2650,7 @@ define dso_local void @c_abi_func_create_x64(ptr noundef %0) local_unnamed_addr 
   br i1 %29, label %32, label %try_use_registers.exit.i
 
 try_use_registers.exit.i:                         ; preds = %26
-  %30 = sub nsw i32 %spec.select, %28
+  %30 = sub nuw nsw i32 %spec.select, %28
   %31 = sub nuw nsw i32 8, %24
   br label %x64_classify_parameter.exit
 
@@ -2708,7 +2708,7 @@ x64_classify_parameter.exit:                      ; preds = %try_use_registers.e
   br i1 %55, label %58, label %try_use_registers.exit.i51
 
 try_use_registers.exit.i51:                       ; preds = %53
-  %56 = sub i32 %.sroa.7.368, %54
+  %56 = sub nuw i32 %.sroa.7.368, %54
   %57 = sub i32 %.sroa.0.269, %51
   br label %x64_classify_parameter.exit53
 
@@ -2774,7 +2774,7 @@ x64_classify_parameter.exit53:                    ; preds = %try_use_registers.e
   br i1 %83, label %86, label %try_use_registers.exit.i55
 
 try_use_registers.exit.i55:                       ; preds = %81
-  %84 = sub i32 %.sroa.7.671, %82
+  %84 = sub nuw i32 %.sroa.7.671, %82
   %85 = sub i32 %.sroa.0.572, %79
   br label %x64_classify_parameter.exit57
 

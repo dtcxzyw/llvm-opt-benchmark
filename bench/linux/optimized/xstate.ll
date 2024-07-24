@@ -1119,7 +1119,7 @@ define dso_local void @__copy_xstate_to_uabi_buf(ptr nocapture writeonly %0, i64
   br i1 %92, label %99, label %93
 
 93:                                               ; preds = %87
-  %94 = sub i32 %89, %75
+  %94 = sub nuw i32 %89, %75
   %95 = zext i32 %94 to i64
   %96 = tail call i64 @llvm.umin.i64(i64 %77, i64 %95)
   tail call void @llvm.memset.p0.i64(ptr align 1 %76, i8 0, i64 %96, i1 false)

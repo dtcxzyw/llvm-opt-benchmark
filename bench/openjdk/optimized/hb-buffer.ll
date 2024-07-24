@@ -348,7 +348,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread:            ; preds = %_ZN11hb_buffer_t6en
   br i1 %25, label %26, label %_ZL9hb_memsetPvij.exit
 
 26:                                               ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread
-  %27 = sub i32 %23, %24
+  %27 = sub nuw i32 %23, %24
   %28 = mul i32 %27, 20
   %.not.i9 = icmp eq i32 %28, 0
   br i1 %.not.i9, label %_ZL9hb_memsetPvij.exit, label %29
@@ -857,7 +857,7 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t7move_toEj(ptr nocapture nound
   br i1 %15, label %16, label %55
 
 16:                                               ; preds = %12
-  %17 = sub i32 %1, %14
+  %17 = sub nuw i32 %1, %14
   %18 = getelementptr inbounds i8, ptr %0, i64 96
   %19 = load i32, ptr %18, align 8
   %20 = icmp ugt i32 %19, %1
@@ -930,14 +930,14 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i:          ; preds = %_ZN11hb_buffer_t6en
   br i1 %56, label %57, label %_ZN11hb_buffer_t13make_room_forEjj.exit
 
 57:                                               ; preds = %55
-  %58 = sub i32 %14, %1
+  %58 = sub nuw i32 %14, %1
   %59 = getelementptr inbounds i8, ptr %0, i64 84
   %60 = load i32, ptr %59, align 4
   %61 = icmp ult i32 %60, %58
   br i1 %61, label %62, label %96
 
 62:                                               ; preds = %57
-  %63 = sub i32 %58, %60
+  %63 = sub nuw i32 %58, %60
   %64 = getelementptr inbounds i8, ptr %0, i64 88
   %65 = load i32, ptr %64, align 8
   %66 = add i32 %65, %63
@@ -977,7 +977,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i24:        ; preds = %_ZN11hb_buffer_t6en
   br i1 %85, label %86, label %_ZN11hb_buffer_t13shift_forwardEj.exit.thread
 
 86:                                               ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i24
-  %87 = sub i32 %83, %84
+  %87 = sub nuw i32 %83, %84
   %88 = mul i32 %87, 20
   %.not.i9.i = icmp eq i32 %88, 0
   br i1 %.not.i9.i, label %_ZN11hb_buffer_t13shift_forwardEj.exit.thread, label %89
@@ -2458,7 +2458,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread:            ; preds = %8, %_ZN11hb_buffer_
   br i1 %15, label %16, label %_ZL9hb_memsetPvij.exit26
 
 16:                                               ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread
-  %17 = sub i32 %1, %14
+  %17 = sub nuw i32 %1, %14
   %18 = mul i32 %17, 20
   %.not.i24 = icmp eq i32 %18, 0
   br i1 %.not.i24, label %_ZL9hb_memsetPvij.exit, label %19
@@ -3970,7 +3970,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i:          ; preds = %_ZN11hb_buffer_t6en
   br i1 %25, label %26, label %_ZL9hb_memsetPvij.exit26.i
 
 26:                                               ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i
-  %27 = sub i32 %11, %24
+  %27 = sub nuw i32 %11, %24
   %28 = mul i32 %27, 20
   %.not.i24.i = icmp eq i32 %28, 0
   br i1 %.not.i24.i, label %_ZL9hb_memsetPvij.exit.i, label %29

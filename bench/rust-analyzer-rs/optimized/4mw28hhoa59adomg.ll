@@ -5046,7 +5046,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -5084,7 +5084,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$crossbeam_channel..flavors..
   %33 = add i64 %.sroa.01.016.i, %8
   %34 = icmp ult i64 %33, %29
   %35 = select i1 %34, i64 0, i64 %29
-  %.0.i = sub i64 %33, %35
+  %.0.i = sub nuw i64 %33, %35
   %36 = getelementptr inbounds { { i64 }, { { [25 x i64] } } }, ptr %31, i64 %.0.i, i32 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E.llvm.12355220772335189349"(ptr noalias noundef nonnull align 8 dereferenceable(200) %36)
           to label %.noexc unwind label %38
@@ -7243,7 +7243,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -7285,7 +7285,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   %34 = add i64 %.sroa.01.016, %8
   %35 = icmp ult i64 %34, %29
   %36 = select i1 %35, i64 0, i64 %29
-  %.0 = sub i64 %34, %36
+  %.0 = sub nuw i64 %34, %36
   %37 = getelementptr inbounds { { i64 }, { { [25 x i64] } } }, ptr %31, i64 %.0, i32 1
   tail call void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E.llvm.12355220772335189349"(ptr noalias noundef nonnull align 8 dereferenceable(200) %37)
   %exitcond.not = icmp eq i64 %33, %.07

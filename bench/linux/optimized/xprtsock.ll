@@ -723,7 +723,7 @@ xs_sock_recv_cmsg.exit39:                         ; preds = %140, %157
   br i1 %172, label %175, label %329
 
 173:                                              ; preds = %128
-  %174 = sub i64 %124, %135
+  %174 = sub nuw i64 %124, %135
   br label %175
 
 175:                                              ; preds = %173, %167
@@ -886,7 +886,7 @@ xs_sock_recv_cmsg.exit40:                         ; preds = %235, %252
   br i1 %271, label %275, label %329
 
 272:                                              ; preds = %.loopexit
-  %273 = sub i64 %176, %222
+  %273 = sub nuw i64 %176, %222
   %274 = add i64 %222, %135
   br label %275
 

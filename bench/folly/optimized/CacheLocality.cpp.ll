@@ -3357,7 +3357,7 @@ invoke.cont4.i.i:                                 ; preds = %lor.lhs.false
   store ptr %2, ptr %arg, align 8, !tbaa !35, !alias.scope !132
   %6 = load ptr, ptr %incdec.ptr.i.i, align 8, !tbaa !38, !noalias !132
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %add
-  %sub.i.i.i = sub i64 %5, %add
+  %sub.i.i.i = sub nuw i64 %5, %add
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #30, !noalias !132
   store i64 %sub.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !37, !noalias !132
   %cmp.i15.i.i = icmp ugt i64 %sub.i.i.i, 15

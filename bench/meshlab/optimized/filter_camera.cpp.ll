@@ -15114,7 +15114,7 @@ define internal fastcc void @_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilter
   br i1 %8, label %9, label %38
 
 9:                                                ; preds = %2
-  %10 = sub i64 %1, %7
+  %10 = sub nuw i64 %1, %7
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
@@ -15136,7 +15136,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIZN18FilterCameraPlugin11applyFilter
   br label %_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE17_M_default_appendEm.exit
 
 20:                                               ; preds = %9
-  %21 = icmp ult i64 %17, %10
+  %21 = icmp ugt i64 %1, 384307168202282325
   br i1 %21, label %22, label %_ZNKSt6vectorIS_IZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSaISE_EESaISG_EE12_M_check_lenEmSB_.exit.i
 
 22:                                               ; preds = %20

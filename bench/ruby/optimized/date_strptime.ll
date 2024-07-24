@@ -187,7 +187,7 @@ define noundef i64 @date__strptime(ptr noundef %0, i64 noundef %1, ptr nocapture
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 %6
-  %10 = sub i64 %1, %6
+  %10 = sub nuw i64 %1, %6
   %11 = tail call i64 @rb_usascii_str_new(ptr noundef %9, i64 noundef %10) #9
   %.pr.i = load i64, ptr @date__strptime.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0

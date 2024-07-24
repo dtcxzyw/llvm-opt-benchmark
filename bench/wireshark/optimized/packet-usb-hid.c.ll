@@ -4153,7 +4153,7 @@ hid_unpack_value.exit238.i:                       ; preds = %.lr.ph.i232.i, %251
 
 272:                                              ; preds = %270
   %273 = load ptr, ptr %10, align 8
-  %reass.sub = sub i32 %.0118.i, %.0119261.i
+  %reass.sub = sub nuw i32 %.0118.i, %.0119261.i
   %274 = add i32 %reass.sub, 1
   call void @wmem_array_grow(ptr noundef %273, i32 noundef %274) #7
   store i32 %.0119261.i, ptr %12, align 4
@@ -6633,7 +6633,7 @@ dissect_hid_variable.exit.i:                      ; preds = %487, %467, %465, %4
   br i1 %492, label %493, label %dissect_hid_field.exit
 
 493:                                              ; preds = %._crit_edge.i
-  %494 = sub i32 %491, %spec.select.i
+  %494 = sub nuw i32 %491, %spec.select.i
   %495 = load i32, ptr %63, align 8
   %496 = mul i32 %495, %494
   %497 = load i32, ptr @hf_usbhid_padding, align 4

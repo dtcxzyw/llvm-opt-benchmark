@@ -2342,7 +2342,7 @@ define linkonce_odr void @_ZNK7GaelMls10MlsSurfaceI6CMeshOE19computeNeighborhood
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %34
-  %54 = sub nsw i64 %43, %51
+  %54 = sub nuw nsw i64 %43, %51
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %54)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -2375,7 +2375,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %53, %55, %57, %59
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %60
-  %71 = sub nsw i64 %43, %68
+  %71 = sub nuw nsw i64 %43, %68
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %61, i64 noundef %71)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit48
 
@@ -2684,7 +2684,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr nou
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -2705,7 +2705,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr nou
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23
@@ -3757,7 +3757,7 @@ define linkonce_odr void @_ZNK7GaelMls10MlsSurfaceI6CMeshOE24requestSecondDeriva
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = sub nsw i64 %28, %25
+  %31 = sub nuw nsw i64 %28, %25
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %31)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 

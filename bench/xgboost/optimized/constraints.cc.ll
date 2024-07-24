@@ -1074,7 +1074,7 @@ define void @_ZN7xgboost32FeatureInteractionConstraintHost9SplitImplEijii(ptr no
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   invoke void @_ZNSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %45)
           to label %_ZNSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1285,7 +1285,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %116 = sub nsw i64 %35, %113
+  %116 = sub nuw nsw i64 %35, %113
   invoke void @_ZNSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS6_S8_EEmRKS6_(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr %108, i64 noundef %116, ptr noundef nonnull align 8 dereferenceable(56) %16)
           to label %_ZNSt6vectorISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESaIS6_EE6resizeEmRKS6_.exit unwind label %158
 
@@ -4079,7 +4079,7 @@ _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEaSERKS5_.exit.i.i.i: ; preds
   br label %229
 
 73:                                               ; preds = %16
-  %74 = sub i64 %2, %32
+  %74 = sub nuw i64 %2, %32
   %75 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEmS6_ET_S8_T0_RKT1_(ptr noundef %28, i64 noundef %74, ptr noundef nonnull align 8 dereferenceable(56) %17)
           to label %_ZSt24__uninitialized_fill_n_aIPSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEmS6_S6_ET_S8_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 

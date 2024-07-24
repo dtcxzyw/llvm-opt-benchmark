@@ -143,7 +143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %42, label %43, label %56
 
 43:                                               ; preds = %33
-  %44 = sub i32 %41, %40
+  %44 = sub nuw i32 %41, %40
   tail call void @_ZN20cmCTestScriptHandler14SleepInSecondsEj(i32 noundef %44)
   %45 = getelementptr inbounds i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8

@@ -616,7 +616,7 @@ define internal fastcc range(i32 0, 2) i32 @nettl_read_rec(ptr nocapture noundef
   store ptr %214, ptr %215, align 8
   %216 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 3, ptr %216, align 4
-  %217 = sub i32 %.0176209, %.0173212
+  %217 = sub nuw i32 %.0176209, %.0173212
   %218 = getelementptr inbounds i8, ptr %2, i64 68
   store i32 %217, ptr %218, align 4
   %219 = icmp ult i32 %.0175210, %.0173212
@@ -629,7 +629,7 @@ define internal fastcc range(i32 0, 2) i32 @nettl_read_rec(ptr nocapture noundef
   br label %365
 
 222:                                              ; preds = %.thread
-  %223 = sub i32 %.0175210, %.0173212
+  %223 = sub nuw i32 %.0175210, %.0173212
   store i32 %223, ptr %10, align 8
   %224 = getelementptr inbounds i8, ptr %7, i64 40
   %225 = load i8, ptr %224, align 4

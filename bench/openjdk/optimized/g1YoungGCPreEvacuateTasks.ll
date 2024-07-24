@@ -772,7 +772,7 @@ define linkonce_odr hidden void @_ZN35G1PreEvacuateCollectionSetBatchTask32JavaT
   br i1 %.not7.i.i, label %_ZN24G1JavaThreadsListClaimer5claimERj.exit.i, label %_ZN24G1JavaThreadsListClaimer5applyEP13ThreadClosure.exit
 
 _ZN24G1JavaThreadsListClaimer5claimERj.exit.i:    ; preds = %.lr.ph12.i
-  %20 = sub i32 %19, %16
+  %20 = sub nuw i32 %19, %16
   %21 = load i32, ptr %6, align 8
   %22 = call noundef i32 @llvm.umin.i32(i32 %20, i32 %21)
   %23 = getelementptr inbounds i8, ptr %17, i64 16

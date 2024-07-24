@@ -7374,9 +7374,9 @@ define hidden void @_ZN11tungstenite8protocol7message17IncompleteMessage6extend1
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !7
   %14 = icmp ugt i64 %9, %spec.select
-  %15 = sub i64 %spec.select, %9
+  %15 = sub nuw i64 %spec.select, %9
   %16 = icmp ugt i64 %13, %15
-  %or.cond = or i1 %14, %16
+  %or.cond = select i1 %14, i1 true, i1 %16
   br i1 %or.cond, label %21, label %17
 
 17:                                               ; preds = %10

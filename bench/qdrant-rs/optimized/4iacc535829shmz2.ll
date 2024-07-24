@@ -1764,7 +1764,7 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %21, i64 12
-  %25 = sub i64 %6, %.019.lcssa.i.i
+  %25 = sub nuw i64 %6, %.019.lcssa.i.i
   %26 = mul i64 %25, 12
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %24, ptr nonnull align 4 %21, i64 %26, i1 false), !noalias !248
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit"

@@ -3743,7 +3743,7 @@ _ZSt7advanceIPKimEvRT_T0_.exit:                   ; preds = %17
 
 _ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIPKimEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i32, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %13, %1
@@ -4122,7 +4122,7 @@ _ZSt22__uninitialized_move_aIPN5ZXing6ResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
   %86 = getelementptr inbounds i8, ptr %2, i64 %19
   %87 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %86, ptr %3, ptr noundef %13)
-  %88 = sub nsw i64 %9, %20
+  %88 = sub nuw nsw i64 %9, %20
   %89 = load ptr, ptr %12, align 8
   %90 = getelementptr inbounds %"class.ZXing::Result", ptr %89, i64 %88
   store ptr %90, ptr %12, align 8

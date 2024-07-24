@@ -10045,7 +10045,7 @@ invoke.cont48:                                    ; preds = %call.i.noexc49
   br i1 %or.cond, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %invoke.cont48
-  %sub = sub i32 %39, %call45
+  %sub = sub nuw i32 %39, %call45
   %call2.i52 = invoke noundef ptr @_ZNK7bv_util10mk_numeralERK8rationalj(ptr noundef nonnull align 8 dereferenceable(24) %m_bv, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8rational6m_zeroE, i32 noundef %sub)
           to label %invoke.cont58 unwind label %lpad.loopexit
 

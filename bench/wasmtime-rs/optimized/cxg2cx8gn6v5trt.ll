@@ -850,7 +850,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_che
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -895,7 +895,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17h7d
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit": ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 %7
-  %11 = sub i64 %2, %7
+  %11 = sub nuw i64 %2, %7
   %12 = lshr i64 %11, 2
   %13 = and i64 %11, 3
   %14 = and i64 %11, -4
@@ -935,7 +935,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17heb
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit": ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 %7
-  %11 = sub i64 %2, %7
+  %11 = sub nuw i64 %2, %7
   %12 = lshr i64 %11, 1
   %13 = and i64 %11, 1
   %14 = and i64 %11, -2
@@ -975,7 +975,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17hee
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit": ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 %7
-  %11 = sub i64 %2, %7
+  %11 = sub nuw i64 %2, %7
   %12 = lshr i64 %11, 3
   %13 = and i64 %11, 7
   %14 = and i64 %11, -8
@@ -1024,7 +1024,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8f
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8

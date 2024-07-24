@@ -973,7 +973,7 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %30 = getelementptr inbounds i8, ptr %22, i64 %20
   %31 = load i8, ptr %30, align 1, !alias.scope !204, !noundef !4
   %32 = icmp sgt i8 %31, -65
-  %33 = sub i64 %24, %20
+  %33 = sub nuw i64 %24, %20
   br i1 %32, label %36, label %35
 
 34:                                               ; preds = %4

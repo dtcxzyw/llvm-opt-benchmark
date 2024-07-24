@@ -404,7 +404,7 @@ define void @_Z11init_disresP8_IO_FILERK10gmx_mtop_tP10t_inputrec13DisResRunMode
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %174
-  %188 = sub nsw i64 %178, %185
+  %188 = sub nuw nsw i64 %178, %185
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %176, i64 noundef %188)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 

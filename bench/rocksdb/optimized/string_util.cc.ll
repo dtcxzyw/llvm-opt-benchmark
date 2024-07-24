@@ -933,7 +933,7 @@ while.end14:                                      ; preds = %while.cond5
   br i1 %cmp15.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %while.end14
-  %reass.sub = sub i64 %end.0, %start.0
+  %reass.sub = sub nuw i64 %end.0, %start.0
   %add = add i64 %reass.sub, 1
   tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %str, i64 noundef %start.0, i64 noundef %add)
   br label %return
@@ -969,7 +969,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %call1, %call
+  %sub = sub nuw i64 %call1, %call
   %call2 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %string, i64 noundef %sub, i64 noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %pattern)
   %cmp3 = icmp eq i32 %call2, 0
   br label %return

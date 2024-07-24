@@ -12198,7 +12198,7 @@ cf2_freeT1SeacComponent.exit1386:                 ; preds = %1015, %1025
   br i1 %1109, label %cf2_initGlobalRegionBuffer.exit, label %1110
 
 1110:                                             ; preds = %1101
-  %1111 = sub i32 %1108, %1103
+  %1111 = sub nuw i32 %1108, %1103
   switch i32 %1102, label %1338 [
     i32 0, label %1112
     i32 1, label %1121
@@ -12512,7 +12512,7 @@ cf2_stack_setReal.exit1394:                       ; preds = %1217, %1219, %1221,
   %1245 = call fastcc i32 @cf2_stack_popInt(ptr noundef nonnull %118)
   %1246 = load i32, ptr %1240, align 8
   %1247 = icmp ult i32 %1244, %1246
-  %1248 = sub i32 %1244, %1246
+  %1248 = sub nuw i32 %1244, %1246
   %1249 = icmp ult i32 %1248, %1245
   %or.cond1177 = select i1 %1247, i1 true, i1 %1249
   br i1 %or.cond1177, label %cf2_initGlobalRegionBuffer.exit, label %1250
@@ -12692,7 +12692,7 @@ cf2_stack_setReal.exit1394:                       ; preds = %1217, %1219, %1221,
 .lr.ph1870:                                       ; preds = %.lr.ph1870.preheader, %.lr.ph1870
   %indvars.iv1931 = phi i64 [ 1, %.lr.ph1870.preheader ], [ %indvars.iv.next1932, %.lr.ph1870 ]
   %1345 = call fastcc i32 @cf2_stack_popFixed(ptr noundef %118)
-  %1346 = sub nsw i64 %1343, %indvars.iv1931
+  %1346 = sub nuw nsw i64 %1343, %indvars.iv1931
   %1347 = getelementptr inbounds [3 x i32], ptr %15, i64 0, i64 %1346
   store i32 %1345, ptr %1347, align 4
   %indvars.iv.next1932 = add nuw nsw i64 %indvars.iv1931, 1

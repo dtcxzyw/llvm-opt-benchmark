@@ -2117,7 +2117,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond12initAnalysis
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %51
-  %71 = sub nsw i64 %61, %68
+  %71 = sub nuw nsw i64 %61, %68
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %71)
   %.pre = load ptr, ptr %30, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -2162,7 +2162,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %70, %72, %74, %76
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %99 = sub nsw i64 %89, %96
+  %99 = sub nuw nsw i64 %89, %96
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %79, i64 noundef %99)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit32
 

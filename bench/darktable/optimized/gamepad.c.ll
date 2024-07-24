@@ -399,7 +399,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   br i1 %124, label %125, label %166
 
 125:                                              ; preds = %120
-  %126 = sub i32 %121, %123
+  %126 = sub nuw i32 %121, %123
   %127 = getelementptr inbounds i8, ptr %32, i64 20
   %128 = load i32, ptr %127, align 4, !tbaa !30
   %129 = call i32 @llvm.abs.i32(i32 %128, i1 true)
@@ -793,7 +793,7 @@ define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i3
   br i1 %5, label %6, label %47
 
 6:                                                ; preds = %2
-  %7 = sub i32 %1, %4
+  %7 = sub nuw i32 %1, %4
   %8 = getelementptr inbounds i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !30
   %10 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)

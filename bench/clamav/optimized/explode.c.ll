@@ -998,7 +998,7 @@ lookup_tree.exit453.thread:                       ; preds = %413
   br i1 %.not430, label %493, label %485
 
 485:                                              ; preds = %477
-  %486 = sub i32 %480, %483
+  %486 = sub nuw i32 %480, %483
   %487 = getelementptr inbounds i8, ptr %0, i64 24
   %488 = load i32, ptr %487, align 8
   %489 = and i32 %488, %486
@@ -1101,7 +1101,7 @@ define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr nocapture noundef re
   %20 = zext nneg i8 %19 to i64
   %21 = add nuw nsw i64 %20, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.042, i8 %17, i64 %21, i1 false)
-  %22 = sub i32 %.139, %13
+  %22 = sub nuw i32 %.139, %13
   %scevgep = getelementptr i8, ptr %.042, i64 1
   %scevgep77 = getelementptr i8, ptr %scevgep, i64 %20
   %23 = add i8 %.040, -1

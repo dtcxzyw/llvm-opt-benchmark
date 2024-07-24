@@ -4204,7 +4204,7 @@ for.body97:                                       ; preds = %land.rhs
   %and.i127 = and i32 %arrayidx99.val, 4194303
   %add.i128 = add nuw nsw i32 %and.i127, 1
   %conv105 = zext nneg i32 %add.i128 to i64
-  %sub107 = sub i64 %limit, %53
+  %sub107 = sub nuw i64 %limit, %53
   %cond114 = call i64 @llvm.umin.i64(i64 %sub107, i64 %conv105)
   call void @qemu_sglist_add(ptr noundef nonnull %sglist, i64 noundef %54, i64 noundef %cond114) #12
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1

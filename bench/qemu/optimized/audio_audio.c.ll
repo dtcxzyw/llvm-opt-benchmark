@@ -2421,8 +2421,8 @@ if.then49.i:                                      ; preds = %if.end44.i
   %buffer.i = getelementptr inbounds i8, ptr %sw, i64 72
   %18 = load ptr, ptr %buffer.i, align 8
   %add.ptr.i = getelementptr %struct.st_sample, ptr %18, i64 %15
-  %sub56.i = sub nsw i64 %cond41.i, %15
-  %conv57.i = trunc i64 %sub56.i to i32
+  %sub56.i = sub nuw nsw i64 %cond41.i, %15
+  %conv57.i = trunc nuw i64 %sub56.i to i32
   tail call void %17(ptr noundef %add.ptr.i, ptr noundef %buf, i32 noundef %conv57.i) #22
   %19 = load ptr, ptr %hw1, align 8
   %pcm_ops.i = getelementptr inbounds i8, ptr %19, i64 144
@@ -2521,7 +2521,7 @@ if.else.i:                                        ; preds = %audio_pcm_sw_resamp
   br i1 %cmp94.not.i, label %if.end103.i, label %if.then96.i
 
 if.then96.i:                                      ; preds = %if.else.i
-  %sub99.i = sub i64 %total_in.0.i, %41
+  %sub99.i = sub nuw i64 %total_in.0.i, %41
   br label %if.end103.sink.split.i
 
 if.end103.sink.split.i:                           ; preds = %if.then96.i, %if.then80.i
@@ -3324,7 +3324,7 @@ if.then2.i.i:                                     ; preds = %if.then2.i.i.i, %if
   br label %audio_get_free.exit.i
 
 if.end6.i.i:                                      ; preds = %if.then29.i
-  %sub.i.i = sub i64 %20, %18
+  %sub.i.i = sub nuw i64 %20, %18
   br label %audio_get_free.exit.i
 
 audio_get_free.exit.i:                            ; preds = %if.end6.i.i, %if.then2.i.i
@@ -3336,7 +3336,7 @@ audio_get_free.exit.i:                            ; preds = %if.end6.i.i, %if.th
 if.end39.i:                                       ; preds = %audio_get_free.exit.i
   %rate.i = getelementptr inbounds i8, ptr %sw.0145.i, i64 80
   %24 = load ptr, ptr %rate.i, align 8
-  %sub.i = sub i64 %div.i.i, %23
+  %sub.i = sub nuw i64 %div.i.i, %23
   %cond.i = call i64 @llvm.umin.i64(i64 %retval.0.i84.i, i64 %sub.i)
   %conv36.i = trunc i64 %cond.i to i32
   %call37.i = call i32 @st_rate_frames_in(ptr noundef %24, i32 noundef %conv36.i) #22
@@ -3832,7 +3832,7 @@ if.end153.thread.i:                               ; preds = %if.then2.i132.i, %i
   br label %if.then158.i
 
 if.end153.i:                                      ; preds = %if.end144.i
-  %sub155.i = sub i64 %98, %97
+  %sub155.i = sub nuw i64 %98, %97
   store i64 %sub155.i, ptr %total_hw_samples_mixed145.i, align 8
   %tobool157.not.i = icmp eq i64 %98, %97
   br i1 %tobool157.not.i, label %if.then158.i, label %for.inc161.i
@@ -4400,7 +4400,7 @@ while.cond:                                       ; preds = %while.body, %if.end
 while.body:                                       ; preds = %while.cond
   %5 = load i64, ptr %pos_emul11, align 8
   %sub = sub i64 %3, %5
-  %sub14 = sub i64 %3, %4
+  %sub14 = sub nuw i64 %3, %4
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %sub14)
   %6 = load ptr, ptr %pcm_ops, align 8
   %read17 = getelementptr inbounds i8, ptr %6, i64 88
@@ -4476,7 +4476,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %0, %size
+  %sub = sub nuw i64 %0, %size
   store i64 %sub, ptr %pending_emul, align 8
   ret void
 }
@@ -4542,7 +4542,7 @@ if.else:                                          ; preds = %while.body
   unreachable
 
 if.end:                                           ; preds = %while.body
-  %sub = sub i64 %2, %cond.i
+  %sub = sub nuw i64 %2, %cond.i
   %cond = tail call i64 @llvm.umin.i64(i64 %0, i64 %sub)
   %3 = load ptr, ptr %pcm_ops, align 8
   %write = getelementptr inbounds i8, ptr %3, i64 16
@@ -4664,7 +4664,7 @@ while.cond:                                       ; preds = %if.end18, %if.end
   br i1 %cmp3, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %sub = sub i64 %size.addr.0, %total.0
+  %sub = sub nuw i64 %size.addr.0, %total.0
   store i64 %sub, ptr %dst_size, align 8
   %2 = load ptr, ptr %pcm_ops, align 8
   %get_buffer_out = getelementptr inbounds i8, ptr %2, i64 40
@@ -4692,7 +4692,7 @@ if.end18:                                         ; preds = %if.then17, %if.end8
   %add = add i64 %call20, %total.0
   %cmp21 = icmp eq i64 %call20, 0
   %cmp22 = icmp ult i64 %call20, %cond15
-  %or.cond = or i1 %cmp21, %cmp22
+  %or.cond = select i1 %cmp21, i1 true, i1 %cmp22
   br i1 %or.cond, label %while.end, label %while.cond, !llvm.loop !37
 
 while.end:                                        ; preds = %if.end18, %while.body, %while.cond
@@ -4721,7 +4721,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 while.body:                                       ; preds = %if.end, %if.end6
   %total.015 = phi i64 [ %add, %if.end6 ], [ 0, %if.end ]
-  %sub = sub i64 %size, %total.015
+  %sub = sub nuw i64 %size, %total.015
   store i64 %sub, ptr %src_size, align 8
   %2 = load ptr, ptr %pcm_ops, align 8
   %get_buffer_in = getelementptr inbounds i8, ptr %2, i64 104

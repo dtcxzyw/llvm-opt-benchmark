@@ -19586,7 +19586,7 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
 
 .lr.ph62.i:                                       ; preds = %247, %.noexc114
   %.261.i = phi i64 [ %258, %.noexc114 ], [ %.064.i, %247 ]
-  %249 = sub i64 %218, %.261.i
+  %249 = sub nuw i64 %218, %.261.i
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %249, i64 128)
   %250 = trunc nuw i64 %spec.store.select.i to i8
   store i8 %250, ptr %3, align 1

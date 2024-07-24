@@ -1060,7 +1060,7 @@ switch.lookup980:                                 ; preds = %66
 
 171:                                              ; preds = %169
   %172 = load i32, ptr @hf_z21_loco_info_extensions, align 4
-  %173 = sub i32 %.pre-phi974, %.2943
+  %173 = sub nuw i32 %.pre-phi974, %.2943
   %174 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %172, ptr noundef %0, i32 noundef %.2943, i32 noundef %173, i32 noundef 0) #2
   br label %563
 
@@ -2006,7 +2006,7 @@ update_command_field.exit966:                     ; preds = %14
 
 859:                                              ; preds = %856
   %860 = load i32, ptr @hf_z21_data, align 4
-  %861 = sub i32 %857, %.5
+  %861 = sub nuw i32 %857, %.5
   %862 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %860, ptr noundef %0, i32 noundef %.5, i32 noundef %861, i32 noundef 0) #2
   %863 = load i32, ptr %5, align 4
   br label %864

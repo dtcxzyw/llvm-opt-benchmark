@@ -435,7 +435,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %234 = sub i32 %233, %4
   %235 = zext i32 %234 to i64
   %236 = getelementptr i8, ptr %1, i64 %235
-  %237 = sub i32 %219, %6
+  %237 = sub nuw i32 %219, %6
   %.pn10671153 = zext i32 %237 to i64
   %.19051154 = getelementptr i8, ptr %1, i64 %.pn10671153
   %238 = shl nuw nsw i32 %108, 10

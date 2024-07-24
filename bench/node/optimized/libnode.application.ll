@@ -2484,7 +2484,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
 
 if.then.i:                                        ; preds = %for.body.i
   %len2.i.le = getelementptr inbounds i8, ptr %v.021.i, i64 8
-  %sub.i = sub i64 %5, %len.addr.020.i
+  %sub.i = sub nuw i64 %5, %len.addr.020.i
   store i64 %sub.i, ptr %len2.i.le, align 8
   %6 = load ptr, ptr %v.021.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %len.addr.020.i
@@ -2493,7 +2493,7 @@ if.then.i:                                        ; preds = %for.body.i
   br label %_ZZN4node4quic18DefaultApplication12StreamCommitEPNS0_7Session11Application10StreamDataEmENKUlPP10ngtcp2_vecPmmE_clES8_S9_m.exit
 
 if.end.i:                                         ; preds = %for.body.i
-  %sub6.i = sub i64 %len.addr.020.i, %5
+  %sub6.i = sub nuw i64 %len.addr.020.i, %5
   %dec.i = add i64 %cnt.022.i, -1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %v.021.i, i64 16
   %cmp.not.i = icmp eq i64 %dec.i, 0

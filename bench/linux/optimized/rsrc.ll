@@ -2905,7 +2905,7 @@ define dso_local noundef range(i32 -14, 1) i32 @io_import_fixed(i32 noundef %0, 
   br label %58
 
 41:                                               ; preds = %27
-  %42 = sub i64 %20, %30
+  %42 = sub nuw i64 %20, %30
   %43 = lshr i64 %42, 12
   %44 = add nuw nsw i64 %43, 1
   %45 = getelementptr %struct.bio_vec, ptr %21, i64 %44

@@ -1539,7 +1539,7 @@ define hidden void @"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13dig
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h25a7b545150fac9eE.exit43": ; preds = %11
   %20 = getelementptr inbounds i8, ptr %1, i64 %9
-  %21 = sub i64 %2, %9
+  %21 = sub nuw i64 %2, %9
   %22 = getelementptr inbounds i8, ptr %0, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %1, i64 %9, i1 false), !alias.scope !214, !noalias !218
   %23 = load ptr, ptr %3, align 8, !noalias !220, !nonnull !4, !align !16, !noundef !4
@@ -10076,7 +10076,7 @@ define hidden void @"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h25a7b545150fac9eE.exit43.i": ; preds = %11
   %20 = getelementptr inbounds i8, ptr %1, i64 %9
-  %21 = sub i64 %2, %9
+  %21 = sub nuw i64 %2, %9
   %22 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %1, i64 %9, i1 false), !alias.scope !1671, !noalias !1675
   %23 = getelementptr inbounds i8, ptr %0, i64 32

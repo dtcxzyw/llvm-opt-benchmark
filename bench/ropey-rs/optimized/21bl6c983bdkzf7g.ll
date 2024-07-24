@@ -2472,7 +2472,7 @@ define hidden { ptr, i64 } @"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !nonnull !7, !align !18, !noundef !7
   %9 = getelementptr inbounds <2 x i64>, ptr %8, i64 %5
-  %10 = sub i64 %3, %5
+  %10 = sub nuw i64 %3, %5
   store ptr %9, ptr %0, align 8
   store i64 %10, ptr %2, align 8
   br label %11

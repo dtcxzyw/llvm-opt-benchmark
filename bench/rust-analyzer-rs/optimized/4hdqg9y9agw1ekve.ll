@@ -25160,7 +25160,7 @@ _ZN6syntax3ast7AstNode16clone_for_update17h17cebb0e223fdb73E.exit: ; preds = %.n
   %281 = load i64, ptr %23, align 8, !alias.scope !7155, !noalias !7150, !noundef !23
   %.not.i.i267 = icmp ult i64 %280, %281
   %282 = select i1 %.not.i.i267, i64 0, i64 %281
-  %.0.i.i268 = sub i64 %280, %282
+  %.0.i.i268 = sub nuw i64 %280, %282
   store i64 %.0.i.i268, ptr %256, align 8, !alias.scope !7153, !noalias !7150
   %283 = add i64 %278, -1
   store i64 %283, ptr %257, align 8, !alias.scope !7153, !noalias !7150

@@ -4650,7 +4650,7 @@ if.end23:                                         ; preds = %int128_get64.exit
   %add25 = add i64 %sub, %coerce.sroa.0.0.extract.trunc.i
   store i64 %add25, ptr %tmp.sroa.5.0.mrs.sroa_idx, align 8
   store i64 %cond, ptr %tmp.sroa.4.0.mrs.sroa_idx, align 16
-  %sub27 = sub i64 %cond20, %cond
+  %sub27 = sub nuw i64 %cond20, %cond
   %coerce29.sroa.0.0.insert.ext = zext i64 %sub27 to i128
   store i128 %coerce29.sroa.0.0.insert.ext, ptr %mrs, align 16
   %12 = load ptr, ptr %log_clear, align 8

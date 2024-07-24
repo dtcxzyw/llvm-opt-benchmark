@@ -10918,13 +10918,13 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   %9 = icmp eq i32 %0, 1
   %10 = and i32 %.5148.val, 4
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %127, label %11
+  br i1 %.not, label %125, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %8, i64 424
   %13 = load i8, ptr %12, align 8
   %.not108 = icmp eq i8 %13, 0
-  br i1 %.not108, label %14, label %127
+  br i1 %.not108, label %14, label %125
 
 14:                                               ; preds = %11
   %spec.select = tail call i64 @llvm.abs.i64(i64 %1, i1 true)
@@ -10933,19 +10933,19 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
 15:                                               ; preds = %14
   %16 = and i32 %.5148.val, 2
   %.not109 = icmp eq i32 %16, 0
-  br i1 %.not109, label %18, label %73
+  br i1 %.not109, label %18, label %71
 
 .critedge:                                        ; preds = %14
   %17 = and i32 %.5148.val, 1
   %.not110 = icmp eq i32 %17, 0
-  br i1 %.not110, label %.thread, label %73
+  br i1 %.not110, label %.thread, label %71
 
 18:                                               ; preds = %15
   %19 = and i32 %4, 2
   %20 = icmp ne i32 %19, 0
   %21 = icmp ult i64 %spec.select, 192
   %or.cond3 = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond3, label %124, label %.thread
+  br i1 %or.cond3, label %122, label %.thread
 
 .thread:                                          ; preds = %.critedge, %18
   %22 = and i32 %3, 1
@@ -10966,7 +10966,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   %28 = getelementptr inbounds i8, ptr %8, i64 16
   %29 = load i32, ptr %28, align 8
   %.not112 = icmp eq i32 %29, 0
-  br i1 %.not112, label %124, label %30
+  br i1 %.not112, label %122, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %8, i64 32
@@ -10978,7 +10978,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
 
 35:                                               ; preds = %30
   %spec.store.select5 = tail call i64 @llvm.smax.i64(i64 %32, i64 48)
-  br label %124
+  br label %122
 
 36:                                               ; preds = %30
   %37 = icmp ult i64 %.1, 192
@@ -10988,7 +10988,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   %39 = and i64 %.1, 63
   %40 = and i64 %.1, 192
   %41 = icmp ult i64 %39, 10
-  br i1 %41, label %124, label %42
+  br i1 %41, label %122, label %42
 
 42:                                               ; preds = %38
   %43 = icmp ult i64 %39, 32
@@ -10996,13 +10996,13 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
 
 44:                                               ; preds = %42
   %45 = or disjoint i64 %40, 10
-  br label %124
+  br label %122
 
 46:                                               ; preds = %42
   %47 = icmp ult i64 %39, 54
   %48 = or disjoint i64 %40, 54
   %spec.select120 = select i1 %47, i64 %48, i64 %.1
-  br label %124
+  br label %122
 
 49:                                               ; preds = %36
   %50 = icmp slt i64 %1, 1
@@ -11021,155 +11021,154 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   %58 = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load i16, ptr %58, align 8
   %.fr = freeze i16 %59
-  %60 = zext i16 %.fr to i64
-  %61 = icmp ult i16 %.fr, 10
-  br i1 %61, label %69, label %62
+  %60 = icmp ult i16 %.fr, 10
+  br i1 %60, label %67, label %61
 
-62:                                               ; preds = %53
-  %63 = icmp ult i16 %.fr, 30
-  br i1 %63, label %64, label %.thread3
+61:                                               ; preds = %53
+  %62 = icmp ult i16 %.fr, 30
+  br i1 %62, label %63, label %.thread3
 
-64:                                               ; preds = %62
-  %65 = sub nsw i64 30, %60
-  %66 = and i64 %65, 4294967295
-  %67 = mul i64 %66, %2
-  %68 = sdiv i64 %67, 20
-  br label %69
+63:                                               ; preds = %61
+  %narrow = sub nuw nsw i16 30, %.fr
+  %64 = zext nneg i16 %narrow to i64
+  %65 = mul i64 %64, %2
+  %66 = sdiv i64 %65, 20
+  br label %67
 
-69:                                               ; preds = %53, %64
-  %.091 = phi i64 [ %68, %64 ], [ %2, %53 ]
+67:                                               ; preds = %53, %63
+  %.091 = phi i64 [ %66, %63 ], [ %2, %53 ]
   %spec.select6 = tail call i64 @llvm.abs.i64(i64 %.091, i1 true)
   br label %.thread3
 
-.thread3:                                         ; preds = %69, %62, %49
-  %.192 = phi i64 [ 0, %49 ], [ 0, %62 ], [ %spec.select6, %69 ]
-  %70 = add nuw i64 %.1, 32
-  %71 = sub i64 %70, %.192
-  %72 = and i64 %71, -64
-  br label %124
+.thread3:                                         ; preds = %67, %61, %49
+  %.192 = phi i64 [ 0, %49 ], [ 0, %61 ], [ %spec.select6, %67 ]
+  %68 = add nuw i64 %.1, 32
+  %69 = sub i64 %68, %.192
+  %70 = and i64 %69, -64
+  br label %122
 
-73:                                               ; preds = %15, %.critedge
-  %74 = getelementptr inbounds i8, ptr %8, i64 24
-  %75 = getelementptr inbounds i8, ptr %8, i64 16
-  %76 = load i32, ptr %75, align 8
-  %.not36.i = icmp eq i32 %76, 0
+71:                                               ; preds = %15, %.critedge
+  %72 = getelementptr inbounds i8, ptr %8, i64 24
+  %73 = getelementptr inbounds i8, ptr %8, i64 16
+  %74 = load i32, ptr %73, align 8
+  %.not36.i = icmp eq i32 %74, 0
   br i1 %.not36.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
-._crit_edge.thread.i:                             ; preds = %73
-  %77 = add nuw nsw i64 %spec.select, 32
-  %78 = and i64 %77, 9223372036854775744
-  br label %85
+._crit_edge.thread.i:                             ; preds = %71
+  %75 = add nuw nsw i64 %spec.select, 32
+  %76 = and i64 %75, 9223372036854775744
+  br label %83
 
-.lr.ph.preheader.i:                               ; preds = %73
-  %wide.trip.count.i = zext i32 %76 to i64
+.lr.ph.preheader.i:                               ; preds = %71
+  %wide.trip.count.i = zext i32 %74 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02534.i = phi i64 [ %spec.select, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %.02633.i = phi i64 [ 98, %.lr.ph.preheader.i ], [ %.127.i, %.lr.ph.i ]
-  %79 = getelementptr inbounds %struct.AF_WidthRec_, ptr %74, i64 %indvars.iv.i, i32 1
-  %80 = load i64, ptr %79, align 8
-  %81 = sub nsw i64 %spec.select, %80
-  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %81, i1 true)
-  %82 = icmp slt i64 %spec.select.i, %.02633.i
+  %77 = getelementptr inbounds %struct.AF_WidthRec_, ptr %72, i64 %indvars.iv.i, i32 1
+  %78 = load i64, ptr %77, align 8
+  %79 = sub nsw i64 %spec.select, %78
+  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %79, i1 true)
+  %80 = icmp slt i64 %spec.select.i, %.02633.i
   %.127.i = tail call i64 @llvm.smin.i64(i64 %spec.select.i, i64 %.02633.i)
-  %.1.i = select i1 %82, i64 %80, i64 %.02534.i
+  %.1.i = select i1 %80, i64 %78, i64 %.02534.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !142
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %83 = add nsw i64 %.1.i, 32
-  %84 = and i64 %83, -64
+  %81 = add nsw i64 %.1.i, 32
+  %82 = and i64 %81, -64
   %.not.i = icmp sgt i64 %.1.i, %spec.select
-  br i1 %.not.i, label %89, label %85
+  br i1 %.not.i, label %87, label %83
 
-85:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %86 = phi i64 [ %78, %._crit_edge.thread.i ], [ %84, %._crit_edge.i ]
+83:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
+  %84 = phi i64 [ %76, %._crit_edge.thread.i ], [ %82, %._crit_edge.i ]
   %.025.lcssa40.i = phi i64 [ %spec.select, %._crit_edge.thread.i ], [ %.1.i, %._crit_edge.i ]
-  %87 = or disjoint i64 %86, 48
-  %88 = icmp sgt i64 %87, %spec.select
-  %spec.select31.i = select i1 %88, i64 %.025.lcssa40.i, i64 %spec.select
+  %85 = or disjoint i64 %84, 48
+  %86 = icmp sgt i64 %85, %spec.select
+  %spec.select31.i = select i1 %86, i64 %.025.lcssa40.i, i64 %spec.select
   br label %af_latin_snap_width.exit
 
-89:                                               ; preds = %._crit_edge.i
-  %90 = add nsw i64 %84, -48
-  %91 = icmp slt i64 %90, %spec.select
-  %spec.select32.i = select i1 %91, i64 %.1.i, i64 %spec.select
+87:                                               ; preds = %._crit_edge.i
+  %88 = add nsw i64 %82, -48
+  %89 = icmp slt i64 %88, %spec.select
+  %spec.select32.i = select i1 %89, i64 %.1.i, i64 %spec.select
   br label %af_latin_snap_width.exit
 
-af_latin_snap_width.exit:                         ; preds = %85, %89
-  %.023.i = phi i64 [ %spec.select31.i, %85 ], [ %spec.select32.i, %89 ]
-  br i1 %9, label %92, label %97
+af_latin_snap_width.exit:                         ; preds = %83, %87
+  %.023.i = phi i64 [ %spec.select31.i, %83 ], [ %spec.select32.i, %87 ]
+  br i1 %9, label %90, label %95
 
-92:                                               ; preds = %af_latin_snap_width.exit
-  %93 = icmp sgt i64 %.023.i, 63
-  br i1 %93, label %94, label %124
+90:                                               ; preds = %af_latin_snap_width.exit
+  %91 = icmp sgt i64 %.023.i, 63
+  br i1 %91, label %92, label %122
 
-94:                                               ; preds = %92
-  %95 = add nuw nsw i64 %.023.i, 16
-  %96 = and i64 %95, 9223372036854775744
-  br label %124
+92:                                               ; preds = %90
+  %93 = add nuw nsw i64 %.023.i, 16
+  %94 = and i64 %93, 9223372036854775744
+  br label %122
 
-97:                                               ; preds = %af_latin_snap_width.exit
-  %98 = and i32 %.5148.val, 8
-  %.not113 = icmp eq i32 %98, 0
-  br i1 %.not113, label %104, label %99
+95:                                               ; preds = %af_latin_snap_width.exit
+  %96 = and i32 %.5148.val, 8
+  %.not113 = icmp eq i32 %96, 0
+  br i1 %.not113, label %102, label %97
+
+97:                                               ; preds = %95
+  %98 = icmp slt i64 %.023.i, 64
+  br i1 %98, label %122, label %99
 
 99:                                               ; preds = %97
-  %100 = icmp slt i64 %.023.i, 64
-  br i1 %100, label %124, label %101
+  %100 = add nuw nsw i64 %.023.i, 32
+  %101 = and i64 %100, 9223372036854775744
+  br label %122
 
-101:                                              ; preds = %99
-  %102 = add nuw nsw i64 %.023.i, 32
-  %103 = and i64 %102, 9223372036854775744
-  br label %124
+102:                                              ; preds = %95
+  %103 = icmp slt i64 %.023.i, 48
+  br i1 %103, label %104, label %107
 
-104:                                              ; preds = %97
-  %105 = icmp slt i64 %.023.i, 48
-  br i1 %105, label %106, label %109
+104:                                              ; preds = %102
+  %105 = add nsw i64 %.023.i, 64
+  %106 = ashr i64 %105, 1
+  br label %122
 
-106:                                              ; preds = %104
-  %107 = add nsw i64 %.023.i, 64
-  %108 = ashr i64 %107, 1
-  br label %124
+107:                                              ; preds = %102
+  %108 = icmp ult i64 %.023.i, 128
+  br i1 %108, label %109, label %119
 
-109:                                              ; preds = %104
-  %110 = icmp ult i64 %.023.i, 128
-  br i1 %110, label %111, label %121
+109:                                              ; preds = %107
+  %110 = add nuw nsw i64 %.023.i, 22
+  %111 = and i64 %110, 192
+  %112 = sub nsw i64 %111, %spec.select
+  %spec.select118 = tail call i64 @llvm.abs.i64(i64 %112, i1 true)
+  %113 = icmp ugt i64 %spec.select118, 15
+  br i1 %113, label %114, label %122
 
-111:                                              ; preds = %109
-  %112 = add nuw nsw i64 %.023.i, 22
-  %113 = and i64 %112, 192
-  %114 = sub nsw i64 %113, %spec.select
-  %spec.select118 = tail call i64 @llvm.abs.i64(i64 %114, i1 true)
-  %115 = icmp ugt i64 %spec.select118, 15
-  br i1 %115, label %116, label %124
+114:                                              ; preds = %109
+  %115 = icmp ult i64 %spec.select, 48
+  br i1 %115, label %116, label %122
 
-116:                                              ; preds = %111
-  %117 = icmp ult i64 %spec.select, 48
-  br i1 %117, label %118, label %124
+116:                                              ; preds = %114
+  %117 = lshr i64 %spec.select, 1
+  %118 = or disjoint i64 %117, 32
+  br label %122
 
-118:                                              ; preds = %116
-  %119 = lshr i64 %spec.select, 1
-  %120 = or disjoint i64 %119, 32
-  br label %124
+119:                                              ; preds = %107
+  %120 = add nuw nsw i64 %.023.i, 32
+  %121 = and i64 %120, 9223372036854775744
+  br label %122
 
-121:                                              ; preds = %109
-  %122 = add nuw nsw i64 %.023.i, 32
-  %123 = and i64 %122, 9223372036854775744
-  br label %124
+122:                                              ; preds = %46, %97, %90, %38, %.thread3, %44, %27, %99, %119, %114, %116, %109, %104, %92, %18, %35
+  %.2 = phi i64 [ %94, %92 ], [ %101, %99 ], [ %106, %104 ], [ %118, %116 ], [ %spec.select, %114 ], [ %111, %109 ], [ %121, %119 ], [ %spec.select, %18 ], [ %spec.store.select5, %35 ], [ %45, %44 ], [ %70, %.thread3 ], [ %.1, %27 ], [ %.1, %38 ], [ 64, %90 ], [ 64, %97 ], [ %spec.select120, %46 ]
+  %123 = sub nsw i64 0, %.2
+  %124 = icmp slt i64 %1, 0
+  %spec.select119 = select i1 %124, i64 %123, i64 %.2
+  br label %125
 
-124:                                              ; preds = %46, %99, %92, %38, %.thread3, %44, %27, %101, %121, %116, %118, %111, %106, %94, %18, %35
-  %.2 = phi i64 [ %96, %94 ], [ %103, %101 ], [ %108, %106 ], [ %120, %118 ], [ %spec.select, %116 ], [ %113, %111 ], [ %123, %121 ], [ %spec.select, %18 ], [ %spec.store.select5, %35 ], [ %45, %44 ], [ %72, %.thread3 ], [ %.1, %27 ], [ %.1, %38 ], [ 64, %92 ], [ 64, %99 ], [ %spec.select120, %46 ]
-  %125 = sub nsw i64 0, %.2
-  %126 = icmp slt i64 %1, 0
-  %spec.select119 = select i1 %126, i64 %125, i64 %.2
-  br label %127
-
-127:                                              ; preds = %5, %11, %124
-  %.089 = phi i64 [ %spec.select119, %124 ], [ %1, %11 ], [ %1, %5 ]
+125:                                              ; preds = %5, %11, %122
+  %.089 = phi i64 [ %spec.select119, %122 ], [ %1, %11 ], [ %1, %5 ]
   ret i64 %.089
 }
 

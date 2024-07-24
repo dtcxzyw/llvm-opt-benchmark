@@ -8715,7 +8715,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.i.i4, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %pinned_heap_item_.i, i64 noundef %sub.i.i)
   %.pre.i = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre19.i = load ptr, ptr %range_tombstone_iters_.i, align 8

@@ -1962,7 +1962,7 @@ select.unfold:                                    ; preds = %31, %25, %27, %29
   %88 = zext i1 %87 to i32
   store i32 %88, ptr @endless_loop, align 4
   %89 = getelementptr i8, ptr @capture_android_logcat.packet, i64 %.094150
-  %90 = sub i64 %.2149, %.094150
+  %90 = sub nuw i64 %.2149, %.094150
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %89, i64 %90, i1 false)
   %91 = add i64 %90, %46
   %92 = load i16, ptr %47, align 2

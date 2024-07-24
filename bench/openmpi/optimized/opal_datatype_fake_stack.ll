@@ -379,7 +379,7 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
 
 234:                                              ; preds = %.lr.ph219
   %235 = add i64 %207, %.2164216
-  %236 = sub i64 %.1167215, %207
+  %236 = sub nuw i64 %.1167215, %207
   %237 = add nsw i32 %.2217, 1
   %238 = getelementptr inbounds i8, ptr %.2170214, i64 32
   %239 = load i16, ptr %238, align 8

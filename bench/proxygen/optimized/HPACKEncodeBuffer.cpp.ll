@@ -478,7 +478,7 @@ _ZN8proxygen17HPACKEncodeBuffer6appendEh.exit:    ; preds = %_ZN5folly10IOBufQue
 
 if.end:                                           ; preds = %cleanup.done
   %or3118 = or i8 %3, %instruction
-  %sub = sub i64 %value, %conv25
+  %sub = sub nuw i64 %value, %conv25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.addr.i19)
   store i8 %or3118, ptr %byte.addr.i19, align 1
   %18 = load ptr, ptr %second.i.i.i.i.i, align 8

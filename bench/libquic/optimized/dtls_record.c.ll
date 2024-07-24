@@ -191,7 +191,7 @@ to_u64_be.exit:                                   ; preds = %for.body.i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %to_u64_be.exit
-  %sub = sub i64 %1, %or.i
+  %sub = sub nuw i64 %1, %or.i
   %cmp2 = icmp ugt i64 %sub, 63
   br i1 %cmp2, label %return, label %lor.rhs
 
@@ -240,7 +240,7 @@ to_u64_be.exit:                                   ; preds = %for.body.i
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %to_u64_be.exit
-  %sub = sub i64 %or.i, %1
+  %sub = sub nuw i64 %or.i, %1
   %cmp2 = icmp ugt i64 %sub, 63
   br i1 %cmp2, label %if.end, label %if.else
 

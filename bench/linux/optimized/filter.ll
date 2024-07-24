@@ -5610,7 +5610,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   br label %.thread17.thread
 
 190:                                              ; preds = %44
-  %191 = sub i32 %10, %52
+  %191 = sub nuw i32 %10, %52
   store i32 %9, ptr %46, align 4
   br label %.thread17
 
@@ -5632,7 +5632,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
 
 .thread18:                                        ; preds = %.preheader21
   %202 = getelementptr inbounds i8, ptr %198, i64 12
-  %203 = sub i32 %200, %195
+  %203 = sub nuw i32 %200, %195
   store i32 %203, ptr %202, align 4
   %204 = getelementptr inbounds i8, ptr %198, i64 8
   %205 = load i32, ptr %204, align 8
@@ -7695,7 +7695,7 @@ define dso_local ptr @bpf_xdp_pointer(ptr nocapture noundef readonly %0, i32 nou
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
   %40 = getelementptr i8, ptr %36, i64 %39
-  %41 = sub nsw i32 %1, %10
+  %41 = sub nuw nsw i32 %1, %10
   %42 = getelementptr i8, ptr %40, i64 -318
   %43 = load i8, ptr %42, align 2
   %44 = icmp eq i8 %43, 0
@@ -7731,7 +7731,7 @@ define dso_local ptr @bpf_xdp_pointer(ptr nocapture noundef readonly %0, i32 nou
   br label %.loopexit
 
 67:                                               ; preds = %50
-  %68 = sub i32 %52, %55
+  %68 = sub nuw i32 %52, %55
   %69 = add nuw nsw i64 %51, 1
   %70 = icmp eq i64 %69, %49
   br i1 %70, label %.loopexit, label %50, !llvm.loop !90
@@ -7805,7 +7805,7 @@ define dso_local i64 @bpf_xdp_load_bytes(i64 noundef %0, i64 noundef %1, i64 nou
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
   %46 = getelementptr i8, ptr %42, i64 %45
-  %47 = sub nsw i32 %7, %16
+  %47 = sub nuw nsw i32 %7, %16
   %48 = getelementptr i8, ptr %46, i64 -318
   %49 = load i8, ptr %48, align 2
   %50 = icmp eq i8 %49, 0
@@ -7841,7 +7841,7 @@ define dso_local i64 @bpf_xdp_load_bytes(i64 noundef %0, i64 noundef %1, i64 nou
   br label %.loopexit19
 
 73:                                               ; preds = %56
-  %74 = sub i32 %58, %61
+  %74 = sub nuw i32 %58, %61
   %75 = add nuw nsw i64 %57, 1
   %76 = icmp eq i64 %75, %55
   br i1 %76, label %.loopexit19, label %56, !llvm.loop !90
@@ -8005,7 +8005,7 @@ define dso_local i32 @__bpf_xdp_load_bytes(ptr nocapture noundef readonly %0, i3
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
   %41 = getelementptr i8, ptr %37, i64 %40
-  %42 = sub nsw i32 %1, %11
+  %42 = sub nuw nsw i32 %1, %11
   %43 = getelementptr i8, ptr %41, i64 -318
   %44 = load i8, ptr %43, align 2
   %45 = icmp eq i8 %44, 0
@@ -8041,7 +8041,7 @@ define dso_local i32 @__bpf_xdp_load_bytes(ptr nocapture noundef readonly %0, i3
   br label %.loopexit19
 
 68:                                               ; preds = %51
-  %69 = sub i32 %53, %56
+  %69 = sub nuw i32 %53, %56
   %70 = add nuw nsw i64 %52, 1
   %71 = icmp eq i64 %70, %50
   br i1 %71, label %.loopexit19, label %51, !llvm.loop !90
@@ -8210,7 +8210,7 @@ define dso_local i64 @bpf_xdp_store_bytes(i64 noundef %0, i64 noundef %1, i64 no
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
   %46 = getelementptr i8, ptr %42, i64 %45
-  %47 = sub nsw i32 %7, %16
+  %47 = sub nuw nsw i32 %7, %16
   %48 = getelementptr i8, ptr %46, i64 -318
   %49 = load i8, ptr %48, align 2
   %50 = icmp eq i8 %49, 0
@@ -8246,7 +8246,7 @@ define dso_local i64 @bpf_xdp_store_bytes(i64 noundef %0, i64 noundef %1, i64 no
   br label %.loopexit19
 
 73:                                               ; preds = %56
-  %74 = sub i32 %58, %61
+  %74 = sub nuw i32 %58, %61
   %75 = add nuw nsw i64 %57, 1
   %76 = icmp eq i64 %75, %55
   br i1 %76, label %.loopexit19, label %56, !llvm.loop !90
@@ -8410,7 +8410,7 @@ define dso_local i32 @__bpf_xdp_store_bytes(ptr nocapture noundef readonly %0, i
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
   %41 = getelementptr i8, ptr %37, i64 %40
-  %42 = sub nsw i32 %1, %11
+  %42 = sub nuw nsw i32 %1, %11
   %43 = getelementptr i8, ptr %41, i64 -318
   %44 = load i8, ptr %43, align 2
   %45 = icmp eq i8 %44, 0
@@ -8446,7 +8446,7 @@ define dso_local i32 @__bpf_xdp_store_bytes(ptr nocapture noundef readonly %0, i
   br label %.loopexit19
 
 68:                                               ; preds = %51
-  %69 = sub i32 %53, %56
+  %69 = sub nuw i32 %53, %56
   %70 = add nuw nsw i64 %52, 1
   %71 = icmp eq i64 %70, %50
   br i1 %71, label %.loopexit19, label %51, !llvm.loop !90
@@ -9721,7 +9721,7 @@ define dso_local range(i64 -12, 256) i64 @bpf_skb_get_tunnel_opt(i64 noundef %0,
 51:                                               ; preds = %45
   %52 = zext i8 %48 to i64
   %53 = getelementptr i8, ptr %7, i64 %52
-  %54 = sub i32 %8, %49
+  %54 = sub nuw i32 %8, %49
   %55 = zext i32 %54 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %53, i8 0, i64 %55, i1 false)
   %.pre = load i8, ptr %41, align 8

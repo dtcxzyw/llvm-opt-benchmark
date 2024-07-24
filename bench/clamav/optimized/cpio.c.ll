@@ -55,7 +55,7 @@ define i32 @cli_scancpio_old(ptr noundef %0) local_unnamed_addr #0 {
   %.051108 = phi i32 [ 0, %.lr.ph ], [ %.253, %.backedge ]
   %.054107 = phi i32 [ 0, %.lr.ph ], [ %23, %.backedge ]
   %.055106 = phi ptr [ null, %.lr.ph ], [ %.156, %.backedge ]
-  %11 = sub i64 %9, %.0109
+  %11 = sub nuw i64 %9, %.0109
   %spec.select.i = call i64 @llvm.umin.i64(i64 %11, i64 26)
   %12 = getelementptr inbounds i8, ptr %10, i64 104
   %13 = load ptr, ptr %12, align 8
@@ -108,7 +108,7 @@ fmap_readn.exit:                                  ; preds = %8
   br i1 %33, label %fmap_readn.exit.thread.sink.split, label %34
 
 34:                                               ; preds = %32
-  %35 = sub i64 %31, %17
+  %35 = sub nuw i64 %31, %17
   %spec.select.i90 = call i64 @llvm.umin.i64(i64 %35, i64 %29)
   %36 = getelementptr inbounds i8, ptr %28, i64 104
   %37 = load ptr, ptr %36, align 8
@@ -286,7 +286,7 @@ define i32 @cli_scancpio_odc(ptr noundef %0) local_unnamed_addr #0 {
   %.058 = phi i64 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
   %.02457 = phi i32 [ 0, %.lr.ph ], [ %.2, %.backedge ]
   %.02656 = phi i32 [ 0, %.lr.ph ], [ %30, %.backedge ]
-  %18 = sub i64 %16, %.058
+  %18 = sub nuw i64 %16, %.058
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 76)
   %19 = getelementptr inbounds i8, ptr %17, i64 104
   %20 = load ptr, ptr %19, align 8
@@ -340,7 +340,7 @@ fmap_readn.exit:                                  ; preds = %15
   br i1 %42, label %fmap_readn.exit.thread.sink.split, label %43
 
 43:                                               ; preds = %41
-  %44 = sub i64 %40, %24
+  %44 = sub nuw i64 %40, %24
   %spec.select.i46 = call i64 @llvm.umin.i64(i64 %44, i64 %38)
   %45 = getelementptr inbounds i8, ptr %37, i64 104
   %46 = load ptr, ptr %45, align 8
@@ -399,7 +399,7 @@ sanitname.exit:                                   ; preds = %60, %49
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %sanitname.exit
-  %66 = sub i32 %63, %36
+  %66 = sub nuw i32 %63, %36
   %67 = zext i32 %66 to i64
   %68 = add i64 %50, %67
   br label %69
@@ -492,7 +492,7 @@ define i32 @cli_scancpio_newc(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %.075 = phi i64 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
   %.03474 = phi i32 [ 0, %.lr.ph ], [ %.2, %.backedge ]
   %.03673 = phi i32 [ 0, %.lr.ph ], [ %31, %.backedge ]
-  %18 = sub i64 %16, %.075
+  %18 = sub nuw i64 %16, %.075
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 110)
   %19 = getelementptr inbounds i8, ptr %17, i64 104
   %20 = load ptr, ptr %19, align 8
@@ -554,7 +554,7 @@ fmap_readn.exit:                                  ; preds = %15
   br i1 %43, label %fmap_readn.exit.thread.sink.split, label %44
 
 44:                                               ; preds = %42
-  %45 = sub i64 %41, %24
+  %45 = sub nuw i64 %41, %24
   %spec.select.i63 = call i64 @llvm.umin.i64(i64 %45, i64 %39)
   %46 = getelementptr inbounds i8, ptr %38, i64 104
   %47 = load ptr, ptr %46, align 8

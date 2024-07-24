@@ -265,7 +265,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = phi ptr [ %7, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4473fd241967df0eE.exit.i" ], [ %.sroa.0.0.copyload, %.lr.ph.split.i.preheader ]
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 %.sroa.7.0.copyload)
   %7 = getelementptr inbounds i32, ptr %6, i64 %.0.sroa.speculated.i.i.i
-  %8 = sub i64 %5, %.0.sroa.speculated.i.i.i
+  %8 = sub nuw i64 %5, %.0.sroa.speculated.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %9 = load i32, ptr %6, align 4, !alias.scope !85, !noalias !90, !noundef !11
   %10 = zext i32 %9 to i64
@@ -3105,7 +3105,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h75b01c5c8fafce
   %12 = phi ptr [ %13, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4473fd241967df0eE.exit" ], [ %.promoted12, %.lr.ph.split.preheader ]
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %11, i64 %6)
   %13 = getelementptr inbounds i32, ptr %12, i64 %.0.sroa.speculated.i.i
-  %14 = sub i64 %11, %.0.sroa.speculated.i.i
+  %14 = sub nuw i64 %11, %.0.sroa.speculated.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1067)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1070)
   %15 = load i32, ptr %12, align 4, !alias.scope !1072, !noalias !1067, !noundef !11
@@ -4335,7 +4335,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$8replacen17he8046bda5f4
   %49 = getelementptr inbounds i8, ptr %36, i64 %41
   %50 = load i8, ptr %49, align 1, !alias.scope !1534, !noalias !1539, !noundef !11
   %51 = icmp sgt i8 %50, -65
-  %52 = sub i64 %37, %41
+  %52 = sub nuw i64 %37, %41
   br i1 %51, label %54, label %53
 
 53:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i.i.i", %46

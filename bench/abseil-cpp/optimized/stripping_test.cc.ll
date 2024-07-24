@@ -5137,7 +5137,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
 while.body.i.i:                                   ; preds = %if.end20.i.i, %while.body.lr.ph.i.i
   %__len.022.i.i = phi i64 [ %buf_data_size.1.lcssa, %while.body.lr.ph.i.i ], [ %sub.ptr.sub23.i.i, %if.end20.i.i ]
   %__first.021.i.i = phi ptr [ %call23, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.end20.i.i ]
-  %sub12.i.i = sub i64 %__len.022.i.i, %3
+  %sub12.i.i = sub nuw i64 %__len.022.i.i, %3
   %add.i.i = add i64 %sub12.i.i, 1
   %cmp.i.i.i = icmp eq i64 %add.i.i, 0
   br i1 %cmp.i.i.i, label %if.end35, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i

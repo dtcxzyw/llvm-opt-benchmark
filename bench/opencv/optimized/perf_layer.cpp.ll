@@ -73946,7 +73946,7 @@ _ZSt13move_backwardIPN2cv3MatES2_ET0_T_S4_S3_.exit: ; preds = %.noexc, %_ZSt22__
   br label %114
 
 42:                                               ; preds = %15
-  %43 = sub i64 %2, %21
+  %43 = sub nuw i64 %2, %21
   %.not13.i.i.i.i = icmp eq i64 %43, 0
   br i1 %.not13.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN2cv3MatEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

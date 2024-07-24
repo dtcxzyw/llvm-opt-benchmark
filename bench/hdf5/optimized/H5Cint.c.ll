@@ -1369,7 +1369,7 @@ define range(i32 -1, 1) i32 @H5C__flash_increase_cache_size(ptr noundef %0, i64 
   br label %70
 
 9:                                                ; preds = %3
-  %10 = sub i64 %2, %1
+  %10 = sub nuw i64 %2, %1
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %10

@@ -19926,7 +19926,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit203:                 ; preds = %.loopexit451, %.loo
   br i1 %420, label %421, label %423
 
 421:                                              ; preds = %407
-  %422 = sub i64 %414, %419
+  %422 = sub nuw i64 %414, %419
   invoke void @_ZNSt6vectorIaSaIaEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPaS1_EEmRKa(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %415, i64 noundef %422, ptr noundef nonnull align 1 dereferenceable(1) %17)
           to label %_ZNSt6vectorIaSaIaEE6resizeEmRKa.exit unwind label %428
 
@@ -20198,7 +20198,7 @@ _ZNSt6vectorIS_IbSaIbEESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIiSa
   br i1 %528, label %529, label %531
 
 529:                                              ; preds = %516
-  %530 = sub i64 %522, %527
+  %530 = sub nuw i64 %522, %527
   invoke void @_ZNSt6vectorIaSaIaEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPaS1_EEmRKa(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %523, i64 noundef %530, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %_ZNSt6vectorIaSaIaEE6resizeEmRKa.exit227 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -22241,7 +22241,7 @@ _ZSt13move_backwardIPaS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPamaaET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = sub i64 %2, %16
+  %29 = sub nuw i64 %2, %16
   %30 = getelementptr inbounds i8, ptr %9, i64 %29
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 %14, i64 %29, i1 false)
   br label %_ZSt24__uninitialized_fill_n_aIPamaaET_S1_T0_RKT1_RSaIT2_E.exit
@@ -26601,7 +26601,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %232, %_ZNSt6vectorI
   br i1 %251, label %252, label %254
 
 252:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %253 = sub nsw i64 %243, %250
+  %253 = sub nuw nsw i64 %243, %250
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %242, i64 noundef %253)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp273
 
@@ -26637,7 +26637,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIiSaIi
   br i1 %267, label %268, label %270
 
 268:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %269 = sub nsw i64 %.pre-phi405, %266
+  %269 = sub nuw nsw i64 %.pre-phi405, %266
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %259, i64 noundef %269)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit110_crit_edge unwind label %.loopexit.split-lp273
 
@@ -26673,7 +26673,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit110:            ; preds = %._ZNSt6vectorIiSaIi
   br i1 %283, label %284, label %286
 
 284:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit110
-  %285 = sub nsw i64 %.pre-phi407, %282
+  %285 = sub nuw nsw i64 %.pre-phi407, %282
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %275, i64 noundef %285)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit113 unwind label %.loopexit.split-lp273
 
@@ -26800,7 +26800,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br i1 %339, label %340, label %342
 
 340:                                              ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit
-  %341 = sub nsw i64 %331, %338
+  %341 = sub nuw nsw i64 %331, %338
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %329, i64 noundef %341)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit124_crit_edge unwind label %.loopexit.split-lp273
 
@@ -26837,7 +26837,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit124:            ; preds = %._ZNSt6vectorIiSaIi
   br i1 %356, label %357, label %359
 
 357:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit124
-  %358 = sub nsw i64 %.pre-phi409, %355
+  %358 = sub nuw nsw i64 %.pre-phi409, %355
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %348, i64 noundef %358)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit127_crit_edge unwind label %.loopexit.split-lp273
 
@@ -27477,7 +27477,7 @@ _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEET_S8_S8_
   br i1 %602, label %603, label %605
 
 603:                                              ; preds = %591
-  %604 = sub nsw i64 %594, %601
+  %604 = sub nuw nsw i64 %594, %601
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %592, i64 noundef %604)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit176 unwind label %.loopexit.split-lp273
 
@@ -32234,7 +32234,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %64, %_ZNSt6vectorIm
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit
-  %101 = sub nsw i64 %91, %98
+  %101 = sub nuw nsw i64 %91, %98
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %89, i64 noundef %101)
   %.pre = load i32, ptr %13, align 8
   %.pre132 = sext i32 %.pre to i64
@@ -32267,7 +32267,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %100, %102, %104, %1
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %117 = sub nsw i64 %.pre-phi, %114
+  %117 = sub nuw nsw i64 %.pre-phi, %114
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %107, i64 noundef %117)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit30
 
@@ -34246,7 +34246,7 @@ define linkonce_odr void @_ZN8LightGBM7Dataset9ResizeRawEi(ptr noundef nonnull a
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %16
-  %20 = sub nsw i64 %17, %11
+  %20 = sub nuw nsw i64 %17, %11
   tail call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %20)
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit
@@ -34308,7 +34308,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt8_DestroyIPSt6v
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %35
-  %47 = sub nsw i64 %34, %44
+  %47 = sub nuw nsw i64 %34, %44
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %47)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -39517,7 +39517,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %509, %_ZNSt6vectorI
   br i1 %520, label %521, label %523
 
 521:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %522 = sub nsw i64 %512, %519
+  %522 = sub nuw nsw i64 %512, %519
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %511, i64 noundef %522)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp410.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -39553,7 +39553,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIiSaIi
   br i1 %536, label %537, label %539
 
 537:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %538 = sub nsw i64 %.pre-phi, %535
+  %538 = sub nuw nsw i64 %.pre-phi, %535
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %528, i64 noundef %538)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit239_crit_edge unwind label %.loopexit.split-lp410.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -39589,7 +39589,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit239:            ; preds = %._ZNSt6vectorIiSaIi
   br i1 %552, label %553, label %555
 
 553:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit239
-  %554 = sub nsw i64 %.pre-phi591, %551
+  %554 = sub nuw nsw i64 %.pre-phi591, %551
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %544, i64 noundef %554)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit242 unwind label %.loopexit.split-lp410.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -39621,7 +39621,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit242:            ; preds = %559, %557, %555, %5
   br i1 %570, label %571, label %573
 
 571:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit242
-  %572 = sub nsw i64 %562, %569
+  %572 = sub nuw nsw i64 %562, %569
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %560, i64 noundef %572)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit245_crit_edge unwind label %.loopexit.split-lp410.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -39657,7 +39657,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit245:            ; preds = %._ZNSt6vectorIiSaIi
   br i1 %586, label %587, label %589
 
 587:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit245
-  %588 = sub nsw i64 %.pre-phi593, %585
+  %588 = sub nuw nsw i64 %.pre-phi593, %585
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %578, i64 noundef %588)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit248 unwind label %.loopexit.split-lp410.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

@@ -14657,7 +14657,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 invoke.cont102:                                   ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %47, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %47, %front.0.lcssa.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %46, i64 %front.0.lcssa.i
   %cond450 = icmp eq i64 %.sroa.speculated.i.i, 4
@@ -22640,7 +22640,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 _Z4trimSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %str.coerce0, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %str.coerce0, %front.0.lcssa.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %str.coerce1, i64 %front.0.lcssa.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
@@ -50662,7 +50662,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 invoke.cont:                                      ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %4, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %4, %front.0.lcssa.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %cmp.i.i = icmp eq i64 %.sroa.speculated.i.i, 16
   br i1 %cmp.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, label %cleanup
@@ -50840,7 +50840,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 invoke.cont:                                      ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %4, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %4, %front.0.lcssa.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %3, i64 %front.0.lcssa.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %description) #32
@@ -50898,7 +50898,7 @@ if.then.i.i.i82:                                  ; preds = %while.end12.i73
 
 invoke.cont12:                                    ; preds = %while.end12.i73
   %sub13.i76 = sub i64 %back.0.lcssa.i74, %front.0.lcssa.i68
-  %sub.i.i77 = sub i64 %8, %front.0.lcssa.i68
+  %sub.i.i77 = sub nuw i64 %8, %front.0.lcssa.i68
   %.sroa.speculated.i.i78 = call i64 @llvm.umin.i64(i64 %sub.i.i77, i64 %sub13.i76)
   %add.ptr.i27.i79 = getelementptr inbounds i8, ptr %7, i64 %front.0.lcssa.i68
   %11 = getelementptr inbounds i8, ptr %description, i64 16
@@ -51248,7 +51248,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 invoke.cont:                                      ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %4, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %4, %front.0.lcssa.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %3, i64 %front.0.lcssa.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %description) #32
@@ -51306,7 +51306,7 @@ if.then.i.i.i68:                                  ; preds = %while.end12.i59
 
 invoke.cont12:                                    ; preds = %while.end12.i59
   %sub13.i62 = sub i64 %back.0.lcssa.i60, %front.0.lcssa.i54
-  %sub.i.i63 = sub i64 %8, %front.0.lcssa.i54
+  %sub.i.i63 = sub nuw i64 %8, %front.0.lcssa.i54
   %.sroa.speculated.i.i64 = call i64 @llvm.umin.i64(i64 %sub.i.i63, i64 %sub13.i62)
   %add.ptr.i27.i65 = getelementptr inbounds i8, ptr %7, i64 %front.0.lcssa.i54
   %11 = getelementptr inbounds i8, ptr %description, i64 16
@@ -51993,7 +51993,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 invoke.cont:                                      ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %4, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %4, %front.0.lcssa.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %3, i64 %front.0.lcssa.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %description) #32
@@ -52051,7 +52051,7 @@ if.then.i.i.i68:                                  ; preds = %while.end12.i59
 
 invoke.cont12:                                    ; preds = %while.end12.i59
   %sub13.i62 = sub i64 %back.0.lcssa.i60, %front.0.lcssa.i54
-  %sub.i.i63 = sub i64 %8, %front.0.lcssa.i54
+  %sub.i.i63 = sub nuw i64 %8, %front.0.lcssa.i54
   %.sroa.speculated.i.i64 = call i64 @llvm.umin.i64(i64 %sub.i.i63, i64 %sub13.i62)
   %add.ptr.i27.i65 = getelementptr inbounds i8, ptr %7, i64 %front.0.lcssa.i54
   %11 = getelementptr inbounds i8, ptr %description, i64 16
@@ -52738,7 +52738,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 invoke.cont:                                      ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %4, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %4, %front.0.lcssa.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %3, i64 %front.0.lcssa.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %description) #32
@@ -52796,7 +52796,7 @@ if.then.i.i.i68:                                  ; preds = %while.end12.i59
 
 invoke.cont12:                                    ; preds = %while.end12.i59
   %sub13.i62 = sub i64 %back.0.lcssa.i60, %front.0.lcssa.i54
-  %sub.i.i63 = sub i64 %8, %front.0.lcssa.i54
+  %sub.i.i63 = sub nuw i64 %8, %front.0.lcssa.i54
   %.sroa.speculated.i.i64 = call i64 @llvm.umin.i64(i64 %sub.i.i63, i64 %sub13.i62)
   %add.ptr.i27.i65 = getelementptr inbounds i8, ptr %7, i64 %front.0.lcssa.i54
   %11 = getelementptr inbounds i8, ptr %description, i64 16
@@ -54833,7 +54833,7 @@ if.then.i.i.i689:                                 ; preds = %while.end12.i
 
 invoke.cont129:                                   ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %210, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %210, %front.0.lcssa.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %209, i64 %front.0.lcssa.i
   store ptr %136, ptr %selector, align 8, !tbaa !148
@@ -57443,7 +57443,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 _Z4trimSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %1, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %1, %front.0.lcssa.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %0, i64 %front.0.lcssa.i
   %4 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -62195,7 +62195,7 @@ if.then.i.i.i1443:                                ; preds = %while.end12.i
 
 invoke.cont282:                                   ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %185, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %185, %front.0.lcssa.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %cmp.i1446 = icmp eq i64 %.sroa.speculated.i.i, 10
   br i1 %cmp.i1446, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
@@ -62380,7 +62380,7 @@ if.then.i.i.i1490.cont:                           ; preds = %if.then.i.i.i1490.i
 
 invoke.cont315:                                   ; preds = %while.end12.i1481
   %sub13.i1484 = sub i64 %back.0.lcssa.i1482, %front.0.lcssa.i1476
-  %sub.i.i1485 = sub i64 %202, %front.0.lcssa.i1476
+  %sub.i.i1485 = sub nuw i64 %202, %front.0.lcssa.i1476
   %.sroa.speculated.i.i1486 = call i64 @llvm.umin.i64(i64 %sub.i.i1485, i64 %sub13.i1484)
   %cmp.i.i1501 = icmp eq i64 %.sroa.speculated.i.i1486, 16
   br i1 %cmp.i.i1501, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, label %cleanup335
@@ -62467,7 +62467,7 @@ while.end12.i1529:                                ; preds = %land.rhs5.i1539, %w
 
 invoke.cont329:                                   ; preds = %while.end12.i1529
   %sub13.i1532 = sub i64 %back.0.lcssa.i1530, %front.0.lcssa.i1524
-  %sub.i.i1533 = sub i64 %210, %front.0.lcssa.i1524
+  %sub.i.i1533 = sub nuw i64 %210, %front.0.lcssa.i1524
   %.sroa.speculated.i.i1534 = call i64 @llvm.umin.i64(i64 %sub.i.i1533, i64 %sub13.i1532)
   %add.ptr.i27.i1535 = getelementptr inbounds i8, ptr %209, i64 %front.0.lcssa.i1524
   %call332 = invoke noundef zeroext i1 @_Z6is_yesSt17basic_string_viewIcSt11char_traitsIcEE(i64 %.sroa.speculated.i.i1534, ptr %add.ptr.i27.i1535)
@@ -73603,7 +73603,7 @@ if.then697:                                       ; preds = %if.else693
   br label %sw.epilog1227.thread
 
 if.else699:                                       ; preds = %if.else693
-  %conv702 = sub i16 %266, %move_amount.0.shrunk
+  %conv702 = sub nuw i16 %266, %move_amount.0.shrunk
   store i16 %conv702, ptr %m_selected_amount694, align 8, !tbaa !674
   br label %sw.epilog1227.thread
 

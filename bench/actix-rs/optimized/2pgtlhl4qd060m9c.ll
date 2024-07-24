@@ -5374,7 +5374,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.
   %195 = getelementptr inbounds i8, ptr %192, i64 %.0244
   %196 = load i8, ptr %195, align 1, !alias.scope !667, !noundef !4
   %197 = icmp sgt i8 %196, -65
-  %198 = sub i64 %190, %.0244
+  %198 = sub nuw i64 %190, %.0244
   br i1 %197, label %218, label %217
 
 199:                                              ; preds = %"_ZN4core3ptr57drop_in_place$LT$regex..regex..string..CaptureMatches$GT$17h8f8292e2f9391db2E.exit280", %236

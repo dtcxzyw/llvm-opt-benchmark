@@ -1425,7 +1425,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
 322:                                              ; preds = %315
   %323 = add i64 %316, %278
   %324 = icmp ugt i64 %323, %309
-  %325 = sub i64 %309, %316
+  %325 = sub nuw i64 %309, %316
   %spec.select335 = select i1 %324, i64 %325, i64 %278
   %326 = call i32 @H5FD_read(ptr noundef %191, i32 noundef %1, i64 noundef %316, i64 noundef %spec.select335, ptr noundef nonnull %302) #9
   %327 = icmp slt i32 %326, 0
@@ -2692,7 +2692,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5PB__write_entry(ptr noundef %0, p
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %13
   %20 = icmp ugt i64 %19, %5
-  %21 = sub i64 %5, %13
+  %21 = sub nuw i64 %5, %13
   %spec.select = select i1 %20, i64 %21, i64 %18
   %22 = load ptr, ptr %0, align 8
   %23 = load i32, ptr %3, align 8

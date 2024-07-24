@@ -1948,7 +1948,7 @@ _ZN6Assimp13ASSIMP_itoa10EPcji.exit:              ; preds = %if.then6.i, %if.end
   br i1 %cmp317, label %if.then318, label %if.end327
 
 if.then318:                                       ; preds = %_ZN6Assimp13ASSIMP_itoa10EPcji.exit
-  %sub = sub i32 %written.3.i, %spec.select.i
+  %sub = sub nuw i32 %written.3.i, %spec.select.i
   %mDataLength = getelementptr inbounds i8, ptr %141, i64 1036
   %153 = load i32, ptr %mDataLength, align 4
   %add320 = add i32 %sub, %153

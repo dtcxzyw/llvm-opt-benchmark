@@ -222,7 +222,7 @@ define hidden noundef zeroext i1 @_ZN2cv4face18FacemarkKazemiImpl20findNearestLa
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %23
-  %37 = sub nsw i64 %27, %34
+  %37 = sub nuw nsw i64 %27, %34
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %37)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
@@ -451,7 +451,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -818,7 +818,7 @@ define hidden void @_ZN2cv4face18FacemarkKazemiImpl9loadModelENSt7__cxx1112basic
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %114
-  %126 = sub i64 %116, %123
+  %126 = sub nuw i64 %116, %123
   invoke void @_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %115, i64 noundef %126)
           to label %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit unwind label %.loopexit.split-lp160
 
@@ -1162,7 +1162,7 @@ _ZN2cv4face18FacemarkKazemiImpl10readPixelsERSt14basic_ifstreamIcSt11char_traits
   br i1 %258, label %259, label %289
 
 259:                                              ; preds = %249
-  %260 = sub i64 %251, %257
+  %260 = sub nuw i64 %251, %257
   %261 = load ptr, ptr %218, align 8
   %262 = ptrtoint ptr %261 to i64
   %263 = sub i64 %262, %254
@@ -1183,7 +1183,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv4face9tree_nodeEmS2_ET_S4_T0_RSaIT1_E.exi
   br label %_ZNSt6vectorIN2cv4face9tree_nodeESaIS2_EE6resizeEm.exit
 
 269:                                              ; preds = %259
-  %270 = icmp ult i64 %266, %260
+  %270 = icmp ugt i64 %251, 192153584101141162
   br i1 %270, label %271, label %_ZNKSt6vectorIN2cv4face9tree_nodeESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 271:                                              ; preds = %269
@@ -1933,7 +1933,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIS_IN2cv4face7regtreeESaIS2_EESaIS4
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIS_IN2cv4face7regtreeESaIS2_EESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIS_IN2cv4face7regtreeESaIS2_EESaIS4_EE15_M_erase_at_endEPS4_.exit
 

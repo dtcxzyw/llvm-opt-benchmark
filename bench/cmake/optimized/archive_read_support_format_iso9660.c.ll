@@ -1204,7 +1204,7 @@ rede_add_entry.exit157.i.i:                       ; preds = %222
   br i1 %278, label %279, label %285
 
 279:                                              ; preds = %277
-  %280 = sub i64 %262, %260
+  %280 = sub nuw i64 %262, %260
   %281 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %280) #18
   %282 = icmp slt i64 %281, 0
   br i1 %282, label %read_children.exit.i.i, label %283
@@ -1851,7 +1851,7 @@ next_cache_entry.exit.i:                          ; preds = %558
   br i1 %583, label %584, label %next_entry_seek.exit.thread186
 
 584:                                              ; preds = %579
-  %585 = sub i64 %582, %580
+  %585 = sub nuw i64 %582, %580
   %586 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %585) #18
   %587 = icmp slt i64 %586, 0
   br i1 %587, label %next_entry_seek.exit, label %588
@@ -2284,7 +2284,7 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %27
-  %33 = sub i64 %30, %29
+  %33 = sub nuw i64 %30, %29
   %34 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %33) #18
   %35 = icmp slt i64 %34, 0
   br i1 %35, label %36, label %.thread65
@@ -2503,7 +2503,7 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   br i1 %145, label %146, label %159
 
 146:                                              ; preds = %141
-  %147 = sub i64 %144, %143
+  %147 = sub nuw i64 %144, %143
   %spec.select193.i = call i64 @llvm.umin.i64(i64 %.0157.i, i64 %147)
   %148 = getelementptr inbounds i8, ptr %56, i64 312
   %149 = load ptr, ptr %148, align 8
@@ -2584,7 +2584,7 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   br label %zisofs_read_data.exit
 
 189:                                              ; preds = %184
-  %190 = sub i32 %186, %175
+  %190 = sub nuw i32 %186, %175
   store i32 %190, ptr %161, align 8
   store i64 %167, ptr %165, align 8
   %191 = getelementptr inbounds i8, ptr %56, i64 472

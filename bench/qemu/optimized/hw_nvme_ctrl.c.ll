@@ -17068,7 +17068,7 @@ while.body.i:                                     ; preds = %if.end.i130, %if.en
   br i1 %cmp19.i, label %if.then21.i, label %if.end24.i
 
 if.then21.i:                                      ; preds = %while.body.i
-  %sub.i134 = sub i64 %80, %conv18.i
+  %sub.i134 = sub nuw i64 %80, %conv18.i
   store i64 %sub.i134, ptr %arrayidx13.i, align 8
   br label %if.end150
 
@@ -22786,10 +22786,10 @@ if.end7:                                          ; preds = %if.end, %if.then4
   br i1 %cmp10.not, label %if.end13, label %cleanup
 
 if.end13:                                         ; preds = %if.end7
-  %sub = sub nsw i64 %conv9, %off
+  %sub = sub nuw nsw i64 %conv9, %off
   %conv15 = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv15)
-  %conv18 = trunc nuw i64 %cond to i32
+  %conv18 = trunc nuw nsw i64 %cond to i32
   %call20 = tail call noalias ptr @g_malloc0(i64 noundef %conv9) #20
   %add.ptr = getelementptr i8, ptr %call20, i64 16
   %add.ptr22 = getelementptr i8, ptr %call20, i64 80
@@ -22904,10 +22904,10 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp9.not, label %if.end12, label %cleanup
 
 if.end12:                                         ; preds = %if.end5
-  %sub = sub nsw i64 %add, %off
+  %sub = sub nuw nsw i64 %add, %off
   %conv14 = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv14)
-  %conv17 = trunc nuw i64 %cond to i32
+  %conv17 = trunc nuw nsw i64 %cond to i32
   %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #20
   %ruhs = getelementptr inbounds i8, ptr %0, i64 12792
   %3 = load ptr, ptr %ruhs, align 8
@@ -23039,7 +23039,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp16.not, label %if.end19, label %cleanup
 
 if.end19:                                         ; preds = %if.end7
-  %sub = sub nsw i64 %conv15, %off
+  %sub = sub nuw nsw i64 %conv15, %off
   %conv21 = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv21)
   %conv24 = trunc nuw i64 %cond to i32
@@ -23078,7 +23078,7 @@ if.else44:                                        ; preds = %if.end19
 if.then49:                                        ; preds = %if.else44
   %idxprom52 = zext i32 %.pre to i64
   %arrayidx53 = getelementptr [63 x %struct.NvmeFdpEvent], ptr %ebuf.0, i64 0, i64 %idxprom52
-  %sub56 = sub i32 %.pre35, %.pre
+  %sub56 = sub nuw i32 %.pre35, %.pre
   %conv57 = zext i32 %sub56 to i64
   %mul58 = shl nuw nsw i64 %conv57, 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 4 %arrayidx53, i64 %mul58, i1 false)

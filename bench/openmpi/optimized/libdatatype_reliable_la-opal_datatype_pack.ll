@@ -300,7 +300,7 @@ define range(i32 0, 2) i32 @opal_pack_homogeneous_contig_with_gaps_checksum(ptr 
   %113 = add i32 %112, %111
   store i32 %113, ptr %45, align 8
   %114 = getelementptr inbounds i8, ptr %94, i64 %108
-  %115 = sub i64 %spec.select, %108
+  %115 = sub nuw i64 %spec.select, %108
   %116 = load i64, ptr %41, align 8
   %117 = sub i64 %116, %108
   store i64 %117, ptr %41, align 8

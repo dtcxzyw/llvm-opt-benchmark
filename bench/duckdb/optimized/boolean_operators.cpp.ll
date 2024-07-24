@@ -2405,7 +2405,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %cl
   br i1 %cmp9112.us, label %iter.check149, label %cleanup.loopexit110.us
 
 iter.check149:                                    ; preds = %for.body.us
-  %16 = sub i64 %cond.i.us, %base_idx.0119.us
+  %16 = sub nuw i64 %cond.i.us, %base_idx.0119.us
   %min.iters.check147 = icmp ult i64 %16, 8
   br i1 %min.iters.check147, label %for.body10.us.preheader, label %vector.main.loop.iter.check151
 
@@ -2504,7 +2504,7 @@ for.cond8.preheader:                              ; preds = %for.body
   br i1 %cmp9112, label %iter.check, label %cleanup
 
 iter.check:                                       ; preds = %for.cond8.preheader
-  %30 = sub i64 %cond.i, %base_idx.0119
+  %30 = sub nuw i64 %cond.i, %base_idx.0119
   %min.iters.check = icmp ult i64 %30, 8
   br i1 %min.iters.check, label %for.body10.preheader, label %vector.main.loop.iter.check
 
@@ -2574,7 +2574,7 @@ for.cond19.preheader:                             ; preds = %for.body
   br i1 %cmp20114, label %for.body21.preheader, label %cleanup
 
 for.body21.preheader:                             ; preds = %for.cond19.preheader
-  %42 = sub i64 %cond.i, %base_idx.0119
+  %42 = sub nuw i64 %cond.i, %base_idx.0119
   %.neg = add nuw i64 %base_idx.0119, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0

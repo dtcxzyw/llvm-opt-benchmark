@@ -463,9 +463,9 @@ for.body91.preheader:                             ; preds = %if.end45, %for.cond
   %i.0.lcssa209 = phi i32 [ %7, %for.cond88.preheader ], [ 0, %if.end45 ]
   %8 = zext nneg i32 %i.0.lcssa209 to i64
   %scevgep = getelementptr i8, ptr %p_str, i64 %8
-  %narrow = sub i32 33, %i.0.lcssa209
-  %9 = zext i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %9, i1 false)
+  %narrow = sub nuw nsw i32 33, %i.0.lcssa209
+  %9 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %9, i1 false)
   br label %for.end95
 
 for.body:                                         ; preds = %if.end45, %for.body
@@ -773,9 +773,9 @@ for.body96.preheader.i:                           ; preds = %for.cond93.preheade
   %j.0.lcssa287.i = phi i32 [ %71, %for.cond93.preheader.i ], [ 0, %if.end37.i ]
   %72 = zext nneg i32 %j.0.lcssa287.i to i64
   %scevgep279.i = getelementptr i8, ptr %scevgep.i, i64 %72
-  %narrow.i = sub i32 33, %j.0.lcssa287.i
-  %73 = zext i32 %narrow.i to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep279.i, i8 0, i64 %73, i1 false)
+  %narrow.i = sub nuw nsw i32 33, %j.0.lcssa287.i
+  %73 = zext nneg i32 %narrow.i to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep279.i, i8 0, i64 %73, i1 false)
   br label %for.end101.i
 
 for.body43.i:                                     ; preds = %if.end37.i, %for.body43.i

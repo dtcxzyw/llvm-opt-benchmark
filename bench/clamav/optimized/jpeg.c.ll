@@ -236,7 +236,7 @@ fmap_readn.exit217.thread:                        ; preds = %.lr.ph
   br i1 %62, label %fmap_readn.exit222, label %63
 
 63:                                               ; preds = %61
-  %64 = sub i64 %.pre592, %59
+  %64 = sub nuw i64 %.pre592, %59
   %spec.select.i219 = tail call i64 @llvm.umin.i64(i64 %64, i64 2)
   %65 = load ptr, ptr %13, align 8
   %66 = tail call ptr %65(ptr noundef nonnull %9, i64 noundef %59, i64 noundef %spec.select.i219, i32 noundef 0) #6
@@ -272,7 +272,7 @@ fmap_readn.exit222._crit_edge:                    ; preds = %fmap_readn.exit222
   br i1 %or.cond298.not, label %75, label %fmap_readn.exit227.thread
 
 75:                                               ; preds = %.thread._crit_edge
-  %76 = sub i64 %74, %59
+  %76 = sub nuw i64 %74, %59
   %spec.select.i224 = tail call i64 @llvm.umin.i64(i64 %76, i64 2)
   %77 = load ptr, ptr %13, align 8
   %78 = tail call ptr %77(ptr noundef nonnull %9, i64 noundef %59, i64 noundef %spec.select.i224, i32 noundef 0) #6
@@ -397,7 +397,7 @@ fmap_readn.exit227.thread:                        ; preds = %75, %.thread._crit_
   br i1 %or.cond299.not, label %113, label %fmap_readn.exit232.thread
 
 113:                                              ; preds = %111
-  %114 = sub i64 %99, %112
+  %114 = sub nuw i64 %99, %112
   %spec.select.i229 = tail call i64 @llvm.umin.i64(i64 %114, i64 5)
   %115 = load ptr, ptr %13, align 8
   %116 = tail call ptr %115(ptr noundef nonnull %9, i64 noundef %112, i64 noundef %spec.select.i229, i32 noundef 0) #6
@@ -487,7 +487,7 @@ fmap_readn.exit232.thread:                        ; preds = %113, %111, %118, %f
   br i1 %or.cond301.not, label %151, label %fmap_readn.exit237.thread
 
 151:                                              ; preds = %149
-  %152 = sub i64 %99, %150
+  %152 = sub nuw i64 %99, %150
   %spec.select.i234 = tail call i64 @llvm.umin.i64(i64 %152, i64 6)
   %153 = load ptr, ptr %13, align 8
   %154 = tail call ptr %153(ptr noundef nonnull %9, i64 noundef %150, i64 noundef %spec.select.i234, i32 noundef 0) #6
@@ -561,7 +561,7 @@ fmap_readn.exit237.thread:                        ; preds = %151, %149, %156, %f
   br i1 %or.cond302.not, label %184, label %fmap_readn.exit242.thread
 
 184:                                              ; preds = %fmap_readn.exit237.thread
-  %185 = sub i64 %183, %150
+  %185 = sub nuw i64 %183, %150
   %spec.select.i239 = tail call i64 @llvm.umin.i64(i64 %185, i64 7)
   %186 = load ptr, ptr %13, align 8
   %187 = tail call ptr %186(ptr noundef nonnull %9, i64 noundef %150, i64 noundef %spec.select.i239, i32 noundef 0) #6
@@ -592,7 +592,7 @@ fmap_readn.exit242.thread:                        ; preds = %184, %fmap_readn.ex
   br i1 %or.cond303.not, label %194, label %fmap_readn.exit247.thread
 
 194:                                              ; preds = %192
-  %195 = sub i64 %99, %193
+  %195 = sub nuw i64 %99, %193
   %spec.select.i244 = tail call i64 @llvm.umin.i64(i64 %195, i64 13)
   %196 = load ptr, ptr %13, align 8
   %197 = tail call ptr %196(ptr noundef nonnull %9, i64 noundef %193, i64 noundef %spec.select.i244, i32 noundef 0) #6
@@ -625,7 +625,7 @@ fmap_readn.exit247.thread:                        ; preds = %194, %192, %199, %f
   br i1 %or.cond304.not, label %206, label %fmap_readn.exit252.thread
 
 206:                                              ; preds = %204
-  %207 = sub i64 %99, %205
+  %207 = sub nuw i64 %99, %205
   %spec.select.i249 = tail call i64 @llvm.umin.i64(i64 %207, i64 6)
   %208 = load ptr, ptr %13, align 8
   %209 = tail call ptr %208(ptr noundef nonnull %9, i64 noundef %205, i64 noundef %spec.select.i249, i32 noundef 0) #6
@@ -701,7 +701,7 @@ fmap_readn.exit252.thread:                        ; preds = %206, %204, %211, %f
   br i1 %or.cond305.not, label %236, label %fmap_readn.exit257.thread
 
 236:                                              ; preds = %234
-  %237 = sub i64 %99, %235
+  %237 = sub nuw i64 %99, %235
   %spec.select.i254 = tail call i64 @llvm.umin.i64(i64 %237, i64 14)
   %238 = load ptr, ptr %13, align 8
   %239 = tail call ptr %238(ptr noundef nonnull %9, i64 noundef %235, i64 noundef %spec.select.i254, i32 noundef 0) #6
@@ -761,7 +761,7 @@ fmap_readn.exit257:                               ; preds = %236
   br i1 %or.cond.not.i, label %269, label %.thread294
 
 269:                                              ; preds = %251
-  %270 = sub i64 %268, %266
+  %270 = sub nuw i64 %268, %266
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %270, i64 4)
   %271 = load ptr, ptr %247, align 8
   %272 = tail call ptr %271(ptr noundef nonnull %246, i64 noundef %266, i64 noundef %spec.select.i.i, i32 noundef 0) #6
@@ -844,7 +844,7 @@ fmap_readn.exit257.thread:                        ; preds = %236, %234, %241, %f
   br i1 %or.cond306.not, label %293, label %fmap_readn.exit265.thread
 
 293:                                              ; preds = %291
-  %294 = sub i64 %99, %292
+  %294 = sub nuw i64 %99, %292
   %spec.select.i262 = tail call i64 @llvm.umin.i64(i64 %294, i64 6)
   %295 = load ptr, ptr %13, align 8
   %296 = tail call ptr %295(ptr noundef nonnull %9, i64 noundef %292, i64 noundef %spec.select.i262, i32 noundef 0) #6

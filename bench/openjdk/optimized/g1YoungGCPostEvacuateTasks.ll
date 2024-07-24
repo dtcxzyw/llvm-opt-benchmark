@@ -1148,7 +1148,7 @@ define linkonce_odr hidden void @_ZN39G1PostEvacuateCollectionSetCleanupTask133S
   %15 = icmp ult i32 %.sroa.3.013, %14
   %.sink.i = select i1 %15, i64 16, i64 40
   %16 = select i1 %15, i32 0, i32 %14
-  %.sink6.i = sub i32 %.sroa.3.013, %16
+  %.sink6.i = sub nuw i32 %.sroa.3.013, %16
   %17 = getelementptr inbounds i8, ptr %7, i64 %.sink.i
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %.sink6.i to i64
@@ -2518,7 +2518,7 @@ define linkonce_odr hidden void @_ZN39G1PostEvacuateCollectionSetCleanupTask215R
   br i1 %.not7.i.i, label %_ZN24G1JavaThreadsListClaimer5claimERj.exit.i, label %_ZN24G1JavaThreadsListClaimer5applyEP13ThreadClosure.exit
 
 _ZN24G1JavaThreadsListClaimer5claimERj.exit.i:    ; preds = %.lr.ph12.i
-  %18 = sub i32 %17, %14
+  %18 = sub nuw i32 %17, %14
   %19 = load i32, ptr %4, align 8
   %20 = call noundef i32 @llvm.umin.i32(i32 %18, i32 %19)
   %21 = getelementptr inbounds i8, ptr %15, i64 16

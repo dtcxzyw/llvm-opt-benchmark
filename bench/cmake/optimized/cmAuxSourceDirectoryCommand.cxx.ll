@@ -338,7 +338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64: ; 
 
 109:                                              ; preds = %104
   %110 = extractvalue { i64, ptr } %105, 1
-  %111 = sub i64 %106, %107
+  %111 = sub nuw i64 %106, %107
   %112 = getelementptr inbounds i8, ptr %110, i64 %107
   %113 = invoke noundef ptr @_ZNK10cmMakefile16GetCMakeInstanceEv(ptr noundef nonnull align 8 dereferenceable(3520) %40)
           to label %114 unwind label %.loopexit98

@@ -856,7 +856,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv5Size_IiEESaIS2_EE6resizeEm(pt
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -10843,7 +10843,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %._crit_edge144
-  %103 = sub nsw i64 %93, %100
+  %103 = sub nuw nsw i64 %93, %100
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %103)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %126
 
@@ -11847,7 +11847,7 @@ define void @_ZN2cv6detail18GraphCutSeamFinder4Impl4findERKSt6vectorINS_4UMatESa
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %4
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %30)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
@@ -11890,7 +11890,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %29, %31, %33, %_ZSt
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %52)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit64
 

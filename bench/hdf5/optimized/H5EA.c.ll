@@ -573,7 +573,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br label %.sink.split
 
 111:                                              ; preds = %37
-  %112 = sub nsw i64 %43, %50
+  %112 = sub nuw nsw i64 %43, %50
   %113 = getelementptr inbounds i8, ptr %22, i64 264
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i64, ptr %114, i64 %112

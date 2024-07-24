@@ -1727,7 +1727,7 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE4backEv.exit: ; preds = %_ZN2cv5mjp
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EE4backEv.exit
-  %75 = sub nsw i64 %42, %72
+  %75 = sub nuw nsw i64 %42, %72
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %65, i64 noundef %75)
   br label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit
 
@@ -2154,7 +2154,7 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit:       ; preds = %153, %161
   br label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i176.us
 
 268:                                              ; preds = %259
-  %269 = sub nsw i64 %261, %253
+  %269 = sub nuw nsw i64 %261, %253
   %270 = load ptr, ptr %185, align 8
   %271 = ptrtoint ptr %270 to i64
   %272 = sub i64 %271, %250
@@ -2330,7 +2330,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit181.us: ; preds = %314, %304
   br label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i.us
 
 356:                                              ; preds = %347
-  %357 = sub nsw i64 %349, %341
+  %357 = sub nuw nsw i64 %349, %341
   %358 = load ptr, ptr %185, align 8
   %359 = ptrtoint ptr %358 to i64
   %360 = sub i64 %359, %338
@@ -2515,7 +2515,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit.us:   ; preds = %401, %391
   br label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i219.us
 
 448:                                              ; preds = %439
-  %449 = sub nsw i64 %441, %433
+  %449 = sub nuw nsw i64 %441, %433
   %450 = load ptr, ptr %185, align 8
   %451 = ptrtoint ptr %450 to i64
   %452 = sub i64 %451, %430
@@ -2723,7 +2723,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit224.us: ; preds = %494, %484
   br label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i196.us
 
 555:                                              ; preds = %546
-  %556 = sub nsw i64 %548, %540
+  %556 = sub nuw nsw i64 %548, %540
   %557 = load ptr, ptr %185, align 8
   %558 = ptrtoint ptr %557 to i64
   %559 = sub i64 %558, %537
@@ -2900,7 +2900,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit201.us: ; preds = %601, %591
   br label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i166.us
 
 644:                                              ; preds = %635
-  %645 = sub nsw i64 %637, %629
+  %645 = sub nuw nsw i64 %637, %629
   %646 = load ptr, ptr %185, align 8
   %647 = ptrtoint ptr %646 to i64
   %648 = sub i64 %647, %626
@@ -3076,7 +3076,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i166.us: ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i186.us
 
 734:                                              ; preds = %725
-  %735 = sub nsw i64 %727, %719
+  %735 = sub nuw nsw i64 %727, %719
   %736 = load ptr, ptr %185, align 8
   %737 = ptrtoint ptr %736 to i64
   %738 = sub i64 %737, %716
@@ -4583,7 +4583,7 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit12: ; preds = %80, %88
 
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %110, %109
   %.pre-phi18 = phi i64 [ %107, %109 ], [ 0, %110 ]
-  %111 = sub nsw i64 %99, %.pre-phi18
+  %111 = sub nuw nsw i64 %99, %.pre-phi18
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %100, i64 noundef %111)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 

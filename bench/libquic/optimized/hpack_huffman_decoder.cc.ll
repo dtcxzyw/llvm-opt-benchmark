@@ -267,7 +267,7 @@ if.else22:                                        ; preds = %if.end14
   %add.i = add nuw nsw i32 %shr.i, %conv.i
   %shl = shl i32 %2, %8
   store i32 %shl, ptr %bits, align 4
-  %sub = sub i64 %3, %length.0.i
+  %sub = sub nuw i64 %3, %length.0.i
   store i64 %sub, ptr %bits_available, align 8
   call void @_ZN3net16HpackInputStream11ConsumeBitsEm(ptr noundef nonnull align 8 dereferenceable(33) %in, i64 noundef %length.0.i)
   %cmp24 = icmp ult i32 %add.i, 256

@@ -995,7 +995,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -1105,7 +1105,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %size, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %size, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %mCompressedSize, i64 noundef %sub.i)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
@@ -1394,7 +1394,7 @@ invoke.cont65:                                    ; preds = %if.end.i30, %_ZNSt1
   br i1 %cmp.i52, label %if.then.i55, label %if.else.i
 
 if.then.i55:                                      ; preds = %invoke.cont65
-  %sub.i = sub nsw i64 %conv67, %sub.ptr.div.i.i51
+  %sub.i = sub nuw nsw i64 %conv67, %sub.ptr.div.i.i51
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %mCompressedSize, i64 noundef %sub.i)
           to label %if.then.i55.invoke.cont68_crit_edge unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit68
 
@@ -1455,7 +1455,7 @@ if.else78:                                        ; preds = %if.end40
   br i1 %cmp.i74, label %if.then.i81, label %if.else.i75
 
 if.then.i81:                                      ; preds = %if.else78
-  %sub.i82 = sub nsw i64 %conv80, %sub.ptr.div.i.i73
+  %sub.i82 = sub nuw nsw i64 %conv80, %sub.ptr.div.i.i73
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %mCompressedSize79, i64 noundef %sub.i82)
   %.pre = load ptr, ptr %mCompressedSize79, align 8
   %.pre99 = load i32, ptr %count, align 4

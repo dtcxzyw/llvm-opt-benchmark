@@ -2512,7 +2512,7 @@ define linkonce_odr void @_ZN8LightGBM16RegressionL2loss4InitERKNS_8MetadataEi(p
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %13
-  %25 = sub nsw i64 %15, %22
+  %25 = sub nuw nsw i64 %15, %22
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %25)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -20162,7 +20162,7 @@ define linkonce_odr void @_ZN8LightGBM14LambdarankNDCG4InitERKNS_8MetadataEi(ptr
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %3
-  %23 = sub nsw i64 %13, %20
+  %23 = sub nuw nsw i64 %13, %20
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %23)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -20875,7 +20875,7 @@ define linkonce_odr void @_ZN8LightGBM16RankingObjective4InitERKNS_8MetadataEi(p
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %43
-  %59 = sub nsw i64 %49, %56
+  %59 = sub nuw nsw i64 %49, %56
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr %51, i64 noundef %59, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
@@ -20962,7 +20962,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -21196,7 +21196,7 @@ define linkonce_odr void @_ZN8LightGBM14LambdarankNDCG21ConstructSigmoidTableEv(
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %1
-  %22 = sub i64 %12, %19
+  %22 = sub nuw i64 %12, %19
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %22)
   %.pre = load i64, ptr %11, align 8
   %.pre6 = load double, ptr %9, align 8
@@ -23544,7 +23544,7 @@ define linkonce_odr void @_ZN8LightGBM17MulticlassSoftmax4InitERKNS_8MetadataEi(
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %3
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %32)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -23578,7 +23578,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %51 = sub nsw i64 %41, %48
+  %51 = sub nuw nsw i64 %41, %48
   call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr %43, i64 noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %10)
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
@@ -24085,7 +24085,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds double, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -24254,7 +24254,7 @@ define internal void @_ZNK8LightGBM17MulticlassSoftmax12GetGradientsEPKdPfS3_.om
   br i1 %31, label %32, label %63
 
 32:                                               ; preds = %24
-  %33 = sub nsw i64 %26, %30
+  %33 = sub nuw nsw i64 %26, %30
   %34 = ptrtoint ptr %.sroa.19.059 to i64
   %35 = sub i64 %34, %27
   %36 = ashr exact i64 %35, 3
@@ -24540,7 +24540,7 @@ define internal void @_ZNK8LightGBM17MulticlassSoftmax12GetGradientsEPKdPfS3_.om
   br i1 %32, label %33, label %64
 
 33:                                               ; preds = %25
-  %34 = sub nsw i64 %27, %31
+  %34 = sub nuw nsw i64 %27, %31
   %35 = ptrtoint ptr %.sroa.19.062 to i64
   %36 = sub i64 %35, %28
   %37 = ashr exact i64 %36, 3
@@ -26760,7 +26760,7 @@ define linkonce_odr void @_ZN8LightGBM18RegressionMAPELOSS4InitERKNS_8MetadataEi
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.loopexit
-  %28 = sub nsw i64 %18, %25
+  %28 = sub nuw nsw i64 %18, %25
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %28)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -33956,7 +33956,7 @@ define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_
   br i1 %18, label %19, label %32
 
 19:                                               ; preds = %17
-  %20 = sub i64 %.033, %.01732
+  %20 = sub nuw i64 %.033, %.01732
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.01732, i64 noundef %20)
           to label %21 unwind label %.loopexit
 

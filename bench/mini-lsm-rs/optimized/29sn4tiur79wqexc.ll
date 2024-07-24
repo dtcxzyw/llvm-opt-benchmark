@@ -9355,7 +9355,7 @@ define hidden void @"_ZN4core3ptr181drop_in_place$LT$crossbeam_channel..flavors.
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -9394,7 +9394,7 @@ define hidden void @"_ZN4core3ptr181drop_in_place$LT$crossbeam_channel..flavors.
   %34 = add i64 %.sroa.01.017.i, %8
   %35 = icmp ult i64 %34, %29
   %36 = select i1 %35, i64 0, i64 %29
-  %.0.i = sub i64 %34, %36
+  %.0.i = sub nuw i64 %34, %36
   %37 = getelementptr inbounds { { i64 }, { { [3 x i64] } } }, ptr %31, i64 %.0.i, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2877)
   %38 = load ptr, ptr %37, align 8, !alias.scope !2877, !noalias !2874, !noundef !4
@@ -9693,7 +9693,7 @@ define hidden void @"_ZN4core3ptr182drop_in_place$LT$crossbeam_channel..flavors.
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -9731,7 +9731,7 @@ define hidden void @"_ZN4core3ptr182drop_in_place$LT$crossbeam_channel..flavors.
   %33 = add i64 %.sroa.01.017.i, %8
   %34 = icmp ult i64 %33, %29
   %35 = select i1 %34, i64 0, i64 %29
-  %.0.i = sub i64 %33, %35
+  %.0.i = sub nuw i64 %33, %35
   %36 = getelementptr inbounds { { { [4 x i64] } }, { i64 } }, ptr %31, i64 %.0.i
   invoke void @"_ZN4core3ptr132drop_in_place$LT$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$17h3f275f13536957ffE.llvm.1597650999041595525"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36)
           to label %.noexc unwind label %38
@@ -10548,7 +10548,7 @@ define hidden void @"_ZN4core3ptr193drop_in_place$LT$crossbeam_channel..flavors.
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -10586,7 +10586,7 @@ define hidden void @"_ZN4core3ptr193drop_in_place$LT$crossbeam_channel..flavors.
   %33 = add i64 %.sroa.01.017.i, %8
   %34 = icmp ult i64 %33, %29
   %35 = select i1 %34, i64 0, i64 %29
-  %.0.i = sub i64 %33, %35
+  %.0.i = sub nuw i64 %33, %35
   %36 = getelementptr inbounds { { { [4 x i64] } }, { i64 } }, ptr %31, i64 %.0.i
   invoke void @"_ZN4core3ptr143drop_in_place$LT$moka..notification..notifier..RemovedEntries$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$17h30e2ed90a4b547feE.llvm.1597650999041595525"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36)
           to label %.noexc unwind label %38
@@ -28659,7 +28659,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -28701,7 +28701,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   %34 = add i64 %.sroa.01.017, %8
   %35 = icmp ult i64 %34, %29
   %36 = select i1 %35, i64 0, i64 %29
-  %.0 = sub i64 %34, %36
+  %.0 = sub nuw i64 %34, %36
   %37 = getelementptr inbounds { { i64 }, { { [3 x i64] } } }, ptr %31, i64 %.0, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8146)
   %38 = load ptr, ptr %37, align 8, !alias.scope !8146, !noundef !4
@@ -28749,7 +28749,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -28791,7 +28791,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   %34 = add i64 %.sroa.01.017, %8
   %35 = icmp ult i64 %34, %29
   %36 = select i1 %35, i64 0, i64 %29
-  %.0 = sub i64 %34, %36
+  %.0 = sub nuw i64 %34, %36
   %37 = getelementptr inbounds { { { [4 x i64] } }, { i64 } }, ptr %31, i64 %.0
   tail call void @"_ZN4core3ptr132drop_in_place$LT$moka..common..concurrent..WriteOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$17h3f275f13536957ffE.llvm.1597650999041595525"(ptr noalias noundef nonnull align 8 dereferenceable(32) %37)
   %exitcond.not = icmp eq i64 %33, %.07
@@ -28816,7 +28816,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   br i1 %12, label %19, label %15
 
 13:                                               ; preds = %1
-  %14 = sub i64 %9, %8
+  %14 = sub nuw i64 %9, %8
   br label %27
 
 15:                                               ; preds = %11
@@ -28858,7 +28858,7 @@ define hidden void @"_ZN93_$LT$crossbeam_channel..flavors..array..Channel$LT$T$G
   %34 = add i64 %.sroa.01.017, %8
   %35 = icmp ult i64 %34, %29
   %36 = select i1 %35, i64 0, i64 %29
-  %.0 = sub i64 %34, %36
+  %.0 = sub nuw i64 %34, %36
   %37 = getelementptr inbounds { { { [4 x i64] } }, { i64 } }, ptr %31, i64 %.0
   tail call void @"_ZN4core3ptr143drop_in_place$LT$moka..notification..notifier..RemovedEntries$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$17h30e2ed90a4b547feE.llvm.1597650999041595525"(ptr noalias noundef nonnull align 8 dereferenceable(32) %37)
   %exitcond.not = icmp eq i64 %33, %.07

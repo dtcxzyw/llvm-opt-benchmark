@@ -1916,7 +1916,7 @@ if.then.i.i2:                                     ; preds = %if.then
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.then
-  %sub.i = sub i64 %fname.coerce0, %__pos.addr.0.i.i
+  %sub.i = sub nuw i64 %fname.coerce0, %__pos.addr.0.i.i
   br label %if.end
 
 if.end:                                           ; preds = %do.cond.i.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit

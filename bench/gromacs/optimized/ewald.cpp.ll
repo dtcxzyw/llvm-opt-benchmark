@@ -224,7 +224,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:  ; preds = %_ZNK15EwaldBoxZScal
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %._crit_edge
-  %88 = sub nsw i64 %72, %85
+  %88 = sub nuw nsw i64 %72, %85
   tail call void @_ZNSt6vectorI9t_complexSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %88)
   br label %_ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit
 
@@ -254,7 +254,7 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit:    ; preds = %87, %89, %91, %93
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %_ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit
-  %104 = sub nsw i64 %72, %101
+  %104 = sub nuw nsw i64 %72, %101
   tail call void @_ZNSt6vectorI9t_complexSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %94, i64 noundef %104)
   br label %_ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240
 

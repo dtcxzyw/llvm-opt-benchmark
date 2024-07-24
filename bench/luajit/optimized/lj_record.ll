@@ -2854,7 +2854,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %entry
   %idx.addr.0.lcssa.i = phi i32 [ %2, %entry ], [ %3, %for.inc.i ]
-  %sub.i = sub i32 %idx.addr.0.lcssa.i, %3
+  %sub.i = sub nuw i32 %idx.addr.0.lcssa.i, %3
   %hmask.i = getelementptr inbounds i8, ptr %1, i64 52
   %10 = load i32, ptr %hmask.i, align 4
   %cmp6.not24.i = icmp ugt i32 %sub.i, %10
@@ -4177,7 +4177,7 @@ if.then661:                                       ; preds = %sw.bb657
   %136 = load ptr, ptr %base662, align 8
   %idx.ext = zext i32 %135 to i64
   %add.ptr664 = getelementptr inbounds i32, ptr %136, i64 %idx.ext
-  %sub666 = sub i32 %ra.0, %135
+  %sub666 = sub nuw i32 %ra.0, %135
   %conv667 = zext i32 %sub666 to i64
   %mul = shl nuw nsw i64 %conv667, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %add.ptr664, i8 0, i64 %mul, i1 false)

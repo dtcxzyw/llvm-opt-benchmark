@@ -5694,7 +5694,7 @@ _ZNKSt3mapIPK6AstVarPS0_St4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.i.i.i.i
   br i1 %526, label %527, label %558
 
 527:                                              ; preds = %520
-  %528 = sub nsw i64 %525, %524
+  %528 = sub nuw nsw i64 %525, %524
   %529 = ptrtoint ptr %.sroa.20.1.i to i64
   %530 = sub i64 %529, %521
   %531 = ashr exact i64 %530, 3
@@ -10621,7 +10621,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %20
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   tail call void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %31)
   br label %.sink.split
 
@@ -11494,7 +11494,7 @@ _ZSt13move_backwardIPSt4pairIP19AstUnpackArrayDTypeiES4_ET0_T_S6_S5_.exit: ; pre
   br i1 %.not.i.i.i, label %_ZSt4fillIPSt4pairIP19AstUnpackArrayDTypeiES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !118
 
 43:                                               ; preds = %14
-  %44 = sub i64 %2, %18
+  %44 = sub nuw i64 %2, %18
   %.not7.i.i.i.i = icmp eq i64 %44, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPSt4pairIP19AstUnpackArrayDTypeiEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -26742,7 +26742,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN11TaskVisitor6relinkEPS_EUlPS1_E_EEvPNSt11
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %44
-  %54 = sub nsw i64 %51, %50
+  %54 = sub nuw nsw i64 %51, %50
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %54)
           to label %._ZZN7AstNode11foreachImplI9AstVarRefZN11TaskVisitor6relinkEPS_EUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit21_crit_edge unwind label %.loopexit
 
@@ -27201,7 +27201,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN11TaskVisitor12makeUserFuncEP12AstNodeFTas
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %57
-  %67 = sub nsw i64 %64, %63
+  %67 = sub nuw nsw i64 %64, %63
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %67)
           to label %._ZZN7AstNode11foreachImplI9AstVarRefZN11TaskVisitor12makeUserFuncEP12AstNodeFTaskbEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20_crit_edge unwind label %.loopexit
 

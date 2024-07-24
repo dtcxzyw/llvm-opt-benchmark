@@ -1927,7 +1927,7 @@ define weak_odr void @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_8Spectr
   br label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %5
-  %17 = sub i32 %13, %11
+  %17 = sub nuw i32 %13, %11
   %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %19 = sub nuw nsw i32 32, %18
   %20 = insertelement <4 x i32> poison, i32 %13, i64 0

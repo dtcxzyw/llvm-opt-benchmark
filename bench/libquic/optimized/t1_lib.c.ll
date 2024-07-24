@@ -1001,7 +1001,7 @@ if.then40:                                        ; preds = %if.end38
 
 if.then48:                                        ; preds = %if.then40
   %cmp49 = icmp ult i64 %add42, 508
-  %sub52 = sub nsw i64 508, %add42
+  %sub52 = sub nuw nsw i64 508, %add42
   %padding_len.0 = select i1 %cmp49, i64 %sub52, i64 1
   %call54 = call i32 @CBB_add_u16(ptr noundef nonnull %extensions, i16 noundef zeroext 21) #20
   %tobool55.not = icmp eq i32 %call54, 0

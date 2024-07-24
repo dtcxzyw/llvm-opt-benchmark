@@ -215,7 +215,7 @@ define dso_local i64 @Curl_bufq_space(ptr nocapture noundef readonly %0) local_u
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %.loopexit
-  %21 = sub i64 %18, %16
+  %21 = sub nuw i64 %18, %16
   %22 = getelementptr inbounds i8, ptr %0, i64 48
   %23 = load i64, ptr %22, align 8
   %24 = mul i64 %23, %21
@@ -788,7 +788,7 @@ define dso_local noundef zeroext i1 @Curl_bufq_peek_at(ptr nocapture noundef rea
   br i1 %.not19, label %11, label %9
 
 9:                                                ; preds = %8
-  %10 = sub i64 %.01625, %7
+  %10 = sub nuw i64 %.01625, %7
   %.015 = load ptr, ptr %.01526, align 8
   %.not = icmp eq ptr %.015, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13

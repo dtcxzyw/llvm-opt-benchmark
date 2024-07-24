@@ -4198,7 +4198,7 @@ _ZNKSt6vectorIS_IfSaIfEESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %106
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %.lr.ph
-  %143 = sub nsw i64 %133, %140
+  %143 = sub nuw nsw i64 %133, %140
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %125, i64 noundef %143)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit
 

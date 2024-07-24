@@ -237,7 +237,7 @@ if.end68:                                         ; preds = %sw.epilog.thread, %
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end68
-  %sub.i28 = sub i32 %16, %cond48
+  %sub.i28 = sub nuw i32 %16, %cond48
   br label %if.end13.sink.split.i
 
 if.else.i:                                        ; preds = %if.end68
@@ -245,7 +245,7 @@ if.else.i:                                        ; preds = %if.end68
   br i1 %cmp3.i, label %if.then5.i, label %if.end13.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  %sub6.i = sub i32 %cond48, %16
+  %sub6.i = sub nuw i32 %cond48, %16
   br label %if.end13.sink.split.i
 
 if.end13.sink.split.i:                            ; preds = %if.then5.i, %if.then.i
@@ -591,7 +591,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i32 %6, %conv
+  %sub.i = sub nuw i32 %6, %conv
   br label %if.end13.sink.split.i
 
 if.else.i:                                        ; preds = %entry
@@ -599,7 +599,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp3.i, label %if.then5.i, label %if.end13.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  %sub6.i = sub i32 %conv, %6
+  %sub6.i = sub nuw i32 %conv, %6
   br label %if.end13.sink.split.i
 
 if.end13.sink.split.i:                            ; preds = %if.then5.i, %if.then.i

@@ -1577,7 +1577,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.not, label %if.else24, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  %sub = sub i32 %0, %delta
+  %sub = sub nuw i32 %0, %delta
   store ptr null, ptr %free_vars, align 8
   %m_num_bindings = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %m_num_bindings, align 4

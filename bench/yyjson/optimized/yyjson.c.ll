@@ -282,7 +282,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp23.not, label %if.else55, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true
-  %sub = sub i64 %add, %add.i
+  %sub = sub nuw i64 %add, %add.i
   %cmp29 = icmp ugt i64 %sub, 32
   %next35 = getelementptr inbounds i8, ptr %prev.0, i64 8
   br i1 %cmp29, label %if.then31, label %if.else42

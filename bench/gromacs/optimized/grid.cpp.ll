@@ -807,7 +807,7 @@ _ZN5NbnxmL19getTargetCellLengthERKNS_4Grid8GeometryEf.exit: ; preds = %56, %64
 
 119:                                              ; preds = %103
   %120 = getelementptr inbounds i8, ptr %0, i64 112
-  %121 = sub nsw i64 %109, %117
+  %121 = sub nuw nsw i64 %109, %117
   tail call void @_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %120, i64 noundef %121)
   %.pre73 = load i32, ptr %80, align 8
   %.pre74 = load i32, ptr %106, align 4
@@ -844,7 +844,7 @@ _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE6resizeEm.exit: ; p
 
 138:                                              ; preds = %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE6resizeEm.exit
   %139 = getelementptr inbounds i8, ptr %0, i64 144
-  %140 = sub nsw i64 %128, %136
+  %140 = sub nuw nsw i64 %128, %136
   tail call void @_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %140)
   %.pre75 = load i32, ptr %80, align 8
   %.pre76 = load i32, ptr %106, align 4
@@ -909,7 +909,7 @@ _ZN5NbnxmL14getMaxNumCellsERKNS_4Grid8GeometryEii.exit._ZNSt6vectorIiSaIiEE6resi
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %160
-  %172 = sub nsw i64 %162, %169
+  %172 = sub nuw nsw i64 %162, %169
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %161, i64 noundef %172)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -940,7 +940,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZN5NbnxmL14getMaxN
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %188 = sub nsw i64 %.pre-phi85, %185
+  %188 = sub nuw nsw i64 %.pre-phi85, %185
   tail call void @_ZNSt6vectorIN5Nbnxm13BoundingBox1DESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %178, i64 noundef %188)
   br label %_ZNSt6vectorIN5Nbnxm13BoundingBox1DESaIS1_EE6resizeEm.exit
 
@@ -975,7 +975,7 @@ _ZNSt6vectorIN5Nbnxm13BoundingBox1DESaIS1_EE6resizeEm.exit: ; preds = %187, %189
   br i1 %205, label %206, label %208
 
 206:                                              ; preds = %196
-  %207 = sub nsw i64 %.pre-phi85, %204
+  %207 = sub nuw nsw i64 %.pre-phi85, %204
   tail call void @_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %197, i64 noundef %207)
   br label %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
@@ -1007,7 +1007,7 @@ _ZNSt6vectorIN5Nbnxm13BoundingBox1DESaIS1_EE6resizeEm.exit: ; preds = %187, %189
   br i1 %224, label %225, label %227
 
 225:                                              ; preds = %213
-  %226 = sub nsw i64 %216, %223
+  %226 = sub nuw nsw i64 %216, %223
   tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %214, i64 noundef %226)
   br label %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
@@ -1057,7 +1057,7 @@ _ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPoli
   br i1 %256, label %257, label %259
 
 257:                                              ; preds = %244
-  %258 = sub nsw i64 %248, %255
+  %258 = sub nuw nsw i64 %248, %255
   tail call void @_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %245, i64 noundef %258)
   %.pre77 = load ptr, ptr %245, align 8
   %.pre78 = load ptr, ptr %249, align 8
@@ -1105,7 +1105,7 @@ _ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPoli
   br i1 %279, label %280, label %282
 
 280:                                              ; preds = %269
-  %281 = sub nsw i64 %.pre-phi85, %278
+  %281 = sub nuw nsw i64 %.pre-phi85, %278
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %271, i64 noundef %281)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit50
 
@@ -1147,7 +1147,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit50:             ; preds = %280, %282, %284, %2
   br i1 %305, label %306, label %308
 
 306:                                              ; preds = %291
-  %307 = sub nsw i64 %297, %304
+  %307 = sub nuw nsw i64 %297, %304
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %292, i64 noundef %307)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -3834,7 +3834,7 @@ define void @_ZN5Nbnxm4Grid14setCellIndicesEiiPNS_11GridSetDataEN3gmx8ArrayRefIN
 
 93:                                               ; preds = %._crit_edge133
   %94 = getelementptr inbounds i8, ptr %69, i64 32
-  %95 = sub nsw i64 %83, %91
+  %95 = sub nuw nsw i64 %83, %91
   tail call void @_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %94, i64 noundef %95)
   br label %_ZN5NbnxmL22resizeForNumberOfCellsEiiiPNS_11GridSetDataEP16nbnxn_atomdata_t.exit
 
@@ -3953,7 +3953,7 @@ _ZN5NbnxmL22resizeForNumberOfCellsEiiiPNS_11GridSetDataEP16nbnxn_atomdata_t.exit
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %.lr.ph146
-  %161 = sub nsw i64 %138, %158
+  %161 = sub nuw nsw i64 %138, %158
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %151, ptr %153, i64 noundef %161, ptr noundef nonnull align 4 dereferenceable(4) %18)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -4719,7 +4719,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -4905,7 +4905,7 @@ define noundef float @_ZN5Nbnxm21generateAndFill2DGridEPNS_4GridEN3gmx8ArrayRefI
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %44
-  %59 = sub nsw i64 %49, %56
+  %59 = sub nuw nsw i64 %49, %56
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.030.037, i64 noundef %59)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -4941,7 +4941,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %58, %60, %62, %64
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %._crit_edge
-  %77 = sub nsw i64 %66, %74
+  %77 = sub nuw nsw i64 %66, %74
   tail call void @_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %77)
   br label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE6resizeEm.exit
 

@@ -1653,7 +1653,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -1675,7 +1675,7 @@ _ZSt27__uninitialized_default_n_aIPN9SampleICC13IccTagElementEmS1_ET_S3_T0_RSaIT
   br label %if.end6
 
 if.else.i:                                        ; preds = %if.then
-  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  %cmp.i.i = icmp ugt i64 %__new_size, 384307168202282325
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN9SampleICC13IccTagElementESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i:                                      ; preds = %if.else.i
@@ -6616,7 +6616,7 @@ if.end10:                                         ; preds = %_ZN9SampleICC5Read8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end10
-  %sub.i = sub nsw i64 %conv11, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv11, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %mCurve, i64 noundef %sub.i)
   %.pre = load i32, ptr %sizeData, align 4
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit

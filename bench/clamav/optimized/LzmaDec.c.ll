@@ -601,7 +601,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 92:                                               ; preds = %86
   %93 = sub i32 %.2364, %88
-  %94 = sub i32 %.2396, %88
+  %94 = sub nuw i32 %.2396, %88
   %95 = shl nuw nsw i32 %.0360, 1
   %96 = or disjoint i32 %95, 1
   br label %97
@@ -687,7 +687,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 145:                                              ; preds = %138
   %146 = sub i32 %.5367, %140
-  %147 = sub i32 %.5399, %140
+  %147 = sub nuw i32 %.5399, %140
   %148 = shl nuw nsw i32 %.0355, 1
   %149 = or disjoint i32 %148, 1
   br label %150
@@ -702,7 +702,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 152:                                              ; preds = %35
   %153 = sub i32 %.0362, %37
-  %154 = sub i32 %.0394, %37
+  %154 = sub nuw i32 %.0394, %37
   %155 = getelementptr inbounds i8, ptr %10, i64 384
   %156 = zext i32 %12 to i64
   %157 = getelementptr inbounds i16, ptr %155, i64 %156
@@ -735,7 +735,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 173:                                              ; preds = %169
   %174 = sub i32 %.8370, %171
-  %175 = sub i32 %.8402, %171
+  %175 = sub nuw i32 %.8402, %171
   %176 = getelementptr inbounds i8, ptr %10, i64 408
   %177 = getelementptr inbounds i16, ptr %176, i64 %156
   %178 = load i16, ptr %177, align 2
@@ -805,12 +805,12 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 214:                                              ; preds = %208
   %215 = sub i32 %.10372, %210
-  %216 = sub i32 %.10404, %210
+  %216 = sub nuw i32 %.10404, %210
   br label %260
 
 217:                                              ; preds = %189
   %218 = sub i32 %.9371, %191
-  %219 = sub i32 %.9403, %191
+  %219 = sub nuw i32 %.9403, %191
   %220 = getelementptr inbounds i8, ptr %10, i64 432
   %221 = getelementptr inbounds i16, ptr %220, i64 %156
   %222 = load i16, ptr %221, align 2
@@ -842,7 +842,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 237:                                              ; preds = %233
   %238 = sub i32 %.11373, %235
-  %239 = sub i32 %.11405, %235
+  %239 = sub nuw i32 %.11405, %235
   %240 = getelementptr inbounds i8, ptr %10, i64 456
   %241 = getelementptr inbounds i16, ptr %240, i64 %156
   %242 = load i16, ptr %241, align 2
@@ -874,7 +874,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 257:                                              ; preds = %253
   %258 = sub i32 %.12374, %255
-  %259 = sub i32 %.12406, %255
+  %259 = sub nuw i32 %.12406, %255
   br label %260
 
 260:                                              ; preds = %214, %257, %233, %253, %169
@@ -920,7 +920,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 282:                                              ; preds = %273
   %283 = sub i32 %.15377, %275
-  %284 = sub i32 %.15409, %275
+  %284 = sub nuw i32 %.15409, %275
   %285 = getelementptr inbounds i8, ptr %261, i64 2
   %286 = load i16, ptr %285, align 2
   %287 = zext i16 %286 to i32
@@ -958,7 +958,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 306:                                              ; preds = %297
   %307 = sub i32 %.16378, %299
-  %308 = sub i32 %.16410, %299
+  %308 = sub nuw i32 %.16410, %299
   %309 = getelementptr inbounds i8, ptr %261, i64 516
   br label %310
 
@@ -1011,7 +1011,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 331:                                              ; preds = %325
   %332 = sub i32 %.19381, %327
-  %333 = sub i32 %.19413, %327
+  %333 = sub nuw i32 %.19413, %327
   %334 = shl i32 %.0349, 1
   %335 = or disjoint i32 %334, 1
   br label %336
@@ -1076,7 +1076,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 367:                                              ; preds = %361
   %368 = sub i32 %.22384, %363
-  %369 = sub i32 %.22416, %363
+  %369 = sub nuw i32 %.22416, %363
   %370 = shl nuw nsw i32 %.0344, 1
   %371 = or disjoint i32 %370, 1
   br label %372
@@ -1203,7 +1203,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 433:                                              ; preds = %427
   %434 = sub i32 %.28, %429
-  %435 = sub i32 %.28422, %429
+  %435 = sub nuw i32 %.28422, %429
   %436 = shl i32 %.0, 1
   %437 = or disjoint i32 %436, 1
   br label %438
@@ -1421,7 +1421,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 125:                                              ; preds = %115
   %126 = sub i32 %.3857.i, %117
-  %127 = sub i32 %.3843.i, %117
+  %127 = sub nuw i32 %.3843.i, %117
   %128 = lshr i16 %105, 5
   %129 = sub i16 %105, %128
   %130 = or disjoint i32 %119, 1
@@ -1498,7 +1498,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 174:                                              ; preds = %163
   %175 = sub i32 %.6860.i, %165
-  %176 = sub i32 %.6846.i, %165
+  %176 = sub nuw i32 %.6846.i, %165
   %177 = lshr i16 %153, 5
   %178 = sub i16 %153, %177
   %179 = or disjoint i32 %167, 1
@@ -1538,7 +1538,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 188:                                              ; preds = %79
   %189 = sub i32 %.1855.i, %81
-  %190 = sub i32 %.1841.i, %81
+  %190 = sub nuw i32 %.1841.i, %81
   %191 = lshr i16 %69, 5
   %192 = sub i16 %69, %191
   store i16 %192, ptr %68, align 2
@@ -1578,7 +1578,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 215:                                              ; preds = %205
   %216 = sub i32 %.9863.i, %207
-  %217 = sub i32 %.9849.i, %207
+  %217 = sub nuw i32 %.9849.i, %207
   %218 = lshr i16 %195, 5
   %219 = sub i16 %195, %218
   store i16 %219, ptr %194, align 2
@@ -1665,7 +1665,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 275:                                              ; preds = %254
   %276 = sub i32 %.11865.i, %256
-  %277 = sub i32 %.11851.i, %256
+  %277 = sub nuw i32 %.11851.i, %256
   %278 = lshr i16 %244, 5
   %279 = sub i16 %244, %278
   store i16 %279, ptr %243, align 2
@@ -1673,7 +1673,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 280:                                              ; preds = %233
   %281 = sub i32 %.10864.i, %235
-  %282 = sub i32 %.10850.i, %235
+  %282 = sub nuw i32 %.10850.i, %235
   %283 = lshr i16 %223, 5
   %284 = sub i16 %223, %283
   store i16 %284, ptr %222, align 2
@@ -1711,7 +1711,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 305:                                              ; preds = %296
   %306 = sub i32 %.12866.i, %298
-  %307 = sub i32 %.12852.i, %298
+  %307 = sub nuw i32 %.12852.i, %298
   %308 = lshr i16 %286, 5
   %309 = sub i16 %286, %308
   store i16 %309, ptr %285, align 2
@@ -1748,7 +1748,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 330:                                              ; preds = %321
   %331 = sub i32 %.13867.i, %323
-  %332 = sub i32 %.13853.i, %323
+  %332 = sub nuw i32 %.13853.i, %323
   %333 = lshr i16 %311, 5
   %334 = sub i16 %311, %333
   br label %335
@@ -1821,7 +1821,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 363:                                              ; preds = %350
   %364 = sub i32 %.18872.i, %352
-  %365 = sub i32 %.18.i, %352
+  %365 = sub nuw i32 %.18.i, %352
   %366 = lshr i16 %340, 5
   %367 = sub i16 %340, %366
   store i16 %367, ptr %.1839.i, align 2
@@ -1863,7 +1863,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 392:                                              ; preds = %379
   %393 = sub i32 %.19873.i, %381
-  %394 = sub i32 %.19.i, %381
+  %394 = sub nuw i32 %.19.i, %381
   %395 = lshr i16 %369, 5
   %396 = sub i16 %369, %395
   store i16 %396, ptr %368, align 2
@@ -1919,7 +1919,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 422:                                              ; preds = %412
   %423 = sub i32 %.22876.i, %414
-  %424 = sub i32 %.22.i, %414
+  %424 = sub nuw i32 %.22.i, %414
   %425 = lshr i16 %402, 5
   %426 = sub i16 %402, %425
   %427 = or disjoint i32 %416, 1
@@ -1935,7 +1935,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
   br i1 %429, label %399, label %430
 
 430:                                              ; preds = %428
-  %431 = sub i32 %.2949.i, %.0812.i
+  %431 = sub nuw i32 %.2949.i, %.0812.i
   %432 = add i32 %431, %.0811.i
   %433 = icmp ugt i32 %.2.i, 11
   br i1 %433, label %434, label %805
@@ -1978,7 +1978,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 459:                                              ; preds = %450
   %460 = sub i32 %.24878.i, %452
-  %461 = sub i32 %.24.i, %452
+  %461 = sub nuw i32 %.24.i, %452
   %462 = lshr i16 %440, 5
   %463 = sub i16 %440, %462
   br label %464
@@ -2024,7 +2024,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 487:                                              ; preds = %477
   %488 = sub i32 %.26880.i, %479
-  %489 = sub i32 %.26.i, %479
+  %489 = sub nuw i32 %.26.i, %479
   %490 = lshr i16 %467, 5
   %491 = sub i16 %467, %490
   %492 = or disjoint i32 %481, 1
@@ -2071,7 +2071,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 516:                                              ; preds = %506
   %517 = sub i32 %.28882.i, %508
-  %518 = sub i32 %.28.i, %508
+  %518 = sub nuw i32 %.28.i, %508
   %519 = lshr i16 %496, 5
   %520 = sub i16 %496, %519
   %521 = or disjoint i32 %510, 1
@@ -2118,7 +2118,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 545:                                              ; preds = %535
   %546 = sub i32 %.30884.i, %537
-  %547 = sub i32 %.30.i, %537
+  %547 = sub nuw i32 %.30.i, %537
   %548 = lshr i16 %525, 5
   %549 = sub i16 %525, %548
   %550 = or disjoint i32 %539, 1
@@ -2165,7 +2165,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 574:                                              ; preds = %564
   %575 = sub i32 %.32886.i, %566
-  %576 = sub i32 %.32.i, %566
+  %576 = sub nuw i32 %.32.i, %566
   %577 = lshr i16 %554, 5
   %578 = sub i16 %554, %577
   %579 = or disjoint i32 %568, 1
@@ -2212,7 +2212,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 603:                                              ; preds = %593
   %604 = sub i32 %.34888.i, %595
-  %605 = sub i32 %.34.i, %595
+  %605 = sub nuw i32 %.34.i, %595
   %606 = lshr i16 %583, 5
   %607 = sub i16 %583, %606
   %608 = or disjoint i32 %597, 1
@@ -2289,7 +2289,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 649:                                              ; preds = %639
   %650 = sub i32 %.37891.i, %641
-  %651 = sub i32 %.37.i, %641
+  %651 = sub nuw i32 %.37.i, %641
   %652 = lshr i16 %629, 5
   %653 = sub i16 %629, %652
   %654 = or disjoint i32 %643, 1
@@ -2380,7 +2380,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 700:                                              ; preds = %691
   %701 = sub i32 %.41895.i, %693
-  %702 = sub i32 %.41.i, %693
+  %702 = sub nuw i32 %.41.i, %693
   %703 = lshr i16 %681, 5
   %704 = sub i16 %681, %703
   %705 = or disjoint i32 %680, 1
@@ -2428,7 +2428,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 729:                                              ; preds = %719
   %730 = sub i32 %.43897.i, %721
-  %731 = sub i32 %.43.i, %721
+  %731 = sub nuw i32 %.43.i, %721
   %732 = lshr i16 %709, 5
   %733 = sub i16 %709, %732
   %734 = or disjoint i32 %723, 1
@@ -2477,7 +2477,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 759:                                              ; preds = %749
   %760 = sub i32 %.45899.i, %751
-  %761 = sub i32 %.45.i, %751
+  %761 = sub nuw i32 %.45.i, %751
   %762 = lshr i16 %739, 5
   %763 = sub i16 %739, %762
   %764 = or disjoint i32 %753, 1
@@ -2525,7 +2525,7 @@ define internal fastcc noundef i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0
 
 788:                                              ; preds = %779
   %789 = sub i32 %.47901.i, %781
-  %790 = sub i32 %.47.i, %781
+  %790 = sub nuw i32 %.47.i, %781
   %791 = lshr i16 %769, 5
   %792 = sub i16 %769, %791
   %793 = or i32 %.11.i, 8

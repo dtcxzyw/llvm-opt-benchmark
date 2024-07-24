@@ -1559,7 +1559,7 @@ define internal i64 @read_vmcore(ptr nocapture noundef %0, ptr noundef %1) #0 al
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %8
-  %13 = sub i64 %10, %9
+  %13 = sub nuw i64 %10, %9
   %14 = icmp ugt i64 %6, %13
   br i1 %14, label %15, label %16
 
@@ -1576,7 +1576,7 @@ define internal i64 @read_vmcore(ptr nocapture noundef %0, ptr noundef %1) #0 al
   br i1 %20, label %21, label %38
 
 21:                                               ; preds = %16
-  %22 = sub i64 %19, %18
+  %22 = sub nuw i64 %19, %18
   %23 = tail call i64 @llvm.umin.i64(i64 %22, i64 %17)
   %24 = icmp ugt i64 %23, 2147483647
   br i1 %24, label %25, label %26, !prof !6
@@ -1621,7 +1621,7 @@ define internal i64 @read_vmcore(ptr nocapture noundef %0, ptr noundef %1) #0 al
   br i1 %45, label %46, label %65
 
 46:                                               ; preds = %38
-  %47 = sub i64 %44, %41
+  %47 = sub nuw i64 %44, %41
   %48 = tail call i64 @llvm.umin.i64(i64 %47, i64 %39)
   %49 = icmp ugt i64 %48, 2147483647
   br i1 %49, label %50, label %51, !prof !6
@@ -1676,7 +1676,7 @@ define internal i64 @read_vmcore(ptr nocapture noundef %0, ptr noundef %1) #0 al
   br i1 %80, label %81, label %96
 
 81:                                               ; preds = %.preheader
-  %82 = sub i64 %79, %72
+  %82 = sub nuw i64 %79, %72
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 %71)
   %84 = getelementptr inbounds i8, ptr %73, i64 16
   %85 = load i64, ptr %84, align 8
@@ -1768,7 +1768,7 @@ define internal noundef i32 @mmap_vmcore(ptr nocapture readnone %0, ptr noundef 
   br i1 %38, label %39, label %61
 
 39:                                               ; preds = %32
-  %40 = sub i64 %37, %9
+  %40 = sub nuw i64 %37, %9
   %41 = tail call i64 @llvm.umin.i64(i64 %40, i64 %6)
   %42 = load ptr, ptr @elfcorebuf, align 8
   %43 = getelementptr i8, ptr %42, i64 %9
@@ -1809,7 +1809,7 @@ define internal noundef i32 @mmap_vmcore(ptr nocapture readnone %0, ptr noundef 
   br i1 %68, label %69, label %84
 
 69:                                               ; preds = %61
-  %70 = sub i64 %67, %64
+  %70 = sub nuw i64 %67, %64
   %71 = tail call i64 @llvm.umin.i64(i64 %70, i64 %65)
   %72 = load ptr, ptr @elfnotes_buf, align 8
   %73 = getelementptr i8, ptr %72, i64 %64
@@ -1854,7 +1854,7 @@ define internal noundef i32 @mmap_vmcore(ptr nocapture readnone %0, ptr noundef 
   br i1 %102, label %103, label %178
 
 103:                                              ; preds = %92
-  %104 = sub i64 %101, %95
+  %104 = sub nuw i64 %101, %95
   %105 = tail call i64 @llvm.umin.i64(i64 %104, i64 %94)
   %106 = getelementptr inbounds i8, ptr %93, i64 16
   %107 = load i64, ptr %106, align 8
@@ -1905,7 +1905,7 @@ define internal noundef i32 @mmap_vmcore(ptr nocapture readnone %0, ptr noundef 
   br i1 %136, label %137, label %145
 
 137:                                              ; preds = %.thread22
-  %138 = sub nsw i64 %123, %124
+  %138 = sub nuw nsw i64 %123, %124
   %139 = shl i64 %138, 12
   %140 = add i64 %122, %111
   %141 = tail call i32 @remap_oldmem_pfn_range(ptr noundef %1, i64 noundef %140, i64 noundef %124, i64 noundef %139, i64 %113)
@@ -1940,7 +1940,7 @@ define internal noundef i32 @mmap_vmcore(ptr nocapture readnone %0, ptr noundef 
   br i1 %.not27, label %.thread23, label %158
 
 158:                                              ; preds = %157
-  %159 = sub i64 %155, %153
+  %159 = sub nuw i64 %155, %153
   %160 = shl i64 %159, 12
   %161 = add i64 %154, %111
   %162 = tail call i32 @remap_oldmem_pfn_range(ptr noundef %1, i64 noundef %161, i64 noundef %153, i64 noundef %160, i64 %113)

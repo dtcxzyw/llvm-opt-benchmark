@@ -2309,7 +2309,7 @@ _ZNSt6vectorIhSaIhEEaSERKS1_.exit:                ; preds = %_ZNSt12_Vector_base
   br i1 %206, label %207, label %235
 
 207:                                              ; preds = %201
-  %208 = sub i64 %202, %205
+  %208 = sub nuw i64 %202, %205
   %209 = ptrtoint ptr %.sroa.18.0591 to i64
   %210 = sub i64 %209, %203
   %211 = icmp sgt i64 %205, -1
@@ -6562,7 +6562,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -7543,7 +7543,7 @@ define linkonce_odr hidden void @_ZN2cv2ml13TrainDataImpl21preprocessCategorical
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %41
-  %57 = sub nsw i64 %47, %54
+  %57 = sub nuw nsw i64 %47, %54
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %57)
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -7733,7 +7733,7 @@ _ZSt4sortIPiN2cv2ml13TrainDataImpl8CmpByIdxEEvT_S5_T0_.exit: ; preds = %._crit_e
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %._crit_edge159
-  %146 = sub nsw i64 %.0115.lcssa, %143
+  %146 = sub nuw nsw i64 %.0115.lcssa, %143
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %146)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit141
 
@@ -7766,7 +7766,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit141:            ; preds = %145, %147, %149, %1
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %152
-  %162 = sub nsw i64 %.0115.lcssa, %159
+  %162 = sub nuw nsw i64 %.0115.lcssa, %159
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %162)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit143
 
@@ -12254,7 +12254,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl8getNamesERSt6vectorIN
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %2
-  %21 = sub i64 %11, %18
+  %21 = sub nuw i64 %11, %18
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %21)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 

@@ -11416,7 +11416,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..blocking..po
   %11 = add i64 %10, %5
   %.not.i.i.i.i.i = icmp ult i64 %11, %.val2.pre.i
   %12 = select i1 %.not.i.i.i.i.i, i64 0, i64 %.val2.pre.i
-  %.0.i.i.i.i.i = sub i64 %11, %12
+  %.0.i.i.i.i.i = sub nuw i64 %11, %12
   %13 = sub i64 %.val2.pre.i, %.0.i.i.i.i.i
   %.not.i.i.i.i = icmp ult i64 %13, %8
   %14 = add i64 %.0.i.i.i.i.i, %8

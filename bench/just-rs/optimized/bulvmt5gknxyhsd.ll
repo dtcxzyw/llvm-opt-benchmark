@@ -1765,7 +1765,7 @@ define hidden void @"_ZN116_$LT$similar..algorithms..patience..Patience$LT$Old$C
 
 59:                                               ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5162163fef8afb15E.exit.thread"
   %60 = load ptr, ptr %17, align 8, !nonnull !8, !align !32, !noundef !8
-  %61 = sub i64 %.us-phi, %23
+  %61 = sub nuw i64 %.us-phi, %23
   %62 = getelementptr inbounds i8, ptr %60, i64 120
   %63 = getelementptr inbounds i8, ptr %60, i64 136
   %64 = load i64, ptr %63, align 8, !alias.scope !711, !noalias !714, !noundef !8
@@ -1998,7 +1998,7 @@ define hidden void @"_ZN116_$LT$similar..algorithms..patience..Patience$LT$Old$C
 
 67:                                               ; preds = %.split.us
   %68 = load ptr, ptr %15, align 8, !nonnull !8, !align !32, !noundef !8
-  %69 = sub i64 %.us-phi, %21
+  %69 = sub nuw i64 %.us-phi, %21
   %70 = getelementptr inbounds i8, ptr %68, i64 120
   %71 = getelementptr inbounds i8, ptr %68, i64 136
   %72 = load i64, ptr %71, align 8, !alias.scope !727, !noalias !730, !noundef !8
@@ -6685,8 +6685,8 @@ define hidden noundef i64 @_ZN7similar10algorithms5utils17common_prefix_len17hb8
 
 10:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
-  %spec.select.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %5, i64 %4)
-  %spec.select.i.i1.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %2, i64 %1)
+  %spec.select.i.i.i.i = sub nuw i64 %5, %4
+  %spec.select.i.i1.i.i = sub nuw i64 %2, %1
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %spec.select.i.i.i.i, i64 %spec.select.i.i1.i.i)
   %11 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %4, ptr %11, align 8
@@ -6724,8 +6724,8 @@ define hidden noundef i64 @_ZN7similar10algorithms5utils17common_prefix_len17hc4
   br i1 %or.cond, label %7, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h56ada57196c15715E.llvm.1648887574124572298.exit"
 
 7:                                                ; preds = %6
-  %spec.select.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %5, i64 %4)
-  %spec.select.i.i1.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %2, i64 %1)
+  %spec.select.i.i.i.i = sub nuw i64 %5, %4
+  %spec.select.i.i1.i.i = sub nuw i64 %2, %1
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %spec.select.i.i.i.i, i64 %spec.select.i.i1.i.i)
   %.not18 = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not18, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h56ada57196c15715E.llvm.1648887574124572298.exit", label %.lr.ph.i.i.i
@@ -6794,8 +6794,8 @@ define hidden noundef i64 @_ZN7similar10algorithms5utils17common_prefix_len17he7
   br i1 %or.cond, label %9, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h01c30486b9c8d948E.llvm.1648887574124572298.exit"
 
 9:                                                ; preds = %8
-  %spec.select.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %7, i64 %6)
-  %spec.select.i.i1.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %3, i64 %2)
+  %spec.select.i.i.i.i = sub nuw i64 %7, %6
+  %spec.select.i.i1.i.i = sub nuw i64 %3, %2
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %spec.select.i.i.i.i, i64 %spec.select.i.i1.i.i)
   %.not19 = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not19, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h01c30486b9c8d948E.llvm.1648887574124572298.exit", label %.lr.ph.i.i.i
@@ -6862,8 +6862,8 @@ define hidden noundef i64 @_ZN7similar10algorithms5utils17common_prefix_len17hfa
 
 10:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
-  %spec.select.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %5, i64 %4)
-  %spec.select.i.i1.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %2, i64 %1)
+  %spec.select.i.i.i.i = sub nuw i64 %5, %4
+  %spec.select.i.i1.i.i = sub nuw i64 %2, %1
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %spec.select.i.i.i.i, i64 %spec.select.i.i1.i.i)
   %11 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %4, ptr %11, align 8
@@ -6901,7 +6901,7 @@ define hidden noundef i64 @_ZN7similar10algorithms5utils17common_suffix_len17h0b
   br i1 %or.cond, label %.lr.ph.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8b134b4239bc1e27E.llvm.1648887574124572298.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %8
-  %9 = sub i64 %7, %6
+  %9 = sub nuw i64 %7, %6
   br label %10
 
 10:                                               ; preds = %26, %.lr.ph.i.i.i
@@ -7040,7 +7040,7 @@ define hidden noundef i64 @_ZN7similar10algorithms5utils17common_suffix_len17h69
   br i1 %or.cond, label %.lr.ph.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf22285b780347223E.llvm.1648887574124572298.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %6
-  %7 = sub i64 %5, %4
+  %7 = sub nuw i64 %5, %4
   %8 = getelementptr inbounds i8, ptr %3, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 16
@@ -13564,7 +13564,7 @@ define internal fastcc void @_ZN4just10subcommand10Subcommand11completions7repla
   %39 = getelementptr inbounds i8, ptr %25, i64 %30
   %40 = load i8, ptr %39, align 1, !alias.scope !3093, !noalias !3098, !noundef !8
   %41 = icmp sgt i8 %40, -65
-  %42 = sub i64 %27, %30
+  %42 = sub nuw i64 %27, %30
   br i1 %41, label %44, label %43
 
 43:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %36

@@ -4147,7 +4147,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EED2Ev.exit: ;
 41:                                               ; preds = %38
   %42 = sub nsw i32 %33, %.0
   %43 = sext i32 %42 to i64
-  %44 = sub nsw i64 %27, %15
+  %44 = sub nuw nsw i64 %27, %15
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %44, i64 %43)
   %45 = getelementptr inbounds i8, ptr %25, i64 %15
   %46 = icmp eq i64 %.sroa.speculated.i, 0
@@ -4203,9 +4203,9 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE9push_backIR
   br i1 %70, label %.invoke, label %71
 
 71:                                               ; preds = %69
-  %72 = sub nsw i32 %26, %.0
+  %72 = sub nuw nsw i32 %26, %.0
   %73 = sext i32 %72 to i64
-  %74 = sub nsw i64 %27, %15
+  %74 = sub nuw nsw i64 %27, %15
   %.sroa.speculated.i20 = tail call i64 @llvm.umin.i64(i64 %74, i64 %73)
   %75 = getelementptr inbounds i8, ptr %25, i64 %15
   %76 = icmp eq i64 %.sroa.speculated.i20, 0

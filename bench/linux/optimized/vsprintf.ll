@@ -359,7 +359,7 @@ define internal fastcc i64 @simple_strntoll(ptr noundef %0, ptr noundef writeonl
 
 21:                                               ; preds = %13
   %22 = load i32, ptr %7, align 4
-  %23 = sub i64 %15, %19
+  %23 = sub nuw i64 %15, %19
   %24 = call i32 @_parse_integer_limit(ptr noundef %16, i32 noundef %22, ptr noundef nonnull %8, i64 noundef %23) #19
   %25 = and i32 %24, 2147483647
   %26 = zext nneg i32 %25 to i64
@@ -400,7 +400,7 @@ simple_strntoull.exit:                            ; preds = %30, %33
 
 42:                                               ; preds = %36
   %43 = load i32, ptr %5, align 4
-  %44 = sub i64 %3, %40
+  %44 = sub nuw i64 %3, %40
   %45 = call i32 @_parse_integer_limit(ptr noundef %37, i32 noundef %43, ptr noundef nonnull %6, i64 noundef %44) #19
   %46 = and i32 %45, 2147483647
   %47 = zext nneg i32 %46 to i64
@@ -458,59 +458,58 @@ define dso_local i32 @num_to_str(ptr nocapture noundef writeonly %0, i32 noundef
   %18 = icmp sgt i32 %17, %1
   %19 = icmp ugt i32 %3, %1
   %20 = or i1 %19, %18
-  br i1 %20, label %49, label %21
+  br i1 %20, label %48, label %21
 
 21:                                               ; preds = %16
   %22 = icmp ult i32 %17, %3
-  br i1 %22, label %23, label %.loopexit5
+  br i1 %22, label %.preheader, label %.loopexit5
 
-23:                                               ; preds = %21
-  %24 = sub i32 %3, %17
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.loopexit5, label %.preheader
+.preheader:                                       ; preds = %21
+  %23 = sub nuw i32 %3, %17
+  br label %24
 
-.preheader:                                       ; preds = %23, %.preheader
-  %26 = phi i32 [ %29, %.preheader ], [ 0, %23 ]
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr i8, ptr %0, i64 %27
-  store i8 32, ptr %28, align 1
-  %29 = add nuw i32 %26, 1
-  %30 = icmp eq i32 %29, %24
-  br i1 %30, label %.loopexit5, label %.preheader, !llvm.loop !6
+24:                                               ; preds = %.preheader, %24
+  %25 = phi i32 [ %28, %24 ], [ 0, %.preheader ]
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr i8, ptr %0, i64 %26
+  store i8 32, ptr %27, align 1
+  %28 = add nuw i32 %25, 1
+  %29 = icmp eq i32 %28, %23
+  br i1 %29, label %.loopexit5, label %24, !llvm.loop !6
 
-.loopexit5:                                       ; preds = %.preheader, %23, %21
-  %31 = phi i32 [ 0, %21 ], [ 0, %23 ], [ %24, %.preheader ]
-  %32 = icmp sgt i32 %17, 0
-  br i1 %32, label %33, label %.loopexit
+.loopexit5:                                       ; preds = %24, %21
+  %30 = phi i32 [ 0, %21 ], [ %23, %24 ]
+  %31 = icmp sgt i32 %17, 0
+  br i1 %31, label %32, label %.loopexit
 
-33:                                               ; preds = %.loopexit5
-  %34 = zext nneg i32 %17 to i64
-  br label %35
+32:                                               ; preds = %.loopexit5
+  %33 = zext nneg i32 %17 to i64
+  br label %34
 
-35:                                               ; preds = %35, %33
-  %36 = phi i64 [ 0, %33 ], [ %46, %35 ]
-  %37 = trunc i64 %36 to i32
-  %38 = xor i32 %37, -1
-  %39 = add i32 %17, %38
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr [24 x i8], ptr %5, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = add i32 %31, %37
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr i8, ptr %0, i64 %44
-  store i8 %42, ptr %45, align 1
-  %46 = add nuw nsw i64 %36, 1
-  %47 = icmp eq i64 %46, %34
-  br i1 %47, label %.loopexit, label %35, !llvm.loop !9
+34:                                               ; preds = %34, %32
+  %35 = phi i64 [ 0, %32 ], [ %45, %34 ]
+  %36 = trunc i64 %35 to i32
+  %37 = xor i32 %36, -1
+  %38 = add i32 %17, %37
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr [24 x i8], ptr %5, i64 0, i64 %39
+  %41 = load i8, ptr %40, align 1
+  %42 = add i32 %30, %36
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr i8, ptr %0, i64 %43
+  store i8 %41, ptr %44, align 1
+  %45 = add nuw nsw i64 %35, 1
+  %46 = icmp eq i64 %45, %33
+  br i1 %46, label %.loopexit, label %34, !llvm.loop !9
 
-.loopexit:                                        ; preds = %35, %.loopexit5
-  %48 = add i32 %31, %17
-  br label %49
+.loopexit:                                        ; preds = %34, %.loopexit5
+  %47 = add i32 %30, %17
+  br label %48
 
-49:                                               ; preds = %.loopexit, %16
-  %50 = phi i32 [ %48, %.loopexit ], [ 0, %16 ]
+48:                                               ; preds = %.loopexit, %16
+  %49 = phi i32 [ %47, %.loopexit ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19
-  ret i32 %50
+  ret i32 %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -10539,7 +10538,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
 
 310:                                              ; preds = %304
   %311 = load i32, ptr %4, align 4
-  %312 = sub i64 %301, %308
+  %312 = sub nuw i64 %301, %308
   %313 = call i32 @_parse_integer_limit(ptr noundef %305, i32 noundef %311, ptr noundef nonnull %5, i64 noundef %312) #19
   %314 = and i32 %313, 2147483647
   %315 = zext nneg i32 %314 to i64

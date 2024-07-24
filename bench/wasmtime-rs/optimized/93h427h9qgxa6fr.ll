@@ -1471,7 +1471,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit.i
 243:                                              ; preds = %240
   %244 = lshr i64 %.sroa.8.0.copyload.i, 1
   %245 = getelementptr inbounds { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %.sroa.7.0.copyload.i, i64 %244
-  %246 = sub i64 %.sroa.8.0.copyload.i, %244
+  %246 = sub nuw i64 %.sroa.8.0.copyload.i, %244
   call void @llvm.experimental.noalias.scope.decl(metadata !389)
   %247 = load ptr, ptr %1, align 8, !alias.scope !392, !noalias !354, !nonnull !12, !align !26, !noundef !12
   %248 = invoke noundef align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %247)

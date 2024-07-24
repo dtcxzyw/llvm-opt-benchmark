@@ -2614,7 +2614,7 @@ HUFv05_readDTableX2.exit:                         ; preds = %for.end38.i, %for.c
 
 if.end3:                                          ; preds = %HUFv05_readDTableX2.exit
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub = sub i64 %cSrcSize, %call.i
+  %sub = sub nuw i64 %cSrcSize, %call.i
   %call5 = call i64 @HUFv05_decompress1X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 
@@ -3737,7 +3737,7 @@ HUFv05_readDTableX2.exit:                         ; preds = %for.end38.i, %for.c
 
 if.end3:                                          ; preds = %HUFv05_readDTableX2.exit
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub = sub i64 %cSrcSize, %call.i
+  %sub = sub nuw i64 %cSrcSize, %call.i
   %call5 = call i64 @HUFv05_decompress4X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 
@@ -4506,7 +4506,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call
-  %sub = sub i64 %cSrcSize, %call
+  %sub = sub nuw i64 %cSrcSize, %call
   %call5 = call i64 @HUFv05_decompress1X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 
@@ -5510,7 +5510,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call
-  %sub = sub i64 %cSrcSize, %call
+  %sub = sub nuw i64 %cSrcSize, %call
   %call5 = call i64 @HUFv05_decompress4X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 

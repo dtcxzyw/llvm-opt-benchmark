@@ -153,7 +153,7 @@ define void @_ZN5faiss24ProductAdditiveQuantizer5trainEmPKf(ptr noundef nonnull 
   br i1 %38, label %39, label %71
 
 39:                                               ; preds = %24
-  %40 = sub i64 %31, %37
+  %40 = sub nuw i64 %31, %37
   %41 = load ptr, ptr %22, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %42, %34
@@ -398,7 +398,7 @@ _ZN5faiss24ProductAdditiveQuantizer5trainEmPKf.omp_outlined.exit: ; preds = %79,
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %._crit_edge101
-  %149 = sub i64 %137, %146
+  %149 = sub nuw i64 %137, %146
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %139, i64 noundef %149)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit34_crit_edge unwind label %.loopexit.split-lp
 
@@ -1384,7 +1384,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit:
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_mET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i64, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
@@ -1677,7 +1677,7 @@ define void @_ZNK5faiss24ProductAdditiveQuantizer22compute_unpacked_codesEPKfPim
   br i1 %42, label %43, label %74
 
 43:                                               ; preds = %28
-  %44 = sub i64 %35, %41
+  %44 = sub nuw i64 %35, %41
   %45 = load ptr, ptr %24, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = sub i64 %46, %38
@@ -1785,7 +1785,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %78, %76, %74, %_ZNS
   br i1 %89, label %90, label %118
 
 90:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %91 = sub i64 %83, %88
+  %91 = sub nuw i64 %83, %88
   %92 = load ptr, ptr %26, align 8
   %93 = ptrtoint ptr %92 to i64
   %94 = sub i64 %93, %86

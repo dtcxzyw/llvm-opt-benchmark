@@ -680,7 +680,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %total_len, %2
+  %sub = sub nuw i64 %total_len, %2
   %init_fn = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %init_fn, align 8
   call void %3(ptr noundef nonnull %ctx) #11

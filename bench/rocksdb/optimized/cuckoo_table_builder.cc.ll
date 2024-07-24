@@ -1485,7 +1485,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %sub, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %sub, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %buckets, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN7rocksdb18CuckooTableBuilder12CuckooBucketESaIS2_EE6resizeEm.exit
 
@@ -1557,7 +1557,7 @@ cond.true.i:                                      ; preds = %for.body
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cond.true.i
-  %sub.i.i = sub nsw i64 %conv2246, %9
+  %sub.i.i = sub nuw nsw i64 %conv2246, %9
   %10 = load i64, ptr %key_size_.i8.i, align 8
   %mul.i.i = mul i64 %10, %sub.i.i
   %call2.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i6.i, i64 noundef %mul.i.i) #22
@@ -1580,7 +1580,7 @@ cond.false.i:                                     ; preds = %for.body
   br i1 %cmp.i.not.i.i, label %if.end.i16.i, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %cond.false.i
-  %sub.i7.i = sub nsw i64 %conv2246, %9
+  %sub.i7.i = sub nuw nsw i64 %conv2246, %9
   %13 = load i64, ptr %key_size_.i8.i, align 8
   %mul.i9.i = mul i64 %13, %sub.i7.i
   %call2.i10.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i6.i, i64 noundef %mul.i9.i) #22
@@ -1742,7 +1742,7 @@ cond.true.i51:                                    ; preds = %if.else
   br i1 %cmp.i.not.i.i27, label %if.end.i.i62, label %if.then.i.i52
 
 if.then.i.i52:                                    ; preds = %cond.true.i51
-  %sub.i.i54 = sub nsw i64 %conv21, %28
+  %sub.i.i54 = sub nuw nsw i64 %conv21, %28
   %29 = load i64, ptr %key_size_.i8.i, align 8
   %mul.i.i56 = mul i64 %29, %sub.i.i54
   %call2.i.i57 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i6.i, i64 noundef %mul.i.i56) #22
@@ -1765,7 +1765,7 @@ cond.false.i28:                                   ; preds = %if.else
   br i1 %cmp.i.not.i.i27, label %if.end.i16.i44, label %if.then.i5.i29
 
 if.then.i5.i29:                                   ; preds = %cond.false.i28
-  %sub.i7.i31 = sub nsw i64 %conv21, %28
+  %sub.i7.i31 = sub nuw nsw i64 %conv21, %28
   %32 = load i64, ptr %key_size_.i8.i, align 8
   %mul.i9.i33 = mul i64 %32, %sub.i7.i31
   %call2.i10.i34 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i6.i, i64 noundef %mul.i9.i33) #22
@@ -2341,7 +2341,7 @@ cond.true.i:                                      ; preds = %for.body22
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cond.true.i
-  %sub.i.i = sub nsw i64 %conv24, %17
+  %sub.i.i = sub nuw nsw i64 %conv24, %17
   %18 = load i64, ptr %key_size_.i8.i, align 8
   %mul.i.i = mul i64 %18, %sub.i.i
   %call2.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i6.i, i64 noundef %mul.i.i) #22
@@ -2364,7 +2364,7 @@ cond.false.i:                                     ; preds = %for.body22
   br i1 %cmp.i.not.i.i, label %if.end.i16.i, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %cond.false.i
-  %sub.i7.i = sub nsw i64 %conv24, %17
+  %sub.i7.i = sub nuw nsw i64 %conv24, %17
   %21 = load i64, ptr %key_size_.i8.i, align 8
   %mul.i9.i = mul i64 %21, %sub.i7.i
   %call2.i10.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i6.i, i64 noundef %mul.i9.i) #22
@@ -3032,7 +3032,7 @@ if.else101:                                       ; preds = %for.body
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i67
 
 if.then.i67:                                      ; preds = %if.else101
-  %sub.i = sub nsw i64 %conv107, %42
+  %sub.i = sub nuw nsw i64 %conv107, %42
   %43 = load i64, ptr %key_size_, align 8
   %mul.i = mul i64 %43, %sub.i
   %call2.i68 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_.i, i64 noundef %mul.i) #22

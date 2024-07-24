@@ -4620,8 +4620,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_ether_address(ptr noundef %0, 
   %59 = zext nneg i32 %.150.lcssa to i64
   %60 = getelementptr i8, ptr %1, i64 %59
   %scevgep = getelementptr i8, ptr %60, i64 1
-  %narrow = sub nsw i32 5, %.150.lcssa
-  %61 = zext i32 %narrow to i64
+  %narrow = sub nuw nsw i32 5, %.150.lcssa
+  %61 = zext nneg i32 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %61, i1 false)
   br label %.loopexit
 

@@ -582,7 +582,7 @@ define dso_local void @blk_mq_put_tag(ptr noundef %0, ptr nocapture noundef read
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = sub i32 %2, %5
+  %8 = sub nuw i32 %2, %5
   %9 = load i32, ptr %0, align 8
   %10 = icmp ult i32 %8, %9
   br i1 %10, label %12, label %11, !prof !14
@@ -783,7 +783,7 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr nocapture nounde
   %48 = sub i32 %41, %47
   %49 = shl nuw i32 1, %46
   %50 = select i1 %45, i32 %48, i32 %49
-  %51 = sub i32 %41, %43
+  %51 = sub nuw i32 %41, %43
   %52 = call i32 @llvm.umin.i32(i32 %50, i32 %51)
   %53 = add i32 %52, %43
   %54 = load ptr, ptr %37, align 8
@@ -926,7 +926,7 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   %132 = sub i32 %125, %131
   %133 = shl nuw i32 1, %130
   %134 = select i1 %129, i32 %132, i32 %133
-  %135 = sub i32 %125, %127
+  %135 = sub nuw i32 %125, %127
   %136 = call i32 @llvm.umin.i32(i32 %134, i32 %135)
   %137 = add i32 %136, %127
   %138 = load ptr, ptr %121, align 8
@@ -1208,7 +1208,7 @@ define internal fastcc void @bt_for_each(ptr noundef readonly %0, ptr noundef re
   %23 = sub i32 %16, %22
   %24 = shl nuw i32 1, %21
   %25 = select i1 %20, i32 %23, i32 %24
-  %26 = sub i32 %16, %18
+  %26 = sub nuw i32 %16, %18
   %27 = call i32 @llvm.umin.i32(i32 %25, i32 %26)
   %28 = add i32 %27, %18
   %29 = load ptr, ptr %10, align 8
@@ -1640,7 +1640,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   %32 = sub i32 %25, %31
   %33 = shl nuw i32 1, %30
   %34 = select i1 %29, i32 %32, i32 %33
-  %35 = sub i32 %25, %27
+  %35 = sub nuw i32 %25, %27
   %36 = call i32 @llvm.umin.i32(i32 %34, i32 %35)
   %37 = add i32 %36, %27
   %38 = load ptr, ptr %13, align 8
@@ -1767,7 +1767,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   %111 = sub i32 %104, %110
   %112 = shl nuw i32 1, %109
   %113 = select i1 %108, i32 %111, i32 %112
-  %114 = sub i32 %104, %106
+  %114 = sub nuw i32 %104, %106
   %115 = call i32 @llvm.umin.i32(i32 %113, i32 %114)
   %116 = add i32 %115, %106
   %117 = load ptr, ptr %13, align 8

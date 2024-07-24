@@ -1894,7 +1894,7 @@ if.then49:                                        ; preds = %_ZNKSt17basic_strin
   br i1 %cmp.i20, label %if.then.i22, label %if.then52
 
 if.then.i22:                                      ; preds = %if.then49
-  %sub.i = sub i64 %33, %add
+  %sub.i = sub nuw i64 %33, %add
   %add.ptr.i = getelementptr inbounds i8, ptr %34, i64 %add
   %call.i.i24 = call ptr @memchr(ptr noundef nonnull %add.ptr.i, i32 noundef 58, i64 noundef %sub.i) #22
   %tobool.not.i25 = icmp eq ptr %call.i.i24, null
@@ -1913,7 +1913,7 @@ if.then.i.i:                                      ; preds = %if.then52
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.then52
-  %sub.i31 = sub i64 %33, %add
+  %sub.i31 = sub nuw i64 %33, %add
   %add.ptr.i33 = getelementptr inbounds i8, ptr %34, i64 %add
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)

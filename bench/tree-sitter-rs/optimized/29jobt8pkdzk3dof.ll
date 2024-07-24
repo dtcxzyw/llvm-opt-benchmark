@@ -294,7 +294,7 @@ _ZN4core3ptr7replace17hd13043bdc384bd0bE.exit:    ; preds = %14
   br label %12
 
 22:                                               ; preds = %_ZN4core3ptr7replace17hd13043bdc384bd0bE.exit
-  %23 = sub i64 %.040, %0
+  %23 = sub nuw i64 %.040, %0
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %25, label %27
 
@@ -347,7 +347,7 @@ _ZN4core3ptr7replace17hd13043bdc384bd0bE.exit50:  ; preds = %32
   br label %.backedge
 
 40:                                               ; preds = %_ZN4core3ptr7replace17hd13043bdc384bd0bE.exit50
-  %41 = sub i64 %.2, %0
+  %41 = sub nuw i64 %.2, %0
   %42 = icmp eq i64 %41, %.sroa.033.054
   br i1 %42, label %43, label %.backedge
 

@@ -5062,7 +5062,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %1, align 1, !tbaa !40, !alias.scope !79, !noalias !81
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -5139,7 +5139,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -5466,7 +5466,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %0, align 1, !tbaa !40, !alias.scope !99, !noalias !102
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -5543,7 +5543,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -5850,7 +5850,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %iter.check, label %cleanup.i
 
 iter.check:                                       ; preds = %for.cond9.preheader.i
-  %36 = sub i64 %cond.i.i, %base_idx.0124.i
+  %36 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %36, 8
   br i1 %min.iters.check, label %for.body11.i.preheader, label %vector.main.loop.iter.check
 
@@ -5929,7 +5929,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %54 = sub i64 %cond.i.i, %base_idx.0124.i
+  %54 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %54, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -7357,7 +7357,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %1, align 2, !tbaa !151, !alias.scope !159, !noalias !161
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -7400,7 +7400,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -7695,7 +7695,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %0, align 2, !tbaa !151, !alias.scope !175, !noalias !178
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -7738,7 +7738,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -8013,7 +8013,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 16
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -8058,7 +8058,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -9069,7 +9069,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %1, align 4, !tbaa !41, !alias.scope !214, !noalias !216
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -9112,7 +9112,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -9407,7 +9407,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %0, align 4, !tbaa !41, !alias.scope !230, !noalias !233
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -9450,7 +9450,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -9725,7 +9725,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 8
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -9770,7 +9770,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -10781,7 +10781,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i64, ptr %1, align 8, !tbaa !29, !alias.scope !269, !noalias !271
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 4
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -10824,7 +10824,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -11119,7 +11119,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i64, ptr %0, align 8, !tbaa !29, !alias.scope !285, !noalias !288
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 4
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -11162,7 +11162,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -11437,7 +11437,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 4
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -11482,7 +11482,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -12525,7 +12525,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %1, align 1, !tbaa !40, !alias.scope !324, !noalias !326
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -12602,7 +12602,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -12929,7 +12929,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %0, align 1, !tbaa !40, !alias.scope !342, !noalias !345
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -13006,7 +13006,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -13313,7 +13313,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %iter.check, label %cleanup.i
 
 iter.check:                                       ; preds = %for.cond9.preheader.i
-  %36 = sub i64 %cond.i.i, %base_idx.0124.i
+  %36 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %36, 8
   br i1 %min.iters.check, label %for.body11.i.preheader, label %vector.main.loop.iter.check
 
@@ -13392,7 +13392,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %54 = sub i64 %cond.i.i, %base_idx.0124.i
+  %54 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %54, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -14435,7 +14435,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %1, align 2, !tbaa !151, !alias.scope !386, !noalias !388
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -14478,7 +14478,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -14773,7 +14773,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %0, align 2, !tbaa !151, !alias.scope !402, !noalias !405
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -14816,7 +14816,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -15091,7 +15091,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 16
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -15136,7 +15136,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -16147,7 +16147,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %1, align 4, !tbaa !41, !alias.scope !441, !noalias !443
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -16190,7 +16190,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -16485,7 +16485,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %0, align 4, !tbaa !41, !alias.scope !457, !noalias !460
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -16528,7 +16528,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -16803,7 +16803,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 8
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -16848,7 +16848,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -17859,7 +17859,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i64, ptr %1, align 8, !tbaa !29, !alias.scope !496, !noalias !498
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 4
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -17902,7 +17902,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -18197,7 +18197,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i64, ptr %0, align 8, !tbaa !29, !alias.scope !512, !noalias !515
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 4
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -18240,7 +18240,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -18515,7 +18515,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 4
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -18560,7 +18560,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -20056,7 +20056,7 @@ for.cond7.preheader:                              ; preds = %_ZNK6duckdb21Templa
 for.body9.lr.ph:                                  ; preds = %for.cond7.preheader
   %rentry.sroa.0.0.copyload = load i64, ptr %rdata, align 8, !tbaa !29
   %rentry.sroa.4.0.copyload = load i64, ptr %rentry.sroa.4.0.arrayidx10.sroa_idx, align 8, !tbaa !29
-  %3 = sub i64 %cond.i, %base_idx.0122
+  %3 = sub nuw i64 %cond.i, %base_idx.0122
   %.neg = add nuw i64 %base_idx.0122, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -20246,7 +20246,7 @@ for.cond7.preheader:                              ; preds = %_ZNK6duckdb21Templa
 for.body9.lr.ph:                                  ; preds = %for.cond7.preheader
   %lentry.sroa.0.0.copyload = load i64, ptr %ldata, align 8, !tbaa !29
   %lentry.sroa.4.0.copyload = load i64, ptr %lentry.sroa.4.0.arrayidx.sroa_idx, align 8, !tbaa !29
-  %3 = sub i64 %cond.i, %base_idx.0122
+  %3 = sub nuw i64 %cond.i, %base_idx.0122
   %.neg = add nuw i64 %base_idx.0122, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -20427,7 +20427,7 @@ for.cond9.preheader:                              ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10126, label %for.body11.preheader, label %cleanup
 
 for.body11.preheader:                             ; preds = %for.cond9.preheader
-  %3 = sub i64 %cond.i, %base_idx.0133
+  %3 = sub nuw i64 %cond.i, %base_idx.0133
   %.neg = add nuw i64 %base_idx.0133, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -27876,7 +27876,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %1, align 1, !tbaa !40, !alias.scope !631, !noalias !633
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -27953,7 +27953,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -28280,7 +28280,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %0, align 1, !tbaa !40, !alias.scope !649, !noalias !652
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -28357,7 +28357,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -28664,7 +28664,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %iter.check, label %cleanup.i
 
 iter.check:                                       ; preds = %for.cond9.preheader.i
-  %36 = sub i64 %cond.i.i, %base_idx.0124.i
+  %36 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %36, 8
   br i1 %min.iters.check, label %for.body11.i.preheader, label %vector.main.loop.iter.check
 
@@ -28743,7 +28743,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %54 = sub i64 %cond.i.i, %base_idx.0124.i
+  %54 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %54, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -29786,7 +29786,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %1, align 2, !tbaa !151, !alias.scope !693, !noalias !695
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -29829,7 +29829,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -30124,7 +30124,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %0, align 2, !tbaa !151, !alias.scope !709, !noalias !712
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -30167,7 +30167,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -30442,7 +30442,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 16
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -30487,7 +30487,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -31498,7 +31498,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %1, align 4, !tbaa !41, !alias.scope !748, !noalias !750
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -31541,7 +31541,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -31836,7 +31836,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %0, align 4, !tbaa !41, !alias.scope !764, !noalias !767
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -31879,7 +31879,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -32154,7 +32154,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 8
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -32199,7 +32199,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -33183,7 +33183,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %24 = load i64, ptr %1, align 8, !tbaa !29, !alias.scope !803, !noalias !805
-  %25 = sub i64 %cond.i.i, %base_idx.0113.i
+  %25 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %xtraiter = and i64 %25, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body9.i.prol.loopexit, label %for.body9.i.prol
@@ -33213,7 +33213,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %29 = sub i64 %cond.i.i, %base_idx.0113.i
+  %29 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter39 = and i64 %29, 1
   %lcmp.mod40.not = icmp eq i64 %xtraiter39, 0
@@ -33542,7 +33542,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %24 = load i64, ptr %0, align 8, !tbaa !29, !alias.scope !819, !noalias !822
-  %25 = sub i64 %cond.i.i, %base_idx.0113.i
+  %25 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %xtraiter = and i64 %25, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body9.i.prol.loopexit, label %for.body9.i.prol
@@ -33572,7 +33572,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %29 = sub i64 %cond.i.i, %base_idx.0113.i
+  %29 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter39 = and i64 %29, 1
   %lcmp.mod40.not = icmp eq i64 %xtraiter39, 0
@@ -33908,7 +33908,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 4
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -33953,7 +33953,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -34996,7 +34996,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %1, align 1, !tbaa !40, !alias.scope !858, !noalias !860
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -35073,7 +35073,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -35400,7 +35400,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %0, align 1, !tbaa !40, !alias.scope !876, !noalias !879
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -35477,7 +35477,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -35784,7 +35784,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %iter.check, label %cleanup.i
 
 iter.check:                                       ; preds = %for.cond9.preheader.i
-  %36 = sub i64 %cond.i.i, %base_idx.0124.i
+  %36 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %36, 8
   br i1 %min.iters.check, label %for.body11.i.preheader, label %vector.main.loop.iter.check
 
@@ -35863,7 +35863,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %54 = sub i64 %cond.i.i, %base_idx.0124.i
+  %54 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %54, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -36906,7 +36906,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %1, align 2, !tbaa !151, !alias.scope !920, !noalias !922
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -36949,7 +36949,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -37244,7 +37244,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %0, align 2, !tbaa !151, !alias.scope !936, !noalias !939
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -37287,7 +37287,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -37562,7 +37562,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 16
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -37607,7 +37607,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -38618,7 +38618,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %1, align 4, !tbaa !41, !alias.scope !975, !noalias !977
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -38661,7 +38661,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -38956,7 +38956,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %0, align 4, !tbaa !41, !alias.scope !991, !noalias !994
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -38999,7 +38999,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -39274,7 +39274,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 8
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -39319,7 +39319,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -40303,7 +40303,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %24 = load i64, ptr %1, align 8, !tbaa !29, !alias.scope !1030, !noalias !1032
-  %25 = sub i64 %cond.i.i, %base_idx.0113.i
+  %25 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %xtraiter = and i64 %25, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body9.i.prol.loopexit, label %for.body9.i.prol
@@ -40333,7 +40333,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %29 = sub i64 %cond.i.i, %base_idx.0113.i
+  %29 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter39 = and i64 %29, 1
   %lcmp.mod40.not = icmp eq i64 %xtraiter39, 0
@@ -40662,7 +40662,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %24 = load i64, ptr %0, align 8, !tbaa !29, !alias.scope !1046, !noalias !1049
-  %25 = sub i64 %cond.i.i, %base_idx.0113.i
+  %25 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %xtraiter = and i64 %25, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body9.i.prol.loopexit, label %for.body9.i.prol
@@ -40692,7 +40692,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %29 = sub i64 %cond.i.i, %base_idx.0113.i
+  %29 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter39 = and i64 %29, 1
   %lcmp.mod40.not = icmp eq i64 %xtraiter39, 0
@@ -41028,7 +41028,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 4
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -41073,7 +41073,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -42569,7 +42569,7 @@ for.cond7.preheader:                              ; preds = %_ZNK6duckdb21Templa
 for.body9.lr.ph:                                  ; preds = %for.cond7.preheader
   %rentry.sroa.0.0.copyload = load i64, ptr %rdata, align 8, !tbaa !29
   %rentry.sroa.4.0.copyload = load i64, ptr %rentry.sroa.4.0.arrayidx10.sroa_idx, align 8, !tbaa !29
-  %3 = sub i64 %cond.i, %base_idx.0122
+  %3 = sub nuw i64 %cond.i, %base_idx.0122
   %.neg = add nuw i64 %base_idx.0122, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -42759,7 +42759,7 @@ for.cond7.preheader:                              ; preds = %_ZNK6duckdb21Templa
 for.body9.lr.ph:                                  ; preds = %for.cond7.preheader
   %lentry.sroa.0.0.copyload = load i64, ptr %ldata, align 8, !tbaa !29
   %lentry.sroa.4.0.copyload = load i64, ptr %lentry.sroa.4.0.arrayidx.sroa_idx, align 8, !tbaa !29
-  %3 = sub i64 %cond.i, %base_idx.0122
+  %3 = sub nuw i64 %cond.i, %base_idx.0122
   %.neg = add nuw i64 %base_idx.0122, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -42940,7 +42940,7 @@ for.cond9.preheader:                              ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10126, label %for.body11.preheader, label %cleanup
 
 for.body11.preheader:                             ; preds = %for.cond9.preheader
-  %3 = sub i64 %cond.i, %base_idx.0133
+  %3 = sub nuw i64 %cond.i, %base_idx.0133
   %.neg = add nuw i64 %base_idx.0133, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -50177,7 +50177,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %1, align 1, !tbaa !40, !alias.scope !1159, !noalias !1161
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -50254,7 +50254,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -50581,7 +50581,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %0, align 1, !tbaa !40, !alias.scope !1177, !noalias !1180
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -50658,7 +50658,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -50965,7 +50965,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %iter.check, label %cleanup.i
 
 iter.check:                                       ; preds = %for.cond9.preheader.i
-  %36 = sub i64 %cond.i.i, %base_idx.0124.i
+  %36 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %36, 8
   br i1 %min.iters.check, label %for.body11.i.preheader, label %vector.main.loop.iter.check
 
@@ -51044,7 +51044,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %54 = sub i64 %cond.i.i, %base_idx.0124.i
+  %54 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %54, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -52087,7 +52087,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %1, align 2, !tbaa !151, !alias.scope !1221, !noalias !1223
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -52130,7 +52130,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -52425,7 +52425,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %0, align 2, !tbaa !151, !alias.scope !1237, !noalias !1240
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -52468,7 +52468,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -52743,7 +52743,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 16
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -52788,7 +52788,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -53799,7 +53799,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %1, align 4, !tbaa !41, !alias.scope !1276, !noalias !1278
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -53842,7 +53842,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -54137,7 +54137,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %0, align 4, !tbaa !41, !alias.scope !1292, !noalias !1295
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -54180,7 +54180,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -54455,7 +54455,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 8
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -54500,7 +54500,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -55484,7 +55484,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %24 = load i64, ptr %1, align 8, !tbaa !29, !alias.scope !1331, !noalias !1333
-  %25 = sub i64 %cond.i.i, %base_idx.0113.i
+  %25 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %xtraiter = and i64 %25, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body9.i.prol.loopexit, label %for.body9.i.prol
@@ -55514,7 +55514,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %29 = sub i64 %cond.i.i, %base_idx.0113.i
+  %29 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter39 = and i64 %29, 1
   %lcmp.mod40.not = icmp eq i64 %xtraiter39, 0
@@ -55843,7 +55843,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %24 = load i64, ptr %0, align 8, !tbaa !29, !alias.scope !1347, !noalias !1350
-  %25 = sub i64 %cond.i.i, %base_idx.0113.i
+  %25 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %xtraiter = and i64 %25, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body9.i.prol.loopexit, label %for.body9.i.prol
@@ -55873,7 +55873,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %29 = sub i64 %cond.i.i, %base_idx.0113.i
+  %29 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter39 = and i64 %29, 1
   %lcmp.mod40.not = icmp eq i64 %xtraiter39, 0
@@ -56209,7 +56209,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 4
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -56254,7 +56254,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -57297,7 +57297,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %1, align 1, !tbaa !40, !alias.scope !1386, !noalias !1388
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -57374,7 +57374,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -57701,7 +57701,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %0, align 1, !tbaa !40, !alias.scope !1404, !noalias !1407
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -57778,7 +57778,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -58085,7 +58085,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %iter.check, label %cleanup.i
 
 iter.check:                                       ; preds = %for.cond9.preheader.i
-  %36 = sub i64 %cond.i.i, %base_idx.0124.i
+  %36 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %36, 8
   br i1 %min.iters.check, label %for.body11.i.preheader, label %vector.main.loop.iter.check
 
@@ -58164,7 +58164,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %54 = sub i64 %cond.i.i, %base_idx.0124.i
+  %54 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %54, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -59207,7 +59207,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %1, align 2, !tbaa !151, !alias.scope !1448, !noalias !1450
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -59250,7 +59250,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -59545,7 +59545,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %0, align 2, !tbaa !151, !alias.scope !1464, !noalias !1467
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -59588,7 +59588,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -59863,7 +59863,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 16
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -59908,7 +59908,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -60919,7 +60919,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %1, align 4, !tbaa !41, !alias.scope !1503, !noalias !1505
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -60962,7 +60962,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -61257,7 +61257,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %0, align 4, !tbaa !41, !alias.scope !1519, !noalias !1522
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -61300,7 +61300,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -61575,7 +61575,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 8
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -61620,7 +61620,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -62604,7 +62604,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %24 = load i64, ptr %1, align 8, !tbaa !29, !alias.scope !1558, !noalias !1560
-  %25 = sub i64 %cond.i.i, %base_idx.0113.i
+  %25 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %xtraiter = and i64 %25, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body9.i.prol.loopexit, label %for.body9.i.prol
@@ -62634,7 +62634,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %29 = sub i64 %cond.i.i, %base_idx.0113.i
+  %29 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter39 = and i64 %29, 1
   %lcmp.mod40.not = icmp eq i64 %xtraiter39, 0
@@ -62963,7 +62963,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %24 = load i64, ptr %0, align 8, !tbaa !29, !alias.scope !1574, !noalias !1577
-  %25 = sub i64 %cond.i.i, %base_idx.0113.i
+  %25 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %xtraiter = and i64 %25, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body9.i.prol.loopexit, label %for.body9.i.prol
@@ -62993,7 +62993,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %29 = sub i64 %cond.i.i, %base_idx.0113.i
+  %29 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter39 = and i64 %29, 1
   %lcmp.mod40.not = icmp eq i64 %xtraiter39, 0
@@ -63300,7 +63300,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %20 = sub i64 %cond.i.i, %base_idx.0124.i
+  %20 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %20, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -63327,7 +63327,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %24 = sub i64 %cond.i.i, %base_idx.0124.i
+  %24 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg53 = add nuw i64 %base_idx.0124.i, 1
   %xtraiter49 = and i64 %24, 1
   %lcmp.mod50.not = icmp eq i64 %xtraiter49, 0
@@ -64844,7 +64844,7 @@ for.cond7.preheader:                              ; preds = %_ZNK6duckdb21Templa
 for.body9.lr.ph:                                  ; preds = %for.cond7.preheader
   %rentry.sroa.0.0.copyload = load i64, ptr %rdata, align 8, !tbaa !29
   %rentry.sroa.4.0.copyload = load i64, ptr %rentry.sroa.4.0.arrayidx10.sroa_idx, align 8, !tbaa !29
-  %3 = sub i64 %cond.i, %base_idx.0126
+  %3 = sub nuw i64 %cond.i, %base_idx.0126
   %.neg = add nuw i64 %base_idx.0126, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -65048,7 +65048,7 @@ for.cond7.preheader:                              ; preds = %_ZNK6duckdb21Templa
 for.body9.lr.ph:                                  ; preds = %for.cond7.preheader
   %lentry.sroa.0.0.copyload = load i64, ptr %ldata, align 8, !tbaa !29
   %lentry.sroa.4.0.copyload = load i64, ptr %lentry.sroa.4.0.arrayidx.sroa_idx, align 8, !tbaa !29
-  %3 = sub i64 %cond.i, %base_idx.0126
+  %3 = sub nuw i64 %cond.i, %base_idx.0126
   %.neg = add nuw i64 %base_idx.0126, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -72489,7 +72489,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %1, align 1, !tbaa !40, !alias.scope !1679, !noalias !1681
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -72566,7 +72566,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -72893,7 +72893,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %0, align 1, !tbaa !40, !alias.scope !1697, !noalias !1700
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -72970,7 +72970,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -73277,7 +73277,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %iter.check, label %cleanup.i
 
 iter.check:                                       ; preds = %for.cond9.preheader.i
-  %36 = sub i64 %cond.i.i, %base_idx.0124.i
+  %36 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %36, 8
   br i1 %min.iters.check, label %for.body11.i.preheader, label %vector.main.loop.iter.check
 
@@ -73356,7 +73356,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %54 = sub i64 %cond.i.i, %base_idx.0124.i
+  %54 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %54, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -74399,7 +74399,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %1, align 2, !tbaa !151, !alias.scope !1741, !noalias !1743
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -74442,7 +74442,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -74737,7 +74737,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %0, align 2, !tbaa !151, !alias.scope !1757, !noalias !1760
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -74780,7 +74780,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -75055,7 +75055,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 16
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -75100,7 +75100,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -76111,7 +76111,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %1, align 4, !tbaa !41, !alias.scope !1796, !noalias !1798
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -76154,7 +76154,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -76449,7 +76449,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %0, align 4, !tbaa !41, !alias.scope !1812, !noalias !1815
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -76492,7 +76492,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -76767,7 +76767,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 8
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -76812,7 +76812,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -77823,7 +77823,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i64, ptr %1, align 8, !tbaa !29, !alias.scope !1851, !noalias !1853
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 4
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -77866,7 +77866,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -78161,7 +78161,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i64, ptr %0, align 8, !tbaa !29, !alias.scope !1867, !noalias !1870
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 4
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -78204,7 +78204,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -78479,7 +78479,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 4
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -78524,7 +78524,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -79567,7 +79567,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %1, align 1, !tbaa !40, !alias.scope !1906, !noalias !1908
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -79644,7 +79644,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -79971,7 +79971,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 iter.check:                                       ; preds = %for.cond7.preheader.i
   %37 = load i8, ptr %0, align 1, !tbaa !40, !alias.scope !1924, !noalias !1927
-  %38 = sub i64 %cond.i.i, %base_idx.0113.i
+  %38 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %38, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.main.loop.iter.check
 
@@ -80048,7 +80048,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %53 = sub i64 %cond.i.i, %base_idx.0113.i
+  %53 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %53, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -80355,7 +80355,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %iter.check, label %cleanup.i
 
 iter.check:                                       ; preds = %for.cond9.preheader.i
-  %36 = sub i64 %cond.i.i, %base_idx.0124.i
+  %36 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %36, 8
   br i1 %min.iters.check, label %for.body11.i.preheader, label %vector.main.loop.iter.check
 
@@ -80434,7 +80434,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %54 = sub i64 %cond.i.i, %base_idx.0124.i
+  %54 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %54, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -81477,7 +81477,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %1, align 2, !tbaa !151, !alias.scope !1968, !noalias !1970
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -81520,7 +81520,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -81815,7 +81815,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i16, ptr %0, align 2, !tbaa !151, !alias.scope !1984, !noalias !1987
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 16
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -81858,7 +81858,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -82133,7 +82133,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 16
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -82178,7 +82178,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -83189,7 +83189,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %1, align 4, !tbaa !41, !alias.scope !2023, !noalias !2025
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -83232,7 +83232,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -83527,7 +83527,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %32 = load i32, ptr %0, align 4, !tbaa !41, !alias.scope !2039, !noalias !2042
-  %33 = sub i64 %cond.i.i, %base_idx.0113.i
+  %33 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %min.iters.check = icmp ult i64 %33, 8
   br i1 %min.iters.check, label %for.body9.i.preheader, label %vector.ph
 
@@ -83570,7 +83570,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %43 = sub i64 %cond.i.i, %base_idx.0113.i
+  %43 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter = and i64 %43, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -83845,7 +83845,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %30 = sub i64 %cond.i.i, %base_idx.0124.i
+  %30 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %min.iters.check = icmp ult i64 %30, 8
   br i1 %min.iters.check, label %for.body11.i.preheader18, label %vector.ph
 
@@ -83890,7 +83890,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %42 = sub i64 %cond.i.i, %base_idx.0124.i
+  %42 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %42, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -84874,7 +84874,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %24 = load i64, ptr %1, align 8, !tbaa !29, !alias.scope !2078, !noalias !2080
-  %25 = sub i64 %cond.i.i, %base_idx.0113.i
+  %25 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %xtraiter = and i64 %25, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body9.i.prol.loopexit, label %for.body9.i.prol
@@ -84904,7 +84904,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %29 = sub i64 %cond.i.i, %base_idx.0113.i
+  %29 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter39 = and i64 %29, 1
   %lcmp.mod40.not = icmp eq i64 %xtraiter39, 0
@@ -85233,7 +85233,7 @@ for.cond7.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
 
 for.body9.lr.ph.i:                                ; preds = %for.cond7.preheader.i
   %24 = load i64, ptr %0, align 8, !tbaa !29, !alias.scope !2094, !noalias !2097
-  %25 = sub i64 %cond.i.i, %base_idx.0113.i
+  %25 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %xtraiter = and i64 %25, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body9.i.prol.loopexit, label %for.body9.i.prol
@@ -85263,7 +85263,7 @@ for.cond17.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp18108.i, label %for.body19.i.preheader, label %cleanup.i
 
 for.body19.i.preheader:                           ; preds = %for.cond17.preheader.i
-  %29 = sub i64 %cond.i.i, %base_idx.0113.i
+  %29 = sub nuw i64 %cond.i.i, %base_idx.0113.i
   %.neg = add nuw i64 %base_idx.0113.i, 1
   %xtraiter39 = and i64 %29, 1
   %lcmp.mod40.not = icmp eq i64 %xtraiter39, 0
@@ -85570,7 +85570,7 @@ for.cond9.preheader.i:                            ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp10117.i, label %for.body11.i.preheader, label %cleanup.i
 
 for.body11.i.preheader:                           ; preds = %for.cond9.preheader.i
-  %20 = sub i64 %cond.i.i, %base_idx.0124.i
+  %20 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg = add nuw i64 %base_idx.0124.i, 1
   %xtraiter = and i64 %20, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -85597,7 +85597,7 @@ for.cond19.preheader.i:                           ; preds = %_ZNK6duckdb21Templa
   br i1 %cmp20119.i, label %for.body21.i.preheader, label %cleanup.i
 
 for.body21.i.preheader:                           ; preds = %for.cond19.preheader.i
-  %24 = sub i64 %cond.i.i, %base_idx.0124.i
+  %24 = sub nuw i64 %cond.i.i, %base_idx.0124.i
   %.neg53 = add nuw i64 %base_idx.0124.i, 1
   %xtraiter49 = and i64 %24, 1
   %lcmp.mod50.not = icmp eq i64 %xtraiter49, 0
@@ -87114,7 +87114,7 @@ for.cond7.preheader:                              ; preds = %_ZNK6duckdb21Templa
 for.body9.lr.ph:                                  ; preds = %for.cond7.preheader
   %rentry.sroa.0.0.copyload = load i64, ptr %rdata, align 8, !tbaa !29
   %rentry.sroa.4.0.copyload = load i64, ptr %rentry.sroa.4.0.arrayidx10.sroa_idx, align 8, !tbaa !29
-  %3 = sub i64 %cond.i, %base_idx.0126
+  %3 = sub nuw i64 %cond.i, %base_idx.0126
   %.neg = add nuw i64 %base_idx.0126, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -87318,7 +87318,7 @@ for.cond7.preheader:                              ; preds = %_ZNK6duckdb21Templa
 for.body9.lr.ph:                                  ; preds = %for.cond7.preheader
   %lentry.sroa.0.0.copyload = load i64, ptr %ldata, align 8, !tbaa !29
   %lentry.sroa.4.0.copyload = load i64, ptr %lentry.sroa.4.0.arrayidx.sroa_idx, align 8, !tbaa !29
-  %3 = sub i64 %cond.i, %base_idx.0126
+  %3 = sub nuw i64 %cond.i, %base_idx.0126
   %.neg = add nuw i64 %base_idx.0126, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0

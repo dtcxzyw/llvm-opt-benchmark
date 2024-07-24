@@ -43907,7 +43907,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i84: ; preds = %150, %.
 161:                                              ; preds = %.lr.ph, %273
   %162 = phi i32 [ %42, %.lr.ph ], [ %274, %273 ]
   %.0315 = phi i32 [ 0, %.lr.ph ], [ %228, %273 ]
-  %163 = sub i32 %162, %.0315
+  %163 = sub nuw i32 %162, %.0315
   %.0.sroa.speculated.i.i = call noundef i32 @llvm.umin.i32(i32 %163, i32 65536)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   %164 = zext nneg i32 %.0.sroa.speculated.i.i to i64

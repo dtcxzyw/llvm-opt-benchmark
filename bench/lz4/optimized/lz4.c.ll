@@ -14560,7 +14560,7 @@ while.body.i.backedge:                            ; preds = %do.body.i184, %whil
   br label %while.body.i
 
 if.else202.i:                                     ; preds = %if.end189.i
-  %sub.i = sub i64 %length.i.0, %sub.ptr.sub192.i
+  %sub.i = sub nuw i64 %length.i.0, %sub.ptr.sub192.i
   %idx.neg206.i = sub i64 0, %sub.ptr.sub192.i
   %add.ptr207.i = getelementptr inbounds i8, ptr %cond.i, i64 %idx.neg206.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.i.1, ptr align 1 %add.ptr207.i, i64 %sub.ptr.sub192.i, i1 false)
@@ -14943,7 +14943,7 @@ if.then447.i:                                     ; preds = %if.end441.i
   br label %while.body237.i.preheader
 
 if.else454.i:                                     ; preds = %if.end441.i
-  %sub460.i = sub i64 %length.i.7, %sub.ptr.sub444.i
+  %sub460.i = sub nuw i64 %length.i.7, %sub.ptr.sub444.i
   %idx.neg461.i = sub i64 0, %sub.ptr.sub444.i
   %add.ptr462.i = getelementptr inbounds i8, ptr %cond.i, i64 %idx.neg461.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.i.8, ptr align 1 %add.ptr462.i, i64 %sub.ptr.sub444.i, i1 false)
@@ -15344,7 +15344,7 @@ while.body.i.backedge:                            ; preds = %do.body.i184, %whil
   br label %while.body.i
 
 if.else202.i:                                     ; preds = %if.then163.i
-  %sub.i = sub i64 %length.i.1, %sub.ptr.sub192.i
+  %sub.i = sub nuw i64 %length.i.1, %sub.ptr.sub192.i
   %idx.neg206.i = sub i64 0, %sub.ptr.sub192.i
   %add.ptr207.i = getelementptr inbounds i8, ptr %cond.i, i64 %idx.neg206.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.i.1, ptr align 1 %add.ptr207.i, i64 %sub.ptr.sub192.i, i1 false)
@@ -15745,7 +15745,7 @@ if.then447.i:                                     ; preds = %if.then415.i
   br label %while.body237.i.preheader
 
 if.else454.i:                                     ; preds = %if.then415.i
-  %sub460.i = sub i64 %length.i.8, %sub.ptr.sub444.i
+  %sub460.i = sub nuw i64 %length.i.8, %sub.ptr.sub444.i
   %idx.neg461.i = sub i64 0, %sub.ptr.sub444.i
   %add.ptr462.i = getelementptr inbounds i8, ptr %cond.i, i64 %idx.neg461.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.i.8, ptr align 1 %add.ptr462.i, i64 %sub.ptr.sub444.i, i1 false)
@@ -16264,7 +16264,7 @@ while.body.i.i.backedge:                          ; preds = %do.body.i224, %whil
   br label %while.body.i.i
 
 if.else202.i.i:                                   ; preds = %if.end189.i.i
-  %sub.i.i = sub i64 %length.i.i.0, %sub.ptr.sub192.i.i
+  %sub.i.i = sub nuw i64 %length.i.i.0, %sub.ptr.sub192.i.i
   %idx.neg206.i.i = sub i64 0, %sub.ptr.sub192.i.i
   %add.ptr207.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %idx.neg206.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.i.i.1, ptr align 1 %add.ptr207.i.i, i64 %sub.ptr.sub192.i.i, i1 false)
@@ -16648,7 +16648,7 @@ if.then447.i.i:                                   ; preds = %if.end441.i.i
   br label %while.body237.i.i.preheader
 
 if.else454.i.i:                                   ; preds = %if.end441.i.i
-  %sub460.i.i = sub i64 %length.i.i.7, %sub.ptr.sub444.i.i
+  %sub460.i.i = sub nuw i64 %length.i.i.7, %sub.ptr.sub444.i.i
   %idx.neg461.i.i = sub i64 0, %sub.ptr.sub444.i.i
   %add.ptr462.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %idx.neg461.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.i.i.8, ptr align 1 %add.ptr462.i.i, i64 %sub.ptr.sub444.i.i, i1 false)
@@ -17781,7 +17781,7 @@ if.then69.i:                                      ; preds = %if.then57.i
 
 if.else.i:                                        ; preds = %if.then57.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr11.i, ptr align 1 %add.ptr63.i, i64 %sub.ptr.sub66.i, i1 false)
-  %sub72.i = sub i64 %add34.i, %sub.ptr.sub66.i
+  %sub72.i = sub nuw i64 %add34.i, %sub.ptr.sub66.i
   br label %if.end73.i
 
 if.end73.i:                                       ; preds = %if.else.i, %if.then69.i
@@ -19686,7 +19686,7 @@ if.then69.i.i:                                    ; preds = %if.then57.i.i
 
 if.else.i.i:                                      ; preds = %if.then57.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr11.i.i, ptr nonnull align 1 %add.ptr63.i.i, i64 %sub.ptr.sub66.i.i, i1 false)
-  %sub72.i.i = sub i64 %add34.i.i, %sub.ptr.sub66.i.i
+  %sub72.i.i = sub nuw i64 %add34.i.i, %sub.ptr.sub66.i.i
   br label %if.end73.i.i
 
 if.end73.i.i:                                     ; preds = %if.else.i.i, %if.then69.i.i

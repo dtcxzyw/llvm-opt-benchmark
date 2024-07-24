@@ -279,7 +279,7 @@ define dso_local i32 @dbs_update(ptr nocapture noundef readonly %0) #0 align 16 
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %69
-  %72 = sub i32 %41, %57
+  %72 = sub nuw i32 %41, %57
   %73 = mul i32 %72, 100
   %74 = udiv i32 %73, %41
   br label %78

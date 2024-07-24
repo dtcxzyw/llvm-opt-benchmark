@@ -735,7 +735,7 @@ define void @_ZN2cv9videostab20GaussianMotionFilter9setParamsEif(ptr noundef non
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %9
-  %26 = sub nsw i64 %16, %23
+  %26 = sub nuw nsw i64 %16, %23
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %26)
   %.pre31 = load i32, ptr %4, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit

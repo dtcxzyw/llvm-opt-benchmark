@@ -573,7 +573,7 @@ sharedEdge.exit.i:                                ; preds = %227, %224, %223, %2
 
 247:                                              ; preds = %245
   %248 = getelementptr inbounds i8, ptr %240, i64 %237
-  %249 = sub nsw i64 %238, %237
+  %249 = sub nuw nsw i64 %238, %237
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %248, i8 0, i64 %249, i1 false)
   br label %gv_recalloc.exit52.i
 
@@ -2899,7 +2899,7 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = sub i64 %10, %9
+  %23 = sub nuw i64 %10, %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %22, i8 0, i64 %23, i1 false)
   br label %gv_realloc.exit
 

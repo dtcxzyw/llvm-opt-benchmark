@@ -108,7 +108,7 @@ fmap_readn.exit.i:                                ; preds = %.lr.ph
   br i1 %.not, label %41, label %fmap_readn.exit30.thread.i
 
 41:                                               ; preds = %40
-  %42 = sub i64 %39, %36
+  %42 = sub nuw i64 %39, %36
   %spec.select.i27.i = call i64 @llvm.umin.i64(i64 %42, i64 4)
   %43 = load ptr, ptr %32, align 8
   %44 = call ptr %43(ptr noundef nonnull %31, i64 noundef %36, i64 noundef %spec.select.i27.i, i32 noundef 0) #7
@@ -158,7 +158,7 @@ fmap_readn.exit30.thread.thread.i:                ; preds = %38
   br i1 %or.cond45.not.i, label %58, label %.loopexit176
 
 58:                                               ; preds = %53
-  %59 = sub i64 %57, %54
+  %59 = sub nuw i64 %57, %54
   %spec.select.i32.i = call i64 @llvm.umin.i64(i64 %59, i64 4)
   %60 = load ptr, ptr %32, align 8
   %61 = call ptr %60(ptr noundef nonnull %31, i64 noundef %54, i64 noundef %spec.select.i32.i, i32 noundef 0) #7
@@ -276,7 +276,7 @@ tnef_message.exit.thread:                         ; preds = %77
   br i1 %94, label %fmap_readn.exit.i59, label %95
 
 95:                                               ; preds = %93
-  %96 = sub i64 %92, %63
+  %96 = sub nuw i64 %92, %63
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %96, i64 %90)
   %97 = getelementptr inbounds i8, ptr %82, i64 104
   %98 = load ptr, ptr %97, align 8
@@ -345,7 +345,7 @@ fmap_readn.exit.i59:                              ; preds = %100, %95, %93, %89
 120:                                              ; preds = %118
   %121 = call i32 @llvm.umin.i32(i32 %.06081.i, i32 8192)
   %122 = zext nneg i32 %121 to i64
-  %123 = sub i64 %119, %.3107
+  %123 = sub nuw i64 %119, %.3107
   %spec.select.i73.i = call i64 @llvm.umin.i64(i64 %123, i64 %122)
   %124 = load ptr, ptr %117, align 8
   %125 = call ptr %124(ptr noundef nonnull %82, i64 noundef %.3107, i64 noundef %spec.select.i73.i, i32 noundef 0) #7
@@ -429,7 +429,7 @@ tnef_attachment.exit:                             ; preds = %132
   br i1 %152, label %161, label %153
 
 153:                                              ; preds = %151
-  %154 = sub i64 %150, %.6
+  %154 = sub nuw i64 %150, %.6
   %spec.select.i61 = call i64 @llvm.umin.i64(i64 %154, i64 8192)
   %155 = getelementptr inbounds i8, ptr %148, i64 104
   %156 = load ptr, ptr %155, align 8

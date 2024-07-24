@@ -3258,7 +3258,7 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   br i1 %101, label %102, label %.thread33.sink.split.sink.split
 
 102:                                              ; preds = %98
-  %103 = sub i32 %100, %96
+  %103 = sub nuw i32 %100, %96
   %104 = getelementptr inbounds i8, ptr %95, i64 8
   %105 = load i32, ptr %104, align 4
   %106 = icmp ugt i32 %105, %103
@@ -3348,7 +3348,7 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   br i1 %152, label %153, label %.thread33.sink.split
 
 153:                                              ; preds = %149
-  %154 = sub i32 %151, %147
+  %154 = sub nuw i32 %151, %147
   %155 = getelementptr inbounds i8, ptr %146, i64 8
   %156 = load i32, ptr %155, align 4
   %157 = icmp ugt i32 %156, %154
@@ -3527,7 +3527,7 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   br i1 %249, label %250, label %.thread33.sink.split
 
 250:                                              ; preds = %246
-  %251 = sub i32 %248, %244
+  %251 = sub nuw i32 %248, %244
   %252 = getelementptr inbounds i8, ptr %243, i64 8
   %253 = load i32, ptr %252, align 4
   %254 = icmp ugt i32 %253, %251
@@ -3822,7 +3822,7 @@ define internal fastcc i32 @__regulatory_set_wiphy_regd(ptr noundef %0, ptr noun
   br i1 %34, label %35, label %.loopexit
 
 35:                                               ; preds = %31
-  %36 = sub i32 %33, %29
+  %36 = sub nuw i32 %33, %29
   %37 = getelementptr inbounds i8, ptr %28, i64 8
   %38 = load i32, ptr %37, align 4
   %39 = icmp ugt i32 %38, %36

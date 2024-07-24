@@ -249,9 +249,9 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
 if.end.i.i:                                       ; preds = %if.then9.i
   %add.i.i = add nuw i64 %cond.i, 8
   %cmp1.not.i.i = icmp uge i64 %and.i, %add.i.i
-  %sub.i.i = sub i64 %and.i, %cond.i
+  %sub.i.i = sub nuw i64 %and.i, %cond.i
   %cmp2.i.i = icmp ult i64 %sub.i.i, 65537
-  %or.cond.i.i = and i1 %cmp1.not.i.i, %cmp2.i.i
+  %or.cond.i.i = select i1 %cmp1.not.i.i, i1 %cmp2.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then59.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -289,7 +289,7 @@ if.else10.i:                                      ; preds = %land.lhs.true.i, %i
   br i1 %cmp11.not.i, label %if.else33.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.else10.i
-  %sub.i = sub i64 %and.i, %cond.i
+  %sub.i = sub nuw i64 %and.i, %cond.i
   %cmp13.i = icmp ugt i64 %sub.i, 31
   br i1 %cmp13.i, label %if.then14.i, label %if.then59.i
 
@@ -323,7 +323,7 @@ land.lhs.true35.i:                                ; preds = %if.else33.i
   br i1 %cmp37.i, label %if.then38.i, label %if.else61.i
 
 if.then38.i:                                      ; preds = %land.lhs.true35.i
-  %sub41.i = sub i64 %add36.i, %cond.i
+  %sub41.i = sub nuw i64 %add36.i, %cond.i
   %add.ptr42.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %cond.i
   %or45.i = or disjoint i64 %cond.i, %and6.i
   %or46.i = or disjoint i64 %or45.i, 2
@@ -1992,7 +1992,7 @@ if.end143:                                        ; preds = %if.then52.i, %while
   br i1 %cmp145.not, label %if.else179, label %if.then147
 
 if.then147:                                       ; preds = %if.end143
-  %sub150 = sub i64 %75, %nb.0
+  %sub150 = sub nuw i64 %75, %nb.0
   %dv152 = getelementptr inbounds i8, ptr %msp, i64 24
   %76 = load ptr, ptr %dv152, align 8
   %cmp153 = icmp ugt i64 %sub150, 31
@@ -2036,7 +2036,7 @@ if.else179:                                       ; preds = %if.end143
   br i1 %cmp180, label %if.then182, label %if.end197
 
 if.then182:                                       ; preds = %if.else179
-  %sub185 = sub i64 %78, %nb.0
+  %sub185 = sub nuw i64 %78, %nb.0
   store i64 %sub185, ptr %topsize, align 8
   %top = getelementptr inbounds i8, ptr %msp, i64 32
   %79 = load ptr, ptr %top, align 8
@@ -2793,7 +2793,7 @@ if.end70.i:                                       ; preds = %if.end129.sink.spli
   br i1 %cmp72.i, label %if.then74.i, label %return
 
 if.then74.i:                                      ; preds = %if.end70.i
-  %sub.i165 = sub i64 %144, %nb.0
+  %sub.i165 = sub nuw i64 %144, %nb.0
   store i64 %sub.i165, ptr %topsize, align 8
   %top77.i = getelementptr inbounds i8, ptr %msp, i64 32
   %145 = load ptr, ptr %top77.i, align 8

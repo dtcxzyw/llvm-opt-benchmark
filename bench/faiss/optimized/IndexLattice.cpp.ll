@@ -108,7 +108,7 @@ define void @_ZN5faiss12IndexLattice5trainElPKf(ptr noundef nonnull align 8 dere
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %3
-  %18 = sub nsw i64 %8, %15
+  %18 = sub nuw nsw i64 %8, %15
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %18)
   %.pre = load ptr, ptr %4, align 8
   %.pre57 = load i32, ptr %5, align 4

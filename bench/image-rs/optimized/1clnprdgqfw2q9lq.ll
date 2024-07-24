@@ -3883,7 +3883,7 @@ define internal fastcc void @_ZN3exr2io4Data8read_vec17h19e3e6d15ff5f7a0E(ptr no
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit.i"
 
 24:                                               ; preds = %20
-  %25 = sub i64 %.0.sroa.speculated.i23.i, %21
+  %25 = sub nuw i64 %.0.sroa.speculated.i23.i, %21
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h9478d6f47c96feedE.llvm.17224713629878502917"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %25, i8 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit.i" unwind label %.loopexit
 
@@ -4044,7 +4044,7 @@ define internal fastcc void @_ZN3exr2io4Data8read_vec17h5bbbb44a5bf9248dE(ptr no
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h253b4ebb369eb9ceE.exit.i"
 
 21:                                               ; preds = %17
-  %22 = sub i64 %.0.sroa.speculated.i23.i, %18
+  %22 = sub nuw i64 %.0.sroa.speculated.i23.i, %18
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h7f6a515268f0709fE.llvm.17224713629878502917"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %22, i8 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h253b4ebb369eb9ceE.exit.i" unwind label %.loopexit
 
@@ -4205,7 +4205,7 @@ define internal fastcc void @_ZN3exr2io4Data8read_vec17h7b7f9aba4eea0836E(ptr no
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h253b4ebb369eb9ceE.exit.i"
 
 21:                                               ; preds = %17
-  %22 = sub i64 %.0.sroa.speculated.i23.i, %18
+  %22 = sub nuw i64 %.0.sroa.speculated.i23.i, %18
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h7f6a515268f0709fE.llvm.17224713629878502917"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %22, i8 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h253b4ebb369eb9ceE.exit.i" unwind label %.loopexit
 
@@ -4370,7 +4370,7 @@ define internal fastcc void @_ZN3exr2io4Data8read_vec17hedeceae0006abddeE(ptr no
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit.i"
 
 24:                                               ; preds = %20
-  %25 = sub i64 %.0.sroa.speculated.i23.i, %21
+  %25 = sub nuw i64 %.0.sroa.speculated.i23.i, %21
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h9478d6f47c96feedE.llvm.17224713629878502917"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %25, i8 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit.i" unwind label %.loopexit
 
@@ -6666,7 +6666,7 @@ define internal fastcc void @_ZN3exr4meta9attribute4Text10read_sized17h122fd37fd
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit.i.i"
 
 21:                                               ; preds = %17
-  %22 = sub i64 %.0.sroa.speculated.i.i.i, %18
+  %22 = sub nuw i64 %.0.sroa.speculated.i.i.i, %18
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h9478d6f47c96feedE.llvm.17224713629878502917"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %22, i8 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit.i.i" unwind label %.loopexit.i, !noalias !1562
 
@@ -6777,7 +6777,7 @@ define internal fastcc void @_ZN3exr4meta9attribute4Text10read_sized17h122fd37fd
 49:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.exit"
   %50 = load ptr, ptr %1, align 8, !alias.scope !1577, !noalias !1580, !nonnull !4, !align !777, !noundef !4
   %51 = getelementptr inbounds i8, ptr %50, i64 %2
-  %52 = sub i64 %47, %2
+  %52 = sub nuw i64 %47, %2
   %53 = icmp eq i64 %2, 1
   br i1 %53, label %55, label %54
 
@@ -7788,7 +7788,7 @@ define internal fastcc void @_ZN3exr4meta9attribute4Text21read_vec_of_i32_sized1
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit.i.i.i"
 
 43:                                               ; preds = %.lr.ph.i.i.i
-  %44 = sub i64 %.0.sroa.speculated.i23.i.i.i, %40
+  %44 = sub nuw i64 %.0.sroa.speculated.i23.i.i.i, %40
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h9478d6f47c96feedE.llvm.17224713629878502917"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %44, i8 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6b44cb611f94c3E.exit.i.i.i" unwind label %.loopexit.i.i, !noalias !1769
 
@@ -17183,7 +17183,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %34
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h253b4ebb369eb9ceE.exit.i.i"
 
 54:                                               ; preds = %50
-  %55 = sub i64 %.0.sroa.speculated.i.i.i, %51
+  %55 = sub nuw i64 %.0.sroa.speculated.i.i.i, %51
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h7f6a515268f0709fE.llvm.17224713629878502917"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %55, i8 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h253b4ebb369eb9ceE.exit.i.i" unwind label %.loopexit.i, !noalias !3775
 

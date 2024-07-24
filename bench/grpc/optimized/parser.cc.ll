@@ -1761,7 +1761,7 @@ do.end65.i.i.i:                                   ; preds = %do.body54.i.i.i
   br i1 %cmp70.not.i.i.i, label %if.end75.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %do.end65.i.i.i
-  %sub.i.i.i = sub i64 %sub.ptr.sub57.i.i.i, %152
+  %sub.i.i.i = sub nuw i64 %sub.ptr.sub57.i.i.i, %152
   %arrayidx.i.i.i = getelementptr i8, ptr %cur.0.ptr.pn.lcssa.i.i.i, i64 %sub.i.i.i
   %153 = load i8, ptr %arrayidx.i.i.i, align 1, !noalias !38
   %cmp73.i.i.i = icmp eq i8 %153, 13

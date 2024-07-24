@@ -4623,7 +4623,7 @@ define internal range(i64 -14, 2147483648) i64 @read_gssp(ptr nocapture noundef 
   br i1 %21, label %22, label %34
 
 22:                                               ; preds = %4
-  %23 = sub i64 %20, %16
+  %23 = sub nuw i64 %20, %16
   %24 = tail call i64 @llvm.umin.i64(i64 %23, i64 %2)
   %25 = icmp ugt i64 %24, 2147483647
   br i1 %25, label %26, label %27, !prof !6

@@ -514,8 +514,8 @@ define linkonce_odr hidden noundef ptr @_ZNK16ObjectStartArray12object_startEPP1
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %14 = phi i32 [ %20, %.lr.ph.i ], [ %12, %2 ]
   %.010.i = phi ptr [ %18, %.lr.ph.i ], [ %9, %2 ]
-  %15 = sub nsw i32 %14, %10
-  %16 = shl nsw i32 %15, 2
+  %15 = sub nuw nsw i32 %14, %10
+  %16 = shl nuw nsw i32 %15, 2
   %17 = zext nneg i32 %16 to i64
   %.neg.i = shl nsw i64 -1, %17
   %18 = getelementptr inbounds i8, ptr %.010.i, i64 %.neg.i
@@ -1177,7 +1177,7 @@ define hidden void @_ZN8PSOldGen6resizeEm(ptr noundef nonnull align 8 dereferenc
   br i1 %60, label %62, label %67
 
 62:                                               ; preds = %59
-  %63 = sub i64 %38, %47
+  %63 = sub nuw i64 %38, %47
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %65
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %62
@@ -1191,7 +1191,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %62
   br label %_ZN11MutexLockerD2Ev.exit
 
 67:                                               ; preds = %59
-  %68 = sub i64 %47, %38
+  %68 = sub nuw i64 %47, %38
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit24.thread, label %69
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit24.thread: ; preds = %67

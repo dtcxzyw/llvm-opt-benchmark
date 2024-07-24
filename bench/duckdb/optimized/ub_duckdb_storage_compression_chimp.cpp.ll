@@ -3205,13 +3205,12 @@ entry:
   %free_bits.i = getelementptr inbounds i8, ptr %this, i64 9
   %3 = load i8, ptr %free_bits.i, align 1, !tbaa !137
   %cmp.i.not = icmp ult i8 %3, %2
-  %conv4 = zext i8 %3 to i32
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %conv2 = trunc i32 %value to i8
-  %conv2.i = zext i8 %2 to i32
-  %sub.i = sub nsw i32 %conv4, %conv2.i
+  %narrow = sub nuw i8 %3, %2
+  %sub.i = zext nneg i8 %narrow to i32
   %cmp.i.i = icmp ult i8 %2, 8
   %conv1.i.i = zext i1 %cmp.i.i to i8
   %and.i.i = and i8 %2, 7
@@ -3225,8 +3224,7 @@ if.then:                                          ; preds = %entry
   %5 = trunc i32 %shl.i to i8
   %conv7.i = or i8 %4, %5
   store i8 %conv7.i, ptr %current.i, align 8, !tbaa !186
-  %sub.i11.i = sub i8 %3, %2
-  store i8 %sub.i11.i, ptr %free_bits.i, align 1, !tbaa !137
+  store i8 %narrow, ptr %free_bits.i, align 1, !tbaa !137
   %cmp.i12.i = icmp eq i8 %3, %2
   br i1 %cmp.i12.i, label %if.then.i.i, label %return
 
@@ -3243,10 +3241,9 @@ if.then.i.i:                                      ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv3 = zext i8 %2 to i32
-  %sub = sub nsw i32 %conv3, %conv4
-  %8 = trunc i32 %sub to i8
-  %conv5 = and i8 %8, 7
+  %narrow2 = sub nuw i8 %2, %3
+  %sub = zext i8 %narrow2 to i32
+  %conv5 = and i8 %narrow2, 7
   %cmp.not = icmp eq i8 %3, 0
   br i1 %cmp.not, label %if.end11, label %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit56
 
@@ -3260,28 +3257,28 @@ _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit56: ; preds = %if.end
   %sub.i.i44 = add i8 %shl.i.i43, -1
   %and10.i45 = and i8 %sub.i.i44, %conv9
   %current.i48 = getelementptr inbounds i8, ptr %this, i64 8
-  %9 = load i8, ptr %current.i48, align 8, !tbaa !186
-  %conv7.i49 = or i8 %9, %and10.i45
-  %10 = load ptr, ptr %this, align 8, !tbaa !185
+  %8 = load i8, ptr %current.i48, align 8, !tbaa !186
+  %conv7.i49 = or i8 %8, %and10.i45
+  %9 = load ptr, ptr %this, align 8, !tbaa !185
   %stream_index.i.i.i53 = getelementptr inbounds i8, ptr %this, i64 16
-  %11 = load i64, ptr %stream_index.i.i.i53, align 8, !tbaa !195
-  %inc.i.i.i54 = add i64 %11, 1
+  %10 = load i64, ptr %stream_index.i.i.i53, align 8, !tbaa !195
+  %inc.i.i.i54 = add i64 %10, 1
   store i64 %inc.i.i.i54, ptr %stream_index.i.i.i53, align 8, !tbaa !195
-  %arrayidx.i.i.i55 = getelementptr inbounds i8, ptr %10, i64 %11
+  %arrayidx.i.i.i55 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 %conv7.i49, ptr %arrayidx.i.i.i55, align 1, !tbaa !63
   store i8 0, ptr %current.i48, align 8, !tbaa !186
   store i8 8, ptr %free_bits.i, align 1, !tbaa !137
   br label %if.end11
 
 if.end11:                                         ; preds = %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit56, %if.end
-  %12 = phi i8 [ 8, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit56 ], [ 0, %if.end ]
+  %11 = phi i8 [ 8, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit56 ], [ 0, %if.end ]
   %conv12 = and i32 %sub, 7
   %cmp13.not = icmp eq i32 %conv12, 0
   br i1 %cmp13.not, label %if.end20, label %if.then14
 
 if.then14:                                        ; preds = %if.end11
   %conv17 = trunc i32 %value to i8
-  %conv.i58 = zext nneg i8 %12 to i32
+  %conv.i58 = zext nneg i8 %11 to i32
   %sub.i60 = sub nsw i32 %conv.i58, %conv12
   %notmask = shl nsw i8 -1, %conv5
   %sub.i.i62 = xor i8 %notmask, -1
@@ -3289,22 +3286,22 @@ if.then14:                                        ; preds = %if.end11
   %and.i64 = zext nneg i8 %and10.i63 to i32
   %shl.i65 = shl nuw nsw i32 %and.i64, %sub.i60
   %current.i66 = getelementptr inbounds i8, ptr %this, i64 8
-  %13 = load i8, ptr %current.i66, align 8, !tbaa !186
-  %14 = trunc i32 %shl.i65 to i8
-  %conv7.i67 = or i8 %13, %14
+  %12 = load i8, ptr %current.i66, align 8, !tbaa !186
+  %13 = trunc i32 %shl.i65 to i8
+  %conv7.i67 = or i8 %12, %13
   store i8 %conv7.i67, ptr %current.i66, align 8, !tbaa !186
-  %sub.i11.i68 = sub nsw i8 %12, %conv5
+  %sub.i11.i68 = sub nsw i8 %11, %conv5
   store i8 %sub.i11.i68, ptr %free_bits.i, align 1, !tbaa !137
-  %cmp.i12.i69 = icmp eq i8 %12, %conv5
+  %cmp.i12.i69 = icmp eq i8 %11, %conv5
   br i1 %cmp.i12.i69, label %if.then.i.i70, label %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit74
 
 if.then.i.i70:                                    ; preds = %if.then14
-  %15 = load ptr, ptr %this, align 8, !tbaa !185
+  %14 = load ptr, ptr %this, align 8, !tbaa !185
   %stream_index.i.i.i71 = getelementptr inbounds i8, ptr %this, i64 16
-  %16 = load i64, ptr %stream_index.i.i.i71, align 8, !tbaa !195
-  %inc.i.i.i72 = add i64 %16, 1
+  %15 = load i64, ptr %stream_index.i.i.i71, align 8, !tbaa !195
+  %inc.i.i.i72 = add i64 %15, 1
   store i64 %inc.i.i.i72, ptr %stream_index.i.i.i71, align 8, !tbaa !195
-  %arrayidx.i.i.i73 = getelementptr inbounds i8, ptr %15, i64 %16
+  %arrayidx.i.i.i73 = getelementptr inbounds i8, ptr %14, i64 %15
   store i8 %conv7.i67, ptr %arrayidx.i.i.i73, align 1, !tbaa !63
   store i8 0, ptr %current.i66, align 8, !tbaa !186
   store i8 8, ptr %free_bits.i, align 1, !tbaa !137
@@ -3312,11 +3309,11 @@ if.then.i.i70:                                    ; preds = %if.then14
 
 _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit74: ; preds = %if.then.i.i70, %if.then14
   %shr19 = lshr i32 %value, %conv12
-  %.pre = and i8 %8, -8
+  %.pre = and i8 %narrow2, -8
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit74, %if.end11
-  %conv21.pre-phi = phi i8 [ %.pre, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit74 ], [ %8, %if.end11 ]
+  %conv21.pre-phi = phi i8 [ %.pre, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit74 ], [ %narrow2, %if.end11 ]
   %value.addr.0 = phi i32 [ %shr19, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit74 ], [ %value, %if.end11 ]
   %cmp.i75 = icmp ugt i8 %conv21.pre-phi, 31
   br i1 %cmp.i75, label %if.end.thread.i, label %if.end.i
@@ -3324,12 +3321,12 @@ if.end20:                                         ; preds = %_ZN6duckdb15OutputB
 if.end.thread.i:                                  ; preds = %if.end20
   %shr.i = lshr i32 %value.addr.0, 24
   %conv2.i76 = trunc nuw i32 %shr.i to i8
-  %17 = load ptr, ptr %this, align 8, !tbaa !185
+  %16 = load ptr, ptr %this, align 8, !tbaa !185
   %stream_index.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load i64, ptr %stream_index.i.i, align 8, !tbaa !195
-  %inc.i.i = add i64 %18, 1
+  %17 = load i64, ptr %stream_index.i.i, align 8, !tbaa !195
+  %inc.i.i = add i64 %17, 1
   store i64 %inc.i.i, ptr %stream_index.i.i, align 8, !tbaa !195
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %18
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %16, i64 %17
   store i8 %conv2.i76, ptr %arrayidx.i.i, align 1, !tbaa !63
   br label %if.end9.thread.i
 
@@ -3340,12 +3337,12 @@ if.end.i:                                         ; preds = %if.end20
 if.end9.thread.i:                                 ; preds = %if.end.i, %if.end.thread.i
   %shr6.i = lshr i32 %value.addr.0, 16
   %conv8.i = trunc i32 %shr6.i to i8
-  %19 = load ptr, ptr %this, align 8, !tbaa !185
+  %18 = load ptr, ptr %this, align 8, !tbaa !185
   %stream_index.i28.i = getelementptr inbounds i8, ptr %this, i64 16
-  %20 = load i64, ptr %stream_index.i28.i, align 8, !tbaa !195
-  %inc.i29.i = add i64 %20, 1
+  %19 = load i64, ptr %stream_index.i28.i, align 8, !tbaa !195
+  %inc.i29.i = add i64 %19, 1
   store i64 %inc.i29.i, ptr %stream_index.i28.i, align 8, !tbaa !195
-  %arrayidx.i30.i = getelementptr inbounds i8, ptr %19, i64 %20
+  %arrayidx.i30.i = getelementptr inbounds i8, ptr %18, i64 %19
   store i8 %conv8.i, ptr %arrayidx.i30.i, align 1, !tbaa !63
   br label %if.end16.thread.i
 
@@ -3356,12 +3353,12 @@ if.end9.i:                                        ; preds = %if.end.i
 if.end16.thread.i:                                ; preds = %if.end9.i, %if.end9.thread.i
   %shr13.i = lshr i32 %value.addr.0, 8
   %conv15.i = trunc i32 %shr13.i to i8
-  %21 = load ptr, ptr %this, align 8, !tbaa !185
+  %20 = load ptr, ptr %this, align 8, !tbaa !185
   %stream_index.i31.i = getelementptr inbounds i8, ptr %this, i64 16
-  %22 = load i64, ptr %stream_index.i31.i, align 8, !tbaa !195
-  %inc.i32.i = add i64 %22, 1
+  %21 = load i64, ptr %stream_index.i31.i, align 8, !tbaa !195
+  %inc.i32.i = add i64 %21, 1
   store i64 %inc.i32.i, ptr %stream_index.i31.i, align 8, !tbaa !195
-  %arrayidx.i33.i = getelementptr inbounds i8, ptr %21, i64 %22
+  %arrayidx.i33.i = getelementptr inbounds i8, ptr %20, i64 %21
   store i8 %conv15.i, ptr %arrayidx.i33.i, align 1, !tbaa !63
   br label %if.then19.i
 
@@ -3371,12 +3368,12 @@ if.end16.i:                                       ; preds = %if.end9.i
 
 if.then19.i:                                      ; preds = %if.end16.i, %if.end16.thread.i
   %conv20.i = trunc i32 %value.addr.0 to i8
-  %23 = load ptr, ptr %this, align 8, !tbaa !185
+  %22 = load ptr, ptr %this, align 8, !tbaa !185
   %stream_index.i34.i = getelementptr inbounds i8, ptr %this, i64 16
-  %24 = load i64, ptr %stream_index.i34.i, align 8, !tbaa !195
-  %inc.i35.i = add i64 %24, 1
+  %23 = load i64, ptr %stream_index.i34.i, align 8, !tbaa !195
+  %inc.i35.i = add i64 %23, 1
   store i64 %inc.i35.i, ptr %stream_index.i34.i, align 8, !tbaa !195
-  %arrayidx.i36.i = getelementptr inbounds i8, ptr %23, i64 %24
+  %arrayidx.i36.i = getelementptr inbounds i8, ptr %22, i64 %23
   store i8 %conv20.i, ptr %arrayidx.i36.i, align 1, !tbaa !63
   br label %return
 
@@ -7414,13 +7411,12 @@ entry:
   %free_bits.i = getelementptr inbounds i8, ptr %this, i64 9
   %3 = load i8, ptr %free_bits.i, align 1, !tbaa !137
   %cmp.i.not = icmp ult i8 %3, %2
-  %conv4 = zext i8 %3 to i32
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %conv2 = trunc i64 %value to i8
-  %conv2.i = zext i8 %2 to i32
-  %sub.i = sub nsw i32 %conv4, %conv2.i
+  %narrow = sub nuw i8 %3, %2
+  %sub.i = zext nneg i8 %narrow to i32
   %cmp.i.i = icmp ult i8 %2, 8
   %conv1.i.i = zext i1 %cmp.i.i to i8
   %and.i.i = and i8 %2, 7
@@ -7434,8 +7430,7 @@ if.then:                                          ; preds = %entry
   %5 = trunc i32 %shl.i to i8
   %conv7.i = or i8 %4, %5
   store i8 %conv7.i, ptr %current.i, align 8, !tbaa !186
-  %sub.i11.i = sub i8 %3, %2
-  store i8 %sub.i11.i, ptr %free_bits.i, align 1, !tbaa !137
+  store i8 %narrow, ptr %free_bits.i, align 1, !tbaa !137
   %cmp.i12.i = icmp eq i8 %3, %2
   br i1 %cmp.i12.i, label %if.then.i.i, label %return
 
@@ -7452,15 +7447,13 @@ if.then.i.i:                                      ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv3 = zext i8 %2 to i32
-  %sub = sub nsw i32 %conv3, %conv4
-  %8 = trunc i32 %sub to i8
-  %conv5 = and i8 %8, 7
+  %narrow2 = sub nuw i8 %2, %3
+  %conv5 = and i8 %narrow2, 7
   %cmp.not = icmp eq i8 %3, 0
   br i1 %cmp.not, label %if.end11, label %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit57
 
 _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit57: ; preds = %if.end
-  %sh_prom = zext nneg i32 %sub to i64
+  %sh_prom = zext nneg i8 %narrow2 to i64
   %shr = lshr i64 %value, %sh_prom
   %conv9 = trunc i64 %shr to i8
   %cmp.i.i41 = icmp ult i8 %3, 8
@@ -7470,28 +7463,28 @@ _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit57: ; preds = %if.end
   %sub.i.i45 = add i8 %shl.i.i44, -1
   %and10.i46 = and i8 %sub.i.i45, %conv9
   %current.i49 = getelementptr inbounds i8, ptr %this, i64 8
-  %9 = load i8, ptr %current.i49, align 8, !tbaa !186
-  %conv7.i50 = or i8 %9, %and10.i46
-  %10 = load ptr, ptr %this, align 8, !tbaa !185
+  %8 = load i8, ptr %current.i49, align 8, !tbaa !186
+  %conv7.i50 = or i8 %8, %and10.i46
+  %9 = load ptr, ptr %this, align 8, !tbaa !185
   %stream_index.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 16
-  %11 = load i64, ptr %stream_index.i.i.i54, align 8, !tbaa !195
-  %inc.i.i.i55 = add i64 %11, 1
+  %10 = load i64, ptr %stream_index.i.i.i54, align 8, !tbaa !195
+  %inc.i.i.i55 = add i64 %10, 1
   store i64 %inc.i.i.i55, ptr %stream_index.i.i.i54, align 8, !tbaa !195
-  %arrayidx.i.i.i56 = getelementptr inbounds i8, ptr %10, i64 %11
+  %arrayidx.i.i.i56 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 %conv7.i50, ptr %arrayidx.i.i.i56, align 1, !tbaa !63
   store i8 0, ptr %current.i49, align 8, !tbaa !186
   store i8 8, ptr %free_bits.i, align 1, !tbaa !137
   br label %if.end11
 
 if.end11:                                         ; preds = %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit57, %if.end
-  %12 = phi i8 [ 8, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit57 ], [ 0, %if.end ]
-  %conv12 = and i32 %sub, 7
-  %cmp13.not = icmp eq i32 %conv12, 0
+  %11 = phi i8 [ 8, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit57 ], [ 0, %if.end ]
+  %cmp13.not = icmp eq i8 %conv5, 0
   br i1 %cmp13.not, label %if.end21, label %if.then14
 
 if.then14:                                        ; preds = %if.end11
+  %conv12 = zext nneg i8 %conv5 to i32
   %conv17 = trunc i64 %value to i8
-  %conv.i59 = zext nneg i8 %12 to i32
+  %conv.i59 = zext nneg i8 %11 to i32
   %sub.i61 = sub nsw i32 %conv.i59, %conv12
   %notmask = shl nsw i8 -1, %conv5
   %sub.i.i63 = xor i8 %notmask, -1
@@ -7499,35 +7492,35 @@ if.then14:                                        ; preds = %if.end11
   %and.i65 = zext nneg i8 %and10.i64 to i32
   %shl.i66 = shl nuw nsw i32 %and.i65, %sub.i61
   %current.i67 = getelementptr inbounds i8, ptr %this, i64 8
-  %13 = load i8, ptr %current.i67, align 8, !tbaa !186
-  %14 = trunc i32 %shl.i66 to i8
-  %conv7.i68 = or i8 %13, %14
+  %12 = load i8, ptr %current.i67, align 8, !tbaa !186
+  %13 = trunc i32 %shl.i66 to i8
+  %conv7.i68 = or i8 %12, %13
   store i8 %conv7.i68, ptr %current.i67, align 8, !tbaa !186
-  %sub.i11.i69 = sub nsw i8 %12, %conv5
+  %sub.i11.i69 = sub nsw i8 %11, %conv5
   store i8 %sub.i11.i69, ptr %free_bits.i, align 1, !tbaa !137
-  %cmp.i12.i70 = icmp eq i8 %12, %conv5
+  %cmp.i12.i70 = icmp eq i8 %11, %conv5
   br i1 %cmp.i12.i70, label %if.then.i.i71, label %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit75
 
 if.then.i.i71:                                    ; preds = %if.then14
-  %15 = load ptr, ptr %this, align 8, !tbaa !185
+  %14 = load ptr, ptr %this, align 8, !tbaa !185
   %stream_index.i.i.i72 = getelementptr inbounds i8, ptr %this, i64 16
-  %16 = load i64, ptr %stream_index.i.i.i72, align 8, !tbaa !195
-  %inc.i.i.i73 = add i64 %16, 1
+  %15 = load i64, ptr %stream_index.i.i.i72, align 8, !tbaa !195
+  %inc.i.i.i73 = add i64 %15, 1
   store i64 %inc.i.i.i73, ptr %stream_index.i.i.i72, align 8, !tbaa !195
-  %arrayidx.i.i.i74 = getelementptr inbounds i8, ptr %15, i64 %16
+  %arrayidx.i.i.i74 = getelementptr inbounds i8, ptr %14, i64 %15
   store i8 %conv7.i68, ptr %arrayidx.i.i.i74, align 1, !tbaa !63
   store i8 0, ptr %current.i67, align 8, !tbaa !186
   store i8 8, ptr %free_bits.i, align 1, !tbaa !137
   br label %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit75
 
 _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit75: ; preds = %if.then.i.i71, %if.then14
-  %sh_prom19 = zext nneg i32 %conv12 to i64
+  %sh_prom19 = zext nneg i8 %conv5 to i64
   %shr20 = lshr i64 %value, %sh_prom19
-  %.pre = and i8 %8, -8
+  %.pre = and i8 %narrow2, -8
   br label %if.end21
 
 if.end21:                                         ; preds = %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit75, %if.end11
-  %conv22.pre-phi = phi i8 [ %.pre, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit75 ], [ %8, %if.end11 ]
+  %conv22.pre-phi = phi i8 [ %.pre, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit75 ], [ %narrow2, %if.end11 ]
   %value.addr.0 = phi i64 [ %shr20, %_ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit75 ], [ %value, %if.end11 ]
   tail call void @_ZN6duckdb15OutputBitStreamILb0EE14WriteRemainderImEEvT_h(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %value.addr.0, i8 noundef zeroext %conv22.pre-phi)
   br label %return

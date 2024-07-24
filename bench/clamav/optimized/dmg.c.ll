@@ -276,7 +276,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i266, label %fmap_need_off_once_len.exit, label %fmap_need_off_once_len.exit.thread
 
 fmap_need_off_once_len.exit:                      ; preds = %81
-  %85 = sub i64 %84, %34
+  %85 = sub nuw i64 %84, %34
   %spec.select.i268 = tail call i64 @llvm.umin.i64(i64 %85, i64 %37)
   %86 = getelementptr inbounds i8, ptr %82, i64 104
   %87 = load ptr, ptr %86, align 8
@@ -844,7 +844,7 @@ define internal fastcc range(i32 0, 21) i32 @dmg_extract_xml(ptr %.96.val, ptr n
   br i1 %.not.i, label %fmap_need_off_once_len.exit, label %fmap_need_off_once_len.exit.thread
 
 fmap_need_off_once_len.exit:                      ; preds = %2
-  %9 = sub i64 %8, %5
+  %9 = sub nuw i64 %8, %5
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %.pre)
   %10 = getelementptr inbounds i8, ptr %.96.val, i64 104
   %11 = load ptr, ptr %10, align 8

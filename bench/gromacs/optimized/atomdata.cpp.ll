@@ -209,7 +209,7 @@ define void @_ZN16nbnxn_atomdata_t22resizeCoordinateBufferEii(ptr noundef nonnul
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds i8, ptr %0, i64 280
-  %24 = sub nsw i64 %12, %20
+  %24 = sub nuw nsw i64 %12, %20
   tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef %24)
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit
 
@@ -394,7 +394,7 @@ define void @_ZN16nbnxn_atomdata_t18resizeForceBuffersEv(ptr nocapture noundef n
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %12
-  %26 = sub nsw i64 %15, %23
+  %26 = sub nuw nsw i64 %15, %23
   tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.08, i64 noundef %26)
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit
 
@@ -514,7 +514,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit: ; p
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit
-  %55 = sub nsw i64 %44, %52
+  %55 = sub nuw nsw i64 %44, %52
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %55)
           to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit17 unwind label %91
 
@@ -544,7 +544,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit17: ;
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit17
-  %71 = sub nsw i64 %44, %68
+  %71 = sub nuw nsw i64 %44, %68
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %71)
           to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit20 unwind label %91
 
@@ -1734,7 +1734,7 @@ _ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28: ; preds = %43, %43, %43, %4
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28
-  %58 = sub nsw i64 %48, %55
+  %58 = sub nuw nsw i64 %48, %55
   invoke void @_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %58)
           to label %_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit unwind label %11
 
@@ -2324,7 +2324,7 @@ define void @_ZN16nbnxn_atomdata_tC2EN3gmx13PinningPolicyERKNS0_8MDLoggerEN5Nbnx
 
 66:                                               ; preds = %52
   %67 = getelementptr inbounds i8, ptr %0, i64 8
-  %68 = sub nsw i64 %56, %64
+  %68 = sub nuw nsw i64 %56, %64
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %67, i64 noundef %68)
           to label %.noexc31 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -2362,7 +2362,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i: ;
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
-  %86 = sub nsw i64 %75, %83
+  %86 = sub nuw nsw i64 %75, %83
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %74, i64 noundef %86)
           to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit193.i unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -2862,7 +2862,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i: ; preds = %_ZN3gmx14Log
   br i1 %367, label %368, label %370
 
 368:                                              ; preds = %355
-  %369 = sub nsw i64 %359, %366
+  %369 = sub nuw nsw i64 %359, %366
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %356, i64 noundef %369)
           to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i.i unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -2931,7 +2931,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
   br i1 %399, label %400, label %402
 
 400:                                              ; preds = %.loopexit90.i.i
-  %401 = sub nsw i64 %392, %398
+  %401 = sub nuw nsw i64 %392, %398
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %74, i64 noundef %401)
           to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i.i unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -4041,7 +4041,7 @@ define void @_Z18nbnxn_atomdata_setP16nbnxn_atomdata_tRKN5Nbnxm7GridSetEN3gmx8Ar
 
 28:                                               ; preds = %7
   %29 = getelementptr inbounds i8, ptr %0, i64 104
-  %30 = sub nsw i64 %18, %26
+  %30 = sub nuw nsw i64 %18, %26
   tail call void @_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef %30)
   br label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
 
@@ -4181,7 +4181,7 @@ _ZL28nbnxn_atomdata_set_atomtypesPN16nbnxn_atomdata_t6ParamsERKN5Nbnxm7GridSetEN
 
 103:                                              ; preds = %90
   %104 = getelementptr inbounds i8, ptr %0, i64 168
-  %105 = sub nsw i64 %93, %101
+  %105 = sub nuw nsw i64 %93, %101
   tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %104, i64 noundef %105)
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
 
@@ -4503,7 +4503,7 @@ _ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit: ; preds 
 
 274:                                              ; preds = %_ZL23nbnxn_atomdata_mask_fepP16nbnxn_atomdata_tRKN5Nbnxm7GridSetE.exit
   %275 = getelementptr inbounds i8, ptr %0, i64 136
-  %276 = sub nsw i64 %264, %272
+  %276 = sub nuw nsw i64 %264, %272
   tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %275, i64 noundef %276)
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i30
 
@@ -4906,7 +4906,7 @@ _ZL31nbnxn_atomdata_set_ljcombparamsPN16nbnxn_atomdata_t6ParamsEiRKN5Nbnxm7GridS
   br i1 %515, label %516, label %543
 
 516:                                              ; preds = %514
-  %517 = sub nsw i64 %506, %512
+  %517 = sub nuw nsw i64 %506, %512
   %518 = load ptr, ptr %472, align 8
   %519 = ptrtoint ptr %518 to i64
   %520 = sub i64 %519, %509

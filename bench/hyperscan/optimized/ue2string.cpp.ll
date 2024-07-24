@@ -1366,7 +1366,7 @@ invoke.cont4.i.i:                                 ; preds = %entry
   store ptr %2, ptr %ref.tmp, align 8, !alias.scope !26
   %3 = load ptr, ptr %this, align 8, !noalias !26
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %pos
-  %sub.i.i.i = sub i64 %1, %pos
+  %sub.i.i.i = sub nuw i64 %1, %pos
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %n)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #23, !noalias !26
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !noalias !26
@@ -1534,7 +1534,7 @@ if.then.i:                                        ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i25.i, label %if.then.i.i47, label %if.else.i.i
 
 if.then.i.i47:                                    ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %add.i.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %add.i.i, %sub.ptr.div.i.i.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %nocase.i, ptr %24, i64 noundef %sub.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i)
           to label %if.end.i unwind label %lpad9
 
@@ -1731,7 +1731,7 @@ if.then.i24:                                      ; preds = %if.end
   br i1 %cmp.i25.i, label %if.then.i.i28, label %if.else.i.i
 
 if.then.i.i28:                                    ; preds = %if.then.i24
-  %sub.i.i29 = sub nsw i64 %add.i.i, %sub.ptr.div.i.i.i
+  %sub.i.i29 = sub nuw nsw i64 %add.i.i, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %nocase8, ptr %9, i64 noundef %sub.i.i29, ptr noundef nonnull align 8 dereferenceable(8) %v.i)
   br label %if.end.i
 
@@ -1799,7 +1799,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i25.i.i, label %if.then.i.i.i3, label %if.else.i.i.i
 
 if.then.i.i.i3:                                   ; preds = %if.then.i.i
-  %sub.i.i.i = sub nsw i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
+  %sub.i.i.i = sub nuw nsw i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %nocase, ptr %1, i64 noundef %sub.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i)
   br label %if.end.i.i
 
@@ -2384,7 +2384,7 @@ if.then.i:                                        ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i25.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %add.i.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %add.i.i, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %nocase, ptr %5, i64 noundef %sub.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i)
   br label %if.end.i
 
@@ -2620,7 +2620,7 @@ if.then.i.i3:                                     ; preds = %invoke.cont11
   br i1 %cmp.i25.i.i, label %if.then.i.i.i4, label %if.else.i.i.i
 
 if.then.i.i.i4:                                   ; preds = %if.then.i.i3
-  %sub.i.i.i = sub nsw i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
+  %sub.i.i.i = sub nuw nsw i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %nocase.i, ptr %7, i64 noundef %sub.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i)
           to label %if.end.i.i unwind label %lpad10
 

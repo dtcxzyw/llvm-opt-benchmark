@@ -1302,7 +1302,7 @@ define internal fastcc void @KnownAssignedXidsAdd(i32 noundef %0, i32 noundef %1
   br i1 %5, label %.lr.ph, label %.loopexit
 
 6:                                                ; preds = %3
-  %reass.sub = sub i32 %1, %0
+  %reass.sub = sub nuw i32 %1, %0
   %7 = add i32 %reass.sub, 1
   br label %.loopexit
 

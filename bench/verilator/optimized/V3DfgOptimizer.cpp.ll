@@ -1338,7 +1338,7 @@ _ZN12VNUser3InUseC2Ev.exit:                       ; preds = %36
   br i1 %80, label %81, label %112
 
 81:                                               ; preds = %74
-  %82 = sub nsw i64 %79, %78
+  %82 = sub nuw nsw i64 %79, %78
   %83 = ptrtoint ptr %.sroa.20.1.i to i64
   %84 = sub i64 %83, %75
   %85 = ashr exact i64 %84, 3

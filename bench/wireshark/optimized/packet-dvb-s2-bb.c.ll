@@ -1906,9 +1906,9 @@ dissect_dvb_s2_gse.exit.i:                        ; preds = %487, %486, %294
   %495 = icmp ugt i16 %.1200.i.i, %.137318.i
   %496 = icmp ult i16 %.1200.i.i, 2
   %or.cond4.not46.i = or i1 %495, %496
-  %497 = sub i16 %.137318.i, %.1200.i.i
+  %497 = sub nuw i16 %.137318.i, %.1200.i.i
   %498 = icmp ult i16 %497, 2
-  %or.cond44.i = or i1 %or.cond4.not46.i, %498
+  %or.cond44.i = select i1 %or.cond4.not46.i, i1 true, i1 %498
   br i1 %or.cond44.i, label %dissect_dvb_s2_bb.exit, label %273, !llvm.loop !6
 
 499:                                              ; preds = %252

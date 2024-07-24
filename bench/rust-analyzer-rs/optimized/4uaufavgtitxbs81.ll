@@ -6215,7 +6215,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h85fc080c5446c5
   %60 = getelementptr inbounds i8, ptr %47, i64 %51
   %61 = load i8, ptr %60, align 1, !alias.scope !1954, !noalias !1959, !noundef !9
   %62 = icmp sgt i8 %61, -65
-  %63 = sub i64 %48, %51
+  %63 = sub nuw i64 %48, %51
   br i1 %62, label %65, label %64
 
 64:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i.i", %57
@@ -12566,7 +12566,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i: ; preds = 
   br i1 %64, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h7a4b70226cc81d2dE.exit.i.i.i", label %.lr.ph.split.split.i.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit.i.i.i.i": ; preds = %59
-  %67 = sub i64 %61, %17
+  %67 = sub nuw i64 %61, %17
   %68 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %67
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %15, i64 %17), !alias.scope !3697, !noalias !3691
   %69 = icmp eq i32 %bcmp.i.i.i.i.i, 0
@@ -14436,7 +14436,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
           to label %.body.i.i.i unwind label %58, !noalias !4155
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hb35978245567ea52E.llvm.13226508256559533314.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i
-  %49 = sub i64 %47, %.0.sroa.speculated.i.i.i.i.i
+  %49 = sub nuw i64 %47, %.0.sroa.speculated.i.i.i.i.i
   %50 = load ptr, ptr %.sroa.03.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !4156, !noalias !4152, !nonnull !9, !noundef !9
   %51 = getelementptr inbounds { i64, [11 x i64] }, ptr %50, i64 %.0.sroa.speculated.i.i.i.i.i
   store i64 %.0.sroa.speculated.i.i.i.i.i, ptr %.sroa.03.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !4156, !noalias !4152
@@ -14444,7 +14444,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17habdeca880a4161dcE.exit.i.i.i.i" unwind label %.loopexit.i.i.i, !noalias !4161
 
 52:                                               ; preds = %.lr.ph.i.i.i
-  %53 = sub i64 %.0.sroa.speculated.i.i.i.i.i, %47
+  %53 = sub nuw i64 %.0.sroa.speculated.i.i.i.i.i, %47
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hff62dfec4ba9a2e6E.llvm.13226508256559533314"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %53)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17habdeca880a4161dcE.exit_crit_edge.i.i.i.i" unwind label %.loopexit.i.i.i, !noalias !4152
 

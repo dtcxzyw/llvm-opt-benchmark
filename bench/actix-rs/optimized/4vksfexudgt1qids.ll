@@ -1752,7 +1752,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %325 = add nuw nsw i64 %302, 1
   %.not.i.i.i130.i.i = icmp ult i64 %325, %.sroa.5153.sroa.5.0.copyload.i.i
   %326 = select i1 %.not.i.i.i130.i.i, i64 0, i64 %.sroa.5153.sroa.5.0.copyload.i.i
-  %.0.i.i.i.i.i = sub i64 %325, %326
+  %.0.i.i.i.i.i = sub nuw i64 %325, %326
   store i64 %.0.i.i.i.i.i, ptr %74, align 8, !alias.scope !152, !noalias !170
   %327 = add nsw i64 %306, -1
   store i64 %327, ptr %75, align 8, !alias.scope !152, !noalias !170

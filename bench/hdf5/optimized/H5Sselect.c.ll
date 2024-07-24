@@ -2440,7 +2440,7 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
 
 57:                                               ; preds = %55
   store i64 1, ptr %11, align 8
-  %58 = sub i32 %2, %12
+  %58 = sub nuw i32 %2, %12
   %59 = zext i32 %58 to i64
   %60 = call i32 @H5VM_array_fill(ptr noundef nonnull %9, ptr noundef nonnull %11, i64 noundef 8, i64 noundef %59) #7
   %61 = call i32 @H5VM_array_fill(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 8, i64 noundef %59) #7
@@ -2453,8 +2453,8 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   br label %73
 
 66:                                               ; preds = %55
-  %67 = sub nsw i32 %12, %2
-  %68 = zext i32 %67 to i64
+  %67 = sub nuw nsw i32 %12, %2
+  %68 = zext nneg i32 %67 to i64
   %69 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %68
   %70 = zext nneg i32 %2 to i64
   %71 = shl nuw nsw i64 %70, 3

@@ -3960,7 +3960,7 @@ _ZN4Luau6Tarjan8visitSCCEi.exit:                  ; preds = %_ZN4Luau6Tarjan8vis
   br i1 %450, label %451, label %453
 
 451:                                              ; preds = %441
-  %452 = sub nsw i64 %443, %449
+  %452 = sub nuw nsw i64 %443, %449
   tail call void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %452)
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE6resizeEm.exit
 
@@ -3988,7 +3988,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE6resizeEm.exit: ; preds = %451, %453, %455, %
   br i1 %464, label %465, label %467
 
 465:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE6resizeEm.exit
-  %466 = sub nsw i64 %443, %463
+  %466 = sub nuw nsw i64 %443, %463
   tail call void @_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %466)
   br label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE6resizeEm.exit
 

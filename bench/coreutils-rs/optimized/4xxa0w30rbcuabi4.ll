@@ -263,7 +263,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %5
   br i1 %64, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h423dd01978647795E.exit.i.i", label %.lr.ph.split.split.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hce821452b7bb279fE.exit.i.i.i": ; preds = %59
-  %67 = sub i64 %61, %17
+  %67 = sub nuw i64 %61, %17
   %68 = getelementptr inbounds i8, ptr %.val.i.i, i64 %67
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %15, i64 %17), !alias.scope !24, !noalias !18
   %69 = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -703,7 +703,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %24 = getelementptr inbounds i8, ptr %10, i64 %16
   %25 = load i8, ptr %24, align 1, !alias.scope !69, !noalias !74, !noundef !12
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %12, %16
+  %27 = sub nuw i64 %12, %16
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %21
@@ -3844,7 +3844,7 @@ _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i
   %185 = getelementptr inbounds i8, ptr %175, i64 %174
   %186 = load i8, ptr %185, align 1, !alias.scope !887, !noalias !892, !noundef !12
   %187 = icmp sgt i8 %186, -65
-  %188 = sub i64 %176, %174
+  %188 = sub nuw i64 %176, %174
   br i1 %187, label %189, label %.invoke.i.i
 
 189:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i", %182, %179
@@ -4887,7 +4887,7 @@ _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i
   %619 = getelementptr inbounds i8, ptr %89, i64 %.170.i.i
   %620 = load i8, ptr %619, align 1, !alias.scope !969, !noalias !962, !noundef !12
   %621 = icmp sgt i8 %620, -65
-  %622 = sub i64 %92, %.170.i.i
+  %622 = sub nuw i64 %92, %.170.i.i
   br i1 %621, label %624, label %.invoke.i.i
 
 623:                                              ; preds = %640, %._crit_edge.thread.i.i, %._crit_edge.i.i

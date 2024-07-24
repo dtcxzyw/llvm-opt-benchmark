@@ -962,7 +962,7 @@ define internal fastcc noundef i32 @pcf_load_font(ptr noundef %0, ptr noundef %1
 
 77:                                               ; preds = %72
   %78 = load i64, ptr %63, align 8
-  %79 = sub i64 %73, %75
+  %79 = sub nuw i64 %73, %75
   %80 = icmp ugt i64 %78, %79
   br i1 %80, label %81, label %56, !llvm.loop !13
 
@@ -996,7 +996,7 @@ define internal fastcc noundef i32 @pcf_load_font(ptr noundef %0, ptr noundef %1
 87:                                               ; preds = %.lr.ph112.i
   %88 = getelementptr inbounds i8, ptr %.182109.i, i64 24
   %89 = load i64, ptr %88, align 8
-  %90 = sub i64 %83, %85
+  %90 = sub nuw i64 %83, %85
   %91 = icmp ugt i64 %89, %90
   br i1 %91, label %92, label %93
 
@@ -1026,7 +1026,7 @@ define internal fastcc noundef i32 @pcf_load_font(ptr noundef %0, ptr noundef %1
 103:                                              ; preds = %._crit_edge113.i
   %104 = getelementptr inbounds i8, ptr %.182.lcssa.i, i64 16
   %105 = load i64, ptr %104, align 8
-  %106 = sub i64 %98, %100
+  %106 = sub nuw i64 %98, %100
   %107 = icmp ugt i64 %105, %106
   br i1 %107, label %108, label %pcf_read_TOC.exit.thread239
 
@@ -1092,7 +1092,7 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %81, %92,
   br i1 %128, label %pcf_seek_to_table_type.exit.thread.i, label %129
 
 129:                                              ; preds = %123
-  %130 = sub i64 %127, %125
+  %130 = sub nuw i64 %127, %125
   %131 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %130) #15
   %.not.i.i = icmp eq i32 %131, 0
   br i1 %.not.i.i, label %132, label %pcf_seek_to_table_type.exit.thread.i
@@ -1399,7 +1399,7 @@ pcf_has_table_type.exit:                          ; preds = %.lr.ph.i205, %.loop
   br i1 %245, label %pcf_get_metrics.exit.thread, label %246
 
 246:                                              ; preds = %240
-  %247 = sub i64 %244, %242
+  %247 = sub nuw i64 %244, %242
   %248 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %247) #15
   %.not.i.i212 = icmp eq i32 %248, 0
   br i1 %.not.i.i212, label %249, label %pcf_get_metrics.exit.thread
@@ -1658,7 +1658,7 @@ pcf_get_metrics.exit:                             ; preds = %pcf_get_metric.exit
   br i1 %354, label %pcf_get_bitmaps.exit.thread, label %355
 
 355:                                              ; preds = %350
-  %356 = sub i64 %353, %351
+  %356 = sub nuw i64 %353, %351
   %357 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %356) #15
   %.not.i.i225 = icmp eq i32 %357, 0
   br i1 %.not.i.i225, label %358, label %pcf_get_bitmaps.exit.thread
@@ -2148,7 +2148,7 @@ define internal fastcc i32 @pcf_get_accel(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %20, label %pcf_seek_to_table_type.exit.thread, label %21
 
 21:                                               ; preds = %15
-  %22 = sub i64 %19, %17
+  %22 = sub nuw i64 %19, %17
   %23 = tail call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %22) #15
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %24, label %pcf_seek_to_table_type.exit.thread
@@ -2289,7 +2289,7 @@ define internal fastcc i32 @pcf_get_encodings(ptr noundef %0, ptr noundef %1) un
   br i1 %21, label %pcf_seek_to_table_type.exit.thread, label %22
 
 22:                                               ; preds = %16
-  %23 = sub i64 %20, %18
+  %23 = sub nuw i64 %20, %18
   %24 = tail call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %23) #15
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %25, label %pcf_seek_to_table_type.exit.thread

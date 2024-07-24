@@ -1226,7 +1226,7 @@ define internal void @_ZN12_GLOBAL__N_15BTVL18initImplERN2cv3PtrINS1_8superres11
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %2
-  %18 = sub nsw i64 %8, %15
+  %18 = sub nuw nsw i64 %8, %15
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %18)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
@@ -1263,7 +1263,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %17, %19, %21, %_ZSt
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
-  %34 = sub nsw i64 %8, %31
+  %34 = sub nuw nsw i64 %8, %31
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %34)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit18
 
@@ -1300,7 +1300,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit18:   ; preds = %33, %35, %37, %_ZSt
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit18
-  %50 = sub nsw i64 %8, %47
+  %50 = sub nuw nsw i64 %8, %47
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %50)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit24
 
@@ -1337,7 +1337,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit24:   ; preds = %49, %51, %53, %_ZSt
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit24
-  %66 = sub nsw i64 %8, %63
+  %66 = sub nuw nsw i64 %8, %63
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %66)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit30
 
@@ -2692,7 +2692,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_15BTVL112processFrameEi(ptr noundef
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %2
-  %122 = sub nsw i64 %112, %119
+  %122 = sub nuw nsw i64 %112, %119
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %111, i64 noundef %122)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -2729,7 +2729,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
-  %138 = sub nsw i64 %112, %135
+  %138 = sub nuw nsw i64 %112, %135
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %128, i64 noundef %138)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit51 unwind label %.loopexit.split-lp
 
@@ -2766,7 +2766,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit51:   ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit51
-  %154 = sub nsw i64 %112, %151
+  %154 = sub nuw nsw i64 %112, %151
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %144, i64 noundef %154)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit58 unwind label %.loopexit.split-lp
 
@@ -3303,7 +3303,7 @@ _ZN2cv8superres6detail2atINS_3MatESaIS3_EEERT_iRSt6vectorIS5_T0_E.exit70: ; pred
   br i1 %360, label %361, label %363
 
 361:                                              ; preds = %353
-  %362 = sub nsw i64 %355, %359
+  %362 = sub nuw nsw i64 %355, %359
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %343, i64 noundef %362)
           to label %.preheader.lr.ph.i.i unwind label %340
 
@@ -3417,7 +3417,7 @@ _ZN12_GLOBAL__N_114calcBtvWeightsEidRSt6vectorIfSaIfEE.exit.i: ; preds = %._crit
   br i1 %410, label %411, label %413
 
 411:                                              ; preds = %386
-  %412 = sub nsw i64 %402, %409
+  %412 = sub nuw nsw i64 %402, %409
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %388, i64 noundef %412)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
@@ -3476,7 +3476,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i: ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %434, label %435, label %437
 
 435:                                              ; preds = %.noexc155.i
-  %436 = sub nsw i64 %402, %433
+  %436 = sub nuw nsw i64 %402, %433
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %389, i64 noundef %436)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit80.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
@@ -3731,7 +3731,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit80.i.i: ; preds = %_ZSt8_DestroyIPN2
   br i1 %536, label %537, label %539
 
 537:                                              ; preds = %520
-  %538 = sub nsw i64 %528, %535
+  %538 = sub nuw nsw i64 %528, %535
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %521, i64 noundef %538)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i unwind label %340
 
@@ -3774,7 +3774,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i:   ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %558, label %559, label %561
 
 559:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i
-  %560 = sub nsw i64 %550, %557
+  %560 = sub nuw nsw i64 %550, %557
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %544, i64 noundef %560)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit175.i unwind label %340
 
@@ -5412,7 +5412,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114upscaleMotionsERKN2cv11_InputArr
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %1
-  %24 = sub nsw i64 %14, %21
+  %24 = sub nuw nsw i64 %14, %21
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.8.val1, i64 noundef %24)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 

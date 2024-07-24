@@ -283,7 +283,7 @@ _ZNK4LIEF3ELF6Layout25is_strtab_shared_shstrtabEv.exit.thread: ; preds = %14, %_
   br i1 %49, label %50, label %.noexc9
 
 50:                                               ; preds = %.noexc
-  %51 = sub i64 %48, %47
+  %51 = sub nuw i64 %48, %47
   %52 = getelementptr inbounds i8, ptr %2, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
@@ -888,7 +888,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %144
-  %154 = sub i64 %145, %151
+  %154 = sub nuw i64 %145, %151
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %154)
           to label %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1208,7 +1208,7 @@ define hidden noundef i64 @_ZN4LIEF3ELF6Layout18section_shstr_sizeEv(ptr noundef
   br i1 %28, label %29, label %.noexc19
 
 29:                                               ; preds = %.noexc
-  %30 = sub i64 %27, %26
+  %30 = sub nuw i64 %27, %26
   %31 = getelementptr inbounds i8, ptr %3, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
@@ -2173,7 +2173,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %144
-  %154 = sub i64 %145, %151
+  %154 = sub nuw i64 %145, %151
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %154)
           to label %._ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

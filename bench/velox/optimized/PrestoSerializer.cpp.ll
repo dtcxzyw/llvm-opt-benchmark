@@ -7071,7 +7071,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 
 if.then.i96:                                      ; preds = %for.end.i
   %conv20.i = zext nneg i32 %i.0.lcssa.i to i64
-  %conv23.i97 = sub i32 %retval.0.i, %i.0.lcssa.i
+  %conv23.i97 = sub nuw i32 %retval.0.i, %i.0.lcssa.i
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %conv23.i97, i32 8)
   %conv.i.i.i = sext i32 %.sroa.speculated.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i
@@ -24971,7 +24971,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 
 if.then.i79:                                      ; preds = %for.end.i
   %conv20.i = zext nneg i32 %i.0.lcssa.i to i64
-  %conv23.i = sub i32 %retval.0.i, %i.0.lcssa.i
+  %conv23.i = sub nuw i32 %retval.0.i, %i.0.lcssa.i
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %conv23.i, i32 8)
   %conv.i.i.i = sext i32 %.sroa.speculated.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i
@@ -53692,7 +53692,7 @@ for.body22.lr.ph:                                 ; preds = %if.end19
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit
   %i.3174 = phi i64 [ %i.2, %for.body22.lr.ph ], [ %add33, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit ]
-  %sub = sub i64 %numBits, %i.3174
+  %sub = sub nuw i64 %numBits, %i.3174
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 8)
   %add26 = add i64 %i.3174, %sourceOffset
   %div9.i105 = lshr i64 %add26, 3
@@ -66018,7 +66018,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 
@@ -70898,7 +70898,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %1 to i64
@@ -75533,7 +75533,7 @@ for.end.i236:                                     ; preds = %for.end.loopexit.i,
 
 if.then.i238:                                     ; preds = %for.end.i236
   %conv20.i = zext nneg i32 %i.0.lcssa.i to i64
-  %conv23.i = sub i32 %retval.0.i, %i.0.lcssa.i
+  %conv23.i = sub nuw i32 %retval.0.i, %i.0.lcssa.i
   %.sroa.speculated.i.i239 = call i32 @llvm.smin.i32(i32 %conv23.i, i32 8)
   %conv.i.i.i240 = sext i32 %.sroa.speculated.i.i239 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i240
@@ -76812,7 +76812,7 @@ for.end.i.i:                                      ; preds = %for.end.loopexit.i.
 
 if.then.i86.i:                                    ; preds = %for.end.i.i
   %conv20.i.i = zext nneg i32 %i.0.lcssa.i.i to i64
-  %conv23.i.i = sub i32 %retval.0.i.i, %i.0.lcssa.i.i
+  %conv23.i.i = sub nuw i32 %retval.0.i.i, %i.0.lcssa.i.i
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %conv23.i.i, i32 8)
   %conv.i.i.i.i = sext i32 %.sroa.speculated.i.i.i to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i.i

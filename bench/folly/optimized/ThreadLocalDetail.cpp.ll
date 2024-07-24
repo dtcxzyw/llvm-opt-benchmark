@@ -2099,7 +2099,7 @@ if.end12.i:                                       ; preds = %if.end.i, %call5.i.
   br i1 %cmp1329.i, label %for.body.i.preheader, label %for.cond.cleanup.i
 
 for.body.i.preheader:                             ; preds = %if.end12.i
-  %9 = sub i64 %8, %7
+  %9 = sub nuw i64 %8, %7
   %.neg = add nuw i64 %7, 1
   %xtraiter = and i64 %9, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -2210,7 +2210,7 @@ if.end12:                                         ; preds = %if.end, %if.then
   br i1 %cmp1329, label %for.body.preheader, label %for.cond.cleanup
 
 for.body.preheader:                               ; preds = %if.end12
-  %3 = sub i64 %2, %1
+  %3 = sub nuw i64 %2, %1
   %.neg = add nuw i64 %1, 1
   %xtraiter = and i64 %3, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -3466,7 +3466,7 @@ if.end10:                                         ; preds = %if.end8, %_ZNSt10lo
   br i1 %cmp1137, label %for.body.preheader, label %for.cond.cleanup
 
 for.body.preheader:                               ; preds = %if.end10
-  %4 = sub i64 %3, %1
+  %4 = sub nuw i64 %3, %1
   %.neg = add nuw nsw i64 %1, 1
   %xtraiter = and i64 %4, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0

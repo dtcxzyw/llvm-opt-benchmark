@@ -2398,7 +2398,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   %504 = getelementptr inbounds i8, ptr %379, i64 %.094.i.i.i
   %505 = load i8, ptr %504, align 1, !alias.scope !473, !noalias !446, !noundef !9
   %506 = icmp sgt i8 %505, -65
-  %507 = sub i64 %380, %.094.i.i.i
+  %507 = sub nuw i64 %380, %.094.i.i.i
   br i1 %506, label %509, label %508
 
 508:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i135.i.i.i", %501
@@ -2925,7 +2925,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   %669 = getelementptr inbounds i8, ptr %379, i64 %.090.i.i.i
   %670 = load i8, ptr %669, align 1, !alias.scope !575, !noalias !446, !noundef !9
   %671 = icmp sgt i8 %670, -65
-  %672 = sub i64 %380, %.090.i.i.i
+  %672 = sub nuw i64 %380, %.090.i.i.i
   br i1 %671, label %674, label %673
 
 673:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i170.i.i.i", %666
@@ -3217,7 +3217,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
 
 762:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5f978bbc7c2ba7b0E.llvm.7642019239991580563.exit.i"
   %763 = getelementptr inbounds i8, ptr %757, i64 136
-  %764 = sub i64 %341, %.019.lcssa.i.i
+  %764 = sub nuw i64 %341, %.019.lcssa.i.i
   %765 = mul i64 %764, 136
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %763, ptr nonnull align 8 %757, i64 %765, i1 false), !noalias !645
   br label %785

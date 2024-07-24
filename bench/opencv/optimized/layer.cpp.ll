@@ -1618,7 +1618,7 @@ define void @_ZN2cv3dnn14dnn4_v202405215Layer16forward_fallbackERKNS_11_InputArr
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %40
-  %57 = sub nsw i64 %47, %54
+  %57 = sub nuw nsw i64 %47, %54
   invoke void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %57)
           to label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit unwind label %81
 
@@ -1705,7 +1705,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit:    ; preds = %56, %58, %60, %_ZSt
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %._crit_edge196
-  %101 = sub nsw i64 %91, %98
+  %101 = sub nuw nsw i64 %91, %98
   invoke void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %101)
           to label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit60 unwind label %81
 
@@ -1849,7 +1849,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %126, %128
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %._crit_edge199
-  %157 = sub nsw i64 %147, %154
+  %157 = sub nuw nsw i64 %147, %154
   invoke void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %157)
           to label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit70 unwind label %81
 

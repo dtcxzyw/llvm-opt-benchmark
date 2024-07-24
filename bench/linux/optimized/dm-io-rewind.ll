@@ -54,64 +54,62 @@ define dso_local void @dm_io_rewind(ptr nocapture noundef %0, ptr noundef %1) lo
   %33 = load i32, ptr %32, align 1
   %34 = add i32 %33, %13
   store i32 %34, ptr %32, align 1
-  br label %85
+  br label %83
 
 35:                                               ; preds = %22
-  %36 = sub i32 %29, %13
+  %36 = sub nuw i32 %29, %13
   store i32 %36, ptr %28, align 1
-  br label %85
+  br label %83
 
 37:                                               ; preds = %22
-  %38 = sub i32 %13, %29
+  %38 = sub nuw i32 %13, %29
   %39 = getelementptr inbounds i8, ptr %7, i64 44
   %40 = load i32, ptr %39, align 1
   %41 = add i32 %40, -1
   %42 = icmp sgt i32 %41, -1
-  %43 = icmp ne i32 %38, 0
-  %44 = and i1 %43, %42
-  br i1 %44, label %45, label %65
+  br i1 %42, label %43, label %63
 
-45:                                               ; preds = %37
-  %46 = zext nneg i32 %41 to i64
-  %47 = getelementptr %struct.bio_vec, ptr %24, i64 %46, i32 1
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp ugt i32 %38, %48
-  br i1 %49, label %.preheader, label %.thread
+43:                                               ; preds = %37
+  %44 = zext nneg i32 %41 to i64
+  %45 = getelementptr %struct.bio_vec, ptr %24, i64 %44, i32 1
+  %46 = load i32, ptr %45, align 8
+  %47 = icmp ugt i32 %38, %46
+  br i1 %47, label %.preheader, label %.thread
 
-50:                                               ; preds = %.preheader
-  %51 = getelementptr %struct.bio_vec, ptr %24, i64 %58, i32 1
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp ugt i32 %57, %52
-  br i1 %53, label %.preheader, label %62, !llvm.loop !5
+48:                                               ; preds = %.preheader
+  %49 = getelementptr %struct.bio_vec, ptr %24, i64 %56, i32 1
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp ugt i32 %55, %50
+  br i1 %51, label %.preheader, label %60, !llvm.loop !5
 
-.preheader:                                       ; preds = %45, %50
-  %54 = phi i64 [ %58, %50 ], [ %46, %45 ]
-  %55 = phi i32 [ %52, %50 ], [ %48, %45 ]
-  %56 = phi i32 [ %57, %50 ], [ %38, %45 ]
-  %57 = sub i32 %56, %55
-  %58 = add nsw i64 %54, -1
-  %59 = icmp ne i64 %54, 0
-  %60 = icmp ne i32 %57, 0
-  %61 = and i1 %59, %60
-  br i1 %61, label %50, label %62, !llvm.loop !5
+.preheader:                                       ; preds = %43, %48
+  %52 = phi i64 [ %56, %48 ], [ %44, %43 ]
+  %53 = phi i32 [ %50, %48 ], [ %46, %43 ]
+  %54 = phi i32 [ %55, %48 ], [ %38, %43 ]
+  %55 = sub i32 %54, %53
+  %56 = add nsw i64 %52, -1
+  %57 = icmp ne i64 %52, 0
+  %58 = icmp ne i32 %55, 0
+  %59 = and i1 %57, %58
+  br i1 %59, label %48, label %60, !llvm.loop !5
 
-62:                                               ; preds = %.preheader, %50
-  %63 = phi i1 [ true, %50 ], [ %60, %.preheader ]
-  %64 = trunc i64 %58 to i32
-  br label %65
+60:                                               ; preds = %.preheader, %48
+  %61 = phi i1 [ true, %48 ], [ %58, %.preheader ]
+  %62 = trunc i64 %56 to i32
+  br label %63
 
-65:                                               ; preds = %62, %37
-  %66 = phi i32 [ %38, %37 ], [ %57, %62 ]
-  %67 = phi i32 [ %41, %37 ], [ %64, %62 ]
-  %68 = phi i1 [ %43, %37 ], [ %63, %62 ]
-  %69 = icmp slt i32 %67, 0
-  %70 = and i1 %69, %68
-  %71 = load i1, ptr @dm_bvec_iter_rewind.__already_done, align 1
-  %72 = xor i1 %70, true
-  %73 = select i1 %72, i1 true, i1 %71
-  br i1 %73, label %75, label %74, !prof !8
+63:                                               ; preds = %60, %37
+  %64 = phi i32 [ %38, %37 ], [ %55, %60 ]
+  %65 = phi i32 [ %41, %37 ], [ %62, %60 ]
+  %66 = phi i1 [ true, %37 ], [ %61, %60 ]
+  %67 = icmp slt i32 %65, 0
+  %68 = and i1 %67, %66
+  %69 = load i1, ptr @dm_bvec_iter_rewind.__already_done, align 1
+  %70 = xor i1 %68, true
+  %71 = select i1 %70, i1 true, i1 %69
+  br i1 %71, label %73, label %72, !prof !8
 
-74:                                               ; preds = %65
+72:                                               ; preds = %63
   store i1 true, ptr @dm_bvec_iter_rewind.__already_done, align 1
   tail call void asm sideeffect "729: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 729b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 729) #2, !srcloc !9
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str) #2
@@ -119,42 +117,42 @@ define dso_local void @dm_io_rewind(ptr nocapture noundef %0, ptr noundef %1) lo
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 33, i32 2313, i64 12) #2, !srcloc !11
   tail call void asm sideeffect "731: nop\0A\09.pushsection .discard.instr_end\0A\09.long 731b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 731) #2, !srcloc !12
   tail call void asm sideeffect "732: nop\0A\09.pushsection .discard.instr_end\0A\09.long 732b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 732) #2, !srcloc !13
-  br i1 %70, label %._crit_edge, label %.thread
+  br i1 %68, label %._crit_edge, label %.thread
 
-._crit_edge:                                      ; preds = %74
+._crit_edge:                                      ; preds = %72
   %.pre = load i32, ptr %25, align 1
-  br label %76
+  br label %74
 
-75:                                               ; preds = %65
-  br i1 %70, label %76, label %.thread
+73:                                               ; preds = %63
+  br i1 %68, label %74, label %.thread
 
-76:                                               ; preds = %._crit_edge, %75
-  %77 = phi i32 [ %.pre, %._crit_edge ], [ %27, %75 ]
-  %78 = sub i32 %77, %66
-  store i32 %78, ptr %25, align 1
+74:                                               ; preds = %._crit_edge, %73
+  %75 = phi i32 [ %.pre, %._crit_edge ], [ %27, %73 ]
+  %76 = sub i32 %75, %64
+  store i32 %76, ptr %25, align 1
   store i32 0, ptr %28, align 1
   store i32 0, ptr %39, align 1
-  br label %85
+  br label %83
 
-.thread:                                          ; preds = %45, %74, %75
-  %79 = phi i32 [ %66, %75 ], [ %66, %74 ], [ %38, %45 ]
-  %80 = phi i32 [ %67, %75 ], [ %67, %74 ], [ %41, %45 ]
-  store i32 %80, ptr %39, align 1
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr %struct.bio_vec, ptr %24, i64 %81, i32 1
-  %83 = load i32, ptr %82, align 8
-  %84 = sub i32 %83, %79
-  store i32 %84, ptr %28, align 1
-  br label %85
+.thread:                                          ; preds = %43, %72, %73
+  %77 = phi i32 [ %64, %73 ], [ %64, %72 ], [ %38, %43 ]
+  %78 = phi i32 [ %65, %73 ], [ %65, %72 ], [ %41, %43 ]
+  store i32 %78, ptr %39, align 1
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr %struct.bio_vec, ptr %24, i64 %79, i32 1
+  %81 = load i32, ptr %80, align 8
+  %82 = sub i32 %81, %77
+  store i32 %82, ptr %28, align 1
+  br label %83
 
-85:                                               ; preds = %.thread, %76, %35, %31
-  %86 = getelementptr inbounds i8, ptr %0, i64 76
-  %87 = load i32, ptr %86, align 4
-  %88 = zext i32 %87 to i64
-  tail call void @bio_trim(ptr noundef %7, i64 noundef 0, i64 noundef %88) #2
+83:                                               ; preds = %.thread, %74, %35, %31
+  %84 = getelementptr inbounds i8, ptr %0, i64 76
+  %85 = load i32, ptr %84, align 4
+  %86 = zext i32 %85 to i64
+  tail call void @bio_trim(ptr noundef %7, i64 noundef 0, i64 noundef %86) #2
   tail call void @bio_chain(ptr noundef %7, ptr noundef %4) #2
-  %89 = getelementptr inbounds i8, ptr %4, i64 28
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %89, ptr elementtype(i32) %89) #2, !srcloc !14
+  %87 = getelementptr inbounds i8, ptr %4, i64 28
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %87, ptr elementtype(i32) %87) #2, !srcloc !14
   store ptr %7, ptr %3, align 8
   ret void
 }

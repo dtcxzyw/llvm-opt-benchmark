@@ -7128,7 +7128,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit8
   br i1 %201, label %202, label %219
 
 202:                                              ; preds = %196
-  %203 = sub i64 %197, %200
+  %203 = sub nuw i64 %197, %200
   %204 = icmp sgt i64 %200, -1
   call void @llvm.assume(i1 %204)
   %205 = xor i64 %200, 9223372036854775807
@@ -10161,7 +10161,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit139.
   br i1 %179, label %180, label %208
 
 180:                                              ; preds = %177
-  %181 = sub i64 %178, %174
+  %181 = sub nuw i64 %178, %174
   %182 = ptrtoint ptr %.sroa.29.2269 to i64
   %183 = sub i64 %182, %172
   %184 = icmp sgt i64 %174, -1

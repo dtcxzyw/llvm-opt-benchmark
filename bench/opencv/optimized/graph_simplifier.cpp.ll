@@ -4110,7 +4110,7 @@ _ZZN2cv3dnn8Subgraph5matchERKNS_3PtrINS0_18ImportGraphWrapperEEEiRSt6vectorIiSaI
   br i1 %1283, label %1284, label %1286
 
 1284:                                             ; preds = %1276
-  %1285 = sub nsw i64 %1271, %1282
+  %1285 = sub nuw nsw i64 %1271, %1282
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %1285)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %.loopexit.split-lp418
 

@@ -4272,7 +4272,7 @@ zend_copy_extra_args.exit:                        ; preds = %100, %.loopexit.sin
   br i1 %114, label %115, label %.loopexit
 
 115:                                              ; preds = %zend_copy_extra_args.exit
-  %116 = sub i32 %113, %57
+  %116 = sub nuw i32 %113, %57
   %117 = sext i32 %57 to i64
   %118 = getelementptr %struct._zval_struct, ptr %0, i64 %117
   %119 = getelementptr i8, ptr %118, i64 80
@@ -6156,7 +6156,7 @@ define hidden ptr @zend_handle_named_arg(ptr nocapture noundef %0, ptr noundef %
 87:                                               ; preds = %84
   %88 = add nuw i32 %.0111134, 1
   store i32 %88, ptr %85, align 4
-  %89 = sub i32 %88, %86
+  %89 = sub nuw i32 %88, %86
   %90 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 464), align 8
   %91 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 456), align 8
   %92 = ptrtoint ptr %90 to i64
@@ -79581,7 +79581,7 @@ zend_copy_extra_args.exit:                        ; preds = %64, %.loopexit.sink
   br i1 %78, label %79, label %.loopexit
 
 79:                                               ; preds = %zend_copy_extra_args.exit
-  %80 = sub i32 %77, %21
+  %80 = sub nuw i32 %77, %21
   %81 = sext i32 %21 to i64
   %82 = getelementptr %struct._zval_struct, ptr %5, i64 %81
   %83 = getelementptr i8, ptr %82, i64 80
@@ -80117,7 +80117,7 @@ zend_copy_extra_args.exit:                        ; preds = %68, %.loopexit.sink
   br i1 %82, label %83, label %.loopexit
 
 83:                                               ; preds = %zend_copy_extra_args.exit
-  %84 = sub i32 %81, %25
+  %84 = sub nuw i32 %81, %25
   %85 = sext i32 %25 to i64
   %86 = getelementptr %struct._zval_struct, ptr %4, i64 %85
   %87 = getelementptr i8, ptr %86, i64 80
@@ -80612,7 +80612,7 @@ zend_copy_extra_args.exit:                        ; preds = %73, %.loopexit.sink
   br i1 %87, label %88, label %.loopexit
 
 88:                                               ; preds = %zend_copy_extra_args.exit
-  %89 = sub i32 %86, %30
+  %89 = sub nuw i32 %86, %30
   %90 = sext i32 %30 to i64
   %91 = getelementptr %struct._zval_struct, ptr %5, i64 %90
   %92 = getelementptr i8, ptr %91, i64 80
@@ -132445,7 +132445,7 @@ thread-pre-split:                                 ; preds = %148
   br i1 %or.cond, label %197, label %.loopexit505
 
 197:                                              ; preds = %193
-  %198 = sub i32 %136, %134
+  %198 = sub nuw i32 %136, %134
   %199 = zext i32 %198 to i64
   %200 = icmp ugt i64 %194, %199
   br i1 %200, label %201, label %202
@@ -140425,7 +140425,7 @@ zend_copy_extra_args.exit:                        ; preds = %55, %.loopexit.sink
   br i1 %71, label %72, label %.loopexit
 
 72:                                               ; preds = %zend_copy_extra_args.exit
-  %73 = sub i32 %70, %16
+  %73 = sub nuw i32 %70, %16
   %74 = sext i32 %16 to i64
   %75 = getelementptr %struct._zval_struct, ptr %3, i64 %74
   %76 = getelementptr i8, ptr %75, i64 80
@@ -140593,7 +140593,7 @@ zend_copy_extra_args.exit:                        ; preds = %61, %.loopexit.sink
   br i1 %77, label %78, label %.loopexit
 
 78:                                               ; preds = %zend_copy_extra_args.exit
-  %79 = sub i32 %76, %22
+  %79 = sub nuw i32 %76, %22
   %80 = sext i32 %22 to i64
   %81 = getelementptr %struct._zval_struct, ptr %4, i64 %80
   %82 = getelementptr i8, ptr %81, i64 80
@@ -140771,7 +140771,7 @@ zend_copy_extra_args.exit:                        ; preds = %65, %.loopexit.sink
   br i1 %81, label %82, label %.loopexit
 
 82:                                               ; preds = %zend_copy_extra_args.exit
-  %83 = sub i32 %80, %26
+  %83 = sub nuw i32 %80, %26
   %84 = sext i32 %26 to i64
   %85 = getelementptr %struct._zval_struct, ptr %4, i64 %84
   %86 = getelementptr i8, ptr %85, i64 80
@@ -140940,7 +140940,7 @@ zend_copy_extra_args.exit:                        ; preds = %60, %.loopexit.sink
   br i1 %76, label %77, label %.loopexit
 
 77:                                               ; preds = %zend_copy_extra_args.exit
-  %78 = sub i32 %75, %21
+  %78 = sub nuw i32 %75, %21
   %79 = sext i32 %21 to i64
   %80 = getelementptr %struct._zval_struct, ptr %5, i64 %79
   %81 = getelementptr i8, ptr %80, i64 80
@@ -141425,7 +141425,7 @@ zend_copy_extra_args.exit:                        ; preds = %64, %.loopexit.sink
   br i1 %80, label %81, label %.loopexit
 
 81:                                               ; preds = %zend_copy_extra_args.exit
-  %82 = sub i32 %79, %25
+  %82 = sub nuw i32 %79, %25
   %83 = sext i32 %25 to i64
   %84 = getelementptr %struct._zval_struct, ptr %4, i64 %83
   %85 = getelementptr i8, ptr %84, i64 80
@@ -141869,7 +141869,7 @@ zend_copy_extra_args.exit:                        ; preds = %69, %.loopexit.sink
   br i1 %85, label %86, label %.loopexit
 
 86:                                               ; preds = %zend_copy_extra_args.exit
-  %87 = sub i32 %84, %30
+  %87 = sub nuw i32 %84, %30
   %88 = sext i32 %30 to i64
   %89 = getelementptr %struct._zval_struct, ptr %5, i64 %88
   %90 = getelementptr i8, ptr %89, i64 80
@@ -154465,7 +154465,7 @@ zend_copy_extra_args.exit:                        ; preds = %187, %.loopexit.sin
   br i1 %202, label %203, label %.loopexit
 
 203:                                              ; preds = %zend_copy_extra_args.exit
-  %204 = sub i32 %201, %148
+  %204 = sub nuw i32 %201, %148
   %205 = sext i32 %148 to i64
   %206 = getelementptr %struct._zval_struct, ptr %0, i64 %205
   %207 = getelementptr i8, ptr %206, i64 80
@@ -155061,7 +155061,7 @@ zend_copy_extra_args.exit:                        ; preds = %187, %.loopexit.sin
   br i1 %202, label %203, label %.loopexit
 
 203:                                              ; preds = %zend_copy_extra_args.exit
-  %204 = sub i32 %201, %148
+  %204 = sub nuw i32 %201, %148
   %205 = sext i32 %148 to i64
   %206 = getelementptr %struct._zval_struct, ptr %0, i64 %205
   %207 = getelementptr i8, ptr %206, i64 80
@@ -159536,7 +159536,7 @@ define internal noundef i32 @ZEND_RECV_VARIADIC_SPEC_UNUSED_HANDLER(ptr noundef 
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %21 to i64
   %27 = getelementptr inbounds %struct._zend_arg_info, ptr %25, i64 %26
-  %28 = sub i32 %8, %6
+  %28 = sub nuw i32 %8, %6
   %29 = add i32 %28, 1
   %30 = tail call ptr @_zend_new_array(i32 noundef %29) #27
   store ptr %30, ptr %12, align 8

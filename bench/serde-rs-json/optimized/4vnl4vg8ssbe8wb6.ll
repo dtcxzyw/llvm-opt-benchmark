@@ -1623,7 +1623,7 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   %208 = getelementptr inbounds i8, ptr %8, i64 %.021.i
   %209 = load i8, ptr %208, align 1, !alias.scope !151, !noalias !156, !noundef !4
   %210 = icmp sgt i8 %209, -65
-  %211 = sub i64 %10, %.021.i
+  %211 = sub nuw i64 %10, %.021.i
   br i1 %210, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17hb0e2ccb49733dfc7E.exit.i", label %.invoke
 
 "_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17hb0e2ccb49733dfc7E.exit.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i.i", %205, %202
@@ -1653,7 +1653,7 @@ _ZN10serde_json5error17starts_with_digit17h1b98fa904f719d7bE.exit.thread.i: ; pr
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i38.i": ; preds = %216
   %220 = load i8, ptr %213, align 1, !alias.scope !163, !noalias !168, !noundef !4
   %221 = icmp sgt i8 %220, -65
-  %222 = sub i64 %10, %.021.i
+  %222 = sub nuw i64 %10, %.021.i
   br i1 %221, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17hb0e2ccb49733dfc7E.exit39.i", label %.invoke
 
 "_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17hb0e2ccb49733dfc7E.exit39.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i38.i", %217, %_ZN10serde_json5error17starts_with_digit17h1b98fa904f719d7bE.exit.thread.i
@@ -1692,7 +1692,7 @@ _ZN10serde_json5error17starts_with_digit17h1b98fa904f719d7bE.exit.thread.i: ; pr
   %235 = getelementptr inbounds i8, ptr %8, i64 %.0.i
   %236 = load i8, ptr %235, align 1, !alias.scope !178, !noalias !183, !noundef !4
   %237 = icmp sgt i8 %236, -65
-  %238 = sub i64 %10, %.0.i
+  %238 = sub nuw i64 %10, %.0.i
   br i1 %237, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17hb0e2ccb49733dfc7E.exit45.i", label %.invoke
 
 "_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17hb0e2ccb49733dfc7E.exit45.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i44.i", %232, %229

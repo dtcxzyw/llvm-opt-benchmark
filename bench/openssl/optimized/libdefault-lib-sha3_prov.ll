@@ -79,7 +79,7 @@ if.then4:                                         ; preds = %if.then2
 if.end6:                                          ; preds = %if.then2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %inp, i64 %sub, i1 false)
   %add.ptr10 = getelementptr inbounds i8, ptr %inp, i64 %sub
-  %sub11 = sub i64 %len, %sub
+  %sub11 = sub nuw i64 %len, %sub
   %meth = getelementptr inbounds i8, ptr %vctx, i64 400
   %3 = load ptr, ptr %meth, align 8
   %call = tail call i64 %3(ptr noundef nonnull %vctx, ptr noundef nonnull %buf, i64 noundef %0) #4

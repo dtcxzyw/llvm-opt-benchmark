@@ -402,7 +402,7 @@ _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread181: 
   br label %if.else
 
 _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = %lor.rhs.i
-  %sub.i = sub i64 %3, %5
+  %sub.i = sub nuw i64 %3, %5
   %add.ptr.i34 = getelementptr inbounds i8, ptr %4, i64 %sub.i
   %bcmp.i = call i32 @bcmp(ptr %add.ptr.i34, ptr %6, i64 %5)
   %cmp9.i = icmp eq i32 %bcmp.i, 0

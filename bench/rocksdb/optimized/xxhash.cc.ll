@@ -2556,7 +2556,7 @@ for.body.i.i:                                     ; preds = %if.then26, %for.bod
   br i1 %exitcond.not.i.i, label %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i, label %for.body.i.i, !llvm.loop !18
 
 _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i:      ; preds = %for.body.i.i
-  %sub7.i = sub nsw i64 4, %sub.i
+  %sub7.i = sub nuw nsw i64 4, %sub.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %cond, i64 %5
   %14 = lshr <8 x i64> %add.i.i.i.i, <i64 47, i64 47, i64 47, i64 47, i64 47, i64 47, i64 47, i64 47>
   %15 = load <16 x i32>, ptr %add.ptr8.i, align 1
@@ -2868,7 +2868,7 @@ for.body.i.i170:                                  ; preds = %do.body104, %for.bo
   br i1 %exitcond.not.i.i183, label %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i184, label %for.body.i.i170, !llvm.loop !18
 
 _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i184:   ; preds = %for.body.i.i170
-  %sub7.i185 = sub nsw i64 4, %sub.i162
+  %sub7.i185 = sub nuw nsw i64 4, %sub.i162
   %88 = lshr <8 x i64> %add.i.i.i.i181, <i64 47, i64 47, i64 47, i64 47, i64 47, i64 47, i64 47, i64 47>
   %89 = load <16 x i32>, ptr %add.ptr8.i186, align 1
   %90 = bitcast <8 x i64> %add.i.i.i.i181 to <16 x i32>
@@ -3102,7 +3102,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %exitcond.not.i.i, label %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i, label %for.body.i.i, !llvm.loop !18
 
 _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i:      ; preds = %for.body.i.i
-  %sub7.i = sub nsw i64 %conv, %sub.i
+  %sub7.i = sub nuw nsw i64 %conv, %sub.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %secret, i64 %3
   %10 = lshr <8 x i64> %add.i.i.i.i, <i64 47, i64 47, i64 47, i64 47, i64 47, i64 47, i64 47, i64 47>
   %11 = load <16 x i32>, ptr %add.ptr8.i, align 1
@@ -4383,7 +4383,7 @@ if.end3:                                          ; preds = %entry
 
 while.body:                                       ; preds = %if.end3, %while.body
   %pos.036 = phi i64 [ %add, %while.body ], [ 0, %if.end3 ]
-  %sub = sub i64 %secretSize, %pos.036
+  %sub = sub nuw i64 %secretSize, %pos.036
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %spec.select)
   %add.ptr = getelementptr inbounds i8, ptr %secretBuffer, i64 %pos.036
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %spec.select23, i64 %cond, i1 false)

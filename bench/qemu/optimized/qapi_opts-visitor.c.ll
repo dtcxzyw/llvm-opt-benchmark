@@ -622,9 +622,9 @@ land.lhs.true28:                                  ; preds = %if.then24
   %10 = load i64, ptr %val, align 8
   %11 = load i64, ptr %val2, align 8
   %cmp29.not = icmp ule i64 %10, %11
-  %sub = sub i64 %11, %10
+  %sub = sub nuw i64 %11, %10
   %cmp32 = icmp ult i64 %sub, 65536
-  %or.cond = and i1 %cmp29.not, %cmp32
+  %or.cond = select i1 %cmp29.not, i1 %cmp32, i1 false
   br i1 %or.cond, label %if.then34, label %if.end40
 
 if.then34:                                        ; preds = %land.lhs.true28

@@ -462,7 +462,7 @@ define void @_ZN5faiss17AdditiveQuantizer18set_derived_valuesEv(ptr noundef nonn
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %1
-  %18 = sub i64 %8, %15
+  %18 = sub nuw i64 %8, %15
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %10, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.pre = load i64, ptr %6, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
@@ -698,7 +698,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2838,7 +2838,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -3404,7 +3404,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9

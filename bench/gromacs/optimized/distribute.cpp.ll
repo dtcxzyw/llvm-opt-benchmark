@@ -805,7 +805,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i:       ; preds = %242, %_ZSt8_Destroy
   br i1 %295, label %296, label %298
 
 296:                                              ; preds = %283
-  %297 = sub nsw i64 %287, %294
+  %297 = sub nuw nsw i64 %287, %294
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %285, i64 noundef %297)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i unwind label %.loopexit.split-lp.i
 
@@ -2261,7 +2261,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit:
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_iET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i32, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
@@ -2409,7 +2409,7 @@ define internal fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS
   br i1 %31, label %32, label %55
 
 32:                                               ; preds = %20
-  %33 = sub nsw i64 %26, %30
+  %33 = sub nuw nsw i64 %26, %30
   %34 = ptrtoint ptr %.sroa.11.070.i to i64
   %35 = sub i64 %34, %27
   %36 = sdiv exact i64 %35, 12
@@ -2427,7 +2427,7 @@ define internal fastcc void @_ZL13distributeVecP12gmx_domdec_tN3gmx8ArrayRefIKNS
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit.i
 
 42:                                               ; preds = %32
-  %43 = icmp ult i64 %38, %33
+  %43 = icmp slt i32 %25, 0
   br i1 %43, label %44, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 44:                                               ; preds = %42

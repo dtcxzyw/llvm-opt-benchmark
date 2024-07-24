@@ -830,7 +830,7 @@ define internal fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h0cf78d91d2710
           to label %.thread unwind label %50
 
 45:                                               ; preds = %28
-  %46 = sub i64 %30, %21
+  %46 = sub nuw i64 %30, %21
   store i64 %46, ptr %29, align 8, !alias.scope !62
   %47 = getelementptr inbounds i8, ptr %7, i64 8
   %48 = load ptr, ptr %47, align 8, !alias.scope !62, !noundef !9

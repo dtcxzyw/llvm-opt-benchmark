@@ -3777,7 +3777,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 939:                                              ; preds = %936
   %940 = load i32, ptr @hf_uds_data_record, align 4
-  %941 = sub i32 %60, %937
+  %941 = sub nuw i32 %60, %937
   %942 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %940, ptr noundef %0, i32 noundef %937, i32 noundef %941, i32 noundef 0) #9
   %943 = load ptr, ptr %61, align 8
   %944 = getelementptr inbounds i8, ptr %1, i64 408
@@ -4205,7 +4205,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr nocapture noun
 
 84:                                               ; preds = %82
   %85 = load i32, ptr @hf_uds_rdtci_record_unparsed, align 4
-  %86 = sub i32 %5, %.3
+  %86 = sub nuw i32 %5, %.3
   %87 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef %.3, i32 noundef %86, i32 noundef 0) #9
   br label %.loopexit
 
@@ -4229,7 +4229,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr nocapture noun
 
 100:                                              ; preds = %94
   %101 = load i32, ptr @hf_uds_rdtci_record_unparsed, align 4
-  %102 = sub i32 %5, %98
+  %102 = sub nuw i32 %5, %98
   %103 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %101, ptr noundef %0, i32 noundef %98, i32 noundef %102, i32 noundef 0) #9
   br label %.loopexit
 
@@ -4251,7 +4251,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr nocapture noun
 
 113:                                              ; preds = %111
   %114 = load i32, ptr @hf_uds_rdtci_record_unparsed, align 4
-  %115 = sub i32 %5, %.4
+  %115 = sub nuw i32 %5, %.4
   %116 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %114, ptr noundef %0, i32 noundef %.4, i32 noundef %115, i32 noundef 0) #9
   br label %.loopexit
 
@@ -4426,7 +4426,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %160, %uds_lo
 
 191:                                              ; preds = %186
   %192 = load i32, ptr @hf_uds_rdtci_record_unparsed, align 4
-  %193 = sub i32 %5, %189
+  %193 = sub nuw i32 %5, %189
   %194 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %192, ptr noundef %0, i32 noundef %189, i32 noundef %193, i32 noundef 0) #9
   br label %.loopexit
 
@@ -4439,7 +4439,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %160, %uds_lo
 
 200:                                              ; preds = %195
   %201 = load i32, ptr @hf_uds_rdtci_record_unparsed, align 4
-  %202 = sub i32 %5, %198
+  %202 = sub nuw i32 %5, %198
   %203 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %201, ptr noundef %0, i32 noundef %198, i32 noundef %202, i32 noundef 0) #9
   br label %.loopexit
 

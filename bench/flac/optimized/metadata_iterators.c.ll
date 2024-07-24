@@ -850,7 +850,7 @@ if.then9.i.i.i:                                   ; preds = %if.end6.i.i.i
   br label %read_metadata_block_data_.exit.thread21.sink.split
 
 if.else.i.i.i:                                    ; preds = %if.end6.i.i.i
-  %sub.i.i.i = sub i32 %2, %div14.i.i.i
+  %sub.i.i.i = sub nuw i32 %2, %div14.i.i.i
   %conv10.i.i.i = zext i32 %sub.i.i.i to i64
   %call11.i.i.i = tail call noalias ptr @malloc(i64 noundef %conv10.i.i.i) #31
   %data12.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -1091,7 +1091,7 @@ if.end6.i57.i.i:                                  ; preds = %land.lhs.true.if.en
   br i1 %cmp9.i.i.i, label %skip.i.i.i, label %if.else11.i.i.i
 
 if.else11.i.i.i:                                  ; preds = %if.end6.i57.i.i
-  %sub12.i.i.i = sub i32 %sub8.i.i.i, %div45.i.i.i
+  %sub12.i.i.i = sub nuw i32 %sub8.i.i.i, %div45.i.i.i
   %conv.i58.i.i = zext nneg i32 %div45.i.i.i to i64
   %call14.i59.i.i = call i64 @fread(ptr noundef nonnull %buffer.i54.i.i, i64 noundef 1, i64 noundef %conv.i58.i.i, ptr noundef %3) #28
   %cmp16.not.i.i.i = icmp eq i64 %call14.i59.i.i, %conv.i58.i.i
@@ -8494,7 +8494,7 @@ if.then9.i.i:                                     ; preds = %if.end6.i.i
   br label %if.end34.sink.split
 
 if.else.i.i:                                      ; preds = %if.end6.i.i
-  %sub.i.i = sub i32 %58, %div14.i.i
+  %sub.i.i = sub nuw i32 %58, %div14.i.i
   %conv10.i.i = zext i32 %sub.i.i to i64
   %call11.i.i = call noalias ptr @malloc(i64 noundef %conv10.i.i) #31
   %data12.i.i = getelementptr inbounds i8, ptr %40, i64 24
@@ -8641,7 +8641,7 @@ if.end6.i57.i:                                    ; preds = %sw.bb12.i
   br i1 %cmp9.i.i, label %skip.i.i, label %if.else11.i.i
 
 if.else11.i.i:                                    ; preds = %if.end6.i57.i
-  %sub12.i.i = sub i32 %sub8.i.i, %div45.i.i
+  %sub12.i.i = sub nuw i32 %sub8.i.i, %div45.i.i
   %call14.i59.i = call i64 %read_cb(ptr noundef nonnull %buffer.i54.i, i64 noundef 1, i64 noundef %conv.i58.i, ptr noundef %handle) #28
   %cmp16.not.i.i = icmp eq i64 %call14.i59.i, %conv.i58.i
   br i1 %cmp16.not.i.i, label %if.end19.i.i, label %read_metadata_block_data_vorbis_comment_cb_.exit.i

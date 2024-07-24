@@ -466,7 +466,7 @@ while.body.i:                                     ; preds = %if.end8.i, %while.b
   %sub.ptr.sub.i35.i = phi i64 [ %sub.ptr.sub.i32.i, %while.body.lr.ph.i ], [ 1024, %if.end8.i ]
   %4 = phi ptr [ %3, %while.body.lr.ph.i ], [ %buf_.i.i, %if.end8.i ]
   %n.addr.034.i = phi i64 [ %0, %while.body.lr.ph.i ], [ %sub.i, %if.end8.i ]
-  %sub.i = sub i64 %n.addr.034.i, %sub.ptr.sub.i35.i
+  %sub.i = sub nuw i64 %n.addr.034.i, %sub.ptr.sub.i35.i
   %cmp5.not.i = icmp eq ptr %add.ptr.i.i, %4
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 
@@ -547,7 +547,7 @@ while.body.i55:                                   ; preds = %if.end8.i63, %while
   %sub.ptr.sub.i35.i56 = phi i64 [ %sub.ptr.sub.i32.i45, %while.body.lr.ph.i51 ], [ 1024, %if.end8.i63 ]
   %15 = phi ptr [ %add.ptr.i27.i16, %while.body.lr.ph.i51 ], [ %buf_.i.i52, %if.end8.i63 ]
   %n.addr.034.i57 = phi i64 [ %0, %while.body.lr.ph.i51 ], [ %sub.i58, %if.end8.i63 ]
-  %sub.i58 = sub i64 %n.addr.034.i57, %sub.ptr.sub.i35.i56
+  %sub.i58 = sub nuw i64 %n.addr.034.i57, %sub.ptr.sub.i35.i56
   %cmp5.not.i59 = icmp eq ptr %add.ptr.i.i7, %15
   br i1 %cmp5.not.i59, label %if.end8.i63, label %if.then6.i60
 
@@ -724,7 +724,7 @@ while.body.i:                                     ; preds = %if.end8.i, %while.b
   %sub.ptr.sub.i35.i = phi i64 [ %sub.ptr.sub.i32.i, %while.body.lr.ph.i ], [ 1024, %if.end8.i ]
   %7 = phi ptr [ %6, %while.body.lr.ph.i ], [ %buf_.i.i, %if.end8.i ]
   %n.addr.034.i = phi i64 [ %cond.i.i33, %while.body.lr.ph.i ], [ %sub.i45, %if.end8.i ]
-  %sub.i45 = sub i64 %n.addr.034.i, %sub.ptr.sub.i35.i
+  %sub.i45 = sub nuw i64 %n.addr.034.i, %sub.ptr.sub.i35.i
   %cmp5.not.i = icmp eq ptr %add.ptr.i.i, %7
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 
@@ -862,7 +862,7 @@ while.body.i92:                                   ; preds = %if.end8.i100, %whil
   %sub.ptr.sub.i35.i93 = phi i64 [ %sub.ptr.sub.i32.i82, %while.body.lr.ph.i88 ], [ 1024, %if.end8.i100 ]
   %28 = phi ptr [ %27, %while.body.lr.ph.i88 ], [ %buf_.i.i89, %if.end8.i100 ]
   %n.addr.034.i94 = phi i64 [ %num_zeroes.039, %while.body.lr.ph.i88 ], [ %sub.i95, %if.end8.i100 ]
-  %sub.i95 = sub i64 %n.addr.034.i94, %sub.ptr.sub.i35.i93
+  %sub.i95 = sub nuw i64 %n.addr.034.i94, %sub.ptr.sub.i35.i93
   %cmp5.not.i96 = icmp eq ptr %add.ptr.i.i78, %28
   br i1 %cmp5.not.i96, label %if.end8.i100, label %if.then6.i97
 
@@ -960,7 +960,7 @@ while.body.i141:                                  ; preds = %if.end8.i149, %whil
   %sub.ptr.sub.i35.i142 = phi i64 [ %sub.ptr.sub.i32.i131, %while.body.lr.ph.i137 ], [ 1024, %if.end8.i149 ]
   %42 = phi ptr [ %41, %while.body.lr.ph.i137 ], [ %buf_.i.i138, %if.end8.i149 ]
   %n.addr.034.i143 = phi i64 [ %cond3940, %while.body.lr.ph.i137 ], [ %sub.i144, %if.end8.i149 ]
-  %sub.i144 = sub i64 %n.addr.034.i143, %sub.ptr.sub.i35.i142
+  %sub.i144 = sub nuw i64 %n.addr.034.i143, %sub.ptr.sub.i35.i142
   %cmp5.not.i145 = icmp eq ptr %add.ptr.i.i127, %42
   br i1 %cmp5.not.i145, label %if.end8.i149, label %if.then6.i146
 

@@ -1937,7 +1937,7 @@ define internal noundef i32 @tt_cmap8_validate(ptr noundef %0, ptr noundef %1) #
   %127 = sub i32 %100, %82
   %128 = load i32, ptr %64, align 8
   %129 = icmp ule i32 %127, %128
-  %130 = sub i32 %128, %127
+  %130 = sub nuw i32 %128, %127
   %.not95 = icmp ult i32 %119, %130
   %or.cond102 = select i1 %129, i1 %.not95, i1 false
   br i1 %or.cond102, label %132, label %131
@@ -2116,7 +2116,7 @@ define internal range(i32 0, 65536) i32 @tt_cmap10_char_index(ptr nocapture noun
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = or disjoint i32 %39, %42
-  %44 = sub i32 %1, %22
+  %44 = sub nuw i32 %1, %22
   %45 = icmp ult i32 %44, %43
   br i1 %45, label %46, label %57
 
@@ -2726,7 +2726,7 @@ define internal noundef i32 @tt_cmap12_validate(ptr noundef %0, ptr noundef %1) 
   %125 = trunc i64 %124 to i32
   %126 = load i32, ptr %58, align 8
   %127 = icmp uge i32 %126, %125
-  %128 = sub i32 %126, %125
+  %128 = sub nuw i32 %126, %125
   %129 = zext i32 %128 to i64
   %.not64 = icmp ult i64 %116, %129
   %or.cond67 = select i1 %127, i1 %.not64, i1 false
@@ -5737,16 +5737,16 @@ define internal i32 @sfnt_init_face(ptr noundef %0, ptr noundef %1, i32 noundef 
   %231 = getelementptr inbounds i8, ptr %227, i64 16
   %232 = load i64, ptr %231, align 8
   %233 = icmp ugt i64 %232, %223
-  %234 = sub i64 %223, %232
+  %234 = sub nuw i64 %223, %232
   %235 = icmp ugt i64 %.0183244.i.i, %234
-  %or.cond232.i.i = or i1 %233, %235
+  %or.cond232.i.i = select i1 %233, i1 true, i1 %235
   br i1 %or.cond232.i.i, label %243, label %236
 
 236:                                              ; preds = %230
   %237 = getelementptr inbounds i8, ptr %227, i64 24
   %238 = load i64, ptr %237, align 8
   %239 = icmp ugt i64 %238, %224
-  %240 = sub i64 %224, %238
+  %240 = sub nuw i64 %224, %238
   %241 = icmp ugt i64 %.0190242.i.i, %240
   %or.cond234.i.i = select i1 %239, i1 true, i1 %241
   %242 = icmp ugt i64 %232, %238
@@ -6145,9 +6145,9 @@ woff_open_font.exit.i:                            ; preds = %.loopexit.i.i
 .thread.i104.i:                                   ; preds = %427, %423
   %430 = phi i64 [ %422, %427 ], [ 0, %423 ]
   %.not256.i.i = icmp uge i64 %420, %408
-  %431 = sub i64 %408, %420
+  %431 = sub nuw i64 %408, %420
   %432 = icmp ult i64 %431, %430
-  %or.cond.i90.i = or i1 %.not256.i.i, %432
+  %or.cond.i90.i = select i1 %.not256.i.i, i1 true, i1 %432
   br i1 %or.cond.i90.i, label %woff2_open_font.exit.thread.i, label %433
 
 433:                                              ; preds = %.thread.i104.i
@@ -6158,7 +6158,7 @@ woff_open_font.exit.i:                            ; preds = %.loopexit.i.i
   %or.cond16.not310.not314.i.i = select i1 %435, i1 %437, i1 false
   %.not257.i.i = icmp uge i64 %434, %408
   %or.cond298.not311.i.i = or i1 %.not257.i.i, %or.cond16.not310.not314.i.i
-  %438 = sub i64 %408, %434
+  %438 = sub nuw i64 %408, %434
   %439 = icmp ult i64 %438, %436
   %or.cond300.i.i = select i1 %or.cond298.not311.i.i, i1 true, i1 %439
   br i1 %or.cond300.i.i, label %woff2_open_font.exit.thread.i, label %440
@@ -6531,7 +6531,7 @@ ReadBase128.exit.thread:                          ; preds = %494, %499, %496
 
 597:                                              ; preds = %._crit_edge337.i.i
   %598 = icmp ule i32 %.0231.lcssa.i.i, %.0229.lcssa.i.i
-  %599 = sub nsw i32 %.0229.lcssa.i.i, %.0231.lcssa.i.i
+  %599 = sub nuw nsw i32 %.0229.lcssa.i.i, %.0231.lcssa.i.i
   %.not283.i.i = icmp eq i32 %599, 1
   %or.cond305.i.i = select i1 %598, i1 %.not283.i.i, i1 false
   br i1 %or.cond305.i.i, label %601, label %600
@@ -9648,7 +9648,7 @@ define internal i32 @tt_face_load_sbit_image(ptr noundef %0, i64 noundef %1, i32
   br i1 %92, label %.thread, label %93
 
 93:                                               ; preds = %49
-  %94 = sub i64 %43, %68
+  %94 = sub nuw i64 %43, %68
   %95 = lshr i64 %94, 3
   %96 = icmp ugt i64 %87, %95
   br i1 %96, label %.thread, label %tt_sbit_decoder_init.exit
@@ -9716,7 +9716,7 @@ tt_sbit_decoder_init.exit:                        ; preds = %93
   br i1 %.not.i35, label %142, label %tt_face_load_sbix_image.exit
 
 142:                                              ; preds = %140
-  %143 = sub i64 %141, %132
+  %143 = sub nuw i64 %141, %132
   %144 = shl i32 %.09814.i, 2
   %145 = add i32 %144, 12
   %146 = zext i32 %145 to i64
@@ -9749,7 +9749,7 @@ tt_sbit_decoder_init.exit:                        ; preds = %93
   br i1 %161, label %tt_face_load_sbix_image.exit, label %162
 
 162:                                              ; preds = %160
-  %163 = sub i32 %158, %157
+  %163 = sub nuw i32 %158, %157
   %164 = icmp ult i32 %163, 8
   br i1 %164, label %tt_face_load_sbix_image.exit, label %165
 
@@ -10427,7 +10427,7 @@ define internal i32 @tt_face_load_font_dir(ptr nocapture noundef %0, ptr noundef
 
 36:                                               ; preds = %32
   %37 = load i64, ptr %26, align 8
-  %38 = sub i64 %34, %33
+  %38 = sub nuw i64 %34, %33
   %39 = icmp ugt i64 %37, %38
   %40 = load i64, ptr %4, align 8
   br i1 %39, label %41, label %thread-pre-split.i
@@ -10589,7 +10589,7 @@ check_table_dir.exit:                             ; preds = %60, %59
 
 96:                                               ; preds = %86
   %97 = zext i32 %93 to i64
-  %98 = sub i64 %94, %92
+  %98 = sub nuw i64 %94, %92
   %99 = icmp ult i64 %98, %97
   br i1 %99, label %100, label %103
 
@@ -11357,7 +11357,7 @@ define internal i32 @tt_face_load_cpal(ptr noundef %0, ptr noundef %1) #0 {
 82:                                               ; preds = %29
   %83 = zext i16 %55 to i64
   %84 = shl nuw nsw i64 %83, 2
-  %85 = sub i64 %80, %75
+  %85 = sub nuw i64 %80, %75
   %86 = icmp ult i64 %85, %84
   br i1 %86, label %253, label %87
 
@@ -11447,9 +11447,9 @@ define internal i32 @tt_face_load_cpal(ptr noundef %0, ptr noundef %1) #0 {
 
 160:                                              ; preds = %104
   %.not142 = icmp uge i64 %123, %80
-  %161 = sub i64 %80, %123
+  %161 = sub nuw i64 %80, %123
   %162 = icmp ult i64 %161, %105
-  %or.cond153 = or i1 %.not142, %162
+  %or.cond153 = select i1 %.not142, i1 true, i1 %162
   br i1 %or.cond153, label %253, label %163
 
 163:                                              ; preds = %160
@@ -11506,7 +11506,7 @@ define internal i32 @tt_face_load_cpal(ptr noundef %0, ptr noundef %1) #0 {
   %187 = load i16, ptr %38, align 8
   %188 = zext i16 %187 to i64
   %189 = shl nuw nsw i64 %188, 1
-  %190 = sub i64 %.pre169.pre170, %141
+  %190 = sub nuw i64 %.pre169.pre170, %141
   %191 = icmp ugt i64 %189, %190
   br i1 %191, label %253, label %192
 
@@ -11563,7 +11563,7 @@ define internal i32 @tt_face_load_cpal(ptr noundef %0, ptr noundef %1) #0 {
   %215 = load i16, ptr %39, align 8
   %216 = zext i16 %215 to i64
   %217 = shl nuw nsw i64 %216, 1
-  %218 = sub i64 %.pre169, %159
+  %218 = sub nuw i64 %.pre169, %159
   %219 = icmp ugt i64 %217, %218
   br i1 %219, label %253, label %220
 
@@ -11735,7 +11735,7 @@ define internal i32 @tt_face_load_colr(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not180, label %61, label %306
 
 61:                                               ; preds = %32
-  %62 = sub i64 %60, %59
+  %62 = sub nuw i64 %60, %59
   %63 = udiv i64 %62, 6
   %64 = zext i16 %40 to i64
   %65 = icmp ult i64 %63, %64
@@ -11775,7 +11775,7 @@ define internal i32 @tt_face_load_colr(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not181, label %95, label %306
 
 95:                                               ; preds = %66
-  %96 = sub i64 %94, %84
+  %96 = sub nuw i64 %94, %84
   %97 = lshr i64 %96, 2
   %98 = zext i16 %92 to i64
   %99 = icmp ult i64 %97, %98
@@ -12265,7 +12265,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_colr_layer(ptr nocapture 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %36
   %.02734.i = phi i32 [ %.1.i, %36 ], [ 0, %.lr.ph.i.preheader ]
   %.02833.i = phi i32 [ %.129.i, %36 ], [ %17, %.lr.ph.i.preheader ]
-  %18 = sub i32 %.02833.i, %.02734.i
+  %18 = sub nuw i32 %.02833.i, %.02734.i
   %19 = lshr i32 %18, 1
   %20 = add i32 %19, %.02734.i
   %21 = mul i32 %20, 6
@@ -12455,7 +12455,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_colr_glyph_paint(ptr noca
 24:                                               ; preds = %43, %.lr.ph.i
   %.02532.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %43 ]
   %.02631.i = phi i32 [ %22, %.lr.ph.i ], [ %.127.i, %43 ]
-  %25 = sub i32 %.02631.i, %.02532.i
+  %25 = sub nuw i32 %.02631.i, %.02532.i
   %26 = lshr i32 %25, 1
   %27 = add i32 %26, %.02532.i
   %28 = mul i32 %27, 6
@@ -16065,7 +16065,7 @@ define internal i32 @tt_face_load_svg_doc(ptr nocapture noundef %0, i32 noundef 
   %.neg = sub i64 %123, %122
   %124 = add i64 %.neg, %119
   %125 = icmp ugt i64 %117, %124
-  %126 = sub i64 %124, %117
+  %126 = sub nuw i64 %124, %117
   %127 = icmp ugt i64 %99, %126
   %or.cond = select i1 %125, i1 true, i1 %127
   br i1 %or.cond, label %find_doc.exit.thread, label %128
@@ -19749,7 +19749,7 @@ define internal fastcc i32 @tt_sbit_decoder_load_image(ptr noundef %0, i32 nound
 .thread105:                                       ; preds = %155, %313, %316
   %.1109 = phi i64 [ %.1, %316 ], [ %168, %155 ], [ %314, %313 ]
   %.182108 = phi i64 [ %.182, %316 ], [ %169, %155 ], [ %315, %313 ]
-  %318 = sub i64 %.182108, %.1109
+  %318 = sub nuw i64 %.182108, %.1109
   %319 = add nuw i64 %.1109, %97
   %320 = tail call fastcc i32 @tt_sbit_decoder_load_bitmap(ptr noundef %0, i32 noundef %80, i64 noundef %319, i64 noundef %318, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5)
   br label %321
@@ -23931,7 +23931,7 @@ tt_face_goto_table.exit.i:                        ; preds = %19
   %78 = getelementptr inbounds i8, ptr %33, i64 %68
   %79 = getelementptr inbounds i8, ptr %0, i64 1408
   store ptr %78, ptr %79, align 8
-  %80 = sub i64 %21, %68
+  %80 = sub nuw i64 %21, %68
   %81 = getelementptr inbounds i8, ptr %0, i64 1416
   store i64 %80, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %33, i64 8
@@ -24091,7 +24091,7 @@ tt_face_load_bdf_props.exit:                      ; preds = %._crit_edge.i
   br i1 %184, label %185, label %209
 
 185:                                              ; preds = %147
-  %186 = sub i64 %183, %164
+  %186 = sub nuw i64 %183, %164
   %187 = icmp ult i64 %106, %186
   br i1 %187, label %188, label %209
 

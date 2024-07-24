@@ -937,7 +937,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %._crit_edge, %43
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  %53 = sub nsw i64 %46, %50
+  %53 = sub nuw nsw i64 %46, %50
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr %44, i64 noundef %53, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -979,7 +979,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit56:              ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit56
-  %72 = sub nsw i64 %65, %69
+  %72 = sub nuw nsw i64 %65, %69
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr %64, i64 noundef %72, ptr noundef nonnull align 4 dereferenceable(4) %7)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit58
 
@@ -1722,7 +1722,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %52, %._ZNSt6vectorI
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
-  %80 = sub nsw i64 %72, %77
+  %80 = sub nuw nsw i64 %72, %77
   invoke void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr %66, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit20 unwind label %90
 
@@ -3380,7 +3380,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -3569,7 +3569,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

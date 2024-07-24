@@ -360,7 +360,7 @@ _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread.i: ; preds = %_ZNK
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %.noexc14
-  %119 = sub nsw i64 %109, %116
+  %119 = sub nuw nsw i64 %109, %116
   invoke void @_ZNSt6vectorIPiSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %119)
           to label %_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit.i unwind label %.loopexit.split-lp
 
@@ -390,7 +390,7 @@ _ZNSt6vectorIPiSaIS0_EE6resizeEm.exit.i:          ; preds = %118, %124, %122, %1
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit.i
-  %135 = sub nsw i64 %125, %132
+  %135 = sub nuw nsw i64 %125, %132
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %135)
           to label %.noexc16 unwind label %.loopexit.split-lp
 
@@ -1431,7 +1431,7 @@ _ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit: ; preds = %85, %88
   br i1 %126, label %127, label %129
 
 127:                                              ; preds = %._crit_edge
-  %128 = sub nsw i64 %118, %125
+  %128 = sub nuw nsw i64 %118, %125
   call void @_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %111, i64 noundef %128)
   br label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit
 
@@ -1793,7 +1793,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE6re
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -1896,7 +1896,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE6res
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

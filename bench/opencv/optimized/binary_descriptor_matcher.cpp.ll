@@ -5807,7 +5807,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %._crit_edge
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   invoke void @_ZNSt6vectorIN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtableESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %52)
           to label %_ZNSt6vectorIN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtableESaIS3_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 

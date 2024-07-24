@@ -116,7 +116,7 @@ if.end16:                                         ; preds = %if.else10, %if.then
   br i1 %cmp18, label %land.lhs.true, label %if.end50
 
 land.lhs.true:                                    ; preds = %if.end16
-  %sub21 = sub i64 %plen.0, %add17
+  %sub21 = sub nuw i64 %plen.0, %add17
   %tobool22.not = icmp ult i64 %sub21, 64
   br i1 %tobool22.not, label %if.end50, label %if.then23
 

@@ -1089,7 +1089,7 @@ _ZN13cmELFInternal15SetErrorMessageEPKc.exit22:   ; preds = %33
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %61
-  %77 = sub nsw i64 %67, %74
+  %77 = sub nuw nsw i64 %67, %74
   invoke void @_ZNSt6vectorI10Elf32_ShdrSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %77)
           to label %._ZNSt6vectorI10Elf32_ShdrSaIS0_EE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 
@@ -2546,7 +2546,7 @@ _ZSt7advanceIPcmEvRT_T0_.exit:                    ; preds = %16
 
 _ZSt22__uninitialized_copy_aIPcS0_cET0_T_S2_S1_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPcmEvRT_T0_.exit, %28
   %31 = phi ptr [ %12, %_ZSt7advanceIPcmEvRT_T0_.exit ], [ %.pre, %28 ]
-  %32 = sub i64 %8, %18
+  %32 = sub nuw i64 %8, %18
   %33 = getelementptr inbounds i8, ptr %31, i64 %32
   store ptr %33, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %12, %1
@@ -3166,7 +3166,7 @@ _ZN13cmELFInternal15SetErrorMessageEPKc.exit26:   ; preds = %54
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %82
-  %98 = sub nsw i64 %88, %95
+  %98 = sub nuw nsw i64 %88, %95
   invoke void @_ZNSt6vectorI10Elf64_ShdrSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %98)
           to label %._ZNSt6vectorI10Elf64_ShdrSaIS0_EE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 

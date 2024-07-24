@@ -78,7 +78,7 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform17InitFromAt
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %7
-  %24 = sub nsw i64 %14, %21
+  %24 = sub nuw nsw i64 %14, %21
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %24)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -910,7 +910,7 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform16DecodePara
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %3
-  %17 = sub nsw i64 %7, %14
+  %17 = sub nuw nsw i64 %7, %14
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %17)
   %.pre = load ptr, ptr %4, align 8
   %.pre12 = load ptr, ptr %8, align 8
@@ -1139,7 +1139,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds =
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKhmEvRT_T0_.exit
   %45 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %12, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
-  %46 = sub i64 %8, %18
+  %46 = sub nuw i64 %8, %18
   %47 = getelementptr inbounds i8, ptr %45, i64 %46
   store ptr %47, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %12, %1

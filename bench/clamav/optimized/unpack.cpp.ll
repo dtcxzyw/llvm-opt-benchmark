@@ -3222,7 +3222,7 @@ _ZN6Unpack10UnpReadBufEv.exit17._crit_edge:       ; preds = %_ZN6Unpack10UnpRead
   br label %_ZN6Unpack13UnpWriteBuf20Ev.exit
 
 148:                                              ; preds = %137
-  %149 = sub i64 %132, %133
+  %149 = sub nuw i64 %132, %133
   tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %139, ptr noundef %141, i64 noundef %149)
   br label %_ZN6Unpack13UnpWriteBuf20Ev.exit
 
@@ -3355,7 +3355,7 @@ _ZN6Unpack10UnpReadBufEv.exit17.thread:           ; preds = %.backedge, %_ZN6Unp
   br label %_ZN6Unpack13UnpWriteBuf20Ev.exit22
 
 208:                                              ; preds = %193
-  %209 = sub i64 %188, %190
+  %209 = sub nuw i64 %188, %190
   tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %195, ptr noundef %198, i64 noundef %209)
   br label %_ZN6Unpack13UnpWriteBuf20Ev.exit22
 
@@ -3874,7 +3874,7 @@ define void @_ZN6Unpack13UnpWriteBuf20Ev(ptr nocapture noundef nonnull align 8 d
   br label %25
 
 23:                                               ; preds = %8
-  %24 = sub i64 %3, %5
+  %24 = sub nuw i64 %3, %5
   tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %10, ptr noundef %13, i64 noundef %24)
   br label %25
 
@@ -5903,7 +5903,7 @@ _ZN6Unpack10UnpReadBufEv.exit74._crit_edge:       ; preds = %_ZN6Unpack10UnpRead
   br label %_ZN6Unpack13UnpWriteBuf20Ev.exit
 
 171:                                              ; preds = %160
-  %172 = sub i64 %155, %156
+  %172 = sub nuw i64 %155, %156
   tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %162, ptr noundef %164, i64 noundef %172)
   br label %_ZN6Unpack13UnpWriteBuf20Ev.exit
 
@@ -6611,7 +6611,7 @@ _ZN6Unpack10UnpReadBufEv.exit74.thread:           ; preds = %.backedge, %_ZN6Unp
   br label %_ZN6Unpack13UnpWriteBuf20Ev.exit113
 
 630:                                              ; preds = %615
-  %631 = sub i64 %610, %612
+  %631 = sub nuw i64 %610, %612
   tail call void @_ZN11ComprDataIO8UnpWriteEPhm(ptr noundef nonnull align 8 dereferenceable(266) %617, ptr noundef %620, i64 noundef %631)
   br label %_ZN6Unpack13UnpWriteBuf20Ev.exit113
 
@@ -9262,11 +9262,11 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
 195:                                              ; preds = %192
   %196 = icmp eq i16 %.0.in.i, 16
   %. = select i1 %196, i32 13, i32 9
-  %.97 = select i1 %196, i32 3, i32 11
-  %.98 = select i1 %196, i32 3, i32 7
+  %.98 = select i1 %196, i32 3, i32 11
+  %.99 = select i1 %196, i32 3, i32 7
   %197 = lshr i32 %194, %.
-  %198 = add nuw nsw i32 %197, %.97
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.98)
+  %198 = add nuw nsw i32 %197, %.98
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.99)
   %199 = icmp eq i32 %.03673, 0
   br i1 %199, label %_ZN6Unpack12UnpReadBuf30Ev.exit.thread, label %.preheader
 
@@ -9294,23 +9294,23 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
 
 207:                                              ; preds = %192
   %208 = icmp eq i16 %.0.in.i, 18
-  %.101 = select i1 %208, i32 3, i32 7
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.101)
+  %.102 = select i1 %208, i32 3, i32 7
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.102)
   %209 = icmp ult i32 %.03673, 404
   br i1 %209, label %.lr.ph67.preheader, label %.loopexit.thread
 
 .lr.ph67.preheader:                               ; preds = %207
-  %.99 = select i1 %208, i32 13, i32 9
-  %210 = lshr i32 %194, %.99
-  %.100 = select i1 %208, i32 3, i32 11
-  %211 = add nuw nsw i32 %210, %.100
+  %.100 = select i1 %208, i32 13, i32 9
+  %210 = lshr i32 %194, %.100
+  %.101 = select i1 %208, i32 3, i32 11
+  %211 = add nuw nsw i32 %210, %.101
   %212 = zext nneg i32 %.03673 to i64
   %scevgep78 = getelementptr i8, ptr %3, i64 %212
   %213 = add nsw i32 %211, -1
   %214 = sub nuw nsw i32 403, %.03673
   %215 = tail call i32 @llvm.umin.i32(i32 %213, i32 %214)
-  %narrow102 = add nuw nsw i32 %215, 1
-  %216 = zext nneg i32 %narrow102 to i64
+  %narrow89 = add nuw nsw i32 %215, 1
+  %216 = zext nneg i32 %narrow89 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep78, i8 0, i64 %216, i1 false)
   br label %.lr.ph67
 
@@ -10822,7 +10822,7 @@ define void @_ZN6Unpack12UnpWriteAreaEmm(ptr nocapture noundef nonnull align 8 d
   br i1 %31, label %32, label %27
 
 32:                                               ; preds = %28
-  %33 = sub i64 %30, %.045
+  %33 = sub nuw i64 %30, %.045
   %..i = tail call i64 @llvm.umin.i64(i64 %33, i64 %.02344)
   br label %_ZN16FragmentedWindow12GetBlockSizeEmm.exit
 
@@ -10938,7 +10938,7 @@ _ZN6Unpack12UnpWriteDataEPhm.exit33:              ; preds = %65, %71
   br i1 %.not.i37, label %91, label %_ZN6Unpack12UnpWriteDataEPhm.exit36
 
 91:                                               ; preds = %.thread40
-  %92 = sub i64 %2, %1
+  %92 = sub nuw i64 %2, %1
   %93 = getelementptr inbounds i8, ptr %0, i64 19312
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 %1
@@ -12924,11 +12924,11 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %167, %.prehea
 212:                                              ; preds = %209
   %213 = icmp eq i16 %.0.in.i, 16
   %. = select i1 %213, i32 13, i32 9
-  %.123 = select i1 %213, i32 3, i32 11
-  %.124 = select i1 %213, i32 3, i32 7
+  %.124 = select i1 %213, i32 3, i32 11
+  %.125 = select i1 %213, i32 3, i32 7
   %214 = lshr i32 %211, %.
-  %215 = add nuw nsw i32 %214, %.123
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.124)
+  %215 = add nuw nsw i32 %214, %.124
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.125)
   %216 = icmp eq i32 %.05998, 0
   br i1 %216, label %_ZN6Unpack10UnpReadBufEv.exit.thread, label %.preheader
 
@@ -12956,23 +12956,23 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %167, %.prehea
 
 224:                                              ; preds = %209
   %225 = icmp eq i16 %.0.in.i, 18
-  %.127 = select i1 %225, i32 3, i32 7
-  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.127)
+  %.128 = select i1 %225, i32 3, i32 7
+  tail call void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.128)
   %226 = icmp ult i32 %.05998, 430
   br i1 %226, label %.lr.ph92.preheader, label %.loopexit.thread
 
 .lr.ph92.preheader:                               ; preds = %224
-  %.125 = select i1 %225, i32 13, i32 9
-  %227 = lshr i32 %211, %.125
-  %.126 = select i1 %225, i32 3, i32 11
-  %228 = add nuw nsw i32 %227, %.126
+  %.126 = select i1 %225, i32 13, i32 9
+  %227 = lshr i32 %211, %.126
+  %.127 = select i1 %225, i32 3, i32 11
+  %228 = add nuw nsw i32 %227, %.127
   %229 = zext nneg i32 %.05998 to i64
   %scevgep103 = getelementptr i8, ptr %6, i64 %229
   %230 = add nsw i32 %228, -1
   %231 = sub nuw nsw i32 429, %.05998
   %232 = tail call i32 @llvm.umin.i32(i32 %230, i32 %231)
-  %narrow128 = add nuw nsw i32 %232, 1
-  %233 = zext nneg i32 %narrow128 to i64
+  %narrow115 = add nuw nsw i32 %232, 1
+  %233 = zext nneg i32 %narrow115 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep103, i8 0, i64 %233, i1 false)
   br label %.lr.ph92
 
@@ -14382,7 +14382,7 @@ define noundef i64 @_ZN16FragmentedWindow12GetBlockSizeEmm(ptr nocapture noundef
   br i1 %9, label %10, label %5
 
 10:                                               ; preds = %6
-  %11 = sub i64 %8, %1
+  %11 = sub nuw i64 %8, %1
   %. = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
   br label %.loopexit
 
@@ -14515,7 +14515,7 @@ _ZN16FragmentedWindow5ResetEv.exit.preheader:     ; preds = %7
 9:                                                ; preds = %.lr.ph45, %_ZN16FragmentedWindow5ResetEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next, %_ZN16FragmentedWindow5ResetEv.exit ]
   %.02943 = phi i64 [ 0, %.lr.ph45 ], [ %18, %_ZN16FragmentedWindow5ResetEv.exit ]
-  %10 = sub i64 %1, %.02943
+  %10 = sub nuw i64 %1, %.02943
   %11 = sub nuw nsw i64 32, %indvars.iv
   %12 = udiv i64 %10, %11
   %spec.select = tail call i64 @llvm.umax.i64(i64 %12, i64 4194304)

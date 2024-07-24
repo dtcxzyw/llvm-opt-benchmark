@@ -329,7 +329,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi4Lsqr8init_memEPv(ptr noundef non
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %4
-  %20 = sub i64 %10, %17
+  %20 = sub nuw i64 %10, %17
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %20)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -360,7 +360,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %37 = sub i64 %27, %34
+  %37 = sub nuw i64 %27, %34
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %37)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit6
 

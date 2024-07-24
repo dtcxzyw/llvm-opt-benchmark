@@ -76,7 +76,7 @@ define hidden void @_ZN8clap_lex3ext8split_at17hf432e678d412a774E(ptr noalias no
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 %3
-  %8 = sub i64 %2, %3
+  %8 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %9, align 8

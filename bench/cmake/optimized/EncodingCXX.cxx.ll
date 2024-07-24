@@ -380,7 +380,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5cmsys8Enco
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %._crit_edge
-  %30 = sub nsw i64 %27, %.lcssa
+  %30 = sub nuw nsw i64 %27, %.lcssa
   tail call void @_ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %30)
   %.pre = load ptr, ptr %3, align 8
   %.pre28 = load ptr, ptr %0, align 8

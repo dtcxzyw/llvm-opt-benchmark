@@ -3211,7 +3211,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser27format_escaped_str_conte
   %23 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.0.ph
   %24 = load i8, ptr %23, align 1, !alias.scope !491, !noundef !12
   %25 = icmp sgt i8 %24, -65
-  %26 = sub i64 %3, %.sroa.7.0.ph
+  %26 = sub nuw i64 %3, %.sroa.7.0.ph
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %22, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
@@ -71695,7 +71695,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !16723
   %67 = icmp eq i32 %bcmp.i, 0
@@ -114408,7 +114408,7 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %1599, %1605
           to label %1664 unwind label %1662, !noalias !28216
 
 1648:                                             ; preds = %1641
-  %1649 = sub i64 %1634, %1643
+  %1649 = sub nuw i64 %1634, %1643
   %1650 = sub i64 %1636, %1643
   %1651 = add i64 %1650, %1649
   invoke void @_ZN5bytes5bytes5Bytes5slice17hd8323589a2612679E(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 %1639, i64 noundef %1649, i64 noundef %1651)

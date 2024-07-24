@@ -2090,7 +2090,7 @@ read_metadata_streaminfo_.exit.thread:            ; preds = %if.then14, %if.end.
   br label %return
 
 read_metadata_streaminfo_.exit:                   ; preds = %if.end90.i
-  %sub.i = sub i32 %11, %div43.i
+  %sub.i = sub nuw i32 %11, %div43.i
   %55 = load ptr, ptr %private_, align 8
   %input96.i = getelementptr inbounds i8, ptr %55, i64 88
   %56 = load ptr, ptr %input96.i, align 8
@@ -2357,7 +2357,7 @@ if.then91:                                        ; preds = %if.end88
   br label %return
 
 if.end92:                                         ; preds = %if.end88
-  %sub = sub i32 %110, %div91
+  %sub = sub nuw i32 %110, %div91
   %115 = load ptr, ptr %private_, align 8
   %metadata_filter_ids_count = getelementptr inbounds i8, ptr %115, i64 1336
   %116 = load i64, ptr %metadata_filter_ids_count, align 8
@@ -3999,7 +3999,7 @@ if.then.i.i193:                                   ; preds = %if.then18.i
   br label %if.end71.sink.split
 
 if.end19.i196:                                    ; preds = %if.end9.i
-  %sub.i = sub i32 %bps.0, %195
+  %sub.i = sub nuw i32 %bps.0, %195
   br label %if.end32.i
 
 if.else.i:                                        ; preds = %if.end.i167
@@ -4851,7 +4851,7 @@ if.then190:                                       ; preds = %land.lhs.true185
   br i1 %cmp202, label %if.then204, label %if.end412
 
 if.then204:                                       ; preds = %if.then190
-  %sub219 = sub i64 %386, %add
+  %sub219 = sub nuw i64 %386, %add
   %conv220 = trunc i64 %sub219 to i32
   %sample_rate = getelementptr inbounds i8, ptr %379, i64 5260
   %387 = load i32, ptr %sample_rate, align 4
@@ -5455,17 +5455,17 @@ lor.lhs.false.i:                                  ; preds = %for.inc.i, %lor.lhs
   %left_sample.066.i = phi i64 [ %left_sample.1.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
   %right_pos.065.i = phi i64 [ %right_pos.1.i, %for.inc.i ], [ %22, %lor.lhs.false.preheader.i ]
   %left_pos.064.i = phi i64 [ %left_pos.1.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
-  %sub.i = sub i64 %right_pos.065.i, %left_pos.064.i
+  %sub.i = sub nuw i64 %right_pos.065.i, %left_pos.064.i
   %cmp3.i = icmp ult i64 %sub.i, 9
   br i1 %cmp3.i, label %return.sink.split.sink.split.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %lor.lhs.false.i
   %cmp6.i = icmp ne i32 %iteration.070.i, 0
   %cmp8.i = icmp ule i64 %this_frame_sample.068.i, %sample
-  %sub10.i = sub i64 %sample, %this_frame_sample.068.i
+  %or.cond.not60.i = select i1 %cmp6.i, i1 %cmp8.i, i1 false
+  %sub10.i = sub nuw i64 %sample, %this_frame_sample.068.i
   %cmp11.i = icmp ult i64 %sub10.i, 131071
-  %.not60.i = and i1 %cmp8.i, %cmp11.i
-  %or.cond46.not.i = select i1 %cmp6.i, i1 %.not60.i, i1 false
+  %or.cond46.not.i = select i1 %or.cond.not60.i, i1 %cmp11.i, i1 false
   br i1 %or.cond46.not.i, label %if.end36.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end5.i
@@ -6691,7 +6691,7 @@ if.then6:                                         ; preds = %if.end
   br label %skip
 
 if.else:                                          ; preds = %if.end
-  %sub13 = sub i32 %sub, %2
+  %sub13 = sub nuw i32 %sub, %2
   %conv = zext i32 %2 to i64
   %add.i = add nuw nsw i64 %conv, 1
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i) #22
@@ -6809,7 +6809,7 @@ if.then99:                                        ; preds = %if.end92
   br label %return
 
 if.else103:                                       ; preds = %if.end92
-  %sub108 = sub i32 %sub80, %21
+  %sub108 = sub nuw i32 %sub80, %21
   %conv114 = zext i32 %21 to i64
   %add.i83 = add nuw nsw i64 %conv114, 1
   %call.i.i84 = tail call noalias noundef ptr @malloc(i64 noundef %add.i83) #22
@@ -7477,7 +7477,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %if.then10, label %return
 
 if.then10:                                        ; preds = %if.then
-  %sub = sub i64 %6, %4
+  %sub = sub nuw i64 %6, %4
   %conv11 = trunc i64 %sub to i32
   %7 = load ptr, ptr %private_, align 8
   %is_seeking13 = getelementptr inbounds i8, ptr %7, i64 5128

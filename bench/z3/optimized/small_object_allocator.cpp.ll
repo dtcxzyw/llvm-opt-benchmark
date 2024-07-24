@@ -827,7 +827,7 @@ while.body80:                                     ; preds = %while.body80.prehea
 
 while.body85.lr.ph:                               ; preds = %while.body80
   %41 = zext i32 %obj_idx.0193 to i64
-  %42 = sub i32 %retval.0.i77, %obj_idx.0193
+  %42 = sub nuw i32 %retval.0.i77, %obj_idx.0193
   br label %while.body85
 
 while.body85:                                     ; preds = %while.body85.lr.ph, %if.end90

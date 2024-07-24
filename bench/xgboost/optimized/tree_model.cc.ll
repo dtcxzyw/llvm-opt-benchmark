@@ -3025,7 +3025,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i..noexc140_crit_edge: 
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %123
-  %134 = sub i64 %125, %131
+  %134 = sub nuw i64 %125, %131
   invoke void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr %127, i64 noundef %134, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit unwind label %.loopexit.split-lp
 
@@ -3055,7 +3055,7 @@ _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit: ; preds = %139,
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit
-  %150 = sub nsw i64 %125, %147
+  %150 = sub nuw nsw i64 %125, %147
   invoke void @_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %140, i64 noundef %150)
           to label %_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -4068,7 +4068,7 @@ _ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %10
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %142
-  %153 = sub i64 %144, %150
+  %153 = sub nuw i64 %144, %150
   invoke void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr %146, i64 noundef %153, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit unwind label %.loopexit.split-lp225.loopexit.split-lp
 
@@ -4098,7 +4098,7 @@ _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit: ; preds = %158,
   br i1 %167, label %168, label %170
 
 168:                                              ; preds = %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit
-  %169 = sub nsw i64 %144, %166
+  %169 = sub nuw nsw i64 %144, %166
   invoke void @_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %159, i64 noundef %169)
           to label %_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE6resizeEm.exit unwind label %.loopexit.split-lp225.loopexit.split-lp
 
@@ -6914,7 +6914,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %63 = sub nsw i64 %53, %60
+  %63 = sub nuw nsw i64 %53, %60
   call void @_ZNSt6vectorIN7xgboost7RegTree4NodeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %63)
   %.pre = load i32, ptr %21, align 4
   %.pre26 = sext i32 %.pre to i64
@@ -6947,7 +6947,7 @@ _ZNSt6vectorIN7xgboost7RegTree4NodeESaIS2_EE6resizeEm.exit: ; preds = %62, %64, 
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %_ZNSt6vectorIN7xgboost7RegTree4NodeESaIS2_EE6resizeEm.exit
-  %79 = sub nsw i64 %.pre-phi, %76
+  %79 = sub nuw nsw i64 %.pre-phi, %76
   call void @_ZNSt6vectorIN7xgboost13RTreeNodeStatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   %.pre24 = load i32, ptr %21, align 4
   %.pre27 = sext i32 %.pre24 to i64
@@ -6980,7 +6980,7 @@ _ZNSt6vectorIN7xgboost13RTreeNodeStatESaIS1_EE6resizeEm.exit: ; preds = %78, %80
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %_ZNSt6vectorIN7xgboost13RTreeNodeStatESaIS1_EE6resizeEm.exit
-  %94 = sub i64 %.pre-phi28, %91
+  %94 = sub nuw i64 %.pre-phi28, %91
   call void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr %87, i64 noundef %94, ptr noundef nonnull align 1 dereferenceable(1) %6)
   %.pre25 = load i32, ptr %21, align 4
   %.pre29 = sext i32 %.pre25 to i64
@@ -7013,7 +7013,7 @@ _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit: ; preds = %93, 
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit
-  %110 = sub nsw i64 %.pre-phi30, %107
+  %110 = sub nuw nsw i64 %.pre-phi30, %107
   call void @_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %100, i64 noundef %110)
   br label %_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE6resizeEm.exit
 
@@ -7419,7 +7419,7 @@ _ZNK7xgboost7RegTree4SizeEv.exit:                 ; preds = %143, %145
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %_ZNK7xgboost7RegTree4SizeEv.exit
-  %163 = sub i64 %154, %160
+  %163 = sub nuw i64 %154, %160
   call void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr %156, i64 noundef %163, ptr noundef nonnull align 1 dereferenceable(1) %20)
   br label %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit
 
@@ -7472,7 +7472,7 @@ _ZNK7xgboost7RegTree4SizeEv.exit48:               ; preds = %171, %173
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %_ZNK7xgboost7RegTree4SizeEv.exit48
-  %192 = sub nsw i64 %182, %189
+  %192 = sub nuw nsw i64 %182, %189
   call void @_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %169, i64 noundef %192)
   br label %_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE6resizeEm.exit
 
@@ -7835,7 +7835,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %67 = sub nsw i64 %57, %64
+  %67 = sub nuw nsw i64 %57, %64
   call void @_ZNSt6vectorIN7xgboost7RegTree4NodeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %67)
   %.pre = load i32, ptr %55, align 4
   %.pre134 = sext i32 %.pre to i64
@@ -7869,7 +7869,7 @@ _ZNSt6vectorIN7xgboost7RegTree4NodeESaIS2_EE6resizeEm.exit: ; preds = %66, %68, 
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %_ZNSt6vectorIN7xgboost7RegTree4NodeESaIS2_EE6resizeEm.exit
-  %84 = sub nsw i64 %.pre-phi, %81
+  %84 = sub nuw nsw i64 %.pre-phi, %81
   call void @_ZNSt6vectorIN7xgboost13RTreeNodeStatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %74, i64 noundef %84)
   %.pre131 = load i32, ptr %55, align 4
   br label %_ZNSt6vectorIN7xgboost13RTreeNodeStatESaIS1_EE6resizeEm.exit
@@ -8406,7 +8406,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %289, label %290, label %292
 
 290:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit88
-  %291 = sub i64 %282, %288
+  %291 = sub nuw i64 %282, %288
   call void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %280, ptr %284, i64 noundef %291, ptr noundef nonnull align 1 dereferenceable(1) %23)
   %.pre133 = load i32, ptr %55, align 4
   %.pre135 = sext i32 %.pre133 to i64
@@ -8439,7 +8439,7 @@ _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit: ; preds = %290,
   br i1 %305, label %306, label %308
 
 306:                                              ; preds = %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit
-  %307 = sub nsw i64 %.pre-phi136, %304
+  %307 = sub nuw nsw i64 %.pre-phi136, %304
   call void @_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %297, i64 noundef %307)
   br label %_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE6resizeEm.exit
 
@@ -9557,7 +9557,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRmEEEvN9__gnu_cxx17__normal_iteratorIPl
   unreachable
 
 222:                                              ; preds = %218
-  %223 = sub i64 %216, %.sroa.0.0.copyload
+  %223 = sub nuw i64 %216, %.sroa.0.0.copyload
   br label %224
 
 224:                                              ; preds = %222, %219
@@ -10784,7 +10784,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit82: ; 
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %112
-  %126 = sub nsw i64 %116, %123
+  %126 = sub nuw nsw i64 %116, %123
   call void @_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %113, i64 noundef %126)
   %.pre = load i32, ptr %114, align 4
   %.pre143 = sext i32 %.pre to i64
@@ -16487,7 +16487,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEm(
   br i1 %9, label %10, label %39
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -20353,7 +20353,7 @@ _ZSt22__uninitialized_move_aIPN7xgboost11FeatureTypeES2_SaIS1_EET0_T_S5_S4_RT1_.
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost11FeatureTypeEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %26
-  %28 = sub i64 %2, %16
+  %28 = sub nuw i64 %2, %16
   %29 = getelementptr inbounds i8, ptr %9, i64 %28
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 %14, i64 %28, i1 false)
   br label %_ZSt24__uninitialized_fill_n_aIPN7xgboost11FeatureTypeEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit
@@ -37462,7 +37462,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 29:                                               ; preds = %25
-  %30 = sub i64 %11, %.sroa.0.0.copyload
+  %30 = sub nuw i64 %11, %.sroa.0.0.copyload
   br label %31
 
 31:                                               ; preds = %29, %26
@@ -55275,7 +55275,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 36:                                               ; preds = %30
-  %37 = sub i64 %31, %26
+  %37 = sub nuw i64 %31, %26
   br label %38
 
 38:                                               ; preds = %36, %32

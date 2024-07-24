@@ -1651,7 +1651,7 @@ _ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit: ; preds = %.lr.ph.i.i
 
 _ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread: ; preds = %56, %3, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit
   %77 = tail call ptr @hb_blob_get_empty()
-  br label %208
+  br label %205
 
 _ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit: ; preds = %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit
   store i32 0, ptr %4, align 4
@@ -1685,7 +1685,7 @@ _ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit: ; preds = %_ZNK2
 
 _ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread: ; preds = %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit
   %101 = call ptr @hb_blob_get_empty()
-  br label %208
+  br label %205
 
 102:                                              ; preds = %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit
   %103 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1699,21 +1699,21 @@ _ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread: ; preds =
   br i1 %108, label %113, label %109
 
 109:                                              ; preds = %102
-  %110 = sub i32 %106, %107
+  %110 = sub nuw i32 %106, %107
   %111 = load i32, ptr %5, align 4
   %112 = icmp ult i32 %110, %111
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %109, %102
   %114 = call ptr @hb_blob_get_empty()
-  br label %208
+  br label %205
 
 115:                                              ; preds = %109
   %116 = load i32, ptr %6, align 4
-  switch i32 %116, label %206 [
+  switch i32 %116, label %203 [
     i32 17, label %117
-    i32 18, label %147
-    i32 19, label %177
+    i32 18, label %146
+    i32 19, label %175
   ]
 
 117:                                              ; preds = %115
@@ -1722,116 +1722,110 @@ _ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread: ; preds =
 
 119:                                              ; preds = %117
   %120 = call ptr @hb_blob_get_empty()
-  br label %208
+  br label %205
 
 121:                                              ; preds = %117
   %122 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 16
   %123 = load ptr, ptr %122, align 8
-  %124 = icmp ult i32 %106, 4
-  %spec.select.i.i1.i.i26 = select i1 %124, ptr @_hb_NullPool, ptr %123
-  %125 = zext i32 %107 to i64
-  %126 = getelementptr inbounds i8, ptr %spec.select.i.i1.i.i26, i64 %125
-  %127 = add i32 %107, 9
-  %128 = getelementptr inbounds i8, ptr %126, i64 5
-  %129 = load i8, ptr %128, align 1
-  %130 = zext i8 %129 to i32
-  %131 = shl nuw i32 %130, 24
-  %132 = getelementptr inbounds i8, ptr %126, i64 6
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i32
-  %135 = shl nuw nsw i32 %134, 16
-  %136 = or disjoint i32 %135, %131
-  %137 = getelementptr inbounds i8, ptr %126, i64 7
-  %138 = load i8, ptr %137, align 1
-  %139 = zext i8 %138 to i32
-  %140 = shl nuw nsw i32 %139, 8
-  %141 = or disjoint i32 %136, %140
-  %142 = getelementptr inbounds i8, ptr %126, i64 8
-  %143 = load i8, ptr %142, align 1
-  %144 = zext i8 %143 to i32
-  %145 = or disjoint i32 %141, %144
-  %146 = call ptr @hb_blob_create_sub_blob(ptr noundef %104, i32 noundef %127, i32 noundef %145)
-  br label %208
+  %124 = zext i32 %107 to i64
+  %125 = getelementptr inbounds i8, ptr %123, i64 %124
+  %126 = add i32 %107, 9
+  %127 = getelementptr inbounds i8, ptr %125, i64 5
+  %128 = load i8, ptr %127, align 1
+  %129 = zext i8 %128 to i32
+  %130 = shl nuw i32 %129, 24
+  %131 = getelementptr inbounds i8, ptr %125, i64 6
+  %132 = load i8, ptr %131, align 1
+  %133 = zext i8 %132 to i32
+  %134 = shl nuw nsw i32 %133, 16
+  %135 = or disjoint i32 %134, %130
+  %136 = getelementptr inbounds i8, ptr %125, i64 7
+  %137 = load i8, ptr %136, align 1
+  %138 = zext i8 %137 to i32
+  %139 = shl nuw nsw i32 %138, 8
+  %140 = or disjoint i32 %135, %139
+  %141 = getelementptr inbounds i8, ptr %125, i64 8
+  %142 = load i8, ptr %141, align 1
+  %143 = zext i8 %142 to i32
+  %144 = or disjoint i32 %140, %143
+  %145 = call ptr @hb_blob_create_sub_blob(ptr noundef %104, i32 noundef %126, i32 noundef %144)
+  br label %205
 
-147:                                              ; preds = %115
-  %148 = icmp ult i32 %111, 12
-  br i1 %148, label %149, label %151
+146:                                              ; preds = %115
+  %147 = icmp ult i32 %111, 12
+  br i1 %147, label %148, label %150
 
-149:                                              ; preds = %147
-  %150 = call ptr @hb_blob_get_empty()
-  br label %208
+148:                                              ; preds = %146
+  %149 = call ptr @hb_blob_get_empty()
+  br label %205
 
-151:                                              ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 16
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp ult i32 %106, 4
-  %spec.select.i.i1.i.i29 = select i1 %154, ptr @_hb_NullPool, ptr %153
-  %155 = zext i32 %107 to i64
-  %156 = getelementptr inbounds i8, ptr %spec.select.i.i1.i.i29, i64 %155
-  %157 = add i32 %107, 12
-  %158 = getelementptr inbounds i8, ptr %156, i64 8
-  %159 = load i8, ptr %158, align 1
-  %160 = zext i8 %159 to i32
-  %161 = shl nuw i32 %160, 24
-  %162 = getelementptr inbounds i8, ptr %156, i64 9
-  %163 = load i8, ptr %162, align 1
-  %164 = zext i8 %163 to i32
-  %165 = shl nuw nsw i32 %164, 16
-  %166 = or disjoint i32 %165, %161
-  %167 = getelementptr inbounds i8, ptr %156, i64 10
-  %168 = load i8, ptr %167, align 1
-  %169 = zext i8 %168 to i32
-  %170 = shl nuw nsw i32 %169, 8
-  %171 = or disjoint i32 %166, %170
-  %172 = getelementptr inbounds i8, ptr %156, i64 11
-  %173 = load i8, ptr %172, align 1
-  %174 = zext i8 %173 to i32
-  %175 = or disjoint i32 %171, %174
-  %176 = call ptr @hb_blob_create_sub_blob(ptr noundef %104, i32 noundef %157, i32 noundef %175)
-  br label %208
+150:                                              ; preds = %146
+  %151 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 16
+  %152 = load ptr, ptr %151, align 8
+  %153 = zext i32 %107 to i64
+  %154 = getelementptr inbounds i8, ptr %152, i64 %153
+  %155 = add i32 %107, 12
+  %156 = getelementptr inbounds i8, ptr %154, i64 8
+  %157 = load i8, ptr %156, align 1
+  %158 = zext i8 %157 to i32
+  %159 = shl nuw i32 %158, 24
+  %160 = getelementptr inbounds i8, ptr %154, i64 9
+  %161 = load i8, ptr %160, align 1
+  %162 = zext i8 %161 to i32
+  %163 = shl nuw nsw i32 %162, 16
+  %164 = or disjoint i32 %163, %159
+  %165 = getelementptr inbounds i8, ptr %154, i64 10
+  %166 = load i8, ptr %165, align 1
+  %167 = zext i8 %166 to i32
+  %168 = shl nuw nsw i32 %167, 8
+  %169 = or disjoint i32 %164, %168
+  %170 = getelementptr inbounds i8, ptr %154, i64 11
+  %171 = load i8, ptr %170, align 1
+  %172 = zext i8 %171 to i32
+  %173 = or disjoint i32 %169, %172
+  %174 = call ptr @hb_blob_create_sub_blob(ptr noundef %104, i32 noundef %155, i32 noundef %173)
+  br label %205
 
-177:                                              ; preds = %115
-  %178 = icmp ult i32 %111, 4
-  br i1 %178, label %179, label %181
+175:                                              ; preds = %115
+  %176 = icmp ult i32 %111, 4
+  br i1 %176, label %177, label %179
 
-179:                                              ; preds = %177
-  %180 = call ptr @hb_blob_get_empty()
-  br label %208
+177:                                              ; preds = %175
+  %178 = call ptr @hb_blob_get_empty()
+  br label %205
 
-181:                                              ; preds = %177
-  %182 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 16
-  %183 = load ptr, ptr %182, align 8
-  %184 = icmp ult i32 %106, 4
-  %spec.select.i.i1.i.i32 = select i1 %184, ptr @_hb_NullPool, ptr %183
-  %185 = zext i32 %107 to i64
-  %186 = getelementptr inbounds i8, ptr %spec.select.i.i1.i.i32, i64 %185
-  %187 = add i32 %107, 4
-  %188 = load i8, ptr %186, align 1
-  %189 = zext i8 %188 to i32
-  %190 = shl nuw i32 %189, 24
-  %191 = getelementptr inbounds i8, ptr %186, i64 1
-  %192 = load i8, ptr %191, align 1
-  %193 = zext i8 %192 to i32
-  %194 = shl nuw nsw i32 %193, 16
-  %195 = or disjoint i32 %194, %190
-  %196 = getelementptr inbounds i8, ptr %186, i64 2
-  %197 = load i8, ptr %196, align 1
-  %198 = zext i8 %197 to i32
-  %199 = shl nuw nsw i32 %198, 8
-  %200 = or disjoint i32 %195, %199
-  %201 = getelementptr inbounds i8, ptr %186, i64 3
-  %202 = load i8, ptr %201, align 1
-  %203 = zext i8 %202 to i32
-  %204 = or disjoint i32 %200, %203
-  %205 = call ptr @hb_blob_create_sub_blob(ptr noundef %104, i32 noundef %187, i32 noundef %204)
-  br label %208
+179:                                              ; preds = %175
+  %180 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 16
+  %181 = load ptr, ptr %180, align 8
+  %182 = zext i32 %107 to i64
+  %183 = getelementptr inbounds i8, ptr %181, i64 %182
+  %184 = add i32 %107, 4
+  %185 = load i8, ptr %183, align 1
+  %186 = zext i8 %185 to i32
+  %187 = shl nuw i32 %186, 24
+  %188 = getelementptr inbounds i8, ptr %183, i64 1
+  %189 = load i8, ptr %188, align 1
+  %190 = zext i8 %189 to i32
+  %191 = shl nuw nsw i32 %190, 16
+  %192 = or disjoint i32 %191, %187
+  %193 = getelementptr inbounds i8, ptr %183, i64 2
+  %194 = load i8, ptr %193, align 1
+  %195 = zext i8 %194 to i32
+  %196 = shl nuw nsw i32 %195, 8
+  %197 = or disjoint i32 %192, %196
+  %198 = getelementptr inbounds i8, ptr %183, i64 3
+  %199 = load i8, ptr %198, align 1
+  %200 = zext i8 %199 to i32
+  %201 = or disjoint i32 %197, %200
+  %202 = call ptr @hb_blob_create_sub_blob(ptr noundef %104, i32 noundef %184, i32 noundef %201)
+  br label %205
 
-206:                                              ; preds = %115
-  %207 = call ptr @hb_blob_get_empty()
-  br label %208
+203:                                              ; preds = %115
+  %204 = call ptr @hb_blob_get_empty()
+  br label %205
 
-208:                                              ; preds = %206, %181, %179, %151, %149, %121, %119, %113, %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread
-  %.0 = phi ptr [ %114, %113 ], [ %207, %206 ], [ %180, %179 ], [ %205, %181 ], [ %150, %149 ], [ %176, %151 ], [ %120, %119 ], [ %146, %121 ], [ %101, %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread ], [ %77, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread ]
+205:                                              ; preds = %203, %179, %177, %150, %148, %121, %119, %113, %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread
+  %.0 = phi ptr [ %114, %113 ], [ %204, %203 ], [ %178, %177 ], [ %202, %179 ], [ %149, %148 ], [ %174, %150 ], [ %120, %119 ], [ %145, %121 ], [ %101, %_ZNK2OT19IndexSubtableRecord14get_image_dataEjPKvPjS3_S3_.exit.thread ], [ %77, %_ZNK2OT15BitmapSizeTable10find_tableEjPKvPS2_.exit.thread ]
   ret ptr %.0
 }
 
@@ -2285,7 +2279,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT10SBIXStrike14get_glyph_blobEjP9h
   br i1 %.not40, label %70, label %74
 
 70:                                               ; preds = %30
-  %71 = sub i32 %50, %69
+  %71 = sub nuw i32 %50, %69
   %72 = icmp ult i32 %71, 9
   %73 = icmp ugt i32 %50, %28
   %or.cond = select i1 %72, i1 true, i1 %73
@@ -7932,7 +7926,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT19IndexSubtableRecord8sani
 
 30:                                               ; preds = %14
   %31 = getelementptr inbounds i8, ptr %0, i64 4
-  %32 = sub nsw i32 %29, %21
+  %32 = sub nuw nsw i32 %29, %21
   %33 = load i8, ptr %31, align 1
   %34 = zext i8 %33 to i32
   %35 = shl nuw i32 %34, 24
@@ -7972,67 +7966,59 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT19IndexSubtableRecord8sani
   %trunc.i.i.i = or disjoint i16 %60, %63
   switch i16 %trunc.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23 [
     i16 1, label %64
-    i16 3, label %73
+    i16 3, label %71
   ]
 
 64:                                               ; preds = %57
-  %65 = add nsw i32 %32, 2
-  %66 = icmp ugt i32 %65, 1073741823
-  br i1 %66, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %67
-
-67:                                               ; preds = %64
-  %68 = shl nuw nsw i32 %65, 2
-  %69 = load ptr, ptr %13, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = sub i64 %70, %55
-  %72 = trunc i64 %71 to i32
-  %.not16.i.i.i.i.i.i.i = icmp ugt i32 %68, %72
+  %65 = shl nuw nsw i32 %32, 2
+  %66 = add nuw nsw i32 %65, 8
+  %67 = load ptr, ptr %13, align 8
+  %68 = ptrtoint ptr %67 to i64
+  %69 = sub i64 %68, %55
+  %70 = trunc i64 %69 to i32
+  %.not16.i.i.i.i.i.i.i = icmp ugt i32 %66, %70
   br i1 %.not16.i.i.i.i.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
 
-73:                                               ; preds = %57
-  %74 = icmp slt i32 %32, -2
-  br i1 %74, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %75
-
-75:                                               ; preds = %73
-  %76 = shl nsw i32 %32, 1
-  %77 = add nsw i32 %76, 4
-  %78 = load ptr, ptr %13, align 8
-  %79 = ptrtoint ptr %78 to i64
-  %80 = sub i64 %79, %55
-  %81 = trunc i64 %80 to i32
-  %.not16.i.i.i.i7.i.i.i = icmp ugt i32 %77, %81
+71:                                               ; preds = %57
+  %72 = shl nuw nsw i32 %32, 1
+  %73 = add nuw nsw i32 %72, 4
+  %74 = load ptr, ptr %13, align 8
+  %75 = ptrtoint ptr %74 to i64
+  %76 = sub i64 %75, %55
+  %77 = trunc i64 %76 to i32
+  %.not16.i.i.i.i7.i.i.i = icmp ugt i32 %73, %77
   br i1 %.not16.i.i.i.i7.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %67, %75
-  %.sink14.i.i.i = phi i32 [ %68, %67 ], [ %77, %75 ]
-  %82 = getelementptr inbounds i8, ptr %1, i64 28
-  %83 = load i32, ptr %82, align 4
-  %84 = sub i32 %83, %.sink14.i.i.i
-  store i32 %84, ptr %82, align 4
-  %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
+_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %64, %71
+  %.sink14.i.i.i = phi i32 [ %66, %64 ], [ %73, %71 ]
+  %78 = getelementptr inbounds i8, ptr %1, i64 28
+  %79 = load i32, ptr %78, align 4
+  %80 = sub i32 %79, %.sink14.i.i.i
+  store i32 %80, ptr %78, align 4
+  %81 = icmp sgt i32 %80, 0
+  br i1 %81, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %75, %73, %67, %64, %51, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
-  %86 = getelementptr inbounds i8, ptr %1, i64 44
-  %87 = load i32, ptr %86, align 4
-  %88 = icmp ugt i32 %87, 31
-  br i1 %88, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %71, %64, %51, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
+  %82 = getelementptr inbounds i8, ptr %1, i64 44
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp ugt i32 %83, 31
+  br i1 %84, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
-  %89 = add nuw nsw i32 %87, 1
-  store i32 %89, ptr %86, align 4
-  %90 = getelementptr inbounds i8, ptr %1, i64 40
-  %91 = load i8, ptr %90, align 8
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %93, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23
+  %85 = add nuw nsw i32 %83, 1
+  store i32 %85, ptr %82, align 4
+  %86 = getelementptr inbounds i8, ptr %1, i64 40
+  %87 = load i8, ptr %86, align 8
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %89, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23
 
-93:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+89:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i32 0, ptr %31, align 1
   br label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %30, %57, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %93, %14, %3
-  %94 = phi i1 [ false, %14 ], [ false, %3 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ true, %30 ], [ true, %57 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %93 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ]
-  ret i1 %94
+_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %30, %57, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %89, %14, %3
+  %90 = phi i1 [ false, %14 ], [ false, %3 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ true, %30 ], [ true, %57 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %89 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ]
+  ret i1 %90
 }
 
 ; Function Attrs: mustprogress uwtable

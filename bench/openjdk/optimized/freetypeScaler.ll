@@ -288,7 +288,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
 
 21:                                               ; preds = %17
   %22 = icmp ugt i64 %15, %20
-  %23 = sub nsw i64 %20, %1
+  %23 = sub nuw nsw i64 %20, %1
   %spec.select = select i1 %22, i64 %23, i64 %3
   %24 = icmp ugt i64 %spec.select, 1024
   br i1 %24, label %25, label %72

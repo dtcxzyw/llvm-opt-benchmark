@@ -5437,7 +5437,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   br i1 %174, label %175, label %.loopexit19
 
 175:                                              ; preds = %.preheader18.split.us
-  %176 = sub i32 %141, %173
+  %176 = sub nuw i32 %141, %173
   %177 = call i32 @llvm.umin.i32(i32 %176, i32 100)
   %178 = zext nneg i32 %177 to i64
   %179 = zext i32 %173 to i64
@@ -5455,7 +5455,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   br i1 %187, label %188, label %.loopexit19
 
 188:                                              ; preds = %.preheader18.split
-  %189 = sub i32 %141, %186
+  %189 = sub nuw i32 %141, %186
   %190 = call i32 @llvm.umin.i32(i32 %189, i32 100)
   %191 = zext i32 %186 to i64
   %192 = getelementptr ptr, ptr %159, i64 %191

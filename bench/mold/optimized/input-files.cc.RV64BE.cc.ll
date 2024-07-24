@@ -1907,7 +1907,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -2318,7 +2318,7 @@ if.then14.i:                                      ; preds = %while.body.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit23.i: ; preds = %while.body.i
   %sub.i = add nsw i64 %conv11.i, -4
-  %sub.i17.i = sub i64 %data.sroa.0.0160.i, %conv11.i
+  %sub.i17.i = sub nuw i64 %data.sroa.0.0160.i, %conv11.i
   %add.ptr.i19.i = getelementptr inbounds i8, ptr %data.sroa.8.0161.i, i64 %conv11.i
   %cmp.i.not.i.i = icmp ult i64 %sub.i, 6
   br i1 %cmp.i.not.i.i, label %while.cond.backedge.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -2407,7 +2407,7 @@ if.then.i.i.i45.i:                                ; preds = %_ZN4mold9read_ulebE
   unreachable
 
 _ZN4mold9read_ulebEPSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4mold9read_ulebEPPh.exit.i.i
-  %sub.i.i.i = sub i64 %p.sroa.0.0157.i, %sub.ptr.sub.i.i
+  %sub.i.i.i = sub nuw i64 %p.sroa.0.0157.i, %sub.ptr.sub.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %p.sroa.18.0158.i, i64 %sub.ptr.sub.i.i
   switch i64 %or.i.i.i, label %sw.epilog.i [
     i64 4, label %do.body.i.i47.i
@@ -2442,7 +2442,7 @@ if.then.i.i.i66.i:                                ; preds = %_ZN4mold9read_ulebE
   unreachable
 
 _ZN4mold9read_ulebEPSt17basic_string_viewIcSt11char_traitsIcEE.exit67.i: ; preds = %_ZN4mold9read_ulebEPPh.exit.i59.i
-  %sub.i.i64.i = sub i64 %sub.i.i.i, %sub.ptr.sub.i62.i
+  %sub.i.i64.i = sub nuw i64 %sub.i.i.i, %sub.ptr.sub.i62.i
   %add.ptr.i.i65.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %sub.ptr.sub.i62.i
   %tobool.i.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i.i, label %_ZNSt8optionalIlEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIlES4_IlNSt5decayIS7_E4typeEEEEESt16is_constructibleIlJS7_EESt13is_assignableIRlS7_EEERS0_E4typeEOS7_.exit.i, label %if.else.i.i
@@ -2495,7 +2495,7 @@ if.then.i.i91.i:                                  ; preds = %_ZNSt8optionalISt17
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit92.i: ; preds = %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit.i
-  %sub.i85.i = sub i64 %sub.i.i.i, %add.i
+  %sub.i85.i = sub nuw i64 %sub.i.i.i, %add.i
   %add.ptr.i88.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %add.i
   br label %sw.epilog.i
 
@@ -2526,7 +2526,7 @@ if.then.i.i.i113.i:                               ; preds = %_ZN4mold9read_ulebE
   unreachable
 
 _ZN4mold9read_ulebEPSt17basic_string_viewIcSt11char_traitsIcEE.exit114.i: ; preds = %_ZN4mold9read_ulebEPPh.exit.i106.i
-  %sub.i.i111.i = sub i64 %sub.i.i.i, %sub.ptr.sub.i109.i
+  %sub.i.i111.i = sub nuw i64 %sub.i.i.i, %sub.ptr.sub.i109.i
   %add.ptr.i.i112.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %sub.ptr.sub.i109.i
   %tobool.i = icmp ne i64 %or.i.i103.i, 0
   %frombool.i = zext i1 %tobool.i to i8
@@ -3233,7 +3233,7 @@ _ZN4mold7CounterpLEi.exit:                        ; preds = %init.end, %if.then.
   br i1 %cmp.i34, label %if.then.i35, label %if.else.i
 
 if.then.i35:                                      ; preds = %_ZN4mold7CounterpLEi.exit
-  %sub.i = sub i64 %7, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %7, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIN4mold3elf6SymbolINS1_6RV64BEEEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %local_syms, i64 noundef %sub.i)
   %.pre = load ptr, ptr %local_syms, align 8
   br label %_ZNSt6vectorIN4mold3elf6SymbolINS1_6RV64BEEEESaIS4_EE6resizeEm.exit
@@ -3401,7 +3401,7 @@ for.end:                                          ; preds = %for.inc, %_ZNSt6vec
   br i1 %cmp.i81, label %if.then.i88, label %if.else.i82
 
 if.then.i88:                                      ; preds = %for.end
-  %sub.i89 = sub i64 %35, %sub.ptr.div.i.i80
+  %sub.i89 = sub nuw i64 %35, %sub.ptr.div.i.i80
   call void @_ZNSt6vectorIPN4mold3elf6SymbolINS1_6RV64BEEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %symbols, i64 noundef %sub.i89)
   %.pre311 = load i64, ptr %_M_extent.i.i, align 8
   %.pre312 = load i64, ptr %first_global, align 8
@@ -3551,7 +3551,7 @@ if.then.i.i116:                                   ; preds = %if.then84
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.then84
-  %sub.i113 = sub i64 %53, %sub.ptr.sub.i112
+  %sub.i113 = sub nuw i64 %53, %sub.ptr.sub.i112
   %add.ptr.i115 = getelementptr inbounds i8, ptr %agg.tmp120.sroa.2.0.copyload.pre315.pre318, i64 %sub.ptr.sub.i112
   store i64 %sub.ptr.sub.i112, ptr %name81, align 8
   switch i64 %sub.i113, label %if.then95 [
@@ -4030,7 +4030,7 @@ lor.lhs.false7:                                   ; preds = %lor.lhs.false
   %elf_sections2.sink.v.i = select i1 %cmp.i6, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %7, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i6, i64 0, i64 %8
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %9 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %9, i64 %sub.sink.i, i32 2
   %x.0.copyload.i = load i64, ptr %sh_flags, align 1
@@ -4199,7 +4199,7 @@ _ZNK4mold3elf12InputSectionINS0_6RV64BEEE8get_relsERNS0_7ContextIS2_EE.exit: ; p
   %elf_sections2.sink.v.i = select i1 %cmp.i32, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %13, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i32, i64 0, i64 %14
-  %sub.sink.i = sub nsw i64 %conv.i31, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i31, %sub.i
   %15 = load ptr, ptr %elf_sections2.sink.i, align 8
   %add.ptr.i2.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %15, i64 %sub.sink.i
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %ref.tmp.i)
@@ -4264,7 +4264,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end
-  %sub.i42 = sub i64 %data.sroa.0.0214, %add
+  %sub.i42 = sub nuw i64 %data.sroa.0.0214, %add
   %add.ptr.i44 = getelementptr inbounds i8, ptr %data.sroa.4.0215, i64 %add
   store i64 %rel_idx.0216, ptr %rel_begin, align 8
   %cmp26210 = icmp ult i64 %rel_idx.0216, %retval.sroa.3.0.i
@@ -4323,7 +4323,7 @@ if.then.i50:                                      ; preds = %if.then31
   %elf_sections2.sink.v.i.i = select i1 %cmp.i.i133, i64 16, i64 368
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %26, i64 %elf_sections2.sink.v.i.i
   %sub.i.i = select i1 %cmp.i.i133, i64 0, i64 %27
-  %sub.sink.i.i = sub nsw i64 %conv.i.i132, %sub.i.i
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i.i132, %sub.i.i
   %28 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %add.ptr.i2.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %28, i64 %sub.sink.i.i
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %ref.tmp.i.i)
@@ -4422,7 +4422,7 @@ _ZNSt12_Vector_baseIN4mold3elf9CieRecordINS1_6RV64BEEEESaIS4_EE11_M_allocateEm.e
   %elf_sections2.sink.v.i.i149 = select i1 %cmp.i.i148, i64 16, i64 368
   %elf_sections2.sink.i.i150 = getelementptr inbounds i8, ptr %39, i64 %elf_sections2.sink.v.i.i149
   %sub.i.i151 = select i1 %cmp.i.i148, i64 0, i64 %40
-  %sub.sink.i.i152 = sub nsw i64 %conv.i.i146, %sub.i.i151
+  %sub.sink.i.i152 = sub nuw nsw i64 %conv.i.i146, %sub.i.i151
   %41 = load ptr, ptr %elf_sections2.sink.i.i150, align 8
   %add.ptr.i2.i.i153 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %41, i64 %sub.sink.i.i152
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %ref.tmp.i.i137)
@@ -5221,7 +5221,7 @@ if.end.i:                                         ; preds = %if.then
   %elf_sections2.sink.v.i.i = select i1 %cmp.i.i, i64 16, i64 368
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %9, i64 %elf_sections2.sink.v.i.i
   %sub.i.i = select i1 %cmp.i.i, i64 0, i64 %10
-  %sub.sink.i.i = sub nsw i64 %conv.i.i, %sub.i.i
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i.i, %sub.i.i
   %11 = load ptr, ptr %elf_sections2.sink.i.i, align 8, !noalias !67
   %add.ptr.i2.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %11, i64 %sub.sink.i.i
   %sh_flags.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 8
@@ -5269,7 +5269,7 @@ if.end17.i:                                       ; preds = %if.end14.i, %if.the
 
 if.then.i.i:                                      ; preds = %if.end17.i
   %elf_sections2.sink.i.i.i = getelementptr inbounds i8, ptr %9, i64 368
-  %sub.sink.i.i.i = sub nsw i64 %conv.i.i, %17
+  %sub.sink.i.i.i = sub nuw nsw i64 %conv.i.i, %17
   %18 = load ptr, ptr %elf_sections2.sink.i.i.i, align 8, !noalias !67
   %sh_flags.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %18, i64 %sub.sink.i.i.i, i32 2
   %x.0.copyload.i.i.i = load i64, ptr %sh_flags.i.i, align 1, !noalias !67
@@ -5371,7 +5371,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %for.body.i.i
-  %sub.i.i.i = sub i64 %data.sroa.0.0301.i, %i.019.i.i
+  %sub.i.i.i = sub nuw i64 %data.sroa.0.0301.i, %i.019.i.i
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %entsize.0275.i)
   %add.ptr.i.i45.i = getelementptr inbounds i8, ptr %data.sroa.11.0302.i, i64 %i.019.i.i
   %cmp4.i.not.i.i = icmp eq i64 %.sroa.speculated.i.i.i, 0
@@ -5421,7 +5421,7 @@ if.then.i.i60.i:                                  ; preds = %if.end49.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.end49.i
-  %sub.i54.i = sub i64 %data.sroa.0.0301.i, %add.i
+  %sub.i54.i = sub nuw i64 %data.sroa.0.0301.i, %add.i
   %add.ptr.i57.i = getelementptr inbounds i8, ptr %data.sroa.11.0302.i, i64 %add.i
   %29 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !67
   %30 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !noalias !67
@@ -5703,7 +5703,7 @@ if.then.i.i114.i:                                 ; preds = %while.body73.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit115.i: ; preds = %while.body73.i
-  %sub.i108.i = sub i64 %data.sroa.0.1304.i, %entsize.0275.i
+  %sub.i108.i = sub nuw i64 %data.sroa.0.1304.i, %entsize.0275.i
   %add.ptr.i111.i = getelementptr inbounds i8, ptr %data.sroa.11.1305.i, i64 %entsize.0275.i
   %50 = load ptr, ptr %_M_finish.i116.i, align 8, !noalias !67
   %51 = load ptr, ptr %_M_end_of_storage.i117.i, align 8, !noalias !67
@@ -6111,7 +6111,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -6649,7 +6649,7 @@ land.lhs.true88:                                  ; preds = %land.lhs.true
   %elf_sections2.sink.v.i = select i1 %cmp.i110, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %58, i64 %elf_sections2.sink.v.i
   %sub.i111 = select i1 %cmp.i110, i64 0, i64 %59
-  %sub.sink.i = sub nsw i64 %conv.i109, %sub.i111
+  %sub.sink.i = sub nuw nsw i64 %conv.i109, %sub.i111
   %60 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %60, i64 %sub.sink.i, i32 2
   %x.0.copyload.i112 = load i64, ptr %sh_flags, align 1
@@ -6748,7 +6748,7 @@ for.end129:                                       ; preds = %for.inc127
   br i1 %cmp.i149, label %if.then.i153, label %if.else.i
 
 if.then.i153:                                     ; preds = %for.end129
-  %sub.i154 = sub i64 %nfrag_syms.3, %sub.ptr.div.i.i148
+  %sub.i154 = sub nuw i64 %nfrag_syms.3, %sub.ptr.div.i.i148
   tail call void @_ZNSt6vectorIN4mold3elf6SymbolINS1_6RV64BEEEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %frag_syms, i64 noundef %sub.i154)
   br label %_ZNSt6vectorIN4mold3elf6SymbolINS1_6RV64BEEEESaIS4_EE6resizeEm.exit
 
@@ -6808,7 +6808,7 @@ lor.lhs.false149:                                 ; preds = %lor.lhs.false145
   %elf_sections2.sink.v.i163 = select i1 %cmp.i162, i64 16, i64 368
   %elf_sections2.sink.i164 = getelementptr inbounds i8, ptr %85, i64 %elf_sections2.sink.v.i163
   %sub.i165 = select i1 %cmp.i162, i64 0, i64 %86
-  %sub.sink.i166 = sub nsw i64 %conv.i160, %sub.i165
+  %sub.sink.i166 = sub nuw nsw i64 %conv.i160, %sub.i165
   %87 = load ptr, ptr %elf_sections2.sink.i164, align 8
   %sh_flags152 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %87, i64 %sub.sink.i166, i32 2
   %x.0.copyload.i168 = load i64, ptr %sh_flags152, align 1
@@ -7981,7 +7981,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true
   %elf_sections2.sink.v.i = select i1 %cmp.i16, i64 16, i64 368
   %elf_sections2.sink.i = getelementptr inbounds i8, ptr %6, i64 %elf_sections2.sink.v.i
   %sub.i = select i1 %cmp.i16, i64 0, i64 %7
-  %sub.sink.i = sub nsw i64 %conv.i, %sub.i
+  %sub.sink.i = sub nuw nsw i64 %conv.i, %sub.i
   %8 = load ptr, ptr %elf_sections2.sink.i, align 8
   %sh_flags = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %8, i64 %sub.sink.i, i32 2
   %x.0.copyload.i = load i64, ptr %sh_flags, align 1
@@ -9019,7 +9019,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub i64 %1, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %1, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %output_sym_indices, ptr %2, i64 noundef %sub.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -9148,7 +9148,7 @@ if.then8.i:                                       ; preds = %if.end5.i
   %elf_sections2.sink.v.i.i = select i1 %cmp.i7.i, i64 16, i64 368
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %24, i64 %elf_sections2.sink.v.i.i
   %sub.i.i = select i1 %cmp.i7.i, i64 0, i64 %25
-  %sub.sink.i.i = sub nsw i64 %conv.i6.i, %sub.i.i
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i6.i, %sub.i.i
   %26 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %26, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1
@@ -9668,7 +9668,7 @@ if.then.i.i27:                                    ; preds = %_ZNKSt17basic_strin
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit28: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %sub.i21 = sub i64 %sub.i, %and.i
+  %sub.i21 = sub nuw i64 %sub.i, %and.i
   %add.ptr.i24 = getelementptr inbounds i8, ptr %add.ptr.i8, i64 %and.i
   %n_descsz = getelementptr inbounds i8, ptr %data.sroa.10.0125, i64 4
   %x.0.copyload.i29 = load i32, ptr %n_descsz, align 1
@@ -9685,7 +9685,7 @@ if.then.i.i49:                                    ; preds = %_ZNKSt17basic_strin
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit50: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit28
-  %sub.i43 = sub i64 %sub.i21, %and.i41
+  %sub.i43 = sub nuw i64 %sub.i21, %and.i41
   %add.ptr.i46 = getelementptr inbounds i8, ptr %add.ptr.i24, i64 %and.i41
   %n_type = getelementptr inbounds i8, ptr %data.sroa.10.0125, i64 8
   %x.0.copyload.i51 = load i32, ptr %n_type, align 1
@@ -9814,7 +9814,7 @@ if.then.i.i85:                                    ; preds = %if.end41
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit86: ; preds = %if.end41
-  %sub.i79 = sub i64 %sub.i62, %and.i77
+  %sub.i79 = sub nuw i64 %sub.i62, %and.i77
   %add.ptr.i82 = getelementptr inbounds i8, ptr %add.ptr.i65, i64 %and.i77
   %cmp.i56 = icmp eq i64 %sub.i79, 0
   br i1 %cmp.i56, label %while.cond.backedge, label %while.body29, !llvm.loop !117
@@ -12216,7 +12216,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub i64 %1, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %1, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %output_sym_indices, ptr %2, i64 noundef %sub.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -12671,7 +12671,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -14281,7 +14281,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i
   %mul.i.i.i = shl i64 %and.i.i, 1
   %cmp7.i.i.i = icmp ugt i64 %mul.i.i.i, %8
-  %sub.i.i.i = sub i64 %8, %and.i.i
+  %sub.i.i.i = sub nuw i64 %8, %and.i.i
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 %sub.i.i.i, i64 %and.i.i
   br label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i
 
@@ -14766,7 +14766,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -15279,7 +15279,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i38 = getelementptr inbounds i32, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 
@@ -20166,7 +20166,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %1, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i, %2
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %2
   %4 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %4, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1

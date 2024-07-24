@@ -13026,7 +13026,7 @@ define hidden void @"_ZN14http_body_util9collected18Collected$LT$B$GT$10push_fra
   %30 = add i64 %29, %27
   %.not.i = icmp ult i64 %30, %26
   %31 = select i1 %.not.i, i64 0, i64 %26
-  %.0.i = sub i64 %30, %31
+  %.0.i = sub nuw i64 %30, %31
   %32 = load ptr, ptr %14, align 8, !alias.scope !2048, !noalias !2051, !nonnull !4, !noundef !4
   %33 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %32, i64 %.0.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -36036,7 +36036,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17ha4df8dcba58fc4aaE.exit.i.i.i.i
 
 308:                                              ; preds = %298
   %309 = getelementptr inbounds i8, ptr %300, i64 56
-  %310 = sub i64 %299, %.012.lcssa.i.i.i.i.i
+  %310 = sub nuw i64 %299, %.012.lcssa.i.i.i.i.i
   %311 = mul i64 %310, 56
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %309, ptr nonnull align 8 %300, i64 %311, i1 false), !noalias !5887
   br label %341
@@ -36414,7 +36414,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17ha4df8dcba58fc4aaE.exit.i.i.i.i
 
 420:                                              ; preds = %410
   %421 = getelementptr inbounds i8, ptr %412, i64 80
-  %422 = sub i64 %411, %.012.lcssa.i.i.i.i40.i
+  %422 = sub nuw i64 %411, %.012.lcssa.i.i.i.i40.i
   %423 = mul i64 %422, 80
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %421, ptr nonnull align 8 %412, i64 %423, i1 false), !noalias !5960
   br label %437
@@ -77646,7 +77646,7 @@ define internal fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h8dd33fa22af64
           to label %39 unwind label %37
 
 32:                                               ; preds = %16
-  %33 = sub i64 %20, %17
+  %33 = sub nuw i64 %20, %17
   store i64 %33, ptr %19, align 8, !alias.scope !12657
   %34 = getelementptr inbounds i8, ptr %8, i64 8
   %35 = load ptr, ptr %34, align 8, !alias.scope !12657, !noundef !4
@@ -89097,7 +89097,7 @@ define hidden void @"_ZN84_$LT$http_body_util..util..BufList$LT$T$GT$$u20$as$u20
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.not.i = icmp ult i64 %14, %16
   %17 = select i1 %.not.i, i64 0, i64 %16
-  %.03.i = sub i64 %14, %17
+  %.03.i = sub nuw i64 %14, %17
   %18 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %18, i64 %.03.i
   %20 = getelementptr i8, ptr %19, i64 16
@@ -89150,7 +89150,7 @@ define hidden void @"_ZN84_$LT$http_body_util..util..BufList$LT$T$GT$$u20$as$u20
   %39 = add i64 %14, 1
   %.not.i16 = icmp ult i64 %39, %16
   %40 = select i1 %.not.i16, i64 0, i64 %16
-  %.0.i17 = sub i64 %39, %40
+  %.0.i17 = sub nuw i64 %39, %40
   store i64 %.0.i17, ptr %13, align 8, !alias.scope !14157, !noalias !14160
   %41 = add i64 %11, -1
   store i64 %41, ptr %10, align 8, !alias.scope !14157, !noalias !14160
@@ -135688,7 +135688,7 @@ default.unreachable923:                           ; preds = %818, %417, %2
           to label %.body123.i unwind label %605, !noalias !20229
 
 600:                                              ; preds = %.noexc122.i
-  %601 = sub i64 %589, %587
+  %601 = sub nuw i64 %589, %587
   %602 = getelementptr inbounds i8, ptr %70, i64 8
   %603 = load ptr, ptr %602, align 8, !alias.scope !20219, !noalias !20215, !noundef !4
   %604 = getelementptr inbounds i8, ptr %603, i64 %587
@@ -137153,7 +137153,7 @@ common.ret:                                       ; preds = %1742, %1687, %1657,
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %1028, i64 %1082)
   %1083 = load ptr, ptr %1080, align 8, !alias.scope !20416, !noalias !20292, !nonnull !4, !align !74, !noundef !4
   %1084 = getelementptr inbounds i8, ptr %1083, i64 %.0.sroa.speculated.i.i.i
-  %1085 = sub i64 %1028, %.0.sroa.speculated.i.i.i
+  %1085 = sub nuw i64 %1028, %.0.sroa.speculated.i.i.i
   store ptr %1084, ptr %1080, align 8, !alias.scope !20416, !noalias !20292
   store i64 %1085, ptr %1079, align 8, !alias.scope !20416, !noalias !20292
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %51), !noalias !20292

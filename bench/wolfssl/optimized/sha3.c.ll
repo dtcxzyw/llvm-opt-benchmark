@@ -223,11 +223,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body.i.i.preheader
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %conv13.i.i = zext i8 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 %conv13.i.i
+  %idx.ext.i.i = zext i8 %3 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 %idx.ext.i.i
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  %sub23.i.i = sub nuw nsw i64 142, %conv13.i.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i, i8 0, i64 %sub23.i.i, i1 false)
+  %narrow = sub nuw i8 -114, %3
+  %conv24.i.i = zext i8 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i, i8 0, i64 %conv24.i.i, i1 false)
   br label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %if.then.i.i, %if.end.i
@@ -292,11 +293,12 @@ if.end.i5.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %for.body.i.i.i.preheader
 
 if.then.i.i.i:                                    ; preds = %if.end.i5.i
-  %conv13.i.i.i = zext i8 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 %conv13.i.i.i
+  %idx.ext.i.i.i = zext i8 %3 to i64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 %idx.ext.i.i.i
   %add.ptr18.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1
-  %sub23.i.i.i = sub nuw nsw i64 142, %conv13.i.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i.i, i8 0, i64 %sub23.i.i.i, i1 false)
+  %narrow = sub nuw i8 -114, %3
+  %conv24.i.i.i = zext i8 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i.i, i8 0, i64 %conv24.i.i.i, i1 false)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.then.i.i.i, %if.end.i5.i
@@ -394,11 +396,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body.i.i.preheader
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %conv13.i.i = zext i8 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 %conv13.i.i
+  %idx.ext.i.i = zext i8 %3 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 %idx.ext.i.i
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  %sub23.i.i = sub nuw nsw i64 134, %conv13.i.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i, i8 0, i64 %sub23.i.i, i1 false)
+  %narrow = sub nuw i8 -122, %3
+  %conv24.i.i = zext i8 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i, i8 0, i64 %conv24.i.i, i1 false)
   br label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %if.then.i.i, %if.end.i
@@ -463,11 +466,12 @@ if.end.i5.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %for.body.i.i.i.preheader
 
 if.then.i.i.i:                                    ; preds = %if.end.i5.i
-  %conv13.i.i.i = zext i8 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 %conv13.i.i.i
+  %idx.ext.i.i.i = zext i8 %3 to i64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 %idx.ext.i.i.i
   %add.ptr18.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1
-  %sub23.i.i.i = sub nuw nsw i64 134, %conv13.i.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i.i, i8 0, i64 %sub23.i.i.i, i1 false)
+  %narrow = sub nuw i8 -122, %3
+  %conv24.i.i.i = zext i8 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i.i, i8 0, i64 %conv24.i.i.i, i1 false)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.then.i.i.i, %if.end.i5.i
@@ -565,11 +569,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body.i.i.preheader
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %conv13.i.i = zext nneg i8 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 %conv13.i.i
+  %idx.ext.i.i = zext nneg i8 %3 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 %idx.ext.i.i
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  %sub23.i.i = sub nuw nsw i64 102, %conv13.i.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i, i8 0, i64 %sub23.i.i, i1 false)
+  %narrow = sub nuw nsw i8 102, %3
+  %conv24.i.i = zext nneg i8 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i, i8 0, i64 %conv24.i.i, i1 false)
   br label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %if.then.i.i, %if.end.i
@@ -634,11 +639,12 @@ if.end.i5.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %for.body.i.i.i.preheader
 
 if.then.i.i.i:                                    ; preds = %if.end.i5.i
-  %conv13.i.i.i = zext nneg i8 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 %conv13.i.i.i
+  %idx.ext.i.i.i = zext nneg i8 %3 to i64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 %idx.ext.i.i.i
   %add.ptr18.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1
-  %sub23.i.i.i = sub nuw nsw i64 102, %conv13.i.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i.i, i8 0, i64 %sub23.i.i.i, i1 false)
+  %narrow = sub nuw nsw i8 102, %3
+  %conv24.i.i.i = zext nneg i8 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i.i, i8 0, i64 %conv24.i.i.i, i1 false)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.then.i.i.i, %if.end.i5.i
@@ -736,11 +742,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body.i.i.preheader
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %conv13.i.i = zext nneg i8 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 %conv13.i.i
+  %idx.ext.i.i = zext nneg i8 %3 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 %idx.ext.i.i
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  %sub23.i.i = sub nuw nsw i64 70, %conv13.i.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i, i8 0, i64 %sub23.i.i, i1 false)
+  %narrow = sub nuw nsw i8 70, %3
+  %conv24.i.i = zext nneg i8 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i, i8 0, i64 %conv24.i.i, i1 false)
   br label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %if.then.i.i, %if.end.i
@@ -805,11 +812,12 @@ if.end.i5.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %for.body.i.i.i.preheader
 
 if.then.i.i.i:                                    ; preds = %if.end.i5.i
-  %conv13.i.i.i = zext nneg i8 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 %conv13.i.i.i
+  %idx.ext.i.i.i = zext nneg i8 %3 to i64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 %idx.ext.i.i.i
   %add.ptr18.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1
-  %sub23.i.i.i = sub nuw nsw i64 70, %conv13.i.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i.i, i8 0, i64 %sub23.i.i.i, i1 false)
+  %narrow = sub nuw nsw i8 70, %3
+  %conv24.i.i.i = zext nneg i8 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr18.i.i.i, i8 0, i64 %conv24.i.i.i, i1 false)
   br label %for.body.i.i.i.preheader
 
 for.body.i.i.i.preheader:                         ; preds = %if.then.i.i.i, %if.end.i5.i

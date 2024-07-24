@@ -1009,8 +1009,8 @@ define dso_local i32 @intel_guc_capture_getlist(ptr nocapture noundef readonly %
 364:                                              ; preds = %361
   %365 = getelementptr inbounds i8, ptr %338, i64 8
   %366 = zext nneg i32 %362 to i64
-  %367 = sub nsw i32 %278, %362
-  %368 = zext i32 %367 to i64
+  %367 = sub nuw nsw i32 %278, %362
+  %368 = zext nneg i32 %367 to i64
   %.pre121 = load i32, ptr %365, align 8
   %369 = add i32 %.pre121, %362
   %370 = zext i32 %369 to i64
@@ -3460,7 +3460,7 @@ define internal fastcc range(i32 -1, 1) i32 @guc_capture_log_get_register(ptr no
   br i1 %13, label %239, label %.thread28
 
 .thread:                                          ; preds = %3
-  %14 = sub i32 %5, %7
+  %14 = sub nuw i32 %5, %7
   %15 = icmp slt i32 %14, 16
   br i1 %15, label %239, label %.thread27
 
@@ -3553,7 +3553,7 @@ define internal fastcc range(i32 -1, 1) i32 @guc_capture_log_get_register(ptr no
   %65 = phi ptr [ %51, %.loopexit35.thread ], [ %60, %.loopexit35 ]
   %66 = phi i32 [ 0, %.loopexit35.thread ], [ 4, %.loopexit35 ]
   %67 = phi i32 [ 0, %.loopexit35.thread ], [ %59, %.loopexit35 ]
-  %68 = sub i32 %64, %67
+  %68 = sub nuw i32 %64, %67
   br label %73
 
 69:                                               ; preds = %.loopexit35
@@ -3649,7 +3649,7 @@ define internal fastcc range(i32 -1, 1) i32 @guc_capture_log_get_register(ptr no
   %125 = phi ptr [ %115, %.loopexit34.thread ], [ %120, %.loopexit34 ]
   %126 = phi i32 [ %75, %.loopexit34.thread ], [ %119, %.loopexit34 ]
   %127 = phi i32 [ 0, %.loopexit34.thread ], [ %117, %.loopexit34 ]
-  %128 = sub i32 %124, %127
+  %128 = sub nuw i32 %124, %127
   br label %133
 
 129:                                              ; preds = %.loopexit34
@@ -3745,7 +3745,7 @@ define internal fastcc range(i32 -1, 1) i32 @guc_capture_log_get_register(ptr no
   %185 = phi ptr [ %175, %.loopexit33.thread ], [ %180, %.loopexit33 ]
   %186 = phi i32 [ %135, %.loopexit33.thread ], [ %179, %.loopexit33 ]
   %187 = phi i32 [ 0, %.loopexit33.thread ], [ %177, %.loopexit33 ]
-  %188 = sub i32 %184, %187
+  %188 = sub nuw i32 %184, %187
   br label %193
 
 189:                                              ; preds = %.loopexit33

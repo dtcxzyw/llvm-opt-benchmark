@@ -1908,7 +1908,7 @@ _ZN12VNUser2InUseC2Ev.exit:                       ; preds = %_ZN12VNUser1InUseC2
   br i1 %369, label %370, label %401
 
 370:                                              ; preds = %363
-  %371 = sub nsw i64 %368, %367
+  %371 = sub nuw nsw i64 %368, %367
   %372 = ptrtoint ptr %.sroa.20.1.i to i64
   %373 = sub i64 %372, %364
   %374 = ashr exact i64 %373, 3
@@ -2884,7 +2884,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %7, %6
   br i1 %56, label %57, label %88
 
 57:                                               ; preds = %50
-  %58 = sub nsw i64 %55, %54
+  %58 = sub nuw nsw i64 %55, %54
   %59 = ptrtoint ptr %.sroa.20.1.i to i64
   %60 = sub i64 %59, %51
   %61 = ashr exact i64 %60, 3
@@ -3666,7 +3666,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder5
   br i1 %66, label %67, label %98
 
 67:                                               ; preds = %60
-  %68 = sub nsw i64 %65, %64
+  %68 = sub nuw nsw i64 %65, %64
   %69 = ptrtoint ptr %.sroa.20.1.i to i64
   %70 = sub i64 %69, %61
   %71 = ashr exact i64 %70, 3
@@ -5378,7 +5378,7 @@ common.resume:                                    ; preds = %.loopexit.i.i59, %1
   br i1 %59, label %60, label %91
 
 60:                                               ; preds = %53
-  %61 = sub nsw i64 %58, %57
+  %61 = sub nuw nsw i64 %58, %57
   %62 = ptrtoint ptr %.sroa.20.1.i to i64
   %63 = sub i64 %62, %54
   %64 = ashr exact i64 %63, 3
@@ -5613,7 +5613,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder1
   br i1 %139, label %140, label %171
 
 140:                                              ; preds = %133
-  %141 = sub nsw i64 %138, %137
+  %141 = sub nuw nsw i64 %138, %137
   %142 = ptrtoint ptr %.sroa.20.1.i25 to i64
   %143 = sub i64 %142, %134
   %144 = ashr exact i64 %143, 3
@@ -5845,7 +5845,7 @@ _ZZN7AstNode11foreachImplI8AstCCallZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10
   br i1 %219, label %220, label %251
 
 220:                                              ; preds = %213
-  %221 = sub nsw i64 %218, %217
+  %221 = sub nuw nsw i64 %218, %217
   %222 = ptrtoint ptr %.sroa.20.1.i70 to i64
   %223 = sub i64 %222, %214
   %224 = ashr exact i64 %223, 3
@@ -6897,7 +6897,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder1
   br i1 %165, label %166, label %197
 
 166:                                              ; preds = %159
-  %167 = sub nsw i64 %164, %163
+  %167 = sub nuw nsw i64 %164, %163
   %168 = ptrtoint ptr %.sroa.20.1.i.i.i to i64
   %169 = sub i64 %168, %160
   %170 = ashr exact i64 %169, 3

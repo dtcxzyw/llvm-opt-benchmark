@@ -113,7 +113,7 @@ if.then9:                                         ; preds = %if.then7
 if.end11:                                         ; preds = %if.then7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %_inp, i64 %sub, i1 false)
   %add.ptr15 = getelementptr inbounds i8, ptr %_inp, i64 %sub
-  %sub16 = sub i64 %len, %sub
+  %sub16 = sub nuw i64 %len, %sub
   %call = tail call i64 @SHA3_absorb(ptr noundef nonnull %ctx, ptr noundef nonnull %buf, i64 noundef %0, i64 noundef %0) #6
   store i64 0, ptr %bufsz, align 8
   br label %if.end21

@@ -8981,7 +8981,7 @@ _ZN6casadi19DeserializingStream6unpackERx.exit:   ; preds = %8
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 39:                                               ; preds = %_ZN6casadi19DeserializingStream6unpackERx.exit
-  %40 = sub i64 %19, %30
+  %40 = sub nuw i64 %19, %30
   call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr %21, i32 %23, i64 noundef %40, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 

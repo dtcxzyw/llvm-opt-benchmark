@@ -1637,7 +1637,7 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
   %.0208483 = phi i64 [ %501, %.loopexit76 ], [ 0, %.lr.ph486.preheader ]
   %.1214482 = phi i64 [ %.3216, %.loopexit76 ], [ %.0213489, %.lr.ph486.preheader ]
   %.4225481 = phi i1 [ %.6227, %.loopexit76 ], [ %.3224488, %.lr.ph486.preheader ]
-  %462 = sub nsw i64 %461, %.0208483
+  %462 = sub nuw nsw i64 %461, %.0208483
   %spec.store.select = call i64 @llvm.umin.i64(i64 %462, i64 4096)
   %463 = call i64 @cli_readn(i32 noundef %366, ptr noundef nonnull %20, i64 noundef %spec.store.select) #13
   %.not329 = icmp eq i64 %463, %spec.store.select
@@ -2317,7 +2317,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
   br i1 %84, label %fmap_readn.exit.thread, label %85
 
 85:                                               ; preds = %83
-  %86 = sub i64 %80, %.069
+  %86 = sub nuw i64 %80, %.069
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %86, i64 %78)
   %87 = getelementptr inbounds i8, ptr %75, i64 104
   %88 = load ptr, ptr %87, align 8

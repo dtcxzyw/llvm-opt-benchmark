@@ -332,7 +332,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false139
 if.end.i57:                                       ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.3, i64 1
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub nsw i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw nsw i64 %sub.i.i.i, %conv.i
   br label %PACKET_get_length_prefixed_1.exit
 
 PACKET_get_length_prefixed_1.exit:                ; preds = %lor.lhs.false.i, %if.end.i57
@@ -369,7 +369,7 @@ lor.lhs.false.i61:                                ; preds = %lor.lhs.false145
 if.end.i65:                                       ; preds = %lor.lhs.false.i61
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.4, i64 2
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
-  %sub.i.i7.i = sub nsw i64 %sub.i.i.i64, %or.i.i.i
+  %sub.i.i7.i = sub nuw nsw i64 %sub.i.i.i64, %or.i.i.i
   br label %PACKET_get_length_prefixed_2.exit
 
 PACKET_get_length_prefixed_2.exit:                ; preds = %lor.lhs.false145, %lor.lhs.false.i61, %if.end.i65
@@ -401,7 +401,7 @@ lor.lhs.false.i71:                                ; preds = %lor.lhs.false151
 if.end.i76:                                       ; preds = %lor.lhs.false.i71
   %add.ptr.i.i.i77 = getelementptr inbounds i8, ptr %pkt.sroa.0.5, i64 1
   %add.ptr.i.i5.i78 = getelementptr inbounds i8, ptr %add.ptr.i.i.i77, i64 %conv.i74
-  %sub.i.i6.i79 = sub nsw i64 %sub.i.i.i73, %conv.i74
+  %sub.i.i6.i79 = sub nuw nsw i64 %sub.i.i.i73, %conv.i74
   br label %PACKET_get_length_prefixed_1.exit82
 
 PACKET_get_length_prefixed_1.exit82:              ; preds = %PACKET_get_length_prefixed_2.exit.thread, %lor.lhs.false151, %lor.lhs.false.i71, %if.end.i76
@@ -510,7 +510,7 @@ lor.lhs.false.i106:                               ; preds = %lor.lhs.false172
 if.end.i115:                                      ; preds = %lor.lhs.false.i106
   %add.ptr.i2.i.i116 = getelementptr inbounds i8, ptr %pkt2.sroa.0.4, i64 4
   %add.ptr.i.i6.i117 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i116, i64 %or.i.i.i112
-  %sub.i.i7.i118 = sub i64 %sub.i.i.i113, %or.i.i.i112
+  %sub.i.i7.i118 = sub nuw i64 %sub.i.i.i113, %or.i.i.i112
   br label %PACKET_get_length_prefixed_2.exit121
 
 PACKET_get_length_prefixed_2.exit121:             ; preds = %PACKET_get_net_2.exit.thread, %lor.lhs.false172, %lor.lhs.false.i106, %if.end.i115

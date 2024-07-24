@@ -1254,7 +1254,7 @@ for.body38.preheader:                             ; preds = %for.body20, %for.en
   %i.2103 = phi i64 [ %add51, %for.end45 ], [ 0, %for.body20 ]
   %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 64)
   %umax = tail call i64 @llvm.umax.i64(i64 %umin, i64 1)
-  %sub = sub i64 %in_size, %i.2103
+  %sub = sub nuw i64 %in_size, %i.2103
   %cond.i89 = tail call i64 @llvm.umin.i64(i64 %sub, i64 64)
   br label %for.body38
 
@@ -2548,7 +2548,7 @@ for.body38.preheader:                             ; preds = %for.body20, %for.en
   %i.2103 = phi i64 [ %add51, %for.end45 ], [ 0, %for.body20 ]
   %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 64)
   %umax = tail call i64 @llvm.umax.i64(i64 %umin, i64 1)
-  %sub = sub i64 %in_size, %i.2103
+  %sub = sub nuw i64 %in_size, %i.2103
   %cond.i89 = tail call i64 @llvm.umin.i64(i64 %sub, i64 64)
   br label %for.body38
 
@@ -3842,7 +3842,7 @@ for.body38.preheader:                             ; preds = %for.body20, %for.en
   %i.2103 = phi i64 [ %add51, %for.end45 ], [ 0, %for.body20 ]
   %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 64)
   %umax = tail call i64 @llvm.umax.i64(i64 %umin, i64 1)
-  %sub = sub i64 %in_size, %i.2103
+  %sub = sub nuw i64 %in_size, %i.2103
   %cond.i89 = tail call i64 @llvm.umin.i64(i64 %sub, i64 64)
   br label %for.body38
 

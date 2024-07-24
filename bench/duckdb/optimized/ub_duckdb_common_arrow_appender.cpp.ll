@@ -222,7 +222,7 @@ _ZN6duckdb11ArrowBuffer7reserveEm.exit.i.i:       ; preds = %_ZN6duckdb11ArrowBu
   br i1 %cmp7.i.i, label %for.body.i.i.preheader, label %invoke.cont1
 
 for.body.i.i.preheader:                           ; preds = %_ZN6duckdb11ArrowBuffer7reserveEm.exit.i.i
-  %4 = sub nsw i64 %div1.i, %3
+  %4 = sub nuw nsw i64 %div1.i, %3
   %xtraiter = and i64 %4, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body.i.i.prol.loopexit, label %for.body.i.i.prol
@@ -306,7 +306,7 @@ _ZN6duckdb11ArrowBuffer7reserveEm.exit.i.i61:     ; preds = %_ZN6duckdb11ArrowBu
   br i1 %cmp7.i.i63, label %for.body.i.i64.preheader, label %invoke.cont4
 
 for.body.i.i64.preheader:                         ; preds = %_ZN6duckdb11ArrowBuffer7reserveEm.exit.i.i61
-  %19 = sub nsw i64 %div1.i58, %18
+  %19 = sub nuw nsw i64 %div1.i58, %18
   %xtraiter98 = and i64 %19, 3
   %lcmp.mod99.not = icmp eq i64 %xtraiter98, 0
   br i1 %lcmp.mod99.not, label %for.body.i.i64.prol.loopexit, label %for.body.i.i64.prol
@@ -955,7 +955,7 @@ _ZN6duckdb11ArrowBuffer7reserveEm.exit.i.i.i:     ; preds = %_ZN6duckdb11ArrowBu
   br i1 %cmp7.i.i.i, label %for.body.i.i.i.preheader, label %_ZN6duckdbL14ResizeValidityERNS_11ArrowBufferEm.exit.i
 
 for.body.i.i.i.preheader:                         ; preds = %_ZN6duckdb11ArrowBuffer7reserveEm.exit.i.i.i
-  %4 = sub nsw i64 %div1.i.i, %3
+  %4 = sub nuw nsw i64 %div1.i.i, %3
   %xtraiter = and i64 %4, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol

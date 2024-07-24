@@ -6735,7 +6735,7 @@ _ZN4core3ops8function6FnOnce9call_once17h2ad27b1604fdf958E.exit.i: ; preds = %45
   %93 = add i64 %92, %90
   %.not.i.i = icmp ult i64 %93, %89
   %94 = select i1 %.not.i.i, i64 0, i64 %89
-  %.0.i.i = sub i64 %93, %94
+  %.0.i.i = sub nuw i64 %93, %94
   %95 = load ptr, ptr %75, align 8, !alias.scope !1118, !noalias !1123, !nonnull !5, !noundef !5
   %96 = getelementptr inbounds { ptr, ptr }, ptr %95, i64 %.0.i.i
   store ptr %76, ptr %96, align 8, !noalias !1111

@@ -464,7 +464,7 @@ thread-pre-split:                                 ; preds = %19, %44, %46
   br i1 %110, label %111, label %115
 
 111:                                              ; preds = %106
-  %112 = sub i64 %109, %107
+  %112 = sub nuw i64 %109, %107
   call void @llvm.memset.p0.i64(ptr align 1 %103, i8 0, i64 %112, i1 false)
   %113 = load ptr, ptr %5, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 %112

@@ -157,7 +157,7 @@ fmap_readn.exit137.thread:                        ; preds = %31, %30, %fmap_read
   br i1 %or.cond162.not, label %42, label %fmap_readn.exit142.thread
 
 42:                                               ; preds = %39
-  %43 = sub i64 %40, %.050
+  %43 = sub nuw i64 %40, %.050
   %spec.select.i139 = tail call i64 @llvm.umin.i64(i64 %43, i64 136)
   %44 = getelementptr inbounds i8, ptr %41, i64 104
   %45 = load ptr, ptr %44, align 8
@@ -286,7 +286,7 @@ fmap_readn.exit142.thread:                        ; preds = %42, %39, %fmap_read
   br i1 %or.cond163.not, label %106, label %fmap_readn.exit147.thread
 
 106:                                              ; preds = %100
-  %107 = sub i64 %105, %102
+  %107 = sub nuw i64 %105, %102
   %spec.select.i144 = call i64 @llvm.umin.i64(i64 %107, i64 136)
   %108 = getelementptr inbounds i8, ptr %103, i64 104
   %109 = load ptr, ptr %108, align 8
@@ -481,7 +481,7 @@ define internal fastcc i32 @apm_partition_intersection(ptr noundef %0, ptr nocap
   br i1 %or.cond45.not, label %25, label %fmap_readn.exit.thread
 
 25:                                               ; preds = %19
-  %26 = sub i64 %24, %21
+  %26 = sub nuw i64 %24, %21
   %spec.select.i = call i64 @llvm.umin.i64(i64 %26, i64 136)
   %27 = getelementptr inbounds i8, ptr %22, i64 104
   %28 = load ptr, ptr %27, align 8

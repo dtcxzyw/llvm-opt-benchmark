@@ -163,7 +163,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp30.not, label %if.else42, label %if.then32
 
 if.then32:                                        ; preds = %if.else
-  %sub34 = sub i64 %bits.addr.1175, %conv29
+  %sub34 = sub nuw i64 %bits.addr.1175, %conv29
   %div35109 = lshr i32 %sub28, 3
   %idx.ext = zext nneg i32 %div27107 to i64
   %add.ptr36 = getelementptr inbounds i8, ptr %data, i64 %idx.ext

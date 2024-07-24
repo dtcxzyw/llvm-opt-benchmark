@@ -1279,7 +1279,7 @@ _ZSt12__to_chars_iIiENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   br label %return
 
 if.end17:                                         ; preds = %if.end
-  %sub19 = sub i64 %totalDigits, %conv12
+  %sub19 = sub nuw i64 %totalDigits, %conv12
   br i1 %cmp, label %_ZSt4fillIPccEvT_S1_RKT0_.exit61, label %_ZSt4fillIPccEvT_S1_RKT0_.exit68
 
 _ZSt4fillIPccEvT_S1_RKT0_.exit61:                 ; preds = %if.end17.thread296, %if.end17
@@ -1734,7 +1734,7 @@ return.sink.split.i:                              ; preds = %if.else.i.i.i, %if.
   br label %return
 
 if.end17:                                         ; preds = %if.end
-  %sub19 = sub i64 %totalDigits, %conv12
+  %sub19 = sub nuw i64 %totalDigits, %conv12
   %add.ptr32 = getelementptr inbounds i8, ptr %result, i64 %sub19
   tail call void @llvm.memset.p0.i64(ptr align 1 %result, i8 48, i64 %sub19, i1 false)
   %7 = load i32, ptr %content, align 4
@@ -2103,7 +2103,7 @@ _ZSt12__to_chars_iIlENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
   br label %return
 
 if.end17:                                         ; preds = %if.end
-  %sub19 = sub i64 %totalDigits, %conv12
+  %sub19 = sub nuw i64 %totalDigits, %conv12
   br i1 %cmp, label %_ZSt4fillIPccEvT_S1_RKT0_.exit61, label %_ZSt4fillIPccEvT_S1_RKT0_.exit68
 
 _ZSt4fillIPccEvT_S1_RKT0_.exit61:                 ; preds = %if.end17
@@ -4326,7 +4326,7 @@ if.end.i.i.i:                                     ; preds = %while.cond.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
   %5 = load ptr, ptr %_M_str.i.i.i, align 8
-  %sub.i.i.i = sub i64 %4, %pos.0.i
+  %sub.i.i.i = sub nuw i64 %4, %pos.0.i
   %cmp11.not20.i.i.i = icmp ult i64 %sub.i.i.i, %2
   br i1 %cmp11.not20.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_114countOccurenceERKSt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS5_SaIcEEE.exit, label %while.body.lr.ph.i.i.i
 
@@ -4341,7 +4341,7 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end6.i.i.i
 while.body.i.i.i:                                 ; preds = %if.end19.i.i.i, %while.body.lr.ph.i.i.i
   %__len.022.i.i.i = phi i64 [ %sub.i.i.i, %while.body.lr.ph.i.i.i ], [ %sub.ptr.sub22.i.i.i, %if.end19.i.i.i ]
   %__first.021.i.i.i = phi ptr [ %add.ptr.i.i.i, %while.body.lr.ph.i.i.i ], [ %incdec.ptr.i.i.i, %if.end19.i.i.i ]
-  %sub12.i.i.i = sub i64 %__len.022.i.i.i, %2
+  %sub12.i.i.i = sub nuw i64 %__len.022.i.i.i, %2
   %add.i.i.i = add i64 %sub12.i.i.i, 1
   %cmp.i.i.i.i = icmp eq i64 %add.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_114countOccurenceERKSt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS5_SaIcEEE.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i

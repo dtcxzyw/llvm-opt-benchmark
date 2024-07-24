@@ -267,7 +267,7 @@ define internal void @pre_process_context(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %27, label %28, label %65
 
 28:                                               ; preds = %25
-  %29 = sub i32 %3, %26
+  %29 = sub nuw i32 %3, %26
   %30 = load i32, ptr %17, align 4
   %31 = load i32, ptr %16, align 4
   %32 = sub nsw i32 %30, %31

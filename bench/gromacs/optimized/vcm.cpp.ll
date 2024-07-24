@@ -226,7 +226,7 @@ define void @_ZN5t_vcmC2ERK16SimulationGroupsRK10t_inputrec(ptr noundef nonnull 
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %80
-  %92 = sub nsw i64 %82, %89
+  %92 = sub nuw nsw i64 %82, %89
   invoke void @_ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %92)
           to label %._ZNSt6vectorIPcSaIS0_EE6resizeEm.exit_crit_edge unwind label %51
 
@@ -273,7 +273,7 @@ _ZNSt6vectorIPcSaIS0_EE6resizeEm.exit:            ; preds = %._ZNSt6vectorIPcSaI
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %101
-  %113 = sub nsw i64 %103, %110
+  %113 = sub nuw nsw i64 %103, %110
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %113)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %51
 
@@ -308,7 +308,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br i1 %126, label %127, label %129
 
 127:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %128 = sub nsw i64 %.pre-phi51, %125
+  %128 = sub nuw nsw i64 %.pre-phi51, %125
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %128)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit30 unwind label %51
 
@@ -571,7 +571,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -592,7 +592,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23
@@ -664,7 +664,7 @@ define linkonce_odr void @_ZNSt6vectorI12t_vcm_threadSaIS0_EE6resizeEm(ptr nound
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -686,7 +686,7 @@ _ZSt27__uninitialized_default_n_aIP12t_vcm_threadmS0_ET_S2_T0_RSaIT1_E.exit.i: ;
   br label %_ZNSt6vectorI12t_vcm_threadSaIS0_EE17_M_default_appendEm.exit
 
 22:                                               ; preds = %11
-  %23 = icmp ult i64 %19, %12
+  %23 = icmp ugt i64 %1, 121360158379668102
   br i1 %23, label %24, label %_ZNKSt6vectorI12t_vcm_threadSaIS0_EE12_M_check_lenEmPKc.exit.i
 
 24:                                               ; preds = %22

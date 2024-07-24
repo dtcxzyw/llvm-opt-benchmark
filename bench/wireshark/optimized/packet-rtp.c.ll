@@ -2603,7 +2603,7 @@ proto_item_set_generated.exit551:                 ; preds = %450, %447, %proto_i
 
 503:                                              ; preds = %501
   %504 = load i32, ptr @hf_rtp_padding_data, align 4
-  %505 = sub i32 %.151.i, %.05057.i
+  %505 = sub nuw i32 %.151.i, %.05057.i
   %506 = call ptr @proto_tree_add_item(ptr noundef %489, i32 noundef %504, ptr noundef %490, i32 noundef %.05057.i, i32 noundef %505, i32 noundef 0) #11
   br label %507
 
@@ -3978,7 +3978,7 @@ define internal fastcc void @dissect_rtp_hext_rfc5285_twobytes(ptr noundef %0, i
 
 21:                                               ; preds = %._crit_edge
   %22 = load i32, ptr @hf_rtp_padding_data, align 4
-  %23 = sub i32 %17, %.04959
+  %23 = sub nuw i32 %17, %.04959
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %22, ptr noundef %3, i32 noundef %.04959, i32 noundef %23, i32 noundef 0) #11
   br label %._crit_edge.thread
 

@@ -456,7 +456,7 @@ define internal fastcc void @add_map_entry(i64 noundef %0, i64 noundef %1, i8 no
 
 58:                                               ; preds = %55
   %59 = getelementptr i8, ptr %18, i64 32
-  %60 = sub i32 %56, %15
+  %60 = sub nuw i32 %56, %15
   %61 = zext i32 %60 to i64
   %62 = shl nuw nsw i64 %61, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %18, ptr align 8 %59, i64 %62, i1 false)
@@ -2142,7 +2142,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef
 
 50:                                               ; preds = %42
   %51 = getelementptr i8, ptr %30, i64 32
-  %52 = sub i32 %48, %3
+  %52 = sub nuw i32 %48, %3
   %53 = zext i32 %52 to i64
   %54 = shl nuw nsw i64 %53, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %51, i64 %54, i1 false)
@@ -2204,7 +2204,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef
   %70 = phi ptr [ %28, %.thread7 ], [ %.pre9, %69 ]
   %71 = getelementptr %struct.cache_map, ptr %70, i64 %.pre-phi
   %72 = getelementptr i8, ptr %71, i64 32
-  %73 = sub i32 %25, %3
+  %73 = sub nuw i32 %25, %3
   %74 = zext i32 %73 to i64
   %75 = shl nuw nsw i64 %74, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %72, ptr align 8 %71, i64 %75, i1 false)

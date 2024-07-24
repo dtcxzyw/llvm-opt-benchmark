@@ -205,7 +205,7 @@ define internal fastcc { i1, i64 } @_ZN6uu_fmt9parasplit9FileLines20match_prefix
   %55 = getelementptr inbounds i8, ptr %2, i64 %.sroa.11.036
   %56 = load i8, ptr %55, align 1, !alias.scope !38, !noundef !5
   %57 = icmp sgt i8 %56, -65
-  %58 = sub i64 %3, %.sroa.11.036
+  %58 = sub nuw i64 %3, %.sroa.11.036
   br i1 %57, label %60, label %59
 
 59:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %52
@@ -761,7 +761,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
   %113 = getelementptr inbounds i8, ptr %.val86, i64 %107
   %114 = load i8, ptr %113, align 1, !alias.scope !87, !noalias !92, !noundef !5
   %115 = icmp sgt i8 %114, -65
-  %116 = sub i64 %.val87, %107
+  %116 = sub nuw i64 %.val87, %107
   br i1 %115, label %117, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %110
@@ -1946,7 +1946,7 @@ define hidden void @_ZN6uu_fmt9parasplit9ParaWords12create_words17h7ac08de88d827
   %47 = getelementptr inbounds i8, ptr %.val60, i64 %39
   %48 = load i8, ptr %47, align 1, !alias.scope !241, !noalias !246, !noundef !5
   %49 = icmp sgt i8 %48, -65
-  %50 = sub i64 %.val61, %39
+  %50 = sub nuw i64 %.val61, %39
   br i1 %49, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17h71d899931f0e43cbE.exit", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %44
@@ -2060,7 +2060,7 @@ _ZN6uu_fmt9parasplit9WordSplit3new17hdc2494d9dc6a263dE.exit: ; preds = %"_ZN53_$
   %90 = getelementptr inbounds i8, ptr %.val, i64 %82
   %91 = load i8, ptr %90, align 1, !alias.scope !266, !noalias !271, !noundef !5
   %92 = icmp sgt i8 %91, -65
-  %93 = sub i64 %.val59, %82
+  %93 = sub nuw i64 %.val59, %82
   br i1 %92, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17h71d899931f0e43cbE.exit65", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i63"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i63": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i64", %87
@@ -2268,7 +2268,7 @@ define void @"_ZN87_$LT$uu_fmt..parasplit..WordSplit$u20$as$u20$core..iter..trai
   %18 = getelementptr inbounds i8, ptr %11, i64 %5
   %19 = load i8, ptr %18, align 1, !alias.scope !305, !noundef !5
   %20 = icmp sgt i8 %19, -65
-  %21 = sub i64 %13, %5
+  %21 = sub nuw i64 %13, %5
   br i1 %20, label %24, label %23
 
 22:                                               ; preds = %2
@@ -2469,7 +2469,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i: ;
   %117 = getelementptr inbounds i8, ptr %11, i64 %111
   %118 = load i8, ptr %117, align 1, !alias.scope !321, !noundef !5
   %119 = icmp sgt i8 %118, -65
-  %120 = sub i64 %13, %111
+  %120 = sub nuw i64 %13, %111
   br i1 %119, label %123, label %122
 
 121:                                              ; preds = %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h1c9a4707155b2780E.exit", %.loopexit109, %22

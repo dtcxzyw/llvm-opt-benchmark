@@ -243,7 +243,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %60, label %61, label %.thread21
 
 61:                                               ; preds = %.thread22
-  %62 = sub i32 %52, %59
+  %62 = sub nuw i32 %52, %59
   call void @_raw_spin_lock_bh(ptr noundef nonnull @nf_ftp_lock) #11
   %63 = getelementptr inbounds i8, ptr %0, i64 200
   %64 = load ptr, ptr %63, align 8

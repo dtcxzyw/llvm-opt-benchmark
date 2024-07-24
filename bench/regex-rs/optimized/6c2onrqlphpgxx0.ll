@@ -1058,7 +1058,7 @@ _ZN5alloc5slice11stable_sort17h7e199d352faa924dE.exit: ; preds = %_ZN4core5slice
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h2dbaffe5b837d4e7E.exit": ; preds = %296
   store i64 0, ptr %8, align 8, !alias.scope !93, !noalias !90
   %300 = load ptr, ptr %7, align 8, !alias.scope !93, !noalias !90, !nonnull !4, !noundef !4
-  %301 = sub i64 %297, %293
+  %301 = sub nuw i64 %297, %293
   %302 = getelementptr inbounds { i8, i8 }, ptr %300, i64 %293
   %303 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 %293, ptr %303, align 8, !alias.scope !90, !noalias !93
@@ -1963,7 +1963,7 @@ _ZN5alloc5slice11stable_sort17h45b92d02aff35654E.exit: ; preds = %_ZN4core5slice
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h12221ad60c9961ebE.exit": ; preds = %292
   store i64 0, ptr %8, align 8, !alias.scope !192, !noalias !189
   %296 = load ptr, ptr %7, align 8, !alias.scope !192, !noalias !189, !nonnull !4, !noundef !4
-  %297 = sub i64 %293, %289
+  %297 = sub nuw i64 %293, %289
   %298 = getelementptr inbounds { i32, i32 }, ptr %296, i64 %289
   %299 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 %289, ptr %299, align 8, !alias.scope !189, !noalias !192

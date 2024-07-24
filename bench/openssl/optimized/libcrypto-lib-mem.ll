@@ -375,7 +375,7 @@ if.end3:                                          ; preds = %if.end
 
 if.then5:                                         ; preds = %if.end3
   %add.ptr = getelementptr inbounds i8, ptr %str, i64 %num
-  %sub = sub i64 %old_len, %num
+  %sub = sub nuw i64 %old_len, %num
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %add.ptr, i64 noundef %sub) #9
   br label %return
 

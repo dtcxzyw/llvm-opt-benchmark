@@ -122,7 +122,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mpi_sub_ui(ptr noundef %0, ptr n
   br i1 %or.cond, label %76, label %._crit_edge
 
 76:                                               ; preds = %71
-  %77 = sub i64 %2, %74
+  %77 = sub nuw i64 %2, %74
   %78 = getelementptr inbounds i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8
   store i64 %77, ptr %79, align 8

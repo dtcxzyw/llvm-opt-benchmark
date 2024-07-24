@@ -1623,7 +1623,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i32 %1, %0
+  %sub = sub nuw i32 %1, %0
   %cmp1015.not = icmp eq i32 %0, 0
   %2 = load ptr, ptr %other, align 8
   %3 = load ptr, ptr %this, align 8
@@ -1655,7 +1655,7 @@ for.body12.us:                                    ; preds = %for.cond6.preheader
 for.cond6.for.inc16_crit_edge.us:                 ; preds = %for.body12.us
   %inc17.us = add i32 %i.017.us, 1
   %cmp5.us = icmp ugt i32 %inc17.us, %sub
-  %.not.us = or i1 %cmp15.us, %cmp5.us
+  %.not.us = select i1 %cmp15.us, i1 true, i1 %cmp5.us
   br i1 %.not.us, label %return, label %for.cond6.preheader.us, !llvm.loop !16
 
 return:                                           ; preds = %for.cond6.for.inc16_crit_edge.us, %if.end, %entry
@@ -1744,11 +1744,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %reass.sub = sub i32 %1, %0
-  %cmp10.not21 = icmp eq i32 %reass.sub, -1
-  br i1 %cmp10.not21, label %return, label %for.cond11.preheader.lr.ph
-
-for.cond11.preheader.lr.ph:                       ; preds = %if.end7
+  %reass.sub = sub nuw i32 %1, %0
   %2 = load ptr, ptr %this, align 8
   %3 = load ptr, ptr %other, align 8
   %wide.trip.count = zext i32 %0 to i64
@@ -1759,8 +1755,8 @@ for.cond.loopexit:                                ; preds = %for.body14
   %cmp10.not = icmp eq i32 %dec22, 0
   br i1 %cmp10.not, label %return, label %for.cond11.preheader
 
-for.cond11.preheader:                             ; preds = %for.cond11.preheader.lr.ph, %for.cond.loopexit
-  %dec22 = phi i32 [ %reass.sub, %for.cond11.preheader.lr.ph ], [ %dec, %for.cond.loopexit ]
+for.cond11.preheader:                             ; preds = %if.end7, %for.cond.loopexit
+  %dec22 = phi i32 [ %reass.sub, %if.end7 ], [ %dec, %for.cond.loopexit ]
   br label %land.rhs
 
 land.rhs:                                         ; preds = %for.cond11.preheader, %for.body14
@@ -1780,8 +1776,8 @@ for.body14:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %cmp18, label %land.rhs, label %for.cond.loopexit, !llvm.loop !19
 
-return:                                           ; preds = %for.cond.loopexit, %land.rhs, %entry, %if.end7, %if.end
-  %retval.0 = phi i32 [ -1, %if.end ], [ -1, %if.end7 ], [ %1, %entry ], [ %dec22, %land.rhs ], [ -1, %for.cond.loopexit ]
+return:                                           ; preds = %for.cond.loopexit, %land.rhs, %entry, %if.end
+  %retval.0 = phi i32 [ -1, %if.end ], [ %1, %entry ], [ %dec22, %land.rhs ], [ -1, %for.cond.loopexit ]
   ret i32 %retval.0
 }
 

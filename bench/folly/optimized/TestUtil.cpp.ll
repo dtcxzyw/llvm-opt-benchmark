@@ -6807,7 +6807,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !188
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not11.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not11.i.i.i.i, label %invoke.cont27, label %for.inc.i.i.i.i.preheader
 
@@ -44925,7 +44925,7 @@ if.else:                                          ; preds = %_ZNK5boost16cpp_reg
 if.end89:                                         ; preds = %if.else
   %idx.ext = zext i8 %cond.i343547 to i64
   %add.ptr93 = getelementptr inbounds i8, ptr %_map, i64 %idx.ext
-  %sub = sub i8 %cond.i350, %cond.i343547
+  %sub = sub nuw i8 %cond.i350, %cond.i343547
   %conv97 = zext i8 %sub to i64
   %add = add nuw nsw i64 %conv97, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr93, i8 1, i64 %add, i1 false)
@@ -55269,7 +55269,7 @@ while.cond:                                       ; preds = %if.end19, %while.co
 while.body:                                       ; preds = %while.cond
   %3 = load ptr, ptr %out, align 8, !tbaa !14
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %1
-  %sub = sub i64 %2, %1
+  %sub = sub nuw i64 %2, %1
   %call11 = invoke noundef i64 @_ZN5folly8readFullEiPvm(i32 noundef %fd, ptr noundef nonnull %arrayidx.i, i64 noundef %sub)
           to label %invoke.cont10 unwind label %lpad9
 

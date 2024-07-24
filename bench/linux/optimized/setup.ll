@@ -767,7 +767,7 @@ define internal fastcc void @reserve_brk() unnamed_addr #0 section ".init.text" 
   %5 = add i64 %2, 2147483648
   %6 = load i64, ptr @phys_base, align 8
   %7 = add i64 %5, %6
-  %8 = sub i64 %1, %2
+  %8 = sub nuw i64 %1, %2
   %9 = tail call i32 @memblock_reserve(i64 noundef %7, i64 noundef %8) #11
   br label %10
 

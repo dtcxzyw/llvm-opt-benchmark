@@ -17703,7 +17703,7 @@ invoke.cont38:                                    ; preds = %invoke.cont34
   br i1 %cmp4.i, label %invoke.cont43, label %for.inc.thread
 
 invoke.cont38.thread286:                          ; preds = %_ZNK6vectorIS_ISt4pairIi8rationalELb1EjELb1EjE4sizeEv.exit.i
-  %sub.i288 = sub i32 %39, %41
+  %sub.i288 = sub nuw i32 %39, %41
   %and.i289 = and i32 %sub.i288, 1
   %cmp4.i290 = icmp eq i32 %and.i289, 0
   br i1 %cmp4.i290, label %invoke.cont43, label %for.inc.thread
@@ -38372,7 +38372,7 @@ invoke.cont38:                                    ; preds = %invoke.cont34
   br i1 %cmp4.i, label %invoke.cont43, label %for.inc.thread
 
 invoke.cont38.thread247:                          ; preds = %_ZNK6vectorIS_ISt4pairIi8rationalELb1EjELb1EjE4sizeEv.exit.i
-  %sub.i249 = sub i32 %39, %41
+  %sub.i249 = sub nuw i32 %39, %41
   %and.i250 = and i32 %sub.i249, 1
   %cmp4.i251 = icmp eq i32 %and.i250, 0
   br i1 %cmp4.i251, label %invoke.cont43, label %for.inc.thread
@@ -58375,7 +58375,7 @@ invoke.cont38:                                    ; preds = %invoke.cont34
   br i1 %cmp4.i, label %invoke.cont43, label %for.inc.thread
 
 invoke.cont38.thread261:                          ; preds = %_ZNK6vectorIS_ISt4pairIi8rationalELb1EjELb1EjE4sizeEv.exit.i
-  %sub.i263 = sub i32 %39, %41
+  %sub.i263 = sub nuw i32 %39, %41
   %and.i264 = and i32 %sub.i263, 1
   %cmp4.i265 = icmp eq i32 %and.i264, 0
   br i1 %cmp4.i265, label %invoke.cont43, label %for.inc.thread
@@ -78653,7 +78653,7 @@ invoke.cont38:                                    ; preds = %invoke.cont34
   br i1 %cmp4.i, label %invoke.cont43, label %for.inc.thread
 
 invoke.cont38.thread261:                          ; preds = %_ZNK6vectorIS_ISt4pairIi8rationalELb1EjELb1EjE4sizeEv.exit.i
-  %sub.i263 = sub i32 %39, %41
+  %sub.i263 = sub nuw i32 %39, %41
   %and.i264 = and i32 %sub.i263, 1
   %cmp4.i265 = icmp eq i32 %and.i264, 0
   br i1 %cmp4.i265, label %invoke.cont43, label %for.inc.thread

@@ -2645,7 +2645,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
 
 117:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h286b4de4b2f08090E.llvm.2171480472617847398.exit.i"
   %118 = getelementptr inbounds i8, ptr %111, i64 8
-  %119 = sub i64 %105, %.fca.1.extract
+  %119 = sub nuw i64 %105, %.fca.1.extract
   %120 = shl i64 %119, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %118, ptr nonnull align 8 %111, i64 %120, i1 false)
   br label %126

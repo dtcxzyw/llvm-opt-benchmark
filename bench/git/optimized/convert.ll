@@ -4421,7 +4421,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %entry
 while.body.lr.ph.split.us:                        ; preds = %while.cond.outer.backedge, %while.body.lr.ph.lr.ph
   %input.addr.0.ph102 = phi ptr [ %input, %while.body.lr.ph.lr.ph ], [ %input.addr.0.ph.be, %while.cond.outer.backedge ]
   %filled.0.ph100 = phi i64 [ 0, %while.body.lr.ph.lr.ph ], [ %filled.0.ph.be, %while.cond.outer.backedge ]
-  %sub = sub i64 %0, %filled.0.ph100
+  %sub = sub nuw i64 %0, %filled.0.ph100
   store i64 %sub, ptr %remaining, align 8
   %1 = load i32, ptr %ptr, align 4
   %2 = load i32, ptr %end, align 8

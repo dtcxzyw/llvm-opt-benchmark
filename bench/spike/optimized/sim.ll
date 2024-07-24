@@ -3899,7 +3899,7 @@ define void @_ZN5sim_t4stepEm(ptr nocapture noundef nonnull align 8 dereferencea
 
 9:                                                ; preds = %.lr.ph21, %.loopexit
   %.020 = phi i64 [ 0, %.lr.ph21 ], [ %47, %.loopexit ]
-  %10 = sub i64 %1, %.020
+  %10 = sub nuw i64 %1, %.020
   %11 = load i64, ptr %3, align 8
   %12 = sub i64 5000, %11
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %12, i64 %10)
@@ -4279,7 +4279,7 @@ _ZN5sim_t8get_coreEm.exit34:                      ; preds = %._crit_edge
   br i1 %82, label %83, label %112
 
 83:                                               ; preds = %74
-  %84 = sub i64 %81, %79
+  %84 = sub nuw i64 %81, %79
   %85 = load ptr, ptr %61, align 8
   %86 = ptrtoint ptr %85 to i64
   %87 = sub i64 %86, %77
@@ -5705,7 +5705,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP16device_factory_t
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP16device_factory_tSt6vectorIS3_SaIS3_EEEEPPKS2_SA_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP16device_factory_tSt6vectorIS3_SaIS3_EEEEPPKS2_SA_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP16device_factory_tSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %47 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPP16device_factory_tSt6vectorIS3_SaIS3_EEEEPPKS2_SA_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %14, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPP16device_factory_tSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %48 = sub nsw i64 %10, %21
+  %48 = sub nuw nsw i64 %10, %21
   %49 = getelementptr inbounds ptr, ptr %47, i64 %48
   store ptr %49, ptr %13, align 8
   %.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %14, %1
@@ -6090,7 +6090,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_cET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit, %29
   %32 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit ], [ %.pre, %29 ]
-  %33 = sub i64 %9, %19
+  %33 = sub nuw i64 %9, %19
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
   store ptr %34, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1

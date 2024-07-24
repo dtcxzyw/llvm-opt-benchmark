@@ -2953,7 +2953,7 @@ while.body.i.i:                                   ; preds = %if.end14.i, %if.end
   br i1 %cmp.i.i, label %if.then.i41.i, label %if.end.i.i
 
 if.then.i41.i:                                    ; preds = %while.body.i.i
-  %sub.i.i = sub i64 %add.i.i, %start_iov_off.addr.024.i.i
+  %sub.i.i = sub nuw i64 %add.i.i, %start_iov_off.addr.024.i.i
   %cond.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %bytes_to_copy.addr.023.i.i)
   %add4.i.i = add i64 %copied.021.i.i, %87
   %89 = load ptr, ptr %iov.addr.025.i.i, align 8

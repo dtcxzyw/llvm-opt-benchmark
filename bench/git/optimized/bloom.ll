@@ -624,7 +624,7 @@ if.then20.i:                                      ; preds = %if.end18.i
   br label %if.end11
 
 if.end25.i:                                       ; preds = %if.end18.i
-  %sub26.i = sub i32 %or11.i.i, %start_index.0.i
+  %sub26.i = sub nuw i32 %or11.i.i, %start_index.0.i
   %conv27.i = zext i32 %sub26.i to i64
   %len.i = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 8
   store i64 %conv27.i, ptr %len.i, align 8

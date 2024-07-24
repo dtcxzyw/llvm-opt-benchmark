@@ -89,7 +89,7 @@ define internal noundef i32 @md5_update(ptr nocapture noundef %0, ptr nocapture 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %20, ptr noundef align 1 %1, i64 %18, i1 false)
   tail call fastcc void @md5_transform(ptr noundef %4, ptr noundef %13)
   %21 = getelementptr i8, ptr %1, i64 %18
-  %22 = sub i32 %2, %9
+  %22 = sub nuw i32 %2, %9
   %23 = icmp ugt i32 %22, 63
   br i1 %23, label %.preheader, label %.loopexit
 

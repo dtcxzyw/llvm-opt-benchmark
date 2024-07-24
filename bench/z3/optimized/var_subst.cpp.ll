@@ -2756,7 +2756,7 @@ sw.bb10:                                          ; preds = %if.end
   br i1 %cmp.not, label %while.cond.backedge, label %if.then13
 
 if.then13:                                        ; preds = %sw.bb10
-  %sub = sub i32 %29, %offset
+  %sub = sub nuw i32 %29, %offset
   %30 = load ptr, ptr %sorts, align 8
   %cmp.i29 = icmp eq ptr %30, null
   br i1 %cmp.i29, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit

@@ -3033,7 +3033,7 @@ if.then96:                                        ; preds = %while.body93
   br label %if.end105
 
 if.else100:                                       ; preds = %while.body93
-  %sub103 = sub i32 %102, %98
+  %sub103 = sub nuw i32 %102, %98
   %cmp.i159 = icmp eq i32 %102, %98
   br i1 %cmp.i159, label %if.end105, label %if.else.i160
 

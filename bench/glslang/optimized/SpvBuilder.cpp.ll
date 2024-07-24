@@ -1612,7 +1612,7 @@ _ZN3spv11Instruction16addStringOperandEPKc.exit:  ; preds = %.thread.i, %23, %24
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %35
-  %40 = sub nsw i64 %37, %34
+  %40 = sub nuw nsw i64 %37, %34
   tail call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %40)
   %.pre.i = load ptr, ptr %27, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -1834,7 +1834,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %77
-  %82 = sub nsw i64 %79, %76
+  %82 = sub nuw nsw i64 %79, %76
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %82)
   %.pre.i = load ptr, ptr %69, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -2121,7 +2121,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %77
-  %82 = sub nsw i64 %79, %76
+  %82 = sub nuw nsw i64 %79, %76
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %82)
   %.pre.i = load ptr, ptr %69, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -2431,7 +2431,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %133
-  %138 = sub nsw i64 %135, %132
+  %138 = sub nuw nsw i64 %135, %132
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %125, i64 noundef %138)
   %.pre.i = load ptr, ptr %125, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -2700,7 +2700,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %78
-  %83 = sub nsw i64 %80, %77
+  %83 = sub nuw nsw i64 %80, %77
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %70, i64 noundef %83)
   %.pre.i = load ptr, ptr %70, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -3134,7 +3134,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %171
-  %176 = sub nsw i64 %173, %170
+  %176 = sub nuw nsw i64 %173, %170
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %163, i64 noundef %176)
   %.pre.i = load ptr, ptr %163, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -3389,7 +3389,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %113
-  %118 = sub nsw i64 %115, %112
+  %118 = sub nuw nsw i64 %115, %112
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %105, i64 noundef %118)
   %.pre.i = load ptr, ptr %105, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -3874,7 +3874,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %110
-  %115 = sub nsw i64 %112, %109
+  %115 = sub nuw nsw i64 %112, %109
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %102, i64 noundef %115)
   %.pre.i = load ptr, ptr %102, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -3981,7 +3981,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %37
-  %42 = sub nsw i64 %39, %36
+  %42 = sub nuw nsw i64 %39, %36
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %42)
   %.pre.i = load ptr, ptr %29, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -4198,7 +4198,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %82
-  %87 = sub nsw i64 %84, %81
+  %87 = sub nuw nsw i64 %84, %81
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %74, i64 noundef %87)
   %.pre.i = load ptr, ptr %74, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -4439,7 +4439,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %112
-  %117 = sub nsw i64 %114, %111
+  %117 = sub nuw nsw i64 %114, %111
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %104, i64 noundef %117)
   %.pre.i = load ptr, ptr %104, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -4709,7 +4709,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %116
-  %121 = sub nsw i64 %118, %115
+  %121 = sub nuw nsw i64 %118, %115
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %108, i64 noundef %121)
   %.pre.i = load ptr, ptr %108, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -5092,7 +5092,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %142
-  %147 = sub nsw i64 %144, %141
+  %147 = sub nuw nsw i64 %144, %141
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %134, i64 noundef %147)
   %.pre.i = load ptr, ptr %134, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -5321,7 +5321,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %102
-  %107 = sub nsw i64 %104, %101
+  %107 = sub nuw nsw i64 %104, %101
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %94, i64 noundef %107)
   %.pre.i = load ptr, ptr %94, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -5679,7 +5679,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %130
-  %135 = sub nsw i64 %132, %129
+  %135 = sub nuw nsw i64 %132, %129
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %135)
   %.pre.i = load ptr, ptr %122, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -5888,7 +5888,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %91
-  %96 = sub nsw i64 %93, %90
+  %96 = sub nuw nsw i64 %93, %90
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %83, i64 noundef %96)
   %.pre.i = load ptr, ptr %83, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -6341,7 +6341,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %113
-  %118 = sub nsw i64 %115, %112
+  %118 = sub nuw nsw i64 %115, %112
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %105, i64 noundef %118)
   %.pre.i = load ptr, ptr %105, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -6610,7 +6610,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %115
-  %120 = sub nsw i64 %117, %114
+  %120 = sub nuw nsw i64 %117, %114
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %107, i64 noundef %120)
   %.pre.i = load ptr, ptr %107, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -6883,7 +6883,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %125
-  %130 = sub nsw i64 %127, %124
+  %130 = sub nuw nsw i64 %127, %124
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %117, i64 noundef %130)
   %.pre.i = load ptr, ptr %117, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -7149,7 +7149,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %127
-  %132 = sub nsw i64 %129, %126
+  %132 = sub nuw nsw i64 %129, %126
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %119, i64 noundef %132)
   %.pre.i = load ptr, ptr %119, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -7408,7 +7408,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %122
-  %127 = sub nsw i64 %124, %121
+  %127 = sub nuw nsw i64 %124, %121
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %114, i64 noundef %127)
   %.pre.i = load ptr, ptr %114, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -7776,7 +7776,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %157, label %158, label %160
 
 158:                                              ; preds = %154
-  %159 = sub nsw i64 %156, %153
+  %159 = sub nuw nsw i64 %156, %153
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %146, i64 noundef %159)
   %.pre.i = load ptr, ptr %146, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -8027,7 +8027,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %116
-  %121 = sub nsw i64 %118, %115
+  %121 = sub nuw nsw i64 %118, %115
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %108, i64 noundef %121)
   %.pre.i = load ptr, ptr %108, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -8152,7 +8152,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %37
-  %42 = sub nsw i64 %39, %36
+  %42 = sub nuw nsw i64 %39, %36
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %42)
   %.pre.i = load ptr, ptr %29, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -8526,7 +8526,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %178, label %179, label %181
 
 179:                                              ; preds = %175
-  %180 = sub nsw i64 %177, %174
+  %180 = sub nuw nsw i64 %177, %174
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %167, i64 noundef %180)
   %.pre.i = load ptr, ptr %167, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -8745,7 +8745,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %91
-  %96 = sub nsw i64 %93, %90
+  %96 = sub nuw nsw i64 %93, %90
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %83, i64 noundef %96)
   %.pre.i = load ptr, ptr %83, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -9077,7 +9077,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %146
-  %151 = sub nsw i64 %148, %145
+  %151 = sub nuw nsw i64 %148, %145
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %138, i64 noundef %151)
   %.pre.i = load ptr, ptr %138, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -10024,7 +10024,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %103
-  %108 = sub nsw i64 %105, %102
+  %108 = sub nuw nsw i64 %105, %102
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %95, i64 noundef %108)
   %.pre.i = load ptr, ptr %95, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -10163,7 +10163,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %46
-  %51 = sub nsw i64 %48, %45
+  %51 = sub nuw nsw i64 %48, %45
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %51)
   %.pre.i = load ptr, ptr %38, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -10321,7 +10321,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %55
-  %60 = sub nsw i64 %57, %54
+  %60 = sub nuw nsw i64 %57, %54
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %60)
   %.pre.i = load ptr, ptr %47, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -10601,7 +10601,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %122
-  %127 = sub nsw i64 %124, %121
+  %127 = sub nuw nsw i64 %124, %121
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %114, i64 noundef %127)
   %.pre.i = load ptr, ptr %114, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -10848,7 +10848,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %75, %
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %111
-  %116 = sub nsw i64 %113, %110
+  %116 = sub nuw nsw i64 %113, %110
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %103, i64 noundef %116)
   %.pre.i = load ptr, ptr %103, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -11074,7 +11074,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %100
-  %105 = sub nsw i64 %102, %99
+  %105 = sub nuw nsw i64 %102, %99
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %105)
   %.pre.i = load ptr, ptr %92, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -11318,7 +11318,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %105
-  %110 = sub nsw i64 %107, %104
+  %110 = sub nuw nsw i64 %107, %104
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %97, i64 noundef %110)
   %.pre.i = load ptr, ptr %97, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -11460,7 +11460,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %57
-  %62 = sub nsw i64 %59, %56
+  %62 = sub nuw nsw i64 %59, %56
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %49, i64 noundef %62)
   %.pre.i = load ptr, ptr %49, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -11650,7 +11650,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %72
-  %77 = sub nsw i64 %74, %71
+  %77 = sub nuw nsw i64 %74, %71
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %64, i64 noundef %77)
   %.pre.i = load ptr, ptr %64, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -11834,7 +11834,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %84
-  %89 = sub nsw i64 %86, %83
+  %89 = sub nuw nsw i64 %86, %83
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %76, i64 noundef %89)
   %.pre.i = load ptr, ptr %76, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -11956,7 +11956,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %46
-  %51 = sub nsw i64 %48, %45
+  %51 = sub nuw nsw i64 %48, %45
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %51)
   %.pre.i = load ptr, ptr %38, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -12207,7 +12207,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %96
-  %101 = sub nsw i64 %98, %95
+  %101 = sub nuw nsw i64 %98, %95
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %101)
   %.pre.i.i = load ptr, ptr %88, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i
@@ -12396,7 +12396,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
   br i1 %192, label %193, label %195
 
 193:                                              ; preds = %189
-  %194 = sub nsw i64 %191, %188
+  %194 = sub nuw nsw i64 %191, %188
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %181, i64 noundef %194)
   %.pre.i.i19 = load ptr, ptr %181, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i17
@@ -12548,7 +12548,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
   br i1 %271, label %272, label %274
 
 272:                                              ; preds = %268
-  %273 = sub nsw i64 %270, %267
+  %273 = sub nuw nsw i64 %270, %267
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %260, i64 noundef %273)
   %.pre.i.i38 = load ptr, ptr %260, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i36
@@ -12651,7 +12651,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
   br i1 %318, label %319, label %321
 
 319:                                              ; preds = %315
-  %320 = sub nsw i64 %317, %314
+  %320 = sub nuw nsw i64 %317, %314
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %307, i64 noundef %320)
   %.pre.i.i52 = load ptr, ptr %307, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i50
@@ -12914,7 +12914,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %78
-  %83 = sub nsw i64 %80, %77
+  %83 = sub nuw nsw i64 %80, %77
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %70, i64 noundef %83)
   %.pre.i = load ptr, ptr %70, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -13129,7 +13129,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %78
-  %83 = sub nsw i64 %80, %77
+  %83 = sub nuw nsw i64 %80, %77
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %70, i64 noundef %83)
   %.pre.i = load ptr, ptr %70, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -13342,7 +13342,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %76
-  %81 = sub nsw i64 %78, %75
+  %81 = sub nuw nsw i64 %78, %75
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %68, i64 noundef %81)
   %.pre.i = load ptr, ptr %68, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -14253,7 +14253,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %48, %
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %84
-  %89 = sub nsw i64 %86, %83
+  %89 = sub nuw nsw i64 %86, %83
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %76, i64 noundef %89)
   %.pre.i = load ptr, ptr %76, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -14509,7 +14509,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %79, %
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %115
-  %120 = sub nsw i64 %117, %114
+  %120 = sub nuw nsw i64 %117, %114
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %107, i64 noundef %120)
   %.pre.i = load ptr, ptr %107, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -14785,7 +14785,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %91, %
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %127
-  %132 = sub nsw i64 %129, %126
+  %132 = sub nuw nsw i64 %129, %126
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %119, i64 noundef %132)
   %.pre.i = load ptr, ptr %119, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -15043,7 +15043,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %80, %
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %116
-  %121 = sub nsw i64 %118, %115
+  %121 = sub nuw nsw i64 %118, %115
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %108, i64 noundef %121)
   %.pre.i = load ptr, ptr %108, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -15321,7 +15321,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %92, %
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %128
-  %133 = sub nsw i64 %130, %127
+  %133 = sub nuw nsw i64 %130, %127
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %120, i64 noundef %133)
   %.pre.i = load ptr, ptr %120, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -15585,7 +15585,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %82, %
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %118
-  %123 = sub nsw i64 %120, %117
+  %123 = sub nuw nsw i64 %120, %117
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %110, i64 noundef %123)
   %.pre.i = load ptr, ptr %110, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -16512,7 +16512,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt
   br i1 %237, label %238, label %240
 
 238:                                              ; preds = %234
-  %239 = sub nsw i64 %236, %233
+  %239 = sub nuw nsw i64 %236, %233
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %239)
   %.pre.i = load ptr, ptr %11, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -19080,7 +19080,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %45, %50
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %61
-  %66 = sub nsw i64 %63, %60
+  %66 = sub nuw nsw i64 %63, %60
   tail call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %66)
   %.pre.i = load ptr, ptr %53, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -19237,7 +19237,7 @@ _ZN3spv6Module11addFunctionEPNS_8FunctionE.exit:  ; preds = %79, %_ZNSt6vectorIP
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %143
-  %148 = sub nsw i64 %145, %142
+  %148 = sub nuw nsw i64 %145, %142
   tail call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %148)
   %.pre.i22 = load ptr, ptr %53, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit23
@@ -19424,7 +19424,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %41
-  %46 = sub nsw i64 %43, %40
+  %46 = sub nuw nsw i64 %43, %40
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %46)
   %.pre.i = load ptr, ptr %33, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -19801,7 +19801,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %65
-  %70 = sub nsw i64 %67, %64
+  %70 = sub nuw nsw i64 %67, %64
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %57, i64 noundef %70)
   %.pre.i = load ptr, ptr %57, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -19947,7 +19947,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %65
-  %70 = sub nsw i64 %67, %64
+  %70 = sub nuw nsw i64 %67, %64
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %57, i64 noundef %70)
   %.pre.i = load ptr, ptr %57, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -20826,7 +20826,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit.i: ; pred
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %57
-  %62 = sub nsw i64 %59, %56
+  %62 = sub nuw nsw i64 %59, %56
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %49, i64 noundef %62)
   %.pre.i.i = load ptr, ptr %49, align 8
   br label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
@@ -20922,7 +20922,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit33: ; pred
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %104
-  %109 = sub nsw i64 %106, %103
+  %109 = sub nuw nsw i64 %106, %103
   call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %109)
   %.pre.i = load ptr, ptr %96, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
@@ -21590,7 +21590,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %37
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %64
-  %69 = sub nsw i64 %66, %63
+  %69 = sub nuw nsw i64 %66, %63
   tail call void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %69)
   %.pre.i = load ptr, ptr %56, align 8
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit

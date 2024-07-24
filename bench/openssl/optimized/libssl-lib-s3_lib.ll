@@ -455,8 +455,8 @@ entry:
 define ptr @ssl3_get_cipher(i32 noundef %u) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ult i32 %u, 167
-  %conv = zext i32 %u to i64
-  %sub = sub nuw nsw i64 166, %conv
+  %narrow = sub nuw nsw i32 166, %u
+  %sub = zext nneg i32 %narrow to i64
   %arrayidx = getelementptr inbounds [167 x %struct.ssl_cipher_st], ptr @ssl3_ciphers, i64 0, i64 %sub
   %retval.0 = select i1 %cmp, ptr %arrayidx, ptr null
   ret ptr %retval.0

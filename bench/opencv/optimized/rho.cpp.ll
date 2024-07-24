@@ -1998,7 +1998,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %6, %10
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %16
-  %27 = sub nsw i64 %17, %24
+  %27 = sub nuw nsw i64 %17, %24
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %27)
   %.pre24 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -2067,7 +2067,7 @@ _ZN2cvL14sacInitNonRandEdjjPj.exit:               ; preds = %.lr.ph.i, %_ZNSt6ve
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %54
-  %65 = sub nsw i64 %55, %62
+  %65 = sub nuw nsw i64 %55, %62
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %65)
   %.pre = load double, ptr %13, align 8
   %.pre22 = load i32, ptr %51, align 8

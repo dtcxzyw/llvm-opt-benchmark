@@ -54,7 +54,7 @@ define noalias noundef ptr @agrealloc(ptr nocapture noundef readnone %0, ptr nou
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %13, i64 %2
-  %18 = sub i64 %3, %2
+  %18 = sub nuw i64 %3, %2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %18, i1 false)
   br label %agalloc.exit.thread
 

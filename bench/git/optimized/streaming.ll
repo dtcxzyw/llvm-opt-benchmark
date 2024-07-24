@@ -537,7 +537,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %total_read.138 = phi i64 [ %total_read.0, %while.body.lr.ph ], [ %sub.ptr.sub, %if.end42 ]
   %add.ptr21 = getelementptr inbounds i8, ptr %buf, i64 %total_read.138
   store ptr %add.ptr21, ptr %next_out, align 8
-  %sub22 = sub i64 %sz, %total_read.138
+  %sub22 = sub nuw i64 %sz, %total_read.138
   store i64 %sub22, ptr %avail_out, align 8
   %call = tail call i32 @git_inflate(ptr noundef nonnull %z, i32 noundef 4) #11
   %5 = load ptr, ptr %next_out, align 8
@@ -648,7 +648,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call = call ptr @use_pack(ptr noundef %1, ptr noundef nonnull %window, i64 noundef %2, ptr noundef nonnull %avail_in) #11
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %total_read.031
   store ptr %add.ptr, ptr %next_out, align 8
-  %sub = sub i64 %sz, %total_read.031
+  %sub = sub nuw i64 %sz, %total_read.031
   store i64 %sub, ptr %avail_out, align 8
   store ptr %call, ptr %next_in, align 8
   %call12 = call i32 @git_inflate(ptr noundef nonnull %z7, i32 noundef 4) #11

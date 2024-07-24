@@ -351,7 +351,7 @@ define void @_ZN9text_edit8TextEdit5apply17hfac62dd931182d45E(ptr noalias nocapt
   br i1 %42, label %._crit_edge, label %.lr.ph
 
 43:                                               ; preds = %._crit_edge
-  %44 = sub i32 %.0.sroa.speculated.i, %13
+  %44 = sub nuw i32 %.0.sroa.speculated.i, %13
   %45 = zext i32 %44 to i64
   %46 = load i64, ptr %1, align 8, !alias.scope !67, !noundef !16
   %47 = sub i64 %46, %.val21

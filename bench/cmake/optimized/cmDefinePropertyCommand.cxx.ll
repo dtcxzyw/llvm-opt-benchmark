@@ -738,7 +738,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %22
   br i1 %234, label %_Z11cmHasSuffixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i
-  %235 = sub i64 %229, %232
+  %235 = sub nuw i64 %229, %232
   %236 = getelementptr inbounds i8, ptr %230, i64 %235
   %bcmp.i = call i32 @bcmp(ptr %236, ptr %233, i64 %232)
   %237 = icmp eq i32 %bcmp.i, 0

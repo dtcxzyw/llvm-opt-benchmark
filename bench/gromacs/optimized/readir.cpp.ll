@@ -10215,7 +10215,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %1960, %1954
   br i1 %2008, label %2009, label %2011
 
 2009:                                             ; preds = %1997
-  %2010 = sub nsw i64 %2000, %2007
+  %2010 = sub nuw nsw i64 %2000, %2007
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1998, i64 noundef %2010)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i unwind label %.loopexit163.i
 
@@ -10425,7 +10425,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit127.i:               ; preds = %2086, %2078
   br i1 %2098, label %2099, label %2101
 
 2099:                                             ; preds = %2090
-  %2100 = sub nsw i64 %2091, %2097
+  %2100 = sub nuw nsw i64 %2091, %2097
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2079, i64 noundef %2100)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
@@ -10566,7 +10566,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i131.i:             ; preds = %2136, %2132
   br i1 %2155, label %2156, label %2158
 
 2156:                                             ; preds = %2141
-  %2157 = sub nsw i64 %2147, %2154
+  %2157 = sub nuw nsw i64 %2147, %2154
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2143, i64 noundef %2157)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i703 unwind label %.loopexit.split-lp1113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -24145,7 +24145,7 @@ _ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = sub i64 %2, %16
+  %29 = sub nuw i64 %2, %16
   %30 = getelementptr inbounds i8, ptr %9, i64 %29
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 %14, i64 %29, i1 false)
   br label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit

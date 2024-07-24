@@ -2137,7 +2137,7 @@ if.then103:                                       ; preds = %if.end101
   %add.ptr = getelementptr inbounds i16, ptr %inout_selection, i64 %idx.ext
   %idx.ext104 = zext i32 %num_processed.1 to i64
   %add.ptr105 = getelementptr inbounds i16, ptr %inout_selection, i64 %idx.ext104
-  %sub = sub i32 %51, %num_processed.1
+  %sub = sub nuw i32 %51, %num_processed.1
   %conv106 = zext i32 %sub to i64
   %mul107 = shl nuw nsw i64 %conv106, 1
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr, ptr align 2 %add.ptr105, i64 %mul107, i1 false)

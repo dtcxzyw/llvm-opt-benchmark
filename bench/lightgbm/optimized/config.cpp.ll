@@ -651,7 +651,7 @@ define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_
   br i1 %18, label %19, label %32
 
 19:                                               ; preds = %17
-  %20 = sub i64 %.033, %.01732
+  %20 = sub nuw i64 %.033, %.01732
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.01732, i64 noundef %20)
           to label %21 unwind label %.loopexit
 
@@ -2686,7 +2686,7 @@ define void @_ZN8LightGBM6Config7Str2MapB5cxx11EPKc(ptr dead_on_unwind noalias w
   br i1 %38, label %39, label %50
 
 39:                                               ; preds = %37
-  %40 = sub i64 %.02312.i, %.02411.i
+  %40 = sub nuw i64 %.02312.i, %.02411.i
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.02411.i, i64 noundef %40)
           to label %41 unwind label %.loopexit.split-lp.loopexit.i
 
@@ -10125,7 +10125,7 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_
   br i1 %44, label %45, label %56
 
 45:                                               ; preds = %43
-  %46 = sub i64 %.01829.i.i, %.02028.i.i
+  %46 = sub nuw i64 %.01829.i.i, %.02028.i.i
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.02028.i.i, i64 noundef %46)
           to label %47 unwind label %36
 

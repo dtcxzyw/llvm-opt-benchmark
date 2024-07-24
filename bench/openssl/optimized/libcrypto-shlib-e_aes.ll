@@ -755,7 +755,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %len, %conv
+  %sub = sub nuw i64 %len, %conv
   %block = getelementptr inbounds i8, ptr %call1, i64 248
   br label %for.body
 
@@ -3262,7 +3262,7 @@ if.then19:                                        ; preds = %if.then15
 
 if.end24:                                         ; preds = %if.then15
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr21, ptr nonnull align 1 %in, i64 %conv16, i1 false)
-  %sub29 = sub i64 %len, %conv16
+  %sub29 = sub nuw i64 %len, %conv16
   %add.ptr31 = getelementptr inbounds i8, ptr %in, i64 %conv16
   br i1 %cmp5, label %if.then34, label %if.else39
 

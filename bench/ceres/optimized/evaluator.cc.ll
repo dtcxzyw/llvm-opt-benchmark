@@ -836,7 +836,7 @@ _ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_delete
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.noexc16
-  %34 = sub nsw i64 %24, %31
+  %34 = sub nuw nsw i64 %24, %31
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %34)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i unwind label %81
 
@@ -7206,7 +7206,7 @@ _ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_delete
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.noexc16
-  %34 = sub nsw i64 %24, %31
+  %34 = sub nuw nsw i64 %24, %31
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %34)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i unwind label %81
 
@@ -10024,7 +10024,7 @@ _ZNSt10unique_ptrIA_N5ceres8internal21BlockEvaluatePreparerESt14default_deleteIS
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.noexc18
-  %35 = sub nsw i64 %25, %32
+  %35 = sub nuw nsw i64 %25, %32
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %35)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i unwind label %84
 
@@ -12927,7 +12927,7 @@ _ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_delete
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.noexc16
-  %34 = sub nsw i64 %24, %31
+  %34 = sub nuw nsw i64 %24, %31
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %34)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i unwind label %81
 

@@ -4527,7 +4527,7 @@ define void @_ZN6rustls4msgs7message8outbound14OutboundChunks11copy_to_vec17hbcf
 
 36:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h59878e632e23b65dE.exit"
   %.011 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %.022)
-  %37 = sub i64 %25, %.022
+  %37 = sub nuw i64 %25, %.022
   %.010 = tail call i64 @llvm.umin.i64(i64 %37, i64 %32)
   %38 = icmp ugt i64 %.011, %.010
   br i1 %38, label %39, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.exit"
@@ -5739,7 +5739,7 @@ define void @"_ZN66_$LT$rustls..conn..connection..Reader$u20$as$u20$std..io..Rea
   %14 = load i64, ptr %10, align 8, !alias.scope !937, !noalias !935, !noundef !4
   %.not.i.i.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i.i.i, i64 0, i64 %14
-  %.0.i.i.i = sub i64 %13, %15
+  %.0.i.i.i = sub nuw i64 %13, %15
   %16 = load ptr, ptr %12, align 8, !alias.scope !942, !noalias !935, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %16, i64 %.0.i.i.i
   %18 = getelementptr inbounds i8, ptr %17, i64 8
@@ -6480,7 +6480,7 @@ _ZN6rustls6crypto12SharedSecret12secret_bytes17hfbe9d8e02ff8e25fE.exit: ; preds 
   %9 = load ptr, ptr %8, align 8, !noalias !4, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds i8, ptr %9, i64 %3
   %11 = getelementptr inbounds i8, ptr %9, i64 %5
-  %12 = sub i64 %5, %3
+  %12 = sub nuw i64 %5, %3
   br label %13
 
 13:                                               ; preds = %16, %_ZN6rustls6crypto12SharedSecret12secret_bytes17hfbe9d8e02ff8e25fE.exit
@@ -6697,7 +6697,7 @@ define hidden void @_ZN6rustls12record_layer11RecordLayer16decrypt_incoming17hf8
   br i1 %45, label %55, label %56
 
 46:                                               ; preds = %39
-  %47 = sub i64 %40, %14
+  %47 = sub nuw i64 %40, %14
   store i64 1, ptr %1, align 8, !alias.scope !1088
   store i64 %47, ptr %38, align 8, !alias.scope !1088
   %48 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h51681e12c576d490E monotonic, align 8
@@ -7380,7 +7380,7 @@ define hidden noundef i64 @_ZN6rustls6vecbuf14ChunkVecBuffer6append17h35e2bfd66c
   %24 = add i64 %23, %21
   %.not.i.i = icmp ult i64 %24, %20
   %25 = select i1 %.not.i.i, i64 0, i64 %20
-  %.0.i.i = sub i64 %24, %25
+  %.0.i.i = sub nuw i64 %24, %25
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8, !alias.scope !1188, !noalias !1191, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %27, i64 %.0.i.i
@@ -7435,7 +7435,7 @@ define hidden void @_ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E(pt
   %12 = load i64, ptr %8, align 8, !alias.scope !1208, !noalias !1203, !noundef !4
   %.not.i.i = icmp ult i64 %11, %12
   %13 = select i1 %.not.i.i, i64 0, i64 %12
-  %.0.i.i = sub i64 %11, %13
+  %.0.i.i = sub nuw i64 %11, %13
   store i64 %.0.i.i, ptr %9, align 8, !alias.scope !1206, !noalias !1203
   %14 = add i64 %4, -1
   store i64 %14, ptr %3, align 8, !alias.scope !1206, !noalias !1203
@@ -7685,7 +7685,7 @@ define hidden void @_ZN6rustls6vecbuf14ChunkVecBuffer4read17h841c4d2b9ef97d58E.l
   %13 = load i64, ptr %9, align 8, !alias.scope !1239, !noundef !4
   %.not.i.i = icmp ult i64 %12, %13
   %14 = select i1 %.not.i.i, i64 0, i64 %13
-  %.0.i.i = sub i64 %12, %14
+  %.0.i.i = sub nuw i64 %12, %14
   %15 = load ptr, ptr %11, align 8, !alias.scope !1244, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %15, i64 %.0.i.i
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -7759,7 +7759,7 @@ define internal fastcc void @_ZN6rustls6vecbuf14ChunkVecBuffer7consume17h364657a
   %18 = add i64 %16, 1
   %.not.i.i = icmp ult i64 %18, %.pre36
   %19 = select i1 %.not.i.i, i64 0, i64 %.pre36
-  %.0.i.i = sub i64 %18, %19
+  %.0.i.i = sub nuw i64 %18, %19
   store i64 %.0.i.i, ptr %11, align 8, !alias.scope !1263, !noalias !1265
   %20 = add i64 %17, -1
   store i64 %20, ptr %8, align 8, !alias.scope !1263, !noalias !1265
@@ -7779,7 +7779,7 @@ define internal fastcc void @_ZN6rustls6vecbuf14ChunkVecBuffer7consume17h364657a
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %22
-  %26 = sub i64 %.032, %23
+  %26 = sub nuw i64 %.032, %23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1267
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h316187016974866fE.llvm.4248407042397360440"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
   %27 = load i64, ptr %14, align 8, !range !190, !noalias !1267, !noundef !4
@@ -7964,7 +7964,7 @@ define void @_ZN6rustls6vecbuf14ChunkVecBuffer8write_to17h9c26011c77f532bbE(ptr 
   %34 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 %.sroa.12.039
   %35 = icmp ugt i64 %22, %.sroa.12.039
   %36 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %20, i64 %.sroa.12.039
-  %37 = sub i64 %.sroa.12.039, %22
+  %37 = sub nuw i64 %.sroa.12.039, %22
   %38 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %24, i64 %37
   %.0.i.i = select i1 %35, ptr %36, ptr %38
   %39 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
@@ -15540,7 +15540,7 @@ define hidden void @_ZN6rustls6server11server_conn14EarlyDataState3pop17h488dc5a
   %18 = load i64, ptr %14, align 8, !alias.scope !2559, !noalias !2558, !noundef !4
   %.not.i.i.i = icmp ult i64 %17, %18
   %19 = select i1 %.not.i.i.i, i64 0, i64 %18
-  %.0.i.i.i = sub i64 %17, %19
+  %.0.i.i.i = sub nuw i64 %17, %19
   store i64 %.0.i.i.i, ptr %15, align 8, !alias.scope !2557, !noalias !2558
   %20 = add i64 %10, -1
   store i64 %20, ptr %9, align 8, !alias.scope !2557, !noalias !2558
@@ -15590,7 +15590,7 @@ define hidden void @_ZN6rustls6server11server_conn14EarlyDataState4read17h8c2e31
   %19 = load i64, ptr %15, align 8, !alias.scope !2570, !noalias !2569, !noundef !4
   %.not.i.i.i = icmp ult i64 %18, %19
   %20 = select i1 %.not.i.i.i, i64 0, i64 %19
-  %.0.i.i.i = sub i64 %18, %20
+  %.0.i.i.i = sub nuw i64 %18, %20
   %21 = load ptr, ptr %17, align 8, !alias.scope !2575, !noalias !2569, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %21, i64 %.0.i.i.i
   %23 = getelementptr inbounds i8, ptr %22, i64 8

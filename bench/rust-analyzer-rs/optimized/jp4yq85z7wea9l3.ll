@@ -9097,7 +9097,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %19 = xor i16 %16, -1
   store ptr %18, ptr %5, align 8, !alias.scope !3363
   store ptr %17, ptr %0, align 8, !alias.scope !3363
-  %20 = sub i16 -2, %16
+  %20 = sub nuw i16 -2, %16
   %21 = and i16 %20, %19
   store i16 %21, ptr %4, align 8, !alias.scope !3373
   %22 = add i64 %.promoted, -1
@@ -9325,7 +9325,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %19 = xor i16 %16, -1
   store ptr %18, ptr %5, align 8, !alias.scope !3414
   store ptr %17, ptr %0, align 8, !alias.scope !3414
-  %20 = sub i16 -2, %16
+  %20 = sub nuw i16 -2, %16
   %21 = and i16 %20, %19
   store i16 %21, ptr %4, align 8, !alias.scope !3424
   %22 = add i64 %.promoted, -1
@@ -14247,7 +14247,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h0102252
   %8 = trunc i64 %1 to i32
   store i32 %8, ptr %3, align 8, !alias.scope !4354
   %9 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i8, [23 x i8] }, { i32, i32 }, { i32, [2 x i32] }, i32, i8, [7 x i8] }, ptr %0, i64 %1
-  %10 = sub nsw i64 %5, %1
+  %10 = sub nuw nsw i64 %5, %1
   br label %11
 
 11:                                               ; preds = %13, %7

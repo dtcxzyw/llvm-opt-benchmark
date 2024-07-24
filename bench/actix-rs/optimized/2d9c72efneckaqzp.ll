@@ -7937,7 +7937,7 @@ define void @_ZN3awc7request13ClientRequest16prep_for_sending17h0cb2ec6af81e8b3b
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h954b6edfbf84bc84E.exit82.i": ; preds = %124
   %127 = getelementptr inbounds i8, ptr %.sroa.016.224.i, i64 2
   %128 = getelementptr inbounds i8, ptr %127, i64 %.val3.i.i
-  %129 = sub i64 %125, %.val3.i.i
+  %129 = sub nuw i64 %125, %.val3.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr nonnull readonly align 1 %.val.i.i, i64 %.val3.i.i, i1 false), !alias.scope !613, !noalias !617
   %.sroa.05.0.i = getelementptr inbounds i8, ptr %.sroa.05.026.i, i64 24
   %130 = icmp eq ptr %.sroa.05.0.i, %80
@@ -8326,7 +8326,7 @@ _ZN5alloc3str17join_generic_copy17h4da22ddfbcdf0820E.exit: ; preds = %._crit_edg
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h954b6edfbf84bc84E.exit82.i115": ; preds = %252
   %255 = getelementptr inbounds i8, ptr %.sroa.016.224.i109, i64 2
   %256 = getelementptr inbounds i8, ptr %255, i64 %.val3.i.i112
-  %257 = sub i64 %253, %.val3.i.i112
+  %257 = sub nuw i64 %253, %.val3.i.i112
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %255, ptr nonnull readonly align 1 %.val.i.i111, i64 %.val3.i.i112, i1 false), !alias.scope !694, !noalias !698
   %.sroa.05.0.i116 = getelementptr inbounds i8, ptr %.sroa.05.026.i107, i64 16
   %258 = icmp eq ptr %.sroa.05.0.i116, %214

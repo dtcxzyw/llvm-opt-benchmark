@@ -3503,7 +3503,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sector.010 = phi i64 [ %shr, %while.body.lr.ph ], [ %add77, %for.end ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call, i8 0, i64 %add, i1 false)
   store i64 %sector.010, ptr %call, align 8
-  %sub = sub i32 %nrz, %n.012
+  %sub = sub nuw i32 %nrz, %n.012
   store i32 %sub, ptr %nr_zones, align 8
   br label %do.body
 
@@ -4170,7 +4170,7 @@ if.end68:                                         ; preds = %if.end68.lr.ph, %if
   %33 = load ptr, ptr %arrayidx63, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %p42.068, i64 %spec.select, i1 false)
   %add.ptr69 = getelementptr i8, ptr %p42.068, i64 %spec.select
-  %sub = sub i64 %count.069, %spec.select
+  %sub = sub nuw i64 %count.069, %spec.select
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %34 = load i32, ptr %niov46, align 8
   %35 = sext i32 %34 to i64
@@ -4265,7 +4265,7 @@ while.body:                                       ; preds = %while.cond
   %and = and i32 %1, 1026
   %tobool.not = icmp eq i32 %and, 0
   %2 = load i32, ptr %aio_fildes, align 4
-  %sub5 = sub i64 %0, %offset.0.ph
+  %sub5 = sub nuw i64 %0, %offset.0.ph
   %3 = load i64, ptr %aio_offset, align 8
   %add7 = add i64 %3, %offset.0.ph
   br i1 %tobool.not, label %if.else, label %if.then
@@ -5965,7 +5965,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sector.050 = phi i64 [ %div, %while.body.lr.ph ], [ %add34.le, %while.cond.loopexit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call, i8 0, i64 %add, i1 false)
   store i64 %sector.050, ptr %call, align 8
-  %sub = sub i32 %5, %n.051
+  %sub = sub nuw i32 %5, %n.051
   store i32 %sub, ptr %nr_zones5, align 8
   br label %do.body
 

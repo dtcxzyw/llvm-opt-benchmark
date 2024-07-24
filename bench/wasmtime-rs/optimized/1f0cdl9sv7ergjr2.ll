@@ -5434,7 +5434,7 @@ _ZN16wasmtime_runtime5table5Table7maximum17heeca0cc356fb0d4eE.exit47: ; preds = 
 
 136:                                              ; preds = %131
   %137 = getelementptr inbounds i8, ptr %1, i64 8
-  %138 = sub nsw i64 %132, %134
+  %138 = sub nuw nsw i64 %132, %134
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h3cdef9b180da2ad0E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(24) %137, i64 noundef %138, ptr noundef null)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hde8c738f76bebe5eE.exit"
 
@@ -5451,7 +5451,7 @@ _ZN16wasmtime_runtime5table5Table7maximum17heeca0cc356fb0d4eE.exit47: ; preds = 
 
 144:                                              ; preds = %139
   %145 = getelementptr inbounds i8, ptr %1, i64 8
-  %146 = sub nsw i64 %140, %142
+  %146 = sub nuw nsw i64 %140, %142
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h049629b0c9a8aa81E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(24) %145, i64 noundef %146)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hde8c738f76bebe5eE.exit"
 }

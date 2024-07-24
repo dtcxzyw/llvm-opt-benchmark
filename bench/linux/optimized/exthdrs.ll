@@ -950,12 +950,12 @@ define dso_local void @ipv6_push_nfrag_opts(ptr noundef %0, ptr nocapture nounde
 63:                                               ; preds = %36
   %64 = shl nuw nsw i32 %46, 4
   %65 = add nuw nsw i32 %64, 24
-  %66 = sub nsw i32 %59, %61
-  %67 = shl nsw i32 %66, 3
+  %66 = sub nuw nsw i32 %59, %61
+  %67 = shl nuw nsw i32 %66, 3
   %68 = zext nneg i32 %65 to i64
   %69 = getelementptr i8, ptr %42, i64 %68
   %70 = getelementptr i8, ptr %7, i64 %68
-  %71 = sext i32 %67 to i64
+  %71 = zext nneg i32 %67 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %70, i64 %71, i1 false)
   br label %72
 

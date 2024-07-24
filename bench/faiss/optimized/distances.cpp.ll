@@ -1393,7 +1393,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i.i82: ; preds = %_ZNSt10
   %.03740.i.i.i = phi i64 [ 0, %.lr.ph.i55.i.i ], [ %spec.select.i.i.i, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i.i ]
   %241 = load float, ptr %235, align 4
   %242 = load i64, ptr %237, align 8
-  %243 = sub i64 %232, %.041.i.i.i
+  %243 = sub nuw i64 %232, %.041.i.i.i
   %244 = getelementptr inbounds float, ptr %238, i64 %243
   %245 = load float, ptr %244, align 4
   %246 = getelementptr inbounds i64, ptr %239, i64 %243
@@ -1811,7 +1811,7 @@ _ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i: ; preds 
   %.03740.i77.i.i = phi i64 [ 0, %.lr.ph.i75.i.i ], [ %spec.select.i91.i.i, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i88.i.i ]
   %421 = load float, ptr %378, align 4
   %422 = load i64, ptr %380, align 8
-  %423 = sub i64 %.lcssa.i.i.i, %.041.i76.i.i
+  %423 = sub nuw i64 %.lcssa.i.i.i, %.041.i76.i.i
   %424 = getelementptr inbounds float, ptr %418, i64 %423
   %425 = load float, ptr %424, align 4
   %426 = getelementptr inbounds i64, ptr %419, i64 %423
@@ -1961,7 +1961,7 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i88.i.i: ; preds = %_Z
   %497 = getelementptr inbounds i8, ptr %374, i64 24
   %498 = load ptr, ptr %497, align 8
   %499 = getelementptr inbounds i64, ptr %498, i64 %.lcssa20.i.i.i
-  %500 = sub i64 %.lcssa.i.i.i, %.lcssa20.i.i.i
+  %500 = sub nuw i64 %.lcssa.i.i.i, %.lcssa20.i.i.i
   %.not.i64.i.i = icmp eq ptr %498, null
   %.not49.i.i.i = icmp eq i64 %.lcssa.i.i.i, %.lcssa20.i.i.i
   br i1 %.not.i64.i.i, label %.preheader.i.i.i, label %.preheader41.i.i.i
@@ -2218,7 +2218,7 @@ _ZN5faiss9heap_addnINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i: ; pre
   %.03740.i.i.i104 = phi i64 [ 0, %.lr.ph.i57.i.i ], [ %spec.select.i.i.i114, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i.i113 ]
   %613 = load float, ptr %378, align 4
   %614 = load i64, ptr %380, align 8
-  %615 = sub i64 %609, %.041.i.i.i103
+  %615 = sub nuw i64 %609, %.041.i.i.i103
   %616 = getelementptr inbounds float, ptr %610, i64 %615
   %617 = load float, ptr %616, align 4
   %618 = getelementptr inbounds i64, ptr %611, i64 %615
@@ -3214,7 +3214,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -3927,7 +3927,7 @@ define linkonce_odr void @_ZN5faiss27ReservoirBlockResultHandlerINS_4CMinIflEEE1
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %3
-  %22 = sub i64 %12, %19
+  %22 = sub nuw i64 %12, %19
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %22)
   %.pre = load i64, ptr %7, align 8
   %.pre13 = load i64, ptr %6, align 8
@@ -3963,7 +3963,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %21, %23, %25, %27
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %38 = sub i64 %.pre-phi17, %35
+  %38 = sub nuw i64 %.pre-phi17, %35
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %38)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
@@ -4803,7 +4803,7 @@ _ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %54 = getelementptr inbounds i8, ptr %0, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i64, ptr %55, i64 %.lcssa20
-  %57 = sub i64 %.lcssa, %.lcssa20
+  %57 = sub nuw i64 %.lcssa, %.lcssa20
   tail call void @_ZN5faiss9heap_addnINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m(i64 noundef %.lcssa20, ptr noundef %1, ptr noundef %2, ptr noundef %53, ptr noundef %56, i64 noundef %57)
   %58 = load i64, ptr %5, align 8
   %59 = tail call noundef i64 @_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE(i64 noundef %58, ptr noundef %1, ptr noundef %2)
@@ -5131,7 +5131,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_2
   br i1 %52, label %53, label %84
 
 53:                                               ; preds = %37
-  %54 = sub i64 %45, %51
+  %54 = sub nuw i64 %45, %51
   %55 = load ptr, ptr %30, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %56, %48
@@ -5249,7 +5249,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %88, %86, %84, %.noe
   br i1 %98, label %99, label %130
 
 99:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
-  %100 = sub i64 %91, %97
+  %100 = sub nuw i64 %91, %97
   %101 = load ptr, ptr %33, align 8
   %102 = ptrtoint ptr %101 to i64
   %103 = sub i64 %102, %94
@@ -5619,7 +5619,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_2
   br i1 %52, label %53, label %84
 
 53:                                               ; preds = %37
-  %54 = sub i64 %45, %51
+  %54 = sub nuw i64 %45, %51
   %55 = load ptr, ptr %30, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %56, %48
@@ -5737,7 +5737,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %88, %86, %84, %.noe
   br i1 %98, label %99, label %130
 
 99:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
-  %100 = sub i64 %91, %97
+  %100 = sub nuw i64 %91, %97
   %101 = load ptr, ptr %33, align 8
   %102 = ptrtoint ptr %101 to i64
   %103 = sub i64 %102, %94
@@ -6838,7 +6838,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i.i.
   %.03740.i.i.i.i = phi i64 [ 0, %.lr.ph.i62.i.i.i ], [ %spec.select.i.i.i.i, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i.i.i ]
   %309 = load float, ptr %303, align 4
   %310 = load i64, ptr %305, align 8
-  %311 = sub i64 %300, %.041.i.i.i.i
+  %311 = sub nuw i64 %300, %.041.i.i.i.i
   %312 = getelementptr inbounds float, ptr %306, i64 %311
   %313 = load float, ptr %312, align 4
   %314 = getelementptr inbounds i64, ptr %307, i64 %311
@@ -7354,7 +7354,7 @@ _ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i.i: ; pred
   %.03740.i84.i.i.i = phi i64 [ 0, %.lr.ph.i82.i.i.i ], [ %spec.select.i98.i.i.i, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i95.i.i.i ]
   %515 = load float, ptr %472, align 4
   %516 = load i64, ptr %474, align 8
-  %517 = sub i64 %.lcssa.i.i.i.i, %.041.i83.i.i.i
+  %517 = sub nuw i64 %.lcssa.i.i.i.i, %.041.i83.i.i.i
   %518 = getelementptr inbounds float, ptr %512, i64 %517
   %519 = load float, ptr %518, align 4
   %520 = getelementptr inbounds i64, ptr %513, i64 %517
@@ -7504,7 +7504,7 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i95.i.i.i: ; preds = %
   %591 = getelementptr inbounds i8, ptr %468, i64 24
   %592 = load ptr, ptr %591, align 8
   %593 = getelementptr inbounds i64, ptr %592, i64 %.lcssa20.i.i.i.i
-  %594 = sub i64 %.lcssa.i.i.i.i, %.lcssa20.i.i.i.i
+  %594 = sub nuw i64 %.lcssa.i.i.i.i, %.lcssa20.i.i.i.i
   %.not.i71.i.i.i = icmp eq ptr %592, null
   %.not49.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.i, %.lcssa20.i.i.i.i
   br i1 %.not.i71.i.i.i, label %.preheader.i.i.i.i, label %.preheader41.i.i.i.i
@@ -7761,7 +7761,7 @@ _ZN5faiss9heap_addnINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i.i: ; p
   %.03740.i.i.i.i121 = phi i64 [ 0, %.lr.ph.i64.i.i.i ], [ %spec.select.i.i.i.i131, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i.i.i130 ]
   %707 = load float, ptr %472, align 4
   %708 = load i64, ptr %474, align 8
-  %709 = sub i64 %703, %.041.i.i.i.i120
+  %709 = sub nuw i64 %703, %.041.i.i.i.i120
   %710 = getelementptr inbounds float, ptr %704, i64 %709
   %711 = load float, ptr %710, align 4
   %712 = getelementptr inbounds i64, ptr %705, i64 %709
@@ -8506,7 +8506,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph40.split
   %34 = load ptr, ptr %4, align 8
-  %35 = sub i64 %30, %32
+  %35 = sub nuw i64 %30, %32
   %36 = load i64, ptr %2, align 8
   %37 = sub i64 %31, %36
   %38 = mul i64 %35, %37
@@ -8874,7 +8874,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -9605,7 +9605,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph40.split
   %34 = load ptr, ptr %4, align 8
-  %35 = sub i64 %30, %32
+  %35 = sub nuw i64 %30, %32
   %36 = load i64, ptr %2, align 8
   %37 = sub i64 %31, %36
   %38 = mul i64 %35, %37
@@ -9677,7 +9677,7 @@ define linkonce_odr void @_ZN5faiss27ReservoirBlockResultHandlerINS_4CMaxIflEEE1
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %3
-  %22 = sub i64 %12, %19
+  %22 = sub nuw i64 %12, %19
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %22)
   %.pre = load i64, ptr %7, align 8
   %.pre13 = load i64, ptr %6, align 8
@@ -9713,7 +9713,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %21, %23, %25, %27
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %38 = sub i64 %.pre-phi17, %35
+  %38 = sub nuw i64 %.pre-phi17, %35
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %38)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
@@ -10348,7 +10348,7 @@ _ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %54 = getelementptr inbounds i8, ptr %0, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i64, ptr %55, i64 %.lcssa20
-  %57 = sub i64 %.lcssa, %.lcssa20
+  %57 = sub nuw i64 %.lcssa, %.lcssa20
   tail call void @_ZN5faiss9heap_addnINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m(i64 noundef %.lcssa20, ptr noundef %1, ptr noundef %2, ptr noundef %53, ptr noundef %56, i64 noundef %57)
   %58 = load i64, ptr %5, align 8
   %59 = tail call noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE(i64 noundef %58, ptr noundef %1, ptr noundef %2)
@@ -10676,7 +10676,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_27Reservo
   br i1 %52, label %53, label %84
 
 53:                                               ; preds = %37
-  %54 = sub i64 %45, %51
+  %54 = sub nuw i64 %45, %51
   %55 = load ptr, ptr %30, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %56, %48
@@ -10794,7 +10794,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %88, %86, %84, %.noe
   br i1 %98, label %99, label %130
 
 99:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
-  %100 = sub i64 %91, %97
+  %100 = sub nuw i64 %91, %97
   %101 = load ptr, ptr %33, align 8
   %102 = ptrtoint ptr %101 to i64
   %103 = sub i64 %102, %94
@@ -11164,7 +11164,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_27Reservo
   br i1 %52, label %53, label %84
 
 53:                                               ; preds = %37
-  %54 = sub i64 %45, %51
+  %54 = sub nuw i64 %45, %51
   %55 = load ptr, ptr %30, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %56, %48
@@ -11282,7 +11282,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %88, %86, %84, %.noe
   br i1 %98, label %99, label %130
 
 99:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
-  %100 = sub i64 %91, %97
+  %100 = sub nuw i64 %91, %97
   %101 = load ptr, ptr %33, align 8
   %102 = ptrtoint ptr %101 to i64
   %103 = sub i64 %102, %94
@@ -11567,7 +11567,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph40.split
   %34 = load ptr, ptr %4, align 8
-  %35 = sub i64 %30, %32
+  %35 = sub nuw i64 %30, %32
   %36 = load i64, ptr %2, align 8
   %37 = sub i64 %31, %36
   %38 = mul i64 %35, %37
@@ -12835,7 +12835,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_134exhaustive_L2sqr_blas_default_imp
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph40.split
   %34 = load ptr, ptr %4, align 8
-  %35 = sub i64 %30, %32
+  %35 = sub nuw i64 %30, %32
   %36 = load i64, ptr %2, align 8
   %37 = sub i64 %31, %36
   %38 = mul i64 %35, %37

@@ -3038,7 +3038,7 @@ define void @_ZN4core5slice4sort14break_patterns17hc2099a4a36c5708fE(ptr align 2
   %19 = and i64 %18, %7
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %19, %20
+  %spec.select = sub nuw i64 %19, %20
   %21 = add i64 %10, %.sroa.0.020
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h46595ec51d4546a3E"(ptr align 2 %0, i64 %1, i64 %21, i64 %spec.select, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.19)
   %22 = icmp ugt i64 %12, 2
@@ -3075,7 +3075,7 @@ define void @_ZN4core5slice4sort14break_patterns17he853480025fea7d1E(ptr align 8
   %19 = and i64 %18, %7
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %19, %20
+  %spec.select = sub nuw i64 %19, %20
   %21 = add i64 %10, %.sroa.0.020
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h18702fa380be58e0E"(ptr align 8 %0, i64 %1, i64 %21, i64 %spec.select, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.19)
   %22 = icmp ugt i64 %12, 2
@@ -3112,7 +3112,7 @@ define void @_ZN4core5slice4sort14break_patterns17hf71923cc071afe92E(ptr align 8
   %19 = and i64 %18, %7
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %19, %20
+  %spec.select = sub nuw i64 %19, %20
   %21 = add i64 %10, %.sroa.0.020
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h0c67385dc6cd579dE"(ptr align 8 %0, i64 %1, i64 %21, i64 %spec.select, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.19)
   %22 = icmp ugt i64 %12, 2
@@ -3149,7 +3149,7 @@ define void @_ZN4core5slice4sort14break_patterns17hf8a58d78dd464b1cE(ptr align 8
   %19 = and i64 %18, %7
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %19, %20
+  %spec.select = sub nuw i64 %19, %20
   %21 = add i64 %10, %.sroa.0.020
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h42fae609d8a4cdc6E"(ptr align 8 %0, i64 %1, i64 %21, i64 %spec.select, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.19)
   %22 = icmp ugt i64 %12, 2
@@ -4905,7 +4905,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h19b72e9b6e0b749aE(ptr al
   unreachable
 
 10:                                               ; preds = %5
-  %11 = sub i64 %3, %2
+  %11 = sub nuw i64 %3, %2
   %12 = icmp ult i64 %11, 10
   %13 = icmp ult i64 %3, %1
   %or.cond3 = select i1 %12, i1 %13, i1 false
@@ -7044,7 +7044,7 @@ define void @_ZN4core5slice4sort7recurse17h11a7e02e6eafe0f9E(ptr align 8 %0, i64
   br i1 %46, label %.split104.us, label %47
 
 47:                                               ; preds = %44
-  %48 = sub i64 %32, %.fr147
+  %48 = sub nuw i64 %32, %.fr147
   %49 = getelementptr inbounds { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %.sroa.0.072.us83, i64 %.fr147
   %50 = icmp ult i64 %48, 21
   br i1 %50, label %.outer._crit_edge, label %.lr.ph.split.split.us.split
@@ -7135,7 +7135,7 @@ define void @_ZN4core5slice4sort7recurse17h11a7e02e6eafe0f9E(ptr align 8 %0, i64
   br i1 %85, label %.split104.us, label %86
 
 86:                                               ; preds = %83
-  %87 = sub i64 %51, %.fr146
+  %87 = sub nuw i64 %51, %.fr146
   %88 = getelementptr inbounds { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %.sroa.0.072, i64 %.fr146
   %89 = icmp ult i64 %87, 21
   br i1 %89, label %.outer._crit_edge, label %.lr.ph.split.split
@@ -7286,7 +7286,7 @@ define void @_ZN4core5slice4sort7recurse17h2270c20e8418a8e1E(ptr align 8 %0, i64
   br i1 %42, label %.split104.us, label %43
 
 43:                                               ; preds = %40
-  %44 = sub i64 %32, %.fr
+  %44 = sub nuw i64 %32, %.fr
   %45 = getelementptr inbounds i64, ptr %.sroa.0.072.us83.us138, i64 %.fr
   %46 = icmp ult i64 %44, 21
   br i1 %46, label %.outer._crit_edge, label %.lr.ph.split.split.us.split.split.us
@@ -7321,7 +7321,7 @@ define void @_ZN4core5slice4sort7recurse17h2270c20e8418a8e1E(ptr align 8 %0, i64
   br i1 %61, label %.split104.us, label %62
 
 62:                                               ; preds = %59
-  %63 = sub i64 %47, %.fr160
+  %63 = sub nuw i64 %47, %.fr160
   %64 = getelementptr inbounds i64, ptr %.sroa.0.072.us83, i64 %.fr160
   %65 = icmp ult i64 %63, 21
   br i1 %65, label %.outer._crit_edge, label %.lr.ph.split.split.us.split.split
@@ -7412,7 +7412,7 @@ define void @_ZN4core5slice4sort7recurse17h2270c20e8418a8e1E(ptr align 8 %0, i64
   br i1 %100, label %.split104.us, label %101
 
 101:                                              ; preds = %98
-  %102 = sub i64 %66, %.fr159
+  %102 = sub nuw i64 %66, %.fr159
   %103 = getelementptr inbounds i64, ptr %.sroa.0.072, i64 %.fr159
   %104 = icmp ult i64 %102, 21
   br i1 %104, label %.outer._crit_edge, label %.lr.ph.split.split
@@ -7563,7 +7563,7 @@ define void @_ZN4core5slice4sort7recurse17h2c2823d3d79b27a9E(ptr align 2 %0, i64
   br i1 %42, label %.split104.us, label %43
 
 43:                                               ; preds = %40
-  %44 = sub i64 %32, %.fr
+  %44 = sub nuw i64 %32, %.fr
   %45 = getelementptr inbounds i16, ptr %.sroa.0.072.us83.us138, i64 %.fr
   %46 = icmp ult i64 %44, 21
   br i1 %46, label %.outer._crit_edge, label %.lr.ph.split.split.us.split.split.us
@@ -7598,7 +7598,7 @@ define void @_ZN4core5slice4sort7recurse17h2c2823d3d79b27a9E(ptr align 2 %0, i64
   br i1 %61, label %.split104.us, label %62
 
 62:                                               ; preds = %59
-  %63 = sub i64 %47, %.fr160
+  %63 = sub nuw i64 %47, %.fr160
   %64 = getelementptr inbounds i16, ptr %.sroa.0.072.us83, i64 %.fr160
   %65 = icmp ult i64 %63, 21
   br i1 %65, label %.outer._crit_edge, label %.lr.ph.split.split.us.split.split
@@ -7689,7 +7689,7 @@ define void @_ZN4core5slice4sort7recurse17h2c2823d3d79b27a9E(ptr align 2 %0, i64
   br i1 %100, label %.split104.us, label %101
 
 101:                                              ; preds = %98
-  %102 = sub i64 %66, %.fr159
+  %102 = sub nuw i64 %66, %.fr159
   %103 = getelementptr inbounds i16, ptr %.sroa.0.072, i64 %.fr159
   %104 = icmp ult i64 %102, 21
   br i1 %104, label %.outer._crit_edge, label %.lr.ph.split.split
@@ -7846,7 +7846,7 @@ define void @_ZN4core5slice4sort7recurse17h6fa5497bbe91df66E(ptr align 8 %0, i64
   br i1 %46, label %.split104.us, label %47
 
 47:                                               ; preds = %44
-  %48 = sub i64 %32, %.fr147
+  %48 = sub nuw i64 %32, %.fr147
   %49 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %.sroa.0.072.us83, i64 %.fr147
   %50 = icmp ult i64 %48, 21
   br i1 %50, label %.outer._crit_edge, label %.lr.ph.split.split.us.split
@@ -7937,7 +7937,7 @@ define void @_ZN4core5slice4sort7recurse17h6fa5497bbe91df66E(ptr align 8 %0, i64
   br i1 %85, label %.split104.us, label %86
 
 86:                                               ; preds = %83
-  %87 = sub i64 %51, %.fr146
+  %87 = sub nuw i64 %51, %.fr146
   %88 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %.sroa.0.072, i64 %.fr146
   %89 = icmp ult i64 %87, 21
   br i1 %89, label %.outer._crit_edge, label %.lr.ph.split.split
@@ -8088,7 +8088,7 @@ define void @_ZN4core5slice4sort7recurse17hfa74fa4166aee7c4E(ptr align 8 %0, i64
   br i1 %42, label %.split104.us, label %43
 
 43:                                               ; preds = %40
-  %44 = sub i64 %32, %.fr
+  %44 = sub nuw i64 %32, %.fr
   %45 = getelementptr inbounds i64, ptr %.sroa.0.072.us83.us138, i64 %.fr
   %46 = icmp ult i64 %44, 21
   br i1 %46, label %.outer._crit_edge, label %.lr.ph.split.split.us.split.split.us
@@ -8123,7 +8123,7 @@ define void @_ZN4core5slice4sort7recurse17hfa74fa4166aee7c4E(ptr align 8 %0, i64
   br i1 %61, label %.split104.us, label %62
 
 62:                                               ; preds = %59
-  %63 = sub i64 %47, %.fr160
+  %63 = sub nuw i64 %47, %.fr160
   %64 = getelementptr inbounds i64, ptr %.sroa.0.072.us83, i64 %.fr160
   %65 = icmp ult i64 %63, 21
   br i1 %65, label %.outer._crit_edge, label %.lr.ph.split.split.us.split.split
@@ -8214,7 +8214,7 @@ define void @_ZN4core5slice4sort7recurse17hfa74fa4166aee7c4E(ptr align 8 %0, i64
   br i1 %100, label %.split104.us, label %101
 
 101:                                              ; preds = %98
-  %102 = sub i64 %66, %.fr159
+  %102 = sub nuw i64 %66, %.fr159
   %103 = getelementptr inbounds i64, ptr %.sroa.0.072, i64 %.fr159
   %104 = icmp ult i64 %102, 21
   br i1 %104, label %.outer._crit_edge, label %.lr.ph.split.split

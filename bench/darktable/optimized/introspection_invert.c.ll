@@ -915,7 +915,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %448, label %449, label %.loopexit
 
 449:                                              ; preds = %444
-  %450 = sub i64 %447, %446
+  %450 = sub nuw i64 %447, %446
   %451 = icmp ult i64 %450, 8
   %452 = or i1 %345, %451
   br i1 %452, label %492, label %453

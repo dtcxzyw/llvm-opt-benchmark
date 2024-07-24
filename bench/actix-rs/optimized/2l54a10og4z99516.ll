@@ -7045,7 +7045,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %74
 
 103:                                              ; preds = %.lr.ph317
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr nonnull readonly align 1 %95, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !665, !noalias !669
-  %104 = sub i64 %93, %.0.sroa.speculated.i.i.i
+  %104 = sub nuw i64 %93, %.0.sroa.speculated.i.i.i
   %105 = getelementptr inbounds i8, ptr %95, i64 %.0.sroa.speculated.i.i.i
   store ptr %105, ptr %1, align 8, !alias.scope !663, !noalias !664
   store i64 %104, ptr %9, align 8, !alias.scope !663, !noalias !664
@@ -7175,7 +7175,7 @@ _ZN6flate22gz11read_to_nul17h61d89b54b0f40680E.exit.thread: ; preds = %.backedge
 
 148:                                              ; preds = %.lr.ph313
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %143, ptr nonnull readonly align 1 %140, i64 %.0.sroa.speculated.i.i.i200, i1 false), !alias.scope !701, !noalias !705
-  %149 = sub i64 %138, %.0.sroa.speculated.i.i.i200
+  %149 = sub nuw i64 %138, %.0.sroa.speculated.i.i.i200
   %150 = getelementptr inbounds i8, ptr %140, i64 %.0.sroa.speculated.i.i.i200
   store ptr %150, ptr %1, align 8, !alias.scope !699, !noalias !700
   store i64 %149, ptr %9, align 8, !alias.scope !699, !noalias !700
@@ -7248,7 +7248,7 @@ _ZN6flate22gz11read_to_nul17h61d89b54b0f40680E.exit.thread: ; preds = %.backedge
 
 177:                                              ; preds = %.lr.ph309
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %172, ptr nonnull readonly align 1 %169, i64 %.0.sroa.speculated.i.i.i206, i1 false), !alias.scope !724, !noalias !728
-  %178 = sub i64 %166, %.0.sroa.speculated.i.i.i206
+  %178 = sub nuw i64 %166, %.0.sroa.speculated.i.i.i206
   %179 = getelementptr inbounds i8, ptr %169, i64 %.0.sroa.speculated.i.i.i206
   store ptr %179, ptr %1, align 8, !alias.scope !722, !noalias !723
   store i64 %178, ptr %9, align 8, !alias.scope !722, !noalias !723
@@ -7519,7 +7519,7 @@ _ZN6flate22gz11read_to_nul17h61d89b54b0f40680E.exit227: ; preds = %.lr.ph.i218
 
 276:                                              ; preds = %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %271, ptr nonnull readonly align 1 %268, i64 %.0.sroa.speculated.i.i.i232, i1 false), !alias.scope !795, !noalias !799
-  %277 = sub i64 %266, %.0.sroa.speculated.i.i.i232
+  %277 = sub nuw i64 %266, %.0.sroa.speculated.i.i.i232
   %278 = getelementptr inbounds i8, ptr %268, i64 %.0.sroa.speculated.i.i.i232
   store ptr %278, ptr %1, align 8, !alias.scope !793, !noalias !794
   store i64 %277, ptr %9, align 8, !alias.scope !793, !noalias !794
@@ -9784,7 +9784,7 @@ define { i64, ptr } @"_ZN81_$LT$actix_http..test..TestBuffer$u20$as$u20$tokio..i
   br i1 %13, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h12fd8cbd94edfd26E.exit.i", label %._crit_edge.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h12fd8cbd94edfd26E.exit.i": ; preds = %3
-  %15 = sub i64 %7, %12
+  %15 = sub nuw i64 %7, %12
   %16 = getelementptr inbounds i8, ptr %14, i64 %12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %15, i1 false), !noalias !1152
   store i64 %7, ptr %11, align 8, !alias.scope !1152
@@ -10179,7 +10179,7 @@ define { i64, ptr } @"_ZN84_$LT$actix_http..test..TestSeqBuffer$u20$as$u20$tokio
   br i1 %14, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h12fd8cbd94edfd26E.exit.i", label %._crit_edge.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h12fd8cbd94edfd26E.exit.i": ; preds = %3
-  %16 = sub i64 %8, %13
+  %16 = sub nuw i64 %8, %13
   %17 = getelementptr inbounds i8, ptr %15, i64 %13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %16, i1 false), !noalias !1250
   store i64 %8, ptr %12, align 8, !alias.scope !1250

@@ -6370,7 +6370,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc91, %_ZNSt6ve
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit
-  %131 = sub nsw i64 %121, %128
+  %131 = sub nuw nsw i64 %121, %128
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %117, i64 noundef %131)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i unwind label %.loopexit.split-lp.loopexit
 
@@ -7148,7 +7148,7 @@ _ZN8LightGBM4Tree15SetLeafFeaturesEiRKSt6vectorIiSaIiEE.exit: ; preds = %._crit_
   br i1 %497, label %498, label %500
 
 498:                                              ; preds = %_ZN8LightGBM4Tree15SetLeafFeaturesEiRKSt6vectorIiSaIiEE.exit
-  %499 = sub nsw i64 %489, %496
+  %499 = sub nuw nsw i64 %489, %496
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %485, i64 noundef %499)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i137 unwind label %.loopexit.split-lp.loopexit
 
@@ -19621,7 +19621,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc91, %_ZNSt6ve
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit
-  %131 = sub nsw i64 %121, %128
+  %131 = sub nuw nsw i64 %121, %128
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %117, i64 noundef %131)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i unwind label %.loopexit.split-lp.loopexit
 
@@ -20399,7 +20399,7 @@ _ZN8LightGBM4Tree15SetLeafFeaturesEiRKSt6vectorIiSaIiEE.exit: ; preds = %._crit_
   br i1 %497, label %498, label %500
 
 498:                                              ; preds = %_ZN8LightGBM4Tree15SetLeafFeaturesEiRKSt6vectorIiSaIiEE.exit
-  %499 = sub nsw i64 %489, %496
+  %499 = sub nuw nsw i64 %489, %496
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %485, i64 noundef %499)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i137 unwind label %.loopexit.split-lp.loopexit
 
@@ -20578,7 +20578,7 @@ define linkonce_odr void @_ZN8LightGBM13DataPartition15ResetByLeafPredERKSt6vect
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %3
-  %17 = sub nsw i64 %7, %14
+  %17 = sub nuw nsw i64 %7, %14
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %17)
   %.pre.i = load i32, ptr %5, align 4
   %.pre3.i = sext i32 %.pre.i to i64
@@ -20612,7 +20612,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %22, %20, %18, %16
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
-  %34 = sub nsw i64 %.pre-phi.i, %31
+  %34 = sub nuw nsw i64 %.pre-phi.i, %31
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %34)
   %.pre = load i32, ptr %5, align 4
   br label %_ZN8LightGBM13DataPartition11ResetLeavesEi.exit

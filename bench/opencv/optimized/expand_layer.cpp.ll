@@ -544,7 +544,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %70
-  %81 = sub nsw i64 %71, %78
+  %81 = sub nuw nsw i64 %71, %78
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %81)
           to label %.lr.ph.preheader unwind label %.loopexit.split-lp
 

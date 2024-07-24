@@ -265,7 +265,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
 
 81:                                               ; preds = %80
   %82 = uitofp i64 %77 to double
-  %83 = sub i64 %75, %77
+  %83 = sub nuw i64 %75, %77
   %84 = uitofp i64 %83 to double
   %85 = fdiv double %82, %84
   %86 = tail call double @llvm.ceil.f64(double %85)
@@ -274,7 +274,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
 
 88:                                               ; preds = %80
   %89 = uitofp i64 %75 to double
-  %90 = sub i64 %77, %75
+  %90 = sub nuw i64 %77, %75
   %91 = uitofp i64 %90 to double
   %92 = fdiv double %89, %91
   %93 = tail call double @llvm.ceil.f64(double %92)
@@ -690,7 +690,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
   br i1 %293, label %294, label %.thread688
 
 294:                                              ; preds = %291
-  %295 = sub i64 %292, %.sroa.54.0.copyload374
+  %295 = sub nuw i64 %292, %.sroa.54.0.copyload374
   %296 = add i64 %295, %.sroa.26.0.copyload441
   %297 = add i64 %296, -1
   %298 = call i64 @H5T__bit_get_d(ptr noundef %.1585724, i64 noundef %297, i64 noundef 1) #8
@@ -789,7 +789,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f(ptr noundef readonly %0, ptr noundef 
 335:                                              ; preds = %329
   %336 = sub i64 %114, %330
   call void @H5T__bit_copy(ptr noundef %.0583, i64 noundef %336, ptr noundef %.1585724, i64 noundef %.sroa.26.0.copyload441, i64 noundef %.2574698) #8
-  %337 = sub i64 %.sroa.54.0.copyload374, %330
+  %337 = sub nuw i64 %.sroa.54.0.copyload374, %330
   call void @H5T__bit_set(ptr noundef %.0583, i64 noundef %.sroa.35.0.copyload354, i64 noundef %337, i1 noundef zeroext false) #8
   br label %338
 
@@ -1141,7 +1141,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_i(ptr noundef readonly %0, ptr noundef 
 
 72:                                               ; preds = %71
   %73 = uitofp i64 %68 to double
-  %74 = sub i64 %66, %68
+  %74 = sub nuw i64 %66, %68
   %75 = uitofp i64 %74 to double
   %76 = fdiv double %73, %75
   %77 = tail call double @llvm.ceil.f64(double %76)
@@ -1150,7 +1150,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_i(ptr noundef readonly %0, ptr noundef 
 
 79:                                               ; preds = %71
   %80 = uitofp i64 %66 to double
-  %81 = sub i64 %68, %66
+  %81 = sub nuw i64 %68, %66
   %82 = uitofp i64 %81 to double
   %83 = fdiv double %80, %82
   %84 = tail call double @llvm.ceil.f64(double %83)

@@ -40,11 +40,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp1.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %sub.i = sub i64 %offset.addr.035.i, %2
+  %sub.i = sub nuw i64 %offset.addr.035.i, %2
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %sub8.i = sub i64 %2, %offset.addr.035.i
+  %sub8.i = sub nuw i64 %2, %offset.addr.035.i
   %cond.i = tail call i64 @llvm.umin.i64(i64 %sub8.i, i64 %size.addr.034.i)
   %3 = load ptr, ptr %arrayidx.i, align 8
   %add.ptr.i = getelementptr i8, ptr %3, i64 %offset.addr.035.i
@@ -144,11 +144,11 @@ for.body.us.i.i:                                  ; preds = %for.inc.us.i.i, %fo
   br i1 %cmp1.not.us.i.i, label %if.else.us.i.i, label %if.then.us.i.i
 
 if.then.us.i.i:                                   ; preds = %for.body.us.i.i
-  %sub.us.i.i = sub i64 %offset.addr.035.us.i.i, %7
+  %sub.us.i.i = sub nuw i64 %offset.addr.035.us.i.i, %7
   br label %for.inc.us.i.i
 
 if.else.us.i.i:                                   ; preds = %for.body.us.i.i
-  %sub8.us.i.i = sub i64 %7, %offset.addr.035.us.i.i
+  %sub8.us.i.i = sub nuw i64 %7, %offset.addr.035.us.i.i
   %cond.us.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i, i64 %size.addr.034.us.i.i)
   %8 = load ptr, ptr %arrayidx.us.i.i, align 8
   %add.ptr18.us.i.i = getelementptr i8, ptr %8, i64 %offset.addr.035.us.i.i
@@ -213,11 +213,11 @@ for.body.us.i.i90:                                ; preds = %vaarg.end14, %for.i
   br i1 %cmp1.not.us.i.i98, label %if.else.us.i.i109, label %if.then.us.i.i99
 
 if.then.us.i.i99:                                 ; preds = %for.body.us.i.i90
-  %sub.us.i.i100 = sub i64 %offset.addr.035.us.i.i93, %14
+  %sub.us.i.i100 = sub nuw i64 %offset.addr.035.us.i.i93, %14
   br label %for.inc.us.i.i101
 
 if.else.us.i.i109:                                ; preds = %for.body.us.i.i90
-  %sub8.us.i.i110 = sub i64 %14, %offset.addr.035.us.i.i93
+  %sub8.us.i.i110 = sub nuw i64 %14, %offset.addr.035.us.i.i93
   %cond.us.i.i111 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i110, i64 %size.addr.034.us.i.i94)
   %15 = load ptr, ptr %arrayidx.us.i.i96, align 8
   %add.ptr18.us.i.i112 = getelementptr i8, ptr %15, i64 %offset.addr.035.us.i.i93
@@ -291,11 +291,11 @@ for.body.us.i.i124:                               ; preds = %vaarg.end31, %for.i
   br i1 %cmp1.not.us.i.i132, label %if.else.us.i.i143, label %if.then.us.i.i133
 
 if.then.us.i.i133:                                ; preds = %for.body.us.i.i124
-  %sub.us.i.i134 = sub i64 %offset.addr.035.us.i.i127, %24
+  %sub.us.i.i134 = sub nuw i64 %offset.addr.035.us.i.i127, %24
   br label %for.inc.us.i.i135
 
 if.else.us.i.i143:                                ; preds = %for.body.us.i.i124
-  %sub8.us.i.i144 = sub i64 %24, %offset.addr.035.us.i.i127
+  %sub8.us.i.i144 = sub nuw i64 %24, %offset.addr.035.us.i.i127
   %cond.us.i.i145 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i144, i64 %size.addr.034.us.i.i128)
   %25 = load ptr, ptr %arrayidx.us.i.i130, align 8
   %add.ptr18.us.i.i146 = getelementptr i8, ptr %25, i64 %offset.addr.035.us.i.i127
@@ -369,11 +369,11 @@ for.body.us.i.i158:                               ; preds = %vaarg.end51, %for.i
   br i1 %cmp1.not.us.i.i166, label %if.else.us.i.i177, label %if.then.us.i.i167
 
 if.then.us.i.i167:                                ; preds = %for.body.us.i.i158
-  %sub.us.i.i168 = sub i64 %offset.addr.035.us.i.i161, %34
+  %sub.us.i.i168 = sub nuw i64 %offset.addr.035.us.i.i161, %34
   br label %for.inc.us.i.i169
 
 if.else.us.i.i177:                                ; preds = %for.body.us.i.i158
-  %sub8.us.i.i178 = sub i64 %34, %offset.addr.035.us.i.i161
+  %sub8.us.i.i178 = sub nuw i64 %34, %offset.addr.035.us.i.i161
   %cond.us.i.i179 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i178, i64 %size.addr.034.us.i.i162)
   %35 = load ptr, ptr %arrayidx.us.i.i164, align 8
   %add.ptr18.us.i.i180 = getelementptr i8, ptr %35, i64 %offset.addr.035.us.i.i161
@@ -463,11 +463,11 @@ for.body.us.i.i192:                               ; preds = %if.then73, %for.inc
   br i1 %cmp1.not.us.i.i200, label %if.else.us.i.i211, label %if.then.us.i.i201
 
 if.then.us.i.i201:                                ; preds = %for.body.us.i.i192
-  %sub.us.i.i202 = sub i64 %offset.addr.035.us.i.i195, %47
+  %sub.us.i.i202 = sub nuw i64 %offset.addr.035.us.i.i195, %47
   br label %for.inc.us.i.i203
 
 if.else.us.i.i211:                                ; preds = %for.body.us.i.i192
-  %sub8.us.i.i212 = sub i64 %47, %offset.addr.035.us.i.i195
+  %sub8.us.i.i212 = sub nuw i64 %47, %offset.addr.035.us.i.i195
   %cond.us.i.i213 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i212, i64 %size.addr.034.us.i.i196)
   %48 = load ptr, ptr %arrayidx.us.i.i198, align 8
   %add.ptr18.us.i.i214 = getelementptr i8, ptr %48, i64 %offset.addr.035.us.i.i195
@@ -722,11 +722,11 @@ for.body.i.i:                                     ; preds = %vaarg.end, %for.inc
   br i1 %cmp1.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %sub.i.i = sub i64 %offset.addr.035.i.i, %7
+  %sub.i.i = sub nuw i64 %offset.addr.035.i.i, %7
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %sub8.i.i = sub i64 %7, %offset.addr.035.i.i
+  %sub8.i.i = sub nuw i64 %7, %offset.addr.035.i.i
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i.i, i64 %size.addr.034.i.i)
   %8 = load ptr, ptr %arrayidx.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %8, i64 %offset.addr.035.i.i
@@ -793,11 +793,11 @@ for.body.i.i92:                                   ; preds = %vaarg.end15, %for.i
   br i1 %cmp1.not.i.i100, label %if.else.i.i111, label %if.then.i.i101
 
 if.then.i.i101:                                   ; preds = %for.body.i.i92
-  %sub.i.i102 = sub i64 %offset.addr.035.i.i95, %14
+  %sub.i.i102 = sub nuw i64 %offset.addr.035.i.i95, %14
   br label %for.inc.i.i103
 
 if.else.i.i111:                                   ; preds = %for.body.i.i92
-  %sub8.i.i112 = sub i64 %14, %offset.addr.035.i.i95
+  %sub8.i.i112 = sub nuw i64 %14, %offset.addr.035.i.i95
   %cond.i.i113 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i112, i64 %size.addr.034.i.i96)
   %15 = load ptr, ptr %arrayidx.i.i98, align 8
   %add.ptr.i.i114 = getelementptr i8, ptr %15, i64 %offset.addr.035.i.i95
@@ -863,11 +863,11 @@ for.body.i.i126:                                  ; preds = %vaarg.end32, %for.i
   br i1 %cmp1.not.i.i134, label %if.else.i.i145, label %if.then.i.i135
 
 if.then.i.i135:                                   ; preds = %for.body.i.i126
-  %sub.i.i136 = sub i64 %offset.addr.035.i.i129, %21
+  %sub.i.i136 = sub nuw i64 %offset.addr.035.i.i129, %21
   br label %for.inc.i.i137
 
 if.else.i.i145:                                   ; preds = %for.body.i.i126
-  %sub8.i.i146 = sub i64 %21, %offset.addr.035.i.i129
+  %sub8.i.i146 = sub nuw i64 %21, %offset.addr.035.i.i129
   %cond.i.i147 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i146, i64 %size.addr.034.i.i130)
   %22 = load ptr, ptr %arrayidx.i.i132, align 8
   %add.ptr.i.i148 = getelementptr i8, ptr %22, i64 %offset.addr.035.i.i129
@@ -933,11 +933,11 @@ for.body.i.i160:                                  ; preds = %vaarg.end50, %for.i
   br i1 %cmp1.not.i.i168, label %if.else.i.i179, label %if.then.i.i169
 
 if.then.i.i169:                                   ; preds = %for.body.i.i160
-  %sub.i.i170 = sub i64 %offset.addr.035.i.i163, %28
+  %sub.i.i170 = sub nuw i64 %offset.addr.035.i.i163, %28
   br label %for.inc.i.i171
 
 if.else.i.i179:                                   ; preds = %for.body.i.i160
-  %sub8.i.i180 = sub i64 %28, %offset.addr.035.i.i163
+  %sub8.i.i180 = sub nuw i64 %28, %offset.addr.035.i.i163
   %cond.i.i181 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i180, i64 %size.addr.034.i.i164)
   %29 = load ptr, ptr %arrayidx.i.i166, align 8
   %add.ptr.i.i182 = getelementptr i8, ptr %29, i64 %offset.addr.035.i.i163
@@ -1019,11 +1019,11 @@ for.body.i.i194:                                  ; preds = %for.inc.i.i205, %fo
   br i1 %cmp1.not.i.i202, label %if.else.i.i213, label %if.then.i.i203
 
 if.then.i.i203:                                   ; preds = %for.body.i.i194
-  %sub.i.i204 = sub i64 %offset.addr.035.i.i197, %39
+  %sub.i.i204 = sub nuw i64 %offset.addr.035.i.i197, %39
   br label %for.inc.i.i205
 
 if.else.i.i213:                                   ; preds = %for.body.i.i194
-  %sub8.i.i214 = sub i64 %39, %offset.addr.035.i.i197
+  %sub8.i.i214 = sub nuw i64 %39, %offset.addr.035.i.i197
   %cond.i.i215 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i214, i64 %size.addr.034.i.i198)
   %40 = load ptr, ptr %arrayidx.i.i200, align 8
   %add.ptr.i.i216 = getelementptr i8, ptr %40, i64 %offset.addr.035.i.i197

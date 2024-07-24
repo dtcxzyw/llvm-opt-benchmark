@@ -525,7 +525,7 @@ land.lhs.true.i:                                  ; preds = %_ZN7rocksdb14GetVar
 
 while.body:                                       ; preds = %land.lhs.true.i
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %4, i64 %conv.i
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i, %conv.i
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i, %conv.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
@@ -931,7 +931,7 @@ if.end6:                                          ; preds = %land.lhs.true.i.i
   store ptr %3, ptr %my_func, align 8
   store i64 %conv.i.i, ptr %size_.i, align 8
   %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %3, i64 %conv.i.i
-  %sub.i.i.i = sub i64 %sub.ptr.sub.i.i.i, %conv.i.i
+  %sub.i.i.i = sub nuw i64 %sub.ptr.sub.i.i.i, %conv.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i)
   %cmp.i = icmp ne i32 %2, 0
   %or.cond.not = and i1 %cmp.i, %is_partial_aggregation

@@ -201,7 +201,7 @@ define i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %7 = getelementptr inbounds i8, ptr %0, i64 452
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 1
-  br i1 %.not, label %9, label %76
+  br i1 %.not, label %9, label %78
 
 9:                                                ; preds = %4
   %.not31 = icmp eq i64 %3, 0
@@ -209,105 +209,106 @@ define i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .split:                                           ; preds = %9
   store i8 0, ptr %5, align 1
-  br label %25
+  br label %26
 
 10:                                               ; preds = %9
   %11 = tail call i32 @KangarooTwelve_Update(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3)
   %.not32 = icmp eq i32 %11, 0
-  br i1 %.not32, label %.lr.ph.i, label %76
+  br i1 %.not32, label %.lr.ph.i, label %78
 
 .lr.ph22.preheader.i:                             ; preds = %.lr.ph.i
-  %12 = zext nneg i32 %14 to i64
-  %13 = add nuw nsw i32 %.01718.i, 2
-  %wide.trip.count.i = zext nneg i32 %13 to i64
+  %12 = add nuw nsw i32 %.01718.i, 2
+  %wide.trip.count.i = zext nneg i32 %12 to i64
   %invariant.gep.i = getelementptr i8, ptr %5, i64 -1
   br label %.lr.ph22.i
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
-  %.019.i = phi i64 [ %15, %.lr.ph.i ], [ %3, %10 ]
-  %.01718.i = phi i32 [ %14, %.lr.ph.i ], [ 0, %10 ]
-  %14 = add nuw nsw i32 %.01718.i, 1
-  %15 = lshr i64 %.019.i, 8
-  %16 = icmp ugt i64 %.019.i, 255
-  %17 = icmp ult i32 %.01718.i, 7
-  %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %.lr.ph.i, label %.lr.ph22.preheader.i, !llvm.loop !8
+  %.019.i = phi i64 [ %14, %.lr.ph.i ], [ %3, %10 ]
+  %.01718.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %10 ]
+  %13 = add nuw nsw i32 %.01718.i, 1
+  %14 = lshr i64 %.019.i, 8
+  %15 = icmp ugt i64 %.019.i, 255
+  %16 = icmp ult i32 %.01718.i, 7
+  %17 = select i1 %15, i1 %16, i1 false
+  br i1 %17, label %.lr.ph.i, label %.lr.ph22.preheader.i, !llvm.loop !8
 
 .lr.ph22.i:                                       ; preds = %.lr.ph22.i, %.lr.ph22.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph22.preheader.i ], [ %indvars.iv.next.i, %.lr.ph22.i ]
-  %19 = sub nsw i64 %12, %indvars.iv.i
-  %20 = shl i64 %19, 3
-  %21 = lshr i64 %3, %20
-  %22 = trunc i64 %21 to i8
+  %18 = trunc i64 %indvars.iv.i to i32
+  %19 = sub i32 %13, %18
+  %20 = shl i32 %19, 3
+  %21 = zext nneg i32 %20 to i64
+  %22 = lshr i64 %3, %21
+  %23 = trunc i64 %22 to i8
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  store i8 %22, ptr %gep.i, align 1
+  store i8 %23, ptr %gep.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.i, label %right_encode.exit, label %.lr.ph22.i, !llvm.loop !9
 
 right_encode.exit:                                ; preds = %.lr.ph22.i
-  %23 = trunc i32 %14 to i8
-  %24 = getelementptr inbounds i8, ptr %5, i64 %12
-  store i8 %23, ptr %24, align 1
-  br label %25
+  %.pre-phi.i = zext nneg i32 %13 to i64
+  %24 = trunc i32 %13 to i8
+  %25 = getelementptr inbounds i8, ptr %5, i64 %.pre-phi.i
+  store i8 %24, ptr %25, align 1
+  br label %26
 
-25:                                               ; preds = %right_encode.exit, %.split
+26:                                               ; preds = %right_encode.exit, %.split
   %phi.call = phi i64 [ 1, %.split ], [ %wide.trip.count.i, %right_encode.exit ]
-  %26 = call i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %phi.call)
-  %.not33 = icmp eq i32 %26, 0
-  br i1 %.not33, label %27, label %76
+  %27 = call i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %phi.call)
+  %.not33 = icmp eq i32 %27, 0
+  br i1 %.not33, label %28, label %78
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 440
-  %29 = load i64, ptr %28, align 8
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %67, label %31
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds i8, ptr %0, i64 440
+  %30 = load i64, ptr %29, align 8
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %69, label %32
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 448
-  %33 = load i32, ptr %32, align 8
-  %.not34 = icmp eq i32 %33, 0
-  br i1 %.not34, label %42, label %34
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %0, i64 448
+  %34 = load i32, ptr %33, align 8
+  %.not34 = icmp eq i32 %34, 0
+  br i1 %.not34, label %43, label %35
 
-34:                                               ; preds = %31
-  %35 = add i64 %29, 1
-  store i64 %35, ptr %28, align 8
-  %36 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #3
-  %.not35 = icmp eq i32 %36, 0
-  br i1 %.not35, label %37, label %76
+35:                                               ; preds = %32
+  %36 = add i64 %30, 1
+  store i64 %36, ptr %29, align 8
+  %37 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #3
+  %.not35 = icmp eq i32 %37, 0
+  br i1 %.not35, label %38, label %78
 
-37:                                               ; preds = %34
-  %38 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 32) #3
-  %.not36 = icmp eq i32 %38, 0
-  br i1 %.not36, label %39, label %76
+38:                                               ; preds = %35
+  %39 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 32) #3
+  %.not36 = icmp eq i32 %39, 0
+  br i1 %.not36, label %40, label %78
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %0, i64 216
-  %41 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %40, ptr noundef nonnull %6, i64 noundef 32) #3
-  %.not37 = icmp eq i32 %41, 0
-  br i1 %.not37, label %._crit_edge, label %76
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds i8, ptr %0, i64 216
+  %42 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %41, ptr noundef nonnull %6, i64 noundef 32) #3
+  %.not37 = icmp eq i32 %42, 0
+  br i1 %.not37, label %._crit_edge, label %78
 
-._crit_edge:                                      ; preds = %39
-  %.pre = load i64, ptr %28, align 8
-  br label %42
+._crit_edge:                                      ; preds = %40
+  %.pre = load i64, ptr %29, align 8
+  br label %43
 
-42:                                               ; preds = %._crit_edge, %31
-  %43 = phi i64 [ %.pre, %._crit_edge ], [ %29, %31 ]
-  %44 = add i64 %43, -1
-  store i64 %44, ptr %28, align 8
-  %.not23.i41 = icmp eq i64 %44, 0
+43:                                               ; preds = %._crit_edge, %32
+  %44 = phi i64 [ %.pre, %._crit_edge ], [ %30, %32 ]
+  %45 = add i64 %44, -1
+  store i64 %45, ptr %29, align 8
+  %.not23.i41 = icmp eq i64 %45, 0
   br i1 %.not23.i41, label %right_encode.exit56, label %.lr.ph.i42
 
 .lr.ph22.preheader.i45:                           ; preds = %.lr.ph.i42
-  %45 = zext nneg i32 %47 to i64
   %46 = add nuw nsw i32 %.01718.i44, 2
   %wide.trip.count.i46 = zext nneg i32 %46 to i64
   %invariant.gep.i47 = getelementptr i8, ptr %5, i64 -1
   br label %.lr.ph22.i48
 
-.lr.ph.i42:                                       ; preds = %42, %.lr.ph.i42
-  %.019.i43 = phi i64 [ %48, %.lr.ph.i42 ], [ %44, %42 ]
-  %.01718.i44 = phi i32 [ %47, %.lr.ph.i42 ], [ 0, %42 ]
+.lr.ph.i42:                                       ; preds = %43, %.lr.ph.i42
+  %.019.i43 = phi i64 [ %48, %.lr.ph.i42 ], [ %45, %43 ]
+  %.01718.i44 = phi i32 [ %47, %.lr.ph.i42 ], [ 0, %43 ]
   %47 = add nuw nsw i32 %.01718.i44, 1
   %48 = lshr i64 %.019.i43, 8
   %49 = icmp ugt i64 %.019.i43, 255
@@ -317,64 +318,63 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
 
 .lr.ph22.i48:                                     ; preds = %.lr.ph22.i48, %.lr.ph22.preheader.i45
   %indvars.iv.i49 = phi i64 [ 1, %.lr.ph22.preheader.i45 ], [ %indvars.iv.next.i51, %.lr.ph22.i48 ]
-  %52 = sub nsw i64 %45, %indvars.iv.i49
-  %53 = shl i64 %52, 3
-  %54 = lshr i64 %44, %53
-  %55 = trunc i64 %54 to i8
+  %52 = trunc i64 %indvars.iv.i49 to i32
+  %53 = sub i32 %47, %52
+  %54 = shl i32 %53, 3
+  %55 = zext nneg i32 %54 to i64
+  %56 = lshr i64 %45, %55
+  %57 = trunc i64 %56 to i8
   %gep.i50 = getelementptr i8, ptr %invariant.gep.i47, i64 %indvars.iv.i49
-  store i8 %55, ptr %gep.i50, align 1
+  store i8 %57, ptr %gep.i50, align 1
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i46
-  br i1 %exitcond.i52, label %right_encode.exit56.loopexit, label %.lr.ph22.i48, !llvm.loop !9
+  br i1 %exitcond.i52, label %right_encode.exit56, label %.lr.ph22.i48, !llvm.loop !9
 
-right_encode.exit56.loopexit:                     ; preds = %.lr.ph22.i48
-  %56 = trunc i32 %47 to i8
-  br label %right_encode.exit56
+right_encode.exit56:                              ; preds = %.lr.ph22.i48, %43
+  %.017.lcssa29.i53 = phi i32 [ 0, %43 ], [ %47, %.lr.ph22.i48 ]
+  %.pre-phi26.i54 = phi i32 [ 1, %43 ], [ %46, %.lr.ph22.i48 ]
+  %.pre-phi.i55 = zext i32 %.017.lcssa29.i53 to i64
+  %58 = trunc i32 %.017.lcssa29.i53 to i8
+  %59 = getelementptr inbounds i8, ptr %5, i64 %.pre-phi.i55
+  store i8 %58, ptr %59, align 1
+  %60 = add i32 %.pre-phi26.i54, 1
+  %61 = zext i32 %.pre-phi26.i54 to i64
+  %62 = getelementptr inbounds [11 x i8], ptr %5, i64 0, i64 %61
+  store i8 -1, ptr %62, align 1
+  %63 = add i32 %.pre-phi26.i54, 2
+  %64 = zext i32 %60 to i64
+  %65 = getelementptr inbounds [11 x i8], ptr %5, i64 0, i64 %64
+  store i8 -1, ptr %65, align 1
+  %66 = getelementptr inbounds i8, ptr %0, i64 216
+  %67 = zext i32 %63 to i64
+  %68 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %66, ptr noundef nonnull %5, i64 noundef %67) #3
+  %.not38 = icmp eq i32 %68, 0
+  br i1 %.not38, label %69, label %78
 
-right_encode.exit56:                              ; preds = %42, %right_encode.exit56.loopexit
-  %.017.lcssa29.i53 = phi i8 [ %56, %right_encode.exit56.loopexit ], [ 0, %42 ]
-  %.pre-phi26.i54 = phi i32 [ %46, %right_encode.exit56.loopexit ], [ 1, %42 ]
-  %.pre-phi.i55 = phi i64 [ %45, %right_encode.exit56.loopexit ], [ 0, %42 ]
-  %57 = getelementptr inbounds i8, ptr %5, i64 %.pre-phi.i55
-  store i8 %.017.lcssa29.i53, ptr %57, align 1
-  %58 = add i32 %.pre-phi26.i54, 1
-  %59 = zext i32 %.pre-phi26.i54 to i64
-  %60 = getelementptr inbounds [11 x i8], ptr %5, i64 0, i64 %59
-  store i8 -1, ptr %60, align 1
-  %61 = add i32 %.pre-phi26.i54, 2
-  %62 = zext i32 %58 to i64
-  %63 = getelementptr inbounds [11 x i8], ptr %5, i64 0, i64 %62
-  store i8 -1, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %0, i64 216
-  %65 = zext i32 %61 to i64
-  %66 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %64, ptr noundef nonnull %5, i64 noundef %65) #3
-  %.not38 = icmp eq i32 %66, 0
-  br i1 %.not38, label %67, label %76
+69:                                               ; preds = %right_encode.exit56, %28
+  %.027 = phi i8 [ 7, %28 ], [ 6, %right_encode.exit56 ]
+  %70 = getelementptr inbounds i8, ptr %0, i64 216
+  %71 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %70, i8 noundef zeroext %.027) #3
+  %.not39 = icmp eq i32 %71, 0
+  br i1 %.not39, label %72, label %78
 
-67:                                               ; preds = %right_encode.exit56, %27
-  %.027 = phi i8 [ 7, %27 ], [ 6, %right_encode.exit56 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 216
-  %69 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %68, i8 noundef zeroext %.027) #3
-  %.not39 = icmp eq i32 %69, 0
-  br i1 %.not39, label %70, label %76
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds i8, ptr %0, i64 432
+  %74 = load i64, ptr %73, align 8
+  %.not40 = icmp eq i64 %74, 0
+  br i1 %.not40, label %77, label %75
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 432
-  %72 = load i64, ptr %71, align 8
-  %.not40 = icmp eq i64 %72, 0
-  br i1 %.not40, label %75, label %73
-
-73:                                               ; preds = %70
+75:                                               ; preds = %72
   store i32 2, ptr %7, align 4
-  %74 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %68, ptr noundef %1, i64 noundef %72) #3
-  br label %76
+  %76 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %70, ptr noundef %1, i64 noundef %74) #3
+  br label %78
 
-75:                                               ; preds = %70
+77:                                               ; preds = %72
   store i32 3, ptr %7, align 4
-  br label %76
+  br label %78
 
-76:                                               ; preds = %67, %right_encode.exit56, %39, %37, %34, %25, %10, %4, %75, %73
-  %.0 = phi i32 [ %74, %73 ], [ 0, %75 ], [ 1, %4 ], [ 1, %10 ], [ 1, %25 ], [ 1, %34 ], [ 1, %37 ], [ 1, %39 ], [ 1, %right_encode.exit56 ], [ 1, %67 ]
+78:                                               ; preds = %69, %right_encode.exit56, %40, %38, %35, %26, %10, %4, %77, %75
+  %.0 = phi i32 [ %76, %75 ], [ 0, %77 ], [ 1, %4 ], [ 1, %10 ], [ 1, %26 ], [ 1, %35 ], [ 1, %38 ], [ 1, %40 ], [ 1, %right_encode.exit56 ], [ 1, %69 ]
   ret i32 %.0
 }
 

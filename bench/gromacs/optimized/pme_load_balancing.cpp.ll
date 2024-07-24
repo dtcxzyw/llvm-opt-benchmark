@@ -1168,7 +1168,7 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
   br i1 %293, label %294, label %296
 
 294:                                              ; preds = %284
-  %295 = sub nsw i64 %286, %292
+  %295 = sub nuw nsw i64 %286, %292
   call void @_ZNSt6vectorI11pme_setup_tSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %201, i64 noundef %295)
   br label %301
 
@@ -1549,7 +1549,7 @@ _ZL27pme_loadbal_increase_cutoffP20pme_load_balancing_tiPK12gmx_domdec_t.exit._c
   br i1 %512, label %513, label %515
 
 513:                                              ; preds = %.thread10.i
-  %514 = sub nsw i64 %505, %511
+  %514 = sub nuw nsw i64 %505, %511
   call void @_ZNSt6vectorI11pme_setup_tSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %201, i64 noundef %514)
   br label %_ZNSt6vectorI11pme_setup_tSaIS0_EE6resizeEm.exit235.i
 

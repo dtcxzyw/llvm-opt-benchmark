@@ -6008,7 +6008,7 @@ define void @_Z15init_npt_massesRK10t_inputrecRK14gmx_ekindata_tP7t_stateP9t_ext
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %13
-  %24 = sub nsw i64 %14, %21
+  %24 = sub nuw nsw i64 %14, %21
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %24)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -6157,7 +6157,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %29, %27, %25, %23, 
   br i1 %122, label %123, label %125
 
 123:                                              ; preds = %112
-  %124 = sub nsw i64 %114, %121
+  %124 = sub nuw nsw i64 %114, %121
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %124)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit77
 
@@ -6669,7 +6669,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %54, %50
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %137
-  %152 = sub nsw i64 %142, %149
+  %152 = sub nuw nsw i64 %142, %149
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %138, i64 noundef %152)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -6857,7 +6857,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

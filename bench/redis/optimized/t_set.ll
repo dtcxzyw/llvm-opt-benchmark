@@ -3018,7 +3018,7 @@ if.end40:                                         ; preds = %setTypeSize.exit
   %arrayidx51 = getelementptr inbounds i8, ptr %call47, i64 8
   store ptr %37, ptr %arrayidx51, align 8
   call void @addReplySetLen(ptr noundef nonnull %c, i64 noundef %2) #10
-  %sub = sub i64 %retval.0.i, %2
+  %sub = sub nuw i64 %retval.0.i, %2
   %mul52 = mul i64 %sub, 5
   %cmp53 = icmp ugt i64 %mul52, %2
   %bf.load = load i32, ptr %call4, align 8
@@ -3047,7 +3047,7 @@ for.body:                                         ; preds = %if.then55, %if.end8
   %propindex.0173 = phi i64 [ 2, %if.then55 ], [ %propindex.2, %if.end87 ]
   %i.0172 = phi i64 [ 0, %if.then55 ], [ %inc92, %if.end87 ]
   %p.0171 = phi ptr [ %call56, %if.then55 ], [ %call89, %if.end87 ]
-  %sub60 = sub i64 %2, %i.0172
+  %sub60 = sub nuw i64 %2, %i.0172
   %conv = trunc i64 %sub60 to i32
   %call61 = call ptr @lpNextRandom(ptr noundef %39, ptr noundef %p.0171, ptr noundef nonnull %index, i32 noundef %conv, i32 noundef 0) #10
   %call63 = call ptr @lpGetValue(ptr noundef %call61, ptr noundef nonnull %len62, ptr noundef nonnull %llele) #10
@@ -3162,7 +3162,7 @@ if.then136:                                       ; preds = %if.else130
 for.body150:                                      ; preds = %if.then136, %for.body150
   %i146.0155 = phi i64 [ %inc162, %for.body150 ], [ 0, %if.then136 ]
   %p140.0154 = phi ptr [ %call159, %for.body150 ], [ %call141, %if.then136 ]
-  %sub151 = sub i64 %sub, %i146.0155
+  %sub151 = sub nuw i64 %sub, %i146.0155
   %conv152 = trunc i64 %sub151 to i32
   %call153 = call ptr @lpNextRandom(ptr noundef %52, ptr noundef %p140.0154, ptr noundef nonnull %index142, i32 noundef %conv152, i32 noundef 0) #10
   %call155 = call ptr @lpGetValue(ptr noundef %call153, ptr noundef nonnull %len154, ptr noundef nonnull %llele) #10

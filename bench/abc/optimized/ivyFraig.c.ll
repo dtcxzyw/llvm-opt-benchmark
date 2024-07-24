@@ -7010,8 +7010,8 @@ define i32 @Ivy_FraigSetActivityFactors_rec(ptr nocapture noundef readonly %0, p
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load double, ptr %16, align 8
-  %18 = sub nsw i32 %12, %2
-  %19 = sitofp i32 %18 to double
+  %18 = sub nuw nsw i32 %12, %2
+  %19 = uitofp nneg i32 %18 to double
   %20 = fmul double %17, %19
   %21 = sub nsw i32 %3, %2
   %22 = sitofp i32 %21 to double

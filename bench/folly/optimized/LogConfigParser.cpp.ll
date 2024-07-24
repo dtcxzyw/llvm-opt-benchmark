@@ -4076,7 +4076,7 @@ if.then.i:                                        ; preds = %if.then30
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit:           ; preds = %if.then30
   %add.ptr.i = getelementptr inbounds i8, ptr %sp.coerce0, i64 %tokenStartPos.0213
-  %sub.i = sub i64 %sub.ptr.sub.i, %tokenStartPos.0213
+  %sub.i = sub nuw i64 %sub.ptr.sub.i, %tokenStartPos.0213
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %tokenSize.0211)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %.sroa.speculated.i
   %7 = load ptr, ptr %_M_finish.i.i.i101, align 8, !tbaa !13

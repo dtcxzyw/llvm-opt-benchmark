@@ -2320,7 +2320,7 @@ define void @_ZNK2cv11_InputArray12getMatVectorERSt6vectorINS_3MatESaIS2_EE(ptr 
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %13
-  %29 = sub nsw i64 %19, %26
+  %29 = sub nuw nsw i64 %19, %26
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %29)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
@@ -2432,7 +2432,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %28, %30, %32, %_ZSt
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %71
-  %94 = sub nsw i64 %75, %91
+  %94 = sub nuw nsw i64 %75, %91
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %94)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit116
 
@@ -2519,7 +2519,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit116:  ; preds = %93, %95, %97, %_ZSt
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %117
-  %141 = sub nsw i64 %121, %138
+  %141 = sub nuw nsw i64 %121, %138
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %141)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit122
 
@@ -2617,7 +2617,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i127: ; preds = %.lr.ph.i.i.i.
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %162
-  %184 = sub nsw i64 %174, %181
+  %184 = sub nuw nsw i64 %174, %181
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %184)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit133
 
@@ -2695,7 +2695,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit133:  ; preds = %183, %185, %187, %_
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %202
-  %221 = sub nsw i64 %211, %218
+  %221 = sub nuw nsw i64 %211, %218
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %221)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit139
 
@@ -2755,7 +2755,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit139:  ; preds = %220, %222, %224, %_
   br i1 %246, label %247, label %249
 
 247:                                              ; preds = %233
-  %248 = sub nsw i64 %238, %245
+  %248 = sub nuw nsw i64 %238, %245
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %248)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit145
 
@@ -2814,7 +2814,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit145:  ; preds = %247, %249, %251, %_
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %259
-  %278 = sub nsw i64 %268, %275
+  %278 = sub nuw nsw i64 %268, %275
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %278)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit151
 
@@ -2917,7 +2917,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm(ptr nou
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE15_M_erase_at_endEPS1_.exit
 
@@ -3011,7 +3011,7 @@ _ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %15
-  %34 = sub nsw i64 %24, %31
+  %34 = sub nuw nsw i64 %24, %31
   tail call void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %34)
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 
@@ -3082,7 +3082,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit:    ; preds = %33, %35, %37, %_ZSt
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %49
-  %64 = sub nsw i64 %54, %61
+  %64 = sub nuw nsw i64 %54, %61
   tail call void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %64)
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit67
 
@@ -3152,7 +3152,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit67:  ; preds = %63, %65, %67, %_ZSt
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %78
-  %97 = sub nsw i64 %87, %94
+  %97 = sub nuw nsw i64 %87, %94
   tail call void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %97)
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit73
 
@@ -3341,7 +3341,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm(ptr no
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE15_M_erase_at_endEPS1_.exit
 
@@ -10041,7 +10041,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm(ptr no
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIS_IhSaIhEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE15_M_erase_at_endEPS1_.exit
 
@@ -10089,7 +10089,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -10197,7 +10197,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIhLi2EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %40
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -10298,7 +10298,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10332,7 +10332,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnu
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIiSaIiEE15_M_erase_at_endEPi.exit
 
@@ -10366,7 +10366,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIsLi3EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIsLi3EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIsLi3EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10400,7 +10400,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %40
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -10501,7 +10501,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10535,7 +10535,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10569,7 +10569,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi5EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi5EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi5EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10603,7 +10603,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi6EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi6EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi6EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10637,7 +10637,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi7EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi7EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi7EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10671,7 +10671,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi8EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi8EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi8EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10705,7 +10705,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi9EEESaIS2_EE6resizeEm(
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi9EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi9EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10739,7 +10739,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi10EEESaIS2_EE6resizeEm
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi10EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi10EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10773,7 +10773,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi11EEESaIS2_EE6resizeEm
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi11EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi11EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10807,7 +10807,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi12EEESaIS2_EE6resizeEm
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi12EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi12EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10841,7 +10841,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi13EEESaIS2_EE6resizeEm
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi13EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi13EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10875,7 +10875,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi14EEESaIS2_EE6resizeEm
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi14EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi14EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10909,7 +10909,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi15EEESaIS2_EE6resizeEm
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi15EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi15EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10943,7 +10943,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi16EEESaIS2_EE6resizeEm
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi16EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi16EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -10977,7 +10977,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi32EEESaIS2_EE6resizeEm
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi32EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi32EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -11011,7 +11011,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi64EEESaIS2_EE6resizeEm
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi64EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi64EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
@@ -11045,7 +11045,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3VecIiLi128EEESaIS2_EE6resizeE
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN2cv3VecIiLi128EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN2cv3VecIiLi128EEESaIS2_EE15_M_erase_at_endEPS2_.exit
 

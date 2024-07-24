@@ -752,7 +752,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   br i1 %183, label %184, label %188
 
 184:                                              ; preds = %180
-  %185 = sub i32 %182, %165
+  %185 = sub nuw i32 %182, %165
   %186 = trunc i32 %185 to i16
   %187 = add i16 %178, %186
   br label %188
@@ -1059,7 +1059,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   br i1 %175, label %176, label %180
 
 176:                                              ; preds = %172
-  %177 = sub i32 %174, %157
+  %177 = sub nuw i32 %174, %157
   %178 = trunc i32 %177 to i16
   %179 = add i16 %170, %178
   br label %180

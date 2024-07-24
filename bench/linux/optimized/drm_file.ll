@@ -1270,7 +1270,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_event_reserve_init_locked(pt
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %4
-  %11 = sub i32 %6, %8
+  %11 = sub nuw i32 %6, %8
   store i32 %11, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %3, ptr %12, align 8
@@ -1304,7 +1304,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_event_reserve_init(ptr nound
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %4
-  %13 = sub i32 %8, %10
+  %13 = sub nuw i32 %8, %10
   store i32 %13, ptr %7, align 8
   %14 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %3, ptr %14, align 8

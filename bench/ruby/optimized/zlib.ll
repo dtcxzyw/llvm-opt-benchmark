@@ -3258,7 +3258,7 @@ get_gzfile.exit:                                  ; preds = %1
 
 .thread:                                          ; preds = %get_gzfile.exit, %12
   %16 = phi i64 [ %15, %12 ], [ 0, %get_gzfile.exit ]
-  %17 = sub i64 %8, %16
+  %17 = sub nuw i64 %8, %16
   %18 = tail call i64 @rb_uint2inum(i64 noundef %17) #17
   br label %22
 
@@ -7018,7 +7018,7 @@ RSTRING_PTR.exit:                                 ; preds = %7, %15
   br i1 %.not, label %34, label %32
 
 32:                                               ; preds = %28
-  %33 = sub i32 %30, %31
+  %33 = sub nuw i32 %30, %31
   store i32 %33, ptr %29, align 8
   br label %35
 

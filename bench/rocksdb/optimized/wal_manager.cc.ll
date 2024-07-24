@@ -3067,7 +3067,7 @@ if.end179:                                        ; preds = %for.end
   br i1 %cmp184.not, label %if.end186, label %cleanup284
 
 if.end186:                                        ; preds = %if.end179
-  %sub187 = sub i64 %log_files_num.3, %div183
+  %sub187 = sub nuw i64 %log_files_num.3, %div183
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %archived_logs, i8 0, i64 24, i1 false)
   invoke void @_ZN7rocksdb10WalManager19GetSortedWalsOfTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt10unique_ptrINS_7LogFileESt14default_deleteISB_EESaISE_EENS_11WalFileTypeE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp188, ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef nonnull align 8 dereferenceable(32) %archival_dir, ptr noundef nonnull align 8 dereferenceable(24) %archived_logs, i32 noundef 0)
           to label %invoke.cont190 unwind label %lpad189.loopexit.split-lp

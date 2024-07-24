@@ -9684,7 +9684,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp, label %for.body.lr.ph, label %nrvo.skipdtor
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
-  %sub = sub i64 %max_size, %size
+  %sub = sub nuw i64 %max_size, %size
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   br label %for.body
@@ -32944,7 +32944,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %1
+  %sub.i.i = sub nuw i64 %call, %1
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %1
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -33026,7 +33026,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit14:          ; preds = %invoke.cont9, %if.t
   br i1 %cmp.i.i17, label %if.then.i.i22, label %if.else.i.i18
 
 if.then.i.i22:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit14
-  %sub.i.i23 = sub i64 %call, %11
+  %sub.i.i23 = sub nuw i64 %call, %11
   %sub3.i.i.i.i.i24 = sub i64 9223372036854775807, %11
   %cmp.i.i.i.i.i25 = icmp ult i64 %sub3.i.i.i.i.i24, %sub.i.i23
   br i1 %cmp.i.i.i.i.i25, label %if.then.i.i.i.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i26
@@ -33187,7 +33187,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit59:          ; preds = %invoke.cont30, %if.
   br i1 %cmp.i.i61, label %if.then.i.i66, label %if.else.i.i62
 
 if.then.i.i66:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit59
-  %sub.i.i67 = sub i64 %call31, %31
+  %sub.i.i67 = sub nuw i64 %call31, %31
   %sub3.i.i.i.i.i68 = sub i64 9223372036854775807, %31
   %cmp.i.i.i.i.i69 = icmp ult i64 %sub3.i.i.i.i.i68, %sub.i.i67
   br i1 %cmp.i.i.i.i.i69, label %if.then.i.i.i.i.i84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i70
@@ -33445,7 +33445,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %1
+  %sub.i.i = sub nuw i64 %call, %1
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %1
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -33527,7 +33527,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit14:          ; preds = %invoke.cont9, %if.t
   br i1 %cmp.i.i17, label %if.then.i.i22, label %if.else.i.i18
 
 if.then.i.i22:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit14
-  %sub.i.i23 = sub i64 %call, %11
+  %sub.i.i23 = sub nuw i64 %call, %11
   %sub3.i.i.i.i.i24 = sub i64 9223372036854775807, %11
   %cmp.i.i.i.i.i25 = icmp ult i64 %sub3.i.i.i.i.i24, %sub.i.i23
   br i1 %cmp.i.i.i.i.i25, label %if.then.i.i.i.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i26
@@ -33688,7 +33688,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit59:          ; preds = %invoke.cont30, %if.
   br i1 %cmp.i.i61, label %if.then.i.i66, label %if.else.i.i62
 
 if.then.i.i66:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit59
-  %sub.i.i67 = sub i64 %call31, %31
+  %sub.i.i67 = sub nuw i64 %call31, %31
   %sub3.i.i.i.i.i68 = sub i64 9223372036854775807, %31
   %cmp.i.i.i.i.i69 = icmp ult i64 %sub3.i.i.i.i.i68, %sub.i.i67
   br i1 %cmp.i.i.i.i.i69, label %if.then.i.i.i.i.i84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i70
@@ -33946,7 +33946,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %1
+  %sub.i.i = sub nuw i64 %call, %1
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %1
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -34028,7 +34028,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit14:          ; preds = %invoke.cont9, %if.t
   br i1 %cmp.i.i17, label %if.then.i.i22, label %if.else.i.i18
 
 if.then.i.i22:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit14
-  %sub.i.i23 = sub i64 %call, %11
+  %sub.i.i23 = sub nuw i64 %call, %11
   %sub3.i.i.i.i.i24 = sub i64 9223372036854775807, %11
   %cmp.i.i.i.i.i25 = icmp ult i64 %sub3.i.i.i.i.i24, %sub.i.i23
   br i1 %cmp.i.i.i.i.i25, label %if.then.i.i.i.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i26
@@ -34189,7 +34189,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit59:          ; preds = %invoke.cont30, %if.
   br i1 %cmp.i.i61, label %if.then.i.i66, label %if.else.i.i62
 
 if.then.i.i66:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit59
-  %sub.i.i67 = sub i64 %call31, %31
+  %sub.i.i67 = sub nuw i64 %call31, %31
   %sub3.i.i.i.i.i68 = sub i64 9223372036854775807, %31
   %cmp.i.i.i.i.i69 = icmp ult i64 %sub3.i.i.i.i.i68, %sub.i.i67
   br i1 %cmp.i.i.i.i.i69, label %if.then.i.i.i.i.i84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i70
@@ -34447,7 +34447,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %1
+  %sub.i.i = sub nuw i64 %call, %1
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %1
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -34529,7 +34529,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit14:          ; preds = %invoke.cont9, %if.t
   br i1 %cmp.i.i17, label %if.then.i.i22, label %if.else.i.i18
 
 if.then.i.i22:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit14
-  %sub.i.i23 = sub i64 %call, %11
+  %sub.i.i23 = sub nuw i64 %call, %11
   %sub3.i.i.i.i.i24 = sub i64 9223372036854775807, %11
   %cmp.i.i.i.i.i25 = icmp ult i64 %sub3.i.i.i.i.i24, %sub.i.i23
   br i1 %cmp.i.i.i.i.i25, label %if.then.i.i.i.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i26
@@ -34690,7 +34690,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit59:          ; preds = %invoke.cont30, %if.
   br i1 %cmp.i.i61, label %if.then.i.i66, label %if.else.i.i62
 
 if.then.i.i66:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit59
-  %sub.i.i67 = sub i64 %call31, %31
+  %sub.i.i67 = sub nuw i64 %call31, %31
   %sub3.i.i.i.i.i68 = sub i64 9223372036854775807, %31
   %cmp.i.i.i.i.i69 = icmp ult i64 %sub3.i.i.i.i.i68, %sub.i.i67
   br i1 %cmp.i.i.i.i.i69, label %if.then.i.i.i.i.i84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i70
@@ -34948,7 +34948,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %1
+  %sub.i.i = sub nuw i64 %call, %1
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %1
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -35030,7 +35030,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit14:          ; preds = %invoke.cont9, %if.t
   br i1 %cmp.i.i17, label %if.then.i.i22, label %if.else.i.i18
 
 if.then.i.i22:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit14
-  %sub.i.i23 = sub i64 %call, %11
+  %sub.i.i23 = sub nuw i64 %call, %11
   %sub3.i.i.i.i.i24 = sub i64 9223372036854775807, %11
   %cmp.i.i.i.i.i25 = icmp ult i64 %sub3.i.i.i.i.i24, %sub.i.i23
   br i1 %cmp.i.i.i.i.i25, label %if.then.i.i.i.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i26
@@ -35191,7 +35191,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit59:          ; preds = %invoke.cont30, %if.
   br i1 %cmp.i.i61, label %if.then.i.i66, label %if.else.i.i62
 
 if.then.i.i66:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit59
-  %sub.i.i67 = sub i64 %call31, %31
+  %sub.i.i67 = sub nuw i64 %call31, %31
   %sub3.i.i.i.i.i68 = sub i64 9223372036854775807, %31
   %cmp.i.i.i.i.i69 = icmp ult i64 %sub3.i.i.i.i.i68, %sub.i.i67
   br i1 %cmp.i.i.i.i.i69, label %if.then.i.i.i.i.i84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i70
@@ -35449,7 +35449,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %1
+  %sub.i.i = sub nuw i64 %call, %1
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %1
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -35531,7 +35531,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit14:          ; preds = %invoke.cont9, %if.t
   br i1 %cmp.i.i17, label %if.then.i.i22, label %if.else.i.i18
 
 if.then.i.i22:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit14
-  %sub.i.i23 = sub i64 %call, %11
+  %sub.i.i23 = sub nuw i64 %call, %11
   %sub3.i.i.i.i.i24 = sub i64 9223372036854775807, %11
   %cmp.i.i.i.i.i25 = icmp ult i64 %sub3.i.i.i.i.i24, %sub.i.i23
   br i1 %cmp.i.i.i.i.i25, label %if.then.i.i.i.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i26
@@ -35692,7 +35692,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit59:          ; preds = %invoke.cont30, %if.
   br i1 %cmp.i.i61, label %if.then.i.i66, label %if.else.i.i62
 
 if.then.i.i66:                                    ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit59
-  %sub.i.i67 = sub i64 %call31, %31
+  %sub.i.i67 = sub nuw i64 %call31, %31
   %sub3.i.i.i.i.i68 = sub i64 9223372036854775807, %31
   %cmp.i.i.i.i.i69 = icmp ult i64 %sub3.i.i.i.i.i68, %sub.i.i67
   br i1 %cmp.i.i.i.i.i69, label %if.then.i.i.i.i.i84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i70
@@ -35975,7 +35975,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %2
+  %sub.i.i = sub nuw i64 %call, %2
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %2
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -36316,7 +36316,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %2
+  %sub.i.i = sub nuw i64 %call, %2
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %2
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -36683,7 +36683,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %2
+  %sub.i.i = sub nuw i64 %call, %2
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %2
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -37069,7 +37069,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %2
+  %sub.i.i = sub nuw i64 %call, %2
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %2
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -37481,7 +37481,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %2
+  %sub.i.i = sub nuw i64 %call, %2
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %2
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -37849,7 +37849,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %sub.i.i = sub i64 %call, %2
+  %sub.i.i = sub nuw i64 %call, %2
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %2
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i

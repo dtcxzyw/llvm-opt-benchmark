@@ -287,7 +287,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end
-  %sub13 = sub i64 %sub.i, %add
+  %sub13 = sub nuw i64 %sub.i, %add
   %10 = load i64, ptr %unprotected_bytes_size, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub13, i64 %10)
   store i64 %.sroa.speculated, ptr %unprotected_bytes_size, align 8

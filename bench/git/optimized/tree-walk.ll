@@ -217,9 +217,9 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %sub.i = sub nsw i64 %conv.i, %sub.ptr.sub.i
+  %sub.i = sub nuw nsw i64 %conv.i, %sub.ptr.sub.i
   store ptr %add.ptr4.i, ptr %desc, align 8
-  %conv8.i = trunc i64 %sub.i to i32
+  %conv8.i = trunc nuw i64 %sub.i to i32
   store i32 %conv8.i, ptr %size5.i, align 8
   %tobool.not.i = icmp eq i64 %sub.ptr.sub.i, %conv.i
   br i1 %tobool.not.i, label %if.end, label %update_tree_entry_internal.exit
@@ -274,9 +274,9 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %sub.i = sub nsw i64 %conv.i, %sub.ptr.sub.i
+  %sub.i = sub nuw nsw i64 %conv.i, %sub.ptr.sub.i
   store ptr %add.ptr4.i, ptr %desc, align 8
-  %conv8.i = trunc i64 %sub.i to i32
+  %conv8.i = trunc nuw i64 %sub.i to i32
   store i32 %conv8.i, ptr %size5.i, align 8
   %tobool.not.i = icmp eq i64 %sub.ptr.sub.i, %conv.i
   br i1 %tobool.not.i, label %if.end, label %update_tree_entry_internal.exit
@@ -475,7 +475,7 @@ if.end4:                                          ; preds = %if.end, %if.end10
   %namelen.addr.020 = phi i64 [ %2, %if.end10 ], [ %namelen, %if.end ]
   %name.addr.019 = phi ptr [ %1, %if.end10 ], [ %name, %if.end ]
   %info.addr.018 = phi ptr [ %3, %if.end10 ], [ %info, %if.end ]
-  %sub = sub i64 %pos.021, %namelen.addr.020
+  %sub = sub nuw i64 %pos.021, %namelen.addr.020
   %add.ptr = getelementptr inbounds i8, ptr %path, i64 %sub
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %name.addr.019, i64 %namelen.addr.020, i1 false)
   %tobool.not = icmp eq i64 %pos.021, %namelen.addr.020
@@ -565,7 +565,7 @@ if.end4.i:                                        ; preds = %if.end.i, %if.end10
   %namelen.addr.020.i = phi i64 [ %6, %if.end10.i ], [ %namelen, %if.end.i ]
   %name.addr.019.i = phi ptr [ %5, %if.end10.i ], [ %name, %if.end.i ]
   %info.addr.018.i = phi ptr [ %7, %if.end10.i ], [ %info, %if.end.i ]
-  %sub.i = sub i64 %pos.021.i, %namelen.addr.020.i
+  %sub.i = sub nuw i64 %pos.021.i, %namelen.addr.020.i
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %sub.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %name.addr.019.i, i64 %namelen.addr.020.i, i1 false)
   %tobool.not.i = icmp eq i64 %pos.021.i, %namelen.addr.020.i
@@ -835,9 +835,9 @@ if.then.i.i:                                      ; preds = %if.end9.i
   unreachable
 
 if.end.i.i133:                                    ; preds = %if.end9.i
-  %sub.i.i = sub nsw i64 %conv.i.i131, %sub.ptr.sub.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i.i131, %sub.ptr.sub.i.i
   store ptr %add.ptr4.i.i, ptr %add.ptr33, align 8
-  %conv8.i.i = trunc i64 %sub.i.i to i32
+  %conv8.i.i = trunc nuw i64 %sub.i.i to i32
   store i32 %conv8.i.i, ptr %size.i, align 8
   %tobool.not.i.i134 = icmp eq i64 %sub.ptr.sub.i.i, %conv.i.i131
   br i1 %tobool.not.i.i134, label %update_tree_entry.exit, label %update_tree_entry_internal.exit.i
@@ -977,9 +977,9 @@ if.then.i.i193:                                   ; preds = %if.end9.i117
   unreachable
 
 if.end.i.i183:                                    ; preds = %if.end9.i117
-  %sub.i.i184 = sub nsw i64 %conv.i.i178, %sub.ptr.sub.i.i181
+  %sub.i.i184 = sub nuw nsw i64 %conv.i.i178, %sub.ptr.sub.i.i181
   store ptr %add.ptr4.i.i176, ptr %add.ptr72, align 8
-  %conv8.i.i185 = trunc i64 %sub.i.i184 to i32
+  %conv8.i.i185 = trunc nuw i64 %sub.i.i184 to i32
   store i32 %conv8.i.i185, ptr %size.i103, align 8
   %tobool.not.i.i186 = icmp eq i64 %sub.ptr.sub.i.i181, %conv.i.i178
   br i1 %tobool.not.i.i186, label %update_tree_entry.exit195, label %update_tree_entry_internal.exit.i187
@@ -1097,9 +1097,9 @@ if.then.i.i165:                                   ; preds = %sw.default28.i
   unreachable
 
 if.end.i.i155:                                    ; preds = %sw.default28.i
-  %sub.i.i156 = sub nsw i64 %conv.i.i150, %sub.ptr.sub.i.i153
+  %sub.i.i156 = sub nuw nsw i64 %conv.i.i150, %sub.ptr.sub.i.i153
   store ptr %add.ptr4.i.i148, ptr %probe.i, align 8
-  %conv8.i.i157 = trunc i64 %sub.i.i156 to i32
+  %conv8.i.i157 = trunc nuw i64 %sub.i.i156 to i32
   store i32 %conv8.i.i157, ptr %size20.i, align 8
   %tobool.not.i.i158 = icmp eq i64 %sub.ptr.sub.i.i153, %conv.i.i150
   br i1 %tobool.not.i.i158, label %update_tree_entry.exit167, label %update_tree_entry_internal.exit.i159

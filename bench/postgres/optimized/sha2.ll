@@ -57,7 +57,7 @@ define dso_local void @pg_sha256_update(ptr nocapture noundef %0, ptr nocapture 
   %16 = load i64, ptr %6, align 8
   %17 = add i64 %16, %15
   store i64 %17, ptr %6, align 8
-  %18 = sub i64 %2, %11
+  %18 = sub nuw i64 %2, %11
   %19 = getelementptr i8, ptr %1, i64 %11
   tail call fastcc void @SHA256_Transform(ptr noundef nonnull %0, ptr noundef nonnull %12)
   br label %21
@@ -915,7 +915,7 @@ define dso_local void @pg_sha224_update(ptr nocapture noundef %0, ptr nocapture 
   %16 = load i64, ptr %6, align 8
   %17 = add i64 %16, %15
   store i64 %17, ptr %6, align 8
-  %18 = sub i64 %2, %11
+  %18 = sub nuw i64 %2, %11
   %19 = getelementptr i8, ptr %1, i64 %11
   tail call fastcc void @SHA256_Transform(ptr noundef nonnull %0, ptr noundef nonnull %12)
   br label %21

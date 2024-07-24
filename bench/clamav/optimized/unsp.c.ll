@@ -328,7 +328,7 @@ get_byte.exit.i:                                  ; preds = %92, %91
 98:                                               ; preds = %77
   %99 = sub i32 %64, %81
   store i32 %99, ptr %27, align 8
-  %100 = sub i32 %63, %81
+  %100 = sub nuw i32 %63, %81
   store i32 %100, ptr %26, align 4
   %101 = lshr i16 %78, 5
   %102 = sub i16 %78, %101
@@ -494,7 +494,7 @@ get_byte.exit.i450:                               ; preds = %177, %176
 184:                                              ; preds = %162
   %185 = sub i32 %152, %166
   store i32 %185, ptr %27, align 8
-  %186 = sub i32 %151, %166
+  %186 = sub nuw i32 %151, %166
   store i32 %186, ptr %26, align 4
   %187 = lshr i16 %163, 5
   %188 = sub i16 %163, %187
@@ -631,7 +631,7 @@ get_byte.exit.i371:                               ; preds = %242, %241
 248:                                              ; preds = %227
   %249 = sub i32 %219, %231
   store i32 %249, ptr %27, align 8
-  %250 = sub i32 %218, %231
+  %250 = sub nuw i32 %218, %231
   store i32 %250, ptr %26, align 4
   %251 = lshr i16 %228, 5
   %252 = sub i16 %228, %251
@@ -737,7 +737,7 @@ get_byte.exit.i384:                               ; preds = %290, %289
 298:                                              ; preds = %275
   %299 = sub i32 %267, %279
   store i32 %299, ptr %27, align 8
-  %300 = sub i32 %266, %279
+  %300 = sub nuw i32 %266, %279
   store i32 %300, ptr %26, align 4
   %301 = lshr i16 %276, 5
   %302 = sub i16 %276, %301
@@ -843,7 +843,7 @@ get_byte.exit.i397:                               ; preds = %344, %343
 352:                                              ; preds = %329
   %353 = sub i32 %317, %333
   store i32 %353, ptr %27, align 8
-  %354 = sub i32 %316, %333
+  %354 = sub nuw i32 %316, %333
   store i32 %354, ptr %26, align 4
   %355 = lshr i16 %330, 5
   %356 = sub i16 %330, %355
@@ -986,7 +986,7 @@ get_byte.exit.i410:                               ; preds = %416, %415
 422:                                              ; preds = %401
   %423 = sub i32 %394, %405
   store i32 %423, ptr %27, align 8
-  %424 = sub i32 %393, %405
+  %424 = sub nuw i32 %393, %405
   store i32 %424, ptr %26, align 4
   %425 = lshr i16 %402, 5
   %426 = sub i16 %402, %425
@@ -1095,7 +1095,7 @@ get_byte.exit.i423:                               ; preds = %464, %463
 470:                                              ; preds = %449
   %471 = sub i32 %440, %453
   store i32 %471, ptr %27, align 8
-  %472 = sub i32 %439, %453
+  %472 = sub nuw i32 %439, %453
   store i32 %472, ptr %26, align 4
   %473 = lshr i16 %450, 5
   %474 = sub i16 %450, %473
@@ -1237,7 +1237,7 @@ get_byte.exit.i463:                               ; preds = %531, %530
 538:                                              ; preds = %516
   %539 = sub i32 %505, %520
   store i32 %539, ptr %27, align 8
-  %540 = sub i32 %504, %520
+  %540 = sub nuw i32 %504, %520
   store i32 %540, ptr %26, align 4
   %541 = lshr i16 %517, 5
   %542 = sub i16 %517, %541
@@ -1380,7 +1380,7 @@ get_byte.exit.i476:                               ; preds = %599, %598
 606:                                              ; preds = %584
   %607 = sub i32 %575, %588
   store i32 %607, ptr %27, align 8
-  %608 = sub i32 %574, %588
+  %608 = sub nuw i32 %574, %588
   store i32 %608, ptr %26, align 4
   %609 = lshr i16 %585, 5
   %610 = sub i16 %585, %609
@@ -1448,7 +1448,7 @@ get_bb.exit:                                      ; preds = %getbit_from_table.e
   br i1 %.not21.i, label %642, label %639
 
 639:                                              ; preds = %632
-  %640 = sub i32 %635, %637
+  %640 = sub nuw i32 %635, %637
   store i32 %640, ptr %26, align 4
   %641 = or disjoint i32 %638, 1
   br label %642
@@ -1568,7 +1568,7 @@ get_byte.exit.i489:                               ; preds = %683, %682
 690:                                              ; preds = %668
   %691 = sub i32 %659, %672
   store i32 %691, ptr %27, align 8
-  %692 = sub i32 %658, %672
+  %692 = sub nuw i32 %658, %672
   store i32 %692, ptr %26, align 4
   %693 = lshr i16 %669, 5
   %694 = sub i16 %669, %693
@@ -1818,7 +1818,7 @@ get_byte.exit:                                    ; preds = %43, %45
 51:                                               ; preds = %18
   %52 = sub i32 %22, %24
   store i32 %52, ptr %21, align 8
-  %53 = sub i32 %26, %24
+  %53 = sub nuw i32 %26, %24
   store i32 %53, ptr %25, align 4
   %54 = load i16, ptr %0, align 2
   %55 = lshr i16 %54, 5
@@ -1996,7 +1996,7 @@ get_byte.exit.i:                                  ; preds = %67, %66
 73:                                               ; preds = %44
   %74 = sub i32 %47, %49
   store i32 %74, ptr %6, align 8
-  %75 = sub i32 %50, %49
+  %75 = sub nuw i32 %50, %49
   store i32 %75, ptr %7, align 4
   %76 = load i16, ptr %32, align 2
   %77 = lshr i16 %76, 5
@@ -2224,7 +2224,7 @@ define i32 @get_bitmap(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %.not21, label %17, label %14
 
 14:                                               ; preds = %8
-  %15 = sub i32 %10, %12
+  %15 = sub nuw i32 %10, %12
   store i32 %15, ptr %5, align 4
   %16 = or disjoint i32 %13, 1
   br label %17

@@ -13915,7 +13915,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %sub.i.i = sub i64 %sub3.i, %sub.ptr.sub.i.i
+  %sub.i.i = sub nuw i64 %sub3.i, %sub.ptr.sub.i.i
   tail call void @_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %blob.i, i64 noundef %sub.i.i)
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
   %.pre26 = load ptr, ptr %blob.i, align 8

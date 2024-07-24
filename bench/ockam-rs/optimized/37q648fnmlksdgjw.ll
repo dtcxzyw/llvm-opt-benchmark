@@ -1852,7 +1852,7 @@ define hidden void @"_ZN107_$LT$kafka_protocol..messages..fetch_request..FetchTo
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i, ptr nonnull readonly align 1 %68, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !172, !noalias !176
   %70 = sub nuw nsw i64 %.sroa.4.016.i.i.i, %.0.sroa.speculated.i.i.i.i
   %71 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i, i64 %.0.sroa.speculated.i.i.i.i
-  %72 = sub i64 %69, %.0.sroa.speculated.i.i.i.i
+  %72 = sub nuw i64 %69, %.0.sroa.speculated.i.i.i.i
   %73 = getelementptr inbounds i8, ptr %68, i64 %.0.sroa.speculated.i.i.i.i
   %74 = icmp eq i64 %70, 0
   br i1 %74, label %81, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i"
@@ -29484,7 +29484,7 @@ define hidden void @"_ZN111_$LT$kafka_protocol..messages..fetch_request..Forgott
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i, ptr nonnull readonly align 1 %69, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !3798, !noalias !3802
   %71 = sub nuw nsw i64 %.sroa.4.016.i.i.i, %.0.sroa.speculated.i.i.i.i
   %72 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i, i64 %.0.sroa.speculated.i.i.i.i
-  %73 = sub i64 %70, %.0.sroa.speculated.i.i.i.i
+  %73 = sub nuw i64 %70, %.0.sroa.speculated.i.i.i.i
   %74 = getelementptr inbounds i8, ptr %69, i64 %.0.sroa.speculated.i.i.i.i
   %75 = icmp eq i64 %71, 0
   br i1 %75, label %81, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i"
@@ -69522,7 +69522,7 @@ define hidden void @"_ZN69_$LT$bytes..buf..reader..Reader$LT$B$GT$$u20$as$u20$st
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i, ptr nonnull readonly align 1 %8, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !9737, !noalias !9741
   %10 = sub nuw i64 %.sroa.4.016.i, %.0.sroa.speculated.i.i
   %11 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 %.0.sroa.speculated.i.i
-  %12 = sub i64 %9, %.0.sroa.speculated.i.i
+  %12 = sub nuw i64 %9, %.0.sroa.speculated.i.i
   %13 = getelementptr inbounds i8, ptr %8, i64 %.0.sroa.speculated.i.i
   %14 = icmp eq i64 %10, 0
   br i1 %14, label %._crit_edge.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i"
@@ -73239,7 +73239,7 @@ _ZN4core3ops8function6FnOnce9call_once17h54e3d112bc239ad4E.exit.i: ; preds = %45
   %93 = add i64 %92, %90
   %.not.i.i = icmp ult i64 %93, %89
   %94 = select i1 %.not.i.i, i64 0, i64 %89
-  %.0.i.i = sub i64 %93, %94
+  %.0.i.i = sub nuw i64 %93, %94
   %95 = load ptr, ptr %75, align 8, !alias.scope !10507, !noalias !10512, !nonnull !5, !noundef !5
   %96 = getelementptr inbounds { ptr, ptr }, ptr %95, i64 %.0.i.i
   store ptr %76, ptr %96, align 8, !noalias !10499
@@ -77946,7 +77946,7 @@ define hidden { i64, ptr } @"_ZN94_$LT$tokio..io..util..write_all..WriteAll$LT$W
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %18, i64 %.sroa.2.0.copyload
-  %25 = sub i64 %19, %.sroa.2.0.copyload
+  %25 = sub nuw i64 %19, %.sroa.2.0.copyload
   store ptr %24, ptr %4, align 8
   store i64 %25, ptr %5, align 8
   %26 = icmp eq i64 %.sroa.2.0.copyload, 0
@@ -78156,7 +78156,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %18, -1
   store ptr %20, ptr %9, align 8, !alias.scope !11362
   store ptr %19, ptr %3, align 8, !alias.scope !11362
-  %11 = sub i16 -2, %18
+  %11 = sub nuw i16 -2, %18
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !11363
   %13 = add i64 %5, -1
@@ -78229,7 +78229,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %18, -1
   store ptr %20, ptr %9, align 8, !alias.scope !11375
   store ptr %19, ptr %3, align 8, !alias.scope !11375
-  %11 = sub i16 -2, %18
+  %11 = sub nuw i16 -2, %18
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !11376
   %13 = add i64 %5, -1
@@ -82842,7 +82842,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h29e020
   %12 = xor i16 %19, -1
   store ptr %21, ptr %8, align 8, !alias.scope !12635
   store ptr %20, ptr %0, align 8, !alias.scope !12635
-  %13 = sub i16 -2, %19
+  %13 = sub nuw i16 -2, %19
   %14 = and i16 %13, %12
   store i16 %14, ptr %7, align 8, !alias.scope !12642
   %15 = add i64 %11, -1
@@ -82923,7 +82923,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hc436d6
   %9 = xor i16 %17, -1
   store ptr %19, ptr %6, align 8, !alias.scope !12666
   store ptr %18, ptr %0, align 8, !alias.scope !12666
-  %10 = sub i16 -2, %17
+  %10 = sub nuw i16 -2, %17
   %11 = and i16 %10, %9
   store i16 %11, ptr %5, align 8, !alias.scope !12667
   %12 = add i64 %8, -1
@@ -82999,7 +82999,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hf16b4a
   %13 = xor i16 %20, -1
   store ptr %22, ptr %7, align 8, !alias.scope !12676
   store ptr %21, ptr %0, align 8, !alias.scope !12676
-  %14 = sub i16 -2, %20
+  %14 = sub nuw i16 -2, %20
   %15 = and i16 %14, %13
   store i16 %15, ptr %6, align 8, !alias.scope !12683
   %16 = add i64 %12, -1
@@ -110729,7 +110729,7 @@ _ZN14kafka_protocol7records18RecordBatchEncoder6encode17h7661708c3c72bd59E.exit.
           to label %.body190.i unwind label %861, !noalias !18232
 
 856:                                              ; preds = %.noexc189.i
-  %857 = sub i64 %845, %842
+  %857 = sub nuw i64 %845, %842
   %858 = getelementptr inbounds i8, ptr %111, i64 8
   %859 = load ptr, ptr %858, align 8, !alias.scope !18222, !noalias !18218, !noundef !5
   %860 = getelementptr inbounds i8, ptr %859, i64 %842
@@ -145639,7 +145639,7 @@ _ZN14kafka_protocol7records18RecordBatchEncoder6encode17h7661708c3c72bd59E.exit.
           to label %.body187.i.i unwind label %1014, !noalias !22938
 
 1009:                                             ; preds = %.noexc186.i.i
-  %1010 = sub i64 %998, %995
+  %1010 = sub nuw i64 %998, %995
   %1011 = getelementptr inbounds i8, ptr %44, i64 8
   %1012 = load ptr, ptr %1011, align 8, !alias.scope !22928, !noalias !22924, !noundef !5
   %1013 = getelementptr inbounds i8, ptr %1012, i64 %995

@@ -2516,7 +2516,7 @@ define hidden i32 @cdf_print_elapsed_time(ptr noundef %0, i64 noundef %1, i64 no
 
 32:                                               ; preds = %._crit_edge
   %33 = getelementptr inbounds i8, ptr %0, i64 %31
-  %34 = sub i64 %1, %31
+  %34 = sub nuw i64 %1, %31
   %35 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %33, i64 noundef %34, ptr noundef nonnull @.str.8, i32 noundef %6) #20
   %36 = add nsw i32 %35, %30
   br label %37

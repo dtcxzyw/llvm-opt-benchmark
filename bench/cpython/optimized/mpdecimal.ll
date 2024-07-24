@@ -25569,7 +25569,7 @@ if.then48.i:                                      ; preds = %if.end44.i
   br i1 %cmp1.not.i.i, label %if.else.i.i, label %if.then.i79.i
 
 if.then.i79.i:                                    ; preds = %if.then48.i
-  %sub4.i.i = sub nsw i64 %cond.i83.i, %conv.i.i
+  %sub4.i.i = sub nuw nsw i64 %cond.i83.i, %conv.i.i
   %arrayidx5.i.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub4.i.i
   %87 = load i64, ptr %arrayidx5.i.i, align 8
   %div.i.i = udiv i64 %86, %87
@@ -25613,7 +25613,7 @@ if.else.i:                                        ; preds = %if.end44.i
   br i1 %cmp1.not.i88.i, label %if.else.i93.i, label %if.then.i89.i
 
 if.then.i89.i:                                    ; preds = %if.else.i
-  %sub4.i90.i = sub nsw i64 %cond.i83.i, %conv.i87.i
+  %sub4.i90.i = sub nuw nsw i64 %cond.i83.i, %conv.i87.i
   %arrayidx5.i91.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub4.i90.i
   %94 = load i64, ptr %arrayidx5.i91.i, align 8
   %div.i92.i = udiv i64 %93, %94
@@ -31149,7 +31149,7 @@ if.end24:                                         ; preds = %if.end
   %arrayidx32 = getelementptr i64, ptr %add.ptr28, i64 %div147
   store i64 0, ptr %arrayidx32, align 8
   %add.ptr35 = getelementptr i64, ptr %b, i64 %div147
-  %sub36 = sub i64 %lb, %div147
+  %sub36 = sub nuw i64 %lb, %div147
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr28, ptr noundef %add.ptr35, i64 noundef %sub36) #27
   %add.ptr37 = getelementptr i64, ptr %c, i64 %div147
   %add.ptr42.idx = shl i64 %add27, 4
@@ -31287,7 +31287,7 @@ if.end43:                                         ; preds = %if.end6
   %arrayidx52 = getelementptr i64, ptr %add.ptr48, i64 %div156
   store i64 0, ptr %arrayidx52, align 8
   %add.ptr55 = getelementptr i64, ptr %b, i64 %div156
-  %sub56 = sub i64 %lb, %div156
+  %sub56 = sub nuw i64 %lb, %div156
   tail call void @_mpd_baseaddto(ptr noundef %add.ptr48, ptr noundef %add.ptr55, i64 noundef %sub56) #27
   %add.ptr57 = getelementptr i64, ptr %c, i64 %div156
   %add.ptr62.idx = shl i64 %add47, 4

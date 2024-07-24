@@ -13030,7 +13030,7 @@ for.body.lr.ph:                                   ; preds = %_ZN7obj_refIN10poly
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0113 = phi i32 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %sub = sub i32 %retval.0.i25, %i.0113
+  %sub = sub nuw i32 %retval.0.i25, %i.0113
   %39 = load ptr, ptr %m_degree2pos, align 8
   %idxprom.i51 = zext i32 %sub to i64
   %arrayidx.i52 = getelementptr inbounds i32, ptr %39, i64 %idxprom.i51
@@ -22755,7 +22755,7 @@ invoke.cont60:                                    ; preds = %.noexc107, %if.then
 
 if.then62:                                        ; preds = %invoke.cont60
   %m_den.i = getelementptr inbounds i8, ptr %call51, i64 16
-  %sub = sub i32 %46, %41
+  %sub = sub nuw i32 %46, %41
   invoke void @_ZN13mpzzp_manager5powerERK3mpzjRS0_(ptr noundef nonnull align 8 dereferenceable(136) %m_manager, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i, i32 noundef %sub, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i51)
           to label %invoke.cont67 unwind label %lpad15.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -25706,7 +25706,7 @@ lpad.i:                                           ; preds = %if.then.i
   br label %common.resume
 
 _ZN10polynomial7manager3imp10checkpointEv.exit:   ; preds = %for.body
-  %sub = sub i32 %retval.0.i, %i.0237
+  %sub = sub nuw i32 %retval.0.i, %i.0237
   %cmp8.not235 = icmp ugt i32 %sub, %sub7
   br i1 %cmp8.not235, label %for.inc13, label %for.body9
 
@@ -31221,7 +31221,7 @@ tailrecurse:                                      ; preds = %_ZN10polynomial10po
 
 for.body.preheader:                               ; preds = %tailrecurse
   %0 = zext i32 %start.tr to i64
-  %1 = sub i32 %end, %start.tr
+  %1 = sub nuw i32 %end, %start.tr
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN6vectorIjLb0EjE9push_backERKj.exit
@@ -34750,7 +34750,7 @@ if.end21:                                         ; preds = %if.then16
   br i1 %cmp22, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %if.end21
-  %sub = sub i32 %10, %11
+  %sub = sub nuw i32 %10, %11
   %12 = load ptr, ptr %r, align 8
   %m_powers.i35 = getelementptr inbounds i8, ptr %12, i64 20
   %idxprom.i36 = zext i32 %j.048 to i64
@@ -36163,7 +36163,7 @@ if.then28:                                        ; preds = %if.end20
   br i1 %cmp31, label %if.then32, label %if.else
 
 if.then32:                                        ; preds = %if.then28
-  %sub = sub i32 %17, %18
+  %sub = sub nuw i32 %17, %18
   %19 = load ptr, ptr %r1, align 8
   %m_powers.i107 = getelementptr inbounds i8, ptr %19, i64 20
   %idxprom.i108 = zext i32 %j1.0163 to i64
@@ -36188,7 +36188,7 @@ if.else:                                          ; preds = %if.then28
   br i1 %cmp35, label %if.then36, label %if.else41
 
 if.then36:                                        ; preds = %if.else
-  %sub38 = sub i32 %18, %17
+  %sub38 = sub nuw i32 %18, %17
   %23 = load ptr, ptr %r2, align 8
   %m_powers.i118 = getelementptr inbounds i8, ptr %23, i64 20
   %idxprom.i119 = zext i32 %j2.0162 to i64
@@ -64417,7 +64417,7 @@ if.then30:                                        ; preds = %invoke.cont27
   br i1 %cmp31, label %if.then32, label %if.end48
 
 if.then32:                                        ; preds = %if.then30
-  %sub33 = sub i32 %add, %70
+  %sub33 = sub nuw i32 %add, %70
   %71 = load ptr, ptr %m_wrapper.i, align 8
   store ptr null, ptr %l_B_e, align 8
   %m_manager.i250 = getelementptr inbounds i8, ptr %l_B_e, i64 8
@@ -64896,7 +64896,7 @@ if.else.i.i:                                      ; preds = %for.body.i.i355
   br i1 %cmp6.i.i, label %if.then7.i.i, label %for.inc.i.i
 
 if.then7.i.i:                                     ; preds = %if.else.i.i
-  %sub.i.i361 = sub i32 %151, %retval.0.i90
+  %sub.i.i361 = sub nuw i32 %151, %retval.0.i90
   %152 = load ptr, ptr %m_tmp1.i.i, align 8
   %m_powers.i21.i.i = getelementptr inbounds i8, ptr %152, i64 20
   %idxprom.i22.i.i = zext i32 %j.029.i.i to i64
@@ -66579,7 +66579,7 @@ if.else.i.i:                                      ; preds = %for.body.i.i321
   br i1 %cmp6.i.i, label %if.then7.i.i, label %for.inc.i.i
 
 if.then7.i.i:                                     ; preds = %if.else.i.i
-  %sub.i.i327 = sub i32 %134, %retval.0.i83
+  %sub.i.i327 = sub nuw i32 %134, %retval.0.i83
   %135 = load ptr, ptr %m_tmp1.i.i, align 8
   %m_powers.i21.i.i = getelementptr inbounds i8, ptr %135, i64 20
   %idxprom.i22.i.i = zext i32 %j.029.i.i to i64
@@ -67997,7 +67997,7 @@ if.then43:                                        ; preds = %invoke.cont40
   br i1 %cmp46, label %if.then47, label %if.end71
 
 if.then47:                                        ; preds = %if.then43
-  %sub48 = sub i32 %add45, %89
+  %sub48 = sub nuw i32 %add45, %89
   %90 = load ptr, ptr %m_wrapper.i186, align 8
   store ptr null, ptr %l_B_e, align 8
   %m_manager.i304 = getelementptr inbounds i8, ptr %l_B_e, i64 8
@@ -68523,7 +68523,7 @@ if.else.i.i:                                      ; preds = %for.body.i.i432
   br i1 %cmp6.i.i, label %if.then7.i.i, label %for.inc.i.i
 
 if.then7.i.i:                                     ; preds = %if.else.i.i
-  %sub.i.i438 = sub i32 %177, %retval.0.i111
+  %sub.i.i438 = sub nuw i32 %177, %retval.0.i111
   %178 = load ptr, ptr %m_tmp1.i.i, align 8
   %m_powers.i21.i.i = getelementptr inbounds i8, ptr %178, i64 20
   %idxprom.i22.i.i = zext i32 %j.029.i.i to i64
@@ -70351,7 +70351,7 @@ if.else.i.i:                                      ; preds = %for.body.i.i343
   br i1 %cmp6.i.i, label %if.then7.i.i, label %for.inc.i.i
 
 if.then7.i.i:                                     ; preds = %if.else.i.i
-  %sub.i.i349 = sub i32 %139, %retval.0.i94
+  %sub.i.i349 = sub nuw i32 %139, %retval.0.i94
   %140 = load ptr, ptr %m_tmp1.i.i, align 8
   %m_powers.i21.i.i = getelementptr inbounds i8, ptr %140, i64 20
   %idxprom.i22.i.i = zext i32 %j.029.i.i to i64
@@ -81640,7 +81640,7 @@ if.then49:                                        ; preds = %invoke.cont46
   br i1 %cmp52, label %if.then53, label %if.end89
 
 if.then53:                                        ; preds = %if.then49
-  %sub54 = sub i32 %add51, %94
+  %sub54 = sub nuw i32 %add51, %94
   %95 = load ptr, ptr %m_wrapper.i208, align 8
   store ptr null, ptr %l_B_e, align 8
   %m_manager.i326 = getelementptr inbounds i8, ptr %l_B_e, i64 8
@@ -82242,7 +82242,7 @@ if.else.i.i:                                      ; preds = %for.body.i.i478
   br i1 %cmp6.i.i, label %if.then7.i.i, label %for.inc.i.i
 
 if.then7.i.i:                                     ; preds = %if.else.i.i
-  %sub.i.i484 = sub i32 %192, %retval.0.i121
+  %sub.i.i484 = sub nuw i32 %192, %retval.0.i121
   %193 = load ptr, ptr %m_tmp1.i.i, align 8
   %m_powers.i21.i.i = getelementptr inbounds i8, ptr %193, i64 20
   %idxprom.i22.i.i = zext i32 %j.029.i.i to i64

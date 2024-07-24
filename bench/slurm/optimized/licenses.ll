@@ -775,7 +775,7 @@ define internal fastcc void @_add_res_rec_2_lic_list(ptr nocapture noundef reado
   br label %_handle_consumed.exit
 
 39:                                               ; preds = %28
-  %40 = sub i32 %31, %.sink.i
+  %40 = sub nuw i32 %31, %.sink.i
   br label %_handle_consumed.exit
 
 _handle_consumed.exit:                            ; preds = %33, %36, %39
@@ -895,7 +895,7 @@ define dso_local void @license_update_remote(ptr nocapture noundef readonly %0) 
   br label %_handle_consumed.exit
 
 52:                                               ; preds = %41
-  %53 = sub i32 %44, %.sink.i
+  %53 = sub nuw i32 %44, %.sink.i
   br label %_handle_consumed.exit
 
 _handle_consumed.exit:                            ; preds = %46, %49, %52
@@ -1155,7 +1155,7 @@ define dso_local void @license_sync_remote(ptr noundef %0) local_unnamed_addr #0
   br label %_handle_consumed.exit
 
 65:                                               ; preds = %55
-  %66 = sub i32 %58, %.sink.i
+  %66 = sub nuw i32 %58, %.sink.i
   br label %_handle_consumed.exit
 
 _handle_consumed.exit:                            ; preds = %60, %63, %65
@@ -1923,7 +1923,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 nounde
   br label %62
 
 56:                                               ; preds = %51
-  %57 = sub i32 %53, %45
+  %57 = sub nuw i32 %53, %45
   store i32 %57, ptr %52, align 8
   br label %62
 
@@ -2018,7 +2018,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
   br i1 %.not34, label %31, label %29
 
 29:                                               ; preds = %24
-  %30 = sub i32 %26, %28
+  %30 = sub nuw i32 %26, %28
   br label %34
 
 31:                                               ; preds = %24
@@ -2635,7 +2635,7 @@ define dso_local void @slurm_bf_licenses_deduct(ptr noundef %0, ptr nocapture no
   br i1 %.not37, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = sub i32 %21, %14
+  %23 = sub nuw i32 %21, %14
   store i32 %23, ptr %20, align 8
   br label %.backedge
 
@@ -2645,7 +2645,7 @@ define dso_local void @slurm_bf_licenses_deduct(ptr noundef %0, ptr nocapture no
   br i1 %.not34, label %._crit_edge, label %11, !llvm.loop !30
 
 25:                                               ; preds = %19
-  %26 = sub i32 %14, %21
+  %26 = sub nuw i32 %14, %21
   store i32 0, ptr %20, align 8
   br label %.critedge
 
@@ -2674,7 +2674,7 @@ define dso_local void @slurm_bf_licenses_deduct(ptr noundef %0, ptr nocapture no
   br label %.backedge
 
 39:                                               ; preds = %32
-  %40 = sub i32 %34, %.0
+  %40 = sub nuw i32 %34, %.0
   store i32 %40, ptr %33, align 8
   br label %.backedge
 
@@ -2772,7 +2772,7 @@ define dso_local void @slurm_bf_licenses_transfer(ptr noundef %0, ptr nocapture 
   br label %28
 
 26:                                               ; preds = %18
-  %27 = sub i32 %20, %12
+  %27 = sub nuw i32 %20, %12
   store i32 %27, ptr %19, align 8
   br label %28
 
@@ -2847,7 +2847,7 @@ define dso_local noundef zeroext i1 @slurm_bf_licenses_avail(ptr noundef %0, ptr
   br i1 %.not27, label %.critedge._crit_edge, label %11, !llvm.loop !32
 
 23:                                               ; preds = %19
-  %24 = sub i32 %14, %21
+  %24 = sub nuw i32 %14, %21
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %23, %11

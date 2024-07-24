@@ -309,7 +309,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond1, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %sub = sub i64 %1, %start
+  %sub = sub nuw i64 %1, %start
   %cmp7 = icmp ult i64 %sub, %count
   %add = add nuw i64 %count, %start
   %cond = select i1 %cmp7, i64 %1, i64 %add
@@ -432,7 +432,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond1, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %sub = sub i64 %4, %start
+  %sub = sub nuw i64 %4, %start
   %cmp9 = icmp ult i64 %sub, %count
   br i1 %cmp9, label %cond.true, label %cond.false
 
@@ -593,7 +593,7 @@ if.end11:                                         ; preds = %if.end8
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end11
-  %sub = sub nsw i64 %call, %start
+  %sub = sub nuw nsw i64 %call, %start
   br label %return
 
 if.end14:                                         ; preds = %if.end11
@@ -618,7 +618,7 @@ if.else25:                                        ; preds = %if.end22
   unreachable
 
 if.end26:                                         ; preds = %if.end22
-  %sub27 = sub nsw i64 %call19, %start
+  %sub27 = sub nuw nsw i64 %call19, %start
   br label %return
 
 return:                                           ; preds = %if.end18, %if.end8, %if.end26, %if.then13

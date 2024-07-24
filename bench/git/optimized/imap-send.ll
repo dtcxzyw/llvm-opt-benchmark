@@ -506,7 +506,7 @@ if.end.i15.i:                                     ; preds = %while.body.i9, %if.
   %ofs.08.i = phi i32 [ 0, %if.end.i15.lr.ph.i ], [ %conv29.i.i, %while.body.i9 ]
   %48 = load ptr, ptr %13, align 8
   %arrayidx.i17.i = getelementptr inbounds i8, ptr %48, i64 %conv.i10.i
-  %sub.i.i = sub i64 %46, %conv.i10.i
+  %sub.i.i = sub nuw i64 %46, %conv.i10.i
   %cmp5.i.i = icmp ult i64 %sub.i.i, 5
   br i1 %cmp5.i.i, label %while.end.i, label %lor.lhs.false.i18.i
 
@@ -1442,7 +1442,7 @@ if.end.i13:                                       ; preds = %if.end.i13.lr.ph, %
   %ofs.022 = phi i32 [ 0, %if.end.i13.lr.ph ], [ %conv29.i, %while.body ]
   %113 = load ptr, ptr %buf.i14, align 8
   %arrayidx.i15 = getelementptr inbounds i8, ptr %113, i64 %conv.i24
-  %sub.i = sub i64 %112, %conv.i24
+  %sub.i = sub nuw i64 %112, %conv.i24
   %cmp5.i = icmp ult i64 %sub.i, 5
   br i1 %cmp5.i, label %while.end, label %lor.lhs.false.i16
 

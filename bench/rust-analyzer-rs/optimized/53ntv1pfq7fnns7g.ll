@@ -203,7 +203,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %44 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 %36
   %45 = load i8, ptr %44, align 1, !alias.scope !67, !noalias !72, !noundef !7
   %46 = icmp sgt i8 %45, -65
-  %47 = sub i64 %.val5.i.i.i.i.i, %36
+  %47 = sub nuw i64 %.val5.i.i.i.i.i, %36
   br i1 %46, label %49, label %48
 
 48:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i.i.i", %41

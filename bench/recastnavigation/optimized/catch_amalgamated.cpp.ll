@@ -8525,7 +8525,7 @@ _ZNSt6vectorIN5Catch11MessageInfoESaIS1_EE12emplace_backIJRNS0_9StringRefERKNS0_
   %reass.sub = sub i64 %.0.i, %.011.i26
   %117 = add i64 %reass.sub, 1
   %118 = icmp ugt i64 %24, %.011.i26
-  %119 = sub i64 %24, %.011.i26
+  %119 = sub nuw i64 %24, %.011.i26
   %120 = call i64 @llvm.umin.i64(i64 %119, i64 %117)
   %.sroa.0.0.i.i = select i1 %118, ptr %108, ptr @.str.14
   %.sroa.4.0.i.i = select i1 %118, i64 %120, i64 0
@@ -8640,7 +8640,7 @@ _ZNSt6vectorIN5Catch11MessageInfoESaIS1_EE12emplace_backIJRNS0_9StringRefERKNS0_
 "_ZZN5Catch8CapturerC1ENS_9StringRefERKNS_14SourceLineInfoENS_9ResultWas6OfTypeES1_ENK3$_1clEmm.exit50": ; preds = %160
   %163 = sub i64 %.0.i42.in, %.011.i38
   %164 = icmp ugt i64 %24, %.011.i38
-  %165 = sub i64 %24, %.011.i38
+  %165 = sub nuw i64 %24, %.011.i38
   %166 = call i64 @llvm.umin.i64(i64 %165, i64 %163)
   %.sroa.0.0.i.i46 = select i1 %164, ptr %155, ptr @.str.14
   %.sroa.4.0.i.i47 = select i1 %164, i64 %166, i64 0
@@ -24150,7 +24150,7 @@ _ZN5Catch12_GLOBAL__N_115makeDefaultNameB5cxx11Ev.exit: ; preds = %22
 54:                                               ; preds = %50, %50, %49
   %55 = sub i64 %.014.lcssa.i.i, %.0.i.i
   %56 = icmp ult i64 %.0.i.i, %43
-  %57 = sub i64 %43, %.0.i.i
+  %57 = sub nuw i64 %43, %.0.i.i
   %58 = call i64 @llvm.umin.i64(i64 %57, i64 %55)
   %59 = add i64 %58, 6
   %60 = select i1 %56, i64 %59, i64 6
@@ -24305,7 +24305,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit73: ; preds = %93
 _ZNK5Catch9StringRef6substrEmm.exit:              ; preds = %102
   %105 = xor i64 %.053139, -1
   %106 = add i64 %.058137, %105
-  %107 = sub i64 %.sroa.3.0.copyload, %103
+  %107 = sub nuw i64 %.sroa.3.0.copyload, %103
   %108 = getelementptr inbounds i8, ptr %.sroa.0114.0.copyload, i64 %103
   %109 = call i64 @llvm.umin.i64(i64 %107, i64 %106)
   %110 = icmp eq i64 %109, 0
@@ -24823,7 +24823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 _ZN5Catch12_GLOBAL__N_119extractFilenamePartENS_9StringRefE.exit: ; preds = %15, %16, %16
   %20 = sub i64 %.014.lcssa.i, %.0.i
   %21 = icmp ult i64 %.0.i, %9
-  %22 = sub i64 %9, %.0.i
+  %22 = sub nuw i64 %9, %.0.i
   %23 = getelementptr inbounds i8, ptr %8, i64 %.0.i
   %24 = call i64 @llvm.umin.i64(i64 %22, i64 %20)
   %.sroa.0.0.i.i = select i1 %21, ptr %23, ptr @.str.14
@@ -35113,7 +35113,7 @@ _ZN5Catch6Detail12_GLOBAL__N_119extractInstanceNameENS_9StringRefE.exit: ; preds
   %.012.lcssa30.i = phi i64 [ %.012.lcssa.i, %.critedge.i ], [ %.012.lcssa.i, %.lr.ph24.i ], [ %.012.lcssa.i, %40 ], [ %spec.select9.i, %33 ]
   %.0.lcssa.i = phi i64 [ %spec.select9.i, %.critedge.i ], [ %.012.lcssa.i, %40 ], [ %.023.i, %.lr.ph24.i ], [ %spec.select9.i, %33 ]
   %42 = sub i64 %.0.lcssa.i, %.012.lcssa30.i
-  %43 = sub i64 %spec.select9.i, %.012.lcssa30.i
+  %43 = sub nuw i64 %spec.select9.i, %.012.lcssa30.i
   %44 = getelementptr inbounds i8, ptr %spec.select.i, i64 %.012.lcssa30.i
   %45 = tail call i64 @llvm.umin.i64(i64 %43, i64 %42)
   %.sroa.0.0.i.i = select i1 %.lcssa31.i, ptr %44, ptr @.str.14
@@ -35283,7 +35283,7 @@ define dso_local void @_ZN5Catch14splitStringRefENS_9StringRefEc(ptr dead_on_unw
 
 _ZNK5Catch9StringRef6substrEmm.exit:              ; preds = %13
   %16 = icmp ult i64 %.062, %2
-  %17 = sub i64 %2, %.062
+  %17 = sub nuw i64 %2, %.062
   %18 = getelementptr inbounds i8, ptr %1, i64 %.062
   %19 = tail call i64 @llvm.umin.i64(i64 %17, i64 %14)
   %.sroa.0.0.i = select i1 %16, ptr %18, ptr @.str.14
@@ -35412,7 +35412,7 @@ _ZNSt6vectorIN5Catch9StringRefESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6ve
   br i1 %56, label %_ZNK5Catch9StringRef6substrEmm.exit22, label %_ZNSt6vectorIN5Catch9StringRefESaIS1_EE9push_backEOS1_.exit39
 
 _ZNK5Catch9StringRef6substrEmm.exit22:            ; preds = %._crit_edge
-  %57 = sub i64 %2, %.0.lcssa
+  %57 = sub nuw i64 %2, %.0.lcssa
   %58 = getelementptr inbounds i8, ptr %1, i64 %.0.lcssa
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   %60 = getelementptr inbounds i8, ptr %0, i64 16
@@ -35546,7 +35546,7 @@ define dso_local { ptr, i64 } @_ZN5Catch4trimENS_9StringRefE(ptr %0, i64 %1) loc
   %.012.lcssa30 = phi i64 [ %.012.lcssa, %.critedge ], [ %.012.lcssa, %.lr.ph24 ], [ %.012.lcssa, %13 ], [ %1, %6 ]
   %.0.lcssa = phi i64 [ %1, %.critedge ], [ %.012.lcssa, %13 ], [ %.023, %.lr.ph24 ], [ %1, %6 ]
   %15 = sub i64 %.0.lcssa, %.012.lcssa30
-  %16 = sub i64 %1, %.012.lcssa30
+  %16 = sub nuw i64 %1, %.012.lcssa30
   %17 = getelementptr inbounds i8, ptr %0, i64 %.012.lcssa30
   %18 = tail call i64 @llvm.umin.i64(i64 %16, i64 %15)
   %.sroa.0.0.i = select i1 %.lcssa31, ptr %17, ptr @.str.14
@@ -38632,7 +38632,7 @@ define dso_local void @_ZN5Catch6Detail17splitReporterSpecB5cxx11ENS_9StringRefE
 _ZNK5Catch9StringRef6substrEmm.exit:              ; preds = %.critedge.i, %17
   %.010.i = phi i64 [ %.1.lcssa.i, %17 ], [ -1, %.critedge.i ]
   %21 = sub i64 %.010.i, %.01124
-  %22 = sub i64 %2, %.01124
+  %22 = sub nuw i64 %2, %.01124
   %23 = getelementptr inbounds i8, ptr %1, i64 %.01124
   %24 = call i64 @llvm.umin.i64(i64 %22, i64 %21)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -39053,7 +39053,7 @@ define dso_local void @_ZN5Catch17parseReporterSpecENS_9StringRefE(ptr dead_on_u
   %.sroa.4.0.i.i = select i1 %.not.i, i64 0, i64 %81
   %82 = add i64 %80, 1
   %83 = icmp ult i64 %82, %37
-  %84 = sub i64 %37, %82
+  %84 = sub nuw i64 %37, %82
   %85 = getelementptr inbounds i8, ptr %36, i64 %82
   %86 = call i64 @llvm.umin.i64(i64 %84, i64 %37)
   %.sroa.0.0.i2.i = select i1 %83, ptr %85, ptr @.str.14
@@ -48065,7 +48065,7 @@ define linkonce_odr dso_local void @_ZN5Catch6Detail11make_uniqueINS_16TestCaseT
   %.012.lcssa30.i.i = phi i64 [ %.012.lcssa.i.i, %.critedge.i.i ], [ %.012.lcssa.i.i, %.lr.ph24.i.i ], [ %.012.lcssa.i.i, %24 ], [ %13, %17 ]
   %.0.lcssa.i.i = phi i64 [ %13, %.critedge.i.i ], [ %.012.lcssa.i.i, %24 ], [ %.023.i.i, %.lr.ph24.i.i ], [ %13, %17 ]
   %26 = sub i64 %.0.lcssa.i.i, %.012.lcssa30.i.i
-  %27 = sub i64 %13, %.012.lcssa30.i.i
+  %27 = sub nuw i64 %13, %.012.lcssa30.i.i
   %28 = getelementptr inbounds i8, ptr %12, i64 %.012.lcssa30.i.i
   %29 = tail call i64 @llvm.umin.i64(i64 %27, i64 %26)
   %.sroa.0.0.i.i.i = select i1 %.lcssa31.i.i, ptr %28, ptr @.str.14
@@ -48520,7 +48520,7 @@ define dso_local void @_ZN5Catch16TestCaseTracking14SectionTrackerC2EONS0_15Name
   %.012.lcssa30.i = phi i64 [ %.012.lcssa.i, %.critedge.i ], [ %.012.lcssa.i, %.lr.ph24.i ], [ %.012.lcssa.i, %24 ], [ %13, %17 ]
   %.0.lcssa.i = phi i64 [ %13, %.critedge.i ], [ %.012.lcssa.i, %24 ], [ %.023.i, %.lr.ph24.i ], [ %13, %17 ]
   %26 = sub i64 %.0.lcssa.i, %.012.lcssa30.i
-  %27 = sub i64 %13, %.012.lcssa30.i
+  %27 = sub nuw i64 %13, %.012.lcssa30.i
   %28 = getelementptr inbounds i8, ptr %12, i64 %.012.lcssa30.i
   %29 = tail call i64 @llvm.umin.i64(i64 %27, i64 %26)
   %.sroa.0.0.i.i = select i1 %.lcssa31.i, ptr %28, ptr @.str.14
@@ -48948,7 +48948,7 @@ _ZSt4findISt16reverse_iteratorIPKcEcET_S4_S4_RKT0_.exit20.i: ; preds = %.lr.ph.i
   %103 = xor i64 %100, -1
   %104 = add i64 %103, %102
   %105 = icmp ugt i64 %14, %101
-  %106 = sub i64 %14, %101
+  %106 = sub nuw i64 %14, %101
   %107 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %101
   %108 = tail call i64 @llvm.umin.i64(i64 %106, i64 %104)
   %.sroa.0.0.i21.i = select i1 %105, ptr %107, ptr @.str.14
@@ -60979,7 +60979,7 @@ _ZN5Catch20ReusableStringStream3strERKNSt7__cxx1112basic_stringIcSt11char_traits
   br i1 %46, label %47, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
 
 47:                                               ; preds = %41
-  %48 = sub i64 %45, %44
+  %48 = sub nuw i64 %45, %44
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #53
   %49 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc33 unwind label %60
@@ -73489,13 +73489,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.012.lcssa30.i = phi i64 [ %.012.lcssa.i, %.critedge.i ], [ %.012.lcssa.i, %.lr.ph24.i ], [ %.012.lcssa.i, %27 ], [ %16, %20 ]
   %.0.lcssa.i = phi i64 [ %16, %.critedge.i ], [ %.012.lcssa.i, %27 ], [ %.023.i, %.lr.ph24.i ], [ %16, %20 ]
   %29 = sub i64 %.0.lcssa.i, %.012.lcssa30.i
-  %30 = sub i64 %16, %.012.lcssa30.i
+  %30 = sub nuw i64 %16, %.012.lcssa30.i
   %31 = getelementptr inbounds i8, ptr %15, i64 %.012.lcssa30.i
   %32 = call i64 @llvm.umin.i64(i64 %30, i64 %29)
   %.sroa.0.0.i.i = select i1 %.lcssa31.i, ptr %31, ptr @.str.14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %33 = icmp ne i64 %32, 0
-  %.not30 = and i1 %.lcssa31.i, %33
+  %.not30 = select i1 %.lcssa31.i, i1 %33, i1 false
   br i1 %.not30, label %34, label %42
 
 34:                                               ; preds = %.loopexit
@@ -73752,13 +73752,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.012.lcssa30.i = phi i64 [ %.012.lcssa.i, %.critedge.i ], [ %.012.lcssa.i, %.lr.ph24.i ], [ %.012.lcssa.i, %40 ], [ %29, %33 ]
   %.0.lcssa.i = phi i64 [ %29, %.critedge.i ], [ %.012.lcssa.i, %40 ], [ %.023.i, %.lr.ph24.i ], [ %29, %33 ]
   %42 = sub i64 %.0.lcssa.i, %.012.lcssa30.i
-  %43 = sub i64 %29, %.012.lcssa30.i
+  %43 = sub nuw i64 %29, %.012.lcssa30.i
   %44 = getelementptr inbounds i8, ptr %28, i64 %.012.lcssa30.i
   %45 = call i64 @llvm.umin.i64(i64 %43, i64 %42)
   %.sroa.0.0.i.i = select i1 %.lcssa31.i, ptr %44, ptr @.str.14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %46 = icmp ne i64 %45, 0
-  %.not15 = and i1 %.lcssa31.i, %46
+  %.not15 = select i1 %.lcssa31.i, i1 %46, i1 false
   br i1 %.not15, label %47, label %55
 
 47:                                               ; preds = %.loopexit
@@ -75237,7 +75237,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %.012.lcssa30.i = phi i64 [ %.012.lcssa.i, %.critedge.i ], [ %.012.lcssa.i, %.lr.ph24.i ], [ %.012.lcssa.i, %79 ], [ %68, %72 ]
   %.0.lcssa.i = phi i64 [ %68, %.critedge.i ], [ %.012.lcssa.i, %79 ], [ %.023.i, %.lr.ph24.i ], [ %68, %72 ]
   %81 = sub i64 %.0.lcssa.i, %.012.lcssa30.i
-  %82 = sub i64 %68, %.012.lcssa30.i
+  %82 = sub nuw i64 %68, %.012.lcssa30.i
   %83 = getelementptr inbounds i8, ptr %67, i64 %.012.lcssa30.i
   %84 = call i64 @llvm.umin.i64(i64 %82, i64 %81)
   %.sroa.0.0.i.i52 = select i1 %.lcssa31.i, ptr %83, ptr @.str.14
@@ -75370,7 +75370,7 @@ _ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %.012.lcssa30.i68 = phi i64 [ %.012.lcssa.i75, %.critedge.i74 ], [ %.012.lcssa.i75, %.lr.ph24.i77 ], [ %.012.lcssa.i75, %117 ], [ %106, %110 ]
   %.0.lcssa.i69 = phi i64 [ %106, %.critedge.i74 ], [ %.012.lcssa.i75, %117 ], [ %.023.i78, %.lr.ph24.i77 ], [ %106, %110 ]
   %119 = sub i64 %.0.lcssa.i69, %.012.lcssa30.i68
-  %120 = sub i64 %106, %.012.lcssa30.i68
+  %120 = sub nuw i64 %106, %.012.lcssa30.i68
   %121 = getelementptr inbounds i8, ptr %105, i64 %.012.lcssa30.i68
   %122 = call i64 @llvm.umin.i64(i64 %120, i64 %119)
   %.sroa.0.0.i.i70 = select i1 %.lcssa31.i67, ptr %121, ptr @.str.14
@@ -93186,7 +93186,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Catch5Clara3OptE
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Catch5Clara3OptESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Catch5Clara3OptESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5Catch5Clara3OptESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %97 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Catch5Clara3OptESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5Catch5Clara3OptESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
-  %98 = sub nsw i64 %9, %20
+  %98 = sub nuw nsw i64 %9, %20
   %99 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %97, i64 %98
   store ptr %99, ptr %12, align 8
   %.not11.i.i.i.i.i54 = icmp eq ptr %13, %1
@@ -93721,7 +93721,7 @@ _ZSt13move_backwardIPN5Catch5Clara3ArgES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5Catch5Clara3ArgESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %17
   %56 = getelementptr inbounds i8, ptr %2, i64 %19
   %57 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN5Catch5Clara3ArgESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_(ptr %56, ptr %3, ptr noundef %13)
-  %58 = sub nsw i64 %9, %20
+  %58 = sub nuw nsw i64 %9, %20
   %59 = load ptr, ptr %12, align 8
   %60 = getelementptr inbounds %"class.Catch::Clara::Arg", ptr %59, i64 %58
   store ptr %60, ptr %12, align 8
@@ -94169,7 +94169,7 @@ _ZSt13move_backwardIPN5Catch5Clara6Detail11HelpColumnsES4_ET0_T_S6_S5_.exit: ; p
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5Catch5Clara6Detail11HelpColumnsESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %17
   %50 = getelementptr inbounds i8, ptr %2, i64 %19
   %51 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN5Catch5Clara6Detail11HelpColumnsESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_(ptr %50, ptr %3, ptr noundef %13)
-  %52 = sub nsw i64 %9, %20
+  %52 = sub nuw nsw i64 %9, %20
   %53 = load ptr, ptr %12, align 8
   %54 = getelementptr inbounds %"struct.Catch::Clara::Detail::HelpColumns", ptr %53, i64 %52
   store ptr %54, ptr %12, align 8
@@ -107256,7 +107256,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPN5Catch9StringRefESF_ET0_T_SI_SH_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPN5Catch9StringRefESF_ET0_T_SI_SH_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %46 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPN5Catch9StringRefESF_ET0_T_SI_SH_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
-  %47 = sub nsw i64 %9, %21
+  %47 = sub nuw nsw i64 %9, %21
   %48 = getelementptr %"class.Catch::StringRef", ptr %46, i64 %47
   store ptr %48, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1
@@ -107470,7 +107470,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Catch9StringRefE
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Catch9StringRefESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Catch9StringRefESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5Catch9StringRefESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %35 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Catch9StringRefESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5Catch9StringRefESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %36 = sub nsw i64 %9, %20
+  %36 = sub nuw nsw i64 %9, %20
   %37 = getelementptr %"class.Catch::StringRef", ptr %35, i64 %36
   store ptr %37, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1

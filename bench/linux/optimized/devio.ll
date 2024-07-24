@@ -6514,7 +6514,7 @@ define internal fastcc ptr @find_memory_area(ptr noundef %0, ptr nocapture nound
   %22 = getelementptr inbounds i8, ptr %1, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = sub i64 %19, %5
+  %25 = sub nuw i64 %19, %5
   %26 = icmp ult i64 %25, %24
   br i1 %26, label %.loopexit, label %27
 

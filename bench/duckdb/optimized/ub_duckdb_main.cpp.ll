@@ -47319,7 +47319,7 @@ invoke.cont4.i.i:                                 ; preds = %if.end39
   %sub = sub i64 %idx.1, %idx.0
   %11 = getelementptr inbounds i8, ptr %number, i64 16
   store ptr %11, ptr %number, align 8, !tbaa !65, !alias.scope !1129
-  %sub.i.i.i = sub i64 %10, %idx.0
+  %sub.i.i.i = sub nuw i64 %10, %idx.0
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #38, !noalias !1129
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !66, !noalias !1129
@@ -47524,7 +47524,7 @@ invoke.cont4.i.i260:                              ; preds = %if.end63
   %sub65 = sub i64 %idx.3.lcssa, %idx.2
   %31 = getelementptr inbounds i8, ptr %ref.tmp64, i64 16
   store ptr %31, ptr %ref.tmp64, align 8, !tbaa !65, !alias.scope !1134
-  %sub.i.i.i262 = sub i64 %28, %idx.2
+  %sub.i.i.i262 = sub nuw i64 %28, %idx.2
   %spec.select.i.i.i263 = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i262, i64 %sub65)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i257) #38, !noalias !1134
   store i64 %spec.select.i.i.i263, ptr %__dnew.i.i.i257, align 8, !tbaa !66, !noalias !1134
@@ -92678,7 +92678,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !1864
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64
@@ -93100,7 +93100,7 @@ if.then45:                                        ; preds = %invoke.cont40
   br i1 %cmp.i117, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then45
-  %sub.i = sub nsw i64 %conv49, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %conv49, %sub.ptr.div.i
   %38 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !1864
   %sub.ptr.lhs.cast.i15.i = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i15.i, %sub.ptr.lhs.cast.i
@@ -98757,7 +98757,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %sub = sub nsw i64 %width, %0
+  %sub = sub nuw nsw i64 %width, %0
   %div34 = lshr i64 %sub, 1
   %cond = and i64 %sub, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #38

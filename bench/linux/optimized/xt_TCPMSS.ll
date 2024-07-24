@@ -420,7 +420,7 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
   br label %.thread
 
 58:                                               ; preds = %40
-  %59 = sub i32 %51, %4
+  %59 = sub nuw i32 %51, %4
   %60 = trunc i32 %59 to i16
   br label %61
 

@@ -2513,7 +2513,7 @@ HUFv06_readDTableX2.exit:                         ; preds = %for.end39.i, %for.c
 
 if.end3:                                          ; preds = %HUFv06_readDTableX2.exit
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub = sub i64 %cSrcSize, %call.i
+  %sub = sub nuw i64 %cSrcSize, %call.i
   %call5 = call i64 @HUFv06_decompress1X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 
@@ -3639,7 +3639,7 @@ HUFv06_readDTableX2.exit:                         ; preds = %for.end39.i, %for.c
 
 if.end3:                                          ; preds = %HUFv06_readDTableX2.exit
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub = sub i64 %cSrcSize, %call.i
+  %sub = sub nuw i64 %cSrcSize, %call.i
   %call5 = call i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 
@@ -4438,7 +4438,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call
-  %sub = sub i64 %cSrcSize, %call
+  %sub = sub nuw i64 %cSrcSize, %call
   %call5 = call i64 @HUFv06_decompress1X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 
@@ -5442,7 +5442,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call
-  %sub = sub i64 %cSrcSize, %call
+  %sub = sub nuw i64 %cSrcSize, %call
   %call5 = call i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %DTable)
   br label %return
 
@@ -8564,7 +8564,7 @@ if.then:                                          ; preds = %ZSTDv06_frameHeader
 
 if.end:                                           ; preds = %sw.bb2, %if.then
   %retval.0.i.ph178 = phi i64 [ %add.i.i, %if.then ], [ 5, %sw.bb2 ]
-  %sub179 = sub i64 %retval.0.i.ph178, %3
+  %sub179 = sub nuw i64 %retval.0.i.ph178, %3
   %sub.ptr.rhs.cast = ptrtoint ptr %ip.0192 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast102, %sub.ptr.rhs.cast
   %cmp7 = icmp ugt i64 %sub179, %sub.ptr.sub

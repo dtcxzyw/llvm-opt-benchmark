@@ -6244,7 +6244,7 @@ define internal i32 @shmem_xattr_handler_set(ptr noundef %0, ptr nocapture readn
   br label %61
 
 25:                                               ; preds = %19
-  %26 = sub i64 %23, %20
+  %26 = sub nuw i64 %23, %20
   store i64 %26, ptr %22, align 8
   tail call void @_raw_spin_unlock(ptr noundef %21) #18
   %27 = icmp eq i64 %20, 0
@@ -8457,7 +8457,7 @@ define internal noundef range(i32 -28, 1) i32 @shmem_initxattrs(ptr noundef %0, 
   br label %.thread14
 
 32:                                               ; preds = %27
-  %33 = sub i64 %30, %21
+  %33 = sub nuw i64 %30, %21
   store i64 %33, ptr %29, align 8
   tail call void @_raw_spin_unlock(ptr noundef %28) #18
   br label %34

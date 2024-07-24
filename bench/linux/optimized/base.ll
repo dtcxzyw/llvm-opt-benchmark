@@ -3107,7 +3107,7 @@ define internal i64 @proc_pid_cmdline_read(ptr nocapture noundef readonly %0, pt
   br i1 %40, label %41, label %129
 
 41:                                               ; preds = %33
-  %42 = sub i64 %38, %39
+  %42 = sub nuw i64 %38, %39
   %43 = tail call i64 @llvm.umin.i64(i64 %42, i64 %2)
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %129, label %45

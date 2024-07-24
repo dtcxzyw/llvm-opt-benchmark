@@ -5597,7 +5597,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$G
   br i1 %16, label %23, label %19
 
 17:                                               ; preds = %8
-  %18 = sub i64 %13, %12
+  %18 = sub nuw i64 %13, %12
   br label %31
 
 19:                                               ; preds = %15
@@ -5649,7 +5649,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$G
   br i1 %16, label %23, label %19
 
 17:                                               ; preds = %8
-  %18 = sub i64 %13, %12
+  %18 = sub nuw i64 %13, %12
   br label %31
 
 19:                                               ; preds = %15
@@ -5701,7 +5701,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$G
   br i1 %16, label %23, label %19
 
 17:                                               ; preds = %8
-  %18 = sub i64 %13, %12
+  %18 = sub nuw i64 %13, %12
   br label %31
 
 19:                                               ; preds = %15

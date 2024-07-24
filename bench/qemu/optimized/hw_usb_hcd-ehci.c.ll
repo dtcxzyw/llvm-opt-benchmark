@@ -683,7 +683,7 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp4, label %if.then6, label %if.end15
 
 if.then6:                                         ; preds = %if.then3
-  %sub10 = sub nsw i64 %div, %conv
+  %sub10 = sub nuw nsw i64 %div, %conv
   %conv11 = trunc i64 %sub10 to i32
   %and.i.i = and i32 %opaque.val58, 1
   %tobool.i.not.i = icmp eq i32 %and.i.i, 0
@@ -734,7 +734,7 @@ if.end14.i:                                       ; preds = %if.then7.i, %if.end
 
 ehci_update_frindex.exit:                         ; preds = %land.lhs.true.i, %if.end14.i
   %12 = phi i64 [ %1, %land.lhs.true.i ], [ %.pre141, %if.end14.i ]
-  %mul12 = mul i64 %sub10, 125000
+  %mul12 = mul nuw i64 %sub10, 125000
   %add = add i64 %12, %mul12
   store i64 %add, ptr %last_run_ns, align 16
   br label %if.end15

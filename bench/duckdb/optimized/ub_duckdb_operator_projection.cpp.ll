@@ -6266,7 +6266,7 @@ if.end43:                                         ; preds = %_ZNK6duckdb21Templa
 
 if.then48:                                        ; preds = %if.end43
   %list_entry.sroa.0.0.copyload = load i64, ptr %arrayidx, align 8, !tbaa !55
-  %sub51 = sub i64 %list_entry.sroa.4.0.copyload, %104
+  %sub51 = sub nuw i64 %list_entry.sroa.4.0.copyload, %104
   %cond.i289 = call noundef i64 @llvm.umin.i64(i64 %cond.i, i64 %sub51)
   %call55 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %list_data.i, i64 noundef %col_idx23.0603)
   %call56 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb10ListVector8GetEntryERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %call55)
@@ -11854,7 +11854,7 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   br i1 %cmp.i55, label %if.then.i57, label %if.else.i56
 
 if.then.i57:                                      ; preds = %invoke.cont25
-  %sub.i = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i54
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i54
   invoke void @_ZNSt6vectorIN6duckdb19UnifiedVectorFormatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %list_vector_data, i64 noundef %sub.i)
           to label %invoke.cont29 unwind label %lpad21
 
@@ -11900,7 +11900,7 @@ invoke.cont29:                                    ; preds = %invoke.cont.i.i, %i
   br i1 %cmp.i69, label %if.then.i78, label %if.else.i70
 
 if.then.i78:                                      ; preds = %invoke.cont29
-  %sub.i79 = sub nsw i64 %sub.ptr.div.i.i63, %sub.ptr.div.i.i68
+  %sub.i79 = sub nuw nsw i64 %sub.ptr.div.i.i63, %sub.ptr.div.i.i68
   invoke void @_ZNSt6vectorIN6duckdb19UnifiedVectorFormatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %list_child_data, i64 noundef %sub.i79)
           to label %invoke.cont33 unwind label %lpad21
 

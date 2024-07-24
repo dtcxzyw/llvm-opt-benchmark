@@ -639,7 +639,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.67
   unreachable
 
 "_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$8read_buf17h0b46225ab14c1095E.exit": ; preds = %44
-  %49 = sub i64 %46, %19
+  %49 = sub nuw i64 %46, %19
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %49, i64 %37)
   %50 = load ptr, ptr %1, align 8, !alias.scope !107, !noalias !115, !nonnull !9, !align !116, !noundef !9
   %51 = getelementptr inbounds i8, ptr %50, i64 %19
@@ -754,7 +754,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h4db2195cffbeb9eaE.exit: ;
   unreachable
 
 "_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$8read_buf17h0b46225ab14c1095E.exit": ; preds = %44
-  %49 = sub i64 %46, %19
+  %49 = sub nuw i64 %46, %19
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %49, i64 %37)
   %50 = load ptr, ptr %1, align 8, !alias.scope !134, !noalias !142, !nonnull !9, !align !116, !noundef !9
   %51 = getelementptr inbounds i8, ptr %50, i64 %19

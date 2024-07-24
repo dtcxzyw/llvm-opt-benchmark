@@ -12546,7 +12546,7 @@ _ZN13project_model15cargo_workspace14CargoWorkspace14workspace_root17hfb37b018c1
   %285 = add i64 %284, %.pre.i.i
   %.not.i.i.i = icmp ult i64 %285, %.pre1.i.i
   %286 = select i1 %.not.i.i.i, i64 0, i64 %.pre1.i.i
-  %.0.i.i.i = sub i64 %285, %286
+  %.0.i.i.i = sub nuw i64 %285, %286
   %287 = load ptr, ptr %283, align 8, !alias.scope !2474, !noalias !2440, !nonnull !4, !noundef !4
   %288 = getelementptr inbounds i32, ptr %287, i64 %.0.i.i.i
   store i32 %278, ptr %288, align 4, !noalias !2473
@@ -12619,7 +12619,7 @@ thread-pre-split.i:                               ; preds = %"_ZN4core3ptr36drop
   %318 = load i64, ptr %67, align 8, !alias.scope !2484, !noalias !2440, !noundef !4
   %.not.i.i133.i = icmp ult i64 %317, %318
   %319 = select i1 %.not.i.i133.i, i64 0, i64 %318
-  %.0.i.i134.i = sub i64 %317, %319
+  %.0.i.i134.i = sub nuw i64 %317, %319
   store i64 %.0.i.i134.i, ptr %281, align 8, !alias.scope !2481, !noalias !2440
   %320 = add i64 %315, -1
   store i64 %320, ptr %282, align 8, !alias.scope !2481, !noalias !2440
@@ -12783,7 +12783,7 @@ thread-pre-split.i:                               ; preds = %"_ZN4core3ptr36drop
   %372 = add i64 %371, %370
   %.not.i.i142.i = icmp ult i64 %372, %369
   %373 = select i1 %.not.i.i142.i, i64 0, i64 %369
-  %.0.i.i143.i = sub i64 %372, %373
+  %.0.i.i143.i = sub nuw i64 %372, %373
   %374 = load ptr, ptr %283, align 8, !alias.scope !2503, !noalias !2440, !nonnull !4, !noundef !4
   %375 = getelementptr inbounds i32, ptr %374, i64 %.0.i.i143.i
   store i32 %365, ptr %375, align 4, !noalias !2473

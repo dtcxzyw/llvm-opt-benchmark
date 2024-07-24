@@ -1339,7 +1339,7 @@ _ZNK7bv_util11get_bv_sizeEPK4expr.exit19:         ; preds = %_ZNK7bv_util11get_b
 
 if.then:                                          ; preds = %_ZNK7bv_util11get_bv_sizeEPK4expr.exit19
   %m_rewriter = getelementptr inbounds i8, ptr %this, i64 32
-  %sub = sub i32 %4, %9
+  %sub = sub nuw i32 %4, %9
   %10 = load ptr, ptr %b, align 8
   call void @_ZN11bv_rewriter14mk_zero_extendEjP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(157) %m_rewriter, i32 noundef %sub, ptr noundef %10)
   %11 = load ptr, ptr %b, align 8
@@ -1376,7 +1376,7 @@ if.else:                                          ; preds = %_ZNK7bv_util11get_b
 
 if.then9:                                         ; preds = %if.else
   %m_rewriter11 = getelementptr inbounds i8, ptr %this, i64 32
-  %sub12 = sub i32 %9, %4
+  %sub12 = sub nuw i32 %9, %4
   %17 = load ptr, ptr %a, align 8
   call void @_ZN11bv_rewriter14mk_zero_extendEjP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(157) %m_rewriter11, i32 noundef %sub12, ptr noundef %17)
   %18 = load ptr, ptr %a, align 8

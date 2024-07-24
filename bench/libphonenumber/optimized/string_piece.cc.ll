@@ -134,7 +134,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findEcm(ptr n
   %8 = getelementptr inbounds i8, ptr %7, i64 %2
   %9 = getelementptr inbounds i8, ptr %7, i64 %5
   %10 = ptrtoint ptr %9 to i64
-  %gepdiff = sub nsw i64 %5, %2
+  %gepdiff = sub nuw nsw i64 %5, %2
   %11 = ashr i64 %gepdiff, 2
   %12 = icmp sgt i64 %11, 0
   br i1 %12, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
@@ -362,7 +362,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece13find_first_o
   %16 = getelementptr inbounds i8, ptr %15, i64 %2
   %17 = getelementptr inbounds i8, ptr %15, i64 %6
   %18 = ptrtoint ptr %17 to i64
-  %gepdiff.i.i = sub nsw i64 %6, %2
+  %gepdiff.i.i = sub nuw nsw i64 %6, %2
   %19 = ashr i64 %gepdiff.i.i, 2
   %20 = icmp sgt i64 %19, 0
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i

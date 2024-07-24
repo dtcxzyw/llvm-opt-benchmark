@@ -1847,7 +1847,7 @@ define hidden void @_ZN3z856decode17he17f5b60d8a851faE(ptr noalias nocapture nou
   %.sroa.024.036 = phi ptr [ %1, %.lr.ph ], [ %44, %79 ]
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.037, i64 5)
   %44 = getelementptr inbounds i8, ptr %.sroa.024.036, i64 %.0.sroa.speculated.i.i.i
-  %45 = sub i64 %.sroa.6.037, %.0.sroa.speculated.i.i.i
+  %45 = sub nuw i64 %.sroa.6.037, %.0.sroa.speculated.i.i.i
   %46 = add i64 %.sroa.11.038, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   invoke void @_ZN3z858internal12decode_chunk17hd63596835201f9b5E(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 1 %.sroa.024.036, i64 noundef %.0.sroa.speculated.i.i.i)
@@ -2042,7 +2042,7 @@ define hidden void @_ZN3z856encode17had4f41536c0ab5e1E(ptr noalias nocapture nou
   %.sroa.022.029 = phi ptr [ %25, %50 ], [ %1, %13 ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.030, i64 4)
   %25 = getelementptr inbounds i8, ptr %.sroa.022.029, i64 %.0.sroa.speculated.i.i
-  %26 = sub i64 %.sroa.5.030, %.0.sroa.speculated.i.i
+  %26 = sub nuw i64 %.sroa.5.030, %.0.sroa.speculated.i.i
   %27 = invoke i40 @_ZN3z858internal12encode_chunk17h5d3bcfcaf8806edfE(ptr noalias noundef nonnull readonly align 1 %.sroa.022.029, i64 noundef %.0.sroa.speculated.i.i)
           to label %44 unwind label %.loopexit
 
@@ -5796,7 +5796,7 @@ define internal fastcc { i64, i64 } @_ZN6uucore8features6format4spec22eat_asteri
   %15 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds i8, ptr %.0.val, i64 %.8.val
-  %gepdiff.i = sub nsw i64 %.8.val, %6
+  %gepdiff.i = sub nuw nsw i64 %.8.val, %6
   %17 = icmp eq i64 %6, %.8.val
   br i1 %17, label %_ZN6uucore8features6format4spec10eat_number17ha7f232b53e91ad11E.exit.thread, label %.lr.ph.i.i
 

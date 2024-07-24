@@ -382,7 +382,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   unreachable
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7d033afd758e8913E.exit.i": ; preds = %.lr.ph.i
-  %8 = sub i64 %4, %.0.sroa.speculated.i.i.i
+  %8 = sub nuw i64 %4, %.0.sroa.speculated.i.i.i
   %9 = getelementptr inbounds i8, ptr %5, i64 %.0.sroa.speculated.i.i.i
   %10 = load i16, ptr %5, align 1, !alias.scope !114, !noalias !117
   %11 = tail call noundef i16 @llvm.bswap.i16(i16 %10)
@@ -686,7 +686,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = shl i64 %.sroa.4.0.copyload, 3
   %scevgep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 %5
-  %6 = sub i64 %1, %0
+  %6 = sub nuw i64 %1, %0
   %7 = shl i64 %6, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false), !noalias !217
   %8 = add i64 %6, %.sroa.4.0.copyload
@@ -4698,7 +4698,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h1cfbb824186f56
   %.promoted = load i64, ptr %7, align 8, !alias.scope !1235
   %8 = shl i64 %.promoted, 3
   %scevgep = getelementptr i8, ptr %6, i64 %8
-  %9 = sub i64 %1, %0
+  %9 = sub nuw i64 %1, %0
   %10 = shl i64 %9, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %10, i1 false), !noalias !1235
   %11 = add i64 %.promoted, %1
@@ -4780,7 +4780,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h330e5ed0e248fd
   %12 = phi ptr [ %.promoted12, %.lr.ph ], [ %13, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7d033afd758e8913E.exit" ]
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %11, i64 %6)
   %13 = getelementptr inbounds i8, ptr %12, i64 %.0.sroa.speculated.i.i
-  %14 = sub i64 %11, %.0.sroa.speculated.i.i
+  %14 = sub nuw i64 %11, %.0.sroa.speculated.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1258)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1261)
   %15 = icmp ult i64 %.0.sroa.speculated.i.i, 2
@@ -5510,7 +5510,7 @@ define internal fastcc void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17he490467
           to label %.body.thread unwind label %65, !noalias !1388
 
 60:                                               ; preds = %.noexc
-  %61 = sub i64 %43, %36
+  %61 = sub nuw i64 %43, %36
   store i64 %61, ptr %42, align 8, !alias.scope !1389, !noalias !1388
   %62 = getelementptr inbounds i8, ptr %9, i64 8
   %63 = load ptr, ptr %62, align 8, !alias.scope !1389, !noalias !1388, !noundef !9
@@ -5579,7 +5579,7 @@ define hidden void @_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h45d54043dd023012
   %.09 = phi i64 [ %12, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18239827628611957360.exit" ], [ 0, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18239827628611957360.exit.preheader" ]
   %8 = phi ptr [ %14, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18239827628611957360.exit" ], [ %.promoted, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18239827628611957360.exit.preheader" ]
   %9 = phi i64 [ %13, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18239827628611957360.exit" ], [ %5, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18239827628611957360.exit.preheader" ]
-  %10 = sub i64 %2, %.09
+  %10 = sub nuw i64 %2, %.09
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 %.09
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %8, i64 %.0.sroa.speculated.i, i1 false)
@@ -5724,7 +5724,7 @@ define hidden void @"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_im
   unreachable
 
 17:                                               ; preds = %2
-  %18 = sub i64 %8, %1
+  %18 = sub nuw i64 %8, %1
   store i64 %18, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !noundef !9
@@ -7219,7 +7219,7 @@ define void @_ZN8mini_lsm5table5bloom5Bloom21build_from_key_hashes17h5e017453245
           to label %.body.thread unwind label %70, !noalias !1847
 
 65:                                               ; preds = %.noexc
-  %66 = sub i64 %48, %41
+  %66 = sub nuw i64 %48, %41
   %67 = getelementptr inbounds i8, ptr %10, i64 8
   %68 = load ptr, ptr %67, align 8, !alias.scope !1851, !noalias !1847, !noundef !9
   %69 = getelementptr inbounds i8, ptr %68, i64 %41

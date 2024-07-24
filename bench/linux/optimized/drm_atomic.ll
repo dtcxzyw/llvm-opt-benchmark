@@ -2114,7 +2114,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
 194:                                              ; preds = %184
   %195 = getelementptr inbounds i8, ptr %62, i64 48
   %196 = load i32, ptr %195, align 8
-  %197 = sub i32 %187, %192
+  %197 = sub nuw i32 %187, %192
   %198 = icmp ugt i32 %196, %197
   br i1 %198, label %208, label %199
 
@@ -2127,7 +2127,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
 203:                                              ; preds = %199
   %204 = getelementptr inbounds i8, ptr %62, i64 52
   %205 = load i32, ptr %204, align 4
-  %206 = sub i32 %190, %201
+  %206 = sub nuw i32 %190, %201
   %207 = icmp ugt i32 %205, %206
   br i1 %207, label %208, label %242
 

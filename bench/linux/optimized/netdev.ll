@@ -1741,12 +1741,12 @@ define dso_local void @e1000e_reset(ptr noundef %0) local_unnamed_addr #1 align 
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %35
-  %49 = sub nsw i32 %44, %39
+  %49 = sub nuw nsw i32 %44, %39
   %50 = icmp ult i32 %49, %40
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %48
-  %52 = sub nsw i32 %40, %49
+  %52 = sub nuw nsw i32 %40, %49
   %53 = tail call i32 @llvm.umax.i32(i32 %52, i32 %46)
   br label %54
 

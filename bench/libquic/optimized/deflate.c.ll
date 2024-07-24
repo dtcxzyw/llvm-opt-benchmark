@@ -1095,7 +1095,7 @@ if.else188.i:                                     ; preds = %if.then166.i
   br i1 %cmp191.i, label %if.then193.i, label %return
 
 if.then193.i:                                     ; preds = %if.else188.i
-  %sub196.i = sub nsw i64 %add190.i, %82
+  %sub196.i = sub nuw nsw i64 %add190.i, %82
   %sub199.i = sub i64 %83, %82
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub196.i, i64 %sub199.i)
   %87 = load ptr, ptr %window.i, align 16
@@ -1925,7 +1925,7 @@ if.then284:                                       ; preds = %if.then276
   %112 = load ptr, ptr %pending_buf286, align 16
   %idx.ext = zext i32 %beg.0477 to i64
   %add.ptr = getelementptr inbounds i8, ptr %112, i64 %idx.ext
-  %sub288 = sub i32 %108, %beg.0477
+  %sub288 = sub nuw i32 %108, %beg.0477
   %call289 = tail call i64 @MOZ_Z_crc32(i64 noundef %111, ptr noundef %add.ptr, i32 noundef %sub288) #10
   store i64 %call289, ptr %adler285, align 8
   br label %if.end291
@@ -2028,7 +2028,7 @@ if.then320:                                       ; preds = %land.lhs.true316
   %139 = load ptr, ptr %pending_buf322, align 16
   %idx.ext323 = zext i32 %beg.2 to i64
   %add.ptr324 = getelementptr inbounds i8, ptr %139, i64 %idx.ext323
-  %sub326 = sub i32 %137, %beg.2
+  %sub326 = sub nuw i32 %137, %beg.2
   %call327 = tail call i64 @MOZ_Z_crc32(i64 noundef %138, ptr noundef %add.ptr324, i32 noundef %sub326) #10
   store i64 %call327, ptr %adler321, align 8
   %.pre485 = load ptr, ptr %gzhead260, align 16
@@ -2105,7 +2105,7 @@ if.then367:                                       ; preds = %if.then359
   %151 = load ptr, ptr %pending_buf369, align 16
   %idx.ext370 = zext i32 %beg352.0 to i64
   %add.ptr371 = getelementptr inbounds i8, ptr %151, i64 %idx.ext370
-  %sub373 = sub i32 %147, %beg352.0
+  %sub373 = sub nuw i32 %147, %beg352.0
   %call374 = tail call i64 @MOZ_Z_crc32(i64 noundef %150, ptr noundef %add.ptr371, i32 noundef %sub373) #10
   store i64 %call374, ptr %adler368, align 8
   br label %if.end376
@@ -2201,7 +2201,7 @@ if.then408:                                       ; preds = %land.lhs.true404
   %175 = load ptr, ptr %pending_buf369, align 16
   %idx.ext411 = zext i32 %beg352.2 to i64
   %add.ptr412 = getelementptr inbounds i8, ptr %175, i64 %idx.ext411
-  %sub414 = sub i32 %173, %beg352.2
+  %sub414 = sub nuw i32 %173, %beg352.2
   %call415 = tail call i64 @MOZ_Z_crc32(i64 noundef %174, ptr noundef %add.ptr412, i32 noundef %sub414) #10
   store i64 %call415, ptr %adler368, align 8
   br label %if.end417
@@ -2266,7 +2266,7 @@ if.then454:                                       ; preds = %if.then446
   %183 = load ptr, ptr %pending_buf456, align 16
   %idx.ext457 = zext i32 %beg437.0 to i64
   %add.ptr458 = getelementptr inbounds i8, ptr %183, i64 %idx.ext457
-  %sub460 = sub i32 %179, %beg437.0
+  %sub460 = sub nuw i32 %179, %beg437.0
   %call461 = tail call i64 @MOZ_Z_crc32(i64 noundef %182, ptr noundef %add.ptr458, i32 noundef %sub460) #10
   store i64 %call461, ptr %adler455, align 8
   br label %if.end463
@@ -2362,7 +2362,7 @@ if.then497:                                       ; preds = %land.lhs.true493
   %207 = load ptr, ptr %pending_buf456, align 16
   %idx.ext500 = zext i32 %beg437.2 to i64
   %add.ptr501 = getelementptr inbounds i8, ptr %207, i64 %idx.ext500
-  %sub503 = sub i32 %205, %beg437.2
+  %sub503 = sub nuw i32 %205, %beg437.2
   %call504 = tail call i64 @MOZ_Z_crc32(i64 noundef %206, ptr noundef %add.ptr501, i32 noundef %sub503) #10
   store i64 %call504, ptr %adler455, align 8
   br label %if.end506

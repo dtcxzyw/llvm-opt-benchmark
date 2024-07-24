@@ -559,7 +559,7 @@ define void @_ZN2cv17DescriptorMatcher20DescriptorCollection3setERKSt6vectorINS_
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %31
-  %42 = sub nsw i64 %22, %39
+  %42 = sub nuw nsw i64 %22, %39
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %42)
   %.pre = load ptr, ptr %32, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -3663,7 +3663,7 @@ _ZN2cvL7makePtrINS_9BFMatcherEJibEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %3
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %16
-  %35 = sub nsw i64 %25, %32
+  %35 = sub nuw nsw i64 %25, %32
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %35)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -5247,7 +5247,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit109:  ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %_ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit109
-  %163 = sub nsw i64 %153, %160
+  %163 = sub nuw nsw i64 %153, %160
   invoke void @_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %163)
           to label %_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EE6resizeEm.exit unwind label %221
 
@@ -10949,7 +10949,7 @@ define void @_ZN2cv17FlannBasedMatcher17convertToDMatchesERKNS_17DescriptorMatch
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %4
-  %19 = sub nsw i64 %9, %16
+  %19 = sub nuw nsw i64 %9, %16
   tail call void @_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %19)
   br label %_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EE6resizeEm.exit
 
@@ -12370,7 +12370,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv4UMatESt6vector
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv4UMatESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv4UMatESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv4UMatESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %68 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv4UMatESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv4UMatESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %69 = sub nsw i64 %9, %20
+  %69 = sub nuw nsw i64 %9, %20
   %70 = getelementptr inbounds %"class.cv::UMat", ptr %68, i64 %69
   store ptr %70, ptr %12, align 8
   %.not12.i.i.i.i.i54 = icmp eq ptr %13, %1
@@ -12863,7 +12863,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorI
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %57 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv3MatESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %58 = sub nsw i64 %9, %20
+  %58 = sub nuw nsw i64 %9, %20
   %59 = getelementptr inbounds %"class.cv::Mat", ptr %57, i64 %58
   store ptr %59, ptr %12, align 8
   %.not11.i.i.i.i.i54 = icmp eq ptr %13, %1

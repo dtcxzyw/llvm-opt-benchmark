@@ -1311,7 +1311,7 @@ if.then5:                                         ; preds = %while.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then5
-  %sub.i11 = sub nsw i64 %div10, %sub.ptr.div.i
+  %sub.i11 = sub nuw nsw i64 %div10, %sub.ptr.div.i
   call void @_ZN5eastl6vectorImNS_9allocatorEE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i11, ptr noundef nonnull align 8 dereferenceable(8) %element)
   br label %_ZN5eastl6vectorImNS_9allocatorEE6resizeEmRKm.exit
 
@@ -1344,7 +1344,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %div3, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %div3, %sub.ptr.div.i
   %mCapacityAllocator.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -3550,7 +3550,7 @@ if.then5:                                         ; preds = %while.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then5
-  %sub.i11 = sub nsw i64 %div10, %sub.ptr.div.i
+  %sub.i11 = sub nuw nsw i64 %div10, %sub.ptr.div.i
   call void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %sub.i11, ptr noundef nonnull align 8 dereferenceable(8) %element)
   br label %_ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit
 
@@ -3583,7 +3583,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %div3, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %div3, %sub.ptr.div.i
   %mCapacityAllocator.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -5493,7 +5493,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %sub.i.i = sub nsw i64 %div3.i, %sub.ptr.sub.i.i
+  %sub.i.i = sub nuw nsw i64 %div3.i, %sub.ptr.sub.i.i
   %mCapacityAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %mCapacityAllocator.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %3 to i64
@@ -5594,7 +5594,7 @@ if.then5:                                         ; preds = %while.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then5
-  %sub.i18 = sub nsw i64 %div10, %sub.ptr.sub.i
+  %sub.i18 = sub nuw nsw i64 %div10, %sub.ptr.sub.i
   %mCapacityAllocator.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load ptr, ptr %mCapacityAllocator.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i19 = ptrtoint ptr %13 to i64
@@ -5675,7 +5675,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %div3, %sub.ptr.sub.i
+  %sub.i = sub nuw nsw i64 %div3, %sub.ptr.sub.i
   %mCapacityAllocator.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -6354,7 +6354,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %sub.i.i = sub nsw i64 %div3.i, %sub.ptr.sub.i.i
+  %sub.i.i = sub nuw nsw i64 %div3.i, %sub.ptr.sub.i.i
   %mCapacityAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %mCapacityAllocator.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %3 to i64
@@ -6895,7 +6895,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %sub.i.i13 = sub nsw i64 %div3.i, %sub.ptr.sub.i.i5
+  %sub.i.i13 = sub nuw nsw i64 %div3.i, %sub.ptr.sub.i.i5
   %mCapacityAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %mCapacityAllocator.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %3 to i64
@@ -7144,7 +7144,7 @@ _ZN5eastl9bitvectorINS_9allocatorEhNS_6vectorIhS1_EEE3endEv.exit: ; preds = %if.
   br i1 %cmp.i.i8, label %if.then.i.i11, label %if.else.i.i
 
 if.then.i.i11:                                    ; preds = %_ZN5eastl9bitvectorINS_9allocatorEhNS_6vectorIhS1_EEE3endEv.exit
-  %sub.i.i = sub nsw i64 %div3.i, %sub.ptr.sub.i.i
+  %sub.i.i = sub nuw nsw i64 %div3.i, %sub.ptr.sub.i.i
   %mCapacityAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %mCapacityAllocator.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %6 to i64
@@ -7267,7 +7267,7 @@ _ZN5eastl9bitvectorINS_9allocatorEhNS_6vectorIhS1_EEE3endEv.exit: ; preds = %if.
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5eastl9bitvectorINS_9allocatorEhNS_6vectorIhS1_EEE3endEv.exit
-  %sub.i.i13 = sub nsw i64 %div3.i, %sub.ptr.sub.i.i4
+  %sub.i.i13 = sub nuw nsw i64 %div3.i, %sub.ptr.sub.i.i4
   %mCapacityAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %mCapacityAllocator.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %6 to i64
@@ -7982,7 +7982,7 @@ if.then5:                                         ; preds = %while.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then5
-  %sub.i11 = sub nsw i64 %div10, %sub.ptr.div.i
+  %sub.i11 = sub nuw nsw i64 %div10, %sub.ptr.div.i
   call void @_ZN5eastl6vectorIsNS_9allocatorEE17DoInsertValuesEndEmRKs(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i11, ptr noundef nonnull align 2 dereferenceable(2) %element)
   br label %_ZN5eastl6vectorIsNS_9allocatorEE6resizeEmRKs.exit
 
@@ -8015,7 +8015,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %div3, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %div3, %sub.ptr.div.i
   %mCapacityAllocator.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -10144,7 +10144,7 @@ if.then5:                                         ; preds = %while.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then5
-  %sub.i11 = sub nsw i64 %div10, %sub.ptr.div.i
+  %sub.i11 = sub nuw nsw i64 %div10, %sub.ptr.div.i
   call void @_ZN5eastl6vectorIiNS_9allocatorEE17DoInsertValuesEndEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i11, ptr noundef nonnull align 4 dereferenceable(4) %element)
   br label %_ZN5eastl6vectorIiNS_9allocatorEE6resizeEmRKi.exit
 
@@ -10177,7 +10177,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %div3, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %div3, %sub.ptr.div.i
   %mCapacityAllocator.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -12346,7 +12346,7 @@ if.then5:                                         ; preds = %while.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then5
-  %sub.i11 = sub nsw i64 %div10, %sub.ptr.div.i
+  %sub.i11 = sub nuw nsw i64 %div10, %sub.ptr.div.i
   call void @_ZN5eastl6vectorIlNS_9allocatorEE17DoInsertValuesEndEmRKl(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i11, ptr noundef nonnull align 8 dereferenceable(8) %element)
   br label %_ZN5eastl6vectorIlNS_9allocatorEE6resizeEmRKl.exit
 
@@ -12379,7 +12379,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %div3, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %div3, %sub.ptr.div.i
   %mCapacityAllocator.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mCapacityAllocator.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -19567,7 +19567,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.else
-  %sub = sub i64 %n, %cond.i
+  %sub = sub nuw i64 %n, %cond.i
   %mnCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %7, 9223372036854775807

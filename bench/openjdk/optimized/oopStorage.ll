@@ -1778,7 +1778,7 @@ _ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit: ; preds = %13, %17
 .lr.ph:                                           ; preds = %_ZNK10OopStorage18find_block_or_nullEPKP7oopDesc.exit
   %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 512
   %22 = ptrtoint ptr %.0.i.i to i64
-  %23 = sub i64 %2, %.035
+  %23 = sub nuw i64 %2, %.035
   br label %24
 
 24:                                               ; preds = %.lr.ph, %35
@@ -2843,7 +2843,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_seg
   br label %_ZNK10OopStorage13BasicParState16finish_iterationEPKNS0_13IterationDataE.exit
 
 25:                                               ; preds = %2
-  %26 = sub i64 %13, %11
+  %26 = sub nuw i64 %13, %11
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64

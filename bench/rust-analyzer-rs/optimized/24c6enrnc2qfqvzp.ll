@@ -3280,7 +3280,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %20 = xor i16 %17, -1
   store ptr %19, ptr %6, align 8, !alias.scope !1157
   store ptr %18, ptr %0, align 8, !alias.scope !1157
-  %21 = sub i16 -2, %17
+  %21 = sub nuw i16 -2, %17
   %22 = and i16 %21, %20
   store i16 %22, ptr %5, align 8, !alias.scope !1167
   %23 = add i64 %.promoted, -1
@@ -3496,7 +3496,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %21 = xor i16 %18, -1
   store ptr %20, ptr %6, align 8, !alias.scope !1240
   store ptr %19, ptr %0, align 8, !alias.scope !1240
-  %22 = sub i16 -2, %18
+  %22 = sub nuw i16 -2, %18
   %23 = and i16 %22, %21
   store i16 %23, ptr %5, align 8, !alias.scope !1250
   %24 = add i64 %.promoted, -1
@@ -3820,7 +3820,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %21 = xor i16 %18, -1
   store ptr %20, ptr %6, align 8, !alias.scope !1379
   store ptr %19, ptr %0, align 8, !alias.scope !1379
-  %22 = sub i16 -2, %18
+  %22 = sub nuw i16 -2, %18
   %23 = and i16 %22, %21
   store i16 %23, ptr %5, align 8, !alias.scope !1389
   %24 = add i64 %.promoted, -1

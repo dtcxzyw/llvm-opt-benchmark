@@ -4994,7 +4994,7 @@ _ZNK7rocksdb18VersionStorageInfo12GetBlobStatsEv.exit: ; preds = %for.body.i, %e
   %total_file_size.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
   %cmp.i = icmp ugt i64 %total_file_size.0.lcssa.i, %total_garbage_size.0.lcssa.i
   %conv.i = uitofp i64 %total_file_size.0.lcssa.i to double
-  %sub.i = sub i64 %total_file_size.0.lcssa.i, %total_garbage_size.0.lcssa.i
+  %sub.i = sub nuw i64 %total_file_size.0.lcssa.i, %total_garbage_size.0.lcssa.i
   %conv12.i = uitofp i64 %sub.i to double
   %div.i = fdiv double %conv.i, %conv12.i
   %space_amp.0.i = select i1 %cmp.i, double %div.i, double 0.000000e+00
@@ -6072,7 +6072,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 
 if.then:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %conv4 = zext nneg i32 %min_interval_factor to i64
-  %sub = sub i64 %0, %1
+  %sub = sub nuw i64 %0, %1
   %mul7 = mul i64 %sub, %conv4
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %mul, i64 %mul7)
   br label %if.end
@@ -8701,7 +8701,7 @@ invoke.cont127:                                   ; preds = %invoke.cont127.loop
   %total_file_size.0.lcssa.i = phi i64 [ 0, %for.end126 ], [ %add.i, %invoke.cont127.loopexit ]
   %cmp.i190 = icmp ugt i64 %total_file_size.0.lcssa.i, %total_garbage_size.0.lcssa.i
   %conv.i = uitofp i64 %total_file_size.0.lcssa.i to double
-  %sub.i = sub i64 %total_file_size.0.lcssa.i, %total_garbage_size.0.lcssa.i
+  %sub.i = sub nuw i64 %total_file_size.0.lcssa.i, %total_garbage_size.0.lcssa.i
   %conv12.i = uitofp i64 %sub.i to double
   %div.i = fdiv double %conv.i, %conv12.i
   %space_amp.0.i = select i1 %cmp.i190, double %div.i, double 0.000000e+00

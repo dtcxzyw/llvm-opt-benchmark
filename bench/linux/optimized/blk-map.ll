@@ -1577,7 +1577,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %118, label %.thread20, label %119
 
 119:                                              ; preds = %112
-  %120 = sub nsw i64 %116, %117
+  %120 = sub nuw nsw i64 %116, %117
   %121 = trunc i64 %120 to i16
   %122 = tail call ptr @bio_kmalloc(i16 noundef zeroext %121, i32 noundef %4) #8
   %123 = icmp eq ptr %122, null

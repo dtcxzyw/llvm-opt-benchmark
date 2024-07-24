@@ -43,7 +43,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp468, label %for.body.preheader, label %for.cond8.preheader
 
 for.body.preheader:                               ; preds = %if.end3
-  %wide.trip.count = zext i32 %add to i64
+  %1 = zext i32 %add to i64
   br label %for.body
 
 for.cond8.preheader:                              ; preds = %for.body, %if.end3
@@ -52,32 +52,32 @@ for.cond8.preheader:                              ; preds = %for.body, %if.end3
 
 for.body11.lr.ph:                                 ; preds = %for.cond8.preheader
   %huffWeight = getelementptr inbounds i8, ptr %retval.0.i, i64 493
-  %wide.trip.count78 = zext nneg i32 %maxSymbolValue to i64
+  %wide.trip.count79 = zext nneg i32 %maxSymbolValue to i64
   br label %for.body11
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %1 = trunc nuw i64 %indvars.iv to i32
-  %sub = sub i32 %add, %1
-  %conv = trunc i32 %sub to i8
+  %2 = trunc i64 %indvars.iv to i32
+  %3 = sub i32 %add, %2
+  %conv = trunc i32 %3 to i8
   %arrayidx7 = getelementptr inbounds [13 x i8], ptr %bitsToWeight, i64 0, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx7, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !4
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.body11
-  %indvars.iv75 = phi i64 [ 0, %for.body11.lr.ph ], [ %indvars.iv.next76, %for.body11 ]
-  %arrayidx14 = getelementptr inbounds i64, ptr %add.ptr, i64 %indvars.iv75
-  %2 = load i64, ptr %arrayidx14, align 8
-  %and.i45 = and i64 %2, 255
+  %indvars.iv76 = phi i64 [ 0, %for.body11.lr.ph ], [ %indvars.iv.next77, %for.body11 ]
+  %arrayidx14 = getelementptr inbounds i64, ptr %add.ptr, i64 %indvars.iv76
+  %4 = load i64, ptr %arrayidx14, align 8
+  %and.i45 = and i64 %4, 255
   %arrayidx16 = getelementptr inbounds [13 x i8], ptr %bitsToWeight, i64 0, i64 %and.i45
-  %3 = load i8, ptr %arrayidx16, align 1
-  %arrayidx18 = getelementptr inbounds [255 x i8], ptr %huffWeight, i64 0, i64 %indvars.iv75
-  store i8 %3, ptr %arrayidx18, align 1
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %for.end21, label %for.body11, !llvm.loop !6
+  %5 = load i8, ptr %arrayidx16, align 1
+  %arrayidx18 = getelementptr inbounds [255 x i8], ptr %huffWeight, i64 0, i64 %indvars.iv76
+  store i8 %5, ptr %arrayidx18, align 1
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
+  br i1 %exitcond80.not, label %for.end21, label %for.body11, !llvm.loop !6
 
 for.end21:                                        ; preds = %for.body11, %for.cond8.preheader
   %cmp22 = icmp eq i64 %maxDstSize, 0
@@ -90,8 +90,8 @@ if.end25:                                         ; preds = %for.end21
   %conv29 = zext nneg i32 %maxSymbolValue to i64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxSymbolValue.i)
   store i32 12, ptr %maxSymbolValue.i, align 4
-  %4 = ptrtoint ptr %retval.0.i to i64
-  %sub1.i.i = sub i64 0, %4
+  %6 = ptrtoint ptr %retval.0.i to i64
+  %sub1.i.i = sub i64 0, %6
   %and2.i.i = and i64 %sub1.i.i, 3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 %and2.i.i
   %cmp.not.i46 = icmp eq i64 %and2.i.i, 0
@@ -110,26 +110,26 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %or.cond, label %do.end.thread, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end3.i
-  %5 = load i32, ptr %maxSymbolValue.i, align 4
-  %call13.i = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef %conv29, i32 noundef %5) #14
+  %7 = load i32, ptr %maxSymbolValue.i, align 4
+  %call13.i = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef %conv29, i32 noundef %7) #14
   %norm.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 452
-  %6 = load i32, ptr %maxSymbolValue.i, align 4
-  %call17.i = call i64 @FSE_normalizeCount(ptr noundef nonnull %norm.i, i32 noundef %call13.i, ptr noundef nonnull %count.i, i64 noundef %conv29, i32 noundef %6, i32 noundef 0) #14
+  %8 = load i32, ptr %maxSymbolValue.i, align 4
+  %call17.i = call i64 @FSE_normalizeCount(ptr noundef nonnull %norm.i, i32 noundef %call13.i, ptr noundef nonnull %count.i, i64 noundef %conv29, i32 noundef %8, i32 noundef 0) #14
   %cmp.i.i = icmp ult i64 %call17.i, -119
   br i1 %cmp.i.i, label %do.end22.i, label %HUF_compressWeights.exit.thread
 
 do.end22.i:                                       ; preds = %if.end12.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr26 to i64
-  %7 = load i32, ptr %maxSymbolValue.i, align 4
-  %call25.i = call i64 @FSE_writeNCount(ptr noundef nonnull %add.ptr26, i64 noundef %sub27, ptr noundef nonnull %norm.i, i32 noundef %7, i32 noundef %call13.i) #14
+  %9 = load i32, ptr %maxSymbolValue.i, align 4
+  %call25.i = call i64 @FSE_writeNCount(ptr noundef nonnull %add.ptr26, i64 noundef %sub27, ptr noundef nonnull %norm.i, i32 noundef %9, i32 noundef %call13.i) #14
   %cmp.i34.i = icmp ult i64 %call25.i, -119
   br i1 %cmp.i34.i, label %do.end31.i, label %HUF_compressWeights.exit.thread
 
 do.end31.i:                                       ; preds = %do.end22.i
   %add.ptr32.i = getelementptr inbounds i8, ptr %add.ptr26, i64 %call25.i
-  %8 = load i32, ptr %maxSymbolValue.i, align 4
+  %10 = load i32, ptr %maxSymbolValue.i, align 4
   %scratchBuffer.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 236
-  %call39.i = call i64 @FSE_buildCTable_wksp(ptr noundef %add.ptr.i.i, ptr noundef nonnull %norm.i, i32 noundef %8, i32 noundef %call13.i, ptr noundef nonnull %scratchBuffer.i, i64 noundef 164) #14
+  %call39.i = call i64 @FSE_buildCTable_wksp(ptr noundef %add.ptr.i.i, ptr noundef nonnull %norm.i, i32 noundef %10, i32 noundef %call13.i, ptr noundef nonnull %scratchBuffer.i, i64 noundef 164) #14
   %cmp.i36.i = icmp ult i64 %call39.i, -119
   br i1 %cmp.i36.i, label %do.end46.i, label %HUF_compressWeights.exit.thread
 
@@ -187,27 +187,27 @@ if.end49:                                         ; preds = %if.end45
   br i1 %cmp54, label %return, label %if.end57
 
 if.end57:                                         ; preds = %if.end49
-  %9 = trunc nuw i32 %maxSymbolValue to i8
-  %conv60 = add nuw i8 %9, 127
+  %11 = trunc nuw i32 %maxSymbolValue to i8
+  %conv60 = add nuw i8 %11, 127
   store i8 %conv60, ptr %dst, align 1
   %arrayidx64 = getelementptr inbounds [255 x i8], ptr %huffWeight28, i64 0, i64 %conv29
   store i8 0, ptr %arrayidx64, align 1
   br i1 %cmp970.not, label %return, label %for.body68
 
 for.body68:                                       ; preds = %if.end57, %for.body68
-  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %for.body68 ], [ 0, %if.end57 ]
-  %arrayidx71 = getelementptr inbounds [255 x i8], ptr %huffWeight28, i64 0, i64 %indvars.iv80
-  %10 = load i8, ptr %arrayidx71, align 1
-  %shl = shl i8 %10, 4
-  %11 = or disjoint i64 %indvars.iv80, 1
-  %arrayidx76 = getelementptr inbounds [255 x i8], ptr %huffWeight28, i64 0, i64 %11
-  %12 = load i8, ptr %arrayidx76, align 1
-  %add78 = add i8 %shl, %12
-  %13 = lshr exact i64 %indvars.iv80, 1
-  %gep = getelementptr inbounds i8, ptr %add.ptr26, i64 %13
+  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %for.body68 ], [ 0, %if.end57 ]
+  %arrayidx71 = getelementptr inbounds [255 x i8], ptr %huffWeight28, i64 0, i64 %indvars.iv81
+  %12 = load i8, ptr %arrayidx71, align 1
+  %shl = shl i8 %12, 4
+  %13 = or disjoint i64 %indvars.iv81, 1
+  %arrayidx76 = getelementptr inbounds [255 x i8], ptr %huffWeight28, i64 0, i64 %13
+  %14 = load i8, ptr %arrayidx76, align 1
+  %add78 = add i8 %shl, %14
+  %15 = lshr exact i64 %indvars.iv81, 1
+  %gep = getelementptr inbounds i8, ptr %add.ptr26, i64 %15
   store i8 %add78, ptr %gep, align 1
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 2
-  %cmp66 = icmp ult i64 %indvars.iv.next81, %conv29
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 2
+  %cmp66 = icmp ult i64 %indvars.iv.next82, %conv29
   br i1 %cmp66, label %for.body68, label %return, !llvm.loop !7
 
 return:                                           ; preds = %for.body68, %if.end57, %HUF_compressWeights.exit.thread, %if.end49, %if.end45, %HUF_compressWeights.exit, %for.end21, %if.end, %entry, %if.then41
@@ -703,7 +703,7 @@ HUF_buildTree.exit:                               ; preds = %for.body99.i, %for.
   br i1 %cmp.not.i24, label %do.end.i, label %HUF_setMaxHeight.exit
 
 do.end.i:                                         ; preds = %HUF_buildTree.exit
-  %sub.i26 = sub nsw i32 %conv.i, %spec.store.select
+  %sub.i26 = sub nuw nsw i32 %conv.i, %spec.store.select
   %shl.i = shl nuw i32 1, %sub.i26
   %sext = shl i64 %indvars.iv.i15, 32
   %idxprom275.i = ashr exact i64 %sext, 32

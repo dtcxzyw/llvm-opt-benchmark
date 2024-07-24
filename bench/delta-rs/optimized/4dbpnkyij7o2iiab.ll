@@ -284,7 +284,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$11clean_em
   %13 = phi i64 [ %.promoted, %.lr.ph ], [ %19, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17h454ec97bfa3a13baE.llvm.12862495042339831644.exit" ]
   %.not.i.i = icmp ult i64 %12, %5
   %14 = select i1 %.not.i.i, i64 0, i64 %5
-  %.0.i.i = sub i64 %12, %14
+  %.0.i.i = sub nuw i64 %12, %14
   %15 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %7, i64 %.0.i.i, i32 2
   %16 = load i64, ptr %15, align 8, !noundef !5
   %.not6 = icmp eq i64 %16, 0
@@ -299,7 +299,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$11clean_em
   %17 = add i64 %12, 1
   %.not.i.i2 = icmp ult i64 %17, %5
   %18 = select i1 %.not.i.i2, i64 0, i64 %5
-  %.0.i.i3 = sub i64 %17, %18
+  %.0.i.i3 = sub nuw i64 %17, %18
   store i64 %.0.i.i3, ptr %4, align 8, !alias.scope !7, !noalias !10
   %19 = add i64 %13, -1
   store i64 %19, ptr %3, align 8, !alias.scope !7, !noalias !10
@@ -385,7 +385,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$4push17h52
   %32 = add i64 %31, %29
   %.not.i.i = icmp ult i64 %32, %28
   %33 = select i1 %.not.i.i, i64 0, i64 %28
-  %.0.i.i = sub i64 %32, %33
+  %.0.i.i = sub nuw i64 %32, %33
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !alias.scope !22, !noalias !25, !nonnull !5, !noundef !5
   %36 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %35, i64 %.0.i.i
@@ -412,7 +412,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$4push17h52
   %46 = phi i64 [ %38, %.lr.ph.i ], [ %52, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17h454ec97bfa3a13baE.llvm.12862495042339831644.exit.i" ]
   %.not.i.i.i = icmp ult i64 %45, %39
   %47 = select i1 %.not.i.i.i, i64 0, i64 %39
-  %.0.i.i.i = sub i64 %45, %47
+  %.0.i.i.i = sub nuw i64 %45, %47
   %48 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %40, i64 %.0.i.i.i, i32 2
   %49 = load i64, ptr %48, align 8, !noalias !37, !noundef !5
   %.not6.i = icmp eq i64 %49, 0
@@ -424,7 +424,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$4push17h52
   %50 = add i64 %45, 1
   %.not.i.i2.i = icmp ult i64 %50, %39
   %51 = select i1 %.not.i.i2.i, i64 0, i64 %39
-  %.0.i.i3.i = sub i64 %50, %51
+  %.0.i.i3.i = sub nuw i64 %50, %51
   store i64 %.0.i.i3.i, ptr %30, align 8, !alias.scope !43, !noalias !44
   %52 = add i64 %46, -1
   store i64 %52, ptr %10, align 8, !alias.scope !43, !noalias !44

@@ -686,7 +686,7 @@ define internal i32 @kmmpd(ptr noundef %0) #0 align 16 {
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %60
-  %66 = sub nsw i64 %26, %63
+  %66 = sub nuw nsw i64 %26, %63
   %67 = tail call i64 @schedule_timeout_interruptible(i64 noundef %66) #10
   br label %68
 

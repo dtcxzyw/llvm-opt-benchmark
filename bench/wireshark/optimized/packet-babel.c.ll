@@ -890,7 +890,7 @@ define internal fastcc i32 @network_prefix(i32 noundef %0, i32 noundef %1, i32 n
 
 19:                                               ; preds = %16
   %20 = icmp ugt i32 %.055, %2
-  %21 = sub nsw i32 %.055, %2
+  %21 = sub nuw nsw i32 %.055, %2
   %22 = icmp ugt i32 %21, %6
   %or.cond62 = select i1 %20, i1 %22, i1 false
   br i1 %or.cond62, label %64, label %23
@@ -917,7 +917,7 @@ define internal fastcc i32 @network_prefix(i32 noundef %0, i32 noundef %1, i32 n
   %31 = getelementptr inbounds i8, ptr %9, i64 12
   %32 = zext nneg i32 %2 to i64
   %33 = getelementptr i8, ptr %31, i64 %32
-  %34 = zext i32 %21 to i64
+  %34 = zext nneg i32 %21 to i64
   %35 = call ptr @tvb_memcpy(ptr noundef %3, ptr noundef %33, i32 noundef %4, i64 noundef %34) #7
   br label %63
 
@@ -927,7 +927,7 @@ define internal fastcc i32 @network_prefix(i32 noundef %0, i32 noundef %1, i32 n
 
 38:                                               ; preds = %36
   %39 = icmp ugt i32 %.055, %2
-  %40 = sub nsw i32 %.055, %2
+  %40 = sub nuw nsw i32 %.055, %2
   %41 = icmp ugt i32 %40, %6
   %or.cond64 = select i1 %39, i1 %41, i1 false
   br i1 %or.cond64, label %64, label %42
@@ -951,7 +951,7 @@ define internal fastcc i32 @network_prefix(i32 noundef %0, i32 noundef %1, i32 n
 48:                                               ; preds = %47
   %49 = zext nneg i32 %2 to i64
   %50 = getelementptr i8, ptr %9, i64 %49
-  %51 = zext i32 %40 to i64
+  %51 = zext nneg i32 %40 to i64
   %52 = call ptr @tvb_memcpy(ptr noundef %3, ptr noundef %50, i32 noundef %4, i64 noundef %51) #7
   br label %63
 

@@ -122,7 +122,7 @@ for.cond37.preheader:                             ; preds = %for.body, %for.cond
   br i1 %cmp3957, label %for.body41.preheader, label %for.end46
 
 for.body41.preheader:                             ; preds = %for.cond37.preheader
-  %2 = sub nsw i64 %block_len.070, %conv3856
+  %2 = sub nuw nsw i64 %block_len.070, %conv3856
   br label %for.body41
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -4446,7 +4446,7 @@ for.cond2061.preheader:                           ; preds = %for.body2024, %for.
   br i1 %cmp2063896, label %for.body2065.preheader, label %for.end2072
 
 for.body2065.preheader:                           ; preds = %for.cond2061.preheader
-  %131 = sub nsw i64 %block_len.0909, %conv2062895
+  %131 = sub nuw nsw i64 %block_len.0909, %conv2062895
   br label %for.body2065
 
 for.body2024:                                     ; preds = %for.body2024.preheader, %for.body2024
@@ -8231,7 +8231,7 @@ if.then.i979:                                     ; preds = %if.end906
   br label %return
 
 if.end938:                                        ; preds = %if.end906
-  %sub939 = sub i32 %n.0352, %add933
+  %sub939 = sub nuw i32 %n.0352, %add933
   %idx.ext940 = zext nneg i32 %add933 to i64
   %add.ptr941 = getelementptr inbounds i8, ptr %p.0353, i64 %idx.ext940
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8475,7 +8475,7 @@ define internal i64 @mz_zip_mem_read_func(ptr nocapture noundef readonly %pOpaqu
 entry:
   %0 = load i64, ptr %pOpaque, align 8
   %cmp.not = icmp ugt i64 %0, %file_ofs
-  %sub = sub i64 %0, %file_ofs
+  %sub = sub nuw i64 %0, %file_ofs
   %sub.n = tail call i64 @llvm.umin.i64(i64 %sub, i64 %n)
   %cond8 = select i1 %cmp.not, i64 %sub.n, i64 0
   %m_pState = getelementptr inbounds i8, ptr %pOpaque, i64 104

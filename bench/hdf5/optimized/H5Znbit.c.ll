@@ -1547,7 +1547,7 @@ define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr nocapture nound
   br i1 %90, label %92, label %102
 
 92:                                               ; preds = %88
-  %93 = sub i64 %89, %.051.i
+  %93 = sub nuw i64 %89, %.051.i
   %94 = trunc i64 %93 to i32
   %95 = lshr i32 %91, %94
   %96 = trunc nuw nsw i64 %.051.i to i32
@@ -1563,10 +1563,10 @@ define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr nocapture nound
   %104 = shl nsw i32 -1, %103
   %105 = xor i32 %104, -1
   %106 = and i32 %105, %91
-  %107 = sub nsw i64 %.051.i, %89
-  %108 = trunc i64 %107 to i32
+  %107 = sub nuw nsw i64 %.051.i, %89
+  %108 = trunc nuw nsw i64 %107 to i32
   %109 = shl nuw nsw i32 %106, %108
-  %110 = shl i32 %109, %.0.i
+  %110 = shl nuw nsw i32 %109, %.0.i
   %111 = trunc i32 %110 to i8
   store i8 %111, ptr %gep63, align 1
   %112 = load i64, ptr %4, align 8
@@ -1748,7 +1748,7 @@ H5Z__nbit_decompress_one_byte.exit:               ; preds = %102, %.sink.split.i
   br i1 %221, label %223, label %233
 
 223:                                              ; preds = %219
-  %224 = sub i64 %220, %.051.i51
+  %224 = sub nuw i64 %220, %.051.i51
   %225 = trunc i64 %224 to i32
   %226 = lshr i32 %222, %225
   %227 = trunc nuw nsw i64 %.051.i51 to i32
@@ -1764,10 +1764,10 @@ H5Z__nbit_decompress_one_byte.exit:               ; preds = %102, %.sink.split.i
   %235 = shl nsw i32 -1, %234
   %236 = xor i32 %235, -1
   %237 = and i32 %236, %222
-  %238 = sub nsw i64 %.051.i51, %220
-  %239 = trunc i64 %238 to i32
+  %238 = sub nuw nsw i64 %.051.i51, %220
+  %239 = trunc nuw nsw i64 %238 to i32
   %240 = shl nuw nsw i32 %237, %239
-  %241 = shl i32 %240, %.0.i52
+  %241 = shl nuw nsw i32 %240, %.0.i52
   %242 = trunc i32 %241 to i8
   store i8 %242, ptr %gep, align 1
   %243 = load i64, ptr %4, align 8
@@ -2387,7 +2387,7 @@ define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr nocapture noundef
   %93 = shl nsw i32 -1, %92
   %94 = xor i32 %93, -1
   %95 = and i32 %87, %94
-  %96 = sub i64 %85, %.046.i
+  %96 = sub nuw i64 %85, %.046.i
   %97 = trunc i64 %96 to i32
   %98 = shl i32 %95, %97
   %99 = trunc i32 %98 to i8
@@ -2396,8 +2396,8 @@ define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr nocapture noundef
   br label %.sink.split.i
 
 101:                                              ; preds = %84
-  %102 = sub nsw i64 %.046.i, %85
-  %103 = trunc i64 %102 to i32
+  %102 = sub nuw nsw i64 %.046.i, %85
+  %103 = trunc nuw nsw i64 %102 to i32
   %104 = lshr i32 %87, %103
   %105 = trunc nuw i64 %85 to i32
   %106 = shl nsw i32 -1, %105
@@ -2575,7 +2575,7 @@ H5Z__nbit_compress_one_byte.exit:                 ; preds = %101, %.sink.split.i
   %215 = shl nsw i32 -1, %214
   %216 = xor i32 %215, -1
   %217 = and i32 %209, %216
-  %218 = sub i64 %207, %.046.i51
+  %218 = sub nuw i64 %207, %.046.i51
   %219 = trunc i64 %218 to i32
   %220 = shl i32 %217, %219
   %221 = trunc i32 %220 to i8
@@ -2584,8 +2584,8 @@ H5Z__nbit_compress_one_byte.exit:                 ; preds = %101, %.sink.split.i
   br label %.sink.split.i53
 
 223:                                              ; preds = %206
-  %224 = sub nsw i64 %.046.i51, %207
-  %225 = trunc i64 %224 to i32
+  %224 = sub nuw nsw i64 %.046.i51, %207
+  %225 = trunc nuw nsw i64 %224 to i32
   %226 = lshr i32 %209, %225
   %227 = trunc nuw i64 %207 to i32
   %228 = shl nsw i32 -1, %227

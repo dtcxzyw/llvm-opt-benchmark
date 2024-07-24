@@ -4937,7 +4937,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
 
 94:                                               ; preds = %.thread119
   %95 = load i32, ptr @hf_dvbci_sac_padding, align 4
-  %96 = sub nsw i32 %81, %.0106121
+  %96 = sub nuw nsw i32 %81, %.0106121
   %97 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %95, ptr noundef nonnull %.0105114118, i32 noundef %.0106121, i32 noundef %96, i32 noundef 0) #14
   br label %98
 

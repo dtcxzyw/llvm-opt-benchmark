@@ -2150,7 +2150,7 @@ if.then.i.i2.i:                                   ; preds = %cond.false.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %cond.false.i
-  %sub.i.i = sub i64 %f.coerce0, %__size.1.i.i.in.i
+  %sub.i.i = sub nuw i64 %f.coerce0, %__size.1.i.i.in.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %f.coerce1, i64 %__size.1.i.i.in.i
   br label %lor.rhs.i
 

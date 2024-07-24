@@ -1308,7 +1308,7 @@ define internal noundef i32 @H5FD__log_set_eoa(ptr nocapture noundef %0, i32 nou
   br i1 %9, label %10, label %thread-pre-split
 
 10:                                               ; preds = %6
-  %11 = sub i64 %2, %8
+  %11 = sub nuw i64 %2, %8
   %12 = and i64 %5, 64
   %.not52 = icmp eq i64 %12, 0
   br i1 %.not52, label %18, label %13
@@ -1352,7 +1352,7 @@ thread-pre-split:                                 ; preds = %21, %18, %6
   br i1 %or.cond7, label %32, label %.critedge
 
 32:                                               ; preds = %29
-  %33 = sub i64 %28, %2
+  %33 = sub nuw i64 %28, %2
   %34 = load i64, ptr %4, align 8
   %35 = and i64 %34, 64
   %.not55 = icmp eq i64 %35, 0

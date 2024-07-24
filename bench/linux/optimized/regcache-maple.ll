@@ -469,8 +469,8 @@ define internal i32 @regcache_maple_drop(ptr nocapture noundef readonly %0, i32 
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %24
-  %34 = sub nsw i64 %8, %31
-  %35 = shl nsw i64 %34, 3
+  %34 = sub nuw nsw i64 %8, %31
+  %35 = shl nuw nsw i64 %34, 3
   %36 = load i32, ptr %21, align 8
   %37 = call ptr @kmemdup(ptr noundef nonnull %25, i64 noundef %35, i32 noundef %36) #12
   %38 = icmp eq ptr %37, null
@@ -486,7 +486,7 @@ define internal i32 @regcache_maple_drop(ptr nocapture noundef readonly %0, i32 
 
 45:                                               ; preds = %39
   %46 = getelementptr i64, ptr %25, i64 %23
-  %47 = sub i64 %43, %10
+  %47 = sub nuw i64 %43, %10
   %48 = shl i64 %47, 3
   %49 = load i32, ptr %21, align 8
   %50 = call ptr @kmemdup(ptr noundef %46, i64 noundef %48, i32 noundef %49) #12

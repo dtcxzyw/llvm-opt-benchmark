@@ -70,7 +70,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h25f01aa4c3d515ecE(ptr n
   %.017 = phi i64 [ 0, %3 ], [ %13, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8538abc37489a419E.exit20" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %7, i64 8192)
-  %8 = sub i64 %7, %.0.sroa.speculated.i.i
+  %8 = sub nuw i64 %7, %.0.sroa.speculated.i.i
   %9 = getelementptr inbounds i8, ptr %6, i64 %.0.sroa.speculated.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr nonnull readonly align 1 %6, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !20, !noalias !24
   store ptr %9, ptr %1, align 8, !alias.scope !15, !noalias !18
@@ -1031,7 +1031,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17hc1c34d0f3beea
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   %21 = icmp ult i64 %20, %1
@@ -2405,7 +2405,7 @@ _ZN4core5slice4sort12choose_pivot17hd548ac4f762e1820E.exit: ; preds = %"_ZN4core
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.0178222, ptr noundef nonnull align 8 dereferenceable(48) %288, i64 48, i1 false), !alias.scope !410, !noalias !408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %288, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i52.i, i64 48, i1 false), !noalias !408
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i52.i)
-  %289 = sub i64 %.sroa.14.0177212, %282
+  %289 = sub nuw i64 %.sroa.14.0177212, %282
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %282, i64 %289)
   %290 = lshr i64 %.sroa.14.0177212, 3
   %291 = icmp uge i64 %.0.sroa.speculated.i, %290

@@ -5988,7 +5988,7 @@ _ZNKSt14default_deleteIN3ade7details8Metadata18MetadataHolderBaseEEclEPS3_.exit.
   br i1 %499, label %502, label %_ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE6resizeEmRKS2_.exit
 
 502:                                              ; preds = %489
-  %503 = sub i64 %490, %498
+  %503 = sub nuw i64 %490, %498
   invoke void @_ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %491, ptr %493, i64 noundef %503, ptr noundef nonnull align 8 dereferenceable(48) %23)
           to label %._ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE6resizeEmRKS2_.exit_crit_edge unwind label %541
 
@@ -18333,7 +18333,7 @@ _ZN2cv5gimpl6RcDescaSERKS1_.exit.i.i.i:           ; preds = %94, %.noexc70
   unreachable
 
 104:                                              ; preds = %15
-  %105 = sub i64 %2, %29
+  %105 = sub nuw i64 %2, %29
   %106 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN2cv5gimpl6RcDescEmS2_ET_S4_T0_RKT1_(ptr noundef %25, i64 noundef %105, ptr noundef nonnull align 8 dereferenceable(48) %16)
           to label %_ZSt24__uninitialized_fill_n_aIPN2cv5gimpl6RcDescEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 

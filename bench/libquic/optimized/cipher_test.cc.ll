@@ -1164,7 +1164,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.0146 = phi i64 [ %add124, %if.end122 ], [ 0, %for.cond.preheader ]
   %add = add i64 %i.0146, %chunk_size
   %cmp107 = icmp ugt i64 %add, %sub.ptr.sub.i94147
-  %sub = sub i64 %sub.ptr.sub.i94147, %i.0146
+  %sub = sub nuw i64 %sub.ptr.sub.i94147, %i.0146
   %spec.select = select i1 %cmp107, i64 %sub, i64 %chunk_size
   %26 = load ptr, ptr %result, align 8
   %idx.ext = sext i32 %24 to i64
@@ -1424,7 +1424,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64

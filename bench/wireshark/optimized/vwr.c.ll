@@ -1007,7 +1007,7 @@ get_ofdm_rate.exit.i:                             ; preds = %73, %switch.lookup,
   br i1 %.not384.i, label %100, label %94
 
 94:                                               ; preds = %get_ofdm_rate.exit.i
-  %95 = sub i16 %33, %89
+  %95 = sub nuw i16 %33, %89
   %96 = zext nneg i16 %89 to i64
   %97 = getelementptr i8, ptr %11, i64 %96
   %98 = zext i16 %95 to i32
@@ -1542,7 +1542,7 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   %447 = select i1 %.not438477.i, i8 %446, i8 %444
   %.sroa.0.0.i = select i1 %.not.i44, i8 %444, i8 %447
   %448 = getelementptr i8, ptr %11, i64 8
-  %449 = sub i32 %1, %420
+  %449 = sub nuw i32 %1, %420
   %450 = icmp ugt i32 %440, %449
   br i1 %450, label %451, label %453
 
@@ -2039,11 +2039,11 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   br i1 %789, label %790, label %792
 
 790:                                              ; preds = %788
-  %791 = sub i64 %676, %496
+  %791 = sub nuw i64 %676, %496
   br label %795
 
 792:                                              ; preds = %788
-  %793 = sub nsw i64 %496, %676
+  %793 = sub nuw nsw i64 %496, %676
   %794 = icmp ugt i64 %793, 268435456
   %.453.i = select i1 %794, i64 0, i64 %793
   br label %795
@@ -2995,11 +2995,11 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   br i1 %1379, label %1380, label %1382
 
 1380:                                             ; preds = %1378
-  %1381 = sub i64 %1266, %1110
+  %1381 = sub nuw i64 %1266, %1110
   br label %1385
 
 1382:                                             ; preds = %1378
-  %1383 = sub nsw i64 %1110, %1266
+  %1383 = sub nuw nsw i64 %1110, %1266
   %1384 = icmp ugt i64 %1383, 268435456
   %.758.i = select i1 %1384, i64 0, i64 %1383
   br label %1385
@@ -3850,7 +3850,7 @@ vwr_read_s3_W_rec.exit:                           ; preds = %978, %1001, %1008, 
   br label %vwr_read_s1_W_rec.exit
 
 1847:                                             ; preds = %1842
-  %1848 = sub i32 %1, %1843
+  %1848 = sub nuw i32 %1, %1843
   %1849 = zext i32 %1848 to i64
   %1850 = getelementptr i8, ptr %11, i64 %1849
   %1851 = getelementptr inbounds i8, ptr %4, i64 28
@@ -4252,12 +4252,12 @@ get_signature_ts.exit.i105:                       ; preds = %2129, %2127, %find_
   br i1 %2140, label %2141, label %2144
 
 2141:                                             ; preds = %2139
-  %2142 = sub i64 %2008, %.0352.i
+  %2142 = sub nuw i64 %2008, %.0352.i
   %2143 = trunc i64 %2142 to i32
   br label %2148
 
 2144:                                             ; preds = %2139
-  %2145 = sub nsw i64 %.0352.i, %2008
+  %2145 = sub nuw nsw i64 %.0352.i, %2008
   %2146 = icmp ugt i64 %2145, 268435456
   %2147 = trunc nuw nsw i64 %2145 to i32
   %spec.select376.i = select i1 %2146, i32 0, i32 %2147

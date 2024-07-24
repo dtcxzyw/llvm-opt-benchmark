@@ -1339,7 +1339,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %412, %409, %277, %d
 
 529:                                              ; preds = %.thread266.i.i
   %530 = add i32 %.1218271.i.i, %.1220309.i.i
-  %531 = sub i32 %.2227270.i.i, %.1218271.i.i
+  %531 = sub nuw i32 %.2227270.i.i, %.1218271.i.i
   br label %532
 
 532:                                              ; preds = %529, %524
@@ -1362,7 +1362,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %412, %409, %277, %d
 538:                                              ; preds = %537
   %539 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.2221.i.i, i32 noundef %534) #9
   call fastcc void @mp2t_dissect_packet(ptr noundef %539, ptr noundef nonnull %.0.i.i, ptr noundef %1, ptr noundef %2)
-  %540 = sub i32 %.3228.i.i, %534
+  %540 = sub nuw i32 %.3228.i.i, %534
   %541 = add i32 %534, %.2221.i.i
   %542 = add i32 %.2310.i.i, 1
   %.not251.i.i = icmp eq i32 %540, 0
@@ -1391,7 +1391,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %412, %409, %277, %d
   br i1 %547, label %548, label %557
 
 548:                                              ; preds = %.thread277.i.i
-  %549 = sub i32 %546, %.4211294.i.i
+  %549 = sub nuw i32 %546, %.4211294.i.i
   %550 = sub i32 %.5230284.i.i, %549
   call fastcc void @mp2t_fragment_handle(ptr noundef %0, i32 noundef %.4223287.i.i, ptr noundef %1, ptr noundef %2, i32 noundef %.3295.i.i, i32 noundef %.1213290.i.i, i32 noundef %550, i32 noundef 1, ptr noundef nonnull %.0.i.i)
   %551 = add i32 %550, %.4223287.i.i

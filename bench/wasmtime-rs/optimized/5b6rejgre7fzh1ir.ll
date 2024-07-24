@@ -18295,7 +18295,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit: ; preds = %"_ZN8smallvec17Sma
   %.sink3.i = select i1 %29, ptr %32, ptr %0
   %33 = getelementptr inbounds { { i32, i32 }, i32 }, ptr %.sink3.i, i64 %1
   %34 = getelementptr inbounds { { i32, i32 }, i32 }, ptr %33, i64 %3
-  %35 = sub i64 %.sink4.i, %1
+  %35 = sub nuw i64 %.sink4.i, %1
   %36 = mul i64 %35, 12
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %34, ptr nonnull align 4 %33, i64 %36, i1 false)
   %37 = mul i64 %3, 12
@@ -18345,7 +18345,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit: ; preds = %4
   %.sink3.i = select i1 %12, ptr %17, ptr %0
   %18 = getelementptr inbounds i8, ptr %.sink3.i, i64 %1
   %19 = getelementptr inbounds i8, ptr %18, i64 %3
-  %20 = sub i64 %.sink4.i, %1
+  %20 = sub nuw i64 %.sink4.i, %1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %18, i64 %20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %2, i64 %3, i1 false)
   %21 = add i64 %.sink4.i, %3
@@ -18405,7 +18405,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$5drain17h739504d24098bf82E"(
   %12 = load i64, ptr %4, align 8, !alias.scope !2452, !noalias !2455, !noundef !4
   %13 = icmp ugt i64 %12, 4
   %.sink5.i31 = select i1 %13, ptr %11, ptr %1
-  %14 = sub i64 %.sink4.i, %2
+  %14 = sub nuw i64 %.sink4.i, %2
   %15 = getelementptr inbounds { { i32, i32 }, i32 }, ptr %.sink5.i31, i64 %2
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %2, ptr %16, align 8
@@ -18522,7 +18522,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6resize17h01b7c2f292fca025E"
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h4d5180b1270acac2E.llvm.10170168316197365569.exit"
 
 12:                                               ; preds = %3
-  %13 = sub i64 %1, %.sink4.i
+  %13 = sub nuw i64 %1, %.sink4.i
   tail call void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h422b1cc4dd0fa3a4E.llvm.10170168316197365569"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %13, i32 noundef %2)
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h4d5180b1270acac2E.llvm.10170168316197365569.exit"
 
@@ -18551,7 +18551,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6resize17h7488ac294c94a5b5E"
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17hb18967b99b444bd9E.exit"
 
 12:                                               ; preds = %3
-  %13 = sub i64 %1, %.sink4.i
+  %13 = sub nuw i64 %1, %.sink4.i
   tail call void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h4543701c22970a31E.llvm.10170168316197365569"(ptr noalias noundef nonnull align 8 dereferenceable(1032) %0, i64 noundef %13, i8 noundef %2)
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17hb18967b99b444bd9E.exit"
 
@@ -18580,7 +18580,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6resize17hfb1cb284c1313a24E"
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h5420038e5191b0b0E.llvm.10170168316197365569.exit"
 
 12:                                               ; preds = %3
-  %13 = sub i64 %1, %.sink4.i
+  %13 = sub nuw i64 %1, %.sink4.i
   tail call void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h786f9ca2085bf2fdE.llvm.10170168316197365569"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %13, i32 noundef %2)
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h5420038e5191b0b0E.llvm.10170168316197365569.exit"
 

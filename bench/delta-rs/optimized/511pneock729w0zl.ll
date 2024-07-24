@@ -7364,7 +7364,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser22parse_sql_with_dialect17h8f
   %51 = add i64 %50, %49
   %.not.i.i = icmp ult i64 %51, %48
   %52 = select i1 %.not.i.i, i64 0, i64 %48
-  %.0.i.i = sub i64 %51, %52
+  %.0.i.i = sub nuw i64 %51, %52
   %53 = load ptr, ptr %20, align 8, !alias.scope !991, !noalias !994, !nonnull !5, !noundef !5
   %54 = getelementptr inbounds { i64, [95 x i64] }, ptr %53, i64 %.0.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(768) %54, ptr noundef nonnull align 8 dereferenceable(768) %7, i64 768, i1 false)

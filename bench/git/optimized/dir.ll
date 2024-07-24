@@ -5727,7 +5727,7 @@ while.end118:                                     ; preds = %land.lhs.true105, %
 
 lor.lhs.false.i:                                  ; preds = %while.end118
   %cond = select i1 %tobool122.not, ptr @.str.10, ptr @.str.12
-  %sub.i = sub i64 %sub.ptr.sub121, %call.i
+  %sub.i = sub nuw i64 %sub.ptr.sub121, %call.i
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr.2, i64 %sub.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(4) %cond, i64 %call.i)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0

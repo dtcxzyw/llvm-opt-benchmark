@@ -161,8 +161,8 @@ define hidden void @_ZN27JfrCompilerQueueUtilization11send_eventsEv() local_unna
   br i1 %.not.i, label %42, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
 
 42:                                               ; preds = %33
-  %43 = sub nsw i64 %36, %41
-  %44 = mul nsw i64 %43, 1000000000
+  %43 = sub nuw nsw i64 %36, %41
+  %44 = mul nuw nsw i64 %43, 1000000000
   %45 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %18) #7
   %46 = udiv i64 %44, %45
   br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
@@ -175,8 +175,8 @@ _ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedEla
   br i1 %.not.i29, label %49, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit31
 
 49:                                               ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
-  %50 = sub nsw i64 %39, %48
-  %51 = mul nsw i64 %50, 1000000000
+  %50 = sub nuw nsw i64 %39, %48
+  %51 = mul nuw nsw i64 %50, 1000000000
   %52 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %18) #7
   %53 = udiv i64 %51, %52
   br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit31

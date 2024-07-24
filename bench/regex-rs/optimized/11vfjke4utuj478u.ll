@@ -2547,8 +2547,8 @@ define noundef i64 @_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val3.i = load i64, ptr %7, align 8, !alias.scope !397, !noundef !5
   %.not.i.i.i = icmp ugt i64 %.val.i, %.val3.i
-  %8 = sub i64 %.val3.i, %.val.i
-  %9 = sub i64 %.val.i, %.val3.i
+  %8 = sub nuw i64 %.val3.i, %.val.i
+  %9 = sub nuw i64 %.val.i, %.val3.i
   %.0.i.i.i = select i1 %.not.i.i.i, i64 %9, i64 %8
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hd276bbe3712b3300E.exit"
 
@@ -2611,8 +2611,8 @@ define noundef i64 @_ZN14regex_automata6hybrid3dfa14SearchProgress3len17hd02e582
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
   %.not = icmp ugt i64 %2, %4
-  %5 = sub i64 %4, %2
-  %6 = sub i64 %2, %4
+  %5 = sub nuw i64 %4, %2
+  %6 = sub nuw i64 %2, %4
   %.0 = select i1 %.not, i64 %6, i64 %5
   ret i64 %.0
 }
@@ -2899,8 +2899,8 @@ define { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy16cache_next_state17hfa2
   %160 = getelementptr inbounds i8, ptr %.val24, i64 16
   %.val3.i.i.i.i.i = load i64, ptr %160, align 8, !alias.scope !484, !noalias !475, !noundef !5
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
-  %161 = sub i64 %.val3.i.i.i.i.i, %.val.i.i.i.i.i
-  %162 = sub i64 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
+  %161 = sub nuw i64 %.val3.i.i.i.i.i, %.val.i.i.i.i.i
+  %162 = sub nuw i64 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
   %.0.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 %162, i64 %161
   br label %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i.i.i
 
@@ -3707,8 +3707,8 @@ _ZN14regex_automata6hybrid3dfa4Lazy15cache_start_one17h1f79aff3c76c4315E.exit.th
   %177 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %.val3.i.i.i.i.i.i = load i64, ptr %177, align 8, !alias.scope !710, !noalias !700, !noundef !5
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %.val.i.i.i.i.i.i, %.val3.i.i.i.i.i.i
-  %178 = sub i64 %.val3.i.i.i.i.i.i, %.val.i.i.i.i.i.i
-  %179 = sub i64 %.val.i.i.i.i.i.i, %.val3.i.i.i.i.i.i
+  %178 = sub nuw i64 %.val3.i.i.i.i.i.i, %.val.i.i.i.i.i.i
+  %179 = sub nuw i64 %.val.i.i.i.i.i.i, %.val3.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 %179, i64 %178
   br label %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i.i.i.i
 
@@ -4188,8 +4188,8 @@ define internal fastcc { i32, i32 } @_ZN14regex_automata6hybrid3dfa4Lazy13next_s
   %31 = getelementptr inbounds i8, ptr %4, i64 16
   %.val3.i.i.i = load i64, ptr %31, align 8, !alias.scope !820, !noalias !808, !noundef !5
   %.not.i.i.i.i.i = icmp ugt i64 %.val.i.i.i, %.val3.i.i.i
-  %32 = sub i64 %.val3.i.i.i, %.val.i.i.i
-  %33 = sub i64 %.val.i.i.i, %.val3.i.i.i
+  %32 = sub nuw i64 %.val3.i.i.i, %.val.i.i.i
+  %33 = sub nuw i64 %.val.i.i.i, %.val3.i.i.i
   %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 %33, i64 %32
   br label %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i
 
@@ -4315,7 +4315,7 @@ define hidden void @_ZN14regex_automata6hybrid3dfa4Lazy11reset_cache17hd245a430a
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit.i"
 
 34:                                               ; preds = %29
-  %35 = sub nsw i64 %20, %32
+  %35 = sub nuw nsw i64 %20, %32
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h2477b19eceb958feE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %35, i32 noundef 0)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit.i"
 
@@ -4331,7 +4331,7 @@ define hidden void @_ZN14regex_automata6hybrid3dfa4Lazy11reset_cache17hd245a430a
 
 39:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit.i"
   %40 = getelementptr inbounds i8, ptr %5, i64 120
-  %41 = sub nsw i64 %20, %37
+  %41 = sub nuw nsw i64 %20, %37
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h2477b19eceb958feE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %41, i32 noundef 0)
   br label %42
 
@@ -4349,7 +4349,7 @@ define hidden void @_ZN14regex_automata6hybrid3dfa4Lazy11reset_cache17hd245a430a
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds i8, ptr %5, i64 152
-  %49 = sub nsw i64 %20, %45
+  %49 = sub nuw nsw i64 %20, %45
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h2477b19eceb958feE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48, i64 noundef %49, i32 noundef 0)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit.i7"
 
@@ -4365,7 +4365,7 @@ define hidden void @_ZN14regex_automata6hybrid3dfa4Lazy11reset_cache17hd245a430a
 
 53:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit.i7"
   %54 = getelementptr inbounds i8, ptr %5, i64 176
-  %55 = sub nsw i64 %20, %51
+  %55 = sub nuw nsw i64 %20, %51
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h2477b19eceb958feE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %55, i32 noundef 0)
   br label %_ZN14regex_automata4util10sparse_set9SparseSet6resize17he074802e2420d7e1E.exit9
 
@@ -4661,8 +4661,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef11is_sentinel17h29b2f1eb1c9c18d8E.exit: ; 
   %142 = getelementptr inbounds i8, ptr %.val24, i64 16
   %.val3.i.i.i = load i64, ptr %142, align 8, !alias.scope !947, !noalias !938, !noundef !5
   %.not.i.i.i.i.i = icmp ugt i64 %.val.i.i.i, %.val3.i.i.i
-  %143 = sub i64 %.val3.i.i.i, %.val.i.i.i
-  %144 = sub i64 %.val.i.i.i, %.val3.i.i.i
+  %143 = sub nuw i64 %.val3.i.i.i, %.val.i.i.i
+  %144 = sub nuw i64 %.val.i.i.i, %.val3.i.i.i
   %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 %144, i64 %143
   br label %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i
 
@@ -5205,8 +5205,8 @@ define internal fastcc void @_ZN14regex_automata6hybrid3dfa4Lazy10init_cache17h9
   %113 = getelementptr inbounds i8, ptr %.val58.i, i64 16
   %.val3.i.i.i = load i64, ptr %113, align 8, !alias.scope !1064, !noalias !1055, !noundef !5
   %.not.i.i.i.i.i = icmp ugt i64 %.val.i.i.i, %.val3.i.i.i
-  %114 = sub i64 %.val3.i.i.i, %.val.i.i.i
-  %115 = sub i64 %.val.i.i.i, %.val3.i.i.i
+  %114 = sub nuw i64 %.val3.i.i.i, %.val.i.i.i
+  %115 = sub nuw i64 %.val.i.i.i, %.val3.i.i.i
   %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 %115, i64 %114
   br label %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i
 
@@ -5583,8 +5583,8 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit.th
   %287 = getelementptr inbounds i8, ptr %.val58.i54, i64 16
   %.val3.i.i.i239 = load i64, ptr %287, align 8, !alias.scope !1154, !noalias !1145, !noundef !5
   %.not.i.i.i.i.i240 = icmp ugt i64 %.val.i.i.i238, %.val3.i.i.i239
-  %288 = sub i64 %.val3.i.i.i239, %.val.i.i.i238
-  %289 = sub i64 %.val.i.i.i238, %.val3.i.i.i239
+  %288 = sub nuw i64 %.val3.i.i.i239, %.val.i.i.i238
+  %289 = sub nuw i64 %.val.i.i.i238, %.val3.i.i.i239
   %.0.i.i.i.i.i241 = select i1 %.not.i.i.i.i.i240, i64 %289, i64 %288
   br label %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i235
 
@@ -5956,8 +5956,8 @@ _ZN14regex_automata6hybrid3dfa4Lazy15try_clear_cache17he46a9b47820b739dE.exit243
   %459 = getelementptr inbounds i8, ptr %.val58.i107, i64 16
   %.val3.i.i.i290 = load i64, ptr %459, align 8, !alias.scope !1244, !noalias !1235, !noundef !5
   %.not.i.i.i.i.i291 = icmp ugt i64 %.val.i.i.i289, %.val3.i.i.i290
-  %460 = sub i64 %.val3.i.i.i290, %.val.i.i.i289
-  %461 = sub i64 %.val.i.i.i289, %.val3.i.i.i290
+  %460 = sub nuw i64 %.val3.i.i.i290, %.val.i.i.i289
+  %461 = sub nuw i64 %.val.i.i.i289, %.val3.i.i.i290
   %.0.i.i.i.i.i292 = select i1 %.not.i.i.i.i.i291, i64 %461, i64 %460
   br label %_ZN14regex_automata6hybrid3dfa5Cache16search_total_len17hbba4127b57acf322E.exit.i286
 
@@ -10734,7 +10734,7 @@ define void @_ZN14regex_automata4meta8wrappers12OnePassCache5reset17h18dabecc552
   br label %_ZN14regex_automata3dfa7onepass5Cache5reset17hab80fc3b862ab6ddE.exit
 
 28:                                               ; preds = %9
-  %29 = sub nsw i64 %24, %26
+  %29 = sub nuw nsw i64 %24, %26
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5d21b2413a30a0a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %29, i64 noundef 0), !noalias !2237
   br label %_ZN14regex_automata3dfa7onepass5Cache5reset17hab80fc3b862ab6ddE.exit
 

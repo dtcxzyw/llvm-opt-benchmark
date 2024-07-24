@@ -494,7 +494,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowIN9__gnu_cxx17__normal_iterato
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %3
-  %18 = sub nsw i64 %8, %15
+  %18 = sub nuw nsw i64 %8, %15
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %18)
   %.pre = load ptr, ptr %2, align 8
   %.pre31 = load ptr, ptr %9, align 8
@@ -581,7 +581,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %._crit_edge
-  %58 = sub i64 %51, %55
+  %58 = sub nuw i64 %51, %55
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %58)
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit17
 
@@ -912,7 +912,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64

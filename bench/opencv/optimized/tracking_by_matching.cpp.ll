@@ -3252,7 +3252,7 @@ define linkonce_odr hidden void @_ZN2cv6detail8tracking3tbm22ResizedImageDescrip
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %3
-  %20 = sub nsw i64 %10, %17
+  %20 = sub nuw nsw i64 %10, %17
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %20)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 

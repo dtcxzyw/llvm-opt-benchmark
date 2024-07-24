@@ -1796,7 +1796,7 @@ _ZSt22__uninitialized_copy_aIPlPmmET0_T_S3_S2_RSaIT1_E.exit.loopexit: ; preds = 
 
 _ZSt22__uninitialized_copy_aIPlPmmET0_T_S3_S2_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPlPmmET0_T_S3_S2_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPlmEvRT_T0_.exit
   %46 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPlPmmET0_T_S3_S2_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPlmEvRT_T0_.exit ]
-  %47 = sub nsw i64 %9, %20
+  %47 = sub nuw nsw i64 %9, %20
   %48 = getelementptr inbounds i64, ptr %46, i64 %47
   store ptr %48, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %13, %1
@@ -1969,7 +1969,7 @@ _ZSt7advanceIPfmEvRT_T0_.exit:                    ; preds = %17
 
 _ZSt22__uninitialized_copy_aIPfS0_fET0_T_S2_S1_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPfmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIPfmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds float, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %13, %1
@@ -2150,7 +2150,7 @@ _ZSt22__uninitialized_copy_aIPiPjjET0_T_S3_S2_RSaIT1_E.exit.loopexit: ; preds = 
 
 _ZSt22__uninitialized_copy_aIPiPjjET0_T_S3_S2_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPiPjjET0_T_S3_S2_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPimEvRT_T0_.exit
   %46 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPiPjjET0_T_S3_S2_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPimEvRT_T0_.exit ]
-  %47 = sub nsw i64 %9, %20
+  %47 = sub nuw nsw i64 %9, %20
   %48 = getelementptr inbounds i32, ptr %46, i64 %47
   store ptr %48, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %13, %1

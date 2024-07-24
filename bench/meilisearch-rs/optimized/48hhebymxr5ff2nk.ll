@@ -96896,7 +96896,7 @@ _ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.exit.i.i: ; preds = %55,
   br i1 %65, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8004f309653965c4E.exit.thread.i", label %.lr.ph.split.split.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.i.i": ; preds = %60
-  %68 = sub i64 %62, %22
+  %68 = sub nuw i64 %62, %22
   %69 = getelementptr inbounds i8, ptr %.val.i, i64 %68
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %69, ptr nonnull readonly %19, i64 %22), !alias.scope !18468, !noalias !18462
   %70 = icmp eq i32 %bcmp.i.i.i, 0

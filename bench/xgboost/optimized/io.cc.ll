@@ -5520,7 +5520,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
   %67 = sub i64 %39, %36
   %68 = load ptr, ptr %9, align 8, !tbaa !8
   %69 = getelementptr inbounds i8, ptr %68, i64 %36
-  %70 = sub i64 %62, %36
+  %70 = sub nuw i64 %62, %36
   %71 = call noundef i64 @llvm.umin.i64(i64 %70, i64 %67)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   store i64 %71, ptr %6, align 8, !tbaa !16
@@ -5579,7 +5579,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
   %93 = load ptr, ptr %9, align 8, !tbaa !8
   %94 = getelementptr inbounds i8, ptr %93, i64 %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  %95 = sub nsw i64 %88, %39
+  %95 = sub nuw nsw i64 %88, %39
   store i64 %95, ptr %5, align 8, !tbaa !16
   %96 = icmp ugt i64 %95, 15
   br i1 %96, label %97, label %101
@@ -13549,7 +13549,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit7:       ; preds = %.noexc, %_ZN4dmlc15
   br i1 %82, label %88, label %83
 
 83:                                               ; preds = %70
-  %84 = sub nsw i64 %74, %81
+  %84 = sub nuw nsw i64 %74, %81
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %71, i64 noundef %84)
   %85 = load ptr, ptr %75, align 8, !tbaa !72
   %86 = load ptr, ptr %71, align 8, !tbaa !69

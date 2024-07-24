@@ -3499,11 +3499,11 @@ define hidden void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17
 22:                                               ; preds = %16, %10
   %.pn38 = phi i64 [ %9, %10 ], [ %3, %16 ]
   %.pn40 = phi i64 [ %2, %10 ], [ %9, %16 ]
-  %.sink = sub i64 %.pn40, %3
+  %.sink = sub nuw i64 %.pn40, %3
   %.pn.in = getelementptr inbounds i8, ptr %1, i64 8
   %.pn = load ptr, ptr %.pn.in, align 8, !nonnull !4, !noundef !4
   %.sink33 = getelementptr inbounds i32, ptr %.pn, i64 %3
-  %.sink35 = sub i64 %.pn38, %2
+  %.sink35 = sub nuw i64 %.pn38, %2
   %.sink37 = getelementptr inbounds i32, ptr %.pn, i64 %2
   store ptr %.sink37, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3526,7 +3526,7 @@ define hidden void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free17h828ca5
 7:                                                ; preds = %3
   %8 = add nuw nsw i64 %4, 1
   %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = sub nsw i64 %8, %6
+  %10 = sub nuw nsw i64 %8, %6
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17had34e05582d9f06cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10, i64 noundef 0)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he2dab03384fc29c5E.exit"
 
@@ -3791,11 +3791,11 @@ define hidden noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$7reallo
 "_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17h441fcd44f5d5c889E.llvm.10043242345734795027.exit": ; preds = %45, %39
   %.pn38.i = phi i64 [ %38, %39 ], [ %.0.i, %45 ]
   %.pn40.i = phi i64 [ %1, %39 ], [ %38, %45 ]
-  %.sink.i = sub i64 %.pn40.i, %.0.i
+  %.sink.i = sub nuw i64 %.pn40.i, %.0.i
   %.pn.in.i = getelementptr inbounds i8, ptr %0, i64 8
   %.pn.i = load ptr, ptr %.pn.in.i, align 8, !alias.scope !882, !noalias !885, !nonnull !4, !noundef !4
   %.sink33.i = getelementptr inbounds i32, ptr %.pn.i, i64 %.0.i
-  %.sink35.i = sub i64 %.pn38.i, %1
+  %.sink35.i = sub nuw i64 %.pn38.i, %1
   %.sink37.i = getelementptr inbounds i32, ptr %.pn.i, i64 %1
   %51 = icmp ult i64 %.sink.i, %4
   br i1 %51, label %52, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd8a240bcf9b4761cE.llvm.10043242345734795027.exit"

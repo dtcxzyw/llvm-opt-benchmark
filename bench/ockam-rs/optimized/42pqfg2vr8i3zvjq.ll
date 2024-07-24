@@ -1216,7 +1216,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %10 = load i64, ptr %9, align 8, !noundef !4
   %.not = icmp ult i64 %8, %10
   %11 = select i1 %.not, i64 0, i64 %10
-  %.0 = sub i64 %8, %11
+  %.0 = sub nuw i64 %8, %11
   store i64 %.0, ptr %6, align 8
   %12 = add i64 %3, -1
   store i64 %12, ptr %2, align 8

@@ -2856,7 +2856,7 @@ if.then5:                                         ; preds = %_ZN3euf9bv_plugin4i
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.then5
-  %sub8 = sub i32 %lo.tr.ph, %lb.052
+  %sub8 = sub nuw i32 %lo.tr.ph, %lb.052
   tail call void @_ZN3euf9bv_plugin5splitEPNS_5enodeEj(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %r.053, i32 noundef %sub8)
   %cmp9 = icmp ugt i32 %ub.0.ph57, %hi
   br i1 %cmp9, label %tailrecurse, label %while.end
@@ -2866,7 +2866,7 @@ if.else:                                          ; preds = %if.then5
   br i1 %cmp12, label %if.then13, label %while.end
 
 if.then13:                                        ; preds = %if.else
-  %sub14 = sub i32 %ub.0.ph57, %hi
+  %sub14 = sub nuw i32 %ub.0.ph57, %hi
   tail call void @_ZN3euf9bv_plugin5splitEPNS_5enodeEj(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %r.053, i32 noundef %sub14)
   br label %while.end
 

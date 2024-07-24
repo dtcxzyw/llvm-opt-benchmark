@@ -1188,7 +1188,7 @@ common.resume:                                    ; preds = %16, %109, %.loopexi
   br i1 %49, label %50, label %81
 
 50:                                               ; preds = %43
-  %51 = sub nsw i64 %48, %47
+  %51 = sub nuw nsw i64 %48, %47
   %52 = ptrtoint ptr %.sroa.20.1.i to i64
   %53 = sub i64 %52, %44
   %54 = ashr exact i64 %53, 3

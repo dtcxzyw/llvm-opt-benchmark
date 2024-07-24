@@ -643,7 +643,7 @@ define weak_odr noundef i64 @_ZN5faiss18IndexIDMapTemplateINS_5IndexEE10remove_i
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %39
-  %49 = sub i64 %.013.lcssa, %46
+  %49 = sub nuw i64 %.013.lcssa, %46
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %49)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
@@ -1285,7 +1285,7 @@ define weak_odr noundef i64 @_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEE10r
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %39
-  %49 = sub i64 %.013.lcssa, %46
+  %49 = sub nuw i64 %.013.lcssa, %46
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %49)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 

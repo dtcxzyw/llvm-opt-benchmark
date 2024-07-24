@@ -306,7 +306,7 @@ define dso_local void @mpi_rshift_limbs(ptr nocapture noundef %0, i32 noundef %1
   br i1 %7, label %8, label %25
 
 8:                                                ; preds = %2
-  %9 = sub i32 %6, %1
+  %9 = sub nuw i32 %6, %1
   %10 = zext i32 %9 to i64
   br label %11
 

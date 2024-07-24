@@ -1120,7 +1120,7 @@ define internal i32 @disk_status(ptr nocapture noundef readonly %0, i32 noundef 
 50:                                               ; preds = %48
   %51 = sext i32 %42 to i64
   %52 = getelementptr i8, ptr %2, i64 %51
-  %53 = sub i32 %3, %42
+  %53 = sub nuw i32 %3, %42
   %54 = zext i32 %53 to i64
   %55 = icmp eq i32 %43, 1
   %56 = select i1 %55, ptr @.str.24, ptr @.str.25
@@ -1575,7 +1575,7 @@ define internal i32 @core_status(ptr nocapture noundef readonly %0, i32 noundef 
 34:                                               ; preds = %32
   %35 = sext i32 %26 to i64
   %36 = getelementptr i8, ptr %2, i64 %35
-  %37 = sub i32 %3, %26
+  %37 = sub nuw i32 %3, %26
   %38 = zext i32 %37 to i64
   %39 = icmp eq i32 %27, 1
   %40 = select i1 %39, ptr @.str.24, ptr @.str.25

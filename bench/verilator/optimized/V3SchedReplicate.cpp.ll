@@ -1285,7 +1285,7 @@ _ZN12VNUser4InUseC2Ev.exit:                       ; preds = %4
   br i1 %116, label %117, label %148
 
 117:                                              ; preds = %110
-  %118 = sub nsw i64 %115, %114
+  %118 = sub nuw nsw i64 %115, %114
   %119 = ptrtoint ptr %.sroa.20.1.i to i64
   %120 = sub i64 %119, %111
   %121 = ashr exact i64 %120, 3
@@ -1625,7 +1625,7 @@ _ZN12VNUser3InUseC2Ev.exit:                       ; preds = %_ZN12VNUser2InUseC2
   br i1 %237, label %238, label %269
 
 238:                                              ; preds = %231
-  %239 = sub nsw i64 %236, %235
+  %239 = sub nuw nsw i64 %236, %235
   %240 = ptrtoint ptr %.sroa.20.1.i31 to i64
   %241 = sub i64 %240, %232
   %242 = ashr exact i64 %241, 3

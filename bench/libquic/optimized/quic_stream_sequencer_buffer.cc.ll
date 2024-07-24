@@ -2180,7 +2180,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %sub = sub i64 %add, %offset
+  %sub = sub nuw i64 %add, %offset
   store i64 %offset, ptr %updated, align 8, !alias.scope !54
   store i64 %sub, ptr %second.i.i, align 8
   store i64 %erased.sroa.5.0.copyload, ptr %ref.tmp11.sroa.2.0.second.i.i.sroa_idx, align 8

@@ -250,7 +250,7 @@ define internal i32 @echainiv_decrypt(ptr noundef %0) #2 align 16 {
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = sub i32 %9, %7
+  %30 = sub nuw i32 %9, %7
   %31 = getelementptr inbounds i8, ptr %0, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 144

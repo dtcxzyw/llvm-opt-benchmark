@@ -803,7 +803,7 @@ define hidden void @"_ZN99_$LT$dashmap..iter..Iter$LT$K$C$V$C$S$C$M$GT$$u20$as$u
   %17 = xor i16 %24, -1
   store ptr %26, ptr %8, align 8, !alias.scope !40
   store ptr %25, ptr %5, align 8, !alias.scope !40
-  %18 = sub i16 -2, %24
+  %18 = sub nuw i16 -2, %24
   %19 = and i16 %18, %17
   store i16 %19, ptr %7, align 8, !alias.scope !41
   %20 = add i64 %14, -1

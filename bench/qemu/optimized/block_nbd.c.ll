@@ -1587,7 +1587,7 @@ if.end10:                                         ; preds = %if.end3
   br i1 %cmp13, label %if.then14, label %if.end26
 
 if.then14:                                        ; preds = %if.end10
-  %sub = sub i64 %add, %1
+  %sub = sub nuw i64 %add, %1
   %cmp18 = icmp ult i64 %sub, 512
   br i1 %cmp18, label %if.end21, label %if.else20
 

@@ -5101,8 +5101,8 @@ if.end72:                                         ; preds = %_ZN3net10IPEndPoint
   %packet_number73 = getelementptr inbounds i8, ptr %this, i64 664
   %17 = load i64, ptr %packet_number73, align 8
   %cmp.i26 = icmp ugt i64 %16, %17
-  %sub.i = sub i64 %16, %17
-  %sub1.i = sub i64 %17, %16
+  %sub.i = sub nuw i64 %16, %17
+  %sub1.i = sub nuw i64 %17, %16
   %cond.i = select i1 %cmp.i26, i64 %sub.i, i64 %sub1.i
   %cmp2.i = icmp ult i64 %cond.i, 5001
   br i1 %cmp2.i, label %if.end86, label %if.then75

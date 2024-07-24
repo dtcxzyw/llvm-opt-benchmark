@@ -161,7 +161,7 @@ define void @make_polyline(ptr nocapture readonly %0, i32 %1, ptr nocapture noun
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %13, i64 %11
-  %22 = sub nsw i64 %12, %11
+  %22 = sub nuw nsw i64 %12, %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %22, i1 false)
   br label %gv_recalloc.exit
 

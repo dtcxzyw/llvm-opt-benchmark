@@ -186,7 +186,7 @@ define hidden { i8, i8 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT
   %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %6, i64 %10)
   %11 = load ptr, ptr %0, align 8, !alias.scope !40, !noalias !43, !nonnull !4, !align !46, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 %.0.sroa.speculated.i.i.i.i
-  %13 = sub i64 %6, %.0.sroa.speculated.i.i.i.i
+  %13 = sub nuw i64 %6, %.0.sroa.speculated.i.i.i.i
   store ptr %12, ptr %0, align 8, !alias.scope !40, !noalias !43
   store i64 %13, ptr %5, align 8, !alias.scope !40, !noalias !43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
@@ -879,7 +879,7 @@ define hidden { i8, i8 } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 %9)
   %10 = load ptr, ptr %0, align 8, !alias.scope !248, !noalias !251, !nonnull !4, !align !46, !noundef !4
   %11 = getelementptr inbounds i8, ptr %10, i64 %.0.sroa.speculated.i.i.i
-  %12 = sub i64 %5, %.0.sroa.speculated.i.i.i
+  %12 = sub nuw i64 %5, %.0.sroa.speculated.i.i.i
   store ptr %11, ptr %0, align 8, !alias.scope !248, !noalias !251
   store i64 %12, ptr %4, align 8, !alias.scope !248, !noalias !251
   tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
@@ -1792,7 +1792,7 @@ define hidden { i8, i8 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1282
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %8)
   %9 = load ptr, ptr %0, align 8, !alias.scope !480, !nonnull !4, !align !46, !noundef !4
   %10 = getelementptr inbounds i8, ptr %9, i64 %.0.sroa.speculated.i.i
-  %11 = sub i64 %4, %.0.sroa.speculated.i.i
+  %11 = sub nuw i64 %4, %.0.sroa.speculated.i.i
   store ptr %10, ptr %0, align 8, !alias.scope !480
   store i64 %11, ptr %3, align 8, !alias.scope !480
   %12 = getelementptr inbounds i8, ptr %1, i64 8

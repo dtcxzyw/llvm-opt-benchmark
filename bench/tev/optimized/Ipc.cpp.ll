@@ -1360,7 +1360,7 @@ _ZN3tev9IpcPacket7OStreamlsEb.exit:               ; preds = %_ZN3tev9IpcPacket7O
   br i1 %95, label %96, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit38
 
 96:                                               ; preds = %.lr.ph.i
-  %97 = sub i64 %94, %93
+  %97 = sub nuw i64 %94, %93
   %98 = load ptr, ptr %87, align 8
   %99 = ptrtoint ptr %98 to i64
   %100 = sub i64 %99, %91
@@ -1426,7 +1426,7 @@ _ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9a
   br i1 %123, label %124, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit
 
 124:                                              ; preds = %_ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.exit
-  %125 = sub i64 %122, %121
+  %125 = sub nuw i64 %122, %121
   %126 = getelementptr inbounds i8, ptr %0, i64 16
   %127 = load ptr, ptr %126, align 8
   %128 = ptrtoint ptr %127 to i64
@@ -1511,7 +1511,7 @@ _ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit:       ; preds = %_ZN3tev9IpcPacket7O
   br i1 %165, label %166, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit54
 
 166:                                              ; preds = %.lr.ph.i13
-  %167 = sub i64 %164, %163
+  %167 = sub nuw i64 %164, %163
   %168 = load ptr, ptr %157, align 8
   %169 = ptrtoint ptr %168 to i64
   %170 = sub i64 %169, %161
@@ -1577,7 +1577,7 @@ _ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9a
   br i1 %193, label %194, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit46
 
 194:                                              ; preds = %_ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.exit16
-  %195 = sub i64 %192, %191
+  %195 = sub nuw i64 %192, %191
   %196 = getelementptr inbounds i8, ptr %0, i64 16
   %197 = load ptr, ptr %196, align 8
   %198 = ptrtoint ptr %197 to i64
@@ -1821,7 +1821,7 @@ _ZN3tev9IpcPacket7OStreamlsEb.exit:               ; preds = %_ZN3tev9IpcPacket7O
   br i1 %94, label %95, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit31
 
 95:                                               ; preds = %.lr.ph.i
-  %96 = sub i64 %93, %92
+  %96 = sub nuw i64 %93, %92
   %97 = load ptr, ptr %86, align 8
   %98 = ptrtoint ptr %97 to i64
   %99 = sub i64 %98, %90
@@ -1887,7 +1887,7 @@ _ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9a
   br i1 %122, label %123, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit
 
 123:                                              ; preds = %_ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.exit
-  %124 = sub i64 %121, %120
+  %124 = sub nuw i64 %121, %120
   %125 = getelementptr inbounds i8, ptr %0, i64 16
   %126 = load ptr, ptr %125, align 8
   %127 = ptrtoint ptr %126 to i64
@@ -2079,7 +2079,7 @@ _ZN3tev9IpcPacket7OStreamlsINS0_5ETypeEEERS1_T_.exit: ; preds = %_ZN3tev9IpcPack
   br i1 %69, label %70, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit24
 
 70:                                               ; preds = %.lr.ph.i
-  %71 = sub i64 %68, %67
+  %71 = sub nuw i64 %68, %67
   %72 = load ptr, ptr %61, align 8
   %73 = ptrtoint ptr %72 to i64
   %74 = sub i64 %73, %65
@@ -2145,7 +2145,7 @@ _ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9a
   br i1 %97, label %98, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit
 
 98:                                               ; preds = %_ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.exit
-  %99 = sub i64 %96, %95
+  %99 = sub nuw i64 %96, %95
   %100 = getelementptr inbounds i8, ptr %0, i64 16
   %101 = load ptr, ptr %100, align 8
   %102 = ptrtoint ptr %101 to i64
@@ -2456,7 +2456,7 @@ _ZNSt3__114__split_bufferIcRNS_9allocatorIcEEE5clearB8ne190000Ev.exit.i.i.i.i172
   br i1 %108, label %109, label %126
 
 109:                                              ; preds = %89
-  %110 = sub i64 %107, %105
+  %110 = sub nuw i64 %107, %105
   %111 = getelementptr inbounds i8, ptr %99, i64 16
   %112 = load ptr, ptr %111, align 8
   %113 = ptrtoint ptr %112 to i64
@@ -2533,7 +2533,7 @@ _ZNSt3__114__split_bufferIcRNS_9allocatorIcEEE5clearB8ne190000Ev.exit.i.i.i.i: ;
   br i1 %145, label %146, label %162
 
 146:                                              ; preds = %126
-  %147 = sub i64 %144, %142
+  %147 = sub nuw i64 %144, %142
   %148 = getelementptr inbounds i8, ptr %136, i64 16
   %149 = load ptr, ptr %148, align 8
   %150 = ptrtoint ptr %149 to i64
@@ -2622,7 +2622,7 @@ _ZNSt3__114__split_bufferIcRNS_9allocatorIcEEE5clearB8ne190000Ev.exit.i.i.i.i85:
   br i1 %195, label %196, label %.noexc94
 
 196:                                              ; preds = %.lr.ph.i
-  %197 = sub i64 %194, %192
+  %197 = sub nuw i64 %194, %192
   %198 = getelementptr inbounds i8, ptr %186, i64 16
   %199 = load ptr, ptr %198, align 8
   %200 = ptrtoint ptr %199 to i64
@@ -2696,7 +2696,7 @@ _ZNSt3__114__split_bufferIcRNS_9allocatorIcEEE5clearB8ne190000Ev.exit.i.i.i.i190
   br i1 %231, label %232, label %248
 
 232:                                              ; preds = %._crit_edge.i
-  %233 = sub i64 %230, %228
+  %233 = sub nuw i64 %230, %228
   %234 = getelementptr inbounds i8, ptr %222, i64 16
   %235 = load ptr, ptr %234, align 8
   %236 = ptrtoint ptr %235 to i64
@@ -2765,7 +2765,7 @@ _ZNSt3__114__split_bufferIcRNS_9allocatorIcEEE5clearB8ne190000Ev.exit.i.i.i.i181
   br i1 %267, label %268, label %284
 
 268:                                              ; preds = %248
-  %269 = sub i64 %266, %264
+  %269 = sub nuw i64 %266, %264
   %270 = getelementptr inbounds i8, ptr %258, i64 16
   %271 = load ptr, ptr %270, align 8
   %272 = ptrtoint ptr %271 to i64
@@ -2838,7 +2838,7 @@ _ZNSt3__114__split_bufferIcRNS_9allocatorIcEEE5clearB8ne190000Ev.exit.i.i.i.i98:
   br i1 %305, label %306, label %322
 
 306:                                              ; preds = %295
-  %307 = sub i64 %304, %302
+  %307 = sub nuw i64 %304, %302
   %308 = getelementptr inbounds i8, ptr %296, i64 16
   %309 = load ptr, ptr %308, align 8
   %310 = ptrtoint ptr %309 to i64
@@ -2907,7 +2907,7 @@ _ZNSt3__114__split_bufferIcRNS_9allocatorIcEEE5clearB8ne190000Ev.exit.i.i.i.i107
   br i1 %341, label %342, label %358
 
 342:                                              ; preds = %322
-  %343 = sub i64 %340, %338
+  %343 = sub nuw i64 %340, %338
   %344 = getelementptr inbounds i8, ptr %332, i64 16
   %345 = load ptr, ptr %344, align 8
   %346 = ptrtoint ptr %345 to i64
@@ -2976,7 +2976,7 @@ _ZNSt3__114__split_bufferIcRNS_9allocatorIcEEE5clearB8ne190000Ev.exit.i.i.i.i117
   br i1 %377, label %378, label %394
 
 378:                                              ; preds = %358
-  %379 = sub i64 %376, %374
+  %379 = sub nuw i64 %376, %374
   %380 = getelementptr inbounds i8, ptr %368, i64 16
   %381 = load ptr, ptr %380, align 8
   %382 = ptrtoint ptr %381 to i64
@@ -3045,7 +3045,7 @@ _ZNSt3__114__split_bufferIcRNS_9allocatorIcEEE5clearB8ne190000Ev.exit.i.i.i.i127
   br i1 %413, label %414, label %430
 
 414:                                              ; preds = %394
-  %415 = sub i64 %412, %410
+  %415 = sub nuw i64 %412, %410
   %416 = getelementptr inbounds i8, ptr %404, i64 16
   %417 = load ptr, ptr %416, align 8
   %418 = ptrtoint ptr %417 to i64
@@ -3120,7 +3120,7 @@ _ZNSt3__114__split_bufferIcRNS_9allocatorIcEEE5clearB8ne190000Ev.exit.i.i.i.i137
   br i1 %450, label %451, label %.noexc148
 
 451:                                              ; preds = %.lr.ph.i145
-  %452 = sub i64 %449, %447
+  %452 = sub nuw i64 %449, %447
   %453 = getelementptr inbounds i8, ptr %441, i64 16
   %454 = load ptr, ptr %453, align 8
   %455 = ptrtoint ptr %454 to i64
@@ -3200,7 +3200,7 @@ _ZN3tev9IpcPacket7OStreamlsIlEERS1_RKNSt3__16vectorIT_NS4_9allocatorIS6_EEEE.exi
   br i1 %487, label %488, label %.noexc154
 
 488:                                              ; preds = %.lr.ph.i150
-  %489 = sub i64 %486, %484
+  %489 = sub nuw i64 %486, %484
   %490 = getelementptr inbounds i8, ptr %478, i64 16
   %491 = load ptr, ptr %490, align 8
   %492 = ptrtoint ptr %491 to i64
@@ -3353,7 +3353,7 @@ _ZN3tev9IpcPacket7OStreamlsIlEERS1_RKNSt3__16vectorIT_NS4_9allocatorIS6_EEEE.exi
   br i1 %552, label %553, label %.noexc161
 
 553:                                              ; preds = %.lr.ph.i157
-  %554 = sub i64 %551, %549
+  %554 = sub nuw i64 %551, %549
   %555 = getelementptr inbounds i8, ptr %543, i64 16
   %556 = load ptr, ptr %555, align 8
   %557 = ptrtoint ptr %556 to i64
@@ -3535,7 +3535,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   br i1 %30, label %31, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = sub i64 %29, %27
+  %32 = sub nuw i64 %29, %27
   %33 = getelementptr inbounds i8, ptr %21, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
@@ -3866,7 +3866,7 @@ _ZN3tev9IpcPacket7OStreamlsEb.exit:               ; preds = %_ZN3tev9IpcPacket7O
   br i1 %115, label %116, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit62
 
 116:                                              ; preds = %.lr.ph.i
-  %117 = sub i64 %114, %113
+  %117 = sub nuw i64 %114, %113
   %118 = load ptr, ptr %106, align 8
   %119 = ptrtoint ptr %118 to i64
   %120 = sub i64 %119, %111
@@ -3933,7 +3933,7 @@ _ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9a
   br i1 %144, label %145, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit
 
 145:                                              ; preds = %_ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.exit
-  %146 = sub i64 %143, %142
+  %146 = sub nuw i64 %143, %142
   %147 = getelementptr inbounds i8, ptr %0, i64 16
   %148 = load ptr, ptr %147, align 8
   %149 = ptrtoint ptr %148 to i64
@@ -3994,7 +3994,7 @@ _ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit:       ; preds = %_ZN3tev9IpcPacket7O
   br i1 %172, label %173, label %_ZN3tev9IpcPacket7OStreamlsIiEERS1_T_.exit
 
 173:                                              ; preds = %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit
-  %174 = sub i64 %171, %170
+  %174 = sub nuw i64 %171, %170
   %175 = getelementptr inbounds i8, ptr %0, i64 16
   %176 = load ptr, ptr %175, align 8
   %177 = ptrtoint ptr %176 to i64
@@ -4056,7 +4056,7 @@ _ZN3tev9IpcPacket7OStreamlsIiEERS1_T_.exit:       ; preds = %_ZN3tev9IpcPacket7O
   br i1 %200, label %201, label %_ZN3tev9IpcPacket7OStreamlsIiEERS1_T_.exit32
 
 201:                                              ; preds = %_ZN3tev9IpcPacket7OStreamlsIiEERS1_T_.exit
-  %202 = sub i64 %199, %198
+  %202 = sub nuw i64 %199, %198
   %203 = getelementptr inbounds i8, ptr %0, i64 16
   %204 = load ptr, ptr %203, align 8
   %205 = ptrtoint ptr %204 to i64
@@ -4117,7 +4117,7 @@ _ZN3tev9IpcPacket7OStreamlsIiEERS1_T_.exit32:     ; preds = %_ZN3tev9IpcPacket7O
   br i1 %228, label %229, label %_ZN3tev9IpcPacket7OStreamlsIiEERS1_T_.exit40
 
 229:                                              ; preds = %_ZN3tev9IpcPacket7OStreamlsIiEERS1_T_.exit32
-  %230 = sub i64 %227, %226
+  %230 = sub nuw i64 %227, %226
   %231 = getelementptr inbounds i8, ptr %0, i64 16
   %232 = load ptr, ptr %231, align 8
   %233 = ptrtoint ptr %232 to i64
@@ -4363,7 +4363,7 @@ _ZN3tev9IpcPacket7OStreamlsEb.exit:               ; preds = %_ZN3tev9IpcPacket7O
   br i1 %96, label %97, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit62
 
 97:                                               ; preds = %.lr.ph.i
-  %98 = sub i64 %95, %94
+  %98 = sub nuw i64 %95, %94
   %99 = load ptr, ptr %88, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = sub i64 %100, %92
@@ -4429,7 +4429,7 @@ _ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9a
   br i1 %124, label %125, label %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit
 
 125:                                              ; preds = %_ZN3tev9IpcPacket7OStreamlsERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.exit
-  %126 = sub i64 %123, %122
+  %126 = sub nuw i64 %123, %122
   %127 = getelementptr inbounds i8, ptr %0, i64 16
   %128 = load ptr, ptr %127, align 8
   %129 = ptrtoint ptr %128 to i64
@@ -4490,7 +4490,7 @@ _ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit:       ; preds = %_ZN3tev9IpcPacket7O
   br i1 %152, label %153, label %_ZN3tev9IpcPacket7OStreamlsEb.exit24
 
 153:                                              ; preds = %_ZN3tev9IpcPacket7OStreamlsIcEERS1_T_.exit
-  %154 = sub i64 %151, %150
+  %154 = sub nuw i64 %151, %150
   %155 = getelementptr inbounds i8, ptr %0, i64 16
   %156 = load ptr, ptr %155, align 8
   %157 = ptrtoint ptr %156 to i64
@@ -4560,7 +4560,7 @@ _ZN3tev9IpcPacket7OStreamlsEb.exit24:             ; preds = %_ZN3tev9IpcPacket7O
   br i1 %189, label %190, label %_ZN3tev9IpcPacket7OStreamlsIiEERS1_T_.exit
 
 190:                                              ; preds = %_ZN3tev9IpcPacket7OStreamlsEb.exit24
-  %191 = sub i64 %188, %187
+  %191 = sub nuw i64 %188, %187
   %192 = getelementptr inbounds i8, ptr %0, i64 16
   %193 = load ptr, ptr %192, align 8
   %194 = ptrtoint ptr %193 to i64
@@ -4634,7 +4634,7 @@ _ZN3tev9IpcPacket7OStreamlsIiEERS1_T_.exit:       ; preds = %_ZN3tev9IpcPacket7O
   br i1 %222, label %223, label %_ZN3tev9IpcPacket7OStreamlsINS_9VgCommand5ETypeEEERS1_T_.exit
 
 223:                                              ; preds = %214
-  %224 = sub i64 %221, %220
+  %224 = sub nuw i64 %221, %220
   %225 = load ptr, ptr %213, align 8
   %226 = ptrtoint ptr %225 to i64
   %227 = sub i64 %226, %218
@@ -4705,7 +4705,7 @@ _ZN3tev9IpcPacket7OStreamlsINS_9VgCommand5ETypeEEERS1_T_.exit: ; preds = %214, %
   br i1 %254, label %255, label %_ZN3tev9IpcPacket7OStreamlsIfEERS1_T_.exit
 
 255:                                              ; preds = %.lr.ph.i39
-  %256 = sub i64 %253, %252
+  %256 = sub nuw i64 %253, %252
   %257 = load ptr, ptr %213, align 8
   %258 = ptrtoint ptr %257 to i64
   %259 = sub i64 %258, %250
@@ -5585,7 +5585,7 @@ _ZN3tev9IpcPacket7IStreamrsIiEERS1_RT_.exit:      ; preds = %61
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %81
-  %94 = sub nsw i64 %84, %91
+  %94 = sub nuw nsw i64 %84, %91
   invoke void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE8__appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %94)
           to label %._ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -5644,7 +5644,7 @@ _ZN3tev9IpcPacket7IStreamrsINSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9all
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %_ZN3tev9IpcPacket7IStreamrsINSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEEERS1_RNS3_6vectorIT_NS7_ISC_EEEE.exit
-  %116 = sub nsw i64 %106, %113
+  %116 = sub nuw nsw i64 %106, %113
   invoke void @_ZNSt3__16vectorIlNS_9allocatorIlEEE8__appendEm(ptr noundef nonnull align 8 dereferenceable(24) %104, i64 noundef %116)
           to label %._ZNSt3__16vectorIlNS_9allocatorIlEEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -5677,7 +5677,7 @@ _ZNSt3__16vectorIlNS_9allocatorIlEEE6resizeEm.exit: ; preds = %._ZNSt3__16vector
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %_ZNSt3__16vectorIlNS_9allocatorIlEEE6resizeEm.exit
-  %131 = sub nsw i64 %.pre-phi, %128
+  %131 = sub nuw nsw i64 %.pre-phi, %128
   invoke void @_ZNSt3__16vectorIlNS_9allocatorIlEEE8__appendEmRKl(ptr noundef nonnull align 8 dereferenceable(24) %121, i64 noundef %131, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %_ZNSt3__16vectorIlNS_9allocatorIlEEE6resizeEmRKl.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -5928,7 +5928,7 @@ _ZN3tev9IpcPacket7IStreamrsIlEERS1_RNSt3__16vectorIT_NS4_9allocatorIS6_EEEE.exit
   br i1 %264, label %265, label %267
 
 265:                                              ; preds = %_ZN3tev9IpcPacket7IStreamrsIlEERS1_RNSt3__16vectorIT_NS4_9allocatorIS6_EEEE.exit70
-  %266 = sub nsw i64 %256, %263
+  %266 = sub nuw nsw i64 %256, %263
   invoke void @_ZNSt3__16vectorINS0_IfNS_9allocatorIfEEEENS1_IS3_EEE8__appendEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %266)
           to label %_ZNSt3__16vectorINS0_IfNS_9allocatorIfEEEENS1_IS3_EEE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -5993,7 +5993,7 @@ _ZNSt3__16vectorINS0_IfNS_9allocatorIfEEEENS1_IS3_EEE6resizeEm.exit: ; preds = %
   br i1 %290, label %291, label %293
 
 291:                                              ; preds = %.lr.ph102
-  %292 = sub nsw i64 %201, %289
+  %292 = sub nuw nsw i64 %201, %289
   invoke void @_ZNSt3__16vectorIfNS_9allocatorIfEEE8__appendEm(ptr noundef nonnull align 8 dereferenceable(24) %282, i64 noundef %292)
           to label %_ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit unwind label %.loopexit
 
@@ -6972,7 +6972,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsCreateImageEv(ptr dead_on_
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %93
-  %107 = sub nsw i64 %97, %104
+  %107 = sub nuw nsw i64 %97, %104
   invoke void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE8__appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %107)
           to label %._ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 
@@ -7232,7 +7232,7 @@ define dso_local void @_ZNK3tev9IpcPacket25interpretAsVectorGraphicsEv(ptr dead_
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %81
-  %94 = sub nsw i64 %84, %91
+  %94 = sub nuw nsw i64 %84, %91
   invoke void @_ZNSt3__16vectorIN3tev9VgCommandENS_9allocatorIS2_EEE8__appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %94)
           to label %_ZNSt3__16vectorIN3tev9VgCommandENS_9allocatorIS2_EEE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -7323,7 +7323,7 @@ _ZNSt3__16vectorIN3tev9VgCommandENS_9allocatorIS2_EEE6resizeEm.exit: ; preds = %
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %129
-  %140 = sub nsw i64 %130, %137
+  %140 = sub nuw nsw i64 %130, %137
   invoke void @_ZNSt3__16vectorIfNS_9allocatorIfEEE8__appendEm(ptr noundef nonnull align 8 dereferenceable(24) %127, i64 noundef %140)
           to label %._ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit_crit_edge unwind label %.loopexit
 
@@ -10300,7 +10300,7 @@ _ZN4tlog6StreamlsIA15_cEERS0_RKT_.exit:           ; preds = %_ZN4tlog6StreamlsIi
   br i1 %118, label %119, label %132
 
 119:                                              ; preds = %.lr.ph
-  %120 = sub nsw i64 %113, %117
+  %120 = sub nuw nsw i64 %113, %117
   %121 = load ptr, ptr %17, align 8
   %122 = ptrtoint ptr %121 to i64
   %123 = sub i64 %122, %115
@@ -10857,7 +10857,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   br i1 %13, label %14, label %_ZNSt3__16vectorIcNS_9allocatorIcEEE6resizeEm.exit
 
 14:                                               ; preds = %2
-  %15 = sub i64 %12, %9
+  %15 = sub nuw i64 %12, %9
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
@@ -13012,7 +13012,7 @@ define linkonce_odr dso_local void @_ZN4tlog11progressBarEmmNSt3__16chrono8durat
 
 93:                                               ; preds = %78
   %94 = or disjoint i64 %85, 1
-  %95 = sub i64 %94, %92
+  %95 = sub nuw i64 %94, %92
   %96 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmmc(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef 0, i64 noundef %95, i8 noundef signext 32)
           to label %97 unwind label %114
 
@@ -13164,7 +13164,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.
 
 161:                                              ; preds = %146
   %162 = or disjoint i64 %153, 1
-  %163 = sub i64 %162, %160
+  %163 = sub nuw i64 %162, %160
   %164 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmmc(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 0, i64 noundef %163, i8 noundef signext 32)
           to label %165 unwind label %253
 
@@ -18180,7 +18180,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 119:                                              ; preds = %117
   %120 = zext i32 %38 to i64
-  %121 = sub nsw i64 %120, %114
+  %121 = sub nuw nsw i64 %120, %114
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 122:                                              ; preds = %111
@@ -18418,7 +18418,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 232:                                              ; preds = %230
   %233 = zext i32 %149 to i64
-  %234 = sub nsw i64 %233, %227
+  %234 = sub nuw nsw i64 %233, %227
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit186
 
 235:                                              ; preds = %224
@@ -18653,7 +18653,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 341:                                              ; preds = %339
   %342 = zext i32 %260 to i64
-  %343 = sub nsw i64 %342, %336
+  %343 = sub nuw nsw i64 %342, %336
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit217
 
 344:                                              ; preds = %333
@@ -18893,7 +18893,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 449:                                              ; preds = %447
   %450 = zext i32 %370 to i64
-  %451 = sub nsw i64 %450, %444
+  %451 = sub nuw nsw i64 %450, %444
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit252
 
 452:                                              ; preds = %441
@@ -32168,7 +32168,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i:
   br i1 %426, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit, label %427
 
 427:                                              ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i
-  %428 = sub nsw i64 %425, %416
+  %428 = sub nuw nsw i64 %425, %416
   %429 = icmp ugt i64 %428, 1
   br i1 %429, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit, label %397
 
@@ -32570,7 +32570,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i3
   br i1 %611, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit325, label %612
 
 612:                                              ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i322
-  %613 = sub nsw i64 %610, %601
+  %613 = sub nuw nsw i64 %610, %601
   %614 = icmp ugt i64 %613, 1
   br i1 %614, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit325, label %582
 
@@ -32671,7 +32671,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i3
   br i1 %664, label %.thread520.sink.split, label %665
 
 665:                                              ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i340
-  %666 = sub nsw i64 %663, %654
+  %666 = sub nuw nsw i64 %663, %654
   %667 = icmp ugt i64 %666, 1
   br i1 %667, label %.thread520, label %641
 
@@ -33018,7 +33018,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i4
   br i1 %820, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit415, label %821
 
 821:                                              ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i412
-  %822 = sub nsw i64 %819, %810
+  %822 = sub nuw nsw i64 %819, %810
   %823 = icmp ult i64 %822, 2
   %824 = shl nuw nsw i64 %822, 32
   %.not.not.i413 = icmp sgt i32 %.03046.i403, %796
@@ -33232,7 +33232,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i4
   br i1 %920, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit452, label %921
 
 921:                                              ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i449
-  %922 = sub nsw i64 %919, %910
+  %922 = sub nuw nsw i64 %919, %910
   %923 = icmp ugt i64 %922, 1
   br i1 %923, label %.thread529, label %897
 
@@ -40806,7 +40806,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 118:                                              ; preds = %116
   %119 = zext i32 %39 to i64
-  %120 = sub nsw i64 %119, %113
+  %120 = sub nuw nsw i64 %119, %113
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 121:                                              ; preds = %110
@@ -41050,7 +41050,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 227:                                              ; preds = %225
   %228 = zext i32 %146 to i64
-  %229 = sub nsw i64 %228, %222
+  %229 = sub nuw nsw i64 %228, %222
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit184
 
 230:                                              ; preds = %219
@@ -41291,7 +41291,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 337:                                              ; preds = %335
   %338 = zext i32 %255 to i64
-  %339 = sub nsw i64 %338, %332
+  %339 = sub nuw nsw i64 %338, %332
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit218
 
 340:                                              ; preds = %329
@@ -41531,7 +41531,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 442:                                              ; preds = %440
   %443 = zext i32 %362 to i64
-  %444 = sub nsw i64 %443, %437
+  %444 = sub nuw nsw i64 %443, %437
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit256
 
 445:                                              ; preds = %434
@@ -43733,7 +43733,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 121:                                              ; preds = %119
   %122 = zext i32 %40 to i64
-  %123 = sub nsw i64 %122, %116
+  %123 = sub nuw nsw i64 %122, %116
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 124:                                              ; preds = %113
@@ -43865,7 +43865,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit1
 
 184:                                              ; preds = %182
   %185 = zext i32 %150 to i64
-  %186 = sub nsw i64 %185, %179
+  %186 = sub nuw nsw i64 %185, %179
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit179
 
 187:                                              ; preds = %176
@@ -43998,7 +43998,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit1
 
 246:                                              ; preds = %244
   %247 = zext i32 %212 to i64
-  %248 = sub nsw i64 %247, %241
+  %248 = sub nuw nsw i64 %247, %241
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit196
 
 249:                                              ; preds = %238
@@ -44132,7 +44132,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit2
 
 305:                                              ; preds = %303
   %306 = zext i32 %273 to i64
-  %307 = sub nsw i64 %306, %300
+  %307 = sub nuw nsw i64 %306, %300
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit213
 
 308:                                              ; preds = %297
@@ -47501,9 +47501,9 @@ _ZN3fmt2v96detail18gen_digits_handler8on_digitEcmmmb.exit151: ; preds = %_ZN3fmt
 225:                                              ; preds = %223
   %226 = trunc nuw nsw i64 %indvars.iv349 to i32
   %.not29.i = icmp ult i64 %215, %94
-  %227 = sub i64 %94, %215
+  %227 = sub nuw i64 %94, %215
   %.not30.i = icmp ugt i64 %227, %215
-  %or.cond32.i = and i1 %.not29.i, %.not30.i
+  %or.cond32.i = select i1 %.not29.i, i1 %.not30.i, i1 false
   br i1 %or.cond32.i, label %228, label %_ZN3fmt2v96detail19get_round_directionEmmm.exit.thread269
 
 228:                                              ; preds = %225
@@ -47519,7 +47519,7 @@ _ZN3fmt2v96detail18gen_digits_handler8on_digitEcmmmb.exit151: ; preds = %_ZN3fmt
   br i1 %.not23.i.i142, label %234, label %_ZN3fmt2v96detail19get_round_directionEmmm.exit.thread280
 
 234:                                              ; preds = %228, %230
-  %235 = sub i64 %219, %215
+  %235 = sub nuw i64 %219, %215
   %236 = sub i64 %94, %235
   %.not25.i.i144 = icmp ult i64 %235, %236
   br i1 %.not25.i.i144, label %_ZN3fmt2v96detail19get_round_directionEmmm.exit.thread269, label %_ZN3fmt2v96detail19get_round_directionEmmm.exit.i145

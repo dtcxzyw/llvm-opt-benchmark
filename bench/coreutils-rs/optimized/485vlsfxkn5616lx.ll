@@ -374,7 +374,7 @@ define hidden void @"_ZN6uucore8features10ringbuffer19RingBuffer$LT$T$GT$9push_b
   %18 = load i64, ptr %1, align 8, !noalias !9, !noundef !9
   %.not.i.i = icmp ult i64 %17, %18
   %19 = select i1 %.not.i.i, i64 0, i64 %18
-  %.0.i.i = sub i64 %17, %19
+  %.0.i.i = sub nuw i64 %17, %19
   store i64 %.0.i.i, ptr %15, align 8, !alias.scope !80, !noalias !83
   %20 = add i64 %12, -1
   store i64 %20, ptr %11, align 8, !alias.scope !80, !noalias !83
@@ -425,7 +425,7 @@ define hidden void @"_ZN6uucore8features10ringbuffer19RingBuffer$LT$T$GT$9push_b
   %38 = add i64 %37, %35
   %.not.i.i2 = icmp ult i64 %38, %34
   %39 = select i1 %.not.i.i2, i64 0, i64 %34
-  %.0.i.i3 = sub i64 %38, %39
+  %.0.i.i3 = sub nuw i64 %38, %39
   %40 = getelementptr inbounds i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !75, !noalias !78, !nonnull !9, !noundef !9
   %42 = getelementptr inbounds { i64, [2 x i64] }, ptr %41, i64 %.0.i.i3

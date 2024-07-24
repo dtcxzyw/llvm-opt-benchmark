@@ -5515,7 +5515,7 @@ _ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exi
 
 _ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit
   %46 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit ]
-  %47 = sub nsw i64 %9, %20
+  %47 = sub nuw nsw i64 %9, %20
   %48 = getelementptr inbounds i32, ptr %46, i64 %47
   store ptr %48, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %13, %1
@@ -5815,7 +5815,7 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_25HarmonicBondTypeParameterEEE
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_25HarmonicBondTypeParameterEEESaIS3_EEaSEOS5_.exit.i
-  %118 = sub nsw i64 %108, %115
+  %118 = sub nuw nsw i64 %108, %115
   invoke void @_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %104, i64 noundef %118)
           to label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE6resizeEm.exit.i unwind label %151
 
@@ -6060,7 +6060,7 @@ _ZNSt6vectorIN5nblib11G96BondTypeESaIS1_EEaSEOS3_.exit.i: ; preds = %184, %"_ZSt
   br i1 %197, label %198, label %200
 
 198:                                              ; preds = %_ZNSt6vectorIN5nblib11G96BondTypeESaIS1_EEaSEOS3_.exit.i
-  %199 = sub nsw i64 %189, %196
+  %199 = sub nuw nsw i64 %189, %196
   invoke void @_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %185, i64 noundef %199)
           to label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE6resizeEm.exit.i36 unwind label %231
 
@@ -6300,7 +6300,7 @@ _ZNSt6vectorIN5nblib13CubicBondTypeESaIS1_EEaSEOS3_.exit.i: ; preds = %264, %"_Z
   br i1 %277, label %278, label %280
 
 278:                                              ; preds = %_ZNSt6vectorIN5nblib13CubicBondTypeESaIS1_EEaSEOS3_.exit.i
-  %279 = sub nsw i64 %269, %276
+  %279 = sub nuw nsw i64 %269, %276
   invoke void @_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %265, i64 noundef %279)
           to label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE6resizeEm.exit.i77 unwind label %311
 
@@ -6540,7 +6540,7 @@ _ZNSt6vectorIN5nblib13MorseBondTypeESaIS1_EEaSEOS3_.exit.i: ; preds = %344, %"_Z
   br i1 %357, label %358, label %360
 
 358:                                              ; preds = %_ZNSt6vectorIN5nblib13MorseBondTypeESaIS1_EEaSEOS3_.exit.i
-  %359 = sub nsw i64 %349, %356
+  %359 = sub nuw nsw i64 %349, %356
   invoke void @_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %345, i64 noundef %359)
           to label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE6resizeEm.exit.i118 unwind label %391
 
@@ -6780,7 +6780,7 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_21FENEBondTypeParameterEEESaIS
   br i1 %437, label %438, label %440
 
 438:                                              ; preds = %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_21FENEBondTypeParameterEEESaIS3_EEaSEOS5_.exit.i
-  %439 = sub nsw i64 %429, %436
+  %439 = sub nuw nsw i64 %429, %436
   invoke void @_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %425, i64 noundef %439)
           to label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE6resizeEm.exit.i159 unwind label %471
 
@@ -7020,7 +7020,7 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_38HalfAttractiveQuarticBondTyp
   br i1 %517, label %518, label %520
 
 518:                                              ; preds = %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_38HalfAttractiveQuarticBondTypeParameterEEESaIS3_EEaSEOS5_.exit.i
-  %519 = sub nsw i64 %509, %516
+  %519 = sub nuw nsw i64 %509, %516
   invoke void @_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %505, i64 noundef %519)
           to label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE6resizeEm.exit.i200 unwind label %551
 
@@ -7260,7 +7260,7 @@ _ZNSt6vectorIN5nblib10PairLJTypeESaIS1_EEaSEOS3_.exit.i: ; preds = %584, %"_ZSt9
   br i1 %597, label %598, label %600
 
 598:                                              ; preds = %_ZNSt6vectorIN5nblib10PairLJTypeESaIS1_EEaSEOS3_.exit.i
-  %599 = sub nsw i64 %589, %596
+  %599 = sub nuw nsw i64 %589, %596
   invoke void @_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %585, i64 noundef %599)
           to label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE6resizeEm.exit.i241 unwind label %631
 
@@ -7500,7 +7500,7 @@ _ZNSt6vectorIN5nblib20AngleInteractionTypeINS0_22HarmonicAngleParameterEEESaIS3_
   br i1 %677, label %678, label %680
 
 678:                                              ; preds = %_ZNSt6vectorIN5nblib20AngleInteractionTypeINS0_22HarmonicAngleParameterEEESaIS3_EEaSEOS5_.exit.i
-  %679 = sub nsw i64 %669, %676
+  %679 = sub nuw nsw i64 %669, %676
   invoke void @_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %665, i64 noundef %679)
           to label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE6resizeEm.exit.i unwind label %710
 
@@ -7744,7 +7744,7 @@ _ZNSt6vectorIN5nblib16CosineParamAngleINS0_17G96AngleParameterEEESaIS3_EEaSEOS5_
   br i1 %756, label %757, label %759
 
 757:                                              ; preds = %_ZNSt6vectorIN5nblib16CosineParamAngleINS0_17G96AngleParameterEEESaIS3_EEaSEOS5_.exit.i
-  %758 = sub nsw i64 %748, %755
+  %758 = sub nuw nsw i64 %748, %755
   invoke void @_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %744, i64 noundef %758)
           to label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE6resizeEm.exit.i316 unwind label %789
 
@@ -7988,7 +7988,7 @@ _ZNSt6vectorIN5nblib12QuarticAngleESaIS1_EEaSEOS3_.exit.i: ; preds = %822, %"_ZS
   br i1 %835, label %836, label %838
 
 836:                                              ; preds = %_ZNSt6vectorIN5nblib12QuarticAngleESaIS1_EEaSEOS3_.exit.i
-  %837 = sub nsw i64 %827, %834
+  %837 = sub nuw nsw i64 %827, %834
   invoke void @_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %823, i64 noundef %837)
           to label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE6resizeEm.exit.i362 unwind label %868
 
@@ -8232,7 +8232,7 @@ _ZNSt6vectorIN5nblib16CosineParamAngleINS0_24RestrictedAngleParameterEEESaIS3_EE
   br i1 %914, label %915, label %917
 
 915:                                              ; preds = %_ZNSt6vectorIN5nblib16CosineParamAngleINS0_24RestrictedAngleParameterEEESaIS3_EEaSEOS5_.exit.i
-  %916 = sub nsw i64 %906, %913
+  %916 = sub nuw nsw i64 %906, %913
   invoke void @_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %902, i64 noundef %916)
           to label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE6resizeEm.exit.i408 unwind label %947
 
@@ -8476,7 +8476,7 @@ _ZNSt6vectorIN5nblib13CrossBondBondESaIS1_EEaSEOS3_.exit.i: ; preds = %980, %"_Z
   br i1 %993, label %994, label %996
 
 994:                                              ; preds = %_ZNSt6vectorIN5nblib13CrossBondBondESaIS1_EEaSEOS3_.exit.i
-  %995 = sub nsw i64 %985, %992
+  %995 = sub nuw nsw i64 %985, %992
   invoke void @_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %981, i64 noundef %995)
           to label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE6resizeEm.exit.i454 unwind label %1026
 
@@ -8720,7 +8720,7 @@ _ZNSt6vectorIN5nblib14CrossBondAngleESaIS1_EEaSEOS3_.exit.i: ; preds = %1059, %"
   br i1 %1072, label %1073, label %1075
 
 1073:                                             ; preds = %_ZNSt6vectorIN5nblib14CrossBondAngleESaIS1_EEaSEOS3_.exit.i
-  %1074 = sub nsw i64 %1064, %1071
+  %1074 = sub nuw nsw i64 %1064, %1071
   invoke void @_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1060, i64 noundef %1074)
           to label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE6resizeEm.exit.i500 unwind label %1105
 
@@ -8964,7 +8964,7 @@ _ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_20LinearAngleParameterEEESaIS3
   br i1 %1151, label %1152, label %1154
 
 1152:                                             ; preds = %_ZNSt6vectorIN5nblib23TwoParameterInteractionINS0_20LinearAngleParameterEEESaIS3_EEaSEOS5_.exit.i
-  %1153 = sub nsw i64 %1143, %1150
+  %1153 = sub nuw nsw i64 %1143, %1150
   invoke void @_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1139, i64 noundef %1153)
           to label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE6resizeEm.exit.i546 unwind label %1184
 
@@ -9208,7 +9208,7 @@ _ZNSt6vectorIN5nblib14ProperDihedralESaIS1_EEaSEOS3_.exit.i: ; preds = %1217, %"
   br i1 %1230, label %1231, label %1233
 
 1231:                                             ; preds = %_ZNSt6vectorIN5nblib14ProperDihedralESaIS1_EEaSEOS3_.exit.i
-  %1232 = sub nsw i64 %1222, %1229
+  %1232 = sub nuw nsw i64 %1222, %1229
   invoke void @_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1218, i64 noundef %1232)
           to label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE6resizeEm.exit.i unwind label %1265
 
@@ -9448,7 +9448,7 @@ _ZNSt6vectorIN5nblib16ImproperDihedralESaIS1_EEaSEOS3_.exit.i: ; preds = %1298, 
   br i1 %1311, label %1312, label %1314
 
 1312:                                             ; preds = %_ZNSt6vectorIN5nblib16ImproperDihedralESaIS1_EEaSEOS3_.exit.i
-  %1313 = sub nsw i64 %1303, %1310
+  %1313 = sub nuw nsw i64 %1303, %1310
   invoke void @_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1299, i64 noundef %1313)
           to label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE6resizeEm.exit.i627 unwind label %1346
 
@@ -9688,7 +9688,7 @@ _ZNSt6vectorIN5nblib24RyckaertBellemanDihedralESaIS1_EEaSEOS3_.exit.i: ; preds =
   br i1 %1392, label %1393, label %1395
 
 1393:                                             ; preds = %_ZNSt6vectorIN5nblib24RyckaertBellemanDihedralESaIS1_EEaSEOS3_.exit.i
-  %1394 = sub nsw i64 %1384, %1391
+  %1394 = sub nuw nsw i64 %1384, %1391
   invoke void @_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1380, i64 noundef %1394)
           to label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE6resizeEm.exit.i671 unwind label %1427
 
@@ -9931,7 +9931,7 @@ _ZNSt6vectorIN5nblib14Default5CenterESaIS1_EEaSEOS3_.exit.i: ; preds = %1461, %"
   br i1 %1473, label %1474, label %1476
 
 1474:                                             ; preds = %_ZNSt6vectorIN5nblib14Default5CenterESaIS1_EEaSEOS3_.exit.i
-  %1475 = sub nsw i64 %1465, %1472
+  %1475 = sub nuw nsw i64 %1465, %1472
   invoke void @_ZNSt6vectorISt5arrayIiLm6EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1462, i64 noundef %1475)
           to label %_ZNSt6vectorISt5arrayIiLm6EESaIS1_EE6resizeEm.exit.i unwind label %1507
 

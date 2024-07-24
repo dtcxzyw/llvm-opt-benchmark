@@ -3319,7 +3319,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br label %374
 
 364:                                              ; preds = %356
-  %365 = sub i32 %141, %358
+  %365 = sub nuw i32 %141, %358
   %366 = icmp ult i32 %365, %50
   br i1 %366, label %367, label %377
 
@@ -3999,7 +3999,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %794 = load i16, ptr %793, align 2
   %795 = and i16 %794, %49
   store i16 %795, ptr %793, align 2
-  %796 = sub i64 %768, %785
+  %796 = sub nuw i64 %768, %785
   %797 = trunc i64 %796 to i16
   %798 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %792, i32 6
   %799 = load i16, ptr %798, align 2

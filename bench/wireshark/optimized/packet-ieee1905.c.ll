@@ -5794,7 +5794,7 @@ dissect_beacon_metrics_response.exit:             ; preds = %.lr.ph.i190, %1335
 
 1415:                                             ; preds = %.loopexit.i186
   %1416 = load i32, ptr @hf_ieee1905_extra_tlv_data, align 4
-  %1417 = sub nsw i32 %88, %1413
+  %1417 = sub nuw nsw i32 %88, %1413
   %1418 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %1416, ptr noundef %0, i32 noundef %.3.i187, i32 noundef %1417, i32 noundef 0) #11
   %1419 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1418, ptr noundef nonnull @ei_ieee1905_extraneous_tlv_data) #11
   %1420 = add i32 %88, %98

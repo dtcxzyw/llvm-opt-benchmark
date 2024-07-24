@@ -2079,10 +2079,11 @@ define hidden { i64, i64 } @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$
   %3 = load i64, ptr %0, align 8, !noundef !9
   %4 = load i64, ptr %1, align 8, !noundef !9
   %.not = icmp ule i64 %3, %4
-  %5 = sub i64 %4, %3
+  %5 = sub nuw i64 %4, %3
+  %.sroa.3.0 = select i1 %.not, i64 %5, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %7 = insertvalue { i64, i64 } %6, i64 %5, 1
+  %7 = insertvalue { i64, i64 } %6, i64 %.sroa.3.0, 1
   ret { i64, i64 } %7
 }
 
@@ -3082,7 +3083,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br i1 %.not, label %8, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit": ; preds = %4
-  %5 = sub i64 %1, %3
+  %5 = sub nuw i64 %1, %3
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %6, i64 %3), !alias.scope !477
   %7 = icmp eq i32 %bcmp.i, 0
@@ -6059,7 +6060,7 @@ _ZN5rayon4iter8plumbing24bridge_producer_consumer17h7d581a8cac6f0949E.llvm.15403
   %40 = load ptr, ptr %17, align 8, !noalias !1184, !nonnull !9, !noundef !9
   %41 = getelementptr inbounds ptr, ptr %40, i64 %8
   %42 = getelementptr inbounds ptr, ptr %40, i64 %11
-  %43 = sub i64 %31, %11
+  %43 = sub nuw i64 %31, %11
   %44 = shl i64 %43, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 8 %42, i64 %44, i1 false), !noalias !1184
   %45 = add i64 %43, %8
@@ -6168,7 +6169,7 @@ _ZN5rayon4iter8plumbing24bridge_producer_consumer17hdc2366febbee9012E.llvm.15403
   %39 = load ptr, ptr %17, align 8, !noalias !1194, !nonnull !9, !noundef !9
   %40 = getelementptr inbounds ptr, ptr %39, i64 %8
   %41 = getelementptr inbounds ptr, ptr %39, i64 %11
-  %42 = sub i64 %30, %11
+  %42 = sub nuw i64 %30, %11
   %43 = shl i64 %42, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %41, i64 %43, i1 false), !noalias !1194
   %44 = add i64 %42, %8
@@ -6277,7 +6278,7 @@ _ZN5rayon4iter8plumbing24bridge_producer_consumer17h3bbdb210cb796a91E.llvm.15403
   %38 = load ptr, ptr %16, align 8, !noalias !1204, !nonnull !9, !noundef !9
   %39 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %38, i64 %7
   %40 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %38, i64 %10
-  %41 = sub i64 %29, %10
+  %41 = sub nuw i64 %29, %10
   %42 = mul i64 %41, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 8 %40, i64 %42, i1 false), !noalias !1204
   %43 = add i64 %41, %7
@@ -6391,7 +6392,7 @@ _ZN5rayon4iter8plumbing24bridge_producer_consumer17h1e63167c3d101c8dE.llvm.15403
   %38 = load ptr, ptr %16, align 8, !noalias !1214, !nonnull !9, !noundef !9
   %39 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %38, i64 %7
   %40 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %38, i64 %10
-  %41 = sub i64 %29, %10
+  %41 = sub nuw i64 %29, %10
   %42 = mul i64 %41, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 8 %40, i64 %42, i1 false), !noalias !1214
   %43 = add i64 %41, %7
@@ -7253,7 +7254,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds ptr, ptr %1, i64 %3
-  %13 = sub i64 %2, %3
+  %13 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %14, align 8
@@ -7286,7 +7287,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %1, i64 %3
-  %13 = sub i64 %2, %3
+  %13 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %14, align 8
@@ -20525,7 +20526,7 @@ define void @_ZN10tokenizers9tokenizer8encoding8Encoding16get_sequence_ids17h52a
   store i64 %31, ptr %22, align 8, !alias.scope !4397, !noalias !4400
   %40 = load ptr, ptr %21, align 8, !alias.scope !4397, !noalias !4400, !nonnull !9, !noundef !9
   %41 = getelementptr inbounds { i64, [1 x i64] }, ptr %40, i64 %31
-  %42 = sub i64 %33, %32
+  %42 = sub nuw i64 %33, %32
   %43 = getelementptr inbounds { i64, [1 x i64] }, ptr %40, i64 %32
   store ptr %41, ptr %25, align 8, !alias.scope !4390, !noalias !4402
   store ptr %43, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4390, !noalias !4402
@@ -23772,7 +23773,7 @@ define void @_ZN10tokenizers9tokenizer8encoding8Encoding3pad17h9a2ef012c0e8cebdE
 
 68:                                               ; preds = %"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$8for_each17hc4467d1960acd164E.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
-  %69 = sub i64 %67, %66
+  %69 = sub nuw i64 %67, %66
   store i64 %69, ptr %33, align 8
   %70 = load i8, ptr %35, align 1, !range !1049, !noundef !9
   %trunc = trunc nuw i8 %70 to i1

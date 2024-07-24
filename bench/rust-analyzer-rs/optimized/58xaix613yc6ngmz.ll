@@ -13089,7 +13089,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !4675
   %9 = icmp eq i32 %bcmp.i, 0
@@ -35708,7 +35708,7 @@ _ZN7hir_def3hir8type_ref7TypeRef12from_ast_opt17h9fe62f6678da82d3E.exit: ; preds
   br i1 %.not.not.i, label %361, label %357
 
 357:                                              ; preds = %354
-  %358 = sub i64 %356, %355
+  %358 = sub nuw i64 %356, %355
   %359 = load ptr, ptr %76, align 8, !alias.scope !9513, !nonnull !13, !noundef !13
   %360 = getelementptr inbounds ptr, ptr %359, i64 %355
   store i64 %355, ptr %77, align 8, !alias.scope !9513
@@ -35716,7 +35716,7 @@ _ZN7hir_def3hir8type_ref7TypeRef12from_ast_opt17h9fe62f6678da82d3E.exit: ; preds
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hac8c2f6d54794a5cE.llvm.14212318151792154407.exit.i" unwind label %363, !noalias !9510
 
 361:                                              ; preds = %354
-  %362 = sub i64 %355, %356
+  %362 = sub nuw i64 %355, %356
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4fbcc52a145ffeb6E.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %70, i64 noundef %362, ptr noundef null)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hac8c2f6d54794a5cE.llvm.14212318151792154407.exit.i" unwind label %367
 
@@ -36598,7 +36598,7 @@ _ZN7hir_def4path4Path8from_src17he8a91fcf1e7b430cE.exit: ; preds = %596
   br i1 %.not.not.i339, label %655, label %651
 
 651:                                              ; preds = %646
-  %652 = sub i64 %650, %649
+  %652 = sub nuw i64 %650, %649
   %653 = load ptr, ptr %76, align 8, !alias.scope !9748, !nonnull !13, !noundef !13
   %654 = getelementptr inbounds ptr, ptr %653, i64 %649
   store i64 %649, ptr %77, align 8, !alias.scope !9748
@@ -36606,7 +36606,7 @@ _ZN7hir_def4path4Path8from_src17he8a91fcf1e7b430cE.exit: ; preds = %596
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hac8c2f6d54794a5cE.llvm.14212318151792154407.exit.i341" unwind label %658, !noalias !9745
 
 655:                                              ; preds = %646
-  %656 = sub i64 %649, %650
+  %656 = sub nuw i64 %649, %650
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4fbcc52a145ffeb6E.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %70, i64 noundef %656, ptr noundef null)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hac8c2f6d54794a5cE.llvm.14212318151792154407.exit.i341" unwind label %.body343.thread728
 
@@ -36637,7 +36637,7 @@ _ZN7hir_def4path4Path8from_src17he8a91fcf1e7b430cE.exit: ; preds = %596
   br i1 %.not.not.i346, label %669, label %665
 
 665:                                              ; preds = %662
-  %666 = sub i64 %664, %663
+  %666 = sub nuw i64 %664, %663
   %667 = load ptr, ptr %76, align 8, !alias.scope !9754, !nonnull !13, !noundef !13
   %668 = getelementptr inbounds ptr, ptr %667, i64 %663
   store i64 %663, ptr %77, align 8, !alias.scope !9754
@@ -36645,7 +36645,7 @@ _ZN7hir_def4path4Path8from_src17he8a91fcf1e7b430cE.exit: ; preds = %596
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6e73e9508d7edbabE.exit355" unwind label %671, !noalias !9751
 
 669:                                              ; preds = %662
-  %670 = sub i64 %663, %664
+  %670 = sub nuw i64 %663, %664
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4fbcc52a145ffeb6E.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %70, i64 noundef %670, ptr noundef null)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6e73e9508d7edbabE.exit355" unwind label %.loopexit824
 
@@ -37591,7 +37591,7 @@ _ZN4core3ptr19swap_nonoverlapping17h6945ded45a6c7284E.exit.i.i: ; preds = %968
   br i1 %.not.not.i404, label %983, label %979
 
 979:                                              ; preds = %977
-  %980 = sub i64 %975, %978
+  %980 = sub nuw i64 %975, %978
   %981 = load ptr, ptr %76, align 8, !alias.scope !10026, !nonnull !13, !noundef !13
   %982 = getelementptr inbounds ptr, ptr %981, i64 %978
   store i64 %978, ptr %77, align 8, !alias.scope !10026
@@ -37599,7 +37599,7 @@ _ZN4core3ptr19swap_nonoverlapping17h6945ded45a6c7284E.exit.i.i: ; preds = %968
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hac8c2f6d54794a5cE.llvm.14212318151792154407.exit.i406" unwind label %985, !noalias !10023
 
 983:                                              ; preds = %977
-  %984 = sub i64 %978, %975
+  %984 = sub nuw i64 %978, %975
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4fbcc52a145ffeb6E.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %70, i64 noundef %984, ptr noundef null)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hac8c2f6d54794a5cE.llvm.14212318151792154407.exit.i406" unwind label %.loopexit.split-lp803
 

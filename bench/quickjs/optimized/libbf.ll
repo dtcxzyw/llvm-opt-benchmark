@@ -2515,7 +2515,7 @@ bf_resize.exit141.thread:                         ; preds = %ntt_free.exit, %241
   %297 = load i64, ptr %296, align 8
   %.not.i.i152 = icmp ult i64 %295, %297
   %298 = select i1 %.not.i.i152, i64 0, i64 %297
-  %spec.select.i.i = sub i64 %295, %298
+  %spec.select.i.i = sub nuw i64 %295, %298
   %299 = getelementptr [5 x i64], ptr %8, i64 0, i64 %indvars.iv.i151
   store i64 %spec.select.i.i, ptr %299, align 8
   %indvars.iv.next.i153 = add nuw nsw i64 %indvars.iv.i151, 1
@@ -2565,7 +2565,7 @@ bf_resize.exit141.thread:                         ; preds = %ntt_free.exit, %241
   %322 = sub i64 %320, %321
   %.not.i139.i = icmp ult i64 %322, %304
   %323 = select i1 %.not.i139.i, i64 0, i64 %304
-  %spec.select.i140.i = sub i64 %322, %323
+  %spec.select.i140.i = sub nuw i64 %322, %323
   store i64 %spec.select.i140.i, ptr %305, align 8
   %324 = add i32 %.1126152.i, 1
   %indvars.iv.next201.i = add nuw nsw i64 %indvars.iv200.i, 1
@@ -29317,7 +29317,7 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_conv(ptr nocapture noundef %0, 
   %39 = load i64, ptr %38, align 8
   %.not.i = icmp ult i64 %39, %21
   %40 = select i1 %.not.i, i64 0, i64 %21
-  %spec.select.i = sub i64 %39, %40
+  %spec.select.i = sub nuw i64 %39, %40
   %41 = getelementptr i64, ptr %2, i64 %.035.i
   %42 = load i64, ptr %41, align 8
   %43 = zext i64 %spec.select.i to i128
@@ -29546,7 +29546,7 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
   %86 = sub i64 %84, %85
   %.not.i.i = icmp ult i64 %86, %23
   %87 = select i1 %.not.i.i, i64 0, i64 %23
-  %spec.select.i.i = sub i64 %86, %87
+  %spec.select.i.i = sub nuw i64 %86, %87
   %88 = add nuw i64 %.019.i, 1
   %exitcond.not.i = icmp eq i64 %88, %4
   br i1 %exitcond.not.i, label %89, label %57, !llvm.loop !130
@@ -29611,7 +29611,7 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
   %126 = sub i64 %124, %125
   %.not.i.i131 = icmp ult i64 %126, %23
   %127 = select i1 %.not.i.i131, i64 0, i64 %23
-  %spec.select.i.i132 = sub i64 %126, %127
+  %spec.select.i.i132 = sub nuw i64 %126, %127
   %128 = add nuw i64 %.019.i129, 1
   %exitcond.not.i133 = icmp eq i64 %128, %4
   br i1 %exitcond.not.i133, label %mul_trig.exit134, label %97, !llvm.loop !130
@@ -29790,7 +29790,7 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft(ptr nocapture noundef %0, p
   %53 = sub i64 %51, %52
   %.not.i.i = icmp ult i64 %53, %10
   %54 = select i1 %.not.i.i, i64 0, i64 %10
-  %spec.select.i.i = sub i64 %53, %54
+  %spec.select.i.i = sub nuw i64 %53, %54
   %55 = add i64 %.04149.i, 1
   %.041.highbits.i = lshr i64 %55, %29
   %56 = icmp eq i64 %.041.highbits.i, 0
@@ -29836,7 +29836,7 @@ get_trig.exit.._crit_edge109_crit_edge:           ; preds = %get_trig.exit
   %70 = add i64 %69, %66
   %.not.i95.us = icmp ult i64 %70, %11
   %71 = select i1 %.not.i95.us, i64 0, i64 %11
-  %spec.select.i.us = sub i64 %70, %71
+  %spec.select.i.us = sub nuw i64 %70, %71
   %72 = sub i64 %66, %69
   %73 = add i64 %72, %11
   %74 = zext i64 %73 to i128
@@ -29880,7 +29880,7 @@ get_trig.exit.._crit_edge109_crit_edge:           ; preds = %get_trig.exit
   %96 = add i64 %95, %92
   %.not.i96 = icmp ult i64 %96, %11
   %97 = select i1 %.not.i96, i64 0, i64 %11
-  %spec.select.i97 = sub i64 %96, %97
+  %spec.select.i97 = sub nuw i64 %96, %97
   %98 = sub i64 %92, %95
   %99 = icmp ugt i64 %95, %92
   %100 = select i1 %99, i64 %11, i64 0

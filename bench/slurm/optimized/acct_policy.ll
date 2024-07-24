@@ -801,7 +801,7 @@ _add_usage_node_bitmap.exit.us:                   ; preds = %204, %201, %199, %1
   br i1 %291, label %294, label %292
 
 292:                                              ; preds = %285
-  %293 = sub i64 %290, %283
+  %293 = sub nuw i64 %290, %283
   store i64 %293, ptr %289, align 8
   br label %305
 
@@ -5439,7 +5439,7 @@ define internal fastcc void @_get_unique_job_node_cnt(ptr noundef %0, ptr nounde
   br i1 %.not36, label %44, label %37
 
 37:                                               ; preds = %33
-  %38 = sub i64 %36, %35
+  %38 = sub nuw i64 %36, %35
   store i64 %38, ptr %2, align 8
   %39 = tail call i32 @get_log_level() #12
   %40 = icmp sgt i32 %39, 5
@@ -7296,7 +7296,7 @@ define internal fastcc void @_remove_accrue_time_internal(ptr noundef %0, ptr no
   br i1 %.not57, label %19, label %17
 
 17:                                               ; preds = %13
-  %18 = sub i32 %16, %4
+  %18 = sub nuw i32 %16, %4
   store i32 %18, ptr %15, align 16
   br label %24
 
@@ -7318,7 +7318,7 @@ define internal fastcc void @_remove_accrue_time_internal(ptr noundef %0, ptr no
   br i1 %.not59, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = sub i32 %26, %4
+  %28 = sub nuw i32 %26, %4
   br label %.sink.split
 
 29:                                               ; preds = %25
@@ -7347,7 +7347,7 @@ define internal fastcc void @_remove_accrue_time_internal(ptr noundef %0, ptr no
   br i1 %.not61, label %41, label %39
 
 39:                                               ; preds = %37
-  %40 = sub i32 %38, %4
+  %40 = sub nuw i32 %38, %4
   br label %.sink.split68
 
 41:                                               ; preds = %37
@@ -8301,7 +8301,7 @@ define internal fastcc void @_qos_adjust_limit_usage(i32 noundef %0, ptr noundef
   br i1 %.not162, label %38, label %36
 
 36:                                               ; preds = %32
-  %37 = sub i32 %35, %4
+  %37 = sub nuw i32 %35, %4
   store i32 %37, ptr %34, align 4
   br label %44
 
@@ -8324,7 +8324,7 @@ define internal fastcc void @_qos_adjust_limit_usage(i32 noundef %0, ptr noundef
   br i1 %.not163, label %49, label %47
 
 47:                                               ; preds = %44
-  %48 = sub i32 %46, %4
+  %48 = sub nuw i32 %46, %4
   store i32 %48, ptr %45, align 4
   br label %57
 
@@ -8349,7 +8349,7 @@ define internal fastcc void @_qos_adjust_limit_usage(i32 noundef %0, ptr noundef
   br i1 %.not164, label %62, label %60
 
 60:                                               ; preds = %57
-  %61 = sub i32 %59, %4
+  %61 = sub nuw i32 %59, %4
   store i32 %61, ptr %58, align 4
   br label %_add_usage_node_bitmap.exit172
 
@@ -8683,7 +8683,7 @@ _add_usage_node_bitmap.exit168:                   ; preds = %182, %185, %189, %1
   br label %272
 
 270:                                              ; preds = %255
-  %271 = sub i64 %260, %253
+  %271 = sub nuw i64 %260, %253
   store i64 %271, ptr %259, align 8
   br label %272
 
@@ -8713,7 +8713,7 @@ _add_usage_node_bitmap.exit168:                   ; preds = %182, %185, %189, %1
   br label %291
 
 289:                                              ; preds = %272
-  %290 = sub i64 %278, %275
+  %290 = sub nuw i64 %278, %275
   store i64 %290, ptr %277, align 8
   br label %291
 
@@ -8743,7 +8743,7 @@ _add_usage_node_bitmap.exit168:                   ; preds = %182, %185, %189, %1
   br label %310
 
 308:                                              ; preds = %291
-  %309 = sub i64 %297, %294
+  %309 = sub nuw i64 %297, %294
   store i64 %309, ptr %296, align 8
   br label %310
 

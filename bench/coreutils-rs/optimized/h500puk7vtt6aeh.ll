@@ -3353,7 +3353,7 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
 
 _ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit: ; preds = %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit, %_ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i
   %.sroa.3.0 = phi i64 [ %26, %_ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i ], [ 0, %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit ]
-  %28 = sub i64 %6, %2
+  %28 = sub nuw i64 %6, %2
   %29 = getelementptr inbounds i8, ptr %1, i64 8208
   %30 = load i8, ptr %29, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull align 8 dereferenceable(8192) %4, i64 8192, i1 false)
@@ -4370,7 +4370,7 @@ default.unreachable221:                           ; preds = %74, %28, %"_ZN3std2
   br i1 %156, label %157, label %159
 
 157:                                              ; preds = %154
-  %158 = sub i64 %.0104, %155
+  %158 = sub nuw i64 %.0104, %155
   br label %147
 
 159:                                              ; preds = %154, %152
@@ -4967,7 +4967,7 @@ default.unreachable230:                           ; preds = %80, %28, %"_ZN3std2
   br i1 %167, label %168, label %170
 
 168:                                              ; preds = %165
-  %169 = sub i64 %.0104, %166
+  %169 = sub nuw i64 %.0104, %166
   br label %158
 
 170:                                              ; preds = %165, %163

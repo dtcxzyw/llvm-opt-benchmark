@@ -39,7 +39,7 @@ define hidden noundef i32 @_ZN12WorkerPolicy27nof_parallel_worker_threadsEjjj(i3
   br i1 %.not, label %7, label %14
 
 7:                                                ; preds = %5
-  %8 = sub i32 %6, %2
+  %8 = sub nuw i32 %6, %2
   %9 = mul i32 %8, %0
   %10 = udiv i32 %9, %1
   %11 = add i32 %10, %2

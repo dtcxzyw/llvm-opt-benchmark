@@ -294,7 +294,7 @@ mbedtls_mpi_grow.exit:                            ; preds = %36, %39
   %44 = getelementptr inbounds i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i64, ptr %45, i64 %.0.in
-  %47 = sub i64 %43, %.0.in
+  %47 = sub nuw i64 %43, %.0.in
   %48 = shl i64 %47, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %46, i8 0, i64 %48, i1 false)
   %.pre = load ptr, ptr %44, align 8
@@ -1923,7 +1923,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_write_binary_le(ptr nocapture no
 
 33:                                               ; preds = %._crit_edge
   %34 = getelementptr inbounds i8, ptr %1, i64 %6
-  %35 = sub i64 %2, %6
+  %35 = sub nuw i64 %2, %6
   tail call void @llvm.memset.p0.i64(ptr align 1 %34, i8 0, i64 %35, i1 false)
   br label %.loopexit32
 
@@ -1953,7 +1953,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_write_binary(ptr nocapture nound
   %12 = getelementptr inbounds i8, ptr %1, i64 %2
   %13 = sub i64 0, %6
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
-  %15 = sub i64 %2, %6
+  %15 = sub nuw i64 %2, %6
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %15, i1 false)
   br label %.loopexit35
 
@@ -2898,7 +2898,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_abs(ptr nocapture noundef %
   %43 = getelementptr inbounds i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i64, ptr %44, i64 %.040.lcssa76
-  %46 = sub i64 %37, %.040.lcssa76
+  %46 = sub nuw i64 %37, %.040.lcssa76
   %47 = shl i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %45, i64 %47, i1 false)
   %.pre72 = load i64, ptr %22, align 8
@@ -2915,7 +2915,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_abs(ptr nocapture noundef %
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i64, ptr %54, i64 %49
-  %56 = sub i64 %50, %49
+  %56 = sub nuw i64 %50, %49
   %57 = shl i64 %56, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %57, i1 false)
   br label %58
@@ -8005,7 +8005,7 @@ define hidden i32 @mbedtls_mpi_gen_prime(ptr noundef %0, i64 noundef %1, i32 nou
   %60 = getelementptr inbounds i8, ptr %0, i64 16
   %61 = shl nuw nsw i64 %22, 6
   %62 = icmp ugt i64 %61, %1
-  %63 = sub nsw i64 %61, %1
+  %63 = sub nuw nsw i64 %61, %1
   %64 = and i32 %2, 1
   %65 = icmp eq i32 %64, 0
   br i1 %58, label %.lr.ph.split.us, label %.lr.ph.split
@@ -8101,7 +8101,7 @@ define hidden i32 @mbedtls_mpi_gen_prime(ptr noundef %0, i64 noundef %1, i32 nou
 100:                                              ; preds = %.lr.ph.split
   %101 = load ptr, ptr %60, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 %56
-  %103 = sub i64 %98, %22
+  %103 = sub nuw i64 %98, %22
   %104 = shl i64 %103, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %102, i8 0, i64 %104, i1 false)
   %105 = load ptr, ptr %60, align 8

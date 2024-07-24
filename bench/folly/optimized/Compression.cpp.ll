@@ -7999,7 +7999,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i
   br i1 %cmp.i.i.i.i77, label %if.then.i26.invoke.i.i.i, label %invoke.cont6.i.i.i, !prof !77
 
 invoke.cont6.i.i.i:                               ; preds = %invoke.cont.i.i.i
-  %sub.i.i.i = sub i64 %sub.ptr.sub.i.i.i.i, %38
+  %sub.i.i.i = sub nuw i64 %sub.ptr.sub.i.i.i.i, %38
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 %sub.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %input, align 8, !tbaa !48
   %39 = load ptr, ptr %e_.i64, align 8, !tbaa !54
@@ -8026,7 +8026,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i26.invoke.
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec18doUncompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit": ; preds = %invoke.cont6.i.i.i
-  %sub8.i.i.i = sub i64 %sub.ptr.sub.i14.i.i.i, %41
+  %sub8.i.i.i = sub nuw i64 %sub.ptr.sub.i14.i.i.i, %41
   %add.ptr.i25.i.i.i = getelementptr inbounds i8, ptr %40, i64 %sub8.i.i.i
   store ptr %add.ptr.i25.i.i.i, ptr %output, align 8, !tbaa !52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %SCOPE_EXIT_STATE1) #29
@@ -8599,7 +8599,7 @@ invoke.cont.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i, label %if.then.i26.invoke.i.i, label %invoke.cont6.i.i, !prof !77
 
 invoke.cont6.i.i:                                 ; preds = %invoke.cont.i.i
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i.i, %7
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i.i, %7
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %sub.i.i
   store ptr %add.ptr.i.i.i, ptr %3, align 8, !tbaa !48
   %8 = getelementptr inbounds i8, ptr %this, i64 24
@@ -8630,7 +8630,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i26.invoke.
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec18doUncompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EE7executeEv.exit": ; preds = %invoke.cont6.i.i
-  %sub8.i.i = sub i64 %sub.ptr.sub.i14.i.i, %12
+  %sub8.i.i = sub nuw i64 %sub.ptr.sub.i14.i.i, %12
   %add.ptr.i25.i.i = getelementptr inbounds i8, ptr %11, i64 %sub8.i.i
   store ptr %add.ptr.i25.i.i, ptr %9, align 8, !tbaa !52
   br label %if.end

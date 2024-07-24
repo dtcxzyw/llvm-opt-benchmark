@@ -1643,7 +1643,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit156.us: ; preds = %
   br i1 %343, label %344, label %346
 
 344:                                              ; preds = %341
-  %345 = sub nsw i64 %342, %305
+  %345 = sub nuw nsw i64 %342, %305
   invoke void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %301, i64 noundef %345, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE6resizeEmRKS2_.exit183 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1661,7 +1661,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit156.us: ; preds = %
   br i1 %352, label %353, label %355
 
 353:                                              ; preds = %349
-  %354 = sub nsw i64 %351, %305
+  %354 = sub nuw nsw i64 %351, %305
   invoke void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %301, i64 noundef %354, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE6resizeEmRKS2_.exit183 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1791,7 +1791,7 @@ _ZSt22__uninitialized_move_aIPN5Yosys5RTLIL5StateES3_SaIS2_EET0_T_S6_S5_RT1_.exi
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPN5Yosys5RTLIL5StateEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %26
-  %28 = sub i64 %2, %16
+  %28 = sub nuw i64 %2, %16
   %29 = getelementptr inbounds i8, ptr %9, i64 %28
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 %14, i64 %28, i1 false)
   br label %_ZSt24__uninitialized_fill_n_aIPN5Yosys5RTLIL5StateEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit

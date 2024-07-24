@@ -1984,7 +1984,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp.not.i.i, label %if.end2.i.i, label %str_buf_reserve.exit.i
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
-  %sub4.i.i = sub i64 %len, %sub.i.i
+  %sub4.i.i = sub nuw i64 %len, %sub.i.i
   %add.i.i = add i64 %sub4.i.i, %1
   %cmp6.i.i = icmp ult i64 %add.i.i, %1
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end9.i.i

@@ -2302,7 +2302,7 @@ switch.lookup:                                    ; preds = %18
   br i1 %334, label %335, label %339
 
 335:                                              ; preds = %332
-  %336 = sub i32 %4, %333
+  %336 = sub nuw i32 %4, %333
   %337 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_dtap_extraneous_data, ptr noundef %0, i32 noundef %.3, i32 noundef %336) #6
   %338 = add i32 %336, %.3
   %.pre = sub i32 %338, %3
@@ -2419,7 +2419,7 @@ define internal fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not49, label %30, label %39
 
 30:                                               ; preds = %28
-  %31 = sub i32 %4, %29
+  %31 = sub nuw i32 %4, %29
   %32 = getelementptr inbounds i8, ptr %2, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %.046, i32 noundef %31, i32 noundef -2147483578, ptr noundef %33, ptr noundef nonnull %6) #6
@@ -3373,7 +3373,7 @@ define internal zeroext i16 @de_cause(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not145, label %103, label %126
 
 103:                                              ; preds = %101
-  %104 = sub i32 %4, %102
+  %104 = sub nuw i32 %4, %102
   %105 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_dtap_elem, i64 108), align 4
   %106 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %97, i32 noundef %104, i32 noundef %105, ptr noundef null, ptr noundef nonnull @.str.898) #6
   %107 = and i8 %.0136.fr, 111
@@ -3415,7 +3415,7 @@ switch.early.test:                                ; preds = %103
   br i1 %121, label %122, label %126
 
 122:                                              ; preds = %119
-  %123 = sub i32 %4, %120
+  %123 = sub nuw i32 %4, %120
   %124 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_dtap_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %123) #6
   %125 = add i32 %123, %.1
   %.pre = sub i32 %125, %3
@@ -4223,7 +4223,7 @@ define internal noundef zeroext i16 @de_tp_epc_ue_tl_a_lb_setup(ptr noundef %0, 
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %._crit_edge
-  %28 = sub i32 %4, %25
+  %28 = sub nuw i32 %4, %25
   %29 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_dtap_extraneous_data, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %28) #6
   br label %30
 

@@ -2856,7 +2856,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit471: ;
   br i1 %700, label %701, label %703
 
 701:                                              ; preds = %._crit_edge
-  %702 = sub nsw i64 %692, %699
+  %702 = sub nuw nsw i64 %692, %699
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %684, i64 noundef %702)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %619
 

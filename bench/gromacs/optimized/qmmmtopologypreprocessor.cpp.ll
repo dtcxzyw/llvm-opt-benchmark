@@ -5436,7 +5436,7 @@ _ZSt8_DestroyIP13gmx_moltype_tEvT_S2_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.
   br i1 %242, label %243, label %245
 
 243:                                              ; preds = %._crit_edge221
-  %244 = sub nsw i64 %241, %.lcssa184
+  %244 = sub nuw nsw i64 %241, %.lcssa184
   invoke void @_ZNSt6vectorI13gmx_moltype_tSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %244)
           to label %_ZNSt6vectorI13gmx_moltype_tSaIS0_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 

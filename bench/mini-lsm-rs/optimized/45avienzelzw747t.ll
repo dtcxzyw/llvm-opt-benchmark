@@ -3109,7 +3109,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$G
   br i1 %16, label %23, label %19
 
 17:                                               ; preds = %8
-  %18 = sub i64 %13, %12
+  %18 = sub nuw i64 %13, %12
   br label %31
 
 19:                                               ; preds = %15
@@ -3161,7 +3161,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$G
   br i1 %16, label %23, label %19
 
 17:                                               ; preds = %8
-  %18 = sub i64 %13, %12
+  %18 = sub nuw i64 %13, %12
   br label %31
 
 19:                                               ; preds = %15
@@ -3213,7 +3213,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$G
   br i1 %16, label %23, label %19
 
 17:                                               ; preds = %8
-  %18 = sub i64 %13, %12
+  %18 = sub nuw i64 %13, %12
   br label %31
 
 19:                                               ; preds = %15
@@ -9521,7 +9521,7 @@ define void @_ZN8mini_lsm5block8iterator13BlockIterator11seek_to_key17h271ba5c0b
 20:                                               ; preds = %.lr.ph, %42
   %.017 = phi i64 [ 0, %.lr.ph ], [ %.1, %42 ]
   %.0816 = phi i64 [ %7, %.lr.ph ], [ %.19, %42 ]
-  %21 = sub i64 %.0816, %.017
+  %21 = sub nuw i64 %.0816, %.017
   %22 = lshr i64 %21, 1
   %23 = add i64 %22, %.017
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1618)

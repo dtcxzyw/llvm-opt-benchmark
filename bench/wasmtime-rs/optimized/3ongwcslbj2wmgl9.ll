@@ -368,7 +368,7 @@ define hidden { ptr, i64 } @"_ZN107_$LT$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$u20
   %14 = load ptr, ptr %8, align 8, !alias.scope !54, !noalias !45, !nonnull !9, !noundef !9
   %15 = shl i64 %12, 3
   %scevgep.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %16 = sub i64 %1, %0
+  %16 = sub nuw i64 %1, %0
   %17 = shl i64 %16, 3
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i.i.i.i.i.i.i, i8 0, i64 %17, i1 false), !noalias !59
   %18 = add i64 %12, %16
@@ -680,7 +680,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %14 = load ptr, ptr %8, align 8, !alias.scope !136, !nonnull !9, !noundef !9
   %15 = shl i64 %12, 2
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %16 = sub i64 %2, %1
+  %16 = sub nuw i64 %2, %1
   %17 = shl i64 %16, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i.i.i.i, i8 0, i64 %17, i1 false), !noalias !141
   %18 = add i64 %12, %16
@@ -877,7 +877,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %14 = load ptr, ptr %8, align 8, !alias.scope !191, !nonnull !9, !noundef !9
   %15 = shl i64 %12, 3
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %16 = sub i64 %2, %1
+  %16 = sub nuw i64 %2, %1
   %17 = shl i64 %16, 3
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i.i.i, i8 0, i64 %17, i1 false), !noalias !196
   %18 = add i64 %12, %16
@@ -1412,7 +1412,7 @@ _ZN16wasmtime_runtime8instance8Instance9wasm_data17hf24029735212abb4E.exit.i: ; 
   br i1 %.not.i51, label %151, label %137
 
 137:                                              ; preds = %134
-  %138 = sub i64 %130, %39
+  %138 = sub nuw i64 %130, %39
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
   %139 = and i64 %138, 4294967295
   %140 = load i64, ptr %40, align 16, !alias.scope !349, !noalias !352, !noundef !9
@@ -1731,11 +1731,12 @@ define hidden { i64, i64 } @"_ZN47_$LT$u32$u20$as$u20$core..iter..range..Step$GT
   %3 = load i32, ptr %0, align 4, !noundef !9
   %4 = load i32, ptr %1, align 4, !noundef !9
   %.not = icmp ule i32 %3, %4
-  %5 = sub i32 %4, %3
+  %5 = sub nuw i32 %4, %3
   %6 = zext i32 %5 to i64
+  %.sroa.3.0 = select i1 %.not, i64 %6, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %6, 1
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.3.0, 1
   ret { i64, i64 } %8
 }
 
@@ -2034,7 +2035,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator7collect17h738375fb320
   %14 = load ptr, ptr %8, align 8, !alias.scope !459, !noalias !452, !nonnull !9, !noundef !9
   %15 = shl i64 %12, 3
   %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %16 = sub i64 %2, %1
+  %16 = sub nuw i64 %2, %1
   %17 = shl i64 %16, 3
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i.i.i.i.i.i, i8 0, i64 %17, i1 false), !noalias !464
   %18 = add i64 %12, %16
@@ -2395,7 +2396,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h252203868bfb
   br i1 %5, label %6, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf3999cb87aeec4d5E.llvm.13048743790017271950.exit"
 
 6:                                                ; preds = %2
-  %7 = sub i64 %1, %4
+  %7 = sub nuw i64 %1, %4
   %8 = load i64, ptr %0, align 8, !alias.scope !551, !noundef !9
   %9 = sub i64 %8, %4
   %10 = icmp ult i64 %9, %7
@@ -2554,7 +2555,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !592, !noundef !9
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -2608,7 +2609,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hde8c738f76bebe5eE"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc249b444650a2b08E.llvm.13048743790017271950.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !598, !noundef !9
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -3139,7 +3140,7 @@ define hidden void @"_ZN95_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..iter..t
   %14 = load ptr, ptr %8, align 8, !alias.scope !639, !noalias !634, !nonnull !9, !noundef !9
   %15 = shl i64 %12, 3
   %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %16 = sub i64 %2, %1
+  %16 = sub nuw i64 %2, %1
   %17 = shl i64 %16, 3
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i.i.i.i.i, i8 0, i64 %17, i1 false), !noalias !644
   %18 = add i64 %12, %16
@@ -3266,7 +3267,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %14 = load ptr, ptr %8, align 8, !alias.scope !683, !noalias !680, !nonnull !9, !noundef !9
   %15 = shl i64 %12, 3
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %16 = sub i64 %2, %1
+  %16 = sub nuw i64 %2, %1
   %17 = shl i64 %16, 3
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i.i.i.i, i8 0, i64 %17, i1 false), !noalias !688
   %18 = add i64 %12, %16
@@ -3527,7 +3528,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %14 = load ptr, ptr %8, align 8, !alias.scope !769, !noalias !766, !nonnull !9, !noundef !9
   %15 = shl i64 %12, 2
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %16 = sub i64 %2, %1
+  %16 = sub nuw i64 %2, %1
   %17 = shl i64 %16, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i.i.i.i.i, i8 0, i64 %17, i1 false), !noalias !774
   %18 = add i64 %12, %16
@@ -4733,7 +4734,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_heap_
 
 8:                                                ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !891)
-  %spec.select.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %1, i64 %7)
+  %spec.select.i.i.i = sub nuw i64 %1, %7
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !alias.scope !891, !nonnull !9, !noundef !9
   %11 = getelementptr inbounds i8, ptr %10, i64 %7
@@ -4909,7 +4910,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exi
   unreachable
 
 77:                                               ; preds = %74
-  %spec.select.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %1, i64 %72)
+  %spec.select.i.i.i = sub nuw i64 %1, %72
   %78 = getelementptr inbounds i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8, !alias.scope !927, !nonnull !9, !noundef !9
   %80 = getelementptr inbounds i8, ptr %79, i64 %72
@@ -4958,7 +4959,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.l
   unreachable
 
 102:                                              ; preds = %99
-  %spec.select.i.i.i73 = tail call noundef i64 @llvm.usub.sat.i64(i64 %72, i64 %1)
+  %spec.select.i.i.i73 = sub nuw i64 %72, %1
   %103 = getelementptr inbounds i8, ptr %0, i64 24
   %104 = load ptr, ptr %103, align 8, !alias.scope !930, !nonnull !9, !noundef !9
   %105 = getelementptr inbounds i8, ptr %104, i64 %1
@@ -5290,7 +5291,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot13madvise_reset17h55fced7c7706abc0E.ex
 
 41:                                               ; preds = %29
   %42 = sub i64 %7, %27
-  %43 = sub i64 %1, %24
+  %43 = sub nuw i64 %1, %24
   %.0.sroa.speculated.i49 = tail call noundef i64 @llvm.umin.i64(i64 %43, i64 %42)
   %44 = getelementptr inbounds i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8, !nonnull !9, !noundef !9
@@ -5356,7 +5357,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_prote
   br i1 %.not34, label %10, label %20
 
 10:                                               ; preds = %9
-  %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %2, i64 %1)
+  %spec.select.i.i = sub nuw i64 %2, %1
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !nonnull !9, !noundef !9
   %13 = getelementptr inbounds i8, ptr %12, i64 %1

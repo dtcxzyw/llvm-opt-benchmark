@@ -4409,7 +4409,7 @@ chunked_encoding_dissector.exit.thread:           ; preds = %826
 
 911:                                              ; preds = %.loopexit.i
   %912 = load ptr, ptr %10, align 8
-  %913 = sub i32 %829, %.2118.i
+  %913 = sub nuw i32 %829, %.2118.i
   call void @proto_item_set_len(ptr noundef %912, i32 noundef %913) #14
   %914 = call ptr @tvb_new_child_real_data(ptr noundef nonnull %819, ptr noundef %835, i32 noundef %.1120.i, i32 noundef %.1120.i) #14
   br label %915

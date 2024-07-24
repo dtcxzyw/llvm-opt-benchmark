@@ -23437,7 +23437,7 @@ if.then.i:                                        ; preds = %if.then32
   unreachable
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit:           ; preds = %if.then32
-  %sub.i = sub i64 %sub.ptr.sub.i, %tokenStartPos.0256
+  %sub.i = sub nuw i64 %sub.ptr.sub.i, %tokenStartPos.0256
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %tokenSize.0255)
   call void @llvm.experimental.noalias.scope.decl(metadata !1056)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i116) #39, !noalias !1056
@@ -24887,7 +24887,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
+  %sub.i = sub nuw i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   tail call void @_ZNSt5dequeIcSaIcEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i), !noalias !1145
   %.pre.i = load ptr, ptr %_M_start, align 8, !tbaa !1100, !noalias !1148
   %.pre9.i = load ptr, ptr %_M_first.i, align 8, !tbaa !1113, !noalias !1148
@@ -25028,7 +25028,7 @@ if.then15:                                        ; preds = %if.else
   br i1 %cmp.i55, label %if.then.i62, label %if.end.i56
 
 if.then.i62:                                      ; preds = %if.then15
-  %sub4.i = sub i64 %sub.ptr.sub.i.i, %sub.i54
+  %sub4.i = sub nuw i64 %sub.ptr.sub.i.i, %sub.i54
   tail call void @_ZNSt5dequeIcSaIcEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !1165
   %.pre.i63 = load ptr, ptr %_M_finish, align 8, !tbaa !1100
   %.pre10.i64 = load ptr, ptr %_M_last.i51, align 8, !tbaa !1114
@@ -25255,7 +25255,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i170 = sub i64 %__n, %sub.ptr.sub.i169
+  %sub.i170 = sub nuw i64 %__n, %sub.ptr.sub.i169
   tail call void @_ZNSt5dequeIcSaIcEE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i170), !noalias !1185
   %.pre.i = load ptr, ptr %_M_start, align 8, !tbaa !1100
   %.pre9.i = load ptr, ptr %_M_first.i166, align 8, !tbaa !1113
@@ -25802,7 +25802,7 @@ if.else56:                                        ; preds = %entry
   br i1 %cmp.i384, label %if.then.i410, label %if.end.i385
 
 if.then.i410:                                     ; preds = %if.else56
-  %sub4.i = sub i64 %__n, %sub.i383
+  %sub4.i = sub nuw i64 %__n, %sub.i383
   tail call void @_ZNSt5dequeIcSaIcEE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !1279
   %.pre.i411 = load ptr, ptr %_M_finish.i, align 8, !tbaa !1100
   %.pre10.i412 = load ptr, ptr %_M_last.i380, align 8, !tbaa !1114
@@ -55498,7 +55498,7 @@ if.else:                                          ; preds = %_ZNK5boost16cpp_reg
 if.end89:                                         ; preds = %if.else
   %idx.ext = zext i8 %cond.i343548 to i64
   %add.ptr93 = getelementptr inbounds i8, ptr %_map, i64 %idx.ext
-  %sub = sub i8 %cond.i350, %cond.i343548
+  %sub = sub nuw i8 %cond.i350, %cond.i343548
   %conv97 = zext i8 %sub to i64
   %add = add nuw nsw i64 %conv97, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr93, i8 1, i64 %add, i1 false)
@@ -78664,7 +78664,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !2389
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not11.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not11.i.i.i.i, label %invoke.cont27, label %for.inc.i.i.i.i.preheader
 

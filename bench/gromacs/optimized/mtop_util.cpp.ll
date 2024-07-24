@@ -1712,7 +1712,7 @@ _ZL8ilistcatiP15InteractionListRKS_iii.exit154.i.i: ; preds = %_ZL8ilistcatiP15I
   br i1 %414, label %415, label %417
 
 415:                                              ; preds = %404
-  %416 = sub nsw i64 %407, %413
+  %416 = sub nuw nsw i64 %407, %413
   tail call void @_ZNSt6vectorI9t_iparamsSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %416)
   br label %_ZL13resizeIParamsPSt6vectorI9t_iparamsSaIS0_EEi.exit.i.i.i
 
@@ -1900,7 +1900,7 @@ _ZL17set_posres_paramsI22InteractionDefinitionsEvPT_PK14gmx_molblock_tii.exit.i.
   br i1 %509, label %510, label %512
 
 510:                                              ; preds = %499
-  %511 = sub nsw i64 %502, %508
+  %511 = sub nuw nsw i64 %502, %508
   tail call void @_ZNSt6vectorI9t_iparamsSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %511)
   br label %_ZL13resizeIParamsPSt6vectorI9t_iparamsSaIS0_EEi.exit.i159.i.i
 

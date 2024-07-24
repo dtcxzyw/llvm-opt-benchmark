@@ -3986,38 +3986,39 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   br i1 %.not.i31, label %"_ZN5alloc11collections5btree3fix178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$29fix_right_border_of_plentiful17hd47b80ca75df3838E.exit", label %.lr.ph.i30
 
 60:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$7last_kv17ha622e161725458d6E.exit.i"
-  %61 = zext nneg i16 %58 to i64
-  %62 = sub nuw nsw i64 5, %61
-  %63 = getelementptr inbounds i8, ptr %52, i64 274
-  %64 = load i16, ptr %63, align 2, !noalias !1296, !noundef !22
-  %65 = zext i16 %64 to i64
-  %.not.i6.i = icmp ugt i64 %62, %65
-  br i1 %.not.i6.i, label %.noexc33, label %66
+  %narrow.i = sub nuw nsw i16 5, %58
+  %61 = zext nneg i16 %narrow.i to i64
+  %62 = getelementptr inbounds i8, ptr %52, i64 274
+  %63 = load i16, ptr %62, align 2, !noalias !1296, !noundef !22
+  %64 = zext nneg i16 %58 to i64
+  %.not.i6.i = icmp ult i16 %63, %narrow.i
+  br i1 %.not.i6.i, label %.noexc33, label %65
 
 .noexc33:                                         ; preds = %60
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.551f5282231713dc5a82db078fc3c216.18, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.551f5282231713dc5a82db078fc3c216.19) #51
   unreachable
 
-66:                                               ; preds = %60
-  %67 = sub nsw i64 %65, %62
-  %68 = trunc i64 %67 to i16
-  store i16 %68, ptr %63, align 2, !noalias !1296
+65:                                               ; preds = %60
+  %66 = zext i16 %63 to i64
+  %67 = sub nuw nsw i64 %66, %61
+  %68 = trunc nuw i64 %67 to i16
+  store i16 %68, ptr %62, align 2, !noalias !1296
   store i16 5, ptr %57, align 2, !noalias !1296
   %69 = getelementptr inbounds i8, ptr %56, i64 8
-  %70 = getelementptr inbounds { [3 x i64] }, ptr %69, i64 %62
-  %71 = mul nuw nsw i64 %61, 24
+  %70 = getelementptr inbounds { [3 x i64] }, ptr %69, i64 %61
+  %71 = mul nuw nsw i64 %64, 24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull align 8 %69, i64 %71, i1 false), !noalias !1296
-  %72 = add nsw i64 %67, 1
-  %73 = sub nuw nsw i64 %65, %72
-  %74 = sub nuw nsw i64 4, %61
+  %72 = add nuw nsw i64 %67, 1
+  %73 = sub nuw nsw i64 %66, %72
+  %74 = add nsw i64 %61, -1
   %75 = icmp eq i64 %73, %74
   br i1 %75, label %76, label %.noexc34
 
-.noexc34:                                         ; preds = %66
+.noexc34:                                         ; preds = %65
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.551f5282231713dc5a82db078fc3c216.12, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.551f5282231713dc5a82db078fc3c216.13) #51
   unreachable
 
-76:                                               ; preds = %66
+76:                                               ; preds = %65
   %77 = getelementptr inbounds i8, ptr %52, i64 8
   %78 = getelementptr inbounds { [3 x i64] }, ptr %77, i64 %72
   %79 = mul nuw nsw i64 %73, 24
@@ -4036,13 +4037,13 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
 
 _ZN5alloc11collections5btree4node13move_to_slice17heb9dcb63b14c984bE.exit.i.i: ; preds = %76
   %84 = getelementptr inbounds i8, ptr %56, i64 280
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %62
-  %86 = shl nuw nsw i64 %61, 3
+  %85 = getelementptr inbounds ptr, ptr %84, i64 %61
+  %86 = shl nuw nsw i64 %64, 3
   %87 = add nuw nsw i64 %86, 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %85, ptr noundef nonnull align 8 dereferenceable(1) %84, i64 %87, i1 false), !noalias !1296
   %88 = getelementptr inbounds i8, ptr %52, i64 280
   %89 = getelementptr inbounds ptr, ptr %88, i64 %72
-  %90 = shl nuw nsw i64 %62, 3
+  %90 = shl nuw nsw i64 %61, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %84, ptr nonnull readonly align 8 %89, i64 %90, i1 false), !alias.scope !1303, !noalias !1296
   br label %91
 
@@ -9444,7 +9445,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !2256
   store ptr %18, ptr %3, align 8, !alias.scope !2256
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !2257
   %13 = add i64 %5, -1
@@ -9516,7 +9517,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %18, -1
   store ptr %20, ptr %9, align 8, !alias.scope !2269
   store ptr %19, ptr %3, align 8, !alias.scope !2269
-  %11 = sub i16 -2, %18
+  %11 = sub nuw i16 -2, %18
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !2270
   %13 = add i64 %5, -1
@@ -9589,7 +9590,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !2282
   store ptr %18, ptr %3, align 8, !alias.scope !2282
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !2283
   %13 = add i64 %5, -1
@@ -9662,7 +9663,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !2295
   store ptr %18, ptr %3, align 8, !alias.scope !2295
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !2296
   %13 = add i64 %5, -1
@@ -9735,7 +9736,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !2308
   store ptr %18, ptr %3, align 8, !alias.scope !2308
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !2309
   %13 = add i64 %5, -1
@@ -9807,7 +9808,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !2321
   store ptr %18, ptr %3, align 8, !alias.scope !2321
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !2322
   %13 = add i64 %5, -1
@@ -9878,7 +9879,7 @@ define hidden { i32, i32 } @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$
   %9 = xor i16 %17, -1
   store ptr %19, ptr %8, align 8, !alias.scope !2334
   store ptr %18, ptr %2, align 8, !alias.scope !2334
-  %10 = sub i16 -2, %17
+  %10 = sub nuw i16 -2, %17
   %11 = and i16 %10, %9
   store i16 %11, ptr %7, align 8, !alias.scope !2335
   %12 = add i64 %4, -1
@@ -23853,7 +23854,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h2c52d0
   %13 = xor i16 %20, -1
   store ptr %22, ptr %7, align 8, !alias.scope !5826
   store ptr %21, ptr %0, align 8, !alias.scope !5826
-  %14 = sub i16 -2, %20
+  %14 = sub nuw i16 -2, %20
   %15 = and i16 %14, %13
   store i16 %15, ptr %6, align 8, !alias.scope !5833
   %16 = add i64 %12, -1
@@ -23978,7 +23979,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h7bffcc
   %13 = xor i16 %21, -1
   store ptr %23, ptr %7, align 8, !alias.scope !5857
   store ptr %22, ptr %0, align 8, !alias.scope !5857
-  %14 = sub i16 -2, %21
+  %14 = sub nuw i16 -2, %21
   %15 = and i16 %14, %13
   store i16 %15, ptr %6, align 8, !alias.scope !5864
   %16 = add i64 %12, -1
@@ -24095,7 +24096,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hbc78b5
   %9 = xor i16 %16, -1
   store ptr %18, ptr %6, align 8, !alias.scope !5894
   store ptr %17, ptr %0, align 8, !alias.scope !5894
-  %10 = sub i16 -2, %16
+  %10 = sub nuw i16 -2, %16
   %11 = and i16 %10, %9
   store i16 %11, ptr %5, align 8, !alias.scope !5895
   %12 = add i64 %8, -1
@@ -24290,7 +24291,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17heeaccf
   %13 = xor i16 %20, -1
   store ptr %22, ptr %7, align 8, !alias.scope !5930
   store ptr %21, ptr %0, align 8, !alias.scope !5930
-  %14 = sub i16 -2, %20
+  %14 = sub nuw i16 -2, %20
   %15 = and i16 %14, %13
   store i16 %15, ptr %6, align 8, !alias.scope !5937
   %16 = add i64 %12, -1

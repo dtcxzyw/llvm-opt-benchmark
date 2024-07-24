@@ -4733,7 +4733,7 @@ if.then5.i:                                       ; preds = %if.end.i
   unreachable
 
 if.end6.i:                                        ; preds = %if.end.i
-  %sub.i51 = sub i64 %outputIdx.i.0110, %conv2.i
+  %sub.i51 = sub nuw i64 %outputIdx.i.0110, %conv2.i
   %cmp8.i.not = icmp ult i64 %sub.i51, %call.i37
   br i1 %cmp8.i.not, label %if.end12.i, label %if.then11.i
 
@@ -6158,7 +6158,7 @@ if.end8:                                          ; preds = %for.body.lr.ph.i, %
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end8
-  %sub.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %5, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %.pre = load ptr, ptr %this, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
@@ -6335,7 +6335,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 
@@ -13306,7 +13306,7 @@ if.then5.i:                                       ; preds = %if.end.i
   unreachable
 
 if.end6.i:                                        ; preds = %if.end.i
-  %sub.i = sub i64 %outputIdx.i.050, %conv2.i
+  %sub.i = sub nuw i64 %outputIdx.i.050, %conv2.i
   %cmp8.i.not = icmp ult i64 %sub.i, %call.i
   br i1 %cmp8.i.not, label %if.end12.i, label %if.then11.i
 

@@ -3560,7 +3560,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp.i630, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub nsw i64 %conv29, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv29, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIP15MinimapMapblockSaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_minimap_mapblocks, ptr %12, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont31 unwind label %lpad30
 
@@ -12789,7 +12789,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Vertices, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEE10reallocateEjb.exit
 
@@ -13031,7 +13031,7 @@ if.then.i58:                                      ; preds = %for.end
   br i1 %cmp.i.i63, label %if.then.i.i70, label %if.else.i.i64
 
 if.then.i.i70:                                    ; preds = %if.then.i58
-  %sub.i.i71 = sub nsw i64 %conv.i45, %sub.ptr.div.i.i.i62
+  %sub.i.i71 = sub nuw nsw i64 %conv.i45, %sub.ptr.div.i.i.i62
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Indices, i64 noundef %sub.i.i71)
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 

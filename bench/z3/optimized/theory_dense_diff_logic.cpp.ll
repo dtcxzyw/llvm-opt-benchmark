@@ -14540,7 +14540,7 @@ invoke.cont293:                                   ; preds = %invoke.cont293.lr.p
   br i1 %or.cond, label %if.then300, label %for.inc315.thread
 
 if.then300:                                       ; preds = %invoke.cont293
-  %sub = sub i32 %182, %retval.0.i.i125
+  %sub = sub nuw i32 %182, %retval.0.i.i125
   %183 = load ptr, ptr %m_edges, align 8
   %idxprom.i763 = zext i32 %sub to i64
   %m_justification = getelementptr inbounds %"struct.smt::theory_dense_diff_logic<smt::mi_ext>::edge", ptr %183, i64 %idxprom.i763, i32 3
@@ -32393,7 +32393,7 @@ invoke.cont293:                                   ; preds = %invoke.cont293.lr.p
   br i1 %or.cond, label %if.then300, label %for.inc315.thread
 
 if.then300:                                       ; preds = %invoke.cont293
-  %sub = sub i32 %182, %retval.0.i.i125
+  %sub = sub nuw i32 %182, %retval.0.i.i125
   %183 = load ptr, ptr %m_edges, align 8
   %idxprom.i756 = zext i32 %sub to i64
   %m_justification = getelementptr inbounds %"struct.smt::theory_dense_diff_logic<smt::i_ext>::edge", ptr %183, i64 %idxprom.i756, i32 3
@@ -44656,7 +44656,7 @@ invoke.cont301:                                   ; preds = %invoke.cont301.lr.p
   br i1 %or.cond, label %if.then308, label %for.inc323.thread
 
 if.then308:                                       ; preds = %invoke.cont301
-  %sub = sub i32 %178, %retval.0.i.i123
+  %sub = sub nuw i32 %178, %retval.0.i.i123
   %179 = load ptr, ptr %m_edges, align 8
   %idxprom.i708 = zext i32 %sub to i64
   %m_justification = getelementptr inbounds %"struct.smt::theory_dense_diff_logic<smt::smi_ext>::edge", ptr %179, i64 %idxprom.i708, i32 3
@@ -56092,7 +56092,7 @@ invoke.cont293:                                   ; preds = %invoke.cont293.lr.p
   br i1 %or.cond, label %if.then300, label %for.inc315.thread
 
 if.then300:                                       ; preds = %invoke.cont293
-  %sub = sub i32 %178, %retval.0.i.i123
+  %sub = sub nuw i32 %178, %retval.0.i.i123
   %179 = load ptr, ptr %m_edges, align 8
   %idxprom.i707 = zext i32 %sub to i64
   %m_justification = getelementptr inbounds %"struct.smt::theory_dense_diff_logic<smt::si_ext>::edge", ptr %179, i64 %idxprom.i707, i32 3

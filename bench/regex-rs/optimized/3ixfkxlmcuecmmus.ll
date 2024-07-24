@@ -5139,7 +5139,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   br label %_ZN14regex_automata3dfa7onepass5Cache5reset17hab80fc3b862ab6ddE.exit.i
 
 45:                                               ; preds = %25
-  %46 = sub nsw i64 %40, %42
+  %46 = sub nuw nsw i64 %40, %42
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5d21b2413a30a0a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %46, i64 noundef 0), !noalias !1129
   br label %_ZN14regex_automata3dfa7onepass5Cache5reset17hab80fc3b862ab6ddE.exit.i
 
@@ -6537,7 +6537,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   br label %_ZN14regex_automata3dfa7onepass5Cache5reset17hab80fc3b862ab6ddE.exit.i
 
 45:                                               ; preds = %25
-  %46 = sub nsw i64 %40, %42
+  %46 = sub nuw nsw i64 %40, %42
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5d21b2413a30a0a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %46, i64 noundef 0), !noalias !1582
   br label %_ZN14regex_automata3dfa7onepass5Cache5reset17hab80fc3b862ab6ddE.exit.i
 
@@ -8779,7 +8779,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   br label %_ZN14regex_automata3dfa7onepass5Cache5reset17hab80fc3b862ab6ddE.exit.i
 
 45:                                               ; preds = %25
-  %46 = sub nsw i64 %40, %42
+  %46 = sub nuw nsw i64 %40, %42
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5d21b2413a30a0a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %46, i64 noundef 0), !noalias !2360
   br label %_ZN14regex_automata3dfa7onepass5Cache5reset17hab80fc3b862ab6ddE.exit.i
 
@@ -12746,7 +12746,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   br label %_ZN14regex_automata3dfa7onepass5Cache5reset17hab80fc3b862ab6ddE.exit.i
 
 46:                                               ; preds = %26
-  %47 = sub nsw i64 %41, %43
+  %47 = sub nuw nsw i64 %41, %43
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5d21b2413a30a0a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %47, i64 noundef 0), !noalias !3494
   br label %_ZN14regex_automata3dfa7onepass5Cache5reset17hab80fc3b862ab6ddE.exit.i
 

@@ -4026,7 +4026,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_17ToWriteIiE11bucket_sortEv(p
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %35
-  %49 = sub nsw i64 %39, %46
+  %49 = sub nuw nsw i64 %39, %46
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %49)
   %.pre = load ptr, ptr %36, align 8
   %.pre58 = load i32, ptr %0, align 8
@@ -6222,7 +6222,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_17ToWriteIlE11bucket_sortEv(p
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %35
-  %48 = sub i64 %38, %45
+  %48 = sub nuw i64 %38, %45
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %48)
   %.pre = load ptr, ptr %36, align 8
   %.pre58 = load i64, ptr %0, align 8

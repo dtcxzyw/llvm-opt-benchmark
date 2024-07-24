@@ -2234,7 +2234,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i73
   br i1 %cmp.i.i.i.i74, label %if.then.i27.invoke.i.i.i, label %invoke.cont6.i.i.i, !prof !90
 
 invoke.cont6.i.i.i:                               ; preds = %invoke.cont.i.i.i
-  %sub.i.i.i = sub i64 %sub.ptr.sub.i.i.i.i, %conv.i.i.i
+  %sub.i.i.i = sub nuw i64 %sub.ptr.sub.i.i.i.i, %conv.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %sub.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %input, align 8, !tbaa !98
   %25 = load ptr, ptr %e_.i61, align 8, !tbaa !104
@@ -2262,7 +2262,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i27.invoke.
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io4zlib12_GLOBAL__N_115ZlibStreamCodec18doUncompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit": ; preds = %invoke.cont6.i.i.i
-  %sub9.i.i.i = sub i64 %sub.ptr.sub.i15.i.i.i, %conv8.i.i.i
+  %sub9.i.i.i = sub nuw i64 %sub.ptr.sub.i15.i.i.i, %conv8.i.i.i
   %add.ptr.i26.i.i.i = getelementptr inbounds i8, ptr %26, i64 %sub9.i.i.i
   store ptr %add.ptr.i26.i.i.i, ptr %output, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %SCOPE_EXIT_STATE1) #21
@@ -3948,7 +3948,7 @@ invoke.cont.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i, label %if.then.i27.invoke.i.i, label %invoke.cont6.i.i, !prof !90
 
 invoke.cont6.i.i:                                 ; preds = %invoke.cont.i.i
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i.i, %conv.i.i
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i.i, %conv.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %sub.i.i
   store ptr %add.ptr.i.i.i, ptr %3, align 8, !tbaa !98
   %8 = getelementptr inbounds i8, ptr %this, i64 24
@@ -3980,7 +3980,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i27.invoke.
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io4zlib12_GLOBAL__N_115ZlibStreamCodec18doUncompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EE7executeEv.exit": ; preds = %invoke.cont6.i.i
-  %sub9.i.i = sub i64 %sub.ptr.sub.i15.i.i, %conv8.i.i
+  %sub9.i.i = sub nuw i64 %sub.ptr.sub.i15.i.i, %conv8.i.i
   %add.ptr.i26.i.i = getelementptr inbounds i8, ptr %11, i64 %sub9.i.i
   store ptr %add.ptr.i26.i.i, ptr %9, align 8, !tbaa !96
   br label %if.end

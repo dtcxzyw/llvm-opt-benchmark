@@ -18263,8 +18263,8 @@ get_gpr.exit.i.i:                                 ; preds = %sw.epilog11.i.i.i, 
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_gpr.exit.i.i
-  %reass.sub1654 = sub nsw i32 %shr.i.i551, %and.i11.i
-  %add.i.i = add nsw i32 %reass.sub1654, 1
+  %reass.sub1654 = sub nuw nsw i32 %shr.i.i551, %and.i11.i
+  %add.i.i = add nuw nsw i32 %reass.sub1654, 1
   tail call void @tcg_gen_sextract_i64(ptr noundef %retval.0.i.i.i, ptr noundef %retval.0.i14.i.i, i32 noundef %and.i11.i, i32 noundef %add.i.i) #13, !callees !9
   br i1 %cmp.i.i.i, label %return, label %if.then.i16.i.i
 
@@ -18389,8 +18389,8 @@ get_gpr.exit.i.i592:                              ; preds = %sw.epilog11.i.i.i58
   br i1 %cmp.not.i.i595, label %return, label %if.then.i.i596
 
 if.then.i.i596:                                   ; preds = %get_gpr.exit.i.i592
-  %reass.sub = sub nsw i32 %shr.i.i560, %and.i11.i568
-  %add.i.i598 = add nsw i32 %reass.sub, 1
+  %reass.sub = sub nuw nsw i32 %shr.i.i560, %and.i11.i568
+  %add.i.i598 = add nuw nsw i32 %reass.sub, 1
   tail call void @tcg_gen_extract_i64(ptr noundef %retval.0.i.i.i584, ptr noundef %retval.0.i14.i.i593, i32 noundef %and.i11.i568, i32 noundef %add.i.i598) #13, !callees !9
   br i1 %cmp.i.i.i575, label %return, label %if.then.i16.i.i600
 
@@ -20225,10 +20225,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %add.i.i.i
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -20405,10 +20405,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %add.i.i.i
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -20470,10 +20470,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %add.i.i.i
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -20885,10 +20885,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 31, %reass.sub
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -21036,10 +21036,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 31, %reass.sub
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -21102,10 +21102,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 31, %reass.sub
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -21246,10 +21246,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nsw i8 30, %reass.sub
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -21397,10 +21397,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nsw i8 30, %reass.sub
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -21463,10 +21463,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nsw i8 30, %reass.sub
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -21607,10 +21607,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nsw i8 29, %reass.sub
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -21758,10 +21758,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nsw i8 29, %reass.sub
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -21824,10 +21824,10 @@ land.lhs.true9.i.i.i:                             ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %vext_check_store.exit.i.i, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true9.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %add.i.i.i to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nsw i8 29, %reass.sub
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -23742,10 +23742,10 @@ land.lhs.true9.i.i:                               ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %st_us_check.exit, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %add.i.i
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -23874,10 +23874,10 @@ land.lhs.true9.i.i:                               ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %st_stride_check.exit, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %add.i.i
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -23950,10 +23950,10 @@ land.lhs.true9.i.i:                               ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %land.lhs.true12.i.i, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %add.i.i
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -23972,12 +23972,12 @@ if.else.i.i17.i.i:                                ; preds = %lor.rhs.i8.i.i
   unreachable
 
 require_align.exit18.i.i:                         ; preds = %lor.rhs.i8.i.i
-  %conv.i11.i.i = zext nneg i8 %s.val6.i to i32
   %sext1.i.i = shl i32 %2, 24
-  %conv2.i12.i.i = ashr exact i32 %sext1.i.i, 24
-  %sub4.i.i13.i.i = sub nuw nsw i32 32, %conv.i11.i.i
+  %conv2.i11.i.i = ashr exact i32 %sext1.i.i, 24
+  %narrow.i12.i.i = sub nuw nsw i8 32, %s.val6.i
+  %sub4.i.i13.i.i = zext nneg i8 %narrow.i12.i.i to i32
   %shr5.i.i14.i.i = lshr i32 -1, %sub4.i.i13.i.i
-  %and.i.i15.i.i = and i32 %shr5.i.i14.i.i, %conv2.i12.i.i
+  %and.i.i15.i.i = and i32 %shr5.i.i14.i.i, %conv2.i11.i.i
   %cmp4.i16.i.i = icmp eq i32 %and.i.i15.i.i, 0
   br i1 %cmp4.i16.i.i, label %st_index_check.exit, label %return
 
@@ -24320,10 +24320,10 @@ land.lhs.true9.i.i:                               ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %st_us_check.exit, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 31, %reass.sub
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -24399,10 +24399,10 @@ land.lhs.true9.i.i:                               ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %st_stride_check.exit, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 31, %reass.sub
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -24469,7 +24469,6 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %6 = getelementptr i8, ptr %s, i64 138
   %s.val7.i = load i8, ptr %6, align 2
   %reass.sub = sub i8 %s.val6.i, %s.val7.i
-  %add.i.i = add i8 %reass.sub, 1
   %7 = add i8 %reass.sub, 4
   %or.cond.i.i = icmp ult i8 %7, 7
   br i1 %or.cond.i.i, label %land.lhs.true9.i.i, label %return
@@ -24479,10 +24478,10 @@ land.lhs.true9.i.i:                               ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %land.lhs.true12.i.i, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 31, %reass.sub
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -24501,12 +24500,12 @@ if.else.i.i17.i.i:                                ; preds = %lor.rhs.i8.i.i
   unreachable
 
 require_align.exit18.i.i:                         ; preds = %lor.rhs.i8.i.i
-  %conv.i11.i.i = zext nneg i8 %s.val6.i to i32
   %sext1.i.i = shl i32 %2, 24
-  %conv2.i12.i.i = ashr exact i32 %sext1.i.i, 24
-  %sub4.i.i13.i.i = sub nuw nsw i32 32, %conv.i11.i.i
+  %conv2.i11.i.i = ashr exact i32 %sext1.i.i, 24
+  %narrow.i12.i.i = sub nuw nsw i8 32, %s.val6.i
+  %sub4.i.i13.i.i = zext nneg i8 %narrow.i12.i.i to i32
   %shr5.i.i14.i.i = lshr i32 -1, %sub4.i.i13.i.i
-  %and.i.i15.i.i = and i32 %shr5.i.i14.i.i, %conv2.i12.i.i
+  %and.i.i15.i.i = and i32 %shr5.i.i14.i.i, %conv2.i11.i.i
   %cmp4.i16.i.i = icmp eq i32 %and.i.i15.i.i, 0
   br i1 %cmp4.i16.i.i, label %st_index_check.exit, label %return
 
@@ -24577,10 +24576,10 @@ land.lhs.true9.i.i:                               ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %st_us_check.exit, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nsw i8 30, %reass.sub
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -24656,10 +24655,10 @@ land.lhs.true9.i.i:                               ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %st_stride_check.exit, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nsw i8 30, %reass.sub
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -24726,20 +24725,19 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %6 = getelementptr i8, ptr %s, i64 138
   %s.val7.i = load i8, ptr %6, align 2
   %reass.sub = sub i8 %s.val6.i, %s.val7.i
-  %add.i.i = add i8 %reass.sub, 2
   %7 = add i8 %reass.sub, 5
   %or.cond.i.i = icmp ult i8 %7, 7
   br i1 %or.cond.i.i, label %land.lhs.true9.i.i, label %return
 
 land.lhs.true9.i.i:                               ; preds = %land.rhs.i
-  %cmp.i.i.i = icmp slt i8 %add.i.i, 1
+  %cmp.i.i.i = icmp slt i8 %reass.sub, -1
   br i1 %cmp.i.i.i, label %land.lhs.true12.i.i, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nsw i8 30, %reass.sub
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -24758,12 +24756,12 @@ if.else.i.i17.i.i:                                ; preds = %lor.rhs.i8.i.i
   unreachable
 
 require_align.exit18.i.i:                         ; preds = %lor.rhs.i8.i.i
-  %conv.i11.i.i = zext nneg i8 %s.val6.i to i32
   %sext1.i.i = shl i32 %2, 24
-  %conv2.i12.i.i = ashr exact i32 %sext1.i.i, 24
-  %sub4.i.i13.i.i = sub nuw nsw i32 32, %conv.i11.i.i
+  %conv2.i11.i.i = ashr exact i32 %sext1.i.i, 24
+  %narrow.i12.i.i = sub nuw nsw i8 32, %s.val6.i
+  %sub4.i.i13.i.i = zext nneg i8 %narrow.i12.i.i to i32
   %shr5.i.i14.i.i = lshr i32 -1, %sub4.i.i13.i.i
-  %and.i.i15.i.i = and i32 %shr5.i.i14.i.i, %conv2.i12.i.i
+  %and.i.i15.i.i = and i32 %shr5.i.i14.i.i, %conv2.i11.i.i
   %cmp4.i16.i.i = icmp eq i32 %and.i.i15.i.i, 0
   br i1 %cmp4.i16.i.i, label %st_index_check.exit, label %return
 
@@ -24834,10 +24832,10 @@ land.lhs.true9.i.i:                               ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %st_us_check.exit, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nsw i8 29, %reass.sub
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -24913,10 +24911,10 @@ land.lhs.true9.i.i:                               ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %st_stride_check.exit, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nsw i8 29, %reass.sub
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -24983,20 +24981,19 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %6 = getelementptr i8, ptr %s, i64 138
   %s.val7.i = load i8, ptr %6, align 2
   %reass.sub = sub i8 %s.val6.i, %s.val7.i
-  %add.i.i = add i8 %reass.sub, 3
   %7 = add i8 %reass.sub, 6
   %or.cond.i.i = icmp ult i8 %7, 7
   br i1 %or.cond.i.i, label %land.lhs.true9.i.i, label %return
 
 land.lhs.true9.i.i:                               ; preds = %land.rhs.i
-  %cmp.i.i.i = icmp slt i8 %add.i.i, 1
+  %cmp.i.i.i = icmp slt i8 %reass.sub, -2
   br i1 %cmp.i.i.i, label %land.lhs.true12.i.i, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nsw i8 29, %reass.sub
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -25015,12 +25012,12 @@ if.else.i.i17.i.i:                                ; preds = %lor.rhs.i8.i.i
   unreachable
 
 require_align.exit18.i.i:                         ; preds = %lor.rhs.i8.i.i
-  %conv.i11.i.i = zext nneg i8 %s.val6.i to i32
   %sext1.i.i = shl i32 %2, 24
-  %conv2.i12.i.i = ashr exact i32 %sext1.i.i, 24
-  %sub4.i.i13.i.i = sub nuw nsw i32 32, %conv.i11.i.i
+  %conv2.i11.i.i = ashr exact i32 %sext1.i.i, 24
+  %narrow.i12.i.i = sub nuw nsw i8 32, %s.val6.i
+  %sub4.i.i13.i.i = zext nneg i8 %narrow.i12.i.i to i32
   %shr5.i.i14.i.i = lshr i32 -1, %sub4.i.i13.i.i
-  %and.i.i15.i.i = and i32 %shr5.i.i14.i.i, %conv2.i12.i.i
+  %and.i.i15.i.i = and i32 %shr5.i.i14.i.i, %conv2.i11.i.i
   %cmp4.i16.i.i = icmp eq i32 %and.i.i15.i.i, 0
   br i1 %cmp4.i16.i.i, label %st_index_check.exit, label %return
 
@@ -49812,10 +49809,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -49823,8 +49820,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -49986,10 +49983,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -49997,8 +49994,8 @@ require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
 
 vext_check_ss.exit.i.i.i:                         ; preds = %require_align.exit.i.i.i.i
   %sext16.i.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
-  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i8.i.i.i.i
+  %conv2.i7.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
+  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i7.i.i.i.i
   %cmp4.i12.i.i.i.i = icmp eq i32 %and.i.i11.i.i.i.i, 0
   br i1 %cmp4.i12.i.i.i.i, label %opivv_check.exit.i, label %return
 
@@ -50172,10 +50169,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -50183,8 +50180,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -50346,10 +50343,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -50357,8 +50354,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -50520,10 +50517,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -50531,8 +50528,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -50694,10 +50691,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -50705,8 +50702,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -50868,10 +50865,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -50879,8 +50876,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -51042,10 +51039,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -51053,8 +51050,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -51216,10 +51213,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -51227,8 +51224,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -51390,10 +51387,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -51401,8 +51398,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -51561,10 +51558,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i.i = zext nneg i8 %3 to i32
   %sext.i = shl i32 %2, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i.i
+  %narrow.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -51574,8 +51571,8 @@ require_align.exit26.i:                           ; preds = %require_align.exit.
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
   %6 = load i32, ptr %rs1.i, align 4
   %sext43.i = shl i32 %6, 24
-  %conv2.i20.i = ashr exact i32 %sext43.i, 24
-  %and.i.i23.i = and i32 %conv2.i20.i, %shr5.i.i.i
+  %conv2.i19.i = ashr exact i32 %sext43.i, 24
+  %and.i.i23.i = and i32 %conv2.i19.i, %shr5.i.i.i
   %cmp4.i24.i = icmp eq i32 %and.i.i23.i, 0
   br i1 %cmp4.i24.i, label %require_align.exit38.i, label %return
 
@@ -51583,8 +51580,8 @@ require_align.exit38.i:                           ; preds = %require_align.exit2
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %7 = load i32, ptr %rs2.i, align 4
   %sext44.i = shl i32 %7, 24
-  %conv2.i32.i = ashr exact i32 %sext44.i, 24
-  %and.i.i35.i = and i32 %conv2.i32.i, %shr5.i.i.i
+  %conv2.i31.i = ashr exact i32 %sext44.i, 24
+  %and.i.i35.i = and i32 %conv2.i31.i, %shr5.i.i.i
   %cmp4.i36.i = icmp eq i32 %and.i.i35.i, 0
   br i1 %cmp4.i36.i, label %land.lhs.true15.i, label %return
 
@@ -51640,20 +51637,20 @@ if.then:                                          ; preds = %vrgather_vv_check.e
   %s.val24.i = load ptr, ptr %28, align 8
   %29 = getelementptr i8, ptr %s.val24.i, i64 152
   %s.val24.val.i = load i16, ptr %29, align 8
-  %conv.i.i8 = zext i16 %s.val24.val.i to i32
-  %mul.i.i = mul i32 %2, %conv.i.i8
+  %conv.i.i = zext i16 %s.val24.val.i to i32
+  %mul.i.i = mul i32 %2, %conv.i.i
   %div.i.i = sdiv i32 %mul.i.i, 8
-  %narrow.i.i = add nsw i32 %div.i.i, 512
-  %mul.i41.i = mul i32 %8, %conv.i.i8
+  %narrow.i.i8 = add nsw i32 %div.i.i, 512
+  %mul.i41.i = mul i32 %8, %conv.i.i
   %div.i42.i = sdiv i32 %mul.i41.i, 8
   %narrow.i43.i = add nsw i32 %div.i42.i, 512
-  %mul.i45.i = mul i32 %9, %conv.i.i8
+  %mul.i45.i = mul i32 %9, %conv.i.i
   %div.i46.i = sdiv i32 %mul.i45.i, 8
   %narrow.i47.i = add nsw i32 %div.i46.i, 512
   %30 = load ptr, ptr @tcg_env, align 8
   %31 = lshr i16 %s.val24.val.i, 3
   %div.i = zext nneg i16 %31 to i32
-  tail call void @tcg_gen_gvec_4_ptr(i32 noundef %narrow.i.i, i32 noundef 512, i32 noundef %narrow.i43.i, i32 noundef %narrow.i47.i, ptr noundef %30, i32 noundef %div.i, i32 noundef %div.i, i32 noundef %or.i35.i, ptr noundef %13) #13
+  tail call void @tcg_gen_gvec_4_ptr(i32 noundef %narrow.i.i8, i32 noundef 512, i32 noundef %narrow.i43.i, i32 noundef %narrow.i47.i, ptr noundef %30, i32 noundef %div.i, i32 noundef %div.i, i32 noundef %or.i35.i, ptr noundef %13) #13
   tail call void @gen_set_label(ptr noundef %call.i) #13
   br label %return
 
@@ -51701,10 +51698,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i.i = zext nneg i8 %1 to i32
   %sext.i = shl i32 %6, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i.i
+  %narrow.i.i = sub nuw nsw i8 32, %1
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %conv2.i.i, %shr5.i.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -51726,12 +51723,12 @@ if.else.i.i46.i:                                  ; preds = %lor.rhs.i37.i
   unreachable
 
 require_align.exit47.i:                           ; preds = %lor.rhs.i37.i
-  %conv.i40.i = zext nneg i8 %add.i to i32
   %sext71.i = shl i32 %7, 24
-  %conv2.i41.i = ashr exact i32 %sext71.i, 24
-  %sub4.i.i42.i = sub nuw nsw i32 32, %conv.i40.i
+  %conv2.i40.i = ashr exact i32 %sext71.i, 24
+  %narrow.i41.i = sub nuw nsw i8 31, %reass.sub.i
+  %sub4.i.i42.i = zext nneg i8 %narrow.i41.i to i32
   %shr5.i.i43.i = lshr i32 -1, %sub4.i.i42.i
-  %and.i.i44.i = and i32 %conv2.i41.i, %shr5.i.i43.i
+  %and.i.i44.i = and i32 %conv2.i40.i, %shr5.i.i43.i
   %cmp4.i45.i = icmp eq i32 %and.i.i44.i, 0
   br i1 %cmp4.i45.i, label %land.lhs.true22.i, label %return
 
@@ -51742,12 +51739,12 @@ land.lhs.true22.i:                                ; preds = %require_align.exit4
   br i1 %cmp.i35.i, label %land.lhs.true27.i, label %require_align.exit59.i
 
 require_align.exit59.i:                           ; preds = %land.lhs.true22.i
-  %conv.i52.i = zext nneg i8 %1 to i32
   %sext72.i = shl i32 %8, 24
-  %conv2.i53.i = ashr exact i32 %sext72.i, 24
-  %sub4.i.i54.i = sub nuw nsw i32 32, %conv.i52.i
+  %conv2.i52.i = ashr exact i32 %sext72.i, 24
+  %narrow.i53.i = sub nuw nsw i8 32, %1
+  %sub4.i.i54.i = zext nneg i8 %narrow.i53.i to i32
   %shr5.i.i55.i = lshr i32 -1, %sub4.i.i54.i
-  %and.i.i56.i = and i32 %conv2.i53.i, %shr5.i.i55.i
+  %and.i.i56.i = and i32 %conv2.i52.i, %shr5.i.i55.i
   %cmp4.i57.i = icmp ne i32 %and.i.i56.i, 0
   %cmp30.not.i = icmp eq i32 %6, %8
   %or.cond.i = select i1 %cmp4.i57.i, i1 true, i1 %cmp30.not.i
@@ -51838,20 +51835,20 @@ if.then:                                          ; preds = %vrgatherei16_vv_che
   %s.val24.i = load ptr, ptr %32, align 8
   %33 = getelementptr i8, ptr %s.val24.i, i64 152
   %s.val24.val.i = load i16, ptr %33, align 8
-  %conv.i.i8 = zext i16 %s.val24.val.i to i32
-  %mul.i.i = mul i32 %6, %conv.i.i8
+  %conv.i.i = zext i16 %s.val24.val.i to i32
+  %mul.i.i = mul i32 %6, %conv.i.i
   %div.i.i = sdiv i32 %mul.i.i, 8
-  %narrow.i.i = add nsw i32 %div.i.i, 512
-  %mul.i41.i = mul i32 %7, %conv.i.i8
+  %narrow.i.i8 = add nsw i32 %div.i.i, 512
+  %mul.i41.i = mul i32 %7, %conv.i.i
   %div.i42.i = sdiv i32 %mul.i41.i, 8
   %narrow.i43.i = add nsw i32 %div.i42.i, 512
-  %mul.i45.i = mul i32 %8, %conv.i.i8
+  %mul.i45.i = mul i32 %8, %conv.i.i
   %div.i46.i = sdiv i32 %mul.i45.i, 8
   %narrow.i47.i = add nsw i32 %div.i46.i, 512
   %34 = load ptr, ptr @tcg_env, align 8
   %35 = lshr i16 %s.val24.val.i, 3
   %div.i = zext nneg i16 %35 to i32
-  tail call void @tcg_gen_gvec_4_ptr(i32 noundef %narrow.i.i, i32 noundef 512, i32 noundef %narrow.i43.i, i32 noundef %narrow.i47.i, ptr noundef %34, i32 noundef %div.i, i32 noundef %div.i, i32 noundef %or.i35.i, ptr noundef %17) #13
+  tail call void @tcg_gen_gvec_4_ptr(i32 noundef %narrow.i.i8, i32 noundef 512, i32 noundef %narrow.i43.i, i32 noundef %narrow.i47.i, ptr noundef %34, i32 noundef %div.i, i32 noundef %div.i, i32 noundef %or.i35.i, ptr noundef %17) #13
   tail call void @gen_set_label(ptr noundef %call.i) #13
   br label %return
 
@@ -51899,10 +51896,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %5 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %5
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -51910,8 +51907,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_vadc_check.exit, label %return
 
@@ -52111,10 +52108,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %5 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %5
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -52122,8 +52119,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_vadc_check.exit, label %return
 
@@ -52325,10 +52322,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -52336,8 +52333,8 @@ require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
 
 vext_check_ss.exit.i.i.i:                         ; preds = %require_align.exit.i.i.i.i
   %sext16.i.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
-  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i8.i.i.i.i
+  %conv2.i7.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
+  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i7.i.i.i.i
   %cmp4.i12.i.i.i.i = icmp eq i32 %and.i.i11.i.i.i.i, 0
   br i1 %cmp4.i12.i.i.i.i, label %opivv_check.exit.i, label %return
 
@@ -52511,10 +52508,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -52522,8 +52519,8 @@ require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
 
 vext_check_ss.exit.i.i.i:                         ; preds = %require_align.exit.i.i.i.i
   %sext16.i.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
-  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i8.i.i.i.i
+  %conv2.i7.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
+  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i7.i.i.i.i
   %cmp4.i12.i.i.i.i = icmp eq i32 %and.i.i11.i.i.i.i, 0
   br i1 %cmp4.i12.i.i.i.i, label %opivv_check.exit.i, label %return
 
@@ -52695,10 +52692,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %5 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %5
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -52706,8 +52703,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_vadc_check.exit, label %return
 
@@ -52811,10 +52808,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %4 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %4
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -53579,10 +53576,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -53878,10 +53875,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -54177,10 +54174,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -54476,10 +54473,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -58466,10 +58463,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -58577,10 +58574,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -58688,10 +58685,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -58799,10 +58796,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -58910,10 +58907,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -59021,10 +59018,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -59132,10 +59129,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -59243,10 +59240,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -59364,10 +59361,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -59375,8 +59372,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -59488,10 +59485,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -59499,8 +59496,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -59612,10 +59609,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -59623,8 +59620,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -59736,10 +59733,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -59747,8 +59744,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -59860,10 +59857,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -59871,8 +59868,8 @@ require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
 
 vext_check_ss.exit.i.i.i:                         ; preds = %require_align.exit.i.i.i.i
   %sext16.i.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
-  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i8.i.i.i.i
+  %conv2.i7.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
+  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i7.i.i.i.i
   %cmp4.i12.i.i.i.i = icmp eq i32 %and.i.i11.i.i.i.i, 0
   br i1 %cmp4.i12.i.i.i.i, label %opivv_check.exit.i, label %return
 
@@ -59992,10 +59989,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -60003,8 +60000,8 @@ require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
 
 vext_check_ss.exit.i.i.i:                         ; preds = %require_align.exit.i.i.i.i
   %sext16.i.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
-  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i8.i.i.i.i
+  %conv2.i7.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
+  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i7.i.i.i.i
   %cmp4.i12.i.i.i.i = icmp eq i32 %and.i.i11.i.i.i.i, 0
   br i1 %cmp4.i12.i.i.i.i, label %opivv_check.exit.i, label %return
 
@@ -60624,10 +60621,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %9 to i32
   %sext.i.i = shl i32 %5, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %9
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -60635,8 +60632,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 zvkb_opiv_check.exit:                             ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %6, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -60752,10 +60749,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %9 to i32
   %sext.i.i = shl i32 %5, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %9
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -60763,8 +60760,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 zvkb_opiv_check.exit:                             ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %6, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -60874,10 +60871,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %8 to i32
   %sext.i.i = shl i32 %4, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %8
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -60885,8 +60882,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 zvbb_opiv_check.exit:                             ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %5, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -60996,10 +60993,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %8 to i32
   %sext.i.i = shl i32 %4, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %8
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -61007,8 +61004,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 zvbb_opiv_check.exit:                             ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %5, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -61118,10 +61115,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %8 to i32
   %sext.i.i = shl i32 %4, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %8
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -61129,8 +61126,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 zvbb_opiv_check.exit:                             ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %5, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -61240,10 +61237,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %8 to i32
   %sext.i.i = shl i32 %4, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %8
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -61251,8 +61248,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 zvbb_opiv_check.exit:                             ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %5, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -61622,10 +61619,10 @@ if.else.i.i:                                      ; preds = %lor.rhs.i
   unreachable
 
 require_align.exit:                               ; preds = %lor.rhs.i
-  %conv.i = zext nneg i8 %3 to i32
   %sext54 = shl i32 %2, 24
   %conv2.i = ashr exact i32 %sext54, 24
-  %sub4.i.i = sub nuw nsw i32 32, %conv.i
+  %narrow.i = sub nuw nsw i8 32, %3
+  %sub4.i.i = zext nneg i8 %narrow.i to i32
   %shr5.i.i = lshr i32 -1, %sub4.i.i
   %and.i.i = and i32 %shr5.i.i, %conv2.i
   %cmp4.i = icmp eq i32 %and.i.i, 0
@@ -61665,12 +61662,12 @@ if.then:                                          ; preds = %land.lhs.true18
   %s.val34 = load ptr, ptr %23, align 8
   %24 = getelementptr i8, ptr %s.val34, i64 152
   %s.val34.val = load i16, ptr %24, align 8
-  %conv.i45 = zext i16 %s.val34.val to i32
-  %mul.i = mul i32 %22, %conv.i45
+  %conv.i = zext i16 %s.val34.val to i32
+  %mul.i = mul i32 %22, %conv.i
   %div.i = sdiv i32 %mul.i, 8
-  %narrow.i = add nsw i32 %div.i, 512
+  %narrow.i45 = add nsw i32 %div.i, 512
   %25 = load i32, ptr %rs2, align 4
-  %mul.i51 = mul i32 %25, %conv.i45
+  %mul.i51 = mul i32 %25, %conv.i
   %div.i52 = sdiv i32 %mul.i51, 8
   %narrow.i53 = add nsw i32 %div.i52, 512
   %26 = load ptr, ptr @tcg_env, align 8
@@ -61681,7 +61678,7 @@ if.then:                                          ; preds = %land.lhs.true18
   %idxprom = zext i8 %28 to i64
   %arrayidx = getelementptr [4 x ptr], ptr @trans_viota_m.fns, i64 0, i64 %idxprom
   %29 = load ptr, ptr %arrayidx, align 8
-  tail call void @tcg_gen_gvec_3_ptr(i32 noundef %narrow.i, i32 noundef 512, i32 noundef %narrow.i53, ptr noundef %26, i32 noundef %div, i32 noundef %div, i32 noundef %or.i44, ptr noundef %29) #13
+  tail call void @tcg_gen_gvec_3_ptr(i32 noundef %narrow.i45, i32 noundef 512, i32 noundef %narrow.i53, ptr noundef %26, i32 noundef %div, i32 noundef %div, i32 noundef %or.i44, ptr noundef %29) #13
   tail call void @gen_set_label(ptr noundef %call20) #13
   br label %return
 
@@ -61721,10 +61718,10 @@ if.else.i.i:                                      ; preds = %lor.rhs.i
   unreachable
 
 require_align.exit:                               ; preds = %lor.rhs.i
-  %conv.i = zext nneg i8 %3 to i32
   %sext = shl i32 %2, 24
   %conv2.i = ashr exact i32 %sext, 24
-  %sub4.i.i = sub nuw nsw i32 32, %conv.i
+  %narrow.i = sub nuw nsw i8 32, %3
+  %sub4.i.i = zext nneg i8 %narrow.i to i32
   %shr5.i.i = lshr i32 -1, %sub4.i.i
   %and.i.i = and i32 %shr5.i.i, %conv2.i
   %cmp4.i = icmp eq i32 %and.i.i, 0
@@ -61765,10 +61762,10 @@ if.then:                                          ; preds = %land.lhs.true5
   %s.val26 = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %s.val26, i64 152
   %s.val26.val = load i16, ptr %20, align 8
-  %conv.i36 = zext i16 %s.val26.val to i32
-  %mul.i = mul i32 %18, %conv.i36
+  %conv.i = zext i16 %s.val26.val to i32
+  %mul.i = mul i32 %18, %conv.i
   %div.i = sdiv i32 %mul.i, 8
-  %narrow.i = add nsw i32 %div.i, 512
+  %narrow.i36 = add nsw i32 %div.i, 512
   %21 = load ptr, ptr @tcg_env, align 8
   %22 = lshr i16 %s.val26.val, 3
   %div = zext nneg i16 %22 to i32
@@ -61777,7 +61774,7 @@ if.then:                                          ; preds = %land.lhs.true5
   %idxprom = zext i8 %23 to i64
   %arrayidx = getelementptr [4 x ptr], ptr @trans_vid_v.fns, i64 0, i64 %idxprom
   %24 = load ptr, ptr %arrayidx, align 8
-  tail call void @tcg_gen_gvec_2_ptr(i32 noundef %narrow.i, i32 noundef 512, ptr noundef %21, i32 noundef %div, i32 noundef %div, i32 noundef %or.i35, ptr noundef %24) #13
+  tail call void @tcg_gen_gvec_2_ptr(i32 noundef %narrow.i36, i32 noundef 512, ptr noundef %21, i32 noundef %div, i32 noundef %div, i32 noundef %or.i35, ptr noundef %24) #13
   tail call void @gen_set_label(ptr noundef %call9) #13
   br label %return
 
@@ -61822,10 +61819,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i.i = zext nneg i8 %3 to i32
   %sext.i = shl i32 %2, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i.i
+  %narrow.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -61835,8 +61832,8 @@ require_align.exit26.i:                           ; preds = %require_align.exit.
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %5 = load i32, ptr %rs2.i, align 4
   %sext29.i = shl i32 %5, 24
-  %conv2.i20.i = ashr exact i32 %sext29.i, 24
-  %and.i.i23.i = and i32 %conv2.i20.i, %shr5.i.i.i
+  %conv2.i19.i = ashr exact i32 %sext29.i, 24
+  %and.i.i23.i = and i32 %conv2.i19.i, %shr5.i.i.i
   %cmp4.i24.i = icmp eq i32 %and.i.i23.i, 0
   br i1 %cmp4.i24.i, label %land.lhs.true10.i, label %return
 
@@ -62438,10 +62435,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -62449,8 +62446,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -62495,8 +62492,8 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
   %conv2.i.i = zext i32 %13 to i64
   %shl.i.i.i = shl i64 %conv2.i.i, 59
   %shr.i.i.i = ashr exact i64 %shl.i.i.i, 59
-  %conv.i28.i = sext i8 %6 to i32
-  %sub2.i.i = sub nsw i32 3, %conv.i28.i
+  %conv.i29.i = sext i8 %6 to i32
+  %sub2.i.i = sub nsw i32 3, %conv.i29.i
   %shr.i.i = lshr i32 %conv.i.i, %sub2.i.i
   tail call void @tcg_gen_gvec_addi(i32 noundef %conv7.i, i32 noundef %narrow.i.i, i32 noundef %narrow.i27.i, i64 noundef %shr.i.i.i, i32 noundef %shr.i.i, i32 noundef %shr.i.i) #13
   br label %return
@@ -62551,10 +62548,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -62562,8 +62559,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -62607,8 +62604,8 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
   %conv2.i.i = zext i32 %13 to i64
   %shl.i.i.i = shl i64 %conv2.i.i, 59
   %shr.i.i.i = ashr exact i64 %shl.i.i.i, 59
-  %conv.i28.i = sext i8 %6 to i32
-  %sub2.i.i = sub nsw i32 3, %conv.i28.i
+  %conv.i29.i = sext i8 %6 to i32
+  %sub2.i.i = sub nsw i32 3, %conv.i29.i
   %shr.i.i = lshr i32 %conv.i.i, %sub2.i.i
   %call.i = tail call ptr @tcg_constant_i64(i64 noundef %shr.i.i.i) #13
   %cmp.i.i = icmp ult i8 %7, 4
@@ -62667,10 +62664,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -62678,8 +62675,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -62724,8 +62721,8 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
   %conv2.i.i = zext i32 %13 to i64
   %shl.i.i.i = shl i64 %conv2.i.i, 59
   %shr.i.i.i = ashr exact i64 %shl.i.i.i, 59
-  %conv.i28.i = sext i8 %6 to i32
-  %sub2.i.i = sub nsw i32 3, %conv.i28.i
+  %conv.i29.i = sext i8 %6 to i32
+  %sub2.i.i = sub nsw i32 3, %conv.i29.i
   %shr.i.i = lshr i32 %conv.i.i, %sub2.i.i
   tail call void @tcg_gen_gvec_andi(i32 noundef %conv7.i, i32 noundef %narrow.i.i, i32 noundef %narrow.i27.i, i64 noundef %shr.i.i.i, i32 noundef %shr.i.i, i32 noundef %shr.i.i) #13
   br label %return
@@ -62780,10 +62777,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -62791,8 +62788,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -62837,8 +62834,8 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
   %conv2.i.i = zext i32 %13 to i64
   %shl.i.i.i = shl i64 %conv2.i.i, 59
   %shr.i.i.i = ashr exact i64 %shl.i.i.i, 59
-  %conv.i28.i = sext i8 %6 to i32
-  %sub2.i.i = sub nsw i32 3, %conv.i28.i
+  %conv.i29.i = sext i8 %6 to i32
+  %sub2.i.i = sub nsw i32 3, %conv.i29.i
   %shr.i.i = lshr i32 %conv.i.i, %sub2.i.i
   tail call void @tcg_gen_gvec_ori(i32 noundef %conv7.i, i32 noundef %narrow.i.i, i32 noundef %narrow.i27.i, i64 noundef %shr.i.i.i, i32 noundef %shr.i.i, i32 noundef %shr.i.i) #13
   br label %return
@@ -62893,10 +62890,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -62904,8 +62901,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -62950,8 +62947,8 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
   %conv2.i.i = zext i32 %13 to i64
   %shl.i.i.i = shl i64 %conv2.i.i, 59
   %shr.i.i.i = ashr exact i64 %shl.i.i.i, 59
-  %conv.i28.i = sext i8 %6 to i32
-  %sub2.i.i = sub nsw i32 3, %conv.i28.i
+  %conv.i29.i = sext i8 %6 to i32
+  %sub2.i.i = sub nsw i32 3, %conv.i29.i
   %shr.i.i = lshr i32 %conv.i.i, %sub2.i.i
   tail call void @tcg_gen_gvec_xori(i32 noundef %conv7.i, i32 noundef %narrow.i.i, i32 noundef %narrow.i27.i, i64 noundef %shr.i.i.i, i32 noundef %shr.i.i, i32 noundef %shr.i.i) #13
   br label %return
@@ -63003,10 +63000,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i.i = zext nneg i8 %3 to i32
   %sext.i = shl i32 %2, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i.i
+  %narrow.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -63016,8 +63013,8 @@ require_align.exit22.i:                           ; preds = %require_align.exit.
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %5 = load i32, ptr %rs2.i, align 4
   %sext25.i = shl i32 %5, 24
-  %conv2.i16.i = ashr exact i32 %sext25.i, 24
-  %and.i.i19.i = and i32 %conv2.i16.i, %shr5.i.i.i
+  %conv2.i15.i = ashr exact i32 %sext25.i, 24
+  %and.i.i19.i = and i32 %conv2.i15.i, %shr5.i.i.i
   %cmp4.i20.i = icmp eq i32 %and.i.i19.i, 0
   br i1 %cmp4.i20.i, label %land.lhs.true10.i, label %return
 
@@ -63081,8 +63078,8 @@ if.else:                                          ; preds = %if.then7
   %mul.i.i = mul i32 %6, %conv11
   %div.i.i = sdiv i32 %mul.i.i, 8
   %shl.i = shl i32 %14, %conv10
-  %narrow.i.i = add i32 %shl.i, 512
-  %add.i = add i32 %narrow.i.i, %div.i.i
+  %narrow.i.i48 = add i32 %shl.i, 512
+  %add.i = add i32 %narrow.i.i48, %div.i.i
   %sub2.i52 = sub nsw i32 3, %conv9
   %shr.i53 = lshr i32 %conv11, %sub2.i52
   tail call void @tcg_gen_gvec_dup_mem(i32 noundef %conv10, i32 noundef %narrow.i47, i32 noundef %add.i, i32 noundef %shr.i53, i32 noundef %shr.i53) #13
@@ -63138,10 +63135,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %s.val6.i to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %s.val6.i
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -63149,8 +63146,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 require_align.exit18.i.i:                         ; preds = %require_align.exit.i.i
   %sext2.i.i = shl i32 %2, 24
-  %conv2.i12.i.i = ashr exact i32 %sext2.i.i, 24
-  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i12.i.i
+  %conv2.i11.i.i = ashr exact i32 %sext2.i.i, 24
+  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i11.i.i
   %cmp4.i16.i.i = icmp eq i32 %and.i.i15.i.i, 0
   br i1 %cmp4.i16.i.i, label %slideup_check.exit, label %return
 
@@ -63211,10 +63208,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %s.val6.i to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %s.val6.i
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -63222,8 +63219,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 require_align.exit18.i.i:                         ; preds = %require_align.exit.i.i
   %sext2.i.i = shl i32 %2, 24
-  %conv2.i12.i.i = ashr exact i32 %sext2.i.i, 24
-  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i12.i.i
+  %conv2.i11.i.i = ashr exact i32 %sext2.i.i, 24
+  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i11.i.i
   %cmp4.i16.i.i = icmp eq i32 %and.i.i15.i.i, 0
   %6 = or i32 %4, %2
   %7 = icmp ne i32 %6, 0
@@ -63288,10 +63285,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %4 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %4
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -63299,8 +63296,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_vadc_check.exit:                            ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -63403,10 +63400,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -63414,8 +63411,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 opivx_check.exit.i:                               ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %3, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %land.rhs.i, label %return
 
@@ -63478,11 +63475,12 @@ extract64.exit.i.i:                               ; preds = %if.then.i
   %narrow.i.i = add nsw i32 %div.i.i, 512
   %conv7.i = zext nneg i8 %10 to i32
   %conv5.i.i = zext i32 %14 to i64
-  %sub4.i.i.i = sub nuw nsw i64 61, %idxprom
-  %shr6.i.i.i = lshr i64 -1, %sub4.i.i.i
+  %narrow.i28.i = sub nuw nsw i8 61, %10
+  %sh_prom5.i.i.i = zext nneg i8 %narrow.i28.i to i64
+  %shr6.i.i.i = lshr i64 -1, %sh_prom5.i.i.i
   %and.i5.i.i = and i64 %shr6.i.i.i, %conv5.i.i
-  %conv.i28.i = sext i8 %6 to i32
-  %sub2.i.i = sub nsw i32 3, %conv.i28.i
+  %conv.i29.i = sext i8 %6 to i32
+  %sub2.i.i = sub nsw i32 3, %conv.i29.i
   %shr.i.i = lshr i32 %conv.i.i, %sub2.i.i
   tail call void @tcg_gen_gvec_rotri(i32 noundef %conv7.i, i32 noundef %narrow.i.i, i32 noundef %narrow.i27.i, i64 noundef %and.i5.i.i, i32 noundef %shr.i.i, i32 noundef %shr.i.i) #13
   br label %return
@@ -63535,10 +63533,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %4 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %4
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -63546,8 +63544,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_vadc_check.exit:                            ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -63598,10 +63596,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i.i = zext nneg i8 %3 to i32
   %sext.i = shl i32 %2, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i.i
+  %narrow.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -63988,10 +63986,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -63999,8 +63997,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -64141,10 +64139,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -64152,8 +64150,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 opivx_check.exit.i:                               ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %3, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %land.rhs.i, label %return
 
@@ -64307,10 +64305,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -64318,8 +64316,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -64460,10 +64458,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -64471,8 +64469,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -64529,10 +64527,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -64540,8 +64538,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -64600,10 +64598,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -64611,8 +64609,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -64671,10 +64669,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -64682,8 +64680,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -64742,10 +64740,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -64753,8 +64751,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -64813,10 +64811,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -64824,8 +64822,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -64966,10 +64964,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -64977,8 +64975,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -65119,10 +65117,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -65130,8 +65128,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -65269,10 +65267,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i.i = zext nneg i8 %3 to i32
   %sext.i = shl i32 %2, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i.i
+  %narrow.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -65282,8 +65280,8 @@ require_align.exit22.i:                           ; preds = %require_align.exit.
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %5 = load i32, ptr %rs2.i, align 4
   %sext25.i = shl i32 %5, 24
-  %conv2.i16.i = ashr exact i32 %sext25.i, 24
-  %and.i.i19.i = and i32 %conv2.i16.i, %shr5.i.i.i
+  %conv2.i15.i = ashr exact i32 %sext25.i, 24
+  %and.i.i19.i = and i32 %conv2.i15.i, %shr5.i.i.i
   %cmp4.i20.i = icmp eq i32 %and.i.i19.i, 0
   br i1 %cmp4.i20.i, label %land.lhs.true10.i, label %return
 
@@ -65399,10 +65397,10 @@ if.else:                                          ; preds = %if.then7
   %s.val.i34 = load ptr, ptr %cfg_ptr, align 8
   %22 = getelementptr i8, ptr %s.val.i34, i64 152
   %s.val.val.i = load i16, ptr %22, align 8
-  %conv.i.i35 = zext i16 %s.val.val.i to i32
-  %mul.i.i = mul i32 %18, %conv.i.i35
+  %conv.i.i = zext i16 %s.val.val.i to i32
+  %mul.i.i = mul i32 %18, %conv.i.i
   %div.i.i = sdiv i32 %mul.i.i, 8
-  %narrow.i.i = add nsw i32 %div.i.i, 512
+  %narrow.i.i35 = add nsw i32 %div.i.i, 512
   %23 = load i8, ptr %sew, align 2
   switch i8 %23, label %do.body.i.i [
     i8 0, label %sw.bb.i.i
@@ -65412,22 +65410,22 @@ if.else:                                          ; preds = %if.then7
   ]
 
 sw.bb.i.i:                                        ; preds = %if.else
-  %conv1.i.i = sext i32 %narrow.i.i to i64
+  %conv1.i.i = sext i32 %narrow.i.i35 to i64
   tail call void @tcg_gen_ld8u_i64(ptr noundef %call13, ptr noundef %call1.i, i64 noundef %conv1.i.i) #13
   br label %vec_element_loadx.exit
 
 sw.bb2.i.i:                                       ; preds = %if.else
-  %conv7.i.i = sext i32 %narrow.i.i to i64
+  %conv7.i.i = sext i32 %narrow.i.i35 to i64
   tail call void @tcg_gen_ld16u_i64(ptr noundef %call13, ptr noundef %call1.i, i64 noundef %conv7.i.i) #13
   br label %vec_element_loadx.exit
 
 sw.bb9.i.i:                                       ; preds = %if.else
-  %conv14.i.i = sext i32 %narrow.i.i to i64
+  %conv14.i.i = sext i32 %narrow.i.i35 to i64
   tail call void @tcg_gen_ld32u_i64(ptr noundef %call13, ptr noundef %call1.i, i64 noundef %conv14.i.i) #13
   br label %vec_element_loadx.exit
 
 sw.bb16.i.i:                                      ; preds = %if.else
-  %conv17.i.i = sext i32 %narrow.i.i to i64
+  %conv17.i.i = sext i32 %narrow.i.i35 to i64
   tail call void @tcg_gen_ld_i64(ptr noundef %call13, ptr noundef %call1.i, i64 noundef %conv17.i.i) #13
   br label %vec_element_loadx.exit
 
@@ -65511,10 +65509,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %s.val6.i to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %s.val6.i
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -65522,8 +65520,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 require_align.exit18.i.i:                         ; preds = %require_align.exit.i.i
   %sext2.i.i = shl i32 %2, 24
-  %conv2.i12.i.i = ashr exact i32 %sext2.i.i, 24
-  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i12.i.i
+  %conv2.i11.i.i = ashr exact i32 %sext2.i.i, 24
+  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i11.i.i
   %cmp4.i16.i.i = icmp eq i32 %and.i.i15.i.i, 0
   br i1 %cmp4.i16.i.i, label %slideup_check.exit, label %return
 
@@ -65584,10 +65582,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %s.val6.i to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %s.val6.i
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -65595,8 +65593,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 require_align.exit18.i.i:                         ; preds = %require_align.exit.i.i
   %sext2.i.i = shl i32 %2, 24
-  %conv2.i12.i.i = ashr exact i32 %sext2.i.i, 24
-  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i12.i.i
+  %conv2.i11.i.i = ashr exact i32 %sext2.i.i, 24
+  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i11.i.i
   %cmp4.i16.i.i = icmp eq i32 %and.i.i15.i.i, 0
   %6 = or i32 %4, %2
   %7 = icmp ne i32 %6, 0
@@ -65661,10 +65659,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %4 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %4
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -65672,8 +65670,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_vadc_check.exit:                            ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -65774,10 +65772,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %4 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %4
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -65785,8 +65783,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_vadc_check.exit:                            ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -65889,10 +65887,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -65900,8 +65898,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 opivx_check.exit.i:                               ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %3, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %land.rhs.i, label %return
 
@@ -66048,10 +66046,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -66059,8 +66057,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 opivx_check.exit.i:                               ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %3, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %land.rhs.i, label %return
 
@@ -66205,10 +66203,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %4 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %4
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -66216,8 +66214,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_vadc_check.exit:                            ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -66268,10 +66266,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i.i = zext nneg i8 %3 to i32
   %sext.i = shl i32 %2, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i.i
+  %narrow.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -66751,101 +66749,13 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfadd_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -66853,8 +66763,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -66863,168 +66773,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfadd_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfsub_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -67032,8 +66852,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -67042,168 +66862,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfsub_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfmin_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -67211,8 +66941,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -67221,168 +66951,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfmin_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfmax_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -67390,8 +67030,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -67400,168 +67040,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfmax_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfsgnj_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -67569,8 +67119,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -67579,168 +67129,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfsgnj_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfsgnjn_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -67748,8 +67208,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -67758,168 +67218,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfsgnjn_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfsgnjx_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -67927,8 +67297,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -67937,68 +67307,66 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfsgnjx_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -68035,10 +67403,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %s.val6.i.i to i32
   %sext.i.i.i = shl i32 %3, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %s.val6.i.i
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -68046,8 +67414,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 require_align.exit18.i.i.i:                       ; preds = %require_align.exit.i.i.i
   %sext2.i.i.i = shl i32 %2, 24
-  %conv2.i12.i.i.i = ashr exact i32 %sext2.i.i.i, 24
-  %and.i.i15.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i12.i.i.i
+  %conv2.i11.i.i.i = ashr exact i32 %sext2.i.i.i, 24
+  %and.i.i15.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i11.i.i.i
   %cmp4.i16.i.i.i = icmp eq i32 %and.i.i15.i.i.i, 0
   br i1 %cmp4.i16.i.i.i, label %slideup_check.exit.i, label %return
 
@@ -68216,10 +67584,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %s.val6.i.i to i32
   %sext.i.i.i = shl i32 %3, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %s.val6.i.i
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -68227,8 +67595,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 require_align.exit18.i.i.i:                       ; preds = %require_align.exit.i.i.i
   %sext2.i.i.i = shl i32 %2, 24
-  %conv2.i12.i.i.i = ashr exact i32 %sext2.i.i.i, 24
-  %and.i.i15.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i12.i.i.i
+  %conv2.i11.i.i.i = ashr exact i32 %sext2.i.i.i, 24
+  %and.i.i15.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i11.i.i.i
   %cmp4.i16.i.i.i = icmp eq i32 %and.i.i15.i.i.i, 0
   %6 = or i32 %4, %2
   %7 = icmp ne i32 %6, 0
@@ -68485,101 +67853,13 @@ return:                                           ; preds = %if.end.i, %land.lhs
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfmerge_vfm(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -68587,8 +67867,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -68597,68 +67877,66 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfmerge_vfm.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -68730,10 +68008,10 @@ if.else.i.i:                                      ; preds = %lor.rhs.i
   unreachable
 
 require_align.exit:                               ; preds = %lor.rhs.i
-  %conv.i = zext nneg i8 %11 to i32
   %sext = shl i32 %10, 24
   %conv2.i = ashr exact i32 %sext, 24
-  %sub4.i.i = sub nuw nsw i32 32, %conv.i
+  %narrow.i = sub nuw nsw i8 32, %11
+  %sub4.i.i = zext nneg i8 %narrow.i to i32
   %shr5.i.i = lshr i32 -1, %sub4.i.i
   %and.i.i = and i32 %shr5.i.i, %conv2.i
   %cmp4.i = icmp eq i32 %and.i.i, 0
@@ -68815,15 +68093,15 @@ if.then15:                                        ; preds = %land.lhs.true11, %l
   %s.val38 = load ptr, ptr %27, align 8
   %28 = getelementptr i8, ptr %s.val38, i64 152
   %s.val38.val = load i16, ptr %28, align 8
-  %conv.i52 = zext i16 %s.val38.val to i32
-  %mul.i = mul i32 %26, %conv.i52
+  %conv.i = zext i16 %s.val38.val to i32
+  %mul.i = mul i32 %26, %conv.i
   %div.i = sdiv i32 %mul.i, 8
-  %narrow.i = add nsw i32 %div.i, 512
+  %narrow.i52 = add nsw i32 %div.i, 512
   %s.val41 = load i8, ptr %lmul, align 1
   %conv.i53 = sext i8 %s.val41 to i32
   %sub2.i = sub nsw i32 3, %conv.i53
-  %shr.i = lshr i32 %conv.i52, %sub2.i
-  tail call void @tcg_gen_gvec_dup_i64(i32 noundef %conv17, i32 noundef %narrow.i, i32 noundef %shr.i, i32 noundef %shr.i, ptr noundef %call16) #13
+  %shr.i = lshr i32 %conv.i, %sub2.i
+  tail call void @tcg_gen_gvec_dup_i64(i32 noundef %conv17, i32 noundef %narrow.i52, i32 noundef %shr.i, i32 noundef %shr.i, ptr noundef %call16) #13
   br label %return
 
 if.else:                                          ; preds = %gen_set_rm.exit.if.else_crit_edge, %land.lhs.true11
@@ -69784,10 +69062,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -69795,8 +69073,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -69855,10 +69133,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -69866,8 +69144,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -69926,10 +69204,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -69937,8 +69215,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -69997,10 +69275,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -70008,8 +69286,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -70068,10 +69346,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -70079,8 +69357,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 opivx_check.exit.i:                               ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %3, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %land.lhs.true.i, label %return
 
@@ -70148,10 +69426,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -70159,8 +69437,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 opivx_check.exit.i:                               ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %3, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %land.lhs.true.i, label %return
 
@@ -70223,10 +69501,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %s.val6.i to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %s.val6.i
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -70234,8 +69512,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 require_align.exit18.i.i:                         ; preds = %require_align.exit.i.i
   %sext2.i.i = shl i32 %2, 24
-  %conv2.i12.i.i = ashr exact i32 %sext2.i.i, 24
-  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i12.i.i
+  %conv2.i11.i.i = ashr exact i32 %sext2.i.i, 24
+  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i11.i.i
   %cmp4.i16.i.i = icmp eq i32 %and.i.i15.i.i, 0
   br i1 %cmp4.i16.i.i, label %slideup_check.exit, label %return
 
@@ -70296,10 +69574,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %s.val6.i to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %s.val6.i
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -70307,8 +69585,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 require_align.exit18.i.i:                         ; preds = %require_align.exit.i.i
   %sext2.i.i = shl i32 %2, 24
-  %conv2.i12.i.i = ashr exact i32 %sext2.i.i, 24
-  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i12.i.i
+  %conv2.i11.i.i = ashr exact i32 %sext2.i.i, 24
+  %and.i.i15.i.i = and i32 %shr5.i.i.i.i, %conv2.i11.i.i
   %cmp4.i16.i.i = icmp eq i32 %and.i.i15.i.i, 0
   %6 = or i32 %4, %2
   %7 = icmp ne i32 %6, 0
@@ -70456,10 +69734,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -70467,8 +69745,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -70580,10 +69858,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -70591,8 +69869,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -70704,10 +69982,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -70715,8 +69993,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -70828,10 +70106,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -70839,8 +70117,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -70952,10 +70230,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -70963,8 +70241,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -71126,10 +70404,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -71137,8 +70415,8 @@ require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
 
 vext_check_ss.exit.i.i.i:                         ; preds = %require_align.exit.i.i.i.i
   %sext16.i.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
-  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i8.i.i.i.i
+  %conv2.i7.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
+  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i7.i.i.i.i
   %cmp4.i12.i.i.i.i = icmp eq i32 %and.i.i11.i.i.i.i, 0
   br i1 %cmp4.i12.i.i.i.i, label %opivv_check.exit.i, label %return
 
@@ -71259,10 +70537,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -71270,8 +70548,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -71433,10 +70711,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -71444,8 +70722,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -71607,10 +70885,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -71618,8 +70896,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -71731,10 +71009,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -71742,8 +71020,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -71854,10 +71132,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 opiwv_narrow_check.exit:                          ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -71961,10 +71239,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 opiwv_narrow_check.exit:                          ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -72068,10 +71346,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 opiwv_narrow_check.exit:                          ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -72175,10 +71453,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 opiwv_narrow_check.exit:                          ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -73534,10 +72812,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -73872,10 +73150,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -74031,14 +73309,87 @@ return:                                           ; preds = %if.end.i.i, %land.l
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfwadd_wv(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %call = tail call fastcc zeroext i1 @opfwv_widen_check(ptr noundef %s, ptr noundef %a)
-  br i1 %call, label %if.then, label %return
+  %0 = getelementptr i8, ptr %s, i64 104
+  %s.val.i = load i32, ptr %0, align 8
+  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
+  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
 
-if.then:                                          ; preds = %entry
+land.lhs.true.i:                                  ; preds = %entry
+  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
+  %1 = load i32, ptr %mstatus_fs.i.i, align 4
+  %cmp.i9.i = icmp eq i32 %1, 0
+  br i1 %cmp.i9.i, label %return, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %land.lhs.true.i
+  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
+  %2 = load i8, ptr %sew.i.i, align 2
+  switch i8 %2, label %return [
+    i8 2, label %sw.bb4.i.i
+    i8 1, label %sw.bb1.i.i
+  ]
+
+sw.bb1.i.i:                                       ; preds = %if.end.i.i
+  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
+  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
+  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = load i8, ptr %ext_zve32f.i.i, align 8
+  %tobool3.i.i = trunc i8 %4 to i1
+  br i1 %tobool3.i.i, label %land.lhs.true4.i, label %return
+
+sw.bb4.i.i:                                       ; preds = %if.end.i.i
+  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
+  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
+  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
+  %6 = load i8, ptr %ext_zve64d.i.i, align 2
+  %tobool6.i.i = trunc i8 %6 to i1
+  br i1 %tobool6.i.i, label %land.lhs.true4.i, label %return
+
+land.lhs.true4.i:                                 ; preds = %sw.bb4.i.i, %sw.bb1.i.i
+  %7 = getelementptr i8, ptr %s, i64 136
+  %s.val8.i = load i8, ptr %7, align 8
+  %tobool.i10.i = trunc i8 %s.val8.i to i1
+  br i1 %tobool.i10.i, label %return, label %land.rhs.i
+
+land.rhs.i:                                       ; preds = %land.lhs.true4.i
+  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
+  %8 = load i32, ptr %rd.i, align 4
+  %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
+  %9 = load i32, ptr %rs1.i, align 4
+  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
+  %10 = load i32, ptr %rs2.i, align 4
+  %11 = load i32, ptr %a, align 4
+  %call.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %11)
+  br i1 %call.i.i, label %land.rhs.i.i, label %return
+
+land.rhs.i.i:                                     ; preds = %land.rhs.i
+  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
+  %12 = load i8, ptr %lmul.i.i, align 1
+  %cmp.i.i.i = icmp ugt i8 %12, 126
+  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
+
+lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i
+  %cmp3.not.i.i.i.i = icmp ugt i8 %12, 31
+  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %opfwv_widen_check.exit
+
+if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
+  unreachable
+
+opfwv_widen_check.exit:                           ; preds = %lor.rhs.i.i.i
+  %sext.i.i = shl i32 %10, 24
+  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
+  %narrow.i.i.i = sub nuw nsw i8 31, %12
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
+  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
+  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
+  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp4.i.i.i, label %if.then, label %return
+
+if.then:                                          ; preds = %land.rhs.i.i, %opfwv_widen_check.exit
   %call1 = tail call ptr @gen_new_label() #13
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %0 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %0, 7
+  %13 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %13, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -74046,8 +73397,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %1 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %1, null
+  %14 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -74056,94 +73407,163 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %2 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %2 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
+  %15 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %15 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %14, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %3 = load ptr, ptr @tcg_env, align 8
+  %16 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %5 = load ptr, ptr %4, align 8
-  %6 = ptrtoint ptr %3 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
-  %7 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
+  %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %18 = load ptr, ptr %17, align 8
+  %19 = ptrtoint ptr %16 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %18, i64 %19
+  %20 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %18, i64 %20
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %8 = load ptr, ptr @cpu_vstart, align 8
-  %9 = load ptr, ptr @cpu_vl, align 8
-  tail call void @tcg_gen_brcond_i64(i32 noundef 5, ptr noundef %8, ptr noundef %9, ptr noundef %call1) #13
-  %10 = load i32, ptr %a, align 4
-  %bf.value = and i32 %10, 1
-  %lmul = getelementptr inbounds i8, ptr %s, i64 137
-  %11 = load i8, ptr %lmul, align 1
-  %12 = shl i8 %11, 1
-  %13 = and i8 %12, 14
-  %and6.i = zext nneg i8 %13 to i32
+  %21 = load ptr, ptr @cpu_vstart, align 8
+  %22 = load ptr, ptr @cpu_vl, align 8
+  tail call void @tcg_gen_brcond_i64(i32 noundef 5, ptr noundef %21, ptr noundef %22, ptr noundef %call1) #13
+  %23 = load i32, ptr %a, align 4
+  %bf.value = and i32 %23, 1
+  %24 = load i8, ptr %lmul.i.i, align 1
+  %25 = shl i8 %24, 1
+  %26 = and i8 %25, 14
+  %and6.i = zext nneg i8 %26 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %14 = load i8, ptr %vta, align 1
-  %15 = shl i8 %14, 4
-  %16 = and i8 %15, 16
-  %and6.i33 = zext nneg i8 %16 to i32
+  %27 = load i8, ptr %vta, align 1
+  %28 = shl i8 %27, 4
+  %29 = and i8 %28, 16
+  %and6.i33 = zext nneg i8 %29 to i32
   %or.i34 = or disjoint i32 %or.i, %and6.i33
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %17 = load i8, ptr %vma, align 4
-  %18 = shl i8 %17, 6
-  %19 = and i8 %18, 64
-  %and6.i38 = zext nneg i8 %19 to i32
+  %30 = load i8, ptr %vma, align 4
+  %31 = shl i8 %30, 6
+  %32 = and i8 %31, 64
+  %and6.i38 = zext nneg i8 %32 to i32
   %or.i39 = or disjoint i32 %or.i34, %and6.i38
-  %rd = getelementptr inbounds i8, ptr %a, i64 4
-  %20 = load i32, ptr %rd, align 4
-  %21 = getelementptr i8, ptr %s, i64 128
-  %s.val = load ptr, ptr %21, align 8
-  %22 = getelementptr i8, ptr %s.val, i64 152
-  %s.val.val = load i16, ptr %22, align 8
+  %33 = load i32, ptr %rd.i, align 4
+  %34 = getelementptr i8, ptr %s, i64 128
+  %s.val = load ptr, ptr %34, align 8
+  %35 = getelementptr i8, ptr %s.val, i64 152
+  %s.val.val = load i16, ptr %35, align 8
   %conv.i = zext i16 %s.val.val to i32
-  %mul.i = mul i32 %20, %conv.i
+  %mul.i = mul i32 %33, %conv.i
   %div.i = sdiv i32 %mul.i, 8
   %narrow.i = add nsw i32 %div.i, 512
-  %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %23 = load i32, ptr %rs1, align 4
-  %mul.i45 = mul i32 %23, %conv.i
+  %36 = load i32, ptr %rs1.i, align 4
+  %mul.i45 = mul i32 %36, %conv.i
   %div.i46 = sdiv i32 %mul.i45, 8
   %narrow.i47 = add nsw i32 %div.i46, 512
-  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
-  %24 = load i32, ptr %rs2, align 4
-  %mul.i49 = mul i32 %24, %conv.i
+  %37 = load i32, ptr %rs2.i, align 4
+  %mul.i49 = mul i32 %37, %conv.i
   %div.i50 = sdiv i32 %mul.i49, 8
   %narrow.i51 = add nsw i32 %div.i50, 512
-  %25 = load ptr, ptr @tcg_env, align 8
-  %26 = lshr i16 %s.val.val, 3
-  %div = zext nneg i16 %26 to i32
-  %sew = getelementptr inbounds i8, ptr %s, i64 138
-  %27 = load i8, ptr %sew, align 2
-  %conv49 = zext i8 %27 to i64
+  %38 = load ptr, ptr @tcg_env, align 8
+  %39 = lshr i16 %s.val.val, 3
+  %div = zext nneg i16 %39 to i32
+  %40 = load i8, ptr %sew.i.i, align 2
+  %conv49 = zext i8 %40 to i64
   %sub = add nsw i64 %conv49, -1
   %arrayidx = getelementptr [2 x ptr], ptr @trans_vfwadd_wv.fns, i64 0, i64 %sub
-  %28 = load ptr, ptr %arrayidx, align 8
-  tail call void @tcg_gen_gvec_4_ptr(i32 noundef %narrow.i, i32 noundef 512, i32 noundef %narrow.i47, i32 noundef %narrow.i51, ptr noundef %25, i32 noundef %div, i32 noundef %div, i32 noundef %or.i39, ptr noundef %28) #13
+  %41 = load ptr, ptr %arrayidx, align 8
+  tail call void @tcg_gen_gvec_4_ptr(i32 noundef %narrow.i, i32 noundef 512, i32 noundef %narrow.i47, i32 noundef %narrow.i51, ptr noundef %38, i32 noundef %div, i32 noundef %div, i32 noundef %or.i39, ptr noundef %41) #13
   tail call void @gen_set_label(ptr noundef %call1) #13
   br label %return
 
-return:                                           ; preds = %entry, %gen_set_rm.exit
-  ret i1 %call
+return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %land.lhs.true4.i, %opfwv_widen_check.exit, %gen_set_rm.exit
+  %42 = phi i1 [ false, %opfwv_widen_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true4.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
+  ret i1 %42
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfwsub_wv(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %call = tail call fastcc zeroext i1 @opfwv_widen_check(ptr noundef %s, ptr noundef %a)
-  br i1 %call, label %if.then, label %return
+  %0 = getelementptr i8, ptr %s, i64 104
+  %s.val.i = load i32, ptr %0, align 8
+  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
+  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
 
-if.then:                                          ; preds = %entry
+land.lhs.true.i:                                  ; preds = %entry
+  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
+  %1 = load i32, ptr %mstatus_fs.i.i, align 4
+  %cmp.i9.i = icmp eq i32 %1, 0
+  br i1 %cmp.i9.i, label %return, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %land.lhs.true.i
+  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
+  %2 = load i8, ptr %sew.i.i, align 2
+  switch i8 %2, label %return [
+    i8 2, label %sw.bb4.i.i
+    i8 1, label %sw.bb1.i.i
+  ]
+
+sw.bb1.i.i:                                       ; preds = %if.end.i.i
+  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
+  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
+  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = load i8, ptr %ext_zve32f.i.i, align 8
+  %tobool3.i.i = trunc i8 %4 to i1
+  br i1 %tobool3.i.i, label %land.lhs.true4.i, label %return
+
+sw.bb4.i.i:                                       ; preds = %if.end.i.i
+  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
+  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
+  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
+  %6 = load i8, ptr %ext_zve64d.i.i, align 2
+  %tobool6.i.i = trunc i8 %6 to i1
+  br i1 %tobool6.i.i, label %land.lhs.true4.i, label %return
+
+land.lhs.true4.i:                                 ; preds = %sw.bb4.i.i, %sw.bb1.i.i
+  %7 = getelementptr i8, ptr %s, i64 136
+  %s.val8.i = load i8, ptr %7, align 8
+  %tobool.i10.i = trunc i8 %s.val8.i to i1
+  br i1 %tobool.i10.i, label %return, label %land.rhs.i
+
+land.rhs.i:                                       ; preds = %land.lhs.true4.i
+  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
+  %8 = load i32, ptr %rd.i, align 4
+  %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
+  %9 = load i32, ptr %rs1.i, align 4
+  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
+  %10 = load i32, ptr %rs2.i, align 4
+  %11 = load i32, ptr %a, align 4
+  %call.i.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %11)
+  br i1 %call.i.i, label %land.rhs.i.i, label %return
+
+land.rhs.i.i:                                     ; preds = %land.rhs.i
+  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
+  %12 = load i8, ptr %lmul.i.i, align 1
+  %cmp.i.i.i = icmp ugt i8 %12, 126
+  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
+
+lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i
+  %cmp3.not.i.i.i.i = icmp ugt i8 %12, 31
+  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %opfwv_widen_check.exit
+
+if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
+  unreachable
+
+opfwv_widen_check.exit:                           ; preds = %lor.rhs.i.i.i
+  %sext.i.i = shl i32 %10, 24
+  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
+  %narrow.i.i.i = sub nuw nsw i8 31, %12
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
+  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
+  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
+  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp4.i.i.i, label %if.then, label %return
+
+if.then:                                          ; preds = %land.rhs.i.i, %opfwv_widen_check.exit
   %call1 = tail call ptr @gen_new_label() #13
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %0 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %0, 7
+  %13 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %13, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -74151,8 +73571,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %1 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %1, null
+  %14 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -74161,81 +73581,77 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %2 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %2 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
+  %15 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %15 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %14, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %3 = load ptr, ptr @tcg_env, align 8
+  %16 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %5 = load ptr, ptr %4, align 8
-  %6 = ptrtoint ptr %3 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
-  %7 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
+  %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %18 = load ptr, ptr %17, align 8
+  %19 = ptrtoint ptr %16 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %18, i64 %19
+  %20 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %18, i64 %20
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %8 = load ptr, ptr @cpu_vstart, align 8
-  %9 = load ptr, ptr @cpu_vl, align 8
-  tail call void @tcg_gen_brcond_i64(i32 noundef 5, ptr noundef %8, ptr noundef %9, ptr noundef %call1) #13
-  %10 = load i32, ptr %a, align 4
-  %bf.value = and i32 %10, 1
-  %lmul = getelementptr inbounds i8, ptr %s, i64 137
-  %11 = load i8, ptr %lmul, align 1
-  %12 = shl i8 %11, 1
-  %13 = and i8 %12, 14
-  %and6.i = zext nneg i8 %13 to i32
+  %21 = load ptr, ptr @cpu_vstart, align 8
+  %22 = load ptr, ptr @cpu_vl, align 8
+  tail call void @tcg_gen_brcond_i64(i32 noundef 5, ptr noundef %21, ptr noundef %22, ptr noundef %call1) #13
+  %23 = load i32, ptr %a, align 4
+  %bf.value = and i32 %23, 1
+  %24 = load i8, ptr %lmul.i.i, align 1
+  %25 = shl i8 %24, 1
+  %26 = and i8 %25, 14
+  %and6.i = zext nneg i8 %26 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %14 = load i8, ptr %vta, align 1
-  %15 = shl i8 %14, 4
-  %16 = and i8 %15, 16
-  %and6.i33 = zext nneg i8 %16 to i32
+  %27 = load i8, ptr %vta, align 1
+  %28 = shl i8 %27, 4
+  %29 = and i8 %28, 16
+  %and6.i33 = zext nneg i8 %29 to i32
   %or.i34 = or disjoint i32 %or.i, %and6.i33
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %17 = load i8, ptr %vma, align 4
-  %18 = shl i8 %17, 6
-  %19 = and i8 %18, 64
-  %and6.i38 = zext nneg i8 %19 to i32
+  %30 = load i8, ptr %vma, align 4
+  %31 = shl i8 %30, 6
+  %32 = and i8 %31, 64
+  %and6.i38 = zext nneg i8 %32 to i32
   %or.i39 = or disjoint i32 %or.i34, %and6.i38
-  %rd = getelementptr inbounds i8, ptr %a, i64 4
-  %20 = load i32, ptr %rd, align 4
-  %21 = getelementptr i8, ptr %s, i64 128
-  %s.val = load ptr, ptr %21, align 8
-  %22 = getelementptr i8, ptr %s.val, i64 152
-  %s.val.val = load i16, ptr %22, align 8
+  %33 = load i32, ptr %rd.i, align 4
+  %34 = getelementptr i8, ptr %s, i64 128
+  %s.val = load ptr, ptr %34, align 8
+  %35 = getelementptr i8, ptr %s.val, i64 152
+  %s.val.val = load i16, ptr %35, align 8
   %conv.i = zext i16 %s.val.val to i32
-  %mul.i = mul i32 %20, %conv.i
+  %mul.i = mul i32 %33, %conv.i
   %div.i = sdiv i32 %mul.i, 8
   %narrow.i = add nsw i32 %div.i, 512
-  %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %23 = load i32, ptr %rs1, align 4
-  %mul.i45 = mul i32 %23, %conv.i
+  %36 = load i32, ptr %rs1.i, align 4
+  %mul.i45 = mul i32 %36, %conv.i
   %div.i46 = sdiv i32 %mul.i45, 8
   %narrow.i47 = add nsw i32 %div.i46, 512
-  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
-  %24 = load i32, ptr %rs2, align 4
-  %mul.i49 = mul i32 %24, %conv.i
+  %37 = load i32, ptr %rs2.i, align 4
+  %mul.i49 = mul i32 %37, %conv.i
   %div.i50 = sdiv i32 %mul.i49, 8
   %narrow.i51 = add nsw i32 %div.i50, 512
-  %25 = load ptr, ptr @tcg_env, align 8
-  %26 = lshr i16 %s.val.val, 3
-  %div = zext nneg i16 %26 to i32
-  %sew = getelementptr inbounds i8, ptr %s, i64 138
-  %27 = load i8, ptr %sew, align 2
-  %conv49 = zext i8 %27 to i64
+  %38 = load ptr, ptr @tcg_env, align 8
+  %39 = lshr i16 %s.val.val, 3
+  %div = zext nneg i16 %39 to i32
+  %40 = load i8, ptr %sew.i.i, align 2
+  %conv49 = zext i8 %40 to i64
   %sub = add nsw i64 %conv49, -1
   %arrayidx = getelementptr [2 x ptr], ptr @trans_vfwsub_wv.fns, i64 0, i64 %sub
-  %28 = load ptr, ptr %arrayidx, align 8
-  tail call void @tcg_gen_gvec_4_ptr(i32 noundef %narrow.i, i32 noundef 512, i32 noundef %narrow.i47, i32 noundef %narrow.i51, ptr noundef %25, i32 noundef %div, i32 noundef %div, i32 noundef %or.i39, ptr noundef %28) #13
+  %41 = load ptr, ptr %arrayidx, align 8
+  tail call void @tcg_gen_gvec_4_ptr(i32 noundef %narrow.i, i32 noundef 512, i32 noundef %narrow.i47, i32 noundef %narrow.i51, ptr noundef %38, i32 noundef %div, i32 noundef %div, i32 noundef %or.i39, ptr noundef %41) #13
   tail call void @gen_set_label(ptr noundef %call1) #13
   br label %return
 
-return:                                           ; preds = %entry, %gen_set_rm.exit
-  ret i1 %call
+return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %land.lhs.true4.i, %opfwv_widen_check.exit, %gen_set_rm.exit
+  %42 = phi i1 [ false, %opfwv_widen_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true4.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
+  ret i1 %42
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -75155,10 +74571,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -75166,8 +74582,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -75279,10 +74695,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -75290,8 +74706,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -75403,10 +74819,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -75414,8 +74830,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -75527,10 +74943,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -75538,8 +74954,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -75651,10 +75067,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -75662,8 +75078,8 @@ require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
 
 vext_check_ss.exit.i.i.i:                         ; preds = %require_align.exit.i.i.i.i
   %sext16.i.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
-  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i8.i.i.i.i
+  %conv2.i7.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
+  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i7.i.i.i.i
   %cmp4.i12.i.i.i.i = icmp eq i32 %and.i.i11.i.i.i.i, 0
   br i1 %cmp4.i12.i.i.i.i, label %opivv_check.exit.i, label %return
 
@@ -75784,10 +75200,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -75795,8 +75211,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -75958,10 +75374,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -75969,8 +75385,8 @@ require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
 
 vext_check_ss.exit.i.i.i:                         ; preds = %require_align.exit.i.i.i.i
   %sext16.i.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
-  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i8.i.i.i.i
+  %conv2.i7.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
+  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i7.i.i.i.i
   %cmp4.i12.i.i.i.i = icmp eq i32 %and.i.i11.i.i.i.i, 0
   br i1 %cmp4.i12.i.i.i.i, label %opivv_check.exit.i, label %return
 
@@ -76091,10 +75507,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -76102,8 +75518,8 @@ require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
 
 vext_check_ss.exit.i.i.i:                         ; preds = %require_align.exit.i.i.i.i
   %sext16.i.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
-  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i8.i.i.i.i
+  %conv2.i7.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
+  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i7.i.i.i.i
   %cmp4.i12.i.i.i.i = icmp eq i32 %and.i.i11.i.i.i.i, 0
   br i1 %cmp4.i12.i.i.i.i, label %opivv_check.exit.i, label %return
 
@@ -76224,10 +75640,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -76235,8 +75651,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -76348,10 +75764,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -76359,8 +75775,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -76472,10 +75888,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -76483,8 +75899,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -76596,10 +76012,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %7 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %7
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -76607,8 +76023,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %4, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %return
 
@@ -76718,10 +76134,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -76729,8 +76145,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -76789,10 +76205,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -76800,8 +76216,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -76860,10 +76276,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -76871,8 +76287,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -76923,11 +76339,12 @@ extract64.exit.i.i:                               ; preds = %if.then.i
   %narrow.i.i = add nsw i32 %div.i.i, 512
   %conv7.i = zext nneg i8 %7 to i32
   %conv5.i.i = zext i32 %11 to i64
-  %sub4.i.i.i = sub nuw nsw i64 61, %idxprom
-  %shr6.i.i.i = lshr i64 -1, %sub4.i.i.i
+  %narrow.i28.i = sub nuw nsw i8 61, %7
+  %sh_prom5.i.i.i = zext nneg i8 %narrow.i28.i to i64
+  %shr6.i.i.i = lshr i64 -1, %sh_prom5.i.i.i
   %and.i5.i.i = and i64 %shr6.i.i.i, %conv5.i.i
-  %conv.i28.i = sext i8 %6 to i32
-  %sub2.i.i = sub nsw i32 3, %conv.i28.i
+  %conv.i29.i = sext i8 %6 to i32
+  %sub2.i.i = sub nsw i32 3, %conv.i29.i
   %shr.i.i = lshr i32 %conv.i.i, %sub2.i.i
   tail call void @tcg_gen_gvec_shli(i32 noundef %conv7.i, i32 noundef %narrow.i.i, i32 noundef %narrow.i27.i, i64 noundef %and.i5.i.i, i32 noundef %shr.i.i, i32 noundef %shr.i.i) #13
   br label %return
@@ -77257,10 +76674,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -77268,8 +76685,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -77320,11 +76737,12 @@ extract64.exit.i.i:                               ; preds = %if.then.i
   %narrow.i.i = add nsw i32 %div.i.i, 512
   %conv7.i = zext nneg i8 %7 to i32
   %conv5.i.i = zext i32 %11 to i64
-  %sub4.i.i.i = sub nuw nsw i64 61, %idxprom
-  %shr6.i.i.i = lshr i64 -1, %sub4.i.i.i
+  %narrow.i28.i = sub nuw nsw i8 61, %7
+  %sh_prom5.i.i.i = zext nneg i8 %narrow.i28.i to i64
+  %shr6.i.i.i = lshr i64 -1, %sh_prom5.i.i.i
   %and.i5.i.i = and i64 %shr6.i.i.i, %conv5.i.i
-  %conv.i28.i = sext i8 %6 to i32
-  %sub2.i.i = sub nsw i32 3, %conv.i28.i
+  %conv.i29.i = sext i8 %6 to i32
+  %sub2.i.i = sub nsw i32 3, %conv.i29.i
   %shr.i.i = lshr i32 %conv.i.i, %sub2.i.i
   tail call void @tcg_gen_gvec_shri(i32 noundef %conv7.i, i32 noundef %narrow.i.i, i32 noundef %narrow.i27.i, i64 noundef %and.i5.i.i, i32 noundef %shr.i.i, i32 noundef %shr.i.i) #13
   br label %return
@@ -77379,10 +76797,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -77390,8 +76808,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -77442,11 +76860,12 @@ extract64.exit.i.i:                               ; preds = %if.then.i
   %narrow.i.i = add nsw i32 %div.i.i, 512
   %conv7.i = zext nneg i8 %7 to i32
   %conv5.i.i = zext i32 %11 to i64
-  %sub4.i.i.i = sub nuw nsw i64 61, %idxprom
-  %shr6.i.i.i = lshr i64 -1, %sub4.i.i.i
+  %narrow.i28.i = sub nuw nsw i8 61, %7
+  %sh_prom5.i.i.i = zext nneg i8 %narrow.i28.i to i64
+  %shr6.i.i.i = lshr i64 -1, %sh_prom5.i.i.i
   %and.i5.i.i = and i64 %shr6.i.i.i, %conv5.i.i
-  %conv.i28.i = sext i8 %6 to i32
-  %sub2.i.i = sub nsw i32 3, %conv.i28.i
+  %conv.i29.i = sext i8 %6 to i32
+  %sub2.i.i = sub nsw i32 3, %conv.i29.i
   %shr.i.i = lshr i32 %conv.i.i, %sub2.i.i
   tail call void @tcg_gen_gvec_sari(i32 noundef %conv7.i, i32 noundef %narrow.i.i, i32 noundef %narrow.i27.i, i64 noundef %and.i5.i.i, i32 noundef %shr.i.i, i32 noundef %shr.i.i) #13
   br label %return
@@ -77501,10 +76920,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -77512,8 +76931,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -77572,10 +76991,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -77583,8 +77002,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -77846,10 +77265,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -77857,8 +77276,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -77917,10 +77336,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -77928,8 +77347,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -77988,10 +77407,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -77999,8 +77418,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -78059,10 +77478,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -78070,8 +77489,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -78130,10 +77549,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -78141,8 +77560,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -78276,10 +77695,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -78287,8 +77706,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 opivx_check.exit.i:                               ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %3, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %land.rhs.i, label %return
 
@@ -78356,10 +77775,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -78367,8 +77786,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -78502,10 +77921,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -78513,8 +77932,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -78648,10 +78067,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -78659,8 +78078,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -78719,10 +78138,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -78730,8 +78149,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -78957,101 +78376,13 @@ return:                                           ; preds = %land.rhs.i, %land.l
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfdiv_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -79059,8 +78390,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -79069,168 +78400,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfdiv_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfrdiv_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -79238,8 +78479,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -79248,168 +78489,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfrdiv_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfmul_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -79417,8 +78568,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -79427,168 +78578,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfmul_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfrsub_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -79596,8 +78657,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -79606,168 +78667,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfrsub_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfmadd_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -79775,8 +78746,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -79785,168 +78756,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfmadd_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfnmadd_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -79954,8 +78835,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -79964,168 +78845,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfnmadd_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfmsub_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -80133,8 +78924,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -80143,168 +78934,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfmsub_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfnmsub_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -80312,8 +79013,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -80322,168 +79023,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfnmsub_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfmacc_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -80491,8 +79102,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -80501,168 +79112,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfmacc_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfnmacc_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -80670,8 +79191,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -80680,168 +79201,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfnmacc_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfmsac_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -80849,8 +79280,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -80859,168 +79290,78 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfmsac_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @trans_vfnmsac_vf(ptr nocapture noundef %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfvf_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfvf_check.exit, label %return
-
-opfvf_check.exit:                                 ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfvf_check.exit
+if.then:                                          ; preds = %entry
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, 7
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, 7
   br i1 %cmp.i, label %gen_set_rm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -81028,8 +79369,8 @@ if.end.i:                                         ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %16 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %1 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -81038,68 +79379,66 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %17 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %16, i64 40
+  %2 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %1, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %18 = load ptr, ptr @tcg_env, align 8
+  %3 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef 7) #13
-  %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %20, i64 %22
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %3 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 %6
+  %7 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 %7
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
-  %.pre = load i32, ptr %a, align 4
-  %.pre39 = load i8, ptr %lmul.i.i, align 1
-  %.pre40 = load i32, ptr %rd.i, align 4
-  %.pre41 = load i32, ptr %rs2.i, align 4
-  %.pre42 = load i8, ptr %sew.i.i, align 2
   br label %gen_set_rm.exit
 
 gen_set_rm.exit:                                  ; preds = %if.then, %decode_save_opc.exit.i
-  %23 = phi i8 [ %2, %if.then ], [ %.pre42, %decode_save_opc.exit.i ]
-  %24 = phi i32 [ %11, %if.then ], [ %.pre41, %decode_save_opc.exit.i ]
-  %25 = phi i32 [ %10, %if.then ], [ %.pre40, %decode_save_opc.exit.i ]
-  %26 = phi i8 [ %14, %if.then ], [ %.pre39, %decode_save_opc.exit.i ]
-  %27 = phi i32 [ %12, %if.then ], [ %.pre, %decode_save_opc.exit.i ]
-  %bf.value = and i32 %27, 1
-  %28 = shl i8 %26, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+  %8 = load i32, ptr %a, align 4
+  %bf.value = and i32 %8, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %9 = load i8, ptr %lmul, align 1
+  %10 = shl i8 %9, 1
+  %11 = and i8 %10, 14
+  %and6.i = zext nneg i8 %11 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i26 = zext nneg i8 %32 to i32
+  %12 = load i8, ptr %vta, align 1
+  %13 = shl i8 %12, 4
+  %14 = and i8 %13, 16
+  %and6.i26 = zext nneg i8 %14 to i32
   %or.i27 = or disjoint i32 %or.i, %and6.i26
   %cfg_vta_all_1s = getelementptr inbounds i8, ptr %s, i64 141
-  %33 = load i8, ptr %cfg_vta_all_1s, align 1
-  %34 = shl i8 %33, 5
-  %35 = and i8 %34, 32
-  %and6.i31 = zext nneg i8 %35 to i32
+  %15 = load i8, ptr %cfg_vta_all_1s, align 1
+  %16 = shl i8 %15, 5
+  %17 = and i8 %16, 32
+  %and6.i31 = zext nneg i8 %17 to i32
   %or.i32 = or disjoint i32 %or.i27, %and6.i31
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %36 = load i8, ptr %vma, align 4
-  %37 = shl i8 %36, 6
-  %38 = and i8 %37, 64
-  %and6.i36 = zext nneg i8 %38 to i32
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i36 = zext nneg i8 %20 to i32
   %or.i37 = or disjoint i32 %or.i32, %and6.i36
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %39 = load i32, ptr %rs1, align 4
-  %conv51 = zext i8 %23 to i64
+  %22 = load i32, ptr %rs1, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %23 = load i32, ptr %rs2, align 4
+  %sew = getelementptr inbounds i8, ptr %s, i64 138
+  %24 = load i8, ptr %sew, align 2
+  %conv51 = zext i8 %24 to i64
   %sub = add nsw i64 %conv51, -1
   %arrayidx = getelementptr [3 x ptr], ptr @trans_vfnmsac_vf.fns, i64 0, i64 %sub
-  %40 = load ptr, ptr %arrayidx, align 8
-  tail call fastcc void @opfvf_trans(i32 noundef %25, i32 noundef %39, i32 noundef %24, i32 noundef %or.i37, ptr noundef %40, ptr noundef nonnull %s)
+  %25 = load ptr, ptr %arrayidx, align 8
+  tail call fastcc void @opfvf_trans(i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %or.i37, ptr noundef %25, ptr noundef nonnull %s)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfvf_check.exit, %gen_set_rm.exit
-  %41 = phi i1 [ false, %opfvf_check.exit ], [ true, %gen_set_rm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %41
+return:                                           ; preds = %entry, %gen_set_rm.exit
+  ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -81436,11 +79775,10 @@ land.lhs.true11.i.i.i:                            ; preds = %land.lhs.true5.i.i.
   br i1 %cmp.i.i.i.i, label %opfwf_widen_check.exit, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true11.i.i.i
-  %add15.i.i.i = add nuw nsw i8 %11, 1
-  %conv.i.i.i.i = zext nneg i8 %add15.i.i.i to i32
   %sext.i.i.i = shl i32 %8, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 31, %11
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -81458,8 +79796,8 @@ extract32.exit.i.i.i:                             ; preds = %require_align.exit.
 
 opfwf_widen_check.exit:                           ; preds = %land.lhs.true11.i.i.i
   %.old.i.i = or i32 %10, %8
-  %.old3.not.i.i.not = icmp eq i32 %.old.i.i, 0
-  br i1 %.old3.not.i.i.not, label %return, label %if.then
+  %.old4.not.i.i.not = icmp eq i32 %.old.i.i, 0
+  br i1 %.old4.not.i.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %extract32.exit.i.i.i, %opfwf_widen_check.exit
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
@@ -81610,11 +79948,10 @@ land.lhs.true11.i.i.i:                            ; preds = %land.lhs.true5.i.i.
   br i1 %cmp.i.i.i.i, label %opfwf_widen_check.exit, label %require_align.exit.i.i.i
 
 require_align.exit.i.i.i:                         ; preds = %land.lhs.true11.i.i.i
-  %add15.i.i.i = add nuw nsw i8 %11, 1
-  %conv.i.i.i.i = zext nneg i8 %add15.i.i.i to i32
   %sext.i.i.i = shl i32 %8, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 31, %11
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -81632,8 +79969,8 @@ extract32.exit.i.i.i:                             ; preds = %require_align.exit.
 
 opfwf_widen_check.exit:                           ; preds = %land.lhs.true11.i.i.i
   %.old.i.i = or i32 %10, %8
-  %.old3.not.i.i.not = icmp eq i32 %.old.i.i, 0
-  br i1 %.old3.not.i.i.not, label %return, label %if.then
+  %.old4.not.i.i.not = icmp eq i32 %.old.i.i, 0
+  br i1 %.old4.not.i.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %extract32.exit.i.i.i, %opfwf_widen_check.exit
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
@@ -82510,10 +80847,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -82521,8 +80858,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -82581,10 +80918,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -82592,8 +80929,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -82652,10 +80989,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -82663,8 +81000,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -82723,10 +81060,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -82734,8 +81071,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -82794,10 +81131,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -82805,8 +81142,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 opivx_check.exit.i:                               ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %3, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %land.rhs.i, label %return
 
@@ -82874,10 +81211,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -82885,8 +81222,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.end, label %return
 
@@ -83027,10 +81364,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -83038,8 +81375,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 opivx_check.exit.i:                               ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %3, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %land.rhs.i, label %return
 
@@ -83107,10 +81444,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i.i = shl i32 %2, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -83118,8 +81455,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 opivx_check.exit.i:                               ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %3, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i8.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %shr5.i.i.i.i.i, %conv2.i7.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %land.rhs.i, label %return
 
@@ -83187,10 +81524,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -83198,8 +81535,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -83258,10 +81595,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -83269,8 +81606,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -83329,10 +81666,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -83340,8 +81677,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -83400,10 +81737,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %6 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -83411,8 +81748,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 opivx_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %3, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -83636,11 +81973,10 @@ land.lhs.true11.i.i.i.i:                          ; preds = %land.lhs.true5.i.i.
   br i1 %cmp.i.i.i.i.i, label %opiwx_widen_check.exit.i, label %require_align.exit.i.i.i.i
 
 require_align.exit.i.i.i.i:                       ; preds = %land.lhs.true11.i.i.i.i
-  %add15.i.i.i.i = add nuw nsw i8 %7, 1
-  %conv.i.i.i.i.i = zext nneg i8 %add15.i.i.i.i to i32
   %sext.i.i.i.i = shl i32 %4, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 31, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -83658,8 +81994,8 @@ extract32.exit.i.i.i.i:                           ; preds = %require_align.exit.
 
 opiwx_widen_check.exit.i:                         ; preds = %land.lhs.true11.i.i.i.i
   %.old.i.i.i = or i32 %6, %4
-  %.old3.not.i.i.not.i = icmp eq i32 %.old.i.i.i, 0
-  br i1 %.old3.not.i.i.not.i, label %do_opiwx_widen.exit, label %if.then.i
+  %.old4.not.i.i.not.i = icmp eq i32 %.old.i.i.i, 0
+  br i1 %.old4.not.i.i.not.i, label %do_opiwx_widen.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %opiwx_widen_check.exit.i, %extract32.exit.i.i.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
@@ -83720,11 +82056,10 @@ land.lhs.true11.i.i.i.i:                          ; preds = %land.lhs.true5.i.i.
   br i1 %cmp.i.i.i.i.i, label %opiwx_widen_check.exit.i, label %require_align.exit.i.i.i.i
 
 require_align.exit.i.i.i.i:                       ; preds = %land.lhs.true11.i.i.i.i
-  %add15.i.i.i.i = add nuw nsw i8 %7, 1
-  %conv.i.i.i.i.i = zext nneg i8 %add15.i.i.i.i to i32
   %sext.i.i.i.i = shl i32 %4, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 31, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -83742,8 +82077,8 @@ extract32.exit.i.i.i.i:                           ; preds = %require_align.exit.
 
 opiwx_widen_check.exit.i:                         ; preds = %land.lhs.true11.i.i.i.i
   %.old.i.i.i = or i32 %6, %4
-  %.old3.not.i.i.not.i = icmp eq i32 %.old.i.i.i, 0
-  br i1 %.old3.not.i.i.not.i, label %do_opiwx_widen.exit, label %if.then.i
+  %.old4.not.i.i.not.i = icmp eq i32 %.old.i.i.i, 0
+  br i1 %.old4.not.i.i.not.i, label %do_opiwx_widen.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %opiwx_widen_check.exit.i, %extract32.exit.i.i.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
@@ -83804,11 +82139,10 @@ land.lhs.true11.i.i.i.i:                          ; preds = %land.lhs.true5.i.i.
   br i1 %cmp.i.i.i.i.i, label %opiwx_widen_check.exit.i, label %require_align.exit.i.i.i.i
 
 require_align.exit.i.i.i.i:                       ; preds = %land.lhs.true11.i.i.i.i
-  %add15.i.i.i.i = add nuw nsw i8 %7, 1
-  %conv.i.i.i.i.i = zext nneg i8 %add15.i.i.i.i to i32
   %sext.i.i.i.i = shl i32 %4, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 31, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -83826,8 +82160,8 @@ extract32.exit.i.i.i.i:                           ; preds = %require_align.exit.
 
 opiwx_widen_check.exit.i:                         ; preds = %land.lhs.true11.i.i.i.i
   %.old.i.i.i = or i32 %6, %4
-  %.old3.not.i.i.not.i = icmp eq i32 %.old.i.i.i, 0
-  br i1 %.old3.not.i.i.not.i, label %do_opiwx_widen.exit, label %if.then.i
+  %.old4.not.i.i.not.i = icmp eq i32 %.old.i.i.i, 0
+  br i1 %.old4.not.i.i.not.i, label %do_opiwx_widen.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %opiwx_widen_check.exit.i, %extract32.exit.i.i.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
@@ -83888,11 +82222,10 @@ land.lhs.true11.i.i.i.i:                          ; preds = %land.lhs.true5.i.i.
   br i1 %cmp.i.i.i.i.i, label %opiwx_widen_check.exit.i, label %require_align.exit.i.i.i.i
 
 require_align.exit.i.i.i.i:                       ; preds = %land.lhs.true11.i.i.i.i
-  %add15.i.i.i.i = add nuw nsw i8 %7, 1
-  %conv.i.i.i.i.i = zext nneg i8 %add15.i.i.i.i to i32
   %sext.i.i.i.i = shl i32 %4, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 31, %7
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -83910,8 +82243,8 @@ extract32.exit.i.i.i.i:                           ; preds = %require_align.exit.
 
 opiwx_widen_check.exit.i:                         ; preds = %land.lhs.true11.i.i.i.i
   %.old.i.i.i = or i32 %6, %4
-  %.old3.not.i.i.not.i = icmp eq i32 %.old.i.i.i, 0
-  br i1 %.old3.not.i.i.not.i, label %do_opiwx_widen.exit, label %if.then.i
+  %.old4.not.i.i.not.i = icmp eq i32 %.old.i.i.i, 0
+  br i1 %.old4.not.i.i.not.i, label %do_opiwx_widen.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %opiwx_widen_check.exit.i, %extract32.exit.i.i.i.i
   %rs1.i = getelementptr inbounds i8, ptr %a, i64 8
@@ -85164,10 +83497,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %1 to i32
   %sext.i.i.i = shl i32 %7, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %1
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %conv2.i.i.i.i, %shr5.i.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -85175,14 +83508,14 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %8, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %conv2.i8.i.i.i, %shr5.i.i.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %conv2.i7.i.i.i, %shr5.i.i.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %vsm3me_check.exit, label %return
 
 vsm3me_check.exit:                                ; preds = %vext_check_ss.exit.i.i
-  %sext.i7.i = shl i32 %12, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i7.i, 24
+  %sext.i6.i = shl i32 %12, 24
+  %conv2.i.i.i = ashr exact i32 %sext.i6.i, 24
   %and.i.i.i.i = and i32 %conv2.i.i.i, %shr5.i.i.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp4.i.i.i, label %if.then, label %return
@@ -85340,10 +83673,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i4.i = zext nneg i8 %s.val8.i.i to i32
   %sext.i = shl i32 %7, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i4.i
+  %narrow.i.i = sub nuw nsw i8 32, %s.val8.i.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %conv2.i.i, %shr5.i.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -85352,11 +83685,11 @@ require_align.exit.i:                             ; preds = %lor.rhs.i.i
 vsm4k_vi_check.exit:                              ; preds = %require_align.exit.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 12
   %8 = load i32, ptr %rs2.i, align 4
-  %sext19.i = shl i32 %8, 24
-  %conv2.i10.i = ashr exact i32 %sext19.i, 24
-  %and.i.i13.i = and i32 %conv2.i10.i, %shr5.i.i.i
-  %cmp4.i14.i = icmp eq i32 %and.i.i13.i, 0
-  br i1 %cmp4.i14.i, label %if.then, label %return
+  %sext18.i = shl i32 %8, 24
+  %conv2.i8.i = ashr exact i32 %sext18.i, 24
+  %and.i.i12.i = and i32 %conv2.i8.i, %shr5.i.i.i
+  %cmp4.i13.i = icmp eq i32 %and.i.i12.i, 0
+  br i1 %cmp4.i13.i, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true.i, %vsm4k_vi_check.exit
   %call1 = tail call ptr @gen_new_label() #13
@@ -85544,10 +83877,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i13.i = zext nneg i8 %s.val11.i to i32
   %sext.i = shl i32 %7, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i13.i
+  %narrow.i.i = sub nuw nsw i8 32, %s.val11.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %conv2.i.i, %shr5.i.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -85746,31 +84079,31 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i13.i = zext nneg i8 %s.val11.i to i32
   %sext.i = shl i32 %7, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i13.i
+  %narrow.i.i = sub nuw nsw i8 32, %s.val11.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %conv2.i.i, %shr5.i.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp4.i.i, label %require_align.exit25.i, label %return
+  br i1 %cmp4.i.i, label %require_align.exit24.i, label %return
 
-require_align.exit25.i:                           ; preds = %require_align.exit.i
+require_align.exit24.i:                           ; preds = %require_align.exit.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i32, ptr %rs2.i, align 4
-  %sext28.i = shl i32 %8, 24
-  %conv2.i19.i = ashr exact i32 %sext28.i, 24
-  %and.i.i22.i = and i32 %conv2.i19.i, %shr5.i.i.i
-  %cmp4.i23.i = icmp eq i32 %and.i.i22.i, 0
+  %sext27.i = shl i32 %8, 24
+  %conv2.i17.i = ashr exact i32 %sext27.i, 24
+  %and.i.i21.i = and i32 %conv2.i17.i, %shr5.i.i.i
+  %cmp4.i22.i = icmp eq i32 %and.i.i21.i, 0
   %cmp22.i = icmp eq i8 %0, 2
-  %or.cond = select i1 %cmp4.i23.i, i1 %cmp22.i, i1 false
+  %or.cond = select i1 %cmp4.i22.i, i1 %cmp22.i, i1 false
   br i1 %or.cond, label %if.then, label %return
 
 vaes_check_vv.exit:                               ; preds = %land.lhs.true11.i
   %cmp22.i.old = icmp eq i8 %0, 2
   br i1 %cmp22.i.old, label %if.then, label %return
 
-if.then:                                          ; preds = %require_align.exit25.i, %vaes_check_vv.exit
+if.then:                                          ; preds = %require_align.exit24.i, %vaes_check_vv.exit
   %call1 = tail call ptr @gen_new_label() #13
   %vstart_eq_zero = getelementptr inbounds i8, ptr %s, i64 142
   %9 = load i8, ptr %vstart_eq_zero, align 2
@@ -85891,8 +84224,8 @@ if.end:                                           ; preds = %lor.lhs.false.if.en
   tail call void @gen_set_label(ptr noundef %call1) #13
   br label %return
 
-return:                                           ; preds = %entry, %land.lhs.true.i, %land.lhs.true4.i, %land.lhs.true7.i, %require_align.exit.i, %require_align.exit25.i, %vaes_check_vv.exit, %if.end
-  %48 = phi i1 [ false, %vaes_check_vv.exit ], [ true, %if.end ], [ false, %require_align.exit25.i ], [ false, %require_align.exit.i ], [ false, %land.lhs.true7.i ], [ false, %land.lhs.true4.i ], [ false, %land.lhs.true.i ], [ false, %entry ]
+return:                                           ; preds = %entry, %land.lhs.true.i, %land.lhs.true4.i, %land.lhs.true7.i, %require_align.exit.i, %require_align.exit24.i, %vaes_check_vv.exit, %if.end
+  %48 = phi i1 [ false, %vaes_check_vv.exit ], [ true, %if.end ], [ false, %require_align.exit24.i ], [ false, %require_align.exit.i ], [ false, %land.lhs.true7.i ], [ false, %land.lhs.true4.i ], [ false, %land.lhs.true.i ], [ false, %entry ]
   ret i1 %48
 }
 
@@ -85949,31 +84282,31 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i13.i = zext nneg i8 %s.val11.i to i32
   %sext.i = shl i32 %7, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i13.i
+  %narrow.i.i = sub nuw nsw i8 32, %s.val11.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %conv2.i.i, %shr5.i.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp4.i.i, label %require_align.exit25.i, label %return
+  br i1 %cmp4.i.i, label %require_align.exit24.i, label %return
 
-require_align.exit25.i:                           ; preds = %require_align.exit.i
+require_align.exit24.i:                           ; preds = %require_align.exit.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i32, ptr %rs2.i, align 4
-  %sext28.i = shl i32 %8, 24
-  %conv2.i19.i = ashr exact i32 %sext28.i, 24
-  %and.i.i22.i = and i32 %conv2.i19.i, %shr5.i.i.i
-  %cmp4.i23.i = icmp eq i32 %and.i.i22.i, 0
+  %sext27.i = shl i32 %8, 24
+  %conv2.i17.i = ashr exact i32 %sext27.i, 24
+  %and.i.i21.i = and i32 %conv2.i17.i, %shr5.i.i.i
+  %cmp4.i22.i = icmp eq i32 %and.i.i21.i, 0
   %cmp22.i = icmp eq i8 %0, 2
-  %or.cond = select i1 %cmp4.i23.i, i1 %cmp22.i, i1 false
+  %or.cond = select i1 %cmp4.i22.i, i1 %cmp22.i, i1 false
   br i1 %or.cond, label %if.then, label %return
 
 vaes_check_vv.exit:                               ; preds = %land.lhs.true11.i
   %cmp22.i.old = icmp eq i8 %0, 2
   br i1 %cmp22.i.old, label %if.then, label %return
 
-if.then:                                          ; preds = %require_align.exit25.i, %vaes_check_vv.exit
+if.then:                                          ; preds = %require_align.exit24.i, %vaes_check_vv.exit
   %call1 = tail call ptr @gen_new_label() #13
   %vstart_eq_zero = getelementptr inbounds i8, ptr %s, i64 142
   %9 = load i8, ptr %vstart_eq_zero, align 2
@@ -86094,8 +84427,8 @@ if.end:                                           ; preds = %lor.lhs.false.if.en
   tail call void @gen_set_label(ptr noundef %call1) #13
   br label %return
 
-return:                                           ; preds = %entry, %land.lhs.true.i, %land.lhs.true4.i, %land.lhs.true7.i, %require_align.exit.i, %require_align.exit25.i, %vaes_check_vv.exit, %if.end
-  %48 = phi i1 [ false, %vaes_check_vv.exit ], [ true, %if.end ], [ false, %require_align.exit25.i ], [ false, %require_align.exit.i ], [ false, %land.lhs.true7.i ], [ false, %land.lhs.true4.i ], [ false, %land.lhs.true.i ], [ false, %entry ]
+return:                                           ; preds = %entry, %land.lhs.true.i, %land.lhs.true4.i, %land.lhs.true7.i, %require_align.exit.i, %require_align.exit24.i, %vaes_check_vv.exit, %if.end
+  %48 = phi i1 [ false, %vaes_check_vv.exit ], [ true, %if.end ], [ false, %require_align.exit24.i ], [ false, %require_align.exit.i ], [ false, %land.lhs.true7.i ], [ false, %land.lhs.true4.i ], [ false, %land.lhs.true.i ], [ false, %entry ]
   ret i1 %48
 }
 
@@ -86152,31 +84485,31 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i13.i = zext nneg i8 %s.val11.i to i32
   %sext.i = shl i32 %7, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i13.i
+  %narrow.i.i = sub nuw nsw i8 32, %s.val11.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %conv2.i.i, %shr5.i.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp4.i.i, label %require_align.exit25.i, label %return
+  br i1 %cmp4.i.i, label %require_align.exit24.i, label %return
 
-require_align.exit25.i:                           ; preds = %require_align.exit.i
+require_align.exit24.i:                           ; preds = %require_align.exit.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i32, ptr %rs2.i, align 4
-  %sext28.i = shl i32 %8, 24
-  %conv2.i19.i = ashr exact i32 %sext28.i, 24
-  %and.i.i22.i = and i32 %conv2.i19.i, %shr5.i.i.i
-  %cmp4.i23.i = icmp eq i32 %and.i.i22.i, 0
+  %sext27.i = shl i32 %8, 24
+  %conv2.i17.i = ashr exact i32 %sext27.i, 24
+  %and.i.i21.i = and i32 %conv2.i17.i, %shr5.i.i.i
+  %cmp4.i22.i = icmp eq i32 %and.i.i21.i, 0
   %cmp22.i = icmp eq i8 %0, 2
-  %or.cond = select i1 %cmp4.i23.i, i1 %cmp22.i, i1 false
+  %or.cond = select i1 %cmp4.i22.i, i1 %cmp22.i, i1 false
   br i1 %or.cond, label %if.then, label %return
 
 vaes_check_vv.exit:                               ; preds = %land.lhs.true11.i
   %cmp22.i.old = icmp eq i8 %0, 2
   br i1 %cmp22.i.old, label %if.then, label %return
 
-if.then:                                          ; preds = %require_align.exit25.i, %vaes_check_vv.exit
+if.then:                                          ; preds = %require_align.exit24.i, %vaes_check_vv.exit
   %call1 = tail call ptr @gen_new_label() #13
   %vstart_eq_zero = getelementptr inbounds i8, ptr %s, i64 142
   %9 = load i8, ptr %vstart_eq_zero, align 2
@@ -86297,8 +84630,8 @@ if.end:                                           ; preds = %lor.lhs.false.if.en
   tail call void @gen_set_label(ptr noundef %call1) #13
   br label %return
 
-return:                                           ; preds = %entry, %land.lhs.true.i, %land.lhs.true4.i, %land.lhs.true7.i, %require_align.exit.i, %require_align.exit25.i, %vaes_check_vv.exit, %if.end
-  %48 = phi i1 [ false, %vaes_check_vv.exit ], [ true, %if.end ], [ false, %require_align.exit25.i ], [ false, %require_align.exit.i ], [ false, %land.lhs.true7.i ], [ false, %land.lhs.true4.i ], [ false, %land.lhs.true.i ], [ false, %entry ]
+return:                                           ; preds = %entry, %land.lhs.true.i, %land.lhs.true4.i, %land.lhs.true7.i, %require_align.exit.i, %require_align.exit24.i, %vaes_check_vv.exit, %if.end
+  %48 = phi i1 [ false, %vaes_check_vv.exit ], [ true, %if.end ], [ false, %require_align.exit24.i ], [ false, %require_align.exit.i ], [ false, %land.lhs.true7.i ], [ false, %land.lhs.true4.i ], [ false, %land.lhs.true.i ], [ false, %entry ]
   ret i1 %48
 }
 
@@ -86355,31 +84688,31 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i13.i = zext nneg i8 %s.val11.i to i32
   %sext.i = shl i32 %7, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i13.i
+  %narrow.i.i = sub nuw nsw i8 32, %s.val11.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %conv2.i.i, %shr5.i.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp4.i.i, label %require_align.exit25.i, label %return
+  br i1 %cmp4.i.i, label %require_align.exit24.i, label %return
 
-require_align.exit25.i:                           ; preds = %require_align.exit.i
+require_align.exit24.i:                           ; preds = %require_align.exit.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i32, ptr %rs2.i, align 4
-  %sext28.i = shl i32 %8, 24
-  %conv2.i19.i = ashr exact i32 %sext28.i, 24
-  %and.i.i22.i = and i32 %conv2.i19.i, %shr5.i.i.i
-  %cmp4.i23.i = icmp eq i32 %and.i.i22.i, 0
+  %sext27.i = shl i32 %8, 24
+  %conv2.i17.i = ashr exact i32 %sext27.i, 24
+  %and.i.i21.i = and i32 %conv2.i17.i, %shr5.i.i.i
+  %cmp4.i22.i = icmp eq i32 %and.i.i21.i, 0
   %cmp22.i = icmp eq i8 %0, 2
-  %or.cond = select i1 %cmp4.i23.i, i1 %cmp22.i, i1 false
+  %or.cond = select i1 %cmp4.i22.i, i1 %cmp22.i, i1 false
   br i1 %or.cond, label %if.then, label %return
 
 vaes_check_vv.exit:                               ; preds = %land.lhs.true11.i
   %cmp22.i.old = icmp eq i8 %0, 2
   br i1 %cmp22.i.old, label %if.then, label %return
 
-if.then:                                          ; preds = %require_align.exit25.i, %vaes_check_vv.exit
+if.then:                                          ; preds = %require_align.exit24.i, %vaes_check_vv.exit
   %call1 = tail call ptr @gen_new_label() #13
   %vstart_eq_zero = getelementptr inbounds i8, ptr %s, i64 142
   %9 = load i8, ptr %vstart_eq_zero, align 2
@@ -86500,8 +84833,8 @@ if.end:                                           ; preds = %lor.lhs.false.if.en
   tail call void @gen_set_label(ptr noundef %call1) #13
   br label %return
 
-return:                                           ; preds = %entry, %land.lhs.true.i, %land.lhs.true4.i, %land.lhs.true7.i, %require_align.exit.i, %require_align.exit25.i, %vaes_check_vv.exit, %if.end
-  %48 = phi i1 [ false, %vaes_check_vv.exit ], [ true, %if.end ], [ false, %require_align.exit25.i ], [ false, %require_align.exit.i ], [ false, %land.lhs.true7.i ], [ false, %land.lhs.true4.i ], [ false, %land.lhs.true.i ], [ false, %entry ]
+return:                                           ; preds = %entry, %land.lhs.true.i, %land.lhs.true4.i, %land.lhs.true7.i, %require_align.exit.i, %require_align.exit24.i, %vaes_check_vv.exit, %if.end
+  %48 = phi i1 [ false, %vaes_check_vv.exit ], [ true, %if.end ], [ false, %require_align.exit24.i ], [ false, %require_align.exit.i ], [ false, %land.lhs.true7.i ], [ false, %land.lhs.true4.i ], [ false, %land.lhs.true.i ], [ false, %entry ]
   ret i1 %48
 }
 
@@ -86560,10 +84893,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i4.i = zext nneg i8 %s.val8.i.i to i32
   %sext.i = shl i32 %7, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i4.i
+  %narrow.i.i = sub nuw nsw i8 32, %s.val8.i.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %conv2.i.i, %shr5.i.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -86572,11 +84905,11 @@ require_align.exit.i:                             ; preds = %lor.rhs.i.i
 vsm4r_vv_check.exit:                              ; preds = %require_align.exit.i
   %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i32, ptr %rs2.i, align 4
-  %sext19.i = shl i32 %8, 24
-  %conv2.i10.i = ashr exact i32 %sext19.i, 24
-  %and.i.i13.i = and i32 %conv2.i10.i, %shr5.i.i.i
-  %cmp4.i14.i = icmp eq i32 %and.i.i13.i, 0
-  br i1 %cmp4.i14.i, label %if.then, label %return
+  %sext18.i = shl i32 %8, 24
+  %conv2.i8.i = ashr exact i32 %sext18.i, 24
+  %and.i.i12.i = and i32 %conv2.i8.i, %shr5.i.i.i
+  %cmp4.i13.i = icmp eq i32 %and.i.i12.i, 0
+  br i1 %cmp4.i13.i, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true.i, %vsm4r_vv_check.exit
   %call1 = tail call ptr @gen_new_label() #13
@@ -86765,10 +85098,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %s.val11.i to i32
   %sext.i.i = shl i32 %7, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %s.val11.i
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %conv2.i.i.i, %shr5.i.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -86776,8 +85109,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 vext_check_ss.exit.i:                             ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %8, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %conv2.i8.i.i, %shr5.i.i.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %conv2.i7.i.i, %shr5.i.i.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   %cmp16.i = icmp eq i8 %0, 2
   %or.cond = select i1 %cmp4.i12.i.i, i1 %cmp16.i, i1 false
@@ -86986,10 +85319,11 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
   %sext.i = shl i32 %a.val, 24
-  %conv2.i17.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv2.i.i
+  %conv2.i16.i = ashr exact i32 %sext.i, 24
+  %narrow.i.i = sub nuw nsw i8 32, %s.val13.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
-  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i17.i
+  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i16.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
   %cmp21.i = icmp eq i8 %2, 2
   %or.cond = select i1 %cmp4.i.i, i1 %cmp21.i, i1 false
@@ -87198,10 +85532,11 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
   %sext.i = shl i32 %a.val, 24
-  %conv2.i17.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv2.i.i
+  %conv2.i16.i = ashr exact i32 %sext.i, 24
+  %narrow.i.i = sub nuw nsw i8 32, %s.val13.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
-  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i17.i
+  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i16.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
   %cmp21.i = icmp eq i8 %2, 2
   %or.cond = select i1 %cmp4.i.i, i1 %cmp21.i, i1 false
@@ -87410,10 +85745,11 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
   %sext.i = shl i32 %a.val, 24
-  %conv2.i17.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv2.i.i
+  %conv2.i16.i = ashr exact i32 %sext.i, 24
+  %narrow.i.i = sub nuw nsw i8 32, %s.val13.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
-  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i17.i
+  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i16.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
   %cmp21.i = icmp eq i8 %2, 2
   %or.cond = select i1 %cmp4.i.i, i1 %cmp21.i, i1 false
@@ -87622,10 +85958,11 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
   %sext.i = shl i32 %a.val, 24
-  %conv2.i17.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv2.i.i
+  %conv2.i16.i = ashr exact i32 %sext.i, 24
+  %narrow.i.i = sub nuw nsw i8 32, %s.val13.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
-  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i17.i
+  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i16.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
   %cmp21.i = icmp eq i8 %2, 2
   %or.cond = select i1 %cmp4.i.i, i1 %cmp21.i, i1 false
@@ -87834,10 +86171,11 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
   %sext.i = shl i32 %a.val, 24
-  %conv2.i17.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv2.i.i
+  %conv2.i16.i = ashr exact i32 %sext.i, 24
+  %narrow.i.i = sub nuw nsw i8 32, %s.val13.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
-  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i17.i
+  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i16.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
   %cmp21.i = icmp eq i8 %2, 2
   %or.cond = select i1 %cmp4.i.i, i1 %cmp21.i, i1 false
@@ -88048,10 +86386,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 vsm4r_vs_check.exit:                              ; preds = %lor.rhs.i.i
-  %conv.i7.i = zext nneg i8 %s.val8.i.i to i32
-  %sext8.i = shl i32 %7, 24
-  %conv2.i.i = ashr exact i32 %sext8.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i7.i
+  %sext7.i = shl i32 %7, 24
+  %conv2.i.i = ashr exact i32 %sext7.i, 24
+  %narrow.i.i = sub nuw nsw i8 32, %s.val8.i.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %conv2.i.i, %shr5.i.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -88237,10 +86575,10 @@ if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
   unreachable
 
 require_align.exit.i:                             ; preds = %lor.rhs.i.i
-  %conv.i13.i = zext nneg i8 %s.val11.i to i32
   %sext.i = shl i32 %7, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i13.i
+  %narrow.i.i = sub nuw nsw i8 32, %s.val11.i
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %conv2.i.i, %shr5.i.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -88468,10 +86806,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i7.i = zext nneg i8 %1 to i32
-  %sext.i8.i = shl i32 %7, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i8.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i7.i
+  %sext.i7.i = shl i32 %7, 24
+  %conv2.i.i.i = ashr exact i32 %sext.i7.i, 24
+  %narrow.i.i.i = sub nuw nsw i8 32, %1
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %conv2.i.i.i, %shr5.i.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -88479,8 +86817,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 vsm3c_check.exit:                                 ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %8, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %conv2.i8.i.i, %shr5.i.i.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %conv2.i7.i.i, %shr5.i.i.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %if.then, label %return
 
@@ -88667,10 +87005,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
-  %conv.i.i.i.i.i = zext nneg i8 %10 to i32
   %sext.i.i.i.i = shl i32 %5, 24
   %conv2.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i, 24
-  %sub4.i.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i.i
+  %narrow.i.i.i.i.i = sub nuw nsw i8 32, %10
+  %sub4.i.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i.i to i32
   %shr5.i.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i.i
   %and.i.i.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -88678,8 +87016,8 @@ require_align.exit.i.i.i.i:                       ; preds = %lor.rhs.i.i.i.i.i
 
 vext_check_ss.exit.i.i.i:                         ; preds = %require_align.exit.i.i.i.i
   %sext16.i.i.i.i = shl i32 %7, 24
-  %conv2.i8.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
-  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i8.i.i.i.i
+  %conv2.i7.i.i.i.i = ashr exact i32 %sext16.i.i.i.i, 24
+  %and.i.i11.i.i.i.i = and i32 %shr5.i.i.i.i.i.i, %conv2.i7.i.i.i.i
   %cmp4.i12.i.i.i.i = icmp eq i32 %and.i.i11.i.i.i.i, 0
   br i1 %cmp4.i12.i.i.i.i, label %opivv_check.exit.i, label %return
 
@@ -90143,10 +88481,10 @@ land.lhs.true9.i.i:                               ; preds = %land.rhs
   br i1 %cmp.i.i.i, label %land.lhs.true12.i.i, label %require_align.exit.i.i
 
 require_align.exit.i.i:                           ; preds = %land.lhs.true9.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.fr to i32
   %sext.i.i = shl i32 %3, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %add.i.fr
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -90165,12 +88503,12 @@ if.else.i.i17.i.i:                                ; preds = %lor.rhs.i8.i.i
   unreachable
 
 require_align.exit18.i.i:                         ; preds = %lor.rhs.i8.i.i
-  %conv.i11.i.i = zext nneg i8 %s.val7 to i32
   %sext1.i.i = shl i32 %2, 24
-  %conv2.i12.i.i = ashr exact i32 %sext1.i.i, 24
-  %sub4.i.i13.i.i = sub nuw nsw i32 32, %conv.i11.i.i
+  %conv2.i11.i.i = ashr exact i32 %sext1.i.i, 24
+  %narrow.i12.i.i = sub nuw nsw i8 32, %s.val7
+  %sub4.i.i13.i.i = zext nneg i8 %narrow.i12.i.i to i32
   %shr5.i.i14.i.i = lshr i32 -1, %sub4.i.i13.i.i
-  %and.i.i15.i.i = and i32 %shr5.i.i14.i.i, %conv2.i12.i.i
+  %and.i.i15.i.i = and i32 %shr5.i.i14.i.i, %conv2.i11.i.i
   %cmp4.i16.i.i = icmp eq i32 %and.i.i15.i.i, 0
   br i1 %cmp4.i16.i.i, label %vext_check_st_index.exit.i, label %land.end.i
 
@@ -96010,10 +94348,10 @@ if.else.i.i:                                      ; preds = %lor.rhs.i
   unreachable
 
 extract32.exit.i:                                 ; preds = %lor.rhs.i
-  %conv.i = zext nneg i8 %1 to i32
   %sext = shl i32 %vs1, 24
   %conv2.i = ashr exact i32 %sext, 24
-  %sub4.i.i = sub nuw nsw i32 32, %conv.i
+  %narrow.i = sub nuw nsw i8 32, %1
+  %sub4.i.i = zext nneg i8 %narrow.i to i32
   %shr5.i.i = lshr i32 -1, %sub4.i.i
   %and.i.i = and i32 %shr5.i.i, %conv2.i
   %cmp4.i = icmp eq i32 %and.i.i, 0
@@ -96102,10 +94440,10 @@ if.else.i.i:                                      ; preds = %lor.rhs.i
   unreachable
 
 extract32.exit.i:                                 ; preds = %lor.rhs.i
-  %conv.i = zext nneg i8 %s.137.val to i32
   %sext = shl i32 %vs, 24
   %conv2.i = ashr exact i32 %sext, 24
-  %sub4.i.i = sub nuw nsw i32 32, %conv.i
+  %narrow.i = sub nuw nsw i8 32, %s.137.val
+  %sub4.i.i = zext nneg i8 %narrow.i to i32
   %shr5.i.i = lshr i32 -1, %sub4.i.i
   %and.i.i = and i32 %conv2.i, %shr5.i.i
   %cmp4.i = icmp eq i32 %and.i.i, 0
@@ -97255,10 +95593,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %15 to i32
   %sext.i.i = shl i32 %10, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %15
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -97266,8 +95604,8 @@ require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
 
 vext_check_ss.exit.i:                             ; preds = %require_align.exit.i.i
   %sext16.i.i = shl i32 %12, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
+  %conv2.i7.i.i = ashr exact i32 %sext16.i.i, 24
+  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i7.i.i
   %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
   br i1 %cmp4.i12.i.i, label %extract32.exit.i.i, label %land.end
 
@@ -98048,117 +96386,29 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @do_opfv(ptr nocapture noundef %s, ptr nocapture noundef readonly %a, ptr noundef %fn, i32 noundef %rm) unnamed_addr #2 {
 entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val.i = load i32, ptr %0, align 8
-  %cmp.i.not.i = icmp eq i32 %s.val.i, 0
-  br i1 %cmp.i.not.i, label %return, label %land.lhs.true.i
+  %call = tail call fastcc zeroext i1 @opfv_check(ptr noundef %s, ptr noundef %a)
+  br i1 %call, label %if.then, label %return
 
-land.lhs.true.i:                                  ; preds = %entry
-  %mstatus_fs.i.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i.i, align 4
-  %cmp.i7.i = icmp eq i32 %1, 0
-  br i1 %cmp.i7.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %sew.i.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i.i, align 2
-  switch i8 %2, label %return [
-    i8 1, label %require_rvf.exit.i
-    i8 2, label %sw.bb1.i.i
-    i8 3, label %sw.bb4.i.i
-  ]
-
-sw.bb1.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr2.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i.i, align 8
-  %ext_zve32f.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i.i, align 8
-  %tobool3.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i, label %land.lhs.true2.i, label %return
-
-sw.bb4.i.i:                                       ; preds = %if.end.i.i
-  %cfg_ptr5.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i.i, align 8
-  %ext_zve64d.i.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i.i, align 2
-  %tobool6.i.i = trunc i8 %6 to i1
-  br i1 %tobool6.i.i, label %land.lhs.true2.i, label %return
-
-require_rvf.exit.i:                               ; preds = %if.end.i.i
-  %cfg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %7 = load ptr, ptr %cfg_ptr.i.i, align 8
-  %ext_zvfh.i.i = getelementptr inbounds i8, ptr %7, i64 70
-  %8 = load i8, ptr %ext_zvfh.i.i, align 2
-  %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %land.lhs.true2.i, label %return
-
-land.lhs.true2.i:                                 ; preds = %require_rvf.exit.i, %sw.bb4.i.i, %sw.bb1.i.i
-  %9 = getelementptr i8, ptr %s, i64 136
-  %s.val6.i = load i8, ptr %9, align 8
-  %tobool.i8.i = trunc i8 %s.val6.i to i1
-  br i1 %tobool.i8.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %land.lhs.true2.i
-  %rd.i = getelementptr inbounds i8, ptr %a, i64 4
-  %10 = load i32, ptr %rd.i, align 4
-  %rs2.i = getelementptr inbounds i8, ptr %a, i64 8
-  %11 = load i32, ptr %rs2.i, align 4
-  %12 = load i32, ptr %a, align 4
-  %13 = or i32 %12, %10
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %return, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %land.rhs.i
-  %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
-  %14 = load i8, ptr %lmul.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %14, 1
-  br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
-
-lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %14, 32
-  br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
-
-if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %14 to i32
-  %sext.i.i = shl i32 %10, 24
-  %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
-  %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
-  %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
-  %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %opfv_check.exit, label %return
-
-opfv_check.exit:                                  ; preds = %require_align.exit.i.i
-  %sext16.i.i = shl i32 %11, 24
-  %conv2.i8.i.i = ashr exact i32 %sext16.i.i, 24
-  %and.i.i11.i.i = and i32 %shr5.i.i.i.i, %conv2.i8.i.i
-  %cmp4.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
-  br i1 %cmp4.i12.i.i, label %if.then, label %return
-
-if.then:                                          ; preds = %land.lhs.true.i.i, %opfv_check.exit
+if.then:                                          ; preds = %entry
   %call1 = tail call ptr @gen_new_label() #13
   %frm.i = getelementptr inbounds i8, ptr %s, i64 116
-  %15 = load i32, ptr %frm.i, align 4
-  %cmp.i = icmp eq i32 %15, %rm
-  br i1 %cmp.i, label %land.lhs.true.i25, label %if.end.i
+  %0 = load i32, ptr %frm.i, align 4
+  %cmp.i = icmp eq i32 %0, %rm
+  br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
-land.lhs.true.i25:                                ; preds = %if.then
+land.lhs.true.i:                                  ; preds = %if.then
   %frm_valid.i = getelementptr inbounds i8, ptr %s, i64 163
-  %16 = load i8, ptr %frm_valid.i, align 1
-  %tobool.i = trunc i8 %16 to i1
+  %1 = load i8, ptr %frm_valid.i, align 1
+  %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %gen_set_rm_chkfrm.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %land.lhs.true.i25, %if.then
+if.end.i:                                         ; preds = %land.lhs.true.i, %if.then
   store i32 %rm, ptr %frm.i, align 4
   %frm_valid2.i = getelementptr inbounds i8, ptr %s, i64 163
   store i8 1, ptr %frm_valid2.i, align 1
   %insn_start.i.i = getelementptr inbounds i8, ptr %s, i64 168
-  %17 = load ptr, ptr %insn_start.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %17, null
+  %2 = load ptr, ptr %insn_start.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %decode_save_opc.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -98167,68 +96417,169 @@ if.else.i.i:                                      ; preds = %if.end.i
 
 decode_save_opc.exit.i:                           ; preds = %if.end.i
   %opcode.i.i = getelementptr inbounds i8, ptr %s, i64 96
-  %18 = load i32, ptr %opcode.i.i, align 8
-  %conv.i.i = zext i32 %18 to i64
-  %arrayidx.i.i.i.i = getelementptr i8, ptr %17, i64 40
+  %3 = load i32, ptr %opcode.i.i, align 8
+  %conv.i.i = zext i32 %3 to i64
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %2, i64 40
   store i64 %conv.i.i, ptr %arrayidx.i.i.i.i, align 8
   store ptr null, ptr %insn_start.i.i, align 8
-  %19 = load ptr, ptr @tcg_env, align 8
+  %4 = load ptr, ptr @tcg_env, align 8
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef %rm) #13
-  %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %21 = load ptr, ptr %20, align 8
-  %22 = ptrtoint ptr %19 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %21, i64 %22
-  %23 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %21, i64 %23
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %4 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %6, i64 %7
+  %8 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %6, i64 %8
   tail call void @tcg_gen_call2(ptr noundef nonnull @helper_info_set_rounding_mode_chkfrm, ptr noundef null, ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i) #13
   br label %gen_set_rm_chkfrm.exit
 
-gen_set_rm_chkfrm.exit:                           ; preds = %land.lhs.true.i25, %decode_save_opc.exit.i
-  %24 = load ptr, ptr @cpu_vstart, align 8
-  %25 = load ptr, ptr @cpu_vl, align 8
-  tail call void @tcg_gen_brcond_i64(i32 noundef 5, ptr noundef %24, ptr noundef %25, ptr noundef %call1) #13
-  %26 = load i32, ptr %a, align 4
-  %bf.value = and i32 %26, 1
-  %27 = load i8, ptr %lmul.i.i, align 1
-  %28 = shl i8 %27, 1
-  %29 = and i8 %28, 14
-  %and6.i = zext nneg i8 %29 to i32
+gen_set_rm_chkfrm.exit:                           ; preds = %land.lhs.true.i, %decode_save_opc.exit.i
+  %9 = load ptr, ptr @cpu_vstart, align 8
+  %10 = load ptr, ptr @cpu_vl, align 8
+  tail call void @tcg_gen_brcond_i64(i32 noundef 5, ptr noundef %9, ptr noundef %10, ptr noundef %call1) #13
+  %11 = load i32, ptr %a, align 4
+  %bf.value = and i32 %11, 1
+  %lmul = getelementptr inbounds i8, ptr %s, i64 137
+  %12 = load i8, ptr %lmul, align 1
+  %13 = shl i8 %12, 1
+  %14 = and i8 %13, 14
+  %and6.i = zext nneg i8 %14 to i32
   %or.i = or disjoint i32 %bf.value, %and6.i
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %30 = load i8, ptr %vta, align 1
-  %31 = shl i8 %30, 4
-  %32 = and i8 %31, 16
-  %and6.i30 = zext nneg i8 %32 to i32
-  %or.i31 = or disjoint i32 %or.i, %and6.i30
+  %15 = load i8, ptr %vta, align 1
+  %16 = shl i8 %15, 4
+  %17 = and i8 %16, 16
+  %and6.i29 = zext nneg i8 %17 to i32
+  %or.i30 = or disjoint i32 %or.i, %and6.i29
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %33 = load i8, ptr %vma, align 4
-  %34 = shl i8 %33, 6
-  %35 = and i8 %34, 64
-  %and6.i35 = zext nneg i8 %35 to i32
-  %or.i36 = or disjoint i32 %or.i31, %and6.i35
-  %36 = load i32, ptr %rd.i, align 4
-  %37 = getelementptr i8, ptr %s, i64 128
-  %s.val24 = load ptr, ptr %37, align 8
-  %38 = getelementptr i8, ptr %s.val24, i64 152
-  %s.val24.val = load i16, ptr %38, align 8
+  %18 = load i8, ptr %vma, align 4
+  %19 = shl i8 %18, 6
+  %20 = and i8 %19, 64
+  %and6.i34 = zext nneg i8 %20 to i32
+  %or.i35 = or disjoint i32 %or.i30, %and6.i34
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %21 = load i32, ptr %rd, align 4
+  %22 = getelementptr i8, ptr %s, i64 128
+  %s.val24 = load ptr, ptr %22, align 8
+  %23 = getelementptr i8, ptr %s.val24, i64 152
+  %s.val24.val = load i16, ptr %23, align 8
   %conv.i = zext i16 %s.val24.val to i32
-  %mul.i = mul i32 %36, %conv.i
+  %mul.i = mul i32 %21, %conv.i
   %div.i = sdiv i32 %mul.i, 8
   %narrow.i = add nsw i32 %div.i, 512
-  %39 = load i32, ptr %rs2.i, align 4
-  %mul.i42 = mul i32 %39, %conv.i
-  %div.i43 = sdiv i32 %mul.i42, 8
-  %narrow.i44 = add nsw i32 %div.i43, 512
-  %40 = load ptr, ptr @tcg_env, align 8
-  %41 = lshr i16 %s.val24.val, 3
-  %div = zext nneg i16 %41 to i32
-  tail call void @tcg_gen_gvec_3_ptr(i32 noundef %narrow.i, i32 noundef 512, i32 noundef %narrow.i44, ptr noundef %40, i32 noundef %div, i32 noundef %div, i32 noundef %or.i36, ptr noundef %fn) #13
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 8
+  %24 = load i32, ptr %rs2, align 4
+  %mul.i41 = mul i32 %24, %conv.i
+  %div.i42 = sdiv i32 %mul.i41, 8
+  %narrow.i43 = add nsw i32 %div.i42, 512
+  %25 = load ptr, ptr @tcg_env, align 8
+  %26 = lshr i16 %s.val24.val, 3
+  %div = zext nneg i16 %26 to i32
+  tail call void @tcg_gen_gvec_3_ptr(i32 noundef %narrow.i, i32 noundef 512, i32 noundef %narrow.i43, ptr noundef %25, i32 noundef %div, i32 noundef %div, i32 noundef %or.i35, ptr noundef %fn) #13
   tail call void @gen_set_label(ptr noundef %call1) #13
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true.i, %land.rhs.i, %require_align.exit.i.i, %sw.bb1.i.i, %sw.bb4.i.i, %entry, %require_rvf.exit.i, %land.lhs.true2.i, %opfv_check.exit, %gen_set_rm_chkfrm.exit
-  %42 = phi i1 [ false, %opfv_check.exit ], [ true, %gen_set_rm_chkfrm.exit ], [ false, %land.lhs.true2.i ], [ false, %require_rvf.exit.i ], [ false, %entry ], [ false, %sw.bb4.i.i ], [ false, %sw.bb1.i.i ], [ false, %require_align.exit.i.i ], [ false, %land.rhs.i ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i ]
-  ret i1 %42
+return:                                           ; preds = %entry, %gen_set_rm_chkfrm.exit
+  ret i1 %call
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc zeroext i1 @opfv_check(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
+entry:
+  %0 = getelementptr i8, ptr %s, i64 104
+  %s.val = load i32, ptr %0, align 8
+  %cmp.i.not = icmp eq i32 %s.val, 0
+  br i1 %cmp.i.not, label %land.end, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %entry
+  %mstatus_fs.i = getelementptr inbounds i8, ptr %s, i64 100
+  %1 = load i32, ptr %mstatus_fs.i, align 4
+  %cmp.i7 = icmp eq i32 %1, 0
+  br i1 %cmp.i7, label %land.end, label %if.end.i
+
+if.end.i:                                         ; preds = %land.lhs.true
+  %sew.i = getelementptr inbounds i8, ptr %s, i64 138
+  %2 = load i8, ptr %sew.i, align 2
+  switch i8 %2, label %land.end [
+    i8 1, label %require_rvf.exit
+    i8 2, label %sw.bb1.i
+    i8 3, label %sw.bb4.i
+  ]
+
+sw.bb1.i:                                         ; preds = %if.end.i
+  %cfg_ptr2.i = getelementptr inbounds i8, ptr %s, i64 128
+  %3 = load ptr, ptr %cfg_ptr2.i, align 8
+  %ext_zve32f.i = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = load i8, ptr %ext_zve32f.i, align 8
+  %tobool3.i = trunc i8 %4 to i1
+  br i1 %tobool3.i, label %land.lhs.true2, label %land.end
+
+sw.bb4.i:                                         ; preds = %if.end.i
+  %cfg_ptr5.i = getelementptr inbounds i8, ptr %s, i64 128
+  %5 = load ptr, ptr %cfg_ptr5.i, align 8
+  %ext_zve64d.i = getelementptr inbounds i8, ptr %5, i64 50
+  %6 = load i8, ptr %ext_zve64d.i, align 2
+  %tobool6.i = trunc i8 %6 to i1
+  br i1 %tobool6.i, label %land.lhs.true2, label %land.end
+
+require_rvf.exit:                                 ; preds = %if.end.i
+  %cfg_ptr.i = getelementptr inbounds i8, ptr %s, i64 128
+  %7 = load ptr, ptr %cfg_ptr.i, align 8
+  %ext_zvfh.i = getelementptr inbounds i8, ptr %7, i64 70
+  %8 = load i8, ptr %ext_zvfh.i, align 2
+  %tobool.i = trunc i8 %8 to i1
+  br i1 %tobool.i, label %land.lhs.true2, label %land.end
+
+land.lhs.true2:                                   ; preds = %sw.bb1.i, %sw.bb4.i, %require_rvf.exit
+  %9 = getelementptr i8, ptr %s, i64 136
+  %s.val6 = load i8, ptr %9, align 8
+  %tobool.i8 = trunc i8 %s.val6 to i1
+  br i1 %tobool.i8, label %land.end, label %land.rhs
+
+land.rhs:                                         ; preds = %land.lhs.true2
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %10 = load i32, ptr %rd, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 8
+  %11 = load i32, ptr %rs2, align 4
+  %12 = load i32, ptr %a, align 4
+  %13 = or i32 %12, %10
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %land.end, label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %land.rhs
+  %lmul.i = getelementptr inbounds i8, ptr %s, i64 137
+  %14 = load i8, ptr %lmul.i, align 1
+  %cmp.i.i = icmp slt i8 %14, 1
+  br i1 %cmp.i.i, label %land.end, label %lor.rhs.i.i
+
+lor.rhs.i.i:                                      ; preds = %land.lhs.true.i
+  %cmp3.not.i.i.i = icmp ugt i8 %14, 32
+  br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
+
+if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
+  unreachable
+
+require_align.exit.i:                             ; preds = %lor.rhs.i.i
+  %sext.i = shl i32 %10, 24
+  %conv2.i.i = ashr exact i32 %sext.i, 24
+  %narrow.i.i = sub nuw nsw i8 32, %14
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
+  %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
+  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i.i
+  %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
+  br i1 %cmp4.i.i, label %extract32.exit.i6.i, label %land.end
+
+extract32.exit.i6.i:                              ; preds = %require_align.exit.i
+  %sext16.i = shl i32 %11, 24
+  %conv2.i7.i = ashr exact i32 %sext16.i, 24
+  %and.i.i11.i = and i32 %shr5.i.i.i, %conv2.i7.i
+  %cmp4.i12.i = icmp eq i32 %and.i.i11.i, 0
+  br label %land.end
+
+land.end:                                         ; preds = %if.end.i, %land.lhs.true, %extract32.exit.i6.i, %require_align.exit.i, %land.lhs.true.i, %land.rhs, %sw.bb1.i, %sw.bb4.i, %land.lhs.true2, %require_rvf.exit, %entry
+  %15 = phi i1 [ false, %land.lhs.true2 ], [ false, %require_rvf.exit ], [ false, %entry ], [ false, %sw.bb4.i ], [ false, %sw.bb1.i ], [ false, %require_align.exit.i ], [ false, %land.rhs ], [ %cmp4.i12.i, %extract32.exit.i6.i ], [ true, %land.lhs.true.i ], [ false, %land.lhs.true ], [ false, %if.end.i ]
+  ret i1 %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -98521,11 +96872,10 @@ land.lhs.true11.i:                                ; preds = %land.lhs.true5.i
   br i1 %cmp.i.i, label %vext_wide_check_common.exit, label %require_align.exit.i
 
 require_align.exit.i:                             ; preds = %land.lhs.true11.i
-  %add15.i = add nuw nsw i8 %0, 1
-  %conv.i.i = zext nneg i8 %add15.i to i32
   %sext.i = shl i32 %vd, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i.i
+  %narrow.i.i = sub nuw nsw i8 31, %0
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -98536,65 +96886,55 @@ require_align.exit.i:                             ; preds = %land.lhs.true11.i
 
 vext_wide_check_common.exit:                      ; preds = %land.lhs.true11.i
   %.old = or i32 %vm, %vd
-  %.old8.not = icmp eq i32 %.old, 0
-  br i1 %.old8.not, label %land.end, label %land.lhs.true.thread
-
-land.lhs.true.thread:                             ; preds = %vext_wide_check_common.exit
-  %conv11 = trunc i32 %vs to i8
-  br label %land.lhs.true.land.rhs_crit_edge
+  %.old9.not = icmp eq i32 %.old, 0
+  br i1 %.old9.not, label %land.end, label %land.rhs
 
 land.lhs.true:                                    ; preds = %require_align.exit.i
-  %conv = trunc i32 %vs to i8
   %cmp.i6 = icmp eq i8 %0, 0
-  br i1 %cmp.i6, label %land.lhs.true.land.rhs_crit_edge, label %require_align.exit
-
-land.lhs.true.land.rhs_crit_edge:                 ; preds = %land.lhs.true.thread, %land.lhs.true
-  %conv14 = phi i8 [ %conv11, %land.lhs.true.thread ], [ %conv, %land.lhs.true ]
-  %.pre = zext nneg i8 %0 to i32
-  br label %land.rhs
+  br i1 %cmp.i6, label %land.rhs, label %require_align.exit
 
 require_align.exit:                               ; preds = %land.lhs.true
-  %conv.i = zext nneg i8 %0 to i32
   %sext = shl i32 %vs, 24
   %conv2.i = ashr exact i32 %sext, 24
-  %sub4.i.i = sub nuw nsw i32 32, %conv.i
+  %narrow.i7 = sub nuw nsw i8 32, %0
+  %sub4.i.i = zext nneg i8 %narrow.i7 to i32
   %shr5.i.i = lshr i32 -1, %sub4.i.i
   %and.i.i = and i32 %shr5.i.i, %conv2.i
   %cmp4.i = icmp eq i32 %and.i.i, 0
   br i1 %cmp4.i, label %land.rhs, label %land.end
 
-land.rhs:                                         ; preds = %land.lhs.true.land.rhs_crit_edge, %require_align.exit
-  %cmp.i615 = phi i1 [ true, %land.lhs.true.land.rhs_crit_edge ], [ false, %require_align.exit ]
-  %conv13 = phi i8 [ %conv14, %land.lhs.true.land.rhs_crit_edge ], [ %conv, %require_align.exit ]
-  %conv418.i.pre-phi = phi i32 [ %.pre, %land.lhs.true.land.rhs_crit_edge ], [ %conv.i, %require_align.exit ]
+land.rhs:                                         ; preds = %vext_wide_check_common.exit, %land.lhs.true, %require_align.exit
+  %cmp.i615 = phi i1 [ true, %land.lhs.true ], [ false, %require_align.exit ], [ true, %vext_wide_check_common.exit ]
+  %conv14 = trunc i32 %vs to i8
   %conv3 = trunc i32 %vd to i8
   %add = add nsw i8 %0, 1
   %conv17.i = zext nneg i8 %add to i32
   %shl.i = shl nuw i32 1, %conv17.i
   %8 = trunc i32 %shl.i to i8
   %conv3.i = select i1 %cmp.i.i, i8 1, i8 %8
-  %shl10.i = shl nuw i32 1, %conv418.i.pre-phi
+  %conv418.i = zext nneg i8 %0 to i32
+  %shl10.i = shl nuw i32 1, %conv418.i
   %9 = trunc i32 %shl10.i to i8
   %conv13.i = select i1 %cmp.i615, i8 1, i8 %9
   %cmp16.i = icmp sgt i8 %conv3.i, %conv13.i
   br i1 %cmp16.i, label %if.then.i, label %if.end33.i
 
 if.then.i:                                        ; preds = %land.rhs
-  %cmp20.i = icmp sgt i8 %conv13, %conv3
+  %cmp20.i = icmp slt i8 %conv3, %conv14
   %cmp23.i = icmp sgt i8 %0, -1
   %or.cond.i = and i1 %cmp20.i, %cmp23.i
   br i1 %or.cond.i, label %land.lhs.true25.i, label %if.end33.i
 
 land.lhs.true25.i:                                ; preds = %if.then.i
-  %sext9 = shl i32 16777216, %conv17.i
-  %conv1.i.i = ashr exact i32 %sext9, 24
+  %sext10 = shl i32 16777216, %conv17.i
+  %conv1.i.i = ashr exact i32 %sext10, 24
   %add.i.i = add i8 %8, %conv3
   %conv4.i.i = sext i8 %conv13.i to i32
-  %add5.i.i = add i8 %conv13.i, %conv13
+  %add5.i.i = add i8 %conv13.i, %conv14
   %10 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 %add5.i.i)
   %cond.i.i = sext i8 %10 to i32
-  %sext10 = shl i32 %vd, 24
-  %cond18.i.i = ashr exact i32 %sext10, 24
+  %sext11 = shl i32 %vd, 24
+  %cond18.i.i = ashr exact i32 %sext11, 24
   %sub.i.i = sub nsw i32 %cond.i.i, %cond18.i.i
   %add21.i.i = add nsw i32 %conv1.i.i, %conv4.i.i
   %cmp22.i.i = icmp slt i32 %sub.i.i, %add21.i.i
@@ -98614,10 +96954,10 @@ if.end33.i:                                       ; preds = %land.lhs.true27.i, 
   %conv1.i28.i = sext i8 %conv3.i to i32
   %add.i29.i = add i8 %conv3.i, %conv3
   %conv4.i30.i = sext i8 %conv13.i to i32
-  %add5.i31.i = add i8 %conv13.i, %conv13
+  %add5.i31.i = add i8 %conv13.i, %conv14
   %13 = tail call i8 @llvm.smax.i8(i8 %add.i29.i, i8 %add5.i31.i)
   %cond.i32.i = sext i8 %13 to i32
-  %14 = tail call i8 @llvm.smin.i8(i8 %conv3, i8 %conv13)
+  %14 = tail call i8 @llvm.smin.i8(i8 %conv3, i8 %conv14)
   %cond18.i33.i = sext i8 %14 to i32
   %sub.i34.i = sub nsw i32 %cond.i32.i, %cond18.i33.i
   %add21.i35.i = add nsw i32 %conv1.i28.i, %conv4.i30.i
@@ -98925,11 +97265,10 @@ land.lhs.true11.i:                                ; preds = %land.lhs.true5.i
   br i1 %cmp.i.i, label %land.rhs.i, label %require_align.exit.i
 
 require_align.exit.i:                             ; preds = %land.lhs.true11.i
-  %add15.i = add nuw nsw i8 %0, 1
-  %conv.i.i = zext nneg i8 %add15.i to i32
   %sext.i = shl i32 %vs, 24
   %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i.i
+  %narrow.i.i = sub nuw nsw i8 31, %0
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
   %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
   %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i.i
   %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
@@ -98940,12 +97279,12 @@ land.lhs.true18.i:                                ; preds = %require_align.exit.
   br i1 %cmp.i7.i, label %land.rhs.i, label %require_align.exit18.i
 
 require_align.exit18.i:                           ; preds = %land.lhs.true18.i
-  %conv.i11.i = zext nneg i8 %0 to i32
   %sext21.i = shl i32 %vd, 24
-  %conv2.i12.i = ashr exact i32 %sext21.i, 24
-  %sub4.i.i13.i = sub nuw nsw i32 32, %conv.i11.i
+  %conv2.i11.i = ashr exact i32 %sext21.i, 24
+  %narrow.i12.i = sub nuw nsw i8 32, %0
+  %sub4.i.i13.i = zext nneg i8 %narrow.i12.i to i32
   %shr5.i.i14.i = lshr i32 -1, %sub4.i.i13.i
-  %and.i.i15.i = and i32 %shr5.i.i14.i, %conv2.i12.i
+  %and.i.i15.i = and i32 %shr5.i.i14.i, %conv2.i11.i
   %cmp4.i16.i = icmp eq i32 %and.i.i15.i, 0
   br i1 %cmp4.i16.i, label %land.rhs.i, label %vext_narrow_check_common.exit
 
@@ -100787,10 +99126,10 @@ if.else.i.i:                                      ; preds = %lor.rhs.i
   unreachable
 
 require_align.exit:                               ; preds = %lor.rhs.i
-  %conv.i = zext nneg i8 %6 to i32
   %sext = shl i32 %4, 24
   %conv2.i = ashr exact i32 %sext, 24
-  %sub4.i.i = sub nuw nsw i32 32, %conv.i
+  %narrow.i = sub nuw nsw i8 32, %6
+  %sub4.i.i = zext nneg i8 %narrow.i to i32
   %shr5.i.i = lshr i32 -1, %sub4.i.i
   %and.i.i = and i32 %shr5.i.i, %conv2.i
   %cmp4.i = icmp eq i32 %and.i.i, 0
@@ -100811,12 +99150,12 @@ if.else.i.i28:                                    ; preds = %lor.rhs.i19
   unreachable
 
 require_align.exit29:                             ; preds = %lor.rhs.i19
-  %conv.i22 = zext nneg i8 %sub24 to i32
   %sext31 = shl i32 %5, 24
-  %conv2.i23 = ashr exact i32 %sext31, 24
-  %sub4.i.i24 = sub nuw nsw i32 32, %conv.i22
+  %conv2.i22 = ashr exact i32 %sext31, 24
+  %narrow.i23 = sub nuw nsw i8 32, %sub24
+  %sub4.i.i24 = zext nneg i8 %narrow.i23 to i32
   %shr5.i.i25 = lshr i32 -1, %sub4.i.i24
-  %and.i.i26 = and i32 %shr5.i.i25, %conv2.i23
+  %and.i.i26 = and i32 %shr5.i.i25, %conv2.i22
   %cmp4.i27 = icmp eq i32 %and.i.i26, 0
   br i1 %cmp4.i27, label %land.lhs.true28, label %land.end
 
@@ -102211,10 +100550,10 @@ if.else.i.i:                                      ; preds = %sw.bb4.i
   unreachable
 
 extract64.exit.i:                                 ; preds = %sw.bb4.i
-  %conv6.i = zext nneg i8 %3 to i64
   %conv5.i = zext i32 %imm to i64
-  %sub4.i.i = sub nuw nsw i64 61, %conv6.i
-  %shr6.i.i = lshr i64 -1, %sub4.i.i
+  %narrow.i = sub nuw nsw i8 61, %3
+  %sh_prom5.i.i = zext nneg i8 %narrow.i to i64
+  %shr6.i.i = lshr i64 -1, %sh_prom5.i.i
   %and.i5.i = and i64 %shr6.i.i, %conv5.i
   br label %extract_imm.exit
 
@@ -102264,18 +100603,18 @@ extract_imm.exit:                                 ; preds = %sw.bb.i, %sw.bb1.i,
   %conv.i = zext i16 %s.val26.val to i32
   %mul.i = mul i32 %conv.i, %vd
   %div.i = sdiv i32 %mul.i, 8
-  %narrow.i = add nsw i32 %div.i, 512
-  %conv64 = zext i32 %narrow.i to i64
+  %narrow.i38 = add nsw i32 %div.i, 512
+  %conv64 = zext i32 %narrow.i38 to i64
   tail call void @tcg_gen_addi_i64(ptr noundef %call1, ptr noundef %19, i64 noundef %conv64) #13
   %21 = load ptr, ptr @tcg_env, align 8
   %s.val25 = load ptr, ptr %cfg_ptr, align 8
   %22 = getelementptr i8, ptr %s.val25, i64 152
   %s.val25.val = load i16, ptr %22, align 8
-  %conv.i38 = zext i16 %s.val25.val to i32
-  %mul.i39 = mul i32 %conv.i38, %vs2
-  %div.i40 = sdiv i32 %mul.i39, 8
-  %narrow.i41 = add nsw i32 %div.i40, 512
-  %conv66 = zext i32 %narrow.i41 to i64
+  %conv.i39 = zext i16 %s.val25.val to i32
+  %mul.i40 = mul i32 %conv.i39, %vs2
+  %div.i41 = sdiv i32 %mul.i40, 8
+  %narrow.i42 = add nsw i32 %div.i41, 512
+  %conv66 = zext i32 %narrow.i42 to i64
   tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %21, i64 noundef %conv66) #13
   %23 = load ptr, ptr @tcg_env, align 8
   tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %23, i64 noundef 512) #13
@@ -105078,6 +103417,105 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %1, i64 %7
   tail call void @tcg_gen_call6(ptr noundef nonnull @helper_info_vmslt_vx_d, ptr noundef null, ptr noundef %add.ptr.i.i, ptr noundef %add.ptr.i.i1, ptr noundef %add.ptr.i.i2, ptr noundef %add.ptr.i.i3, ptr noundef %add.ptr.i.i4, ptr noundef %add.ptr.i) #13
   ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc zeroext i1 @opfvf_check(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
+entry:
+  %0 = getelementptr i8, ptr %s, i64 104
+  %s.val = load i32, ptr %0, align 8
+  %cmp.i.not = icmp eq i32 %s.val, 0
+  br i1 %cmp.i.not, label %land.end, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %entry
+  %mstatus_fs.i = getelementptr inbounds i8, ptr %s, i64 100
+  %1 = load i32, ptr %mstatus_fs.i, align 4
+  %cmp.i7 = icmp eq i32 %1, 0
+  br i1 %cmp.i7, label %land.end, label %if.end.i
+
+if.end.i:                                         ; preds = %land.lhs.true
+  %sew.i = getelementptr inbounds i8, ptr %s, i64 138
+  %2 = load i8, ptr %sew.i, align 2
+  switch i8 %2, label %land.end [
+    i8 1, label %require_rvf.exit
+    i8 2, label %sw.bb1.i
+    i8 3, label %sw.bb4.i
+  ]
+
+sw.bb1.i:                                         ; preds = %if.end.i
+  %cfg_ptr2.i = getelementptr inbounds i8, ptr %s, i64 128
+  %3 = load ptr, ptr %cfg_ptr2.i, align 8
+  %ext_zve32f.i = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = load i8, ptr %ext_zve32f.i, align 8
+  %tobool3.i = trunc i8 %4 to i1
+  br i1 %tobool3.i, label %land.lhs.true2, label %land.end
+
+sw.bb4.i:                                         ; preds = %if.end.i
+  %cfg_ptr5.i = getelementptr inbounds i8, ptr %s, i64 128
+  %5 = load ptr, ptr %cfg_ptr5.i, align 8
+  %ext_zve64d.i = getelementptr inbounds i8, ptr %5, i64 50
+  %6 = load i8, ptr %ext_zve64d.i, align 2
+  %tobool6.i = trunc i8 %6 to i1
+  br i1 %tobool6.i, label %land.lhs.true2, label %land.end
+
+require_rvf.exit:                                 ; preds = %if.end.i
+  %cfg_ptr.i = getelementptr inbounds i8, ptr %s, i64 128
+  %7 = load ptr, ptr %cfg_ptr.i, align 8
+  %ext_zvfh.i = getelementptr inbounds i8, ptr %7, i64 70
+  %8 = load i8, ptr %ext_zvfh.i, align 2
+  %tobool.i = trunc i8 %8 to i1
+  br i1 %tobool.i, label %land.lhs.true2, label %land.end
+
+land.lhs.true2:                                   ; preds = %sw.bb1.i, %sw.bb4.i, %require_rvf.exit
+  %9 = getelementptr i8, ptr %s, i64 136
+  %s.val6 = load i8, ptr %9, align 8
+  %tobool.i8 = trunc i8 %s.val6 to i1
+  br i1 %tobool.i8, label %land.end, label %land.rhs
+
+land.rhs:                                         ; preds = %land.lhs.true2
+  %rd = getelementptr inbounds i8, ptr %a, i64 4
+  %10 = load i32, ptr %rd, align 4
+  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
+  %11 = load i32, ptr %rs2, align 4
+  %12 = load i32, ptr %a, align 4
+  %13 = or i32 %12, %10
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %land.end, label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %land.rhs
+  %lmul.i = getelementptr inbounds i8, ptr %s, i64 137
+  %14 = load i8, ptr %lmul.i, align 1
+  %cmp.i.i = icmp slt i8 %14, 1
+  br i1 %cmp.i.i, label %land.end, label %lor.rhs.i.i
+
+lor.rhs.i.i:                                      ; preds = %land.lhs.true.i
+  %cmp3.not.i.i.i = icmp ugt i8 %14, 32
+  br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
+
+if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
+  unreachable
+
+require_align.exit.i:                             ; preds = %lor.rhs.i.i
+  %sext.i = shl i32 %10, 24
+  %conv2.i.i = ashr exact i32 %sext.i, 24
+  %narrow.i.i = sub nuw nsw i8 32, %14
+  %sub4.i.i.i = zext nneg i8 %narrow.i.i to i32
+  %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
+  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i.i
+  %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
+  br i1 %cmp4.i.i, label %extract32.exit.i6.i, label %land.end
+
+extract32.exit.i6.i:                              ; preds = %require_align.exit.i
+  %sext16.i = shl i32 %11, 24
+  %conv2.i7.i = ashr exact i32 %sext16.i, 24
+  %and.i.i11.i = and i32 %shr5.i.i.i, %conv2.i7.i
+  %cmp4.i12.i = icmp eq i32 %and.i.i11.i, 0
+  br label %land.end
+
+land.end:                                         ; preds = %if.end.i, %land.lhs.true, %extract32.exit.i6.i, %require_align.exit.i, %land.lhs.true.i, %land.rhs, %sw.bb1.i, %sw.bb4.i, %land.lhs.true2, %require_rvf.exit, %entry
+  %15 = phi i1 [ false, %land.lhs.true2 ], [ false, %require_rvf.exit ], [ false, %entry ], [ false, %sw.bb4.i ], [ false, %sw.bb1.i ], [ false, %require_align.exit.i ], [ false, %land.rhs ], [ %cmp4.i12.i, %extract32.exit.i6.i ], [ true, %land.lhs.true.i ], [ false, %land.lhs.true ], [ false, %if.end.i ]
+  ret i1 %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -108216,10 +106654,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 require_align.exit.i.i:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %3 to i32
   %sext.i.i = shl i32 %2, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 32, %3
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -108458,11 +106896,7 @@ land.lhs.true:                                    ; preds = %entry
   %lmul = getelementptr inbounds i8, ptr %s, i64 137
   %0 = load i8, ptr %lmul, align 1
   %cmp.i = icmp slt i8 %0, 1
-  br i1 %cmp.i, label %land.lhs.true.land.rhs_crit_edge, label %lor.rhs.i
-
-land.lhs.true.land.rhs_crit_edge:                 ; preds = %land.lhs.true
-  %.pre = zext nneg i8 %0 to i32
-  br label %land.rhs
+  br i1 %cmp.i, label %land.rhs, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true
   %cmp3.not.i.i = icmp ugt i8 %0, 32
@@ -108473,17 +106907,16 @@ if.else.i.i:                                      ; preds = %lor.rhs.i
   unreachable
 
 require_align.exit:                               ; preds = %lor.rhs.i
-  %conv.i = zext nneg i8 %0 to i32
   %sext = shl i32 %vs1, 24
   %conv2.i = ashr exact i32 %sext, 24
-  %sub4.i.i = sub nuw nsw i32 32, %conv.i
+  %narrow.i = sub nuw nsw i8 32, %0
+  %sub4.i.i = zext nneg i8 %narrow.i to i32
   %shr5.i.i = lshr i32 -1, %sub4.i.i
   %and.i.i = and i32 %shr5.i.i, %conv2.i
   %cmp4.i = icmp eq i32 %and.i.i, 0
   br i1 %cmp4.i, label %land.rhs, label %land.end
 
-land.rhs:                                         ; preds = %land.lhs.true.land.rhs_crit_edge, %require_align.exit
-  %conv418.i.pre-phi = phi i32 [ %.pre, %land.lhs.true.land.rhs_crit_edge ], [ %conv.i, %require_align.exit ]
+land.rhs:                                         ; preds = %land.lhs.true, %require_align.exit
   %conv3 = trunc i32 %vd to i8
   %add = add nsw i8 %0, 1
   %cmp.i6 = icmp slt i8 %0, 0
@@ -108491,7 +106924,8 @@ land.rhs:                                         ; preds = %land.lhs.true.land.
   %shl.i = shl nuw i32 1, %conv17.i
   %1 = trunc i32 %shl.i to i8
   %conv3.i = select i1 %cmp.i6, i8 1, i8 %1
-  %shl10.i = shl nuw i32 1, %conv418.i.pre-phi
+  %conv418.i = zext nneg i8 %0 to i32
+  %shl10.i = shl nuw i32 1, %conv418.i
   %2 = trunc i32 %shl10.i to i8
   %conv13.i = select i1 %cmp.i, i8 1, i8 %2
   %cmp16.i = icmp sgt i8 %conv3.i, %conv13.i
@@ -109343,91 +107777,6 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %1, i64 %7
   tail call void @tcg_gen_call6(ptr noundef nonnull @helper_info_vfwredosum_vs_w, ptr noundef null, ptr noundef %add.ptr.i.i, ptr noundef %add.ptr.i.i1, ptr noundef %add.ptr.i.i2, ptr noundef %add.ptr.i.i3, ptr noundef %add.ptr.i.i4, ptr noundef %add.ptr.i) #13
   ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @opfwv_widen_check(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %a) unnamed_addr #2 {
-entry:
-  %0 = getelementptr i8, ptr %s, i64 104
-  %s.val = load i32, ptr %0, align 8
-  %cmp.i.not = icmp eq i32 %s.val, 0
-  br i1 %cmp.i.not, label %land.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
-  %mstatus_fs.i = getelementptr inbounds i8, ptr %s, i64 100
-  %1 = load i32, ptr %mstatus_fs.i, align 4
-  %cmp.i9 = icmp eq i32 %1, 0
-  br i1 %cmp.i9, label %land.end, label %if.end.i
-
-if.end.i:                                         ; preds = %land.lhs.true
-  %sew.i = getelementptr inbounds i8, ptr %s, i64 138
-  %2 = load i8, ptr %sew.i, align 2
-  switch i8 %2, label %land.end [
-    i8 2, label %sw.bb4.i
-    i8 1, label %sw.bb1.i
-  ]
-
-sw.bb1.i:                                         ; preds = %if.end.i
-  %cfg_ptr2.i = getelementptr inbounds i8, ptr %s, i64 128
-  %3 = load ptr, ptr %cfg_ptr2.i, align 8
-  %ext_zve32f.i = getelementptr inbounds i8, ptr %3, i64 48
-  %4 = load i8, ptr %ext_zve32f.i, align 8
-  %tobool3.i = trunc i8 %4 to i1
-  br i1 %tobool3.i, label %land.lhs.true4, label %land.end
-
-sw.bb4.i:                                         ; preds = %if.end.i
-  %cfg_ptr5.i = getelementptr inbounds i8, ptr %s, i64 128
-  %5 = load ptr, ptr %cfg_ptr5.i, align 8
-  %ext_zve64d.i = getelementptr inbounds i8, ptr %5, i64 50
-  %6 = load i8, ptr %ext_zve64d.i, align 2
-  %tobool6.i = trunc i8 %6 to i1
-  br i1 %tobool6.i, label %land.lhs.true4, label %land.end
-
-land.lhs.true4:                                   ; preds = %sw.bb1.i, %sw.bb4.i
-  %7 = getelementptr i8, ptr %s, i64 136
-  %s.val8 = load i8, ptr %7, align 8
-  %tobool.i10 = trunc i8 %s.val8 to i1
-  br i1 %tobool.i10, label %land.end, label %land.rhs
-
-land.rhs:                                         ; preds = %land.lhs.true4
-  %rd = getelementptr inbounds i8, ptr %a, i64 4
-  %8 = load i32, ptr %rd, align 4
-  %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %9 = load i32, ptr %rs1, align 4
-  %rs2 = getelementptr inbounds i8, ptr %a, i64 12
-  %10 = load i32, ptr %rs2, align 4
-  %11 = load i32, ptr %a, align 4
-  %call.i = tail call fastcc zeroext i1 @vext_check_ds(ptr noundef nonnull readonly %s, i32 noundef %8, i32 noundef %9, i32 noundef %11)
-  br i1 %call.i, label %land.rhs.i, label %land.end
-
-land.rhs.i:                                       ; preds = %land.rhs
-  %lmul.i = getelementptr inbounds i8, ptr %s, i64 137
-  %12 = load i8, ptr %lmul.i, align 1
-  %add.i = add i8 %12, 1
-  %cmp.i.i = icmp ugt i8 %12, 126
-  br i1 %cmp.i.i, label %land.end, label %lor.rhs.i.i
-
-lor.rhs.i.i:                                      ; preds = %land.rhs.i
-  %cmp3.not.i.i.i = icmp ugt i8 %add.i, 32
-  br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %extract32.exit.i.i
-
-if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1165, ptr noundef nonnull @.str.1166, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.extract32) #14
-  unreachable
-
-extract32.exit.i.i:                               ; preds = %lor.rhs.i.i
-  %conv.i.i = zext nneg i8 %add.i to i32
-  %sext.i = shl i32 %10, 24
-  %conv2.i.i = ashr exact i32 %sext.i, 24
-  %sub4.i.i.i = sub nuw nsw i32 32, %conv.i.i
-  %shr5.i.i.i = lshr i32 -1, %sub4.i.i.i
-  %and.i.i.i = and i32 %shr5.i.i.i, %conv2.i.i
-  %cmp4.i.i = icmp eq i32 %and.i.i.i, 0
-  br label %land.end
-
-land.end:                                         ; preds = %if.end.i, %land.lhs.true, %extract32.exit.i.i, %land.rhs.i, %land.rhs, %sw.bb1.i, %sw.bb4.i, %land.lhs.true4, %entry
-  %13 = phi i1 [ false, %land.lhs.true4 ], [ false, %entry ], [ false, %sw.bb4.i ], [ false, %sw.bb1.i ], [ false, %land.rhs ], [ true, %land.rhs.i ], [ %cmp4.i.i, %extract32.exit.i.i ], [ false, %land.lhs.true ], [ false, %if.end.i ]
-  ret i1 %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -111098,12 +109447,11 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
 land.rhs.i.i:                                     ; preds = %land.rhs.i
   %lmul.i.i = getelementptr inbounds i8, ptr %s, i64 137
   %6 = load i8, ptr %lmul.i.i, align 1
-  %add.i.i = add i8 %6, 1
   %cmp.i.i.i = icmp ugt i8 %6, 126
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %add.i.i, 32
+  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 31
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %opiwv_widen_check.exit
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -111111,10 +109459,10 @@ if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
   unreachable
 
 opiwv_widen_check.exit:                           ; preds = %lor.rhs.i.i.i
-  %conv.i.i.i = zext nneg i8 %add.i.i to i32
   %sext.i.i = shl i32 %4, 24
   %conv2.i.i.i = ashr exact i32 %sext.i.i, 24
-  %sub4.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i
+  %narrow.i.i.i = sub nuw nsw i8 31, %6
+  %sub4.i.i.i.i = zext nneg i8 %narrow.i.i.i to i32
   %shr5.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i
   %and.i.i.i.i = and i32 %shr5.i.i.i.i, %conv2.i.i.i
   %cmp4.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -116777,10 +115125,10 @@ if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
   unreachable
 
 require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
-  %conv.i.i.i.i = zext nneg i8 %1 to i32
   %sext.i.i.i = shl i32 %5, 24
   %conv2.i.i.i.i = ashr exact i32 %sext.i.i.i, 24
-  %sub4.i.i.i.i.i = sub nuw nsw i32 32, %conv.i.i.i.i
+  %narrow.i.i.i.i = sub nuw nsw i8 32, %1
+  %sub4.i.i.i.i.i = zext nneg i8 %narrow.i.i.i.i to i32
   %shr5.i.i.i.i.i = lshr i32 -1, %sub4.i.i.i.i.i
   %and.i.i.i.i.i = and i32 %conv2.i.i.i.i, %shr5.i.i.i.i.i
   %cmp4.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
@@ -116788,8 +115136,8 @@ require_align.exit.i.i.i:                         ; preds = %lor.rhs.i.i.i.i
 
 vext_check_ss.exit.i.i:                           ; preds = %require_align.exit.i.i.i
   %sext16.i.i.i = shl i32 %7, 24
-  %conv2.i8.i.i.i = ashr exact i32 %sext16.i.i.i, 24
-  %and.i.i11.i.i.i = and i32 %conv2.i8.i.i.i, %shr5.i.i.i.i.i
+  %conv2.i7.i.i.i = ashr exact i32 %sext16.i.i.i, 24
+  %and.i.i11.i.i.i = and i32 %conv2.i7.i.i.i, %shr5.i.i.i.i.i
   %cmp4.i12.i.i.i = icmp eq i32 %and.i.i11.i.i.i, 0
   br i1 %cmp4.i12.i.i.i, label %opivv_check.exit, label %land.end
 

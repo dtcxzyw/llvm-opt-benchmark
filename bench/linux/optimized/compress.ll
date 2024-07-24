@@ -317,11 +317,11 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef r
   %193 = getelementptr inbounds i8, ptr %190, i64 20
   %194 = load i8, ptr %193, align 4
   %195 = add i64 %192, 4294967295
-  %196 = sub nsw i64 %184, %168
-  %197 = trunc i64 %196 to i32
+  %196 = sub nuw nsw i64 %184, %168
+  %197 = trunc nuw i64 %196 to i32
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 96, i1 false)
-  %198 = shl i64 %196, 32
+  %198 = shl nuw i64 %196, 32
   %199 = ashr exact i64 %198, 32
   %200 = and i64 %195, 4294967295
   %201 = and i64 %195, %168
@@ -342,7 +342,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef r
   br i1 %215, label %.thread41, label %216
 
 216:                                              ; preds = %187
-  %217 = icmp eq i32 %197, 0
+  %217 = icmp eq i64 %168, %184
   br i1 %217, label %218, label %239
 
 218:                                              ; preds = %216

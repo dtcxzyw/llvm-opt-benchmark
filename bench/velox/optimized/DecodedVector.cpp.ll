@@ -1235,7 +1235,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub i64 %cond, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %cond, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_, i64 noundef %sub.i)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -1415,7 +1415,7 @@ if.then10:                                        ; preds = %if.then6.if.then10_
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then10
-  %sub.i.i = sub i64 %cond.i8, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %cond.i8, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_.i7, i64 noundef %sub.i.i)
   %.pre97 = load ptr, ptr %nulls_, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit.i
@@ -1495,7 +1495,7 @@ if.then16:                                        ; preds = %if.end13
   br i1 %cmp.i17, label %if.then.i19, label %if.else.i18
 
 if.then.i19:                                      ; preds = %if.then16
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_.i, i64 noundef %sub.i)
   %.pre99 = load ptr, ptr %copiedIndices_.i, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -2285,7 +2285,7 @@ if.then4:                                         ; preds = %_ZN8facebook5velox1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then4
-  %sub.i = sub nsw i64 %conv6, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv6, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_, i64 noundef %sub.i)
   %.pre46 = load ptr, ptr %copiedIndices_, align 8
   %.pre47 = load ptr, ptr %_M_finish.i.i, align 8
@@ -2414,7 +2414,7 @@ if.then29:                                        ; preds = %_ZN8facebook5velox1
   br i1 %cmp.i25, label %if.then.i32, label %if.else.i26
 
 if.then.i32:                                      ; preds = %if.then29
-  %sub.i33 = sub nsw i64 %conv32, %sub.ptr.div.i.i24
+  %sub.i33 = sub nuw nsw i64 %conv32, %sub.ptr.div.i.i24
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_30, i64 noundef %sub.i33)
   %.pre = load ptr, ptr %copiedIndices_30, align 8
   %.pre44 = load ptr, ptr %_M_finish.i.i20, align 8
@@ -2522,7 +2522,7 @@ if.then:                                          ; preds = %entry, %lor.lhs.fal
   br i1 %cmp.i1, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub nsw i64 %spec.select, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %spec.select, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_.i, i64 noundef %sub.i)
   %.pre = load ptr, ptr %copiedIndices_.i, align 8
   %.pre4 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -2599,7 +2599,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then2
-  %sub.i.i = sub i64 %cond.i4, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw i64 %cond.i4, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_.i, i64 noundef %sub.i.i)
   %.pre = load ptr, ptr %nulls_.i, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit.i
@@ -3332,7 +3332,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i.i, 
   br i1 %cmp.i1.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %spec.select.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %spec.select.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_.i.i, i64 noundef %sub.i.i)
   %.pre.i = load ptr, ptr %copiedIndices_.i.i, align 8
   %.pre4.i = load ptr, ptr %_M_finish.i.i.i.i, align 8
@@ -4696,7 +4696,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %if.then20._ZNSt6vec
   br i1 %cmp.i, label %if.then.i, label %if.else.i16
 
 if.then.i:                                        ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %sub.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i15
+  %sub.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i15
   tail call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_, ptr %8, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8facebook5velox4bitsL7kNull64E)
   %.pre56 = load ptr, ptr %copiedNulls_, align 8
   %.pre57 = load i8, ptr %_M_engaged.i.i, align 8
@@ -4736,7 +4736,7 @@ if.else29:                                        ; preds = %if.else18
   br i1 %cmp.i31, label %if.then.i38, label %if.else.i32
 
 if.then.i38:                                      ; preds = %if.else29
-  %sub.i39 = sub nsw i64 %conv.i25, %sub.ptr.div.i.i30
+  %sub.i39 = sub nuw nsw i64 %conv.i25, %sub.ptr.div.i.i30
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_, i64 noundef %sub.i39)
   %.pre = load ptr, ptr %copiedNulls_, align 8
   %.pre54 = load i32, ptr %this, align 8
@@ -5113,7 +5113,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 

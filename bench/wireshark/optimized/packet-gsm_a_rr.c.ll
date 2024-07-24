@@ -11055,7 +11055,7 @@ define hidden void @dtap_rr_ho_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %252, label %253, label %256
 
 253:                                              ; preds = %246
-  %254 = sub i32 %4, %251
+  %254 = sub nuw i32 %4, %251
   %255 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %250, i32 noundef %254) #10
   br label %256
 
@@ -15764,7 +15764,7 @@ define internal void @dtap_rr_dtm_ass_fail(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
-  %19 = sub i32 %4, %16
+  %19 = sub nuw i32 %4, %16
   %20 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %19) #10
   br label %21
 
@@ -15799,7 +15799,7 @@ define internal void @dtap_rr_dtm_rej(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
-  %19 = sub i32 %4, %16
+  %19 = sub nuw i32 %4, %16
   %20 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %19) #10
   br label %21
 
@@ -15856,7 +15856,7 @@ define internal void @dtap_rr_dtm_req(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = sub i32 %4, %27
+  %30 = sub nuw i32 %4, %27
   %31 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %30) #10
   br label %32
 
@@ -15947,7 +15947,7 @@ define internal void @dtap_rr_pkt_assign(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %51
-  %59 = sub i32 %4, %56
+  %59 = sub nuw i32 %4, %56
   %60 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %55, i32 noundef %59) #10
   br label %61
 
@@ -16187,7 +16187,7 @@ define internal void @dtap_rr_dtm_info(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = sub i32 %4, %27
+  %30 = sub nuw i32 %4, %27
   %31 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %30) #10
   br label %32
 
@@ -16217,7 +16217,7 @@ define internal void @dtap_rr_pkt_notif(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %12
-  %20 = sub nsw i32 %4, %17
+  %20 = sub nuw nsw i32 %4, %17
   %21 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %16, i32 noundef %20) #10
   br label %22
 
@@ -16348,7 +16348,7 @@ define internal void @dtap_rr_conf_change_cmd(ptr noundef %0, ptr noundef %1, pt
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %57
-  %65 = sub i32 %4, %62
+  %65 = sub nuw i32 %4, %62
   %66 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %61, i32 noundef %65) #10
   br label %67
 
@@ -16762,7 +16762,7 @@ define internal void @dtap_rr_ho_cpte(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = sub i32 %4, %22
+  %25 = sub nuw i32 %4, %22
   %26 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %21, i32 noundef %25) #10
   br label %27
 
@@ -18371,7 +18371,7 @@ define internal void @dtap_rr_freq_redef(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %61
-  %69 = sub i32 %4, %66
+  %69 = sub nuw i32 %4, %66
   %70 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %65, i32 noundef %69) #10
   br label %71
 
@@ -18580,7 +18580,7 @@ define internal void @dtap_rr_gprs_sus_req(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %40
-  %47 = sub i32 %4, %44
+  %47 = sub nuw i32 %4, %44
   %48 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_rr_extraneous_data, ptr noundef %0, i32 noundef %43, i32 noundef %47) #10
   br label %49
 

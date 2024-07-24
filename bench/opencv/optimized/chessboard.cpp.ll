@@ -2684,7 +2684,7 @@ define hidden void @_ZNK2cv7details5FastX10detectImplERKNS_3MatERSt6vectorIS2_Sa
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %51
-  %83 = sub nsw i64 %73, %80
+  %83 = sub nuw nsw i64 %73, %80
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %83)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %42
 
@@ -2720,7 +2720,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
-  %98 = sub nsw i64 %73, %95
+  %98 = sub nuw nsw i64 %73, %95
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %98)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit31 unwind label %42
 
@@ -7589,7 +7589,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board14addColumnRightERKSt6vector
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %25
-  %40 = sub nsw i64 %37, %33
+  %40 = sub nuw nsw i64 %37, %33
   tail call void @_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %40)
   %.pre = load ptr, ptr %27, align 8
   %.pre81 = load ptr, ptr %26, align 8
@@ -7982,7 +7982,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board12addRowBottomERKSt6vectorIN
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %25
-  %40 = sub nsw i64 %37, %33
+  %40 = sub nuw nsw i64 %37, %33
   tail call void @_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %40)
   %.pre = load ptr, ptr %27, align 8
   %.pre81 = load ptr, ptr %26, align 8
@@ -15494,7 +15494,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIdSaIdEE6resizeEmRKd(ptr noundef no
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3
-  %13 = sub i64 %1, %10
+  %13 = sub nuw i64 %1, %10
   tail call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %5, i64 noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %_ZNSt6vectorIdSaIdEE15_M_erase_at_endEPd.exit
 
@@ -20666,7 +20666,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board13addColumnLeftERKSt6vectorI
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %25
-  %40 = sub nsw i64 %37, %33
+  %40 = sub nuw nsw i64 %37, %33
   tail call void @_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %40)
   %.pre = load ptr, ptr %27, align 8
   %.pre77 = load ptr, ptr %26, align 8
@@ -22219,7 +22219,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board9addRowTopERKSt6vectorINS_6P
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %25
-  %40 = sub nsw i64 %37, %33
+  %40 = sub nuw nsw i64 %37, %33
   tail call void @_ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %40)
   %.pre = load ptr, ptr %27, align 8
   %.pre77 = load ptr, ptr %26, align 8
@@ -29947,7 +29947,7 @@ _ZSt12partial_sortIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_Sa
   br i1 %203, label %204, label %206
 
 204:                                              ; preds = %_ZSt12partial_sortIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_SD_T0_.exit
-  %205 = sub nsw i64 %67, %202
+  %205 = sub nuw nsw i64 %67, %202
   invoke void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %205)
           to label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit unwind label %64
 
@@ -38353,7 +38353,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds double, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -39121,7 +39121,7 @@ _ZSt13move_backwardIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit: ; preds = %28, %_ZSt22
   br i1 %.not.i.i.i, label %_ZSt4fillIPN2cv6Point_IfEES2_EvT_S4_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !584
 
 35:                                               ; preds = %14
-  %36 = sub i64 %2, %18
+  %36 = sub nuw i64 %2, %18
   %.not7.i.i.i.i = icmp eq i64 %36, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN2cv6Point_IfEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -39588,7 +39588,7 @@ _ZSt13move_backwardIPN2cv8KeyPointES2_ET0_T_S4_S3_.exit: ; preds = %26, %_ZSt22_
   br i1 %.not.i.i.i, label %_ZSt4fillIPN2cv8KeyPointES1_EvT_S3_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !588
 
 32:                                               ; preds = %14
-  %33 = sub i64 %2, %17
+  %33 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN2cv8KeyPointEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

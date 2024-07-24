@@ -6451,7 +6451,7 @@ if.else.i.i:                                      ; preds = %if.end
 if.end.i.i:                                       ; preds = %if.else.i.i
   %mul.i.i = shl i64 %and.i, 1
   %cmp7.i.i = icmp ugt i64 %mul.i.i, %8
-  %sub.i.i = sub i64 %8, %and.i
+  %sub.i.i = sub nuw i64 %8, %and.i
   %cond.i.i = select i1 %cmp7.i.i, i64 %sub.i.i, i64 %and.i
   br label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf13OutputSectionINS5_7PPC64V2EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE29number_of_elements_in_segmentEm.exit.i
 
@@ -6574,7 +6574,7 @@ if.else.i.i:                                      ; preds = %if.end
 if.end.i.i:                                       ; preds = %if.else.i.i
   %mul.i.i = shl i64 %and.i, 1
   %cmp7.i.i = icmp ugt i64 %mul.i.i, %8
-  %sub.i.i = sub i64 %8, %and.i
+  %sub.i.i = sub nuw i64 %8, %and.i
   %cond.i.i = select i1 %cmp7.i.i, i64 %sub.i.i, i64 %and.i
   br label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf5ChunkINS5_7PPC64V2EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE29number_of_elements_in_segmentEm.exit.i
 
@@ -6642,7 +6642,7 @@ if.else.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %if.else.i
   %mul.i = shl i64 %and.i.i, 1
   %cmp7.i = icmp ugt i64 %mul.i, %0
-  %sub.i = sub i64 %0, %and.i.i
+  %sub.i = sub nuw i64 %0, %and.i.i
   %cond.i = select i1 %cmp7.i, i64 %sub.i, i64 %and.i.i
   br label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold10MappedFileINS4_3elf7ContextINS6_7PPC64V2EEEEESt14default_deleteISA_EENS1_23cache_aligned_allocatorISD_EEE29number_of_elements_in_segmentEm.exit
 
@@ -6799,7 +6799,7 @@ if.else.i.i:                                      ; preds = %if.end
 if.end.i.i:                                       ; preds = %if.else.i.i
   %mul.i.i = shl i64 %and.i, 1
   %cmp7.i.i = icmp ugt i64 %mul.i.i, %8
-  %sub.i.i = sub i64 %8, %and.i
+  %sub.i.i = sub nuw i64 %8, %and.i
   %cond.i.i = select i1 %cmp7.i.i, i64 %sub.i.i, i64 %and.i
   br label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIA_hSt14default_deleteIS4_EENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i
 
@@ -6920,7 +6920,7 @@ if.else.i.i:                                      ; preds = %if.end
 if.end.i.i:                                       ; preds = %if.else.i.i
   %mul.i.i = shl i64 %and.i, 1
   %cmp7.i.i = icmp ugt i64 %mul.i.i, %8
-  %sub.i.i = sub i64 %8, %and.i
+  %sub.i.i = sub nuw i64 %8, %and.i
   %cond.i.i = select i1 %cmp7.i.i, i64 %sub.i.i, i64 %and.i
   br label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf10SharedFileINS5_7PPC64V2EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE29number_of_elements_in_segmentEm.exit.i
 
@@ -7041,7 +7041,7 @@ if.else.i.i:                                      ; preds = %if.end
 if.end.i.i:                                       ; preds = %if.else.i.i
   %mul.i.i = shl i64 %and.i, 1
   %cmp7.i.i = icmp ugt i64 %mul.i.i, %8
-  %sub.i.i = sub i64 %8, %and.i
+  %sub.i.i = sub nuw i64 %8, %and.i
   %cond.i.i = select i1 %cmp7.i.i, i64 %sub.i.i, i64 %and.i
   br label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf10ObjectFileINS5_7PPC64V2EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE29number_of_elements_in_segmentEm.exit.i
 
@@ -7165,7 +7165,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i
   %mul.i.i.i = shl i64 %and.i.i, 1
   %cmp7.i.i.i = icmp ugt i64 %mul.i.i.i, %8
-  %sub.i.i.i = sub i64 %8, %and.i.i
+  %sub.i.i.i = sub nuw i64 %8, %and.i.i
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 %sub.i.i.i, i64 %and.i.i
   br label %_ZN3tbb6detail2d117concurrent_vectorISt8functionIFvvEENS1_23cache_aligned_allocatorIS5_EEE29number_of_elements_in_segmentEm.exit.i.i
 
@@ -7230,7 +7230,7 @@ if.else.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %if.else.i
   %mul.i = shl i64 %and.i.i, 1
   %cmp7.i = icmp ugt i64 %mul.i, %0
-  %sub.i = sub i64 %0, %and.i.i
+  %sub.i = sub nuw i64 %0, %and.i.i
   %cond.i = select i1 %cmp7.i, i64 %sub.i, i64 %and.i.i
   br label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE29number_of_elements_in_segmentEm.exit
 
@@ -7468,7 +7468,7 @@ if.else.i.i:                                      ; preds = %if.end
 if.end.i.i:                                       ; preds = %if.else.i.i
   %mul.i.i = shl i64 %and.i, 1
   %cmp7.i.i = icmp ugt i64 %mul.i.i, %8
-  %sub.i.i = sub i64 %8, %and.i
+  %sub.i.i = sub nuw i64 %8, %and.i
   %cond.i.i = select i1 %cmp7.i.i, i64 %sub.i.i, i64 %and.i
   br label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS5_7PPC64V2EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE29number_of_elements_in_segmentEm.exit.i
 
@@ -8148,7 +8148,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_vi
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
   %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr %"class.std::basic_string_view", ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i5.i.i.i.i.i29 = icmp eq ptr %1, %__position.coerce
@@ -13100,7 +13100,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit: ; preds = %entry
   %2 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %__pos
-  %sub.i = sub i64 %1, %__pos
+  %sub.i = sub nuw i64 %1, %__pos
   %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %cmp.i6 = icmp ugt i64 %spec.select.i, 15
   br i1 %cmp.i6, label %if.then.i7, label %entry.if.end_crit_edge.i
@@ -17344,7 +17344,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i
   %mul.i.i.i = shl i64 %and.i.i, 1
   %cmp7.i.i.i = icmp ugt i64 %mul.i.i.i, %8
-  %sub.i.i.i = sub i64 %8, %and.i.i
+  %sub.i.i.i = sub nuw i64 %8, %and.i.i
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 %sub.i.i.i, i64 %and.i.i
   br label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i
 

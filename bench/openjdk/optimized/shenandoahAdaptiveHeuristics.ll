@@ -964,7 +964,7 @@ define hidden noundef zeroext i1 @_ZN28ShenandoahAdaptiveHeuristics15should_star
   br i1 %.not.i, label %43, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call i64 @llvm.usub.sat.i64(i64 %21, i64 %33)
+  %35 = sub nuw i64 %21, %33
   %36 = fcmp ogt double %27, 0.000000e+00
   %37 = uitofp i64 %35 to double
   %38 = fdiv double %37, %27
@@ -1467,7 +1467,7 @@ define hidden noundef double @_ZN24ShenandoahAllocationRate6sampleEm(ptr noundef
   br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %11)
+  %13 = sub nuw i64 %1, %11
   %14 = fcmp ogt double %5, 0.000000e+00
   %15 = uitofp i64 %13 to double
   %16 = fdiv double %15, %5

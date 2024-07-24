@@ -3889,7 +3889,7 @@ if.then139:                                       ; preds = %if.end135
   br i1 %cmp.i226.not, label %if.else.i227, label %if.then.i229
 
 if.then.i229:                                     ; preds = %if.then139
-  %sub.i230 = sub i64 %add94, %sub.ptr.div.i.i225
+  %sub.i230 = sub nuw i64 %add94, %sub.ptr.div.i.i225
   %_M_end_of_storage.i413 = getelementptr inbounds i8, ptr %inputs69, i64 24
   %84 = load ptr, ptr %_M_end_of_storage.i413, align 8
   %sub.ptr.lhs.cast.i414 = ptrtoint ptr %84 to i64

@@ -75,7 +75,7 @@ define void @_ZN18FreeEnergyDispatchC2Ei(ptr noundef nonnull align 8 dereference
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %4
-  %16 = sub nsw i64 %6, %13
+  %16 = sub nuw nsw i64 %6, %13
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.0.ptr17.i, i64 noundef %16)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i unwind label %22
 

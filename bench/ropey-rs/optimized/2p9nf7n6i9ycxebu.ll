@@ -2350,7 +2350,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren9split_off17h076e
   call void @llvm.lifetime.start.p0(i64 968, ptr nonnull %5)
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 960
   store i8 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !515
-  %11 = sub nsw i64 %8, %2
+  %11 = sub nuw nsw i64 %8, %2
   %.not4 = icmp eq i64 %8, %2
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 

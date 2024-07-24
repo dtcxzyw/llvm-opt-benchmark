@@ -6683,7 +6683,7 @@ if.then4:                                         ; preds = %if.end
 
 if.then11:                                        ; preds = %if.then4
   %numIdentifierRefs_12 = getelementptr inbounds i8, ptr %this, i64 200
-  %sub = sub i64 %call3, %sub.ptr.div.i.i
+  %sub = sub nuw i64 %call3, %sub.ptr.div.i.i
   %19 = load ptr, ptr %numIdentifierRefs_12, align 8
   %add.ptr.i = getelementptr inbounds i64, ptr %19, i64 %sub
   %20 = load i64, ptr %add.ptr.i, align 8

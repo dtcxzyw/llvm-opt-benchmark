@@ -9078,7 +9078,7 @@ _ZN4core3str7pattern13simd_contains17haaf0d830b0f7cf0eE.exit: ; preds = %23
   %137 = getelementptr inbounds i8, ptr %123, i64 %128
   %138 = load i8, ptr %137, align 1, !alias.scope !2512, !noalias !2517, !noundef !5
   %139 = icmp sgt i8 %138, -65
-  %140 = sub i64 %125, %128
+  %140 = sub nuw i64 %125, %128
   br i1 %139, label %142, label %141
 
 141:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i.i.i", %134
@@ -33079,7 +33079,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9ite
   %57 = load i64, ptr %0, align 8, !alias.scope !6924, !noundef !5
   %.not.i.i = icmp ult i64 %56, %57
   %58 = select i1 %.not.i.i, i64 0, i64 %57
-  %.0.i.i = sub i64 %56, %58
+  %.0.i.i = sub nuw i64 %56, %58
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   br label %87
 
@@ -33110,7 +33110,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9ite
   %72 = add i64 %71, %69
   %.not.i.i7 = icmp ult i64 %72, %68
   %73 = select i1 %.not.i.i7, i64 0, i64 %68
-  %.0.i.i8 = sub i64 %72, %73
+  %.0.i.i8 = sub nuw i64 %72, %73
   %74 = getelementptr inbounds i8, ptr %0, i64 8
   %75 = load ptr, ptr %74, align 8, !alias.scope !6929, !nonnull !5, !noundef !5
   %76 = getelementptr inbounds { i64, i32 }, ptr %75, i64 %.0.i.i8
@@ -33130,7 +33130,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9ite
   %84 = load i64, ptr %0, align 8, !alias.scope !6935, !noundef !5
   %.not.i.i10 = icmp ult i64 %83, %84
   %85 = select i1 %.not.i.i10, i64 0, i64 %84
-  %.0.i.i11 = sub i64 %83, %85
+  %.0.i.i11 = sub nuw i64 %83, %85
   br label %87
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hcf74669f43abe672E.exit.thread": ; preds = %11, %42, %7, %87
@@ -33240,7 +33240,7 @@ define internal fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9iter
   %55 = load i64, ptr %0, align 8, !alias.scope !6962, !noundef !5
   %.not.i.i = icmp ult i64 %54, %55
   %56 = select i1 %.not.i.i, i64 0, i64 %55
-  %.0.i.i = sub i64 %54, %56
+  %.0.i.i = sub nuw i64 %54, %56
   %57 = getelementptr inbounds i8, ptr %0, i64 8
   br label %79
 
@@ -33264,7 +33264,7 @@ define internal fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9iter
   %65 = add i64 %64, %62
   %.not.i.i9 = icmp ult i64 %65, %61
   %66 = select i1 %.not.i.i9, i64 0, i64 %61
-  %.0.i.i10 = sub i64 %65, %66
+  %.0.i.i10 = sub nuw i64 %65, %66
   %67 = getelementptr inbounds i8, ptr %0, i64 8
   %68 = load ptr, ptr %67, align 8, !alias.scope !6967, !nonnull !5, !noundef !5
   %69 = getelementptr inbounds i32, ptr %68, i64 %.0.i.i10
@@ -33282,7 +33282,7 @@ define internal fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9iter
   %76 = load i64, ptr %0, align 8, !alias.scope !6973, !noundef !5
   %.not.i.i12 = icmp ult i64 %75, %76
   %77 = select i1 %.not.i.i12, i64 0, i64 %76
-  %.0.i.i13 = sub i64 %75, %77
+  %.0.i.i13 = sub nuw i64 %75, %77
   br label %79
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h8b3049459ec39d73E.exit.thread18": ; preds = %11, %7, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h8b3049459ec39d73E.exit", %79
@@ -34064,7 +34064,7 @@ define hidden { ptr, i64 } @"_ZN15rustfmt_nightly7comment21light_rewrite_comment
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i": ; preds = %80
   %82 = icmp sgt i8 %76, -65
-  %83 = sub i64 %2, %6
+  %83 = sub nuw i64 %2, %6
   br i1 %82, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h6d78dd4b79717b01E.exit", label %95
 
 84:                                               ; preds = %74
@@ -34076,7 +34076,7 @@ define hidden { ptr, i64 } @"_ZN15rustfmt_nightly7comment21light_rewrite_comment
   %87 = getelementptr inbounds i8, ptr %1, i64 %85
   %88 = load i8, ptr %87, align 1, !alias.scope !7155, !noundef !5
   %89 = icmp sgt i8 %88, -65
-  %90 = sub i64 %2, %85
+  %90 = sub nuw i64 %2, %85
   br i1 %89, label %92, label %91
 
 91:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i17"
@@ -34125,7 +34125,7 @@ define hidden { i8, i32 } @"_ZN105_$LT$rustfmt_nightly..comment..CharClasses$LT$
   %14 = load i64, ptr %0, align 8, !alias.scope !7167, !noundef !5
   %.not.i.i.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i.i.i, i64 0, i64 %14
-  %.0.i.i.i = sub i64 %13, %15
+  %.0.i.i.i = sub nuw i64 %13, %15
   store i64 %.0.i.i.i, ptr %11, align 8, !alias.scope !7166
   %16 = add i64 %9, -1
   store i64 %16, ptr %8, align 8, !alias.scope !7166
@@ -34566,7 +34566,7 @@ define hidden void @"_ZN105_$LT$rustfmt_nightly..comment..CharClasses$LT$T$GT$$u
   %15 = load i64, ptr %1, align 8, !alias.scope !7213, !noundef !5
   %.not.i.i.i = icmp ult i64 %14, %15
   %16 = select i1 %.not.i.i.i, i64 0, i64 %15
-  %.0.i.i.i = sub i64 %14, %16
+  %.0.i.i.i = sub nuw i64 %14, %16
   store i64 %.0.i.i.i, ptr %12, align 8, !alias.scope !7212
   %17 = add i64 %10, -1
   store i64 %17, ptr %9, align 8, !alias.scope !7212

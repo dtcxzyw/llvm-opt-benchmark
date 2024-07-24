@@ -347,7 +347,7 @@ _ZNSt6vectorIN2cv2ml6KDTree4NodeESaIS3_EED2Ev.exit: ; preds = %47, %51
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %77
-  %89 = sub nsw i64 %79, %86
+  %89 = sub nuw nsw i64 %79, %86
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %89)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %37
 

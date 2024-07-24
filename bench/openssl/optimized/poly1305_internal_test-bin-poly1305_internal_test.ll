@@ -104,7 +104,7 @@ for.body:                                         ; preds = %if.then25, %for.inc
   call void @Poly1305_Init(ptr noundef nonnull %poly1305, ptr noundef nonnull %data3) #3
   call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %data, i64 noundef %half.046) #3
   %add.ptr35 = getelementptr inbounds i8, ptr %data, i64 %half.046
-  %sub36 = sub i64 %0, %half.046
+  %sub36 = sub nuw i64 %0, %half.046
   call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %add.ptr35, i64 noundef %sub36) #3
   call void @Poly1305_Final(ptr noundef nonnull %poly1305, ptr noundef nonnull %out) #3
   %call39 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 1560, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %out, i64 noundef %1, ptr noundef nonnull %data6, i64 noundef %1) #3

@@ -1056,12 +1056,12 @@ land.lhs.true.i:                                  ; preds = %mmbit_set_i.exit732
   br i1 %cmp.i1028, label %if.then.i1029, label %runRevNfa.exit
 
 if.then.i1029:                                    ; preds = %land.lhs.true.i
-  %sub11.i = sub nsw i64 %conv7.i1027, %sub.i1026
+  %sub11.i = sub nuw nsw i64 %conv7.i1027, %sub.i1026
   %cmp12.i = icmp ult i64 %sub11.i, %199
   br i1 %cmp12.i, label %if.then14.i, label %runRevNfa.exit
 
 if.then14.i:                                      ; preds = %if.then.i1029
-  %sub15.i = sub i64 %199, %sub11.i
+  %sub15.i = sub nuw i64 %199, %sub11.i
   %add.ptr.i1030 = getelementptr inbounds i8, ptr %201, i64 %sub15.i
   br label %runRevNfa.exit
 
@@ -1337,12 +1337,12 @@ land.lhs.true.i1045:                              ; preds = %if.then57
   br i1 %cmp.i1048, label %if.then.i1052, label %runRevNfa.exit1058
 
 if.then.i1052:                                    ; preds = %land.lhs.true.i1045
-  %sub11.i1053 = sub nsw i64 %conv7.i1047, %sub.i1040
+  %sub11.i1053 = sub nuw nsw i64 %conv7.i1047, %sub.i1040
   %cmp12.i1054 = icmp ult i64 %sub11.i1053, %254
   br i1 %cmp12.i1054, label %if.then14.i1055, label %runRevNfa.exit1058
 
 if.then14.i1055:                                  ; preds = %if.then.i1052
-  %sub15.i1056 = sub i64 %254, %sub11.i1053
+  %sub15.i1056 = sub nuw i64 %254, %sub11.i1053
   %add.ptr.i1057 = getelementptr inbounds i8, ptr %256, i64 %sub15.i1056
   br label %runRevNfa.exit1058
 
@@ -1669,12 +1669,12 @@ land.lhs.true.i1073:                              ; preds = %if.then66
   br i1 %cmp.i1077, label %if.then.i1081, label %runRevNfa.exit1087
 
 if.then.i1081:                                    ; preds = %land.lhs.true.i1073
-  %sub11.i1082 = sub nsw i64 %conv7.i1076, %sub.i1068
+  %sub11.i1082 = sub nuw nsw i64 %conv7.i1076, %sub.i1068
   %cmp12.i1083 = icmp ult i64 %sub11.i1082, %322
   br i1 %cmp12.i1083, label %if.then14.i1084, label %runRevNfa.exit1087
 
 if.then14.i1084:                                  ; preds = %if.then.i1081
-  %sub15.i1085 = sub i64 %322, %sub11.i1082
+  %sub15.i1085 = sub nuw i64 %322, %sub11.i1082
   %add.ptr.i1086 = getelementptr inbounds i8, ptr %324, i64 %sub15.i1085
   br label %runRevNfa.exit1087
 
@@ -2799,12 +2799,12 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %if.then, label %do.end18
 
 if.then:                                          ; preds = %land.lhs.true
-  %sub11 = sub nsw i64 %conv7, %sub
+  %sub11 = sub nuw nsw i64 %conv7, %sub
   %cmp12 = icmp ult i64 %sub11, %4
   br i1 %cmp12, label %if.then14, label %do.end18
 
 if.then14:                                        ; preds = %if.then
-  %sub15 = sub i64 %4, %sub11
+  %sub15 = sub nuw i64 %4, %sub11
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %sub15
   br label %do.end18
 
@@ -2883,12 +2883,12 @@ land.lhs.true.i:                                  ; preds = %do.end14
   br i1 %cmp.i, label %if.then.i, label %runRevNfa.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %sub11.i = sub nsw i64 %conv7.i, %sub.i
+  %sub11.i = sub nuw nsw i64 %conv7.i, %sub.i
   %cmp12.i = icmp ult i64 %sub11.i, %11
   br i1 %cmp12.i, label %if.then14.i, label %runRevNfa.exit
 
 if.then14.i:                                      ; preds = %if.then.i
-  %sub15.i = sub i64 %11, %sub11.i
+  %sub15.i = sub nuw i64 %11, %sub11.i
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %sub15.i
   br label %runRevNfa.exit
 

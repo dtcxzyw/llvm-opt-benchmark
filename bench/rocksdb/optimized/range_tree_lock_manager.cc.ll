@@ -3722,7 +3722,7 @@ _ZNSt6vectorIN7rocksdb17RangeDeadlockPathESaIS1_EED2Ev.exit: ; preds = %invoke.c
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNSt6vectorIN7rocksdb17RangeDeadlockPathESaIS1_EED2Ev.exit
-  %sub = sub nsw i64 %sub.ptr.div.i, %conv
+  %sub = sub nuw nsw i64 %sub.ptr.div.i, %conv
   %add.ptr.i = getelementptr inbounds %"struct.rocksdb::RangeDeadlockPath", ptr %14, i64 %sub
   %call15.i9 = invoke ptr @_ZNSt6vectorIN7rocksdb17RangeDeadlockPathESaIS1_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS1_S3_EES7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %14, ptr %add.ptr.i)
           to label %if.end unwind label %lpad
@@ -3738,7 +3738,7 @@ if.else:                                          ; preds = %_ZNSt6vectorIN7rock
   br i1 %cmp.i, label %if.then.i, label %invoke.cont28
 
 if.then.i:                                        ; preds = %if.else
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i
   invoke void @_ZNSt6vectorIN7rocksdb17RangeDeadlockPathESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
           to label %invoke.cont28 unwind label %lpad
 
@@ -8612,7 +8612,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then5
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i7
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i7
   invoke void @_ZNSt6vectorIN7rocksdb17RangeDeadlockPathESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i64 noundef %sub.i)
           to label %nrvo.skipdtor unwind label %lpad
 

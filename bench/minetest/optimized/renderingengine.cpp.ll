@@ -678,7 +678,7 @@ cleanup.done70:                                   ; preds = %cleanup.action55, %
   resume { ptr, i32 } %.pn.pn.pn171
 
 if.then78:                                        ; preds = %cleanup.done66
-  %sub80 = sub i64 %conv, %spec.select
+  %sub80 = sub nuw i64 %conv, %spec.select
   %sleep_time = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %sub80, ptr %sleep_time, align 8, !tbaa !23
   %conv85 = trunc i64 %sub80 to i32

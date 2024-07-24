@@ -158,7 +158,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3gmx12_GLOBA
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = sub nsw i64 %21, %15
+  %25 = sub nuw nsw i64 %21, %15
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %10, i64 noundef %25, ptr noundef nonnull align 4 dereferenceable(4) %7)
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
 
@@ -310,7 +310,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -491,7 +491,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3gmx12_GLOBA
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
-  %24 = sub nsw i64 %20, %14
+  %24 = sub nuw nsw i64 %20, %14
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %24)
   %.pre = load ptr, ptr %7, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -749,7 +749,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZN3gmx12_GLOBA
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
-  %24 = sub nsw i64 %20, %14
+  %24 = sub nuw nsw i64 %20, %14
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %24)
   %.pre = load ptr, ptr %7, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit

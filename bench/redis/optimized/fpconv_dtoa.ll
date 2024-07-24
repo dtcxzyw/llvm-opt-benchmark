@@ -238,7 +238,7 @@ if.end.i83.i:                                     ; preds = %if.then.i.i, %for.b
 if.then28.i.i:                                    ; preds = %if.end.i83.i
   %shl33.i.i = shl i64 %10, %sh_prom.i.i
   %cmp12.i.i.i = icmp uge i64 %add25.i.i, %sub.i79.i
-  %sub13.i.i.i = sub i64 %sub4.i.i, %add25.i.i
+  %sub13.i.i.i = sub nuw i64 %sub4.i.i, %add25.i.i
   %cmp1.not14.i.i.i = icmp ult i64 %sub13.i.i.i, %shl33.i.i
   %or.cond15.i.i.i = or i1 %cmp12.i.i.i, %cmp1.not14.i.i.i
   br i1 %or.cond15.i.i.i, label %grisu2.exit, label %land.rhs.lr.ph.i.i.i
@@ -257,7 +257,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i.i
   %sub3.i.i.i = sub i64 %sub.i79.i, %rem.addr.016.i.i.i
-  %sub5.i.i.i = sub i64 %add.i.i.i, %sub.i79.i
+  %sub5.i.i.i = sub nuw i64 %add.i.i.i, %sub.i79.i
   %cmp6.i.i.i = icmp ugt i64 %sub3.i.i.i, %sub5.i.i.i
   br i1 %cmp6.i.i.i, label %while.body.i.i.i, label %grisu2.exit
 
@@ -307,7 +307,7 @@ if.then59.i.i:                                    ; preds = %if.end53.i.i
   %17 = load i64, ptr %unit.0.i.i, align 8
   %mul62.i.i = mul i64 %17, %sub.i79.i
   %cmp12.i47.i.i = icmp uge i64 %and56.i.i, %mul62.i.i
-  %sub13.i48.i.i = sub i64 %mul36.i.i, %and56.i.i
+  %sub13.i48.i.i = sub nuw i64 %mul36.i.i, %and56.i.i
   %cmp1.not14.i49.i.i = icmp ult i64 %sub13.i48.i.i, %shl.i80.i
   %or.cond15.i50.i.i = or i1 %cmp1.not14.i49.i.i, %cmp12.i47.i.i
   br i1 %or.cond15.i50.i.i, label %grisu2.exit, label %land.rhs.lr.ph.i51.i.i
@@ -326,7 +326,7 @@ land.rhs.i54.i.i:                                 ; preds = %while.body.i62.i.i,
 
 lor.rhs.i58.i.i:                                  ; preds = %land.rhs.i54.i.i
   %sub3.i59.i.i = sub i64 %mul62.i.i, %rem.addr.016.i55.i.i
-  %sub5.i60.i.i = sub i64 %add.i56.i.i, %mul62.i.i
+  %sub5.i60.i.i = sub nuw i64 %add.i56.i.i, %mul62.i.i
   %cmp6.i61.i.i = icmp ugt i64 %sub3.i59.i.i, %sub5.i60.i.i
   br i1 %cmp6.i61.i.i, label %while.body.i62.i.i, label %grisu2.exit
 

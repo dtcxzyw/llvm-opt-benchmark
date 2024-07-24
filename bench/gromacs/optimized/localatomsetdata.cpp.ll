@@ -140,7 +140,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i16: ; preds = %.lr.ph.i.i.i.i
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %.loopexit
-  %61 = sub nsw i64 %51, %58
+  %61 = sub nuw nsw i64 %51, %58
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %61)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %71
 

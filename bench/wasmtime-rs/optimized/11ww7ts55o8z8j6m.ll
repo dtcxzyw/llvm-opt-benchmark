@@ -113,7 +113,7 @@ define hidden void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free17hb6a65e
 7:                                                ; preds = %3
   %8 = add nuw nsw i64 %4, 1
   %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = sub nsw i64 %8, %6
+  %10 = sub nuw nsw i64 %8, %6
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h51253fb1008579cfE.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10, i64 noundef 0)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h1bc63b46bdc39938E.exit"
 
@@ -185,7 +185,7 @@ define internal fastcc void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free
 7:                                                ; preds = %3
   %8 = add nuw nsw i64 %4, 1
   %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = sub nsw i64 %8, %6
+  %10 = sub nuw nsw i64 %8, %6
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h51253fb1008579cfE.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10, i64 noundef 0)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h1bc63b46bdc39938E.exit"
 
@@ -428,9 +428,9 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
 "_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17hbbd601a33d0834b0E.exit": ; preds = %45, %39
   %.pn.i = phi i64 [ %.val3, %39 ], [ %.0.i, %45 ]
   %.16.val.pn.i = phi i64 [ %1, %39 ], [ %.val3, %45 ]
-  %.sink.i = sub i64 %.16.val.pn.i, %.0.i
+  %.sink.i = sub nuw i64 %.16.val.pn.i, %.0.i
   %.sink6.i = getelementptr inbounds i32, ptr %.val, i64 %.0.i
-  %.sink8.i = sub i64 %.pn.i, %1
+  %.sink8.i = sub nuw i64 %.pn.i, %1
   %.sink10.i = getelementptr inbounds i32, ptr %.val, i64 %1
   %51 = icmp ult i64 %.sink.i, %4
   br i1 %51, label %52, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fe8369f5961d1c1E.llvm.7615600370855926762.exit"
@@ -523,7 +523,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
 37:                                               ; preds = %34
   %38 = add nuw nsw i64 %35, 1
   %39 = getelementptr inbounds i8, ptr %0, i64 24
-  %40 = sub nsw i64 %38, %36
+  %40 = sub nuw nsw i64 %38, %36
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h51253fb1008579cfE.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %40, i64 noundef 0)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h1bc63b46bdc39938E.exit.i"
 
@@ -630,9 +630,9 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
 "_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17hc33fec99b50df3d6E.exit": ; preds = %80, %74
   %.pn.i = phi i64 [ %.val3, %74 ], [ %.0.i, %80 ]
   %.16.val.pn.i = phi i64 [ %1, %74 ], [ %.val3, %80 ]
-  %.sink.i = sub i64 %.16.val.pn.i, %.0.i
+  %.sink.i = sub nuw i64 %.16.val.pn.i, %.0.i
   %.sink6.i = getelementptr inbounds i32, ptr %.val, i64 %.0.i
-  %.sink8.i = sub i64 %.pn.i, %1
+  %.sink8.i = sub nuw i64 %.pn.i, %1
   %.sink10.i = getelementptr inbounds i32, ptr %.val, i64 %1
   %86 = icmp ult i64 %.sink.i, %4
   br i1 %86, label %87, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h010c441a38139c51E.exit"
@@ -1254,9 +1254,9 @@ define hidden noundef i64 @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4push
 "_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17h33ce05b0113f633bE.exit.i": ; preds = %88, %82
   %.pn.i.i = phi i64 [ %.val3.i, %82 ], [ %.0.i.i, %88 ]
   %.16.val.pn.i.i = phi i64 [ %10, %82 ], [ %.val3.i, %88 ]
-  %.sink.i.i = sub i64 %.16.val.pn.i.i, %.0.i.i
+  %.sink.i.i = sub nuw i64 %.16.val.pn.i.i, %.0.i.i
   %.sink6.i.i = getelementptr inbounds i32, ptr %.val.i, i64 %.0.i.i
-  %.sink8.i.i = sub i64 %.pn.i.i, %10
+  %.sink8.i.i = sub nuw i64 %.pn.i.i, %10
   %.sink10.i.i = getelementptr inbounds i32, ptr %.val.i, i64 %10
   %.not = icmp ugt i64 %.sink.i.i, %37
   br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hef7433e2a5da2fe2E.exit.i", label %94

@@ -760,7 +760,7 @@ _ZN7mitsuba6Stream10read_arrayIfEEvPT_m.exit:     ; preds = %.lr.ph.i.i, %_ZN7mi
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %_ZN7mitsuba6Stream10read_arrayIfEEvPT_m.exit
-  %126 = sub nsw i64 %116, %123
+  %126 = sub nuw nsw i64 %116, %123
   call void @_ZNSt3__16vectorIfNS_9allocatorIfEEE8__appendEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %114, i64 noundef %126, ptr noundef nonnull align 4 dereferenceable(4) %15)
   %.pre117 = load i32, ptr %92, align 16
   %.pre120 = zext i32 %.pre117 to i64

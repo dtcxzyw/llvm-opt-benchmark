@@ -253,7 +253,7 @@ if.end38.i:                                       ; preds = %invoke.cont34.i
   br i1 %cmp.i10.i, label %if.then.i17.i, label %invoke.cont39.i
 
 if.then.i17.i:                                    ; preds = %if.end38.i
-  %sub.i18.i = sub i64 %7, %sub.ptr.sub.i.i9.i
+  %sub.i18.i = sub nuw i64 %7, %sub.ptr.sub.i.i9.i
   %cmp4.i.i22.i = icmp sgt i64 %sub.ptr.sub.i.i9.i, -1
   call void @llvm.assume(i1 %cmp4.i.i22.i)
   %sub.i.i23.i = xor i64 %sub.ptr.sub.i.i9.i, 9223372036854775807

@@ -11810,7 +11810,7 @@ define ptr @zend_memnstr_ex(ptr noundef %0, ptr nocapture noundef readonly %1, i
 
 .lr.ph:                                           ; preds = %.preheader57, %.lr.ph
   %.04960 = phi i64 [ %20, %.lr.ph ], [ 0, %.preheader57 ]
-  %14 = sub i64 %2, %.04960
+  %14 = sub nuw i64 %2, %.04960
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds i8, ptr %1, i64 %.04960
   %17 = load i8, ptr %16, align 1

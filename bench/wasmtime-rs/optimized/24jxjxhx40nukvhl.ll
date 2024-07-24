@@ -455,7 +455,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = shl i64 %.sroa.4.0.copyload, 3
   %scevgep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 %5
-  %6 = sub i64 %1, %0
+  %6 = sub nuw i64 %1, %0
   %7 = shl i64 %6, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false), !noalias !137
   %8 = add i64 %6, %.sroa.4.0.copyload
@@ -2676,7 +2676,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h589df2a57c4614
   %.promoted = load i64, ptr %7, align 8, !alias.scope !710
   %8 = shl i64 %.promoted, 3
   %scevgep = getelementptr i8, ptr %6, i64 %8
-  %9 = sub i64 %1, %0
+  %9 = sub nuw i64 %1, %0
   %10 = shl i64 %9, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %10, i1 false), !noalias !710
   %11 = add i64 %.promoted, %1
@@ -3528,7 +3528,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !4
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.0 = sub i64 %5, %7
+  %.0 = sub nuw i64 %5, %7
   ret i64 %.0
 }
 
@@ -3546,7 +3546,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %9 = load i64, ptr %0, align 8, !alias.scope !946, !noundef !4
   %.not.i = icmp ult i64 %8, %9
   %10 = select i1 %.not.i, i64 0, i64 %9
-  %.0.i = sub i64 %8, %10
+  %.0.i = sub nuw i64 %8, %10
   store i64 %.0.i, ptr %6, align 8
   %11 = add i64 %3, -1
   store i64 %11, ptr %2, align 8

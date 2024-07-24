@@ -9539,7 +9539,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hc
 
 .noexc.i:                                         ; preds = %34
   %45 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %7, i64 %22
-  %46 = sub i64 %8, %22
+  %46 = sub nuw i64 %8, %22
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   %47 = tail call noundef align 8 ptr @_ZN10rayon_core8registry19WORKER_THREAD_STATE7__getit17h2293249b7a33db79E.llvm.1299376021755125212(ptr noalias noundef align 8 dereferenceable_or_null(16) null), !noalias !2656
   %48 = icmp eq ptr %47, null
@@ -10577,7 +10577,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
 
 .noexc.i:                                         ; preds = %32
   %48 = getelementptr inbounds { { { i32, i32 }, i32 }, [1 x i32], i64 }, ptr %.sroa.446.0.copyload, i64 %20
-  %49 = sub i64 %.sroa.547.0.copyload, %20
+  %49 = sub nuw i64 %.sroa.547.0.copyload, %20
   %50 = icmp ne ptr %.sroa.045.0.copyload, null
   tail call void @llvm.assume(i1 %50)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
@@ -24278,7 +24278,7 @@ define void @_ZN10tokenizers5utils10truncation18truncate_encodings17h5114fa1d921
   br label %.critedge
 
 38:                                               ; preds = %27
-  %39 = sub i64 %34, %8
+  %39 = sub nuw i64 %34, %8
   %40 = getelementptr inbounds i8, ptr %3, i64 16
   %41 = load i8, ptr %40, align 8, !range !1954, !noundef !4
   %switch = icmp eq i8 %41, 0
@@ -24305,7 +24305,7 @@ define void @_ZN10tokenizers5utils10truncation18truncate_encodings17h5114fa1d921
   %52 = icmp ugt i64 %29, %33
   %spec.select = tail call i64 @llvm.umin.i64(i64 %29, i64 %33)
   %53 = icmp ugt i64 %spec.select, %8
-  %54 = sub i64 %8, %spec.select
+  %54 = sub nuw i64 %8, %spec.select
   %.0.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 %54)
   %.030 = select i1 %53, i64 %spec.select, i64 %.0.sroa.speculated.i
   %55 = add i64 %.030, %spec.select
@@ -24386,7 +24386,7 @@ define void @_ZN10tokenizers5utils10truncation18truncate_encodings17h5114fa1d921
   unreachable
 
 87:                                               ; preds = %79
-  %88 = sub i64 %81, %39
+  %88 = sub nuw i64 %81, %39
   %89 = getelementptr inbounds i8, ptr %3, i64 8
   %90 = load i64, ptr %89, align 8, !noundef !4
   %91 = getelementptr inbounds i8, ptr %3, i64 17

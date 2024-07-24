@@ -4331,7 +4331,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   br i1 %748, label %.thread94, label %749
 
 749:                                              ; preds = %746
-  %750 = sub i64 %2, %747
+  %750 = sub nuw i64 %2, %747
   %751 = getelementptr inbounds i8, ptr %1, i64 16
   %752 = call i64 @_copy_from_iter(ptr noundef nonnull %6, i64 noundef 10, ptr noundef %751) #19
   %753 = icmp eq i64 %752, 10
@@ -4876,7 +4876,7 @@ define internal i32 @packet_recvmsg(ptr nocapture noundef readonly %0, ptr nound
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %35
-  %40 = sub i64 %2, %37
+  %40 = sub nuw i64 %2, %37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %5, i8 0, i64 10, i1 false)
   %41 = getelementptr inbounds i8, ptr %22, i64 192
   %42 = load ptr, ptr %41, align 8

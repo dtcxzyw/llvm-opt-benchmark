@@ -3300,7 +3300,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %15 = load i64, ptr %14, align 8, !noundef !13
   %.not = icmp ult i64 %13, %15
   %16 = select i1 %.not, i64 0, i64 %15
-  %.0 = sub i64 %13, %16
+  %.0 = sub nuw i64 %13, %16
   %17 = sub i64 %15, %.0
   %.not17 = icmp ult i64 %17, %7
   store i64 %.0, ptr %0, align 8
@@ -3312,7 +3312,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 21:                                               ; preds = %10
-  %22 = sub i64 %7, %17
+  %22 = sub nuw i64 %7, %17
   store i64 %15, ptr %18, align 8
   store i64 0, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3341,7 +3341,7 @@ define hidden noundef align 8 ptr @"_ZN5alloc11collections9vec_deque21VecDeque$L
   %11 = load i64, ptr %10, align 8, !noundef !13
   %.not = icmp ult i64 %9, %11
   %12 = select i1 %.not, i64 0, i64 %11
-  %.03 = sub i64 %9, %12
+  %.03 = sub nuw i64 %9, %12
   %13 = load ptr, ptr %0, align 8, !nonnull !13, !noundef !13
   %14 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %13, i64 %.03
   br label %15
@@ -3415,7 +3415,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop
   %12 = load i64, ptr %11, align 8, !noundef !13
   %.not = icmp ult i64 %10, %12
   %13 = select i1 %.not, i64 0, i64 %12
-  %.0 = sub i64 %10, %13
+  %.0 = sub nuw i64 %10, %13
   store i64 %.0, ptr %8, align 8
   %14 = add i64 %4, -1
   store i64 %14, ptr %3, align 8
@@ -3445,7 +3445,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %12 = load i64, ptr %5, align 8, !noundef !13
   %.not = icmp ult i64 %11, %12
   %13 = select i1 %.not, i64 0, i64 %12
-  %.0 = sub i64 %11, %13
+  %.0 = sub nuw i64 %11, %13
   %14 = load ptr, ptr %0, align 8, !nonnull !13, !noundef !13
   %15 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %14, i64 %.0
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)

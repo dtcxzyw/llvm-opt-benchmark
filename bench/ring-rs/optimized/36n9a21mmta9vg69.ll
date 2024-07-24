@@ -267,7 +267,7 @@ define hidden void @_ZN4ring4aead6chacha3Key14encrypt_within17h8681004cfd55c4aaE
   unreachable
 
 _ZN4ring4aead6chacha3Key17encrypt_less_safe14ChaCha20_ctr3217h8e61c8acfaebf40fE.llvm.6801758991666044160.exit: ; preds = %5
-  %7 = sub i64 %3, %4
+  %7 = sub nuw i64 %3, %4
   %8 = getelementptr inbounds i8, ptr %2, i64 %4
   tail call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull %2, ptr noundef nonnull %8, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %1)
   ret void
@@ -283,7 +283,7 @@ define hidden void @_ZN4ring4aead6chacha3Key17encrypt_less_safe14ChaCha20_ctr321
   unreachable
 
 7:                                                ; preds = %5
-  %8 = sub i64 %3, %4
+  %8 = sub nuw i64 %3, %4
   %9 = getelementptr inbounds i8, ptr %2, i64 %4
   tail call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull %2, ptr noundef nonnull %9, i64 noundef %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %1)
   ret void
@@ -1344,7 +1344,7 @@ define noundef zeroext i1 @_ZN4ring4hkdf8fill_okm17hadb4f6f109bf9d24E(ptr noalia
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h468ca074e17c60afE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.6801758991666044160.exit"
   %44 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %37
-  %45 = sub i64 %.sroa.5.0, %37
+  %45 = sub nuw i64 %.sroa.5.0, %37
   call void @llvm.experimental.noalias.scope.decl(metadata !219)
   call void @llvm.experimental.noalias.scope.decl(metadata !222)
   %.not.i23 = icmp eq i64 %37, %34
@@ -1636,7 +1636,7 @@ define noundef zeroext i1 @"_ZN80_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   %25 = sub i8 0, %24
   %26 = and i8 %25, 7
   %27 = lshr i8 -1, %26
-  %28 = sub i64 %22, %21
+  %28 = sub nuw i64 %22, %21
   store i64 %20, ptr %11, align 8
   %.sroa.446.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %22, ptr %.sroa.446.0..sroa_idx, align 8
@@ -1828,7 +1828,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   %23 = sub i8 0, %22
   %24 = and i8 %23, 7
   %25 = lshr i8 -1, %24
-  %26 = sub i64 %20, %19
+  %26 = sub nuw i64 %20, %19
   store i64 %18, ptr %9, align 8
   %.sroa.490.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %20, ptr %.sroa.490.0..sroa_idx, align 8

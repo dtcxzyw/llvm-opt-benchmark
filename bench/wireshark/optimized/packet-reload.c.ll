@@ -2736,7 +2736,7 @@ define internal fastcc void @dissect_storereq(ptr noundef %0, ptr noundef %1, pt
   %.08996 = phi i32 [ %59, %57 ], [ 0, %31 ]
   %51 = add nuw i32 %50, %.08996
   %52 = trunc i32 %51 to i16
-  %53 = sub i32 %23, %.08996
+  %53 = sub nuw i32 %23, %.08996
   %54 = trunc i32 %53 to i16
   %55 = tail call fastcc i32 @dissect_kinddata(ptr noundef %0, ptr noundef %1, ptr noundef %46, i16 noundef zeroext %52, i16 noundef zeroext %54, i32 noundef 0)
   %56 = icmp eq i32 %55, 0
@@ -3137,7 +3137,7 @@ dissect_arrayrange.exit.i:                        ; preds = %113, %112
   %.083102.i = phi i32 [ %132, %130 ], [ 0, %117 ]
   %.084101.i = phi i32 [ %131, %130 ], [ 0, %117 ]
   %126 = load i32, ptr @hf_reload_dictionarykey, align 4
-  %127 = sub nsw i32 %121, %.084101.i
+  %127 = sub nuw nsw i32 %121, %.084101.i
   %128 = tail call fastcc i32 @dissect_opaque_string_or_data(ptr noundef %0, ptr noundef %1, ptr noundef %125, i32 noundef %126, i16 noundef zeroext %41, i16 noundef zeroext 2, i32 noundef %127, i32 noundef 0)
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %._crit_edge.i, label %130
@@ -3204,7 +3204,7 @@ define internal fastcc void @dissect_fetchans(ptr noundef %0, ptr noundef %1, pt
   %.03338 = phi i32 [ %28, %.lr.ph ], [ 0, %15 ]
   %22 = add i32 %21, %.03338
   %23 = trunc i32 %22 to i16
-  %24 = sub i32 %7, %.03338
+  %24 = sub nuw i32 %7, %.03338
   %25 = trunc i32 %24 to i16
   %26 = tail call fastcc i32 @dissect_kinddata(ptr noundef %0, ptr noundef %1, ptr noundef %18, i16 noundef zeroext %23, i16 noundef zeroext %25, i32 noundef 0)
   %27 = icmp ne i32 %26, 0
@@ -3258,8 +3258,8 @@ define internal fastcc void @dissect_statans(ptr noundef %0, ptr noundef %1, ptr
   %.04044 = phi i32 [ %33, %31 ], [ 0, %17 ]
   %25 = add nuw nsw i32 %24, %.04044
   %26 = trunc i32 %25 to i16
-  %27 = sub nsw i32 %7, %.04044
-  %28 = trunc i32 %27 to i16
+  %27 = sub nuw nsw i32 %7, %.04044
+  %28 = trunc nuw i32 %27 to i16
   %29 = tail call fastcc i32 @dissect_kinddata(ptr noundef %0, ptr noundef %1, ptr noundef %21, i16 noundef zeroext %26, i16 noundef zeroext %28, i32 noundef 1)
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %._crit_edge, label %31
@@ -3827,7 +3827,7 @@ dissect_dmflag.exit:                              ; preds = %27
   %.084 = phi i32 [ %83, %81 ], [ 0, %56 ]
   %.07783 = phi i32 [ %82, %81 ], [ 0, %56 ]
   %60 = add i32 %59, %.07783
-  %61 = sub i32 %.076, %.07783
+  %61 = sub nuw i32 %.076, %.07783
   %62 = and i32 %60, 65535
   %63 = add nuw nsw i32 %62, 2
   %64 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %63) #5
@@ -3914,7 +3914,7 @@ define internal fastcc noundef range(i32 0, 65536) i32 @dissect_diagnosticrespon
   %.071 = phi i32 [ 0, %.lr.ph ], [ %190, %188 ]
   %.06370 = phi i32 [ 0, %.lr.ph ], [ %189, %188 ]
   %37 = add nuw i32 %35, %.06370
-  %38 = sub i32 %.062, %.06370
+  %38 = sub nuw i32 %.062, %.06370
   %39 = trunc i32 %38 to i16
   %40 = and i32 %37, 65535
   %41 = add nuw nsw i32 %40, 2
@@ -5707,7 +5707,7 @@ dissect_kindid.exit:                              ; preds = %getKindFromId.exit.
   %.06881 = phi i32 [ 0, %.lr.ph ], [ %211, %210 ]
   %61 = add nuw i32 %55, %.06782
   %62 = trunc i32 %61 to i16
-  %63 = sub i32 %10, %.06782
+  %63 = sub nuw i32 %10, %.06782
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %hf_reload_storedmetadata.val.i = load i32, ptr @hf_reload_storedmetadata, align 4
   %hf_reload_storeddata.val.i = load i32, ptr @hf_reload_storeddata, align 4

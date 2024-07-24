@@ -1046,7 +1046,7 @@ if.then.i:                                        ; preds = %if.then29
   unreachable
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit:           ; preds = %if.then29
-  %sub.i = sub i64 %sub.ptr.sub.i, %tokenStartPos.0283
+  %sub.i = sub nuw i64 %sub.ptr.sub.i, %tokenStartPos.0283
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %tokenSize.0282)
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i112) #20, !noalias !49
@@ -2108,7 +2108,7 @@ if.then.i:                                        ; preds = %if.then17
   unreachable
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit:           ; preds = %if.then17
-  %sub.i = sub i64 %sub.ptr.sub.i, %tokenStartPos.0261
+  %sub.i = sub nuw i64 %sub.ptr.sub.i, %tokenStartPos.0261
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %tokenSize.0259)
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i90) #20, !noalias !93

@@ -3015,8 +3015,8 @@ define internal fastcc noundef zeroext i1 @gen8_ggtt_bind_ptes(ptr nocapture nou
   br i1 %213, label %214, label %.thread42.thread
 
 214:                                              ; preds = %.thread42
-  %215 = sub nsw i32 %85, %212
-  %216 = zext i32 %215 to i64
+  %215 = sub nuw nsw i32 %85, %212
+  %216 = zext nneg i32 %215 to i64
   %217 = call { i64, i64 } asm sideeffect "rep\0A\09stosq", "=&{cx},=&{di},{ax},1,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, ptr %211, i64 %216) #10, !srcloc !87
   br label %.thread42.thread
 

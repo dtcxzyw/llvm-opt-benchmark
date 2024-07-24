@@ -32756,7 +32756,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %2
-  %19 = sub i64 %9, %16
+  %19 = sub nuw i64 %9, %16
   tail call void @_ZNSt6vectorIN3dap3anyESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %19)
   br label %_ZNSt6vectorIN3dap3anyESaIS1_EE6resizeEm.exit
 
@@ -46372,7 +46372,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %2
-  %19 = sub i64 %9, %16
+  %19 = sub nuw i64 %9, %16
   tail call void @_ZNSt6vectorIN3dap8ChecksumESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %19)
   br label %_ZNSt6vectorIN3dap8ChecksumESaIS1_EE6resizeEm.exit
 
@@ -47907,7 +47907,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %2
-  %19 = sub i64 %9, %16
+  %19 = sub nuw i64 %9, %16
   tail call void @_ZNSt6vectorIN3dap6SourceESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %19)
   br label %_ZNSt6vectorIN3dap6SourceESaIS1_EE6resizeEm.exit
 
@@ -50223,7 +50223,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %2
-  %19 = sub i64 %9, %16
+  %19 = sub nuw i64 %9, %16
   tail call void @_ZNSt6vectorIN3dap16ColumnDescriptorESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %19)
   br label %_ZNSt6vectorIN3dap16ColumnDescriptorESaIS1_EE6resizeEm.exit
 
@@ -51460,7 +51460,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %2
-  %19 = sub i64 %9, %16
+  %19 = sub nuw i64 %9, %16
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %19)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
@@ -52401,7 +52401,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %2
-  %19 = sub i64 %9, %16
+  %19 = sub nuw i64 %9, %16
   tail call void @_ZNSt6vectorIN3dap26ExceptionBreakpointsFilterESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %19)
   br label %_ZNSt6vectorIN3dap26ExceptionBreakpointsFilterESaIS1_EE6resizeEm.exit
 
@@ -54961,7 +54961,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %2
-  %19 = sub i64 %9, %16
+  %19 = sub nuw i64 %9, %16
   tail call void @_ZNSt6vectorIN3dap16ExceptionDetailsESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %19)
   br label %_ZNSt6vectorIN3dap16ExceptionDetailsESaIS1_EE6resizeEm.exit
 
@@ -57392,7 +57392,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %2
-  %19 = sub i64 %9, %16
+  %19 = sub nuw i64 %9, %16
   tail call void @_ZNSt6vectorIN3dap20ExceptionPathSegmentESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %19)
   br label %_ZNSt6vectorIN3dap20ExceptionPathSegmentESaIS1_EE6resizeEm.exit
 

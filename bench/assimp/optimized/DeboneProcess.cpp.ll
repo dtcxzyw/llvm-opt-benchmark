@@ -257,7 +257,7 @@ if.then35:                                        ; preds = %if.end33
   br i1 %cmp.i, label %if.then.i51, label %if.else.i50
 
 if.then.i51:                                      ; preds = %if.then35
-  %sub.i = sub nsw i64 %conv37, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv37, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIS_ISt4pairIjP6aiNodeESaIS3_EESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %mSubMeshIndices, i64 noundef %sub.i)
           to label %invoke.cont38 unwind label %lpad4.loopexit.split-lp
 

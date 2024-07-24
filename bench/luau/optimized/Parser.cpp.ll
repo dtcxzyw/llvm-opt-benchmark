@@ -1950,7 +1950,7 @@ define dso_local noundef ptr @_ZN4Luau6Parser10parseChunkEv(ptr noundef nonnull 
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %._crit_edge.i.i
-  %33 = sub nsw i64 %17, %.pre-phi16.i.i
+  %33 = sub nuw nsw i64 %17, %.pre-phi16.i.i
   tail call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %33)
   br label %_ZN4Luau6Parser10parseBlockEv.exit
 
@@ -3760,7 +3760,7 @@ define dso_local noundef ptr @_ZN4Luau6Parser10parseBlockEv(ptr noundef nonnull 
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %._crit_edge.i
-  %33 = sub nsw i64 %17, %.pre-phi16.i
+  %33 = sub nuw nsw i64 %17, %.pre-phi16.i
   tail call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %33)
   br label %_ZN4Luau6Parser13restoreLocalsEj.exit
 
@@ -4123,7 +4123,7 @@ define dso_local void @_ZN4Luau6Parser13restoreLocalsEj(ptr noundef nonnull alig
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %._crit_edge
-  %27 = sub nsw i64 %11, %.pre-phi16
+  %27 = sub nuw nsw i64 %11, %.pre-phi16
   tail call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %27)
   br label %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE6resizeEm.exit
 
@@ -4259,7 +4259,7 @@ define dso_local noundef ptr @_ZN4Luau6Parser9parseStatEv(ptr noundef nonnull al
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %._crit_edge.i.i
-  %54 = sub nsw i64 %38, %.pre-phi16.i.i
+  %54 = sub nuw nsw i64 %38, %.pre-phi16.i.i
   tail call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %54)
   br label %_ZN4Luau6Parser10parseBlockEv.exit
 
@@ -4654,7 +4654,7 @@ _ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %._crit_edge.i.i
-  %50 = sub nsw i64 %34, %.pre-phi16.i.i
+  %50 = sub nuw nsw i64 %34, %.pre-phi16.i.i
   call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %50)
   br label %_ZN4Luau6Parser10parseBlockEv.exit
 
@@ -4765,7 +4765,7 @@ _ZNSt8optionalIN4Luau8LocationEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %._crit_edge.i.i8
-  %98 = sub nsw i64 %82, %.pre-phi16.i.i9
+  %98 = sub nuw nsw i64 %82, %.pre-phi16.i.i9
   call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %98)
   br label %_ZN4Luau6Parser10parseBlockEv.exit20
 
@@ -4972,7 +4972,7 @@ _ZN4Luau6Parser16expectAndConsumeENS_6Lexeme4TypeEPKc.exit: ; preds = %12, %15, 
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %._crit_edge.i.i
-  %53 = sub nsw i64 %37, %.pre-phi16.i.i
+  %53 = sub nuw nsw i64 %37, %.pre-phi16.i.i
   call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %53)
   br label %_ZN4Luau6Parser10parseBlockEv.exit
 
@@ -5123,7 +5123,7 @@ define dso_local noundef ptr @_ZN4Luau6Parser7parseDoEv(ptr noundef nonnull alig
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %._crit_edge.i.i
-  %38 = sub nsw i64 %22, %.pre-phi16.i.i
+  %38 = sub nuw nsw i64 %22, %.pre-phi16.i.i
   tail call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %38)
   br label %_ZN4Luau6Parser10parseBlockEv.exit
 
@@ -5357,7 +5357,7 @@ _ZN4Luau6Parser16expectAndConsumeENS_6Lexeme4TypeEPKc.exit: ; preds = %_ZN4Luau6
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %._crit_edge.i.i
-  %87 = sub nsw i64 %71, %.pre-phi16.i.i
+  %87 = sub nuw nsw i64 %71, %.pre-phi16.i.i
   call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %87)
   br label %_ZN4Luau6Parser10parseBlockEv.exit
 
@@ -5424,7 +5424,7 @@ _ZN4Luau6Parser10parseBlockEv.exit:               ; preds = %86, %88, %90, %92
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %._crit_edge.i
-  %119 = sub nsw i64 %103, %.pre-phi16.i
+  %119 = sub nuw nsw i64 %103, %.pre-phi16.i
   call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %119)
   br label %_ZN4Luau6Parser13restoreLocalsEj.exit
 
@@ -6057,7 +6057,7 @@ _ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx1
   br i1 %355, label %356, label %358
 
 356:                                              ; preds = %._crit_edge.i.i40
-  %357 = sub nsw i64 %341, %.pre-phi16.i.i41
+  %357 = sub nuw nsw i64 %341, %.pre-phi16.i.i41
   invoke void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %266, i64 noundef %357)
           to label %_ZN4Luau6Parser10parseBlockEv.exit55 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6127,7 +6127,7 @@ _ZN4Luau6Parser10parseBlockEv.exit55:             ; preds = %362, %360, %358, %3
   br i1 %387, label %388, label %390
 
 388:                                              ; preds = %._crit_edge.i56
-  %389 = sub nsw i64 %373, %.pre-phi16.i57
+  %389 = sub nuw nsw i64 %373, %.pre-phi16.i57
   invoke void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %266, i64 noundef %389)
           to label %_ZN4Luau6Parser13restoreLocalsEj.exit70 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6472,7 +6472,7 @@ _ZN4Luau6Parser24expectMatchEndAndConsumeENS_6Lexeme4TypeERKNS0_11MatchLexemeE.e
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %._crit_edge.i
-  %71 = sub nsw i64 %55, %.pre-phi16.i
+  %71 = sub nuw nsw i64 %55, %.pre-phi16.i
   call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %71)
   br label %_ZN4Luau6Parser13restoreLocalsEj.exit
 
@@ -12237,7 +12237,7 @@ _ZNSt6vectorIN4Luau6Parser8FunctionESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %._crit_edge.i.i
-  %166 = sub nsw i64 %150, %.pre-phi16.i.i
+  %166 = sub nuw nsw i64 %150, %.pre-phi16.i.i
   invoke void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %166)
           to label %._ZN4Luau6Parser10parseBlockEv.exit_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -12310,7 +12310,7 @@ _ZN4Luau6Parser10parseBlockEv.exit:               ; preds = %._ZN4Luau6Parser10p
   br i1 %194, label %195, label %197
 
 195:                                              ; preds = %._crit_edge.i
-  %196 = sub nsw i64 %180, %.pre-phi16.i
+  %196 = sub nuw nsw i64 %180, %.pre-phi16.i
   invoke void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %196)
           to label %_ZN4Luau6Parser13restoreLocalsEj.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

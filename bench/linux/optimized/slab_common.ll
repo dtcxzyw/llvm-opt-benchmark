@@ -2414,7 +2414,7 @@ define dso_local ptr @find_mergeable(i32 noundef %0, i32 noundef %1, i32 noundef
   %60 = and i32 %54, %29
   %61 = icmp ne i32 %60, %54
   %62 = or i1 %61, %59
-  %63 = sub i32 %54, %30
+  %63 = sub nuw i32 %54, %30
   %64 = icmp ugt i32 %63, 7
   %65 = or i1 %64, %62
   br i1 %65, label %.thread, label %69

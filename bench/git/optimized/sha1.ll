@@ -1340,7 +1340,7 @@ if.then4:                                         ; preds = %land.lhs.true
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %buf, i64 %conv1, i1 false)
   tail call fastcc void @sha1_process(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer)
   %add.ptr11 = getelementptr inbounds i8, ptr %buf, i64 %conv1
-  %sub13 = sub i64 %len, %conv1
+  %sub13 = sub nuw i64 %len, %conv1
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then4, %if.end
@@ -3266,7 +3266,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 16 dereferenceable(1) @sha1_padding, i64 %conv1.i, i1 false)
   tail call fastcc void @sha1_process(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer.i)
   %add.ptr11.i = getelementptr inbounds i8, ptr @sha1_padding, i64 %conv1.i
-  %sub13.i = sub nsw i64 %conv4, %conv1.i
+  %sub13.i = sub nuw nsw i64 %conv4, %conv1.i
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then4.i, %entry

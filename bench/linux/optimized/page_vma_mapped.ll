@@ -670,7 +670,7 @@ define dso_local noundef range(i32 0, 2) i32 @page_mapped_in_vma(ptr noundef %0,
 
 31:                                               ; preds = %26
   %32 = load i64, ptr %1, align 8
-  %33 = sub i64 %18, %29
+  %33 = sub nuw i64 %18, %29
   %34 = shl i64 %33, 12
   %35 = add i64 %32, %34
   %36 = icmp ult i64 %35, %32

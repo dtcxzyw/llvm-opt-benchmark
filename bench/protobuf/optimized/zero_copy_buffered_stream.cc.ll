@@ -125,7 +125,7 @@ if.then.i.i.i.i18:                                ; preds = %while.end10.i.i9
   unreachable
 
 _ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream6UnreadEv.exit27: ; preds = %while.end10.i.i9
-  %sub.i.i.i14 = sub i64 %view.sroa.0.0.i.i10, %start.addr.0.i.i12
+  %sub.i.i.i14 = sub nuw i64 %view.sroa.0.0.i.i10, %start.addr.0.i.i12
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i14, i64 %storemerge37)
   %add = add i64 %.sroa.speculated, %6
   store i64 %add, ptr %cursor_.i, align 8
@@ -176,7 +176,7 @@ if.then.i.i.i:                                    ; preds = %while.end10.i
   unreachable
 
 _ZNK6google8protobuf13json_internal22ZeroCopyBufferedStream9RawBufferEmm.exit: ; preds = %while.end10.i
-  %sub.i.i = sub i64 %view.sroa.0.0.copyload.i, %3
+  %sub.i.i = sub nuw i64 %view.sroa.0.0.copyload.i, %3
   %buf_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp4.i.i.i.i.i.i = icmp sgt i64 %sub.i.i, 0
   br i1 %cmp4.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZN4absl12lts_202308026c_copyISt17basic_string_viewIcSt11char_traitsIcEESt20back_insert_iteratorISt6vectorIcSaIcEEEEET0_RKT_SB_.exit
@@ -444,7 +444,7 @@ if.then.i.i.i.i.cont:                             ; preds = %if.then.i.i.i.i.inv
   unreachable
 
 invoke.cont:                                      ; preds = %while.end10.i.i
-  %sub.i.i.i = sub i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
+  %sub.i.i.i = sub nuw i64 %view.sroa.0.0.i.i, %start.addr.0.i.i
   %cmp = icmp ult i64 %sub.i.i.i, %bytes
   br i1 %cmp, label %while.body, label %while.end30
 

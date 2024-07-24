@@ -2911,7 +2911,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %.045 = phi i64 [ 0, %12 ], [ %28, %18 ]
   %19 = add i64 %.045, 2147483647
   %20 = icmp ugt i64 %19, %3
-  %21 = sub i64 %3, %.045
+  %21 = sub nuw i64 %3, %.045
   %22 = shl i64 %21, 32
   %23 = mul i64 %.045, %17
   %24 = getelementptr inbounds i8, ptr %1, i64 %23

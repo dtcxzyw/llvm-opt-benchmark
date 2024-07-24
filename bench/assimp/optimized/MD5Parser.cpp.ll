@@ -2392,7 +2392,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit406:             ; preds = %if.end.i395, %if.en
   br i1 %cmp.i412, label %if.then.i416, label %if.else.i413
 
 if.then.i416:                                     ; preds = %_ZN6Assimp9strtoul10EPKcPS1_.exit406
-  %sub.i417 = sub nsw i64 %conv311, %sub.ptr.div.i.i411
+  %sub.i417 = sub nuw nsw i64 %conv311, %sub.ptr.div.i.i411
   invoke void @_ZNSt6vectorI6aiFaceSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %mFaces, i64 noundef %sub.i417)
           to label %for.inc560 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -3036,7 +3036,7 @@ if.then429:                                       ; preds = %_ZN6Assimp9strtoul1
   br i1 %cmp.i672, label %if.then.i687, label %if.else.i673
 
 if.then.i687:                                     ; preds = %if.then429
-  %sub.i688 = sub nsw i64 %conv432, %sub.ptr.div.i666
+  %sub.i688 = sub nuw nsw i64 %conv432, %sub.ptr.div.i666
   invoke void @_ZNSt6vectorI6aiFaceSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %mFaces, i64 noundef %sub.i688)
           to label %if.end434 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -3963,7 +3963,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -4060,7 +4060,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -4082,7 +4082,7 @@ _ZSt27__uninitialized_default_n_aIPN6Assimp3MD510WeightDescEmS2_ET_S4_T0_RSaIT1_
   br label %if.end6
 
 if.else.i:                                        ; preds = %if.then
-  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  %cmp.i.i = icmp ugt i64 %__new_size, 461168601842738790
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6Assimp3MD510WeightDescESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i:                                      ; preds = %if.else.i

@@ -3306,7 +3306,7 @@ if.end57.i.i.i:                                   ; preds = %if.end53.i.i.i
   %arrayidx58.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0235.i.i, i64 %inc54.i.i.i
   %36 = load i8, ptr %arrayidx58.i.i.i, align 1, !tbaa !7
   %cmp60.i.i.i = icmp eq i8 %36, 45
-  %sub64.i.i.i = sub i64 %len.addr.0234.i.i, %inc54.i.i.i
+  %sub64.i.i.i = sub nuw i64 %len.addr.0234.i.i, %inc54.i.i.i
   br i1 %cmp60.i.i.i, label %if.then63.i.i.i, label %if.else.i.i68.i
 
 if.then63.i.i.i:                                  ; preds = %if.end57.i.i.i
@@ -3701,7 +3701,7 @@ if.end64.i.i.i:                                   ; preds = %if.end60.i.i.i
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0235.i.i, i64 %inc61.i.i.i
   %62 = load i8, ptr %arrayidx65.i.i.i, align 1, !tbaa !7
   %cmp67.i.i.i = icmp eq i8 %62, 45
-  %sub71.i.i.i = sub i64 %len.addr.0234.i.i, %inc61.i.i.i
+  %sub71.i.i.i = sub nuw i64 %len.addr.0234.i.i, %inc61.i.i.i
   br i1 %cmp67.i.i.i, label %if.then70.i.i.i, label %if.else76.i.i.i
 
 if.then70.i.i.i:                                  ; preds = %if.end64.i.i.i
@@ -4361,7 +4361,7 @@ if.end57.i.i.i:                                   ; preds = %if.end53.i.i.i
   %arrayidx58.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0235.i.i, i64 %inc54.i.i.i
   %39 = load i8, ptr %arrayidx58.i.i.i, align 1, !tbaa !7
   %cmp60.i.i.i = icmp eq i8 %39, 45
-  %sub64.i.i.i = sub i64 %len.addr.0234.i.i, %inc54.i.i.i
+  %sub64.i.i.i = sub nuw i64 %len.addr.0234.i.i, %inc54.i.i.i
   br i1 %cmp60.i.i.i, label %if.then63.i.i.i, label %if.else.i.i68.i
 
 if.then63.i.i.i:                                  ; preds = %if.end57.i.i.i
@@ -4756,7 +4756,7 @@ if.end64.i.i.i:                                   ; preds = %if.end60.i.i.i
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0235.i.i, i64 %inc61.i.i.i
   %65 = load i8, ptr %arrayidx65.i.i.i, align 1, !tbaa !7
   %cmp67.i.i.i = icmp eq i8 %65, 45
-  %sub71.i.i.i = sub i64 %len.addr.0234.i.i, %inc61.i.i.i
+  %sub71.i.i.i = sub nuw i64 %len.addr.0234.i.i, %inc61.i.i.i
   br i1 %cmp67.i.i.i, label %if.then70.i.i.i, label %if.else76.i.i.i
 
 if.then70.i.i.i:                                  ; preds = %if.end64.i.i.i
@@ -5412,7 +5412,7 @@ if.end57.i.i.i:                                   ; preds = %if.end53.i.i.i
   %arrayidx58.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0235.i.i, i64 %inc54.i.i.i
   %36 = load i8, ptr %arrayidx58.i.i.i, align 1, !tbaa !7
   %cmp60.i.i.i = icmp eq i8 %36, 45
-  %sub64.i.i.i = sub i64 %len.addr.0234.i.i, %inc54.i.i.i
+  %sub64.i.i.i = sub nuw i64 %len.addr.0234.i.i, %inc54.i.i.i
   br i1 %cmp60.i.i.i, label %if.then63.i.i.i, label %if.else.i.i69.i
 
 if.then63.i.i.i:                                  ; preds = %if.end57.i.i.i
@@ -5807,7 +5807,7 @@ if.end64.i.i.i:                                   ; preds = %if.end60.i.i.i
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0235.i.i, i64 %inc61.i.i.i
   %62 = load i8, ptr %arrayidx65.i.i.i, align 1, !tbaa !7
   %cmp67.i.i.i = icmp eq i8 %62, 45
-  %sub71.i.i.i = sub i64 %len.addr.0234.i.i, %inc61.i.i.i
+  %sub71.i.i.i = sub nuw i64 %len.addr.0234.i.i, %inc61.i.i.i
   br i1 %cmp67.i.i.i, label %if.then70.i.i.i, label %if.else76.i.i.i
 
 if.then70.i.i.i:                                  ; preds = %if.end64.i.i.i
@@ -6459,7 +6459,7 @@ if.end57.i.i.i:                                   ; preds = %if.end53.i.i.i
   %arrayidx58.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0220.i.i, i64 %inc54.i.i.i
   %36 = load i8, ptr %arrayidx58.i.i.i, align 1, !tbaa !7
   %cmp60.i.i.i = icmp eq i8 %36, 45
-  %sub64.i.i.i = sub i64 %len.addr.0219.i.i, %inc54.i.i.i
+  %sub64.i.i.i = sub nuw i64 %len.addr.0219.i.i, %inc54.i.i.i
   br i1 %cmp60.i.i.i, label %if.then63.i.i.i, label %if.else.i.i69.i
 
 if.then63.i.i.i:                                  ; preds = %if.end57.i.i.i
@@ -6826,7 +6826,7 @@ if.end64.i.i.i:                                   ; preds = %if.end60.i.i.i
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0220.i.i, i64 %inc61.i.i.i
   %58 = load i8, ptr %arrayidx65.i.i.i, align 1, !tbaa !7
   %cmp67.i.i.i = icmp eq i8 %58, 45
-  %sub71.i.i.i = sub i64 %len.addr.0219.i.i, %inc61.i.i.i
+  %sub71.i.i.i = sub nuw i64 %len.addr.0219.i.i, %inc61.i.i.i
   br i1 %cmp67.i.i.i, label %if.then70.i.i.i, label %if.else76.i.i.i
 
 if.then70.i.i.i:                                  ; preds = %if.end64.i.i.i
@@ -7485,7 +7485,7 @@ if.end57.i.i.i:                                   ; preds = %if.end53.i.i.i
   %arrayidx58.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0248.i.i, i64 %inc54.i.i.i
   %40 = load i8, ptr %arrayidx58.i.i.i, align 1, !tbaa !7
   %cmp60.i.i.i = icmp eq i8 %40, 45
-  %sub64.i.i.i = sub i64 %len.addr.0247.i.i, %inc54.i.i.i
+  %sub64.i.i.i = sub nuw i64 %len.addr.0247.i.i, %inc54.i.i.i
   br i1 %cmp60.i.i.i, label %if.then63.i.i.i, label %if.else.i.i71.i
 
 if.then63.i.i.i:                                  ; preds = %if.end57.i.i.i
@@ -7874,7 +7874,7 @@ if.end64.i.i.i:                                   ; preds = %if.end60.i.i.i
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0248.i.i, i64 %inc61.i.i.i
   %62 = load i8, ptr %arrayidx65.i.i.i, align 1, !tbaa !7
   %cmp67.i.i.i = icmp eq i8 %62, 45
-  %sub71.i.i.i = sub i64 %len.addr.0247.i.i, %inc61.i.i.i
+  %sub71.i.i.i = sub nuw i64 %len.addr.0247.i.i, %inc61.i.i.i
   br i1 %cmp67.i.i.i, label %if.then70.i.i.i, label %if.else76.i.i.i
 
 if.then70.i.i.i:                                  ; preds = %if.end64.i.i.i
@@ -8549,7 +8549,7 @@ if.end57.i.i.i:                                   ; preds = %if.end53.i.i.i
   %arrayidx58.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0248.i.i, i64 %inc54.i.i.i
   %40 = load i8, ptr %arrayidx58.i.i.i, align 1, !tbaa !7
   %cmp60.i.i.i = icmp eq i8 %40, 45
-  %sub64.i.i.i = sub i64 %len.addr.0247.i.i, %inc54.i.i.i
+  %sub64.i.i.i = sub nuw i64 %len.addr.0247.i.i, %inc54.i.i.i
   br i1 %cmp60.i.i.i, label %if.then63.i.i.i, label %if.else.i.i76.i
 
 if.then63.i.i.i:                                  ; preds = %if.end57.i.i.i
@@ -8938,7 +8938,7 @@ if.end64.i.i.i:                                   ; preds = %if.end60.i.i.i
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0248.i.i, i64 %inc61.i.i.i
   %62 = load i8, ptr %arrayidx65.i.i.i, align 1, !tbaa !7
   %cmp67.i.i.i = icmp eq i8 %62, 45
-  %sub71.i.i.i = sub i64 %len.addr.0247.i.i, %inc61.i.i.i
+  %sub71.i.i.i = sub nuw i64 %len.addr.0247.i.i, %inc61.i.i.i
   br i1 %cmp67.i.i.i, label %if.then70.i.i.i, label %if.else76.i.i.i
 
 if.then70.i.i.i:                                  ; preds = %if.end64.i.i.i
@@ -9611,7 +9611,7 @@ if.end57.i.i.i:                                   ; preds = %if.end53.i.i.i
   %arrayidx58.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0248.i.i, i64 %inc54.i.i.i
   %38 = load i8, ptr %arrayidx58.i.i.i, align 1, !tbaa !7
   %cmp60.i.i.i = icmp eq i8 %38, 45
-  %sub64.i.i.i = sub i64 %len.addr.0247.i.i, %inc54.i.i.i
+  %sub64.i.i.i = sub nuw i64 %len.addr.0247.i.i, %inc54.i.i.i
   br i1 %cmp60.i.i.i, label %if.then63.i.i.i, label %if.else.i.i71.i
 
 if.then63.i.i.i:                                  ; preds = %if.end57.i.i.i
@@ -10000,7 +10000,7 @@ if.end64.i.i.i:                                   ; preds = %if.end60.i.i.i
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0248.i.i, i64 %inc61.i.i.i
   %60 = load i8, ptr %arrayidx65.i.i.i, align 1, !tbaa !7
   %cmp67.i.i.i = icmp eq i8 %60, 45
-  %sub71.i.i.i = sub i64 %len.addr.0247.i.i, %inc61.i.i.i
+  %sub71.i.i.i = sub nuw i64 %len.addr.0247.i.i, %inc61.i.i.i
   br i1 %cmp67.i.i.i, label %if.then70.i.i.i, label %if.else76.i.i.i
 
 if.then70.i.i.i:                                  ; preds = %if.end64.i.i.i
@@ -10677,7 +10677,7 @@ if.end57.i.i.i:                                   ; preds = %if.end53.i.i.i
   %arrayidx58.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0228.i.i, i64 %inc54.i.i.i
   %41 = load i8, ptr %arrayidx58.i.i.i, align 1, !tbaa !7
   %cmp60.i.i.i = icmp eq i8 %41, 45
-  %sub64.i.i.i = sub i64 %len.addr.0227.i.i, %inc54.i.i.i
+  %sub64.i.i.i = sub nuw i64 %len.addr.0227.i.i, %inc54.i.i.i
   br i1 %cmp60.i.i.i, label %if.then63.i.i.i, label %if.else.i.i72.i
 
 if.then63.i.i.i:                                  ; preds = %if.end57.i.i.i
@@ -11040,7 +11040,7 @@ if.end64.i.i.i:                                   ; preds = %if.end60.i.i.i
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %buf.addr.0228.i.i, i64 %inc61.i.i.i
   %64 = load i8, ptr %arrayidx65.i.i.i, align 1, !tbaa !7
   %cmp67.i.i.i = icmp eq i8 %64, 45
-  %sub71.i.i.i = sub i64 %len.addr.0227.i.i, %inc61.i.i.i
+  %sub71.i.i.i = sub nuw i64 %len.addr.0227.i.i, %inc61.i.i.i
   br i1 %cmp67.i.i.i, label %if.then70.i.i.i, label %if.else76.i.i.i
 
 if.then70.i.i.i:                                  ; preds = %if.end64.i.i.i
@@ -14910,7 +14910,7 @@ if.end57.i.i:                                     ; preds = %if.end53.i.i
   %arrayidx58.i.i = getelementptr inbounds i8, ptr %buf.addr.0142.i, i64 %inc54.i.i
   %13 = load i8, ptr %arrayidx58.i.i, align 1, !tbaa !7
   %cmp60.i.i = icmp eq i8 %13, 45
-  %sub64.i.i = sub i64 %len.addr.0141.i, %inc54.i.i
+  %sub64.i.i = sub nuw i64 %len.addr.0141.i, %inc54.i.i
   br i1 %cmp60.i.i, label %if.then63.i.i, label %if.else.i.i
 
 if.then63.i.i:                                    ; preds = %if.end57.i.i
@@ -15135,7 +15135,7 @@ if.end64.i.i:                                     ; preds = %if.end60.i.i
   %arrayidx65.i.i = getelementptr inbounds i8, ptr %buf.addr.0142.i, i64 %inc61.i.i
   %32 = load i8, ptr %arrayidx65.i.i, align 1, !tbaa !7
   %cmp67.i.i = icmp eq i8 %32, 45
-  %sub71.i.i = sub i64 %len.addr.0141.i, %inc61.i.i
+  %sub71.i.i = sub nuw i64 %len.addr.0141.i, %inc61.i.i
   br i1 %cmp67.i.i, label %if.then70.i.i, label %if.else76.i.i
 
 if.then70.i.i:                                    ; preds = %if.end64.i.i
@@ -15427,7 +15427,7 @@ if.end57.i.i:                                     ; preds = %if.end53.i.i
   %arrayidx58.i.i = getelementptr inbounds i8, ptr %buf.addr.0306.i, i64 %inc54.i.i
   %22 = load i8, ptr %arrayidx58.i.i, align 1, !tbaa !7
   %cmp60.i.i = icmp eq i8 %22, 45
-  %sub64.i.i = sub i64 %len.addr.0305.i, %inc54.i.i
+  %sub64.i.i = sub nuw i64 %len.addr.0305.i, %inc54.i.i
   br i1 %cmp60.i.i, label %if.then63.i.i, label %if.else.i.i
 
 if.then63.i.i:                                    ; preds = %if.end57.i.i
@@ -15491,7 +15491,7 @@ land.lhs.true.i163.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i166.i.i, label %if.end.i167.i.i, label %if.end11.i.i.i
 
 if.end.i167.i.i:                                  ; preds = %land.lhs.true.i163.i.i
-  %sub.i176.i.i = sub i8 %26, %scale
+  %sub.i176.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i176.i.i, ptr %excessive_decimals, align 2, !tbaa !235
   %conv.i.i.i.i = zext i8 %sub.i176.i.i to i64
   %27 = add nsw i64 %conv.i.i.i.i, -1
@@ -15792,7 +15792,7 @@ if.end64.i.i:                                     ; preds = %if.end60.i.i
   %arrayidx65.i.i = getelementptr inbounds i8, ptr %buf.addr.0306.i, i64 %inc61.i.i
   %61 = load i8, ptr %arrayidx65.i.i, align 1, !tbaa !7
   %cmp67.i.i = icmp eq i8 %61, 45
-  %sub71.i.i = sub i64 %len.addr.0305.i, %inc61.i.i
+  %sub71.i.i = sub nuw i64 %len.addr.0305.i, %inc61.i.i
   br i1 %cmp67.i.i, label %if.then70.i.i, label %if.else76.i.i
 
 if.then70.i.i:                                    ; preds = %if.end64.i.i
@@ -15845,7 +15845,7 @@ land.lhs.true.i173.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i176.i.i, label %if.end.i177.i.i, label %if.end11.i.i205.i
 
 if.end.i177.i.i:                                  ; preds = %land.lhs.true.i173.i.i
-  %sub.i186.i.i = sub i8 %64, %scale
+  %sub.i186.i.i = sub nuw i8 %64, %scale
   store i8 %sub.i186.i.i, ptr %excessive_decimals, align 2, !tbaa !235
   %conv.i.i.i187.i = zext i8 %sub.i186.i.i to i64
   %65 = add nsw i64 %conv.i.i.i187.i, -1
@@ -16444,7 +16444,7 @@ if.end57.i.i:                                     ; preds = %if.end53.i.i
   %arrayidx58.i.i = getelementptr inbounds i8, ptr %buf.addr.0310.i, i64 %inc54.i.i
   %22 = load i8, ptr %arrayidx58.i.i, align 1, !tbaa !7
   %cmp60.i.i = icmp eq i8 %22, 45
-  %sub64.i.i = sub i64 %len.addr.0309.i, %inc54.i.i
+  %sub64.i.i = sub nuw i64 %len.addr.0309.i, %inc54.i.i
   br i1 %cmp60.i.i, label %if.then63.i.i, label %if.else.i.i
 
 if.then63.i.i:                                    ; preds = %if.end57.i.i
@@ -16508,7 +16508,7 @@ land.lhs.true.i162.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i.i.i, label %if.end.i165.i.i, label %if.end11.i.i.i
 
 if.end.i165.i.i:                                  ; preds = %land.lhs.true.i162.i.i
-  %sub.i173.i.i = sub i8 %26, %scale
+  %sub.i173.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i173.i.i, ptr %excessive_decimals, align 2, !tbaa !266
   %conv.i.i.i.i = zext i8 %sub.i173.i.i to i64
   %27 = add nsw i64 %conv.i.i.i.i, -1
@@ -16809,7 +16809,7 @@ if.end64.i.i:                                     ; preds = %if.end60.i.i
   %arrayidx65.i.i = getelementptr inbounds i8, ptr %buf.addr.0310.i, i64 %inc61.i.i
   %61 = load i8, ptr %arrayidx65.i.i, align 1, !tbaa !7
   %cmp67.i.i = icmp eq i8 %61, 45
-  %sub71.i.i = sub i64 %len.addr.0309.i, %inc61.i.i
+  %sub71.i.i = sub nuw i64 %len.addr.0309.i, %inc61.i.i
   br i1 %cmp67.i.i, label %if.then70.i.i, label %if.else76.i.i
 
 if.then70.i.i:                                    ; preds = %if.end64.i.i
@@ -16862,7 +16862,7 @@ land.lhs.true.i172.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i.i185.i, label %if.end.i175.i.i, label %if.end11.i.i206.i
 
 if.end.i175.i.i:                                  ; preds = %land.lhs.true.i172.i.i
-  %sub.i183.i.i = sub i8 %64, %scale
+  %sub.i183.i.i = sub nuw i8 %64, %scale
   store i8 %sub.i183.i.i, ptr %excessive_decimals, align 2, !tbaa !266
   %conv.i.i.i188.i = zext i8 %sub.i183.i.i to i64
   %65 = add nsw i64 %conv.i.i.i188.i, -1
@@ -17461,7 +17461,7 @@ if.end57.i.i:                                     ; preds = %if.end53.i.i
   %arrayidx58.i.i = getelementptr inbounds i8, ptr %buf.addr.0310.i, i64 %inc54.i.i
   %22 = load i8, ptr %arrayidx58.i.i, align 1, !tbaa !7
   %cmp60.i.i = icmp eq i8 %22, 45
-  %sub64.i.i = sub i64 %len.addr.0309.i, %inc54.i.i
+  %sub64.i.i = sub nuw i64 %len.addr.0309.i, %inc54.i.i
   br i1 %cmp60.i.i, label %if.then63.i.i, label %if.else.i.i
 
 if.then63.i.i:                                    ; preds = %if.end57.i.i
@@ -17525,7 +17525,7 @@ land.lhs.true.i162.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i.i.i, label %if.end.i165.i.i, label %if.end11.i.i.i
 
 if.end.i165.i.i:                                  ; preds = %land.lhs.true.i162.i.i
-  %sub.i173.i.i = sub i8 %26, %scale
+  %sub.i173.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i173.i.i, ptr %excessive_decimals, align 2, !tbaa !295
   %conv.i.i.i.i = zext i8 %sub.i173.i.i to i64
   %27 = add nsw i64 %conv.i.i.i.i, -1
@@ -17599,7 +17599,7 @@ if.end19.i.i.i:                                   ; preds = %_ZN6duckdb20Decimal
   br i1 %cmp2441.i.i.i, label %for.body.i.i.i.preheader, label %if.end97.i.i
 
 for.body.i.i.i.preheader:                         ; preds = %if.end19.i.i.i
-  %31 = sub i8 %scale, %30
+  %31 = sub nuw i8 %scale, %30
   %xtraiter390 = and i8 %31, 7
   %lcmp.mod391.not = icmp eq i8 %xtraiter390, 0
   br i1 %lcmp.mod391.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol
@@ -17816,7 +17816,7 @@ if.end64.i.i:                                     ; preds = %if.end60.i.i
   %arrayidx65.i.i = getelementptr inbounds i8, ptr %buf.addr.0310.i, i64 %inc61.i.i
   %57 = load i8, ptr %arrayidx65.i.i, align 1, !tbaa !7
   %cmp67.i.i = icmp eq i8 %57, 45
-  %sub71.i.i = sub i64 %len.addr.0309.i, %inc61.i.i
+  %sub71.i.i = sub nuw i64 %len.addr.0309.i, %inc61.i.i
   br i1 %cmp67.i.i, label %if.then70.i.i, label %if.else76.i.i
 
 if.then70.i.i:                                    ; preds = %if.end64.i.i
@@ -17869,7 +17869,7 @@ land.lhs.true.i172.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i.i185.i, label %if.end.i175.i.i, label %if.end11.i.i206.i
 
 if.end.i175.i.i:                                  ; preds = %land.lhs.true.i172.i.i
-  %sub.i183.i.i = sub i8 %60, %scale
+  %sub.i183.i.i = sub nuw i8 %60, %scale
   store i8 %sub.i183.i.i, ptr %excessive_decimals, align 2, !tbaa !295
   %conv.i.i.i188.i = zext i8 %sub.i183.i.i to i64
   %61 = add nsw i64 %conv.i.i.i188.i, -1
@@ -17943,7 +17943,7 @@ if.end19.i.i213.i:                                ; preds = %_ZN6duckdb20Decimal
   br i1 %cmp2441.i.i217.i, label %for.body.i.i219.i.preheader, label %if.end105.i.i
 
 for.body.i.i219.i.preheader:                      ; preds = %if.end19.i.i213.i
-  %65 = sub i8 %scale, %64
+  %65 = sub nuw i8 %scale, %64
   %xtraiter398 = and i8 %65, 7
   %lcmp.mod399.not = icmp eq i8 %xtraiter398, 0
   br i1 %lcmp.mod399.not, label %for.body.i.i219.i.prol.loopexit, label %for.body.i.i219.i.prol
@@ -18457,7 +18457,7 @@ if.end57.i.i:                                     ; preds = %if.end53.i.i
   %arrayidx58.i.i = getelementptr inbounds i8, ptr %buf.addr.0146.i, i64 %inc54.i.i
   %20 = load i8, ptr %arrayidx58.i.i, align 1, !tbaa !7
   %cmp60.i.i = icmp eq i8 %20, 45
-  %sub64.i.i = sub i64 %len.addr.0145.i, %inc54.i.i
+  %sub64.i.i = sub nuw i64 %len.addr.0145.i, %inc54.i.i
   br i1 %cmp60.i.i, label %if.then63.i.i, label %if.else.i.i
 
 if.then63.i.i:                                    ; preds = %if.end57.i.i
@@ -18681,7 +18681,7 @@ if.end64.i.i:                                     ; preds = %if.end60.i.i
   %arrayidx65.i.i = getelementptr inbounds i8, ptr %buf.addr.0146.i, i64 %inc61.i.i
   %42 = load i8, ptr %arrayidx65.i.i, align 1, !tbaa !7
   %cmp67.i.i = icmp eq i8 %42, 45
-  %sub71.i.i = sub i64 %len.addr.0145.i, %inc61.i.i
+  %sub71.i.i = sub nuw i64 %len.addr.0145.i, %inc61.i.i
   br i1 %cmp67.i.i, label %if.then70.i.i, label %if.else76.i.i
 
 if.then70.i.i:                                    ; preds = %if.end64.i.i
@@ -19176,7 +19176,7 @@ if.end57.i.i:                                     ; preds = %if.end53.i.i
   %arrayidx58.i.i = getelementptr inbounds i8, ptr %buf.addr.0306.i, i64 %inc54.i.i
   %22 = load i8, ptr %arrayidx58.i.i, align 1, !tbaa !7
   %cmp60.i.i = icmp eq i8 %22, 45
-  %sub64.i.i = sub i64 %len.addr.0305.i, %inc54.i.i
+  %sub64.i.i = sub nuw i64 %len.addr.0305.i, %inc54.i.i
   br i1 %cmp60.i.i, label %if.then63.i.i, label %if.else.i.i
 
 if.then63.i.i:                                    ; preds = %if.end57.i.i
@@ -19240,7 +19240,7 @@ land.lhs.true.i163.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i166.i.i, label %if.end.i167.i.i, label %if.end11.i.i.i
 
 if.end.i167.i.i:                                  ; preds = %land.lhs.true.i163.i.i
-  %sub.i176.i.i = sub i8 %26, %scale
+  %sub.i176.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i176.i.i, ptr %excessive_decimals, align 2, !tbaa !235
   %conv.i.i.i.i = zext i8 %sub.i176.i.i to i64
   %27 = add nsw i64 %conv.i.i.i.i, -1
@@ -19541,7 +19541,7 @@ if.end64.i.i:                                     ; preds = %if.end60.i.i
   %arrayidx65.i.i = getelementptr inbounds i8, ptr %buf.addr.0306.i, i64 %inc61.i.i
   %61 = load i8, ptr %arrayidx65.i.i, align 1, !tbaa !7
   %cmp67.i.i = icmp eq i8 %61, 45
-  %sub71.i.i = sub i64 %len.addr.0305.i, %inc61.i.i
+  %sub71.i.i = sub nuw i64 %len.addr.0305.i, %inc61.i.i
   br i1 %cmp67.i.i, label %if.then70.i.i, label %if.else76.i.i
 
 if.then70.i.i:                                    ; preds = %if.end64.i.i
@@ -19594,7 +19594,7 @@ land.lhs.true.i173.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i176.i.i, label %if.end.i177.i.i, label %if.end11.i.i205.i
 
 if.end.i177.i.i:                                  ; preds = %land.lhs.true.i173.i.i
-  %sub.i186.i.i = sub i8 %64, %scale
+  %sub.i186.i.i = sub nuw i8 %64, %scale
   store i8 %sub.i186.i.i, ptr %excessive_decimals, align 2, !tbaa !235
   %conv.i.i.i187.i = zext i8 %sub.i186.i.i to i64
   %65 = add nsw i64 %conv.i.i.i187.i, -1
@@ -20193,7 +20193,7 @@ if.end57.i.i:                                     ; preds = %if.end53.i.i
   %arrayidx58.i.i = getelementptr inbounds i8, ptr %buf.addr.0310.i, i64 %inc54.i.i
   %22 = load i8, ptr %arrayidx58.i.i, align 1, !tbaa !7
   %cmp60.i.i = icmp eq i8 %22, 45
-  %sub64.i.i = sub i64 %len.addr.0309.i, %inc54.i.i
+  %sub64.i.i = sub nuw i64 %len.addr.0309.i, %inc54.i.i
   br i1 %cmp60.i.i, label %if.then63.i.i, label %if.else.i.i
 
 if.then63.i.i:                                    ; preds = %if.end57.i.i
@@ -20257,7 +20257,7 @@ land.lhs.true.i162.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i.i.i, label %if.end.i165.i.i, label %if.end11.i.i.i
 
 if.end.i165.i.i:                                  ; preds = %land.lhs.true.i162.i.i
-  %sub.i173.i.i = sub i8 %26, %scale
+  %sub.i173.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i173.i.i, ptr %excessive_decimals, align 2, !tbaa !266
   %conv.i.i.i.i = zext i8 %sub.i173.i.i to i64
   %27 = add nsw i64 %conv.i.i.i.i, -1
@@ -20558,7 +20558,7 @@ if.end64.i.i:                                     ; preds = %if.end60.i.i
   %arrayidx65.i.i = getelementptr inbounds i8, ptr %buf.addr.0310.i, i64 %inc61.i.i
   %61 = load i8, ptr %arrayidx65.i.i, align 1, !tbaa !7
   %cmp67.i.i = icmp eq i8 %61, 45
-  %sub71.i.i = sub i64 %len.addr.0309.i, %inc61.i.i
+  %sub71.i.i = sub nuw i64 %len.addr.0309.i, %inc61.i.i
   br i1 %cmp67.i.i, label %if.then70.i.i, label %if.else76.i.i
 
 if.then70.i.i:                                    ; preds = %if.end64.i.i
@@ -20611,7 +20611,7 @@ land.lhs.true.i172.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i.i185.i, label %if.end.i175.i.i, label %if.end11.i.i206.i
 
 if.end.i175.i.i:                                  ; preds = %land.lhs.true.i172.i.i
-  %sub.i183.i.i = sub i8 %64, %scale
+  %sub.i183.i.i = sub nuw i8 %64, %scale
   store i8 %sub.i183.i.i, ptr %excessive_decimals, align 2, !tbaa !266
   %conv.i.i.i188.i = zext i8 %sub.i183.i.i to i64
   %65 = add nsw i64 %conv.i.i.i188.i, -1
@@ -21210,7 +21210,7 @@ if.end57.i.i:                                     ; preds = %if.end53.i.i
   %arrayidx58.i.i = getelementptr inbounds i8, ptr %buf.addr.0310.i, i64 %inc54.i.i
   %22 = load i8, ptr %arrayidx58.i.i, align 1, !tbaa !7
   %cmp60.i.i = icmp eq i8 %22, 45
-  %sub64.i.i = sub i64 %len.addr.0309.i, %inc54.i.i
+  %sub64.i.i = sub nuw i64 %len.addr.0309.i, %inc54.i.i
   br i1 %cmp60.i.i, label %if.then63.i.i, label %if.else.i.i
 
 if.then63.i.i:                                    ; preds = %if.end57.i.i
@@ -21274,7 +21274,7 @@ land.lhs.true.i162.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i.i.i, label %if.end.i165.i.i, label %if.end11.i.i.i
 
 if.end.i165.i.i:                                  ; preds = %land.lhs.true.i162.i.i
-  %sub.i173.i.i = sub i8 %26, %scale
+  %sub.i173.i.i = sub nuw i8 %26, %scale
   store i8 %sub.i173.i.i, ptr %excessive_decimals, align 2, !tbaa !295
   %conv.i.i.i.i = zext i8 %sub.i173.i.i to i64
   %27 = add nsw i64 %conv.i.i.i.i, -1
@@ -21348,7 +21348,7 @@ if.end19.i.i.i:                                   ; preds = %_ZN6duckdb20Decimal
   br i1 %cmp2441.i.i.i, label %for.body.i.i.i.preheader, label %if.end97.i.i
 
 for.body.i.i.i.preheader:                         ; preds = %if.end19.i.i.i
-  %31 = sub i8 %scale, %30
+  %31 = sub nuw i8 %scale, %30
   %xtraiter390 = and i8 %31, 7
   %lcmp.mod391.not = icmp eq i8 %xtraiter390, 0
   br i1 %lcmp.mod391.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol
@@ -21565,7 +21565,7 @@ if.end64.i.i:                                     ; preds = %if.end60.i.i
   %arrayidx65.i.i = getelementptr inbounds i8, ptr %buf.addr.0310.i, i64 %inc61.i.i
   %57 = load i8, ptr %arrayidx65.i.i, align 1, !tbaa !7
   %cmp67.i.i = icmp eq i8 %57, 45
-  %sub71.i.i = sub i64 %len.addr.0309.i, %inc61.i.i
+  %sub71.i.i = sub nuw i64 %len.addr.0309.i, %inc61.i.i
   br i1 %cmp67.i.i, label %if.then70.i.i, label %if.else76.i.i
 
 if.then70.i.i:                                    ; preds = %if.end64.i.i
@@ -21618,7 +21618,7 @@ land.lhs.true.i172.i.i:                           ; preds = %_ZN6duckdb10StringU
   br i1 %cmp2.i.i185.i, label %if.end.i175.i.i, label %if.end11.i.i206.i
 
 if.end.i175.i.i:                                  ; preds = %land.lhs.true.i172.i.i
-  %sub.i183.i.i = sub i8 %60, %scale
+  %sub.i183.i.i = sub nuw i8 %60, %scale
   store i8 %sub.i183.i.i, ptr %excessive_decimals, align 2, !tbaa !295
   %conv.i.i.i188.i = zext i8 %sub.i183.i.i to i64
   %61 = add nsw i64 %conv.i.i.i188.i, -1
@@ -21692,7 +21692,7 @@ if.end19.i.i213.i:                                ; preds = %_ZN6duckdb20Decimal
   br i1 %cmp2441.i.i217.i, label %for.body.i.i219.i.preheader, label %if.end105.i.i
 
 for.body.i.i219.i.preheader:                      ; preds = %if.end19.i.i213.i
-  %65 = sub i8 %scale, %64
+  %65 = sub nuw i8 %scale, %64
   %xtraiter398 = and i8 %65, 7
   %lcmp.mod399.not = icmp eq i8 %xtraiter398, 0
   br i1 %lcmp.mod399.not, label %for.body.i.i219.i.prol.loopexit, label %for.body.i.i219.i.prol
@@ -22206,7 +22206,7 @@ if.end57.i.i:                                     ; preds = %if.end53.i.i
   %arrayidx58.i.i = getelementptr inbounds i8, ptr %buf.addr.0146.i, i64 %inc54.i.i
   %20 = load i8, ptr %arrayidx58.i.i, align 1, !tbaa !7
   %cmp60.i.i = icmp eq i8 %20, 45
-  %sub64.i.i = sub i64 %len.addr.0145.i, %inc54.i.i
+  %sub64.i.i = sub nuw i64 %len.addr.0145.i, %inc54.i.i
   br i1 %cmp60.i.i, label %if.then63.i.i, label %if.else.i.i
 
 if.then63.i.i:                                    ; preds = %if.end57.i.i
@@ -22430,7 +22430,7 @@ if.end64.i.i:                                     ; preds = %if.end60.i.i
   %arrayidx65.i.i = getelementptr inbounds i8, ptr %buf.addr.0146.i, i64 %inc61.i.i
   %42 = load i8, ptr %arrayidx65.i.i, align 1, !tbaa !7
   %cmp67.i.i = icmp eq i8 %42, 45
-  %sub71.i.i = sub i64 %len.addr.0145.i, %inc61.i.i
+  %sub71.i.i = sub nuw i64 %len.addr.0145.i, %inc61.i.i
   br i1 %cmp67.i.i, label %if.then70.i.i, label %if.else76.i.i
 
 if.then70.i.i:                                    ; preds = %if.end64.i.i
@@ -52294,9 +52294,9 @@ while.condthread-pre-split.sink.split:            ; preds = %land.rhs.i.i, %whil
   store i32 %indvars.i.i.lcssa.sink, ptr %d, align 4, !tbaa !816
   br label %while.condthread-pre-split
 
-while.condthread-pre-split:                       ; preds = %while.condthread-pre-split.sink.split, %if.else.i, %while.end63.i, %land.rhs.preheader.i.i
-  %2 = phi i32 [ %3, %if.else.i ], [ 0, %while.end63.i ], [ %write_index.1.lcssa141.i, %land.rhs.preheader.i.i ], [ %indvars.i.i.lcssa.sink, %while.condthread-pre-split.sink.split ]
-  %.pr336 = phi i32 [ %.pr327, %if.else.i ], [ %sub13.i, %while.end63.i ], [ %sub13.i, %land.rhs.preheader.i.i ], [ %sub13.i, %while.condthread-pre-split.sink.split ]
+while.condthread-pre-split:                       ; preds = %while.condthread-pre-split.sink.split, %if.else.i, %land.rhs.preheader.i.i
+  %2 = phi i32 [ %3, %if.else.i ], [ %write_index.1.lcssa141.i, %land.rhs.preheader.i.i ], [ %indvars.i.i.lcssa.sink, %while.condthread-pre-split.sink.split ]
+  %.pr336 = phi i32 [ %.pr327, %if.else.i ], [ %sub13.i, %land.rhs.preheader.i.i ], [ %sub13.i, %while.condthread-pre-split.sink.split ]
   %add = add nuw nsw i32 %cond, %exp2.0315
   %cmp13 = icmp sgt i32 %.pr336, 0
   br i1 %cmp13, label %while.body, label %while.body26.lr.ph
@@ -52377,7 +52377,7 @@ if.end19.i:                                       ; preds = %while.end12.i
 
 while.body25.lr.ph.i:                             ; preds = %if.end19.i
   %8 = zext i32 %read_index.2.i to i64
-  %9 = sub i32 %3, %read_index.2.i
+  %9 = sub nuw i32 %3, %read_index.2.i
   %zext = zext i32 %9 to i64
   %xtraiter = and i64 %zext, 1
   %10 = icmp eq i32 %9, 1
@@ -52491,8 +52491,7 @@ while.end63.thread.i:                             ; preds = %if.end62.i
 
 while.end63.i:                                    ; preds = %while.cond41.preheader.i
   store i32 %9, ptr %d, align 4, !tbaa !816
-  %cmp.not7.i.i = icmp eq i32 %9, 0
-  br i1 %cmp.not7.i.i, label %while.condthread-pre-split, label %land.rhs.preheader.i.i
+  br label %land.rhs.preheader.i.i
 
 land.rhs.preheader.i.i:                           ; preds = %while.end63.i, %while.end63.thread.i
   %.pre-phi332 = phi i64 [ %zext, %while.end63.i ], [ %.pre331, %while.end63.thread.i ]
@@ -52651,7 +52650,7 @@ if.end19.i178:                                    ; preds = %while.end12.i171
 
 while.body25.lr.ph.i221:                          ; preds = %if.end19.i178
   %26 = zext i32 %read_index.2.i173 to i64
-  %27 = sub i32 %22, %read_index.2.i173
+  %27 = sub nuw i32 %22, %read_index.2.i173
   %zext326 = zext i32 %27 to i64
   %xtraiter383 = and i64 %zext326, 1
   %28 = icmp eq i32 %27, 1
@@ -52769,8 +52768,7 @@ while.end63.thread.i202:                          ; preds = %if.end62.i199
 
 while.end63.i219:                                 ; preds = %while.cond41.preheader.i182
   store i32 %27, ptr %d, align 4, !tbaa !816
-  %cmp.not7.i.i220 = icmp eq i32 %27, 0
-  br i1 %cmp.not7.i.i220, label %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251, label %land.rhs.preheader.i.i203
+  br label %land.rhs.preheader.i.i203
 
 land.rhs.preheader.i.i203:                        ; preds = %while.end63.i219, %while.end63.thread.i202
   %.pre-phi = phi i64 [ %zext326, %while.end63.i219 ], [ %.pre330, %while.end63.thread.i202 ]
@@ -52800,9 +52798,9 @@ _ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopex
   store i32 %indvars.i.i212, ptr %d, align 4, !tbaa !816
   br label %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251
 
-_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251: ; preds = %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit, %land.rhs.preheader.i.i203, %while.end63.i219, %while.end63.i219.thread, %if.then16.i238, %if.else.i239
-  %34 = phi i32 [ %sub13.i176, %while.end63.i219.thread ], [ %21, %if.else.i239 ], [ 0, %if.then16.i238 ], [ %sub13.i176, %while.end63.i219 ], [ %sub13.i176, %land.rhs.preheader.i.i203 ], [ %sub13.i176, %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit ]
-  %35 = phi i32 [ 0, %while.end63.i219.thread ], [ %22, %if.else.i239 ], [ 0, %if.then16.i238 ], [ 0, %while.end63.i219 ], [ %write_index.1.lcssa141.i204, %land.rhs.preheader.i.i203 ], [ %indvars.i.i212, %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit ]
+_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251: ; preds = %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit, %land.rhs.preheader.i.i203, %while.end63.i219.thread, %if.then16.i238, %if.else.i239
+  %34 = phi i32 [ %sub13.i176, %while.end63.i219.thread ], [ %21, %if.else.i239 ], [ 0, %if.then16.i238 ], [ %sub13.i176, %land.rhs.preheader.i.i203 ], [ %sub13.i176, %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit ]
+  %35 = phi i32 [ 0, %while.end63.i219.thread ], [ %22, %if.else.i239 ], [ 0, %if.then16.i238 ], [ %write_index.1.lcssa141.i204, %land.rhs.preheader.i.i203 ], [ %indvars.i.i212, %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit ]
   %add73 = add nsw i32 %spec.store.select, %exp2.5321
   %cmp66 = icmp slt i32 %add73, -126
   br i1 %cmp66, label %while.body67, label %while.end74, !llvm.loop !828
@@ -53058,7 +53056,7 @@ if.end19:                                         ; preds = %while.end12
 
 while.body25.lr.ph:                               ; preds = %if.end19
   %5 = zext i32 %read_index.2 to i64
-  %6 = sub i32 %0, %read_index.2
+  %6 = sub nuw i32 %0, %read_index.2
   %.neg = add nuw i32 %read_index.2, 1
   %xtraiter = and i32 %6, 1
   %7 = icmp eq i32 %0, %.neg
@@ -53092,7 +53090,7 @@ while.body25.epil:                                ; preds = %while.cond41.prehea
 while.cond41.preheader:                           ; preds = %while.body25.epil, %while.cond41.preheader.loopexit.unr-lcssa
   %n.3.lcssa = phi i64 [ %add35.lcssa.ph, %while.cond41.preheader.loopexit.unr-lcssa ], [ %add35.epil, %while.body25.epil ]
   %cmp42.not123 = icmp eq i64 %n.3.lcssa, 0
-  br i1 %cmp42.not123, label %while.end63, label %while.body43.lr.ph
+  br i1 %cmp42.not123, label %land.rhs.preheader.i, label %while.body43.lr.ph
 
 while.cond41.preheader.thread:                    ; preds = %if.end19
   %cmp42.not1233 = icmp eq i64 %n.2, 0
@@ -53169,19 +53167,11 @@ if.then59:                                        ; preds = %if.else56
 if.end62:                                         ; preds = %if.then59, %if.else56, %if.then51
   %write_index.2 = phi i32 [ %inc53, %if.then51 ], [ %write_index.1125, %if.then59 ], [ %write_index.1125, %if.else56 ]
   %cmp42.not = icmp eq i64 %mul49, 0
-  br i1 %cmp42.not, label %while.end63.thread, label %while.body43, !llvm.loop !826
+  br i1 %cmp42.not, label %land.rhs.preheader.i, label %while.body43, !llvm.loop !826
 
-while.end63.thread:                               ; preds = %if.end62
-  store i32 %write_index.2, ptr %h, align 4, !tbaa !816
-  br label %land.rhs.preheader.i
-
-while.end63:                                      ; preds = %while.cond41.preheader
-  store i32 %6, ptr %h, align 4, !tbaa !816
-  %cmp.not7.i = icmp eq i32 %6, 0
-  br i1 %cmp.not7.i, label %cleanup, label %land.rhs.preheader.i
-
-land.rhs.preheader.i:                             ; preds = %while.end63, %while.end63.thread
-  %write_index.1.lcssa141 = phi i32 [ %write_index.2, %while.end63.thread ], [ %6, %while.end63 ]
+land.rhs.preheader.i:                             ; preds = %if.end62, %while.cond41.preheader
+  %write_index.1.lcssa141 = phi i32 [ %6, %while.cond41.preheader ], [ %write_index.2, %if.end62 ]
+  store i32 %write_index.1.lcssa141, ptr %h, align 4, !tbaa !816
   %11 = zext i32 %write_index.1.lcssa141 to i64
   br label %land.rhs.i
 
@@ -53200,7 +53190,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %cmp.not.i = icmp eq i32 %indvars.i, 0
   br i1 %cmp.not.i, label %cleanup, label %land.rhs.i, !llvm.loop !827
 
-cleanup:                                          ; preds = %while.body.i, %land.rhs.i, %while.end63.thread7, %while.end63, %if.then16, %if.else
+cleanup:                                          ; preds = %while.body.i, %land.rhs.i, %while.end63.thread7, %if.then16, %if.else
   ret void
 }
 
@@ -54629,9 +54619,9 @@ while.condthread-pre-split.sink.split:            ; preds = %land.rhs.i.i, %whil
   store i32 %indvars.i.i.lcssa.sink, ptr %d, align 4, !tbaa !816
   br label %while.condthread-pre-split
 
-while.condthread-pre-split:                       ; preds = %while.condthread-pre-split.sink.split, %if.else.i, %while.end63.i, %land.rhs.preheader.i.i
-  %2 = phi i32 [ %3, %if.else.i ], [ 0, %while.end63.i ], [ %write_index.1.lcssa141.i, %land.rhs.preheader.i.i ], [ %indvars.i.i.lcssa.sink, %while.condthread-pre-split.sink.split ]
-  %.pr336 = phi i32 [ %.pr327, %if.else.i ], [ %sub13.i, %while.end63.i ], [ %sub13.i, %land.rhs.preheader.i.i ], [ %sub13.i, %while.condthread-pre-split.sink.split ]
+while.condthread-pre-split:                       ; preds = %while.condthread-pre-split.sink.split, %if.else.i, %land.rhs.preheader.i.i
+  %2 = phi i32 [ %3, %if.else.i ], [ %write_index.1.lcssa141.i, %land.rhs.preheader.i.i ], [ %indvars.i.i.lcssa.sink, %while.condthread-pre-split.sink.split ]
+  %.pr336 = phi i32 [ %.pr327, %if.else.i ], [ %sub13.i, %land.rhs.preheader.i.i ], [ %sub13.i, %while.condthread-pre-split.sink.split ]
   %add = add nuw nsw i32 %cond, %exp2.0315
   %cmp13 = icmp sgt i32 %.pr336, 0
   br i1 %cmp13, label %while.body, label %while.body26.lr.ph
@@ -54712,7 +54702,7 @@ if.end19.i:                                       ; preds = %while.end12.i
 
 while.body25.lr.ph.i:                             ; preds = %if.end19.i
   %8 = zext i32 %read_index.2.i to i64
-  %9 = sub i32 %3, %read_index.2.i
+  %9 = sub nuw i32 %3, %read_index.2.i
   %zext = zext i32 %9 to i64
   %xtraiter = and i64 %zext, 1
   %10 = icmp eq i32 %9, 1
@@ -54826,8 +54816,7 @@ while.end63.thread.i:                             ; preds = %if.end62.i
 
 while.end63.i:                                    ; preds = %while.cond41.preheader.i
   store i32 %9, ptr %d, align 4, !tbaa !816
-  %cmp.not7.i.i = icmp eq i32 %9, 0
-  br i1 %cmp.not7.i.i, label %while.condthread-pre-split, label %land.rhs.preheader.i.i
+  br label %land.rhs.preheader.i.i
 
 land.rhs.preheader.i.i:                           ; preds = %while.end63.i, %while.end63.thread.i
   %.pre-phi332 = phi i64 [ %zext, %while.end63.i ], [ %.pre331, %while.end63.thread.i ]
@@ -54986,7 +54975,7 @@ if.end19.i178:                                    ; preds = %while.end12.i171
 
 while.body25.lr.ph.i221:                          ; preds = %if.end19.i178
   %26 = zext i32 %read_index.2.i173 to i64
-  %27 = sub i32 %22, %read_index.2.i173
+  %27 = sub nuw i32 %22, %read_index.2.i173
   %zext326 = zext i32 %27 to i64
   %xtraiter383 = and i64 %zext326, 1
   %28 = icmp eq i32 %27, 1
@@ -55104,8 +55093,7 @@ while.end63.thread.i202:                          ; preds = %if.end62.i199
 
 while.end63.i219:                                 ; preds = %while.cond41.preheader.i182
   store i32 %27, ptr %d, align 4, !tbaa !816
-  %cmp.not7.i.i220 = icmp eq i32 %27, 0
-  br i1 %cmp.not7.i.i220, label %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251, label %land.rhs.preheader.i.i203
+  br label %land.rhs.preheader.i.i203
 
 land.rhs.preheader.i.i203:                        ; preds = %while.end63.i219, %while.end63.thread.i202
   %.pre-phi = phi i64 [ %zext326, %while.end63.i219 ], [ %.pre330, %while.end63.thread.i202 ]
@@ -55135,9 +55123,9 @@ _ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopex
   store i32 %indvars.i.i212, ptr %d, align 4, !tbaa !816
   br label %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251
 
-_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251: ; preds = %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit, %land.rhs.preheader.i.i203, %while.end63.i219, %while.end63.i219.thread, %if.then16.i238, %if.else.i239
-  %34 = phi i32 [ %sub13.i176, %while.end63.i219.thread ], [ %21, %if.else.i239 ], [ 0, %if.then16.i238 ], [ %sub13.i176, %while.end63.i219 ], [ %sub13.i176, %land.rhs.preheader.i.i203 ], [ %sub13.i176, %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit ]
-  %35 = phi i32 [ 0, %while.end63.i219.thread ], [ %22, %if.else.i239 ], [ 0, %if.then16.i238 ], [ 0, %while.end63.i219 ], [ %write_index.1.lcssa141.i204, %land.rhs.preheader.i.i203 ], [ %indvars.i.i212, %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit ]
+_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251: ; preds = %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit, %land.rhs.preheader.i.i203, %while.end63.i219.thread, %if.then16.i238, %if.else.i239
+  %34 = phi i32 [ %sub13.i176, %while.end63.i219.thread ], [ %21, %if.else.i239 ], [ 0, %if.then16.i238 ], [ %sub13.i176, %land.rhs.preheader.i.i203 ], [ %sub13.i176, %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit ]
+  %35 = phi i32 [ 0, %while.end63.i219.thread ], [ %22, %if.else.i239 ], [ 0, %if.then16.i238 ], [ %write_index.1.lcssa141.i204, %land.rhs.preheader.i.i203 ], [ %indvars.i.i212, %_ZN17duckdb_fast_float6detail19decimal_right_shiftERNS_7decimalEj.exit251.loopexit ]
   %add73 = add nsw i32 %spec.store.select, %exp2.5321
   %cmp66 = icmp slt i32 %add73, -1022
   br i1 %cmp66, label %while.body67, label %while.end74, !llvm.loop !841
@@ -105374,7 +105362,7 @@ if.end17.if.end.i_crit_edge:                      ; preds = %if.end17, %if.else,
   br label %if.end.i
 
 if.then.i:                                        ; preds = %if.end17
-  %sub.i = sub i8 %0, %1
+  %sub.i = sub nuw i8 %0, %1
   %excessive_decimals.i = getelementptr inbounds i8, ptr %state, i64 8
   store i8 %sub.i, ptr %excessive_decimals.i, align 2, !tbaa !235
   br label %if.end.i
@@ -105661,7 +105649,7 @@ if.end17.if.end.i_crit_edge:                      ; preds = %if.end17, %if.else,
   br label %if.end.i
 
 if.then.i:                                        ; preds = %if.end17
-  %sub.i = sub i8 %0, %1
+  %sub.i = sub nuw i8 %0, %1
   %excessive_decimals.i = getelementptr inbounds i8, ptr %state, i64 8
   store i8 %sub.i, ptr %excessive_decimals.i, align 2, !tbaa !235
   br label %if.end.i
@@ -106503,7 +106491,7 @@ if.end17.if.end.i_crit_edge:                      ; preds = %if.end17, %if.else,
   br label %if.end.i
 
 if.then.i:                                        ; preds = %if.end17
-  %sub.i = sub i8 %0, %1
+  %sub.i = sub nuw i8 %0, %1
   %excessive_decimals.i = getelementptr inbounds i8, ptr %state, i64 10
   store i8 %sub.i, ptr %excessive_decimals.i, align 2, !tbaa !266
   br label %if.end.i
@@ -106789,7 +106777,7 @@ if.end17.if.end.i_crit_edge:                      ; preds = %if.end17, %if.else,
   br label %if.end.i
 
 if.then.i:                                        ; preds = %if.end17
-  %sub.i = sub i8 %0, %1
+  %sub.i = sub nuw i8 %0, %1
   %excessive_decimals.i = getelementptr inbounds i8, ptr %state, i64 10
   store i8 %sub.i, ptr %excessive_decimals.i, align 2, !tbaa !266
   br label %if.end.i
@@ -107075,7 +107063,7 @@ if.end17.if.end.i_crit_edge:                      ; preds = %if.end17, %if.else,
   br label %if.end.i
 
 if.then.i:                                        ; preds = %if.end17
-  %sub.i = sub i8 %0, %1
+  %sub.i = sub nuw i8 %0, %1
   %excessive_decimals.i = getelementptr inbounds i8, ptr %state, i64 14
   store i8 %sub.i, ptr %excessive_decimals.i, align 2, !tbaa !295
   br label %if.end.i
@@ -107172,7 +107160,7 @@ if.end19.i:                                       ; preds = %if.then18.i, %if.en
   br i1 %cmp2441.i, label %for.body.i.preheader, label %if.end19
 
 for.body.i.preheader:                             ; preds = %if.end19.i
-  %10 = sub i8 %1, %7
+  %10 = sub nuw i8 %1, %7
   %xtraiter114 = and i8 %10, 7
   %lcmp.mod115.not = icmp eq i8 %xtraiter114, 0
   br i1 %lcmp.mod115.not, label %for.body.i.prol.loopexit, label %for.body.i.prol
@@ -107351,7 +107339,7 @@ if.end17.if.end.i_crit_edge:                      ; preds = %if.end17, %if.else,
   br label %if.end.i
 
 if.then.i:                                        ; preds = %if.end17
-  %sub.i = sub i8 %0, %1
+  %sub.i = sub nuw i8 %0, %1
   %excessive_decimals.i = getelementptr inbounds i8, ptr %state, i64 14
   store i8 %sub.i, ptr %excessive_decimals.i, align 2, !tbaa !295
   br label %if.end.i
@@ -107448,7 +107436,7 @@ if.end19.i:                                       ; preds = %if.then18.i, %if.en
   br i1 %cmp2441.i, label %for.body.i.preheader, label %if.end19
 
 for.body.i.preheader:                             ; preds = %if.end19.i
-  %10 = sub i8 %1, %7
+  %10 = sub nuw i8 %1, %7
   %xtraiter113 = and i8 %10, 7
   %lcmp.mod114.not = icmp eq i8 %xtraiter113, 0
   br i1 %lcmp.mod114.not, label %for.body.i.prol.loopexit, label %for.body.i.prol
@@ -107788,7 +107776,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %sub = sub i8 %1, %2
+  %sub = sub nuw i8 %1, %2
   %excessive_decimals = getelementptr inbounds i8, ptr %state, i64 22
   store i8 %sub, ptr %excessive_decimals, align 2, !tbaa !1880
   br label %if.end
@@ -107949,7 +107937,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %sub = sub i8 %1, %2
+  %sub = sub nuw i8 %1, %2
   %excessive_decimals = getelementptr inbounds i8, ptr %state, i64 22
   store i8 %sub, ptr %excessive_decimals, align 2, !tbaa !1880
   br label %if.end

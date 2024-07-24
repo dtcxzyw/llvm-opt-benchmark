@@ -205,7 +205,7 @@ _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE5clearEv.exit: ;
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %45
-  %54 = sub i64 %3, %51
+  %54 = sub nuw i64 %3, %51
   call void @_ZNSt6vectorIlSaIlEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPlS1_EEmRKl(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr %46, i64 noundef %54, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit
 
@@ -621,7 +621,7 @@ _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -1821,7 +1821,7 @@ define void @_ZN5faiss12DirectMapAddC2ERNS_9DirectMapEmPKl(ptr noundef nonnull a
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %31
-  %50 = sub i64 %41, %47
+  %50 = sub nuw i64 %41, %47
   br label %.invoke
 
 51:                                               ; preds = %31

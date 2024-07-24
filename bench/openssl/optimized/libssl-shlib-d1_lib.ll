@@ -1780,7 +1780,7 @@ if.end17:                                         ; preds = %if.else, %if.then15
   br i1 %cmp19.not, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end17
-  %sub = sub i64 %2, %add18
+  %sub = sub nuw i64 %2, %add18
   %8 = load i64, ptr %blocksize, align 8
   %tobool23.not = icmp eq i64 %8, 0
   br i1 %tobool23.not, label %if.end26, label %if.then24

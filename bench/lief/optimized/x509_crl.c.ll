@@ -827,7 +827,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br i1 %.not, label %11, label %.loopexit
 
 11:                                               ; preds = %9
-  %12 = sub i64 %1, %10
+  %12 = sub nuw i64 %1, %10
   %13 = getelementptr inbounds i8, ptr %0, i64 %10
   %14 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %13, i64 noundef %12, ptr noundef nonnull @.str.4, ptr noundef %2) #11
   %15 = icmp slt i32 %14, 0
@@ -839,7 +839,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br i1 %.not185, label %18, label %.loopexit
 
 18:                                               ; preds = %16
-  %19 = sub i64 %12, %17
+  %19 = sub nuw i64 %12, %17
   %20 = getelementptr inbounds i8, ptr %13, i64 %17
   %21 = getelementptr inbounds i8, ptr %3, i64 104
   %22 = tail call i32 @mbedtls_x509_dn_gets(ptr noundef %20, i64 noundef %19, ptr noundef nonnull %21) #11
@@ -852,7 +852,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br i1 %.not186, label %26, label %.loopexit
 
 26:                                               ; preds = %24
-  %27 = sub i64 %19, %25
+  %27 = sub nuw i64 %19, %25
   %28 = getelementptr inbounds i8, ptr %20, i64 %25
   %29 = getelementptr inbounds i8, ptr %3, i64 168
   %30 = load i32, ptr %29, align 8
@@ -876,7 +876,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br i1 %.not187, label %45, label %.loopexit
 
 45:                                               ; preds = %43
-  %46 = sub i64 %27, %44
+  %46 = sub nuw i64 %27, %44
   %47 = getelementptr inbounds i8, ptr %28, i64 %44
   %48 = getelementptr inbounds i8, ptr %3, i64 192
   %49 = load i32, ptr %48, align 8
@@ -900,7 +900,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br i1 %.not188, label %64, label %.loopexit
 
 64:                                               ; preds = %62
-  %65 = sub i64 %46, %63
+  %65 = sub nuw i64 %46, %63
   %66 = getelementptr inbounds i8, ptr %47, i64 %63
   %67 = getelementptr inbounds i8, ptr %3, i64 216
   %68 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %66, i64 noundef %65, ptr noundef nonnull @.str.7, ptr noundef %2) #11
@@ -913,7 +913,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br i1 %.not189, label %72, label %.loopexit
 
 72:                                               ; preds = %70
-  %73 = sub i64 %65, %71
+  %73 = sub nuw i64 %65, %71
   %74 = getelementptr inbounds i8, ptr %66, i64 %71
   br label %75
 
@@ -937,7 +937,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br i1 %.not195, label %83, label %.loopexit
 
 83:                                               ; preds = %81
-  %84 = sub i64 %.0149201, %82
+  %84 = sub nuw i64 %.0149201, %82
   %85 = getelementptr inbounds i8, ptr %.0148202, i64 %82
   %86 = getelementptr inbounds i8, ptr %.0203, i64 24
   %87 = tail call i32 @mbedtls_x509_serial_gets(ptr noundef %85, i64 noundef %84, ptr noundef nonnull %86) #11
@@ -950,7 +950,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br i1 %.not196, label %91, label %.loopexit
 
 91:                                               ; preds = %89
-  %92 = sub i64 %84, %90
+  %92 = sub nuw i64 %84, %90
   %93 = getelementptr inbounds i8, ptr %85, i64 %90
   %94 = getelementptr inbounds i8, ptr %.0203, i64 48
   %95 = load i32, ptr %94, align 8
@@ -974,7 +974,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br i1 %.not197, label %110, label %.loopexit
 
 110:                                              ; preds = %108
-  %111 = sub i64 %92, %109
+  %111 = sub nuw i64 %92, %109
   %112 = getelementptr inbounds i8, ptr %93, i64 %109
   %113 = getelementptr inbounds i8, ptr %.0203, i64 96
   %114 = load ptr, ptr %113, align 8
@@ -994,7 +994,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br i1 %.not192, label %119, label %.loopexit
 
 119:                                              ; preds = %117
-  %120 = sub i64 %.0149.lcssa, %118
+  %120 = sub nuw i64 %.0149.lcssa, %118
   %121 = getelementptr inbounds i8, ptr %.0148.lcssa, i64 %118
   %122 = getelementptr inbounds i8, ptr %3, i64 56
   %123 = getelementptr inbounds i8, ptr %3, i64 396
@@ -1013,7 +1013,7 @@ define hidden noundef i32 @mbedtls_x509_crl_info(ptr noundef %0, i64 noundef %1,
   br i1 %.not193, label %133, label %.loopexit
 
 133:                                              ; preds = %131
-  %134 = sub i64 %120, %132
+  %134 = sub nuw i64 %120, %132
   %135 = getelementptr inbounds i8, ptr %121, i64 %132
   %136 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %135, i64 noundef %134, ptr noundef nonnull @.str.11) #11
   %137 = icmp sgt i32 %136, -1

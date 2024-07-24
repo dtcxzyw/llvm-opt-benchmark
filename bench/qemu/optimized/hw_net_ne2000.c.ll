@@ -120,7 +120,7 @@ ne2000_buffer_full.exit:                          ; preds = %lor.lhs.false
   %shl3.i = shl nuw nsw i32 %conv2.i, 8
   %cmp4.i = icmp ult i32 %shl.i, %shl3.i
   %sub.i = sub nsw i32 %shl3.i, %shl.i
-  %sub9.i = sub i32 %2, %3
+  %sub9.i = sub nuw i32 %2, %3
   %sub11.i = select i1 %cmp4.i, i32 0, i32 %sub9.i
   %avail.0.i = add i32 %sub.i, %sub11.i
   %cmp13.i = icmp sgt i32 %avail.0.i, 1517
@@ -245,7 +245,7 @@ if.end93:                                         ; preds = %if.then92, %if.end8
 
 if.then101:                                       ; preds = %if.end93
   %25 = load i32, ptr %start.i, align 4
-  %sub.neg = sub i32 %add98, %24
+  %sub.neg = sub nuw i32 %add98, %24
   %sub104 = add i32 %sub.neg, %25
   br label %if.end105
 
@@ -289,7 +289,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp130.not, label %while.end, label %if.then132
 
 if.then132:                                       ; preds = %while.body
-  %sub134 = sub i32 %28, %index.176
+  %sub134 = sub nuw i32 %28, %index.176
   %conv137 = trunc i64 %size.074 to i32
   %spec.select = tail call i32 @llvm.umin.i32(i32 %sub134, i32 %conv137)
   %idx.ext144 = zext i32 %index.176 to i64

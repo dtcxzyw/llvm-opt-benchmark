@@ -6018,8 +6018,8 @@ define internal fastcc void @_ZN6cvtestL20getSnippetFromConfigERKNSt7__cxx1112ba
   br i1 %or.cond23, label %17, label %.thread
 
 17:                                               ; preds = %13
-  %reass.sub = sub i64 %14, %.0
-  %18 = add i64 %reass.sub, 1
+  %reass.sub = sub nuw i64 %14, %.0
+  %18 = add nuw i64 %reass.sub, 1
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %.0, i64 noundef %18)
           to label %21 unwind label %19
 

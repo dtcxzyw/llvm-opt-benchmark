@@ -1530,7 +1530,7 @@ define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_15getIdERKNSt7__cxx1112bas
 
 40:                                               ; preds = %37
   %41 = sub i64 %27, %25
-  %42 = sub i64 %2, %25
+  %42 = sub nuw i64 %2, %25
   %43 = tail call i64 @llvm.umin.i64(i64 %42, i64 %41)
   %44 = getelementptr inbounds i8, ptr %1, i64 %25
   %45 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1723,7 +1723,7 @@ define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_15getIdERKNSt7__cxx1112bas
 
 119:                                              ; preds = %116
   %120 = sub i64 %106, %104
-  %121 = sub i64 %95, %104
+  %121 = sub nuw i64 %95, %104
   %122 = call i64 @llvm.umin.i64(i64 %121, i64 %120)
   %123 = getelementptr inbounds i8, ptr %93, i64 %104
   %124 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1953,7 +1953,7 @@ define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_15getIdERKNSt7__cxx1112bas
 
 220:                                              ; preds = %217
   %221 = sub i64 %207, %205
-  %222 = sub i64 %196, %205
+  %222 = sub nuw i64 %196, %205
   %223 = call i64 @llvm.umin.i64(i64 %222, i64 %221)
   %224 = getelementptr inbounds i8, ptr %194, i64 %205
   %225 = getelementptr inbounds i8, ptr %8, i64 16

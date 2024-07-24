@@ -555,8 +555,8 @@ define hidden noundef double @_ZN6cvtest3ocl9TestUtils19checkRectSimilarityERKN2
 
 37:                                               ; preds = %3
   %38 = icmp ugt i64 %29, %36
-  %39 = sub nsw i64 %29, %36
-  %40 = sub nsw i64 %36, %29
+  %39 = sub nuw nsw i64 %29, %36
+  %40 = sub nuw nsw i64 %36, %29
   %.in = select i1 %38, i64 %39, i64 %40
   %41 = uitofp i64 %.in to double
   br label %144

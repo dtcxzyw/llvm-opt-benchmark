@@ -229,7 +229,7 @@ define hidden void @"_ZN3url13path_segments15PathSegmentsMut6extend28_$u7b$$u7b$
   %35 = getelementptr inbounds i8, ptr %.sroa.039.sroa.12.0.copyload, i64 %.sroa.4.1
   %36 = load i8, ptr %35, align 1, !alias.scope !7, !noalias !12, !noundef !4
   %37 = icmp sgt i8 %36, -65
-  %38 = sub i64 %.sroa.039.sroa.13.0.copyload, %.sroa.4.1
+  %38 = sub nuw i64 %.sroa.039.sroa.13.0.copyload, %.sroa.4.1
   br i1 %37, label %40, label %39
 
 39:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i", %32
@@ -1176,7 +1176,7 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.exit.i:     ; preds = %"_ZN4core3str21_$LT
   %36 = getelementptr inbounds i8, ptr %.val.i, i64 %30
   %37 = load i8, ptr %36, align 1, !alias.scope !174, !noalias !181, !noundef !4
   %38 = icmp sgt i8 %37, -65
-  %39 = sub i64 %.val1.i, %30
+  %39 = sub nuw i64 %.val1.i, %30
   br i1 %38, label %_ZN3url3Url5slice17h19dad34b833947ccE.exit.i.i, label %40
 
 40:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i", %33

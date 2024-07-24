@@ -1050,7 +1050,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
   unreachable
 
 "_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$8read_buf17h0b46225ab14c1095E.exit": ; preds = %50
-  %55 = sub i64 %52, %19
+  %55 = sub nuw i64 %52, %19
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %55, i64 %40)
   %56 = load ptr, ptr %1, align 8, !alias.scope !182, !noalias !190, !nonnull !10, !align !11, !noundef !10
   %57 = getelementptr inbounds i8, ptr %56, i64 %19

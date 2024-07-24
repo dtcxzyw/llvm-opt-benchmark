@@ -2764,7 +2764,7 @@ define hidden noundef ptr @_ZN17PSParallelCompact34compute_dense_prefix_for_old_
   br i1 %40, label %._crit_edge, label %41
 
 41:                                               ; preds = %.lr.ph
-  %42 = sub i64 %.021, %39
+  %42 = sub nuw i64 %.021, %39
   %43 = getelementptr inbounds i8, ptr %.01620, i64 40
   %44 = icmp ult ptr %43, %15
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !16
@@ -2846,8 +2846,8 @@ define hidden void @_ZN17PSParallelCompact21fill_dense_prefix_endENS_7SpaceIdE(i
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.i
   %51 = phi i32 [ %57, %.lr.ph.i ], [ %49, %38 ]
   %.010.i = phi ptr [ %55, %.lr.ph.i ], [ %46, %38 ]
-  %52 = sub nsw i32 %51, %47
-  %53 = shl nsw i32 %52, 2
+  %52 = sub nuw nsw i32 %51, %47
+  %53 = shl nuw nsw i32 %52, 2
   %54 = zext nneg i32 %53 to i64
   %.neg.i = shl nsw i64 -1, %54
   %55 = getelementptr inbounds i8, ptr %.010.i, i64 %.neg.i
@@ -3256,7 +3256,7 @@ _ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImp
   br i1 %155, label %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit, label %156
 
 156:                                              ; preds = %.lr.ph.i77
-  %157 = sub i64 %.021.i, %154
+  %157 = sub nuw i64 %.021.i, %154
   %158 = getelementptr inbounds i8, ptr %.01620.i, i64 40
   %159 = icmp ult ptr %158, %138
   br i1 %159, label %.lr.ph.i77, label %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit, !llvm.loop !16
@@ -7919,7 +7919,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %66, %69, %76, %96
   ret ptr %103
 
 104:                                              ; preds = %_ZN7oopDesc4sizeEv.exit
-  %105 = sub i64 %.0, %.0.i1.i
+  %105 = sub nuw i64 %.0, %.0.i1.i
   %106 = getelementptr inbounds ptr, ptr %45, i64 %.0.i1.i
   br label %5, !llvm.loop !42
 }
@@ -8104,7 +8104,7 @@ _ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit55: ; preds = %103, %7
   br label %121
 
 117:                                              ; preds = %67
-  %118 = sub nsw i64 %71, %17
+  %118 = sub nuw nsw i64 %71, %17
   %119 = getelementptr inbounds ptr, ptr %20, i64 %17
   %120 = tail call noundef ptr @_ZN17PSParallelCompact15skip_live_wordsEPP12HeapWordImplS2_m(ptr noundef %119, ptr noundef nonnull %21, i64 noundef %118)
   br label %121

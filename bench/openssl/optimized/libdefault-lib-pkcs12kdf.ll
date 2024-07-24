@@ -353,7 +353,7 @@ for.end85.i:                                      ; preds = %for.cond69.i, %for.
   br i1 %cmp88.not.i, label %for.body96.i, label %pkcs12kdf_derive.exit
 
 for.cond103.preheader.i:                          ; preds = %for.body96.i
-  %sub92.i = sub i64 %n.addr.0103.i, %conv.i
+  %sub92.i = sub nuw i64 %n.addr.0103.i, %conv.i
   %add.ptr.i = getelementptr inbounds i8, ptr %out.addr.0104.i, i64 %conv.i
   br i1 %cmp10499.not.i, label %for.cond56.loopexit.i, label %for.body106.i
 

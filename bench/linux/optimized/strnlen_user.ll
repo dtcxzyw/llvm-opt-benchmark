@@ -22,7 +22,7 @@ define dso_local i64 @strnlen_user(ptr noundef %0, i64 noundef %1) #0 align 16 {
   br i1 %7, label %8, label %.thread6, !prof !7
 
 8:                                                ; preds = %4
-  %9 = sub i64 %5, %6
+  %9 = sub nuw i64 %5, %6
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %1)
   %11 = add i64 %10, %6
   %12 = icmp sgt i64 %11, -1

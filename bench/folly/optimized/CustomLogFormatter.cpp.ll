@@ -996,7 +996,7 @@ while.cond:                                       ; preds = %if.end90, %invoke.c
 
 if.end.i.i:                                       ; preds = %while.cond
   %add.ptr.i.i = getelementptr i8, ptr %.fr.i, i64 %idx.0
-  %gepdiff = sub i64 %93, %idx.0
+  %gepdiff = sub nuw i64 %93, %idx.0
   %call3.i.i = call noundef ptr @memchr(ptr noundef %add.ptr.i.i, i32 noundef 10, i64 noundef %gepdiff) #24
   %cmp.i17.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i17.i, label %if.then103, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i
@@ -1034,7 +1034,7 @@ if.then.i:                                        ; preds = %if.end105
 invoke.cont107:                                   ; preds = %if.end105
   %sub = sub i64 %end.0, %idx.0
   %add.ptr.i351 = getelementptr inbounds i8, ptr %.fr.i, i64 %idx.0
-  %sub.i352 = sub i64 %93, %idx.0
+  %sub.i352 = sub nuw i64 %93, %idx.0
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i352, i64 %sub)
   %95 = load i64, ptr %_M_string_length.i.i.i.i.i260, align 8, !tbaa !16
   %96 = load i64, ptr %_M_string_length.i.i.i294, align 8, !tbaa !16

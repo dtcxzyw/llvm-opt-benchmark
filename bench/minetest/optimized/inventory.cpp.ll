@@ -3318,7 +3318,7 @@ invoke.cont4.i.i:                                 ; preds = %if.end10
   store ptr %7, ptr %agg.result, align 8, !tbaa !7, !alias.scope !99
   %8 = load ptr, ptr %this, align 8, !tbaa !11, !noalias !99
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %5
-  %sub.i.i.i = sub i64 %6, %5
+  %sub.i.i.i = sub nuw i64 %6, %5
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #27, !noalias !99
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !15, !noalias !99
@@ -3419,7 +3419,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 _Z4trimSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %1, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %1, %front.0.lcssa.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %0, i64 %front.0.lcssa.i
   %4 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -5990,7 +5990,7 @@ if.end7:                                          ; preds = %if.then6, %if.end
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end7
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i.pre-phi
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i.pre-phi
   tail call void @_ZNSt6vectorI9ItemStackSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %_ZNSt6vectorI9ItemStackSaIS0_EE6resizeEm.exit
 
@@ -8826,7 +8826,7 @@ if.then17.us:                                     ; preds = %land.lhs.true.us
   br i1 %cmp21.not.us, label %if.end23.us, label %cleanup29
 
 if.end23.us:                                      ; preds = %if.then17.us
-  %sub.us = sub i32 %count.046.us, %conv20.us
+  %sub.us = sub nuw nsw i32 %count.046.us, %conv20.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end23.us, %land.lhs.true.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.us, %if.end6.us
@@ -8861,7 +8861,7 @@ land.rhs.i.us13:                                  ; preds = %if.end6.us7
   br i1 %cmp21.not.us17, label %if.end23.us18, label %cleanup29
 
 if.end23.us18:                                    ; preds = %land.rhs.i.us13
-  %sub.us19 = sub i32 %count.046.us8, %conv20.us16
+  %sub.us19 = sub nuw nsw i32 %count.046.us8, %conv20.us16
   br label %for.inc.us20
 
 for.inc.us20:                                     ; preds = %if.end23.us18, %if.end6.us7
@@ -8894,7 +8894,7 @@ land.lhs.true:                                    ; preds = %land.rhs.i
   br i1 %cmp21.not, label %if.end23, label %cleanup29
 
 if.end23:                                         ; preds = %land.lhs.true
-  %sub = sub i32 %count.046, %conv20
+  %sub = sub nuw nsw i32 %count.046, %conv20
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end23, %land.rhs.i, %if.end6

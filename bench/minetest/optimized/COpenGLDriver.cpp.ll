@@ -1634,7 +1634,7 @@ if.then.i204:                                     ; preds = %if.end37
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i204
-  %sub.i.i = sub nsw i64 %conv.i202, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i202, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %UserClipPlanes, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE10reallocateEjb.exit
 
@@ -2556,7 +2556,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   store ptr %2, ptr %ref.tmp, align 8, !tbaa !100, !alias.scope !187
   %3 = load ptr, ptr %this, align 8, !tbaa !143, !noalias !187
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %conv
-  %sub.i.i.i = sub i64 %0, %conv
+  %sub.i.i.i = sub nuw i64 %0, %conv
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %conv3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #24, !noalias !187
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !190, !noalias !187
@@ -5388,7 +5388,7 @@ if.end:                                           ; preds = %if.end9.sink.split.
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %sub.i.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %AssignedTextures, i64 noundef %sub.i.i)
   %.pre38 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !310
   %.pre39 = load ptr, ptr %AssignedTextures, align 8, !tbaa !311
@@ -10625,7 +10625,7 @@ if.then21:                                        ; preds = %lor.lhs.false20, %l
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then21
-  %sub.i.i = sub nsw i64 %conv.i185, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i185, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIPN3irr5video6IImageESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Images, i64 noundef %sub.i.i)
   %.pre = load ptr, ptr %images, align 8, !tbaa !364
   %.pre394 = ptrtoint ptr %.pre to i64
@@ -22574,7 +22574,7 @@ if.end:                                           ; preds = %_ZN3irr4core6string
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %sub.i.i = sub nsw i64 %conv.i179, %sub.ptr.div.i.i.i184.pre-phi
+  %sub.i.i = sub nuw nsw i64 %conv.i179, %sub.ptr.div.i.i.i184.pre-phi
   call void @_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Textures, i64 noundef %sub.i.i)
   %.pre305 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !470
   %.pre306 = load ptr, ptr %Textures, align 8, !tbaa !471
@@ -22756,7 +22756,7 @@ if.then58:                                        ; preds = %for.body.i.i.i.i.i2
   br i1 %cmp.i.i235, label %if.then.i.i244, label %if.else.i.i236
 
 if.then.i.i244:                                   ; preds = %if.then58
-  %sub.i.i245 = sub nsw i64 %conv.i215, %sub.ptr.div.i.i214
+  %sub.i.i245 = sub nuw nsw i64 %conv.i215, %sub.ptr.div.i.i214
   call void @_ZNSt6vectorIN3irr5video14E_CUBE_SURFACEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %CubeSurfaces56, i64 noundef %sub.i.i245)
   br label %if.end.i238
 
@@ -23665,7 +23665,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !517
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64

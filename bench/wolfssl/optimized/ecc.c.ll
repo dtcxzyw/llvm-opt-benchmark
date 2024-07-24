@@ -5837,7 +5837,7 @@ if.end31:                                         ; preds = %if.end22
 if.end40:                                         ; preds = %if.end31
   store i8 4, ptr %out, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(257) %buf, i8 0, i64 257, i1 false)
-  %sub = sub i32 %10, %call32
+  %sub = sub nuw i32 %10, %call32
   %idx.ext = zext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   %call46 = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %pubkey, ptr noundef nonnull %add.ptr) #19

@@ -4372,7 +4372,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_bulk_tx(ptr noundef %
   br i1 %55, label %56, label %.loopexit27
 
 56:                                               ; preds = %.preheader26
-  %57 = tail call i32 @llvm.usub.sat.i32(i32 %42, i32 %44)
+  %57 = sub nuw i32 %42, %44
   %58 = add nuw i32 %40, 1
   %59 = tail call ptr @sg_next(ptr noundef %39) #14
   %60 = load i32, ptr %30, align 8
@@ -4501,7 +4501,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_bulk_tx(ptr noundef %
   br i1 %158, label %159, label %161
 
 159:                                              ; preds = %157
-  %160 = sub i32 %129, %155
+  %160 = sub nuw i32 %129, %155
   br label %.thread25
 
 161:                                              ; preds = %157
@@ -9844,9 +9844,6 @@ declare dso_local void @usb_amd_quirk_pll_disable() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #12

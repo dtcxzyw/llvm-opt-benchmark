@@ -193,7 +193,7 @@ _ZN10serde_json3ser9Formatter12begin_string17hc5056dab08bd610cE.exit: ; preds = 
   %32 = getelementptr inbounds i8, ptr %0, i64 %.sroa.7.0.ph.i
   %33 = load i8, ptr %32, align 1, !alias.scope !23, !noundef !16
   %34 = icmp sgt i8 %33, -65
-  %35 = sub i64 %1, %.sroa.7.0.ph.i
+  %35 = sub nuw i64 %1, %.sroa.7.0.ph.i
   br i1 %34, label %37, label %36
 
 36:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.llvm.17557471103795588278.exit.i.i", %31
@@ -485,7 +485,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.6783306594713324768.exit.th
   %35 = load i64, ptr %34, align 8, !alias.scope !135, !noundef !16
   %.not.i.i = icmp ult i64 %33, %35
   %36 = select i1 %.not.i.i, i64 0, i64 %35
-  %.0.i.i = sub i64 %33, %36
+  %.0.i.i = sub nuw i64 %33, %36
   store i64 %.0.i.i, ptr %31, align 8, !alias.scope !135
   %37 = add i64 %27, -1
   store i64 %37, ptr %26, align 8, !alias.scope !135
@@ -553,7 +553,7 @@ define hidden { i64, i64 } @"_ZN12sharded_slab3tid12Registration8register28_$u7b
   %12 = load i64, ptr %11, align 8, !alias.scope !143, !noundef !16
   %.not.i = icmp ult i64 %10, %12
   %13 = select i1 %.not.i, i64 0, i64 %12
-  %.0.i = sub i64 %10, %13
+  %.0.i = sub nuw i64 %10, %13
   store i64 %.0.i, ptr %8, align 8, !alias.scope !143
   %14 = add i64 %4, -1
   store i64 %14, ptr %3, align 8, !alias.scope !143

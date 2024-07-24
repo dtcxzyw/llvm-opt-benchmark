@@ -1634,7 +1634,7 @@ filter_ascii85decode.exit.i:                      ; preds = %filter_ascii85decod
   br label %pdf_decodestream_internal.exitthread-pre-split
 
 611:                                              ; preds = %608
-  %612 = sub i32 %609, %600
+  %612 = sub nuw i32 %609, %600
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %612) #10
   br label %pdf_decodestream_internal.exitthread-pre-split
 

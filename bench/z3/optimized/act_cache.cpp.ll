@@ -73,7 +73,7 @@ _ZNK6vectorISt4pairIP4exprjELb0EjE4sizeEv.exit:   ; preds = %entry
 
 for.body.preheader:                               ; preds = %_ZNK6vectorISt4pairIP4exprjELb0EjE4sizeEv.exit
   %3 = zext i32 %2 to i64
-  %4 = sub i32 %1, %2
+  %4 = sub nuw i32 %1, %2
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -552,7 +552,7 @@ _ZNK6vectorISt4pairIP4exprjELb0EjE4sizeEv.exit.i: ; preds = %if.then19
 
 for.body.preheader.i:                             ; preds = %_ZNK6vectorISt4pairIP4exprjELb0EjE4sizeEv.exit.i
   %30 = zext i32 %25 to i64
-  %31 = sub i32 %29, %25
+  %31 = sub nuw i32 %29, %25
   %zext = zext i32 %31 to i64
   br label %for.body.i
 

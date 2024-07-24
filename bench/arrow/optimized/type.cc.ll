@@ -32407,7 +32407,7 @@ if.then.i.i.cont.i:                               ; preds = %if.then.i.i.invoke.
   unreachable
 
 invoke.cont12.i:                                  ; preds = %invoke.cont9.i
-  %sub.i.i = sub i64 %sub.i21.i181, %__pos.addr.07.i.i.i
+  %sub.i.i = sub nuw i64 %sub.i21.i181, %__pos.addr.07.i.i.i
   br label %invoke.cont7
 
 if.end14.i:                                       ; preds = %if.end.i
@@ -32435,7 +32435,7 @@ invoke.cont29.i:                                  ; preds = %invoke.cont25.i
   br i1 %cmp.i.i20.i, label %if.then.i.i.invoke.i, label %invoke.cont32.i
 
 invoke.cont32.i:                                  ; preds = %invoke.cont29.i
-  %sub.i21.i = sub i64 %sub.i21.i181, %add31.i
+  %sub.i21.i = sub nuw i64 %sub.i21.i181, %add31.i
   %add.ptr.i23.i = getelementptr inbounds i8, ptr %add.ptr.i23.i175, i64 %add31.i
   %cmp5.i.i.not.i = icmp eq i64 %sub.i21.i, 0
   br i1 %cmp5.i.i.not.i, label %if.then.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.lr.ph.i.i.i, !llvm.loop !970
@@ -32643,7 +32643,7 @@ if.then.i.i39:                                    ; preds = %invoke.cont23
   unreachable
 
 invoke.cont26:                                    ; preds = %invoke.cont23
-  %sub.i34 = sub i64 %sub.i, %add
+  %sub.i34 = sub nuw i64 %sub.i, %add
   %add.ptr.i36 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %add
   br label %while.cond.backedge
 
@@ -68715,7 +68715,7 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN
 
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5arrow8FieldRefESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5arrow8FieldRefESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5arrow8FieldRefESt6vectorIS4_SaIS4_EEEEEmEvRT_T0_.exit
   %22 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5arrow8FieldRefESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5arrow8FieldRefESt6vectorIS4_SaIS4_EEEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
   %add.ptr58 = getelementptr inbounds %"class.arrow::FieldRef", ptr %22, i64 %sub
   store ptr %add.ptr58, ptr %_M_finish, align 8
   %cmp.i.i.not8.i.i.i.i.i49 = icmp eq ptr %1, %__position.coerce
@@ -72615,7 +72615,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5a
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow8DataTypeEESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow8DataTypeEESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow8DataTypeEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
   %21 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow8DataTypeEESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow8DataTypeEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds %"class.std::shared_ptr", ptr %21, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i34 = icmp eq ptr %1, %__position.coerce

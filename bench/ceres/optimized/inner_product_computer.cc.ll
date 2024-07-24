@@ -260,7 +260,7 @@ define hidden noundef i32 @_ZN5ceres8internal20InnerProductComputer15ComputeNonz
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %3
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %22)
   %.pre = load ptr, ptr %2, align 8
   %.pre44 = load ptr, ptr %13, align 8
@@ -1015,7 +1015,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %59
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %._crit_edge115
-  %85 = sub nsw i64 %75, %82
+  %85 = sub nuw nsw i64 %75, %82
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %68, i64 noundef %85)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %56
 

@@ -13193,7 +13193,7 @@ invoke.cont4.i.i200:                              ; preds = %while.body
   store ptr %74, ptr %token, align 8, !tbaa !33, !alias.scope !217
   %76 = load ptr, ptr %filename, align 8, !tbaa !37, !noalias !217
   %add.ptr.i.i201 = getelementptr inbounds i8, ptr %76, i64 %pos30.0306
-  %sub.i.i.i202 = sub i64 %75, %pos30.0306
+  %sub.i.i.i202 = sub nuw i64 %75, %pos30.0306
   %spec.select.i.i.i203 = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i202, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i197) #28, !noalias !217
   store i64 %spec.select.i.i.i203, ptr %__dnew.i.i.i197, align 8, !tbaa !35, !noalias !217

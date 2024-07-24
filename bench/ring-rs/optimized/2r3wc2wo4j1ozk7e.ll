@@ -383,7 +383,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 %3
-  %9 = sub i64 %2, %3
+  %9 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %10, align 8
@@ -2368,7 +2368,7 @@ define noundef zeroext i1 @"_ZN99_$LT$ring..ec..suite_b..ecdsa..signing..NonceRa
 21:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit"
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %7, i8 0, i64 128, i1 false)
-  %22 = sub i64 %18, %13
+  %22 = sub nuw i64 %18, %13
   %23 = icmp ugt i64 %22, 128
   br i1 %23, label %24, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.exit"
 
@@ -2517,7 +2517,7 @@ define noundef i64 @_ZN4ring2ec7suite_b5ecdsa7signing15format_rs_fixed17h3c4ba14
   unreachable
 
 _ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h468ca074e17c60afE.llvm.7363024586935657205.exit"
-  %13 = sub i64 %4, %9
+  %13 = sub nuw i64 %4, %9
   tail call void @_ZN4ring4limb21big_endian_from_limbs17h8493c2949eb38239E(ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %8, ptr noalias noundef nonnull align 1 %3, i64 noundef %9)
   %.not.i1 = icmp ugt i64 %9, %13
   br i1 %.not.i1, label %14, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h468ca074e17c60afE.llvm.7363024586935657205.exit2"
@@ -2855,7 +2855,7 @@ _ZN4ring2ec7suite_b11private_key28scalar_from_big_endian_bytes17hf6ce9f7db3a0bd5
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h468ca074e17c60afE.llvm.7363024586935657205.exit": ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.llvm.7363024586935657205.exit"
   %29 = getelementptr inbounds i8, ptr %1, i64 1
   %30 = getelementptr inbounds i8, ptr %29, i64 %12
-  %31 = sub i64 %27, %12
+  %31 = sub nuw i64 %27, %12
   %32 = call noundef zeroext i1 @_ZN4ring2ec7suite_b11private_key31big_endian_affine_from_jacobian17h06a85bd475b5d508E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %29, i64 %12, ptr noalias noundef nonnull align 1 %30, i64 %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %7)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)

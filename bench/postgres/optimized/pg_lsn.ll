@@ -327,12 +327,12 @@ define dso_local i64 @pg_lsn_mi(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = sub i64 %6, %4
+  %9 = sub nuw i64 %6, %4
   %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 256, ptr noundef nonnull @.str.5, i64 noundef %9) #12
   br label %14
 
 11:                                               ; preds = %1
-  %12 = sub i64 %4, %6
+  %12 = sub nuw i64 %4, %6
   %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 256, ptr noundef nonnull @.str.6, i64 noundef %12) #12
   br label %14
 

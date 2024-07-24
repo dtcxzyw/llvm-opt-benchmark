@@ -618,7 +618,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph64(ptr noundef %0, ptr no
   br i1 %or.cond180.not.us, label %55, label %fmap_readn.exit.thread.loopexit
 
 55:                                               ; preds = %.split.us
-  %56 = sub i64 %54, %.0140185.us
+  %56 = sub nuw i64 %54, %.0140185.us
   %spec.select.i.us = tail call i64 @llvm.umin.i64(i64 %56, i64 56)
   %57 = load ptr, ptr %52, align 8
   %58 = tail call ptr %57(ptr noundef nonnull %1, i64 noundef %.0140185.us, i64 noundef %spec.select.i.us, i32 noundef 0) #8
@@ -646,7 +646,7 @@ fmap_readn.exit.us:                               ; preds = %55
   br i1 %or.cond180.not, label %64, label %fmap_readn.exit.thread
 
 64:                                               ; preds = %.split
-  %65 = sub i64 %62, %.0140185
+  %65 = sub nuw i64 %62, %.0140185
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %65, i64 56)
   %66 = load ptr, ptr %50, align 8
   %67 = tail call ptr %66(ptr noundef nonnull %1, i64 noundef %.0140185, i64 noundef %spec.select.i, i32 noundef 0) #8
@@ -972,7 +972,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr no
   br i1 %or.cond148.not.us, label %56, label %fmap_readn.exit.thread.loopexit
 
 56:                                               ; preds = %.split.us
-  %57 = sub i64 %55, %54
+  %57 = sub nuw i64 %55, %54
   %spec.select.i.us = tail call i64 @llvm.umin.i64(i64 %57, i64 32)
   %58 = load ptr, ptr %52, align 8
   %59 = tail call ptr %58(ptr noundef nonnull %1, i64 noundef %54, i64 noundef %spec.select.i.us, i32 noundef 0) #8
@@ -1001,7 +1001,7 @@ fmap_readn.exit.us:                               ; preds = %56
   br i1 %or.cond148.not, label %66, label %fmap_readn.exit.thread
 
 66:                                               ; preds = %.split
-  %67 = sub i64 %64, %63
+  %67 = sub nuw i64 %64, %63
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %67, i64 32)
   %68 = load ptr, ptr %50, align 8
   %69 = tail call ptr %68(ptr noundef nonnull %1, i64 noundef %63, i64 noundef %spec.select.i, i32 noundef 0) #8
@@ -1334,7 +1334,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr no
   br i1 %or.cond207.not, label %57, label %fmap_readn.exit.thread
 
 57:                                               ; preds = %54
-  %58 = sub i64 %56, %.0186209
+  %58 = sub nuw i64 %56, %.0186209
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %58, i64 64)
   %59 = load ptr, ptr %53, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %1, i64 noundef %.0186209, i64 noundef %spec.select.i, i32 noundef 0) #8
@@ -1609,7 +1609,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr no
   br i1 %or.cond159.not, label %58, label %fmap_readn.exit.thread
 
 58:                                               ; preds = %54
-  %59 = sub i64 %57, %56
+  %59 = sub nuw i64 %57, %56
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %59, i64 40)
   %60 = load ptr, ptr %53, align 8
   %61 = tail call ptr %60(ptr noundef nonnull %1, i64 noundef %56, i64 noundef %spec.select.i, i32 noundef 0) #8

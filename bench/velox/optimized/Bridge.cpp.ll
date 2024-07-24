@@ -11067,7 +11067,7 @@ invoke.cont246:                                   ; preds = %invoke.cont65
   br i1 %cmp.i, label %if.then.i526, label %if.else.i
 
 if.then.i526:                                     ; preds = %invoke.cont246
-  %sub.i = sub i64 %211, %sub.ptr.div.i.i524
+  %sub.i = sub nuw i64 %211, %sub.ptr.div.i.i524
   invoke void @_ZNSt6vectorIP11ArrowSchemaSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %call.i, i64 noundef %sub.i)
           to label %invoke.cont251 unwind label %lpad
 
@@ -12051,7 +12051,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -16226,7 +16226,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -31631,7 +31631,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 
@@ -69438,7 +69438,7 @@ for.body22.lr.ph:                                 ; preds = %if.end19
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit
   %i.3174 = phi i64 [ %i.2, %for.body22.lr.ph ], [ %add33, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit ]
-  %sub = sub i64 %numBits, %i.3174
+  %sub = sub nuw i64 %numBits, %i.3174
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 8)
   %add26 = add i64 %i.3174, %sourceOffset
   %div9.i105 = lshr i64 %add26, 3
@@ -178506,7 +178506,7 @@ if.end8:                                          ; preds = %for.body.lr.ph.i, %
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end8
-  %sub.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %5, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %.pre = load ptr, ptr %this, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit

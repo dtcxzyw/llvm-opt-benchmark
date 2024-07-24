@@ -281,7 +281,7 @@ define internal void @dm_stat_free(ptr noundef %0) #0 align 16 {
   br label %37
 
 35:                                               ; preds = %29
-  %36 = sub i64 %31, %27
+  %36 = sub nuw i64 %31, %27
   store i64 %36, ptr @shared_memory_amount, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @shared_memory_lock, i64 noundef %30) #16
   br label %37
@@ -312,7 +312,7 @@ dm_kvfree.exit:                                   ; preds = %21, %37
   br label %49
 
 47:                                               ; preds = %41
-  %48 = sub i64 %43, %39
+  %48 = sub nuw i64 %43, %39
   store i64 %48, ptr @shared_memory_amount, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @shared_memory_lock, i64 noundef %42) #16
   br label %49
@@ -350,7 +350,7 @@ dm_kvfree.exit2:                                  ; preds = %dm_kvfree.exit, %49
   br label %66
 
 64:                                               ; preds = %58
-  %65 = sub i64 %60, %56
+  %65 = sub nuw i64 %60, %56
   store i64 %65, ptr @shared_memory_amount, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @shared_memory_lock, i64 noundef %59) #16
   br label %66
@@ -380,7 +380,7 @@ dm_kvfree.exit3:                                  ; preds = %.thread, %66
   br label %78
 
 76:                                               ; preds = %70
-  %77 = sub i64 %72, %68
+  %77 = sub nuw i64 %72, %68
   store i64 %77, ptr @shared_memory_amount, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @shared_memory_lock, i64 noundef %71) #16
   br label %78
@@ -1424,7 +1424,7 @@ sub_0:                                            ; preds = %25
   %321 = sub i64 %318, %320
   %322 = zext i32 %308 to i64
   %323 = getelementptr i8, ptr %3, i64 %322
-  %324 = sub i32 %4, %308
+  %324 = sub nuw i32 %4, %308
   %325 = zext i32 %324 to i64
   %326 = getelementptr inbounds i8, ptr %307, i64 16
   %327 = load i32, ptr %326, align 8
@@ -1453,7 +1453,7 @@ sub_0:                                            ; preds = %25
 344:                                              ; preds = %342
   %345 = zext i32 %337 to i64
   %346 = getelementptr i8, ptr %3, i64 %345
-  %347 = sub i32 %4, %337
+  %347 = sub nuw i32 %4, %337
   %348 = zext i32 %347 to i64
   %349 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %346, i64 noundef %348, ptr noundef nonnull @.str.26) #16
   br label %350
@@ -1477,7 +1477,7 @@ sub_0:                                            ; preds = %25
 360:                                              ; preds = %358
   %361 = zext i32 %354 to i64
   %362 = getelementptr i8, ptr %3, i64 %361
-  %363 = sub i32 %4, %354
+  %363 = sub nuw i32 %4, %354
   %364 = zext i32 %363 to i64
   %365 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %362, i64 noundef %364, ptr noundef nonnull @.str.27) #16
   %.pr = load i32, ptr %355, align 8
@@ -1503,7 +1503,7 @@ sub_0:                                            ; preds = %25
 376:                                              ; preds = %374
   %377 = zext i32 %372 to i64
   %378 = getelementptr i8, ptr %3, i64 %377
-  %379 = sub i32 %4, %372
+  %379 = sub nuw i32 %4, %372
   %380 = zext i32 %379 to i64
   %381 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %378, i64 noundef %380, ptr noundef nonnull @.str.28) #16
   br label %382
@@ -1521,7 +1521,7 @@ sub_0:                                            ; preds = %25
 388:                                              ; preds = %385
   %389 = zext i32 %386 to i64
   %390 = getelementptr i8, ptr %3, i64 %389
-  %391 = sub i32 %4, %386
+  %391 = sub nuw i32 %4, %386
   %392 = zext i32 %391 to i64
   %393 = load ptr, ptr %369, align 8
   %394 = getelementptr i64, ptr %393, i64 %371
@@ -1546,7 +1546,7 @@ sub_0:                                            ; preds = %25
 406:                                              ; preds = %.loopexit64
   %407 = zext i32 %404 to i64
   %408 = getelementptr i8, ptr %3, i64 %407
-  %409 = sub i32 %4, %404
+  %409 = sub nuw i32 %4, %404
   %410 = zext i32 %409 to i64
   %411 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %408, i64 noundef %410, ptr noundef nonnull @.str.30) #16
   br label %412
@@ -1826,7 +1826,7 @@ sub_056:                                          ; preds = %.tail.thread, %.tai
 83:                                               ; preds = %80
   %84 = zext i32 %74 to i64
   %85 = getelementptr i8, ptr %4, i64 %84
-  %86 = sub i32 %5, %74
+  %86 = sub nuw i32 %5, %74
   %87 = zext i32 %86 to i64
   %88 = getelementptr inbounds i8, ptr %75, i64 16
   %89 = getelementptr inbounds i8, ptr %75, i64 32
@@ -2116,7 +2116,7 @@ sub_056:                                          ; preds = %.tail.thread, %.tai
 296:                                              ; preds = %291
   %297 = zext i32 %294 to i64
   %298 = getelementptr i8, ptr %4, i64 %297
-  %299 = sub i32 %5, %294
+  %299 = sub nuw i32 %5, %294
   %300 = zext i32 %299 to i64
   %301 = icmp eq i64 %293, 0
   %302 = select i1 %301, ptr @.str.34, ptr @.str.35
@@ -2145,7 +2145,7 @@ sub_056:                                          ; preds = %.tail.thread, %.tai
 317:                                              ; preds = %.loopexit
   %318 = zext i32 %315 to i64
   %319 = getelementptr i8, ptr %4, i64 %318
-  %320 = sub i32 %5, %315
+  %320 = sub nuw i32 %5, %315
   %321 = zext i32 %320 to i64
   %322 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %319, i64 noundef %321, ptr noundef nonnull @.str.30) #16
   br label %323
@@ -2286,7 +2286,7 @@ define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 
   br i1 %13, label %14, label %214
 
 14:                                               ; preds = %10
-  %15 = sub i64 %2, %1
+  %15 = sub nuw i64 %2, %1
   %16 = urem i64 %15, %3
   %17 = udiv i64 %15, %3
   %18 = icmp ne i64 %16, 0
@@ -2700,7 +2700,7 @@ define internal fastcc ptr @dm_kvzalloc(i64 noundef %0, i32 noundef %1) unnamed_
   br label %36
 
 33:                                               ; preds = %27
-  %34 = sub i64 %29, %0
+  %34 = sub nuw i64 %29, %0
   store i64 %34, ptr @shared_memory_amount, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @shared_memory_lock, i64 noundef %28) #16
   br label %36

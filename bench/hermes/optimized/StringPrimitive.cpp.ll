@@ -2962,7 +2962,7 @@ sw.epilog.i:                                      ; preds = %sw.bb8.i, %sw.bb.i,
   br i1 %cmp.i.i28.i, label %if.then.i.i33.i, label %if.else.i.i29.i
 
 if.then.i.i33.i:                                  ; preds = %sw.epilog.i
-  %sub.i.i34.i = sub i64 %sub.ptr.div.i, %10
+  %sub.i.i34.i = sub nuw i64 %sub.ptr.div.i, %10
   %sub3.i.i.i.i.i35.i = sub i64 2305843009213693951, %10
   %cmp.i.i.i.i.i36.i = icmp ult i64 %sub3.i.i.i.i.i35.i, %sub.i.i34.i
   br i1 %cmp.i.i.i.i.i36.i, label %if.then.i.i.i.i.i51.i, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE15_M_check_lengthEmmPKc.exit.i.i.i.i37.i

@@ -1956,7 +1956,7 @@ define hidden noundef i32 @_ZN19G1HeapRegionManager9expand_byEjP13WorkerThreads(
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %3
-  %7 = sub i32 %1, %4
+  %7 = sub nuw i32 %1, %4
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   br label %9
 

@@ -14980,7 +14980,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %2
   %.sink3.i.i = select i1 %15, ptr %18, ptr %3
   %19 = getelementptr inbounds i8, ptr %.sink3.i.i, i64 %.sink4.i
   %20 = getelementptr inbounds i8, ptr %19, i64 2
-  %21 = sub i64 %.sink4.i.i, %.sink4.i
+  %21 = sub nuw i64 %.sink4.i.i, %.sink4.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %19, i64 %21, i1 false), !noalias !2159
   store i16 %1, ptr %19, align 1
   %22 = add i64 %.sink4.i.i, 2
@@ -15033,7 +15033,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %2
   %.sink3.i.i = select i1 %15, ptr %18, ptr %3
   %19 = getelementptr inbounds i8, ptr %.sink3.i.i, i64 %.sink4.i
   %20 = getelementptr inbounds i8, ptr %19, i64 4
-  %21 = sub i64 %.sink4.i.i, %.sink4.i
+  %21 = sub nuw i64 %.sink4.i.i, %.sink4.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %19, i64 %21, i1 false), !noalias !2179
   store i32 %1, ptr %19, align 1
   %22 = add i64 %.sink4.i.i, 4
@@ -15086,7 +15086,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %2
   %.sink3.i.i = select i1 %15, ptr %18, ptr %3
   %19 = getelementptr inbounds i8, ptr %.sink3.i.i, i64 %.sink4.i
   %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = sub i64 %.sink4.i.i, %.sink4.i
+  %21 = sub nuw i64 %.sink4.i.i, %.sink4.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %19, i64 %21, i1 false), !noalias !2199
   store i64 %1, ptr %19, align 1
   %22 = add i64 %.sink4.i.i, 8
@@ -15139,7 +15139,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %3
   %.sink3.i.i = select i1 %16, ptr %19, ptr %4
   %20 = getelementptr inbounds i8, ptr %.sink3.i.i, i64 %.sink4.i
   %21 = getelementptr inbounds i8, ptr %20, i64 %2
-  %22 = sub i64 %.sink4.i.i, %.sink4.i
+  %22 = sub nuw i64 %.sink4.i.i, %.sink4.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %20, i64 %22, i1 false), !noalias !2219
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %23 = add i64 %.sink4.i.i, %2
@@ -15442,7 +15442,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer$LT$I$GT$
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds i8, ptr %0, i64 3240
-  %21 = sub i64 %10, %.sink4.i.i
+  %21 = sub nuw i64 %10, %.sink4.i.i
   call void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h422b1cc4dd0fa3a4E.llvm.10170168316197365569"(ptr noalias noundef nonnull align 8 dereferenceable(72) %20, i64 noundef %21, i32 noundef -1)
   %.pre10 = load i64, ptr %5, align 8
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$6resize17h01b7c2f292fca025E.exit"
@@ -15469,7 +15469,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer$LT$I$GT$
 
 31:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6resize17h01b7c2f292fca025E.exit"
   %32 = getelementptr inbounds i8, ptr %0, i64 3312
-  %33 = sub i64 %22, %.sink4.i.i7
+  %33 = sub nuw i64 %22, %.sink4.i.i7
   call void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h786f9ca2085bf2fdE.llvm.10170168316197365569"(ptr noalias noundef nonnull align 8 dereferenceable(72) %32, i64 noundef %33, i32 noundef -1)
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$6resize17hfb1cb284c1313a24E.exit"
 
@@ -17818,7 +17818,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc226
   %.sink3.i.i = select i1 %415, ptr %421, ptr %62
   %422 = getelementptr inbounds i8, ptr %.sink3.i.i, i64 %.sink4.i222
   %423 = getelementptr inbounds i8, ptr %422, i64 %.sink4.i.i220
-  %424 = sub i64 %.sink4.i.i224, %.sink4.i222
+  %424 = sub nuw i64 %.sink4.i.i224, %.sink4.i222
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %423, ptr nonnull align 1 %422, i64 %424, i1 false), !noalias !2806
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %422, ptr nonnull readonly align 1 %.sink5.i.i219, i64 %.sink4.i.i220, i1 false)
   %425 = add i64 %.sink4.i.i224, %.sink4.i.i220
@@ -19343,13 +19343,13 @@ define internal fastcc void @"_ZN17cranelift_codegen8machinst6buffer19MachBuffer
   unreachable
 
 68:                                               ; preds = %60
-  %69 = sub i32 %20, %56
+  %69 = sub nuw i32 %20, %56
   %70 = icmp ugt i32 %69, -2147483648
   %71 = zext i1 %70 to i8
   br label %74
 
 72:                                               ; preds = %60
-  %73 = sub i32 %56, %20
+  %73 = sub nuw i32 %56, %20
   %.not26 = icmp slt i32 %73, 0
   br i1 %.not26, label %78, label %74
 

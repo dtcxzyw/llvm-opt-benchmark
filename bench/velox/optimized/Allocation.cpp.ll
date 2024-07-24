@@ -494,7 +494,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %3 = inttoptr i64 %mul.i to ptr
-  %sub = sub i64 %div5, %mul.i
+  %sub = sub nuw i64 %div5, %mul.i
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %sub
   store ptr %3, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8

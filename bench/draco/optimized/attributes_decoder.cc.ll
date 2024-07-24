@@ -146,7 +146,7 @@ thread-pre-split:                                 ; preds = %22
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %36
-  %47 = sub nsw i64 %28, %44
+  %47 = sub nuw nsw i64 %28, %44
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %47)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -316,7 +316,7 @@ _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit: ; p
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %135
-  %140 = sub nsw i64 %137, %133
+  %140 = sub nuw nsw i64 %137, %133
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr %128, i64 noundef %140, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %.pre = load ptr, ptr %57, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
@@ -774,7 +774,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

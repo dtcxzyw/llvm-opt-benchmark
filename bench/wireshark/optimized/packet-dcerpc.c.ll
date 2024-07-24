@@ -1617,7 +1617,7 @@ proto_item_set_generated.exit204:                 ; preds = %141, %138, %135, %p
   br i1 %.not191, label %178, label %168
 
 168:                                              ; preds = %167
-  %169 = sub i32 %160, %166
+  %169 = sub nuw i32 %160, %166
   %.0..0..0..0.56 = load volatile i32, ptr %6, align 4
   %170 = icmp ugt i32 %.0..0..0..0.56, %169
   br i1 %170, label %171, label %172
@@ -9440,7 +9440,7 @@ dissect_dcerpc_uint8.exit.i271:                   ; preds = %1154, %dissect_dcer
   br i1 %1198, label %dissect_dcerpc_cn_fault.exit, label %1199
 
 1199:                                             ; preds = %1195
-  %1200 = sub nsw i32 %1193, %1197
+  %1200 = sub nuw nsw i32 %1193, %1197
   %spec.select.i = call i32 @llvm.smin.i32(i32 %1192, i32 %1200)
   %1201 = call ptr @tvb_new_subset_length_caplen(ptr noundef %193, i32 noundef %1191, i32 noundef %spec.select.i, i32 noundef %1200) #16
   %1202 = call ptr @find_conversation_pinfo(ptr noundef nonnull %2, i32 noundef 0) #16
@@ -11711,7 +11711,7 @@ define internal fastcc void @dissect_dcerpc_cn_stub(ptr noundef %0, i32 noundef 
   br i1 %19, label %170, label %20
 
 20:                                               ; preds = %16
-  %21 = sub nsw i32 %14, %18
+  %21 = sub nuw nsw i32 %14, %18
   %spec.select = tail call i32 @llvm.smin.i32(i32 %13, i32 %21)
   %22 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 0, i32 noundef %1, i32 noundef %1) #16
   %23 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 noundef %spec.select, i32 noundef %21) #16

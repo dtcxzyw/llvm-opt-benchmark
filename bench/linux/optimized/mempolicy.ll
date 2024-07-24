@@ -3342,7 +3342,7 @@ define dso_local i64 @alloc_pages_bulk_array_mempolicy(i32 noundef %0, i64 nound
 
 119:                                              ; preds = %111
   %120 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #20, !srcloc !12
-  %121 = sub i64 %1, %117
+  %121 = sub nuw i64 %1, %117
   %122 = trunc i64 %121 to i32
   %123 = getelementptr ptr, ptr %2, i64 %117
   %124 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %120, ptr noundef null, i32 noundef %122, ptr noundef null, ptr noundef %123) #19

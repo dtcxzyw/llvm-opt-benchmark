@@ -39537,7 +39537,7 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder4null17NullBufferBuilder11append_null17h16c630eb9bd61f32E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %0, i64 88
   %21 = load i64, ptr %20, align 8, !alias.scope !6878, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -39649,7 +39649,7 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder4null17NullBufferBuilder11append_null17h16c630eb9bd61f32E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %0, i64 88
   %21 = load i64, ptr %20, align 8, !alias.scope !6895, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -39760,7 +39760,7 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder4null17NullBufferBuilder11append_null17h16c630eb9bd61f32E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %0, i64 88
   %21 = load i64, ptr %20, align 8, !alias.scope !6912, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -39871,7 +39871,7 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder4null17NullBufferBuilder11append_null17h16c630eb9bd61f32E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %0, i64 88
   %21 = load i64, ptr %20, align 8, !alias.scope !6929, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -40025,7 +40025,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm
   br i1 %41, label %42, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 42:                                               ; preds = %30
-  %43 = sub nsw i64 %38, %40
+  %43 = sub nuw nsw i64 %38, %40
   %44 = getelementptr inbounds i8, ptr %0, i64 88
   %45 = load i64, ptr %44, align 8, !alias.scope !6950, !noundef !12
   %46 = icmp ugt i64 %38, %45
@@ -40243,7 +40243,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm
   br i1 %41, label %42, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 42:                                               ; preds = %30
-  %43 = sub nsw i64 %38, %40
+  %43 = sub nuw nsw i64 %38, %40
   %44 = getelementptr inbounds i8, ptr %0, i64 88
   %45 = load i64, ptr %44, align 8, !alias.scope !6979, !noundef !12
   %46 = icmp ugt i64 %38, %45
@@ -40460,7 +40460,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm
   br i1 %41, label %42, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 42:                                               ; preds = %30
-  %43 = sub nsw i64 %38, %40
+  %43 = sub nuw nsw i64 %38, %40
   %44 = getelementptr inbounds i8, ptr %0, i64 88
   %45 = load i64, ptr %44, align 8, !alias.scope !7010, !noundef !12
   %46 = icmp ugt i64 %38, %45
@@ -40677,7 +40677,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm
   br i1 %41, label %42, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 42:                                               ; preds = %30
-  %43 = sub nsw i64 %38, %40
+  %43 = sub nuw nsw i64 %38, %40
   %44 = getelementptr inbounds i8, ptr %0, i64 88
   %45 = load i64, ptr %44, align 8, !alias.scope !7039, !noundef !12
   %46 = icmp ugt i64 %38, %45
@@ -49192,7 +49192,7 @@ define hidden void @_ZN12arrow_buffer7builder4null17NullBufferBuilder11append_nu
   br i1 %16, label %17, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 17:                                               ; preds = %5
-  %18 = sub nsw i64 %13, %15
+  %18 = sub nuw nsw i64 %13, %15
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !alias.scope !8115, !noundef !12
   %21 = icmp ugt i64 %13, %20
@@ -49238,7 +49238,7 @@ define hidden void @_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6appe
   br i1 %14, label %15, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder7advance17h90a153cf24cd67a6E.llvm.18016462908235130027.exit
 
 15:                                               ; preds = %2
-  %16 = sub nsw i64 %11, %13
+  %16 = sub nuw nsw i64 %11, %13
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !8121, !noundef !12
   %19 = icmp ugt i64 %11, %18
@@ -49306,7 +49306,7 @@ define hidden void @_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder7adva
   ret void
 
 15:                                               ; preds = %2
-  %16 = sub nsw i64 %10, %12
+  %16 = sub nuw nsw i64 %10, %12
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !8124, !noundef !12
   %19 = icmp ugt i64 %10, %18
@@ -65452,7 +65452,7 @@ define hidden noundef i8 @"_ZN133_$LT$arrow_array..array..primitive_array..Primi
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !11682, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -65508,7 +65508,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !11690, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -65564,7 +65564,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !11699, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -65620,7 +65620,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !11707, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -65676,7 +65676,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !11716, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -65732,7 +65732,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !11724, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -65788,7 +65788,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !11733, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -65844,7 +65844,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !11741, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -65899,7 +65899,7 @@ define hidden noundef i8 @"_ZN133_$LT$arrow_array..array..primitive_array..Primi
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !11750, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -65955,7 +65955,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !11758, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -66012,7 +66012,7 @@ define hidden noundef i128 @"_ZN133_$LT$arrow_array..array..primitive_array..Pri
   br i1 %19, label %20, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 20:                                               ; preds = %8
-  %21 = sub nsw i64 %16, %18
+  %21 = sub nuw nsw i64 %16, %18
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !11767, !noundef !12
   %24 = icmp ugt i64 %16, %23
@@ -66068,7 +66068,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %53, label %54, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 54:                                               ; preds = %42
-  %55 = sub nsw i64 %50, %52
+  %55 = sub nuw nsw i64 %50, %52
   %56 = getelementptr inbounds i8, ptr %7, i64 8
   %57 = load i64, ptr %56, align 8, !alias.scope !11775, !noundef !12
   %58 = icmp ugt i64 %50, %57
@@ -66124,7 +66124,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !11784, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -66180,7 +66180,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !11792, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -66236,7 +66236,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !11801, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -66292,7 +66292,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !11809, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -66348,7 +66348,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !11818, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -66404,7 +66404,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !11826, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -66461,7 +66461,7 @@ define hidden noundef i128 @"_ZN133_$LT$arrow_array..array..primitive_array..Pri
   br i1 %19, label %20, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 20:                                               ; preds = %8
-  %21 = sub nsw i64 %16, %18
+  %21 = sub nuw nsw i64 %16, %18
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !11835, !noundef !12
   %24 = icmp ugt i64 %16, %23
@@ -66517,7 +66517,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %53, label %54, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 54:                                               ; preds = %42
-  %55 = sub nsw i64 %50, %52
+  %55 = sub nuw nsw i64 %50, %52
   %56 = getelementptr inbounds i8, ptr %7, i64 8
   %57 = load i64, ptr %56, align 8, !alias.scope !11843, !noundef !12
   %58 = icmp ugt i64 %50, %57
@@ -66569,7 +66569,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %15, label %16, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 16:                                               ; preds = %2
-  %17 = sub nsw i64 %12, %14
+  %17 = sub nuw nsw i64 %12, %14
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   %19 = load i64, ptr %18, align 8, !alias.scope !11852, !noundef !12
   %20 = icmp ugt i64 %12, %19
@@ -66634,7 +66634,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !11861, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -66690,7 +66690,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !11869, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -66746,7 +66746,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !11878, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -66802,7 +66802,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !11886, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -66858,7 +66858,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !11895, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -66914,7 +66914,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !11903, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -66970,7 +66970,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !11912, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -67026,7 +67026,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !11920, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -67087,7 +67087,7 @@ define hidden { i128, i128 } @"_ZN133_$LT$arrow_array..array..primitive_array..P
   br i1 %16, label %17, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 17:                                               ; preds = %5
-  %18 = sub nsw i64 %13, %15
+  %18 = sub nuw nsw i64 %13, %15
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8, !alias.scope !11936, !noundef !12
   %21 = icmp ugt i64 %13, %20
@@ -67143,7 +67143,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %50, label %51, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 51:                                               ; preds = %39
-  %52 = sub nsw i64 %47, %49
+  %52 = sub nuw nsw i64 %47, %49
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %54 = load i64, ptr %53, align 8, !alias.scope !11944, !noundef !12
   %55 = icmp ugt i64 %47, %54
@@ -67202,7 +67202,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !11953, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -67258,7 +67258,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !11961, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -67313,7 +67313,7 @@ define hidden noundef i8 @"_ZN133_$LT$arrow_array..array..primitive_array..Primi
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !11970, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -67369,7 +67369,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !11978, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -67426,7 +67426,7 @@ define hidden noundef i128 @"_ZN133_$LT$arrow_array..array..primitive_array..Pri
   br i1 %19, label %20, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 20:                                               ; preds = %8
-  %21 = sub nsw i64 %16, %18
+  %21 = sub nuw nsw i64 %16, %18
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !11987, !noundef !12
   %24 = icmp ugt i64 %16, %23
@@ -67482,7 +67482,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %53, label %54, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 54:                                               ; preds = %42
-  %55 = sub nsw i64 %50, %52
+  %55 = sub nuw nsw i64 %50, %52
   %56 = getelementptr inbounds i8, ptr %7, i64 8
   %57 = load i64, ptr %56, align 8, !alias.scope !11995, !noundef !12
   %58 = icmp ugt i64 %50, %57
@@ -67538,7 +67538,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12004, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -67594,7 +67594,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12012, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -67650,7 +67650,7 @@ define hidden noundef i16 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12021, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -67706,7 +67706,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12029, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -67762,7 +67762,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12038, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -67818,7 +67818,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12046, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -67873,7 +67873,7 @@ define hidden noundef i8 @"_ZN133_$LT$arrow_array..array..primitive_array..Primi
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !12055, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -67929,7 +67929,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !12063, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -67985,7 +67985,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12072, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -68041,7 +68041,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12080, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -68097,7 +68097,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12089, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -68153,7 +68153,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12097, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -68208,7 +68208,7 @@ define hidden noundef i8 @"_ZN133_$LT$arrow_array..array..primitive_array..Primi
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !12106, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -68264,7 +68264,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !12114, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -68320,7 +68320,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12123, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -68376,7 +68376,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12131, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -68433,7 +68433,7 @@ define hidden noundef i128 @"_ZN133_$LT$arrow_array..array..primitive_array..Pri
   br i1 %19, label %20, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 20:                                               ; preds = %8
-  %21 = sub nsw i64 %16, %18
+  %21 = sub nuw nsw i64 %16, %18
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !12140, !noundef !12
   %24 = icmp ugt i64 %16, %23
@@ -68489,7 +68489,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %53, label %54, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 54:                                               ; preds = %42
-  %55 = sub nsw i64 %50, %52
+  %55 = sub nuw nsw i64 %50, %52
   %56 = getelementptr inbounds i8, ptr %7, i64 8
   %57 = load i64, ptr %56, align 8, !alias.scope !12148, !noundef !12
   %58 = icmp ugt i64 %50, %57
@@ -68546,7 +68546,7 @@ define hidden noundef i128 @"_ZN133_$LT$arrow_array..array..primitive_array..Pri
   br i1 %19, label %20, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 20:                                               ; preds = %8
-  %21 = sub nsw i64 %16, %18
+  %21 = sub nuw nsw i64 %16, %18
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !12157, !noundef !12
   %24 = icmp ugt i64 %16, %23
@@ -68602,7 +68602,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %53, label %54, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 54:                                               ; preds = %42
-  %55 = sub nsw i64 %50, %52
+  %55 = sub nuw nsw i64 %50, %52
   %56 = getelementptr inbounds i8, ptr %7, i64 8
   %57 = load i64, ptr %56, align 8, !alias.scope !12165, !noundef !12
   %58 = icmp ugt i64 %50, %57
@@ -68663,7 +68663,7 @@ define hidden { i128, i128 } @"_ZN133_$LT$arrow_array..array..primitive_array..P
   br i1 %16, label %17, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 17:                                               ; preds = %5
-  %18 = sub nsw i64 %13, %15
+  %18 = sub nuw nsw i64 %13, %15
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8, !alias.scope !12181, !noundef !12
   %21 = icmp ugt i64 %13, %20
@@ -68719,7 +68719,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %50, label %51, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 51:                                               ; preds = %39
-  %52 = sub nsw i64 %47, %49
+  %52 = sub nuw nsw i64 %47, %49
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %54 = load i64, ptr %53, align 8, !alias.scope !12189, !noundef !12
   %55 = icmp ugt i64 %47, %54
@@ -68778,7 +68778,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12198, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -68834,7 +68834,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12206, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -68890,7 +68890,7 @@ define hidden noundef float @"_ZN133_$LT$arrow_array..array..primitive_array..Pr
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12215, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -68946,7 +68946,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12223, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -69002,7 +69002,7 @@ define hidden noundef double @"_ZN133_$LT$arrow_array..array..primitive_array..P
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12232, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -69058,7 +69058,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12240, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -69114,7 +69114,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12249, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -69170,7 +69170,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12257, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -69226,7 +69226,7 @@ define hidden noundef i16 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12266, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -69282,7 +69282,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12274, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -69338,7 +69338,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12283, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -69394,7 +69394,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12291, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -69450,7 +69450,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12300, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -69506,7 +69506,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12308, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -69562,7 +69562,7 @@ define hidden noundef i16 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12317, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -69618,7 +69618,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12325, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -69674,7 +69674,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12334, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -69730,7 +69730,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12342, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -69786,7 +69786,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12351, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -69842,7 +69842,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12359, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -69897,7 +69897,7 @@ define hidden noundef i8 @"_ZN133_$LT$arrow_array..array..primitive_array..Primi
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !12368, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -69953,7 +69953,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !12376, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -70009,7 +70009,7 @@ define hidden noundef i16 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12385, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -70065,7 +70065,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12393, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -70121,7 +70121,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12402, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -70177,7 +70177,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12410, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -70233,7 +70233,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12419, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -70289,7 +70289,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12427, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -70345,7 +70345,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12436, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -70401,7 +70401,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12444, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -70457,7 +70457,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12453, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -70513,7 +70513,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12461, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -70569,7 +70569,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12470, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -70625,7 +70625,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12478, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -70681,7 +70681,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12487, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -70737,7 +70737,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12495, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -70793,7 +70793,7 @@ define hidden noundef i16 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12504, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -70849,7 +70849,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12512, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -70905,7 +70905,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12521, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -70961,7 +70961,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12529, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -71017,7 +71017,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12538, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -71073,7 +71073,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12546, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -71129,7 +71129,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12555, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -71185,7 +71185,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12563, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -71241,7 +71241,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12572, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -71297,7 +71297,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12580, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -71353,7 +71353,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12589, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -71409,7 +71409,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12597, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -71465,7 +71465,7 @@ define hidden noundef i16 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12606, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -71521,7 +71521,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12614, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -71577,7 +71577,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12623, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -71633,7 +71633,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12631, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -71689,7 +71689,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12640, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -71745,7 +71745,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12648, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -71801,7 +71801,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12657, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -71857,7 +71857,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12665, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -71913,7 +71913,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12674, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -71969,7 +71969,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12682, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -72024,7 +72024,7 @@ define hidden noundef i8 @"_ZN133_$LT$arrow_array..array..primitive_array..Primi
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !12691, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -72080,7 +72080,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !12699, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -72136,7 +72136,7 @@ define hidden noundef float @"_ZN133_$LT$arrow_array..array..primitive_array..Pr
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12708, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -72192,7 +72192,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12716, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -72248,7 +72248,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12725, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -72304,7 +72304,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12733, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -72360,7 +72360,7 @@ define hidden noundef double @"_ZN133_$LT$arrow_array..array..primitive_array..P
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12742, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -72416,7 +72416,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12750, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -72472,7 +72472,7 @@ define hidden noundef double @"_ZN133_$LT$arrow_array..array..primitive_array..P
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12759, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -72528,7 +72528,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12767, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -72584,7 +72584,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12776, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -72640,7 +72640,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12784, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -72696,7 +72696,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12793, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -72752,7 +72752,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12801, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -72808,7 +72808,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12810, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -72864,7 +72864,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12818, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -72920,7 +72920,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12827, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -72976,7 +72976,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12835, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -73031,7 +73031,7 @@ define hidden noundef i8 @"_ZN133_$LT$arrow_array..array..primitive_array..Primi
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !12844, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -73087,7 +73087,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !12852, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -73143,7 +73143,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12861, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -73199,7 +73199,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12869, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -73255,7 +73255,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12878, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -73311,7 +73311,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12886, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -73368,7 +73368,7 @@ define hidden noundef i128 @"_ZN133_$LT$arrow_array..array..primitive_array..Pri
   br i1 %19, label %20, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 20:                                               ; preds = %8
-  %21 = sub nsw i64 %16, %18
+  %21 = sub nuw nsw i64 %16, %18
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !12895, !noundef !12
   %24 = icmp ugt i64 %16, %23
@@ -73424,7 +73424,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %53, label %54, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 54:                                               ; preds = %42
-  %55 = sub nsw i64 %50, %52
+  %55 = sub nuw nsw i64 %50, %52
   %56 = getelementptr inbounds i8, ptr %7, i64 8
   %57 = load i64, ptr %56, align 8, !alias.scope !12903, !noundef !12
   %58 = icmp ugt i64 %50, %57
@@ -73480,7 +73480,7 @@ define hidden noundef float @"_ZN133_$LT$arrow_array..array..primitive_array..Pr
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12912, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -73536,7 +73536,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12920, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -73592,7 +73592,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12929, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -73648,7 +73648,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12937, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -73704,7 +73704,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12946, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -73760,7 +73760,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12954, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -73816,7 +73816,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12963, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -73872,7 +73872,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12971, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -73928,7 +73928,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12980, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -73984,7 +73984,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !12988, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -74040,7 +74040,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !12997, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -74096,7 +74096,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !13005, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -74152,7 +74152,7 @@ define hidden noundef i16 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !13014, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -74208,7 +74208,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !13022, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -74264,7 +74264,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !13031, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -74320,7 +74320,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !13039, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -74376,7 +74376,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !13048, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -74432,7 +74432,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !13056, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -74488,7 +74488,7 @@ define hidden noundef i64 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !13065, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -74544,7 +74544,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !13073, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -74600,7 +74600,7 @@ define hidden noundef i16 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !13082, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -74656,7 +74656,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !13090, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -74717,7 +74717,7 @@ define hidden { i128, i128 } @"_ZN133_$LT$arrow_array..array..primitive_array..P
   br i1 %16, label %17, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 17:                                               ; preds = %5
-  %18 = sub nsw i64 %13, %15
+  %18 = sub nuw nsw i64 %13, %15
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8, !alias.scope !13106, !noundef !12
   %21 = icmp ugt i64 %13, %20
@@ -74773,7 +74773,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %50, label %51, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 51:                                               ; preds = %39
-  %52 = sub nsw i64 %47, %49
+  %52 = sub nuw nsw i64 %47, %49
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %54 = load i64, ptr %53, align 8, !alias.scope !13114, !noundef !12
   %55 = icmp ugt i64 %47, %54
@@ -74832,7 +74832,7 @@ define hidden noundef i32 @"_ZN133_$LT$arrow_array..array..primitive_array..Prim
   br i1 %18, label %19, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit
 
 19:                                               ; preds = %7
-  %20 = sub nsw i64 %15, %17
+  %20 = sub nuw nsw i64 %15, %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !alias.scope !13123, !noundef !12
   %23 = icmp ugt i64 %15, %22
@@ -74888,7 +74888,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %52, label %53, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4
 
 53:                                               ; preds = %41
-  %54 = sub nsw i64 %49, %51
+  %54 = sub nuw nsw i64 %49, %51
   %55 = getelementptr inbounds i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8, !alias.scope !13131, !noundef !12
   %57 = icmp ugt i64 %49, %56
@@ -105913,7 +105913,7 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops.
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !17661, !noalias !17652, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -105969,7 +105969,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4.i
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !17670, !noalias !17652, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -106180,7 +106180,7 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops.
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !17694, !noalias !17685, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -106236,7 +106236,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4.i
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !17703, !noalias !17685, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -106322,7 +106322,7 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops.
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !17715, !noalias !17706, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -106378,7 +106378,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4.i
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !17724, !noalias !17706, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -106659,7 +106659,7 @@ define hidden noundef i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops
   br i1 %15, label %16, label %"_ZN133_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$Ptr$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h352e95bfb4f7c80bE.llvm.18016462908235130027.exit"
 
 16:                                               ; preds = %2
-  %17 = sub nsw i64 %12, %14
+  %17 = sub nuw nsw i64 %12, %14
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   %19 = load i64, ptr %18, align 8, !alias.scope !17765, !noalias !17756, !noundef !12
   %20 = icmp ugt i64 %12, %19
@@ -106820,7 +106820,7 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops.
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !17778, !noalias !17769, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -106876,7 +106876,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4.i
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !17787, !noalias !17769, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -106932,7 +106932,7 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops.
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !17799, !noalias !17790, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -106988,7 +106988,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4.i
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !17808, !noalias !17790, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -107122,7 +107122,7 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops.
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !17820, !noalias !17811, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -107178,7 +107178,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4.i
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !17829, !noalias !17811, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -107234,7 +107234,7 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops.
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !17841, !noalias !17832, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -107290,7 +107290,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4.i
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !17850, !noalias !17832, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -107384,7 +107384,7 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops.
   br i1 %17, label %18, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i
 
 18:                                               ; preds = %6
-  %19 = sub nsw i64 %14, %16
+  %19 = sub nuw nsw i64 %14, %16
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8, !alias.scope !17868, !noalias !17859, !noundef !12
   %22 = icmp ugt i64 %14, %21
@@ -107440,7 +107440,7 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca
   br i1 %51, label %52, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit4.i
 
 52:                                               ; preds = %40
-  %53 = sub nsw i64 %48, %50
+  %53 = sub nuw nsw i64 %48, %50
   %54 = getelementptr inbounds i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8, !alias.scope !17877, !noalias !17859, !noundef !12
   %56 = icmp ugt i64 %48, %55
@@ -141404,7 +141404,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm
   br i1 %228, label %229, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i.i.i.i
 
 229:                                              ; preds = %219
-  %230 = sub nsw i64 %226, %227
+  %230 = sub nuw nsw i64 %226, %227
   %231 = load i64, ptr %180, align 8, !alias.scope !24988, !noalias !24973, !noundef !12
   %232 = icmp ugt i64 %226, %231
   br i1 %232, label %233, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm.18016462908235130027.exit.i.i.i.i.i.i
@@ -141801,7 +141801,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm
   br i1 %383, label %384, label %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder6append17hbeda4b95285eeca6E.llvm.18016462908235130027.exit.i.i.i.i155
 
 384:                                              ; preds = %374
-  %385 = sub nsw i64 %381, %382
+  %385 = sub nuw nsw i64 %381, %382
   %386 = load i64, ptr %335, align 8, !alias.scope !25069, !noalias !25054, !noundef !12
   %387 = icmp ugt i64 %381, %386
   br i1 %387, label %388, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.llvm.18016462908235130027.exit.i.i.i.i.i.i181

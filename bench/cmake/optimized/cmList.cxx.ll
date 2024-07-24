@@ -11587,7 +11587,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120TransformSelectorFor8Vali
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %21
-  %39 = sub i64 %spec.select, %36
+  %39 = sub nuw i64 %spec.select, %36
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %39)
   %.pre = load i64, ptr %4, align 8
   %.pre22 = load i64, ptr %24, align 8

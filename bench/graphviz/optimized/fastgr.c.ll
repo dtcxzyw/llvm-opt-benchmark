@@ -319,7 +319,7 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = sub i64 %10, %9
+  %23 = sub nuw i64 %10, %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %22, i8 0, i64 %23, i1 false)
   br label %gv_realloc.exit
 

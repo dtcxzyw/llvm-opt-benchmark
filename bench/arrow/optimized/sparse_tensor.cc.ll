@@ -8870,7 +8870,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %entry, %_ZN9__gnu_c
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit
-  %sub.i = sub i64 %19, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %19, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out_index, i64 noundef %sub.i)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 

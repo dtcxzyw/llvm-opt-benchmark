@@ -2434,7 +2434,7 @@ trace_qed_aio_next_io.exit:                       ; preds = %while.body, %land.l
   br i1 %cmp.not, label %if.end, label %while.end
 
 if.end:                                           ; preds = %trace_qed_aio_next_io.exit
-  %sub = sub i64 %13, %12
+  %sub = sub nuw i64 %13, %12
   store i64 %sub, ptr %len, align 8
   %call13 = call i32 @qed_find_cluster(ptr noundef %acb.val.val, ptr noundef nonnull %request, i64 noundef %12, ptr noundef nonnull %len, ptr noundef nonnull %offset) #18
   %cmp14 = icmp slt i32 %call13, 0

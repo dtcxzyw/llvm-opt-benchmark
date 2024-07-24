@@ -1006,7 +1006,7 @@ land.lhs.true86:                                  ; preds = %lor.lhs.false, %inv
   br i1 %cmp89, label %if.end.i, label %_ZN7rocksdb13AlignedBufferD2Ev.exit
 
 if.end.i:                                         ; preds = %land.lhs.true86
-  %sub94 = sub i64 %buf.sroa.12.1203, %sub
+  %sub94 = sub nuw i64 %buf.sroa.12.1203, %sub
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub94, i64 %n)
   %cmp3.not.i = icmp eq i64 %.sroa.speculated, 0
   br i1 %cmp3.not.i, label %_ZN7rocksdb13AlignedBufferD2Ev.exit, label %if.then4.i
@@ -2735,7 +2735,7 @@ if.then:                                          ; preds = %invoke.cont
   br i1 %cmp5.not, label %if.end20.thread, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  %sub12 = sub i64 %add, %add4
+  %sub12 = sub nuw i64 %add, %add4
   store i64 %add4, ptr %read_offset_, align 8
   br label %if.end20
 

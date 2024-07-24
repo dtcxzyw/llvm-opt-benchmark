@@ -425,7 +425,7 @@ define internal ptr @alloc_sarray(ptr noundef %0, i32 noundef %1, i32 noundef %2
 .lr.ph148:                                        ; preds = %43, %.loopexit
   %.1147 = phi i32 [ %46, %.loopexit ], [ %.0104, %43 ]
   %.0105146 = phi i32 [ %.1106.lcssa, %.loopexit ], [ 0, %43 ]
-  %45 = sub i32 %3, %.0105146
+  %45 = sub nuw i32 %3, %.0105146
   %46 = tail call i32 @llvm.umin.i32(i32 %.1147, i32 %45)
   %47 = zext i32 %46 to i64
   %48 = mul nuw i64 %26, %47
@@ -461,7 +461,7 @@ define internal ptr @alloc_sarray(ptr noundef %0, i32 noundef %1, i32 noundef %2
 .lr.ph139:                                        ; preds = %57, %.loopexit120
   %.2138 = phi i32 [ %60, %.loopexit120 ], [ %.0104, %57 ]
   %.2107137 = phi i32 [ %.3108.lcssa, %.loopexit120 ], [ 0, %57 ]
-  %59 = sub i32 %3, %.2107137
+  %59 = sub nuw i32 %3, %.2107137
   %60 = tail call i32 @llvm.umin.i32(i32 %.2138, i32 %59)
   %61 = zext i32 %60 to i64
   %62 = mul nuw i64 %26, %61
@@ -494,7 +494,7 @@ define internal ptr @alloc_sarray(ptr noundef %0, i32 noundef %1, i32 noundef %2
 .lr.ph130:                                        ; preds = %70, %.loopexit122
   %.3129 = phi i32 [ %73, %.loopexit122 ], [ %.0104, %70 ]
   %.4128 = phi i32 [ %.5.lcssa, %.loopexit122 ], [ 0, %70 ]
-  %72 = sub i32 %3, %.4128
+  %72 = sub nuw i32 %3, %.4128
   %73 = tail call i32 @llvm.umin.i32(i32 %.3129, i32 %72)
   %74 = zext i32 %73 to i64
   %75 = mul nuw i64 %26, %74
@@ -559,7 +559,7 @@ define internal ptr @alloc_barray(ptr noundef %0, i32 noundef %1, i32 noundef %2
 .lr.ph47:                                         ; preds = %16, %.loopexit
   %.03646 = phi i32 [ %.1.lcssa, %.loopexit ], [ 0, %16 ]
   %.13845 = phi i32 [ %25, %.loopexit ], [ %.037, %16 ]
-  %24 = sub i32 %3, %.03646
+  %24 = sub nuw i32 %3, %.03646
   %25 = tail call i32 @llvm.umin.i32(i32 %.13845, i32 %24)
   %26 = zext i32 %25 to i64
   %27 = mul i64 %8, %26
@@ -982,7 +982,7 @@ define internal void @realize_virt_arrays(ptr noundef %0) #0 {
 .lr.ph47.i:                                       ; preds = %164, %.loopexit.i
   %.03646.i = phi i32 [ %.1.lcssa.i, %.loopexit.i ], [ 0, %164 ]
   %.13845.i = phi i32 [ %173, %.loopexit.i ], [ %.037.i, %164 ]
-  %172 = sub i32 %151, %.03646.i
+  %172 = sub nuw i32 %151, %.03646.i
   %173 = tail call i32 @llvm.umin.i32(i32 %.13845.i, i32 %172)
   %174 = zext i32 %173 to i64
   %175 = mul i64 %156, %174
@@ -1386,8 +1386,8 @@ define internal ptr @access_virt_barray(ptr noundef %0, ptr noundef %1, i32 noun
   %.056.i = phi i64 [ %82, %73 ], [ 0, %.lr.ph.i ]
   %.04655.i = phi i64 [ %79, %73 ], [ %53, %.lr.ph.i ]
   %59 = zext i32 %57 to i64
-  %60 = sub nsw i64 %58, %.056.i
-  %..i = tail call i64 @llvm.smin.i64(i64 %60, i64 %59)
+  %60 = sub nuw nsw i64 %58, %.056.i
+  %..i = tail call i64 @llvm.umin.i64(i64 %60, i64 %59)
   %61 = load i32, ptr %23, align 4
   %62 = zext i32 %61 to i64
   %63 = add nuw nsw i64 %.056.i, %62
@@ -1470,8 +1470,8 @@ do_barray_io.exit:                                ; preds = %.lr.ph.split.i, %73
   %.056.us.i = phi i64 [ %134, %125 ], [ 0, %.lr.ph.i78 ]
   %.04655.us.i = phi i64 [ %131, %125 ], [ %106, %.lr.ph.i78 ]
   %111 = zext i32 %109 to i64
-  %112 = sub nsw i64 %110, %.056.us.i
-  %..us.i = tail call i64 @llvm.smin.i64(i64 %112, i64 %111)
+  %112 = sub nuw nsw i64 %110, %.056.us.i
+  %..us.i = tail call i64 @llvm.umin.i64(i64 %112, i64 %111)
   %113 = load i32, ptr %23, align 4
   %114 = zext i32 %113 to i64
   %115 = add nuw nsw i64 %.056.us.i, %114
@@ -1827,8 +1827,8 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %.099.us = phi i64 [ %49, %43 ], [ %18, %.lr.ph.split.us.preheader ]
   %.08698.us = phi i64 [ %52, %43 ], [ 0, %.lr.ph.split.us.preheader ]
   %29 = zext i32 %27 to i64
-  %30 = sub nsw i64 %28, %.08698.us
-  %..us = tail call i64 @llvm.smin.i64(i64 %30, i64 %29)
+  %30 = sub nuw nsw i64 %28, %.08698.us
+  %..us = tail call i64 @llvm.umin.i64(i64 %30, i64 %29)
   %31 = load i32, ptr %15, align 4
   %32 = zext i32 %31 to i64
   %33 = add nuw nsw i64 %.08698.us, %32
@@ -1872,8 +1872,8 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %.099.us101 = phi i64 [ %78, %72 ], [ %18, %.lr.ph.split.split.us.preheader ]
   %.08698.us102 = phi i64 [ %81, %72 ], [ 0, %.lr.ph.split.split.us.preheader ]
   %58 = zext i32 %56 to i64
-  %59 = sub nsw i64 %57, %.08698.us102
-  %..us103 = tail call i64 @llvm.smin.i64(i64 %59, i64 %58)
+  %59 = sub nuw nsw i64 %57, %.08698.us102
+  %..us103 = tail call i64 @llvm.umin.i64(i64 %59, i64 %58)
   %60 = load i32, ptr %15, align 4
   %61 = zext i32 %60 to i64
   %62 = add nuw nsw i64 %.08698.us102, %61
@@ -1913,8 +1913,8 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %.099.us105 = phi i64 [ %107, %101 ], [ %18, %.lr.ph.split.split ]
   %.08698.us106 = phi i64 [ %110, %101 ], [ 0, %.lr.ph.split.split ]
   %87 = zext i32 %85 to i64
-  %88 = sub nsw i64 %86, %.08698.us106
-  %..us107 = tail call i64 @llvm.smin.i64(i64 %88, i64 %87)
+  %88 = sub nuw nsw i64 %86, %.08698.us106
+  %..us107 = tail call i64 @llvm.umin.i64(i64 %88, i64 %87)
   %89 = load i32, ptr %15, align 4
   %90 = zext i32 %89 to i64
   %91 = add nuw nsw i64 %.08698.us106, %90
@@ -1951,8 +1951,8 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %.099 = phi i64 [ %136, %130 ], [ %18, %.lr.ph.split.split ]
   %.08698 = phi i64 [ %139, %130 ], [ 0, %.lr.ph.split.split ]
   %116 = zext i32 %114 to i64
-  %117 = sub nsw i64 %115, %.08698
-  %. = tail call i64 @llvm.smin.i64(i64 %117, i64 %116)
+  %117 = sub nuw nsw i64 %115, %.08698
+  %. = tail call i64 @llvm.umin.i64(i64 %117, i64 %116)
   %118 = load i32, ptr %15, align 4
   %119 = zext i32 %118 to i64
   %120 = add nuw nsw i64 %.08698, %119
@@ -2006,10 +2006,10 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 declare i64 @llvm.smax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #7
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i64 @llvm.smin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

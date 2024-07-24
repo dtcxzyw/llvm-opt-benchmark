@@ -700,7 +700,7 @@ agxbputc.exit36:                                  ; preds = %agxbputc.exit36.bac
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds i8, ptr %35, i64 %24
-  %44 = sub i64 %spec.select.i.i, %24
+  %44 = sub nuw i64 %spec.select.i.i, %24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %43, i8 0, i64 %44, i1 false)
   br label %.thread3.i
 
@@ -810,7 +810,7 @@ agxbputc.exit:                                    ; preds = %60, %56, %agxbputc.
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds i8, ptr %82, i64 %71
-  %91 = sub i64 %spec.select.i.i27, %71
+  %91 = sub nuw i64 %spec.select.i.i27, %71
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %90, i8 0, i64 %91, i1 false)
   br label %.thread3.i30
 
@@ -953,7 +953,7 @@ define internal fastcc void @agxbputc(i8 noundef signext %0) unnamed_addr #0 {
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %16, i64 %5
-  %25 = sub i64 %spec.select.i, %5
+  %25 = sub nuw i64 %spec.select.i, %5
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 0, i64 %25, i1 false)
   br label %.thread3
 

@@ -3398,7 +3398,7 @@ define noundef nonnull ptr @WasmEdge_FunctionTypeCreate(ptr nocapture noundef re
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %10
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   tail call void @_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %22)
   br label %.lr.ph30
 
@@ -4595,7 +4595,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
 77:                                               ; preds = %._crit_edge
   %78 = add nsw i64 %71, %24
   %79 = icmp ugt i64 %78, %68
-  %80 = sub nsw i64 %68, %71
+  %80 = sub nuw nsw i64 %68, %71
   %81 = getelementptr inbounds %"class.WasmEdge::AST::TableSegment", ptr %18, i64 %80, i32 1
   %.0 = select i1 %79, ptr %81, ptr null
   %.not.i.i.i23 = icmp eq ptr %.sroa.0.1.lcssa, null
@@ -4791,7 +4791,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
 77:                                               ; preds = %._crit_edge
   %78 = add nsw i64 %71, %24
   %79 = icmp ugt i64 %78, %68
-  %80 = sub nsw i64 %68, %71
+  %80 = sub nuw nsw i64 %68, %71
   %81 = getelementptr inbounds %"class.WasmEdge::AST::MemoryType", ptr %18, i64 %80
   %.0 = select i1 %79, ptr %81, ptr null
   %.not.i.i.i23 = icmp eq ptr %.sroa.0.1.lcssa, null
@@ -5041,7 +5041,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
 77:                                               ; preds = %._crit_edge
   %78 = add nsw i64 %71, %24
   %79 = icmp ugt i64 %78, %68
-  %80 = sub nsw i64 %68, %71
+  %80 = sub nuw nsw i64 %68, %71
   %81 = getelementptr inbounds %"class.WasmEdge::AST::GlobalSegment", ptr %18, i64 %80, i32 1
   %.0 = select i1 %79, ptr %81, ptr null
   %.not.i.i.i23 = icmp eq ptr %.sroa.0.1.lcssa, null
@@ -7604,8 +7604,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej
 7:                                                ; preds = %3
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %.not110 = icmp eq i32 %2, 0
-  br i1 %.not110, label %._crit_edge.invoke, label %_ZNKSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE12_M_check_lenEmPKc.exit.i
+  %.not109 = icmp eq i32 %2, 0
+  br i1 %.not109, label %._crit_edge.invoke, label %_ZNKSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE12_M_check_lenEmPKc.exit.i
 
 _ZNKSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE12_M_check_lenEmPKc.exit.i: ; preds = %7
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -7628,7 +7628,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   store ptr %15, ptr %9, align 8
   store ptr %15, ptr %10, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 8
-  br i1 %.not110, label %._crit_edge.invoke, label %_ZNKSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12_M_check_lenEmPKc.exit.i
+  br i1 %.not109, label %._crit_edge.invoke, label %_ZNKSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 _ZNKSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE6resizeEm.exit
   %17 = getelementptr inbounds i8, ptr %5, i64 16
@@ -7640,9 +7640,9 @@ _ZNKSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %
   store i64 0, ptr %19, align 4
   %20 = icmp eq i32 %2, 1
   %21 = getelementptr %"class.WasmEdge::ValType", ptr %19, i64 %8
-  br i1 %20, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread112, label %22
+  br i1 %20, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread111, label %22
 
-_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread112: ; preds = %.noexc106
+_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread111: ; preds = %.noexc106
   store ptr %19, ptr %5, align 8
   br label %.lr.ph.preheader
 
@@ -7663,8 +7663,8 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit: ; preds = %.lr.ph.i.i.i.
   %26 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %19, i64 %8
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread112
-  %storemerge = phi ptr [ %26, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit ], [ %21, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread112 ]
+.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread111
+  %storemerge = phi ptr [ %26, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit ], [ %21, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread111 ]
   store ptr %storemerge, ptr %16, align 8
   store ptr %storemerge, ptr %17, align 8
   br label %.lr.ph
@@ -7681,8 +7681,8 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit: ; preds = %.lr.ph.i.i.i.
   %.sroa.043.0.extract.trunc = trunc i128 %31 to i64
   %.sroa.244.0.extract.shift = lshr i128 %31, 64
   %.sroa.244.0.extract.trunc = trunc nuw i128 %.sroa.244.0.extract.shift to i64
-  %.sink115 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %"class.WasmEdge::Variant", ptr %.sink115, i64 %indvars.iv
+  %.sink114 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds %"class.WasmEdge::Variant", ptr %.sink114, i64 %indvars.iv
   store i64 %.sroa.043.0.extract.trunc, ptr %32, align 16
   %.sroa.246.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
   store i64 %.sroa.244.0.extract.trunc, ptr %.sroa.246.0..sroa_idx, align 8
@@ -17578,7 +17578,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -28866,7 +28866,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 116:                                              ; preds = %114
   %117 = zext i32 %38 to i64
-  %118 = sub nsw i64 %117, %111
+  %118 = sub nuw nsw i64 %117, %111
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 119:                                              ; preds = %108
@@ -29090,7 +29090,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 226:                                              ; preds = %224
   %227 = zext i32 %146 to i64
-  %228 = sub nsw i64 %227, %221
+  %228 = sub nuw nsw i64 %227, %221
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit179
 
 229:                                              ; preds = %218
@@ -29311,7 +29311,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 332:                                              ; preds = %330
   %333 = zext i32 %254 to i64
-  %334 = sub nsw i64 %333, %327
+  %334 = sub nuw nsw i64 %333, %327
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit203
 
 335:                                              ; preds = %324
@@ -29537,7 +29537,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 437:                                              ; preds = %435
   %438 = zext i32 %361 to i64
-  %439 = sub nsw i64 %438, %432
+  %439 = sub nuw nsw i64 %438, %432
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit231
 
 440:                                              ; preds = %429
@@ -45430,7 +45430,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 115:                                              ; preds = %113
   %116 = zext i32 %39 to i64
-  %117 = sub nsw i64 %116, %110
+  %117 = sub nuw nsw i64 %116, %110
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 118:                                              ; preds = %107
@@ -45660,7 +45660,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 221:                                              ; preds = %219
   %222 = zext i32 %143 to i64
-  %223 = sub nsw i64 %222, %216
+  %223 = sub nuw nsw i64 %222, %216
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit177
 
 224:                                              ; preds = %213
@@ -45887,7 +45887,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 328:                                              ; preds = %326
   %329 = zext i32 %249 to i64
-  %330 = sub nsw i64 %329, %323
+  %330 = sub nuw nsw i64 %329, %323
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit204
 
 331:                                              ; preds = %320
@@ -46113,7 +46113,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 430:                                              ; preds = %428
   %431 = zext i32 %353 to i64
-  %432 = sub nsw i64 %431, %425
+  %432 = sub nuw nsw i64 %431, %425
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit235
 
 433:                                              ; preds = %422
@@ -48134,7 +48134,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 121:                                              ; preds = %119
   %122 = zext i32 %43 to i64
-  %123 = sub nsw i64 %122, %116
+  %123 = sub nuw nsw i64 %122, %116
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 124:                                              ; preds = %113
@@ -48365,7 +48365,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 231:                                              ; preds = %229
   %232 = zext i32 %150 to i64
-  %233 = sub nsw i64 %232, %226
+  %233 = sub nuw nsw i64 %232, %226
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit192
 
 234:                                              ; preds = %223
@@ -48593,7 +48593,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 338:                                              ; preds = %336
   %339 = zext i32 %259 to i64
-  %340 = sub nsw i64 %339, %333
+  %340 = sub nuw nsw i64 %339, %333
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit223
 
 341:                                              ; preds = %330
@@ -48819,7 +48819,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 440:                                              ; preds = %438
   %441 = zext i32 %363 to i64
-  %442 = sub nsw i64 %441, %435
+  %442 = sub nuw nsw i64 %441, %435
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit258
 
 443:                                              ; preds = %432

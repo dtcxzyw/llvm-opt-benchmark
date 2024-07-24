@@ -576,7 +576,7 @@ define internal fastcc ptr @get_data(ptr nocapture noundef readonly %0, ptr noca
   %26 = xor i64 %25, -1
   %27 = and i64 %4, %26
   %28 = getelementptr i8, ptr %24, i64 %27
-  %29 = sub i64 %.pre, %4
+  %29 = sub nuw i64 %.pre, %4
   br label %42
 
 30:                                               ; preds = %._crit_edge

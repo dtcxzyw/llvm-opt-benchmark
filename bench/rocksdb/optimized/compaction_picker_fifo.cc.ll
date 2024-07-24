@@ -2181,7 +2181,7 @@ if.then32:                                        ; preds = %invoke.cont27
   br i1 %cmp35.not106, label %if.end110, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then32
-  %sub = sub i64 %12, %15
+  %sub = sub nuw i64 %12, %15
   %18 = freeze i64 %sub
   %max_compaction_bytes = getelementptr inbounds i8, ptr %mutable_cf_options, i64 128
   br label %for.body

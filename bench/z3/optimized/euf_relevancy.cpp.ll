@@ -74,7 +74,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %sub = sub i32 %1, %n
+  %sub = sub nuw i32 %1, %n
   store i32 %sub, ptr %m_num_scopes, align 8
   br label %return
 

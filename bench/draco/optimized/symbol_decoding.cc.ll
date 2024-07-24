@@ -715,7 +715,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -1061,7 +1061,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %12, %14, %15, %17
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %29 = sub nsw i64 %19, %26
+  %29 = sub nuw nsw i64 %19, %26
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %29)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -4017,7 +4017,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -4377,7 +4377,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -4737,7 +4737,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -5097,7 +5097,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -5457,7 +5457,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -5817,7 +5817,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -6177,7 +6177,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -6537,7 +6537,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -6874,7 +6874,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %12, %14, %15, %17
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %29 = sub nsw i64 %19, %26
+  %29 = sub nuw nsw i64 %19, %26
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %29)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -7011,7 +7011,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -7348,7 +7348,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %12, %14, %15, %17
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %29 = sub nsw i64 %19, %26
+  %29 = sub nuw nsw i64 %19, %26
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %29)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -7485,7 +7485,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -7822,7 +7822,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %12, %14, %15, %17
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %29 = sub nsw i64 %19, %26
+  %29 = sub nuw nsw i64 %19, %26
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %29)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -7959,7 +7959,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -8296,7 +8296,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %12, %14, %15, %17
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %29 = sub nsw i64 %19, %26
+  %29 = sub nuw nsw i64 %19, %26
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %29)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -8433,7 +8433,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -8770,7 +8770,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %12, %14, %15, %17
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %29 = sub nsw i64 %19, %26
+  %29 = sub nuw nsw i64 %19, %26
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %29)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -8907,7 +8907,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -9244,7 +9244,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %12, %14, %15, %17
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %29 = sub nsw i64 %19, %26
+  %29 = sub nuw nsw i64 %19, %26
   tail call void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %29)
   br label %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit
 
@@ -9381,7 +9381,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -9741,7 +9741,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -10101,7 +10101,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -10461,7 +10461,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = sub nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
   %.pre71 = load i32, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit

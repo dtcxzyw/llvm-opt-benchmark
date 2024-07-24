@@ -1259,7 +1259,7 @@ if.then.i11:                                      ; preds = %for.end
   br label %nrvo.skipdtor
 
 if.else.i10:                                      ; preds = %for.end
-  %sub.i = sub i64 %conv10, %add.i.i.i
+  %sub.i = sub nuw i64 %conv10, %add.i.i.i
   call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull %retval.sroa.0.0.copyload.i.i, i32 %retval.sroa.2.0.copyload.i.i, i64 noundef %sub.i, i1 noundef zeroext false)
   br label %nrvo.skipdtor
 

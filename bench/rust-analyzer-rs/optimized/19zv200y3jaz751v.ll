@@ -859,7 +859,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11rotate_left1
   unreachable
 
 5:                                                ; preds = %3
-  %6 = sub i64 %1, %2
+  %6 = sub nuw i64 %1, %2
   %7 = getelementptr inbounds { i32, i16, i16 }, ptr %0, i64 %2
   tail call void @_ZN4core5slice6rotate10ptr_rotate17h0dbc64fccf577ce9E(i64 noundef %2, ptr noundef nonnull %7, i64 noundef %6)
   ret void

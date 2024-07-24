@@ -436,7 +436,7 @@ define dso_local noundef i32 @skb_gro_receive(ptr noundef %0, ptr noundef %1) lo
   br label %219
 
 207:                                              ; preds = %.thread
-  %208 = sub i32 %10, %15
+  %208 = sub nuw i32 %10, %15
   %209 = getelementptr inbounds i8, ptr %8, i64 60
   %210 = load i32, ptr %209, align 4
   %211 = add i32 %210, %208

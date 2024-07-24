@@ -992,7 +992,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i:           ; preds = %.noexc340.i, %_ZN2c
   br i1 %433, label %434, label %457
 
 434:                                              ; preds = %._crit_edge469.i
-  %435 = sub nsw i64 %.pre-phi.i, %432
+  %435 = sub nuw nsw i64 %.pre-phi.i, %432
   %436 = ptrtoint ptr %.sroa.52.7 to i64
   %437 = sub i64 %436, %430
   %438 = ashr exact i64 %437, 3

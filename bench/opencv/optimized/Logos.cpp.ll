@@ -117,7 +117,7 @@ define hidden void @_ZN5logos5Logos4initERKNS_15LogosParametersE(ptr noundef non
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %2
-  %25 = sub nsw i64 %15, %22
+  %25 = sub nuw nsw i64 %15, %22
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %25)
   %.pre = load ptr, ptr %14, align 8
   %.pre3 = load ptr, ptr %16, align 8

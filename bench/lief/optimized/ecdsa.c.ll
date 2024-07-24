@@ -202,7 +202,7 @@ define internal fastcc i32 @ecdsa_sign_det_restartable(ptr noundef %0, ptr nound
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %27
-  %32 = sub i64 %28, %29
+  %32 = sub nuw i64 %28, %29
   %33 = call i32 @mbedtls_mpi_shift_r(ptr noundef nonnull %12, i64 noundef %32) #7
   %.not24.i = icmp eq i32 %33, 0
   br i1 %.not24.i, label %34, label %derive_mpi.exit.thread
@@ -309,7 +309,7 @@ define internal fastcc i32 @ecdsa_verify_restartable(ptr noundef %0, ptr noundef
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = sub i64 %39, %40
+  %43 = sub nuw i64 %39, %40
   %44 = call i32 @mbedtls_mpi_shift_r(ptr noundef nonnull %7, i64 noundef %43) #7
   %.not24.i = icmp eq i32 %44, 0
   br i1 %.not24.i, label %45, label %derive_mpi.exit.thread
@@ -653,7 +653,7 @@ define internal fastcc i32 @derive_mpi(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = sub i64 %12, %13
+  %16 = sub nuw i64 %12, %13
   %17 = tail call i32 @mbedtls_mpi_shift_r(ptr noundef %1, i64 noundef %16) #7
   %.not24 = icmp eq i32 %17, 0
   br i1 %.not24, label %18, label %24

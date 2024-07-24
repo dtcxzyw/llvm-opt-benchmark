@@ -407,7 +407,7 @@ if.else:                                          ; preds = %while.cond
   br i1 %cmp.i.old, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %land.lhs.true, %if.else
-  %sub.i = sub i64 %v.coerce0, %start.0
+  %sub.i = sub nuw i64 %v.coerce0, %start.0
   %add.ptr.i = getelementptr inbounds i8, ptr %v.coerce1, i64 %start.0
   %call.i.i = tail call ptr @memchr(ptr noundef %add.ptr.i, i32 noundef %conv.i.i, i64 noundef %sub.i) #17
   %tobool.not.i = icmp eq ptr %call.i.i, null
@@ -432,7 +432,7 @@ if.then.i.i:                                      ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.end
   %sub3 = sub i64 %end.0, %start.0
-  %sub.i9 = sub i64 %v.coerce0, %start.0
+  %sub.i9 = sub nuw i64 %v.coerce0, %start.0
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i9, i64 %sub3)
   %add.ptr.i11 = getelementptr inbounds i8, ptr %v.coerce1, i64 %start.0
   %cmp.not.i.i = icmp eq ptr %0, %add.ptr19.i.i.i29
@@ -1058,7 +1058,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
 while.body.i.i:                                   ; preds = %if.end19.i.i, %while.body.lr.ph.i.i
   %__len.022.i.i = phi i64 [ %s.coerce0, %while.body.lr.ph.i.i ], [ %sub.ptr.sub22.i.i, %if.end19.i.i ]
   %__first.021.i.i = phi ptr [ %s.coerce1, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %if.end19.i.i ]
-  %sub12.i.i = sub i64 %__len.022.i.i, %token.coerce0
+  %sub12.i.i = sub nuw i64 %__len.022.i.i, %token.coerce0
   %add.i.i = add i64 %sub12.i.i, 1
   %cmp.i.i.i = icmp eq i64 %add.i.i, 0
   br i1 %cmp.i.i.i, label %if.then, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
@@ -1161,7 +1161,7 @@ if.then.i.i24:                                    ; preds = %invoke.cont12
   unreachable
 
 invoke.cont17:                                    ; preds = %invoke.cont12
-  %sub.i = sub i64 %s.coerce0, %add
+  %sub.i = sub nuw i64 %s.coerce0, %add
   %add.ptr.i = getelementptr inbounds i8, ptr %s.coerce1, i64 %add
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i25)

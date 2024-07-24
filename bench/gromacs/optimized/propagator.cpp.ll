@@ -6201,7 +6201,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %14, %
   br i1 %.not.i, label %77, label %75
 
 75:                                               ; preds = %64
-  %76 = sub i64 %71, %74
+  %76 = sub nuw i64 %71, %74
   br label %79
 
 77:                                               ; preds = %64
@@ -6537,7 +6537,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %14, %
   br i1 %.not.i, label %77, label %75
 
 75:                                               ; preds = %64
-  %76 = sub i64 %71, %74
+  %76 = sub nuw i64 %71, %74
   br label %79
 
 77:                                               ; preds = %64
@@ -6840,7 +6840,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %14, %
   br i1 %.not.i, label %77, label %75
 
 75:                                               ; preds = %64
-  %76 = sub i64 %71, %74
+  %76 = sub nuw i64 %71, %74
   br label %79
 
 77:                                               ; preds = %64
@@ -7143,7 +7143,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %14, %
   br i1 %.not.i, label %77, label %75
 
 75:                                               ; preds = %64
-  %76 = sub i64 %71, %74
+  %76 = sub nuw i64 %71, %74
   br label %79
 
 77:                                               ; preds = %64
@@ -7446,7 +7446,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %14, %
   br i1 %.not.i, label %77, label %75
 
 75:                                               ; preds = %64
-  %76 = sub i64 %71, %74
+  %76 = sub nuw i64 %71, %74
   br label %79
 
 77:                                               ; preds = %64
@@ -7749,7 +7749,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %14, %
   br i1 %.not.i, label %77, label %75
 
 75:                                               ; preds = %64
-  %76 = sub i64 %71, %74
+  %76 = sub nuw i64 %71, %74
   br label %79
 
 77:                                               ; preds = %64
@@ -8052,7 +8052,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %14, %
   br i1 %.not.i, label %77, label %75
 
 75:                                               ; preds = %64
-  %76 = sub i64 %71, %74
+  %76 = sub nuw i64 %71, %74
   br label %79
 
 77:                                               ; preds = %64
@@ -8355,7 +8355,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %14, %
   br i1 %.not.i, label %77, label %75
 
 75:                                               ; preds = %64
-  %76 = sub i64 %71, %74
+  %76 = sub nuw i64 %71, %74
   br label %79
 
 77:                                               ; preds = %64
@@ -8658,7 +8658,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %14, %
   br i1 %.not.i, label %77, label %75
 
 75:                                               ; preds = %64
-  %76 = sub i64 %71, %74
+  %76 = sub nuw i64 %71, %74
   br label %79
 
 77:                                               ; preds = %64
@@ -8961,7 +8961,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %14, %
   br i1 %.not.i, label %77, label %75
 
 75:                                               ; preds = %64
-  %76 = sub i64 %71, %74
+  %76 = sub nuw i64 %71, %74
   br label %79
 
 77:                                               ; preds = %64
@@ -9217,7 +9217,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds float, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -10760,7 +10760,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %114, label %112
 
 112:                                              ; preds = %101
-  %113 = sub i64 %108, %111
+  %113 = sub nuw i64 %108, %111
   br label %116
 
 114:                                              ; preds = %101
@@ -11206,7 +11206,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %111, label %109
 
 109:                                              ; preds = %98
-  %110 = sub i64 %105, %108
+  %110 = sub nuw i64 %105, %108
   br label %113
 
 111:                                              ; preds = %98
@@ -11610,7 +11610,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %16, %
   br i1 %.not.i, label %95, label %93
 
 93:                                               ; preds = %82
-  %94 = sub i64 %89, %92
+  %94 = sub nuw i64 %89, %92
   br label %97
 
 95:                                               ; preds = %82
@@ -11966,7 +11966,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %16, %
   br i1 %.not.i, label %92, label %90
 
 90:                                               ; preds = %79
-  %91 = sub i64 %86, %89
+  %91 = sub nuw i64 %86, %89
   br label %94
 
 92:                                               ; preds = %79
@@ -12354,7 +12354,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %108, label %106
 
 106:                                              ; preds = %95
-  %107 = sub i64 %102, %105
+  %107 = sub nuw i64 %102, %105
   br label %110
 
 108:                                              ; preds = %95
@@ -12807,7 +12807,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %108, label %106
 
 106:                                              ; preds = %95
-  %107 = sub i64 %102, %105
+  %107 = sub nuw i64 %102, %105
   br label %110
 
 108:                                              ; preds = %95
@@ -13216,7 +13216,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %16, %
   br i1 %.not.i, label %89, label %87
 
 87:                                               ; preds = %76
-  %88 = sub i64 %83, %86
+  %88 = sub nuw i64 %83, %86
   br label %91
 
 89:                                               ; preds = %76
@@ -13583,7 +13583,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %16, %
   br i1 %.not.i, label %89, label %87
 
 87:                                               ; preds = %76
-  %88 = sub i64 %83, %86
+  %88 = sub nuw i64 %83, %86
   br label %91
 
 89:                                               ; preds = %76
@@ -13982,7 +13982,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %108, label %106
 
 106:                                              ; preds = %95
-  %107 = sub i64 %102, %105
+  %107 = sub nuw i64 %102, %105
   br label %110
 
 108:                                              ; preds = %95
@@ -14378,7 +14378,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %16, %
   br i1 %.not.i, label %89, label %87
 
 87:                                               ; preds = %76
-  %88 = sub i64 %83, %86
+  %88 = sub nuw i64 %83, %86
   br label %91
 
 89:                                               ; preds = %76
@@ -14617,7 +14617,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %16
-  %27 = sub nsw i64 %14, %24
+  %27 = sub nuw nsw i64 %14, %24
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %19, i64 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9
 
@@ -15762,7 +15762,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %115, label %113
 
 113:                                              ; preds = %102
-  %114 = sub i64 %109, %112
+  %114 = sub nuw i64 %109, %112
   br label %117
 
 115:                                              ; preds = %102
@@ -16290,7 +16290,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %112, label %110
 
 110:                                              ; preds = %99
-  %111 = sub i64 %106, %109
+  %111 = sub nuw i64 %106, %109
   br label %114
 
 112:                                              ; preds = %99
@@ -16784,7 +16784,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   br i1 %.not.i, label %98, label %96
 
 96:                                               ; preds = %85
-  %97 = sub i64 %92, %95
+  %97 = sub nuw i64 %92, %95
   br label %100
 
 98:                                               ; preds = %85
@@ -17234,7 +17234,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   br i1 %.not.i, label %95, label %93
 
 93:                                               ; preds = %82
-  %94 = sub i64 %89, %92
+  %94 = sub nuw i64 %89, %92
   br label %97
 
 95:                                               ; preds = %82
@@ -17710,7 +17710,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %109, label %107
 
 107:                                              ; preds = %96
-  %108 = sub i64 %103, %106
+  %108 = sub nuw i64 %103, %106
   br label %111
 
 109:                                              ; preds = %96
@@ -18259,7 +18259,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %109, label %107
 
 107:                                              ; preds = %96
-  %108 = sub i64 %103, %106
+  %108 = sub nuw i64 %103, %106
   br label %111
 
 109:                                              ; preds = %96
@@ -18765,7 +18765,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   br i1 %.not.i, label %92, label %90
 
 90:                                               ; preds = %79
-  %91 = sub i64 %86, %89
+  %91 = sub nuw i64 %86, %89
   br label %94
 
 92:                                               ; preds = %79
@@ -19236,7 +19236,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   br i1 %.not.i, label %92, label %90
 
 90:                                               ; preds = %79
-  %91 = sub i64 %86, %89
+  %91 = sub nuw i64 %86, %89
   br label %94
 
 92:                                               ; preds = %79
@@ -19732,7 +19732,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %109, label %107
 
 107:                                              ; preds = %96
-  %108 = sub i64 %103, %106
+  %108 = sub nuw i64 %103, %106
   br label %111
 
 109:                                              ; preds = %96
@@ -20215,7 +20215,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   br i1 %.not.i, label %92, label %90
 
 90:                                               ; preds = %79
-  %91 = sub i64 %86, %89
+  %91 = sub nuw i64 %86, %89
   br label %94
 
 92:                                               ; preds = %79
@@ -20541,7 +20541,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %16
-  %27 = sub nsw i64 %14, %24
+  %27 = sub nuw nsw i64 %14, %24
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %19, i64 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9
 
@@ -21686,7 +21686,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %115, label %113
 
 113:                                              ; preds = %102
-  %114 = sub i64 %109, %112
+  %114 = sub nuw i64 %109, %112
   br label %117
 
 115:                                              ; preds = %102
@@ -22216,7 +22216,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %112, label %110
 
 110:                                              ; preds = %99
-  %111 = sub i64 %106, %109
+  %111 = sub nuw i64 %106, %109
   br label %114
 
 112:                                              ; preds = %99
@@ -22712,7 +22712,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   br i1 %.not.i, label %98, label %96
 
 96:                                               ; preds = %85
-  %97 = sub i64 %92, %95
+  %97 = sub nuw i64 %92, %95
   br label %100
 
 98:                                               ; preds = %85
@@ -23164,7 +23164,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   br i1 %.not.i, label %95, label %93
 
 93:                                               ; preds = %82
-  %94 = sub i64 %89, %92
+  %94 = sub nuw i64 %89, %92
   br label %97
 
 95:                                               ; preds = %82
@@ -23642,7 +23642,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %109, label %107
 
 107:                                              ; preds = %96
-  %108 = sub i64 %103, %106
+  %108 = sub nuw i64 %103, %106
   br label %111
 
 109:                                              ; preds = %96
@@ -24193,7 +24193,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %109, label %107
 
 107:                                              ; preds = %96
-  %108 = sub i64 %103, %106
+  %108 = sub nuw i64 %103, %106
   br label %111
 
 109:                                              ; preds = %96
@@ -24701,7 +24701,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   br i1 %.not.i, label %92, label %90
 
 90:                                               ; preds = %79
-  %91 = sub i64 %86, %89
+  %91 = sub nuw i64 %86, %89
   br label %94
 
 92:                                               ; preds = %79
@@ -25174,7 +25174,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   br i1 %.not.i, label %92, label %90
 
 90:                                               ; preds = %79
-  %91 = sub i64 %86, %89
+  %91 = sub nuw i64 %86, %89
   br label %94
 
 92:                                               ; preds = %79
@@ -25672,7 +25672,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   br i1 %.not.i, label %109, label %107
 
 107:                                              ; preds = %96
-  %108 = sub i64 %103, %106
+  %108 = sub nuw i64 %103, %106
   br label %111
 
 109:                                              ; preds = %96
@@ -26157,7 +26157,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   br i1 %.not.i, label %92, label %90
 
 90:                                               ; preds = %79
-  %91 = sub i64 %86, %89
+  %91 = sub nuw i64 %86, %89
   br label %94
 
 92:                                               ; preds = %79
@@ -26485,7 +26485,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %16
-  %27 = sub nsw i64 %14, %24
+  %27 = sub nuw nsw i64 %14, %24
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %19, i64 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9
 
@@ -27563,7 +27563,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   br i1 %.not.i, label %73, label %71
 
 71:                                               ; preds = %60
-  %72 = sub i64 %67, %70
+  %72 = sub nuw i64 %67, %70
   br label %75
 
 73:                                               ; preds = %60
@@ -27849,7 +27849,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   br i1 %.not.i, label %73, label %71
 
 71:                                               ; preds = %60
-  %72 = sub i64 %67, %70
+  %72 = sub nuw i64 %67, %70
   br label %75
 
 73:                                               ; preds = %60
@@ -28135,7 +28135,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   br i1 %.not.i, label %73, label %71
 
 71:                                               ; preds = %60
-  %72 = sub i64 %67, %70
+  %72 = sub nuw i64 %67, %70
   br label %75
 
 73:                                               ; preds = %60
@@ -28421,7 +28421,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   br i1 %.not.i, label %73, label %71
 
 71:                                               ; preds = %60
-  %72 = sub i64 %67, %70
+  %72 = sub nuw i64 %67, %70
   br label %75
 
 73:                                               ; preds = %60
@@ -28704,7 +28704,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   br i1 %.not.i, label %70, label %68
 
 68:                                               ; preds = %57
-  %69 = sub i64 %64, %67
+  %69 = sub nuw i64 %64, %67
   br label %72
 
 70:                                               ; preds = %57
@@ -29001,7 +29001,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   br i1 %.not.i, label %70, label %68
 
 68:                                               ; preds = %57
-  %69 = sub i64 %64, %67
+  %69 = sub nuw i64 %64, %67
   br label %72
 
 70:                                               ; preds = %57
@@ -29298,7 +29298,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   br i1 %.not.i, label %70, label %68
 
 68:                                               ; preds = %57
-  %69 = sub i64 %64, %67
+  %69 = sub nuw i64 %64, %67
   br label %72
 
 70:                                               ; preds = %57
@@ -29595,7 +29595,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   br i1 %.not.i, label %70, label %68
 
 68:                                               ; preds = %57
-  %69 = sub i64 %64, %67
+  %69 = sub nuw i64 %64, %67
   br label %72
 
 70:                                               ; preds = %57
@@ -29867,7 +29867,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %16
-  %27 = sub nsw i64 %14, %24
+  %27 = sub nuw nsw i64 %14, %24
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %19, i64 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9
 
@@ -30791,7 +30791,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %72, label %70
 
 70:                                               ; preds = %59
-  %71 = sub i64 %66, %69
+  %71 = sub nuw i64 %66, %69
   br label %74
 
 72:                                               ; preds = %59
@@ -31071,7 +31071,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %69, label %67
 
 67:                                               ; preds = %56
-  %68 = sub i64 %63, %66
+  %68 = sub nuw i64 %63, %66
   br label %71
 
 69:                                               ; preds = %56
@@ -31364,7 +31364,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %69, label %67
 
 67:                                               ; preds = %56
-  %68 = sub i64 %63, %66
+  %68 = sub nuw i64 %63, %66
   br label %71
 
 69:                                               ; preds = %56
@@ -31610,7 +31610,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %69, label %67
 
 67:                                               ; preds = %56
-  %68 = sub i64 %63, %66
+  %68 = sub nuw i64 %63, %66
   br label %71
 
 69:                                               ; preds = %56
@@ -31856,7 +31856,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %69, label %67
 
 67:                                               ; preds = %56
-  %68 = sub i64 %63, %66
+  %68 = sub nuw i64 %63, %66
   br label %71
 
 69:                                               ; preds = %56
@@ -32102,7 +32102,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %69, label %67
 
 67:                                               ; preds = %56
-  %68 = sub i64 %63, %66
+  %68 = sub nuw i64 %63, %66
   br label %71
 
 69:                                               ; preds = %56
@@ -32348,7 +32348,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %69, label %67
 
 67:                                               ; preds = %56
-  %68 = sub i64 %63, %66
+  %68 = sub nuw i64 %63, %66
   br label %71
 
 69:                                               ; preds = %56
@@ -32594,7 +32594,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %69, label %67
 
 67:                                               ; preds = %56
-  %68 = sub i64 %63, %66
+  %68 = sub nuw i64 %63, %66
   br label %71
 
 69:                                               ; preds = %56
@@ -32840,7 +32840,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %69, label %67
 
 67:                                               ; preds = %56
-  %68 = sub i64 %63, %66
+  %68 = sub nuw i64 %63, %66
   br label %71
 
 69:                                               ; preds = %56
@@ -33086,7 +33086,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %69, label %67
 
 67:                                               ; preds = %56
-  %68 = sub i64 %63, %66
+  %68 = sub nuw i64 %63, %66
   br label %71
 
 69:                                               ; preds = %56
@@ -33332,7 +33332,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %69, label %67
 
 67:                                               ; preds = %56
-  %68 = sub i64 %63, %66
+  %68 = sub nuw i64 %63, %66
   br label %71
 
 69:                                               ; preds = %56
@@ -33578,7 +33578,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   br i1 %.not.i, label %69, label %67
 
 67:                                               ; preds = %56
-  %68 = sub i64 %63, %66
+  %68 = sub nuw i64 %63, %66
   br label %71
 
 69:                                               ; preds = %56

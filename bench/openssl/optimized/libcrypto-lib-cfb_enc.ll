@@ -85,7 +85,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %l.0177 = phi i64 [ %length, %while.body.lr.ph ], [ %sub, %if.end155 ]
   %v1.0176 = phi i32 [ %or27, %while.body.lr.ph ], [ %v1.1, %if.end155 ]
   %v0.0175 = phi i32 [ %or13, %while.body.lr.ph ], [ %v0.1, %if.end155 ]
-  %sub = sub i64 %l.0177, %conv158
+  %sub = sub nuw i64 %l.0177, %conv158
   store i32 %v0.0175, ptr %ti, align 4
   store i32 %v1.0176, ptr %arrayidx34, align 4
   call void @DES_encrypt1(ptr noundef nonnull %ti, ptr noundef %schedule, i32 noundef 1) #2
@@ -321,7 +321,7 @@ while.body161:                                    ; preds = %while.body161.lr.ph
   %l.1185 = phi i64 [ %length, %while.body161.lr.ph ], [ %sub163, %sw.epilog298 ]
   %v1.2184 = phi i32 [ %or27, %while.body161.lr.ph ], [ %v1.3, %sw.epilog298 ]
   %v0.2183 = phi i32 [ %or13, %while.body161.lr.ph ], [ %v0.3, %sw.epilog298 ]
-  %sub163 = sub i64 %l.1185, %conv158
+  %sub163 = sub nuw i64 %l.1185, %conv158
   store i32 %v0.2183, ptr %ti, align 4
   store i32 %v1.2184, ptr %arrayidx165, align 4
   call void @DES_encrypt1(ptr noundef nonnull %ti, ptr noundef %schedule, i32 noundef 1) #2

@@ -78,7 +78,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub nsw i64 %conv, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %conv, %sub.ptr.div.i
   %largeAllocations_ = getelementptr inbounds i8, ptr %this, i64 32
   %_M_finish.i11 = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_finish.i11, align 8

@@ -519,7 +519,7 @@ define dso_local void @SendBackupManifest(ptr nocapture noundef %0, ptr noundef 
   %34 = phi i64 [ %30, %.lr.ph ], [ %43, %33 ]
   %.029 = phi i64 [ 0, %.lr.ph ], [ %42, %33 ]
   %35 = load i64, ptr %31, align 8
-  %36 = sub i64 %34, %.029
+  %36 = sub nuw i64 %34, %.029
   %. = call i64 @llvm.umin.i64(i64 %35, i64 %36)
   %37 = load ptr, ptr %0, align 8
   %38 = load ptr, ptr %32, align 8

@@ -1477,7 +1477,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -11247,7 +11247,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -12343,7 +12343,7 @@ define noundef zeroext i1 @_ZN2cv11FileStorage4Impl13Base64Decoder8readMoreEi(pt
   br label %common.resume
 
 31:                                               ; preds = %14
-  %32 = sub i64 %21, %23
+  %32 = sub nuw i64 %21, %23
   %.not122 = icmp eq i64 %21, %23
   br i1 %.not122, label %._crit_edge, label %.lr.ph.preheader
 

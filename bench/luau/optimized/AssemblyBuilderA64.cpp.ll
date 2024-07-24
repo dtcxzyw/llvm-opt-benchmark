@@ -290,7 +290,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef no
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -549,7 +549,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeR1EPKcNS1_1
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %36
-  %48 = sub nsw i64 %45, %44
+  %48 = sub nuw nsw i64 %45, %44
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %48)
   %.pre.i.i = load ptr, ptr %37, align 8
   %.pre1.i.i = load ptr, ptr %40, align 8
@@ -647,7 +647,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeSR2EPKcNS1_
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %38
-  %50 = sub nsw i64 %47, %46
+  %50 = sub nuw nsw i64 %47, %46
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %50)
   %.pre.i.i = load ptr, ptr %39, align 8
   %.pre1.i.i = load ptr, ptr %42, align 8
@@ -798,7 +798,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11RegisterA64Eii.exit: ; pre
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %38
-  %50 = sub nsw i64 %47, %46
+  %50 = sub nuw nsw i64 %47, %46
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %50)
   %.pre.i.i = load ptr, ptr %39, align 8
   %.pre1.i.i = load ptr, ptr %42, align 8
@@ -915,7 +915,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeEREPKcNS1_1
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %39
-  %51 = sub nsw i64 %48, %47
+  %51 = sub nuw nsw i64 %48, %47
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %51)
   %.pre.i.i = load ptr, ptr %40, align 8
   %.pre1.i.i = load ptr, ptr %43, align 8
@@ -1017,7 +1017,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeSR3EPKcNS1_
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %46
-  %58 = sub nsw i64 %55, %54
+  %58 = sub nuw nsw i64 %55, %54
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %58)
   %.pre.i.i = load ptr, ptr %47, align 8
   %.pre1.i.i = load ptr, ptr %50, align 8
@@ -1116,7 +1116,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeI12EPKcNS1_
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %33
-  %45 = sub nsw i64 %42, %41
+  %45 = sub nuw nsw i64 %42, %41
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %45)
   %.pre.i.i = load ptr, ptr %34, align 8
   %.pre1.i.i = load ptr, ptr %37, align 8
@@ -1279,7 +1279,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeCSEPKcNS1_1
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %49
-  %61 = sub nsw i64 %58, %57
+  %61 = sub nuw nsw i64 %58, %57
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %50, i64 noundef %61)
   %.pre.i.i = load ptr, ptr %50, align 8
   %.pre1.i.i = load ptr, ptr %53, align 8
@@ -1432,7 +1432,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBMEPKcNS1_1
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %39
-  %51 = sub nsw i64 %48, %47
+  %51 = sub nuw nsw i64 %48, %47
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %51)
   %.pre.i.i = load ptr, ptr %40, align 8
   %.pre1.i.i = load ptr, ptr %43, align 8
@@ -1556,7 +1556,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeR3EPKcNS1_1
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %40
-  %52 = sub nsw i64 %49, %48
+  %52 = sub nuw nsw i64 %49, %48
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %52)
   %.pre.i.i = load ptr, ptr %41, align 8
   %.pre1.i.i = load ptr, ptr %44, align 8
@@ -1703,7 +1703,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBFMEPKcNS1_
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %38
-  %50 = sub nsw i64 %47, %46
+  %50 = sub nuw nsw i64 %47, %46
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %50)
   %.pre.i.i = load ptr, ptr %39, align 8
   %.pre1.i.i = load ptr, ptr %42, align 8
@@ -2019,7 +2019,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeAEPKcNS1_11
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %102
-  %114 = sub nsw i64 %111, %110
+  %114 = sub nuw nsw i64 %111, %110
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %103, i64 noundef %114)
   %.pre.i.i = load ptr, ptr %103, align 8
   %.pre1.i.i = load ptr, ptr %106, align 8
@@ -2173,7 +2173,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placePEPKcNS1_11
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %45
-  %57 = sub nsw i64 %54, %53
+  %57 = sub nuw nsw i64 %54, %53
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %46, i64 noundef %57)
   %.pre.i.i = load ptr, ptr %46, align 8
   %.pre1.i.i = load ptr, ptr %49, align 8
@@ -2297,7 +2297,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(p
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %10
-  %22 = sub nsw i64 %19, %18
+  %22 = sub nuw nsw i64 %19, %18
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %22)
   %.pre.i.i.i = load ptr, ptr %11, align 8
   %.pre1.i.i.i = load ptr, ptr %14, align 8
@@ -2379,7 +2379,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeBEPKcRNS0_5
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %14
-  %26 = sub nsw i64 %23, %22
+  %26 = sub nuw nsw i64 %23, %22
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
   %.pre.i.i = load ptr, ptr %15, align 8
   %.pre1.i.i = load ptr, ptr %18, align 8
@@ -2459,7 +2459,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA642blERNS0_5LabelE(
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %10
-  %22 = sub nsw i64 %19, %18
+  %22 = sub nuw nsw i64 %19, %18
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %22)
   %.pre.i.i.i = load ptr, ptr %11, align 8
   %.pre1.i.i.i = load ptr, ptr %14, align 8
@@ -2563,7 +2563,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBREPKcNS1_1
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %24
-  %36 = sub nsw i64 %33, %32
+  %36 = sub nuw nsw i64 %33, %32
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %36)
   %.pre.i.i = load ptr, ptr %25, align 8
   %.pre1.i.i = load ptr, ptr %28, align 8
@@ -2646,7 +2646,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643retEv(ptr nounde
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %14
-  %26 = sub nsw i64 %23, %22
+  %26 = sub nuw nsw i64 %23, %22
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
   %.pre.i.i.i = load ptr, ptr %15, align 8
   %.pre1.i.i.i = load ptr, ptr %18, align 8
@@ -2723,7 +2723,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646place0EPKcj(ptr 
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %16
-  %28 = sub nsw i64 %25, %24
+  %28 = sub nuw nsw i64 %25, %24
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %28)
   %.pre.i.i = load ptr, ptr %17, align 8
   %.pre1.i.i = load ptr, ptr %20, align 8
@@ -2797,7 +2797,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12Conditio
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %18
-  %30 = sub nsw i64 %27, %26
+  %30 = sub nuw nsw i64 %27, %26
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %30)
   %.pre.i.i.i = load ptr, ptr %19, align 8
   %.pre1.i.i.i = load ptr, ptr %22, align 8
@@ -2881,7 +2881,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBCEPKcRNS0_
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %17
-  %29 = sub nsw i64 %26, %25
+  %29 = sub nuw nsw i64 %26, %25
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %29)
   %.pre.i.i = load ptr, ptr %18, align 8
   %.pre1.i.i = load ptr, ptr %21, align 8
@@ -2976,7 +2976,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBCREPKcRNS0
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %22
-  %34 = sub nsw i64 %31, %30
+  %34 = sub nuw nsw i64 %31, %30
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %34)
   %.pre.i.i = load ptr, ptr %23, align 8
   %.pre1.i.i = load ptr, ptr %26, align 8
@@ -3084,7 +3084,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBTREPKcRNS0
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %26
-  %38 = sub nsw i64 %35, %34
+  %38 = sub nuw nsw i64 %35, %34
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %38)
   %.pre.i.i = load ptr, ptr %27, align 8
   %.pre1.i.i = load ptr, ptr %30, align 8
@@ -3318,7 +3318,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %24
-  %36 = sub nsw i64 %33, %32
+  %36 = sub nuw nsw i64 %33, %32
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %36)
   %.pre.i.i = load ptr, ptr %25, align 8
   %.pre1.i.i = load ptr, ptr %28, align 8
@@ -3588,7 +3588,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %18
-  %30 = sub nsw i64 %27, %26
+  %30 = sub nuw nsw i64 %27, %26
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %30)
   %.pre.i.i = load ptr, ptr %19, align 8
   %.pre1.i.i = load ptr, ptr %22, align 8
@@ -3771,7 +3771,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %25
-  %37 = sub nsw i64 %34, %33
+  %37 = sub nuw nsw i64 %34, %33
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %37)
   %.pre.i.i = load ptr, ptr %26, align 8
   %.pre1.i.i = load ptr, ptr %29, align 8
@@ -3895,7 +3895,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeVREPKcNS1_1
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %36
-  %48 = sub nsw i64 %45, %44
+  %48 = sub nuw nsw i64 %45, %44
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %48)
   %.pre.i.i = load ptr, ptr %37, align 8
   %.pre1.i.i = load ptr, ptr %40, align 8
@@ -4079,7 +4079,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11Reg
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %27
-  %39 = sub nsw i64 %36, %35
+  %39 = sub nuw nsw i64 %36, %35
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %39)
   %.pre.i.i = load ptr, ptr %28, align 8
   %.pre1.i.i = load ptr, ptr %31, align 8
@@ -4164,7 +4164,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv(ptr nou
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %7
-  %19 = sub nsw i64 %16, %15
+  %19 = sub nuw nsw i64 %16, %15
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %19)
   %.pre.i = load ptr, ptr %8, align 8
   %.pre1.i = load ptr, ptr %11, align 8
@@ -4262,7 +4262,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11Reg
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %31
-  %43 = sub nsw i64 %40, %39
+  %43 = sub nuw nsw i64 %40, %39
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %43)
   %.pre.i.i = load ptr, ptr %32, align 8
   %.pre1.i.i = load ptr, ptr %35, align 8
@@ -4354,7 +4354,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11Reg
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %28
-  %40 = sub nsw i64 %37, %36
+  %40 = sub nuw nsw i64 %37, %36
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %40)
   %.pre.i.i = load ptr, ptr %29, align 8
   %.pre1.i.i = load ptr, ptr %32, align 8
@@ -4539,7 +4539,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFCMPEPKcNS1
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %38
-  %50 = sub nsw i64 %47, %46
+  %50 = sub nuw nsw i64 %47, %46
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %50)
   %.pre.i.i = load ptr, ptr %39, align 8
   %.pre1.i.i = load ptr, ptr %42, align 8
@@ -4629,7 +4629,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643udfEv(ptr nounde
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %14
-  %26 = sub nsw i64 %23, %22
+  %26 = sub nuw nsw i64 %23, %22
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
   %.pre.i.i.i = load ptr, ptr %15, align 8
   %.pre1.i.i.i = load ptr, ptr %18, align 8
@@ -4688,7 +4688,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648fi
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %1
-  %17 = sub nsw i64 %9, %14
+  %17 = sub nuw nsw i64 %9, %14
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %17)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -5535,7 +5535,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv(ptr nou
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %1
-  %15 = sub nsw i64 %12, %11
+  %15 = sub nuw nsw i64 %12, %11
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %15)
   %.pre = load ptr, ptr %4, align 8
   %.pre1 = load ptr, ptr %7, align 8

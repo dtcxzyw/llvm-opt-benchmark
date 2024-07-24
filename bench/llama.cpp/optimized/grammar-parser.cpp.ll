@@ -363,7 +363,7 @@ if.then.i:                                        ; preds = %invoke.cont10
   br i1 %cmp.i.i, label %if.then.i.i48, label %if.else.i.i46
 
 if.then.i.i48:                                    ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv2.i, %sub.ptr.div.i.i
+  %sub.i.i = sub nuw nsw i64 %conv2.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %rules.i, i64 noundef %sub.i.i)
           to label %if.end.i unwind label %lpad.loopexit.split-lp
 
@@ -1624,7 +1624,7 @@ if.then.i:                                        ; preds = %invoke.cont182
   br i1 %cmp.i.i, label %if.then.i.i458, label %if.else.i.i454
 
 if.then.i.i458:                                   ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv2.i, %sub.ptr.div.i.i
+  %sub.i.i = sub nuw nsw i64 %conv2.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %rules.i, i64 noundef %sub.i.i)
           to label %if.end.i455 unwind label %lpad136.loopexit
 
@@ -1673,7 +1673,7 @@ invoke.cont183:                                   ; preds = %if.end.i455
   br i1 %cmp.i, label %if.then.i468, label %if.else.i466
 
 if.then.i468:                                     ; preds = %invoke.cont183
-  %sub.i = sub nsw i64 %last_sym_start.0, %sub.ptr.div.i.i465
+  %sub.i = sub nuw nsw i64 %last_sym_start.0, %sub.ptr.div.i.i465
   invoke void @_ZNSt6vectorI21llama_grammar_elementSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %out_elements, i64 noundef %sub.i)
           to label %if.then.i468.invoke.cont184_crit_edge unwind label %lpad136.loopexit
 
@@ -4747,7 +4747,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIP21llama_grammar_elementSt6vectorIS2_SaIS2_EEEES3_S2_ET0_T_S9_S8_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP21llama_grammar_elementSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP21llama_grammar_elementSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds %struct.llama_grammar_element, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i35 = icmp eq ptr %1, %__position.coerce

@@ -1444,7 +1444,7 @@ if.then3:                                         ; preds = %for.body
   br label %return
 
 if.end5:                                          ; preds = %for.body
-  %reass.sub = sub i64 %0, %call
+  %reass.sub = sub nuw i64 %0, %call
   %sub = add i64 %reass.sub, 1
   %call7 = tail call fastcc noundef i64 @_ZL17GetClientHelloLenm(i64 noundef %sub)
   %padded_len8 = getelementptr inbounds i8, ptr %__begin1.0.ptr14, i64 8
@@ -2674,7 +2674,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64

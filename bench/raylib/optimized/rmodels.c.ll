@@ -22153,7 +22153,7 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef %0, i32 noundef %1, i32 
 89:                                               ; preds = %._crit_edge284
   %90 = sub i32 %34, %.0239.lcssa
   %91 = uitofp i32 %90 to float
-  %92 = sub i32 %88, %.0239.lcssa
+  %92 = sub nuw i32 %88, %.0239.lcssa
   %93 = uitofp i32 %92 to float
   %94 = fdiv float %91, %93
   br label %95

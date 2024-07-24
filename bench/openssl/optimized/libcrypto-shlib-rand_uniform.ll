@@ -89,7 +89,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i32 %upper, %lower
+  %sub = sub nuw i32 %upper, %lower
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %rand.i)
   switch i32 %sub, label %if.end14.i [
     i32 0, label %if.then.i

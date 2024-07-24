@@ -87055,7 +87055,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i
   %mul.i.i.i = shl i64 %and.i.i, 1
   %cmp7.i.i.i = icmp ugt i64 %mul.i.i.i, %8
-  %sub.i.i.i = sub i64 %8, %and.i.i
+  %sub.i.i.i = sub nuw i64 %8, %and.i.i
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 %sub.i.i.i, i64 %and.i.i
   br label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN7openvdb5v11_04tree4TreeINS8_8RootNodeINS8_12InternalNodeINSB_INS8_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELm128EEENS1_23cache_aligned_allocatorISJ_EEE29number_of_elements_in_segmentEm.exit.i.i
 
@@ -165267,7 +165267,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i
   %mul.i.i.i = shl i64 %and.i.i, 1
   %cmp7.i.i.i = icmp ugt i64 %mul.i.i.i, %8
-  %sub.i.i.i = sub i64 %8, %and.i.i
+  %sub.i.i.i = sub nuw i64 %8, %and.i.i
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 %sub.i.i.i, i64 %and.i.i
   br label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN7openvdb5v11_04tree4TreeINS8_8RootNodeINS8_12InternalNodeINSB_INS8_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELm128EEENS1_23cache_aligned_allocatorISJ_EEE29number_of_elements_in_segmentEm.exit.i.i
 

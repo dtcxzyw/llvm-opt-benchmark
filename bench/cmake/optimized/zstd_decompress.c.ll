@@ -889,7 +889,7 @@ readSkippableFrameSize.exit:                      ; preds = %7
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %.038, i64 %30
-  %34 = sub i64 %.037, %30
+  %34 = sub nuw i64 %.037, %30
   %35 = add i64 %.0, 1
   %36 = load i32, ptr %25, align 4
   %.not44 = icmp eq i32 %36, 0

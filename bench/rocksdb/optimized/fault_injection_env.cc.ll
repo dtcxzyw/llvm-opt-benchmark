@@ -6748,7 +6748,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end11
 
 if.then5:                                         ; preds = %if.end
-  %sub7 = sub i64 %div, %1
+  %sub7 = sub nuw i64 %div, %1
   %mul = mul i64 %1, %0
   %mul9 = mul i64 %sub7, %0
   %vtable = load ptr, ptr %this, align 8

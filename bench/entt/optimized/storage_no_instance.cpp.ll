@@ -29401,7 +29401,7 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #23
   store ptr null, ptr %ref.tmp.i, align 8, !tbaa !543
   %add.i = add nuw nsw i64 %div27.i, 1
-  %sub.i.i = sub nsw i64 %add.i, %sub.ptr.div.i.i
+  %sub.i.i = sub nuw nsw i64 %add.i, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIPN4entt6entityESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %sparse.i, ptr %1, i64 noundef %sub.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #23
   %.pre.i = load ptr, ptr %sparse.i, align 8, !tbaa !554

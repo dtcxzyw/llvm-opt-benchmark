@@ -1550,7 +1550,7 @@ define { i64, i64 } @_ZN2cv6detail14FeatherBlender16createWeightMapsERKSt6vector
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %4
-  %41 = sub nsw i64 %31, %38
+  %41 = sub nuw nsw i64 %31, %38
   tail call void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %41)
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 
@@ -2086,7 +2086,7 @@ define void @_ZN2cv6detail16MultiBandBlender7prepareENS_5Rect_IiEE(ptr noundef n
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %3
-  %56 = sub nsw i64 %46, %53
+  %56 = sub nuw nsw i64 %46, %53
   call void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %56)
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 
@@ -2128,7 +2128,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit:    ; preds = %55, %57, %59, %_ZSt
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
-  %77 = sub nsw i64 %67, %74
+  %77 = sub nuw nsw i64 %67, %74
   call void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %64, i64 noundef %77)
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit23
 
@@ -3184,7 +3184,7 @@ define void @_ZN2cv6detail16createLaplacePyrERKNS_11_InputArrayEiRSt6vectorINS_4
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %3
-  %51 = sub nsw i64 %41, %48
+  %51 = sub nuw nsw i64 %41, %48
   tail call void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %51)
   br label %_ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit
 

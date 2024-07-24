@@ -1176,7 +1176,7 @@ _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit112.thread32
   br label %if.else86
 
 _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit112: ; preds = %lor.rhs.i105
-  %sub.i108 = sub i64 %0, %2
+  %sub.i108 = sub nuw i64 %0, %2
   %add.ptr.i109 = getelementptr inbounds i8, ptr %1, i64 %sub.i108
   %bcmp.i110 = call i32 @bcmp(ptr %add.ptr.i109, ptr %3, i64 %2)
   %cmp9.i111 = icmp eq i32 %bcmp.i110, 0
@@ -2629,7 +2629,7 @@ _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread214: 
   br label %if.else60
 
 _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = %lor.rhs.i
-  %sub.i = sub i64 %33, %agg.tmp55.sroa.0.0.copyload
+  %sub.i = sub nuw i64 %33, %agg.tmp55.sroa.0.0.copyload
   %add.ptr.i96 = getelementptr inbounds i8, ptr %34, i64 %sub.i
   %bcmp.i = call i32 @bcmp(ptr %add.ptr.i96, ptr %agg.tmp55.sroa.2.0.copyload, i64 %agg.tmp55.sroa.0.0.copyload)
   %cmp9.i = icmp eq i32 %bcmp.i, 0
@@ -2880,7 +2880,7 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end.i.i.i
 while.body.i.i.i:                                 ; preds = %if.end20.i.i.i, %while.body.lr.ph.i.i.i
   %__len.022.i.i.i = phi i64 [ 3, %while.body.lr.ph.i.i.i ], [ %sub.ptr.sub23.i.i.i, %if.end20.i.i.i ]
   %__first.021.i.i.i = phi ptr [ @.str.53, %while.body.lr.ph.i.i.i ], [ %incdec.ptr.i.i.i, %if.end20.i.i.i ]
-  %sub12.i.i.i = sub i64 %__len.022.i.i.i, %agg.tmp108.sroa.0.0.copyload
+  %sub12.i.i.i = sub nuw i64 %__len.022.i.i.i, %agg.tmp108.sroa.0.0.copyload
   %add.i.i.i = add i64 %sub12.i.i.i, 1
   %cmp.i.i.i.i140 = icmp eq i64 %add.i.i.i, 0
   br i1 %cmp.i.i.i.i140, label %_ZN4absl11StrContainsESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
@@ -3035,7 +3035,7 @@ while.body.lr.ph.i.i.i165:                        ; preds = %if.end.i.i.i163
 while.body.i.i.i169:                              ; preds = %if.end20.i.i.i181, %while.body.lr.ph.i.i.i165
   %__len.022.i.i.i170 = phi i64 [ 3, %while.body.lr.ph.i.i.i165 ], [ %sub.ptr.sub23.i.i.i184, %if.end20.i.i.i181 ]
   %__first.021.i.i.i171 = phi ptr [ @.str.53, %while.body.lr.ph.i.i.i165 ], [ %incdec.ptr.i.i.i182, %if.end20.i.i.i181 ]
-  %sub12.i.i.i172 = sub i64 %__len.022.i.i.i170, %agg.tmp135.sroa.0.0.copyload
+  %sub12.i.i.i172 = sub nuw i64 %__len.022.i.i.i170, %agg.tmp135.sroa.0.0.copyload
   %add.i.i.i173 = add i64 %sub12.i.i.i172, 1
   %cmp.i.i.i.i174 = icmp eq i64 %add.i.i.i173, 0
   br i1 %cmp.i.i.i.i174, label %_ZN4absl11StrContainsESt17basic_string_viewIcSt11char_traitsIcEES3_.exit191.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i175

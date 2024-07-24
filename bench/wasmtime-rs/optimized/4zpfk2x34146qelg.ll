@@ -740,7 +740,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState4popn17h1d6a820bd7ae
   br i1 %5, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf3e19d12c7dfe3bfE.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   store i64 %7, ptr %3, align 8, !alias.scope !132
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf3e19d12c7dfe3bfE.exit"
 

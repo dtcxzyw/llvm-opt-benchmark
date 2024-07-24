@@ -4077,7 +4077,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
 37:                                               ; preds = %34
   %38 = add nuw nsw i64 %35, 1
   %39 = getelementptr inbounds i8, ptr %0, i64 24
-  %40 = sub nsw i64 %38, %36
+  %40 = sub nuw nsw i64 %38, %36
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5df0a8ea3bfc6e88E.llvm.12599983639457799574"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %40, i64 noundef 0)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8f07d7ea8acf5b77E.exit.i"
 
@@ -4184,9 +4184,9 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
 "_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17h7dda1dc9f80e8fe7E.exit": ; preds = %80, %74
   %.pn.i = phi i64 [ %.val3, %74 ], [ %.0.i, %80 ]
   %.16.val.pn.i = phi i64 [ %1, %74 ], [ %.val3, %80 ]
-  %.sink.i = sub i64 %.16.val.pn.i, %.0.i
+  %.sink.i = sub nuw i64 %.16.val.pn.i, %.0.i
   %.sink6.i = getelementptr inbounds i32, ptr %.val, i64 %.0.i
-  %.sink8.i = sub i64 %.pn.i, %1
+  %.sink8.i = sub nuw i64 %.pn.i, %1
   %.sink10.i = getelementptr inbounds i32, ptr %.val, i64 %1
   %86 = icmp ult i64 %.sink.i, %4
   br i1 %86, label %87, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38bfb3b01835ed4eE.exit"

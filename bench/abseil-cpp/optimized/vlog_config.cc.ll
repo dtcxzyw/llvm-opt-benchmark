@@ -984,7 +984,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %vmodule.coerce1, i64 %2
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %vmodule.coerce0, %2
+  %sub.i.i.i.i = sub nuw i64 %vmodule.coerce0, %2
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !15
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin2, i64 24
@@ -1066,7 +1066,7 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EED2Ev.ex
   resume { ptr, i32 } %eh.lpad-body
 
 invoke.cont9:                                     ; preds = %for.body.i
-  %sub.i = sub i64 %glob_level.sroa.0.0.copyload, %__size.1.i
+  %sub.i = sub nuw i64 %glob_level.sroa.0.0.copyload, %__size.1.i
   %add.ptr.i = getelementptr inbounds i8, ptr %glob_level.sroa.4.0.copyload, i64 %__size.1.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i)
   %call.i.i27 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %sub.i, ptr nonnull %add.ptr.i, ptr noundef nonnull %val.i.i, i32 noundef 10)
@@ -1203,7 +1203,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %12
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %12
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %12
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %glob_level.sroa.4.0.curr_.i.sroa_idx, align 8

@@ -1366,7 +1366,7 @@ Wln_ObjFanin0.exit955:                            ; preds = %452, %457
 
 483:                                              ; preds = %478, %483
   %.26801081 = phi i32 [ 0, %478 ], [ %488, %483 ]
-  %484 = sub nsw i32 %472, %.26801081
+  %484 = sub nuw nsw i32 %472, %.26801081
   %485 = lshr i32 %.51088, %484
   %486 = and i32 %485, 1
   %487 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %486) #11
@@ -1382,7 +1382,7 @@ Wln_ObjFanin0.exit955:                            ; preds = %452, %457
   %.36811082 = phi i32 [ 0, %489 ], [ %506, %Wln_ObjFanin.exit959 ]
   %.not712 = icmp eq i32 %.36811082, 0
   %492 = select i1 %.not712, ptr @.str.14, ptr @.str.63
-  %493 = sub nsw i32 %472, %.36811082
+  %493 = sub nuw nsw i32 %472, %.36811082
   %494 = shl nuw i32 1, %493
   %495 = and i32 %494, %.51088
   %.not713 = icmp eq i32 %495, 0
@@ -1490,7 +1490,7 @@ Wln_ObjFanin.exit959:                             ; preds = %491, %501
 
 556:                                              ; preds = %540, %556
   %.46821089 = phi i32 [ 0, %540 ], [ %561, %556 ]
-  %557 = sub nsw i32 %472, %.46821089
+  %557 = sub nuw nsw i32 %472, %.46821089
   %558 = lshr i32 %.61091, %557
   %559 = and i32 %558, 1
   %560 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %559) #11

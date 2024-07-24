@@ -489,7 +489,7 @@ define dso_local i32 @setup_arg_pages(ptr nocapture noundef %0, i64 noundef %1, 
   %21 = load i64, ptr %20, align 8
   %22 = load i64, ptr %13, align 8
   %23 = sub i64 %21, %22
-  %24 = sub i64 %16, %17
+  %24 = sub nuw i64 %16, %17
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %26, label %177, !prof !6
 

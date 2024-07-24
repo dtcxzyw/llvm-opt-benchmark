@@ -29666,7 +29666,7 @@ _ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit:      ; preds = %17
 
 _ZSt22__uninitialized_copy_aIPKPKN4Luau4TypeEPS3_S3_ET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %13, %1

@@ -6728,7 +6728,7 @@ define hidden void @"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$C
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !noundef !9
   %9 = getelementptr inbounds i32, ptr %8, i64 %2
-  %10 = sub i64 %5, %2
+  %10 = sub nuw i64 %5, %2
   %11 = load ptr, ptr %1, align 8, !nonnull !9, !align !199, !noundef !9
   store ptr %11, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -6759,7 +6759,7 @@ define hidden void @"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$C
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !noundef !9
   %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { ptr, i64 } } }, ptr %8, i64 %2
-  %10 = sub i64 %5, %2
+  %10 = sub nuw i64 %5, %2
   %11 = load ptr, ptr %1, align 8, !nonnull !9, !align !199, !noundef !9
   store ptr %11, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -6801,10 +6801,10 @@ define hidden void @"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$C
 "_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hab07b6c401ca10c9E.exit": ; preds = %"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf48639fe977c9311E.exit"
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !noundef !9
-  %14 = sub i64 %7, %2
+  %14 = sub nuw i64 %7, %2
   %15 = getelementptr inbounds i32, ptr %5, i64 %2
   %16 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { ptr, i64 } } }, ptr %13, i64 %2
-  %17 = sub i64 %10, %2
+  %17 = sub nuw i64 %10, %2
   %18 = load ptr, ptr %1, align 8, !nonnull !9, !align !199, !noundef !9
   store ptr %18, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -38611,7 +38611,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br i1 %.not.us.i, label %45, label %40
 
 40:                                               ; preds = %37
-  %41 = sub i64 %39, %30
+  %41 = sub nuw i64 %39, %30
   %42 = add i64 %41, %27
   %43 = icmp ugt i64 %41, %42
   %44 = icmp ugt i64 %42, %.val11
@@ -38648,7 +38648,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br i1 %or.cond.i.i, label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h1df380e718a412dfE.exit.thread", label %.lr.ph.split.i
 
 59:                                               ; preds = %53
-  %60 = sub i64 %55, %30
+  %60 = sub nuw i64 %55, %30
   %61 = add i64 %60, %27
   %62 = icmp ugt i64 %60, %61
   %63 = icmp ugt i64 %61, %.val11
@@ -48294,7 +48294,7 @@ _ZN4core4iter8adapters4fuse17and_then_or_clear17h750df3436c827077E.exit.thread34
   %69 = load i64, ptr %38, align 8, !alias.scope !9500, !noundef !9
   %.not.i.i = icmp ult i64 %68, %69
   %70 = select i1 %.not.i.i, i64 0, i64 %69
-  %.sroa.0.0.i.i = sub i64 %68, %70
+  %.sroa.0.0.i.i = sub nuw i64 %68, %70
   %71 = load ptr, ptr %41, align 8, !alias.scope !9497, !nonnull !9, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !9503)
   %72 = getelementptr { { { { i64, ptr, {} }, i64 } }, i16, [3 x i16] }, ptr %71, i64 %.sroa.0.0.i.i, i32 1
@@ -48379,7 +48379,7 @@ _ZN4core4iter8adapters4fuse17and_then_or_clear17h750df3436c827077E.exit.thread34
   %98 = add i64 %97, %96
   %.not.i.i19 = icmp ult i64 %98, %95
   %99 = select i1 %.not.i.i19, i64 0, i64 %95
-  %.sroa.0.0.i.i20 = sub i64 %98, %99
+  %.sroa.0.0.i.i20 = sub nuw i64 %98, %99
   %100 = load ptr, ptr %41, align 8, !alias.scope !9511, !noalias !9514, !nonnull !9, !noundef !9
   %101 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i16, [3 x i16] }, ptr %100, i64 %.sroa.0.0.i.i20
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)

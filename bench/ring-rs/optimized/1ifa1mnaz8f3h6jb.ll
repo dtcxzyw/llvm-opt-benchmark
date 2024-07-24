@@ -1015,7 +1015,7 @@ _ZN4ring4aead3gcm7Context6is_avx17hae37613b32f14cdeE.exit.thread: ; preds = %44,
   %.sroa.033.049 = phi ptr [ %.sroa.0.0, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit.lr.ph" ], [ %63, %_ZN4ring4aead3gcm7Context13update_blocks17h22e4fcdc7ddca5b7E.exit ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.050, i64 3072)
   %63 = getelementptr inbounds i8, ptr %.sroa.033.049, i64 %.0.sroa.speculated.i.i
-  %64 = sub i64 %.sroa.5.050, %.0.sroa.speculated.i.i
+  %64 = sub nuw i64 %.sroa.5.050, %.0.sroa.speculated.i.i
   call fastcc void @_ZN4ring4aead3aes3Key20ctr32_encrypt_within17h7ba9b4074761d3b0E(ptr noalias noundef nonnull readonly align 4 dereferenceable(244) %40, ptr noalias noundef nonnull align 1 %.sroa.033.049, i64 noundef %.0.sroa.speculated.i.i, i64 noundef 0, ptr noalias noundef nonnull align 4 dereferenceable(16) %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %65 = lshr i64 %.0.sroa.speculated.i.i, 4
@@ -2261,7 +2261,7 @@ define hidden void @_ZN4ring3rsa7padding4mgf117h24b32f1a0b177c23E(ptr noalias no
   %.sroa.0.045 = phi ptr [ %3, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heddf377f49250887E.exit.i.lr.ph" ], [ %26, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h43496d6b3ada6ba2E.exit.thread" ]
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.515.046, i64 %14)
   %26 = getelementptr inbounds i8, ptr %.sroa.0.045, i64 %.0.sroa.speculated.i.i.i
-  %27 = sub i64 %.sroa.515.046, %.0.sroa.speculated.i.i.i
+  %27 = sub nuw i64 %.sroa.515.046, %.0.sroa.speculated.i.i.i
   %28 = add nuw nsw i64 %.sroa.10.047, 1
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !450)

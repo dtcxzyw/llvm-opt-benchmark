@@ -1808,8 +1808,8 @@ define internal fastcc void @swiotlb_bounce(ptr noundef %0, i64 noundef %1, i64 
   br label %87
 
 49:                                               ; preds = %32
-  %50 = sub nsw i32 %25, %36
-  %51 = zext i32 %50 to i64
+  %50 = sub nuw nsw i32 %25, %36
+  %51 = zext nneg i32 %50 to i64
   %52 = icmp ult i64 %16, %51
   br i1 %52, label %53, label %64
 
@@ -1841,7 +1841,7 @@ define internal fastcc void @swiotlb_bounce(ptr noundef %0, i64 noundef %1, i64 
 
 64:                                               ; preds = %49
   %65 = add i64 %14, %51
-  %66 = sub i64 %16, %51
+  %66 = sub nuw i64 %16, %51
   %67 = icmp ult i64 %66, %2
   br i1 %67, label %68, label %79
 

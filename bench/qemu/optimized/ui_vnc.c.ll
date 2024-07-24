@@ -3304,7 +3304,7 @@ trace_vnc_client_unthrottle_forced.exit.i:        ; preds = %if.else.i.i.i, %if.
   br label %if.end10.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %sub.i = sub i64 %4, %call1.i.i
+  %sub.i = sub nuw i64 %4, %call1.i.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.else.i, %trace_vnc_client_unthrottle_forced.exit.i, %if.then3.i
@@ -11808,7 +11808,7 @@ find_and_clear_dirty_height.exit.i:               ; preds = %if.end.i46.i, %find
 
 if.then41.i:                                      ; preds = %find_and_clear_dirty_height.exit.i
   %mul42.i = shl nuw nsw i32 %conv23.i, 4
-  %sub44.i = sub i64 %cond.i36, %rem.i30
+  %sub44.i = sub nuw i64 %cond.i36, %rem.i30
   %sub44.tr.i = trunc i64 %sub44.i to i32
   %conv46.i = shl i32 %sub44.tr.i, 4
   %call47.i = tail call i32 @vnc_job_add_rect(ptr noundef %call9.i, i32 noundef %mul42.i, i32 noundef %conv22.i, i32 noundef %conv46.i, i32 noundef %h.0.lcssa.i.i) #23

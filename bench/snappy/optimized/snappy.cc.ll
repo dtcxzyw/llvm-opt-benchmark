@@ -1204,7 +1204,7 @@ while.body20:                                     ; preds = %if.else, %while.bod
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 24
   %14 = load ptr, ptr %vfn22, align 8
   %call23 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %reader, ptr noundef nonnull %fragment_size) #19
-  %sub = sub i64 %.sroa.speculated60, %bytes_read.071
+  %sub = sub nuw i64 %.sroa.speculated60, %bytes_read.071
   %15 = load i64, ptr %fragment_size, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %15)
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bytes_read.071
@@ -2410,7 +2410,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub.i11 = phi i64 [ %total_size_remaining_.i.promoted, %while.body.lr.ph ], [ %sub.i, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
   %2 = phi i64 [ %0, %while.body.lr.ph ], [ %8, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
   %n.addr.08 = phi i64 [ %n, %while.body.lr.ph ], [ %sub, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
-  %sub = sub i64 %n.addr.08, %2
+  %sub = sub nuw i64 %n.addr.08, %2
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i, %while.body
@@ -3167,11 +3167,11 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %while.body
-  %sub12 = sub i64 %from_iov_offset.044, %offset.addr.042
+  %sub12 = sub nuw i64 %from_iov_offset.044, %offset.addr.042
   br label %while.end
 
 if.end13:                                         ; preds = %while.body
-  %sub14 = sub i64 %offset.addr.042, %from_iov_offset.044
+  %sub14 = sub nuw i64 %offset.addr.042, %from_iov_offset.044
   %incdec.ptr = getelementptr inbounds i8, ptr %from_iov.043, i64 -16
   %iov_len15 = getelementptr inbounds i8, ptr %from_iov.043, i64 -8
   %6 = load i64, ptr %iov_len15, align 8
@@ -4753,7 +4753,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %5 = load i64, ptr %full_size_, align 8
   %add = add i64 %sub.ptr.sub7, %5
   store i64 %add, ptr %full_size_, align 8
-  %sub = sub i64 %len.addr.029, %avail.030
+  %sub = sub nuw i64 %len.addr.029, %avail.030
   %add10 = add i64 %add, %sub
   %6 = load i64, ptr %expected_, align 8
   %cmp11 = icmp ugt i64 %add10, %6

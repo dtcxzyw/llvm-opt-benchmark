@@ -9498,7 +9498,7 @@ define hidden void @_ZN16wasmtime_environ12module_types18ModuleTypesBuilder15sta
   %48 = getelementptr inbounds i8, ptr %7, i64 16
   %49 = getelementptr inbounds i8, ptr %7, i64 24
   %50 = getelementptr inbounds i8, ptr %0, i64 64
-  %51 = sub i32 %3, %2
+  %51 = sub nuw i32 %3, %2
   br label %59
 
 ._crit_edge:                                      ; preds = %68, %35

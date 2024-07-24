@@ -355,7 +355,7 @@ if.end16:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp18, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end16
-  %sub = sub i64 %end, %3
+  %sub = sub nuw i64 %end, %3
   store i64 %end, ptr %hwm17, align 8
   %4 = load i64, ptr %rxfc, align 8
   %swm.i = getelementptr inbounds i8, ptr %rxfc, i64 8

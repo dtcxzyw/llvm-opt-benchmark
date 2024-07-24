@@ -391,13 +391,13 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp16, label %if.then, label %if.else
 
 if.then:                                          ; preds = %cond.end
-  %sub17 = sub i64 %cond, %trailing.08
+  %sub17 = sub nuw i64 %cond, %trailing.08
   %byte_idx = getelementptr inbounds i8, ptr %this, i64 280
   store i64 %sub17, ptr %byte_idx, align 8
   br label %while.end
 
 if.else:                                          ; preds = %cond.end
-  %sub19 = sub i64 %trailing.08, %cond
+  %sub19 = sub nuw i64 %trailing.08, %cond
   %cmp.not = icmp eq i64 %sub19, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !7
 
@@ -2556,13 +2556,13 @@ for.body150.i:                                    ; preds = %for.cond148.prehead
   br i1 %cmp153.not.i, label %if.end157.i, label %if.then154.i
 
 if.then154.i:                                     ; preds = %for.body150.i
-  %sub.i38 = sub i64 %remaining.0186.i, %123
+  %sub.i38 = sub nuw i64 %remaining.0186.i, %123
   br label %for.inc180.i
 
 if.end157.i:                                      ; preds = %for.body150.i
   %124 = load ptr, ptr %arrayidx151.i, align 16
   %add.ptr.i = getelementptr inbounds i8, ptr %124, i64 %remaining.0186.i
-  %sub166.i = sub i64 %123, %remaining.0186.i
+  %sub166.i = sub nuw i64 %123, %remaining.0186.i
   %125 = getelementptr inbounds [64 x %struct.iovec], ptr %iov.i, i64 0, i64 %j.0187.i
   store ptr %add.ptr.i, ptr %125, align 16
   %iov_len177.i = getelementptr inbounds [64 x %struct.iovec], ptr %iov.i, i64 0, i64 %j.0187.i, i32 1
@@ -2672,7 +2672,7 @@ if.end209.i:                                      ; preds = %call.i162.i.noexc
   br i1 %cmp212.i, label %if.then213.i, label %if.end15.thread
 
 if.then213.i:                                     ; preds = %if.end209.i
-  %sub217.i = sub i64 %137, %total_read_bytes.1169.i
+  %sub217.i = sub nuw i64 %137, %total_read_bytes.1169.i
   %last_read_buffer218.i = getelementptr inbounds i8, ptr %arg, i64 64
   invoke void @grpc_slice_buffer_trim_end(ptr noundef nonnull %136, i64 noundef %sub217.i, ptr noundef nonnull %last_read_buffer218.i)
           to label %if.end15.thread unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -6232,12 +6232,12 @@ cond.end.i87.i:                                   ; preds = %cond.false.i92.i, %
   br i1 %cmp16.i.i, label %if.then.i90.i, label %if.else.i.i
 
 if.then.i90.i:                                    ; preds = %cond.end.i87.i
-  %sub17.i.i = sub i64 %cond.i88.i, %trailing.08.i.i
+  %sub17.i.i = sub nuw i64 %cond.i88.i, %trailing.08.i.i
   store i64 %sub17.i.i, ptr %byte_idx.i.i, align 8
   br label %_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit.i
 
 if.else.i.i:                                      ; preds = %cond.end.i87.i
-  %sub19.i.i = sub i64 %trailing.08.i.i, %cond.i88.i
+  %sub19.i.i = sub nuw i64 %trailing.08.i.i, %cond.i88.i
   %cmp.not.i89.i = icmp eq i64 %sub19.i.i, 0
   br i1 %cmp.not.i89.i, label %_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit.i, label %while.body.i.i, !llvm.loop !7
 
@@ -6895,12 +6895,12 @@ cond.end133:                                      ; preds = %cond.false126, %con
   br i1 %cmp135, label %if.then136, label %if.else139
 
 if.then136:                                       ; preds = %cond.end133
-  %sub137 = sub i64 %cond134, %trailing.0154
+  %sub137 = sub nuw i64 %cond134, %trailing.0154
   store i64 %sub137, ptr %outgoing_byte_idx, align 8
   br label %while.end
 
 if.else139:                                       ; preds = %cond.end133
-  %sub140 = sub i64 %trailing.0154, %cond134
+  %sub140 = sub nuw i64 %trailing.0154, %cond134
   %cmp113.not = icmp eq i64 %sub140, 0
   br i1 %cmp113.not, label %while.end, label %while.body114, !llvm.loop !69
 

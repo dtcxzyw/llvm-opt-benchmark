@@ -496,7 +496,7 @@ define hidden void @_ZNK2cv11xfeatures2d14pct_signatures18PCTSignatures_Impl17co
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %3
-  %27 = sub nsw i64 %12, %24
+  %27 = sub nuw nsw i64 %12, %24
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %27)
           to label %_ZN2cv11xfeatures2d14pct_signatures26Parallel_computeSignaturesC2EPKNS0_13PCTSignaturesEPKSt6vectorINS_3MatESaIS7_EEPS9_.exit unwind label %33
 
@@ -1224,7 +1224,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

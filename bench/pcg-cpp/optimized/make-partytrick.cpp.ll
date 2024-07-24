@@ -770,7 +770,7 @@ common.ret23:                                     ; preds = %if.end, %if.then
   ret i32 %common.ret23.op
 
 if.end:                                           ; preds = %entry
-  %sub = sub nsw i32 %conv1, %mul
+  %sub = sub nuw nsw i32 %conv1, %mul
   %notmask = shl nsw i32 -1, %sub
   %sub6 = xor i32 %notmask, -1
   %and = and i32 %sub6, %x

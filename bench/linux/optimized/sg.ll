@@ -5175,7 +5175,7 @@ define internal noundef range(i32 0, 3) i32 @sg_vma_fault(ptr nocapture noundef 
   br i1 %34, label %35, label %.loopexit
 
 35:                                               ; preds = %30
-  %36 = sub i64 %28, %32
+  %36 = sub nuw i64 %28, %32
   %37 = tail call i64 @llvm.umin.i64(i64 %36, i64 %29)
   %38 = icmp ult i64 %33, %37
   br i1 %38, label %39, label %75
@@ -5237,7 +5237,7 @@ define internal noundef range(i32 0, 3) i32 @sg_vma_fault(ptr nocapture noundef 
 
 75:                                               ; preds = %35
   %76 = add i64 %37, %32
-  %77 = sub i64 %33, %37
+  %77 = sub nuw i64 %33, %37
   %78 = add nuw nsw i32 %31, 1
   %79 = icmp eq i32 %78, %19
   br i1 %79, label %.loopexit, label %30, !llvm.loop !79

@@ -26646,7 +26646,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %types, ptr %2, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -28691,7 +28691,7 @@ if.then.i:                                        ; preds = %invoke.cont31
   br label %if.end
 
 if.else.i:                                        ; preds = %invoke.cont31
-  %sub.i = sub i64 %sub.ptr.div.i, %add.i.i.i
+  %sub.i = sub nuw i64 %sub.ptr.div.i, %add.i.i.i
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %force_quote34, ptr %19, i32 %20, i64 noundef %sub.i, i1 noundef zeroext false)
           to label %if.end unwind label %lpad26
 
@@ -88087,7 +88087,7 @@ invoke.cont61:                                    ; preds = %invoke.cont55
   br i1 %cmp.i175, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont61
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorISt3setImSt4lessImESaImEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %current_batches, i64 noundef %sub.i)
           to label %invoke.cont67 unwind label %lpad66
 
@@ -88135,7 +88135,7 @@ invoke.cont67:                                    ; preds = %invoke.cont.i.i, %i
   br i1 %cmp.i181, label %if.then.i192, label %if.else.i182
 
 if.then.i192:                                     ; preds = %invoke.cont67
-  %sub.i193 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i180
+  %sub.i193 = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i180
   invoke void @_ZNSt6vectorISt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEESaIS9_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %line_info, i64 noundef %sub.i193)
           to label %invoke.cont69 unwind label %lpad66
 
@@ -88200,7 +88200,7 @@ invoke.cont69:                                    ; preds = %invoke.cont.i.i191,
   br i1 %cmp.i200, label %if.then.i223, label %if.else.i201
 
 if.then.i223:                                     ; preds = %invoke.cont69
-  %sub.i224 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i199
+  %sub.i224 = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i199
   invoke void @_ZNSt6vectorISt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEESaIS9_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %lines_errored, i64 noundef %sub.i224)
           to label %invoke.cont71 unwind label %lpad66
 
@@ -88264,7 +88264,7 @@ invoke.cont71:                                    ; preds = %invoke.cont.i.i222,
   br i1 %cmp.i232, label %if.then.i246, label %if.else.i233
 
 if.then.i246:                                     ; preds = %invoke.cont71
-  %sub.i247 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i231
+  %sub.i247 = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i231
   invoke void @_ZNSt6vectorISt3setImSt4lessImESaImEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %tuple_start, i64 noundef %sub.i247)
           to label %invoke.cont73 unwind label %lpad66
 
@@ -88312,7 +88312,7 @@ invoke.cont73:                                    ; preds = %invoke.cont.i.i245,
   br i1 %cmp.i255, label %if.then.i267, label %if.else.i256
 
 if.then.i267:                                     ; preds = %invoke.cont73
-  %sub.i268 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i254
+  %sub.i268 = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i254
   invoke void @_ZNSt6vectorIN6duckdb6vectorImLb1EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %tuple_end, i64 noundef %sub.i268)
           to label %invoke.cont75 unwind label %lpad66
 
@@ -88356,7 +88356,7 @@ invoke.cont75:                                    ; preds = %invoke.cont.i.i266,
   br i1 %cmp.i275, label %if.then.i298, label %if.else.i276
 
 if.then.i298:                                     ; preds = %invoke.cont75
-  %sub.i299 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i274
+  %sub.i299 = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i274
   invoke void @_ZNSt6vectorISt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEESaIS9_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %tuple_end_to_batch, i64 noundef %sub.i299)
           to label %invoke.cont77 unwind label %lpad66
 
@@ -88420,7 +88420,7 @@ invoke.cont77:                                    ; preds = %invoke.cont.i.i297,
   br i1 %cmp.i307, label %if.then.i330, label %if.else.i308
 
 if.then.i330:                                     ; preds = %invoke.cont77
-  %sub.i331 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i306
+  %sub.i331 = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i306
   invoke void @_ZNSt6vectorISt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEESaIS9_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %batch_to_tuple_end, i64 noundef %sub.i331)
           to label %invoke.cont79 unwind label %lpad66
 
@@ -101001,7 +101001,7 @@ lpad.body:                                        ; preds = %lpad1.i.i.i.i
   br label %eh.resume
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not12.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not12.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i
 

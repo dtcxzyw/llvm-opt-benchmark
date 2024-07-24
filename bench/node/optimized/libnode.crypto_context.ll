@@ -3819,7 +3819,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br i1 %cmp.i49, label %if.then.i51, label %if.else.i
 
 if.then.i51:                                      ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %sub.i = sub i64 %add, %sub.ptr.sub.i.i
+  %sub.i = sub nuw i64 %add, %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %pass, i64 16
   %38 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %38 to i64

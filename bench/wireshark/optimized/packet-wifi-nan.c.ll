@@ -2831,81 +2831,80 @@ define internal fastcc void @dissect_attr_ndpe(ptr noundef %0, ptr noundef %1, i
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_attr_sdea(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = zext i16 %3 to i32
-  %7 = icmp ult i16 %3, 3
-  br i1 %7, label %8, label %10
+  %6 = icmp ult i16 %3, 3
+  br i1 %6, label %7, label %9
 
-8:                                                ; preds = %5
-  %9 = tail call ptr @expert_add_info(ptr noundef %4, ptr noundef %0, ptr noundef nonnull @ei_nan_elem_len_invalid) #4
-  br label %57
+7:                                                ; preds = %5
+  %8 = tail call ptr @expert_add_info(ptr noundef %4, ptr noundef %0, ptr noundef nonnull @ei_nan_elem_len_invalid) #4
+  br label %55
 
-10:                                               ; preds = %5
-  %11 = load i32, ptr @hf_nan_instance_id, align 4
-  %12 = add i32 %2, 3
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %12, i32 noundef 1, i32 noundef -2147483648) #4
-  %14 = add i32 %2, 4
-  %15 = load i32, ptr @hf_nan_attr_sdea_ctr, align 4
-  %16 = load i32, ptr @ett_sdea_ctr, align 4
-  %17 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef nonnull @dissect_attr_sdea.sdea_ctr_fields, i32 noundef -2147483648) #4
-  %18 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %14) #4
-  %19 = add i32 %2, 6
-  %20 = zext i16 %18 to i32
-  %21 = and i32 %20, 256
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %31, label %22
+9:                                                ; preds = %5
+  %10 = load i32, ptr @hf_nan_instance_id, align 4
+  %11 = add i32 %2, 3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef %11, i32 noundef 1, i32 noundef -2147483648) #4
+  %13 = add i32 %2, 4
+  %14 = load i32, ptr @hf_nan_attr_sdea_ctr, align 4
+  %15 = load i32, ptr @ett_sdea_ctr, align 4
+  %16 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef nonnull @dissect_attr_sdea.sdea_ctr_fields, i32 noundef -2147483648) #4
+  %17 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %13) #4
+  %18 = add i32 %2, 6
+  %19 = zext i16 %17 to i32
+  %20 = and i32 %19, 256
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %30, label %21
 
-22:                                               ; preds = %10
-  %23 = load i32, ptr @ett_sdea_range_limit, align 4
-  %24 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %19, i32 noundef 4, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.714) #4
-  %25 = load i32, ptr @hf_nan_attr_sdea_ingress_range_limit, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %1, i32 noundef %19, i32 noundef 2, i32 noundef -2147483648) #4
-  %27 = load i32, ptr @hf_nan_attr_sdea_egress_range_limit, align 4
-  %28 = add i32 %2, 8
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %27, ptr noundef %1, i32 noundef %28, i32 noundef 2, i32 noundef -2147483648) #4
-  %30 = add i32 %2, 10
-  br label %31
+21:                                               ; preds = %9
+  %22 = load i32, ptr @ett_sdea_range_limit, align 4
+  %23 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %18, i32 noundef 4, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.714) #4
+  %24 = load i32, ptr @hf_nan_attr_sdea_ingress_range_limit, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %1, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648) #4
+  %26 = load i32, ptr @hf_nan_attr_sdea_egress_range_limit, align 4
+  %27 = add i32 %2, 8
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %26, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648) #4
+  %29 = add i32 %2, 10
+  br label %30
 
-31:                                               ; preds = %22, %10
-  %.052 = phi i16 [ 7, %22 ], [ 3, %10 ]
-  %.0 = phi i32 [ %30, %22 ], [ %19, %10 ]
-  %32 = and i32 %20, 512
-  %.not56 = icmp eq i32 %32, 0
-  br i1 %.not56, label %37, label %33
+30:                                               ; preds = %21, %9
+  %.052 = phi i16 [ 7, %21 ], [ 3, %9 ]
+  %.0 = phi i32 [ %29, %21 ], [ %18, %9 ]
+  %31 = and i32 %19, 512
+  %.not56 = icmp eq i32 %31, 0
+  br i1 %.not56, label %36, label %32
 
-33:                                               ; preds = %31
-  %34 = load i32, ptr @hf_nan_attr_sdea_service_update_indicator, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %34, ptr noundef %1, i32 noundef %.0, i32 noundef 1, i32 noundef -2147483648) #4
-  %36 = add i32 %.0, 1
+32:                                               ; preds = %30
+  %33 = load i32, ptr @hf_nan_attr_sdea_service_update_indicator, align 4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef %.0, i32 noundef 1, i32 noundef -2147483648) #4
+  %35 = add i32 %.0, 1
   %narrow = add nuw nsw i16 %.052, 1
-  br label %37
+  br label %36
 
-37:                                               ; preds = %33, %31
-  %.153 = phi i16 [ %narrow, %33 ], [ %.052, %31 ]
-  %.1 = phi i32 [ %36, %33 ], [ %.0, %31 ]
-  %38 = icmp ult i16 %.153, %3
-  br i1 %38, label %39, label %57
+36:                                               ; preds = %32, %30
+  %.153 = phi i16 [ %narrow, %32 ], [ %.052, %30 ]
+  %.1 = phi i32 [ %35, %32 ], [ %.0, %30 ]
+  %37 = icmp ult i16 %.153, %3
+  br i1 %37, label %38, label %55
 
-39:                                               ; preds = %37
-  %40 = zext nneg i16 %.153 to i32
-  %41 = load i32, ptr @hf_nan_attr_sdea_service_info_length, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %41, ptr noundef %1, i32 noundef %.1, i32 noundef 2, i32 noundef -2147483648) #4
-  %43 = add i32 %.1, 2
-  %44 = sub nsw i32 %6, %40
-  %45 = add nsw i32 %44, -2
-  %46 = load i32, ptr @ett_sdea_service_info, align 4
-  %47 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %43, i32 noundef %45, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.105) #4
-  %48 = load i32, ptr @hf_nan_oui, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %1, i32 noundef %43, i32 noundef 3, i32 noundef 0) #4
-  %50 = load i32, ptr @hf_nan_attr_sdea_service_info_protocol_type, align 4
-  %51 = add i32 %.1, 5
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %50, ptr noundef %1, i32 noundef %51, i32 noundef 1, i32 noundef 0) #4
-  %53 = load i32, ptr @hf_nan_attr_sdea_service_info_specific, align 4
-  %54 = add i32 %.1, 6
-  %55 = add nsw i32 %44, -6
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %53, ptr noundef %1, i32 noundef %54, i32 noundef %55, i32 noundef 0) #4
-  br label %57
+38:                                               ; preds = %36
+  %39 = load i32, ptr @hf_nan_attr_sdea_service_info_length, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef %.1, i32 noundef 2, i32 noundef -2147483648) #4
+  %41 = add i32 %.1, 2
+  %narrow57 = sub nuw i16 %3, %.153
+  %42 = zext i16 %narrow57 to i32
+  %43 = add nsw i32 %42, -2
+  %44 = load i32, ptr @ett_sdea_service_info, align 4
+  %45 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %41, i32 noundef %43, i32 noundef %44, ptr noundef null, ptr noundef nonnull @.str.105) #4
+  %46 = load i32, ptr @hf_nan_oui, align 4
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %1, i32 noundef %41, i32 noundef 3, i32 noundef 0) #4
+  %48 = load i32, ptr @hf_nan_attr_sdea_service_info_protocol_type, align 4
+  %49 = add i32 %.1, 5
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %48, ptr noundef %1, i32 noundef %49, i32 noundef 1, i32 noundef 0) #4
+  %51 = load i32, ptr @hf_nan_attr_sdea_service_info_specific, align 4
+  %52 = add i32 %.1, 6
+  %53 = add nsw i32 %42, -6
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef %53, i32 noundef 0) #4
+  br label %55
 
-57:                                               ; preds = %39, %37, %8
+55:                                               ; preds = %38, %36, %7
   ret void
 }
 

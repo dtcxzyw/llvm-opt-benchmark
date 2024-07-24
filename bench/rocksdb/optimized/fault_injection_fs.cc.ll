@@ -3699,7 +3699,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
 if.end9:                                          ; preds = %invoke.cont6
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 96
   %call11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #21
-  %sub = sub i64 %add, %spec.select
+  %sub = sub nuw i64 %add, %spec.select
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %call11)
   %call18 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #21
   store ptr %call18, ptr %buf_to_sync, align 8
@@ -10965,7 +10965,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end11
 
 if.then5:                                         ; preds = %if.end
-  %sub7 = sub i64 %div, %1
+  %sub7 = sub nuw i64 %div, %1
   %mul = mul i64 %1, %0
   %mul9 = mul i64 %sub7, %0
   %vtable = load ptr, ptr %this, align 8

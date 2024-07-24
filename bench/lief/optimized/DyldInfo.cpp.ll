@@ -7290,7 +7290,7 @@ _ZNSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE12emplace_backIJhi
   br i1 %402, label %403, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit
 
 403:                                              ; preds = %.noexc158
-  %404 = sub i64 %401, %400
+  %404 = sub nuw i64 %401, %400
   %405 = load ptr, ptr %384, align 8
   %406 = ptrtoint ptr %405 to i64
   %407 = sub i64 %406, %398
@@ -7403,7 +7403,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %_ZSt27__uninitiali
   br i1 %448, label %449, label %.noexc162
 
 449:                                              ; preds = %.noexc161
-  %450 = sub i64 %447, %446
+  %450 = sub nuw i64 %447, %446
   %451 = load ptr, ptr %384, align 8
   %452 = ptrtoint ptr %451 to i64
   %453 = sub i64 %452, %444
@@ -7513,7 +7513,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i213: ; preds = %474, %_
   br i1 %494, label %495, label %.noexc166
 
 495:                                              ; preds = %.noexc165
-  %496 = sub i64 %493, %492
+  %496 = sub nuw i64 %493, %492
   %497 = load ptr, ptr %384, align 8
   %498 = ptrtoint ptr %497 to i64
   %499 = sub i64 %498, %490
@@ -7619,7 +7619,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i227: ; preds = %520, %_
   br i1 %540, label %541, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit171
 
 541:                                              ; preds = %.noexc169
-  %542 = sub i64 %539, %538
+  %542 = sub nuw i64 %539, %538
   %543 = load ptr, ptr %384, align 8
   %544 = ptrtoint ptr %543 to i64
   %545 = sub i64 %544, %536
@@ -7725,7 +7725,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit171: ; preds = %_ZSt27__uniniti
   br i1 %586, label %587, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit175
 
 587:                                              ; preds = %.noexc173
-  %588 = sub i64 %585, %584
+  %588 = sub nuw i64 %585, %584
   %589 = load ptr, ptr %384, align 8
   %590 = ptrtoint ptr %589 to i64
   %591 = sub i64 %590, %582
@@ -7827,7 +7827,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit175: ; preds = %_ZSt27__uniniti
   br i1 %628, label %629, label %.noexc178
 
 629:                                              ; preds = %.noexc177
-  %630 = sub i64 %627, %626
+  %630 = sub nuw i64 %627, %626
   %631 = load ptr, ptr %384, align 8
   %632 = ptrtoint ptr %631 to i64
   %633 = sub i64 %632, %624
@@ -7929,7 +7929,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i269: ; preds = %654, %_
   br i1 %670, label %671, label %.noexc182
 
 671:                                              ; preds = %.noexc181
-  %672 = sub i64 %669, %668
+  %672 = sub nuw i64 %669, %668
   %673 = load ptr, ptr %384, align 8
   %674 = ptrtoint ptr %673 to i64
   %675 = sub i64 %674, %666
@@ -8031,7 +8031,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i283: ; preds = %696, %_
   br i1 %712, label %713, label %.noexc186
 
 713:                                              ; preds = %.noexc185
-  %714 = sub i64 %711, %710
+  %714 = sub nuw i64 %711, %710
   %715 = load ptr, ptr %384, align 8
   %716 = ptrtoint ptr %715 to i64
   %717 = sub i64 %716, %708
@@ -9606,7 +9606,7 @@ _ZN4LIEF5MachO7details19binding_instructionaSERKS2_.exit121: ; preds = %254, %.c
   br i1 %305, label %306, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit
 
 306:                                              ; preds = %.noexc123
-  %307 = sub i64 %304, %303
+  %307 = sub nuw i64 %304, %303
   %308 = load ptr, ptr %287, align 8
   %309 = ptrtoint ptr %308 to i64
   %310 = sub i64 %309, %301
@@ -9715,7 +9715,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %_ZSt27__uninitiali
   br i1 %347, label %348, label %.noexc127
 
 348:                                              ; preds = %.noexc126
-  %349 = sub i64 %346, %345
+  %349 = sub nuw i64 %346, %345
   %350 = load ptr, ptr %287, align 8
   %351 = ptrtoint ptr %350 to i64
   %352 = sub i64 %351, %343
@@ -9830,7 +9830,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i191: ; preds = %373, %_
   br i1 %398, label %399, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit132
 
 399:                                              ; preds = %.noexc130
-  %400 = sub i64 %397, %396
+  %400 = sub nuw i64 %397, %396
   %401 = load ptr, ptr %287, align 8
   %402 = ptrtoint ptr %401 to i64
   %403 = sub i64 %402, %394
@@ -9936,7 +9936,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit132: ; preds = %_ZSt27__uniniti
   br i1 %444, label %445, label %.noexc135
 
 445:                                              ; preds = %.noexc134
-  %446 = sub i64 %443, %442
+  %446 = sub nuw i64 %443, %442
   %447 = load ptr, ptr %287, align 8
   %448 = ptrtoint ptr %447 to i64
   %449 = sub i64 %448, %440
@@ -10044,7 +10044,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i219: ; preds = %470, %_
   br i1 %492, label %493, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit140
 
 493:                                              ; preds = %.noexc138
-  %494 = sub i64 %491, %490
+  %494 = sub nuw i64 %491, %490
   %495 = load ptr, ptr %287, align 8
   %496 = ptrtoint ptr %495 to i64
   %497 = sub i64 %496, %488
@@ -10146,7 +10146,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit140: ; preds = %_ZSt27__uniniti
   br i1 %534, label %535, label %.noexc143
 
 535:                                              ; preds = %.noexc142
-  %536 = sub i64 %533, %532
+  %536 = sub nuw i64 %533, %532
   %537 = load ptr, ptr %287, align 8
   %538 = ptrtoint ptr %537 to i64
   %539 = sub i64 %538, %530
@@ -10255,7 +10255,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i247: ; preds = %560, %_
   br i1 %583, label %584, label %.noexc147
 
 584:                                              ; preds = %.noexc146
-  %585 = sub i64 %582, %581
+  %585 = sub nuw i64 %582, %581
   %586 = load ptr, ptr %287, align 8
   %587 = ptrtoint ptr %586 to i64
   %588 = sub i64 %587, %579
@@ -10357,7 +10357,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i261: ; preds = %609, %_
   br i1 %625, label %626, label %.noexc151
 
 626:                                              ; preds = %.noexc150
-  %627 = sub i64 %624, %623
+  %627 = sub nuw i64 %624, %623
   %628 = load ptr, ptr %287, align 8
   %629 = ptrtoint ptr %628 to i64
   %630 = sub i64 %629, %621
@@ -10459,7 +10459,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i275: ; preds = %651, %_
   br i1 %667, label %668, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit156
 
 668:                                              ; preds = %.noexc154
-  %669 = sub i64 %666, %665
+  %669 = sub nuw i64 %666, %665
   %670 = load ptr, ptr %287, align 8
   %671 = ptrtoint ptr %670 to i64
   %672 = sub i64 %671, %663
@@ -10561,7 +10561,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit156: ; preds = %_ZSt27__uniniti
   br i1 %709, label %710, label %.noexc159
 
 710:                                              ; preds = %.noexc158
-  %711 = sub i64 %708, %707
+  %711 = sub nuw i64 %708, %707
   %712 = load ptr, ptr %287, align 8
   %713 = ptrtoint ptr %712 to i64
   %714 = sub i64 %713, %705
@@ -10667,7 +10667,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i303: ; preds = %735, %_
   br i1 %755, label %756, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit164
 
 756:                                              ; preds = %.noexc162
-  %757 = sub i64 %754, %753
+  %757 = sub nuw i64 %754, %753
   %758 = load ptr, ptr %287, align 8
   %759 = ptrtoint ptr %758 to i64
   %760 = sub i64 %759, %751
@@ -10769,7 +10769,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit164: ; preds = %_ZSt27__uniniti
   br i1 %797, label %798, label %.noexc167
 
 798:                                              ; preds = %.noexc166
-  %799 = sub i64 %796, %795
+  %799 = sub nuw i64 %796, %795
   %800 = load ptr, ptr %287, align 8
   %801 = ptrtoint ptr %800 to i64
   %802 = sub i64 %801, %793
@@ -11098,7 +11098,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit:  ; preds = %.noexc
   br i1 %43, label %44, label %.noexc31
 
 44:                                               ; preds = %.noexc30
-  %45 = sub i64 %42, %41
+  %45 = sub nuw i64 %42, %41
   %46 = load ptr, ptr %19, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = sub i64 %47, %39
@@ -11231,7 +11231,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %69, %_ZNSt
   br i1 %101, label %102, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit35
 
 102:                                              ; preds = %.noexc33
-  %103 = sub i64 %100, %99
+  %103 = sub nuw i64 %100, %99
   %104 = load ptr, ptr %19, align 8
   %105 = ptrtoint ptr %104 to i64
   %106 = sub i64 %105, %97
@@ -11347,7 +11347,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit35: ; preds = %_ZSt27__uninitia
   br i1 %151, label %152, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit39
 
 152:                                              ; preds = %.noexc37
-  %153 = sub i64 %150, %149
+  %153 = sub nuw i64 %150, %149
   %154 = load ptr, ptr %19, align 8
   %155 = ptrtoint ptr %154 to i64
   %156 = sub i64 %155, %147
@@ -11449,7 +11449,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit39: ; preds = %_ZSt27__uninitia
   br i1 %193, label %194, label %.noexc42
 
 194:                                              ; preds = %.noexc41
-  %195 = sub i64 %192, %191
+  %195 = sub nuw i64 %192, %191
   %196 = load ptr, ptr %19, align 8
   %197 = ptrtoint ptr %196 to i64
   %198 = sub i64 %197, %189
@@ -11590,7 +11590,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit46: ; preds = %.noexc44
   br i1 %254, label %255, label %.noexc49
 
 255:                                              ; preds = %.noexc48
-  %256 = sub i64 %253, %252
+  %256 = sub nuw i64 %253, %252
   %257 = load ptr, ptr %19, align 8
   %258 = ptrtoint ptr %257 to i64
   %259 = sub i64 %258, %250
@@ -11704,7 +11704,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i121: ; preds = %280, %_
   br i1 %304, label %305, label %.noexc53
 
 305:                                              ; preds = %.noexc52
-  %306 = sub i64 %303, %302
+  %306 = sub nuw i64 %303, %302
   %307 = load ptr, ptr %19, align 8
   %308 = ptrtoint ptr %307 to i64
   %309 = sub i64 %308, %300
@@ -11803,7 +11803,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i135: ; preds = %330, %_
   br i1 %345, label %346, label %.noexc57
 
 346:                                              ; preds = %.noexc56
-  %347 = sub i64 %344, %343
+  %347 = sub nuw i64 %344, %343
   %348 = load ptr, ptr %19, align 8
   %349 = ptrtoint ptr %348 to i64
   %350 = sub i64 %349, %341
@@ -12887,7 +12887,7 @@ _ZN4LIEF5MachO7details19binding_instructionaSERKS2_.exit136: ; preds = %280, %.c
   br i1 %331, label %332, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit
 
 332:                                              ; preds = %.noexc138
-  %333 = sub i64 %330, %329
+  %333 = sub nuw i64 %330, %329
   %334 = load ptr, ptr %313, align 8
   %335 = ptrtoint ptr %334 to i64
   %336 = sub i64 %335, %327
@@ -12996,7 +12996,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %_ZSt27__uninitiali
   br i1 %373, label %374, label %.noexc142
 
 374:                                              ; preds = %.noexc141
-  %375 = sub i64 %372, %371
+  %375 = sub nuw i64 %372, %371
   %376 = load ptr, ptr %313, align 8
   %377 = ptrtoint ptr %376 to i64
   %378 = sub i64 %377, %369
@@ -13111,7 +13111,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i206: ; preds = %399, %_
   br i1 %424, label %425, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit147
 
 425:                                              ; preds = %.noexc145
-  %426 = sub i64 %423, %422
+  %426 = sub nuw i64 %423, %422
   %427 = load ptr, ptr %313, align 8
   %428 = ptrtoint ptr %427 to i64
   %429 = sub i64 %428, %420
@@ -13217,7 +13217,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit147: ; preds = %_ZSt27__uniniti
   br i1 %470, label %471, label %.noexc150
 
 471:                                              ; preds = %.noexc149
-  %472 = sub i64 %469, %468
+  %472 = sub nuw i64 %469, %468
   %473 = load ptr, ptr %313, align 8
   %474 = ptrtoint ptr %473 to i64
   %475 = sub i64 %474, %466
@@ -13325,7 +13325,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i234: ; preds = %496, %_
   br i1 %518, label %519, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit155
 
 519:                                              ; preds = %.noexc153
-  %520 = sub i64 %517, %516
+  %520 = sub nuw i64 %517, %516
   %521 = load ptr, ptr %313, align 8
   %522 = ptrtoint ptr %521 to i64
   %523 = sub i64 %522, %514
@@ -13427,7 +13427,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit155: ; preds = %_ZSt27__uniniti
   br i1 %560, label %561, label %.noexc158
 
 561:                                              ; preds = %.noexc157
-  %562 = sub i64 %559, %558
+  %562 = sub nuw i64 %559, %558
   %563 = load ptr, ptr %313, align 8
   %564 = ptrtoint ptr %563 to i64
   %565 = sub i64 %564, %556
@@ -13536,7 +13536,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i262: ; preds = %586, %_
   br i1 %609, label %610, label %.noexc162
 
 610:                                              ; preds = %.noexc161
-  %611 = sub i64 %608, %607
+  %611 = sub nuw i64 %608, %607
   %612 = load ptr, ptr %313, align 8
   %613 = ptrtoint ptr %612 to i64
   %614 = sub i64 %613, %605
@@ -13638,7 +13638,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i276: ; preds = %635, %_
   br i1 %651, label %652, label %.noexc166
 
 652:                                              ; preds = %.noexc165
-  %653 = sub i64 %650, %649
+  %653 = sub nuw i64 %650, %649
   %654 = load ptr, ptr %313, align 8
   %655 = ptrtoint ptr %654 to i64
   %656 = sub i64 %655, %647
@@ -13740,7 +13740,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i290: ; preds = %677, %_
   br i1 %693, label %694, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit171
 
 694:                                              ; preds = %.noexc169
-  %695 = sub i64 %692, %691
+  %695 = sub nuw i64 %692, %691
   %696 = load ptr, ptr %313, align 8
   %697 = ptrtoint ptr %696 to i64
   %698 = sub i64 %697, %689
@@ -13842,7 +13842,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit171: ; preds = %_ZSt27__uniniti
   br i1 %735, label %736, label %.noexc174
 
 736:                                              ; preds = %.noexc173
-  %737 = sub i64 %734, %733
+  %737 = sub nuw i64 %734, %733
   %738 = load ptr, ptr %313, align 8
   %739 = ptrtoint ptr %738 to i64
   %740 = sub i64 %739, %731
@@ -13948,7 +13948,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i318: ; preds = %761, %_
   br i1 %781, label %782, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit179
 
 782:                                              ; preds = %.noexc177
-  %783 = sub i64 %780, %779
+  %783 = sub nuw i64 %780, %779
   %784 = load ptr, ptr %313, align 8
   %785 = ptrtoint ptr %784 to i64
   %786 = sub i64 %785, %777
@@ -14050,7 +14050,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit179: ; preds = %_ZSt27__uniniti
   br i1 %823, label %824, label %.noexc182
 
 824:                                              ; preds = %.noexc181
-  %825 = sub i64 %822, %821
+  %825 = sub nuw i64 %822, %821
   %826 = load ptr, ptr %313, align 8
   %827 = ptrtoint ptr %826 to i64
   %828 = sub i64 %827, %819
@@ -15383,7 +15383,7 @@ _ZN4LIEF7logging6Logger4warnIJEEEvPKcDpRKT_.exit: ; preds = %.noexc215
   br label %437
 
 434:                                              ; preds = %420
-  %435 = sub i64 %.0102, %.0103667
+  %435 = sub nuw i64 %.0102, %.0103667
   %436 = lshr i64 %435, 12
   %.not126 = icmp eq i64 %436, %.0107665
   br i1 %.not126, label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJiiEEERS3_DpOT_.exit, label %437
@@ -15494,7 +15494,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   br i1 %473, label %474, label %.noexc232
 
 474:                                              ; preds = %.noexc231
-  %475 = sub i64 %472, %471
+  %475 = sub nuw i64 %472, %471
   %476 = getelementptr inbounds i8, ptr %37, i64 32
   %477 = load ptr, ptr %476, align 8
   %478 = ptrtoint ptr %477 to i64
@@ -15656,7 +15656,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %500, %_ZNS
   br i1 %529, label %530, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit236
 
 530:                                              ; preds = %.noexc234
-  %531 = sub i64 %528, %527
+  %531 = sub nuw i64 %528, %527
   %532 = load ptr, ptr %513, align 8
   %533 = ptrtoint ptr %532 to i64
   %534 = sub i64 %533, %525
@@ -15758,7 +15758,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit236: ; preds = %_ZSt27__uniniti
   br i1 %571, label %572, label %.noexc239
 
 572:                                              ; preds = %.noexc238
-  %573 = sub i64 %570, %569
+  %573 = sub nuw i64 %570, %569
   %574 = load ptr, ptr %513, align 8
   %575 = ptrtoint ptr %574 to i64
   %576 = sub i64 %575, %567
@@ -15865,7 +15865,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i342: ; preds = %597, %_
   br i1 %618, label %619, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit244
 
 619:                                              ; preds = %.noexc242
-  %620 = sub i64 %617, %616
+  %620 = sub nuw i64 %617, %616
   %621 = load ptr, ptr %513, align 8
   %622 = ptrtoint ptr %621 to i64
   %623 = sub i64 %622, %614
@@ -15971,7 +15971,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit244: ; preds = %_ZSt27__uniniti
   br i1 %664, label %665, label %.noexc247
 
 665:                                              ; preds = %.noexc246
-  %666 = sub i64 %663, %662
+  %666 = sub nuw i64 %663, %662
   %667 = load ptr, ptr %513, align 8
   %668 = ptrtoint ptr %667 to i64
   %669 = sub i64 %668, %660
@@ -16079,7 +16079,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i370: ; preds = %690, %_
   br i1 %712, label %713, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit252
 
 713:                                              ; preds = %.noexc250
-  %714 = sub i64 %711, %710
+  %714 = sub nuw i64 %711, %710
   %715 = load ptr, ptr %513, align 8
   %716 = ptrtoint ptr %715 to i64
   %717 = sub i64 %716, %708
@@ -16181,7 +16181,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit252: ; preds = %_ZSt27__uniniti
   br i1 %754, label %755, label %.noexc255
 
 755:                                              ; preds = %.noexc254
-  %756 = sub i64 %753, %752
+  %756 = sub nuw i64 %753, %752
   %757 = load ptr, ptr %513, align 8
   %758 = ptrtoint ptr %757 to i64
   %759 = sub i64 %758, %750
@@ -16290,7 +16290,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i398: ; preds = %780, %_
   br i1 %803, label %804, label %.noexc259
 
 804:                                              ; preds = %.noexc258
-  %805 = sub i64 %802, %801
+  %805 = sub nuw i64 %802, %801
   %806 = load ptr, ptr %513, align 8
   %807 = ptrtoint ptr %806 to i64
   %808 = sub i64 %807, %799
@@ -16392,7 +16392,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i412: ; preds = %829, %_
   br i1 %845, label %846, label %.noexc263
 
 846:                                              ; preds = %.noexc262
-  %847 = sub i64 %844, %843
+  %847 = sub nuw i64 %844, %843
   %848 = load ptr, ptr %513, align 8
   %849 = ptrtoint ptr %848 to i64
   %850 = sub i64 %849, %841
@@ -16494,7 +16494,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i426: ; preds = %871, %_
   br i1 %887, label %888, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit268
 
 888:                                              ; preds = %.noexc266
-  %889 = sub i64 %886, %885
+  %889 = sub nuw i64 %886, %885
   %890 = load ptr, ptr %513, align 8
   %891 = ptrtoint ptr %890 to i64
   %892 = sub i64 %891, %883
@@ -16596,7 +16596,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit268: ; preds = %_ZSt27__uniniti
   br i1 %929, label %930, label %.noexc271
 
 930:                                              ; preds = %.noexc270
-  %931 = sub i64 %928, %927
+  %931 = sub nuw i64 %928, %927
   %932 = load ptr, ptr %513, align 8
   %933 = ptrtoint ptr %932 to i64
   %934 = sub i64 %933, %925
@@ -16702,7 +16702,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i454: ; preds = %955, %_
   br i1 %975, label %976, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit276
 
 976:                                              ; preds = %.noexc274
-  %977 = sub i64 %974, %973
+  %977 = sub nuw i64 %974, %973
   %978 = load ptr, ptr %513, align 8
   %979 = ptrtoint ptr %978 to i64
   %980 = sub i64 %979, %971
@@ -16804,7 +16804,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit276: ; preds = %_ZSt27__uniniti
   br i1 %1017, label %1018, label %.noexc279
 
 1018:                                             ; preds = %.noexc278
-  %1019 = sub i64 %1016, %1015
+  %1019 = sub nuw i64 %1016, %1015
   %1020 = load ptr, ptr %513, align 8
   %1021 = ptrtoint ptr %1020 to i64
   %1022 = sub i64 %1021, %1013
@@ -16909,7 +16909,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i482: ; preds = %1043, %
   br i1 %1062, label %1063, label %.noexc283
 
 1063:                                             ; preds = %.noexc282
-  %1064 = sub i64 %1061, %1060
+  %1064 = sub nuw i64 %1061, %1060
   %1065 = load ptr, ptr %513, align 8
   %1066 = ptrtoint ptr %1065 to i64
   %1067 = sub i64 %1066, %1058
@@ -17019,7 +17019,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i496: ; preds = %1088, %
   br i1 %1108, label %1109, label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit288
 
 1109:                                             ; preds = %.noexc286
-  %1110 = sub i64 %1107, %1106
+  %1110 = sub nuw i64 %1107, %1106
   %1111 = load ptr, ptr %513, align 8
   %1112 = ptrtoint ptr %1111 to i64
   %1113 = sub i64 %1112, %1104
@@ -17142,7 +17142,7 @@ _ZN4LIEF7logging6Logger3errIJEEEvPKcDpRKT_.exit291: ; preds = %.noexc289
   br i1 %1156, label %1157, label %.noexc294
 
 1157:                                             ; preds = %.noexc293
-  %1158 = sub i64 %1155, %1154
+  %1158 = sub nuw i64 %1155, %1154
   %1159 = getelementptr inbounds i8, ptr %37, i64 32
   %1160 = load ptr, ptr %1159, align 8
   %1161 = ptrtoint ptr %1160 to i64
@@ -20352,7 +20352,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 116:                                              ; preds = %114
   %117 = zext i32 %38 to i64
-  %118 = sub nsw i64 %117, %111
+  %118 = sub nuw nsw i64 %117, %111
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 119:                                              ; preds = %108
@@ -20576,7 +20576,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 226:                                              ; preds = %224
   %227 = zext i32 %146 to i64
-  %228 = sub nsw i64 %227, %221
+  %228 = sub nuw nsw i64 %227, %221
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit179
 
 229:                                              ; preds = %218
@@ -20797,7 +20797,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 332:                                              ; preds = %330
   %333 = zext i32 %254 to i64
-  %334 = sub nsw i64 %333, %327
+  %334 = sub nuw nsw i64 %333, %327
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit203
 
 335:                                              ; preds = %324
@@ -21023,7 +21023,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 437:                                              ; preds = %435
   %438 = zext i32 %361 to i64
-  %439 = sub nsw i64 %438, %432
+  %439 = sub nuw nsw i64 %438, %432
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit231
 
 440:                                              ; preds = %429
@@ -33604,7 +33604,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i:
   br i1 %426, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit, label %427
 
 427:                                              ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i
-  %428 = sub nsw i64 %425, %416
+  %428 = sub nuw nsw i64 %425, %416
   %429 = icmp ugt i64 %428, 1
   br i1 %429, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit, label %397
 
@@ -34002,7 +34002,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i3
   br i1 %607, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit325, label %608
 
 608:                                              ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i322
-  %609 = sub nsw i64 %606, %597
+  %609 = sub nuw nsw i64 %606, %597
   %610 = icmp ugt i64 %609, 1
   br i1 %610, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit325, label %578
 
@@ -34103,7 +34103,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i3
   br i1 %660, label %.thread520.sink.split, label %661
 
 661:                                              ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i340
-  %662 = sub nsw i64 %659, %650
+  %662 = sub nuw nsw i64 %659, %650
   %663 = icmp ugt i64 %662, 1
   br i1 %663, label %.thread520, label %637
 
@@ -34450,7 +34450,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i4
   br i1 %816, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit415, label %817
 
 817:                                              ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i412
-  %818 = sub nsw i64 %815, %806
+  %818 = sub nuw nsw i64 %815, %806
   %819 = icmp ult i64 %818, 2
   %820 = shl nuw nsw i64 %818, 32
   %.not.not.i413 = icmp sgt i32 %.03046.i403, %792
@@ -34664,7 +34664,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i4
   br i1 %916, label %_ZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_.exit452, label %917
 
 917:                                              ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit38.i449
-  %918 = sub nsw i64 %915, %906
+  %918 = sub nuw nsw i64 %915, %906
   %919 = icmp ugt i64 %918, 1
   br i1 %919, label %.thread529, label %893
 
@@ -41935,7 +41935,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 115:                                              ; preds = %113
   %116 = zext i32 %39 to i64
-  %117 = sub nsw i64 %116, %110
+  %117 = sub nuw nsw i64 %116, %110
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 118:                                              ; preds = %107
@@ -42165,7 +42165,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 221:                                              ; preds = %219
   %222 = zext i32 %143 to i64
-  %223 = sub nsw i64 %222, %216
+  %223 = sub nuw nsw i64 %222, %216
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit177
 
 224:                                              ; preds = %213
@@ -42392,7 +42392,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 328:                                              ; preds = %326
   %329 = zext i32 %249 to i64
-  %330 = sub nsw i64 %329, %323
+  %330 = sub nuw nsw i64 %329, %323
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit204
 
 331:                                              ; preds = %320
@@ -42618,7 +42618,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 430:                                              ; preds = %428
   %431 = zext i32 %353 to i64
-  %432 = sub nsw i64 %431, %425
+  %432 = sub nuw nsw i64 %431, %425
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit235
 
 433:                                              ; preds = %422
@@ -44641,7 +44641,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 121:                                              ; preds = %119
   %122 = zext i32 %43 to i64
-  %123 = sub nsw i64 %122, %116
+  %123 = sub nuw nsw i64 %122, %116
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 124:                                              ; preds = %113
@@ -44872,7 +44872,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 231:                                              ; preds = %229
   %232 = zext i32 %150 to i64
-  %233 = sub nsw i64 %232, %226
+  %233 = sub nuw nsw i64 %232, %226
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit192
 
 234:                                              ; preds = %223
@@ -45100,7 +45100,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 338:                                              ; preds = %336
   %339 = zext i32 %259 to i64
-  %340 = sub nsw i64 %339, %333
+  %340 = sub nuw nsw i64 %339, %333
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit223
 
 341:                                              ; preds = %330
@@ -45326,7 +45326,7 @@ _ZZN3fmt2v96detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 440:                                              ; preds = %438
   %441 = zext i32 %363 to i64
-  %442 = sub nsw i64 %441, %435
+  %442 = sub nuw nsw i64 %441, %435
   br label %_ZN3fmt2v96detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit258
 
 443:                                              ; preds = %432
@@ -48479,9 +48479,9 @@ _ZN3fmt2v96detail18gen_digits_handler8on_digitEcmmmb.exit151: ; preds = %_ZN3fmt
 225:                                              ; preds = %223
   %226 = trunc nuw nsw i64 %indvars.iv349 to i32
   %.not29.i = icmp ult i64 %215, %94
-  %227 = sub i64 %94, %215
+  %227 = sub nuw i64 %94, %215
   %.not30.i = icmp ugt i64 %227, %215
-  %or.cond32.i = and i1 %.not29.i, %.not30.i
+  %or.cond32.i = select i1 %.not29.i, i1 %.not30.i, i1 false
   br i1 %or.cond32.i, label %228, label %_ZN3fmt2v96detail19get_round_directionEmmm.exit.thread269
 
 228:                                              ; preds = %225
@@ -48497,7 +48497,7 @@ _ZN3fmt2v96detail18gen_digits_handler8on_digitEcmmmb.exit151: ; preds = %_ZN3fmt
   br i1 %.not23.i.i142, label %234, label %_ZN3fmt2v96detail19get_round_directionEmmm.exit.thread280
 
 234:                                              ; preds = %228, %230
-  %235 = sub i64 %219, %215
+  %235 = sub nuw i64 %219, %215
   %236 = sub i64 %94, %235
   %.not25.i.i144 = icmp ult i64 %235, %236
   br i1 %.not25.i.i144, label %_ZN3fmt2v96detail19get_round_directionEmmm.exit.thread269, label %_ZN3fmt2v96detail19get_round_directionEmmm.exit.i145

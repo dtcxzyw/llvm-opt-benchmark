@@ -7528,7 +7528,7 @@ define dso_local ptr @skb_pull(ptr nocapture noundef %0, i32 noundef %1) #0 alig
   br i1 %5, label %17, label %6, !prof !6
 
 6:                                                ; preds = %2
-  %7 = sub i32 %4, %1
+  %7 = sub nuw i32 %4, %1
   store i32 %7, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4
@@ -7569,7 +7569,7 @@ define dso_local ptr @skb_pull_data(ptr nocapture noundef %0, i64 noundef %1) #0
   br i1 %11, label %20, label %12, !prof !6
 
 12:                                               ; preds = %7
-  %13 = sub i32 %4, %10
+  %13 = sub nuw i32 %4, %10
   store i32 %13, ptr %3, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 116
   %15 = load i32, ptr %14, align 4
@@ -7893,7 +7893,7 @@ define dso_local ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %1) #0 align 
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %.preheader25
-  %74 = sub i32 %68, %71
+  %74 = sub nuw i32 %68, %71
   %75 = load ptr, ptr %69, align 8
   %76 = icmp eq i32 %74, 0
   br i1 %76, label %.loopexit26, label %.preheader25, !llvm.loop !158
@@ -8450,7 +8450,7 @@ define internal fastcc noundef zeroext i1 @__skb_splice_bits(ptr nocapture nound
   br i1 %86, label %89, label %87
 
 87:                                               ; preds = %.preheader
-  %88 = sub i32 %83, %85
+  %88 = sub nuw i32 %83, %85
   store i32 %88, ptr %1, align 4
   br label %91
 
@@ -10806,7 +10806,7 @@ define dso_local void @skb_split(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %31, label %32, label %106
 
 32:                                               ; preds = %19
-  %33 = sub i32 %8, %2
+  %33 = sub nuw i32 %8, %2
   %34 = load ptr, ptr %22, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 184
   %36 = load i32, ptr %35, align 8
@@ -10924,7 +10924,7 @@ define dso_local void @skb_split(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %116 = getelementptr inbounds i8, ptr %1, i64 112
   store i32 %114, ptr %116, align 8
   store i32 %2, ptr %4, align 8
-  %117 = sub i32 %2, %8
+  %117 = sub nuw i32 %2, %8
   store i32 %117, ptr %6, align 4
   %118 = icmp eq i8 %112, 0
   br i1 %118, label %219, label %119
@@ -12229,7 +12229,7 @@ define dso_local ptr @skb_pull_rcsum(ptr nocapture noundef %0, i32 noundef %1) #
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 200
   %9 = load ptr, ptr %8, align 8
-  %10 = sub i32 %4, %1
+  %10 = sub nuw i32 %4, %1
   store i32 %10, ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 116
   %12 = load i32, ptr %11, align 4
@@ -13718,7 +13718,7 @@ define dso_local ptr @skb_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
   br i1 %692, label %693, label %699
 
 693:                                              ; preds = %687
-  %694 = sub i32 %200, %519
+  %694 = sub nuw i32 %200, %519
   %695 = getelementptr inbounds i8, ptr %518, i64 12
   %696 = load i32, ptr %695, align 4
   %697 = add i32 %696, %694
@@ -15922,7 +15922,7 @@ define dso_local noundef ptr @skb_checksum_trimmed(ptr noundef %0, i32 noundef %
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %35, i64 200
   %53 = load ptr, ptr %52, align 8
-  %54 = sub i32 %48, %15
+  %54 = sub nuw i32 %48, %15
   store i32 %54, ptr %36, align 8
   %55 = load i32, ptr %37, align 4
   %56 = icmp ult i32 %54, %55
@@ -19045,7 +19045,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pskb_carve(ptr noundef %0,
   br i1 %223, label %224, label %230
 
 224:                                              ; preds = %220
-  %225 = sub i32 %1, %209
+  %225 = sub nuw i32 %1, %209
   %226 = load i32, ptr %198, align 4
   %227 = add i32 %226, %225
   store i32 %227, ptr %198, align 4
@@ -19173,7 +19173,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pskb_carve(ptr noundef %0,
   br i1 %302, label %307, label %303
 
 303:                                              ; preds = %299
-  %304 = sub i32 %294, %301
+  %304 = sub nuw i32 %294, %301
   %305 = load ptr, ptr %295, align 8
   %306 = icmp eq i32 %304, 0
   br i1 %306, label %.loopexit32, label %293, !llvm.loop !278
@@ -20601,13 +20601,13 @@ define internal fastcc noundef zeroext i1 @__splice_segment(ptr noundef %0, i32 
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = sub i32 %12, %2
+  %15 = sub nuw i32 %12, %2
   store i32 %15, ptr %3, align 4
   br label %.thread9
 
 16:                                               ; preds = %11
   %17 = add i32 %12, %1
-  %18 = sub i32 %2, %12
+  %18 = sub nuw i32 %2, %12
   store i32 0, ptr %3, align 4
   %19 = getelementptr inbounds i8, ptr %5, i64 16
   %20 = getelementptr inbounds i8, ptr %7, i64 623

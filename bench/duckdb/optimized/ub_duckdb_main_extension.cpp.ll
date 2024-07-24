@@ -9895,7 +9895,7 @@ invoke.cont4.i.i:                                 ; preds = %invoke.cont273
   store ptr %207, ptr %url_local_part, align 8, !tbaa !7, !alias.scope !224
   %208 = load ptr, ptr %no_http, align 8, !tbaa !9, !noalias !224
   %add.ptr.i.i = getelementptr inbounds i8, ptr %208, i64 %call148
-  %sub.i.i.i = sub i64 %206, %call148
+  %sub.i.i.i = sub nuw i64 %206, %call148
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i948) #28, !noalias !224
   store i64 %sub.i.i.i, ptr %__dnew.i.i.i948, align 8, !tbaa !14, !noalias !224
   %cmp.i15.i.i951 = icmp ugt i64 %sub.i.i.i, 15
@@ -22090,7 +22090,7 @@ invoke.cont4.i.i:                                 ; preds = %_ZNKSt7__cxx1112bas
   store ptr %11, ptr %ref.tmp2, align 8, !tbaa !7, !alias.scope !324
   %12 = load ptr, ptr %path, align 8, !tbaa !9, !noalias !324
   %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %call
-  %sub.i.i.i = sub i64 %10, %call
+  %sub.i.i.i = sub nuw i64 %10, %call
   %spec.select.i.i.i63 = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 3)
   switch i64 %spec.select.i.i.i63, label %if.end.i.i.i.i.i.i68 [
     i64 1, label %if.then.i.i.i.i.i67
@@ -26830,7 +26830,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %1, %0
+  %sub = sub nuw i64 %1, %0
   %read_buff_10 = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %read_buff_10, align 8, !tbaa !189
   %add.ptr13 = getelementptr inbounds i8, ptr %2, i64 %0
@@ -38179,7 +38179,7 @@ while.cond.i:                                     ; preds = %call.i455.noexc, %i
 
 while.body.i:                                     ; preds = %while.cond.i
   %add.ptr.i = getelementptr inbounds i8, ptr %161, i64 %offset.0.i
-  %sub.i = sub i64 %162, %offset.0.i
+  %sub.i = sub nuw i64 %162, %offset.0.i
   %vtable.i = load ptr, ptr %strm, align 8, !tbaa !187
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %163 = load ptr, ptr %vfn.i, align 8
@@ -38362,7 +38362,7 @@ while.cond.i488:                                  ; preds = %while.body.i491, %i
 
 while.body.i491:                                  ; preds = %while.cond.i488
   %add.ptr.i492 = getelementptr inbounds i8, ptr %183, i64 %offset.0.i489
-  %sub.i493 = sub i64 %172, %offset.0.i489
+  %sub.i493 = sub nuw i64 %172, %offset.0.i489
   %vtable.i494 = load ptr, ptr %strm, align 8, !tbaa !187
   %vfn.i495 = getelementptr inbounds i8, ptr %vtable.i494, i64 40
   %184 = load ptr, ptr %vfn.i495, align 8
@@ -43809,7 +43809,7 @@ while.cond:                                       ; preds = %if.end, %_ZNSt8func
   br i1 %cmp.not.not, label %cleanup, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %sub = sub i64 %add, %9
+  %sub = sub nuw i64 %add, %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
   store i64 %9, ptr %__args.addr.i, align 8, !tbaa !14
@@ -44517,7 +44517,7 @@ while.cond.i:                                     ; preds = %call.i96.noexc, %_Z
 
 while.body.i:                                     ; preds = %while.cond.i
   %add.ptr.i = getelementptr inbounds i8, ptr %51, i64 %offset.0.i
-  %sub.i = sub i64 %52, %offset.0.i
+  %sub.i = sub nuw i64 %52, %offset.0.i
   %vtable.i = load ptr, ptr %50, align 8, !tbaa !187
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %53 = load ptr, ptr %vfn.i, align 8
@@ -45405,7 +45405,7 @@ while.cond.i:                                     ; preds = %call.i119.noexc, %_
 
 while.body.i:                                     ; preds = %while.cond.i
   %add.ptr.i = getelementptr inbounds i8, ptr %53, i64 %offset.0.i
-  %sub.i = sub i64 %54, %offset.0.i
+  %sub.i = sub nuw i64 %54, %offset.0.i
   %vtable.i = load ptr, ptr %52, align 8, !tbaa !187
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %55 = load ptr, ptr %vfn.i, align 8
@@ -45586,7 +45586,7 @@ while.cond.i157:                                  ; preds = %call.i165.noexc, %i
 
 while.body.i160:                                  ; preds = %while.cond.i157
   %add.ptr.i161 = getelementptr inbounds i8, ptr %80, i64 %offset.0.i158
-  %sub.i162 = sub i64 %81, %offset.0.i158
+  %sub.i162 = sub nuw i64 %81, %offset.0.i158
   %vtable.i163 = load ptr, ptr %79, align 8, !tbaa !187
   %vfn.i164 = getelementptr inbounds i8, ptr %vtable.i163, i64 40
   %82 = load ptr, ptr %vfn.i164, align 8
@@ -45778,7 +45778,7 @@ while.cond.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
 
 while.body.i.i.i.i:                               ; preds = %while.cond.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %offset.0.i.i.i.i
-  %sub.i.i.i.i = sub i64 %2, %offset.0.i.i.i.i
+  %sub.i.i.i.i = sub nuw i64 %2, %offset.0.i.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !187
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 40
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -47390,7 +47390,7 @@ while.cond.i:                                     ; preds = %while.body.i, %if.t
   br i1 %cmp.i90, label %while.body.i, label %if.end29.thread169
 
 while.body.i:                                     ; preds = %while.cond.i
-  %sub.i = sub i64 %call13, %r.0.i
+  %sub.i = sub nuw i64 %call13, %r.0.i
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 4096)
   %vtable.i91 = load ptr, ptr %57, align 8, !tbaa !187
   %vfn.i92 = getelementptr inbounds i8, ptr %vtable.i91, i64 32

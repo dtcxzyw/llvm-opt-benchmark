@@ -471,7 +471,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 if.else.i:                                        ; preds = %entry
-  %sub.i = sub i64 %conv, %add.i.i.i
+  %sub.i = sub nuw i64 %conv, %add.i.i.i
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %needs_alignment, ptr %0, i32 %1, i64 noundef %sub.i, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
@@ -825,7 +825,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 if.else.i:                                        ; preds = %entry
-  %sub.i = sub i64 %conv, %add.i.i.i
+  %sub.i = sub nuw i64 %conv, %add.i.i.i
   tail call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %needs_alignment, ptr %1, i32 %2, i64 noundef %sub.i, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 

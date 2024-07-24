@@ -421,7 +421,7 @@ do.body.us:                                       ; preds = %do.body.lr.ph, %_ZN
   br i1 %cmp5.not.us, label %do.body8, label %do.end9.us
 
 do.end9.us:                                       ; preds = %do.body.us
-  %sub.us = sub i64 %3, %2
+  %sub.us = sub nuw i64 %3, %2
   %spec.select.us = tail call i64 @llvm.umin.i64(i64 %sub.us, i64 %left.023.us)
   %add.us = add i64 %2, %spec.select.us
   store i64 %add.us, ptr %read_pos_.us, align 8
@@ -488,7 +488,7 @@ do.body8:                                         ; preds = %do.body, %do.body.u
   unreachable
 
 do.end9:                                          ; preds = %do.body
-  %sub = sub i64 %18, %17
+  %sub = sub nuw i64 %18, %17
   %spec.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 %left.023)
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %offset.022
   %data_ = getelementptr inbounds i8, ptr %16, i64 40
@@ -773,7 +773,7 @@ do.end7:                                          ; preds = %while.body.lr.ph, %
   %left.06073 = phi i64 [ %sub19, %if.end56 ], [ %size, %while.body.lr.ph ]
   %offset.06172 = phi i64 [ %add, %if.end56 ], [ 0, %while.body.lr.ph ]
   %15 = phi ptr [ %41, %if.end56 ], [ %.pre, %while.body.lr.ph ]
-  %sub = sub i64 %13, %14
+  %sub = sub nuw i64 %13, %14
   %spec.select = tail call i64 @llvm.umin.i64(i64 %left.06073, i64 %sub)
   %data_ = getelementptr inbounds i8, ptr %15, i64 40
   %16 = load ptr, ptr %data_, align 8
@@ -1038,7 +1038,7 @@ do.body7:                                         ; preds = %do.body
   unreachable
 
 do.end8:                                          ; preds = %do.body
-  %sub = sub i64 %3, %2
+  %sub = sub nuw i64 %3, %2
   %spec.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 %left.036)
   %cmp1630.not = icmp eq i64 %spec.select, 0
   br i1 %cmp1630.not, label %while.end, label %land.rhs.preheader

@@ -26651,7 +26651,7 @@ if.end84:                                         ; preds = %if.else
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end84
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN7nanovdb2io12GridMetaDataESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %meta, i64 noundef %sub.i)
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIN7nanovdb2io12GridMetaDataESaIS2_EE6resizeEm.exit

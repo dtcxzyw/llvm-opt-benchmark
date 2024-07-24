@@ -6127,7 +6127,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -6998,7 +6998,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %._ZNSt6vectorIiSaIi
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
-  %64 = sub nsw i64 %45, %61
+  %64 = sub nuw nsw i64 %45, %61
   %65 = icmp ult i64 %61, 2305843009213693952
   tail call void @llvm.assume(i1 %65)
   %66 = xor i64 %61, 2305843009213693951

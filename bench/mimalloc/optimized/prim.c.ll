@@ -592,7 +592,7 @@ while.cond.preheader:                             ; preds = %if.end8
 while.body:                                       ; preds = %while.cond.preheader, %if.end24
   %count.019 = phi i64 [ %count.1, %if.end24 ], [ 0, %while.cond.preheader ]
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %count.019
-  %sub = sub i64 %buf_len, %count.019
+  %sub = sub nuw i64 %buf_len, %count.019
   %call.i15 = tail call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i, ptr noundef %add.ptr, i64 noundef %sub) #8
   %cmp16 = icmp slt i64 %call.i15, 1
   br i1 %cmp16, label %if.then17, label %if.else

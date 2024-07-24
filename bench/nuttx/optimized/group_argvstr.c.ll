@@ -58,7 +58,7 @@ define i64 @group_argvstr(ptr noundef readonly %0, ptr nocapture noundef writeon
   %.036 = phi ptr [ %.0, %.lr.ph ], [ %.034, %23 ]
   %.02635 = phi i64 [ %35, %.lr.ph ], [ 0, %23 ]
   %31 = getelementptr inbounds i8, ptr %1, i64 %.02635
-  %32 = sub i64 %2, %.02635
+  %32 = sub nuw i64 %2, %.02635
   %33 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %31, i64 noundef %32, ptr noundef nonnull @.str.1, ptr noundef nonnull %30) #3
   %34 = sext i32 %33 to i64
   %35 = add i64 %.02635, %34

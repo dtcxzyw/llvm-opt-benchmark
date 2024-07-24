@@ -1927,7 +1927,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 36:                                               ; preds = %30
-  %37 = sub i64 %31, %26
+  %37 = sub nuw i64 %31, %26
   br label %38
 
 38:                                               ; preds = %36, %32

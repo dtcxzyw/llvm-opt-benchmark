@@ -13002,7 +13002,7 @@ if.end.i2448:                                     ; preds = %do.end913
   br i1 %cmp6.i2450, label %if.then8.i2500, label %if.end32.i2451
 
 if.then8.i2500:                                   ; preds = %if.end.i2448
-  %sub.i2502 = sub i64 %end, %1959
+  %sub.i2502 = sub nuw i64 %end, %1959
   %sub.i2502.conv.i2446 = call i64 @llvm.umin.i64(i64 %sub.i2502, i64 %conv.i2446)
   %idx.neg.i2519 = sub nsw i64 0, %sub.i2502.conv.i2446
   %1960 = add i64 %1959, %sub.i2502.conv.i2446
@@ -13068,7 +13068,7 @@ if.end32.i2451:                                   ; preds = %if.end.i20879, %con
 if.else.i2458:                                    ; preds = %if.end32.i2451
   %ll_len48.i2462 = getelementptr inbounds i8, ptr %scratch, i64 128
   %1968 = load i64, ptr %ll_len48.i2462, align 32
-  %sub54.i2468 = sub i64 %1959, %sub34.i2453
+  %sub54.i2468 = sub nuw i64 %1959, %sub34.i2453
   %conv70.i2479 = and i64 %sub54.i2468, 4294967295
   %cmp71.i2480 = icmp ugt i64 %conv70.i2479, %1968
   br i1 %cmp71.i2480, label %do.end919, label %if.end76.i2481
@@ -13162,7 +13162,7 @@ if.end.i2389:                                     ; preds = %do.end931
   br i1 %cmp6.i2391, label %if.then8.i, label %if.end32.i
 
 if.then8.i:                                       ; preds = %if.end.i2389
-  %sub.i2405 = sub i64 %end, %1979
+  %sub.i2405 = sub nuw i64 %end, %1979
   %sub.i2405.conv.i2387 = call i64 @llvm.umin.i64(i64 %sub.i2405, i64 %conv.i2387)
   %idx.neg.i2417 = sub nsw i64 0, %sub.i2405.conv.i2387
   %1980 = add i64 %1979, %sub.i2405.conv.i2387
@@ -13250,7 +13250,7 @@ if.end32.i:                                       ; preds = %if.end.i20684, %con
 if.then43.i2402:                                  ; preds = %if.end32.i
   %ll_len_nocase.i = getelementptr inbounds i8, ptr %scratch, i64 144
   %1990 = load i64, ptr %ll_len_nocase.i, align 16
-  %sub54.i = sub i64 %1979, %sub34.i
+  %sub54.i = sub nuw i64 %1979, %sub34.i
   %conv70.i = and i64 %sub54.i, 4294967295
   %cmp71.i2398 = icmp ugt i64 %conv70.i, %1990
   br i1 %cmp71.i2398, label %do.end940, label %if.end76.i2399
@@ -13366,7 +13366,7 @@ if.end.i2623:                                     ; preds = %do.end952
   br i1 %cmp6.i2625, label %if.then8.i2666, label %if.end32.i2626
 
 if.then8.i2666:                                   ; preds = %if.end.i2623
-  %sub.i2668 = sub i64 %end, %2003
+  %sub.i2668 = sub nuw i64 %end, %2003
   %sub.i2668.conv.i2621 = call i64 @llvm.umin.i64(i64 %sub.i2668, i64 %conv.i2621)
   %idx.neg.i2685 = sub nsw i64 0, %sub.i2668.conv.i2621
   %2004 = add i64 %2003, %sub.i2668.conv.i2621
@@ -13430,7 +13430,7 @@ if.end32.i2626:                                   ; preds = %if.end.i20955, %con
   br i1 %cmp36.i2630.not, label %if.end41.i2631, label %if.end967
 
 if.end41.i2631:                                   ; preds = %if.end32.i2626
-  %sub46.i2636 = sub i64 %2003, %sub34.i2628
+  %sub46.i2636 = sub nuw i64 %2003, %sub34.i2628
   %conv62.i2647 = and i64 %sub46.i2636, 4294967295
   %hlen.i2648 = getelementptr inbounds i8, ptr %scratch, i64 312
   %2012 = load i64, ptr %hlen.i2648, align 8
@@ -13526,7 +13526,7 @@ if.end.i2552:                                     ; preds = %do.end973
   br i1 %cmp6.i2554, label %if.then8.i2572, label %if.end32.i2555
 
 if.then8.i2572:                                   ; preds = %if.end.i2552
-  %sub.i2574 = sub i64 %end, %2023
+  %sub.i2574 = sub nuw i64 %end, %2023
   %sub.i2574.conv.i2550 = call i64 @llvm.umin.i64(i64 %sub.i2574, i64 %conv.i2550)
   %idx.neg.i2591 = sub nsw i64 0, %sub.i2574.conv.i2550
   %2024 = add i64 %2023, %sub.i2574.conv.i2550
@@ -13612,7 +13612,7 @@ if.end32.i2555:                                   ; preds = %if.end.i20764, %con
   br i1 %cmp36.i2559.not, label %if.end41.i2560, label %if.end988
 
 if.end41.i2560:                                   ; preds = %if.end32.i2555
-  %sub46.i = sub i64 %2023, %sub34.i2557
+  %sub46.i = sub nuw i64 %2023, %sub34.i2557
   %conv62.i2566 = and i64 %sub46.i, 4294967295
   %hlen.i2567 = getelementptr inbounds i8, ptr %scratch, i64 312
   %2034 = load i64, ptr %hlen.i2567, align 8
@@ -26364,7 +26364,7 @@ if.end.i1072:                                     ; preds = %do.end284
   br i1 %cmp6.i1074, label %if.then8.i1124, label %if.end32.i1075
 
 if.then8.i1124:                                   ; preds = %if.end.i1072
-  %sub.i1126 = sub i64 %end, %658
+  %sub.i1126 = sub nuw i64 %end, %658
   %sub.i1126.conv.i1070 = tail call i64 @llvm.umin.i64(i64 %sub.i1126, i64 %conv.i1070)
   %idx.neg.i1143 = sub nsw i64 0, %sub.i1126.conv.i1070
   %659 = add i64 %658, %sub.i1126.conv.i1070
@@ -26428,7 +26428,7 @@ if.end32.i1075:                                   ; preds = %if.end.i10399, %con
 
 if.else.i1082:                                    ; preds = %if.end32.i1075
   %667 = load i64, ptr %ll_len48.i1086, align 32
-  %sub54.i1092 = sub i64 %658, %sub34.i1077
+  %sub54.i1092 = sub nuw i64 %658, %sub34.i1077
   %conv70.i1103 = and i64 %sub54.i1092, 4294967295
   %cmp71.i1104 = icmp ugt i64 %conv70.i1103, %667
   br i1 %cmp71.i1104, label %do.end290, label %if.end76.i1105
@@ -26516,7 +26516,7 @@ if.end.i1021:                                     ; preds = %do.end298
   br i1 %cmp6.i1023, label %if.then8.i, label %if.end32.i
 
 if.then8.i:                                       ; preds = %if.end.i1021
-  %sub.i1034 = sub i64 %end, %678
+  %sub.i1034 = sub nuw i64 %end, %678
   %sub.i1034.conv.i1019 = tail call i64 @llvm.umin.i64(i64 %sub.i1034, i64 %conv.i1019)
   %idx.neg.i1042 = sub nsw i64 0, %sub.i1034.conv.i1019
   %679 = add i64 %678, %sub.i1034.conv.i1019
@@ -26602,7 +26602,7 @@ if.end32.i:                                       ; preds = %if.end.i10204, %con
 
 if.then43.i1031:                                  ; preds = %if.end32.i
   %689 = load i64, ptr %ll_len_nocase.i, align 16
-  %sub54.i = sub i64 %678, %sub34.i
+  %sub54.i = sub nuw i64 %678, %sub34.i
   %conv70.i = and i64 %sub54.i, 4294967295
   %cmp71.i = icmp ugt i64 %conv70.i, %689
   br i1 %cmp71.i, label %do.end307, label %if.end76.i
@@ -26712,7 +26712,7 @@ if.end.i1247:                                     ; preds = %do.end315
   br i1 %cmp6.i1249, label %if.then8.i1290, label %if.end32.i1250
 
 if.then8.i1290:                                   ; preds = %if.end.i1247
-  %sub.i1292 = sub i64 %end, %702
+  %sub.i1292 = sub nuw i64 %end, %702
   %sub.i1292.conv.i1245 = tail call i64 @llvm.umin.i64(i64 %sub.i1292, i64 %conv.i1245)
   %idx.neg.i1309 = sub nsw i64 0, %sub.i1292.conv.i1245
   %703 = add i64 %702, %sub.i1292.conv.i1245
@@ -26775,7 +26775,7 @@ if.end32.i1250:                                   ; preds = %if.end.i10475, %con
   br i1 %cmp36.i1254.not, label %if.end41.i1255, label %if.end328
 
 if.end41.i1255:                                   ; preds = %if.end32.i1250
-  %sub46.i1260 = sub i64 %702, %sub34.i1252
+  %sub46.i1260 = sub nuw i64 %702, %sub34.i1252
   %conv62.i1271 = and i64 %sub46.i1260, 4294967295
   %711 = load i64, ptr %hlen.i1191, align 8
   %cmp63.i1273 = icmp ugt i64 %conv62.i1271, %711
@@ -26864,7 +26864,7 @@ if.end.i1176:                                     ; preds = %do.end332
   br i1 %cmp6.i1178, label %if.then8.i1196, label %if.end32.i1179
 
 if.then8.i1196:                                   ; preds = %if.end.i1176
-  %sub.i1198 = sub i64 %end, %722
+  %sub.i1198 = sub nuw i64 %end, %722
   %sub.i1198.conv.i1174 = tail call i64 @llvm.umin.i64(i64 %sub.i1198, i64 %conv.i1174)
   %idx.neg.i1215 = sub nsw i64 0, %sub.i1198.conv.i1174
   %723 = add i64 %722, %sub.i1198.conv.i1174
@@ -26949,7 +26949,7 @@ if.end32.i1179:                                   ; preds = %if.end.i10284, %con
   br i1 %cmp36.i1183.not, label %if.end41.i1184, label %if.end345
 
 if.end41.i1184:                                   ; preds = %if.end32.i1179
-  %sub46.i = sub i64 %722, %sub34.i1181
+  %sub46.i = sub nuw i64 %722, %sub34.i1181
   %conv62.i1190 = and i64 %sub46.i, 4294967295
   %733 = load i64, ptr %hlen.i1191, align 8
   %cmp63.i = icmp ugt i64 %conv62.i1190, %733

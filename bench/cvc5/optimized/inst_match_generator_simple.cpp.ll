@@ -2465,7 +2465,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
   br i1 %cmp.i, label %if.then.i231, label %if.else.i
 
 if.then.i231:                                     ; preds = %invoke.cont30
-  %sub.i = sub nsw i64 %conv.i226, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv.i226, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %terms, i64 noundef %sub.i)
           to label %invoke.cont32 unwind label %lpad29
 

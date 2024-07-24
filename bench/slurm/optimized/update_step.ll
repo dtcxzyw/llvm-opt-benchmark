@@ -202,7 +202,7 @@ _get_step_time.exit:                              ; preds = %74
   br label %108
 
 89:                                               ; preds = %85
-  %90 = sub i32 %80, %55
+  %90 = sub nuw i32 %80, %55
   br label %91
 
 91:                                               ; preds = %59, %83, %89

@@ -5678,7 +5678,7 @@ _ZNK7xgboost6common4SpanIlLm18446744073709551615EEixEm.exit: ; preds = %8
   unreachable
 
 43:                                               ; preds = %37
-  %44 = sub i64 %38, %34
+  %44 = sub nuw i64 %38, %34
   br label %45
 
 45:                                               ; preds = %43, %39

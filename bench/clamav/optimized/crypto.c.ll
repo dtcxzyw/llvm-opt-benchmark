@@ -99,7 +99,7 @@ define noundef ptr @cl_hash_data(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %.05476 = phi i64 [ %27, %26 ], [ 0, %.preheader ]
   %29 = tail call i32 @EVP_MD_get_block_size(ptr noundef nonnull %7) #11
   %30 = sext i32 %29 to i64
-  %31 = sub i64 %2, %.05476
+  %31 = sub nuw i64 %2, %.05476
   %32 = icmp ugt i64 %31, %30
   br i1 %32, label %33, label %36
 

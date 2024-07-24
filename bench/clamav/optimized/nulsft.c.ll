@@ -579,7 +579,7 @@ define internal fastcc i32 @nsis_unpack_next(ptr noundef %0, ptr noundef %1) unn
   br i1 %or.cond208.not, label %32, label %fmap_readn.exit.thread
 
 32:                                               ; preds = %26
-  %33 = sub i64 %31, %29
+  %33 = sub nuw i64 %31, %29
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %33, i64 4)
   %34 = getelementptr inbounds i8, ptr %28, i64 104
   %35 = load ptr, ptr %34, align 8
@@ -631,7 +631,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   br label %255
 
 52:                                               ; preds = %47
-  %53 = sub i32 %49, %45
+  %53 = sub nuw i32 %49, %45
   store i32 %53, ptr %40, align 8
   %54 = zext nneg i32 %45 to i64
   %55 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.7, ptr noundef %1, i64 noundef %54, i64 noundef 0, i64 noundef 0) #10

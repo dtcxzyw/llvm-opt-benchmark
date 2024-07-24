@@ -2612,7 +2612,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -2757,7 +2757,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5Mac
 
 _ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i.i.i:      ; preds = %2
   store i8 0, ptr %3, align 1
-  %10 = sub i64 %.val, %9
+  %10 = sub nuw i64 %.val, %9
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %5, i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %3)
   br label %"_ZSt10__invoke_rIvRZN4LIEF5MachO14SegmentCommand14content_resizeEmE3$_0JRSt6vectorIhSaIhEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
@@ -2841,7 +2841,7 @@ _ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = sub i64 %2, %16
+  %29 = sub nuw i64 %2, %16
   %30 = getelementptr inbounds i8, ptr %9, i64 %29
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 %14, i64 %29, i1 false)
   br label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit

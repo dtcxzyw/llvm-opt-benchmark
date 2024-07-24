@@ -72,7 +72,7 @@ for.end27:                                        ; preds = %for.body21.preheade
 if.then30:                                        ; preds = %for.end27
   %add.ptr31 = getelementptr i8, ptr %c, i64 %spec.store.select54
   %add.ptr32 = getelementptr i8, ptr %m.addr.050, i64 %spec.store.select54
-  %sub33 = sub i64 %mlen, %spec.store.select54
+  %sub33 = sub nuw i64 %mlen, %spec.store.select54
   %call36 = call i32 @crypto_stream_chacha20_xor_ic(ptr noundef %add.ptr31, ptr noundef %add.ptr32, i64 noundef %sub33, ptr noundef %add.ptr, i64 noundef 1, ptr noundef nonnull %subkey) #8
   br label %if.end37
 

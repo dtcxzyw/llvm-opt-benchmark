@@ -10294,7 +10294,7 @@ common.resume:                                    ; preds = %251, %256, %237, %1
 
 182:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb9083c0275b9ba55E.llvm.12599983639457799574.exit.i"
   %183 = getelementptr inbounds i8, ptr %177, i64 72
-  %184 = sub i64 %172, %.sroa.4.0264
+  %184 = sub nuw i64 %172, %.sroa.4.0264
   %185 = mul i64 %184, 72
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %183, ptr nonnull align 8 %177, i64 %185, i1 false), !noalias !2565
   br label %192
@@ -10466,7 +10466,7 @@ common.resume:                                    ; preds = %251, %256, %237, %1
 
 240:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb9083c0275b9ba55E.llvm.12599983639457799574.exit.i129"
   %241 = getelementptr inbounds i8, ptr %235, i64 72
-  %242 = sub i64 %230, %.sroa.4.0264
+  %242 = sub nuw i64 %230, %.sroa.4.0264
   %243 = mul i64 %242, 72
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %241, ptr nonnull align 8 %235, i64 %243, i1 false), !noalias !2587
   br label %248

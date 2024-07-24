@@ -1017,7 +1017,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then39:                                        ; preds = %while.body
   %conv = zext i32 %and to i64
-  %sub40 = sub i32 %bitpointer.1216, %add37
+  %sub40 = sub nuw i32 %bitpointer.1216, %add37
   %sh_prom41 = zext nneg i32 %sub40 to i64
   %shl42 = shl i64 %conv, %sh_prom41
   %or43 = or i64 %shl42, %wide_accum.1215
@@ -1104,7 +1104,7 @@ if.end92:                                         ; preds = %if.end21.i200, %lan
   br i1 %cmp93, label %if.then95, label %if.else181
 
 if.then95:                                        ; preds = %if.end92
-  %reass.sub = sub i32 %shr36, %bitpointer.1216
+  %reass.sub = sub nuw i32 %shr36, %bitpointer.1216
   %sub97 = add i32 %reass.sub, 32
   %20 = load i32, ptr %bits, align 8
   %cmp99 = icmp eq i32 %20, 0
@@ -1206,7 +1206,7 @@ if.end178:                                        ; preds = %if.else164, %if.the
   br label %if.end211
 
 if.else181:                                       ; preds = %if.end92
-  %sub182 = sub i32 %bitpointer.1216, %shr36
+  %sub182 = sub nuw i32 %bitpointer.1216, %shr36
   %cmp183 = icmp ult i32 %sub182, 33
   br i1 %cmp183, label %if.then185, label %if.end211
 

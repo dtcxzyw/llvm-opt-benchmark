@@ -119,7 +119,7 @@ define dso_local void @ZSTD_ldm_fillHashTable(ptr nocapture noundef %0, ptr noun
   %18 = zext nneg i32 %.val38 to i64
   %notmask15.i = shl nsw i64 -1, %18
   %19 = xor i64 %notmask15.i, -1
-  %20 = sub nsw i32 %spec.select.i, %.val38
+  %20 = sub nuw nsw i32 %spec.select.i, %.val38
   %narrow.i = select i1 %or.cond.not.i, i32 %20, i32 0
   %21 = zext nneg i32 %narrow.i to i64
   %.sink.i = shl i64 %19, %21
@@ -568,7 +568,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
   %109 = zext nneg i32 %.val227.i to i64
   %notmask15.i.i = shl nsw i64 -1, %109
   %110 = xor i64 %notmask15.i.i, -1
-  %111 = sub nsw i32 %spec.select.i.i, %.val227.i
+  %111 = sub nuw nsw i32 %spec.select.i.i, %.val227.i
   %narrow.i.i = select i1 %or.cond.not.i.i, i32 %111, i32 0
   %112 = zext nneg i32 %narrow.i.i to i64
   %.sink.i.i = shl i64 %110, %112
@@ -1318,7 +1318,7 @@ define dso_local void @ZSTD_ldm_skipSequences(ptr nocapture noundef %0, i64 noun
   br label %.critedge
 
 19:                                               ; preds = %10
-  %20 = sub i64 %.047, %15
+  %20 = sub nuw i64 %.047, %15
   store i32 0, ptr %13, align 4
   %21 = getelementptr inbounds i8, ptr %12, i64 8
   %22 = load i32, ptr %21, align 4
@@ -1355,7 +1355,7 @@ define dso_local void @ZSTD_ldm_skipSequences(ptr nocapture noundef %0, i64 noun
   br label %.critedge
 
 39:                                               ; preds = %19
-  %40 = sub i64 %20, %23
+  %40 = sub nuw i64 %20, %23
   store i32 0, ptr %21, align 4
   %41 = load i64, ptr %4, align 8
   %42 = add i64 %41, 1
@@ -1401,7 +1401,7 @@ define dso_local void @ZSTD_ldm_skipRawSeqStoreBytes(ptr nocapture noundef %0, i
   br i1 %.not19, label %20, label %17
 
 17:                                               ; preds = %13
-  %18 = sub i32 %.026, %16
+  %18 = sub nuw i32 %.026, %16
   %19 = add nuw i64 %11, 1
   store i64 %19, ptr %7, align 8
   %cond = icmp eq i32 %18, 0
@@ -1517,7 +1517,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
   br i1 %.not19.i, label %62, label %59
 
 59:                                               ; preds = %55
-  %60 = sub i32 %.026.i, %58
+  %60 = sub nuw i32 %.026.i, %58
   %61 = add nuw i64 %53, 1
   store i64 %61, ptr %49, align 8
   %cond.i = icmp eq i32 %60, 0
@@ -1595,7 +1595,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
   br label %maybeSplitSequence.exit
 
 92:                                               ; preds = %83
-  %93 = sub i64 %.047.i.i, %88
+  %93 = sub nuw nsw i64 %.047.i.i, %88
   store i32 0, ptr %86, align 4
   %94 = getelementptr inbounds i8, ptr %85, i64 8
   %95 = load i32, ptr %94, align 4
@@ -1632,7 +1632,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
   br label %maybeSplitSequence.exit
 
 112:                                              ; preds = %92
-  %113 = sub i64 %93, %96
+  %113 = sub nuw nsw i64 %93, %96
   store i32 0, ptr %94, align 4
   %114 = load i64, ptr %26, align 8
   %115 = add i64 %114, 1

@@ -582,7 +582,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %len, %conv
+  %sub = sub nuw i64 %len, %conv
   %block = getelementptr inbounds i8, ptr %2, i64 248
   br label %for.body
 
@@ -1426,7 +1426,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %in_len, %conv
+  %sub = sub nuw i64 %in_len, %conv
   %cmp4 = icmp ugt i64 %sub, %max_out_len
   br i1 %cmp4, label %if.then6, label %if.end7
 
@@ -2051,7 +2051,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %in_len, %conv
+  %sub = sub nuw i64 %in_len, %conv
   %cmp4 = icmp ugt i64 %sub, %max_out_len
   br i1 %cmp4, label %if.then6, label %if.end7
 

@@ -1931,12 +1931,12 @@ if.else:                                          ; preds = %sw.bb12.if.else_cri
   br i1 %cmp.i58, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
-  %sub.i = sub i64 %call18, %call.i57
+  %sub.i = sub nuw i64 %call18, %call.i57
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %call.i57
   br label %readback_bytes.exit
 
 if.else.i:                                        ; preds = %if.else
-  %sub2.i = sub i64 %call.i57, %call18
+  %sub2.i = sub nuw i64 %call.i57, %call18
   %cmp3.not.i = icmp ult i64 %sub2.i, 2
   br i1 %cmp3.not.i, label %if.end.i, label %if.then21
 
@@ -3539,7 +3539,7 @@ if.end66:                                         ; preds = %if.end59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %ptr.0105, ptr noundef nonnull align 4 dereferenceable(1) %buf, i64 %len.1, i1 false)
   %add68 = add i64 %len.1, %cursize.0106
   %add.ptr = getelementptr inbounds i8, ptr %ptr.0105, i64 %len.1
-  %sub69 = sub i64 %size.addr.0104, %len.1
+  %sub69 = sub nuw i64 %size.addr.0104, %len.1
   %20 = load i64, ptr %encstate, align 8
   %add71 = add i64 %20, %len.1
   %sub72 = add nsw i64 %len.1, -1

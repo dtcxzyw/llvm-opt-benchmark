@@ -10473,20 +10473,20 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets16make_cipher_pair17h0f55
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %21, i64 %24
-  %27 = sub i64 %23, %24
+  %27 = sub nuw i64 %23, %24
   %.not52 = icmp ugt i64 %24, %27
   br i1 %.not52, label %.invoke, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %26, i64 %24
-  %30 = sub i64 %27, %24
+  %30 = sub nuw i64 %27, %24
   %31 = getelementptr inbounds i8, ptr %8, i64 8
   %32 = load i64, ptr %31, align 8, !noundef !7
   %.not53 = icmp ugt i64 %32, %30
   br i1 %.not53, label %.invoke, label %33
 
 33:                                               ; preds = %28
-  %34 = sub i64 %30, %32
+  %34 = sub nuw i64 %30, %32
   %.not54 = icmp ugt i64 %32, %34
   br i1 %.not54, label %.invoke, label %36
 
@@ -10501,7 +10501,7 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets16make_cipher_pair17h0f55
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %29, i64 %32
   %38 = getelementptr inbounds i8, ptr %37, i64 %32
-  %39 = sub i64 %34, %32
+  %39 = sub nuw i64 %34, %32
   %. = select i1 %2, ptr %26, ptr %21
   %.56 = select i1 %2, ptr %37, ptr %29
   %40 = load ptr, ptr %11, align 8, !nonnull !7, !align !72, !noundef !7
@@ -11083,13 +11083,13 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets15extract_secrets17hc3def
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %28, i64 %31
-  %34 = sub i64 %30, %31
+  %34 = sub nuw i64 %30, %31
   %.not68 = icmp ugt i64 %31, %34
   br i1 %.not68, label %.invoke, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %33, i64 %31
-  %37 = sub i64 %34, %31
+  %37 = sub nuw i64 %34, %31
   %38 = getelementptr inbounds i8, ptr %15, i64 8
   %39 = load i64, ptr %38, align 8, !noundef !7
   %.not69 = icmp ugt i64 %39, %37
@@ -11097,7 +11097,7 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets15extract_secrets17hc3def
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds i8, ptr %36, i64 %39
-  %42 = sub i64 %37, %39
+  %42 = sub nuw i64 %37, %39
   %.not70 = icmp ugt i64 %39, %42
   br i1 %.not70, label %.invoke, label %44
 
@@ -11111,7 +11111,7 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets15extract_secrets17hc3def
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %41, i64 %39
-  %46 = sub i64 %42, %39
+  %46 = sub nuw i64 %42, %39
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
   %47 = load ptr, ptr %18, align 8, !nonnull !7, !align !72, !noundef !7

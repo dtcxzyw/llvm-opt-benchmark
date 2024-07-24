@@ -738,7 +738,7 @@ if.then.i.i:                                      ; preds = %if.end21
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end21
-  %sub.i16 = sub i64 %line.coerce0, %add
+  %sub.i16 = sub nuw i64 %line.coerce0, %add
   %add.ptr.i19 = getelementptr inbounds i8, ptr %line.coerce1, i64 %add
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)

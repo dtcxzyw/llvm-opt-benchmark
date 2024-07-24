@@ -7619,7 +7619,7 @@ define internal fastcc void @_wa_add(ptr nocapture noundef %0, ptr nocapture nou
 43:                                               ; preds = %.lr.ph, %91
   %44 = phi i32 [ %8, %.lr.ph ], [ %93, %91 ]
   %45 = phi i32 [ 0, %.lr.ph ], [ %92, %91 ]
-  %46 = sub i32 %44, %45
+  %46 = sub nuw i32 %44, %45
   %47 = lshr i32 %46, 1
   %48 = add i32 %47, %45
   %49 = zext i32 %48 to i64

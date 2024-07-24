@@ -5035,7 +5035,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$craneli
 443:                                              ; preds = %.noexc96.i
   %444 = add nuw nsw i64 %421, 1
   %445 = load i8, ptr %256, align 8, !range !543, !alias.scope !544, !noalias !444, !noundef !4
-  %446 = sub nsw i64 %444, %440
+  %446 = sub nuw nsw i64 %444, %440
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h188805cded7f9d35E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %446, i8 noundef %445)
           to label %.noexc121.i unwind label %.loopexit.split-lp.loopexit.loopexit.i, !noalias !442
 
@@ -5066,7 +5066,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$craneli
 451:                                              ; preds = %.noexc91.i
   %452 = add nuw nsw i64 %.pre-phi.i, 1
   %453 = load i8, ptr %256, align 8, !range !543, !alias.scope !553, !noalias !444, !noundef !4
-  %454 = sub nsw i64 %452, %450
+  %454 = sub nuw nsw i64 %452, %450
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h188805cded7f9d35E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %454, i8 noundef %453)
           to label %.noexc126.i unwind label %.loopexit.split-lp.loopexit.loopexit.i, !noalias !442
 
@@ -5508,7 +5508,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i: ; preds = %.noexc138.i
 589:                                              ; preds = %.noexc.i
   %590 = add nuw nsw i64 %.pre-phi1161.i, 1
   %591 = load i8, ptr %256, align 8, !range !543, !alias.scope !645, !noalias !444, !noundef !4
-  %592 = sub nsw i64 %590, %578
+  %592 = sub nuw nsw i64 %590, %578
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h188805cded7f9d35E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %592, i8 noundef %591)
           to label %.noexc161.i unwind label %.loopexit.loopexit.split-lp.i, !noalias !442
 
@@ -9956,7 +9956,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 
 969:                                              ; preds = %965
   %970 = add nuw nsw i64 %968, 1
-  %971 = sub nsw i64 %970, %966
+  %971 = sub nuw nsw i64 %970, %966
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hee310e9dbba55756E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %165, i64 noundef %971, i16 noundef 0)
           to label %.noexc253 unwind label %.loopexit
 
@@ -16613,7 +16613,7 @@ define noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph9make_inst17h4f9
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   %12 = load i32, ptr %11, align 8, !alias.scope !2969, !noundef !4
-  %13 = sub i64 %5, %7
+  %13 = sub nuw i64 %5, %7
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %13, i32 noundef %12)
   %.pre = load i64, ptr %3, align 8, !alias.scope !2972, !noalias !2975
   br label %"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$6resize17h1bacca8662df5365E.exit"
@@ -17277,7 +17277,7 @@ define noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10clone_inst17h5
   %22 = getelementptr inbounds i8, ptr %0, i64 56
   %23 = getelementptr inbounds i8, ptr %0, i64 80
   %24 = load i32, ptr %23, align 8, !alias.scope !3121, !noalias !3111, !noundef !4
-  %25 = sub i64 %17, %19
+  %25 = sub nuw i64 %17, %19
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %25, i32 noundef %24), !noalias !3111
   %.pre.i = load i64, ptr %8, align 8, !alias.scope !3124, !noalias !3127
   br label %"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$6resize17h1bacca8662df5365E.exit.i"
@@ -28291,7 +28291,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.e
   %126 = getelementptr inbounds i8, ptr %118, i64 56
   %127 = getelementptr inbounds i8, ptr %118, i64 80
   %128 = load i32, ptr %127, align 8, !alias.scope !4847, !noalias !4837, !noundef !4
-  %129 = sub i64 %121, %123
+  %129 = sub nuw i64 %121, %123
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d814297b1b9b571E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %126, i64 noundef %129, i32 noundef %128), !noalias !4837
   %.pre.i = load i64, ptr %119, align 8, !alias.scope !4850, !noalias !4853
   br label %"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$6resize17h1bacca8662df5365E.exit.i"
@@ -31235,7 +31235,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.e
 703:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2ee47f3fde85f27E.exit89.i.i"
   %704 = add nuw nsw i64 %701, 1
   %705 = load i32, ptr %681, align 8, !alias.scope !5464, !noundef !4
-  %706 = sub nsw i64 %704, %702
+  %706 = sub nuw nsw i64 %704, %702
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4f537aa244e42aabE.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %675, i64 noundef %706, i32 noundef %705)
           to label %.noexc234.i unwind label %.loopexit.i
 
@@ -31255,7 +31255,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.e
 709:                                              ; preds = %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17he30edd5f49b01185E.exit63.i.i"
   %710 = add nuw nsw i64 %701, 1
   %711 = load i32, ptr %682, align 8, !alias.scope !5470, !noundef !4
-  %712 = sub nsw i64 %710, %708
+  %712 = sub nuw nsw i64 %710, %708
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5c867f02b3d92079E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %678, i64 noundef %712, i32 noundef %711)
           to label %.noexc228.i unwind label %.loopexit.i
 
@@ -31580,7 +31580,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.e
 829:                                              ; preds = %825
   %830 = add nuw nsw i64 %827, 1
   %831 = load i32, ptr %589, align 8, !alias.scope !5561, !noundef !4
-  %832 = sub nsw i64 %830, %828
+  %832 = sub nuw nsw i64 %830, %828
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h0b4d6a256afdab60E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %586, i64 noundef %832, i32 noundef %831)
           to label %.noexc208.i unwind label %.loopexit.split-lp.loopexit.i
 
@@ -31738,7 +31738,7 @@ _ZN17cranelift_codegen6cursor6Cursor25remove_inst_and_step_back17hdd56a95817f1e8
 878:                                              ; preds = %.noexc80.i
   %879 = add nuw nsw i64 %876, 1
   %880 = load i32, ptr %279, align 8, !alias.scope !5615, !noundef !4
-  %881 = sub nsw i64 %879, %877
+  %881 = sub nuw nsw i64 %879, %877
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5c867f02b3d92079E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %277, i64 noundef %881, i32 noundef %880)
           to label %.noexc172.i unwind label %.loopexit272.i
 
@@ -31789,7 +31789,7 @@ _ZN17cranelift_codegen6cursor6Cursor25remove_inst_and_step_back17hdd56a95817f1e8
 890:                                              ; preds = %.noexc76.i
   %891 = add nuw nsw i64 %888, 1
   %892 = load i32, ptr %279, align 8, !alias.scope !5629, !noundef !4
-  %893 = sub nsw i64 %891, %889
+  %893 = sub nuw nsw i64 %891, %889
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5c867f02b3d92079E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %277, i64 noundef %893, i32 noundef %892)
           to label %.noexc177.i unwind label %.loopexit.split-lp273.loopexit.split-lp.loopexit.i
 
@@ -31830,7 +31830,7 @@ _ZN17cranelift_codegen6cursor6Cursor25remove_inst_and_step_back17hdd56a95817f1e8
 900:                                              ; preds = %.noexc85.i
   %901 = add nuw nsw i64 %898, 1
   %902 = load i32, ptr %193, align 8, !alias.scope !5643, !noalias !5185, !noundef !4
-  %903 = sub nsw i64 %901, %899
+  %903 = sub nuw nsw i64 %901, %899
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4f537aa244e42aabE.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %171, i64 noundef %903, i32 noundef %902)
           to label %.noexc181.i unwind label %.loopexit.split-lp273.loopexit.split-lp.loopexit.i
 
@@ -31853,7 +31853,7 @@ _ZN17cranelift_codegen6cursor6Cursor25remove_inst_and_step_back17hdd56a95817f1e8
 910:                                              ; preds = %.noexc.i
   %911 = add nuw nsw i64 %908, 1
   %912 = load i32, ptr %243, align 8, !alias.scope !5649, !noalias !5185, !noundef !4
-  %913 = sub nsw i64 %911, %909
+  %913 = sub nuw nsw i64 %911, %909
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h0b4d6a256afdab60E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %168, i64 noundef %913, i32 noundef %912)
           to label %.noexc185.i unwind label %.loopexit.split-lp273.loopexit.split-lp.loopexit.i
 
@@ -35753,7 +35753,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.e
   %2374 = add nuw nsw i64 %2372, 1
   %2375 = load i32, ptr %.sroa.gep27.i, align 4, !alias.scope !6564, !noalias !6031, !noundef !4
   %2376 = load i32, ptr %1095, align 8, !alias.scope !6564, !noalias !6031, !noundef !4
-  %2377 = sub nsw i64 %2374, %2373
+  %2377 = sub nuw nsw i64 %2374, %2373
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h41f621492cd6c35eE.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %123, i64 noundef %2377, i32 noundef %2376, i32 noundef %2375)
           to label %.noexc123.i.i.i unwind label %.loopexit.i.i.i, !noalias !5965
 

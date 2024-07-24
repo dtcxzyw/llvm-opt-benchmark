@@ -380,7 +380,7 @@ _ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit: ; preds = %44, %
   br i1 %69, label %77, label %70
 
 70:                                               ; preds = %67
-  %71 = sub i64 %64, %68
+  %71 = sub nuw i64 %64, %68
   store i64 %71, ptr %9, align 8
   %72 = getelementptr inbounds i8, ptr %63, i64 %68
   store ptr %72, ptr %8, align 8
@@ -459,7 +459,7 @@ define internal void @_ZN6googleL8DoRawLogEPPcPmPKcz(ptr nocapture noundef %0, p
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %9
-  %14 = sub i64 %11, %10
+  %14 = sub nuw i64 %11, %10
   store i64 %14, ptr %1, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %10

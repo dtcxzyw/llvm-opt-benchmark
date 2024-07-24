@@ -549,7 +549,7 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %.2144 = phi i64 [ %82, %81 ], [ 0, %.preheader ]
   %84 = load i32, ptr %0, align 8
   %85 = getelementptr inbounds i8, ptr %.1106, i64 %.2144
-  %86 = sub i64 %41, %.2144
+  %86 = sub nuw i64 %41, %.2144
   %87 = add i64 %.2144, %13
   %88 = tail call i64 @pwrite(i32 noundef %84, ptr noundef %85, i64 noundef %86, i64 noundef %87) #9
   %89 = icmp eq i64 %88, -1

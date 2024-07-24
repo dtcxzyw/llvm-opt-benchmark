@@ -311,7 +311,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %183 = load i64, ptr %182, align 8
   %184 = shl i64 %183, %110
   %185 = icmp uge i64 %174, %109
-  %186 = sub i64 %105, %174
+  %186 = sub nuw i64 %105, %174
   %.not21.i.i.i = icmp ult i64 %186, %184
   %or.cond22.i.i.i = or i1 %185, %.not21.i.i.i
   br i1 %or.cond22.i.i.i, label %lexbor_grisu2.exit, label %.lr.ph.i.i44.i
@@ -329,7 +329,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
 
 192:                                              ; preds = %189
   %193 = sub i64 %109, %.023.i.i.i
-  %194 = sub i64 %190, %109
+  %194 = sub nuw i64 %190, %109
   %195 = icmp ugt i64 %193, %194
   br i1 %195, label %.critedge2.i.i.i, label %lexbor_grisu2.exit
 
@@ -417,7 +417,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
 
 239:                                              ; preds = %236
   %240 = sub i64 %231, %.023.i125.i.i
-  %241 = sub i64 %237, %231
+  %241 = sub nuw i64 %237, %231
   %242 = icmp ugt i64 %240, %241
   br i1 %242, label %.critedge2.i126.i.i, label %lexbor_grisu2.exit
 

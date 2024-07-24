@@ -772,7 +772,7 @@ if.then56:                                        ; preds = %if.then41
 if.then.i:                                        ; preds = %if.then56
   store <2 x float> zeroinitializer, ptr %ref.tmp73, align 8
   store float 0.000000e+00, ptr %z.i, align 8
-  %sub.i = sub nsw i64 %sub.ptr.div.i16, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i16, %sub.ptr.div.i
   invoke void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %mVertexColors, ptr %14, i64 noundef %sub.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp73)
           to label %if.then.i.if.end76_crit_edge unwind label %lpad
 
@@ -815,7 +815,7 @@ land.lhs.true:                                    ; preds = %if.end86
 if.then.i53:                                      ; preds = %land.lhs.true
   store <2 x float> zeroinitializer, ptr %ref.tmp108, align 8
   store float 0.000000e+00, ptr %z.i40, align 8
-  %sub.i54 = sub nsw i64 %sub.ptr.div.i33, %sub.ptr.div.i28
+  %sub.i54 = sub nuw nsw i64 %sub.ptr.div.i33, %sub.ptr.div.i28
   invoke void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %mVertexColors89, ptr %21, i64 noundef %sub.i54, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp108)
           to label %while.cond.backedge unwind label %lpad
 
@@ -10662,7 +10662,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -10840,7 +10840,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !71
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not4.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not4.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i
 

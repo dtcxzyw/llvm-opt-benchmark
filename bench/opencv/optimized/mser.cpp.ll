@@ -1815,7 +1815,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl11preprocess1ERKNS_3MatEPi(ptr 
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %3
-  %23 = sub nsw i64 %13, %20
+  %23 = sub nuw nsw i64 %13, %20
   tail call void @_ZNSt6vectorIPN2cv9MSER_Impl5PixelESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %23)
   br label %_ZNSt6vectorIPN2cv9MSER_Impl5PixelESaIS3_EE6resizeEm.exit
 
@@ -1845,7 +1845,7 @@ _ZNSt6vectorIPN2cv9MSER_Impl5PixelESaIS3_EE6resizeEm.exit: ; preds = %22, %24, %
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %_ZNSt6vectorIPN2cv9MSER_Impl5PixelESaIS3_EE6resizeEm.exit
-  %39 = sub nsw i64 %10, %36
+  %39 = sub nuw nsw i64 %10, %36
   tail call void @_ZNSt6vectorIN2cv9MSER_Impl11CompHistoryESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %39)
   br label %_ZNSt6vectorIN2cv9MSER_Impl11CompHistoryESaIS2_EE6resizeEm.exit
 
@@ -3891,7 +3891,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv9MSER_Impl5PixelESaIS2_EE6resi
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -4938,7 +4938,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

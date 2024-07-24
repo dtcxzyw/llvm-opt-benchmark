@@ -4362,7 +4362,7 @@ for.end:                                          ; preds = %for.inc, %if.end43
   %peak_perc = getelementptr inbounds i8, ptr %call1, i64 116
   store float %div83, ptr %peak_perc, align 4
   %cmp85 = icmp ugt i64 %call, %0
-  %sub89 = sub i64 %call, %0
+  %sub89 = sub nuw i64 %call, %0
   %spec.select = select i1 %cmp85, i64 %sub89, i64 1
   %conv92 = uitofp i64 %sub78 to float
   %mul93 = fmul float %conv92, 1.000000e+02

@@ -245,7 +245,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br i1 %101, label %102, label %113
 
 102:                                              ; preds = %98
-  %103 = sub i64 %100, %92
+  %103 = sub nuw i64 %100, %92
   %104 = getelementptr inbounds i8, ptr %2, i64 8
   %105 = load i64, ptr %104, align 8
   %.not242 = icmp ult i64 %103, %105
@@ -278,7 +278,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br label %265
 
 120:                                              ; preds = %59
-  %121 = sub i64 %61, %4
+  %121 = sub nuw i64 %61, %4
   %122 = tail call i64 @llvm.usub.sat.i64(i64 %.0188, i64 %121)
   %.0 = add i64 %122, %61
   %123 = getelementptr inbounds i8, ptr %1, i64 32
@@ -354,7 +354,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br i1 %164, label %165, label %176
 
 165:                                              ; preds = %161
-  %166 = sub i64 %163, %155
+  %166 = sub nuw i64 %163, %155
   %167 = getelementptr inbounds i8, ptr %2, i64 8
   %168 = load i64, ptr %167, align 8
   %.not234 = icmp ult i64 %166, %168
@@ -474,7 +474,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   %232 = getelementptr inbounds i8, ptr %1, i64 32
   %233 = load i64, ptr %232, align 8
   %234 = add i64 %233, %.0188
-  %235 = sub i64 %57, %55
+  %235 = sub nuw i64 %57, %55
   store i64 %235, ptr %56, align 8
   %236 = add i64 %233, %55
   store i64 %236, ptr %232, align 8
@@ -626,7 +626,7 @@ define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr
   br i1 %.not, label %62, label %59
 
 59:                                               ; preds = %58
-  %60 = sub i64 %28, %4
+  %60 = sub nuw i64 %28, %4
   store i64 %60, ptr %27, align 8
   %61 = add i64 %26, %4
   store i64 %61, ptr %15, align 8

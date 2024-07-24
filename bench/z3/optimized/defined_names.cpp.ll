@@ -4597,7 +4597,7 @@ cond.false:                                       ; preds = %entry, %_ZNK13defin
   %retval.0.i.i.i12 = phi i32 [ %2, %_ZNK13defined_names4impl13get_num_namesEv.exit ], [ 0, %entry ]
   %m_pos_impl = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_pos_impl, align 8
-  %sub = sub i32 %i, %retval.0.i.i.i12
+  %sub = sub nuw i32 %i, %retval.0.i.i.i12
   %m_nodes.i.i6 = getelementptr inbounds i8, ptr %3, i64 96
   %4 = load ptr, ptr %m_nodes.i.i6, align 8
   br label %cond.end

@@ -69,7 +69,7 @@ define void @_ZN2cv6detail12DisjointSets17createOneElemSetsEi(ptr noundef nonnul
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %2
-  %17 = sub nsw i64 %6, %14
+  %17 = sub nuw nsw i64 %6, %14
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %17)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 

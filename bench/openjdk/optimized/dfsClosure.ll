@@ -611,7 +611,7 @@ define hidden void @_ZN10DFSClosure9add_chainEv(ptr nocapture noundef nonnull re
   %23 = phi i64 [ %21, %1 ], [ %29, %22 ]
   %.029 = phi i64 [ 0, %1 ], [ %24, %22 ]
   %24 = add i64 %.029, 1
-  %25 = sub i64 %23, %.029
+  %25 = sub nuw i64 %23, %.029
   %26 = getelementptr %class.Edge, ptr %20, i64 %24
   %27 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %25
   %.sroa.01.0.copyload = load i64, ptr %27, align 8

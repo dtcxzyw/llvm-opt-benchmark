@@ -3256,9 +3256,9 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %1333 = add i32 %1113, 5
   store i32 %1333, ptr %576, align 4
   %1334 = icmp uge i32 %1114, %1332
-  %1335 = sub i32 %1114, %1332
+  %1335 = sub nuw i32 %1114, %1332
   %.not298.i = icmp ult i32 %1333, %1335
-  %or.cond328.i = and i1 %1334, %.not298.i
+  %or.cond328.i = select i1 %1334, i1 %.not298.i, i1 false
   br i1 %or.cond328.i, label %1338, label %1336
 
 1336:                                             ; preds = %1328

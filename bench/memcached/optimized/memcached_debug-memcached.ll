@@ -11243,7 +11243,7 @@ if.then14:                                        ; preds = %for.body
   %27 = trunc i64 %26 to i32
   %conv19 = sub i32 %25, %27
   store i32 %conv19, ptr %tosend, align 4
-  %sub21 = sub i64 %res.addr.192, %26
+  %sub21 = sub nuw i64 %res.addr.192, %26
   store i64 0, ptr %iov_len, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp9 = icmp ult i64 %indvars.iv.next, %14

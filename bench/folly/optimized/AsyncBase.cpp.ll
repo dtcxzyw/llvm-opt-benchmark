@@ -2659,7 +2659,7 @@ if.end23:                                         ; preds = %if.end
   br i1 %cmp2698, label %for.body28.preheader, label %for.cond.cleanup27
 
 for.body28.preheader:                             ; preds = %if.end23
-  %11 = sub nsw i64 %sub.ptr.div.i, %conv
+  %11 = sub nuw nsw i64 %sub.ptr.div.i, %conv
   %xtraiter = and i64 %11, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body28.prol.loopexit, label %for.body28.prol

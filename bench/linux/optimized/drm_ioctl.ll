@@ -570,8 +570,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @drm_ioctl(ptr nocapture
 
 110:                                              ; preds = %108
   %111 = getelementptr i8, ptr %103, i64 %105
-  %112 = sub nsw i32 %61, %57
-  %113 = zext i32 %112 to i64
+  %112 = sub nuw nsw i32 %61, %57
+  %113 = zext nneg i32 %112 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %111, i8 0, i64 %113, i1 false)
   br label %114
 

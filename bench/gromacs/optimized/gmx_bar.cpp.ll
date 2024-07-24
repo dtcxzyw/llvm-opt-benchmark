@@ -5862,7 +5862,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br i1 %2296, label %2297, label %2327
 
 2297:                                             ; preds = %2291
-  %2298 = sub nsw i64 %2196, %2295
+  %2298 = sub nuw nsw i64 %2196, %2295
   %2299 = ptrtoint ptr %.sroa.34.1122.i to i64
   %2300 = sub i64 %2299, %2292
   %2301 = ashr exact i64 %2300, 2
@@ -5967,7 +5967,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %2327, %_ZNSt12_Vect
   br i1 %2347, label %2348, label %2378
 
 2348:                                             ; preds = %2338
-  %2349 = sub nsw i64 %2342, %2346
+  %2349 = sub nuw nsw i64 %2342, %2346
   %2350 = ptrtoint ptr %.sroa.34.1122.i to i64
   %2351 = sub i64 %2350, %2343
   %2352 = ashr exact i64 %2351, 2

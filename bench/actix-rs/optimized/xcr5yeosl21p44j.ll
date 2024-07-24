@@ -12815,7 +12815,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit206
   %288 = add i64 %287, 1
   %.not.i.i = icmp ult i64 %288, %256
   %289 = select i1 %.not.i.i, i64 0, i64 %256
-  %.0.i.i = sub i64 %288, %289
+  %.0.i.i = sub nuw i64 %288, %289
   store i64 %.0.i.i, ptr %83, align 8, !alias.scope !2597, !noalias !2600
   %290 = add i64 %285, -1
   store i64 %290, ptr %82, align 8, !alias.scope !2597, !noalias !2600
@@ -13974,7 +13974,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit175
   %292 = load i64, ptr %16, align 8, !alias.scope !2725, !noalias !2714, !noundef !7
   %.not.i.i = icmp ult i64 %291, %292
   %293 = select i1 %.not.i.i, i64 0, i64 %292
-  %.0.i.i = sub i64 %291, %293
+  %.0.i.i = sub nuw i64 %291, %293
   store i64 %.0.i.i, ptr %289, align 8, !alias.scope !2711, !noalias !2714
   %294 = add i64 %270, -1
   store i64 %294, ptr %269, align 8, !alias.scope !2711, !noalias !2714

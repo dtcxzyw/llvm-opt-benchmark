@@ -29875,7 +29875,7 @@ define hidden noalias noundef nonnull ptr @_ZN7hir_def4attr23fields_attrs_source
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h7ccc9b9f2af0b17aE.llvm.14212318151792154407.exit.i"
 
 68:                                               ; preds = %"_ZN6either19Either$LT$L$C$R$GT$6either17haa71b2c3bd9faf29E.exit"
-  %69 = sub i64 %.0.sroa.speculated.i.i, %67
+  %69 = sub nuw i64 %.0.sroa.speculated.i.i, %67
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0c386950e59f5691E.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %69)
           to label %.noexc31 unwind label %.loopexit.split-lp.loopexit
 
@@ -52732,7 +52732,7 @@ _ZN7hir_def8resolver8Resolver18resolve_visibility17h6f6a90cc1117cbe9E.exit.threa
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h709a593b381c009cE.llvm.14212318151792154407.exit.i"
 
 95:                                               ; preds = %91
-  %96 = sub i64 %.0.sroa.speculated.i.i, %94
+  %96 = sub nuw i64 %.0.sroa.speculated.i.i, %94
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h97e22ce85d0bb502E.llvm.14212318151792154407"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %96)
           to label %.noexc22 unwind label %.loopexit
 

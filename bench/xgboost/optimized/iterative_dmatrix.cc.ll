@@ -2782,7 +2782,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %_ZN7xgboost10collec
   br i1 %273, label %274, label %276
 
 274:                                              ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit
-  %275 = sub i64 %268, %272
+  %275 = sub nuw i64 %268, %272
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %150, ptr %267, i64 noundef %275, ptr noundef nonnull align 8 dereferenceable(8) %155)
           to label %._ZNSt6vectorImSaImEE6resizeEmRKm.exit_crit_edge unwind label %.loopexit823
 
@@ -6576,7 +6576,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %1692, label %1693, label %1721
 
 1693:                                             ; preds = %1686
-  %1694 = sub i64 %1685, %1691
+  %1694 = sub nuw i64 %1685, %1691
   %1695 = load ptr, ptr %1450, align 8
   %1696 = ptrtoint ptr %1695 to i64
   %1697 = sub i64 %1696, %1689
@@ -23349,7 +23349,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %9, %27
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit
-  %39 = sub nsw i64 %30, %36
+  %39 = sub nuw nsw i64 %30, %36
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr %31, i64 noundef %39, ptr noundef nonnull align 8 dereferenceable(8) %11)
   br label %45
 
@@ -23813,7 +23813,7 @@ define linkonce_odr void @_ZN7xgboost16GHistIndexMatrix13PushBatchImplINS_4data2
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %36
-  %56 = sub nsw i64 %46, %53
+  %56 = sub nuw nsw i64 %46, %53
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %56)
   %.pre.i = load ptr, ptr %47, align 8
   %.pre5.i = load ptr, ptr %38, align 8
@@ -30253,7 +30253,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %9, %27
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit
-  %39 = sub nsw i64 %30, %36
+  %39 = sub nuw nsw i64 %30, %36
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr %31, i64 noundef %39, ptr noundef nonnull align 8 dereferenceable(8) %11)
   br label %45
 
@@ -30710,7 +30710,7 @@ define linkonce_odr void @_ZN7xgboost16GHistIndexMatrix13PushBatchImplINS_4data1
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %34
-  %54 = sub nsw i64 %44, %51
+  %54 = sub nuw nsw i64 %44, %51
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %54)
   %.pre.i = load ptr, ptr %45, align 8
   %.pre5.i = load ptr, ptr %36, align 8
@@ -34737,7 +34737,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %9, %27
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit
-  %39 = sub nsw i64 %30, %36
+  %39 = sub nuw nsw i64 %30, %36
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr %31, i64 noundef %39, ptr noundef nonnull align 8 dereferenceable(8) %11)
   br label %45
 
@@ -35255,7 +35255,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit14: ; preds = %_ZNK7xgboost4d
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %45
-  %65 = sub nsw i64 %55, %62
+  %65 = sub nuw nsw i64 %55, %62
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %65)
   %.pre.i = load ptr, ptr %56, align 8
   %.pre5.i = load ptr, ptr %47, align 8
@@ -41057,7 +41057,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i64, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

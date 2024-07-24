@@ -312,7 +312,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN4llvh8OptionalIN6hermes6parser15JSONSharedValueEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -1251,7 +1251,7 @@ if.then.i38:                                      ; preds = %_ZN6hermes15StringS
   br i1 %cmp.i200, label %if.then.i205, label %if.else.i201
 
 if.then.i205:                                     ; preds = %if.then.i38
-  %sub.i = sub nsw i64 %conv5.i, %sub.ptr.div.i.i36
+  %sub.i = sub nuw nsw i64 %conv5.i, %sub.ptr.div.i.i36
   call void @_ZNSt6vectorIN4llvh8OptionalIN6hermes6parser15JSONSharedValueEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %sourcesMetadata_.i, i64 noundef %sub.i)
   br label %if.end.i40
 
@@ -2001,7 +2001,7 @@ for.end:                                          ; preds = %_ZNSt6vectorIN6herm
 
 if.then.i.i168:                                   ; preds = %for.end
   %151 = add nuw nsw i64 %indvars.iv, 1
-  %sub.i.i = sub nsw i64 %151, %sub.ptr.div.i.i155
+  %sub.i.i = sub nuw nsw i64 %151, %sub.ptr.div.i.i155
   call void @_ZNSt6vectorIS_IN6hermes9SourceMap7SegmentESaIS2_EESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %lines_.i, i64 noundef %sub.i.i)
   %.pre406 = load ptr, ptr %lines_.i, align 8
   br label %if.end.i162

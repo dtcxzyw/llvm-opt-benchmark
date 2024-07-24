@@ -1342,7 +1342,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -5818,7 +5818,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %._crit_edge
-  %57 = sub nsw i64 %47, %54
+  %57 = sub nuw nsw i64 %47, %54
   invoke void @_ZNSt6vectorI11epoll_eventSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %57)
           to label %._ZNSt6vectorI11epoll_eventSaIS0_EE6resizeEm.exit_crit_edge unwind label %225
 

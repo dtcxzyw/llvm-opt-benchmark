@@ -53440,7 +53440,7 @@ for.body.us.i.i.i:                                ; preds = %for.body.lr.ph.i.i.
   br i1 %cmp95.us.i.i.i, label %for.body10.us.i.i.i.preheader, label %cleanup.loopexit3.us.i.i.i
 
 for.body10.us.i.i.i.preheader:                    ; preds = %for.body.us.i.i.i
-  %25 = sub i64 %cond.i.us.i.i.i, %base_idx.012.us.i.i.i
+  %25 = sub nuw i64 %cond.i.us.i.i.i, %base_idx.012.us.i.i.i
   %xtraiter39 = and i64 %25, 3
   %lcmp.mod40.not = icmp eq i64 %xtraiter39, 0
   br i1 %lcmp.mod40.not, label %for.body10.us.i.i.i.prol.loopexit, label %for.body10.us.i.i.i.prol
@@ -53511,7 +53511,7 @@ for.cond8.preheader.i.i.i:                        ; preds = %for.body.i.i.i
   br i1 %cmp95.i.i.i, label %for.body10.i.i.i.preheader, label %cleanup.i.i.i
 
 for.body10.i.i.i.preheader:                       ; preds = %for.cond8.preheader.i.i.i
-  %29 = sub i64 %cond.i.i.i.i, %base_idx.012.i.i.i
+  %29 = sub nuw i64 %cond.i.i.i.i, %base_idx.012.i.i.i
   %xtraiter = and i64 %29, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body10.i.i.i.prol.loopexit, label %for.body10.i.i.i.prol
@@ -53539,7 +53539,7 @@ for.cond17.preheader.i.i.i:                       ; preds = %for.body.i.i.i
   br i1 %cmp187.i.i.i, label %for.body19.i.i.i.preheader, label %cleanup.i.i.i
 
 for.body19.i.i.i.preheader:                       ; preds = %for.cond17.preheader.i.i.i
-  %32 = sub i64 %cond.i.i.i.i, %base_idx.012.i.i.i
+  %32 = sub nuw i64 %cond.i.i.i.i, %base_idx.012.i.i.i
   %.neg = add nuw i64 %base_idx.012.i.i.i, 1
   %xtraiter36 = and i64 %32, 1
   %lcmp.mod37.not = icmp eq i64 %xtraiter36, 0
@@ -58315,7 +58315,7 @@ if.then:                                          ; preds = %switch.early.test, 
 if.then10:                                        ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !1134)
-  %sub = sub i64 %i.0211, %last_non_pattern.0212
+  %sub = sub nuw i64 %i.0211, %last_non_pattern.0212
   store ptr %1, ptr %ref.tmp, align 8, !tbaa !11, !alias.scope !1134
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %last_non_pattern.0212
   %sub.i.i.i = sub i64 %5, %last_non_pattern.0212
@@ -58499,7 +58499,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.p
 
 invoke.cont4.i.i109:                              ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp39) #30
-  %sub41 = sub i64 %28, %last_non_pattern.0.lcssa
+  %sub41 = sub nuw i64 %28, %last_non_pattern.0.lcssa
   call void @llvm.experimental.noalias.scope.decl(metadata !1140)
   %29 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
   store ptr %29, ptr %ref.tmp39, align 8, !tbaa !11, !alias.scope !1140
@@ -72621,7 +72621,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %cl
   br i1 %cmp9108.us, label %for.body10.us.preheader, label %cleanup.loopexit106.us
 
 for.body10.us.preheader:                          ; preds = %for.body.us
-  %16 = sub i64 %cond.i.us, %base_idx.0115.us
+  %16 = sub nuw i64 %cond.i.us, %base_idx.0115.us
   %min.iters.check134 = icmp ult i64 %16, 4
   br i1 %min.iters.check134, label %for.body10.us.preheader23, label %vector.ph135
 
@@ -72697,7 +72697,7 @@ for.cond8.preheader:                              ; preds = %for.body
   br i1 %cmp9108, label %for.body10.preheader, label %cleanup
 
 for.body10.preheader:                             ; preds = %for.cond8.preheader
-  %32 = sub i64 %cond.i, %base_idx.0115
+  %32 = sub nuw i64 %cond.i, %base_idx.0115
   %min.iters.check = icmp ult i64 %32, 4
   br i1 %min.iters.check, label %for.body10.preheader26, label %vector.ph
 
@@ -72744,7 +72744,7 @@ for.cond17.preheader:                             ; preds = %for.body
   br i1 %cmp18110, label %for.body19.preheader, label %cleanup
 
 for.body19.preheader:                             ; preds = %for.cond17.preheader
-  %47 = sub i64 %cond.i, %base_idx.0115
+  %47 = sub nuw i64 %cond.i, %base_idx.0115
   %.neg = add nuw i64 %base_idx.0115, 1
   %xtraiter = and i64 %47, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -76100,7 +76100,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %cl
   br i1 %cmp9110.us, label %for.body10.us.preheader, label %cleanup.loopexit108.us
 
 for.body10.us.preheader:                          ; preds = %for.body.us
-  %16 = sub i64 %cond.i.us, %base_idx.0117.us
+  %16 = sub nuw i64 %cond.i.us, %base_idx.0117.us
   %min.iters.check136 = icmp ult i64 %16, 4
   br i1 %min.iters.check136, label %for.body10.us.preheader23, label %vector.ph137
 
@@ -76179,7 +76179,7 @@ for.cond8.preheader:                              ; preds = %for.body
   br i1 %cmp9110, label %for.body10.preheader, label %cleanup
 
 for.body10.preheader:                             ; preds = %for.cond8.preheader
-  %34 = sub i64 %cond.i, %base_idx.0117
+  %34 = sub nuw i64 %cond.i, %base_idx.0117
   %min.iters.check = icmp ult i64 %34, 4
   br i1 %min.iters.check, label %for.body10.preheader26, label %vector.ph
 
@@ -76228,7 +76228,7 @@ for.cond17.preheader:                             ; preds = %for.body
   br i1 %cmp18112, label %for.body19.preheader, label %cleanup
 
 for.body19.preheader:                             ; preds = %for.cond17.preheader
-  %51 = sub i64 %cond.i, %base_idx.0117
+  %51 = sub nuw i64 %cond.i, %base_idx.0117
   %.neg = add nuw i64 %base_idx.0117, 1
   %xtraiter = and i64 %51, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0

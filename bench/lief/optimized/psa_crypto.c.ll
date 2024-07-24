@@ -991,7 +991,7 @@ define hidden range(i32 -138, 1) i32 @psa_export_key_internal(ptr nocapture noun
 15:                                               ; preds = %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %1, i64 %2, i1 false)
   %16 = getelementptr inbounds i8, ptr %3, i64 %2
-  %17 = sub i64 %4, %2
+  %17 = sub nuw i64 %4, %2
   tail call void @llvm.memset.p0.i64(ptr align 1 %16, i8 0, i64 %17, i1 false)
   store i64 %2, ptr %5, align 8
   br label %psa_export_key_buffer_internal.exit
@@ -1076,7 +1076,7 @@ define hidden i32 @psa_export_public_key_internal(ptr noundef %0, ptr noundef %1
 18:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %1, i64 %2, i1 false)
   %19 = getelementptr inbounds i8, ptr %3, i64 %2
-  %20 = sub i64 %4, %2
+  %20 = sub nuw i64 %4, %2
   tail call void @llvm.memset.p0.i64(ptr align 1 %19, i8 0, i64 %20, i1 false)
   store i64 %2, ptr %5, align 8
   br label %psa_export_key_buffer_internal.exit
@@ -2224,7 +2224,7 @@ define hidden i32 @psa_mac_sign_finish(ptr noundef %0, ptr noundef %1, i64 nound
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %1, i64 %23
-  %28 = sub i64 %2, %23
+  %28 = sub nuw i64 %2, %23
   tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 33, i64 %28, i1 false)
   br label %29
 
@@ -2361,7 +2361,7 @@ define internal fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %4, i64 %30
-  %34 = sub i64 %5, %30
+  %34 = sub nuw i64 %5, %30
   call void @llvm.memset.p0.i64(ptr align 1 %33, i8 33, i64 %34, i1 false)
   br label %35
 
@@ -4254,7 +4254,7 @@ define hidden i32 @psa_aead_update_ad(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %15, label %.thread.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = sub i64 %14, %2
+  %17 = sub nuw i64 %14, %2
   store i64 %17, ptr %13, align 8
   br label %22
 
@@ -4325,7 +4325,7 @@ define hidden i32 @psa_aead_update(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %21, label %.thread.thread, label %22
 
 22:                                               ; preds = %18
-  %23 = sub i64 %20, %2
+  %23 = sub nuw i64 %20, %2
   store i64 %23, ptr %19, align 8
   br label %28
 
@@ -4430,7 +4430,7 @@ psa_aead_final_checks.exit.thread:                ; preds = %16, %19, %7, %10, %
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %4, i64 %27
-  %31 = sub i64 %5, %27
+  %31 = sub nuw i64 %5, %27
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %30, i8 33, i64 %31, i1 false)
   br label %32
 
@@ -5247,7 +5247,7 @@ psa_mac_update.exit88.thread120.i.i:              ; preds = %psa_mac_update.exit
 
 243:                                              ; preds = %239
   %244 = getelementptr inbounds i8, ptr %159, i64 %241
-  %245 = sub nsw i64 %240, %241
+  %245 = sub nuw nsw i64 %240, %241
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %244, i8 33, i64 %245, i1 false)
   br label %246
 

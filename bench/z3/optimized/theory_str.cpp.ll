@@ -68928,7 +68928,7 @@ if.else:                                          ; preds = %_ZN7zstringD2Ev.exi
   br i1 %cmp, label %if.then48, label %if.else96
 
 if.then48:                                        ; preds = %if.else
-  %sub = sub i32 %16, %17
+  %sub = sub nuw i32 %16, %17
   invoke void @_ZNK7zstring7extractEjj(ptr nonnull sret(%class.zstring) align 8 %deltaStr, ptr noundef nonnull align 8 dereferenceable(80) %str1Value, i32 noundef %17, i32 noundef %sub)
           to label %invoke.cont49 unwind label %lpad
 
@@ -69808,7 +69808,7 @@ if.else:                                          ; preds = %_ZN7zstringD2Ev.exi
   br i1 %cmp, label %if.then49, label %if.else98
 
 if.then49:                                        ; preds = %if.else
-  %sub50 = sub i32 %16, %17
+  %sub50 = sub nuw i32 %16, %17
   invoke void @_ZNK7zstring7extractEjj(ptr nonnull sret(%class.zstring) align 8 %deltaStr, ptr noundef nonnull align 8 dereferenceable(80) %str1Value, i32 noundef 0, i32 noundef %sub50)
           to label %invoke.cont51 unwind label %lpad
 
@@ -70729,7 +70729,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt7__cxx114listI
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %storemerge995 = phi i32 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %sub = sub i32 %26, %storemerge995
+  %sub = sub nuw i32 %26, %storemerge995
   invoke void @_ZNK7zstring7extractEjj(ptr nonnull sret(%class.zstring) align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(80) %str1Value, i32 noundef %sub, i32 noundef %storemerge995)
           to label %invoke.cont38 unwind label %lpad34.loopexit
 
@@ -90505,7 +90505,7 @@ if.then57:                                        ; preds = %invoke.cont55
   br i1 %cmp62.not, label %cleanup155.critedge, label %if.then63
 
 if.then63:                                        ; preds = %if.then57
-  %sub68 = sub i32 %26, %27
+  %sub68 = sub nuw i32 %26, %27
   invoke void @_ZNK7zstring7extractEjj(ptr nonnull sret(%class.zstring) align 8 %suffix, ptr noundef nonnull align 8 dereferenceable(80) %strHeadVal, i32 noundef %sub68, i32 noundef %27)
           to label %invoke.cont71 unwind label %lpad54
 
@@ -92109,7 +92109,7 @@ lpad29:                                           ; preds = %if.end37, %if.end26
   br label %ehcleanup
 
 if.end37:                                         ; preds = %if.then32
-  %sub40 = sub i32 %0, %18
+  %sub40 = sub nuw i32 %0, %18
   invoke void @_ZNK7zstring7extractEjj(ptr nonnull sret(%class.zstring) align 8 %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(80) %str, i32 noundef %sub40, i32 noundef %18)
           to label %invoke.cont41 unwind label %lpad29
 
@@ -97472,7 +97472,7 @@ ehcleanup202:                                     ; preds = %lpad195, %lpad189
   br label %ehcleanup270
 
 if.else203:                                       ; preds = %invoke.cont173
-  %sub = sub i32 %143, %144
+  %sub = sub nuw i32 %143, %144
   invoke void @_ZNK7zstring7extractEjj(ptr nonnull sret(%class.zstring) align 8 %firstPart, ptr noundef nonnull align 8 dereferenceable(80) %const_str, i32 noundef 0, i32 noundef %sub)
           to label %invoke.cont204 unwind label %lpad172
 
@@ -141136,7 +141136,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKP4exprSt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKP4exprSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKP4exprSt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds ptr, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i35 = icmp eq ptr %1, %__position.coerce

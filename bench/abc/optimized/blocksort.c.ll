@@ -2546,10 +2546,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %284 = add i32 %.0278, 8
   %.not370 = icmp ult i32 %283, %4
   %285 = select i1 %.not370, i32 0, i32 %4
-  %spec.select = sub i32 %283, %285
+  %spec.select = sub nuw i32 %283, %285
   %.not371 = icmp ult i32 %284, %4
   %286 = select i1 %.not371, i32 0, i32 %4
-  %.1279 = sub i32 %284, %286
+  %.1279 = sub nuw i32 %284, %286
   %287 = add nsw i32 %.0, -8
   %288 = load i32, ptr %5, align 4
   %289 = add nsw i32 %288, -1

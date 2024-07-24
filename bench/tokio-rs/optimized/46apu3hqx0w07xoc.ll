@@ -359,7 +359,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %72 = load i64, ptr %59, align 8, !alias.scope !27, !noundef !16
   %.not.i.i.i.i = icmp ult i64 %71, %72
   %73 = select i1 %.not.i.i.i.i, i64 0, i64 %72
-  %.0.i.i.i.i = sub i64 %71, %73
+  %.0.i.i.i.i = sub nuw i64 %71, %73
   store i64 %.0.i.i.i.i, ptr %60, align 8, !alias.scope !24
   %74 = add i64 %63, -1
   store i64 %74, ptr %58, align 8, !alias.scope !24
@@ -637,7 +637,7 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i.i:
   %156 = load i64, ptr %59, align 8, !alias.scope !83, !noundef !16
   %.not.i.i60.i.i = icmp ult i64 %155, %156
   %157 = select i1 %.not.i.i60.i.i, i64 0, i64 %156
-  %.0.i.i61.i.i = sub i64 %155, %157
+  %.0.i.i61.i.i = sub nuw i64 %155, %157
   store i64 %.0.i.i61.i.i, ptr %60, align 8, !alias.scope !81
   %158 = add i64 %153, -1
   store i64 %158, ptr %58, align 8, !alias.scope !81
@@ -6377,7 +6377,7 @@ define { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17h201ef
   %63 = add i64 %62, %60
   %.not.i.i = icmp ult i64 %63, %59
   %64 = select i1 %.not.i.i, i64 0, i64 %59
-  %.0.i.i = sub i64 %63, %64
+  %.0.i.i = sub nuw i64 %63, %64
   %65 = getelementptr inbounds i8, ptr %21, i64 80
   %66 = load ptr, ptr %65, align 8, !alias.scope !663, !nonnull !16, !noundef !16
   %67 = getelementptr inbounds { ptr, i8 }, ptr %66, i64 %.0.i.i
@@ -8235,7 +8235,7 @@ define void @_ZN5tokio4sync9semaphore9Semaphore16try_acquire_many17hec0e961bf75b
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = sub i64 %.0610.i, %5
+  %11 = sub nuw i64 %.0610.i, %5
   %12 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.10338052584253536188(ptr noundef nonnull %6, i64 noundef %.0610.i, i64 noundef %11, i8 noundef 3, i8 noundef 2)
   %.fca.0.extract.i = extractvalue { i64, i64 } %12, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
@@ -8404,7 +8404,7 @@ define void @_ZN5tokio4sync9semaphore9Semaphore22try_acquire_many_owned17h2daf61
   br i1 %10, label %.loopexit.loopexit, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = sub i64 %.0610.i, %6
+  %12 = sub nuw i64 %.0610.i, %6
   %13 = invoke { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.10338052584253536188(ptr noundef nonnull %7, i64 noundef %.0610.i, i64 noundef %12, i8 noundef 3, i8 noundef 2)
           to label %.noexc7 unwind label %.loopexit16
 

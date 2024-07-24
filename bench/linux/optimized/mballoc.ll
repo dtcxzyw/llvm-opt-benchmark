@@ -1204,7 +1204,7 @@ define internal noundef i32 @ext4_mb_seq_structs_summary_show(ptr noundef %0, pt
   br i1 %17, label %35, label %18
 
 18:                                               ; preds = %2
-  %19 = sub i64 %12, %16
+  %19 = sub nuw i64 %12, %16
   %20 = icmp eq i64 %12, %16
   br i1 %20, label %21, label %22
 
@@ -6240,7 +6240,7 @@ ext4_mb_initialize_context.exit:                  ; preds = %295, %360, %367
   br i1 %884, label %896, label %885
 
 885:                                              ; preds = %878
-  %886 = sub i64 %876, %848
+  %886 = sub nuw i64 %876, %848
   %887 = getelementptr inbounds i8, ptr %584, i64 20
   %888 = load i32, ptr %887, align 4
   %889 = zext i32 %888 to i64
@@ -7435,7 +7435,7 @@ ext4_mb_discard_lg_preallocations.exit:           ; preds = %1267, %.loopexit12.
 
 1577:                                             ; preds = %1573
   %1578 = load ptr, ptr %1, align 8
-  %1579 = sub i32 %249, %1575
+  %1579 = sub nuw i32 %249, %1575
   %1580 = getelementptr inbounds i8, ptr %17, i64 84
   %1581 = load i32, ptr %1580, align 4
   %1582 = shl i32 %1579, %1581
@@ -10512,7 +10512,7 @@ define dso_local void @ext4_free_blocks(ptr noundef %0, ptr noundef %1, ptr noun
 
 101:                                              ; preds = %97
   %102 = add i64 %26, %99
-  %103 = sub i64 %4, %99
+  %103 = sub nuw i64 %4, %99
   br label %108
 
 104:                                              ; preds = %94
@@ -10548,7 +10548,7 @@ define dso_local void @ext4_free_blocks(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %125, label %126, label %592
 
 126:                                              ; preds = %123
-  %127 = sub i64 %113, %124
+  %127 = sub nuw i64 %113, %124
   br label %132
 
 128:                                              ; preds = %120

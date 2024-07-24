@@ -680,7 +680,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   %div.i56 = lshr i32 %2, 1
   %cmp3.i = icmp ult i32 %call.i146, %div.i56
   %sub.i = select i1 %cmp3.i, i32 0, i32 %div.i56
-  %spec.select58 = sub i32 %call.i146, %sub.i
+  %spec.select58 = sub nuw i32 %call.i146, %sub.i
   br label %percpu_arena_choose.exit
 
 percpu_arena_choose.exit:                         ; preds = %lor.lhs.false.i, %if.then
@@ -5742,7 +5742,7 @@ te_event_advance.exit:                            ; preds = %te_event_advance.ex
   br i1 %brmerge, label %return, label %if.then53
 
 if.then53:                                        ; preds = %te_event_advance.exit
-  %sub = sub nsw i64 %usize.0, %12
+  %sub = sub nuw nsw i64 %usize.0, %12
   %60 = ptrtoint ptr %retval.i246.0362 to i64
   %add = add i64 %12, %60
   %61 = inttoptr i64 %add to ptr
@@ -6674,7 +6674,7 @@ te_event_advance.exit:                            ; preds = %te_event_advance.ex
   br i1 %brmerge, label %label_not_resized, label %if.then60
 
 if.then60:                                        ; preds = %te_event_advance.exit
-  %sub61 = sub i64 %spec.select118, %6
+  %sub61 = sub nuw i64 %spec.select118, %6
   %add = add i64 %6, %5
   %13 = inttoptr i64 %add to ptr
   %14 = load ptr, ptr @junk_alloc_callback, align 8
@@ -8385,7 +8385,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bin.0238 = phi ptr [ null, %while.body.lr.ph ], [ %bin.2, %if.end140 ]
   %filled.0237 = phi i64 [ 0, %while.body.lr.ph ], [ %filled.3, %if.end140 ]
   %arena.0236 = phi ptr [ null, %while.body.lr.ph ], [ %arena.5, %if.end140 ]
-  %sub = sub i64 %num, %filled.0237
+  %sub = sub nuw i64 %num, %filled.0237
   %cmp45.not = icmp ult i64 %sub, %nregs.0
   %or.cond187 = select i1 %cmp16, i1 true, i1 %cmp45.not
   br i1 %or.cond187, label %if.end77, label %if.then47
@@ -8737,7 +8737,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then56.i
   %div.i42.i = lshr i32 %18, 1
   %cmp3.i.i = icmp ult i32 %call.i92.i, %div.i42.i
   %sub.i.i = select i1 %cmp3.i.i, i32 0, i32 %div.i42.i
-  %spec.select.i = sub i32 %call.i92.i, %sub.i.i
+  %spec.select.i = sub nuw i32 %call.i92.i, %sub.i.i
   br label %percpu_arena_choose.exit.i
 
 percpu_arena_choose.exit.i:                       ; preds = %lor.lhs.false.i.i, %if.then56.i

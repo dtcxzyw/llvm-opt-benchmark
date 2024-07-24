@@ -1499,7 +1499,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = phi i64 [ %9, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee74c8e5ddb2f624E.exit.i" ], [ %.sroa.6.0.copyload, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee74c8e5ddb2f624E.exit.i.preheader" ]
   %7 = phi ptr [ %8, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee74c8e5ddb2f624E.exit.i" ], [ %.sroa.0.0.copyload, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee74c8e5ddb2f624E.exit.i.preheader" ]
   %8 = getelementptr inbounds i8, ptr %7, i64 %.sroa.91.0.copyload
-  %9 = sub i64 %6, %.sroa.91.0.copyload
+  %9 = sub nuw i64 %6, %.sroa.91.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !476)
   %10 = load i16, ptr %7, align 1, !alias.scope !483, !noalias !486
   %11 = getelementptr inbounds i16, ptr %.sroa.8.0.copyload, i64 %5
@@ -1812,7 +1812,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = phi i64 [ %9, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac320cacd22df1b7E.exit.i" ], [ %.sroa.6.0.copyload, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac320cacd22df1b7E.exit.i.preheader" ]
   %7 = phi ptr [ %8, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac320cacd22df1b7E.exit.i" ], [ %.sroa.0.0.copyload, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac320cacd22df1b7E.exit.i.preheader" ]
   %8 = getelementptr inbounds i8, ptr %7, i64 %.sroa.91.0.copyload
-  %9 = sub i64 %6, %.sroa.91.0.copyload
+  %9 = sub nuw i64 %6, %.sroa.91.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !544)
   %10 = load i16, ptr %7, align 1, !alias.scope !551, !noalias !554
   %11 = getelementptr inbounds i16, ptr %.sroa.8.0.copyload, i64 %5
@@ -10404,7 +10404,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h13b5d089b5a13a
   %14 = phi i64 [ %17, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee74c8e5ddb2f624E.exit" ], [ %.promoted, %.lr.ph ]
   %15 = phi ptr [ %16, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee74c8e5ddb2f624E.exit" ], [ %.promoted12, %.lr.ph ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %5
-  %17 = sub i64 %14, %5
+  %17 = sub nuw i64 %14, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3053)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3056)
   %18 = load i16, ptr %15, align 1, !alias.scope !3058, !noalias !3053
@@ -10851,7 +10851,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h2ec2bc36f79591
   %14 = phi i64 [ %17, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac320cacd22df1b7E.exit" ], [ %.promoted, %.lr.ph ]
   %15 = phi ptr [ %16, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac320cacd22df1b7E.exit" ], [ %.promoted12, %.lr.ph ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %5
-  %17 = sub i64 %14, %5
+  %17 = sub nuw i64 %14, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3209)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3212)
   %18 = load i16, ptr %15, align 1, !alias.scope !3214, !noalias !3209
@@ -28580,7 +28580,7 @@ define internal fastcc noundef i64 @_ZN15tree_sitter_cli8generate12build_tables1
   %69 = load i64, ptr %39, align 8, !alias.scope !7845, !noalias !7843, !noundef !4
   %.not.i.i = icmp ult i64 %68, %69
   %70 = select i1 %.not.i.i, i64 0, i64 %69
-  %.0.i.i = sub i64 %68, %70
+  %.0.i.i = sub nuw i64 %68, %70
   store i64 %.0.i.i, ptr %40, align 8, !alias.scope !7841, !noalias !7843
   %71 = add i64 %66, -1
   store i64 %71, ptr %36, align 8, !alias.scope !7841, !noalias !7843
@@ -29540,7 +29540,7 @@ _ZN15tree_sitter_cli8generate3nfa9NfaCursor5reset17h81d15317a3c06c47E.exit: ; pr
   %106 = add i64 %105, %103
   %.not.i.i = icmp ult i64 %106, %102
   %107 = select i1 %.not.i.i, i64 0, i64 %102
-  %.0.i.i = sub i64 %106, %107
+  %.0.i.i = sub nuw i64 %106, %107
   %108 = getelementptr inbounds i8, ptr %0, i64 64
   %109 = load ptr, ptr %108, align 8, !alias.scope !8063, !noalias !8066, !nonnull !4, !noundef !4
   %110 = getelementptr inbounds { { { i64, ptr }, i64 }, i64, i8, [7 x i8] }, ptr %109, i64 %.0.i.i

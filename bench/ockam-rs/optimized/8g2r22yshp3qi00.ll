@@ -1684,7 +1684,7 @@ define internal fastcc void @"_ZN108_$LT$kafka_protocol..messages..fetch_respons
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i, ptr nonnull readonly align 1 %25, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !179, !noalias !183
   %27 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
   %28 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i, i64 %.0.sroa.speculated.i.i.i.i.i
-  %29 = sub i64 %26, %.0.sroa.speculated.i.i.i.i.i
+  %29 = sub nuw i64 %26, %.0.sroa.speculated.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %25, i64 %.0.sroa.speculated.i.i.i.i.i
   %31 = icmp eq i64 %27, 0
   br i1 %31, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i"
@@ -1735,7 +1735,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i78, ptr nonnull readonly align 1 %43, i64 %.0.sroa.speculated.i.i.i.i.i79, i1 false), !alias.scope !209, !noalias !213
   %45 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i77, %.0.sroa.speculated.i.i.i.i.i79
   %46 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i78, i64 %.0.sroa.speculated.i.i.i.i.i79
-  %47 = sub i64 %44, %.0.sroa.speculated.i.i.i.i.i79
+  %47 = sub nuw i64 %44, %.0.sroa.speculated.i.i.i.i.i79
   %48 = getelementptr inbounds i8, ptr %43, i64 %.0.sroa.speculated.i.i.i.i.i79
   %49 = icmp eq i64 %45, 0
   br i1 %49, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i80, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i76"
@@ -13065,7 +13065,7 @@ define hidden void @"_ZN111_$LT$kafka_protocol..messages..fetch_response..FetchR
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i, ptr nonnull readonly align 1 %46, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !2464, !noalias !2468
   %48 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
   %49 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i, i64 %.0.sroa.speculated.i.i.i.i.i
-  %50 = sub i64 %47, %.0.sroa.speculated.i.i.i.i.i
+  %50 = sub nuw i64 %47, %.0.sroa.speculated.i.i.i.i.i
   %51 = getelementptr inbounds i8, ptr %46, i64 %.0.sroa.speculated.i.i.i.i.i
   %52 = icmp eq i64 %48, 0
   br i1 %52, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i"
@@ -13127,7 +13127,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i153, ptr nonnull readonly align 1 %69, i64 %.0.sroa.speculated.i.i.i.i.i154, i1 false), !alias.scope !2495, !noalias !2499
   %71 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i152, %.0.sroa.speculated.i.i.i.i.i154
   %72 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i153, i64 %.0.sroa.speculated.i.i.i.i.i154
-  %73 = sub i64 %70, %.0.sroa.speculated.i.i.i.i.i154
+  %73 = sub nuw i64 %70, %.0.sroa.speculated.i.i.i.i.i154
   %74 = getelementptr inbounds i8, ptr %69, i64 %.0.sroa.speculated.i.i.i.i.i154
   %75 = icmp eq i64 %71, 0
   br i1 %75, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i155, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i151"
@@ -13185,7 +13185,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i155: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i163, ptr nonnull readonly align 1 %90, i64 %.0.sroa.speculated.i.i.i.i.i164, i1 false), !alias.scope !2526, !noalias !2530
   %92 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i162, %.0.sroa.speculated.i.i.i.i.i164
   %93 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i163, i64 %.0.sroa.speculated.i.i.i.i.i164
-  %94 = sub i64 %91, %.0.sroa.speculated.i.i.i.i.i164
+  %94 = sub nuw i64 %91, %.0.sroa.speculated.i.i.i.i.i164
   %95 = getelementptr inbounds i8, ptr %90, i64 %.0.sroa.speculated.i.i.i.i.i164
   %96 = icmp eq i64 %92, 0
   br i1 %96, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i165, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i161"
@@ -14217,7 +14217,7 @@ define hidden void @"_ZN111_$LT$kafka_protocol..messages..fetch_response..Partit
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i, ptr nonnull readonly align 1 %45, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !2734, !noalias !2738
   %47 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
   %48 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i, i64 %.0.sroa.speculated.i.i.i.i.i
-  %49 = sub i64 %46, %.0.sroa.speculated.i.i.i.i.i
+  %49 = sub nuw i64 %46, %.0.sroa.speculated.i.i.i.i.i
   %50 = getelementptr inbounds i8, ptr %45, i64 %.0.sroa.speculated.i.i.i.i.i
   %51 = icmp eq i64 %47, 0
   br i1 %51, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i"
@@ -14268,7 +14268,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i268, ptr nonnull readonly align 1 %63, i64 %.0.sroa.speculated.i.i.i.i.i269, i1 false), !alias.scope !2764, !noalias !2768
   %65 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i267, %.0.sroa.speculated.i.i.i.i.i269
   %66 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i268, i64 %.0.sroa.speculated.i.i.i.i.i269
-  %67 = sub i64 %64, %.0.sroa.speculated.i.i.i.i.i269
+  %67 = sub nuw i64 %64, %.0.sroa.speculated.i.i.i.i.i269
   %68 = getelementptr inbounds i8, ptr %63, i64 %.0.sroa.speculated.i.i.i.i.i269
   %69 = icmp eq i64 %65, 0
   br i1 %69, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i270, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i266"
@@ -14326,7 +14326,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i270: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i278, ptr nonnull readonly align 1 %84, i64 %.0.sroa.speculated.i.i.i.i.i279, i1 false), !alias.scope !2795, !noalias !2799
   %86 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i277, %.0.sroa.speculated.i.i.i.i.i279
   %87 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i278, i64 %.0.sroa.speculated.i.i.i.i.i279
-  %88 = sub i64 %85, %.0.sroa.speculated.i.i.i.i.i279
+  %88 = sub nuw i64 %85, %.0.sroa.speculated.i.i.i.i.i279
   %89 = getelementptr inbounds i8, ptr %84, i64 %.0.sroa.speculated.i.i.i.i.i279
   %90 = icmp eq i64 %86, 0
   br i1 %90, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i280, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i276"
@@ -14395,7 +14395,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i280: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i288, ptr nonnull readonly align 1 %110, i64 %.0.sroa.speculated.i.i.i.i.i289, i1 false), !alias.scope !2827, !noalias !2831
   %112 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i287, %.0.sroa.speculated.i.i.i.i.i289
   %113 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i288, i64 %.0.sroa.speculated.i.i.i.i.i289
-  %114 = sub i64 %111, %.0.sroa.speculated.i.i.i.i.i289
+  %114 = sub nuw i64 %111, %.0.sroa.speculated.i.i.i.i.i289
   %115 = getelementptr inbounds i8, ptr %110, i64 %.0.sroa.speculated.i.i.i.i.i289
   %116 = icmp eq i64 %112, 0
   br i1 %116, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i290, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i286"
@@ -14457,7 +14457,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i290: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i299, ptr nonnull readonly align 1 %132, i64 %.0.sroa.speculated.i.i.i.i.i300, i1 false), !alias.scope !2858, !noalias !2862
   %134 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i298, %.0.sroa.speculated.i.i.i.i.i300
   %135 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i299, i64 %.0.sroa.speculated.i.i.i.i.i300
-  %136 = sub i64 %133, %.0.sroa.speculated.i.i.i.i.i300
+  %136 = sub nuw i64 %133, %.0.sroa.speculated.i.i.i.i.i300
   %137 = getelementptr inbounds i8, ptr %132, i64 %.0.sroa.speculated.i.i.i.i.i300
   %138 = icmp eq i64 %134, 0
   br i1 %138, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i301, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i297"
@@ -14643,7 +14643,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i301: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i310, ptr nonnull readonly align 1 %184, i64 %.0.sroa.speculated.i.i.i.i.i311, i1 false), !alias.scope !2891, !noalias !2895
   %186 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i309, %.0.sroa.speculated.i.i.i.i.i311
   %187 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i310, i64 %.0.sroa.speculated.i.i.i.i.i311
-  %188 = sub i64 %185, %.0.sroa.speculated.i.i.i.i.i311
+  %188 = sub nuw i64 %185, %.0.sroa.speculated.i.i.i.i.i311
   %189 = getelementptr inbounds i8, ptr %184, i64 %.0.sroa.speculated.i.i.i.i.i311
   %190 = icmp eq i64 %186, 0
   br i1 %190, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i312, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i308"
@@ -15837,7 +15837,7 @@ define internal fastcc void @"_ZN112_$LT$kafka_protocol..messages..fetch_respons
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i, ptr nonnull readonly align 1 %25, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !3097, !noalias !3101
   %27 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
   %28 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i, i64 %.0.sroa.speculated.i.i.i.i.i
-  %29 = sub i64 %26, %.0.sroa.speculated.i.i.i.i.i
+  %29 = sub nuw i64 %26, %.0.sroa.speculated.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %25, i64 %.0.sroa.speculated.i.i.i.i.i
   %31 = icmp eq i64 %27, 0
   br i1 %31, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i"
@@ -15895,7 +15895,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i80, ptr nonnull readonly align 1 %46, i64 %.0.sroa.speculated.i.i.i.i.i81, i1 false), !alias.scope !3128, !noalias !3132
   %48 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i79, %.0.sroa.speculated.i.i.i.i.i81
   %49 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i80, i64 %.0.sroa.speculated.i.i.i.i.i81
-  %50 = sub i64 %47, %.0.sroa.speculated.i.i.i.i.i81
+  %50 = sub nuw i64 %47, %.0.sroa.speculated.i.i.i.i.i81
   %51 = getelementptr inbounds i8, ptr %46, i64 %.0.sroa.speculated.i.i.i.i.i81
   %52 = icmp eq i64 %48, 0
   br i1 %52, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i82, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i78"
@@ -17001,7 +17001,7 @@ define hidden void @"_ZN113_$LT$kafka_protocol..messages..fetch_response..NodeEn
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i, ptr nonnull readonly align 1 %37, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !3358, !noalias !3362
   %39 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
   %40 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i, i64 %.0.sroa.speculated.i.i.i.i.i
-  %41 = sub i64 %38, %.0.sroa.speculated.i.i.i.i.i
+  %41 = sub nuw i64 %38, %.0.sroa.speculated.i.i.i.i.i
   %42 = getelementptr inbounds i8, ptr %37, i64 %.0.sroa.speculated.i.i.i.i.i
   %43 = icmp eq i64 %39, 0
   br i1 %43, label %44, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i"
@@ -17113,7 +17113,7 @@ define hidden void @"_ZN113_$LT$kafka_protocol..messages..fetch_response..NodeEn
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i118, ptr nonnull readonly align 1 %75, i64 %.0.sroa.speculated.i.i.i.i.i119, i1 false), !alias.scope !3396, !noalias !3400
   %77 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i117, %.0.sroa.speculated.i.i.i.i.i119
   %78 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i118, i64 %.0.sroa.speculated.i.i.i.i.i119
-  %79 = sub i64 %76, %.0.sroa.speculated.i.i.i.i.i119
+  %79 = sub nuw i64 %76, %.0.sroa.speculated.i.i.i.i.i119
   %80 = getelementptr inbounds i8, ptr %75, i64 %.0.sroa.speculated.i.i.i.i.i119
   %81 = icmp eq i64 %77, 0
   br i1 %81, label %84, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i116"
@@ -36017,7 +36017,7 @@ define internal fastcc void @"_ZN114_$LT$kafka_protocol..messages..fetch_respons
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i, ptr nonnull readonly align 1 %25, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !6737, !noalias !6741
   %27 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
   %28 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i, i64 %.0.sroa.speculated.i.i.i.i.i
-  %29 = sub i64 %26, %.0.sroa.speculated.i.i.i.i.i
+  %29 = sub nuw i64 %26, %.0.sroa.speculated.i.i.i.i.i
   %30 = getelementptr inbounds i8, ptr %25, i64 %.0.sroa.speculated.i.i.i.i.i
   %31 = icmp eq i64 %27, 0
   br i1 %31, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i"
@@ -36076,7 +36076,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i80, ptr nonnull readonly align 1 %47, i64 %.0.sroa.speculated.i.i.i.i.i81, i1 false), !alias.scope !6770, !noalias !6774
   %49 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i79, %.0.sroa.speculated.i.i.i.i.i81
   %50 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i80, i64 %.0.sroa.speculated.i.i.i.i.i81
-  %51 = sub i64 %48, %.0.sroa.speculated.i.i.i.i.i81
+  %51 = sub nuw i64 %48, %.0.sroa.speculated.i.i.i.i.i81
   %52 = getelementptr inbounds i8, ptr %47, i64 %.0.sroa.speculated.i.i.i.i.i81
   %53 = icmp eq i64 %49, 0
   br i1 %53, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i82, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i78"
@@ -36615,7 +36615,7 @@ define hidden void @"_ZN116_$LT$kafka_protocol..messages..fetch_response..Aborte
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i, ptr nonnull readonly align 1 %30, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !6912, !noalias !6916
   %32 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
   %33 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i, i64 %.0.sroa.speculated.i.i.i.i.i
-  %34 = sub i64 %31, %.0.sroa.speculated.i.i.i.i.i
+  %34 = sub nuw i64 %31, %.0.sroa.speculated.i.i.i.i.i
   %35 = getelementptr inbounds i8, ptr %30, i64 %.0.sroa.speculated.i.i.i.i.i
   %36 = icmp eq i64 %32, 0
   br i1 %36, label %37, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i"
@@ -36674,7 +36674,7 @@ define hidden void @"_ZN116_$LT$kafka_protocol..messages..fetch_response..Aborte
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i76, ptr nonnull readonly align 1 %53, i64 %.0.sroa.speculated.i.i.i.i.i77, i1 false), !alias.scope !6945, !noalias !6949
   %55 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i75, %.0.sroa.speculated.i.i.i.i.i77
   %56 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i76, i64 %.0.sroa.speculated.i.i.i.i.i77
-  %57 = sub i64 %54, %.0.sroa.speculated.i.i.i.i.i77
+  %57 = sub nuw i64 %54, %.0.sroa.speculated.i.i.i.i.i77
   %58 = getelementptr inbounds i8, ptr %53, i64 %.0.sroa.speculated.i.i.i.i.i77
   %59 = icmp eq i64 %55, 0
   br i1 %59, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i78, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i74"
@@ -37226,7 +37226,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$11clean_em
   %13 = phi i64 [ %.promoted, %.lr.ph ], [ %19, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17h02272b3a274b5c79E.llvm.6961039930124626028.exit" ]
   %.not.i = icmp ult i64 %12, %6
   %14 = select i1 %.not.i, i64 0, i64 %6
-  %.03.i = sub i64 %12, %14
+  %.03.i = sub nuw i64 %12, %14
   %15 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %7, i64 %.03.i, i32 2
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.not6 = icmp eq i64 %16, 0
@@ -37241,7 +37241,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$11clean_em
   %17 = add i64 %12, 1
   %.not.i2 = icmp ult i64 %17, %6
   %18 = select i1 %.not.i2, i64 0, i64 %6
-  %.0.i3 = sub i64 %17, %18
+  %.0.i3 = sub nuw i64 %17, %18
   store i64 %.0.i3, ptr %4, align 8, !alias.scope !7068, !noalias !7071
   %19 = add i64 %13, -1
   store i64 %19, ptr %3, align 8, !alias.scope !7068, !noalias !7071
@@ -37324,7 +37324,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$4push17he2
   %25 = add i64 %24, %22
   %.not.i = icmp ult i64 %25, %21
   %26 = select i1 %.not.i, i64 0, i64 %21
-  %.0.i = sub i64 %25, %26
+  %.0.i = sub nuw i64 %25, %26
   %27 = load ptr, ptr %0, align 8, !alias.scope !7083, !noalias !7086, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %27, i64 %.0.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -37350,7 +37350,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$4push17he2
   %38 = phi i64 [ %30, %.lr.ph.i ], [ %44, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17h02272b3a274b5c79E.llvm.6961039930124626028.exit.i" ]
   %.not.i.i = icmp ult i64 %37, %31
   %39 = select i1 %.not.i.i, i64 0, i64 %31
-  %.03.i.i = sub i64 %37, %39
+  %.03.i.i = sub nuw i64 %37, %39
   %40 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %32, i64 %.03.i.i, i32 2
   %41 = load i64, ptr %40, align 8, !noalias !7088, !noundef !4
   %.not6.i = icmp eq i64 %41, 0
@@ -37362,7 +37362,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$4push17he2
   %42 = add i64 %37, 1
   %.not.i2.i = icmp ult i64 %42, %31
   %43 = select i1 %.not.i2.i, i64 0, i64 %31
-  %.0.i3.i = sub i64 %42, %43
+  %.0.i3.i = sub nuw i64 %42, %43
   store i64 %.0.i3.i, ptr %23, align 8, !alias.scope !7094, !noalias !7095
   %44 = add i64 %38, -1
   store i64 %44, ptr %10, align 8, !alias.scope !7094, !noalias !7095
@@ -37572,7 +37572,7 @@ define hidden void @"_ZN120_$LT$kafka_protocol..messages..fetch_response..Fetcha
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i, ptr nonnull readonly align 1 %68, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !7137, !noalias !7141
   %70 = sub nuw nsw i64 %.sroa.4.016.i.i.i, %.0.sroa.speculated.i.i.i.i
   %71 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i, i64 %.0.sroa.speculated.i.i.i.i
-  %72 = sub i64 %69, %.0.sroa.speculated.i.i.i.i
+  %72 = sub nuw i64 %69, %.0.sroa.speculated.i.i.i.i
   %73 = getelementptr inbounds i8, ptr %68, i64 %.0.sroa.speculated.i.i.i.i
   %74 = icmp eq i64 %70, 0
   br i1 %74, label %81, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i"
@@ -38367,7 +38367,7 @@ define hidden void @"_ZN120_$LT$kafka_protocol..messages..find_coordinator_respo
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i, ptr nonnull readonly align 1 %55, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !7305, !noalias !7309
   %57 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
   %58 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i, i64 %.0.sroa.speculated.i.i.i.i.i
-  %59 = sub i64 %56, %.0.sroa.speculated.i.i.i.i.i
+  %59 = sub nuw i64 %56, %.0.sroa.speculated.i.i.i.i.i
   %60 = getelementptr inbounds i8, ptr %55, i64 %.0.sroa.speculated.i.i.i.i.i
   %61 = icmp eq i64 %57, 0
   br i1 %61, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i"
@@ -38500,7 +38500,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i169, ptr nonnull readonly align 1 %95, i64 %.0.sroa.speculated.i.i.i.i.i170, i1 false), !alias.scope !7342, !noalias !7346
   %97 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i168, %.0.sroa.speculated.i.i.i.i.i170
   %98 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i169, i64 %.0.sroa.speculated.i.i.i.i.i170
-  %99 = sub i64 %96, %.0.sroa.speculated.i.i.i.i.i170
+  %99 = sub nuw i64 %96, %.0.sroa.speculated.i.i.i.i.i170
   %100 = getelementptr inbounds i8, ptr %95, i64 %.0.sroa.speculated.i.i.i.i.i170
   %101 = icmp eq i64 %97, 0
   br i1 %101, label %104, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i167"
@@ -38572,7 +38572,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i180, ptr nonnull readonly align 1 %121, i64 %.0.sroa.speculated.i.i.i.i.i181, i1 false), !alias.scope !7372, !noalias !7376
   %123 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i179, %.0.sroa.speculated.i.i.i.i.i181
   %124 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i180, i64 %.0.sroa.speculated.i.i.i.i.i181
-  %125 = sub i64 %122, %.0.sroa.speculated.i.i.i.i.i181
+  %125 = sub nuw i64 %122, %.0.sroa.speculated.i.i.i.i.i181
   %126 = getelementptr inbounds i8, ptr %121, i64 %.0.sroa.speculated.i.i.i.i.i181
   %127 = icmp eq i64 %123, 0
   br i1 %127, label %130, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i178"
@@ -42976,7 +42976,7 @@ define hidden void @"_ZN132_$LT$kafka_protocol..messages..find_coordinator_respo
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i, ptr nonnull readonly align 1 %42, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !8670, !noalias !8674
   %44 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
   %45 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i, i64 %.0.sroa.speculated.i.i.i.i.i
-  %46 = sub i64 %43, %.0.sroa.speculated.i.i.i.i.i
+  %46 = sub nuw i64 %43, %.0.sroa.speculated.i.i.i.i.i
   %47 = getelementptr inbounds i8, ptr %42, i64 %.0.sroa.speculated.i.i.i.i.i
   %48 = icmp eq i64 %44, 0
   br i1 %48, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i"
@@ -43052,7 +43052,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i204, ptr nonnull readonly align 1 %68, i64 %.0.sroa.speculated.i.i.i.i.i205, i1 false), !alias.scope !8696, !noalias !8700
   %70 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i203, %.0.sroa.speculated.i.i.i.i.i205
   %71 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i204, i64 %.0.sroa.speculated.i.i.i.i.i205
-  %72 = sub i64 %69, %.0.sroa.speculated.i.i.i.i.i205
+  %72 = sub nuw i64 %69, %.0.sroa.speculated.i.i.i.i.i205
   %73 = getelementptr inbounds i8, ptr %68, i64 %.0.sroa.speculated.i.i.i.i.i205
   %74 = icmp eq i64 %70, 0
   br i1 %74, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i206, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i202"
@@ -43186,7 +43186,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i206: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i214, ptr nonnull readonly align 1 %108, i64 %.0.sroa.speculated.i.i.i.i.i215, i1 false), !alias.scope !8729, !noalias !8733
   %110 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i213, %.0.sroa.speculated.i.i.i.i.i215
   %111 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i214, i64 %.0.sroa.speculated.i.i.i.i.i215
-  %112 = sub i64 %109, %.0.sroa.speculated.i.i.i.i.i215
+  %112 = sub nuw i64 %109, %.0.sroa.speculated.i.i.i.i.i215
   %113 = getelementptr inbounds i8, ptr %108, i64 %.0.sroa.speculated.i.i.i.i.i215
   %114 = icmp eq i64 %110, 0
   br i1 %114, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i216, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i212"
@@ -43367,7 +43367,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i216: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i.i230, ptr nonnull readonly align 1 %162, i64 %.0.sroa.speculated.i.i.i.i.i231, i1 false), !alias.scope !8771, !noalias !8775
   %164 = sub nuw nsw i64 %.sroa.4.016.i.i.i.i229, %.0.sroa.speculated.i.i.i.i.i231
   %165 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i.i230, i64 %.0.sroa.speculated.i.i.i.i.i231
-  %166 = sub i64 %163, %.0.sroa.speculated.i.i.i.i.i231
+  %166 = sub nuw i64 %163, %.0.sroa.speculated.i.i.i.i.i231
   %167 = getelementptr inbounds i8, ptr %162, i64 %.0.sroa.speculated.i.i.i.i.i231
   %168 = icmp eq i64 %164, 0
   br i1 %168, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i.i.i232, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i.i228"
@@ -45264,7 +45264,7 @@ define hidden { i16, i16 } @_ZN14kafka_protocol8protocol3buf7ByteBuf11try_get_i1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i, ptr nonnull readonly align 1 %13, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !9088, !noalias !9092
   %15 = sub nuw nsw i64 %.sroa.4.016.i.i, %.0.sroa.speculated.i.i.i
   %16 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i, i64 %.0.sroa.speculated.i.i.i
-  %17 = sub i64 %14, %.0.sroa.speculated.i.i.i
+  %17 = sub nuw i64 %14, %.0.sroa.speculated.i.i.i
   %18 = getelementptr inbounds i8, ptr %13, i64 %.0.sroa.speculated.i.i.i
   %19 = icmp eq i64 %15, 0
   br i1 %19, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i"
@@ -45324,7 +45324,7 @@ define hidden { i32, i32 } @_ZN14kafka_protocol8protocol3buf7ByteBuf11try_get_i3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i, ptr nonnull readonly align 1 %13, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !9109, !noalias !9113
   %15 = sub nuw nsw i64 %.sroa.4.016.i.i, %.0.sroa.speculated.i.i.i
   %16 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i, i64 %.0.sroa.speculated.i.i.i
-  %17 = sub i64 %14, %.0.sroa.speculated.i.i.i
+  %17 = sub nuw i64 %14, %.0.sroa.speculated.i.i.i
   %18 = getelementptr inbounds i8, ptr %13, i64 %.0.sroa.speculated.i.i.i
   %19 = icmp eq i64 %15, 0
   br i1 %19, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i"
@@ -45407,7 +45407,7 @@ define hidden { i64, i64 } @_ZN14kafka_protocol8protocol3buf7ByteBuf11try_get_i6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i, ptr nonnull readonly align 1 %13, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !9136, !noalias !9140
   %15 = sub nuw nsw i64 %.sroa.4.016.i.i, %.0.sroa.speculated.i.i.i
   %16 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i, i64 %.0.sroa.speculated.i.i.i
-  %17 = sub i64 %14, %.0.sroa.speculated.i.i.i
+  %17 = sub nuw i64 %14, %.0.sroa.speculated.i.i.i
   %18 = getelementptr inbounds i8, ptr %13, i64 %.0.sroa.speculated.i.i.i
   %19 = icmp eq i64 %15, 0
   br i1 %19, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i"
@@ -45490,7 +45490,7 @@ define hidden { i32, i32 } @_ZN14kafka_protocol8protocol3buf7ByteBuf11try_get_u3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i, ptr nonnull readonly align 1 %13, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !9163, !noalias !9167
   %15 = sub nuw nsw i64 %.sroa.4.016.i.i, %.0.sroa.speculated.i.i.i
   %16 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i, i64 %.0.sroa.speculated.i.i.i
-  %17 = sub i64 %14, %.0.sroa.speculated.i.i.i
+  %17 = sub nuw i64 %14, %.0.sroa.speculated.i.i.i
   %18 = getelementptr inbounds i8, ptr %13, i64 %.0.sroa.speculated.i.i.i
   %19 = icmp eq i64 %15, 0
   br i1 %19, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i"
@@ -45611,7 +45611,7 @@ define hidden noundef zeroext i1 @_ZN14kafka_protocol8protocol3buf7ByteBuf17try_
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i, ptr nonnull readonly align 1 %9, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !9189, !noalias !9193
   %11 = sub nuw i64 %.sroa.4.016.i, %.0.sroa.speculated.i.i
   %12 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 %.0.sroa.speculated.i.i
-  %13 = sub i64 %10, %.0.sroa.speculated.i.i
+  %13 = sub nuw i64 %10, %.0.sroa.speculated.i.i
   %14 = getelementptr inbounds i8, ptr %9, i64 %.0.sroa.speculated.i.i
   %15 = icmp eq i64 %11, 0
   br i1 %15, label %._crit_edge.i, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i"
@@ -56781,7 +56781,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$9ends_with
   br i1 %.not.i.i, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17h9ba5da1b61dbc91fE.llvm.6961039930124626028.exit", label %5
 
 5:                                                ; preds = %4
-  %6 = sub i64 %1, %3
+  %6 = sub nuw i64 %1, %3
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %7, i64 %3), !alias.scope !12269
   %8 = icmp eq i32 %bcmp.i.i.i, 0
@@ -58411,7 +58411,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !12763
   %9 = icmp eq i32 %bcmp.i, 0
@@ -61496,7 +61496,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h773e6b77416b2505E.exit", label %5
 
 5:                                                ; preds = %4
-  %6 = sub i64 %3, %1
+  %6 = sub nuw i64 %3, %1
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %7, i64 %1), !alias.scope !13331
   %8 = icmp eq i32 %bcmp.i.i, 0
@@ -61927,7 +61927,7 @@ define hidden { ptr, i64 } @"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_
   %9 = load i64, ptr %8, align 8, !alias.scope !13431, !noundef !4
   %.not.i.i = icmp ult i64 %7, %9
   %10 = select i1 %.not.i.i, i64 0, i64 %9
-  %.03.i.i = sub i64 %7, %10
+  %.03.i.i = sub nuw i64 %7, %10
   %11 = load ptr, ptr %2, align 8, !alias.scope !13431, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %11, i64 %.03.i.i
   %13 = getelementptr i8, ptr %12, i64 8
@@ -61982,7 +61982,7 @@ define hidden void @"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Bu
 17:                                               ; preds = %13
   %.not.i.i = icmp ult i64 %14, %8
   %18 = select i1 %.not.i.i, i64 0, i64 %8
-  %.03.i.i = sub i64 %14, %18
+  %.03.i.i = sub nuw i64 %14, %18
   %19 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %9, i64 %.03.i.i
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !13434, !noundef !4
@@ -61995,13 +61995,13 @@ define hidden void @"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Bu
   %24 = load ptr, ptr %23, align 8, !alias.scope !13437, !noalias !13434, !noundef !4
   %25 = getelementptr inbounds i8, ptr %24, i64 %21
   store ptr %25, ptr %23, align 8, !alias.scope !13437, !noalias !13434
-  %26 = sub i64 %.021.i, %21
+  %26 = sub nuw i64 %.021.i, %21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !13434
   call void @llvm.experimental.noalias.scope.decl(metadata !13440)
   %27 = add i64 %14, 1
   %.not.i10.i = icmp ult i64 %27, %8
   %28 = select i1 %.not.i10.i, i64 0, i64 %8
-  %.0.i11.i = sub i64 %27, %28
+  %.0.i11.i = sub nuw i64 %27, %28
   store i64 %.0.i11.i, ptr %6, align 8, !alias.scope !13443, !noalias !13444
   %29 = add i64 %15, -1
   store i64 %29, ptr %5, align 8, !alias.scope !13443, !noalias !13444
@@ -62028,7 +62028,7 @@ define hidden void @"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Bu
   br i1 %.not.i, label %"_ZN84_$LT$http_body_util..util..BufList$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h316a839a85fb1b3aE.llvm.6961039930124626028.exit", label %13
 
 "_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit13.i": ; preds = %17
-  %38 = sub i64 %21, %.021.i
+  %38 = sub nuw i64 %21, %.021.i
   store i64 %38, ptr %20, align 8, !alias.scope !13457, !noalias !13434
   %39 = getelementptr inbounds i8, ptr %19, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !13457, !noalias !13434, !noundef !4
@@ -83275,7 +83275,7 @@ define hidden void @_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dba
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015, ptr nonnull readonly align 1 %11, i64 %.0.sroa.speculated.i, i1 false), !alias.scope !16313, !noalias !16317
   %13 = sub nuw i64 %.sroa.4.016, %.0.sroa.speculated.i
   %14 = getelementptr inbounds i8, ptr %.sroa.0.015, i64 %.0.sroa.speculated.i
-  %15 = sub i64 %12, %.0.sroa.speculated.i
+  %15 = sub nuw i64 %12, %.0.sroa.speculated.i
   %16 = getelementptr inbounds i8, ptr %11, i64 %.0.sroa.speculated.i
   %17 = icmp eq i64 %13, 0
   br i1 %17, label %._crit_edge, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit"
@@ -83453,7 +83453,7 @@ define hidden noundef i16 @_ZN5bytes3buf8buf_impl3Buf7get_i1617h5835ad93484d20a6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i, ptr nonnull readonly align 1 %14, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !16366, !noalias !16370
   %16 = sub nuw nsw i64 %.sroa.4.016.i, %.0.sroa.speculated.i.i
   %17 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 %.0.sroa.speculated.i.i
-  %18 = sub i64 %15, %.0.sroa.speculated.i.i
+  %18 = sub nuw i64 %15, %.0.sroa.speculated.i.i
   %19 = getelementptr inbounds i8, ptr %14, i64 %.0.sroa.speculated.i.i
   %20 = icmp eq i64 %16, 0
   br i1 %20, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i"
@@ -83513,7 +83513,7 @@ define hidden noundef i32 @_ZN5bytes3buf8buf_impl3Buf7get_i3217h7ef98718b2516ce3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i, ptr nonnull readonly align 1 %14, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !16383, !noalias !16387
   %16 = sub nuw nsw i64 %.sroa.4.016.i, %.0.sroa.speculated.i.i
   %17 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 %.0.sroa.speculated.i.i
-  %18 = sub i64 %15, %.0.sroa.speculated.i.i
+  %18 = sub nuw i64 %15, %.0.sroa.speculated.i.i
   %19 = getelementptr inbounds i8, ptr %14, i64 %.0.sroa.speculated.i.i
   %20 = icmp eq i64 %16, 0
   br i1 %20, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i"
@@ -83592,7 +83592,7 @@ define hidden noundef i64 @_ZN5bytes3buf8buf_impl3Buf7get_i6417h383bac600abcd482
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i, ptr nonnull readonly align 1 %14, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !16403, !noalias !16407
   %16 = sub nuw nsw i64 %.sroa.4.016.i, %.0.sroa.speculated.i.i
   %17 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 %.0.sroa.speculated.i.i
-  %18 = sub i64 %15, %.0.sroa.speculated.i.i
+  %18 = sub nuw i64 %15, %.0.sroa.speculated.i.i
   %19 = getelementptr inbounds i8, ptr %14, i64 %.0.sroa.speculated.i.i
   %20 = icmp eq i64 %16, 0
   br i1 %20, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i"
@@ -83671,7 +83671,7 @@ define hidden noundef i32 @_ZN5bytes3buf8buf_impl3Buf7get_u3217hfc88c54aa51f0cc3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i, ptr nonnull readonly align 1 %14, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !16423, !noalias !16427
   %16 = sub nuw nsw i64 %.sroa.4.016.i, %.0.sroa.speculated.i.i
   %17 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 %.0.sroa.speculated.i.i
-  %18 = sub i64 %15, %.0.sroa.speculated.i.i
+  %18 = sub nuw i64 %15, %.0.sroa.speculated.i.i
   %19 = getelementptr inbounds i8, ptr %14, i64 %.0.sroa.speculated.i.i
   %20 = icmp eq i64 %16, 0
   br i1 %20, label %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h603696dbdc809dbaE.exit, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i"
@@ -85448,7 +85448,7 @@ define hidden void @"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_im
   unreachable
 
 17:                                               ; preds = %2
-  %18 = sub i64 %8, %1
+  %18 = sub nuw i64 %8, %1
   store i64 %18, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !noundef !4
@@ -85617,7 +85617,7 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$opentelemetry..global..trace..Object
   br i1 %30, label %.thread20.i.i.i.i, label %31
 
 31:                                               ; preds = %26
-  %32 = sub i64 %28, %29
+  %32 = sub nuw i64 %28, %29
   %33 = load ptr, ptr %.sroa.5.0..sroa_idx2.i, align 8, !alias.scope !16733, !noalias !16732, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [3 x i64] } }, ptr %33, i64 %29
   store i64 %29, ptr %27, align 8, !alias.scope !16733, !noalias !16732
@@ -86744,7 +86744,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %34 = load i64, ptr %15, align 8, !alias.scope !17049, !noalias !17052, !noundef !4
   %.not.i.i.i = icmp ult i64 %33, %34
   %35 = select i1 %.not.i.i.i, i64 0, i64 %34
-  %.03.i.i.i = sub i64 %33, %35
+  %.03.i.i.i = sub nuw i64 %33, %35
   %36 = load ptr, ptr %1, align 8, !alias.scope !17049, !noalias !17052, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %36, i64 %.03.i.i.i
   %38 = getelementptr i8, ptr %37, i64 8
@@ -86816,7 +86816,7 @@ _ZN5bytes9bytes_mut8BytesMut17extend_from_slice17he9b6e3fe4a4bace4E.llvm.6961039
 61:                                               ; preds = %57
   %.not.i.i.i1 = icmp ult i64 %58, %55
   %62 = select i1 %.not.i.i.i1, i64 0, i64 %55
-  %.03.i.i.i2 = sub i64 %58, %62
+  %.03.i.i.i2 = sub nuw i64 %58, %62
   %63 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %56, i64 %.03.i.i.i2
   %64 = getelementptr inbounds i8, ptr %63, i64 16
   %65 = load i64, ptr %64, align 8, !noalias !17067, !noundef !4
@@ -86829,13 +86829,13 @@ _ZN5bytes9bytes_mut8BytesMut17extend_from_slice17he9b6e3fe4a4bace4E.llvm.6961039
   %68 = load ptr, ptr %67, align 8, !alias.scope !17068, !noalias !17067, !noundef !4
   %69 = getelementptr inbounds i8, ptr %68, i64 %65
   store ptr %69, ptr %67, align 8, !alias.scope !17068, !noalias !17067
-  %70 = sub i64 %.021.i.i, %65
+  %70 = sub nuw i64 %.021.i.i, %65
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !17067
   call void @llvm.experimental.noalias.scope.decl(metadata !17071)
   %71 = add i64 %58, 1
   %.not.i10.i.i = icmp ult i64 %71, %55
   %72 = select i1 %.not.i10.i.i, i64 0, i64 %55
-  %.0.i11.i.i = sub i64 %71, %72
+  %.0.i11.i.i = sub nuw i64 %71, %72
   store i64 %.0.i11.i.i, ptr %14, align 8, !alias.scope !17074, !noalias !17075
   %73 = add i64 %59, -1
   store i64 %73, ptr %13, align 8, !alias.scope !17074, !noalias !17075
@@ -86862,7 +86862,7 @@ _ZN5bytes9bytes_mut8BytesMut17extend_from_slice17he9b6e3fe4a4bace4E.llvm.6961039
   br i1 %.not.i.i3, label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hc005b0bda0c663b5E.llvm.6961039930124626028.exit.backedge", label %57
 
 "_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit13.i.i": ; preds = %61
-  %82 = sub i64 %65, %.021.i.i
+  %82 = sub nuw i64 %65, %.021.i.i
   store i64 %82, ptr %64, align 8, !alias.scope !17089, !noalias !17067
   %83 = getelementptr inbounds i8, ptr %63, i64 8
   %84 = load ptr, ptr %83, align 8, !alias.scope !17089, !noalias !17067, !noundef !4
@@ -86966,7 +86966,7 @@ define hidden void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf.
   %32 = load i64, ptr %31, align 8, !alias.scope !17119, !noalias !17122, !noundef !4
   %.not.i.i.i.i = icmp ult i64 %30, %32
   %33 = select i1 %.not.i.i.i.i, i64 0, i64 %32
-  %.03.i.i.i.i = sub i64 %30, %33
+  %.03.i.i.i.i = sub nuw i64 %30, %33
   %34 = load ptr, ptr %15, align 8, !alias.scope !17119, !noalias !17122, !nonnull !4, !noundef !4
   %35 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %34, i64 %.03.i.i.i.i
   %36 = getelementptr i8, ptr %35, i64 8
@@ -87076,7 +87076,7 @@ define hidden { ptr, i64 } @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u2
   %9 = load i64, ptr %8, align 8, !alias.scope !17149, !noalias !17143, !noundef !4
   %.not.i.i.i = icmp ult i64 %7, %9
   %10 = select i1 %.not.i.i.i, i64 0, i64 %9
-  %.03.i.i.i = sub i64 %7, %10
+  %.03.i.i.i = sub nuw i64 %7, %10
   %11 = load ptr, ptr %2, align 8, !alias.scope !17149, !noalias !17143, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %11, i64 %.03.i.i.i
   %13 = getelementptr i8, ptr %12, i64 8
@@ -87145,7 +87145,7 @@ define hidden void @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes.
 21:                                               ; preds = %17
   %.not.i.i.i = icmp ult i64 %18, %12
   %22 = select i1 %.not.i.i.i, i64 0, i64 %12
-  %.03.i.i.i = sub i64 %18, %22
+  %.03.i.i.i = sub nuw i64 %18, %22
   %23 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %13, i64 %.03.i.i.i
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load i64, ptr %24, align 8, !noalias !17159, !noundef !4
@@ -87158,13 +87158,13 @@ define hidden void @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes.
   %28 = load ptr, ptr %27, align 8, !alias.scope !17160, !noalias !17159, !noundef !4
   %29 = getelementptr inbounds i8, ptr %28, i64 %25
   store ptr %29, ptr %27, align 8, !alias.scope !17160, !noalias !17159
-  %30 = sub i64 %.021.i.i, %25
+  %30 = sub nuw i64 %.021.i.i, %25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !17159
   call void @llvm.experimental.noalias.scope.decl(metadata !17163)
   %31 = add i64 %18, 1
   %.not.i10.i.i = icmp ult i64 %31, %12
   %32 = select i1 %.not.i10.i.i, i64 0, i64 %12
-  %.0.i11.i.i = sub i64 %31, %32
+  %.0.i11.i.i = sub nuw i64 %31, %32
   store i64 %.0.i11.i.i, ptr %10, align 8, !alias.scope !17166, !noalias !17167
   %33 = add i64 %19, -1
   store i64 %33, ptr %9, align 8, !alias.scope !17166, !noalias !17167
@@ -87191,7 +87191,7 @@ define hidden void @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes.
   br i1 %.not.i.i, label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hc005b0bda0c663b5E.llvm.6961039930124626028.exit", label %17
 
 "_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit13.i.i": ; preds = %21
-  %42 = sub i64 %25, %.021.i.i
+  %42 = sub nuw i64 %25, %.021.i.i
   store i64 %42, ptr %24, align 8, !alias.scope !17181, !noalias !17159
   %43 = getelementptr inbounds i8, ptr %23, i64 8
   %44 = load ptr, ptr %43, align 8, !alias.scope !17181, !noalias !17159, !noundef !4
@@ -87620,7 +87620,7 @@ define hidden { ptr, i64 } @"_ZN84_$LT$http_body_util..util..BufList$LT$T$GT$$u2
   %8 = load i64, ptr %7, align 8, !alias.scope !17239, !noundef !4
   %.not.i = icmp ult i64 %6, %8
   %9 = select i1 %.not.i, i64 0, i64 %8
-  %.03.i = sub i64 %6, %9
+  %.03.i = sub nuw i64 %6, %9
   %10 = load ptr, ptr %0, align 8, !alias.scope !17239, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %10, i64 %.03.i
   %12 = getelementptr i8, ptr %11, i64 8
@@ -87676,7 +87676,7 @@ define hidden void @"_ZN84_$LT$http_body_util..util..BufList$LT$T$GT$$u20$as$u20
 16:                                               ; preds = %12
   %.not.i = icmp ult i64 %13, %7
   %17 = select i1 %.not.i, i64 0, i64 %7
-  %.03.i = sub i64 %13, %17
+  %.03.i = sub nuw i64 %13, %17
   %18 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %8, i64 %.03.i
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
@@ -87689,13 +87689,13 @@ define hidden void @"_ZN84_$LT$http_body_util..util..BufList$LT$T$GT$$u20$as$u20
   %23 = load ptr, ptr %22, align 8, !alias.scope !17242, !noundef !4
   %24 = getelementptr inbounds i8, ptr %23, i64 %20
   store ptr %24, ptr %22, align 8, !alias.scope !17242
-  %25 = sub i64 %.021, %20
+  %25 = sub nuw i64 %.021, %20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !17245)
   %26 = add i64 %13, 1
   %.not.i10 = icmp ult i64 %26, %7
   %27 = select i1 %.not.i10, i64 0, i64 %7
-  %.0.i11 = sub i64 %26, %27
+  %.0.i11 = sub nuw i64 %26, %27
   store i64 %.0.i11, ptr %5, align 8, !alias.scope !17245, !noalias !17248
   %28 = add i64 %14, -1
   store i64 %28, ptr %4, align 8, !alias.scope !17245, !noalias !17248
@@ -87722,7 +87722,7 @@ define hidden void @"_ZN84_$LT$http_body_util..util..BufList$LT$T$GT$$u20$as$u20
   br i1 %.not, label %.loopexit, label %12
 
 "_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit13": ; preds = %16
-  %37 = sub i64 %20, %.021
+  %37 = sub nuw i64 %20, %.021
   store i64 %37, ptr %19, align 8, !alias.scope !17260
   %38 = getelementptr inbounds i8, ptr %18, i64 8
   %39 = load ptr, ptr %38, align 8, !alias.scope !17260, !noundef !4

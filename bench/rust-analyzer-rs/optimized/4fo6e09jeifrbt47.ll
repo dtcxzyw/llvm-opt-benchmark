@@ -279,7 +279,7 @@ define hidden void @"_ZN100_$LT$rayon..slice..chunks..ChunksMutProducer$LT$T$GT$
   %9 = load i64, ptr %8, align 8, !noundef !4
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %6, i64 %9)
   %10 = getelementptr inbounds { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }, ptr %7, i64 %.0.sroa.speculated.i
-  %11 = sub i64 %9, %.0.sroa.speculated.i
+  %11 = sub nuw i64 %9, %.0.sroa.speculated.i
   store ptr %7, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.0.sroa.speculated.i, ptr %.sroa.4.0..sroa_idx, align 8
@@ -682,7 +682,7 @@ define hidden void @"_ZN102_$LT$rayon..iter..enumerate..EnumerateProducer$LT$P$G
   %4 = mul i64 %.sroa.513.0.copyload, %2
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %.sroa.412.0.copyload)
   %5 = getelementptr inbounds { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }, ptr %.sroa.011.0.copyload, i64 %.0.sroa.speculated.i.i.i
-  %6 = sub i64 %.sroa.412.0.copyload, %.0.sroa.speculated.i.i.i
+  %6 = sub nuw i64 %.sroa.412.0.copyload, %.0.sroa.speculated.i.i.i
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = add i64 %8, %2
@@ -16977,7 +16977,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %19 = xor i16 %16, -1
   store ptr %18, ptr %5, align 8, !alias.scope !4095
   store ptr %17, ptr %0, align 8, !alias.scope !4095
-  %20 = sub i16 -2, %16
+  %20 = sub nuw i16 -2, %16
   %21 = and i16 %20, %19
   store i16 %21, ptr %4, align 8, !alias.scope !4105
   %22 = add i64 %.promoted, -1
@@ -17155,7 +17155,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %19 = xor i16 %16, -1
   store ptr %18, ptr %5, align 8, !alias.scope !4142
   store ptr %17, ptr %0, align 8, !alias.scope !4142
-  %20 = sub i16 -2, %16
+  %20 = sub nuw i16 -2, %16
   %21 = and i16 %20, %19
   store i16 %21, ptr %4, align 8, !alias.scope !4152
   %22 = add i64 %.promoted, -1
@@ -17335,7 +17335,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %19 = xor i16 %16, -1
   store ptr %18, ptr %5, align 8, !alias.scope !4179
   store ptr %17, ptr %0, align 8, !alias.scope !4179
-  %20 = sub i16 -2, %16
+  %20 = sub nuw i16 -2, %16
   %21 = and i16 %20, %19
   store i16 %21, ptr %4, align 8, !alias.scope !4189
   %22 = add i64 %.promoted, -1
@@ -17680,7 +17680,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -22007,7 +22007,7 @@ define hidden void @"_ZN93_$LT$rayon..iter..len..MaxLenProducer$LT$P$GT$$u20$as$
   %4 = mul i64 %.sroa.511.0.copyload, %2
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %.sroa.410.0.copyload)
   %5 = getelementptr inbounds { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }, ptr %.sroa.09.0.copyload, i64 %.0.sroa.speculated.i.i
-  %6 = sub i64 %.sroa.410.0.copyload, %.0.sroa.speculated.i.i
+  %6 = sub nuw i64 %.sroa.410.0.copyload, %.0.sroa.speculated.i.i
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !4
   store ptr %.sroa.09.0.copyload, ptr %0, align 8

@@ -232,7 +232,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %21, %24
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %77
-  %94 = sub nsw i64 %84, %91
+  %94 = sub nuw nsw i64 %84, %91
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %94)
           to label %_ZNSt6vectorIjSaIjEE6resizeEm.exit unwind label %71
 
@@ -378,7 +378,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %99, %97, %95, %93
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %._crit_edge51
-  %175 = sub nsw i64 %165, %172
+  %175 = sub nuw nsw i64 %165, %172
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %175)
           to label %_ZNSt6vectorIjSaIjEE6resizeEm.exit45 unwind label %71
 

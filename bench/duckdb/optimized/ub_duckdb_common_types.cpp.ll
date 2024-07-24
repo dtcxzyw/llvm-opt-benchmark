@@ -7722,7 +7722,7 @@ if.then:                                          ; preds = %for.body
 if.else:                                          ; preds = %for.body
   %agg.tmp5.sroa.0.0.copyload = load i64, ptr %bit_string, align 8, !tbaa.struct !185
   %agg.tmp5.sroa.2.0.copyload = load ptr, ptr %ptr.i20, align 8, !tbaa !116
-  %sub = sub i64 %i.0, %25
+  %sub = sub nuw i64 %i.0, %25
   %bit_string.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp5.sroa.0.0.copyload to i32
   %bit_string.sroa.2.0.extract.shift.i = lshr i64 %agg.tmp5.sroa.0.0.copyload, 32
   %bit_string.sroa.2.0.extract.trunc.i = trunc i64 %bit_string.sroa.2.0.extract.shift.i to i8
@@ -26218,7 +26218,7 @@ entry:
   br i1 %cmp21, label %land.rhs.preheader, label %for.end
 
 land.rhs.preheader:                               ; preds = %entry
-  %1 = sub i64 %len, %0
+  %1 = sub nuw i64 %len, %0
   %scevgep = getelementptr i8, ptr %special, i64 %1
   br label %land.rhs
 
@@ -26327,7 +26327,7 @@ if.then15:                                        ; preds = %if.end12
   br i1 %cmp21.i, label %land.rhs.preheader.i, label %for.end.i
 
 land.rhs.preheader.i:                             ; preds = %if.then15
-  %6 = sub i64 %len, %pos.promoted307
+  %6 = sub nuw i64 %len, %pos.promoted307
   %scevgep.i = getelementptr i8, ptr %5, i64 %6
   br label %land.rhs.i
 
@@ -26372,7 +26372,7 @@ if.else:                                          ; preds = %for.body.i, %for.en
   br i1 %cmp21.i, label %land.rhs.preheader.i256, label %for.end.i248
 
 land.rhs.preheader.i256:                          ; preds = %if.else
-  %12 = sub i64 %len, %pos.promoted307
+  %12 = sub nuw i64 %len, %pos.promoted307
   %scevgep.i257 = getelementptr i8, ptr %11, i64 %12
   br label %land.rhs.i258
 
@@ -40163,7 +40163,7 @@ invoke.cont4.i.i:                                 ; preds = %if.then32
   store ptr %18, ptr %substr, align 8, !tbaa !115, !alias.scope !861
   %24 = load ptr, ptr %str, align 8, !tbaa !83, !noalias !861
   %add.ptr.i.i = getelementptr inbounds i8, ptr %24, i64 %offset.0153
-  %sub.i.i.i = sub i64 %23, %offset.0153
+  %sub.i.i.i = sub nuw i64 %23, %offset.0153
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %ret.0.copyload.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #38, !noalias !861
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !87, !noalias !861
@@ -47882,8 +47882,8 @@ for.cond8.preheader:                              ; preds = %for.body, %for.body
 for.body11.preheader:                             ; preds = %for.cond8.preheader
   %14 = shl nuw nsw i64 %div1.i.i30, 3
   %scevgep = getelementptr i8, ptr %call.i15.i.i.i.i.i.i.i.i.i, i64 %14
-  %15 = sub nsw i64 %div1.i.i, %div1.i.i30
-  %16 = shl nsw i64 %15, 3
+  %15 = sub nuw nsw i64 %div1.i.i, %div1.i.i30
+  %16 = shl nuw nsw i64 %15, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 -1, i64 %16, i1 false), !tbaa !87
   br label %for.cond.cleanup10
 

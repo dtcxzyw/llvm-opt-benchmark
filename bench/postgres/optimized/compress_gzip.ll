@@ -272,7 +272,7 @@ define internal void @WriteDataToArchiveGzip(ptr noundef %0, ptr nocapture nound
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %33
-  %38 = sub i64 %35, %34
+  %38 = sub nuw i64 %35, %34
   %39 = load ptr, ptr %18, align 8
   tail call void %39(ptr noundef %0, ptr noundef %14, i64 noundef %38) #10
   br label %40
@@ -337,7 +337,7 @@ define internal void @EndCompressorGzip(ptr noundef %0, ptr nocapture noundef %1
   br i1 %.not.us.i.i, label %33, label %.thread.i.i
 
 28:                                               ; preds = %19
-  %29 = sub i64 %22, %21
+  %29 = sub nuw i64 %22, %21
   %30 = load ptr, ptr %15, align 8
   tail call void %30(ptr noundef %0, ptr noundef %11, i64 noundef %29) #10
   br label %.thread.i.i

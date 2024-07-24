@@ -609,7 +609,7 @@ if.then74:                                        ; preds = %if.end70
   br label %cleanup
 
 invoke.cont85:                                    ; preds = %if.end70
-  %sub83 = sub i32 %13, %last_end_offset.035
+  %sub83 = sub nuw i32 %13, %last_end_offset.035
   %conv84 = zext i32 %sub83 to i64
   %14 = load i32, ptr %tag, align 4
   %15 = load ptr, ptr %_M_finish.i.i13, align 8

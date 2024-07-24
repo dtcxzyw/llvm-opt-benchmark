@@ -96,7 +96,7 @@ define hidden void @_ZN2cv9HistogramC2Eii(ptr noundef nonnull align 8 dereferenc
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %3
-  %25 = sub nsw i64 %15, %22
+  %25 = sub nuw nsw i64 %15, %22
   invoke void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %17, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit unwind label %63
 
@@ -128,7 +128,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit:            ; preds = %30, %28, %26, %24
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
-  %42 = sub nsw i64 %32, %39
+  %42 = sub nuw nsw i64 %32, %39
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %34, i64 noundef %42, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge unwind label %63
 
@@ -5393,7 +5393,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds double, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -5573,7 +5573,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

@@ -70,7 +70,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %65 = icmp slt i32 %64, 0
   %66 = icmp sgt i32 %64, %61
   %67 = or i1 %65, %66
-  %68 = sub nsw i32 %58, %61
+  %68 = sub nuw nsw i32 %58, %61
   %69 = icmp sgt i32 %64, %68
   %70 = select i1 %67, i1 true, i1 %69
   %71 = sub nsw i32 %58, %64
@@ -107,7 +107,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 89:                                               ; preds = %82
   store i32 %68, ptr %24, align 4, !tbaa !3
   %90 = load i32, ptr %10, align 4, !tbaa !3
-  %91 = tail call i32 @llvm.smax.i32(i32 %68, i32 1)
+  %91 = tail call i32 @llvm.umax.i32(i32 %68, i32 1)
   %92 = icmp slt i32 %90, %91
   br i1 %92, label %.thread35.sink.split, label %96
 

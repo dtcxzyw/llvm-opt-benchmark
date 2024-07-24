@@ -1940,7 +1940,7 @@ if.end5:                                          ; preds = %if.end104.i, %if.en
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end5
-  %sub.i.i = sub i64 %sz.0653, %30
+  %sub.i.i = sub nuw i64 %sz.0653, %30
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %30
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -2457,7 +2457,7 @@ if.end36:                                         ; preds = %if.end104.i293, %if
   br i1 %cmp.i.i578, label %if.then.i.i583, label %if.else.i.i579
 
 if.then.i.i583:                                   ; preds = %if.end36
-  %sub.i.i584 = sub i64 %sz31.0665, %79
+  %sub.i.i584 = sub nuw i64 %sz31.0665, %79
   %sub3.i.i.i.i.i585 = sub i64 9223372036854775807, %79
   %cmp.i.i.i.i.i586 = icmp ult i64 %sub3.i.i.i.i.i585, %sub.i.i584
   br i1 %cmp.i.i.i.i.i586, label %if.then.i.i.i.i.i601, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i587
@@ -4933,7 +4933,7 @@ if.end26:                                         ; preds = %if.end104.i476, %if
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end26
-  %sub.i.i = sub i64 %sz.0995, %77
+  %sub.i.i = sub nuw i64 %sz.0995, %77
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %77
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -5183,7 +5183,7 @@ if.end39:                                         ; preds = %if.end104.i618, %if
   br i1 %cmp.i.i887, label %if.then.i.i892, label %if.else.i.i888
 
 if.then.i.i892:                                   ; preds = %if.end39
-  %sub.i.i893 = sub i64 %sz34.01001, %100
+  %sub.i.i893 = sub nuw i64 %sz34.01001, %100
   %sub3.i.i.i.i.i894 = sub i64 9223372036854775807, %100
   %cmp.i.i.i.i.i895 = icmp ult i64 %sub3.i.i.i.i.i894, %sub.i.i893
   br i1 %cmp.i.i.i.i.i895, label %if.then.i.i.i.i.i910, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i896
@@ -6024,7 +6024,7 @@ if.end89:                                         ; preds = %if.end104.i1186, %i
   br i1 %cmp.i.i918, label %if.then.i.i923, label %if.else.i.i919
 
 if.then.i.i923:                                   ; preds = %if.end89
-  %sub.i.i924 = sub i64 %sz84.01025, %179
+  %sub.i.i924 = sub nuw i64 %sz84.01025, %179
   %sub3.i.i.i.i.i925 = sub i64 9223372036854775807, %179
   %cmp.i.i.i.i.i926 = icmp ult i64 %sub3.i.i.i.i.i925, %sub.i.i924
   br i1 %cmp.i.i.i.i.i926, label %if.then.i.i.i.i.i941, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i927
@@ -6274,7 +6274,7 @@ if.end104:                                        ; preds = %if.end104.i1328, %i
   br i1 %cmp.i.i944, label %if.then.i.i949, label %if.else.i.i945
 
 if.then.i.i949:                                   ; preds = %if.end104
-  %sub.i.i950 = sub i64 %sz99.01031, %202
+  %sub.i.i950 = sub nuw i64 %sz99.01031, %202
   %sub3.i.i.i.i.i951 = sub i64 9223372036854775807, %202
   %cmp.i.i.i.i.i952 = icmp ult i64 %sub3.i.i.i.i.i951, %sub.i.i950
   br i1 %cmp.i.i.i.i.i952, label %if.then.i.i.i.i.i967, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i953
@@ -7809,7 +7809,7 @@ if.end5:                                          ; preds = %if.end104.i, %if.en
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end5
-  %sub.i.i = sub i64 %sz.0536, %29
+  %sub.i.i = sub nuw i64 %sz.0536, %29
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %29
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -9283,7 +9283,7 @@ if.end5:                                          ; preds = %if.end104.i, %if.en
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end5
-  %sub.i.i = sub i64 %sz.0335, %29
+  %sub.i.i = sub nuw i64 %sz.0335, %29
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %29
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -10137,7 +10137,7 @@ if.end5:                                          ; preds = %if.end104.i, %if.en
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end5
-  %sub.i.i = sub i64 %sz.0259, %29
+  %sub.i.i = sub nuw i64 %sz.0259, %29
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %29
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i

@@ -2195,7 +2195,7 @@ if.then.i4.i.i.i:                                 ; preds = %_ZNSt3mapIN3ue212gr
   br i1 %cmp.i12.i.i.i.i, label %if.then.i.i.i370.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i370.i.i:                             ; preds = %if.then.i4.i.i.i
-  %sub.i.i.i.i.i = sub nsw i64 %add.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
+  %sub.i.i.i.i.i = sub nuw nsw i64 %add.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i362.i.i, ptr %90, i64 noundef %sub.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i.i.i)
           to label %if.end.i.i.i.i47 unwind label %lpad2.loopexit.split-lp.loopexit.i.i
 
@@ -3610,7 +3610,7 @@ if.then.i211.i.i.i:                               ; preds = %invoke.cont78.i.i.i
   br i1 %cmp.i12.i212.i.i.i, label %if.then.i.i228.i.i.i, label %if.else.i.i213.i.i.i
 
 if.then.i.i228.i.i.i:                             ; preds = %if.then.i211.i.i.i
-  %sub.i.i229.i.i.i = sub nsw i64 %add.i.i209.i.i.i, %sub.ptr.div.i.i.i204.i.i.i
+  %sub.i.i229.i.i.i = sub nuw nsw i64 %add.i.i209.i.i.i, %sub.ptr.div.i.i.i204.i.i.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %second.i183.i.i.i, ptr %221, i64 noundef %sub.i.i229.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i199.i.i.i)
           to label %if.end.i215.i.i.i unwind label %lpad.loopexit.i.i.i
 
@@ -5299,7 +5299,7 @@ invoke.cont3.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i.i:                               ; preds = %invoke.cont3.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i.i.i.i10, %invoke.cont3.i.i.i ]
   %f.sroa.0.0.i.i.i = phi ptr [ %first.coerce, %if.then.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont3.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i.i, %4
   %mul.i.i9.i = shl i64 %sub.i, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %out_start.addr.0.i, ptr align 8 %f.sroa.0.0.i.i.i, i64 %mul.i.i9.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEENS_13move_iteratorIPSB_EESF_EEvRT_T0_NS0_16allocator_traitsISH_E9size_typeET1_SM_.exit
@@ -8770,7 +8770,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 

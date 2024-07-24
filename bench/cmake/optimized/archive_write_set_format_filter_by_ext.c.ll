@@ -37,7 +37,7 @@ define dso_local i32 @archive_write_set_format_filter_by_ext(ptr noundef %0, ptr
   br i1 %.not.i.i, label %cmpsuff.exit.thread.i, label %cmpsuff.exit.i
 
 cmpsuff.exit.i:                                   ; preds = %5
-  %8 = sub i64 %4, %7
+  %8 = sub nuw i64 %4, %7
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %6) #3
   %11 = icmp eq i32 %10, 0
@@ -95,7 +95,7 @@ define dso_local i32 @archive_write_set_format_filter_by_ext_def(ptr noundef %0,
   br i1 %.not.i.i, label %cmpsuff.exit.thread.i, label %cmpsuff.exit.i
 
 cmpsuff.exit.i:                                   ; preds = %6
-  %9 = sub i64 %5, %8
+  %9 = sub nuw i64 %5, %8
   %10 = getelementptr inbounds i8, ptr %1, i64 %9
   %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %7) #3
   %12 = icmp eq i32 %11, 0
@@ -124,7 +124,7 @@ get_array_index.exit.thread:                      ; preds = %cmpsuff.exit.thread
   br i1 %.not.i.i18, label %cmpsuff.exit.thread.i20, label %cmpsuff.exit.i19
 
 cmpsuff.exit.i19:                                 ; preds = %17
-  %20 = sub i64 %16, %19
+  %20 = sub nuw i64 %16, %19
   %21 = getelementptr inbounds i8, ptr %2, i64 %20
   %22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %18) #3
   %23 = icmp eq i32 %22, 0

@@ -5058,7 +5058,7 @@ define void @_Z14init_gtc_stateP7t_stateiii(ptr noundef %0, i32 noundef %1, i32 
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %4
-  %25 = sub nsw i64 %15, %22
+  %25 = sub nuw nsw i64 %15, %22
   call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr %17, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %.pre = load i32, ptr %12, align 8
   %.pre28 = load i32, ptr %10, align 8
@@ -5095,7 +5095,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit:            ; preds = %24, %26, %28, %30
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
-  %42 = sub nsw i64 %.pre-phi33, %39
+  %42 = sub nuw nsw i64 %.pre-phi33, %39
   call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr %34, i64 noundef %42, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.pre29 = load i32, ptr %10, align 8
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit21
@@ -5129,7 +5129,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit21:          ; preds = %41, %43, %45, %47
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit21
-  %60 = sub nsw i64 %50, %57
+  %60 = sub nuw nsw i64 %50, %57
   call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr %52, i64 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit23
 
@@ -5165,7 +5165,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit23:          ; preds = %59, %61, %63, %65
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit23
-  %80 = sub nsw i64 %70, %77
+  %80 = sub nuw nsw i64 %70, %77
   call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr %72, i64 noundef %80, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %.pre30 = load i32, ptr %12, align 8
   %.pre34 = mul nsw i32 %.pre30, %2
@@ -5200,7 +5200,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit25:          ; preds = %79, %81, %83, %85
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit25
-  %96 = sub nsw i64 %.pre-phi37, %93
+  %96 = sub nuw nsw i64 %.pre-phi37, %93
   call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr %88, i64 noundef %96, ptr noundef nonnull align 8 dereferenceable(8) %9)
   br label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit27
 
@@ -5282,7 +5282,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds double, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -5475,7 +5475,7 @@ _ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit: ; preds = %2, %
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %_ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit
-  %20 = sub i64 %1, %17
+  %20 = sub nuw i64 %1, %17
   tail call void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20)
   %.pre = load ptr, ptr %11, align 8
   %.pre5 = load ptr, ptr %10, align 8
@@ -5771,7 +5771,7 @@ _ZSt13move_backwardIPN3gmx11BasicVectorIfEES3_ET0_T_S5_S4_.exit: ; preds = %27, 
   br i1 %.not.i.i.i, label %_ZSt4fillIPN3gmx11BasicVectorIfEES2_EvT_S4_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !121
 
 33:                                               ; preds = %15
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %.not8.i = icmp eq i64 %34, 0
   br i1 %.not8.i, label %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit, label %.lr.ph.i
 

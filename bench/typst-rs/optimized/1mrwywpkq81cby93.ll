@@ -6950,7 +6950,7 @@ _ZN12typst_syntax5lexer5Lexer8push_raw17h1b50d60c46aa1239E.exit130.i: ; preds = 
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17haa2f68bef91f2564E.exit.i132.i": ; preds = %.noexc135.i
   %557 = extractvalue { ptr, i64 } %555, 0
-  %558 = sub i64 %554, %556
+  %558 = sub nuw i64 %554, %556
   %559 = getelementptr inbounds i8, ptr %553, i64 %558
   %bcmp.i.i.i133.i = call i32 @bcmp(ptr nonnull readonly %557, ptr nonnull readonly %559, i64 %556), !alias.scope !1163
   %560 = icmp eq i32 %bcmp.i.i.i133.i, 0
@@ -10597,7 +10597,7 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread: ; preds = %_ZN8unscann
   %59 = getelementptr inbounds i8, ptr %1, i64 %.0.lcssa
   %60 = load i8, ptr %59, align 1, !alias.scope !1745, !noundef !7
   %61 = icmp sgt i8 %60, -65
-  %62 = sub i64 %2, %.0.lcssa
+  %62 = sub nuw i64 %2, %.0.lcssa
   br i1 %61, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread.thread, label %.invoke
 
 63:                                               ; preds = %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit, %95

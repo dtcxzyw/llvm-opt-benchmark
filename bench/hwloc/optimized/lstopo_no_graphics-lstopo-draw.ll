@@ -1895,7 +1895,7 @@ hwloc_get_next_obj_by_type.exit39.i:              ; preds = %176, %171
   br i1 %190, label %191, label %195
 
 191:                                              ; preds = %186
-  %192 = sub i32 %.0.i.lcssa, %189
+  %192 = sub nuw i32 %.0.i.lcssa, %189
   %193 = lshr i32 %192, 1
   %194 = getelementptr inbounds i8, ptr %187, i64 132
   store i32 %193, ptr %194, align 4
@@ -3946,13 +3946,13 @@ define internal fastcc void @factorized_draw(ptr noundef %0, ptr noundef %1, i32
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %62
-  %65 = sub i32 %56, %50
+  %65 = sub nuw i32 %56, %50
   %66 = lshr i32 %65, 1
   store i32 %66, ptr %57, align 4
   br label %70
 
 67:                                               ; preds = %62
-  %68 = sub i32 %50, %56
+  %68 = sub nuw i32 %50, %56
   %69 = lshr i32 %68, 1
   store i32 %69, ptr %58, align 8
   br label %70

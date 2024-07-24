@@ -1081,9 +1081,9 @@ if.else222:                                       ; preds = %if.else216
   %or.cond115 = or i1 %cmp230, %cmp233
   %idx.ext237 = zext nneg i32 %or229 to i64
   %add.ptr238 = getelementptr inbounds i8, ptr %incdec.ptr217, i64 %idx.ext237
-  %sub239 = sub i32 %dec218, %or229
+  %sub239 = sub nuw i32 %dec218, %or229
   %cond140 = icmp eq i32 %sub239, 0
-  %or.cond153 = or i1 %or.cond115, %cond140
+  %or.cond153 = select i1 %or.cond115, i1 true, i1 %cond140
   br i1 %or.cond153, label %return, label %for.body.backedge
 
 if.else243:                                       ; preds = %if.else117

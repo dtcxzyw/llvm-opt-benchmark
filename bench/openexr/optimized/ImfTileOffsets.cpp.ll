@@ -109,7 +109,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIS_IS_I
   br i1 %cmp.i28, label %if.then.i41, label %if.else.i29
 
 if.then.i41:                                      ; preds = %for.body
-  %sub.i42 = sub nsw i64 %conv10, %sub.ptr.div.i.i27
+  %sub.i42 = sub nuw nsw i64 %conv10, %sub.ptr.div.i.i27
   invoke void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i22, i64 noundef %sub.i42)
           to label %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -172,7 +172,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   br i1 %cmp.i57, label %if.then.i64, label %if.else.i58
 
 if.then.i64:                                      ; preds = %for.body19
-  %sub.i65 = sub nsw i64 %conv27, %sub.ptr.div.i.i56
+  %sub.i65 = sub nuw nsw i64 %conv27, %sub.ptr.div.i.i56
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %add.ptr.i51, i64 16
   %12 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i156 = ptrtoint ptr %12 to i64
@@ -375,7 +375,7 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   br i1 %cmp.i108, label %if.then.i122, label %if.else.i109
 
 if.then.i122:                                     ; preds = %for.body45
-  %sub.i123 = sub nsw i64 %conv54, %sub.ptr.div.i.i107
+  %sub.i123 = sub nuw nsw i64 %conv54, %sub.ptr.div.i.i107
   %_M_end_of_storage.i172 = getelementptr inbounds i8, ptr %add.ptr.i102, i64 16
   %35 = load ptr, ptr %_M_end_of_storage.i172, align 8
   %sub.ptr.lhs.cast.i173 = ptrtoint ptr %35 to i64
@@ -397,7 +397,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit.i
   br label %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit125
 
 if.else.i180:                                     ; preds = %if.then.i122
-  %cmp.i.i181 = icmp ult i64 %sub.i177, %sub.i123
+  %cmp.i.i181 = icmp slt i32 %32, 0
   br i1 %cmp.i.i181, label %if.then.i.i234.invoke, label %_ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 _ZNKSt6vectorIS_ImSaImEESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i180
@@ -506,7 +506,7 @@ for.body63:                                       ; preds = %for.body63.lr.ph, %
   br i1 %cmp.i139, label %if.then.i146, label %if.else.i140
 
 if.then.i146:                                     ; preds = %for.body63
-  %sub.i147 = sub nsw i64 %conv70, %sub.ptr.div.i.i138
+  %sub.i147 = sub nuw nsw i64 %conv70, %sub.ptr.div.i.i138
   %_M_end_of_storage.i200 = getelementptr inbounds i8, ptr %add.ptr.i133, i64 16
   %49 = load ptr, ptr %_M_end_of_storage.i200, align 8
   %sub.ptr.lhs.cast.i201 = ptrtoint ptr %49 to i64

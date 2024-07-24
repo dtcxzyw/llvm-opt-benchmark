@@ -342,7 +342,7 @@ dissect_do_message.exit:                          ; preds = %do_add_message_tree
   br i1 %107, label %dissect_do_message.exit.thread..backedge_crit_edge, label %116
 
 dissect_do_message.exit.thread:                   ; preds = %83
-  %108 = sub i32 %84, %65
+  %108 = sub nuw i32 %84, %65
   %.not = icmp eq i32 %108, 0
   br i1 %.not, label %dissect_do_message.exit.thread..backedge_crit_edge, label %.loopexit
 

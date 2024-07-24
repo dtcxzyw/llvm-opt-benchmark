@@ -690,7 +690,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %15
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %178
-  %192 = sub i64 %182, %189
+  %192 = sub nuw i64 %182, %189
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %180, i64 noundef %192)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %158
 
@@ -1077,7 +1077,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br label %.split.us
 
 391:                                              ; preds = %375
-  %392 = sub i64 %378, %384
+  %392 = sub nuw i64 %378, %384
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %280, i64 noundef %392)
           to label %.split.us unwind label %.loopexit424.split.us
 
@@ -1131,7 +1131,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %412, label %413, label %415
 
 413:                                              ; preds = %402
-  %414 = sub i64 %405, %411
+  %414 = sub nuw i64 %405, %411
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %280, i64 noundef %414)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit221 unwind label %.loopexit424.split
 
@@ -3382,7 +3382,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %18, %_ZNKSt14
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %20
-  %32 = sub i64 %21, %29
+  %32 = sub nuw i64 %21, %29
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %32)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %18
 
@@ -3918,7 +3918,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %83, label %84, label %116
 
 84:                                               ; preds = %73
-  %85 = sub i64 %76, %82
+  %85 = sub nuw i64 %76, %82
   %86 = load ptr, ptr %43, align 8
   %87 = ptrtoint ptr %86 to i64
   %88 = sub i64 %87, %79
@@ -4502,7 +4502,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5faiss24ClusteringIterationStatsES
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5faiss24ClusteringIterationStatsESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5faiss24ClusteringIterationStatsESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %30
   %33 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5faiss24ClusteringIterationStatsESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ], [ %.pre, %30 ]
-  %34 = sub nsw i64 %9, %20
+  %34 = sub nuw nsw i64 %9, %20
   %35 = getelementptr inbounds %"struct.faiss::ClusteringIterationStats", ptr %33, i64 %34
   store ptr %35, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1

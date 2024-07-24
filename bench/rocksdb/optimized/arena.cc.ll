@@ -621,7 +621,7 @@ if.then15:                                        ; preds = %if.end10
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %cond
   %add.ptr18 = getelementptr inbounds i8, ptr %3, i64 %add13
   store ptr %add.ptr18, ptr %aligned_alloc_ptr_, align 8
-  %sub20 = sub i64 %5, %add13
+  %sub20 = sub nuw i64 %5, %add13
   store i64 %sub20, ptr %alloc_bytes_remaining_, align 16
   br label %return
 
@@ -709,7 +709,7 @@ if.then:                                          ; preds = %entry
   %idx.neg = sub i64 0, %bytes
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.neg
   store ptr %add.ptr, ptr %unaligned_alloc_ptr_, align 16
-  %sub = sub i64 %0, %bytes
+  %sub = sub nuw i64 %0, %bytes
   store i64 %sub, ptr %alloc_bytes_remaining_, align 16
   br label %return
 

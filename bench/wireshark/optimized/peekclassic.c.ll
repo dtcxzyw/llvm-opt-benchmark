@@ -237,7 +237,7 @@ define internal range(i32 0, 2) i32 @peekclassic_read_v7(ptr nocapture noundef r
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %0, align 8
-  %18 = sub nsw i32 %10, %14
+  %18 = sub nuw nsw i32 %10, %14
   %19 = tail call i32 @wtap_read_bytes(ptr noundef %17, ptr noundef null, i32 noundef %18, ptr noundef %3, ptr noundef %4) #6
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %26, label %20

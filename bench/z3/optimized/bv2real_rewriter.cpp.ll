@@ -4707,7 +4707,7 @@ _ZNK7bv_util11get_bv_sizeEPK4expr.exit19:         ; preds = %_ZNK7bv_util11get_b
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK7bv_util11get_bv_sizeEPK4expr.exit19
-  %sub = sub i32 %4, %9
+  %sub = sub nuw i32 %4, %9
   %10 = load ptr, ptr %t, align 8
   %call7 = tail call noundef ptr @_ZN12bv2real_util9mk_extendEjP4expr(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sub, ptr noundef %10)
   %tobool.not.i = icmp eq ptr %call7, null
@@ -4748,7 +4748,7 @@ if.else:                                          ; preds = %_ZNK7bv_util11get_b
   br i1 %cmp9, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %if.else
-  %sub11 = sub i32 %9, %4
+  %sub11 = sub nuw i32 %9, %4
   %15 = load ptr, ptr %s, align 8
   %call13 = tail call noundef ptr @_ZN12bv2real_util9mk_extendEjP4expr(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sub11, ptr noundef %15)
   %tobool.not.i20 = icmp eq ptr %call13, null

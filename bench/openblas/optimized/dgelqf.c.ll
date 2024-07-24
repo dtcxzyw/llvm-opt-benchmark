@@ -132,7 +132,7 @@ define void @dgelqf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %76, label %77, label %.loopexit
 
 77:                                               ; preds = %67
-  %78 = sub nsw i32 %47, %70
+  %78 = sub nuw nsw i32 %47, %70
   store i32 %78, ptr %9, align 4, !tbaa !3
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %.preheader.preheader, label %.loopexit

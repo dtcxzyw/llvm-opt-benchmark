@@ -1248,7 +1248,7 @@ define linkonce_odr void @_ZN7xgboost6common5Index12SetBinOffsetERKSt6vectorIjSa
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %2
-  %21 = sub nsw i64 %11, %18
+  %21 = sub nuw nsw i64 %11, %18
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %21)
   %.pre = load ptr, ptr %12, align 8
   %.pre5 = load ptr, ptr %3, align 8

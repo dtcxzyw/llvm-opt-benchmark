@@ -683,7 +683,7 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr nocapture n
   br i1 %19, label %20, label %.loopexit
 
 20:                                               ; preds = %11
-  %21 = sub nsw i64 %18, %14
+  %21 = sub nuw nsw i64 %18, %14
   br label %22
 
 22:                                               ; preds = %.thread, %20

@@ -282,7 +282,7 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
   br label %return
 
 if.end:                                           ; preds = %get_time.exit
-  %sub = sub i64 %0, %git_time
+  %sub = sub nuw i64 %0, %git_time
   %cmp2 = icmp ult i64 %sub, 90
   br i1 %cmp2, label %if.then3, label %if.end5
 

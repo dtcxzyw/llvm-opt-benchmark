@@ -1868,7 +1868,7 @@ Wlc_ObjFanin0.exit:                               ; preds = %563, %Wlc_ObjHasArr
 
 586:                                              ; preds = %581, %586
   %.27141132 = phi i32 [ 0, %581 ], [ %591, %586 ]
-  %587 = sub nsw i32 %576, %.27141132
+  %587 = sub nuw nsw i32 %576, %.27141132
   %588 = lshr i32 %.61136, %587
   %589 = and i32 %588, 1
   %590 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.57, i32 noundef %589) #12
@@ -1884,7 +1884,7 @@ Wlc_ObjFanin0.exit:                               ; preds = %563, %Wlc_ObjHasArr
   %.37151133 = phi i32 [ 0, %592 ], [ %610, %Wlc_ObjFaninId.exit975 ]
   %.not776 = icmp eq i32 %.37151133, 0
   %595 = select i1 %.not776, ptr @.str.14, ptr @.str.65
-  %596 = sub nsw i32 %576, %.37151133
+  %596 = sub nuw nsw i32 %576, %.37151133
   %597 = shl nuw i32 1, %596
   %598 = and i32 %597, %.61136
   %.not777 = icmp eq i32 %598, 0
@@ -1955,7 +1955,7 @@ Wlc_ObjFaninId.exit975:                           ; preds = %602, %Wlc_ObjHasArr
 
 630:                                              ; preds = %624, %630
   %.47161137 = phi i32 [ 0, %624 ], [ %635, %630 ]
-  %631 = sub nsw i32 %576, %.47161137
+  %631 = sub nuw nsw i32 %576, %.47161137
   %632 = lshr i32 %.71139, %631
   %633 = and i32 %632, 1
   %634 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.57, i32 noundef %633) #12

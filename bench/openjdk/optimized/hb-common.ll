@@ -3673,7 +3673,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11
   br i1 %174, label %175, label %183
 
 175:                                              ; preds = %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i
-  %176 = sub i32 %157, %173
+  %176 = sub nuw i32 %157, %173
   %177 = mul i32 %176, 12
   %.not.i.i.i169 = icmp eq i32 %177, 0
   br i1 %.not.i.i.i169, label %183, label %178
@@ -4071,7 +4071,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i210: ; preds = %_Z
   br i1 %391, label %392, label %401
 
 392:                                              ; preds = %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i210
-  %393 = sub i32 %371, %390
+  %393 = sub nuw i32 %371, %390
   %394 = mul i32 %393, 12
   %.not.i.i.i213 = icmp eq i32 %394, 0
   br i1 %.not.i.i.i213, label %401, label %395
@@ -4559,7 +4559,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i272: ; preds = %_Z
   br i1 %587, label %588, label %_ZN11hb_vector_tI15contour_point_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i273
 
 588:                                              ; preds = %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i272
-  %589 = sub i32 %570, %586
+  %589 = sub nuw i32 %570, %586
   %590 = mul i32 %589, 12
   %.not.i.i.i275 = icmp eq i32 %590, 0
   br i1 %.not.i.i.i275, label %_ZN11hb_vector_tI15contour_point_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i273, label %591
@@ -6001,11 +6001,10 @@ _ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i: ; preds = %245, %.thread.i.i27
 
 .lr.ph.preheader.i:                               ; preds = %.preheader45.i
   %259 = zext i32 %.03754.i to i64
-  %wide.trip.count.i = zext i32 %255 to i64
   %260 = shl nuw nsw i64 %259, 2
   %scevgep = getelementptr i8, ptr %.sroa.14417.2.ph, i64 %260
-  %261 = sub nsw i64 %wide.trip.count.i, %259
-  %262 = shl nsw i64 %261, 2
+  %261 = zext nneg i8 %narrow.i to i64
+  %262 = shl nuw nsw i64 %261, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %262, i1 false)
   br label %.loopexit.i
 
@@ -6153,11 +6152,10 @@ _ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_triviall
 
 .lr.ph.preheader.i305:                            ; preds = %.preheader45.i300
   %318 = zext i32 %.03754.i297 to i64
-  %wide.trip.count.i306 = zext i32 %314 to i64
   %319 = shl nuw nsw i64 %318, 2
   %scevgep954 = getelementptr i8, ptr %.sroa.14.2.ph, i64 %319
-  %320 = sub nsw i64 %wide.trip.count.i306, %318
-  %321 = shl nsw i64 %320, 2
+  %320 = zext nneg i8 %narrow.i298 to i64
+  %321 = shl nuw nsw i64 %320, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep954, i8 0, i64 %321, i1 false)
   br label %.loopexit.i301
 
@@ -7898,7 +7896,7 @@ _ZNK2OT4gvar10get_offsetEjj.exit14:               ; preds = %_ZNK2OT4gvar10get_o
   br i1 %78, label %106, label %79
 
 79:                                               ; preds = %_ZNK2OT4gvar10get_offsetEjj.exit14
-  %80 = sub i32 %.0.i13, %.0.i
+  %80 = sub nuw i32 %.0.i13, %.0.i
   %81 = getelementptr inbounds i8, ptr %1, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %1, i64 24

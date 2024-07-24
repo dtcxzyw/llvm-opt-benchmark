@@ -2765,7 +2765,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %lor.lhs.false.i.i.i
   %elf_sections2.sink.v.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i10.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 368
   %elf_sections2.sink.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %elf_sections2.sink.v.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i10.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %9
-  %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i
+  %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i = sub nuw nsw i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i
   %10 = load ptr, ptr %elf_sections2.sink.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %sh_flags.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %10, i64 %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i, i32 2
   %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %sh_flags.i.i.i.i.i.i.i.i.i.i.i, align 1
@@ -2794,7 +2794,7 @@ if.end14.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.then12.i.i.i.i.i
   %elf_sections2.sink.v.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 368
   %elf_sections2.sink.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call15.val.i.i.i.i.i.i.i.i.i.i.i, i64 %elf_sections2.sink.v.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %12
-  %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %conv.i.i.pre-phi.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i.i = sub nuw nsw i64 %conv.i.i.pre-phi.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i.i
   %14 = load ptr, ptr %elf_sections2.sink.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %add.ptr.i2.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %14, i64 %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sh_type.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
@@ -2806,7 +2806,7 @@ if.end14.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.then12.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end14.i.i.i.i.i.i.i.i.i.i.i
   %elf_sections2.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call15.val.i.i.i.i.i.i.i.i.i.i.i, i64 368
-  %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %conv.i.i.pre-phi.i.i.i.i.i.i.i.i.i.i.i, %12
+  %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub nuw nsw i64 %conv.i.i.pre-phi.i.i.i.i.i.i.i.i.i.i.i, %12
   %16 = load ptr, ptr %elf_sections2.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %sh_flags.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %16, i64 %sub.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 2
   %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %sh_flags.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
@@ -8329,7 +8329,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i
   %mul.i.i.i = shl i64 %and.i.i, 1
   %cmp7.i.i.i = icmp ugt i64 %mul.i.i.i, %8
-  %sub.i.i.i = sub i64 %8, %and.i.i
+  %sub.i.i.i = sub nuw i64 %8, %and.i.i
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 %sub.i.i.i, i64 %and.i.i
   br label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i
 
@@ -9191,7 +9191,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %elf_sections2.sink.i.i = getelementptr inbounds i8, ptr %1, i64 368
-  %sub.sink.i.i = sub nsw i64 %conv.i, %2
+  %sub.sink.i.i = sub nuw nsw i64 %conv.i, %2
   %4 = load ptr, ptr %elf_sections2.sink.i.i, align 8
   %sh_flags.i = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %4, i64 %sub.sink.i.i, i32 2
   %x.0.copyload.i.i = load i64, ptr %sh_flags.i, align 1

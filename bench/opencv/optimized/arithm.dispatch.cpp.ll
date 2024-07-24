@@ -2630,8 +2630,8 @@ define hidden void @_ZN2cv3hal12cpu_baseline9absdiff8uEPKhmS3_mPhmii(ptr nocaptu
   %14 = getelementptr inbounds i8, ptr %.02124.us.i, i64 %indvars.iv.i
   %15 = load i8, ptr %14, align 1
   %16 = icmp ugt i8 %13, %15
-  %17 = sub i8 %13, %15
-  %18 = sub i8 %15, %13
+  %17 = sub nuw i8 %13, %15
+  %18 = sub nuw i8 %15, %13
   %19 = select i1 %16, i8 %17, i8 %18
   %20 = getelementptr inbounds i8, ptr %.02025.us.i, i64 %indvars.iv.i
   store i8 %19, ptr %20, align 1
@@ -2765,8 +2765,8 @@ define hidden void @_ZN2cv3hal12cpu_baseline10absdiff16uEPKtmS3_mPtmii(ptr nocap
   %17 = getelementptr inbounds i16, ptr %.02124.us.i, i64 %indvars.iv.i
   %18 = load i16, ptr %17, align 2
   %19 = icmp ugt i16 %16, %18
-  %20 = sub i16 %16, %18
-  %21 = sub i16 %18, %16
+  %20 = sub nuw i16 %16, %18
+  %21 = sub nuw i16 %18, %16
   %22 = select i1 %19, i16 %20, i16 %21
   %23 = getelementptr inbounds i16, ptr %.02025.us.i, i64 %indvars.iv.i
   store i16 %22, ptr %23, align 2
@@ -12668,8 +12668,8 @@ define void @_ZN2cv3hal9absdiff8uEPKhmS2_mPhmiiPv(ptr nocapture noundef readonly
   %16 = getelementptr inbounds i8, ptr %.02124.us.i.i, i64 %indvars.iv.i.i
   %17 = load i8, ptr %16, align 1
   %18 = icmp ugt i8 %15, %17
-  %19 = sub i8 %15, %17
-  %20 = sub i8 %17, %15
+  %19 = sub nuw i8 %15, %17
+  %20 = sub nuw i8 %17, %15
   %21 = select i1 %18, i8 %19, i8 %20
   %22 = getelementptr inbounds i8, ptr %.02025.us.i.i, i64 %indvars.iv.i.i
   store i8 %21, ptr %22, align 1
@@ -12863,8 +12863,8 @@ define void @_ZN2cv3hal10absdiff16uEPKtmS2_mPtmiiPv(ptr nocapture noundef readon
   %19 = getelementptr inbounds i16, ptr %.02124.us.i.i, i64 %indvars.iv.i.i
   %20 = load i16, ptr %19, align 2
   %21 = icmp ugt i16 %18, %20
-  %22 = sub i16 %18, %20
-  %23 = sub i16 %20, %18
+  %22 = sub nuw i16 %18, %20
+  %23 = sub nuw i16 %20, %18
   %24 = select i1 %21, i16 %22, i16 %23
   %25 = getelementptr inbounds i16, ptr %.02025.us.i.i, i64 %indvars.iv.i.i
   store i16 %24, ptr %25, align 2

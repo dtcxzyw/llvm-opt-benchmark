@@ -25336,7 +25336,7 @@ if.end131.i:                                      ; preds = %for.body.i115.i, %i
   br i1 %cmp.i.i125.not.i, label %invoke.cont135.i, label %if.then.i.i.invoke.i
 
 invoke.cont135.i:                                 ; preds = %if.end131.i
-  %sub.i126.i = sub i64 %agg.tmp.sroa.0.0.copyload, %add134.i
+  %sub.i126.i = sub nuw i64 %agg.tmp.sroa.0.0.copyload, %add134.i
   %add.ptr.i129.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.2.0.copyload, i64 %add134.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp137.i) #31, !noalias !201
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i135.i), !noalias !201

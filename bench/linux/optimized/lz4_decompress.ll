@@ -1217,7 +1217,7 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr nocapture noundef %0, ptr
   br label %.backedge.backedge
 
 156:                                              ; preds = %150
-  %157 = sub i64 %145, %152
+  %157 = sub nuw i64 %145, %152
   %158 = sub i64 0, %152
   %159 = getelementptr i8, ptr %38, i64 %158
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2429, ptr align 1 %159, i64 %152, i1 false)
@@ -2257,7 +2257,7 @@ define internal fastcc i32 @LZ4_decompress_safe_forceExtDict(ptr noundef %0, ptr
   br label %.backedge.backedge
 
 128:                                              ; preds = %122
-  %129 = sub i64 %117, %124
+  %129 = sub nuw i64 %117, %124
   %130 = sub i64 0, %124
   %131 = getelementptr i8, ptr %11, i64 %130
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2367, ptr align 1 %131, i64 %124, i1 false)
@@ -2622,7 +2622,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   br label %.backedge.backedge
 
 120:                                              ; preds = %114
-  %121 = sub i64 %109, %116
+  %121 = sub nuw i64 %109, %116
   %122 = sub i64 0, %116
   %123 = getelementptr i8, ptr %33, i64 %122
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2419, ptr align 1 %123, i64 %116, i1 false)
@@ -2985,7 +2985,7 @@ define internal fastcc i32 @LZ4_decompress_fast_extDict(ptr noundef %0, ptr noun
   br label %.backedge.backedge
 
 96:                                               ; preds = %90
-  %97 = sub i64 %85, %92
+  %97 = sub nuw i64 %85, %92
   %98 = sub i64 0, %92
   %99 = getelementptr i8, ptr %8, i64 %98
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2366, ptr align 1 %99, i64 %92, i1 false)

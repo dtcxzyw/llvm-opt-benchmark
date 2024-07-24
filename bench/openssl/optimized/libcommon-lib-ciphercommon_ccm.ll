@@ -191,7 +191,7 @@ if.then13.i:                                      ; preds = %if.end10.i
   br i1 %cmp14.i, label %ccm_tls_init.exit.thread, label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then13.i
-  %sub19.i = sub nsw i64 %sub11.i, %14
+  %sub19.i = sub nuw nsw i64 %sub11.i, %14
   br label %ccm_tls_init.exit
 
 ccm_tls_init.exit.thread:                         ; preds = %if.end51, %if.end.i, %if.then13.i

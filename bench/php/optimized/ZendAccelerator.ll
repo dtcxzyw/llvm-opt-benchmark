@@ -5462,7 +5462,7 @@ define internal range(i32 -1, 1) i32 @accel_startup(ptr nocapture noundef writeo
 64:                                               ; preds = %62
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 4, ptr noundef nonnull @.str.53, i64 noundef %52, i64 noundef %.037.i, ptr noundef nonnull %8) #24
   %65 = inttoptr i64 %52 to ptr
-  %66 = sub i64 %.037.i, %52
+  %66 = sub nuw i64 %.037.i, %52
   %67 = sub i64 %.0.i, %52
   %68 = call ptr @mmap(ptr noundef null, i64 noundef %66, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #24
   %69 = icmp eq ptr %68, inttoptr (i64 -1 to ptr)

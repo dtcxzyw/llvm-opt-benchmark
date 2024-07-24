@@ -4984,7 +4984,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 4023:                                             ; preds = %4009
   %4024 = and i64 %4006, 7
-  %4025 = sub nsw i64 %4008, %4024
+  %4025 = sub nuw nsw i64 %4008, %4024
   %4026 = and i64 %4025, 1
   %4027 = icmp ne i64 %4026, 0
   %4028 = insertelement <8 x float> poison, float %4021, i64 7
@@ -5409,7 +5409,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 4397:                                             ; preds = %4390
   %4398 = and i64 %4387, 7
-  %4399 = sub nsw i64 %4389, %4398
+  %4399 = sub nuw nsw i64 %4389, %4398
   %4400 = insertelement <8 x float> poison, float %4395, i64 7
   br label %4401
 

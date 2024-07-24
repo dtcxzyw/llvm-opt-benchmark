@@ -436,7 +436,7 @@ dissect_user_data_message.exit.i.i:               ; preds = %170, %168, %165, %1
 
 175:                                              ; preds = %dissect_user_data_message.exit.i.i
   %176 = load i32, ptr @hf_undecode_data, align 4
-  %177 = sub i32 %173, %141
+  %177 = sub nuw i32 %173, %141
   %178 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %176, ptr noundef %0, i32 noundef %141, i32 noundef %177, i32 noundef 0) #2
   %179 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %178, ptr noundef nonnull @ei_undecode_data, ptr noundef nonnull @.str.74, i32 noundef %173, i32 noundef %141) #2
   br label %dissect_v2_message.exit

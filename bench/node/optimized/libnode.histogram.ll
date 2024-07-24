@@ -2238,7 +2238,7 @@ do.body7.i:                                       ; preds = %do.body.i
   unreachable
 
 do.end9.i:                                        ; preds = %do.body.i
-  %sub.i = sub i64 %call.i, %11
+  %sub.i = sub nuw i64 %call.i, %11
   %histogram_.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %histogram_.i, align 8
   %call12.i = tail call zeroext i1 @hdr_record_value(ptr noundef %12, i64 noundef %sub.i) #15

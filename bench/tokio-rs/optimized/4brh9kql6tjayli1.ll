@@ -2121,7 +2121,7 @@ default.unreachable:                              ; preds = %117
   br i1 %66, label %67, label %87
 
 67:                                               ; preds = %62
-  %68 = sub nsw i64 %.0.sroa.speculated.i.i, %57
+  %68 = sub nuw nsw i64 %.0.sroa.speculated.i.i, %57
   %69 = sub nsw i64 %48, %57
   %70 = icmp ult i64 %69, %68
   br i1 %70, label %71, label %87
@@ -4616,7 +4616,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$tokio..io..blocking..Blocking$LT$T$GT$$u2
   br i1 %44, label %45, label %65
 
 45:                                               ; preds = %40
-  %46 = sub nsw i64 %.0.sroa.speculated.i.i, %35
+  %46 = sub nuw nsw i64 %.0.sroa.speculated.i.i, %35
   %47 = sub nsw i64 %18, %35
   %48 = icmp ult i64 %47, %46
   br i1 %48, label %49, label %65

@@ -976,7 +976,7 @@ land.lhs.true:                                    ; preds = %cond.end
   br i1 %cmp4, label %if.end21, label %if.then23
 
 if.end21:                                         ; preds = %land.lhs.true
-  %sub = sub i64 %4, %5
+  %sub = sub nuw i64 %4, %5
   %cond14 = call i64 @llvm.umin.i64(i64 %sub, i64 %len.addr.0)
   %buf = getelementptr inbounds i8, ptr %3, i64 40
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %5

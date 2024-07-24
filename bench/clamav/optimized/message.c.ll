@@ -658,7 +658,7 @@ pop.exit54:                                       ; preds = %36, %42
   br i1 %75, label %76, label %82
 
 76:                                               ; preds = %74
-  %77 = sub i32 %.1.i, %.15789.i
+  %77 = sub nuw i32 %.1.i, %.15789.i
   %78 = zext i32 %77 to i64
   %79 = sub nsw i64 0, %78
   %80 = getelementptr inbounds i8, ptr %.15390.i, i64 %79

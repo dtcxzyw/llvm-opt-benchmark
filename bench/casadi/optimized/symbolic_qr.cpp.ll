@@ -2944,7 +2944,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi10SymbolicQr8init_memEPv(ptr noun
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %4
-  %27 = sub i64 %18, %24
+  %27 = sub nuw i64 %18, %24
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %27)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -2975,7 +2975,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %44 = sub i64 %34, %41
+  %44 = sub nuw i64 %34, %41
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %44)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit11
 
@@ -3006,7 +3006,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit11:             ; preds = %43, %45, %47, %49
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit11
-  %61 = sub i64 %51, %58
+  %61 = sub nuw i64 %51, %58
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %50, i64 noundef %61)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit13
 
@@ -3052,7 +3052,7 @@ define void @_ZN6casadi16SymbolicQrMemory5allocERKNS_8FunctionE(ptr noundef nonn
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %2
-  %20 = sub i64 %.sroa.speculated24, %17
+  %20 = sub nuw i64 %.sroa.speculated24, %17
   tail call void @_ZNSt6vectorIPKdSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %20)
   br label %_ZNSt6vectorIPKdSaIS1_EE6resizeEm.exit
 
@@ -3090,7 +3090,7 @@ _ZNSt6vectorIPKdSaIS1_EE6resizeEm.exit:           ; preds = %19, %21, %23, %25
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %_ZNSt6vectorIPKdSaIS1_EE6resizeEm.exit
-  %43 = sub i64 %.sroa.speculated19, %40
+  %43 = sub nuw i64 %.sroa.speculated19, %40
   tail call void @_ZNSt6vectorIPdSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %43)
   br label %_ZNSt6vectorIPdSaIS0_EE6resizeEm.exit
 
@@ -3128,7 +3128,7 @@ _ZNSt6vectorIPdSaIS0_EE6resizeEm.exit:            ; preds = %42, %44, %46, %48
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %_ZNSt6vectorIPdSaIS0_EE6resizeEm.exit
-  %66 = sub i64 %.sroa.speculated14, %63
+  %66 = sub nuw i64 %.sroa.speculated14, %63
   tail call void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %49, i64 noundef %66)
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit
 
@@ -3166,7 +3166,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit:               ; preds = %65, %67, %69, %71
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %_ZNSt6vectorIxSaIxEE6resizeEm.exit
-  %89 = sub i64 %.sroa.speculated, %86
+  %89 = sub nuw i64 %.sroa.speculated, %86
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %72, i64 noundef %89)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 

@@ -508,7 +508,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %181 = extractvalue { i64, ptr } %174, 0
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %181, i64 %.0)
   %182 = extractvalue { i64, ptr } %174, 1
-  %183 = sub i64 %176, %.041
+  %183 = sub nuw i64 %176, %.041
   %184 = getelementptr inbounds i8, ptr %180, i64 %.041
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store i64 %.sroa.speculated.i, ptr %5, align 8, !alias.scope !50, !noalias !53

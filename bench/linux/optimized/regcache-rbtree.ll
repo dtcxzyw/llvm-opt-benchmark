@@ -674,7 +674,7 @@ define internal i32 @regcache_rbtree_sync(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %25
-  %28 = sub i32 %1, %15
+  %28 = sub nuw i32 %1, %15
   %29 = udiv i32 %28, %19
   br label %30
 
@@ -747,7 +747,7 @@ define internal noundef i32 @regcache_rbtree_drop(ptr nocapture noundef readonly
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %23
-  %26 = sub i32 %1, %13
+  %26 = sub nuw i32 %1, %13
   %27 = udiv i32 %26, %17
   br label %28
 

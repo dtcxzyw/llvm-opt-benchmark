@@ -666,7 +666,7 @@ thread-pre-split:                                 ; preds = %30, %64, %57, %26
   br i1 %131, label %132, label %138
 
 132:                                              ; preds = %._crit_edge
-  %133 = sub i64 %.3207.lcssa, %130
+  %133 = sub nuw i64 %.3207.lcssa, %130
   %134 = trunc nuw nsw i32 %6 to i8
   %135 = call ptr @php_stream_bucket_new(ptr noundef %1, ptr noundef %.3.lcssa, i64 noundef %133, i8 noundef zeroext 1, i8 noundef zeroext %134) #18
   %136 = icmp eq ptr %135, null
@@ -2026,7 +2026,7 @@ define internal range(i32 0, 5) i32 @php_conv_base64_decode_convert(ptr nocaptur
   br i1 %.not, label %.thread, label %33
 
 .thread:                                          ; preds = %27
-  %28 = sub i32 %.0105, %.097
+  %28 = sub nuw i32 %.0105, %.097
   %29 = lshr i32 %.0110, %28
   %30 = sub i32 16, %28
   %31 = lshr i32 65535, %30
@@ -2035,7 +2035,7 @@ define internal range(i32 0, 5) i32 @php_conv_base64_decode_convert(ptr nocaptur
   br label %64
 
 33:                                               ; preds = %27
-  %34 = sub i32 %.097, %.0105
+  %34 = sub nuw i32 %.097, %.0105
   %35 = shl i32 %.0110, %34
   %.1101 = or i32 %35, %.0100
   %.not122 = icmp eq i32 %34, 0
@@ -2129,7 +2129,7 @@ define internal range(i32 0, 5) i32 @php_conv_base64_decode_convert(ptr nocaptur
   %.not126 = icmp ult i32 %.3108, %.4
   %73 = sub i32 %.3108, %.4
   %74 = shl i32 %.4104, %73
-  %75 = sub i32 %.4, %.3108
+  %75 = sub nuw i32 %.4, %.3108
   %76 = lshr i32 %.4104, %75
   %.pn128 = select i1 %.not126, i32 %76, i32 %74
   %.4109 = add i32 %73, 8

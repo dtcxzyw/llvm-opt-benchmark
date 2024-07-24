@@ -817,7 +817,7 @@ for.body.i1236.i:                                 ; preds = %for.inc.i1241.i, %i
   br i1 %or.cond939.i, label %for.inc.i1241.i, label %if.end42.i.i
 
 if.end42.i.i:                                     ; preds = %for.body.i1236.i
-  %sub43.i.i = sub i64 %sub3.i518.i, %conv35.i.i
+  %sub43.i.i = sub nuw i64 %sub3.i518.i, %conv35.i.i
   %sub45.i.i = sub i64 %conv.i1170.i, %sub43.i.i
   %cond48.i.i = tail call i64 @llvm.umin.i64(i64 %sub45.i.i, i64 %sub11.i)
   %arrayidx49.i.i = getelementptr inbounds i8, ptr %source.i.0.i, i64 %sub43.i.i
@@ -1754,7 +1754,7 @@ for.body.i1451.i:                                 ; preds = %for.inc.i1480.i, %i
   br i1 %or.cond944.i, label %for.inc.i1480.i, label %if.end42.i1457.i
 
 if.end42.i1457.i:                                 ; preds = %for.body.i1451.i
-  %sub43.i1458.i = sub i64 %sub3.i.i, %conv35.i1453.i
+  %sub43.i1458.i = sub nuw i64 %sub3.i.i, %conv35.i1453.i
   %sub45.i1460.i = sub i64 %conv.i1319.i, %sub43.i1458.i
   %cond48.i1464.i = tail call i64 @llvm.umin.i64(i64 %sub45.i1460.i, i64 %max_length.0.i)
   %arrayidx49.i1465.i = getelementptr inbounds i8, ptr %source.i1296.0.i, i64 %sub43.i1458.i
@@ -3257,7 +3257,7 @@ for.body.i372.i:                                  ; preds = %for.inc.i.i357, %if
   br i1 %or.cond945.i, label %for.inc.i.i357, label %if.end42.i.i336
 
 if.end42.i.i336:                                  ; preds = %for.body.i372.i
-  %sub43.i.i337 = sub i64 %sub3.i313.i, %conv35.i.i334
+  %sub43.i.i337 = sub nuw i64 %sub3.i313.i, %conv35.i.i334
   %sub45.i.i338 = sub i64 %conv.i357.i, %sub43.i.i337
   %cond48.i.i339 = tail call i64 @llvm.umin.i64(i64 %sub45.i.i338, i64 %sub11.i259)
   %arrayidx49.i.i340 = getelementptr inbounds i8, ptr %source.i.0.i332, i64 %sub43.i.i337
@@ -4199,7 +4199,7 @@ for.body.i581.i:                                  ; preds = %for.inc.i610.i, %if
   br i1 %or.cond950.i, label %for.inc.i610.i, label %if.end42.i587.i
 
 if.end42.i587.i:                                  ; preds = %for.body.i581.i
-  %sub43.i588.i = sub i64 %sub3.i.i478, %conv35.i583.i
+  %sub43.i588.i = sub nuw i64 %sub3.i.i478, %conv35.i583.i
   %sub45.i590.i = sub i64 %conv.i450.i, %sub43.i588.i
   %cond48.i594.i = tail call i64 @llvm.umin.i64(i64 %sub45.i590.i, i64 %max_length.0.i426)
   %arrayidx49.i595.i = getelementptr inbounds i8, ptr %source.i427.0.i, i64 %sub43.i588.i
@@ -5214,7 +5214,7 @@ while.body.i1171.i:                               ; preds = %while.body.i1171.lr
 
 if.end69.i1174.i:                                 ; preds = %while.body.i1171.i
   %slot.i1007.01075.i = zext i16 %slot.i1007.01075.in.i to i64
-  %sub70.i1175.i = sub i64 %position.addr.01457.i, %add.i1172.i
+  %sub70.i1175.i = sub nuw i64 %position.addr.01457.i, %add.i1172.i
   %and71.i1176.i = and i64 %sub70.i1175.i, %ringbuffer_mask
   %arrayidx73.i1178.i = getelementptr inbounds [65536 x %struct.SlotH40], ptr %473, i64 0, i64 %slot.i1007.01075.i
   %next.i1179.i = getelementptr inbounds i8, ptr %arrayidx73.i1178.i, i64 2
@@ -5637,7 +5637,7 @@ for.body.i372.i882:                               ; preds = %for.inc.i.i907, %if
   br i1 %or.cond973.i, label %for.inc.i.i907, label %if.end42.i.i887
 
 if.end42.i.i887:                                  ; preds = %for.body.i372.i882
-  %sub43.i.i888 = sub i64 %sub3.i313.i839, %conv35.i.i884
+  %sub43.i.i888 = sub nuw i64 %sub3.i313.i839, %conv35.i.i884
   %sub45.i.i889 = sub i64 %conv.i357.i841, %sub43.i.i888
   %cond48.i.i890 = tail call i64 @llvm.umin.i64(i64 %sub45.i.i889, i64 %sub11.i791)
   %arrayidx49.i.i891 = getelementptr inbounds i8, ptr %source.i.0.i881, i64 %sub43.i.i888
@@ -6145,7 +6145,7 @@ while.body.i848.i:                                ; preds = %while.body.i848.lr.
 
 if.end69.i.i:                                     ; preds = %while.body.i848.i
   %slot.i834.01281.i = zext i16 %slot.i834.01281.in.i to i64
-  %sub70.i.i = sub i64 %add71.i989, %add.i849.i
+  %sub70.i.i = sub nuw i64 %add71.i989, %add.i849.i
   %and71.i.i = and i64 %sub70.i.i, %ringbuffer_mask
   %arrayidx73.i.i = getelementptr inbounds [65536 x %struct.SlotH40], ptr %551, i64 0, i64 %slot.i834.01281.i
   %next.i.i = getelementptr inbounds i8, ptr %arrayidx73.i.i, i64 2
@@ -6568,7 +6568,7 @@ for.body.i581.i1078:                              ; preds = %for.inc.i610.i1103,
   br i1 %or.cond978.i, label %for.inc.i610.i1103, label %if.end42.i587.i1083
 
 if.end42.i587.i1083:                              ; preds = %for.body.i581.i1078
-  %sub43.i588.i1084 = sub i64 %sub3.i.i1035, %conv35.i583.i1080
+  %sub43.i588.i1084 = sub nuw i64 %sub3.i.i1035, %conv35.i583.i1080
   %sub45.i590.i1085 = sub i64 %conv.i450.i1037, %sub43.i588.i1084
   %cond48.i594.i1086 = tail call i64 @llvm.umin.i64(i64 %sub45.i590.i1085, i64 %max_length.0.i984)
   %arrayidx49.i595.i1087 = getelementptr inbounds i8, ptr %source.i427.0.i1077, i64 %sub43.i588.i1084
@@ -7602,7 +7602,7 @@ while.body.i1171.i1775:                           ; preds = %while.body.i1171.lr
 
 if.end69.i1174.i1783:                             ; preds = %while.body.i1171.i1775
   %slot.i1007.01075.i1784 = zext i16 %slot.i1007.01075.in.i1777 to i64
-  %sub70.i1175.i1785 = sub i64 %position.addr.01457.i1662, %add.i1172.i1781
+  %sub70.i1175.i1785 = sub nuw i64 %position.addr.01457.i1662, %add.i1172.i1781
   %and71.i1176.i1786 = and i64 %sub70.i1175.i1785, %ringbuffer_mask
   %arrayidx73.i1178.i1787 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %676, i64 0, i64 %slot.i1007.01075.i1784
   %next.i1179.i1788 = getelementptr inbounds i8, ptr %arrayidx73.i1178.i1787, i64 2
@@ -8025,7 +8025,7 @@ for.body.i372.i1872:                              ; preds = %for.inc.i.i1911, %i
   br i1 %or.cond973.i1884, label %for.inc.i.i1911, label %if.end42.i.i1885
 
 if.end42.i.i1885:                                 ; preds = %for.body.i372.i1872
-  %sub43.i.i1886 = sub i64 %sub3.i313.i1829, %conv35.i.i1881
+  %sub43.i.i1886 = sub nuw i64 %sub3.i313.i1829, %conv35.i.i1881
   %sub45.i.i1887 = sub i64 %conv.i357.i1831, %sub43.i.i1886
   %cond48.i.i1888 = tail call i64 @llvm.umin.i64(i64 %sub45.i.i1887, i64 %sub11.i1663)
   %arrayidx49.i.i1889 = getelementptr inbounds i8, ptr %source.i.0.i1871, i64 %sub43.i.i1886
@@ -8533,7 +8533,7 @@ while.body.i848.i2155:                            ; preds = %while.body.i848.lr.
 
 if.end69.i.i2163:                                 ; preds = %while.body.i848.i2155
   %slot.i834.01281.i2164 = zext i16 %slot.i834.01281.in.i2157 to i64
-  %sub70.i.i2165 = sub i64 %add71.i2054, %add.i849.i2161
+  %sub70.i.i2165 = sub nuw i64 %add71.i2054, %add.i849.i2161
   %and71.i.i2166 = and i64 %sub70.i.i2165, %ringbuffer_mask
   %arrayidx73.i.i2167 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %754, i64 0, i64 %slot.i834.01281.i2164
   %next.i.i2168 = getelementptr inbounds i8, ptr %arrayidx73.i.i2167, i64 2
@@ -8956,7 +8956,7 @@ for.body.i581.i2252:                              ; preds = %for.inc.i610.i2291,
   br i1 %or.cond978.i2264, label %for.inc.i610.i2291, label %if.end42.i587.i2265
 
 if.end42.i587.i2265:                              ; preds = %for.body.i581.i2252
-  %sub43.i588.i2266 = sub i64 %sub3.i.i2209, %conv35.i583.i2261
+  %sub43.i588.i2266 = sub nuw i64 %sub3.i.i2209, %conv35.i583.i2261
   %sub45.i590.i2267 = sub i64 %conv.i450.i2211, %sub43.i588.i2266
   %cond48.i594.i2268 = tail call i64 @llvm.umin.i64(i64 %sub45.i590.i2267, i64 %max_length.0.i2049)
   %arrayidx49.i595.i2269 = getelementptr inbounds i8, ptr %source.i427.0.i2251, i64 %sub43.i588.i2266
@@ -10004,7 +10004,7 @@ while.body.i1172.i:                               ; preds = %while.body.i1172.lr
 
 if.end69.i1175.i:                                 ; preds = %while.body.i1172.i
   %slot.i1007.01082.i = zext i16 %slot.i1007.01082.in.i to i64
-  %sub70.i1176.i = sub i64 %position.addr.01468.i, %add.i1173.i
+  %sub70.i1176.i = sub nuw i64 %position.addr.01468.i, %add.i1173.i
   %and71.i1177.i = and i64 %sub70.i1176.i, %ringbuffer_mask
   %arrayidx73.i1179.i = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx72.i1178.i, i64 0, i64 %slot.i1007.01082.i
   %next.i1180.i = getelementptr inbounds i8, ptr %arrayidx73.i1179.i, i64 2
@@ -10430,7 +10430,7 @@ for.body.i372.i3398:                              ; preds = %for.inc.i.i3423, %i
   br i1 %or.cond980.i, label %for.inc.i.i3423, label %if.end42.i.i3403
 
 if.end42.i.i3403:                                 ; preds = %for.body.i372.i3398
-  %sub43.i.i3404 = sub i64 %sub3.i313.i3355, %conv35.i.i3400
+  %sub43.i.i3404 = sub nuw i64 %sub3.i313.i3355, %conv35.i.i3400
   %sub45.i.i3405 = sub i64 %conv.i357.i3357, %sub43.i.i3404
   %cond48.i.i3406 = tail call i64 @llvm.umin.i64(i64 %sub45.i.i3405, i64 %sub11.i3294)
   %arrayidx49.i.i3407 = getelementptr inbounds i8, ptr %source.i.0.i3397, i64 %sub43.i.i3404
@@ -10940,7 +10940,7 @@ while.body.i848.i3580:                            ; preds = %while.body.i848.lr.
 
 if.end69.i.i3583:                                 ; preds = %while.body.i848.i3580
   %slot.i834.01290.i = zext i16 %slot.i834.01290.in.i to i64
-  %sub70.i.i3584 = sub i64 %add71.i3508, %add.i849.i3581
+  %sub70.i.i3584 = sub nuw i64 %add71.i3508, %add.i849.i3581
   %and71.i.i3585 = and i64 %sub70.i.i3584, %ringbuffer_mask
   %arrayidx73.i.i3586 = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx72.i.i, i64 0, i64 %slot.i834.01290.i
   %next.i.i3587 = getelementptr inbounds i8, ptr %arrayidx73.i.i3586, i64 2
@@ -11366,7 +11366,7 @@ for.body.i581.i3655:                              ; preds = %for.inc.i610.i3680,
   br i1 %or.cond985.i, label %for.inc.i610.i3680, label %if.end42.i587.i3660
 
 if.end42.i587.i3660:                              ; preds = %for.body.i581.i3655
-  %sub43.i588.i3661 = sub i64 %sub3.i.i3612, %conv35.i583.i3657
+  %sub43.i588.i3661 = sub nuw i64 %sub3.i.i3612, %conv35.i583.i3657
   %sub45.i590.i3662 = sub i64 %conv.i450.i3614, %sub43.i588.i3661
   %cond48.i594.i3663 = tail call i64 @llvm.umin.i64(i64 %sub45.i590.i3662, i64 %max_length.0.i3503)
   %arrayidx49.i595.i3664 = getelementptr inbounds i8, ptr %source.i427.0.i3654, i64 %sub43.i588.i3661
@@ -12683,7 +12683,7 @@ for.body.i372.i4435:                              ; preds = %for.inc.i.i4460, %i
   br i1 %or.cond855.i, label %for.inc.i.i4460, label %if.end42.i.i4440
 
 if.end42.i.i4440:                                 ; preds = %for.body.i372.i4435
-  %sub43.i.i4441 = sub i64 %sub3.i313.i4392, %conv35.i.i4437
+  %sub43.i.i4441 = sub nuw i64 %sub3.i313.i4392, %conv35.i.i4437
   %sub45.i.i4442 = sub i64 %conv.i357.i4394, %sub43.i.i4441
   %cond48.i.i4443 = tail call i64 @llvm.umin.i64(i64 %sub45.i.i4442, i64 %sub11.i4375)
   %arrayidx49.i.i4444 = getelementptr inbounds i8, ptr %source.i.0.i4434, i64 %sub43.i.i4441
@@ -13474,7 +13474,7 @@ for.body.i581.i4578:                              ; preds = %for.inc.i610.i4603,
   br i1 %or.cond859.i, label %for.inc.i610.i4603, label %if.end42.i587.i4583
 
 if.end42.i587.i4583:                              ; preds = %for.body.i581.i4578
-  %sub43.i588.i4584 = sub i64 %sub3.i.i4535, %conv35.i583.i4580
+  %sub43.i588.i4584 = sub nuw i64 %sub3.i.i4535, %conv35.i583.i4580
   %sub45.i590.i4585 = sub i64 %conv.i450.i4537, %sub43.i588.i4584
   %cond48.i594.i4586 = tail call i64 @llvm.umin.i64(i64 %sub45.i590.i4585, i64 %max_length.0.i4519)
   %arrayidx49.i595.i4587 = getelementptr inbounds i8, ptr %source.i427.0.i4577, i64 %sub43.i588.i4584
@@ -15099,7 +15099,7 @@ for.body.i372.i5156:                              ; preds = %for.inc.i.i5181, %i
   br i1 %or.cond1109.i, label %for.inc.i.i5181, label %if.end42.i.i5161
 
 if.end42.i.i5161:                                 ; preds = %for.body.i372.i5156
-  %sub43.i.i5162 = sub i64 %sub3.i313.i5113, %conv35.i.i5158
+  %sub43.i.i5162 = sub nuw i64 %sub3.i313.i5113, %conv35.i.i5158
   %sub45.i.i5163 = sub i64 %conv.i357.i5115, %sub43.i.i5162
   %cond48.i.i5164 = tail call i64 @llvm.umin.i64(i64 %sub45.i.i5163, i64 %sub11.i5052)
   %arrayidx49.i.i5165 = getelementptr inbounds i8, ptr %source.i.0.i5155, i64 %sub43.i.i5162
@@ -16203,7 +16203,7 @@ for.body.i581.i5329:                              ; preds = %for.inc.i610.i5354,
   br i1 %or.cond1115.i, label %for.inc.i610.i5354, label %if.end42.i587.i5334
 
 if.end42.i587.i5334:                              ; preds = %for.body.i581.i5329
-  %sub43.i588.i5335 = sub i64 %sub3.i.i5286, %conv35.i583.i5331
+  %sub43.i588.i5335 = sub nuw i64 %sub3.i.i5286, %conv35.i583.i5331
   %sub45.i590.i5336 = sub i64 %conv.i450.i5288, %sub43.i588.i5335
   %cond48.i594.i5337 = tail call i64 @llvm.umin.i64(i64 %sub45.i590.i5336, i64 %max_length.0.i5243)
   %arrayidx49.i595.i5338 = getelementptr inbounds i8, ptr %source.i427.0.i5328, i64 %sub43.i588.i5335
@@ -24298,7 +24298,7 @@ while.body.i724.i:                                ; preds = %while.body.i724.lr.
 
 if.end69.i727.i:                                  ; preds = %while.body.i724.i
   %slot.i560.0809.i = zext i16 %slot.i560.0809.in.i to i64
-  %sub70.i728.i = sub i64 %position.addr.01023.i, %add.i725.i
+  %sub70.i728.i = sub nuw i64 %position.addr.01023.i, %add.i725.i
   %and71.i729.i = and i64 %sub70.i728.i, %ringbuffer_mask
   %arrayidx73.i731.i = getelementptr inbounds [65536 x %struct.SlotH40], ptr %2161, i64 0, i64 %slot.i560.0809.i
   %next.i732.i = getelementptr inbounds i8, ptr %arrayidx73.i731.i, i64 2
@@ -24869,7 +24869,7 @@ while.body.i.i8377:                               ; preds = %while.body.i.lr.ph.
 
 if.end69.i.i8379:                                 ; preds = %while.body.i.i8377
   %slot.i.0921.i = zext i16 %slot.i.0921.in.i to i64
-  %sub70.i.i8380 = sub i64 %add67.i8313, %add.i446.i
+  %sub70.i.i8380 = sub nuw i64 %add67.i8313, %add.i446.i
   %and71.i.i8381 = and i64 %sub70.i.i8380, %ringbuffer_mask
   %arrayidx73.i.i8382 = getelementptr inbounds [65536 x %struct.SlotH40], ptr %2214, i64 0, i64 %slot.i.0921.i
   %next.i.i8383 = getelementptr inbounds i8, ptr %arrayidx73.i.i8382, i64 2
@@ -25964,7 +25964,7 @@ while.body.i724.i8952:                            ; preds = %while.body.i724.lr.
 
 if.end69.i727.i8960:                              ; preds = %while.body.i724.i8952
   %slot.i560.0809.i8961 = zext i16 %slot.i560.0809.in.i8954 to i64
-  %sub70.i728.i8962 = sub i64 %position.addr.01023.i8839, %add.i725.i8958
+  %sub70.i728.i8962 = sub nuw i64 %position.addr.01023.i8839, %add.i725.i8958
   %and71.i729.i8963 = and i64 %sub70.i728.i8962, %ringbuffer_mask
   %arrayidx73.i731.i8964 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %2314, i64 0, i64 %slot.i560.0809.i8961
   %next.i732.i8965 = getelementptr inbounds i8, ptr %arrayidx73.i731.i8964, i64 2
@@ -26535,7 +26535,7 @@ while.body.i.i9190:                               ; preds = %while.body.i.lr.ph.
 
 if.end69.i.i9198:                                 ; preds = %while.body.i.i9190
   %slot.i.0921.i9199 = zext i16 %slot.i.0921.in.i9192 to i64
-  %sub70.i.i9200 = sub i64 %add67.i9089, %add.i446.i9196
+  %sub70.i.i9200 = sub nuw i64 %add67.i9089, %add.i446.i9196
   %and71.i.i9201 = and i64 %sub70.i.i9200, %ringbuffer_mask
   %arrayidx73.i.i9202 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %2367, i64 0, i64 %slot.i.0921.i9199
   %next.i.i9203 = getelementptr inbounds i8, ptr %arrayidx73.i.i9202, i64 2
@@ -27644,7 +27644,7 @@ while.body.i725.i:                                ; preds = %while.body.i725.lr.
 
 if.end69.i728.i:                                  ; preds = %while.body.i725.i
   %slot.i560.0816.i = zext i16 %slot.i560.0816.in.i to i64
-  %sub70.i729.i = sub i64 %position.addr.01034.i, %add.i726.i
+  %sub70.i729.i = sub nuw i64 %position.addr.01034.i, %add.i726.i
   %and71.i730.i = and i64 %sub70.i729.i, %ringbuffer_mask
   %arrayidx73.i732.i = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx72.i731.i, i64 0, i64 %slot.i560.0816.i
   %next.i733.i = getelementptr inbounds i8, ptr %arrayidx73.i732.i, i64 2
@@ -28220,7 +28220,7 @@ while.body.i.i10137:                              ; preds = %while.body.i.lr.ph.
 
 if.end69.i.i10140:                                ; preds = %while.body.i.i10137
   %slot.i.0930.i = zext i16 %slot.i.0930.in.i to i64
-  %sub70.i.i10141 = sub i64 %add67.i10064, %add.i446.i10138
+  %sub70.i.i10141 = sub nuw i64 %add67.i10064, %add.i446.i10138
   %and71.i.i10142 = and i64 %sub70.i.i10141, %ringbuffer_mask
   %arrayidx73.i.i10143 = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx72.i.i10131, i64 0, i64 %slot.i.0930.i
   %next.i.i10144 = getelementptr inbounds i8, ptr %arrayidx73.i.i10143, i64 2

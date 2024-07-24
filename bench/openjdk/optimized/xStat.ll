@@ -5447,7 +5447,7 @@ define linkonce_odr hidden void @_ZN17XStatTablePrinter7XColumn6centerEPKcz(ptr 
   br i1 %24, label %25, label %41
 
 25:                                               ; preds = %23
-  %26 = sub i64 %12, %.0.i
+  %26 = sub nuw i64 %12, %.0.i
   %27 = lshr i64 %26, 1
   %28 = sub i64 %26, %27
   %29 = load ptr, ptr %1, align 8
@@ -5598,7 +5598,7 @@ define linkonce_odr hidden void @_ZN17XStatTablePrinter7XColumn4leftEPKcz(ptr de
   %16 = load i64, ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 %.0.i
-  %19 = sub i64 %12, %.0.i
+  %19 = sub nuw i64 %12, %.0.i
   call void @llvm.memset.p0.i64(ptr align 1 %18, i8 32, i64 %19, i1 false)
   %.pre = load i64, ptr %11, align 8, !noalias !73
   br label %20

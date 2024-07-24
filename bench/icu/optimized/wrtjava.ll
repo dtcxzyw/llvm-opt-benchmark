@@ -395,7 +395,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
   %sub17.i.i = add i32 %sub.i.i, -5
   %idx.ext.i.i = zext i32 %len.079.i.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %calloc.i.i, i64 %idx.ext.i.i
-  %sub18.i.i = sub i32 %retval.0.i.i3.i, %len.079.i.i
+  %sub18.i.i = sub nuw i32 %retval.0.i.i3.i, %len.079.i.i
   %cmp19.i.i = icmp ult i32 %sub17.i.i, %sub18.i.i
   br i1 %cmp19.i.i, label %if.then20.i.i, label %if.end49.i.i
 

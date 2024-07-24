@@ -10399,7 +10399,7 @@ define internal fastcc i32 @dissect_eir_ad_data(ptr noundef %0, ptr noundef %1, 
 
 700:                                              ; preds = %697
   %701 = load i32, ptr @hf_btcommon_eir_ad_data, align 4
-  %702 = sub nsw i32 %698, %695
+  %702 = sub nuw nsw i32 %698, %695
   %703 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %701, ptr noundef %0, i32 noundef %.13, i32 noundef %702, i32 noundef 0) #7
   %704 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %703, ptr noundef nonnull @ei_eir_ad_unknown) #7
   %705 = add i32 %702, %.13

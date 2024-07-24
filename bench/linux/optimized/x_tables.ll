@@ -1578,15 +1578,15 @@ define dso_local noundef range(i32 -22, 1) i32 @xt_check_entry_offsets(ptr nound
   br i1 %66, label %.loopexit, label %67
 
 67:                                               ; preds = %64
-  %68 = sub nsw i32 %55, %65
+  %68 = sub nuw nsw i32 %55, %65
   %69 = zext i16 %62 to i64
   %70 = getelementptr i8, ptr %54, i64 %69
-  %71 = icmp sgt i32 %68, 0
-  br i1 %71, label %.preheader, label %.loopexit, !llvm.loop !28
+  %.not = icmp eq i32 %68, 0
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %67, %64, %61, %.preheader, %49, %45, %43, %38, %34, %26, %14, %10, %4
-  %72 = phi i32 [ -22, %45 ], [ -22, %4 ], [ -22, %10 ], [ -22, %14 ], [ -22, %26 ], [ -22, %34 ], [ 0, %49 ], [ -22, %43 ], [ -22, %38 ], [ 0, %67 ], [ -22, %64 ], [ -22, %61 ], [ -22, %.preheader ]
-  ret i32 %72
+  %71 = phi i32 [ -22, %45 ], [ -22, %4 ], [ -22, %10 ], [ -22, %14 ], [ -22, %26 ], [ -22, %34 ], [ 0, %49 ], [ -22, %43 ], [ -22, %38 ], [ 0, %67 ], [ -22, %64 ], [ -22, %61 ], [ -22, %.preheader ]
+  ret i32 %71
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -4428,7 +4428,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h059b059c41608861E.exit.i: ; p
   %412 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload.i.i, i64 %.sroa.4.1.i.i
   %413 = load i8, ptr %412, align 1, !alias.scope !882, !noalias !887, !noundef !11
   %414 = icmp sgt i8 %413, -65
-  %415 = sub i64 %.sroa.03.sroa.13.0.copyload.i.i, %.sroa.4.1.i.i
+  %415 = sub nuw i64 %.sroa.03.sroa.13.0.copyload.i.i, %.sroa.4.1.i.i
   br i1 %414, label %417, label %416
 
 416:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i.i.i.i.i", %409

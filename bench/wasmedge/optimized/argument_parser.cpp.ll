@@ -875,7 +875,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %_ZNSt11c
   br i1 %.not51, label %29, label %.invoke
 
 29:                                               ; preds = %26
-  %30 = sub i64 %2, %28
+  %30 = sub nuw i64 %2, %28
   %31 = getelementptr inbounds i8, ptr %3, i64 %28
   call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor19consume_long_optionESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.48") align 8 %9, ptr noundef nonnull align 8 dereferenceable(328) %1, i64 %.sroa.speculated.i, ptr nonnull %21) #17
   %32 = load i8, ptr %9, align 8
@@ -1886,7 +1886,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit: ; pre
   unreachable
 
 45:                                               ; preds = %42
-  %46 = sub i64 %22, %.06.i
+  %46 = sub nuw i64 %22, %.06.i
   store i64 %46, ptr %6, align 8
   store ptr %41, ptr %17, align 8
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.thread

@@ -12191,7 +12191,7 @@ st_sub.exit.i.i:                                  ; preds = %for.end24.i.i, %for
   %256 = phi i64 [ %251, %for.end24.thread.i.i ], [ %255, %for.end24.i.i ]
   %remove_count.0.lcssa26.i.i = phi i64 [ 0, %for.end24.thread.i.i ], [ %add21.i.i, %for.end24.i.i ]
   %257 = load i64, ptr %len179.i, align 8
-  %sub.i.i.i = sub i64 %256, %remove_count.0.lcssa26.i.i
+  %sub.i.i.i = sub nuw i64 %256, %remove_count.0.lcssa26.i.i
   %sub.i73.i.i = xor i64 %sub.i.i.i, -1
   %cmp.i74.i.i = icmp ugt i64 %257, %sub.i73.i.i
   br i1 %cmp.i74.i.i, label %if.then.i75.i.i, label %st_add.exit.i.i

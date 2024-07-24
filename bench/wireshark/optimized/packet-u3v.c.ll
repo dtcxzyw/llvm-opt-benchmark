@@ -1146,7 +1146,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond.not.i.i, label %159, label %163
 
 159:                                              ; preds = %155
-  %160 = sub i64 %136, %157
+  %160 = sub nuw i64 %136, %157
   %161 = trunc i64 %160 to i32
   %162 = call ptr @try_val_to_str(i32 noundef %161, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
   br label %163
@@ -1160,7 +1160,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond33.not.i.i, label %167, label %171
 
 167:                                              ; preds = %163
-  %168 = sub i64 %136, %165
+  %168 = sub nuw i64 %136, %165
   %169 = trunc i64 %168 to i32
   %170 = call ptr @try_val_to_str(i32 noundef %169, ptr noundef nonnull @bootstrap_register_names_sirm) #5
   br label %171
@@ -1174,7 +1174,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond34.not.i.i, label %175, label %is_known_bootstrap_register.exit.i
 
 175:                                              ; preds = %171
-  %176 = sub i64 %136, %173
+  %176 = sub nuw i64 %136, %173
   %177 = trunc i64 %176 to i32
   %178 = call ptr @try_val_to_str(i32 noundef %177, ptr noundef nonnull @bootstrap_register_names_eirm) #5
   br label %is_known_bootstrap_register.exit.i
@@ -1236,7 +1236,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
   br i1 %or.cond.not.i.i222, label %208, label %212
 
 208:                                              ; preds = %204
-  %209 = sub i64 %190, %206
+  %209 = sub nuw i64 %190, %206
   %210 = trunc i64 %209 to i32
   %211 = call ptr @try_val_to_str(i32 noundef %210, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
   br label %212
@@ -1250,7 +1250,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
   br i1 %or.cond33.not.i.i224, label %216, label %220
 
 216:                                              ; preds = %212
-  %217 = sub i64 %190, %214
+  %217 = sub nuw i64 %190, %214
   %218 = trunc i64 %217 to i32
   %219 = call ptr @try_val_to_str(i32 noundef %218, ptr noundef nonnull @bootstrap_register_names_sirm) #5
   br label %220
@@ -1264,7 +1264,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
   br i1 %or.cond34.not.i.i226, label %224, label %is_known_bootstrap_register.exit.i227
 
 224:                                              ; preds = %220
-  %225 = sub i64 %190, %222
+  %225 = sub nuw i64 %190, %222
   %226 = trunc i64 %225 to i32
   %227 = call ptr @try_val_to_str(i32 noundef %226, ptr noundef nonnull @bootstrap_register_names_eirm) #5
   br label %is_known_bootstrap_register.exit.i227
@@ -1773,7 +1773,7 @@ define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr nounde
   br i1 %or.cond.not.i, label %16, label %dissect_u3v_register_bases.exit
 
 16:                                               ; preds = %12
-  %17 = sub i64 %.32.val, %14
+  %17 = sub nuw i64 %.32.val, %14
   switch i64 %17, label %dissect_u3v_register_bases.exit [
     i64 32, label %.sink.split26.i
     i64 44, label %18
@@ -1845,7 +1845,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %34, %37
   br i1 %or.cond.not.i35, label %47, label %51
 
 47:                                               ; preds = %44
-  %48 = sub i64 %.32.val, %45
+  %48 = sub nuw i64 %.32.val, %45
   %49 = trunc i64 %48 to i32
   %50 = call ptr @try_val_to_str(i32 noundef %49, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
   br label %51
@@ -1859,7 +1859,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %34, %37
   br i1 %or.cond33.not.i, label %55, label %59
 
 55:                                               ; preds = %51
-  %56 = sub i64 %.32.val, %53
+  %56 = sub nuw i64 %.32.val, %53
   %57 = trunc i64 %56 to i32
   %58 = call ptr @try_val_to_str(i32 noundef %57, ptr noundef nonnull @bootstrap_register_names_sirm) #5
   br label %59
@@ -1873,7 +1873,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %34, %37
   br i1 %or.cond34.not.i, label %63, label %is_known_bootstrap_register.exit
 
 63:                                               ; preds = %59
-  %64 = sub i64 %.32.val, %61
+  %64 = sub nuw i64 %.32.val, %61
   %65 = trunc i64 %64 to i32
   %66 = call ptr @try_val_to_str(i32 noundef %65, ptr noundef nonnull @bootstrap_register_names_eirm) #5
   br label %is_known_bootstrap_register.exit
@@ -1931,7 +1931,7 @@ define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr n
   br i1 %or.cond.not, label %15, label %19
 
 15:                                               ; preds = %11
-  %16 = sub i64 %0, %13
+  %16 = sub nuw i64 %0, %13
   %17 = trunc i64 %16 to i32
   %18 = tail call ptr @try_val_to_str(i32 noundef %17, ptr noundef nonnull @bootstrap_register_names_sbrm) #5
   br label %19
@@ -1945,7 +1945,7 @@ define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr n
   br i1 %or.cond50.not, label %23, label %27
 
 23:                                               ; preds = %19
-  %24 = sub i64 %0, %21
+  %24 = sub nuw i64 %0, %21
   %25 = trunc i64 %24 to i32
   %26 = tail call ptr @try_val_to_str(i32 noundef %25, ptr noundef nonnull @bootstrap_register_names_sirm) #5
   br label %27
@@ -1959,7 +1959,7 @@ define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr n
   br i1 %or.cond51.not, label %31, label %35
 
 31:                                               ; preds = %27
-  %32 = sub i64 %0, %29
+  %32 = sub nuw i64 %0, %29
   %33 = trunc i64 %32 to i32
   %34 = tail call ptr @try_val_to_str(i32 noundef %33, ptr noundef nonnull @bootstrap_register_names_eirm) #5
   br label %35
@@ -2161,7 +2161,7 @@ define internal fastcc void @dissect_u3v_register(i64 noundef %0, ptr noundef %1
   br i1 %or.cond201.not, label %90, label %96
 
 90:                                               ; preds = %86
-  %91 = sub i64 %0, %88
+  %91 = sub nuw i64 %0, %88
   %92 = tail call i64 @llvm.fshl.i64(i64 %91, i64 %91, i64 62)
   %93 = icmp ult i64 %92, 17
   br i1 %93, label %switch.hole_check, label %96
@@ -2189,7 +2189,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %or.cond202.not, label %100, label %106
 
 100:                                              ; preds = %96
-  %101 = sub i64 %0, %98
+  %101 = sub nuw i64 %0, %98
   %102 = tail call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 62)
   %103 = icmp ult i64 %102, 12
   br i1 %103, label %switch.hole_check4, label %106
@@ -2217,7 +2217,7 @@ switch.lookup5:                                   ; preds = %switch.hole_check4
   br i1 %or.cond203.not, label %110, label %116
 
 110:                                              ; preds = %106
-  %111 = sub i64 %0, %108
+  %111 = sub nuw i64 %0, %108
   switch i64 %111, label %116 [
     i64 0, label %.sink.split207
     i64 4, label %112

@@ -1512,7 +1512,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   br i1 %cmp.i.i350, label %if.then.i.i358, label %if.else.i.i351
 
 if.then.i.i358:                                   ; preds = %while.body.i
-  %sub.i.i = sub nsw i64 %add.i349, %sub.ptr.div.i27.i
+  %sub.i.i = sub nuw nsw i64 %add.i349, %sub.ptr.div.i27.i
   %sub.ptr.sub.i14.i.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.lhs.cast.i24.i
   %sub.ptr.div.i15.i.i = ashr exact i64 %sub.ptr.sub.i14.i.i, 3
   %sub.i.i.i = xor i64 %sub.ptr.div.i27.i, 1152921504606846975
@@ -6676,7 +6676,7 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EmE15DoInsertAndFillEmmmRKm.exit.th
   br i1 %cmp.i.i.i.i.i.i.i84, label %_ZN5eastl22uninitialized_move_ptrIP13PaddingStructS2_S2_EET1_T_T0_S3_.exit.i, label %if.end.i.i.i.i.i.i.i85
 
 if.else.i:                                        ; preds = %if.else
-  %sub9.i = sub i64 %n, %sub.i59
+  %sub9.i = sub nuw i64 %n, %sub.i59
   %cmp.not2.i.i.i.i.i = icmp eq i64 %sub9.i, 0
   br i1 %cmp.not2.i.i.i.i.i, label %_ZN5eastl24uninitialized_fill_n_ptrImmEEvPT_T0_RKS1_.exit.i, label %for.body.i.i.i.i.i
 

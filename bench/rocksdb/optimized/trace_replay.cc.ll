@@ -969,7 +969,7 @@ land.lhs.true.i:                                  ; preds = %_ZN7rocksdb14GetVar
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %11, i64 %conv.i
-  %sub.i.i70 = sub i64 %sub.ptr.sub.i.i, %conv.i
+  %sub.i.i70 = sub nuw i64 %sub.ptr.sub.i.i, %conv.i
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit: ; preds = %call.i.i.i.noexc, %land.lhs.true.i, %if.then.i
@@ -1193,7 +1193,7 @@ land.lhs.true.i113:                               ; preds = %_ZN7rocksdb14GetVar
 
 if.then.i119:                                     ; preds = %land.lhs.true.i113
   %add.ptr.i5.i121 = getelementptr inbounds i8, ptr %24, i64 %conv.i117
-  %sub.i.i122 = sub i64 %sub.ptr.sub.i.i116, %conv.i117
+  %sub.i.i122 = sub nuw i64 %sub.ptr.sub.i.i116, %conv.i117
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit129
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit129: ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i109, %land.lhs.true.i113, %if.then.i119
@@ -1450,7 +1450,7 @@ land.lhs.true.i210:                               ; preds = %_ZN7rocksdb14GetVar
 
 if.then.i216:                                     ; preds = %land.lhs.true.i210
   %add.ptr.i5.i218 = getelementptr inbounds i8, ptr %39, i64 %conv.i214
-  %sub.i.i219 = sub i64 %sub.ptr.sub.i.i213, %conv.i214
+  %sub.i.i219 = sub nuw i64 %sub.ptr.sub.i.i213, %conv.i214
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit226
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit226: ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i205, %land.lhs.true.i210, %if.then.i216
@@ -1499,7 +1499,7 @@ land.lhs.true.i236:                               ; preds = %_ZN7rocksdb14GetVar
 
 if.then.i242:                                     ; preds = %land.lhs.true.i236
   %add.ptr.i5.i244 = getelementptr inbounds i8, ptr %42, i64 %conv.i240
-  %sub.i.i245 = sub i64 %sub.ptr.sub.i.i239, %conv.i240
+  %sub.i.i245 = sub nuw i64 %sub.ptr.sub.i.i239, %conv.i240
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit252
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit252: ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i231, %land.lhs.true.i236, %if.then.i242
@@ -1548,7 +1548,7 @@ land.lhs.true.i262:                               ; preds = %_ZN7rocksdb14GetVar
 
 if.then.i268:                                     ; preds = %land.lhs.true.i262
   %add.ptr.i5.i270 = getelementptr inbounds i8, ptr %45, i64 %conv.i266
-  %sub.i.i271 = sub i64 %sub.ptr.sub.i.i265, %conv.i266
+  %sub.i.i271 = sub nuw i64 %sub.ptr.sub.i.i265, %conv.i266
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit278
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit278: ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i257, %land.lhs.true.i262, %if.then.i268
@@ -1861,7 +1861,7 @@ land.lhs.true.i356:                               ; preds = %_ZN7rocksdb14GetVar
 
 if.then.i362:                                     ; preds = %land.lhs.true.i356
   %add.ptr.i5.i364 = getelementptr inbounds i8, ptr %66, i64 %conv.i360
-  %sub.i.i365 = sub i64 %sub.ptr.sub.i.i359, %conv.i360
+  %sub.i.i365 = sub nuw i64 %sub.ptr.sub.i.i359, %conv.i360
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit373
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit373: ; preds = %call.i.i.i352.noexc, %land.lhs.true.i356, %if.then.i362
@@ -1913,7 +1913,7 @@ land.lhs.true.i383:                               ; preds = %_ZN7rocksdb14GetVar
 
 if.then.i389:                                     ; preds = %land.lhs.true.i383
   %add.ptr.i5.i391 = getelementptr inbounds i8, ptr %69, i64 %conv.i387
-  %sub.i.i392 = sub i64 %sub.ptr.sub.i.i386, %conv.i387
+  %sub.i.i392 = sub nuw i64 %sub.ptr.sub.i.i386, %conv.i387
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit400
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit400: ; preds = %call.i.i.i379.noexc, %land.lhs.true.i383, %if.then.i389
@@ -2034,7 +2034,7 @@ land.lhs.true.i430:                               ; preds = %_ZN7rocksdb14GetVar
 
 if.then.i436:                                     ; preds = %land.lhs.true.i430
   %add.ptr.i5.i438 = getelementptr inbounds i8, ptr %73, i64 %conv.i434
-  %sub.i.i439 = sub i64 %sub.ptr.sub.i.i433, %conv.i434
+  %sub.i.i439 = sub nuw i64 %sub.ptr.sub.i.i433, %conv.i434
   br label %invoke.cont183
 
 invoke.cont183:                                   ; preds = %if.then.i436, %land.lhs.true.i430, %call.i.i.i426.noexc

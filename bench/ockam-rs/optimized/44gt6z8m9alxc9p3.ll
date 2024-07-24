@@ -456,7 +456,7 @@ define hidden void @_ZN10ockam_core7routing5route12RouteBuilder6append17hab627bb
   %20 = add i64 %19, %17
   %.not.i = icmp ult i64 %20, %16
   %21 = select i1 %.not.i, i64 0, i64 %16
-  %.0.i = sub i64 %20, %21
+  %.0.i = sub nuw i64 %20, %21
   %22 = load ptr, ptr %1, align 8, !alias.scope !90, !noalias !93, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %22, i64 %.0.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -660,7 +660,7 @@ define hidden void @_ZN10ockam_core7routing5route5Route6create17h94ece4b925674bb
   %50 = add i64 %49, %48
   %.not.i.i = icmp ult i64 %50, %47
   %51 = select i1 %.not.i.i, i64 0, i64 %47
-  %.0.i.i = sub i64 %50, %51
+  %.0.i.i = sub nuw i64 %50, %51
   %52 = load ptr, ptr %6, align 8, !alias.scope !145, !noalias !148, !nonnull !4, !noundef !4
   %53 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %52, i64 %.0.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !150

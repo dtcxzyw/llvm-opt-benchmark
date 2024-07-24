@@ -262,7 +262,7 @@ if.then13:                                        ; preds = %if.then8
   br label %return
 
 if.end14:                                         ; preds = %if.then8
-  %sub = sub i64 %0, %call3
+  %sub = sub nuw i64 %0, %call3
   %conv17 = trunc i64 %sub to i32
   br label %do.end
 

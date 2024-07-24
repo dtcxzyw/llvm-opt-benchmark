@@ -5970,7 +5970,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef no
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -53059,7 +53059,7 @@ _ZNSt6vectorIiN3ozz12StdAllocatorIiEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %_ZNSt6vectorIiN3ozz12StdAllocatorIiEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS3_EES8_.exit
-  %136 = sub nsw i64 %126, %133
+  %136 = sub nuw nsw i64 %126, %133
   invoke void @_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %136)
           to label %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -53533,7 +53533,7 @@ _ZN3ozz3log6LoggerlsIA135_cEERSoRKT_.exit:        ; preds = %26
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %37
-  %64 = sub nsw i64 %54, %61
+  %64 = sub nuw nsw i64 %54, %61
   call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %64)
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
@@ -55695,7 +55695,7 @@ _ZN12_GLOBAL__N_119CreateNodeTransformERKN8tinygltf4NodeEPN3ozz4math9TransformE.
   br i1 %315, label %316, label %318
 
 316:                                              ; preds = %299
-  %317 = sub nsw i64 %307, %314
+  %317 = sub nuw nsw i64 %307, %314
   tail call void @_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %317)
   br label %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
@@ -58454,7 +58454,7 @@ _ZN3ozz3log6LoggerlsIA48_cEERSoRKT_.exit.i44.i:   ; preds = %171
   br i1 %187, label %188, label %190
 
 188:                                              ; preds = %177
-  %189 = sub nsw i64 %179, %186
+  %189 = sub nuw nsw i64 %179, %186
   tail call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %189)
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i.i
 
@@ -58621,7 +58621,7 @@ _ZN3ozz3log6LoggerlsIA48_cEERSoRKT_.exit.i49.i:   ; preds = %251
   br i1 %272, label %273, label %275
 
 273:                                              ; preds = %257
-  %274 = sub i64 %264, %271
+  %274 = sub nuw i64 %264, %271
   call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %274)
   %.pre.i54.i = load i64, ptr %263, align 8
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i51.i
@@ -59101,7 +59101,7 @@ _ZN3ozz3log6LoggerlsIA48_cEERSoRKT_.exit.i44.i115: ; preds = %483
   br i1 %499, label %500, label %502
 
 500:                                              ; preds = %489
-  %501 = sub nsw i64 %491, %498
+  %501 = sub nuw nsw i64 %491, %498
   tail call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %420, i64 noundef %501)
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i.i
 
@@ -59268,7 +59268,7 @@ _ZN3ozz3log6LoggerlsIA48_cEERSoRKT_.exit.i49.i76: ; preds = %563
   br i1 %584, label %585, label %587
 
 585:                                              ; preds = %569
-  %586 = sub i64 %576, %583
+  %586 = sub nuw i64 %576, %583
   call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %420, i64 noundef %586)
   %.pre.i54.i108 = load i64, ptr %575, align 8
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i51.i
@@ -59793,7 +59793,7 @@ _ZN3ozz3log6LoggerlsIA48_cEERSoRKT_.exit.i44.i195: ; preds = %816
   br i1 %832, label %833, label %835
 
 833:                                              ; preds = %822
-  %834 = sub nsw i64 %824, %831
+  %834 = sub nuw nsw i64 %824, %831
   tail call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %751, i64 noundef %834)
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i.i
 
@@ -59960,7 +59960,7 @@ _ZN3ozz3log6LoggerlsIA48_cEERSoRKT_.exit.i49.i146: ; preds = %896
   br i1 %917, label %918, label %920
 
 918:                                              ; preds = %902
-  %919 = sub i64 %909, %916
+  %919 = sub nuw i64 %909, %916
   call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %751, i64 noundef %919)
   %.pre.i54.i188 = load i64, ptr %908, align 8
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i51.i
@@ -65170,7 +65170,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
   %53 = zext nneg i32 %.07381 to i64
   %54 = shl i64 %53, %15
   %55 = icmp uge i64 %49, %13
-  %56 = sub i64 %9, %49
+  %56 = sub nuw i64 %9, %49
   %.not21.i = icmp ult i64 %56, %54
   %or.cond22.i = or i1 %55, %.not21.i
   br i1 %or.cond22.i, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit, label %.lr.ph.i
@@ -65190,7 +65190,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
 
 62:                                               ; preds = %59
   %63 = sub i64 %13, %.023.i
-  %64 = sub i64 %60, %13
+  %64 = sub nuw i64 %60, %13
   %65 = icmp ugt i64 %63, %64
   br i1 %65, label %.critedge2.i, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit
 
@@ -65236,7 +65236,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
   %87 = sub nsw i32 %86, %82
   store i32 %87, ptr %2, align 4
   %88 = icmp uge i64 %75, %84
-  %89 = sub i64 %83, %75
+  %89 = sub nuw i64 %83, %75
   %.not21.i55 = icmp ult i64 %89, %16
   %or.cond22.i56 = or i1 %88, %.not21.i55
   br i1 %or.cond22.i56, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit, label %.lr.ph.i57
@@ -65256,7 +65256,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
 
 95:                                               ; preds = %92
   %96 = sub i64 %84, %.023.i60
-  %97 = sub i64 %93, %84
+  %97 = sub nuw i64 %93, %84
   %98 = icmp ugt i64 %96, %97
   br i1 %98, label %.critedge2.i61, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit
 

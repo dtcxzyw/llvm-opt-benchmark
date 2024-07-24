@@ -5697,7 +5697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit296.i:
   br i1 %1742, label %1743, label %1767
 
 1743:                                             ; preds = %._crit_edge.i
-  %1744 = sub nsw i64 %1735, %1741
+  %1744 = sub nuw nsw i64 %1735, %1741
   %1745 = load ptr, ptr %886, align 8
   %1746 = ptrtoint ptr %1745 to i64
   %1747 = sub i64 %1746, %1738
@@ -5717,7 +5717,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit296.i:
   br label %.noexc727
 
 1754:                                             ; preds = %1743
-  %1755 = icmp ult i64 %1750, %1744
+  %1755 = icmp slt i32 %1734, 0
   br i1 %1755, label %1756, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i1112
 
 1756:                                             ; preds = %1754
@@ -7069,7 +7069,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i773:
   br i1 %2343, label %2344, label %2368
 
 2344:                                             ; preds = %._crit_edge2770
-  %2345 = sub nsw i64 %2336, %2342
+  %2345 = sub nuw nsw i64 %2336, %2342
   %2346 = load ptr, ptr %886, align 8
   %2347 = ptrtoint ptr %2346 to i64
   %2348 = sub i64 %2347, %2339
@@ -7089,7 +7089,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i773:
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit
 
 2355:                                             ; preds = %2344
-  %2356 = icmp ult i64 %2351, %2345
+  %2356 = icmp slt i32 %2335, 0
   br i1 %2356, label %2357, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 2357:                                             ; preds = %2355
@@ -16431,7 +16431,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -16452,7 +16452,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23

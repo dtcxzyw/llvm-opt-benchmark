@@ -514,7 +514,7 @@ do.body.i:                                        ; preds = %entry
   unreachable
 
 sub_size_t.exit:                                  ; preds = %entry
-  %sub.i = sub i64 %nplusm, %n
+  %sub.i = sub nuw i64 %nplusm, %n
   %sub = add i64 %n, -1
   %arrayidx = getelementptr i64, ptr %vconst, i64 %sub
   %4 = load i64, ptr %arrayidx, align 8

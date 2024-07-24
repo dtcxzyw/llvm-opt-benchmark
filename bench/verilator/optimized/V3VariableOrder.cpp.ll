@@ -1001,7 +1001,7 @@ define dso_local void @_ZN15V3VariableOrder8orderAllEP10AstNetlist(ptr nocapture
   br i1 %60, label %61, label %92
 
 61:                                               ; preds = %54
-  %62 = sub nsw i64 %59, %58
+  %62 = sub nuw nsw i64 %59, %58
   %63 = ptrtoint ptr %.sroa.20.1.i to i64
   %64 = sub i64 %63, %55
   %65 = ashr exact i64 %64, 3

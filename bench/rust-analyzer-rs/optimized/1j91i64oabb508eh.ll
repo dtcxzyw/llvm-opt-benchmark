@@ -28039,7 +28039,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !12
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.0 = sub i64 %5, %7
+  %.0 = sub nuw i64 %5, %7
   ret i64 %.0
 }
 
@@ -28057,7 +28057,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %9 = load i64, ptr %0, align 8, !alias.scope !6259, !noundef !12
   %.not.i = icmp ult i64 %8, %9
   %10 = select i1 %.not.i, i64 0, i64 %9
-  %.0.i = sub i64 %8, %10
+  %.0.i = sub nuw i64 %8, %10
   store i64 %.0.i, ptr %6, align 8
   %11 = add i64 %3, -1
   store i64 %11, ptr %2, align 8
@@ -46353,7 +46353,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %24 = getelementptr inbounds i8, ptr %10, i64 %16
   %25 = load i8, ptr %24, align 1, !alias.scope !12116, !noalias !12121, !noundef !12
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %12, %16
+  %27 = sub nuw i64 %12, %16
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %21
@@ -52319,7 +52319,7 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT
 
 12:                                               ; preds = %.lr.ph
   %13 = extractvalue { ptr, i64 } %9, 0
-  %14 = sub i64 %10, %.val5
+  %14 = sub nuw i64 %10, %.val5
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val4, ptr nonnull readonly %15, i64 %.val5), !alias.scope !12958
   %16 = icmp eq i32 %bcmp.i.i.i, 0
@@ -52382,7 +52382,7 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT
 
 12:                                               ; preds = %.lr.ph
   %13 = extractvalue { ptr, i64 } %9, 0
-  %14 = sub i64 %10, %.val5
+  %14 = sub nuw i64 %10, %.val5
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val4, ptr nonnull readonly %15, i64 %.val5), !alias.scope !12979
   %16 = icmp eq i32 %bcmp.i.i.i, 0
@@ -85586,7 +85586,7 @@ define hidden noundef zeroext i1 @_ZN13rust_analyzer6reload25should_refresh_for_
 
 24:                                               ; preds = %.lr.ph.i
   %25 = extractvalue { ptr, i64 } %21, 0
-  %26 = sub i64 %22, %.val5.i
+  %26 = sub nuw i64 %22, %.val5.i
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val4.i, ptr nonnull readonly %27, i64 %.val5.i), !alias.scope !19595
   %28 = icmp eq i32 %bcmp.i.i.i.i, 0

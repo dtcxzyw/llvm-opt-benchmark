@@ -7169,7 +7169,7 @@ cff_index_read_offset.exit88:                     ; preds = %.lr.ph.i83
   br i1 %or.cond, label %79, label %94
 
 79:                                               ; preds = %77
-  %80 = sub i64 %.155, %.056105
+  %80 = sub nuw i64 %.155, %.056105
   store i64 %80, ptr %3, align 8
   %81 = getelementptr inbounds i8, ptr %0, i64 56
   %82 = load ptr, ptr %81, align 8

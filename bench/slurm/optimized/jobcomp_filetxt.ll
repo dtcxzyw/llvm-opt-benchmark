@@ -625,7 +625,7 @@ _make_time_str.exit159:                           ; preds = %156
 .outer:                                           ; preds = %.outer.split
   %239 = add i64 %233, %.0102.ph166
   %240 = icmp ult i64 %239, %229
-  %241 = sub i64 %229, %239
+  %241 = sub nuw i64 %229, %239
   br i1 %240, label %.outer.split.preheader, label %.split, !llvm.loop !6
 
 .split:                                           ; preds = %.outer, %235, %204

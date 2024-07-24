@@ -214,7 +214,7 @@ define weak_odr void @_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEEC2Eibi(ptr
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %18
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.0.ptr17.i, i64 noundef %30)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i unwind label %36
 
@@ -527,7 +527,7 @@ define weak_odr void @_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEE24resizeBu
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %2
-  %17 = sub nsw i64 %7, %14
+  %17 = sub nuw nsw i64 %7, %14
   tail call void @_ZNSt6vectorISt5arrayImLm2EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %17)
   br label %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
 
@@ -562,7 +562,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit: ; preds = %16, %18, %20, %22
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
-  %37 = sub nsw i64 %27, %34
+  %37 = sub nuw nsw i64 %27, %34
   tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %37)
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
@@ -1231,7 +1231,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3gmx17ThreadForceBufferIN
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -1683,7 +1683,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE14setupR
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %._crit_edge
-  %48 = sub nsw i64 %.pre, %45
+  %48 = sub nuw nsw i64 %.pre, %45
   tail call void @_ZNSt6vectorISt5arrayImLm2EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %48)
   br label %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
 
@@ -2570,7 +2570,7 @@ define weak_odr void @_ZN3gmx17ThreadForceBufferIA4_fEC2Eibi(ptr noundef nonnull
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %18
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.0.ptr17.i, i64 noundef %30)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i unwind label %36
 
@@ -2737,7 +2737,7 @@ define weak_odr void @_ZN3gmx17ThreadForceBufferIA4_fE24resizeBufferAndClearMask
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %2
-  %17 = sub nsw i64 %7, %14
+  %17 = sub nuw nsw i64 %7, %14
   tail call void @_ZNSt6vectorISt5arrayImLm2EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %17)
   br label %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
 
@@ -2769,7 +2769,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit: ; preds = %16, %18, %20, %22
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
-  %35 = sub nsw i64 %25, %32
+  %35 = sub nuw nsw i64 %25, %32
   tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %35)
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
@@ -3221,7 +3221,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3gmx17ThreadForceBufferIA
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -3655,7 +3655,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE14setupReductionEv(ptr n
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %._crit_edge
-  %48 = sub nsw i64 %.pre, %45
+  %48 = sub nuw nsw i64 %.pre, %45
   tail call void @_ZNSt6vectorISt5arrayImLm2EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %48)
   br label %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
 

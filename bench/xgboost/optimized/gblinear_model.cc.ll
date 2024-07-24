@@ -759,7 +759,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %20
-  %39 = sub nsw i64 %30, %36
+  %39 = sub nuw nsw i64 %30, %36
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %39)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -811,7 +811,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %38, %40, %42, %44
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %52
-  %71 = sub nsw i64 %61, %68
+  %71 = sub nuw nsw i64 %61, %68
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %62, i64 noundef %71)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit20
 

@@ -6261,7 +6261,7 @@ cleanup465:                                       ; preds = %if.then.i.i.i502, %
   br i1 %cmp.i506, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cleanup465
-  %sub9.i = sub i32 %244, %add.i
+  %sub9.i = sub nuw i32 %244, %add.i
   invoke void @_ZN3smt7context9pop_scopeEj(ptr noundef nonnull align 8 dereferenceable(11616) %243, i32 noundef %sub9.i)
           to label %if.then.if.end_crit_edge.i unwind label %terminate.lpad.i507
 
@@ -6726,7 +6726,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sub9 = sub i32 %1, %add
+  %sub9 = sub nuw i32 %1, %add
   invoke void @_ZN3smt7context9pop_scopeEj(ptr noundef nonnull align 8 dereferenceable(11616) %0, i32 noundef %sub9)
           to label %if.then.if.end_crit_edge unwind label %terminate.lpad
 

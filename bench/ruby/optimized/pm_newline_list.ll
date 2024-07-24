@@ -95,7 +95,7 @@ define hidden i64 @pm_newline_list_line_column(ptr nocapture noundef readonly %0
 13:                                               ; preds = %3, %23
   %.028 = phi i64 [ %10, %3 ], [ %.1, %23 ]
   %.02227 = phi i64 [ 0, %3 ], [ %.123, %23 ]
-  %14 = sub i64 %.028, %.02227
+  %14 = sub nuw i64 %.028, %.02227
   %15 = lshr i64 %14, 1
   %16 = add i64 %15, %.02227
   %17 = getelementptr i64, ptr %12, i64 %16

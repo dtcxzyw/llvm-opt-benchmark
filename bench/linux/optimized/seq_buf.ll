@@ -70,7 +70,7 @@ define dso_local noundef range(i32 -1, 1) i32 @seq_buf_vprintf(ptr nocapture nou
 13:                                               ; preds = %8
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr i8, ptr %14, i64 %11
-  %16 = sub i64 %9, %11
+  %16 = sub nuw i64 %9, %11
   %17 = tail call i32 @vsnprintf(ptr noundef %15, i64 noundef %16, ptr noundef %1, ptr noundef %2) #10
   %18 = load i64, ptr %10, align 8
   %19 = sext i32 %17 to i64
@@ -122,7 +122,7 @@ define dso_local noundef range(i32 -1, 1) i32 @seq_buf_printf(ptr nocapture noun
 13:                                               ; preds = %8
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr i8, ptr %14, i64 %11
-  %16 = sub i64 %9, %11
+  %16 = sub nuw i64 %9, %11
   %17 = call i32 @vsnprintf(ptr noundef %15, i64 noundef %16, ptr noundef %1, ptr noundef nonnull %3) #10
   %18 = load i64, ptr %10, align 8
   %19 = sext i32 %17 to i64
@@ -559,7 +559,7 @@ define dso_local i32 @seq_buf_path(ptr nocapture noundef %0, ptr noundef %1, ptr
 18:                                               ; preds = %11
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr i8, ptr %19, i64 %12
-  %21 = sub i64 %13, %12
+  %21 = sub nuw i64 %13, %12
   %22 = trunc i64 %21 to i32
   %23 = tail call ptr @d_path(ptr noundef %1, ptr noundef %20, i32 noundef %22) #10
   %24 = icmp ugt ptr %23, inttoptr (i64 -4096 to ptr)

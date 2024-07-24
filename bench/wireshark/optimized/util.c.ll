@@ -136,7 +136,7 @@ define hidden void @compute_timestamp_diff(ptr nocapture noundef %0, ptr nocaptu
   br i1 %.not39, label %23, label %21
 
 21:                                               ; preds = %20
-  %22 = sub i32 %3, %5
+  %22 = sub nuw i32 %3, %5
   store i32 %22, ptr %1, align 4
   br label %28
 

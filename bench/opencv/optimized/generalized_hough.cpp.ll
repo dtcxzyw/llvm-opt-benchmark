@@ -798,7 +798,7 @@ define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl12processTem
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %15
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   tail call void @_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %30)
   %.pre = load ptr, ptr %21, align 8
   br label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE6resizeEm.exit
@@ -7543,7 +7543,7 @@ _ZNSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGuilImpl12ContourPointESaIS2_EE9pu
   br i1 %176, label %177, label %205
 
 177:                                              ; preds = %.loopexit148
-  %178 = sub nsw i64 %170, %175
+  %178 = sub nuw nsw i64 %170, %175
   %179 = getelementptr inbounds i8, ptr %4, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = ptrtoint ptr %180 to i64
@@ -7565,7 +7565,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIN12_GLOBAL__N_124GeneralizedHoughGu
   br label %_ZNSt6vectorIS_IN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EESaIS4_EE6resizeEm.exit
 
 188:                                              ; preds = %177
-  %189 = icmp ult i64 %185, %178
+  %189 = icmp slt i32 %168, -1
   br i1 %189, label %.invoke, label %_ZNKSt6vectorIS_IN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorIS_IN12_GLOBAL__N_124GeneralizedHoughGuilImpl7FeatureESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %188

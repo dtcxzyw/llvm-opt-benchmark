@@ -936,7 +936,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %call, %bytes_in_flight
+  %sub = sub nuw i64 %call, %bytes_in_flight
   %vtable2 = load ptr, ptr %this, align 8
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 104
   %1 = load ptr, ptr %vfn3, align 8
@@ -945,7 +945,7 @@ if.end:                                           ; preds = %entry
   %cmp5 = icmp ult i64 %div5, %bytes_in_flight
   %2 = and i1 %cmp5, %call4
   %cmp6 = icmp ult i64 %sub, 4381
-  %3 = or i1 %cmp6, %2
+  %3 = select i1 %2, i1 true, i1 %cmp6
   br label %return
 
 return:                                           ; preds = %entry, %if.end

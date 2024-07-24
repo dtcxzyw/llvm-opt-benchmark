@@ -42136,8 +42136,8 @@ _ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit: ; preds = %lor
   %tobool.not3.i7.i.i = icmp slt i64 %2, 0
   %retval.0.i8.i.i = select i1 %tobool.not3.i7.i.i, i64 %add.i5.i.i, i64 %or.i6.i.i
   %cmp.not.i.i = icmp ult i64 %retval.0.i.i.i, %retval.0.i8.i.i
-  %sub.i.i = sub i64 %retval.0.i.i.i, %retval.0.i8.i.i
-  %sub2.i.i = sub i64 %retval.0.i8.i.i, %retval.0.i.i.i
+  %sub.i.i = sub nuw i64 %retval.0.i.i.i, %retval.0.i8.i.i
+  %sub2.i.i = sub nuw i64 %retval.0.i8.i.i, %retval.0.i.i.i
   %cond.i.i = select i1 %cmp.not.i.i, i64 %sub2.i.i, i64 %sub.i.i
   %cmp.i = icmp ult i64 %cond.i.i, 5
   br i1 %cmp.i, label %if.then, label %if.end
@@ -113243,7 +113243,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN4absl8StatusOrIS_ISt10unique_ptrIiSt14default_deleteIiEESaIS5_EEEESaIS8_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 

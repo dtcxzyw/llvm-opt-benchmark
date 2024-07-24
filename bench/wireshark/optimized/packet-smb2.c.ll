@@ -7492,7 +7492,7 @@ proto_item_set_generated.exit:                    ; preds = %45, %42, %37, %34, 
   br i1 %.not101, label %._crit_edge111, label %101
 
 101:                                              ; preds = %97
-  %reass.sub = sub i32 %78, %99
+  %reass.sub = sub nuw i32 %78, %99
   %102 = add i32 %reass.sub, -100
   %103 = add i32 %102, %.0.lcssa
   br label %104
@@ -7719,7 +7719,7 @@ proto_item_set_generated.exit:                    ; preds = %47, %44, %39, %36, 
   br i1 %.not122, label %.loopexit, label %140
 
 140:                                              ; preds = %138
-  %reass.sub = sub i32 %118, %114
+  %reass.sub = sub nuw i32 %118, %114
   %141 = add i32 %reass.sub, -128
   %142 = add i32 %141, %.0.i
   br label %143

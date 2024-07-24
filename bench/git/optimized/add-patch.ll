@@ -2005,7 +2005,7 @@ if.then.i.i.i.i65:                                ; preds = %for.inc.i.i.i
   unreachable
 
 find_next_line.exit.i.i.i:                        ; preds = %for.inc.i.i.i
-  %sub.i.i.i.i = sub i64 %199, %i.049.i.i.i
+  %sub.i.i.i.i = sub nuw i64 %199, %i.049.i.i.i
   %call.i.i.i.i = call ptr @memchr(ptr noundef nonnull %arrayidx.i.i.i64, i32 noundef 10, i64 noundef %sub.i.i.i.i) #18
   %tobool.not.i.i.i.i66 = icmp eq ptr %call.i.i.i.i, null
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
@@ -2025,7 +2025,7 @@ if.then.i29.i.i.i:                                ; preds = %if.then15.i.i.i
   unreachable
 
 find_next_line.exit43.i.i.i:                      ; preds = %if.then15.i.i.i
-  %sub.i35.i.i.i = sub i64 %199, %i.049.i.i.i
+  %sub.i35.i.i.i = sub nuw i64 %199, %i.049.i.i.i
   %call.i36.i.i.i = call ptr @memchr(ptr noundef nonnull %arrayidx.i.i.i64, i32 noundef 10, i64 noundef %sub.i35.i.i.i) #18
   %tobool.not.i37.i.i.i = icmp eq ptr %call.i36.i.i.i, null
   %sub.ptr.lhs.cast.i38.i.i.i = ptrtoint ptr %call.i36.i.i.i to i64
@@ -2409,7 +2409,7 @@ if.then43.i.i:                                    ; preds = %do.end.i.i
   %add.ptr45.i.i = getelementptr inbounds %struct.hunk, ptr %252, i64 %sub.ptr.div.i
   %add.ptr46.i.i = getelementptr inbounds %struct.hunk, ptr %add.ptr45.i.i, i64 %247
   %add.ptr49.i.i = getelementptr inbounds i8, ptr %add.ptr45.i.i, i64 128
-  %sub52.i.i = sub i64 %253, %add39.i.i
+  %sub52.i.i = sub nuw i64 %253, %add39.i.i
   %mul53.i.i = shl i64 %sub52.i.i, 7
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr46.i.i, ptr nonnull align 8 %add.ptr49.i.i, i64 %mul53.i.i, i1 false)
   %.pre313.i.i = load ptr, ptr %hunk13.i, align 8
@@ -2548,7 +2548,7 @@ if.then.i128.i.i:                                 ; preds = %if.end131.i.i
 find_next_line.exit.i.i:                          ; preds = %if.end131.i.i
   %263 = load ptr, ptr %buf5, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %263, i64 %current.0209.i584.i
-  %sub.i.i369.i = sub i64 %261, %current.0209.i584.i
+  %sub.i.i369.i = sub nuw i64 %261, %current.0209.i584.i
   %call.i.i.i = call ptr @memchr(ptr noundef %add.ptr.i.i.i, i32 noundef 10, i64 noundef %sub.i.i369.i) #18
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i, null
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i.i to i64
@@ -2573,7 +2573,7 @@ if.then.i131.i.i:                                 ; preds = %if.then135.i.i
 find_next_line.exit145.i.i:                       ; preds = %if.then135.i.i
   %266 = load ptr, ptr %buf6, align 8
   %add.ptr.i136.i.i = getelementptr inbounds i8, ptr %266, i64 %colored_current.1210.i583.i
-  %sub.i137.i.i = sub i64 %264, %colored_current.1210.i583.i
+  %sub.i137.i.i = sub nuw i64 %264, %colored_current.1210.i583.i
   %call.i138.i.i = call ptr @memchr(ptr noundef %add.ptr.i136.i.i, i32 noundef 10, i64 noundef %sub.i137.i.i) #18
   %tobool.not.i139.i.i = icmp eq ptr %call.i138.i.i, null
   %sub.ptr.lhs.cast.i140.i.i = ptrtoint ptr %call.i138.i.i to i64
@@ -2852,7 +2852,7 @@ if.then.i.i.i403.i:                               ; preds = %for.body.i.i401.i
 find_next_line.exit.i.i406.i:                     ; preds = %for.body.i.i401.i
   %301 = load ptr, ptr %buf4, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %301, i64 %i.068.i.i.i
-  %sub.i.i.i407.i = sub i64 %299, %i.068.i.i.i
+  %sub.i.i.i407.i = sub nuw i64 %299, %i.068.i.i.i
   %call.i51.i.i.i = call ptr @memchr(ptr noundef %add.ptr.i.i.i.i, i32 noundef 10, i64 noundef %sub.i.i.i407.i) #18
   %tobool.not.i52.i.i.i = icmp eq ptr %call.i51.i.i.i, null
   %sub.ptr.lhs.cast.i.i.i408.i = ptrtoint ptr %call.i51.i.i.i to i64
@@ -2952,7 +2952,7 @@ if.end23.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
 
 if.then49.i.i.i.i:                                ; preds = %if.end23.i.i.i.i
   %add.ptr51.i.i.i.i = getelementptr inbounds i8, ptr %305, i64 %eol.1.i.i.i.i
-  %sub52.i.i.i.i = sub i64 %add.i5890.i.i.i, %eol.1.i.i.i.i
+  %sub52.i.i.i.i = sub nuw i64 %add.i5890.i.i.i, %eol.1.i.i.i.i
   call void @strbuf_add(ptr noundef nonnull %colored.i.i, ptr noundef %add.ptr51.i.i.i.i, i64 noundef %sub52.i.i.i.i) #17
   br label %if.end53.i.i.i.i
 
@@ -3075,7 +3075,7 @@ if.then.i.i36.i.i:                                ; preds = %sw.epilog.i.i.i
 find_next_line.exit.i39.i.i:                      ; preds = %sw.epilog.i.i.i
   %330 = load ptr, ptr %buf5, align 8
   %add.ptr.i.i40.i.i = getelementptr inbounds i8, ptr %330, i64 %i.016.i.i.i
-  %sub.i.i41.i.i = sub i64 %328, %i.016.i.i.i
+  %sub.i.i41.i.i = sub nuw i64 %328, %i.016.i.i.i
   %call.i.i42.i.i = call ptr @memchr(ptr noundef %add.ptr.i.i40.i.i, i32 noundef 10, i64 noundef %sub.i.i41.i.i) #18
   %tobool.not.i.i43.i.i = icmp eq ptr %call.i.i42.i.i, null
   %sub.ptr.lhs.cast.i.i44.i.i = ptrtoint ptr %call.i.i42.i.i to i64
@@ -4545,7 +4545,7 @@ if.then.i:                                        ; preds = %for.body42
 
 find_next_line.exit:                              ; preds = %for.body42
   %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 %overlap_end.0143
-  %sub.i = sub i64 %15, %overlap_end.0143
+  %sub.i = sub nuw i64 %15, %overlap_end.0143
   %call.i = tail call ptr @memchr(ptr noundef %add.ptr.i, i32 noundef 10, i64 noundef %sub.i) #18
   %tobool.not.i = icmp eq ptr %call.i, null
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64

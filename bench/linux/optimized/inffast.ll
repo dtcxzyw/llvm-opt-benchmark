@@ -249,7 +249,7 @@ define dso_local void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) lo
   br i1 %201, label %202, label %305
 
 202:                                              ; preds = %186
-  %203 = sub nsw i32 %194, %200
+  %203 = sub nuw nsw i32 %194, %200
   %204 = icmp ugt i32 %203, %22
   br i1 %204, label %.loopexit37, label %205
 
@@ -290,7 +290,7 @@ define dso_local void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) lo
   %227 = sub i32 %47, %203
   %228 = zext i32 %227 to i64
   %229 = getelementptr i8, ptr %26, i64 %228
-  %230 = sub i32 %203, %24
+  %230 = sub nuw nsw i32 %203, %24
   %231 = icmp ult i32 %230, %127
   br i1 %231, label %.preheader32, label %274
 
@@ -331,7 +331,7 @@ define dso_local void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) lo
   br label %274
 
 256:                                              ; preds = %224
-  %257 = sub i32 %24, %203
+  %257 = sub nuw i32 %24, %203
   %258 = zext i32 %257 to i64
   %259 = getelementptr i8, ptr %26, i64 %258
   %260 = icmp ult i32 %203, %127

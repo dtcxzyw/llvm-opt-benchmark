@@ -1900,7 +1900,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.promoted.i.i = load i64, ptr %13, align 8, !alias.scope !303, !noalias !308
   %14 = shl i64 %.promoted.i.i, 4
   %scevgep.i.i = getelementptr i8, ptr %12, i64 %14
-  %15 = sub i64 %9, %7
+  %15 = sub nuw i64 %9, %7
   %16 = shl i64 %15, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %16, i1 false), !noalias !313
   %17 = add i64 %.promoted.i.i, %15
@@ -3522,7 +3522,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.promoted.i.i = load i64, ptr %13, align 8, !alias.scope !750, !noalias !755
   %14 = shl i64 %.promoted.i.i, 2
   %scevgep.i.i = getelementptr i8, ptr %12, i64 %14
-  %15 = sub i64 %9, %7
+  %15 = sub nuw i64 %9, %7
   %16 = shl i64 %15, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i, i8 0, i64 %16, i1 false), !noalias !760
   br label %17
@@ -4733,7 +4733,7 @@ select.unfold40:                                  ; preds = %"_ZN94_$LT$tokenize
 
 290:                                              ; preds = %288
   %291 = getelementptr inbounds i8, ptr %30, i64 8
-  %292 = sub i64 %289, %.0.i.i25.i.i.i
+  %292 = sub nuw i64 %289, %.0.i.i25.i.i.i
   %293 = load i64, ptr %30, align 8, !alias.scope !995, !noalias !1160, !noundef !4
   %.0.sroa.speculated.i26.i.i.i = call noundef i64 @llvm.umax.i64(i64 %292, i64 %293)
   store i64 %.0.sroa.speculated.i26.i.i.i, ptr %291, align 8, !alias.scope !995, !noalias !1160
@@ -17752,7 +17752,7 @@ define hidden void @_ZN10tokenizers6models3bpe4word4Word5merge17hcb1c32d829ff04a
 
 52:                                               ; preds = %.noexc55
   %53 = getelementptr inbounds i8, ptr %48, i64 32
-  %54 = sub i64 %44, %.0131
+  %54 = sub nuw i64 %44, %.0131
   %55 = shl i64 %54, 5
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %48, i64 %55, i1 false), !noalias !3865
   br label %86

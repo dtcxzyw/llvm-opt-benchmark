@@ -982,7 +982,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not, label %20, label %245
 
 20:                                               ; preds = %18
-  %21 = sub i64 %1, %19
+  %21 = sub nuw i64 %1, %19
   %22 = getelementptr inbounds i8, ptr %0, i64 %19
   %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef %21, ptr noundef nonnull @.str.5, ptr noundef %2) #16
   %24 = icmp slt i32 %23, 0
@@ -994,7 +994,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not217, label %27, label %245
 
 27:                                               ; preds = %25
-  %28 = sub i64 %21, %26
+  %28 = sub nuw i64 %21, %26
   %29 = getelementptr inbounds i8, ptr %22, i64 %26
   %30 = getelementptr inbounds i8, ptr %3, i64 64
   %31 = tail call i32 @mbedtls_x509_serial_gets(ptr noundef %29, i64 noundef %28, ptr noundef nonnull %30) #16
@@ -1007,7 +1007,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not218, label %35, label %245
 
 35:                                               ; preds = %33
-  %36 = sub i64 %28, %34
+  %36 = sub nuw i64 %28, %34
   %37 = getelementptr inbounds i8, ptr %29, i64 %34
   %38 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef %36, ptr noundef nonnull @.str.6, ptr noundef %2) #16
   %39 = icmp slt i32 %38, 0
@@ -1019,7 +1019,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not219, label %42, label %245
 
 42:                                               ; preds = %40
-  %43 = sub i64 %36, %41
+  %43 = sub nuw i64 %36, %41
   store i64 %43, ptr %5, align 8
   %44 = getelementptr inbounds i8, ptr %37, i64 %41
   %45 = getelementptr inbounds i8, ptr %3, i64 160
@@ -1033,7 +1033,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not220, label %50, label %245
 
 50:                                               ; preds = %48
-  %51 = sub i64 %43, %49
+  %51 = sub nuw i64 %43, %49
   %52 = getelementptr inbounds i8, ptr %44, i64 %49
   %53 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %52, i64 noundef %51, ptr noundef nonnull @.str.7, ptr noundef %2) #16
   %54 = icmp slt i32 %53, 0
@@ -1045,7 +1045,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not221, label %57, label %245
 
 57:                                               ; preds = %55
-  %58 = sub i64 %51, %56
+  %58 = sub nuw i64 %51, %56
   %59 = getelementptr inbounds i8, ptr %52, i64 %56
   store ptr %59, ptr %6, align 8
   %60 = getelementptr inbounds i8, ptr %3, i64 224
@@ -1059,7 +1059,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not222, label %65, label %245
 
 65:                                               ; preds = %63
-  %66 = sub i64 %58, %64
+  %66 = sub nuw i64 %58, %64
   %67 = getelementptr inbounds i8, ptr %59, i64 %64
   %68 = getelementptr inbounds i8, ptr %3, i64 288
   %69 = load i32, ptr %68, align 8
@@ -1083,7 +1083,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not223, label %84, label %245
 
 84:                                               ; preds = %82
-  %85 = sub i64 %66, %83
+  %85 = sub nuw i64 %66, %83
   %86 = getelementptr inbounds i8, ptr %67, i64 %83
   %87 = getelementptr inbounds i8, ptr %3, i64 312
   %88 = load i32, ptr %87, align 8
@@ -1107,7 +1107,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not224, label %103, label %245
 
 103:                                              ; preds = %101
-  %104 = sub i64 %85, %102
+  %104 = sub nuw i64 %85, %102
   %105 = getelementptr inbounds i8, ptr %86, i64 %102
   %106 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %105, i64 noundef %104, ptr noundef nonnull @.str.10, ptr noundef %2) #16
   %107 = icmp slt i32 %106, 0
@@ -1119,7 +1119,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not225, label %110, label %245
 
 110:                                              ; preds = %108
-  %111 = sub i64 %104, %109
+  %111 = sub nuw i64 %104, %109
   %112 = getelementptr inbounds i8, ptr %105, i64 %109
   %113 = getelementptr inbounds i8, ptr %3, i64 88
   %114 = getelementptr inbounds i8, ptr %3, i64 596
@@ -1138,7 +1138,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not226, label %124, label %245
 
 124:                                              ; preds = %122
-  %125 = sub i64 %111, %123
+  %125 = sub nuw i64 %111, %123
   %126 = getelementptr inbounds i8, ptr %112, i64 %123
   %127 = getelementptr inbounds i8, ptr %3, i64 360
   %128 = tail call ptr @mbedtls_pk_get_name(ptr noundef nonnull %127) #16
@@ -1159,7 +1159,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not228, label %137, label %245
 
 137:                                              ; preds = %135
-  %138 = sub i64 %125, %136
+  %138 = sub nuw i64 %125, %136
   %139 = getelementptr inbounds i8, ptr %126, i64 %136
   %140 = getelementptr inbounds i8, ptr %3, i64 512
   %141 = load i32, ptr %140, align 8
@@ -1182,7 +1182,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not231, label %151, label %245
 
 151:                                              ; preds = %149
-  %152 = sub i64 %138, %150
+  %152 = sub nuw i64 %138, %150
   %153 = getelementptr inbounds i8, ptr %139, i64 %150
   %154 = getelementptr inbounds i8, ptr %3, i64 520
   %155 = load i32, ptr %154, align 8
@@ -1201,7 +1201,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not232, label %163, label %245
 
 163:                                              ; preds = %161
-  %164 = sub i64 %152, %162
+  %164 = sub nuw i64 %152, %162
   store i64 %164, ptr %5, align 8
   %165 = getelementptr inbounds i8, ptr %153, i64 %162
   br label %166
@@ -1225,7 +1225,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not234, label %176, label %245
 
 176:                                              ; preds = %174
-  %177 = sub i64 %167, %175
+  %177 = sub nuw i64 %167, %175
   store i64 %177, ptr %5, align 8
   %178 = getelementptr inbounds i8, ptr %168, i64 %175
   store ptr %178, ptr %6, align 8
@@ -1259,7 +1259,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not237, label %189, label %245
 
 189:                                              ; preds = %187
-  %190 = sub i64 %.pre260.pre263.pre267.pre271, %188
+  %190 = sub nuw i64 %.pre260.pre263.pre267.pre271, %188
   store i64 %190, ptr %5, align 8
   %191 = getelementptr inbounds i8, ptr %.pre258.pre261.pre265.pre269, i64 %188
   store ptr %191, ptr %6, align 8
@@ -1294,7 +1294,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not240, label %203, label %245
 
 203:                                              ; preds = %201
-  %204 = sub i64 %.pre260.pre263.pre267, %202
+  %204 = sub nuw i64 %.pre260.pre263.pre267, %202
   store i64 %204, ptr %5, align 8
   %205 = getelementptr inbounds i8, ptr %.pre258.pre261.pre265, i64 %202
   store ptr %205, ptr %6, align 8
@@ -1329,7 +1329,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not243, label %217, label %245
 
 217:                                              ; preds = %215
-  %218 = sub i64 %.pre260.pre263, %216
+  %218 = sub nuw i64 %.pre260.pre263, %216
   store i64 %218, ptr %5, align 8
   %219 = getelementptr inbounds i8, ptr %.pre258.pre261, i64 %216
   store ptr %219, ptr %6, align 8
@@ -1363,7 +1363,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not246, label %230, label %245
 
 230:                                              ; preds = %228
-  %231 = sub i64 %.pre260, %229
+  %231 = sub nuw i64 %.pre260, %229
   store i64 %231, ptr %5, align 8
   %232 = getelementptr inbounds i8, ptr %.pre258, i64 %229
   store ptr %232, ptr %6, align 8
@@ -1460,7 +1460,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
 25:                                               ; preds = %21, %17
   %.pn = phi i64 [ %20, %17 ], [ %24, %21 ]
   %.1 = getelementptr inbounds i8, ptr %.0123180, i64 %.pn
-  %.1125 = sub i64 %.0124179, %.pn
+  %.1125 = sub nuw i64 %.0124179, %.pn
   br label %.backedge
 
 .backedge:                                        ; preds = %84, %94, %69, %37, %25
@@ -1489,7 +1489,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   br i1 %.not158, label %33, label %.loopexit
 
 33:                                               ; preds = %31
-  %34 = sub i64 %.0124179, %32
+  %34 = sub nuw i64 %.0124179, %32
   %35 = getelementptr inbounds i8, ptr %.0123180, i64 %32
   %36 = load i64, ptr %11, align 8
   %.not159 = icmp eq i64 %36, 8
@@ -1512,7 +1512,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   br i1 %.not160, label %43, label %.loopexit
 
 43:                                               ; preds = %41
-  %44 = sub i64 %34, %42
+  %44 = sub nuw i64 %34, %42
   %45 = getelementptr inbounds i8, ptr %35, i64 %42
   %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %45, i64 noundef %44, ptr noundef nonnull @.str.32, ptr noundef %3) #16
   %47 = icmp slt i32 %46, 0
@@ -1524,7 +1524,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   br i1 %.not161, label %50, label %.loopexit
 
 50:                                               ; preds = %48
-  %51 = sub i64 %44, %49
+  %51 = sub nuw i64 %44, %49
   %52 = getelementptr inbounds i8, ptr %45, i64 %49
   %53 = call i32 @mbedtls_oid_get_numeric_string(ptr noundef %52, i64 noundef %51, ptr noundef nonnull %10) #16
   %54 = icmp slt i32 %53, 0
@@ -1536,7 +1536,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   br i1 %.not162, label %57, label %.loopexit
 
 57:                                               ; preds = %55
-  %58 = sub i64 %51, %56
+  %58 = sub nuw i64 %51, %56
   %59 = getelementptr inbounds i8, ptr %52, i64 %56
   %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %59, i64 noundef %58, ptr noundef nonnull @.str.33, ptr noundef %3) #16
   %61 = icmp slt i32 %60, 0
@@ -1548,7 +1548,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   br i1 %.not163, label %64, label %.loopexit
 
 64:                                               ; preds = %62
-  %65 = sub i64 %58, %63
+  %65 = sub nuw i64 %58, %63
   %66 = getelementptr inbounds i8, ptr %59, i64 %63
   %67 = load i64, ptr %13, align 8
   %.not164 = icmp ult i64 %67, %65
@@ -1577,7 +1577,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   br i1 %.not156, label %79, label %.loopexit
 
 79:                                               ; preds = %77
-  %80 = sub i64 %.0124179, %78
+  %80 = sub nuw i64 %.0124179, %78
   %81 = getelementptr inbounds i8, ptr %.0123180, i64 %78
   %82 = load i64, ptr %8, align 8
   %.not157 = icmp ult i64 %82, %80
@@ -1606,7 +1606,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   br i1 %.not165, label %94, label %.loopexit
 
 94:                                               ; preds = %92
-  %95 = sub i64 %.0124179, %93
+  %95 = sub nuw i64 %.0124179, %93
   %96 = getelementptr inbounds i8, ptr %.0123180, i64 %93
   br label %.backedge
 
@@ -1642,7 +1642,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
   br i1 %.not127, label %12, label %86
 
 12:                                               ; preds = %10
-  %13 = sub i64 %4, %11
+  %13 = sub nuw i64 %4, %11
   %14 = getelementptr inbounds i8, ptr %5, i64 %11
   br label %15
 
@@ -1665,7 +1665,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
   br i1 %.not129, label %22, label %86
 
 22:                                               ; preds = %20
-  %23 = sub i64 %.0101, %21
+  %23 = sub nuw i64 %.0101, %21
   %24 = getelementptr inbounds i8, ptr %.094, i64 %21
   br label %25
 
@@ -1688,7 +1688,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
   br i1 %.not131, label %32, label %86
 
 32:                                               ; preds = %30
-  %33 = sub i64 %.1102, %31
+  %33 = sub nuw i64 %.1102, %31
   %34 = getelementptr inbounds i8, ptr %.195, i64 %31
   br label %35
 
@@ -1711,7 +1711,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
   br i1 %.not133, label %42, label %86
 
 42:                                               ; preds = %40
-  %43 = sub i64 %.2103, %41
+  %43 = sub nuw i64 %.2103, %41
   %44 = getelementptr inbounds i8, ptr %.296, i64 %41
   br label %45
 
@@ -1734,7 +1734,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
   br i1 %.not135, label %52, label %86
 
 52:                                               ; preds = %50
-  %53 = sub i64 %.3104, %51
+  %53 = sub nuw i64 %.3104, %51
   %54 = getelementptr inbounds i8, ptr %.397, i64 %51
   br label %55
 
@@ -1757,7 +1757,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
   br i1 %.not137, label %62, label %86
 
 62:                                               ; preds = %60
-  %63 = sub i64 %.4105, %61
+  %63 = sub nuw i64 %.4105, %61
   %64 = getelementptr inbounds i8, ptr %.498, i64 %61
   br label %65
 
@@ -1780,7 +1780,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
   br i1 %.not139, label %72, label %86
 
 72:                                               ; preds = %70
-  %73 = sub i64 %.5106, %71
+  %73 = sub nuw i64 %.5106, %71
   %74 = getelementptr inbounds i8, ptr %.599, i64 %71
   br label %75
 
@@ -1803,7 +1803,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
   br i1 %.not141, label %82, label %86
 
 82:                                               ; preds = %80
-  %83 = sub i64 %.6107, %81
+  %83 = sub nuw i64 %.6107, %81
   %84 = getelementptr inbounds i8, ptr %.6100, i64 %81
   br label %85
 
@@ -1838,7 +1838,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
   br i1 %.not142, label %12, label %96
 
 12:                                               ; preds = %10
-  %13 = sub i64 %4, %11
+  %13 = sub nuw i64 %4, %11
   %14 = getelementptr inbounds i8, ptr %5, i64 %11
   br label %15
 
@@ -1861,7 +1861,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
   br i1 %.not144, label %22, label %96
 
 22:                                               ; preds = %20
-  %23 = sub i64 %.0113, %21
+  %23 = sub nuw i64 %.0113, %21
   %24 = getelementptr inbounds i8, ptr %.0105, i64 %21
   br label %25
 
@@ -1884,7 +1884,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
   br i1 %.not146, label %32, label %96
 
 32:                                               ; preds = %30
-  %33 = sub i64 %.1114, %31
+  %33 = sub nuw i64 %.1114, %31
   %34 = getelementptr inbounds i8, ptr %.1106, i64 %31
   br label %35
 
@@ -1907,7 +1907,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
   br i1 %.not148, label %42, label %96
 
 42:                                               ; preds = %40
-  %43 = sub i64 %.2115, %41
+  %43 = sub nuw i64 %.2115, %41
   %44 = getelementptr inbounds i8, ptr %.2107, i64 %41
   br label %45
 
@@ -1930,7 +1930,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
   br i1 %.not150, label %52, label %96
 
 52:                                               ; preds = %50
-  %53 = sub i64 %.3116, %51
+  %53 = sub nuw i64 %.3116, %51
   %54 = getelementptr inbounds i8, ptr %.3108, i64 %51
   br label %55
 
@@ -1953,7 +1953,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
   br i1 %.not152, label %62, label %96
 
 62:                                               ; preds = %60
-  %63 = sub i64 %.4117, %61
+  %63 = sub nuw i64 %.4117, %61
   %64 = getelementptr inbounds i8, ptr %.4109, i64 %61
   br label %65
 
@@ -1976,7 +1976,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
   br i1 %.not154, label %72, label %96
 
 72:                                               ; preds = %70
-  %73 = sub i64 %.5118, %71
+  %73 = sub nuw i64 %.5118, %71
   %74 = getelementptr inbounds i8, ptr %.5110, i64 %71
   br label %75
 
@@ -1999,7 +1999,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
   br i1 %.not156, label %82, label %96
 
 82:                                               ; preds = %80
-  %83 = sub i64 %.6119, %81
+  %83 = sub nuw i64 %.6119, %81
   %84 = getelementptr inbounds i8, ptr %.6111, i64 %81
   br label %85
 
@@ -2022,7 +2022,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
   br i1 %.not158, label %92, label %96
 
 92:                                               ; preds = %90
-  %93 = sub i64 %.7120, %91
+  %93 = sub nuw i64 %.7120, %91
   %94 = getelementptr inbounds i8, ptr %.7112, i64 %91
   br label %95
 
@@ -2075,7 +2075,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_ext_key_usage(ptr noc
   br i1 %.not27, label %15, label %.loopexit
 
 15:                                               ; preds = %13
-  %16 = sub i64 %.02231, %14
+  %16 = sub nuw i64 %.02231, %14
   %17 = getelementptr inbounds i8, ptr %.02132, i64 %14
   %18 = getelementptr inbounds i8, ptr %.02033, i64 24
   %19 = load ptr, ptr %18, align 8
@@ -2131,7 +2131,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_policies(ptr noc
   br i1 %.not27, label %15, label %.loopexit
 
 15:                                               ; preds = %13
-  %16 = sub i64 %.02231, %14
+  %16 = sub nuw i64 %.02231, %14
   %17 = getelementptr inbounds i8, ptr %.02132, i64 %14
   %18 = getelementptr inbounds i8, ptr %.02033, i64 24
   %19 = load ptr, ptr %18, align 8
@@ -2176,7 +2176,7 @@ define hidden i32 @mbedtls_x509_crt_verify_info(ptr nocapture noundef writeonly 
   br i1 %.not45, label %15, label %.loopexit
 
 15:                                               ; preds = %13
-  %16 = sub i64 %.052, %14
+  %16 = sub nuw i64 %.052, %14
   %17 = getelementptr inbounds i8, ptr %.03251, i64 %14
   %18 = xor i32 %7, %.03549
   br label %19
@@ -2206,7 +2206,7 @@ define hidden i32 @mbedtls_x509_crt_verify_info(ptr nocapture noundef writeonly 
   br i1 %.not44, label %29, label %.loopexit
 
 29:                                               ; preds = %27
-  %30 = sub i64 %.1, %28
+  %30 = sub nuw i64 %.1, %28
   br label %31
 
 31:                                               ; preds = %29, %23

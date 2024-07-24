@@ -3952,7 +3952,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, label %for.cond.i, !llvm.loop !57
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %for.body.i
-  %sub.i = sub i64 %call.i.i, %__size.1.i
+  %sub.i = sub nuw i64 %call.i.i, %__size.1.i
   %add.ptr.i = getelementptr inbounds i8, ptr %registration.sroa.0.0.copyload, i64 %__size.1.i
   br label %if.end
 

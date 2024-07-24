@@ -1329,7 +1329,7 @@ float8_mi.exit:                                   ; preds = %406
   %443 = load i64, ptr %442, align 8
   %444 = inttoptr i64 %443 to ptr
   %445 = load i32, ptr %282, align 8
-  %446 = sub nsw i32 %.1242, %437
+  %446 = sub nuw nsw i32 %.1242, %437
   %447 = add i32 %445, %446
   %.not250 = icmp sgt i32 %447, %405
   br i1 %.not250, label %483, label %448

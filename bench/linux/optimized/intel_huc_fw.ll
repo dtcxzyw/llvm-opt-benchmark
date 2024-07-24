@@ -382,7 +382,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
 
 129:                                              ; preds = %123
   %130 = getelementptr i8, ptr %1, i64 %127
-  %131 = sub i64 %2, %127
+  %131 = sub nuw i64 %2, %127
   %132 = icmp ult i64 %131, 128
   br i1 %132, label %141, label %133, !prof !11
 

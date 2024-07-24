@@ -1385,7 +1385,7 @@ define dso_local void @guard_bio_eod(ptr nocapture noundef %0) local_unnamed_add
   br i1 %10, label %11, label %21, !prof !16
 
 11:                                               ; preds = %7
-  %12 = sub i64 %5, %9
+  %12 = sub nuw i64 %5, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = lshr i32 %14, 9
@@ -3558,7 +3558,7 @@ define dso_local void @__bio_advance(ptr nocapture noundef %0, i32 noundef %1) #
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %.preheader
-  %42 = sub i32 %35, %39
+  %42 = sub nuw i32 %35, %39
   %43 = add i32 %36, 1
   %44 = icmp eq i32 %42, 0
   br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !116

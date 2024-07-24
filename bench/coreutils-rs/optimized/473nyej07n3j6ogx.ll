@@ -2369,7 +2369,7 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
   %81 = getelementptr inbounds i8, ptr %1, i64 %6
   %82 = load i8, ptr %81, align 1, !alias.scope !523, !noundef !4
   %83 = icmp sgt i8 %82, -65
-  %84 = sub i64 %2, %6
+  %84 = sub nuw i64 %2, %6
   br i1 %83, label %86, label %85
 
 85:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i15"
@@ -2520,7 +2520,7 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
   %164 = getelementptr inbounds i8, ptr %1, i64 %158
   %165 = load i8, ptr %164, align 1, !alias.scope !543, !noundef !4
   %166 = icmp sgt i8 %165, -65
-  %167 = sub i64 %2, %158
+  %167 = sub nuw i64 %2, %158
   br i1 %166, label %169, label %168
 
 168:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i26", %161

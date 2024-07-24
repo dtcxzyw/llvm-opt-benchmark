@@ -6346,7 +6346,7 @@ define internal fastcc i32 @decode_prefix_MP(ptr noundef %0, i32 noundef %1, i32
   br label %667
 
 48:                                               ; preds = %34
-  %49 = sub nsw i32 %36, %45
+  %49 = sub nuw nsw i32 %36, %45
   %50 = call i32 @tvb_get_ipv4_addr_with_prefix_len(ptr noundef %7, i32 noundef %44, ptr noundef nonnull %14, i32 noundef %49) #4
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %54
@@ -6605,7 +6605,7 @@ decode_MPLS_stack.exit:                           ; preds = %195, %202
   br label %667
 
 210:                                              ; preds = %decode_MPLS_stack.exit
-  %211 = sub nsw i32 %186, %207
+  %211 = sub nuw nsw i32 %186, %207
   %212 = icmp ult i32 %211, 64
   br i1 %212, label %213, label %215
 
@@ -6778,7 +6778,7 @@ decode_path_prefix6.exit:                         ; preds = %265, %267
   br label %667
 
 305:                                              ; preds = %291
-  %306 = sub nsw i32 %293, %302
+  %306 = sub nuw nsw i32 %293, %302
   %307 = call i32 @tvb_get_ipv6_addr_with_prefix_len(ptr noundef %7, i32 noundef %301, ptr noundef nonnull %16, i32 noundef %306) #4
   %308 = icmp slt i32 %307, 0
   br i1 %308, label %309, label %311
@@ -6952,7 +6952,7 @@ decode_MPLS_stack.exit937:                        ; preds = %396, %403
   br label %667
 
 411:                                              ; preds = %decode_MPLS_stack.exit937
-  %412 = sub nsw i32 %387, %408
+  %412 = sub nuw nsw i32 %387, %408
   %413 = icmp ult i32 %412, 64
   br i1 %413, label %414, label %416
 

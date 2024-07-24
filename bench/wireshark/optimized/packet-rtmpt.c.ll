@@ -2392,7 +2392,7 @@ thread-pre-split:                                 ; preds = %41, %49, %46
 
 68:                                               ; preds = %65
   %69 = add i32 %66, %63
-  %70 = sub i32 %64, %66
+  %70 = sub nuw i32 %64, %66
   %71 = icmp ugt i32 %70, 8
   br i1 %71, label %72, label %rtmpt_get_amf_txid.exit.thread
 

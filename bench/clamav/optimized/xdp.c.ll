@@ -77,7 +77,7 @@ define i32 @cli_scanxdp(ptr noundef %0) local_unnamed_addr #0 {
 .outer.i:                                         ; preds = %25
   %39 = add i64 %27, %.010.ph2.i
   %40 = icmp ult i64 %39, %20
-  %41 = sub i64 %20, %39
+  %41 = sub nuw i64 %20, %39
   br i1 %40, label %.outer.split.i, label %dump_xdp.exit
 
 dump_xdp.exit.thread:                             ; preds = %33, %17

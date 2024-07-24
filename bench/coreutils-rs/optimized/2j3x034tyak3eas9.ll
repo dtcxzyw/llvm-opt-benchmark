@@ -570,7 +570,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %172 = sub i64 %.val35, %169
+  %172 = sub nuw i64 %.val35, %169
   %. = call i64 @llvm.umin.i64(i64 %172, i64 %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %173 = add i64 %., %169

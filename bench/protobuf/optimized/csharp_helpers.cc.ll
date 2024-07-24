@@ -475,7 +475,7 @@ if.then.i.i:                                      ; preds = %if.end58
   unreachable
 
 invoke.cont60:                                    ; preds = %if.end58
-  %sub.i = sub i64 %value.coerce0, %value_index.1.lcssa
+  %sub.i = sub nuw i64 %value.coerce0, %value_index.1.lcssa
   %add.ptr.i44 = getelementptr inbounds i8, ptr %value.coerce1, i64 %value_index.1.lcssa
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i46)

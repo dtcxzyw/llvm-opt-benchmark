@@ -2473,7 +2473,7 @@ define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0
 .lr.ph.split:                                     ; preds = %19, %.outer
   %.032.ph65 = phi i64 [ %84, %.outer ], [ 0, %19 ]
   %21 = getelementptr inbounds i8, ptr %2, i64 %.032.ph65
-  %22 = sub nsw i64 %3, %.032.ph65
+  %22 = sub nuw nsw i64 %3, %.032.ph65
   %23 = tail call i64 @recv(i32 noundef %1, ptr noundef %21, i64 noundef %22, i32 noundef 0) #13
   %24 = trunc i64 %23 to i32
   %25 = icmp eq i32 %24, 0
@@ -2666,7 +2666,7 @@ define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_blocking(i32 noundef
 .lr.ph.split.us:                                  ; preds = %12, %.outer
   %.015.ph31 = phi i64 [ %28, %.outer ], [ 0, %12 ]
   %13 = getelementptr inbounds i8, ptr %1, i64 %.015.ph31
-  %14 = sub i64 %2, %.015.ph31
+  %14 = sub nuw i64 %2, %.015.ph31
   %15 = tail call i64 @send(i32 noundef %0, ptr noundef %13, i64 noundef %14, i32 noundef 0) #13
   %16 = and i64 %15, 2147483648
   %.not.us29 = icmp eq i64 %16, 0

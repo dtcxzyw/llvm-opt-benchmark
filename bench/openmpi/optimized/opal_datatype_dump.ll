@@ -343,7 +343,7 @@ opal_datatype_dump_data_flags.exit:               ; preds = %7, %47, %.sink.spli
 
 52:                                               ; preds = %opal_datatype_dump_data_flags.exit
   %53 = getelementptr inbounds i8, ptr %2, i64 %51
-  %54 = sub i64 %3, %51
+  %54 = sub nuw i64 %3, %51
   %55 = getelementptr inbounds i8, ptr %.05360, i64 2
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i64
@@ -359,7 +359,7 @@ opal_datatype_dump_data_flags.exit:               ; preds = %7, %47, %.sink.spli
 64:                                               ; preds = %52
   %65 = load i16, ptr %55, align 2
   %66 = getelementptr inbounds i8, ptr %2, i64 %63
-  %67 = sub i64 %3, %63
+  %67 = sub nuw i64 %3, %63
   switch i16 %65, label %84 [
     i16 0, label %68
     i16 1, label %76

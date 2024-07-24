@@ -550,9 +550,9 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
   br i1 %232, label %233, label %239
 
 233:                                              ; preds = %221
-  %234 = sub nsw i32 %231, %230
-  %235 = sdiv i32 %234, 2
-  %236 = trunc nsw i32 %235 to i16
+  %234 = sub nuw nsw i32 %231, %230
+  %235 = lshr i32 %234, 1
+  %236 = trunc nuw nsw i32 %235 to i16
   %237 = add i16 %227, %236
   store i16 %237, ptr %83, align 2
   %238 = sub i16 %225, %237
@@ -568,9 +568,9 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
   br i1 %244, label %245, label %251
 
 245:                                              ; preds = %239
-  %246 = sub nsw i32 %243, %242
-  %247 = sdiv i32 %246, 2
-  %248 = trunc nsw i32 %247 to i16
+  %246 = sub nuw nsw i32 %243, %242
+  %247 = lshr i32 %246, 1
+  %248 = trunc nuw nsw i32 %247 to i16
   %249 = add i16 %224, %248
   store i16 %249, ptr %119, align 2
   %250 = sub i16 %222, %249

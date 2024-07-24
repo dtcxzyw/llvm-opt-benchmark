@@ -2245,7 +2245,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %241, label %242, label %244
 
 242:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %243 = sub nsw i64 %233, %240
+  %243 = sub nuw nsw i64 %233, %240
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %243)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %190
 

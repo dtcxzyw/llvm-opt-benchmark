@@ -1500,7 +1500,7 @@ define dso_local noundef zeroext i1 @__sg_page_iter_next(ptr nocapture noundef %
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %14
-  %27 = sub i32 %17, %24
+  %27 = sub nuw i32 %17, %24
   store i32 %27, ptr %11, align 8
   %28 = load i64, ptr %16, align 8
   %29 = and i64 %28, 2
@@ -1577,7 +1577,7 @@ define dso_local noundef zeroext i1 @__sg_page_iter_dma_next(ptr nocapture nound
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %14
-  %27 = sub i32 %17, %24
+  %27 = sub nuw i32 %17, %24
   store i32 %27, ptr %11, align 8
   %28 = load i64, ptr %16, align 8
   %29 = and i64 %28, 2
@@ -1866,7 +1866,7 @@ define internal fastcc noundef zeroext i1 @sg_miter_get_next_page(ptr nocapture 
   br i1 %30, label %51, label %31
 
 31:                                               ; preds = %19
-  %32 = sub i32 %22, %29
+  %32 = sub nuw i32 %22, %29
   store i32 %32, ptr %16, align 8
   %33 = load i64, ptr %21, align 8
   %34 = and i64 %33, 2
@@ -2123,7 +2123,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   br i1 %45, label %65, label %46
 
 46:                                               ; preds = %34
-  %47 = sub i32 %37, %44
+  %47 = sub nuw i32 %37, %44
   store i32 %47, ptr %11, align 8
   %48 = load i64, ptr %35, align 8
   %49 = and i64 %48, 2
@@ -2382,7 +2382,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
   br i1 %42, label %62, label %43
 
 43:                                               ; preds = %31
-  %44 = sub i32 %34, %41
+  %44 = sub nuw i32 %34, %41
   store i32 %44, ptr %8, align 8
   %45 = load i64, ptr %32, align 8
   %46 = and i64 %45, 2
@@ -2717,7 +2717,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr noc
   br i1 %126, label %128, label %.thread
 
 .thread:                                          ; preds = %113
-  %127 = sub i64 %120, %125
+  %127 = sub nuw i64 %120, %125
   br label %103
 
 128:                                              ; preds = %113
@@ -2819,7 +2819,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr noc
   br i1 %196, label %198, label %.thread32
 
 .thread32:                                        ; preds = %184
-  %197 = sub i64 %190, %195
+  %197 = sub nuw i64 %190, %195
   br label %174
 
 198:                                              ; preds = %184
@@ -2827,7 +2827,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr noc
   %200 = ptrtoint ptr %199 to i64
   %201 = add i64 %190, %200
   %202 = and i64 %201, 4095
-  %203 = sub i64 %195, %190
+  %203 = sub nuw i64 %195, %190
   %204 = tail call i64 @llvm.umin.i64(i64 %187, i64 %203)
   %205 = and i64 %201, -4096
   %206 = sub i64 %187, %204

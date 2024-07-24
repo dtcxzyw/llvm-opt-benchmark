@@ -9066,7 +9066,7 @@ define hidden void @"_ZN85_$LT$concurrent_queue..bounded..Bounded$LT$T$GT$$u20$a
   br i1 %13, label %20, label %16
 
 14:                                               ; preds = %1
-  %15 = sub i64 %10, %9
+  %15 = sub nuw i64 %10, %9
   br label %28
 
 16:                                               ; preds = %12
@@ -9104,7 +9104,7 @@ define hidden void @"_ZN85_$LT$concurrent_queue..bounded..Bounded$LT$T$GT$$u20$a
   %33 = add i64 %.sroa.01.06.i, %9
   %34 = icmp ult i64 %33, %30
   %35 = select i1 %34, i64 0, i64 %30
-  %.0.i = sub i64 %33, %35
+  %.0.i = sub nuw i64 %33, %35
   %36 = icmp ult i64 %.0.i, %30
   br i1 %36, label %37, label %75, !prof !2223
 

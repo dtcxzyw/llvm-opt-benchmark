@@ -292,7 +292,7 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr ali
   unreachable
 
 30:                                               ; preds = %2
-  %31 = sub i64 %27, %24
+  %31 = sub nuw i64 %27, %24
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h934a5dd54fb84a5cE"(ptr nonnull sret({ { ptr, ptr, {} }, ptr, i64, i64 }) align 8 %11, ptr nonnull align 8 %25, i64 %31)
   call void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hc3a9406a265cfdf6E"(ptr nonnull align 8 %0, ptr nonnull align 8 %11)
   %32 = load ptr, ptr %14, align 8, !nonnull !3, !align !5, !noundef !3

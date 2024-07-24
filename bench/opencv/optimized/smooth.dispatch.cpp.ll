@@ -4729,7 +4729,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv10softdoubleESaIS1_EE6resizeEm
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -18210,7 +18210,7 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EED2Ev.exit:  ; preds = %30, %31
   br i1 %38, label %39, label %64
 
 39:                                               ; preds = %_ZNSt6vectorIN2cv10softdoubleESaIS1_EED2Ev.exit
-  %40 = sub nsw i64 %32, %37
+  %40 = sub nuw nsw i64 %32, %37
   %41 = getelementptr inbounds i8, ptr %2, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
@@ -18452,7 +18452,7 @@ define internal fastcc void @_ZN2cvL30getGaussianKernelFixedPoint_EDERSt6vectorI
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %33
-  %46 = sub nsw i64 %36, %43
+  %46 = sub nuw nsw i64 %36, %43
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %46)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
@@ -18733,7 +18733,7 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EED2Ev.exit:  ; preds = %30, %31
   br i1 %38, label %39, label %64
 
 39:                                               ; preds = %_ZNSt6vectorIN2cv10softdoubleESaIS1_EED2Ev.exit
-  %40 = sub nsw i64 %32, %37
+  %40 = sub nuw nsw i64 %32, %37
   %41 = getelementptr inbounds i8, ptr %2, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64

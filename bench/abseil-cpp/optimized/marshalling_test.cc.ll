@@ -50071,8 +50071,8 @@ _ZNK7testing8internal13FloatingPointIfE12AlmostEqualsERKS2_.exit: ; preds = %lor
   %tobool.not3.i7.i.i = icmp slt i32 %2, 0
   %retval.0.i8.i.i = select i1 %tobool.not3.i7.i.i, i32 %add.i5.i.i, i32 %or.i6.i.i
   %cmp.not.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i8.i.i
-  %sub.i.i = sub i32 %retval.0.i.i.i, %retval.0.i8.i.i
-  %sub2.i.i = sub i32 %retval.0.i8.i.i, %retval.0.i.i.i
+  %sub.i.i = sub nuw i32 %retval.0.i.i.i, %retval.0.i8.i.i
+  %sub2.i.i = sub nuw i32 %retval.0.i8.i.i, %retval.0.i.i.i
   %cond.i.i = select i1 %cmp.not.i.i, i32 %sub2.i.i, i32 %sub.i.i
   %cmp.i = icmp ult i32 %cond.i.i, 5
   br i1 %cmp.i, label %if.then, label %if.end
@@ -50205,8 +50205,8 @@ _ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit: ; preds = %lor
   %tobool.not3.i7.i.i = icmp slt i64 %2, 0
   %retval.0.i8.i.i = select i1 %tobool.not3.i7.i.i, i64 %add.i5.i.i, i64 %or.i6.i.i
   %cmp.not.i.i = icmp ult i64 %retval.0.i.i.i, %retval.0.i8.i.i
-  %sub.i.i = sub i64 %retval.0.i.i.i, %retval.0.i8.i.i
-  %sub2.i.i = sub i64 %retval.0.i8.i.i, %retval.0.i.i.i
+  %sub.i.i = sub nuw i64 %retval.0.i.i.i, %retval.0.i8.i.i
+  %sub2.i.i = sub nuw i64 %retval.0.i8.i.i, %retval.0.i.i.i
   %cond.i.i = select i1 %cmp.not.i.i, i64 %sub2.i.i, i64 %sub.i.i
   %cmp.i = icmp ult i64 %cond.i.i, 5
   br i1 %cmp.i, label %if.then, label %if.end

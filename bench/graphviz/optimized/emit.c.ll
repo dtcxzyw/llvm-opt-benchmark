@@ -819,7 +819,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %agxblen.exit.i
-  %20 = sub nsw i64 %9, %17
+  %20 = sub nuw nsw i64 %9, %17
   call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
@@ -2872,7 +2872,7 @@ agxbsizeof.exit.i116:                             ; preds = %273
 
 288:                                              ; preds = %286
   %289 = getelementptr inbounds i8, ptr %281, i64 %.fr.i117
-  %290 = sub i64 %spec.select33.i119, %.fr.i117
+  %290 = sub nuw i64 %spec.select33.i119, %.fr.i117
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %289, i8 0, i64 %290, i1 false)
   br label %.thread
 
@@ -2977,7 +2977,7 @@ agxbsizeof.exit.i:                                ; preds = %312
 
 327:                                              ; preds = %325
   %328 = getelementptr inbounds i8, ptr %320, i64 %.fr.i
-  %329 = sub i64 %spec.select33.i, %.fr.i
+  %329 = sub nuw i64 %spec.select33.i, %.fr.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %328, i8 0, i64 %329, i1 false)
   br label %.thread124
 
@@ -11451,7 +11451,7 @@ agxbsizeof.exit:                                  ; preds = %2
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %13, i64 %.fr
-  %22 = sub i64 %spec.select33, %.fr
+  %22 = sub nuw i64 %spec.select33, %.fr
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %22, i1 false)
   br label %gv_recalloc.exit
 

@@ -2769,9 +2769,9 @@ land.lhs.true1.i34:                               ; preds = %entry
   %iov_len.i35 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load i64, ptr %iov_len.i35, align 8
   %cmp.not.i = icmp ult i64 %8, %7
-  %sub.i = sub i64 %8, %7
+  %sub.i = sub nuw i64 %8, %7
   %cmp5.not.i36 = icmp ult i64 %sub.i, 8
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i36
+  %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i36
   br i1 %or.cond13.i, label %if.else.i31, label %if.then.i37
 
 if.then.i37:                                      ; preds = %land.lhs.true1.i34

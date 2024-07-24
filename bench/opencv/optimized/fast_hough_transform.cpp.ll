@@ -1539,7 +1539,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_
   br i1 %179, label %180, label %209
 
 180:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit
-  %181 = sub nsw i64 %178, %105
+  %181 = sub nuw nsw i64 %178, %105
   %.not.i = icmp eq i64 %181, 0
   br i1 %.not.i, label %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE6resizeEm.exit, label %182
 
@@ -1569,7 +1569,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIhN2cv6Point_IiEEESt6vectorIS6_
   br i1 %.not.i.i.i.i65, label %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE6resizeEm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 193:                                              ; preds = %182
-  %194 = icmp ult i64 %187, %181
+  %194 = icmp slt i32 %.sroa.speculated, 0
   br i1 %194, label %195, label %_ZNKSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE12_M_check_lenEmPKc.exit.i
 
 195:                                              ; preds = %193
@@ -2188,7 +2188,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_
   br i1 %179, label %180, label %209
 
 180:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit
-  %181 = sub nsw i64 %178, %105
+  %181 = sub nuw nsw i64 %178, %105
   %.not.i = icmp eq i64 %181, 0
   br i1 %.not.i, label %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE6resizeEm.exit, label %182
 
@@ -2218,7 +2218,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIaN2cv6Point_IiEEESt6vectorIS6_
   br i1 %.not.i.i.i.i65, label %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE6resizeEm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
 193:                                              ; preds = %182
-  %194 = icmp ult i64 %187, %181
+  %194 = icmp slt i32 %.sroa.speculated, 0
   br i1 %194, label %195, label %_ZNKSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE12_M_check_lenEmPKc.exit.i
 
 195:                                              ; preds = %193
@@ -2837,7 +2837,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_
   br i1 %179, label %180, label %209
 
 180:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit
-  %181 = sub nsw i64 %178, %105
+  %181 = sub nuw nsw i64 %178, %105
   %.not.i = icmp eq i64 %181, 0
   br i1 %.not.i, label %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE6resizeEm.exit, label %182
 
@@ -2867,7 +2867,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairItN2cv6Point_IiEEESt6vectorIS6_
   br i1 %.not.i.i.i.i65, label %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE6resizeEm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !56
 
 193:                                              ; preds = %182
-  %194 = icmp ult i64 %187, %181
+  %194 = icmp slt i32 %.sroa.speculated, 0
   br i1 %194, label %195, label %_ZNKSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE12_M_check_lenEmPKc.exit.i
 
 195:                                              ; preds = %193
@@ -3486,7 +3486,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_
   br i1 %179, label %180, label %209
 
 180:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit
-  %181 = sub nsw i64 %178, %105
+  %181 = sub nuw nsw i64 %178, %105
   %.not.i = icmp eq i64 %181, 0
   br i1 %.not.i, label %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE6resizeEm.exit, label %182
 
@@ -3516,7 +3516,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIsN2cv6Point_IiEEESt6vectorIS6_
   br i1 %.not.i.i.i.i65, label %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE6resizeEm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !74
 
 193:                                              ; preds = %182
-  %194 = icmp ult i64 %187, %181
+  %194 = icmp slt i32 %.sroa.speculated, 0
   br i1 %194, label %195, label %_ZNKSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE12_M_check_lenEmPKc.exit.i
 
 195:                                              ; preds = %193
@@ -4135,7 +4135,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_
   br i1 %179, label %180, label %202
 
 180:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit
-  %181 = sub nsw i64 %178, %105
+  %181 = sub nuw nsw i64 %178, %105
   %182 = ptrtoint ptr %.sroa.28.0.lcssa to i64
   %183 = sub i64 %182, %102
   %184 = sdiv exact i64 %183, 12
@@ -4154,7 +4154,7 @@ _ZSt27__uninitialized_default_n_aIPSt4pairIiN2cv6Point_IiEEEmS4_ET_S6_T0_RSaIT1_
   br label %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE6resizeEm.exit
 
 189:                                              ; preds = %180
-  %190 = icmp ult i64 %186, %181
+  %190 = icmp slt i32 %.sroa.speculated, 0
   br i1 %190, label %191, label %_ZNKSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
 191:                                              ; preds = %189
@@ -4754,7 +4754,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_
   br i1 %176, label %177, label %199
 
 177:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit
-  %178 = sub nsw i64 %175, %102
+  %178 = sub nuw nsw i64 %175, %102
   %179 = ptrtoint ptr %.sroa.28.0.lcssa to i64
   %180 = sub i64 %179, %99
   %181 = sdiv exact i64 %180, 12
@@ -4773,7 +4773,7 @@ _ZSt27__uninitialized_default_n_aIPSt4pairIfN2cv6Point_IiEEEmS4_ET_S6_T0_RSaIT1_
   br label %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE6resizeEm.exit
 
 186:                                              ; preds = %177
-  %187 = icmp ult i64 %183, %178
+  %187 = icmp slt i32 %.sroa.speculated, 0
   br i1 %187, label %188, label %_ZNKSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
 188:                                              ; preds = %186
@@ -5371,7 +5371,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_
   br i1 %178, label %179, label %201
 
 179:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdN2cv6Point_IiEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit
-  %180 = sub nsw i64 %177, %104
+  %180 = sub nuw nsw i64 %177, %104
   %181 = ptrtoint ptr %.sroa.28.1.lcssa to i64
   %182 = sub i64 %181, %101
   %183 = ashr exact i64 %182, 4

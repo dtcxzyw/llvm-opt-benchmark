@@ -2472,7 +2472,7 @@ lpad.i.i.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
   unreachable
 
 cleanup.done24.i.i.i.i.i.i.i:                     ; preds = %if.then7.i.i.i.i.i.i.i
-  %sub.i.i.i.i.i.i.i = sub i64 %91, %89
+  %sub.i.i.i.i.i.i.i = sub nuw i64 %91, %89
   %.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i)
   br label %if.end.i.i.i.i.i.i.i
 
@@ -3193,7 +3193,7 @@ lpad.i.i.i.i.i.i.i.i:                             ; preds = %invoke.cont.i.i.i.i
   unreachable
 
 cleanup.done23.i.i.i.i.i.i.i.i:                   ; preds = %if.then7.i.i.i.i.i.i.i.i
-  %sub.i.i.i.i.i.i.i.i = sub i64 %167, %165
+  %sub.i.i.i.i.i.i.i.i = sub nuw i64 %167, %165
   %.sroa.speculated.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i)
   br label %if.end.i.i.i.i.i.i.i.i
 
@@ -30118,7 +30118,7 @@ if.else:                                          ; preds = %_ZNK5boost16cpp_reg
 if.end89:                                         ; preds = %if.else
   %idx.ext = zext i8 %cond.i343547 to i64
   %add.ptr93 = getelementptr inbounds i8, ptr %_map, i64 %idx.ext
-  %sub = sub i8 %cond.i350, %cond.i343547
+  %sub = sub nuw i8 %cond.i350, %cond.i343547
   %conv97 = zext i8 %sub to i64
   %add = add nuw nsw i64 %conv97, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr93, i8 1, i64 %add, i1 false)
@@ -43209,7 +43209,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !930
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not11.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not11.i.i.i.i, label %invoke.cont27, label %for.inc.i.i.i.i.preheader
 
@@ -59673,7 +59673,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %in
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !1183
 
 if.else:                                          ; preds = %if.then4
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %cmp.not11.i.i.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not11.i.i.i.i, label %invoke.cont27, label %for.inc.i.i.i.i.preheader
 
@@ -71588,7 +71588,7 @@ if.then.i:                                        ; preds = %if.then30
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit:           ; preds = %if.then30
   %add.ptr.i = getelementptr inbounds i8, ptr %sp.coerce0, i64 %tokenStartPos.0213
-  %sub.i = sub i64 %sub.ptr.sub.i, %tokenStartPos.0213
+  %sub.i = sub nuw i64 %sub.ptr.sub.i, %tokenStartPos.0213
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %tokenSize.0211)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %.sroa.speculated.i
   %7 = load ptr, ptr %_M_finish.i.i.i101, align 8, !tbaa !57

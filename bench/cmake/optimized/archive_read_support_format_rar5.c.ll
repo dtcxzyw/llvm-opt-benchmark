@@ -2456,7 +2456,7 @@ circular_memcpy.exit.i.i.i:                       ; preds = %1015, %1010
 
 1047:                                             ; preds = %1031
   %1048 = getelementptr inbounds i8, ptr %1019, i64 %1037
-  %1049 = sub nsw i64 %1039, %1037
+  %1049 = sub nuw nsw i64 %1039, %1037
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %19, ptr noundef nonnull readonly align 1 dereferenceable(1) %1048, i64 %1049, i1 false)
   br label %read_filter_data.exit.i.i.i
 
@@ -2590,7 +2590,7 @@ circular_memcpy.exit.i31.i.i:                     ; preds = %1096, %1091
 
 1123:                                             ; preds = %1111
   %1124 = getelementptr inbounds i8, ptr %1100, i64 %1113
-  %1125 = sub nsw i64 %1115, %1113
+  %1125 = sub nuw nsw i64 %1115, %1113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %18, ptr noundef nonnull readonly align 1 dereferenceable(1) %1124, i64 %1125, i1 false)
   br label %read_filter_data.exit.i34.i.i
 

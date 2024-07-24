@@ -6823,7 +6823,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !1320
   %9 = icmp eq i32 %bcmp.i, 0
@@ -10463,7 +10463,7 @@ define hidden { i32, i32 } @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$
   %9 = xor i16 %16, -1
   store ptr %18, ptr %8, align 8, !alias.scope !1872
   store ptr %17, ptr %2, align 8, !alias.scope !1872
-  %10 = sub i16 -2, %16
+  %10 = sub nuw i16 -2, %16
   %11 = and i16 %10, %9
   store i16 %11, ptr %7, align 8, !alias.scope !1873
   %12 = add i64 %4, -1
@@ -41876,7 +41876,7 @@ define void @_ZN17cranelift_codegen2ir8constant12ConstantData9expand_to17h1dac57
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hed637aae7c17cedbE.exit"
 
 14:                                               ; preds = %12
-  %15 = sub i64 %2, %8
+  %15 = sub nuw i64 %2, %8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17haa9091d3cd01c458E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15, i8 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hed637aae7c17cedbE.exit" unwind label %10
 

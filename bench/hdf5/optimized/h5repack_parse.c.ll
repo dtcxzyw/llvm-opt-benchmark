@@ -175,7 +175,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 .lr.ph369:                                        ; preds = %57
   %60 = add i64 %10, -1
-  %61 = sub i64 %10, %58
+  %61 = sub nuw i64 %10, %58
   br label %62
 
 62:                                               ; preds = %.lr.ph369, %289

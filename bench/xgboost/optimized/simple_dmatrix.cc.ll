@@ -15516,7 +15516,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %96
-  %107 = sub i64 %97, %104
+  %107 = sub nuw i64 %97, %104
   invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %90, i64 noundef %107)
           to label %.noexc32 unwind label %52
 
@@ -15581,7 +15581,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i.i.i.i:       ; preds = %112, %110, %108, %.
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %128
-  %139 = sub i64 %129, %136
+  %139 = sub nuw i64 %129, %136
   invoke void @_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %139)
           to label %.noexc39 unwind label %52
 
@@ -22628,7 +22628,7 @@ _ZSt7advanceIPKfmEvRT_T0_.exit:                   ; preds = %17
 
 _ZSt22__uninitialized_copy_aIPKfPffET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKfmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIPKfmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds float, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %13, %1
@@ -22785,7 +22785,7 @@ _ZSt7advanceIPKmmEvRT_T0_.exit:                   ; preds = %17
 
 _ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKmmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIPKmmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i64, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %13, %1

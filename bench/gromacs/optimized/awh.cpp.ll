@@ -4742,7 +4742,7 @@ _ZNK3gmx3Awh12isOutputStepEl.exit.thread:         ; preds = %._crit_edge71, %_ZN
   br i1 %.not.i, label %198, label %196
 
 196:                                              ; preds = %185
-  %197 = sub i64 %192, %195
+  %197 = sub nuw i64 %192, %195
   br label %200
 
 198:                                              ; preds = %185
@@ -4897,7 +4897,7 @@ _ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit: ; preds = %12, %_ZSt8_
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit
-  %42 = sub nsw i64 %34, %39
+  %42 = sub nuw nsw i64 %34, %39
   invoke void @_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %42)
           to label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp
 

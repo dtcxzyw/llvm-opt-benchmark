@@ -1872,7 +1872,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !372
   %9 = icmp eq i32 %bcmp.i, 0
@@ -23406,7 +23406,7 @@ define void @"_ZN158_$LT$rustls..server..tls13..ExpectAndSkipRejectedEarlyData$u
   br i1 %.not, label %8, label %13
 
 13:                                               ; preds = %10
-  %14 = sub i64 %12, %.sroa.3.0.i
+  %14 = sub nuw i64 %12, %.sroa.3.0.i
   store i64 %14, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8

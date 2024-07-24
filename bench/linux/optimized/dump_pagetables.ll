@@ -900,7 +900,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %274, label %275, label %289
 
 275:                                              ; preds = %269
-  %276 = sub i64 %264, %271
+  %276 = sub nuw i64 %264, %271
   %277 = getelementptr inbounds i8, ptr %0, i64 112
   %278 = load i8, ptr %277, align 8, !range !6, !noundef !7
   %279 = icmp eq i8 %278, 0

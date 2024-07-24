@@ -26432,7 +26432,7 @@ if.end32:                                         ; preds = %invoke.cont.i.i.i10
   br i1 %cmp35, label %for.body44.lr.ph, label %return
 
 for.body44.lr.ph:                                 ; preds = %if.end32
-  %sub39 = sub nsw i64 %conv, %sub.ptr.div.i109
+  %sub39 = sub nuw nsw i64 %conv, %sub.ptr.div.i109
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %markers53 = getelementptr inbounds i8, ptr %this, i64 80
   %_M_finish.i.i120 = getelementptr inbounds i8, ptr %this, i64 88

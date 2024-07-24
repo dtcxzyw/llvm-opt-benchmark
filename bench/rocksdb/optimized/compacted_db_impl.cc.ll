@@ -2374,7 +2374,7 @@ _ZN7rocksdb6StatusD2Ev.exit249:                   ; preds = %invoke.cont128, %_Z
   br i1 %cmp.i251, label %if.then.i256, label %if.else.i252
 
 if.then.i256:                                     ; preds = %_ZN7rocksdb6StatusD2Ev.exit249
-  %sub.i257 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i257 = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values, i64 noundef %sub.i257)
           to label %invoke.cont132 unwind label %lpad131
 
@@ -2413,7 +2413,7 @@ if.then134:                                       ; preds = %invoke.cont132
   br i1 %cmp.i264, label %if.then.i275, label %if.else.i265
 
 if.then.i275:                                     ; preds = %if.then134
-  %sub.i276 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i263
+  %sub.i276 = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i263
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %timestamps, i64 noundef %sub.i276)
           to label %invoke.cont139 unwind label %lpad131
 

@@ -10616,7 +10616,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp13.not, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %sub15 = sub i64 %10, %11
+  %sub15 = sub nuw i64 %10, %11
   store i64 %sub15, ptr %local_entry_index, align 8, !tbaa !13
   %12 = load i64, ptr %local_block_index, align 8, !tbaa !13
   %inc = add i64 %12, 1
@@ -26089,7 +26089,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.i63, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont4
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %bin_groups, ptr %3, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %if.then.i.invoke.cont9_crit_edge unwind label %lpad8
 

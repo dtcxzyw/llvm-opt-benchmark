@@ -43798,7 +43798,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !10084
   %9 = icmp eq i32 %bcmp.i, 0
@@ -48932,7 +48932,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %41,
   br i1 %49, label %.split.us.i.i, label %.lr.ph.split.split.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i": ; preds = %46
-  %51 = sub i64 %48, %30
+  %51 = sub nuw i64 %48, %30
   %52 = getelementptr inbounds i8, ptr %1, i64 %51
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %52, ptr noundef nonnull readonly dereferenceable(1) %.sroa.0.sroa.6.0..sroa_idx, i64 %30), !alias.scope !11057, !noalias !11048
   %53 = icmp eq i32 %bcmp.i.i.i, 0
@@ -70613,7 +70613,7 @@ _ZN13rust_analyzer3lsp8to_proto5range17he84b03fc79b95d01E.exit: ; preds = %1118,
   br i1 %1270, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h3577dd737823307cE.exit", label %1271
 
 1271:                                             ; preds = %1268
-  %1272 = sub i64 %1269, %1246
+  %1272 = sub nuw i64 %1269, %1246
   %1273 = load ptr, ptr %147, align 8, !alias.scope !15357, !nonnull !4, !noundef !4
   %1274 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i64, [6 x i64] }, { i64, [8 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i8, i8, [6 x i8] }, ptr %1273, i64 %1246
   store i64 %1246, ptr %148, align 8, !alias.scope !15357
@@ -77367,8 +77367,8 @@ _ZN5alloc6string6String6insert17h8034384019f081d0E.exit.i.i.i: ; preds = %"_ZN4c
           to label %272 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !16105
 
 418:                                              ; preds = %.lr.ph.i.i
-  %419 = sub i32 %387, %385
-  %420 = sub i32 %389, %385
+  %419 = sub nuw i32 %387, %385
+  %420 = sub nuw i32 %389, %385
   %421 = zext i32 %419 to i64
   %422 = zext i32 %420 to i64
   %423 = icmp eq i32 %387, %389

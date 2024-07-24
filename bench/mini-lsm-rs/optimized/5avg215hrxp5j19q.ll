@@ -12366,7 +12366,7 @@ define hidden void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17h502960829c0c5a35
           to label %.body.thread unwind label %65, !noalias !2836
 
 60:                                               ; preds = %.noexc
-  %61 = sub i64 %43, %36
+  %61 = sub nuw i64 %43, %36
   store i64 %61, ptr %42, align 8, !alias.scope !2837, !noalias !2836
   %62 = getelementptr inbounds i8, ptr %9, i64 8
   %63 = load ptr, ptr %62, align 8, !alias.scope !2837, !noalias !2836, !noundef !7
@@ -12435,7 +12435,7 @@ define hidden void @_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17hc08704aedb4f4590
   %.09 = phi i64 [ %12, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18053240611608392576.exit" ], [ 0, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18053240611608392576.exit.preheader" ]
   %8 = phi ptr [ %14, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18053240611608392576.exit" ], [ %.promoted, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18053240611608392576.exit.preheader" ]
   %9 = phi i64 [ %13, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18053240611608392576.exit" ], [ %5, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h25abbd6832ee64b2E.llvm.18053240611608392576.exit.preheader" ]
-  %10 = sub i64 %2, %.09
+  %10 = sub nuw i64 %2, %.09
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %10)
   %11 = getelementptr inbounds i8, ptr %1, i64 %.09
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %8, i64 %.0.sroa.speculated.i, i1 false)
@@ -12621,7 +12621,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut6freeze17h6a0ba5143776ed0fE.llvm
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h388912e1abd575efE.exit" unwind label %55
 
 50:                                               ; preds = %20
-  %51 = sub i64 %32, %21
+  %51 = sub nuw i64 %32, %21
   store i64 %51, ptr %31, align 8, !alias.scope !2882
   %52 = getelementptr inbounds i8, ptr %8, i64 8
   %53 = load ptr, ptr %52, align 8, !alias.scope !2882, !noundef !7

@@ -65,7 +65,7 @@ if.then8.i:                                       ; preds = %for.end.i
   %call9.i = tail call i32 @g_rand_int(ptr noundef %rand.0.i) #6
   store i32 %call9.i, ptr %x.i, align 4
   %add.ptr10.i = getelementptr i8, ptr %buf, i64 %i.0.lcssa.i
-  %sub.i = sub i64 %len, %i.0.lcssa.i
+  %sub.i = sub nuw i64 %len, %i.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr10.i, ptr nonnull align 4 %x.i, i64 %sub.i, i1 false)
   br label %glib_random_bytes.exit
 

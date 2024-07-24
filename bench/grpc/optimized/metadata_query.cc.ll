@@ -998,7 +998,7 @@ lpad95:                                           ; preds = %invoke.cont93
   br label %ehcleanup141
 
 invoke.cont102:                                   ; preds = %for.body.i.i
-  %sub.i = sub i64 %23, %__size.1.i.i
+  %sub.i = sub nuw i64 %23, %__size.1.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %22, i64 %__size.1.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp104) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i67)

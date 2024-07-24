@@ -2148,7 +2148,7 @@ if.end46.i.i:                                     ; preds = %if.end37.i.i
 
 if.then52.i.i:                                    ; preds = %if.end46.i.i
   %add.ptr.i.i = getelementptr i8, ptr %call13.i.i, i64 %call30.i.i
-  %sub55.i.i = sub i64 %conv49.i.i, %call30.i.i
+  %sub55.i.i = sub nuw i64 %conv49.i.i, %call30.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %sub55.i.i, i1 false)
   br label %if.end56.i.i
 

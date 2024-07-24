@@ -94,7 +94,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
   %45 = icmp ule i64 %40, %44
   %46 = zext i1 %45 to i32
   %47 = select i1 %45, i64 %40, i64 0
-  %spec.select = sub i64 %44, %47
+  %spec.select = sub nuw i64 %44, %47
   br label %82
 
 48:                                               ; preds = %32

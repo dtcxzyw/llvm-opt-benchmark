@@ -23251,7 +23251,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5558db0468b9d4a5E.exit.i: ; preds = %43
   %91 = add i64 %90, %88
   %.not.i.i = icmp ult i64 %91, %87
   %92 = select i1 %.not.i.i, i64 0, i64 %87
-  %.0.i.i = sub i64 %91, %92
+  %.0.i.i = sub nuw i64 %91, %92
   %93 = load ptr, ptr %73, align 8, !alias.scope !3847, !noalias !3852, !nonnull !4, !noundef !4
   %94 = getelementptr inbounds { ptr, ptr }, ptr %93, i64 %.0.i.i
   store ptr %74, ptr %94, align 8, !noalias !3839
@@ -39796,12 +39796,12 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br label %58
 
 77:                                               ; preds = %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit
-  %78 = sub i64 %28, %2
+  %78 = sub nuw i64 %28, %2
   %79 = icmp ugt i64 %78, 32
   br i1 %79, label %88, label %83
 
 80:                                               ; preds = %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit
-  %81 = sub i64 %2, %28
+  %81 = sub nuw i64 %2, %28
   %82 = icmp ugt i64 %81, 32
   br i1 %82, label %106, label %102
 

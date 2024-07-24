@@ -2424,7 +2424,7 @@ define void @_ZN5faiss23AdditiveCoarseQuantizer5trainElPKf(ptr noundef nonnull a
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %51
-  %63 = sub i64 %52, %60
+  %63 = sub nuw i64 %52, %60
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %63)
   %.pre9 = load ptr, ptr %53, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -4643,7 +4643,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -5357,7 +5357,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -8612,7 +8612,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %32, %37
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %58
-  %64 = sub i64 %61, %.pre-phi20
+  %64 = sub nuw i64 %61, %.pre-phi20
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %64)
   %.pre13 = load ptr, ptr %44, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit10

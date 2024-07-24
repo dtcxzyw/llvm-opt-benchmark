@@ -354,7 +354,7 @@ H5O__alloc_msgs.exit:                             ; preds = %82
 
 138:                                              ; preds = %135
   %139 = getelementptr inbounds i8, ptr %.0252333, i64 48
-  %140 = sub i64 %136, %127
+  %140 = sub nuw i64 %136, %127
   %141 = mul i64 %140, 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0252333, ptr nonnull align 8 %139, i64 %141, i1 false)
   %.pre345 = load i64, ptr %76, align 8
@@ -754,7 +754,7 @@ H5O__alloc_msgs.exit:                             ; preds = %82
 
 407:                                              ; preds = %394
   %408 = getelementptr inbounds i8, ptr %398, i64 48
-  %409 = sub i64 %405, %403
+  %409 = sub nuw i64 %405, %403
   %410 = mul i64 %409, 48
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %398, ptr nonnull align 8 %408, i64 %410, i1 false)
   %.pre344 = load i64, ptr %76, align 8
@@ -939,7 +939,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__alloc_null(ptr noundef %0, ptr
   br i1 %18, label %19, label %102
 
 19:                                               ; preds = %15
-  %20 = sub i64 %17, %5
+  %20 = sub nuw i64 %17, %5
   %21 = getelementptr inbounds i8, ptr %1, i64 288
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 1
@@ -3146,7 +3146,7 @@ define range(i32 -1, 1) i32 @H5O__condense_header(ptr noundef %0, ptr noundef %1
   %360 = add i32 %.0256484.i, 1
   %361 = zext i32 %360 to i64
   %362 = getelementptr inbounds %struct.H5O_mesg_t, ptr %358, i64 %361
-  %363 = sub i64 %355, %20
+  %363 = sub nuw i64 %355, %20
   %364 = mul i64 %363, 48
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %359, ptr align 8 %362, i64 %364, i1 false)
   %.pre228.i.i = load i64, ptr %8, align 8
@@ -3198,7 +3198,7 @@ define range(i32 -1, 1) i32 @H5O__condense_header(ptr noundef %0, ptr noundef %1
   %386 = load ptr, ptr %7, align 8
   %387 = getelementptr %struct.H5O_mesg_t, ptr %386, i64 %.2215.i.i
   %388 = getelementptr i8, ptr %387, i64 48
-  %389 = sub i64 %383, %.2215.i.i
+  %389 = sub nuw i64 %383, %.2215.i.i
   %390 = mul i64 %389, 48
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %387, ptr align 8 %388, i64 %390, i1 false)
   %.pre231.i.i = load i64, ptr %8, align 8
@@ -3956,7 +3956,7 @@ H5O__move_cont.exit.thread.i:                     ; preds = %.loopexit602.i, %25
   %808 = add i32 %.075161.i, 1
   %809 = zext i32 %808 to i64
   %810 = getelementptr inbounds %struct.H5O_mesg_t, ptr %806, i64 %809
-  %811 = sub i64 %803, %726
+  %811 = sub nuw i64 %803, %726
   %812 = mul i64 %811, 48
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %807, ptr align 8 %810, i64 %812, i1 false)
   %.pre.i37 = load i64, ptr %8, align 8
@@ -4120,7 +4120,7 @@ H5O__move_cont.exit.thread.i:                     ; preds = %.loopexit602.i, %25
   %907 = load ptr, ptr %7, align 8
   %908 = getelementptr %struct.H5O_mesg_t, ptr %907, i64 %.0210244.i.i
   %909 = getelementptr i8, ptr %908, i64 48
-  %910 = sub i64 %904, %.0210244.i.i
+  %910 = sub nuw i64 %904, %.0210244.i.i
   %911 = mul i64 %910, 48
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %908, ptr align 8 %909, i64 %911, i1 false)
   %.pre271.i.i = load i64, ptr %8, align 8
@@ -4194,9 +4194,9 @@ H5O__move_cont.exit.thread.i:                     ; preds = %.loopexit602.i, %25
   store ptr %950, ptr %951, align 8
   %952 = load i8, ptr %11, align 8
   %953 = icmp eq i8 %952, 1
-  %954 = sub nsw i64 %838, %940
-  %955 = add nsw i64 %954, 7
-  %956 = and i64 %955, -8
+  %954 = sub nuw nsw i64 %838, %940
+  %955 = add nuw nsw i64 %954, 7
+  %956 = and i64 %955, 56
   %957 = select i1 %953, i64 %956, i64 %954
   %958 = call i64 @llvm.umax.i64(i64 %957, i64 %846)
   %959 = sub nsw i64 %958, %846
@@ -4895,7 +4895,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5O__remove_empty_chunks(ptr nounde
   %163 = add i32 %155, 1
   %164 = zext i32 %163 to i64
   %165 = getelementptr inbounds %struct.H5O_chunk_t, ptr %161, i64 %164
-  %166 = sub i64 %158, %156
+  %166 = sub nuw i64 %158, %156
   %167 = mul i64 %166, 40
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %162, ptr align 8 %165, i64 %167, i1 false)
   %168 = load i32, ptr %41, align 8
@@ -4962,7 +4962,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5O__remove_empty_chunks(ptr nounde
   %206 = add i32 %.0156208, 1
   %207 = zext i32 %206 to i64
   %208 = getelementptr inbounds %struct.H5O_mesg_t, ptr %204, i64 %207
-  %209 = sub i64 %201, %14
+  %209 = sub nuw i64 %201, %14
   %210 = mul i64 %209, 48
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %205, ptr align 8 %208, i64 %210, i1 false)
   %.pre253 = load i64, ptr %7, align 8

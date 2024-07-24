@@ -805,7 +805,7 @@ _ZN6uu_fmt9linebreak9BreakArgs13compute_width17hcd40995adcd93216E.exit.i: ; pred
   br i1 %.not.i.i, label %285, label %293
 
 285:                                              ; preds = %284
-  %286 = sub i64 %54, %228
+  %286 = sub nuw i64 %54, %228
   %287 = uitofp i64 %286 to float
   %288 = fdiv float %287, %63
   %289 = call float @llvm.powi.f32.i32(float %288, i32 3)
@@ -1188,7 +1188,7 @@ _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.i.i: ; preds = %412
   %444 = getelementptr inbounds i8, ptr %427, i64 %431
   %445 = load i8, ptr %444, align 1, !alias.scope !203, !noalias !210, !noundef !7
   %446 = icmp sgt i8 %445, -65
-  %447 = sub i64 %429, %431
+  %447 = sub nuw i64 %429, %431
   br i1 %446, label %448, label %.invoke
 
 448:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i.i.i.i", %441, %438
@@ -1369,7 +1369,7 @@ _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit57.i.i: ; preds = %5
   %517 = getelementptr inbounds i8, ptr %427, i64 %431
   %518 = load i8, ptr %517, align 1, !alias.scope !257, !noalias !202, !noundef !7
   %519 = icmp sgt i8 %518, -65
-  %520 = sub i64 %429, %431
+  %520 = sub nuw i64 %429, %431
   br i1 %519, label %522, label %.invoke
 
 .invoke:                                          ; preds = %514, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %441, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i.i.i.i"
@@ -1563,7 +1563,7 @@ _ZN6uu_fmt9linebreak19find_kp_breakpoints17h9ece749410d68b29E.exit._crit_edge: ;
   %585 = getelementptr inbounds i8, ptr %575, i64 %579
   %586 = load i8, ptr %585, align 1, !alias.scope !284, !noalias !291, !noundef !7
   %587 = icmp sgt i8 %586, -65
-  %588 = sub i64 %577, %579
+  %588 = sub nuw i64 %577, %579
   br i1 %587, label %590, label %589
 
 589:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i.i", %582

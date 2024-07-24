@@ -64801,7 +64801,7 @@ _ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 _ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit
   %8 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S5_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
   %add.ptr36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i49 = icmp eq ptr %1, %__position.coerce
@@ -126534,7 +126534,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i
   br i1 %cmp19.i, label %invoke.cont74, label %if.end21.i
 
 if.end21.i:                                       ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i
-  %sub24.i = sub nsw i64 %add18.i, %add15.i
+  %sub24.i = sub nuw nsw i64 %add18.i, %add15.i
   %cmp25.i = icmp ugt i64 %sub24.i, 1
   br i1 %cmp25.i, label %invoke.cont74, label %for.cond.i
 
@@ -126930,7 +126930,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i
   br i1 %cmp19.i687, label %invoke.cont109, label %if.end21.i688
 
 if.end21.i688:                                    ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i683
-  %sub24.i689 = sub nsw i64 %add18.i686, %add15.i679
+  %sub24.i689 = sub nuw nsw i64 %add18.i686, %add15.i679
   %cmp25.i690 = icmp ugt i64 %sub24.i689, 1
   br i1 %cmp25.i690, label %invoke.cont109, label %for.cond.i691
 
@@ -127031,7 +127031,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i
   br i1 %cmp19.i758, label %if.end141.sink.split, label %if.end21.i759
 
 if.end21.i759:                                    ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i754
-  %sub24.i760 = sub nsw i64 %add18.i757, %add15.i750
+  %sub24.i760 = sub nuw nsw i64 %add18.i757, %add15.i750
   %cmp25.i761 = icmp ugt i64 %sub24.i760, 1
   br i1 %cmp25.i761, label %if.end141, label %for.cond.i762
 
@@ -127378,7 +127378,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i
   br i1 %cmp19.i956, label %invoke.cont165, label %if.end21.i957
 
 if.end21.i957:                                    ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i952
-  %sub24.i958 = sub nsw i64 %add18.i955, %add15.i948
+  %sub24.i958 = sub nuw nsw i64 %add18.i955, %add15.i948
   %cmp25.i959 = icmp ult i64 %sub24.i958, 2
   %shl.i961 = shl nuw nsw i64 %sub24.i958, 32
   %cmp11.not.not.i962 = icmp sgt i32 %i.067.i935, %cond.i29.i925
@@ -127592,7 +127592,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i
   br i1 %cmp19.i1078, label %if.then198, label %if.end21.i1079
 
 if.end21.i1079:                                   ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit59.i1074
-  %sub24.i1080 = sub nsw i64 %add18.i1077, %add15.i1070
+  %sub24.i1080 = sub nuw nsw i64 %add18.i1077, %add15.i1070
   %cmp25.i1081 = icmp ugt i64 %sub24.i1080, 1
   br i1 %cmp25.i1081, label %if.end233, label %for.cond.i1082
 

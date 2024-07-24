@@ -1540,7 +1540,7 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   br i1 %557, label %561, label %558
 
 558:                                              ; preds = %552
-  %559 = sub nsw i32 %.1262, %556
+  %559 = sub nuw nsw i32 %.1262, %556
   %560 = load ptr, ptr %9, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %560, i64 260
   %.pre298 = load i32, ptr %.phi.trans.insert, align 4
@@ -1561,7 +1561,7 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   %569 = load ptr, ptr %568, align 8
   %570 = getelementptr inbounds i8, ptr %567, i64 64
   %571 = load ptr, ptr %570, align 8
-  %572 = add i32 %.2263, 1
+  %572 = add nuw i32 %.2263, 1
   %573 = zext i32 %572 to i64
   %574 = getelementptr inbounds i64, ptr %571, i64 %573
   %575 = load i64, ptr %574, align 8
@@ -1586,7 +1586,7 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
 588:                                              ; preds = %583
   %589 = getelementptr inbounds i8, ptr %.0, i64 288
   %590 = load ptr, ptr %589, align 8
-  %591 = zext i32 %.2263 to i64
+  %591 = zext nneg i32 %.2263 to i64
   %592 = getelementptr inbounds i64, ptr %590, i64 %591
   %593 = load i64, ptr %592, align 8
   %594 = getelementptr inbounds i64, ptr %590, i64 %573

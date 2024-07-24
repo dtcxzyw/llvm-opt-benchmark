@@ -1641,7 +1641,7 @@ define dso_local range(i32 -22, 1) i32 @crash_shrink_memory(i64 noundef %0) loca
   br label %37
 
 34:                                               ; preds = %27
-  %35 = sub i64 %22, %13
+  %35 = sub nuw i64 %22, %13
   %36 = tail call fastcc i32 @__crash_shrink_memory(ptr noundef nonnull @crashk_res, i64 noundef %35), !range !54
   br label %37
 

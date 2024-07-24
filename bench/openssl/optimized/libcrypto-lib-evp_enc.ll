@@ -1696,8 +1696,8 @@ if.end57:                                         ; preds = %if.end49
   br i1 %cmp5844, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end57
-  %sub = sub nsw i32 %9, %10
-  %conv60 = trunc i32 %sub to i8
+  %sub = sub nuw nsw i32 %9, %10
+  %conv60 = trunc nuw i32 %sub to i8
   %12 = zext nneg i32 %10 to i64
   %13 = getelementptr i8, ptr %ctx, i64 %12
   %scevgep = getelementptr i8, ptr %13, i64 56

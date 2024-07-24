@@ -5364,7 +5364,7 @@ is_encrypted_handshake_message.exit:              ; preds = %149, %138, %135, %.
 .lr.ph235:                                        ; preds = %is_encrypted_handshake_message.exit, %192
   %.1234 = phi i32 [ %194, %192 ], [ %.0, %is_encrypted_handshake_message.exit ]
   %.1180233 = phi i32 [ 0, %192 ], [ %.0179, %is_encrypted_handshake_message.exit ]
-  %158 = sub i32 %4, %.1234
+  %158 = sub nuw i32 %4, %.1234
   %159 = icmp ugt i32 %158, 3
   br i1 %159, label %160, label %.thread219
 
@@ -5665,7 +5665,7 @@ ssl_proto_tree_add_segment_data.exit.i:           ; preds = %74, %proto_item_set
   %130 = icmp uge i32 %127, %.0217405.i
   %131 = icmp sgt i32 %.0218.i, 0
   %or.cond.i = and i1 %131, %130
-  %132 = sub i32 %127, %.0217405.i
+  %132 = sub nuw i32 %127, %.0217405.i
   %spec.select.i = select i1 %or.cond.i, i32 %132, i32 0
   br label %142
 

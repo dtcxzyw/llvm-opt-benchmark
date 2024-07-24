@@ -3276,7 +3276,7 @@ define dso_local noundef range(i32 0, 20) i32 @_ZN6asmjit9_abi_1_1010CodeHolder1
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %18
-  %26 = sub i64 %2, %16
+  %26 = sub nuw i64 %2, %16
   %27 = getelementptr inbounds i8, ptr %1, i64 %16
   tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 %26, i1 false)
   br label %28
@@ -3317,7 +3317,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_1010CodeHolder17
 21:                                               ; preds = %.split.us
   %22 = getelementptr inbounds i8, ptr %17, i64 80
   %23 = load i64, ptr %22, align 8, !tbaa !85
-  %24 = sub i64 %2, %19
+  %24 = sub nuw i64 %2, %19
   %25 = icmp ult i64 %24, %23
   br i1 %25, label %.loopexit, label %26, !prof !41
 
@@ -3344,7 +3344,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_1010CodeHolder17
 40:                                               ; preds = %.split
   %41 = getelementptr inbounds i8, ptr %36, i64 80
   %42 = load i64, ptr %41, align 8, !tbaa !85
-  %43 = sub i64 %2, %38
+  %43 = sub nuw i64 %2, %38
   %44 = icmp ult i64 %43, %42
   br i1 %44, label %.loopexit, label %45, !prof !41
 
@@ -3384,7 +3384,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_1010CodeHolder17
 
 68:                                               ; preds = %.loopexit7
   %69 = getelementptr inbounds i8, ptr %1, i64 %63
-  %70 = sub i64 %2, %63
+  %70 = sub nuw i64 %2, %63
   tail call void @llvm.memset.p0.i64(ptr align 1 %69, i8 0, i64 %70, i1 false)
   br label %.loopexit
 

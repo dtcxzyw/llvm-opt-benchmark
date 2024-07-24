@@ -398,7 +398,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE5allocEjb.exit.thre
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %_ZN11hb_vector_tIN19hb_ot_map_builder_t14feature_info_tELb0EE5allocEjb.exit.thread.i
-  %25 = sub i32 %5, %22
+  %25 = sub nuw i32 %5, %22
   %26 = mul i32 %25, 28
   %.not.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i, label %34, label %27
@@ -559,7 +559,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i: ; 
   br i1 %57, label %58, label %67
 
 58:                                               ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i
-  %59 = sub i32 %40, %56
+  %59 = sub nuw i32 %40, %56
   %60 = mul i32 %59, 12
   %.not.i.i.i.i = icmp eq i32 %60, 0
   br i1 %.not.i.i.i.i, label %67, label %61
@@ -705,7 +705,7 @@ _ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EE5allocEjb.exit.thread
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %_ZN11hb_vector_tIN19hb_ot_map_builder_t12stage_info_tELb0EE5allocEjb.exit.thread.i
-  %25 = sub i32 %5, %22
+  %25 = sub nuw i32 %5, %22
   %26 = shl i32 %25, 4
   %.not.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i, label %34, label %27
@@ -1527,7 +1527,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i.i: 
   br i1 %366, label %367, label %376
 
 367:                                              ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i.i
-  %368 = sub i32 %349, %365
+  %368 = sub nuw i32 %349, %365
   %369 = mul i32 %368, 12
   %.not.i.i.i.i.i = icmp eq i32 %369, 0
   br i1 %.not.i.i.i.i.i, label %376, label %370
@@ -1707,7 +1707,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i.i31
   br i1 %446, label %447, label %456
 
 447:                                              ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE5allocEjb.exit.thread.i.i.i310
-  %448 = sub i32 %429, %445
+  %448 = sub nuw i32 %429, %445
   %449 = mul i32 %448, 12
   %.not.i.i.i.i.i314 = icmp eq i32 %449, 0
   br i1 %.not.i.i.i.i.i314, label %456, label %450
@@ -2002,7 +2002,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE5allocEjb.exit.thread.i.i: ; p
   br i1 %570, label %571, label %580
 
 571:                                              ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE5allocEjb.exit.thread.i.i
-  %572 = sub i32 %553, %569
+  %572 = sub nuw i32 %553, %569
   %573 = shl i32 %572, 4
   %.not.i.i.i.i350 = icmp eq i32 %573, 0
   br i1 %.not.i.i.i.i350, label %580, label %574
@@ -2272,7 +2272,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE5allocEjb.exit.thread.i: ; p
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE5allocEjb.exit.thread.i
-  %25 = sub i32 %5, %22
+  %25 = sub nuw i32 %5, %22
   %26 = mul i32 %25, 36
   %.not.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i, label %34, label %27
@@ -2705,7 +2705,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i: ; pre
   br i1 %72, label %73, label %83
 
 73:                                               ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
-  %74 = sub i32 %51, %71
+  %74 = sub nuw i32 %51, %71
   %75 = shl i32 %74, 3
   %.not.i.i.i = icmp eq i32 %75, 0
   br i1 %.not.i.i.i, label %83, label %76
@@ -2852,7 +2852,7 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread: ; preds = %25, %13, 
   br i1 %brmerge.not, label %30, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit
 
 30:                                               ; preds = %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread
-  %31 = sub i32 %5, %28
+  %31 = sub nuw i32 %5, %28
   %32 = mul i32 %31, 72
   %.not.i.i = icmp eq i32 %32, 0
   br i1 %.not.i.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE11grow_vectorIS0_TnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit, label %33

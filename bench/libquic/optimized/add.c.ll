@@ -463,7 +463,7 @@ if.end12:                                         ; preds = %if.end6
   br i1 %or.cond, label %if.then15, label %if.end21
 
 if.then15:                                        ; preds = %if.end12
-  %sub = sub i64 %w, %.pre49
+  %sub = sub nuw i64 %w, %.pre49
   store i64 %sub, ptr %.pre, align 8
   store i32 1, ptr %neg, align 8
   br label %return
@@ -486,7 +486,7 @@ if.then25:                                        ; preds = %if.then25.loopexit,
   %idxprom.lcssa = phi i64 [ 0, %if.end21 ], [ %indvars.iv.next, %if.then25.loopexit ]
   %arrayidx23.lcssa = phi ptr [ %.pre, %if.end21 ], [ %arrayidx23, %if.then25.loopexit ]
   %.lcssa = phi i64 [ %.pre49, %if.end21 ], [ %7, %if.then25.loopexit ]
-  %sub29 = sub i64 %.lcssa, %w.addr.0.lcssa
+  %sub29 = sub nuw i64 %.lcssa, %w.addr.0.lcssa
   store i64 %sub29, ptr %arrayidx23.lcssa, align 8
   %4 = load ptr, ptr %a, align 8
   %arrayidx41 = getelementptr inbounds i64, ptr %4, i64 %idxprom.lcssa

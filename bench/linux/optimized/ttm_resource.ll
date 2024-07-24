@@ -1473,7 +1473,7 @@ define internal void @ttm_kmap_iter_iomap_map_local(ptr nocapture noundef %0, pt
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load i64, ptr %9, align 8
-  %41 = sub i64 %2, %34
+  %41 = sub nuw i64 %2, %34
   %42 = shl i64 %41, 12
   %43 = getelementptr inbounds i8, ptr %39, i64 24
   %44 = load ptr, ptr %43, align 8

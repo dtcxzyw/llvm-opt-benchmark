@@ -922,7 +922,7 @@ _ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit: ; preds 
   br label %59
 
 63:                                               ; preds = %59
-  %64 = sub i64 %.0104, %.0143
+  %64 = sub nuw i64 %.0104, %.0143
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %66, label %68
 
@@ -962,7 +962,7 @@ _ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit: ; preds 
   br label %.backedge
 
 75:                                               ; preds = %71
-  %76 = sub i64 %.2106, %.0143
+  %76 = sub nuw i64 %.2106, %.0143
   %77 = icmp eq i64 %76, %.sroa.080.0144
   br i1 %77, label %78, label %.backedge
 
@@ -2301,7 +2301,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i.i.i: ; preds = 
   br i1 %179, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h94aa5258204f722fE.exit.i.i.i", label %.lr.ph.split.split.i.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h778d244e98dfbca8E.exit.i.i.i.i": ; preds = %174
-  %182 = sub i64 %176, %134
+  %182 = sub nuw i64 %176, %134
   %183 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %182
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %183, ptr nonnull readonly %.sroa.027.sroa.8.0..sroa_idx, i64 %134), !alias.scope !338, !noalias !332
   %184 = icmp eq i32 %bcmp.i.i.i.i.i, 0
@@ -3794,7 +3794,7 @@ define void @_ZN10ockam_core7routing5route5Route4step17hc9e3871fa9bd4852E(ptr no
   %11 = load i64, ptr %10, align 8, !alias.scope !564, !noalias !567, !noundef !4
   %.not.i = icmp ult i64 %9, %11
   %12 = select i1 %.not.i, i64 0, i64 %11
-  %.0.i = sub i64 %9, %12
+  %.0.i = sub nuw i64 %9, %12
   store i64 %.0.i, ptr %7, align 8, !alias.scope !564, !noalias !567
   %13 = add i64 %5, -1
   store i64 %13, ptr %4, align 8, !alias.scope !564, !noalias !567
@@ -3836,7 +3836,7 @@ define { i64, ptr } @_ZN10ockam_core7routing5route5Route4next17h3dc75ee372785817
   %8 = load i64, ptr %7, align 8, !alias.scope !569, !noundef !4
   %.not.i = icmp ult i64 %6, %8
   %9 = select i1 %.not.i, i64 0, i64 %8
-  %.03.i = sub i64 %6, %9
+  %.03.i = sub nuw i64 %6, %9
   %10 = load ptr, ptr %0, align 8, !alias.scope !569, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %10, i64 %.03.i
   br label %14
@@ -3873,7 +3873,7 @@ define void @_ZN10ockam_core7routing5route5Route9recipient17hdcd597539a30fcd8E(p
   %11 = load i64, ptr %10, align 8, !alias.scope !572, !noundef !4
   %.not.i = icmp ult i64 %9, %11
   %12 = select i1 %.not.i, i64 0, i64 %11
-  %.03.i = sub i64 %9, %12
+  %.03.i = sub nuw i64 %9, %12
   %13 = load ptr, ptr %1, align 8, !alias.scope !572, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %13, i64 %.03.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !575)
@@ -3979,7 +3979,7 @@ define void @_ZN10ockam_core7routing5route5Route14contains_route17hff4bc5c58837b
   br label %57
 
 18:                                               ; preds = %11
-  %19 = sub i64 %13, %9
+  %19 = sub nuw i64 %13, %9
   %20 = getelementptr inbounds i8, ptr %7, i64 8
   %21 = getelementptr inbounds i8, ptr %7, i64 16
   %22 = getelementptr inbounds i8, ptr %7, i64 24
@@ -4441,7 +4441,7 @@ define void @_ZN10ockam_core7routing5route12RouteBuilder9pop_front17h2bb124cf406
   %14 = load i64, ptr %13, align 8, !alias.scope !700, !noalias !703, !noundef !4
   %.not.i = icmp ult i64 %12, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.0.i = sub i64 %12, %15
+  %.0.i = sub nuw i64 %12, %15
   store i64 %.0.i, ptr %10, align 8, !alias.scope !700, !noalias !703
   %16 = add i64 %6, -1
   store i64 %16, ptr %5, align 8, !alias.scope !700, !noalias !703
@@ -4521,7 +4521,7 @@ define void @_ZN10ockam_core7routing5route12RouteBuilder8pop_back17h131404b39775
   %15 = load i64, ptr %14, align 8, !alias.scope !717, !noalias !720, !noundef !4
   %.not.i = icmp ult i64 %13, %15
   %16 = select i1 %.not.i, i64 0, i64 %15
-  %.0.i = sub i64 %13, %16
+  %.0.i = sub nuw i64 %13, %16
   %17 = load ptr, ptr %1, align 8, !alias.scope !717, !noalias !720, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %17, i64 %.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !noalias !717
@@ -5067,7 +5067,7 @@ common.resume:                                    ; preds = %.body, %83
   %100 = add i64 %99, %98
   %.not.i = icmp ult i64 %100, %97
   %101 = select i1 %.not.i, i64 0, i64 %97
-  %.0.i = sub i64 %100, %101
+  %.0.i = sub nuw i64 %100, %101
   %102 = load ptr, ptr %7, align 8, !alias.scope !793, !noalias !796, !nonnull !4, !noundef !4
   %103 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %102, i64 %.0.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)

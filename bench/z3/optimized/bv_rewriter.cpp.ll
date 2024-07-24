@@ -23747,7 +23747,7 @@ if.then21:                                        ; preds = %invoke.cont19
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then21
-  %sub = sub i32 %16, %17
+  %sub = sub nuw i32 %16, %17
   invoke void @_ZN8rational12power_of_twoEj(ptr nonnull sret(%class.rational) align 8 %ref.tmp25, i32 noundef %sub)
           to label %invoke.cont26 unwind label %lpad11
 
@@ -23793,7 +23793,7 @@ cleanup.done:                                     ; preds = %cleanup.action, %_Z
   br i1 %cmp38, label %cond.true39, label %cond.false47
 
 cond.true39:                                      ; preds = %cleanup.done
-  %sub41 = sub i32 %21, %17
+  %sub41 = sub nuw i32 %21, %17
   invoke void @_ZN8rational12power_of_twoEj(ptr nonnull sret(%class.rational) align 8 %ref.tmp40, i32 noundef %sub41)
           to label %invoke.cont43 unwind label %lpad42
 
@@ -23976,7 +23976,7 @@ if.then84:                                        ; preds = %if.end77
   store i32 0, ptr %m_pos.i.i, align 8
   %m_capacity.i.i = getelementptr inbounds i8, ptr %new_args, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
-  %sub86 = sub i32 %39, %17
+  %sub86 = sub nuw i32 %39, %17
   %call.i115 = invoke noundef ptr @_ZNK7bv_util10mk_numeralERK8rationalj(ptr noundef nonnull align 8 dereferenceable(24) %m_util, ptr noundef nonnull align 8 dereferenceable(32) %af, i32 noundef %sub86)
           to label %invoke.cont88 unwind label %lpad87.loopexit.split-lp
 
@@ -24123,7 +24123,7 @@ if.then115:                                       ; preds = %if.end113
   store i32 0, ptr %m_pos.i.i121, align 8
   %m_capacity.i.i122 = getelementptr inbounds i8, ptr %new_args116, i64 12
   store i32 16, ptr %m_capacity.i.i122, align 4
-  %sub118 = sub i32 %51, %17
+  %sub118 = sub nuw i32 %51, %17
   %call.i124 = invoke noundef ptr @_ZNK7bv_util10mk_numeralERK8rationalj(ptr noundef nonnull align 8 dereferenceable(24) %m_util, ptr noundef nonnull align 8 dereferenceable(32) %bf, i32 noundef %sub118)
           to label %invoke.cont120 unwind label %lpad119.loopexit.split-lp
 
@@ -25530,7 +25530,7 @@ invoke.cont17:                                    ; preds = %call.i.i.noexc
   br i1 %cmp19.not, label %loop, label %if.then20
 
 if.then20:                                        ; preds = %invoke.cont17
-  %sub = sub i32 %idx.addr.132, %15
+  %sub = sub nuw i32 %idx.addr.132, %15
   %cmp.not.wide = icmp eq i64 %10, 0
   br i1 %cmp.not.wide, label %while.end, label %while.body, !llvm.loop !92
 

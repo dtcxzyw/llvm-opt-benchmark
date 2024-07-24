@@ -2746,7 +2746,7 @@ ZSTDMT_releaseBuffer.exit.i:                      ; preds = %546, %544, %537, %5
   br i1 %563, label %564, label %.thread
 
 564:                                              ; preds = %559
-  %565 = sub i64 %.095116.i, %562
+  %565 = sub nuw i64 %.095116.i, %562
   br label %ZSTDMT_flushProduced.exit
 
 .thread:                                          ; preds = %495, %559

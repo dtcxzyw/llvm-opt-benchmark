@@ -19269,11 +19269,11 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   br i1 %cmp56, label %if.then57, label %for.inc78
 
 if.then57:                                        ; preds = %for.body51
-  %conv55 = zext nneg i8 %14 to i32
   %arrayidx60 = getelementptr inbounds [256 x i16], ptr %code30, i64 0, i64 %indvars.iv83
   %15 = load i16, ptr %arrayidx60, align 2
   %conv61 = zext i16 %15 to i32
-  %sub62 = sub nuw nsw i32 9, %conv55
+  %narrow = sub nuw nsw i8 9, %14
+  %sub62 = zext nneg i8 %narrow to i32
   %shl63 = shl nuw nsw i32 %conv61, %sub62
   %conv69 = trunc i64 %indvars.iv83 to i8
   %16 = zext nneg i32 %shl63 to i64

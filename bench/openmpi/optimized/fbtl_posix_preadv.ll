@@ -382,7 +382,7 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %.098139.i = phi i64 [ %209, %208 ], [ 0, %.preheader.i60 ]
   %199 = load i32, ptr %0, align 8
   %200 = getelementptr inbounds i8, ptr %.1107.i, i64 %.098139.i
-  %201 = sub i64 %184, %.098139.i
+  %201 = sub nuw i64 %184, %.098139.i
   %202 = add i64 %.098139.i, %159
   %203 = call i64 @pread(i32 noundef %199, ptr noundef %200, i64 noundef %201, i64 noundef %202) #10
   switch i64 %203, label %208 [
@@ -431,7 +431,7 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %224 = load i64, ptr %223, align 8
   %225 = add i64 %224, %220
   %226 = icmp ugt i64 %225, %.098.lcssa.i
-  %227 = sub i64 %.098.lcssa.i, %220
+  %227 = sub nuw i64 %.098.lcssa.i, %220
   %spec.select122.i = select i1 %226, i64 %227, i64 %224
   %228 = load ptr, ptr %216, align 8
   %229 = getelementptr inbounds i8, ptr %.1107.i, i64 %220

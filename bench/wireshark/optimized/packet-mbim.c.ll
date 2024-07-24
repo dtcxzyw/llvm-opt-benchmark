@@ -11663,7 +11663,7 @@ define internal fastcc void @mbim_dissect_set_sms_send(ptr noundef %0, ptr nound
   br i1 %68, label %69, label %mbim_dissect_sms_send_pdu.exit
 
 69:                                               ; preds = %66
-  %70 = sub i32 %67, %54
+  %70 = sub nuw i32 %67, %54
   store i32 %70, ptr %13, align 4
   %71 = load i32, ptr %12, align 4
   %72 = add i32 %3, 5
@@ -15120,7 +15120,7 @@ define internal fastcc void @mbim_dissect_sms_read_info(ptr noundef %0, ptr noun
   br i1 %118, label %119, label %mbim_dissect_sms_pdu_record.exit
 
 119:                                              ; preds = %116
-  %120 = sub i32 %117, %104
+  %120 = sub nuw i32 %117, %104
   store i32 %120, ptr %16, align 4
   %121 = load i32, ptr %15, align 4
   %122 = add i32 %63, 1

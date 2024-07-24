@@ -470,7 +470,7 @@ define internal void @perf_ibs_start(ptr noundef %0, i32 %1) #2 align 16 {
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %35
-  %39 = sub i64 %36, %21
+  %39 = sub nuw i64 %36, %21
   %40 = icmp ugt i64 %39, %21
   br i1 %40, label %43, label %41
 
@@ -971,7 +971,7 @@ define internal fastcc range(i32 0, 2) i32 @perf_ibs_handle_irq(ptr noundef %0, 
   br i1 %91, label %92, label %97
 
 92:                                               ; preds = %88
-  %93 = sub i64 %89, %75
+  %93 = sub nuw i64 %89, %75
   %94 = icmp ugt i64 %93, %75
   br i1 %94, label %97, label %95
 

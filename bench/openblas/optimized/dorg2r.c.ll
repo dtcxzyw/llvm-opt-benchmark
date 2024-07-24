@@ -72,7 +72,7 @@ define void @dorg2r_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %44 = add nuw nsw i32 %23, 1
   %45 = zext nneg i32 %17 to i64
   %46 = shl nuw nsw i64 %45, 3
-  %47 = sub nsw i32 %20, %23
+  %47 = sub nuw nsw i32 %20, %23
   br i1 %40, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %39

@@ -2222,7 +2222,7 @@ if.then.i.i:                                      ; preds = %if.end
   %3 = load ptr, ptr %_M_str.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %add
   store ptr %add.ptr.i.i.i.i, ptr %_M_str.i.i.i.i, align 8
-  %sub.i.i.i.i = sub i64 %2, %add
+  %sub.i.i.i.i = sub nuw i64 %2, %add
   store i64 %sub.i.i.i.i, ptr %it_, align 8
   %bytes_remaining_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i64, ptr %bytes_remaining_.i.i.i, align 8
@@ -2316,7 +2316,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   %3 = load ptr, ptr %_M_str.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %1
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_str.i.i.i.i.i, align 8
-  %sub.i.i.i.i.i = sub i64 %2, %1
+  %sub.i.i.i.i.i = sub nuw i64 %2, %1
   store i64 %sub.i.i.i.i.i, ptr %it_.i, align 8
   %bytes_remaining_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i64, ptr %bytes_remaining_.i.i.i.i, align 8
@@ -2433,7 +2433,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %0, %conv
+  %sub = sub nuw i64 %0, %conv
   store i64 %sub, ptr %available_, align 8
   %bytes_remaining_ = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load i64, ptr %bytes_remaining_, align 8
@@ -2466,7 +2466,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   %5 = load ptr, ptr %_M_str.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %add.i
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_str.i.i.i.i.i, align 8
-  %sub.i.i.i.i.i = sub i64 %4, %add.i
+  %sub.i.i.i.i.i = sub nuw i64 %4, %add.i
   store i64 %sub.i.i.i.i.i, ptr %it_.i, align 8
   %bytes_remaining_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load i64, ptr %bytes_remaining_.i.i.i.i, align 8
@@ -2539,7 +2539,7 @@ if.then.i.i.i39:                                  ; preds = %if.end.i8
   %11 = load ptr, ptr %_M_str.i.i.i.i.i40, align 8
   %add.ptr.i.i.i.i.i41 = getelementptr inbounds i8, ptr %11, i64 %add.i11
   store ptr %add.ptr.i.i.i.i.i41, ptr %_M_str.i.i.i.i.i40, align 8
-  %sub.i.i.i.i.i42 = sub i64 %10, %add.i11
+  %sub.i.i.i.i.i42 = sub nuw i64 %10, %add.i11
   store i64 %sub.i.i.i.i.i42, ptr %it_.i12, align 8
   %bytes_remaining_.i.i.i.i43 = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load i64, ptr %bytes_remaining_.i.i.i.i43, align 8
@@ -2631,7 +2631,7 @@ if.then.i.i:                                      ; preds = %entry
   %3 = load ptr, ptr %_M_str.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub
   store ptr %add.ptr.i.i.i.i, ptr %_M_str.i.i.i.i, align 8
-  %sub.i.i.i.i = sub i64 %2, %sub
+  %sub.i.i.i.i = sub nuw i64 %2, %sub
   store i64 %sub.i.i.i.i, ptr %it_, align 8
   %bytes_remaining_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i64, ptr %bytes_remaining_.i.i.i, align 8
@@ -2947,7 +2947,7 @@ _ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit: ; preds = %cond.true.i, %cond
   %size_hint_ = getelementptr inbounds i8, ptr %this, i64 24
   %12 = load i64, ptr %size_hint_, align 8
   %cmp = icmp ugt i64 %12, %add
-  %sub = sub i64 %12, %add
+  %sub = sub nuw i64 %12, %add
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add, i64 128)
   %max_size.0 = select i1 %cmp, i64 %sub, i64 -1
   %desired_size.0 = select i1 %cmp, i64 %sub, i64 %.sroa.speculated
@@ -4080,7 +4080,7 @@ while.body.i.i:                                   ; preds = %if.end.i, %while.bo
   %index.08.i.i = phi i64 [ %inc.i.i, %while.body.i.i ], [ %conv.i.i.i, %if.end.i ]
   %offset.addr.07.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %offset, %if.end.i ]
   %inc.i.i = add i64 %index.08.i.i, 1
-  %sub.i.i = sub i64 %offset.addr.07.i.i, %6
+  %sub.i.i = sub nuw i64 %offset.addr.07.i.i, %6
   %arrayidx.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i, i64 0, i64 %inc.i.i
   %7 = load ptr, ptr %arrayidx.i.i, align 8
   %8 = load i64, ptr %7, align 8
@@ -4127,7 +4127,7 @@ while.body.i22.i:                                 ; preds = %while.body.i, %whil
   %index.08.i23.i = phi i64 [ %inc.i25.i, %while.body.i22.i ], [ %conv.i.i18.i, %while.body.i ]
   %offset.addr.07.i24.i = phi i64 [ %sub.i26.i, %while.body.i22.i ], [ %offset.addr.0.lcssa.i.pn39.i, %while.body.i ]
   %inc.i25.i = add i64 %index.08.i23.i, 1
-  %sub.i26.i = sub i64 %offset.addr.07.i24.i, %14
+  %sub.i26.i = sub nuw i64 %offset.addr.07.i24.i, %14
   %arrayidx.i27.i = getelementptr inbounds [6 x ptr], ptr %edges_.i19.i, i64 0, i64 %inc.i25.i
   %15 = load ptr, ptr %arrayidx.i27.i, align 8
   %16 = load i64, ptr %15, align 8
@@ -4196,7 +4196,7 @@ if.then.i.i:                                      ; preds = %_ZN4absl12lts_20230
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZN4absl12lts_2023080213cord_internal8EdgeDataEPKNS1_7CordRepE.exit
   %retval.sroa.3.0.i4 = getelementptr inbounds i8, ptr %storage.i.pn.i, i64 %offset.0.i
-  %sub.i = sub i64 %18, %offset.addr.0.lcssa.i.pn.lcssa.i
+  %sub.i = sub nuw i64 %18, %offset.addr.0.lcssa.i.pn.lcssa.i
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.i4, i64 %offset.addr.0.lcssa.i.pn.lcssa.i
   %24 = load i32, ptr %navigator_, align 8
   %cmp.i.i.i = icmp sgt i32 %24, -1

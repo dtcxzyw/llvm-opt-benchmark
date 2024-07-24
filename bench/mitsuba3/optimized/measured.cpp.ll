@@ -12896,7 +12896,7 @@ declare float @llvm.fma.f32(float, float, float) #14
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN5drjit13binary_searchIjZNK7mitsuba10Marginal2DIfLm2ELb1EE17sample_continuousENS1_5PointIfLm2EEEPKfbEUljE_EET_NS_6detail6scalarIS9_iE4typeESD_RKT0_(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 comdat {
   %4 = icmp ult i32 %0, %1
-  %5 = sub i32 %1, %0
+  %5 = sub nuw i32 %1, %0
   %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
   %7 = sub nuw nsw i32 32, %6
   %narrow = select i1 %4, i32 %7, i32 0
@@ -13046,7 +13046,7 @@ define linkonce_odr hidden noundef i32 @_ZN5drjit13binary_searchIjZNK7mitsuba10M
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = sub i32 %1, %0
+  %5 = sub nuw i32 %1, %0
   %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
   %7 = sub nuw nsw i32 32, %6
   %8 = load ptr, ptr %2, align 8

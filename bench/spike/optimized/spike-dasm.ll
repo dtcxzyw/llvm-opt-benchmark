@@ -344,7 +344,7 @@ _ZNSt6vectorIP13disasm_insn_tSaIS1_EED2Ev.exit:   ; preds = %67, %._crit_edge, %
   %116 = phi i64 [ %404, %.backedge ], [ %115, %.preheader ]
   %.020194 = phi i64 [ %.020.be, %.backedge ], [ 0, %.preheader ]
   %117 = load ptr, ptr %6, align 8
-  %118 = sub i64 %116, %.020194
+  %118 = sub nuw i64 %116, %.020194
   %.not3339.i.i = icmp ult i64 %118, 5
   br i1 %.not3339.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit.thread, label %.lr.ph.i.i
 
@@ -704,7 +704,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; p
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i95: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
   %233 = load ptr, ptr %6, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 %226
-  %235 = sub i64 %230, %226
+  %235 = sub nuw i64 %230, %226
   %236 = icmp ugt i64 %235, 15
   br i1 %236, label %237, label %._crit_edge.i.i97
 

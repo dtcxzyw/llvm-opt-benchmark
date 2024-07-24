@@ -4797,11 +4797,12 @@ define hidden { i64, i64 } @"_ZN47_$LT$u32$u20$as$u20$core..iter..range..Step$GT
   %3 = load i32, ptr %0, align 4, !noundef !9
   %4 = load i32, ptr %1, align 4, !noundef !9
   %.not = icmp ule i32 %3, %4
-  %5 = sub i32 %4, %3
+  %5 = sub nuw i32 %4, %3
   %6 = zext i32 %5 to i64
+  %.sroa.3.0 = select i1 %.not, i64 %6, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %6, 1
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.3.0, 1
   ret { i64, i64 } %8
 }
 
@@ -27256,7 +27257,7 @@ define hidden void @_ZN15tree_sitter_cli8generate3nfa9NfaCursor17group_transitio
 
 191:                                              ; preds = %.noexc134
   %192 = getelementptr inbounds i8, ptr %189, i64 4
-  %193 = sub i64 %170, %.019.lcssa.i
+  %193 = sub nuw i64 %170, %.019.lcssa.i
   %194 = shl i64 %193, 2
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %192, ptr nonnull align 4 %189, i64 %194, i1 false)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hf472fa76cd7e71c8E.exit"
@@ -27345,7 +27346,7 @@ define hidden void @_ZN15tree_sitter_cli8generate3nfa9NfaCursor17group_transitio
   %219 = phi ptr [ %.pre469, %._crit_edge468 ], [ %.val74, %210 ]
   %220 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, i32, i8, [3 x i8] }, ptr %219, i64 %.0343
   %221 = getelementptr inbounds i8, ptr %220, i64 56
-  %222 = sub i64 %.val75, %.0343
+  %222 = sub nuw i64 %.val75, %.0343
   %223 = mul i64 %222, 56
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %221, ptr nonnull align 8 %220, i64 %223, i1 false), !noalias !5377
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %220, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false)

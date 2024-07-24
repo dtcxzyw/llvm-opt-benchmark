@@ -3491,7 +3491,7 @@ for.end29:                                        ; preds = %for.body23, %for.en
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end29
-  %sub.i = sub nsw i64 %conv32, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv32, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIN6google8protobuf6SymbolESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %symbols_after_checkpoint_, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN6google8protobuf6SymbolESaIS2_EE6resizeEm.exit
 
@@ -3521,7 +3521,7 @@ _ZNSt6vectorIN6google8protobuf6SymbolESaIS2_EE6resizeEm.exit: ; preds = %if.then
   br i1 %cmp.i79, label %if.then.i86, label %if.else.i80
 
 if.then.i86:                                      ; preds = %_ZNSt6vectorIN6google8protobuf6SymbolESaIS2_EE6resizeEm.exit
-  %sub.i87 = sub nsw i64 %conv35, %sub.ptr.div.i.i78
+  %sub.i87 = sub nuw nsw i64 %conv35, %sub.ptr.div.i.i78
   call void @_ZNSt6vectorIPKN6google8protobuf14FileDescriptorESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %files_after_checkpoint_, i64 noundef %sub.i87)
   br label %_ZNSt6vectorIPKN6google8protobuf14FileDescriptorESaIS4_EE6resizeEm.exit
 
@@ -3551,7 +3551,7 @@ _ZNSt6vectorIPKN6google8protobuf14FileDescriptorESaIS4_EE6resizeEm.exit: ; preds
   br i1 %cmp.i93, label %if.then.i100, label %if.else.i94
 
 if.then.i100:                                     ; preds = %_ZNSt6vectorIPKN6google8protobuf14FileDescriptorESaIS4_EE6resizeEm.exit
-  %sub.i101 = sub nsw i64 %conv38, %sub.ptr.div.i.i92
+  %sub.i101 = sub nuw nsw i64 %conv38, %sub.ptr.div.i.i92
   call void @_ZNSt6vectorISt4pairIPKN6google8protobuf10DescriptorEiESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %extensions_after_checkpoint_, i64 noundef %sub.i101)
   br label %_ZNSt6vectorISt4pairIPKN6google8protobuf10DescriptorEiESaIS6_EE6resizeEm.exit
 
@@ -3583,7 +3583,7 @@ _ZNSt6vectorISt4pairIPKN6google8protobuf10DescriptorEiESaIS6_EE6resizeEm.exit: ;
   br i1 %cmp.i106, label %if.then.i113, label %if.else.i107
 
 if.then.i113:                                     ; preds = %_ZNSt6vectorISt4pairIPKN6google8protobuf10DescriptorEiESaIS6_EE6resizeEm.exit
-  %sub.i114 = sub nsw i64 %conv39, %sub.ptr.div.i.i105
+  %sub.i114 = sub nuw nsw i64 %conv39, %sub.ptr.div.i.i105
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %63 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i13.i = ptrtoint ptr %63 to i64
@@ -3700,7 +3700,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -4239,7 +4239,7 @@ for.inc.i:                                        ; preds = %if.end.i
   br i1 %cmp.i5.i, label %if.then.i7.i, label %for.end.i
 
 if.then.i7.i:                                     ; preds = %for.inc.i
-  %sub.i.i = sub i64 %agg.tmp.sroa.0.0.copyload, %add.i
+  %sub.i.i = sub nuw i64 %agg.tmp.sroa.0.0.copyload, %add.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.2.0.copyload, i64 %add.i
   %call.i.i9.i = call ptr @memchr(ptr noundef nonnull %add.ptr.i.i, i32 noundef 46, i64 noundef %sub.i.i) #37
   %tobool.not.i10.i = icmp eq ptr %call.i.i9.i, null
@@ -12098,7 +12098,7 @@ for.inc:                                          ; preds = %if.end
   br i1 %cmp.i5, label %if.then.i7, label %for.end
 
 if.then.i7:                                       ; preds = %for.inc
-  %sub.i = sub i64 %name.coerce0, %add
+  %sub.i = sub nuw i64 %name.coerce0, %add
   %add.ptr.i = getelementptr inbounds i8, ptr %name.coerce1, i64 %add
   %call.i.i9 = tail call ptr @memchr(ptr noundef nonnull %add.ptr.i, i32 noundef 46, i64 noundef %sub.i) #37
   %tobool.not.i10 = icmp eq ptr %call.i.i9, null
@@ -30699,7 +30699,7 @@ if.then.i.i117:                                   ; preds = %_ZN6google8protobuf
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit118: ; preds = %_ZN6google8protobuf12_GLOBAL__N_117FlatAllocatorImplIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEE15AllocateStringsIJSt17basic_string_viewIcS6_EEEEPKS8_DpOT_.exit
-  %sub.i111 = sub i64 %17, %__size.1.i.i
+  %sub.i111 = sub nuw i64 %17, %__size.1.i.i
   %18 = load ptr, ptr %9, align 8
   %add.ptr.i114 = getelementptr inbounds i8, ptr %18, i64 %__size.1.i.i
   store i64 %sub.i111, ptr %placeholder_name, align 8
@@ -58733,7 +58733,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %1, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %0, %4
+  %sub.i.i.i.i = sub nuw i64 %0, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !842
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__begin3, i64 24
@@ -58817,7 +58817,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i18, i64 %17
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i17, %17
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i17, %17
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   store ptr %add.ptr15.i, ptr %line.sroa.2.0.call9.sroa_idx, align 8
@@ -68281,9 +68281,8 @@ if.end18:                                         ; preds = %_ZZN4absl12lts_2023
 if.then.i:                                        ; preds = %if.end18
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %17 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type.677", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %conv4.i = zext i8 %16 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i
-  %conv6.i = sext i32 %sub.i to i64
+  %narrow.i = sub nuw i8 %16, %conv21
+  %conv6.i = zext i8 %narrow.i to i64
   %18 = getelementptr i8, ptr %17, i64 24
   %arrayidx.i8.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type.677", ptr %18, i64 %conv6.i
   %arrayidx.i.i.i13 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type.677", ptr %17, i64 %conv6.i
@@ -68645,9 +68644,8 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsISt4pairI
 if.then.i:                                        ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsISt4pairIPKN6google8protobuf10DescriptorEiEPKNS6_15FieldDescriptorESt4lessISA_ESaIS4_IKSA_SD_EELi256ELb0EEEE10transfer_nEmmmPSK_PSI_.exit
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type.677", ptr %add.ptr.i.i.i.i.i, i64 %conv9.i
-  %conv4.i = zext i8 %8 to i32
-  %sub.i = sub nsw i32 %conv4.i, %conv.i33
-  %conv6.i = sext i32 %sub.i to i64
+  %narrow.i = sub nuw i8 %8, %7
+  %conv6.i = zext i8 %narrow.i to i64
   %10 = getelementptr i8, ptr %9, i64 24
   %arrayidx.i8.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type.677", ptr %10, i64 %conv6.i
   %arrayidx.i.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type.677", ptr %9, i64 %conv6.i

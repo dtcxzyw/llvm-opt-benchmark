@@ -126,7 +126,7 @@ define void @_ZN3gmx22ComputeDebyeScattering16initPairDistHistEv(ptr noundef non
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %14
-  %33 = sub nsw i64 %23, %30
+  %33 = sub nuw nsw i64 %23, %30
   tail call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %33)
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
 
@@ -180,7 +180,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %32, %34, %36, %_ZSt
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %.lr.ph
-  %55 = sub i64 %45, %52
+  %55 = sub nuw i64 %45, %52
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %55)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -221,7 +221,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %54, %56, %58, %60
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %69
-  %80 = sub i64 %9, %77
+  %80 = sub nuw i64 %9, %77
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %70, i64 noundef %80)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit10
 
@@ -252,7 +252,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit10:             ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit10
-  %97 = sub i64 %87, %94
+  %97 = sub nuw i64 %87, %94
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %86, i64 noundef %97)
   %.pre = load ptr, ptr %88, align 8
   %.pre17 = load ptr, ptr %86, align 8
@@ -602,7 +602,7 @@ define void @_ZN3gmx22ComputeDebyeScattering16computeIntensityEv(ptr noundef non
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %1
-  %20 = sub nsw i64 %10, %17
+  %20 = sub nuw nsw i64 %10, %17
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %20)
   %.pre = load ptr, ptr %4, align 8
   %.pre28 = load ptr, ptr %3, align 8

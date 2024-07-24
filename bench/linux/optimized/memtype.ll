@@ -422,7 +422,7 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   br label %105
 
 50:                                               ; preds = %42
-  %51 = sub nsw i64 %45, %48
+  %51 = sub nuw nsw i64 %45, %48
   %52 = call i32 @walk_system_ram_range(i64 noundef %48, i64 noundef %51, ptr noundef nonnull %5, ptr noundef nonnull @pagerange_is_ram_callback) #18
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.thread17, label %54
@@ -692,7 +692,7 @@ define dso_local noundef range(i32 -22, 1) i32 @memtype_free(i64 noundef %0, i64
   br label %46
 
 18:                                               ; preds = %10
-  %19 = sub nsw i64 %13, %16
+  %19 = sub nuw nsw i64 %13, %16
   %20 = call i32 @walk_system_ram_range(i64 noundef %16, i64 noundef %19, ptr noundef nonnull %3, ptr noundef nonnull @pagerange_is_ram_callback) #18
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.thread6, label %22
@@ -816,7 +816,7 @@ define internal fastcc i32 @lookup_memtype(i64 noundef %0) unnamed_addr #3 align
   br label %30
 
 14:                                               ; preds = %6
-  %15 = sub nsw i64 %9, %12
+  %15 = sub nuw nsw i64 %9, %12
   %16 = call i32 @walk_system_ram_range(i64 noundef %12, i64 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull @pagerange_is_ram_callback) #18
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %20, label %18
@@ -1141,7 +1141,7 @@ define internal fastcc i32 @reserve_pfn_range(i64 noundef %0, i64 noundef %1, pt
   br label %57
 
 17:                                               ; preds = %4
-  %18 = sub nsw i64 %12, %15
+  %18 = sub nuw nsw i64 %12, %15
   %19 = call i32 @walk_system_ram_range(i64 noundef %15, i64 noundef %18, ptr noundef nonnull %5, ptr noundef nonnull @pagerange_is_ram_callback) #18
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %23, label %21
@@ -1483,7 +1483,7 @@ define dso_local void @untrack_pfn(ptr noundef %0, i64 noundef %1, i64 noundef %
   br label %45
 
 39:                                               ; preds = %28
-  %40 = sub nsw i64 %34, %37
+  %40 = sub nuw nsw i64 %34, %37
   %41 = call i32 @walk_system_ram_range(i64 noundef %37, i64 noundef %40, ptr noundef nonnull %5, ptr noundef nonnull @pagerange_is_ram_callback) #18
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %47, label %43

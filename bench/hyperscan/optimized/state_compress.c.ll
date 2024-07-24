@@ -749,7 +749,7 @@ if.else.i:                                        ; preds = %while.body.i
   %shl12.i = shl i64 %conv1.i, %sh_prom11.i
   %or13.i = or i64 %shl12.i, %v_out.i.0
   %add14.i = add i32 %sub.i, %vidx.i.0
-  %sub15.i = sub i32 %b.i.0, %sub.i
+  %sub15.i = sub nuw i32 %b.i.0, %sub.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then.i, %if.else.i
@@ -1319,7 +1319,7 @@ if.else.i:                                        ; preds = %while.body.i
   %shl12.i = shl i64 %conv1.i, %sh_prom11.i
   %or13.i = or i64 %shl12.i, %v_out.i.0
   %add14.i = add i32 %sub.i, %vidx.i.0
-  %sub15.i = sub i32 %b.i.0, %sub.i
+  %sub15.i = sub nuw i32 %b.i.0, %sub.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then.i, %if.else.i
@@ -2151,7 +2151,7 @@ if.else.i:                                        ; preds = %while.body.i
   %shl12.i = shl i64 %conv1.i, %sh_prom11.i
   %or13.i = or i64 %shl12.i, %v_out.i.0
   %add14.i = add i32 %sub.i, %vidx.i.0
-  %sub15.i = sub i32 %b.i.0, %sub.i
+  %sub15.i = sub nuw i32 %b.i.0, %sub.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then.i, %if.else.i
@@ -3241,7 +3241,7 @@ if.else.i:                                        ; preds = %while.body.i
   %shl12.i = shl i64 %conv1.i, %sh_prom11.i
   %or13.i = or i64 %shl12.i, %v_out.i.0
   %add14.i = add i32 %sub.i, %vidx.i.0
-  %sub15.i = sub i32 %b.i.0, %sub.i
+  %sub15.i = sub nuw i32 %b.i.0, %sub.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then.i, %if.else.i

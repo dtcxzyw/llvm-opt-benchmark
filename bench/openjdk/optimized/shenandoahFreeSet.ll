@@ -508,7 +508,7 @@ define hidden void @_ZN26ShenandoahRegionPartitions21retire_from_partitionE28She
   br label %15
 
 8:                                                ; preds = %4
-  %9 = sub i64 %6, %3
+  %9 = sub nuw i64 %6, %3
   %10 = getelementptr inbounds i8, ptr %0, i64 152
   %11 = zext i8 %1 to i64
   %12 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 %11
@@ -2241,7 +2241,7 @@ switch.lookup127:                                 ; preds = %174
   br label %_ZN26ShenandoahRegionPartitions21retire_from_partitionE28ShenandoahFreeSetPartitionIdlm.exit
 
 191:                                              ; preds = %switch.lookup127
-  %192 = sub i64 %189, %187
+  %192 = sub nuw i64 %189, %187
   %193 = getelementptr inbounds i8, ptr %0, i64 160
   %switch.masked.mask128 = and i32 %switch.downshift, 1
   %194 = zext nneg i32 %switch.masked.mask128 to i64

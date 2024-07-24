@@ -9776,7 +9776,7 @@ if.then5:                                         ; preds = %entry
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
-  %sub = sub i64 %1, %pOffset
+  %sub = sub nuw i64 %1, %pOffset
   %pos11 = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %sub, ptr %pos11, align 8
   br label %return

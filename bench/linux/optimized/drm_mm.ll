@@ -1815,7 +1815,7 @@ define dso_local noundef zeroext i1 @drm_mm_scan_add_block(ptr nocapture noundef
   br i1 %37, label %38, label %77
 
 38:                                               ; preds = %28
-  %39 = sub i64 %36, %33
+  %39 = sub nuw i64 %36, %33
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = icmp ult i64 %39, %41

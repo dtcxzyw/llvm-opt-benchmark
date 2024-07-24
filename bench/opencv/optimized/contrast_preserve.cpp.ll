@@ -715,7 +715,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %12
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %27
-  %48 = sub nsw i64 %38, %45
+  %48 = sub nuw nsw i64 %38, %45
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %48)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %95
 
@@ -947,7 +947,7 @@ define hidden void @_ZNK7Decolor9colorGradERKN2cv3MatERSt6vectorIdSaIdEE(ptr nou
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %32
-  %49 = sub nsw i64 %39, %46
+  %49 = sub nuw nsw i64 %39, %46
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %49)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %83
 
@@ -1590,7 +1590,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.thread:             ; preds = %94
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %._crit_edge
-  %149 = sub nsw i64 %70, %146
+  %149 = sub nuw nsw i64 %70, %146
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %149)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge unwind label %175
 

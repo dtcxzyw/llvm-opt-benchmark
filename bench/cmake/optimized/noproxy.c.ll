@@ -158,7 +158,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %61, label %62, label %.critedge123.us.us.preheader
 
 62:                                               ; preds = %60
-  %63 = sub i64 %spec.select, %.2.us.us
+  %63 = sub nuw i64 %spec.select, %.2.us.us
   %gep = getelementptr i8, ptr %invariant.gep, i64 %63
   %64 = load i8, ptr %gep, align 1
   %65 = icmp eq i8 %64, 46

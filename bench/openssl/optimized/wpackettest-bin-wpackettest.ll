@@ -2564,7 +2564,7 @@ if.end.i8:                                        ; preds = %lor.lhs.false35
 if.end5.i:                                        ; preds = %if.end.i8
   %call7.i = call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %read_pkt.sroa.0.1) #3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %read_pkt.sroa.0.1, i64 %conv1.i.i
-  %sub.i.i = sub i64 %read_pkt.sroa.5.1, %conv1.i.i
+  %sub.i.i = sub nuw i64 %read_pkt.sroa.5.1, %conv1.i.i
   br label %PACKET_get_quic_vlint.exit
 
 PACKET_get_quic_vlint.exit:                       ; preds = %lor.lhs.false35, %if.end.i8, %if.end5.i

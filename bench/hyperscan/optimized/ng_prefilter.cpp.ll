@@ -3947,7 +3947,7 @@ invoke.cont1.i.i.i.i.i:                           ; preds = %if.then.i.i178.i
 invoke.cont1.i.i11.i.i.i:                         ; preds = %invoke.cont1.i.i.i.i.i, %if.then.i.i178.i
   %out_start.addr.0.i.i.i = phi ptr [ %447, %if.then.i.i178.i ], [ %add.ptr.i5.i.i.i.i.i, %invoke.cont1.i.i.i.i.i ]
   %f.addr.0.i.i.i.i.i = phi ptr [ %443, %if.then.i.i178.i ], [ %add.ptr.i.i.i.i17.i.i, %invoke.cont1.i.i.i.i.i ]
-  %sub.i.i180.i = sub i64 %444, %448
+  %sub.i.i180.i = sub nuw i64 %444, %448
   %mul.i.i12.i.i.i = shl i64 %sub.i.i180.i, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i.i, ptr align 4 %f.addr.0.i.i.i.i.i, i64 %mul.i.i12.i.i.i, i1 false)
   br label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit.i.i.sink.split.i
@@ -4214,7 +4214,7 @@ invoke.cont1.i.i.i.i207.i:                        ; preds = %if.then.i.i205.i
 invoke.cont1.i.i11.i.i211.i:                      ; preds = %invoke.cont1.i.i.i.i207.i, %if.then.i.i205.i
   %out_start.addr.0.i.i212.i = phi ptr [ %471, %if.then.i.i205.i ], [ %add.ptr.i5.i.i.i.i210.i, %invoke.cont1.i.i.i.i207.i ]
   %f.addr.0.i.i.i.i213.i = phi ptr [ %467, %if.then.i.i205.i ], [ %add.ptr.i.i.i.i17.i209.i, %invoke.cont1.i.i.i.i207.i ]
-  %sub.i.i214.i = sub i64 %468, %472
+  %sub.i.i214.i = sub nuw i64 %468, %472
   %mul.i.i12.i.i215.i = shl i64 %sub.i.i214.i, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i212.i, ptr align 4 %f.addr.0.i.i.i.i213.i, i64 %mul.i.i12.i.i215.i, i1 false)
   br label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit.i.i129.sink.split.i

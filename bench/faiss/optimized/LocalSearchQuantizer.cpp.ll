@@ -198,7 +198,7 @@ define void @_ZN5faiss3lsq10IcmEncoder15set_binary_termEv(ptr noundef nonnull al
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %1
-  %20 = sub i64 %10, %17
+  %20 = sub nuw i64 %10, %17
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %20)
   %.pre = load ptr, ptr %2, align 8
   %.pre4 = load ptr, ptr %8, align 8
@@ -404,7 +404,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %69
-  %86 = sub i64 %76, %83
+  %86 = sub nuw i64 %76, %83
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %70, i64 noundef %86)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %67
 

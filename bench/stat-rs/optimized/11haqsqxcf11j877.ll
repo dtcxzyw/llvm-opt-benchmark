@@ -70,7 +70,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hcbe8b3213ffbd486E.exit"
 
 14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit"
-  %15 = sub i64 %1, %12
+  %15 = sub nuw i64 %1, %12
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc13d90eef3c54482E.llvm.7371537965014501254"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %15)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hcbe8b3213ffbd486E.exit" unwind label %27
 
@@ -165,7 +165,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hcbe8b3213ffbd486E.exit"
 
 16:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit"
-  %17 = sub i64 %8, %14
+  %17 = sub nuw i64 %8, %14
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc13d90eef3c54482E.llvm.7371537965014501254"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %17)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hcbe8b3213ffbd486E.exit" unwind label %30
 
@@ -635,7 +635,7 @@ define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..a
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hcbe8b3213ffbd486E.exit.i"
 
 21:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13reserve_exact17h109e31907df2efafE.exit.i"
-  %22 = sub i64 %.val, %19
+  %22 = sub nuw i64 %.val, %19
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc13d90eef3c54482E.llvm.7371537965014501254"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %22)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hcbe8b3213ffbd486E.exit.i" unwind label %32, !noalias !111
 

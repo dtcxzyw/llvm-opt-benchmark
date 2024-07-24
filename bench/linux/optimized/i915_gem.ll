@@ -509,7 +509,7 @@ define dso_local i32 @i915_gem_pread_ioctl(ptr nocapture noundef readonly %0, pt
 
 53:                                               ; preds = %47
   %54 = load i64, ptr %13, align 8
-  %55 = sub i64 %51, %49
+  %55 = sub nuw i64 %51, %49
   %56 = icmp ugt i64 %54, %55
   br i1 %56, label %93, label %57
 
@@ -1032,7 +1032,7 @@ define dso_local i32 @i915_gem_pwrite_ioctl(ptr nocapture noundef readonly %0, p
 
 53:                                               ; preds = %47
   %54 = load i64, ptr %13, align 8
-  %55 = sub i64 %51, %49
+  %55 = sub nuw i64 %51, %49
   %56 = icmp ugt i64 %54, %55
   br i1 %56, label %104, label %57
 

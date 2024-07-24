@@ -3884,7 +3884,7 @@ define dso_local noundef range(i32 -12, 1) i32 @hibernate_preallocate_memory() l
   br i1 %120, label %121, label %preallocate_image_memory.exit
 
 121:                                              ; preds = %117
-  %122 = sub i64 %101, %119
+  %122 = sub nuw i64 %101, %119
   %123 = tail call i64 @llvm.umin.i64(i64 %122, i64 %58)
   %124 = icmp eq i64 %123, 0
   br i1 %124, label %preallocate_image_memory.exit, label %.lr.ph.i
@@ -3958,7 +3958,7 @@ define dso_local noundef range(i32 -12, 1) i32 @hibernate_preallocate_memory() l
   br i1 %171, label %172, label %preallocate_image_memory.exit21
 
 172:                                              ; preds = %146
-  %173 = sub i64 %162, %170
+  %173 = sub nuw i64 %162, %170
   %174 = tail call i64 @llvm.umin.i64(i64 %173, i64 %168)
   %175 = icmp eq i64 %174, 0
   br i1 %175, label %preallocate_image_memory.exit21, label %.lr.ph.i20
@@ -4009,7 +4009,7 @@ preallocate_image_memory.exit21:                  ; preds = %.lr.ph.i20, %188, %
   br i1 %198, label %199, label %202
 
 199:                                              ; preds = %preallocate_image_memory.exit21
-  %200 = sub i64 %168, %197
+  %200 = sub nuw i64 %168, %197
   %201 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, i64 noundef %200) #21
   br label %372
 
@@ -4021,7 +4021,7 @@ preallocate_image_memory.exit21:                  ; preds = %.lr.ph.i20, %188, %
 
 206:                                              ; preds = %202
   %207 = sub nsw i64 %111, %165
-  %208 = sub i64 %162, %204
+  %208 = sub nuw i64 %162, %204
   %209 = tail call i64 @llvm.umin.i64(i64 %208, i64 %207)
   %210 = icmp eq i64 %209, 0
   br i1 %210, label %preallocate_image_memory.exit23, label %.lr.ph.i22

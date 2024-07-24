@@ -577,7 +577,7 @@ define hidden void @_ZN8rawspeed21SamsungV0Decompressor14computeStripesENS_10Byt
   br label %268
 
 202:                                              ; preds = %187
-  %203 = sub i32 %192, %191
+  %203 = sub nuw i32 %192, %191
   %204 = zext nneg i32 %190 to i64
   %205 = zext i32 %203 to i64
   %206 = add nuw nsw i64 %205, %204

@@ -15826,9 +15826,9 @@ ft_mem_free.exit.i:                               ; preds = %24, %23
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %.not40.i = icmp uge i64 %29, %7
-  %30 = sub i64 %7, %29
+  %30 = sub nuw i64 %7, %29
   %31 = icmp ult i64 %30, %1
-  %or.cond.i = or i1 %.not40.i, %31
+  %or.cond.i = select i1 %.not40.i, i1 true, i1 %31
   br i1 %or.cond.i, label %FT_Stream_EnterFrame.exit.thread, label %FT_Stream_EnterFrame.exit.thread10
 
 FT_Stream_EnterFrame.exit.thread10:               ; preds = %27
@@ -15948,9 +15948,9 @@ ft_mem_free.exit:                                 ; preds = %23, %24
   %35 = getelementptr inbounds i8, ptr %0, i64 16
   %36 = load i64, ptr %35, align 8
   %.not40 = icmp uge i64 %36, %6
-  %37 = sub i64 %6, %36
+  %37 = sub nuw i64 %6, %36
   %38 = icmp ult i64 %37, %1
-  %or.cond = or i1 %.not40, %38
+  %or.cond = select i1 %.not40, i1 true, i1 %38
   br i1 %or.cond, label %46, label %39
 
 39:                                               ; preds = %34
@@ -16506,9 +16506,9 @@ ft_mem_free.exit.i:                               ; preds = %33, %32
 36:                                               ; preds = %15
   %37 = load i64, ptr %12, align 8
   %.not40.i = icmp uge i64 %37, %20
-  %38 = sub i64 %20, %37
+  %38 = sub nuw i64 %20, %37
   %39 = icmp ult i64 %38, %18
-  %or.cond.i = or i1 %.not40.i, %39
+  %or.cond.i = select i1 %.not40.i, i1 true, i1 %39
   br i1 %or.cond.i, label %FT_Stream_EnterFrame.exit.thread, label %FT_Stream_EnterFrame.exit.thread93
 
 FT_Stream_EnterFrame.exit.thread93:               ; preds = %36
@@ -18516,7 +18516,7 @@ ft_lookup_PS_in_sfnt_stream.exit:                 ; preds = %192, %188, %184
   %.2 = phi i8 [ %.1, %192 ], [ 0, %188 ], [ 1, %184 ]
   %194 = load i64, ptr %16, align 8
   %195 = icmp ugt i64 %.219, %194
-  %196 = sub i64 %194, %.219
+  %196 = sub nuw i64 %194, %.219
   %197 = icmp ugt i64 %.216, %196
   %or.cond = select i1 %195, i1 true, i1 %197
   br i1 %or.cond, label %ft_mem_qalloc.exit.thread41, label %198

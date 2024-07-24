@@ -15234,7 +15234,7 @@ if.then.i18:                                      ; preds = %for.body
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i18
-  %sub.i.i = sub nsw i64 %conv5.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv5.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN4mold3elf9SymbolAuxINS1_6RV32BEEEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %symbol_aux.i, i64 noundef %sub.i.i)
   br label %_ZN4mold3elf6SymbolINS0_6RV32BEEE7add_auxERNS0_7ContextIS2_EE.exit
 
@@ -16102,7 +16102,7 @@ _ZN4mold4sortISt6vectorIPNS_3elf6SymbolINS2_6RV32BEEEESaIS6_EEZNS2_14VerneedSect
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN4mold4sortISt6vectorIPNS_3elf6SymbolINS2_6RV32BEEEESaIS6_EEZNS2_14VerneedSectionIS4_E9constructERNS2_7ContextIS4_EEEUlS6_S6_E_EEvRT_T0_.exit
-  %sub.i = sub nsw i64 %sub.ptr.div.i45, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i45, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIN4mold9BigEndianItLi2EEESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %contents, ptr %26, i64 noundef %sub.i, ptr noundef nonnull align 1 dereferenceable(2) %ref.tmp14)
   br label %for.body30.lr.ph
 
@@ -16469,7 +16469,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
@@ -16873,7 +16873,7 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIN4mold9BigEndianItLi2EEESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %contents, ptr %16, i64 noundef %sub.i, ptr noundef nonnull align 1 dereferenceable(2) %ref.tmp3)
   br label %_ZNSt6vectorIN4mold9BigEndianItLi2EEESaIS2_EE6resizeEmRKS2_.exit
 
@@ -18147,7 +18147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %offsets, i64 noundef %sub.i)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
@@ -21530,7 +21530,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i
   %mul.i.i.i = shl i64 %and.i.i, 1
   %cmp7.i.i.i = icmp ugt i64 %mul.i.i.i, %8
-  %sub.i.i.i = sub i64 %8, %and.i.i
+  %sub.i.i.i = sub nuw i64 %8, %and.i.i
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 %sub.i.i.i, i64 %and.i.i
   br label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS7_EEE29number_of_elements_in_segmentEm.exit.i.i
 
@@ -22317,7 +22317,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN4mold9BigEndianItLi2EEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i38 = getelementptr inbounds %"class.mold::BigEndian.243", ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 
@@ -25901,7 +25901,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_mET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds i64, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i31 = icmp eq ptr %1, %__position.coerce
@@ -45427,7 +45427,7 @@ _ZNK4mold3elf9CieRecordINS0_6RV32BEEE12get_contentsEv.exit: ; preds = %if.end
   %13 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i)
   %add.i.i = add i32 %13, 4
   %conv.i.i = zext i32 %add.i.i to i64
-  %sub.i.i = sub i64 %11, %conv.i
+  %sub.i.i = sub nuw i64 %11, %conv.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %conv.i.i)
   %14 = load ptr, ptr %this, align 8
   %15 = load ptr, ptr %14, align 8
@@ -45565,7 +45565,7 @@ _ZNK4mold3elf9FdeRecordINS0_6RV32BEEE12get_contentsERNS0_10ObjectFileIS2_EE.exit
   %44 = tail call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i63)
   %add.i.i64 = add i32 %44, 4
   %conv4.i.i = zext i32 %add.i.i64 to i64
-  %sub.i.i65 = sub i64 %42, %conv2.i
+  %sub.i.i65 = sub nuw i64 %42, %conv2.i
   %.sroa.speculated.i.i66 = tail call i64 @llvm.umin.i64(i64 %sub.i.i65, i64 %conv4.i.i)
   %45 = load ptr, ptr %this, align 8
   %46 = load ptr, ptr %45, align 8

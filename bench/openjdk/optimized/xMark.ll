@@ -842,7 +842,7 @@ define hidden void @_ZN5XMark18follow_large_arrayEmmb(ptr noundef nonnull align 
   br i1 %11, label %12, label %_ZN5XMark18push_partial_arrayEmmb.exit
 
 12:                                               ; preds = %4
-  %13 = sub i64 %5, %10
+  %13 = sub nuw i64 %5, %10
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 48
@@ -899,7 +899,7 @@ _ZN5XMark18push_partial_arrayEmmb.exit:           ; preds = %_ZN6XStackI15XMarkS
 
 48:                                               ; preds = %.lr.ph, %_ZN5XMark18push_partial_arrayEmmb.exit39
   %.040 = phi i64 [ %10, %.lr.ph ], [ %53, %_ZN5XMark18push_partial_arrayEmmb.exit39 ]
-  %49 = sub i64 %.040, %7
+  %49 = sub nuw i64 %.040, %7
   %50 = lshr exact i64 %49, 1
   %51 = add nuw i64 %50, 4095
   %52 = and i64 %51, -4096

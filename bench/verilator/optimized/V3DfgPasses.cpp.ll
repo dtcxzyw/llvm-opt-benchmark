@@ -4397,7 +4397,7 @@ _ZN12VNUser1InUseC2Ev.exit._crit_edge:            ; preds = %_ZN12VNUser1InUseC2
   br i1 %255, label %256, label %287
 
 256:                                              ; preds = %249
-  %257 = sub nsw i64 %254, %253
+  %257 = sub nuw nsw i64 %254, %253
   %258 = ptrtoint ptr %.sroa.20.1.i to i64
   %259 = sub i64 %258, %250
   %260 = ashr exact i64 %259, 3

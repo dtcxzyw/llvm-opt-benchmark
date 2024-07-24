@@ -1537,7 +1537,7 @@ if.end8.i:                                        ; preds = %if.end.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr7.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %142, i64 %idx.ext.i, i1 false)
   tail call fastcc void @FLAC__MD5Transform(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %ctx)
   %add.ptr21.i = getelementptr inbounds i8, ptr %142, i64 %idx.ext.i
-  %sub22.i = sub i32 %conv35, %sub.i
+  %sub22.i = sub nuw i32 %conv35, %sub.i
   %cmp2330.i = icmp ugt i32 %sub22.i, 63
   br i1 %cmp2330.i, label %while.body.i, label %while.end.i
 

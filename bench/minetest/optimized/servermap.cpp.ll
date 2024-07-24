@@ -12756,7 +12756,7 @@ if.end713:                                        ; preds = %invoke.cont693
 
 land.lhs.true716:                                 ; preds = %if.end705.thread, %if.end705
   %312 = phi i64 [ %add.i1402, %if.end705.thread ], [ %.pre521, %if.end705 ]
-  %sub718 = sub i64 %add.i1402, %312
+  %sub718 = sub nuw i64 %add.i1402, %312
   %conv719 = zext i16 %mul to i64
   %cmp720 = icmp ugt i64 %sub718, %conv719
   %cmp723 = icmp ult i32 %call5, %conv.i1427
@@ -12764,7 +12764,7 @@ land.lhs.true716:                                 ; preds = %if.end705.thread, %
   br i1 %or.cond918, label %if.then724, label %cleanup752
 
 if.then724:                                       ; preds = %land.lhs.true716
-  %sub726 = sub i32 %conv.i1427, %call5
+  %sub726 = sub nuw i32 %conv.i1427, %call5
   %conv727 = zext i32 %sub726 to i64
   %.not = icmp eq ptr @_ZTH10infostream, null
   br i1 %.not, label %_ZTW10infostream.exit, label %313

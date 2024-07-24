@@ -2727,7 +2727,7 @@ _ZN7uu_head11is_seekable17h699c151a0377eb01E.exit.i.i: ; preds = %"_ZN4core3ptr4
   store i64 65536, ptr %.sroa.4.0..sroa_idx.i42.i.i.i, align 8, !alias.scope !710, !noalias !713
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i43.i.i.i, i8 0, i64 24, i1 false), !alias.scope !710, !noalias !713
   store ptr %39, ptr %98, align 8, !alias.scope !710, !noalias !713
-  %223 = sub i64 %.sroa.626.0.copyload.i.i.i, %81
+  %223 = sub nuw i64 %.sroa.626.0.copyload.i.i.i, %81
   %224 = invoke noundef ptr @_ZN7uu_head12read_n_bytes17h07ebb022000fdae6E(ptr noalias noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %223)
           to label %227 unwind label %225, !noalias !709
 

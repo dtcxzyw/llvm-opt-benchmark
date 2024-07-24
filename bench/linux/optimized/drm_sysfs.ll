@@ -915,7 +915,7 @@ define internal i64 @edid_show(ptr nocapture readnone %0, ptr nocapture noundef 
 22:                                               ; preds = %14
   %23 = add i64 %5, %4
   %24 = icmp ugt i64 %23, %18
-  %25 = sub i64 %18, %4
+  %25 = sub nuw i64 %18, %4
   %26 = select i1 %24, i64 %25, i64 %5
   %27 = getelementptr i8, ptr %16, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %27, i64 %26, i1 false)

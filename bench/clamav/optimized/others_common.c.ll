@@ -629,7 +629,7 @@ define noundef i64 @cli_readn(i32 noundef %0, ptr nocapture noundef %1, i64 noun
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %22
-  %25 = sub i64 %.017, %6
+  %25 = sub nuw i64 %.017, %6
   %26 = getelementptr inbounds i8, ptr %.0, i64 %6
   br label %27
 
@@ -700,7 +700,7 @@ define noundef i64 @cli_writen(i32 noundef %0, ptr noundef readonly %1, i64 noun
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %18
-  %21 = sub i64 %.015, %6
+  %21 = sub nuw i64 %.015, %6
   %22 = getelementptr inbounds i8, ptr %.0, i64 %6
   br label %23
 

@@ -868,7 +868,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 147:                                              ; preds = %143
-  %148 = sub i64 %70, %139
+  %148 = sub nuw i64 %70, %139
   br label %149
 
 149:                                              ; preds = %147, %144
@@ -3004,7 +3004,7 @@ _ZN7xgboostlsERSoNS_10StringViewE.exit:           ; preds = %.noexc40
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %56
-  %67 = sub nsw i64 %57, %64
+  %67 = sub nuw nsw i64 %57, %64
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %67)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -3158,7 +3158,7 @@ _ZN7xgboost7RegTree4FVecD2Ev.exit:                ; preds = %_ZNSt6vectorIN7xgbo
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %_ZN7xgboost7RegTree4FVecD2Ev.exit
-  %126 = sub nsw i64 %116, %123
+  %126 = sub nuw nsw i64 %116, %123
   invoke void @_ZNSt6vectorIN7xgboost7RegTree4FVec5EntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %112, i64 noundef %126)
           to label %.noexc52 unwind label %171
 
@@ -3391,7 +3391,7 @@ define linkonce_odr void @_ZNK7xgboost9predictor12CPUPredictor11PredictLeafEPNS_
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %34
-  %51 = sub i64 %41, %48
+  %51 = sub nuw i64 %41, %48
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %51)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -4229,7 +4229,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit86: ; preds = %.noexc85, %_ZN4dmlc
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %146
-  %165 = sub i64 %155, %162
+  %165 = sub nuw i64 %155, %162
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %145, i64 noundef %165)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %139
 
@@ -5325,7 +5325,7 @@ _ZNK7xgboost6common4SpanINS_5EntryELm18446744073709551615EEixEm.exit.i.i: ; pred
   unreachable
 
 560:                                              ; preds = %557
-  %561 = sub i64 %245, %535
+  %561 = sub nuw i64 %245, %535
   br label %562
 
 562:                                              ; preds = %560, %558
@@ -7677,7 +7677,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit112: ; preds = %.noexc111, %_ZN4dm
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %61
-  %88 = sub i64 %78, %85
+  %88 = sub nuw i64 %78, %85
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %75, i64 noundef %88)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -11432,7 +11432,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %5, %._ZNSt6vectorIm
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %28 = sub nsw i64 %16, %25
+  %28 = sub nuw nsw i64 %16, %25
   invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %28)
           to label %_ZNSt6vectorImSaImEE6resizeEm.exit24 unwind label %53
 
@@ -13141,7 +13141,7 @@ define internal fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTemp
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
-  %17 = sub nsw i64 %14, %10
+  %17 = sub nuw nsw i64 %14, %10
   invoke void @_ZNSt6vectorIN7xgboost7RegTree4FVecESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %5, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(25) %3)
           to label %_ZNSt6vectorIN7xgboost7RegTree4FVecESaIS2_EE6resizeEmRKS2_.exit unwind label %36
 
@@ -14784,7 +14784,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -15104,7 +15104,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   br i1 %.not8.i.i.us, label %.split19.us, label %116
 
 116:                                              ; preds = %115
-  %117 = sub i64 %42, %109
+  %117 = sub nuw i64 %42, %109
   br label %118
 
 118:                                              ; preds = %116, %113
@@ -15974,7 +15974,7 @@ _ZSt13move_backwardIPN7xgboost7RegTree4FVecES3_ET0_T_S5_S4_.exit: ; preds = %_ZN
   br label %_ZNSt6vectorIN7xgboost7RegTree4FVecESaIS2_EE16_Temporary_valueD2Ev.exit
 
 101:                                              ; preds = %_ZNSt6vectorIN7xgboost7RegTree4FVecESaIS2_EE16_Temporary_valueC2IJRKS2_EEEPS4_DpOT_.exit
-  %102 = sub i64 %2, %43
+  %102 = sub nuw i64 %2, %43
   %103 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN7xgboost7RegTree4FVecEmS2_ET_S4_T0_RKT1_(ptr noundef %10, i64 noundef %102, ptr noundef nonnull align 8 dereferenceable(25) %16)
           to label %_ZSt24__uninitialized_fill_n_aIPN7xgboost7RegTree4FVecEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -17029,7 +17029,7 @@ _ZNK7xgboost6common4SpanINS_5EntryELm18446744073709551615EEixEm.exit.i: ; preds 
   unreachable
 
 78:                                               ; preds = %75
-  %79 = sub i64 %74, %42
+  %79 = sub nuw i64 %74, %42
   br label %80
 
 80:                                               ; preds = %78, %76
@@ -17778,7 +17778,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 363:                                              ; preds = %359
-  %364 = sub i64 %324, %355
+  %364 = sub nuw i64 %324, %355
   br label %365
 
 365:                                              ; preds = %363, %360
@@ -17930,7 +17930,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 453:                                              ; preds = %449
-  %454 = sub i64 %405, %445
+  %454 = sub nuw i64 %405, %445
   br label %455
 
 455:                                              ; preds = %453, %450
@@ -18428,7 +18428,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 65:                                               ; preds = %59
-  %66 = sub i64 %60, %55
+  %66 = sub nuw i64 %60, %55
   br label %67
 
 67:                                               ; preds = %65, %61
@@ -18607,7 +18607,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 37:                                               ; preds = %31
-  %38 = sub i64 %32, %27
+  %38 = sub nuw i64 %32, %27
   br label %39
 
 39:                                               ; preds = %37, %33
@@ -19719,7 +19719,7 @@ _ZNK7xgboost6common4SpanINS_5EntryELm18446744073709551615EEixEm.exit.i.i.i.i.i: 
   unreachable
 
 276:                                              ; preds = %273
-  %277 = sub i64 %173, %258
+  %277 = sub nuw i64 %173, %258
   br label %278
 
 278:                                              ; preds = %276, %274
@@ -20930,7 +20930,7 @@ _ZNK7xgboost6common4SpanINS_5EntryELm18446744073709551615EEixEm.exit.i.i.i.i.i: 
   unreachable
 
 273:                                              ; preds = %270
-  %274 = sub i64 %172, %254
+  %274 = sub nuw i64 %172, %254
   br label %275
 
 275:                                              ; preds = %273, %271
@@ -22165,7 +22165,7 @@ _ZNK7xgboost6common4SpanINS_5EntryELm18446744073709551615EEixEm.exit.i.i.i.i.i: 
   unreachable
 
 331:                                              ; preds = %328
-  %332 = sub i64 %174, %253
+  %332 = sub nuw i64 %174, %253
   br label %333
 
 333:                                              ; preds = %331, %329
@@ -23693,7 +23693,7 @@ _ZNK7xgboost6common4SpanINS_5EntryELm18446744073709551615EEixEm.exit.i.i.i.i.i: 
   unreachable
 
 516:                                              ; preds = %513
-  %517 = sub i64 %175, %390
+  %517 = sub nuw i64 %175, %390
   br label %518
 
 518:                                              ; preds = %516, %514
@@ -25046,7 +25046,7 @@ _ZNK7xgboost6common4SpanINS_5EntryELm18446744073709551615EEixEm.exit.i.i.i.i.i: 
   unreachable
 
 415:                                              ; preds = %412
-  %416 = sub i64 %200, %291
+  %416 = sub nuw i64 %200, %291
   br label %417
 
 417:                                              ; preds = %415, %413
@@ -30243,7 +30243,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 206:                                              ; preds = %202
-  %207 = sub i64 %104, %198
+  %207 = sub nuw i64 %104, %198
   br label %208
 
 208:                                              ; preds = %206, %203
@@ -30717,7 +30717,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost9predictor12CPUP
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
-  %30 = sub nsw i64 %18, %25
+  %30 = sub nuw nsw i64 %18, %25
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %30)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i.i unwind label %37
 

@@ -8,11 +8,12 @@ define hidden { i64, i64 } @"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$
   %3 = load i8, ptr %0, align 1, !noundef !3
   %4 = load i8, ptr %1, align 1, !noundef !3
   %.not = icmp ule i8 %3, %4
-  %5 = sub i8 %4, %3
+  %5 = sub nuw i8 %4, %3
   %6 = zext i8 %5 to i64
+  %.sroa.3.0 = select i1 %.not, i64 %6, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %6, 1
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.3.0, 1
   ret { i64, i64 } %8
 }
 
@@ -28,10 +29,11 @@ define hidden { i64, i64 } @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$
   %3 = load i64, ptr %0, align 8, !noundef !3
   %4 = load i64, ptr %1, align 8, !noundef !3
   %.not = icmp ule i64 %3, %4
-  %5 = sub i64 %4, %3
+  %5 = sub nuw i64 %4, %3
+  %.sroa.3.0 = select i1 %.not, i64 %5, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %7 = insertvalue { i64, i64 } %6, i64 %5, 1
+  %7 = insertvalue { i64, i64 } %6, i64 %.sroa.3.0, 1
   ret { i64, i64 } %7
 }
 

@@ -699,7 +699,7 @@ for.body148.i:                                    ; preds = %for.cond145.prehead
   %cp.0198.i = phi ptr [ %add.ptr152.i, %for.body148.i ], [ %call140.i, %for.cond145.preheader.i ]
   %n.3197.i = phi i64 [ %sub151.i, %for.body148.i ], [ %call.i, %for.cond145.preheader.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %cp.0198.i, ptr noundef nonnull align 16 dereferenceable(1) %temp_buf.i, i64 %buf_size.0.i, i1 false)
-  %sub151.i = sub i64 %n.3197.i, %buf_size.0.i
+  %sub151.i = sub nuw i64 %n.3197.i, %buf_size.0.i
   %add.ptr152.i = getelementptr inbounds i8, ptr %cp.0198.i, i64 %buf_size.0.i
   %cmp146.i = icmp ugt i64 %sub151.i, %buf_size.0.i
   br i1 %cmp146.i, label %for.body148.i, label %for.end153.i, !llvm.loop !13
@@ -747,7 +747,7 @@ for.body188.i:                                    ; preds = %for.cond185.prehead
   %cp.1204.i = phi ptr [ %add.ptr192.i, %for.body188.i ], [ %call180.i, %for.cond185.preheader.i ]
   %n.5203.i = phi i64 [ %sub191.i, %for.body188.i ], [ %call33.i, %for.cond185.preheader.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %cp.1204.i, ptr noundef nonnull align 16 dereferenceable(1) %temp_buf.i, i64 %buf_size.0.i, i1 false)
-  %sub191.i = sub i64 %n.5203.i, %buf_size.0.i
+  %sub191.i = sub nuw i64 %n.5203.i, %buf_size.0.i
   %add.ptr192.i = getelementptr inbounds i8, ptr %cp.1204.i, i64 %buf_size.0.i
   %cmp186.i = icmp ugt i64 %sub191.i, %buf_size.0.i
   br i1 %cmp186.i, label %for.body188.i, label %for.end193.i, !llvm.loop !15

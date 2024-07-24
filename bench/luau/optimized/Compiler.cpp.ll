@@ -7306,7 +7306,7 @@ _ZN4Luau12DenseHashMapIPNS_8AstLocalE16LuauBytecodeTypeNS_16DenseHashPointerESt8
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %._crit_edge
-  %117 = sub i64 %1, %.lcssa37
+  %117 = sub nuw i64 %1, %.lcssa37
   tail call void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %117)
   br label %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE6resizeEm.exit
 
@@ -8984,7 +8984,7 @@ _ZN4Luau8Compiler14patchLoopJumpsEPNS_7AstNodeEmmm.exit: ; preds = %_ZN4Luau8Com
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %_ZN4Luau8Compiler14patchLoopJumpsEPNS_7AstNodeEmmm.exit
-  %156 = sub nsw i64 %46, %.pre-phi45
+  %156 = sub nuw nsw i64 %46, %.pre-phi45
   invoke void @_ZNSt6vectorIN4Luau8Compiler8LoopJumpESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %156)
           to label %_ZNSt6vectorIN4Luau8Compiler8LoopJumpESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -9932,7 +9932,7 @@ _ZN4Luau8Compiler14patchLoopJumpsEPNS_7AstNodeEmmm.exit: ; preds = %_ZN4Luau8Com
   br i1 %413, label %414, label %416
 
 414:                                              ; preds = %_ZN4Luau8Compiler14patchLoopJumpsEPNS_7AstNodeEmmm.exit
-  %415 = sub nsw i64 %11, %.pre-phi240
+  %415 = sub nuw nsw i64 %11, %.pre-phi240
   invoke void @_ZNSt6vectorIN4Luau8Compiler8LoopJumpESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %415)
           to label %_ZNSt6vectorIN4Luau8Compiler8LoopJumpESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -13000,7 +13000,7 @@ _ZN4Luau8Compiler14patchLoopJumpsEPNS_7AstNodeEmmm.exit: ; preds = %_ZN4Luau8Com
   br i1 %322, label %323, label %325
 
 323:                                              ; preds = %_ZN4Luau8Compiler14patchLoopJumpsEPNS_7AstNodeEmmm.exit
-  %324 = sub nsw i64 %101, %.pre-phi149
+  %324 = sub nuw nsw i64 %101, %.pre-phi149
   invoke void @_ZNSt6vectorIN4Luau8Compiler8LoopJumpESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %94, i64 noundef %324)
           to label %_ZNSt6vectorIN4Luau8Compiler8LoopJumpESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
@@ -13559,7 +13559,7 @@ _ZN4Luau8Compiler14patchLoopJumpsEPNS_7AstNodeEmmm.exit: ; preds = %_ZN4Luau8Com
   br i1 %252, label %253, label %255
 
 253:                                              ; preds = %_ZN4Luau8Compiler14patchLoopJumpsEPNS_7AstNodeEmmm.exit
-  %254 = sub nsw i64 %20, %.pre-phi122
+  %254 = sub nuw nsw i64 %20, %.pre-phi122
   invoke void @_ZNSt6vectorIN4Luau8Compiler8LoopJumpESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %254)
           to label %_ZNSt6vectorIN4Luau8Compiler8LoopJumpESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -13922,7 +13922,7 @@ _ZNSt12_Vector_baseIN4Luau8Compiler10AssignmentESaIS2_EEC2EmRKS3_.exit.i: ; pred
   br i1 %or.cond, label %150, label %174
 
 150:                                              ; preds = %143
-  %151 = sub i64 %140, %141
+  %151 = sub nuw i64 %140, %141
   %152 = trunc i64 %151 to i8
   %153 = add i8 %152, 1
   %154 = zext i8 %153 to i32
@@ -23271,7 +23271,7 @@ _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit: ; preds = %98, %100, %84, %103
 
 .lr.ph72.preheader:                               ; preds = %119
   %scevgep = getelementptr i8, ptr %10, i64 %120
-  %122 = sub nsw i64 %invariant.umin69, %120
+  %122 = sub nuw nsw i64 %invariant.umin69, %120
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 1, i64 %122, i1 false)
   br label %.loopexit
 
@@ -26638,7 +26638,7 @@ _ZN4Luau8Compiler9patchJumpEPNS_7AstNodeEmm.exit29: ; preds = %._ZN4Luau8Compile
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %._crit_edge48
-  %139 = sub nsw i64 %24, %.lcssa
+  %139 = sub nuw nsw i64 %24, %.lcssa
   call void @_ZNSt6vectorIN4Luau8Compiler8LoopJumpESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %139)
   br label %_ZNSt6vectorIN4Luau8Compiler8LoopJumpESaIS2_EE6resizeEm.exit
 

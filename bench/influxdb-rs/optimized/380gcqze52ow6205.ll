@@ -7658,7 +7658,7 @@ define void @_ZN16influxdb3_server4http16validate_db_name17h1ddca540ed810586E(pt
   %20 = getelementptr inbounds i8, ptr %10, i64 %11
   %21 = load i8, ptr %20, align 1, !alias.scope !1306, !noalias !1311, !noundef !4
   %22 = icmp sgt i8 %21, -65
-  %23 = sub i64 %9, %11
+  %23 = sub nuw i64 %9, %11
   br i1 %22, label %25, label %24
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit.i.i.i", %17

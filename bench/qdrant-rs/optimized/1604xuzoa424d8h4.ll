@@ -390,7 +390,7 @@ define hidden noundef ptr @"_ZN98_$LT$hashbrown..raw..inner..RawIter$LT$T$GT$$u2
   %8 = xor i16 %15, -1
   store ptr %17, ptr %7, align 8, !alias.scope !68
   store ptr %16, ptr %0, align 8, !alias.scope !68
-  %9 = sub i16 -2, %15
+  %9 = sub nuw i16 -2, %15
   %10 = and i16 %9, %8
   store i16 %10, ptr %6, align 8, !alias.scope !68
   br label %21

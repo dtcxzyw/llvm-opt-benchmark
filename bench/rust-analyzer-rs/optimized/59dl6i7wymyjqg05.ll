@@ -3342,7 +3342,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h6ff
   %141 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %.sroa.4.1
   %142 = load i8, ptr %141, align 1, !alias.scope !461, !noalias !466, !noundef !4
   %143 = icmp sgt i8 %142, -65
-  %144 = sub i64 %.sroa.03.sroa.13.0.copyload, %.sroa.4.1
+  %144 = sub nuw i64 %.sroa.03.sroa.13.0.copyload, %.sroa.4.1
   br i1 %143, label %146, label %145
 
 145:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %138

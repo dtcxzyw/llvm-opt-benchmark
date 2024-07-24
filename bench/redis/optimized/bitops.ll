@@ -454,7 +454,7 @@ entry:
   br i1 %cmp3, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %sub1 = sub i64 %cond, %value
+  %sub1 = sub nuw i64 %cond, %value
   %cmp4 = icmp sgt i64 %incr, 0
   %cmp5 = icmp slt i64 %sub1, %incr
   %or.cond = and i1 %cmp4, %cmp5
@@ -3313,7 +3313,7 @@ if.then203:                                       ; preds = %getUnsignedBitfield
   br i1 %cmp3.i, label %if.then.i233, label %lor.lhs.false.i223
 
 lor.lhs.false.i223:                               ; preds = %if.then203
-  %sub1.i224 = sub i64 %cond.i222, %value.0.lcssa.i
+  %sub1.i224 = sub nuw i64 %cond.i222, %value.0.lcssa.i
   %cmp4.i = icmp sgt i64 %49, 0
   %cmp5.i = icmp slt i64 %sub1.i224, %49
   %or.cond.i225 = and i1 %cmp4.i, %cmp5.i

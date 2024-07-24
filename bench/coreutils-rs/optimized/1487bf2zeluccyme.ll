@@ -831,7 +831,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i: ; preds = %53, %
   br i1 %64, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hfd2386351f739c65E.exit", label %.lr.ph.split.split.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit.i": ; preds = %59
-  %67 = sub i64 %61, %17
+  %67 = sub nuw i64 %61, %17
   %68 = getelementptr inbounds i8, ptr %.val, i64 %67
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %15, i64 %17), !alias.scope !146, !noalias !140
   %69 = icmp eq i32 %bcmp.i.i, 0
@@ -4864,7 +4864,7 @@ default.unreachable:                              ; preds = %5
   %32 = getelementptr inbounds i8, ptr %1, i64 %25
   %33 = load i8, ptr %32, align 1, !alias.scope !701, !noundef !4
   %34 = icmp sgt i8 %33, -65
-  %35 = sub i64 %2, %25
+  %35 = sub nuw i64 %2, %25
   br i1 %34, label %39, label %38
 
 36:                                               ; preds = %22
@@ -5054,7 +5054,7 @@ define internal fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resol
   %45 = getelementptr inbounds i8, ptr %0, i64 %.1
   %46 = load i8, ptr %45, align 1, !alias.scope !710, !noundef !4
   %47 = icmp sgt i8 %46, -65
-  %48 = sub i64 %1, %.1
+  %48 = sub nuw i64 %1, %.1
   br i1 %47, label %.thread97, label %146
 
 49:                                               ; preds = %25
@@ -5074,7 +5074,7 @@ define internal fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resol
   %55 = getelementptr inbounds i8, ptr %0, i64 %27
   %56 = load i8, ptr %55, align 1, !alias.scope !715, !noundef !4
   %57 = icmp sgt i8 %56, -65
-  %58 = sub i64 %1, %27
+  %58 = sub nuw i64 %1, %27
   br i1 %57, label %.thread91, label %59
 
 59:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.10701424160139774282.exit.i71", %52
@@ -5232,7 +5232,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h0773e7eb51c8a39eE.exit: ; pred
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.10701424160139774282.exit.i75": ; preds = %135
   %139 = load i8, ptr %62, align 1, !alias.scope !728, !noundef !4
   %140 = icmp sgt i8 %139, -65
-  %141 = sub i64 %1, %.09094
+  %141 = sub nuw i64 %1, %.09094
   br i1 %140, label %143, label %142
 
 142:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.10701424160139774282.exit.i75", %136
@@ -5394,7 +5394,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he9c792244d01e32dE.exit: ; preds = %
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.10701424160139774282.exit.i84": ; preds = %225
   %229 = load i8, ptr %149, align 1, !alias.scope !747, !noundef !4
   %230 = icmp sgt i8 %229, -65
-  %231 = sub i64 %1, %.199
+  %231 = sub nuw i64 %1, %.199
   br i1 %230, label %233, label %232
 
 232:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.10701424160139774282.exit.i84", %226
@@ -11664,7 +11664,7 @@ define hidden { i64, i64 } @_ZN7uu_sort15get_leading_gen17hc73422e1dd05b8f4E(ptr
   %47 = load i64, ptr %12, align 8, !noundef !4
   %.not.i.i.i71 = icmp ult i64 %46, %47
   %48 = select i1 %.not.i.i.i71, i64 0, i64 %47
-  %.0.i.i.i = sub i64 %46, %48
+  %.0.i.i.i = sub nuw i64 %46, %48
   %49 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2772, !nonnull !4, !noundef !4
   %50 = getelementptr inbounds { i64, i32, [1 x i32] }, ptr %49, i64 %.0.i.i.i, i32 1
   %51 = load i32, ptr %50, align 8, !range !2777, !noundef !4
@@ -11677,7 +11677,7 @@ define hidden { i64, i64 } @_ZN7uu_sort15get_leading_gen17hc73422e1dd05b8f4E(ptr
   %53 = add i64 %46, 1
   %.not.i.i.i72 = icmp ult i64 %53, %47
   %54 = select i1 %.not.i.i.i72, i64 0, i64 %47
-  %.0.i.i.i73 = sub i64 %53, %54
+  %.0.i.i.i73 = sub nuw i64 %53, %54
   store i64 %.0.i.i.i73, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2778
   %55 = add i64 %32, -1
   store i64 %55, ptr %31, align 8, !alias.scope !2778
@@ -11702,7 +11702,7 @@ define hidden { i64, i64 } @_ZN7uu_sort15get_leading_gen17hc73422e1dd05b8f4E(ptr
   %60 = load i64, ptr %12, align 8, !alias.scope !2790, !noundef !4
   %.not.i.i.i76 = icmp ult i64 %59, %60
   %61 = select i1 %.not.i.i.i76, i64 0, i64 %60
-  %.0.i.i.i77 = sub i64 %59, %61
+  %.0.i.i.i77 = sub nuw i64 %59, %61
   store i64 %.0.i.i.i77, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2789
   %62 = add i64 %56, -1
   store i64 %62, ptr %31, align 8, !alias.scope !2789
@@ -11853,7 +11853,7 @@ common.resume:                                    ; preds = %44, %102, %76
   %115 = load i64, ptr %12, align 8, !alias.scope !2820, !noundef !4
   %.not.i.i.i83 = icmp ult i64 %114, %115
   %116 = select i1 %.not.i.i.i83, i64 0, i64 %115
-  %.0.i.i.i84 = sub i64 %114, %116
+  %.0.i.i.i84 = sub nuw i64 %114, %116
   %117 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2825, !nonnull !4, !noundef !4
   %118 = getelementptr inbounds { i64, i32, [1 x i32] }, ptr %117, i64 %.0.i.i.i84, i32 1
   %119 = load i32, ptr %118, align 8, !range !2777, !noundef !4
@@ -11878,7 +11878,7 @@ common.resume:                                    ; preds = %44, %102, %76
   %127 = load i64, ptr %12, align 8, !noundef !4
   %.not.i.i.i90 = icmp ult i64 %126, %127
   %128 = select i1 %.not.i.i.i90, i64 0, i64 %127
-  %.0.i.i.i91 = sub i64 %126, %128
+  %.0.i.i.i91 = sub nuw i64 %126, %128
   %129 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2826, !nonnull !4, !noundef !4
   %130 = getelementptr inbounds { i64, i32, [1 x i32] }, ptr %129, i64 %.0.i.i.i91, i32 1
   %131 = load i32, ptr %130, align 4, !range !2777, !noundef !4
@@ -11890,7 +11890,7 @@ common.resume:                                    ; preds = %44, %102, %76
   %133 = add i64 %125, 1
   %.not.i.i.i95 = icmp ult i64 %133, %127
   %134 = select i1 %.not.i.i.i95, i64 0, i64 %127
-  %.0.i.i.i96 = sub i64 %133, %134
+  %.0.i.i.i96 = sub nuw i64 %133, %134
   store i64 %.0.i.i.i96, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2831
   %135 = add i64 %122, -1
   store i64 %135, ptr %31, align 8, !alias.scope !2831

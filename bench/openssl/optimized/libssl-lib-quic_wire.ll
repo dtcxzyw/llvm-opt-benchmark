@@ -1193,7 +1193,7 @@ if.end.i.i.i:                                     ; preds = %entry
 lor.lhs.false.i:                                  ; preds = %if.end.i.i.i
   %call7.i.i.i = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %pkt.sroa.0.0.copyload) #11
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0.copyload, i64 %conv1.i.i.i.i
-  %sub.i.i.i.i = sub i64 %pkt.sroa.15.0.copyload, %conv1.i.i.i.i
+  %sub.i.i.i.i = sub nuw i64 %pkt.sroa.15.0.copyload, %conv1.i.i.i.i
   %and.i = and i64 %call7.i.i.i, -2
   %cmp.not.i = icmp ne i64 %and.i, 2
   %cmp.i = icmp eq i64 %pkt.sroa.15.0.copyload, %conv1.i.i.i.i
@@ -1211,7 +1211,7 @@ if.end.i2:                                        ; preds = %lor.lhs.false.i
 
 lor.lhs.false3:                                   ; preds = %if.end.i2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %conv1.i.i
-  %sub.i.i = sub i64 %sub.i.i.i.i, %conv1.i.i
+  %sub.i.i = sub nuw i64 %sub.i.i.i.i, %conv1.i.i
   %cmp.i5 = icmp eq i64 %sub.i.i.i.i, %conv1.i.i
   br i1 %cmp.i5, label %return, label %if.end.i6
 
@@ -1226,7 +1226,7 @@ if.end.i6:                                        ; preds = %lor.lhs.false3
 
 lor.lhs.false6:                                   ; preds = %if.end.i6
   %add.ptr.i.i12 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %conv1.i.i9
-  %sub.i.i13 = sub i64 %sub.i.i, %conv1.i.i9
+  %sub.i.i13 = sub nuw i64 %sub.i.i, %conv1.i.i9
   %cmp.i17 = icmp eq i64 %sub.i.i, %conv1.i.i9
   br i1 %cmp.i17, label %return, label %if.end.i18
 
@@ -1245,7 +1245,7 @@ PACKET_get_quic_vlint.exit:                       ; preds = %if.end.i18
   br i1 %cmp90.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %PACKET_get_quic_vlint.exit
-  %sub.i.i25 = sub i64 %sub.i.i13, %conv1.i.i21
+  %sub.i.i25 = sub nuw i64 %sub.i.i13, %conv1.i.i21
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %add.ptr.i.i12, i64 %conv1.i.i21
   br label %for.body
 
@@ -1267,7 +1267,7 @@ if.end.i29:                                       ; preds = %for.body
 
 lor.lhs.false11:                                  ; preds = %if.end.i29
   %add.ptr.i.i35 = getelementptr inbounds i8, ptr %pkt.sroa.0.492, i64 %conv1.i.i32
-  %sub.i.i36 = sub i64 %pkt.sroa.15.491, %conv1.i.i32
+  %sub.i.i36 = sub nuw i64 %pkt.sroa.15.491, %conv1.i.i32
   %cmp.i40 = icmp eq i64 %pkt.sroa.15.491, %conv1.i.i32
   br i1 %cmp.i40, label %return, label %if.end.i41
 
@@ -1282,7 +1282,7 @@ if.end.i41:                                       ; preds = %lor.lhs.false11
 
 for.inc:                                          ; preds = %if.end.i41
   %add.ptr.i.i47 = getelementptr inbounds i8, ptr %add.ptr.i.i35, i64 %conv1.i.i44
-  %sub.i.i48 = sub i64 %sub.i.i36, %conv1.i.i44
+  %sub.i.i48 = sub nuw i64 %sub.i.i36, %conv1.i.i44
   %inc = add nuw i64 %i.093, 1
   %exitcond.not = icmp eq i64 %inc, %call7.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
@@ -1413,7 +1413,7 @@ if.end:                                           ; preds = %if.end.i71
   br i1 %cmp, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end
-  %sub = sub i64 %call7.i, %call7.i77
+  %sub = sub nuw i64 %call7.i, %call7.i77
   %cmp17.not = icmp eq ptr %ack, null
   br i1 %cmp17.not, label %if.end38.thread, label %if.then18
 
@@ -1951,7 +1951,7 @@ PACKET_forward.exit:                              ; preds = %if.end19
   %16 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i32 = getelementptr inbounds i8, ptr %16, i64 %14
   store ptr %add.ptr.i.i32, ptr %pkt, align 8
-  %sub.i.i33 = sub i64 %pkt.val.i29, %14
+  %sub.i.i33 = sub nuw i64 %pkt.val.i29, %14
   store i64 %sub.i.i33, ptr %0, align 8
   br label %return
 
@@ -2018,7 +2018,7 @@ PACKET_forward.exit:                              ; preds = %if.end4
   %10 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i8 = getelementptr inbounds i8, ptr %10, i64 %call7.i
   store ptr %add.ptr.i.i8, ptr %pkt, align 8
-  %sub.i.i9 = sub i64 %pkt.val.i5, %call7.i
+  %sub.i.i9 = sub nuw i64 %pkt.val.i5, %call7.i
   store i64 %sub.i.i9, ptr %0, align 8
   br label %return
 
@@ -2199,7 +2199,7 @@ if.else46:                                        ; preds = %if.end37.thread, %i
 PACKET_forward.exit:                              ; preds = %if.else46
   %add.ptr.i.i54 = getelementptr inbounds i8, ptr %pkt.val22, i64 %24
   store ptr %add.ptr.i.i54, ptr %pkt, align 8
-  %sub.i.i55 = sub i64 %pkt.val.i51, %24
+  %sub.i.i55 = sub nuw i64 %pkt.val.i51, %24
   store i64 %sub.i.i55, ptr %0, align 8
   br label %return
 
@@ -3150,7 +3150,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 PACKET_forward.exit:                              ; preds = %while.end
   %add.ptr.i.i = getelementptr inbounds i8, ptr %pkt.val, i64 %sub.ptr.sub
   store ptr %add.ptr.i.i, ptr %pkt, align 8
-  %sub.i.i = sub i64 %pkt.val10, %sub.ptr.sub
+  %sub.i.i = sub nuw i64 %pkt.val10, %sub.ptr.sub
   store i64 %sub.i.i, ptr %0, align 8
   br label %2
 
@@ -3309,7 +3309,7 @@ lor.lhs.false3:                                   ; preds = %if.end.i6
 if.end7:                                          ; preds = %lor.lhs.false3
   %add.ptr.i.i18 = getelementptr inbounds i8, ptr %add.ptr.i.i13, i64 %call7.i12
   store ptr %add.ptr.i.i18, ptr %pkt, align 8
-  %sub.i.i19 = sub i64 %sub.i.i14, %call7.i12
+  %sub.i.i19 = sub nuw i64 %sub.i.i14, %call7.i12
   store i64 %sub.i.i19, ptr %0, align 8
   store i64 %call7.i12, ptr %len, align 8
   %cmp8.not = icmp eq ptr %id, null
@@ -3376,7 +3376,7 @@ lor.lhs.false3.i:                                 ; preds = %if.end.i6.i
 if.end7.i:                                        ; preds = %lor.lhs.false3.i
   %add.ptr.i.i18.i = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 %call7.i12.i
   store ptr %add.ptr.i.i18.i, ptr %pkt, align 8
-  %sub.i.i19.i = sub i64 %sub.i.i14.i, %call7.i12.i
+  %sub.i.i19.i = sub nuw i64 %sub.i.i14.i, %call7.i12.i
   store i64 %sub.i.i19.i, ptr %0, align 8
   %cmp8.not.i = icmp eq ptr %id, null
   br i1 %cmp8.not.i, label %if.end, label %if.then9.i
@@ -3462,7 +3462,7 @@ lor.lhs.false3.i:                                 ; preds = %if.end.i6.i
 if.end7.i:                                        ; preds = %lor.lhs.false3.i
   %add.ptr.i.i18.i = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 %call7.i12.i
   store ptr %add.ptr.i.i18.i, ptr %pkt, align 8
-  %sub.i.i19.i = sub i64 %sub.i.i14.i, %call7.i12.i
+  %sub.i.i19.i = sub nuw i64 %sub.i.i14.i, %call7.i12.i
   store i64 %sub.i.i19.i, ptr %0, align 8
   %cmp8.not.i = icmp eq ptr %id, null
   br i1 %cmp8.not.i, label %ossl_quic_wire_decode_transport_param_bytes.exit, label %if.then9.i
@@ -3539,7 +3539,7 @@ lor.lhs.false3.i:                                 ; preds = %if.end.i6.i
 ossl_quic_wire_decode_transport_param_bytes.exit: ; preds = %lor.lhs.false3.i
   %add.ptr.i.i18.i = getelementptr inbounds i8, ptr %add.ptr.i.i13.i, i64 %call7.i12.i
   store ptr %add.ptr.i.i18.i, ptr %pkt, align 8
-  %sub.i.i19.i = sub i64 %sub.i.i14.i, %call7.i12.i
+  %sub.i.i19.i = sub nuw i64 %sub.i.i14.i, %call7.i12.i
   store i64 %sub.i.i19.i, ptr %0, align 8
   %10 = add i64 %call7.i12.i, -62
   %11 = icmp ult i64 %10, -21
@@ -3586,7 +3586,7 @@ lor.lhs.false26:                                  ; preds = %lor.lhs.false11
 lor.lhs.false31:                                  ; preds = %lor.lhs.false26
   %id27 = getelementptr inbounds i8, ptr %p, i64 41
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id27, ptr nonnull align 1 %add.ptr.i.i43, i64 %conv, i1 false)
-  %sub.i.i50 = sub nsw i64 %sub.i.i44, %conv
+  %sub.i.i50 = sub nuw nsw i64 %sub.i.i44, %conv
   %cmp.i.i54 = icmp ult i64 %sub.i.i50, 16
   br i1 %cmp.i.i54, label %return, label %if.end36
 

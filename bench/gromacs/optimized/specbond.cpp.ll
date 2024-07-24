@@ -1144,7 +1144,7 @@ _ZNSt12_Vector_baseISt6vectorIfSaIfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %184
-  %195 = sub nsw i64 %173, %192
+  %195 = sub nuw nsw i64 %173, %192
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %185, i64 noundef %195)
           to label %.lr.ph469 unwind label %.loopexit.split-lp.loopexit.split-lp
 

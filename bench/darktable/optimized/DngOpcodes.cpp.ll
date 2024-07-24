@@ -3278,11 +3278,11 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
   %110 = zext nneg i32 %42 to i64
   %111 = or disjoint i64 %109, %110
   store i64 %111, ptr %5, align 8, !tbaa.struct !142
-  %112 = sub nsw i32 %66, %42
-  %113 = sub nsw i32 %54, %30
-  %114 = zext i32 %113 to i64
-  %115 = shl nuw i64 %114, 32
-  %116 = zext i32 %112 to i64
+  %112 = sub nuw nsw i32 %66, %42
+  %113 = sub nuw nsw i32 %54, %30
+  %114 = zext nneg i32 %113 to i64
+  %115 = shl nuw nsw i64 %114, 32
+  %116 = zext nneg i32 %112 to i64
   %117 = or disjoint i64 %115, %116
   %118 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %117, ptr %118, align 8, !tbaa.struct !142

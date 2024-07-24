@@ -1349,9 +1349,9 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv623 = phi i64 [ 0, %.lr.ph515 ], [ %indvars.iv.next624, %449 ]
   %indvars625 = trunc i64 %indvars.iv623 to i32
   %413 = icmp ugt i64 %indvars.iv623, %411
-  %414 = sub nsw i32 %indvars625, %399
-  %415 = sub nsw i64 %411, %indvars.iv623
-  %416 = trunc nsw i64 %415 to i32
+  %414 = sub nuw nsw i32 %indvars625, %399
+  %415 = sub nuw nsw i64 %411, %indvars.iv623
+  %416 = trunc nuw nsw i64 %415 to i32
   %417 = select i1 %413, i32 %414, i32 %416
   %418 = shl nuw nsw i64 %indvars.iv623, 10
   br label %419
@@ -1360,11 +1360,11 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv619 = phi i64 [ 0, %412 ], [ %indvars.iv.next620, %448 ]
   %indvars621 = trunc i64 %indvars.iv619 to i32
   %420 = icmp ugt i64 %indvars.iv619, %410
-  %421 = sub nsw i32 %indvars621, %403
-  %422 = sub nsw i64 %410, %indvars.iv619
-  %423 = trunc nsw i64 %422 to i32
+  %421 = sub nuw nsw i32 %indvars621, %403
+  %422 = sub nuw nsw i64 %410, %indvars.iv619
+  %423 = trunc nuw nsw i64 %422 to i32
   %424 = select i1 %420, i32 %421, i32 %423
-  %425 = add nsw i32 %424, %417
+  %425 = add nuw nsw i32 %424, %417
   %426 = tail call i32 @llvm.smax.i32(i32 %417, i32 %424)
   %427 = shl nuw nsw i64 %indvars.iv619, 5
   %428 = add nuw nsw i64 %427, %418
@@ -1375,17 +1375,17 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   %indvars617 = trunc i64 %indvars.iv615 to i32
   %430 = add nuw nsw i64 %indvars.iv615, %428
   %431 = icmp ugt i64 %indvars.iv615, %409
-  %432 = sub nsw i32 %indvars617, %407
-  %433 = sub nsw i64 %409, %indvars.iv615
-  %434 = trunc nsw i64 %433 to i32
+  %432 = sub nuw nsw i32 %indvars617, %407
+  %433 = sub nuw nsw i64 %409, %indvars.iv615
+  %434 = trunc nuw nsw i64 %433 to i32
   %435 = select i1 %431, i32 %432, i32 %434
   %436 = tail call i32 @llvm.smax.i32(i32 %426, i32 %435)
-  %437 = add i32 %425, %435
-  %438 = add i32 %437, %436
+  %437 = add nuw nsw i32 %425, %435
+  %438 = add nuw nsw i32 %437, %436
   %439 = getelementptr inbounds i8, ptr %394, i64 %430
   %440 = load i8, ptr %439, align 1
   %441 = zext i8 %440 to i32
-  %442 = icmp slt i32 %438, %441
+  %442 = icmp ult i32 %438, %441
   br i1 %442, label %443, label %447
 
 443:                                              ; preds = %429

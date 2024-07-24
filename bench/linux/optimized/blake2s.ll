@@ -38,7 +38,7 @@ define dso_local void @blake2s_update(ptr noundef %0, ptr noundef %1, i64 nounde
   tail call void @blake2s_compress(ptr noundef %0, ptr noundef %12, i64 noundef 1, i32 noundef 64) #5
   store i32 0, ptr %4, align 4
   %15 = getelementptr i8, ptr %1, i64 %7
-  %16 = sub i64 %2, %7
+  %16 = sub nuw i64 %2, %7
   br label %17
 
 17:                                               ; preds = %11, %9

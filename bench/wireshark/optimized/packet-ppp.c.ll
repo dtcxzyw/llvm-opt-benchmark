@@ -4256,8 +4256,8 @@ define internal i32 @dissect_lcp_prefix_elision_opt(ptr noundef %0, ptr noundef 
 19:                                               ; preds = %13
   %20 = load i32, ptr @hf_lcp_opt_prefix, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %20, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #6
-  %22 = sub nsw i32 %.024, %18
-  %23 = icmp sgt i32 %22, 1
+  %22 = sub nuw nsw i32 %.024, %18
+  %23 = icmp ugt i32 %22, 1
   br i1 %23, label %13, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %19, %13, %4
@@ -8812,7 +8812,7 @@ define internal fastcc i32 @dissect_cbcp_callback_opt_common(ptr noundef %0, ptr
   %24 = load i32, ptr @hf_cbcp_address, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %24, ptr noundef %0, i32 noundef %17, i32 noundef %19, i32 noundef 0) #6
   %26 = add i32 %19, %17
-  %27 = sub nsw i32 %18, %19
+  %27 = sub nuw nsw i32 %18, %19
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !18
 

@@ -4343,7 +4343,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %61, %_ZNSt6vectorIf
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %._crit_edge.i
-  %71 = sub nsw i64 %16, %68
+  %71 = sub nuw nsw i64 %16, %68
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %71)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i unwind label %.loopexit.split-lp.i
 
@@ -4373,7 +4373,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %76, %74, %72, %70
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
-  %87 = sub nsw i64 %77, %84
+  %87 = sub nuw nsw i64 %77, %84
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %87)
           to label %_ZN3gmx15analysismodules12_GLOBAL__N_114SasaModuleDataC2EPNS_24TrajectoryAnalysisModuleERKNS_27AnalysisDataParallelOptionsERKNS_19SelectionCollectionEii.exit unwind label %.loopexit.split-lp.i
 

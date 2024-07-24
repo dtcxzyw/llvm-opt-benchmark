@@ -729,7 +729,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %64
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %._crit_edge112
-  %81 = sub nsw i64 %78, %.pre-phi129
+  %81 = sub nuw nsw i64 %78, %.pre-phi129
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %81)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit68 unwind label %.loopexit.split-lp
 

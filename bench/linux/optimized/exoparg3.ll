@@ -124,7 +124,7 @@ define dso_local i32 @acpi_ex_opcode_3A_1T_1R(ptr noundef %0) local_unnamed_addr
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, %19
   %31 = icmp ugt i64 %30, %23
-  %32 = sub nsw i64 %23, %19
+  %32 = sub nuw nsw i64 %23, %19
   %33 = select i1 %31, i64 %32, i64 %29
   br label %34
 

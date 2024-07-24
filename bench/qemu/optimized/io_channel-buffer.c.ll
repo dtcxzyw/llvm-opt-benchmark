@@ -185,7 +185,7 @@ if.end:                                           ; preds = %if.then, %for.end
 if.then11:                                        ; preds = %if.end
   %data12 = getelementptr inbounds i8, ptr %call.i, i64 120
   %6 = load ptr, ptr %data12, align 8
-  %sub = sub i64 %4, %5
+  %sub = sub nuw i64 %4, %5
   tail call void @llvm.memset.p0.i64(ptr align 1 %6, i8 0, i64 %sub, i1 false)
   %7 = load i64, ptr %offset, align 8
   store i64 %7, ptr %usage, align 8
@@ -257,7 +257,7 @@ if.end:                                           ; preds = %for.body
   %2 = load i64, ptr %iov_len, align 8
   %add = add i64 %2, %0
   %cmp4 = icmp ugt i64 %add, %1
-  %sub = sub i64 %1, %0
+  %sub = sub nuw i64 %1, %0
   %spec.select = select i1 %cmp4, i64 %sub, i64 %2
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load ptr, ptr %data, align 8

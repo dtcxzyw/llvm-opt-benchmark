@@ -1936,7 +1936,7 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   br i1 %259, label %.thread38, label %260
 
 260:                                              ; preds = %.thread39
-  %261 = sub i32 %258, %207
+  %261 = sub nuw i32 %258, %207
   %262 = icmp ult i32 %261, %235
   br i1 %262, label %263, label %267
 

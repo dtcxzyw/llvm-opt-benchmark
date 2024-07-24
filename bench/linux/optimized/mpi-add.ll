@@ -115,7 +115,7 @@ define dso_local void @mpi_add_ui(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %or.cond, label %65, label %67
 
 65:                                               ; preds = %62
-  %66 = sub i64 %2, %24
+  %66 = sub nuw i64 %2, %24
   store i64 %66, ptr %17, align 8
   br label %106
 

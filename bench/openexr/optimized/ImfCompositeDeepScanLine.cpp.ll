@@ -895,7 +895,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIS_IPfSaIS0_EESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %pointers, i64 noundef %sub.i)
   br label %_ZNSt6vectorIS_IPfSaIS0_EESaIS2_EE6resizeEm.exit
 
@@ -939,7 +939,7 @@ _ZNSt6vectorIS_IPfSaIS0_EESaIS2_EE6resizeEm.exit: ; preds = %if.then.i, %if.else
   br i1 %cmp.i41, label %if.then.i48, label %if.else.i42
 
 if.then.i48:                                      ; preds = %_ZNSt6vectorIS_IPfSaIS0_EESaIS2_EE6resizeEm.exit
-  %sub.i49 = sub nsw i64 %mul, %sub.ptr.div.i.i40
+  %sub.i49 = sub nuw nsw i64 %mul, %sub.ptr.div.i.i40
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %counts, i64 noundef %sub.i49)
   %.pre = load ptr, ptr %counts, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -982,7 +982,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %if.then.i48, %if.el
   br i1 %cmp.i57, label %if.then.i64, label %if.else.i58
 
 if.then.i64:                                      ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %sub.i65 = sub nsw i64 %mul, %sub.ptr.div.i.i56
+  %sub.i65 = sub nuw nsw i64 %mul, %sub.ptr.div.i.i56
   call void @_ZNSt6vectorIPfSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %sub.i65)
   br label %_ZNSt6vectorIPfSaIS0_EE6resizeEm.exit
 
@@ -1029,7 +1029,7 @@ if.then:                                          ; preds = %_ZNSt6vectorIPfSaIS
   br i1 %cmp.i74, label %if.then.i81, label %if.else.i75
 
 if.then.i81:                                      ; preds = %if.then
-  %sub.i82 = sub nsw i64 %mul, %sub.ptr.div.i.i73
+  %sub.i82 = sub nuw nsw i64 %mul, %sub.ptr.div.i.i73
   call void @_ZNSt6vectorIPfSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i68, i64 noundef %sub.i82)
   br label %_ZNSt6vectorIPfSaIS0_EE6resizeEm.exit83
 
@@ -1073,7 +1073,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIPfSaIS
   br i1 %cmp.i92, label %if.then.i99, label %if.else.i93
 
 if.then.i99:                                      ; preds = %if.end
-  %sub.i100 = sub nsw i64 %mul, %sub.ptr.div.i.i91
+  %sub.i100 = sub nuw nsw i64 %mul, %sub.ptr.div.i.i91
   call void @_ZNSt6vectorIPfSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i86, i64 noundef %sub.i100)
   br label %_ZNSt6vectorIPfSaIS0_EE6resizeEm.exit101
 
@@ -1135,7 +1135,7 @@ if.then69:                                        ; preds = %for.body
   br i1 %cmp.i111, label %if.then.i118, label %if.else.i112
 
 if.then.i118:                                     ; preds = %if.then69
-  %sub.i119 = sub nsw i64 %mul, %sub.ptr.div.i.i110
+  %sub.i119 = sub nuw nsw i64 %mul, %sub.ptr.div.i.i110
   call void @_ZNSt6vectorIPfSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i105, i64 noundef %sub.i119)
   br label %_ZNSt6vectorIPfSaIS0_EE6resizeEm.exit120
 
@@ -2383,7 +2383,7 @@ if.then149:                                       ; preds = %lor.lhs.false, %for
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then149
-  %sub.i = sub i64 %overall_sample_count.0.lcssa, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %overall_sample_count.0.lcssa, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %phi.call, i64 noundef %sub.i)
           to label %for.inc154 unwind label %lpad151.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2486,7 +2486,7 @@ if.then167:                                       ; preds = %lor.lhs.false163.sp
   br i1 %cmp.i254, label %if.then.i261, label %if.else.i255
 
 if.then.i261:                                     ; preds = %if.then167
-  %sub.i262 = sub i64 %overall_sample_count.0.lcssa, %sub.ptr.div.i.i253
+  %sub.i262 = sub nuw i64 %overall_sample_count.0.lcssa, %sub.ptr.div.i.i253
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %phi.call88, i64 noundef %sub.i262)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit264 unwind label %lpad151.loopexit.split-lp.loopexit.split-lp.loopexit
 

@@ -2573,7 +2573,7 @@ define ptr @canontoken(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %9, i64 %3
-  %18 = sub i64 %5, %3
+  %18 = sub nuw i64 %5, %3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %18, i1 false)
   br label %gv_recalloc.exit
 
@@ -3797,7 +3797,7 @@ agxbsizeof.exit:                                  ; preds = %2
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %13, i64 %.fr
-  %22 = sub i64 %spec.select33, %.fr
+  %22 = sub nuw i64 %spec.select33, %.fr
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %22, i1 false)
   br label %gv_recalloc.exit
 
@@ -3965,7 +3965,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %agxblen.exit.i
-  %20 = sub nsw i64 %9, %17
+  %20 = sub nuw nsw i64 %9, %17
   call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21

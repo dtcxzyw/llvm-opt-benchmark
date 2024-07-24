@@ -207,7 +207,7 @@ entry:
   br i1 %narrow.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %sub = sub i32 %addr, %conv
+  %sub = sub nuw i32 %addr, %conv
   store i32 0, ptr %buf, align 4
   %2 = and i32 %sub, -4
   switch i32 %2, label %if.else105 [

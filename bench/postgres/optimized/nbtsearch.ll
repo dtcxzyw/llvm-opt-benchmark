@@ -41,7 +41,7 @@ define dso_local noundef ptr @_bt_search(ptr noundef %0, ptr noundef %1, ptr nou
   %6 = tail call i32 @_bt_getroot(ptr noundef %0, ptr noundef %1, i32 noundef %4) #6
   store i32 %6, ptr %3, align 4
   %.not65 = icmp eq i32 %6, 0
-  br i1 %.not65, label %104, label %.preheader
+  br i1 %.not65, label %100, label %.preheader
 
 .preheader:                                       ; preds = %5
   %7 = icmp eq i32 %4, 2
@@ -50,9 +50,9 @@ define dso_local noundef ptr @_bt_search(ptr noundef %0, ptr noundef %1, ptr nou
   br label %10
 
 10:                                               ; preds = %.preheader, %_bt_binsrch.exit
-  %11 = phi i32 [ %97, %_bt_binsrch.exit ], [ %6, %.preheader ]
+  %11 = phi i32 [ %93, %_bt_binsrch.exit ], [ %6, %.preheader ]
   %.055 = phi i32 [ %spec.select, %_bt_binsrch.exit ], [ 1, %.preheader ]
-  %.054 = phi ptr [ %88, %_bt_binsrch.exit ], [ null, %.preheader ]
+  %.054 = phi ptr [ %84, %_bt_binsrch.exit ], [ null, %.preheader ]
   %12 = tail call i32 @_bt_moveright(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11, i1 noundef zeroext %7, ptr noundef %.054, i32 noundef %.055)
   store i32 %12, ptr %3, align 4
   %13 = icmp slt i32 %12, 0
@@ -72,7 +72,7 @@ BufferGetPage.exit:                               ; preds = %10
   %24 = load i16, ptr %23, align 4
   %25 = and i16 %24, 1
   %.not = icmp eq i16 %25, 0
-  br i1 %.not, label %BufferGetPage.exit.i, label %98
+  br i1 %.not, label %BufferGetPage.exit.i, label %94
 
 BufferGetPage.exit.thread:                        ; preds = %10
   %26 = load ptr, ptr @BufferBlocks, align 8
@@ -88,7 +88,7 @@ BufferGetPage.exit.thread:                        ; preds = %10
   %36 = load i16, ptr %35, align 4
   %37 = and i16 %36, 1
   %.not60 = icmp eq i16 %37, 0
-  br i1 %.not60, label %BufferGetPage.exit.i, label %98
+  br i1 %.not60, label %BufferGetPage.exit.i, label %94
 
 BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.thread, %BufferGetPage.exit
   %.pre-phi = phi i64 [ %21, %BufferGetPage.exit ], [ %33, %BufferGetPage.exit.thread ]
@@ -123,19 +123,16 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.i
   %.02735.i = phi i16 [ %.1.i, %.lr.ph.i ], [ %44, %52 ]
   %.02834.i = phi i16 [ %.129.i, %.lr.ph.i ], [ %53, %52 ]
-  %59 = zext i16 %.02735.i to i32
-  %60 = zext i16 %.02834.i to i32
-  %61 = sub nsw i32 %60, %59
-  %62 = sdiv i32 %61, 2
-  %63 = trunc nsw i32 %62 to i16
-  %64 = add i16 %.02735.i, %63
-  %65 = tail call i32 @_bt_compare(ptr noundef readonly %0, ptr noundef %2, ptr noundef %.0.i.i6163, i16 noundef zeroext %64)
-  %.not33.i = icmp slt i32 %65, %57
-  %66 = add i16 %64, 1
-  %.129.i = select i1 %.not33.i, i16 %64, i16 %.02834.i
-  %.1.i = select i1 %.not33.i, i16 %.02735.i, i16 %66
-  %67 = icmp ugt i16 %.129.i, %.1.i
-  br i1 %67, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !5
+  %narrow.i = sub nuw i16 %.02834.i, %.02735.i
+  %59 = lshr i16 %narrow.i, 1
+  %60 = add i16 %59, %.02735.i
+  %61 = tail call i32 @_bt_compare(ptr noundef readonly %0, ptr noundef %2, ptr noundef %.0.i.i6163, i16 noundef zeroext %60)
+  %.not33.i = icmp slt i32 %61, %57
+  %62 = add i16 %60, 1
+  %.129.i = select i1 %.not33.i, i16 %60, i16 %.02834.i
+  %.1.i = select i1 %.not33.i, i16 %.02735.i, i16 %62
+  %63 = icmp ugt i16 %.129.i, %.1.i
+  br i1 %63, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !5
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %.phi.trans.insert = getelementptr inbounds i8, ptr %40, i64 12
@@ -143,74 +140,74 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %52
-  %68 = phi i16 [ %38, %52 ], [ %.pre, %._crit_edge.i.loopexit ]
+  %64 = phi i16 [ %38, %52 ], [ %.pre, %._crit_edge.i.loopexit ]
   %.027.lcssa.i = phi i16 [ %44, %52 ], [ %.1.i, %._crit_edge.i.loopexit ]
-  %69 = and i16 %68, 1
-  %.not.i = icmp eq i16 %69, 0
-  br i1 %.not.i, label %74, label %70
+  %65 = and i16 %64, 1
+  %.not.i = icmp eq i16 %65, 0
+  br i1 %.not.i, label %70, label %66
+
+66:                                               ; preds = %._crit_edge.i
+  %67 = load i8, ptr %9, align 4
+  %68 = and i8 %67, 1
+  %69 = zext nneg i8 %68 to i16
+  %spec.select.i = sub i16 %.027.lcssa.i, %69
+  br label %_bt_binsrch.exit
 
 70:                                               ; preds = %._crit_edge.i
-  %71 = load i8, ptr %9, align 4
-  %72 = and i8 %71, 1
-  %73 = zext nneg i8 %72 to i16
-  %spec.select.i = sub i16 %.027.lcssa.i, %73
+  %71 = add i16 %.027.lcssa.i, -1
   br label %_bt_binsrch.exit
 
-74:                                               ; preds = %._crit_edge.i
-  %75 = add i16 %.027.lcssa.i, -1
-  br label %_bt_binsrch.exit
-
-_bt_binsrch.exit:                                 ; preds = %BufferGetPage.exit.i, %70, %74
-  %.0.i = phi i16 [ %75, %74 ], [ %44, %BufferGetPage.exit.i ], [ %spec.select.i, %70 ]
-  %76 = getelementptr inbounds i8, ptr %.0.i.i6163, i64 24
-  %77 = zext i16 %.0.i to i64
-  %78 = add nsw i64 %77, -1
-  %79 = getelementptr [0 x %struct.ItemIdData], ptr %76, i64 0, i64 %78
-  %.val = load i32, ptr %79, align 4
-  %80 = and i32 %.val, 32767
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr i8, ptr %.0.i.i6163, i64 %81
-  %.val56 = load i16, ptr %82, align 2
-  %83 = getelementptr i8, ptr %82, i64 2
-  %.val57 = load i16, ptr %83, align 2
-  %84 = zext i16 %.val56 to i32
-  %85 = shl nuw i32 %84, 16
-  %86 = zext i16 %.val57 to i32
-  %87 = or disjoint i32 %85, %86
-  %88 = tail call ptr @palloc(i64 noundef 16) #6
-  %89 = load i32, ptr %3, align 4
-  %90 = tail call i32 @BufferGetBlockNumber(i32 noundef %89) #6
-  store i32 %90, ptr %88, align 8
-  %91 = getelementptr inbounds i8, ptr %88, i64 4
-  store i16 %.0.i, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %88, i64 8
-  store ptr %.054, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %39, i64 8
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp eq i32 %94, 1
-  %or.cond = and i1 %7, %95
+_bt_binsrch.exit:                                 ; preds = %BufferGetPage.exit.i, %66, %70
+  %.0.i = phi i16 [ %71, %70 ], [ %44, %BufferGetPage.exit.i ], [ %spec.select.i, %66 ]
+  %72 = getelementptr inbounds i8, ptr %.0.i.i6163, i64 24
+  %73 = zext i16 %.0.i to i64
+  %74 = add nsw i64 %73, -1
+  %75 = getelementptr [0 x %struct.ItemIdData], ptr %72, i64 0, i64 %74
+  %.val = load i32, ptr %75, align 4
+  %76 = and i32 %.val, 32767
+  %77 = zext nneg i32 %76 to i64
+  %78 = getelementptr i8, ptr %.0.i.i6163, i64 %77
+  %.val56 = load i16, ptr %78, align 2
+  %79 = getelementptr i8, ptr %78, i64 2
+  %.val57 = load i16, ptr %79, align 2
+  %80 = zext i16 %.val56 to i32
+  %81 = shl nuw i32 %80, 16
+  %82 = zext i16 %.val57 to i32
+  %83 = or disjoint i32 %81, %82
+  %84 = tail call ptr @palloc(i64 noundef 16) #6
+  %85 = load i32, ptr %3, align 4
+  %86 = tail call i32 @BufferGetBlockNumber(i32 noundef %85) #6
+  store i32 %86, ptr %84, align 8
+  %87 = getelementptr inbounds i8, ptr %84, i64 4
+  store i16 %.0.i, ptr %87, align 4
+  %88 = getelementptr inbounds i8, ptr %84, i64 8
+  store ptr %.054, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %39, i64 8
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp eq i32 %90, 1
+  %or.cond = and i1 %7, %91
   %spec.select = select i1 %or.cond, i32 2, i32 %.055
-  %96 = load i32, ptr %3, align 4
-  %97 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %96, i32 noundef %87, i32 noundef %spec.select) #6
-  store i32 %97, ptr %3, align 4
+  %92 = load i32, ptr %3, align 4
+  %93 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %92, i32 noundef %83, i32 noundef %spec.select) #6
+  store i32 %93, ptr %3, align 4
   br label %10
 
-98:                                               ; preds = %BufferGetPage.exit.thread, %BufferGetPage.exit
-  %99 = icmp eq i32 %.055, 1
-  %or.cond3 = and i1 %7, %99
-  br i1 %or.cond3, label %100, label %104
+94:                                               ; preds = %BufferGetPage.exit.thread, %BufferGetPage.exit
+  %95 = icmp eq i32 %.055, 1
+  %or.cond3 = and i1 %7, %95
+  br i1 %or.cond3, label %96, label %100
 
-100:                                              ; preds = %98
+96:                                               ; preds = %94
   tail call void @_bt_unlockbuf(ptr noundef %0, i32 noundef %12) #6
-  %101 = load i32, ptr %3, align 4
-  tail call void @_bt_lockbuf(ptr noundef %0, i32 noundef %101, i32 noundef 2) #6
-  %102 = load i32, ptr %3, align 4
-  %103 = tail call i32 @_bt_moveright(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %102, i1 noundef zeroext true, ptr noundef %.054, i32 noundef 2)
-  store i32 %103, ptr %3, align 4
-  br label %104
+  %97 = load i32, ptr %3, align 4
+  tail call void @_bt_lockbuf(ptr noundef %0, i32 noundef %97, i32 noundef 2) #6
+  %98 = load i32, ptr %3, align 4
+  %99 = tail call i32 @_bt_moveright(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %98, i1 noundef zeroext true, ptr noundef %.054, i32 noundef 2)
+  store i32 %99, ptr %3, align 4
+  br label %100
 
-104:                                              ; preds = %98, %100, %5
-  %.0 = phi ptr [ null, %5 ], [ %.054, %100 ], [ %.054, %98 ]
+100:                                              ; preds = %94, %96, %5
+  %.0 = phi ptr [ null, %5 ], [ %.054, %96 ], [ %.054, %94 ]
   ret ptr %.0
 }
 
@@ -834,145 +831,143 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %.171 = phi i16 [ %.051, %.lr.ph ], [ %.2, %.critedge ]
   %.25470 = phi i16 [ %spec.select, %.lr.ph ], [ %.3, %.critedge ]
   %.05569 = phi i16 [ %spec.select, %.lr.ph ], [ %.156, %.critedge ]
-  %52 = zext i16 %.171 to i32
-  %53 = zext i16 %.25470 to i32
-  %54 = sub nsw i32 %53, %52
-  %55 = sdiv i32 %54, 2
-  %56 = trunc nsw i32 %55 to i16
-  %57 = add i16 %.171, %56
-  %58 = tail call i32 @_bt_compare(ptr noundef %0, ptr noundef %4, ptr noundef %.0.i.i, i16 noundef zeroext %57)
-  %59 = icmp sgt i32 %58, 0
-  %60 = add i16 %57, 1
-  %.not = icmp eq i32 %58, 0
-  %61 = icmp slt i32 %58, 0
-  %.156 = select i1 %61, i16 %57, i16 %.05569
-  %.3 = select i1 %59, i16 %.25470, i16 %57
-  %.2 = select i1 %59, i16 %60, i16 %.171
-  br i1 %.not, label %62, label %.critedge
+  %narrow = sub nuw i16 %.25470, %.171
+  %52 = lshr i16 %narrow, 1
+  %53 = add i16 %52, %.171
+  %54 = tail call i32 @_bt_compare(ptr noundef %0, ptr noundef %4, ptr noundef %.0.i.i, i16 noundef zeroext %53)
+  %55 = icmp sgt i32 %54, 0
+  %56 = add i16 %53, 1
+  %.not = icmp eq i32 %54, 0
+  %57 = icmp slt i32 %54, 0
+  %.156 = select i1 %57, i16 %53, i16 %.05569
+  %.3 = select i1 %55, i16 %.25470, i16 %53
+  %.2 = select i1 %55, i16 %56, i16 %.171
+  br i1 %.not, label %58, label %.critedge
 
-62:                                               ; preds = %51
-  %63 = load ptr, ptr %48, align 8
-  %.not66 = icmp eq ptr %63, null
-  br i1 %.not66, label %.critedge, label %64
+58:                                               ; preds = %51
+  %59 = load ptr, ptr %48, align 8
+  %.not66 = icmp eq ptr %59, null
+  br i1 %.not66, label %.critedge, label %60
 
-64:                                               ; preds = %62
-  %65 = load i32, ptr %49, align 4
-  %.not60 = icmp eq i32 %65, 0
-  br i1 %.not60, label %84, label %66
+60:                                               ; preds = %58
+  %61 = load i32, ptr %49, align 4
+  %.not60 = icmp eq i32 %61, 0
+  br i1 %.not60, label %81, label %62
 
-66:                                               ; preds = %64
-  %67 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %67)
-  %68 = tail call i32 @errcode(i32 noundef 33557032) #6
-  %69 = load ptr, ptr %48, align 8
-  %.val62 = load i16, ptr %69, align 2
-  %70 = getelementptr i8, ptr %69, i64 2
-  %.val63 = load i16, ptr %70, align 2
-  %71 = zext i16 %.val62 to i32
-  %72 = shl nuw i32 %71, 16
-  %73 = zext i16 %.val63 to i32
-  %74 = or disjoint i32 %72, %73
-  %75 = getelementptr i8, ptr %69, i64 4
-  %.val64 = load i16, ptr %75, align 2
-  %76 = zext i16 %.val64 to i32
-  %77 = zext i16 %.05569 to i32
-  %78 = load i32, ptr %5, align 8
-  %79 = tail call i32 @BufferGetBlockNumber(i32 noundef %78) #6
-  %80 = getelementptr inbounds i8, ptr %0, i64 56
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
-  %83 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %74, i32 noundef %76, i32 noundef %52, i32 noundef %77, i32 noundef %79, ptr noundef nonnull %82) #6
+62:                                               ; preds = %60
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %63)
+  %64 = tail call i32 @errcode(i32 noundef 33557032) #6
+  %65 = load ptr, ptr %48, align 8
+  %.val62 = load i16, ptr %65, align 2
+  %66 = getelementptr i8, ptr %65, i64 2
+  %.val63 = load i16, ptr %66, align 2
+  %67 = zext i16 %.val62 to i32
+  %68 = shl nuw i32 %67, 16
+  %69 = zext i16 %.val63 to i32
+  %70 = or disjoint i32 %68, %69
+  %71 = getelementptr i8, ptr %65, i64 4
+  %.val64 = load i16, ptr %71, align 2
+  %72 = zext i16 %.val64 to i32
+  %73 = zext i16 %.171 to i32
+  %74 = zext i16 %.05569 to i32
+  %75 = load i32, ptr %5, align 8
+  %76 = tail call i32 @BufferGetBlockNumber(i32 noundef %75) #6
+  %77 = getelementptr inbounds i8, ptr %0, i64 56
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %80 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %70, i32 noundef %72, i32 noundef %73, i32 noundef %74, i32 noundef %76, ptr noundef nonnull %79) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 564, ptr noundef nonnull @__func__._bt_binsrch_insert) #6
   unreachable
 
-84:                                               ; preds = %64
-  %85 = zext i16 %57 to i64
-  %86 = add nsw i64 %85, -1
-  %87 = getelementptr [0 x %struct.ItemIdData], ptr %50, i64 0, i64 %86
-  %.val.i = load i32, ptr %87, align 4
-  %88 = and i32 %.val.i, 32767
-  %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr i8, ptr %.0.i.i, i64 %89
-  %91 = getelementptr inbounds i8, ptr %90, i64 6
-  %92 = load i16, ptr %91, align 2
-  %93 = and i16 %92, 8192
-  %94 = icmp eq i16 %93, 0
-  br i1 %94, label %_bt_binsrch_posting.exit, label %BTreeTupleIsPosting.exit.i
+81:                                               ; preds = %60
+  %82 = zext i16 %53 to i64
+  %83 = add nsw i64 %82, -1
+  %84 = getelementptr [0 x %struct.ItemIdData], ptr %50, i64 0, i64 %83
+  %.val.i = load i32, ptr %84, align 4
+  %85 = and i32 %.val.i, 32767
+  %86 = zext nneg i32 %85 to i64
+  %87 = getelementptr i8, ptr %.0.i.i, i64 %86
+  %88 = getelementptr inbounds i8, ptr %87, i64 6
+  %89 = load i16, ptr %88, align 2
+  %90 = and i16 %89, 8192
+  %91 = icmp eq i16 %90, 0
+  br i1 %91, label %_bt_binsrch_posting.exit, label %BTreeTupleIsPosting.exit.i
 
-BTreeTupleIsPosting.exit.i:                       ; preds = %84
-  %95 = getelementptr i8, ptr %90, i64 4
-  %.val.i.i = load i16, ptr %95, align 2
-  %96 = and i16 %.val.i.i, 8192
-  %.not.i = icmp eq i16 %96, 0
-  br i1 %.not.i, label %_bt_binsrch_posting.exit, label %97
+BTreeTupleIsPosting.exit.i:                       ; preds = %81
+  %92 = getelementptr i8, ptr %87, i64 4
+  %.val.i.i = load i16, ptr %92, align 2
+  %93 = and i16 %.val.i.i, 8192
+  %.not.i = icmp eq i16 %93, 0
+  br i1 %.not.i, label %_bt_binsrch_posting.exit, label %94
 
-97:                                               ; preds = %BTreeTupleIsPosting.exit.i
-  %98 = and i32 %.val.i, 98304
-  %99 = icmp eq i32 %98, 98304
-  br i1 %99, label %_bt_binsrch_posting.exit, label %100
+94:                                               ; preds = %BTreeTupleIsPosting.exit.i
+  %95 = and i32 %.val.i, 98304
+  %96 = icmp eq i32 %95, 98304
+  br i1 %96, label %_bt_binsrch_posting.exit, label %97
 
-100:                                              ; preds = %97
-  %101 = and i16 %.val.i.i, 4095
-  %.not31.i = icmp eq i16 %101, 0
+97:                                               ; preds = %94
+  %98 = and i16 %.val.i.i, 4095
+  %.not31.i = icmp eq i16 %98, 0
   br i1 %.not31.i, label %_bt_binsrch_posting.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %100
-  %102 = zext nneg i16 %101 to i32
-  %103 = getelementptr i8, ptr %90, i64 2
-  br label %104
+.lr.ph.i:                                         ; preds = %97
+  %99 = zext nneg i16 %98 to i32
+  %100 = getelementptr i8, ptr %87, i64 2
+  br label %101
 
-104:                                              ; preds = %122, %.lr.ph.i
-  %.02128.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %122 ]
-  %.02227.i = phi i32 [ %102, %.lr.ph.i ], [ %.123.i, %122 ]
-  %105 = sub i32 %.02227.i, %.02128.i
-  %106 = sdiv i32 %105, 2
-  %107 = add i32 %106, %.02128.i
-  %108 = load ptr, ptr %48, align 8
-  %.val.i.i.i = load i16, ptr %90, align 2
-  %.val2.i.i.i = load i16, ptr %103, align 2
-  %109 = zext i16 %.val.i.i.i to i64
-  %110 = shl nuw nsw i64 %109, 16
-  %111 = zext i16 %.val2.i.i.i to i64
-  %112 = or disjoint i64 %110, %111
-  %113 = getelementptr i8, ptr %90, i64 %112
-  %114 = sext i32 %107 to i64
-  %115 = getelementptr %struct.ItemPointerData, ptr %113, i64 %114
-  %116 = tail call i32 @ItemPointerCompare(ptr noundef %108, ptr noundef %115) #6
-  %117 = icmp sgt i32 %116, 0
-  br i1 %117, label %118, label %120
+101:                                              ; preds = %119, %.lr.ph.i
+  %.02128.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %119 ]
+  %.02227.i = phi i32 [ %99, %.lr.ph.i ], [ %.123.i, %119 ]
+  %102 = sub i32 %.02227.i, %.02128.i
+  %103 = sdiv i32 %102, 2
+  %104 = add i32 %103, %.02128.i
+  %105 = load ptr, ptr %48, align 8
+  %.val.i.i.i = load i16, ptr %87, align 2
+  %.val2.i.i.i = load i16, ptr %100, align 2
+  %106 = zext i16 %.val.i.i.i to i64
+  %107 = shl nuw nsw i64 %106, 16
+  %108 = zext i16 %.val2.i.i.i to i64
+  %109 = or disjoint i64 %107, %108
+  %110 = getelementptr i8, ptr %87, i64 %109
+  %111 = sext i32 %104 to i64
+  %112 = getelementptr %struct.ItemPointerData, ptr %110, i64 %111
+  %113 = tail call i32 @ItemPointerCompare(ptr noundef %105, ptr noundef %112) #6
+  %114 = icmp sgt i32 %113, 0
+  br i1 %114, label %115, label %117
 
-118:                                              ; preds = %104
-  %119 = add i32 %107, 1
-  br label %122
+115:                                              ; preds = %101
+  %116 = add i32 %104, 1
+  br label %119
 
-120:                                              ; preds = %104
-  %121 = icmp slt i32 %116, 0
-  br i1 %121, label %122, label %_bt_binsrch_posting.exit
+117:                                              ; preds = %101
+  %118 = icmp slt i32 %113, 0
+  br i1 %118, label %119, label %_bt_binsrch_posting.exit
 
-122:                                              ; preds = %120, %118
-  %.123.i = phi i32 [ %.02227.i, %118 ], [ %107, %120 ]
-  %.1.i = phi i32 [ %119, %118 ], [ %.02128.i, %120 ]
-  %123 = icmp sgt i32 %.123.i, %.1.i
-  br i1 %123, label %104, label %_bt_binsrch_posting.exit, !llvm.loop !8
+119:                                              ; preds = %117, %115
+  %.123.i = phi i32 [ %.02227.i, %115 ], [ %104, %117 ]
+  %.1.i = phi i32 [ %116, %115 ], [ %.02128.i, %117 ]
+  %120 = icmp sgt i32 %.123.i, %.1.i
+  br i1 %120, label %101, label %_bt_binsrch_posting.exit, !llvm.loop !8
 
-_bt_binsrch_posting.exit:                         ; preds = %120, %122, %84, %BTreeTupleIsPosting.exit.i, %97, %100
-  %.0.i65 = phi i32 [ 0, %BTreeTupleIsPosting.exit.i ], [ -1, %97 ], [ 0, %84 ], [ 0, %100 ], [ %.1.i, %122 ], [ %107, %120 ]
+_bt_binsrch_posting.exit:                         ; preds = %117, %119, %81, %BTreeTupleIsPosting.exit.i, %94, %97
+  %.0.i65 = phi i32 [ 0, %BTreeTupleIsPosting.exit.i ], [ -1, %94 ], [ 0, %81 ], [ 0, %97 ], [ %.1.i, %119 ], [ %104, %117 ]
   store i32 %.0.i65, ptr %49, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %51, %_bt_binsrch_posting.exit, %62
-  %124 = icmp ugt i16 %.3, %.2
-  br i1 %124, label %51, label %._crit_edge, !llvm.loop !9
+.critedge:                                        ; preds = %51, %_bt_binsrch_posting.exit, %58
+  %121 = icmp ugt i16 %.3, %.2
+  br i1 %121, label %51, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.critedge, %45, %43
   %.1.lcssa.sink = phi i16 [ 0, %43 ], [ %.051, %45 ], [ %.2, %.critedge ]
   %.055.lcssa.sink = phi i16 [ 0, %43 ], [ %spec.select, %45 ], [ %.156, %.critedge ]
   %storemerge = phi i8 [ 0, %43 ], [ 1, %45 ], [ 1, %.critedge ]
   %.0 = phi i16 [ %.051, %43 ], [ %.051, %45 ], [ %.2, %.critedge ]
-  %125 = getelementptr inbounds i8, ptr %1, i64 30
-  store i16 %.1.lcssa.sink, ptr %125, align 2
-  %126 = getelementptr inbounds i8, ptr %1, i64 32
-  store i16 %.055.lcssa.sink, ptr %126, align 8
+  %122 = getelementptr inbounds i8, ptr %1, i64 30
+  store i16 %.1.lcssa.sink, ptr %122, align 2
+  %123 = getelementptr inbounds i8, ptr %1, i64 32
+  store i16 %.055.lcssa.sink, ptr %123, align 8
   store i8 %storemerge, ptr %20, align 4
   ret i16 %.0
 }
@@ -1799,127 +1794,124 @@ BufferGetPage.exit.i206:                          ; preds = %402, %396
 .lr.ph.i:                                         ; preds = %423, %.lr.ph.i
   %.02735.i = phi i16 [ %.1.i, %.lr.ph.i ], [ %415, %423 ]
   %.02834.i = phi i16 [ %.129.i, %.lr.ph.i ], [ %424, %423 ]
-  %431 = zext i16 %.02735.i to i32
-  %432 = zext i16 %.02834.i to i32
-  %433 = sub nsw i32 %432, %431
-  %434 = sdiv i32 %433, 2
-  %435 = trunc nsw i32 %434 to i16
-  %436 = add i16 %.02735.i, %435
-  %437 = call i32 @_bt_compare(ptr noundef readonly %9, ptr noundef nonnull %4, ptr noundef %.0.i.i.i207, i16 noundef zeroext %436)
-  %.not33.i = icmp slt i32 %437, %429
-  %438 = add i16 %436, 1
-  %.129.i = select i1 %.not33.i, i16 %436, i16 %.02834.i
-  %.1.i = select i1 %.not33.i, i16 %.02735.i, i16 %438
-  %439 = icmp ugt i16 %.129.i, %.1.i
-  br i1 %439, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
+  %narrow.i = sub nuw i16 %.02834.i, %.02735.i
+  %431 = lshr i16 %narrow.i, 1
+  %432 = add i16 %431, %.02735.i
+  %433 = call i32 @_bt_compare(ptr noundef readonly %9, ptr noundef nonnull %4, ptr noundef %.0.i.i.i207, i16 noundef zeroext %432)
+  %.not33.i = icmp slt i32 %433, %429
+  %434 = add i16 %432, 1
+  %.129.i = select i1 %.not33.i, i16 %432, i16 %.02834.i
+  %.1.i = select i1 %.not33.i, i16 %.02735.i, i16 %434
+  %435 = icmp ugt i16 %.129.i, %.1.i
+  br i1 %435, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %423
   %.027.lcssa.i = phi i16 [ %415, %423 ], [ %.1.i, %.lr.ph.i ]
-  %440 = getelementptr inbounds i8, ptr %411, i64 12
-  %441 = load i16, ptr %440, align 4
-  %442 = and i16 %441, 1
-  %.not.i210 = icmp eq i16 %442, 0
-  br i1 %.not.i210, label %448, label %443
+  %436 = getelementptr inbounds i8, ptr %411, i64 12
+  %437 = load i16, ptr %436, align 4
+  %438 = and i16 %437, 1
+  %.not.i210 = icmp eq i16 %438, 0
+  br i1 %.not.i210, label %444, label %439
 
-443:                                              ; preds = %._crit_edge.i
-  %444 = getelementptr inbounds i8, ptr %4, i64 4
-  %445 = load i8, ptr %444, align 4
-  %446 = and i8 %445, 1
-  %447 = zext nneg i8 %446 to i16
-  %spec.select.i211 = sub i16 %.027.lcssa.i, %447
+439:                                              ; preds = %._crit_edge.i
+  %440 = getelementptr inbounds i8, ptr %4, i64 4
+  %441 = load i8, ptr %440, align 4
+  %442 = and i8 %441, 1
+  %443 = zext nneg i8 %442 to i16
+  %spec.select.i211 = sub i16 %.027.lcssa.i, %443
   br label %_bt_binsrch.exit
 
-448:                                              ; preds = %._crit_edge.i
-  %449 = add i16 %.027.lcssa.i, -1
+444:                                              ; preds = %._crit_edge.i
+  %445 = add i16 %.027.lcssa.i, -1
   br label %_bt_binsrch.exit
 
-_bt_binsrch.exit:                                 ; preds = %BufferGetPage.exit.i206, %443, %448
-  %.0.i212 = phi i16 [ %449, %448 ], [ %415, %BufferGetPage.exit.i206 ], [ %spec.select.i211, %443 ]
-  %450 = getelementptr inbounds i8, ptr %11, i64 96
-  store i32 %386, ptr %450, align 8
-  %451 = call fastcc zeroext i1 @_bt_readpage(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %.0.i212, i1 noundef zeroext true)
-  %452 = load ptr, ptr %8, align 8
-  %453 = load i32, ptr %450, align 8
-  call void @_bt_unlockbuf(ptr noundef %452, i32 noundef %453) #6
-  br i1 %451, label %456, label %454
+_bt_binsrch.exit:                                 ; preds = %BufferGetPage.exit.i206, %439, %444
+  %.0.i212 = phi i16 [ %445, %444 ], [ %415, %BufferGetPage.exit.i206 ], [ %spec.select.i211, %439 ]
+  %446 = getelementptr inbounds i8, ptr %11, i64 96
+  store i32 %386, ptr %446, align 8
+  %447 = call fastcc zeroext i1 @_bt_readpage(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %.0.i212, i1 noundef zeroext true)
+  %448 = load ptr, ptr %8, align 8
+  %449 = load i32, ptr %446, align 8
+  call void @_bt_unlockbuf(ptr noundef %448, i32 noundef %449) #6
+  br i1 %447, label %452, label %450
 
-454:                                              ; preds = %_bt_binsrch.exit
-  %455 = call fastcc zeroext i1 @_bt_steppage(ptr noundef %0, i32 noundef %1)
-  br i1 %455, label %_bt_drop_lock_and_maybe_pin.exit, label %_bt_parallel_readpage.exit
+450:                                              ; preds = %_bt_binsrch.exit
+  %451 = call fastcc zeroext i1 @_bt_steppage(ptr noundef %0, i32 noundef %1)
+  br i1 %451, label %_bt_drop_lock_and_maybe_pin.exit, label %_bt_parallel_readpage.exit
 
-456:                                              ; preds = %_bt_binsrch.exit
-  %457 = load ptr, ptr %388, align 8
-  %458 = load i32, ptr %457, align 8
-  switch i32 %458, label %_bt_drop_lock_and_maybe_pin.exit [
-    i32 0, label %459
-    i32 5, label %459
+452:                                              ; preds = %_bt_binsrch.exit
+  %453 = load ptr, ptr %388, align 8
+  %454 = load i32, ptr %453, align 8
+  switch i32 %454, label %_bt_drop_lock_and_maybe_pin.exit [
+    i32 0, label %455
+    i32 5, label %455
   ]
 
-459:                                              ; preds = %456, %456
-  %460 = load ptr, ptr %8, align 8
-  %461 = getelementptr inbounds i8, ptr %460, i64 56
-  %462 = load ptr, ptr %461, align 8
-  %463 = getelementptr inbounds i8, ptr %462, i64 114
-  %464 = load i8, ptr %463, align 2
-  %465 = icmp eq i8 %464, 112
-  br i1 %465, label %466, label %_bt_drop_lock_and_maybe_pin.exit
+455:                                              ; preds = %452, %452
+  %456 = load ptr, ptr %8, align 8
+  %457 = getelementptr inbounds i8, ptr %456, i64 56
+  %458 = load ptr, ptr %457, align 8
+  %459 = getelementptr inbounds i8, ptr %458, i64 114
+  %460 = load i8, ptr %459, align 2
+  %461 = icmp eq i8 %460, 112
+  br i1 %461, label %462, label %_bt_drop_lock_and_maybe_pin.exit
 
-466:                                              ; preds = %459
-  %467 = load i32, ptr @wal_level, align 4
-  %468 = icmp sgt i32 %467, 0
-  br i1 %468, label %477, label %469
+462:                                              ; preds = %455
+  %463 = load i32, ptr @wal_level, align 4
+  %464 = icmp sgt i32 %463, 0
+  br i1 %464, label %473, label %465
 
-469:                                              ; preds = %466
-  %470 = getelementptr inbounds i8, ptr %460, i64 40
+465:                                              ; preds = %462
+  %466 = getelementptr inbounds i8, ptr %456, i64 40
+  %467 = load i32, ptr %466, align 8
+  %468 = icmp eq i32 %467, 0
+  br i1 %468, label %469, label %_bt_drop_lock_and_maybe_pin.exit
+
+469:                                              ; preds = %465
+  %470 = getelementptr inbounds i8, ptr %456, i64 48
   %471 = load i32, ptr %470, align 8
   %472 = icmp eq i32 %471, 0
   br i1 %472, label %473, label %_bt_drop_lock_and_maybe_pin.exit
 
-473:                                              ; preds = %469
-  %474 = getelementptr inbounds i8, ptr %460, i64 48
-  %475 = load i32, ptr %474, align 8
-  %476 = icmp eq i32 %475, 0
-  br i1 %476, label %477, label %_bt_drop_lock_and_maybe_pin.exit
+473:                                              ; preds = %469, %462
+  %474 = getelementptr inbounds i8, ptr %0, i64 48
+  %475 = load i8, ptr %474, align 8
+  %476 = trunc i8 %475 to i1
+  br i1 %476, label %_bt_drop_lock_and_maybe_pin.exit, label %_bt_drop_lock_and_maybe_pin.exit.sink.split
 
-477:                                              ; preds = %473, %466
-  %478 = getelementptr inbounds i8, ptr %0, i64 48
-  %479 = load i8, ptr %478, align 8
-  %480 = trunc i8 %479 to i1
-  br i1 %480, label %_bt_drop_lock_and_maybe_pin.exit, label %_bt_drop_lock_and_maybe_pin.exit.sink.split
-
-_bt_drop_lock_and_maybe_pin.exit.sink.split:      ; preds = %477, %69
-  %.sink274 = phi ptr [ %45, %69 ], [ %450, %477 ]
-  %481 = load i32, ptr %.sink274, align 8
-  call void @ReleaseBuffer(i32 noundef %481) #6
+_bt_drop_lock_and_maybe_pin.exit.sink.split:      ; preds = %473, %69
+  %.sink274 = phi ptr [ %45, %69 ], [ %446, %473 ]
+  %477 = load i32, ptr %.sink274, align 8
+  call void @ReleaseBuffer(i32 noundef %477) #6
   store i32 0, ptr %.sink274, align 8
   br label %_bt_drop_lock_and_maybe_pin.exit
 
-_bt_drop_lock_and_maybe_pin.exit:                 ; preds = %_bt_drop_lock_and_maybe_pin.exit.sink.split, %69, %65, %61, %51, %44, %477, %473, %469, %459, %456, %454
-  %482 = getelementptr inbounds i8, ptr %11, i64 140
-  %483 = getelementptr inbounds i8, ptr %11, i64 136
-  %484 = load i32, ptr %483, align 8
-  %485 = sext i32 %484 to i64
-  %486 = getelementptr [1358 x %struct.BTScanPosItem], ptr %482, i64 0, i64 %485
-  %487 = getelementptr inbounds i8, ptr %0, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %487, ptr noundef nonnull align 2 dereferenceable(6) %486, i64 6, i1 false)
-  %488 = getelementptr inbounds i8, ptr %0, i64 48
-  %489 = load i8, ptr %488, align 8
-  %490 = trunc i8 %489 to i1
-  br i1 %490, label %491, label %_bt_parallel_readpage.exit
+_bt_drop_lock_and_maybe_pin.exit:                 ; preds = %_bt_drop_lock_and_maybe_pin.exit.sink.split, %69, %65, %61, %51, %44, %473, %469, %465, %455, %452, %450
+  %478 = getelementptr inbounds i8, ptr %11, i64 140
+  %479 = getelementptr inbounds i8, ptr %11, i64 136
+  %480 = load i32, ptr %479, align 8
+  %481 = sext i32 %480 to i64
+  %482 = getelementptr [1358 x %struct.BTScanPosItem], ptr %478, i64 0, i64 %481
+  %483 = getelementptr inbounds i8, ptr %0, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %483, ptr noundef nonnull align 2 dereferenceable(6) %482, i64 6, i1 false)
+  %484 = getelementptr inbounds i8, ptr %0, i64 48
+  %485 = load i8, ptr %484, align 8
+  %486 = trunc i8 %485 to i1
+  br i1 %486, label %487, label %_bt_parallel_readpage.exit
 
-491:                                              ; preds = %_bt_drop_lock_and_maybe_pin.exit
-  %492 = getelementptr inbounds i8, ptr %11, i64 72
-  %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds i8, ptr %486, i64 8
-  %495 = load i16, ptr %494, align 2
-  %496 = zext i16 %495 to i64
-  %497 = getelementptr i8, ptr %493, i64 %496
-  %498 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %497, ptr %498, align 8
+487:                                              ; preds = %_bt_drop_lock_and_maybe_pin.exit
+  %488 = getelementptr inbounds i8, ptr %11, i64 72
+  %489 = load ptr, ptr %488, align 8
+  %490 = getelementptr inbounds i8, ptr %482, i64 8
+  %491 = load i16, ptr %490, align 2
+  %492 = zext i16 %491 to i64
+  %493 = getelementptr i8, ptr %489, i64 %492
+  %494 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %493, ptr %494, align 8
   br label %_bt_parallel_readpage.exit
 
-_bt_parallel_readpage.exit:                       ; preds = %_bt_drop_lock_and_maybe_pin.exit.i, %245, %36, %_bt_drop_lock_and_maybe_pin.exit, %491, %454, %_bt_endpoint.exit, %31, %.thread229, %264, %35, %27
-  %.0 = phi i1 [ false, %35 ], [ false, %264 ], [ false, %.thread229 ], [ false, %27 ], [ false, %31 ], [ false, %_bt_endpoint.exit ], [ false, %454 ], [ true, %491 ], [ true, %_bt_drop_lock_and_maybe_pin.exit ], [ false, %36 ], [ true, %245 ], [ true, %_bt_drop_lock_and_maybe_pin.exit.i ]
+_bt_parallel_readpage.exit:                       ; preds = %_bt_drop_lock_and_maybe_pin.exit.i, %245, %36, %_bt_drop_lock_and_maybe_pin.exit, %487, %450, %_bt_endpoint.exit, %31, %.thread229, %264, %35, %27
+  %.0 = phi i1 [ false, %35 ], [ false, %264 ], [ false, %.thread229 ], [ false, %27 ], [ false, %31 ], [ false, %_bt_endpoint.exit ], [ false, %450 ], [ true, %487 ], [ true, %_bt_drop_lock_and_maybe_pin.exit ], [ false, %36 ], [ true, %245 ], [ true, %_bt_drop_lock_and_maybe_pin.exit.i ]
   ret i1 %.0
 }
 

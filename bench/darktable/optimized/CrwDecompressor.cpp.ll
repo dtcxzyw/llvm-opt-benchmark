@@ -940,7 +940,7 @@ define linkonce_odr hidden noundef i32 @_ZN8rawspeed11HuffmanCodeINS_15BaselineC
   unreachable
 
 182:                                              ; preds = %179
-  %183 = sub i32 %171, %176
+  %183 = sub nuw i32 %171, %176
   %184 = shl i32 %183, 1
   %185 = add nuw i64 %172, 1
   %186 = icmp eq i64 %185, %168
@@ -3119,7 +3119,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10PrefixCodeINS_15BaselineCodeTagEE
   unreachable
 
 39:                                               ; preds = %.preheader12
-  %40 = sub i32 %33, %36
+  %40 = sub nuw i32 %33, %36
   %41 = shl i32 %40, 1
   %42 = add nuw i64 %34, 1
   %43 = icmp eq i64 %42, %9
@@ -3897,7 +3897,7 @@ define linkonce_odr hidden void @_ZN8rawspeed23PrefixCodeLookupDecoderINS_15Base
   br i1 %37, label %38, label %46
 
 38:                                               ; preds = %.loopexit15
-  %39 = sub nsw i64 %29, %36
+  %39 = sub nuw nsw i64 %29, %36
   tail call void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPtS1_EEmRKt(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr %31, i64 noundef %39, ptr noundef nonnull align 2 dereferenceable(2) @_ZN8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE12MaxCodeValueE)
   %40 = load ptr, ptr %23, align 8, !tbaa !113
   %41 = load ptr, ptr %22, align 8, !tbaa !91
@@ -3935,7 +3935,7 @@ define linkonce_odr hidden void @_ZN8rawspeed23PrefixCodeLookupDecoderINS_15Base
   br i1 %63, label %64, label %72
 
 64:                                               ; preds = %52
-  %65 = sub nsw i64 %53, %62
+  %65 = sub nuw nsw i64 %53, %62
   tail call void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPtS1_EEmRKt(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr %57, i64 noundef %65, ptr noundef nonnull align 2 dereferenceable(2) @_ZN8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE12MaxCodeValueE)
   %66 = load ptr, ptr %23, align 8, !tbaa !113
   %67 = load ptr, ptr %22, align 8, !tbaa !91

@@ -865,7 +865,7 @@ for.end84.i.i:                                    ; preds = %for.body77.i.i, %fo
   br i1 %exitcond398.not.i.i, label %for.end95.i167.i, label %for.body69.i.i, !llvm.loop !28
 
 for.end95.i167.i:                                 ; preds = %for.end84.i.i
-  %sub64.i.i = sub i64 %retval.0.i.i, %i.1360.i.i
+  %sub64.i.i = sub nuw i64 %retval.0.i.i, %i.1360.i.i
   %cond.i438.i.i = tail call i64 @llvm.umin.i64(i64 %sub64.i.i, i64 64)
   %call96.i.i = tail call i64 @BrotliHistogramCombineLiteral(ptr noundef nonnull %cond33.i.i, ptr noundef %call46.i.i, ptr noundef nonnull %cond8310322.i.i, ptr noundef nonnull %add.ptr43.i.i, ptr noundef nonnull %add.ptr42.i.i, ptr noundef %call38.i.i, i64 noundef %cond.i438.i.i, i64 noundef %cond.i438.i.i, i64 noundef 64, i64 noundef 2048) #7
   %add97.i.i = add i64 %call96.i.i, %all_histograms_size.0368.i.i
@@ -2062,7 +2062,7 @@ for.end84.i.i404:                                 ; preds = %for.body77.i.i399, 
   br i1 %exitcond397.not.i.i412, label %for.end95.i167.i413, label %for.body69.i.i394, !llvm.loop !63
 
 for.end95.i167.i413:                              ; preds = %for.end84.i.i404
-  %sub64.i.i393 = sub i64 %retval.0.i.i280, %i.1359.i.i
+  %sub64.i.i393 = sub nuw i64 %retval.0.i.i280, %i.1359.i.i
   %cond.i427.i.i = tail call i64 @llvm.umin.i64(i64 %sub64.i.i393, i64 64)
   %call96.i.i414 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef nonnull %cond33.i.i367, ptr noundef %call46.i.i371, ptr noundef nonnull %cond8310322.i.i360, ptr noundef nonnull %add.ptr43.i.i369, ptr noundef nonnull %add.ptr42.i.i389, ptr noundef %call38.i.i368, i64 noundef %cond.i427.i.i, i64 noundef %cond.i427.i.i, i64 noundef 64, i64 noundef 2048) #7
   %add97.i.i415 = add i64 %call96.i.i414, %all_histograms_size.0367.i.i
@@ -3281,7 +3281,7 @@ for.end84.i.i1066:                                ; preds = %for.body77.i.i1055,
   br i1 %exitcond397.not.i.i1074, label %for.end95.i167.i1075, label %for.body69.i.i1046, !llvm.loop !98
 
 for.end95.i167.i1075:                             ; preds = %for.end84.i.i1066
-  %sub64.i.i1045 = sub i64 %retval.0.i.i920, %i.1359.i.i1042
+  %sub64.i.i1045 = sub nuw i64 %retval.0.i.i920, %i.1359.i.i1042
   %cond.i427.i.i1076 = tail call i64 @llvm.umin.i64(i64 %sub64.i.i1045, i64 64)
   %call96.i.i1077 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef nonnull %cond33.i.i1008, ptr noundef %call46.i.i1012, ptr noundef nonnull %cond8310322.i.i1000, ptr noundef nonnull %add.ptr43.i.i1010, ptr noundef nonnull %add.ptr42.i.i1030, ptr noundef %call38.i.i1009, i64 noundef %cond.i427.i.i1076, i64 noundef %cond.i427.i.i1076, i64 noundef 64, i64 noundef 2048) #7
   %add97.i.i1078 = add i64 %call96.i.i1077, %all_histograms_size.0367.i.i1034

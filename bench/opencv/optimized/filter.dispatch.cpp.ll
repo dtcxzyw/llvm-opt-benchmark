@@ -2683,7 +2683,7 @@ define hidden noundef i32 @_ZN2cv12cpu_baseline19FilterEngine__startERNS_12Filte
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %91
-  %100 = sub nsw i64 %95, %97
+  %100 = sub nuw nsw i64 %95, %97
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %94, i64 noundef %100)
           to label %._ZNSt6vectorIPhSaIS0_EE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -3265,7 +3265,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -9182,7 +9182,7 @@ _ZN2cv3PtrINS_16BaseColumnFilterEEaSERKS2_.exit:  ; preds = %_ZN2cv3PtrINS_13Bas
   br i1 %274, label %275, label %277
 
 275:                                              ; preds = %257
-  %276 = sub nsw i64 %266, %273
+  %276 = sub nuw nsw i64 %266, %273
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %264, i64 noundef %276)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -11878,7 +11878,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -27488,7 +27488,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %52)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
@@ -27914,7 +27914,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %52)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
@@ -28350,7 +28350,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %52)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
@@ -28786,7 +28786,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %52)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
@@ -29210,7 +29210,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %34
-  %51 = sub nsw i64 %41, %48
+  %51 = sub nuw nsw i64 %41, %48
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %51)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %23
 
@@ -29635,7 +29635,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %52)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
@@ -30071,7 +30071,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %52)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
@@ -30495,7 +30495,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %34
-  %51 = sub nsw i64 %41, %48
+  %51 = sub nuw nsw i64 %41, %48
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %51)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %23
 
@@ -30920,7 +30920,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %52)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
@@ -31356,7 +31356,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %52)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
@@ -31780,7 +31780,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %34
-  %51 = sub nsw i64 %41, %48
+  %51 = sub nuw nsw i64 %41, %48
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %51)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %23
 
@@ -32205,7 +32205,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %35
-  %52 = sub nsw i64 %42, %49
+  %52 = sub nuw nsw i64 %42, %49
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %52)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %24
 
@@ -32628,7 +32628,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %34
-  %51 = sub nsw i64 %41, %48
+  %51 = sub nuw nsw i64 %41, %48
   invoke void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %51)
           to label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit unwind label %23
 

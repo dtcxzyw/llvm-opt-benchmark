@@ -178,7 +178,7 @@ if.then7:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %in, i64 %conv, i1 false)
-  %sub17 = sub i64 %inlen, %conv
+  %sub17 = sub nuw i64 %inlen, %conv
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %conv
   %8 = load i32, ptr %leavings, align 8
   %9 = zext i32 %8 to i64

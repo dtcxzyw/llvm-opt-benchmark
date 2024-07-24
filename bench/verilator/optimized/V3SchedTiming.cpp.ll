@@ -7269,7 +7269,7 @@ _ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched14transformForksEP10AstNetli
   br i1 %243, label %244, label %275
 
 244:                                              ; preds = %237
-  %245 = sub nsw i64 %242, %241
+  %245 = sub nuw nsw i64 %242, %241
   %246 = ptrtoint ptr %.sroa.20.1.i.i to i64
   %247 = sub i64 %246, %238
   %248 = ashr exact i64 %247, 3

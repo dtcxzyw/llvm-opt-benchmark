@@ -3083,7 +3083,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_flow_des(ptr noundef %0, pt
   %14 = phi i32 [ 0, %.lr.ph99 ], [ %115, %._crit_edge ]
   %.08497 = phi i32 [ 1, %.lr.ph99 ], [ %112, %._crit_edge ]
   %.08796 = phi i32 [ %3, %.lr.ph99 ], [ %.1.lcssa, %._crit_edge ]
-  %15 = sub i32 %4, %14
+  %15 = sub nuw i32 %4, %14
   %16 = load i32, ptr @ett_nas_5gs_sm_qos_params, align 4
   %17 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.08796, i32 noundef %15, i32 noundef %16, ptr noundef nonnull %8, ptr noundef nonnull @.str.46, i32 noundef %.08497) #12
   %18 = load i32, ptr @hf_nas_5gs_sm_qfi, align 4
@@ -5991,7 +5991,7 @@ define internal zeroext i16 @de_nas_5gs_mm_sor_transp_cont(ptr noundef %0, ptr n
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %.loopexit
-  %82 = sub i32 %4, %79
+  %82 = sub nuw i32 %4, %79
   %83 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_nas_5gs_extraneous_data, ptr noundef %0, i32 noundef %.3, i32 noundef %82) #12
   %84 = add i32 %82, %.3
   %.pre131 = sub i32 %84, %3

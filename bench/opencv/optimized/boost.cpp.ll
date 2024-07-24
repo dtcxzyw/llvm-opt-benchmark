@@ -2313,7 +2313,7 @@ define linkonce_odr hidden void @_ZN2cv2ml18DTreesImplForBoost13startTrainingERK
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %31
-  %54 = sub nsw i64 %44, %51
+  %54 = sub nuw nsw i64 %44, %51
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %54)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 

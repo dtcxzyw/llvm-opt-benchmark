@@ -91,7 +91,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %land.lhs.true
-  %sub = sub i64 %offset, %2
+  %sub = sub nuw i64 %offset, %2
   %3 = urem i64 %sub, %alignment
   %mul.i = sub nuw i64 %sub, %3
   %sub9 = sub i64 %1, %mul.i

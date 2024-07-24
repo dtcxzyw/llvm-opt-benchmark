@@ -1845,7 +1845,7 @@ lor.lhs.false.i:                                  ; preds = %while.cond
 while.body:                                       ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %prots.sroa.0.1, i64 1
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   %23 = load i64, ptr %alpn_selected_len, align 8
   %cmp.not.i = icmp eq i64 %23, %conv.i
   br i1 %cmp.not.i, label %if.end.i63, label %PACKET_equal.exit
@@ -1996,7 +1996,7 @@ if.end22:                                         ; preds = %if.then9, %if.then1
 
 if.then28:                                        ; preds = %if.end22
   %cmp29 = icmp ult i64 %10, 508
-  %sub32 = sub nsw i64 508, %10
+  %sub32 = sub nuw nsw i64 508, %10
   %storemerge = select i1 %cmp29, i64 %sub32, i64 1
   store i64 %storemerge, ptr %hlen, align 8
   %call34 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef 21, i64 noundef 2) #10
@@ -2493,7 +2493,7 @@ if.end35:                                         ; preds = %if.end31
 lor.lhs.false40:                                  ; preds = %if.end35
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %5
   store ptr %add.ptr.i.i, ptr %pkt, align 8
-  %sub.i.i = sub nsw i64 %add, %5
+  %sub.i.i = sub nuw nsw i64 %add, %5
   store i64 %sub.i.i, ptr %2, align 8
   %previous_client_finished = getelementptr inbounds i8, ptr %s, i64 936
   %6 = load i64, ptr %previous_client_finished_len, align 8
@@ -2515,7 +2515,7 @@ if.end48:                                         ; preds = %lor.lhs.false40
 lor.lhs.false53:                                  ; preds = %if.end48
   %add.ptr.i.i26 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %7
   store ptr %add.ptr.i.i26, ptr %pkt, align 8
-  %sub.i.i27 = sub i64 %sub.i.i, %7
+  %sub.i.i27 = sub nuw nsw i64 %sub.i.i, %7
   store i64 %sub.i.i27, ptr %2, align 8
   %previous_server_finished = getelementptr inbounds i8, ptr %s, i64 1008
   %8 = load i64, ptr %previous_server_finished_len, align 8
@@ -2914,7 +2914,7 @@ PACKET_copy_bytes.exit:                           ; preds = %if.end19
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call9, ptr align 1 %3, i64 %pkt.val21, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %pkt.val21
   store ptr %add.ptr.i.i, ptr %pkt, align 8
-  %sub.i.i = sub i64 %pkt.val.i.i, %pkt.val21
+  %sub.i.i = sub nuw i64 %pkt.val.i.i, %pkt.val21
   store i64 %sub.i.i, ptr %1, align 8
   br label %if.end39
 
@@ -3010,7 +3010,7 @@ lor.lhs.false.i.i:                                ; preds = %while.cond.i
   %cmp.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %tmppkt.sroa.0.0, i64 1
   %add.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %conv.i.i
-  %sub.i.i6.i.i = sub i64 %sub.i.i.i.i, %conv.i.i
+  %sub.i.i6.i.i = sub nuw i64 %sub.i.i.i.i, %conv.i.i
   %cmp.i = icmp eq i8 %4, 0
   %or.cond = or i1 %cmp.i, %cmp.i.i.i.i
   br i1 %or.cond, label %ssl_next_proto_validate.exit.thread, label %while.cond.i, !llvm.loop !13
@@ -3157,7 +3157,7 @@ if.end26:                                         ; preds = %if.end20
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call12, ptr align 1 %7, i64 %sub.i.i.i36, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %sub.i.i.i36
   store ptr %add.ptr.i.i, ptr %pkt, align 8
-  %sub.i.i = sub i64 %pkt.val.i.i, %sub.i.i.i36
+  %sub.i.i = sub nuw i64 %pkt.val.i.i, %sub.i.i.i36
   store i64 %sub.i.i, ptr %1, align 8
   %alpn_selected_len28 = getelementptr inbounds i8, ptr %s, i64 1096
   store i64 %sub.i.i.i36, ptr %alpn_selected_len28, align 8

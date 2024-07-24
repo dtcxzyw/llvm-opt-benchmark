@@ -2063,7 +2063,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %10
   br i1 %19, label %.critedge20, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i
-  %20 = sub i64 %14, %17
+  %20 = sub nuw i64 %14, %17
   %21 = getelementptr inbounds i8, ptr %15, i64 %20
   %bcmp.i = tail call i32 @bcmp(ptr %21, ptr %18, i64 %17)
   %22 = icmp eq i32 %bcmp.i, 0

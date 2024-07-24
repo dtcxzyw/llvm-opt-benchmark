@@ -732,7 +732,7 @@ define hidden void @"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_im
   unreachable
 
 17:                                               ; preds = %2
-  %18 = sub i64 %8, %1
+  %18 = sub nuw i64 %8, %1
   store i64 %18, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !noundef !4
@@ -1107,7 +1107,7 @@ select.unfold:                                    ; preds = %55
           to label %145 unwind label %115, !noalias !214
 
 110:                                              ; preds = %.noexc25
-  %111 = sub i64 %93, %84
+  %111 = sub nuw i64 %93, %84
   %112 = getelementptr inbounds i8, ptr %10, i64 8
   %113 = load ptr, ptr %112, align 8, !alias.scope !218, !noalias !214, !noundef !4
   %114 = getelementptr inbounds i8, ptr %113, i64 %84
@@ -1285,7 +1285,7 @@ define void @_ZN15actix_multipart4form6Limits18try_consume_limits17h893d8f0c5ee5
   br i1 %.not148, label %13, label %11
 
 11:                                               ; preds = %4
-  %12 = sub i64 %9, %2
+  %12 = sub nuw i64 %9, %2
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$actix_multipart..error..MultipartError$GT$17hc27e203801522e72E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   store i64 %12, ptr %8, align 8
@@ -1315,7 +1315,7 @@ define void @_ZN15actix_multipart4form6Limits18try_consume_limits17h893d8f0c5ee5
   br i1 %.not149, label %22, label %20
 
 20:                                               ; preds = %16
-  %21 = sub i64 %18, %2
+  %21 = sub nuw i64 %18, %2
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$actix_multipart..error..MultipartError$GT$17hc27e203801522e72E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   store i64 %21, ptr %17, align 8
@@ -1344,7 +1344,7 @@ define void @_ZN15actix_multipart4form6Limits18try_consume_limits17h893d8f0c5ee5
   br label %31
 
 28:                                               ; preds = %23
-  %29 = sub i64 %25, %2
+  %29 = sub nuw i64 %25, %2
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$actix_multipart..error..MultipartError$GT$17hc27e203801522e72E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   store i64 1, ptr %1, align 8

@@ -4809,7 +4809,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
 
 618:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h237b1e0e92776055E.llvm.23857589297000235.exit.i.i.i"
   %619 = getelementptr inbounds i8, ptr %613, i64 240
-  %620 = sub i64 %608, %.044.i.i
+  %620 = sub nuw i64 %608, %.044.i.i
   %621 = mul i64 %620, 240
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %619, ptr nonnull align 8 %613, i64 %621, i1 false), !noalias !576
   br label %629

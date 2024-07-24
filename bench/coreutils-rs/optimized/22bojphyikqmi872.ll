@@ -81,7 +81,7 @@ define hidden void @"_ZN12block_buffer50BlockBuffer$LT$BlockSize$C$block_buffer.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit": ; preds = %27
   %29 = getelementptr inbounds i8, ptr %1, i64 %15
-  %30 = sub i64 %2, %15
+  %30 = sub nuw i64 %2, %15
   %31 = getelementptr inbounds i8, ptr %0, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull readonly align 1 %31, i64 %15, i1 false), !alias.scope !13, !noalias !17
   br label %17
@@ -207,7 +207,7 @@ define hidden void @"_ZN12block_buffer50BlockBuffer$LT$BlockSize$C$block_buffer.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit": ; preds = %27
   %29 = getelementptr inbounds i8, ptr %1, i64 %15
-  %30 = sub i64 %2, %15
+  %30 = sub nuw i64 %2, %15
   %31 = getelementptr inbounds i8, ptr %0, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull readonly align 1 %31, i64 %15, i1 false), !alias.scope !45, !noalias !49
   br label %17
@@ -726,7 +726,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %22
   %136 = getelementptr inbounds i8, ptr %122, i64 %127
   %137 = load i8, ptr %136, align 1, !alias.scope !148, !noalias !153, !noundef !4
   %138 = icmp sgt i8 %137, -65
-  %139 = sub i64 %124, %127
+  %139 = sub nuw i64 %124, %127
   br i1 %138, label %141, label %140
 
 140:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %133
@@ -2532,7 +2532,7 @@ define internal fastcc void @_ZN6uucore8features6format10num_parser12ParsedNumbe
   %100 = getelementptr inbounds i8, ptr %8, i64 %.sroa.18.0366
   %101 = load i8, ptr %100, align 1, !alias.scope !481, !noundef !4
   %102 = icmp sgt i8 %101, -65
-  %103 = sub i64 %9, %.sroa.18.0366
+  %103 = sub nuw i64 %9, %.sroa.18.0366
   br i1 %102, label %105, label %104
 
 104:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %97
@@ -3102,7 +3102,7 @@ _ZN4core3str7pattern7Pattern15strip_prefix_of17h5618b54020e83efeE.exit291: ; pre
   %360 = getelementptr inbounds i8, ptr %.sroa.0.3518, i64 %288
   %361 = load i8, ptr %360, align 1, !alias.scope !599, !noundef !4
   %362 = icmp sgt i8 %361, -65
-  %363 = sub i64 %.sroa.10.3517, %288
+  %363 = sub nuw i64 %.sroa.10.3517, %288
   br i1 %362, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit348.thread572", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit348.thread"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h74e56eb925ef5a19E.exit344.thread": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i", %.critedge, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i.i319", %.thread414, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5ccdd913858f6fbE.exit300", %.preheader

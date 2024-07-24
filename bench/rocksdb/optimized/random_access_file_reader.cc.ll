@@ -1411,7 +1411,7 @@ invoke.cont126:                                   ; preds = %lor.lhs.false, %whi
   br i1 %or.cond480, label %if.then132, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i172
 
 if.then132:                                       ; preds = %invoke.cont126
-  %sub136 = sub i64 %buf.sroa.15.1.ph, %sub36
+  %sub136 = sub nuw i64 %buf.sroa.15.1.ph, %sub36
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub136, i64 %n)
   %cmp139 = icmp eq ptr %aligned_buf, null
   br i1 %cmp139, label %if.end.i161, label %if.else143
@@ -3855,7 +3855,7 @@ if.then164:                                       ; preds = %invoke.cont162
 
 if.else176:                                       ; preds = %if.then164
   %len178 = getelementptr inbounds i8, ptr %arrayidx149, i64 8
-  %sub183 = sub i64 %122, %sub168
+  %sub183 = sub nuw i64 %122, %sub168
   %123 = load i64, ptr %len178, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub183, i64 %123)
   %scratch187 = getelementptr inbounds i8, ptr %arrayidx156, i64 16
@@ -5874,7 +5874,7 @@ invoke.cont15:                                    ; preds = %cond.end.i.thread, 
   br i1 %or.cond, label %if.then22, label %if.end52
 
 if.then22:                                        ; preds = %invoke.cont15
-  %sub26 = sub i64 %add, %sub
+  %sub26 = sub nuw i64 %add, %sub
   %20 = load i64, ptr %user_len_, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %20, i64 %sub26)
   %user_aligned_buf_ = getelementptr inbounds i8, ptr %cb_arg, i64 72

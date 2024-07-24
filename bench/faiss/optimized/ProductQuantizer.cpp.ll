@@ -227,7 +227,7 @@ define void @_ZN5faiss16ProductQuantizer5trainEmPKf(ptr noundef nonnull align 8 
   br i1 %73, label %74, label %105
 
 74:                                               ; preds = %63
-  %75 = sub i64 %66, %72
+  %75 = sub nuw i64 %66, %72
   %76 = load ptr, ptr %34, align 8
   %77 = ptrtoint ptr %76 to i64
   %78 = sub i64 %77, %69
@@ -1350,7 +1350,7 @@ define void @_ZN5faiss16ProductQuantizer18set_derived_valuesEv(ptr noundef nonnu
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %26
-  %49 = sub i64 %39, %46
+  %49 = sub nuw i64 %39, %46
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %49)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -5350,7 +5350,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -7200,7 +7200,7 @@ define linkonce_odr noundef i64 @_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1T
   %.03740 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %7 = load float, ptr %1, align 4
   %8 = load i64, ptr %2, align 8
-  %9 = sub i64 %0, %.041
+  %9 = sub nuw i64 %0, %.041
   %10 = getelementptr inbounds float, ptr %4, i64 %9
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds i64, ptr %5, i64 %9
@@ -7348,7 +7348,7 @@ define void @_ZN5faiss16ProductQuantizer17compute_sdc_tableEv(ptr noundef nonnul
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %1
-  %18 = sub i64 %8, %15
+  %18 = sub nuw i64 %8, %15
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %18)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -7914,7 +7914,7 @@ define void @_ZN5faiss16ProductQuantizer25sync_transposed_centroidsEv(ptr nounde
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %1
-  %17 = sub i64 %7, %14
+  %17 = sub nuw i64 %7, %14
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %17)
   %.pre = load i64, ptr %5, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
@@ -7949,7 +7949,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %37 = sub i64 %27, %34
+  %37 = sub nuw i64 %27, %34
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %37)
   %.pre36 = load i64, ptr %25, align 8
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit24

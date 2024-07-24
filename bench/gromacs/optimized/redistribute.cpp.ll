@@ -180,7 +180,7 @@ define void @_Z18dd_redistribute_cgP8_IO_FILElP12gmx_domdec_tPiP7t_stateP10t_for
   br i1 %64, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i, label %66
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i:         ; preds = %56
-  %65 = sub nsw i64 %50, %63
+  %65 = sub nuw nsw i64 %50, %63
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %65)
   %.pre.i.i.i = load ptr, ptr %47, align 8
   %.pre693 = ptrtoint ptr %.pre.i.i.i to i64
@@ -399,7 +399,7 @@ _ZNSt6vectorI10PbcAndFlagSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread: ; pre
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %184
-  %187 = sub nsw i64 %175, %182
+  %187 = sub nuw nsw i64 %175, %182
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %170, i64 noundef %187)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp459.loopexit
 
@@ -1024,7 +1024,7 @@ _ZL18clear_and_mark_indN3gmx8ArrayRefIKiEES2_P11gmx_ga2la_tPi.exit: ; preds = %_
 
 520:                                              ; preds = %_ZL18clear_and_mark_indN3gmx8ArrayRefIKiEES2_P11gmx_ga2la_tPi.exit
   %521 = getelementptr inbounds i8, ptr %509, i64 288
-  %522 = sub nsw i64 %512, %518
+  %522 = sub nuw nsw i64 %512, %518
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %521, i64 noundef %522)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit316_crit_edge unwind label %.loopexit.split-lp459.loopexit.split-lp
 
@@ -1175,7 +1175,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit316:            ; preds = %._ZNSt6vectorIiSaIi
   br i1 %586, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i, label %618
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %573
-  %587 = sub nsw i64 %577, %585
+  %587 = sub nuw nsw i64 %577, %585
   %588 = getelementptr inbounds i8, ptr %578, i64 16
   %589 = load ptr, ptr %588, align 8
   %590 = ptrtoint ptr %589 to i64
@@ -1313,7 +1313,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i: ; preds = %615, %_ZNSt6
   br i1 %651, label %652, label %.noexc337
 
 652:                                              ; preds = %637
-  %653 = sub nsw i64 %642, %650
+  %653 = sub nuw nsw i64 %642, %650
   %654 = getelementptr inbounds i8, ptr %643, i64 16
   %655 = load ptr, ptr %654, align 8
   %656 = ptrtoint ptr %655 to i64
@@ -1334,7 +1334,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i: ; preds = %615, %_ZNSt6
   br label %.noexc337
 
 664:                                              ; preds = %652
-  %665 = icmp ult i64 %660, %653
+  %665 = icmp slt i32 %641, 0
   br i1 %665, label %.invoke793, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i383
 
 _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i383: ; preds = %664
@@ -1870,7 +1870,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %960, label %961, label %992
 
 961:                                              ; preds = %959
-  %962 = sub nsw i64 %947, %957
+  %962 = sub nuw nsw i64 %947, %957
   %963 = getelementptr inbounds i8, ptr %950, i64 16
   %964 = load ptr, ptr %963, align 8
   %965 = ptrtoint ptr %964 to i64
@@ -1982,7 +1982,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit360:            ; preds = %996, %994, %992, %_
   br i1 %1011, label %1012, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit
 
 1012:                                             ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit360
-  %1013 = sub nsw i64 %1000, %1010
+  %1013 = sub nuw nsw i64 %1000, %1010
   %1014 = getelementptr inbounds i8, ptr %1003, i64 16
   %1015 = load ptr, ptr %1014, align 8
   %1016 = ptrtoint ptr %1015 to i64
@@ -2003,7 +2003,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit360:            ; preds = %996, %994, %992, %_
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit
 
 1024:                                             ; preds = %1012
-  %1025 = icmp ult i64 %1020, %1013
+  %1025 = icmp ugt i64 %1000, 768614336404564650
   br i1 %1025, label %.invoke793, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %1024
@@ -2172,7 +2172,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i365:           ; preds = %1093, %.critedge.i,
   br i1 %1101, label %1102, label %1104
 
 1102:                                             ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit.i365
-  %1103 = sub nsw i64 %1074, %1100
+  %1103 = sub nuw nsw i64 %1074, %1100
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1075, i64 noundef %1103)
           to label %.noexc369 unwind label %.loopexit.split-lp459.loopexit.split-lp
 
@@ -3292,7 +3292,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -3313,7 +3313,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 768614336404564650
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23

@@ -1718,7 +1718,7 @@ if.end.i112:                                      ; preds = %_ZN11hb_vector_tI15
   br i1 %cmp3.i, label %if.then6.i, label %if.end58
 
 if.then6.i:                                       ; preds = %if.end.i112
-  %sub.i.i = sub i32 %cond.i, %28
+  %sub.i.i = sub nuw i32 %cond.i, %28
   %mul.i.i = mul i32 %sub.i.i, 12
   %tobool.not.i.i9.i = icmp eq i32 %mul.i.i, 0
   br i1 %tobool.not.i.i9.i, label %if.end58, label %if.end.i.i.i113
@@ -2115,7 +2115,7 @@ if.end.i243:                                      ; preds = %_ZN11hb_vector_tI15
   br i1 %cmp3.i245, label %if.then6.i248, label %if.end115
 
 if.then6.i248:                                    ; preds = %if.end.i243
-  %sub.i.i249 = sub i32 %cond.i239, %89
+  %sub.i.i249 = sub nuw i32 %cond.i239, %89
   %mul.i.i250 = mul i32 %sub.i.i249, 12
   %tobool.not.i.i9.i251 = icmp eq i32 %mul.i.i250, 0
   br i1 %tobool.not.i.i9.i251, label %if.end115, label %if.end.i.i.i252
@@ -2591,7 +2591,7 @@ if.end.i411:                                      ; preds = %_ZN11hb_vector_tI15
   br i1 %cmp3.i413, label %if.then6.i416, label %if.end15.i414
 
 if.then6.i416:                                    ; preds = %if.end.i411
-  %sub.i.i417 = sub i32 %cond.i407, %146
+  %sub.i.i417 = sub nuw i32 %cond.i407, %146
   %mul.i.i418 = mul i32 %sub.i.i417, 12
   %tobool.not.i.i9.i419 = icmp eq i32 %mul.i.i418, 0
   br i1 %tobool.not.i.i9.i419, label %if.end15.i414, label %if.end.i.i.i420
@@ -3985,11 +3985,10 @@ for.cond.preheader.i:                             ; preds = %if.end5.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
   %57 = zext i32 %i.043.i to i64
-  %wide.trip.count.i = zext i32 %add2.i to i64
   %58 = shl nuw nsw i64 %57, 2
   %scevgep = getelementptr i8, ptr %x_deltas.sroa.11.2.ph, i64 %58
-  %59 = sub nsw i64 %wide.trip.count.i, %57
-  %60 = shl nsw i64 %59, 2
+  %59 = zext nneg i8 %narrow.i to i64
+  %60 = shl nuw nsw i64 %59, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %60, i1 false)
   br label %if.end45.i
 
@@ -4137,11 +4136,10 @@ for.cond.preheader.i294:                          ; preds = %if.end5.i292
 
 for.body.preheader.i300:                          ; preds = %for.cond.preheader.i294
   %74 = zext i32 %i.043.i284 to i64
-  %wide.trip.count.i301 = zext i32 %add2.i290 to i64
   %75 = shl nuw nsw i64 %74, 2
   %scevgep991 = getelementptr i8, ptr %y_deltas.sroa.11.2.ph, i64 %75
-  %76 = sub nsw i64 %wide.trip.count.i301, %74
-  %77 = shl nsw i64 %76, 2
+  %76 = zext nneg i8 %narrow.i288 to i64
+  %77 = shl nuw nsw i64 %76, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep991, i8 0, i64 %77, i1 false)
   br label %if.end45.i296
 
@@ -5806,7 +5804,7 @@ _ZNK2OT4gvar10get_offsetEjj.exit34:               ; preds = %_ZNK2OT4gvar10get_o
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNK2OT4gvar10get_offsetEjj.exit34
-  %sub = sub i32 %retval.0.i27, %retval.0.i
+  %sub = sub nuw i32 %retval.0.i27, %retval.0.i
   %data.i = getelementptr inbounds i8, ptr %blob, i64 16
   %20 = load ptr, ptr %data.i, align 8
   %length.i = getelementptr inbounds i8, ptr %blob, i64 24

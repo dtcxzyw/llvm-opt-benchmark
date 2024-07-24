@@ -3299,7 +3299,7 @@ define void @_log_flag_hex(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 .lr.ph:                                           ; preds = %12, %27
   %.02530 = phi i64 [ %29, %27 ], [ %spec.store.select, %12 ]
-  %17 = sub i64 %.0, %.02530
+  %17 = sub nuw i64 %.0, %.02530
   %18 = trunc i64 %17 to i32
   %19 = call i32 @llvm.smin.i32(i32 %18, i32 16)
   %20 = getelementptr inbounds i8, ptr %0, i64 %.02530

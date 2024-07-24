@@ -531,7 +531,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hdb7
   %141 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %.sroa.4.1
   %142 = load i8, ptr %141, align 1, !alias.scope !93, !noalias !98, !noundef !4
   %143 = icmp sgt i8 %142, -65
-  %144 = sub i64 %.sroa.03.sroa.13.0.copyload, %.sroa.4.1
+  %144 = sub nuw i64 %.sroa.03.sroa.13.0.copyload, %.sroa.4.1
   br i1 %143, label %146, label %145
 
 145:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %138
@@ -2268,7 +2268,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %120
   br i1 %210, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h503b53fd68c319e3E.exit", label %211
 
 211:                                              ; preds = %208
-  %212 = sub i64 %209, %374
+  %212 = sub nuw i64 %209, %374
   store i64 %212, ptr %172, align 8, !alias.scope !525
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h503b53fd68c319e3E.exit"
 
@@ -2958,7 +2958,7 @@ split:                                            ; preds = %"_ZN5alloc3vec16Vec
   br i1 %474, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h503b53fd68c319e3E.exit232", label %475
 
 475:                                              ; preds = %472
-  %476 = sub i64 %473, %.3136
+  %476 = sub nuw i64 %473, %.3136
   store i64 %476, ptr %172, align 8, !alias.scope !628
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h503b53fd68c319e3E.exit232"
 

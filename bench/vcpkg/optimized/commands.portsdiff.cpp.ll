@@ -7464,7 +7464,7 @@ _ZSt13move_backwardIPN5vcpkg11VersionSpecES2_ET0_T_S4_S3_.exit: ; preds = %.lr.p
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
   %60 = getelementptr inbounds i8, ptr %2, i64 %19
   %61 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg11VersionSpecESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %60, ptr %3, ptr noundef %13)
-  %62 = sub nsw i64 %9, %20
+  %62 = sub nuw nsw i64 %9, %20
   %63 = load ptr, ptr %12, align 8
   %64 = getelementptr inbounds %"struct.vcpkg::VersionSpec", ptr %63, i64 %62
   store ptr %64, ptr %12, align 8

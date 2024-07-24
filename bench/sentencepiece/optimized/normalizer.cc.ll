@@ -982,7 +982,7 @@ _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = 
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit.us
 
 229:                                              ; preds = %.lr.ph138
-  %230 = sub nsw i64 %209, %222
+  %230 = sub nuw nsw i64 %209, %222
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %215, i64 noundef %230)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit.us
 
@@ -1004,7 +1004,7 @@ _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit52: ; preds 
   %.pn141 = phi { i64, ptr } [ %289, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %203, %.split ]
   %238 = phi i64 [ %290, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %237, %.split ]
   %239 = extractvalue { i64, ptr } %.pn141, 1
-  %240 = sub i64 %238, %.sroa.0.0.fr
+  %240 = sub nuw i64 %238, %.sroa.0.0.fr
   %241 = getelementptr inbounds i8, ptr %239, i64 %240
   %bcmp.i51 = call i32 @bcmp(ptr %241, ptr %.sroa.4.0, i64 %.sroa.0.0.fr)
   %242 = icmp eq i32 %bcmp.i51, 0
@@ -1097,7 +1097,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit: ; preds = %_ZN13se
   br i1 %280, label %281, label %283
 
 281:                                              ; preds = %264
-  %282 = sub nsw i64 %266, %279
+  %282 = sub nuw nsw i64 %266, %279
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %272, i64 noundef %282)
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 

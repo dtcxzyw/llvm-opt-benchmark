@@ -3573,7 +3573,7 @@ land.lhs.true:                                    ; preds = %while.body
 
 if.then9:                                         ; preds = %land.lhs.true
   %target_end.le = getelementptr inbounds i8, ptr %block.1, i64 8
-  %sub = sub i64 %8, %addr.1
+  %sub = sub nuw i64 %8, %addr.1
   %rem = urem i64 %addr.1, %conv
   %sub12 = sub nsw i64 %conv, %rem
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %sub12)

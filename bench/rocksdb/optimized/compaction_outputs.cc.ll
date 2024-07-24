@@ -4285,7 +4285,7 @@ if.end22:                                         ; preds = %invoke.cont
 
 if.end29:                                         ; preds = %if.end22
   %div3 = lshr i64 %13, 1
-  %sub = sub i64 %11, %div3
+  %sub = sub nuw i64 %11, %div3
   %inputs_.i9 = getelementptr inbounds i8, ptr %12, i64 4376
   %_M_finish.i.i10 = getelementptr inbounds i8, ptr %12, i64 4384
   %14 = load ptr, ptr %_M_finish.i.i10, align 8

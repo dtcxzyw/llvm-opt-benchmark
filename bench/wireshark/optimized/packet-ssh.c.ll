@@ -1713,7 +1713,7 @@ ssh_dissect_protocol.exit:                        ; preds = %172
 369:                                              ; preds = %365
   %370 = getelementptr inbounds i8, ptr %1, i64 332
   store i32 %.096.i, ptr %370, align 4
-  %371 = sub i32 %367, %354
+  %371 = sub nuw i32 %367, %354
   br label %ssh_dissect_key_exchange.exit.thread.i
 
 372:                                              ; preds = %365, %362
@@ -3647,7 +3647,7 @@ ssh_get_message.exit:                             ; preds = %.lr.ph.i
 355:                                              ; preds = %352
   %356 = getelementptr inbounds i8, ptr %1, i64 332
   store i32 0, ptr %356, align 4
-  %357 = sub i32 %353, %336
+  %357 = sub nuw i32 %353, %336
   %358 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 %357, ptr %358, align 8
   br label %ssh_dissect_decrypted_packet.exit
@@ -6818,7 +6818,7 @@ ssh_proto_tree_add_segment_data.exit.i.i:         ; preds = %178, %proto_item_se
   %235 = icmp uge i32 %232, %.0411.i.i
   %236 = icmp sgt i32 %.0211.i.i, 0
   %or.cond.i.i = and i1 %236, %235
-  %237 = sub i32 %232, %.0411.i.i
+  %237 = sub nuw i32 %232, %.0411.i.i
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %237, i32 0
   br label %254
 

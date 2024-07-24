@@ -2436,7 +2436,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp31, label %if.then32, label %if.else
 
 if.then32:                                        ; preds = %for.end
-  %sub = sub i32 %18, %17
+  %sub = sub nuw i32 %18, %17
   %cmp.not.i = icmp eq i32 %12, %18
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIccEEvPT_S4_PT0_PNSt9enable_ifIXsr3std7is_sameINSt12remove_constIS3_E4typeES5_EE5valueEvE4typeE.exit, label %if.then.i
 
@@ -2462,7 +2462,7 @@ if.else:                                          ; preds = %for.end
   br i1 %cmp44, label %if.then45, label %if.end60
 
 if.then45:                                        ; preds = %if.else
-  %sub49 = sub i32 %17, %18
+  %sub49 = sub nuw i32 %17, %18
   %cmp.not.i83 = icmp eq i32 %12, %17
   br i1 %cmp.not.i83, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIccEEvPT_S4_PT0_PNSt9enable_ifIXsr3std7is_sameINSt12remove_constIS3_E4typeES5_EE5valueEvE4typeE.exit88, label %if.then.i84
 

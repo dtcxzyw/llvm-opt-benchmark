@@ -6264,7 +6264,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @tt_available(ptr nocapture n
 62:                                               ; preds = %54
   %63 = getelementptr i8, ptr %58, i64 2
   %64 = load i16, ptr %63, align 2
-  %65 = sub i16 %59, %60
+  %65 = sub nuw i16 %59, %60
   %66 = add i16 %65, %64
   store i16 %66, ptr %63, align 2
   store i16 %60, ptr %58, align 2
@@ -6360,7 +6360,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @tt_available(ptr nocapture n
 122:                                              ; preds = %114
   %123 = getelementptr i8, ptr %118, i64 2
   %124 = load i16, ptr %123, align 2
-  %125 = sub i16 %119, %120
+  %125 = sub nuw i16 %119, %120
   %126 = add i16 %125, %124
   store i16 %126, ptr %123, align 2
   store i16 %120, ptr %118, align 2

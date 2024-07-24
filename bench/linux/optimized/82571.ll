@@ -2172,8 +2172,8 @@ define internal i32 @e1000_write_nvm_82571(ptr noundef %0, i16 noundef zeroext %
     i32 2, label %7
     i32 3, label %7
     i32 4, label %7
-    i32 0, label %41
-    i32 1, label %41
+    i32 0, label %35
+    i32 1, label %35
   ]
 
 7:                                                ; preds = %4, %4, %4
@@ -2183,53 +2183,49 @@ define internal i32 @e1000_write_nvm_82571(ptr noundef %0, i16 noundef zeroext %
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %7
-  %12 = zext i16 %1 to i32
-  %13 = zext i16 %9 to i32
-  %14 = zext i16 %2 to i32
-  %15 = sub nsw i32 %13, %12
-  %16 = icmp slt i32 %15, %14
-  %17 = icmp eq i16 %2, 0
-  %18 = or i1 %17, %16
-  br i1 %18, label %.loopexit, label %19
+  %narrow = sub nuw i16 %9, %1
+  %12 = add i16 %2, -1
+  %.not = icmp ult i16 %12, %narrow
+  br i1 %.not, label %13, label %.loopexit
 
-19:                                               ; preds = %11
-  %20 = zext i16 %1 to i64
-  %21 = zext i16 %2 to i64
-  br label %25
+13:                                               ; preds = %11
+  %14 = zext i16 %1 to i64
+  %15 = zext i16 %2 to i64
+  br label %19
 
-22:                                               ; preds = %31
-  %23 = add nuw nsw i64 %26, 1
-  %24 = icmp eq i64 %23, %21
-  br i1 %24, label %.loopexit, label %25, !llvm.loop !23
+16:                                               ; preds = %25
+  %17 = add nuw nsw i64 %20, 1
+  %18 = icmp eq i64 %17, %15
+  br i1 %18, label %.loopexit, label %19, !llvm.loop !23
 
-25:                                               ; preds = %22, %19
-  %26 = phi i64 [ 0, %19 ], [ %23, %22 ]
-  %27 = getelementptr i16, ptr %3, i64 %26
-  %28 = load i16, ptr %27, align 2
-  %29 = tail call i32 @e1000e_poll_eerd_eewr_done(ptr noundef %0, i32 noundef 1) #5
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %.loopexit
+19:                                               ; preds = %16, %13
+  %20 = phi i64 [ 0, %13 ], [ %17, %16 ]
+  %21 = getelementptr i16, ptr %3, i64 %20
+  %22 = load i16, ptr %21, align 2
+  %23 = tail call i32 @e1000e_poll_eerd_eewr_done(ptr noundef %0, i32 noundef 1) #5
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %.loopexit
 
-31:                                               ; preds = %25
-  %32 = zext i16 %28 to i32
-  %33 = shl nuw i32 %32, 16
-  %34 = add nuw nsw i64 %26, %20
-  %35 = trunc i64 %34 to i32
-  %36 = shl i32 %35, 2
-  %37 = or i32 %36, %33
-  %38 = or disjoint i32 %37, 1
-  tail call void @__ew32(ptr noundef %0, i64 noundef 4140, i32 noundef %38) #5
-  %39 = tail call i32 @e1000e_poll_eerd_eewr_done(ptr noundef %0, i32 noundef 1) #5
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %22, label %.loopexit
+25:                                               ; preds = %19
+  %26 = zext i16 %22 to i32
+  %27 = shl nuw i32 %26, 16
+  %28 = add nuw nsw i64 %20, %14
+  %29 = trunc i64 %28 to i32
+  %30 = shl i32 %29, 2
+  %31 = or i32 %30, %27
+  %32 = or disjoint i32 %31, 1
+  tail call void @__ew32(ptr noundef %0, i64 noundef 4140, i32 noundef %32) #5
+  %33 = tail call i32 @e1000e_poll_eerd_eewr_done(ptr noundef %0, i32 noundef 1) #5
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %16, label %.loopexit
 
-41:                                               ; preds = %4, %4
-  %42 = tail call i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) #5
+35:                                               ; preds = %4, %4
+  %36 = tail call i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %31, %25, %22, %41, %11, %7, %4
-  %43 = phi i32 [ %42, %41 ], [ -1, %4 ], [ -1, %11 ], [ -1, %7 ], [ 0, %22 ], [ %39, %31 ], [ %29, %25 ]
-  ret i32 %43
+.loopexit:                                        ; preds = %25, %19, %16, %35, %11, %7, %4
+  %37 = phi i32 [ %36, %35 ], [ -1, %4 ], [ -1, %11 ], [ -1, %7 ], [ 0, %16 ], [ %33, %25 ], [ %23, %19 ]
+  ret i32 %37
 }
 
 ; Function Attrs: null_pointer_is_valid

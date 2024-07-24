@@ -2466,7 +2466,7 @@ if.then7:                                         ; preds = %if.else
 if.end11:                                         ; preds = %if.else
   %spec.select = select i1 %1, i64 2147483647, i64 %limit
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %offset
-  %sub = sub i64 %3, %offset
+  %sub = sub nuw i64 %3, %offset
   store ptr %add.ptr, ptr %c, align 8, !tbaa !18
   %left.i = getelementptr inbounds i8, ptr %c, i64 8
   store i64 %sub, ptr %left.i, align 8, !tbaa !21

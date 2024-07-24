@@ -2122,7 +2122,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 %3
-  %9 = sub i64 %2, %3
+  %9 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %10, align 8
@@ -4725,7 +4725,7 @@ define hidden void @_ZN6rustls4msgs7message7inbound20InboundOpaqueMessage4read17
 
 _ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit: ; preds = %2
   %15 = getelementptr inbounds i8, ptr %4, i64 %10
-  %16 = sub i64 %6, %10
+  %16 = sub nuw i64 %6, %10
   store ptr %15, ptr %1, align 8, !alias.scope !949
   store i64 %16, ptr %5, align 8, !alias.scope !949
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !949
@@ -4753,7 +4753,7 @@ _ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit: ; preds = %2
 22:                                               ; preds = %18
   %tr.sh.diff = trunc i64 %.sroa.435.0.extract.shift to i16
   %23 = getelementptr inbounds i8, ptr %15, i64 %.sroa.838.0.extract.shift
-  %24 = sub i64 %16, %.sroa.838.0.extract.shift
+  %24 = sub nuw i64 %16, %.sroa.838.0.extract.shift
   %25 = add i64 %13, %.sroa.838.0.extract.shift
   store i64 %25, ptr %11, align 8, !alias.scope !956, !noalias !961
   store ptr %23, ptr %1, align 8, !alias.scope !956, !noalias !961
@@ -13566,7 +13566,7 @@ define hidden void @"_ZN6rustls6server11server_conn115_$LT$impl$u20$rustls..conn
   %19 = load i64, ptr %15, align 8, !alias.scope !2520, !noalias !2519, !noundef !4
   %.not.i.i.i.i = icmp ult i64 %18, %19
   %20 = select i1 %.not.i.i.i.i, i64 0, i64 %19
-  %.0.i.i.i.i = sub i64 %18, %20
+  %.0.i.i.i.i = sub nuw i64 %18, %20
   store i64 %.0.i.i.i.i, ptr %16, align 8, !alias.scope !2518, !noalias !2519
   %21 = add i64 %11, -1
   store i64 %21, ptr %10, align 8, !alias.scope !2518, !noalias !2519

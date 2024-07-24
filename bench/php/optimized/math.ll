@@ -3327,7 +3327,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
   br i1 %.not226243.not, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %57
-  %63 = tail call i64 @llvm.usub.sat.i64(i64 %62, i64 %61)
+  %63 = sub nuw nsw i64 %62, %61
   %64 = add i64 %spec.select, %61
   %65 = add i64 %64, 24
   %66 = sub i64 %65, %62
@@ -4144,9 +4144,6 @@ declare void @_efree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #12

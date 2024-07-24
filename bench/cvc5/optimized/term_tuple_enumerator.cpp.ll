@@ -610,7 +610,7 @@ cond.end52:                                       ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp.i367, label %if.then.i370, label %if.else.i368
 
 if.then.i370:                                     ; preds = %cond.end52
-  %sub.i = sub i64 %34, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %34, %sub.ptr.div.i.i
   call void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) %d_termIndex, ptr %35, i64 noundef %sub.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp54)
   br label %return
 
@@ -1256,7 +1256,7 @@ cond.end:
   br i1 %cmp.i, label %if.then.i22, label %if.else.i
 
 if.then.i22:                                      ; preds = %cond.end
-  %sub.i = sub i64 %0, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %0, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %terms, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE6resizeEm.exit
 
@@ -6334,7 +6334,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 

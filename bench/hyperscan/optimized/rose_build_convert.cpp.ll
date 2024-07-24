@@ -484,7 +484,7 @@ _ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit: ; preds = %land.rhs.i.i.i.i
   br i1 %cmp51, label %cleanup79, label %if.end64
 
 if.end64:                                         ; preds = %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit
-  %reass.sub = sub i64 %35, %call8.i
+  %reass.sub = sub nuw i64 %35, %call8.i
   %sub65 = add i64 %reass.sub, 1
   %sub68 = sub i64 %27, %sub65
   %cmp69 = icmp ult i64 %sub68, 5
@@ -8741,7 +8741,7 @@ if.then12:                                        ; preds = %if.end10
   unreachable
 
 if.end14:                                         ; preds = %if.end10
-  %sub = sub i32 %1, %0
+  %sub = sub nuw i32 %1, %0
   %cmp.i23 = icmp ugt i32 %sub, 2147483646
   br i1 %cmp.i23, label %do.end.i, label %return
 

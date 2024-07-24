@@ -7998,7 +7998,7 @@ if.then.i122:                                     ; preds = %invoke.cont115
   br label %invoke.cont136
 
 if.else.i121:                                     ; preds = %invoke.cont115
-  %sub.i = sub i64 %conv125, %add.i.i.i
+  %sub.i = sub nuw i64 %conv125, %add.i.i.i
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %seenPixel, ptr %45, i32 %46, i64 noundef %sub.i, i1 noundef zeroext false)
           to label %if.else.i121.invoke.cont136_crit_edge unwind label %lpad72.loopexit.split-lp.loopexit
 
@@ -18879,7 +18879,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -18901,7 +18901,7 @@ _ZSt27__uninitialized_default_n_aIPN4pbrt17VarianceEstimatorIdEEmS2_ET_S4_T0_RSa
   br label %if.end6
 
 if.else.i:                                        ; preds = %if.then
-  %cmp.i.i = icmp ult i64 %sub.i, %sub
+  %cmp.i.i = icmp ugt i64 %__new_size, 384307168202282325
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN4pbrt17VarianceEstimatorIdEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i:                                      ; preds = %if.else.i

@@ -3734,7 +3734,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3
   br i1 %1129, label %1130, label %1132
 
 1130:                                             ; preds = %1127
-  %1131 = sub nsw i64 %1128, %.lcssa
+  %1131 = sub nuw nsw i64 %1128, %.lcssa
   invoke void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %1131)
           to label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit unwind label %1112
 

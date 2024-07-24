@@ -5772,7 +5772,7 @@ decode_RTCorbaPriority.exit:                      ; preds = %102, %104
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %120
-  %123 = sub i32 %114, %118
+  %123 = sub nuw i32 %114, %118
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %116, i32 noundef %123) #14
   br label %.sink.split
 

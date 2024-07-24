@@ -1268,9 +1268,9 @@ land.lhs.true1.i:                                 ; preds = %while.cond
   %iov_len.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %2, %offset.0
-  %sub.i = sub i64 %2, %offset.0
+  %sub.i = sub nuw i64 %2, %offset.0
   %cmp5.not.i = icmp ult i64 %sub.i, 4
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i
+  %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
   br i1 %or.cond13.i, label %iov_to_buf.exit, label %iov_to_buf.exit.thread
 
 iov_to_buf.exit.thread:                           ; preds = %land.lhs.true1.i
@@ -1662,9 +1662,9 @@ land.lhs.true1.i:                                 ; preds = %while.cond
   %iov_len.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %4, %offset.0
-  %sub.i = sub i64 %4, %offset.0
+  %sub.i = sub nuw i64 %4, %offset.0
   %cmp5.not.i = icmp ult i64 %sub.i, 10
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i
+  %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
   br i1 %or.cond13.i, label %iov_to_buf.exit, label %iov_to_buf.exit.thread
 
 iov_to_buf.exit.thread:                           ; preds = %land.lhs.true1.i

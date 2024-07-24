@@ -94,8 +94,8 @@ define dso_local { i64, i64 } @_ZNK3net12QuicWallTime18AbsoluteDifferenceES0_(pt
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp = icmp ugt i64 %0, %other.coerce
-  %sub = sub i64 %0, %other.coerce
-  %sub7 = sub i64 %other.coerce, %0
+  %sub = sub nuw i64 %0, %other.coerce
+  %sub7 = sub nuw i64 %other.coerce, %0
   %d.0 = select i1 %cmp, i64 %sub, i64 %sub7
   %spec.select = tail call i64 @llvm.umin.i64(i64 %d.0, i64 9223372036854775807)
   %.fca.1.insert.i = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %spec.select, 1

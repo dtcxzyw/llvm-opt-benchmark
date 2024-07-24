@@ -213,9 +213,9 @@ land.lhs.true1.i:                                 ; preds = %if.end37
   %iov_len.i16 = getelementptr i8, ptr %12, i64 56
   %15 = load i64, ptr %iov_len.i16, align 8
   %cmp.not.i = icmp ult i64 %15, %conv41
-  %sub.i = sub i64 %15, %conv41
+  %sub.i = sub nuw i64 %15, %conv41
   %cmp5.not.i = icmp ult i64 %sub.i, 2
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i
+  %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
   br i1 %or.cond13.i, label %if.else.i15, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true1.i
@@ -432,9 +432,9 @@ land.lhs.true1.i68.i:                             ; preds = %sw.bb31.i
   %iov_len.i69.i = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load i64, ptr %iov_len.i69.i, align 8
   %cmp.not.i.i = icmp ult i64 %22, %20
-  %sub.i.i = sub i64 %22, %20
+  %sub.i.i = sub nuw i64 %22, %20
   %cmp5.not.i70.i = icmp ult i64 %sub.i.i, 20
-  %or.cond13.i.i = or i1 %cmp.not.i.i, %cmp5.not.i70.i
+  %or.cond13.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp5.not.i70.i
   br i1 %or.cond13.i.i, label %iov_to_buf.exit72.i, label %iov_to_buf.exit72.thread.i
 
 iov_to_buf.exit72.thread.i:                       ; preds = %land.lhs.true1.i68.i
@@ -1500,9 +1500,9 @@ entry:
 land.lhs.true1.i:                                 ; preds = %entry
   %3 = load i64, ptr %iov_len5, align 8
   %cmp.not.i = icmp ult i64 %3, %add
-  %sub.i = sub i64 %3, %add
+  %sub.i = sub nuw i64 %3, %add
   %cmp5.not.i = icmp ult i64 %sub.i, 2
-  %or.cond13.i = or i1 %cmp.not.i, %cmp5.not.i
+  %or.cond13.i = select i1 %cmp.not.i, i1 true, i1 %cmp5.not.i
   br i1 %or.cond13.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true1.i
@@ -1558,9 +1558,9 @@ if.end18:                                         ; preds = %iov_from_buf.exit, 
 land.lhs.true1.i22:                               ; preds = %if.end18
   %13 = load i64, ptr %iov_len5, align 8
   %cmp.not.i24 = icmp ult i64 %13, %add
-  %sub.i25 = sub i64 %13, %add
+  %sub.i25 = sub nuw i64 %13, %add
   %cmp5.not.i26 = icmp ult i64 %sub.i25, 2
-  %or.cond13.i27 = or i1 %cmp.not.i24, %cmp5.not.i26
+  %or.cond13.i27 = select i1 %cmp.not.i24, i1 true, i1 %cmp5.not.i26
   br i1 %or.cond13.i27, label %if.else.i19, label %if.then.i28
 
 if.then.i28:                                      ; preds = %land.lhs.true1.i22

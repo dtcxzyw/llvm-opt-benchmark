@@ -146,7 +146,7 @@ define i64 @stream_read_bits(ptr nocapture noundef %0, i64 noundef %1) local_unn
   br label %29
 
 24:                                               ; preds = %2
-  %25 = sub i64 %5, %1
+  %25 = sub nuw i64 %5, %1
   store i64 %25, ptr %0, align 8
   %26 = lshr i64 %4, %1
   store i64 %26, ptr %3, align 8
@@ -565,7 +565,7 @@ stream_write_bits.exit:                           ; preds = %stream_read_bits.ex
   br label %stream_read_bits.exit14
 
 66:                                               ; preds = %44
-  %67 = sub i64 %47, %.0.lcssa
+  %67 = sub nuw i64 %47, %.0.lcssa
   store i64 %67, ptr %1, align 8
   %68 = lshr i64 %46, %.0.lcssa
   store i64 %68, ptr %45, align 8

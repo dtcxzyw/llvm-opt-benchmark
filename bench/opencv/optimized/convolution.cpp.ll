@@ -869,7 +869,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %_ZNK2cv11_InputArr
   br i1 %342, label %343, label %345
 
 343:                                              ; preds = %327
-  %344 = sub nsw i64 %334, %341
+  %344 = sub nuw nsw i64 %334, %341
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %332, i64 noundef %344)
           to label %._crit_edge345 unwind label %366
 
@@ -989,7 +989,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %_ZNK2cv11_InputArr
   br i1 %394, label %395, label %397
 
 395:                                              ; preds = %376
-  %396 = sub nsw i64 %386, %393
+  %396 = sub nuw nsw i64 %386, %393
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %385, i64 noundef %396)
           to label %._crit_edge343 unwind label %366
 
@@ -1114,7 +1114,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %_ZNK2cv11_InputArr
   br i1 %447, label %448, label %450
 
 448:                                              ; preds = %426
-  %449 = sub nsw i64 %439, %446
+  %449 = sub nuw nsw i64 %439, %446
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %438, i64 noundef %449)
           to label %._crit_edge341 unwind label %366
 
@@ -1257,7 +1257,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %467, %465, %413, %4
   br i1 %498, label %499, label %501
 
 499:                                              ; preds = %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit
-  %500 = sub nsw i64 %490, %497
+  %500 = sub nuw nsw i64 %490, %497
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %489, i64 noundef %500)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit211_crit_edge unwind label %366
 

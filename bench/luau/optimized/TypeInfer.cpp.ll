@@ -21091,7 +21091,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE6resiz
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE15_M_erase_at_endEPS1_.exit
 
@@ -48605,7 +48605,7 @@ _ZN4Luau13WithPredicateIPKNS_4TypeEED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN4Lu
 
 46:                                               ; preds = %._crit_edge
   %47 = getelementptr inbounds i8, ptr %.pre, i64 792
-  %48 = sub nsw i64 %15, %.pre24
+  %48 = sub nuw nsw i64 %15, %.pre24
   call void @_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %47, i64 noundef %48)
   br label %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE6resizeEm.exit
 
@@ -80357,7 +80357,7 @@ _ZN4Luau11TypeChecker5unifyEPKNS_11TypePackVarES3_RKSt10shared_ptrINS_5ScopeEERK
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %_ZN4Luau11TypeChecker5unifyEPKNS_11TypePackVarES3_RKSt10shared_ptrINS_5ScopeEERKNS_8LocationENS_13CountMismatch7ContextE.exit
-  %82 = sub nsw i64 %61, %79
+  %82 = sub nuw nsw i64 %61, %79
   call void @_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %72, i64 noundef %82)
   br label %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE6resizeEm.exit
 
@@ -99259,7 +99259,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4Luau8LocationESt
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4Luau8LocationESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4Luau8LocationESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau8LocationESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %35 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4Luau8LocationESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau8LocationESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
-  %36 = sub nsw i64 %9, %20
+  %36 = sub nuw nsw i64 %9, %20
   %37 = getelementptr %"struct.Luau::Location", ptr %35, i64 %36
   store ptr %37, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1
@@ -99839,7 +99839,7 @@ _ZSt13move_backwardIPN4Luau9TypeErrorES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4Luau9
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4Luau9TypeErrorESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
   %53 = getelementptr inbounds i8, ptr %2, i64 %19
   %54 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN4Luau9TypeErrorESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %53, ptr %3, ptr noundef %13)
-  %55 = sub nsw i64 %9, %20
+  %55 = sub nuw nsw i64 %9, %20
   %56 = load ptr, ptr %12, align 8
   %57 = getelementptr inbounds %"struct.Luau::TypeError", ptr %56, i64 %55
   store ptr %57, ptr %12, align 8

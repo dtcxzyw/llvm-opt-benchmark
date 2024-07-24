@@ -84,7 +84,7 @@ define void @_Z16make_wall_tablesP8_IO_FILERK10t_inputrecPKcPK16SimulationGroups
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %17
-  %30 = sub nsw i64 %20, %27
+  %30 = sub nuw nsw i64 %20, %27
   tail call void @_ZNSt6vectorIS_ISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %30)
   br label %_ZNSt6vectorIS_ISt10unique_ptrI12t_forcetableSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm.exit
 
@@ -329,7 +329,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrI12t_forcetableSt14default_
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

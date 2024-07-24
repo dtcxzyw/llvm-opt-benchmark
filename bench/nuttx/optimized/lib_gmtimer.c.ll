@@ -25,7 +25,7 @@ define noundef ptr @gmtime_r(ptr nocapture noundef readonly %0, ptr noundef retu
   %.04046.i = phi i32 [ %14, %.lr.ph.i ], [ %9, %2 ]
   %.04245.i = phi i64 [ %15, %.lr.ph.i ], [ %8, %2 ]
   %14 = add nsw i32 %.04046.i, 1
-  %15 = sub i64 %.04245.i, %.03647.i
+  %15 = sub nuw i64 %.04245.i, %.03647.i
   %16 = add nsw i32 %.04046.i, 1971
   %17 = tail call i32 @clock_isleapyear(i32 noundef %16) #3
   %18 = icmp ne i32 %17, 0

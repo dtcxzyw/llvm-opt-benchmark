@@ -3589,7 +3589,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit:         ; preds = %160, %186, %190
   br i1 %251, label %252, label %dissect_qnet6_kif_msgsend_msg_extra.exit498
 
 252:                                              ; preds = %247
-  %253 = sub nsw i32 %250, %.sink
+  %253 = sub nuw nsw i32 %250, %.sink
   %spec.select.i497 = tail call i32 @llvm.smin.i32(i32 %253, i32 %.0506)
   %254 = icmp sgt i32 %spec.select.i497, 0
   br i1 %254, label %255, label %dissect_qnet6_kif_msgsend_msg_extra.exit498
@@ -3686,7 +3686,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit498:      ; preds = %247, %252, %255
   br i1 %310, label %311, label %dissect_qnet6_kif_msgsend_msg_extra.exit500
 
 311:                                              ; preds = %306
-  %312 = sub nsw i32 %309, %.sink496
+  %312 = sub nuw nsw i32 %309, %.sink496
   %spec.select.i499 = tail call i32 @llvm.smin.i32(i32 %312, i32 %.0507)
   %313 = icmp sgt i32 %spec.select.i499, 0
   br i1 %313, label %314, label %dissect_qnet6_kif_msgsend_msg_extra.exit500

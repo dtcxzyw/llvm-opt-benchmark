@@ -11457,7 +11457,7 @@ if.then5:                                         ; preds = %entry
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
-  %sub = sub i64 %1, %pOffset
+  %sub = sub nuw i64 %1, %pOffset
   %pos11 = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %sub, ptr %pos11, align 8
   br label %return
@@ -11727,7 +11727,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64

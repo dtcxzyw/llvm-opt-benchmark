@@ -869,7 +869,7 @@ _ZN3gmx5RangeIiEC2Eii.exit.i:                     ; preds = %246
   br i1 %.not.i137.i, label %325, label %323
 
 323:                                              ; preds = %312
-  %324 = sub i64 %319, %322
+  %324 = sub nuw i64 %319, %322
   br label %327
 
 325:                                              ; preds = %312
@@ -982,7 +982,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.thread.i: ; preds = %2
   br i1 %.not.i138.i, label %399, label %397
 
 397:                                              ; preds = %385
-  %398 = sub i64 %395, %396
+  %398 = sub nuw i64 %395, %396
   br label %401
 
 399:                                              ; preds = %385
@@ -1112,7 +1112,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit143.i: ; preds
   br i1 %.not.i144.i, label %478, label %476
 
 476:                                              ; preds = %465
-  %477 = sub i64 %472, %475
+  %477 = sub nuw i64 %472, %475
   br label %480
 
 478:                                              ; preds = %465
@@ -1285,7 +1285,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i148.i: ; preds = %55
   br i1 %.not.i150.i, label %588, label %586
 
 586:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i148.i
-  %587 = sub i64 %584, %585
+  %587 = sub nuw i64 %584, %585
   br label %590
 
 588:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i148.i
@@ -1726,7 +1726,7 @@ _ZL46getExpectedLocalXReadyOnDeviceConsumptionCountRKN3gmx18SimulationWorkloadER
   br i1 %.not.i.i793, label %868, label %866
 
 866:                                              ; preds = %856
-  %867 = sub i64 %863, %865
+  %867 = sub nuw i64 %863, %865
   br label %870
 
 868:                                              ; preds = %856
@@ -1902,7 +1902,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %948, %943
   br i1 %.not.i798, label %975, label %973
 
 973:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
-  %974 = sub i64 %970, %972
+  %974 = sub nuw i64 %970, %972
   br label %977
 
 975:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
@@ -2028,7 +2028,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNK22DDBa
   br i1 %.not.i800, label %1057, label %1055
 
 1055:                                             ; preds = %1043
-  %1056 = sub i64 %1053, %1054
+  %1056 = sub nuw i64 %1053, %1054
   br label %1059
 
 1057:                                             ; preds = %1043
@@ -2139,7 +2139,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit803.thread: ; preds = %
   br i1 %.not.i.i804, label %1127, label %1125
 
 1125:                                             ; preds = %1113
-  %1126 = sub i64 %1123, %1124
+  %1126 = sub nuw i64 %1123, %1124
   br label %1129
 
 1127:                                             ; preds = %1113
@@ -2351,7 +2351,7 @@ _ZL24launchPmeGpuFftAndGatherP9gmx_pme_tfP13gmx_wallcycleRKN3gmx12StepWorkloadE.
   br i1 %.not.i816, label %1264, label %1262
 
 1262:                                             ; preds = %1252
-  %1263 = sub i64 %1259, %1261
+  %1263 = sub nuw i64 %1259, %1261
   br label %1266
 
 1264:                                             ; preds = %1252
@@ -2475,7 +2475,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit821.thread: ; 
   br i1 %.not.i822, label %1342, label %1340
 
 1340:                                             ; preds = %1328
-  %1341 = sub i64 %1338, %1339
+  %1341 = sub nuw i64 %1338, %1339
   br label %1344
 
 1342:                                             ; preds = %1328
@@ -2616,7 +2616,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit827: ; preds =
   br i1 %.not.i828, label %1430, label %1428
 
 1428:                                             ; preds = %1417
-  %1429 = sub i64 %1424, %1427
+  %1429 = sub nuw i64 %1424, %1427
   br label %1432
 
 1430:                                             ; preds = %1417
@@ -3004,7 +3004,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit837: ; preds = %1620, 
   br i1 %.not.i840, label %1672, label %1670
 
 1670:                                             ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit837
-  %1671 = sub i64 %1667, %1669
+  %1671 = sub nuw i64 %1667, %1669
   br label %1674
 
 1672:                                             ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit837
@@ -3225,7 +3225,7 @@ _ZNRSt8optionalIN3gmx12ForceOutputsEE5valueEv.exit: ; preds = %1777, %1769, %177
   br i1 %.not.i845, label %1804, label %1802
 
 1802:                                             ; preds = %1791
-  %1803 = sub i64 %1798, %1801
+  %1803 = sub nuw i64 %1798, %1801
   br label %1806
 
 1804:                                             ; preds = %1791
@@ -3348,7 +3348,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit850.thread: ; 
   br i1 %.not.i851, label %1882, label %1880
 
 1880:                                             ; preds = %1868
-  %1881 = sub i64 %1878, %1879
+  %1881 = sub nuw i64 %1878, %1879
   br label %1884
 
 1882:                                             ; preds = %1868
@@ -3612,7 +3612,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit856: ; preds =
   br i1 %.not.i857, label %2060, label %2058
 
 2058:                                             ; preds = %2047
-  %2059 = sub i64 %2054, %2057
+  %2059 = sub nuw i64 %2054, %2057
   br label %2062
 
 2060:                                             ; preds = %2047
@@ -4000,7 +4000,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit862: ; preds =
   br i1 %.not.i869, label %2312, label %2310
 
 2310:                                             ; preds = %2299
-  %2311 = sub i64 %2306, %2309
+  %2311 = sub nuw i64 %2306, %2309
   br label %2314
 
 2312:                                             ; preds = %2299
@@ -4377,7 +4377,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i.i: ; preds = %2494,
   br i1 %.not.i.i.i889, label %2545, label %2543
 
 2543:                                             ; preds = %2532
-  %2544 = sub i64 %2539, %2542
+  %2544 = sub nuw i64 %2539, %2542
   br label %2547
 
 2545:                                             ; preds = %2532
@@ -4606,7 +4606,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = 
   br i1 %.not.i94.i, label %2664, label %2662
 
 2662:                                             ; preds = %2651
-  %2663 = sub i64 %2658, %2661
+  %2663 = sub nuw i64 %2658, %2661
   br label %2666
 
 2664:                                             ; preds = %2651
@@ -4728,7 +4728,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i885: ; preds = %2709
   br i1 %.not.i95.i, label %2741, label %2739
 
 2739:                                             ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i885
-  %2740 = sub i64 %2736, %2738
+  %2740 = sub nuw i64 %2736, %2738
   br label %2743
 
 2741:                                             ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i885
@@ -4930,7 +4930,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit895.thread: ; 
   br i1 %.not.i896, label %2853, label %2851
 
 2851:                                             ; preds = %2839
-  %2852 = sub i64 %2849, %2850
+  %2852 = sub nuw i64 %2849, %2850
   br label %2855
 
 2853:                                             ; preds = %2839
@@ -5157,7 +5157,7 @@ _ZL17getLocalAtomCountPK12gmx_domdec_tRK9t_mdatomsb.exit: ; preds = %_Z23wallcyc
   br i1 %.not.i914, label %2988, label %2986
 
 2986:                                             ; preds = %2975
-  %2987 = sub i64 %2982, %2985
+  %2987 = sub nuw i64 %2982, %2985
   br label %2990
 
 2988:                                             ; preds = %2975
@@ -5464,7 +5464,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit: ; preds = %3
   br i1 %.not.i.i924, label %3161, label %3159
 
 3159:                                             ; preds = %3148
-  %3160 = sub i64 %3157, %3158
+  %3160 = sub nuw i64 %3157, %3158
   br label %3162
 
 3161:                                             ; preds = %3148
@@ -5553,7 +5553,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit: ; preds = %3
   br i1 %.not.i31.i, label %3217, label %3215
 
 3215:                                             ; preds = %3204
-  %3216 = sub i64 %3213, %3214
+  %3216 = sub nuw i64 %3213, %3214
   br label %3218
 
 3217:                                             ; preds = %3204
@@ -5700,7 +5700,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationGpuEf27DdBalanceRegionWa
   br i1 %.not.i930, label %3301, label %3299
 
 3299:                                             ; preds = %3286
-  %3300 = sub i64 %3297, %3298
+  %3300 = sub nuw i64 %3297, %3298
   br label %3303
 
 3301:                                             ; preds = %3286
@@ -5954,7 +5954,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit933: ; preds = %_Z14wal
   br i1 %.not.i.i939, label %3446, label %3444
 
 3444:                                             ; preds = %3432
-  %3445 = sub i64 %3442, %3443
+  %3445 = sub nuw i64 %3442, %3443
   br label %3448
 
 3446:                                             ; preds = %3432
@@ -6061,7 +6061,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.i938: ; preds = %3462,
   br i1 %.not.i24.i, label %3516, label %3514
 
 3514:                                             ; preds = %3502
-  %3515 = sub i64 %3512, %3513
+  %3515 = sub nuw i64 %3512, %3513
   br label %3518
 
 3516:                                             ; preds = %3502
@@ -7003,7 +7003,7 @@ define internal fastcc void @_ZL19pmeGpuWaitAndReduceP9gmx_pme_tRKN3gmx12StepWor
   br i1 %.not.i, label %52, label %50
 
 50:                                               ; preds = %38
-  %51 = sub i64 %48, %49
+  %51 = sub nuw i64 %48, %49
   br label %54
 
 52:                                               ; preds = %38
@@ -7076,7 +7076,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.thread: ; preds = %7
   br i1 %.not.i, label %29, label %27
 
 27:                                               ; preds = %16
-  %28 = sub i64 %23, %26
+  %28 = sub nuw i64 %23, %26
   br label %31
 
 29:                                               ; preds = %16
@@ -7209,7 +7209,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_Z14wallc
   br i1 %.not.i18, label %120, label %118
 
 118:                                              ; preds = %105
-  %119 = sub i64 %114, %117
+  %119 = sub nuw i64 %114, %117
   br label %122
 
 120:                                              ; preds = %105

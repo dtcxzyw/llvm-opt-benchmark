@@ -949,7 +949,7 @@ if.then.i.i6:                                     ; preds = %if.else
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.else
-  %sub.i = sub i64 %sub.ptr.sub.i, %add
+  %sub.i = sub nuw i64 %sub.ptr.sub.i, %add
   %add.ptr.i = getelementptr inbounds i8, ptr %userInfo.val, i64 %add
   tail call void @_ZN5arrow8internal11UriUnescapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %sub.i, ptr nonnull %add.ptr.i)
   br label %return

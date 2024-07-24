@@ -6002,8 +6002,8 @@ define hidden void @_ZN7ide_ssr9replacing25matches_to_edit_at_offset17h048f849a4
           to label %157 unwind label %.body.thread47.loopexit.split-lp
 
 59:                                               ; preds = %52
-  %60 = sub i32 %55, %6
-  %61 = sub i32 %57, %6
+  %60 = sub nuw i32 %55, %6
+  %61 = sub nuw i32 %57, %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @llvm.experimental.noalias.scope.decl(metadata !827)
   call void @llvm.experimental.noalias.scope.decl(metadata !830)

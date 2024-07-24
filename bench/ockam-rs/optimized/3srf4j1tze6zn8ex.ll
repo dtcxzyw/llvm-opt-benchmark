@@ -5047,7 +5047,7 @@ default.unreachable17:                            ; preds = %3
   %22 = load i64, ptr %21, align 8, !alias.scope !556, !noalias !561, !noundef !8
   %.not.i.i = icmp ult i64 %20, %22
   %23 = select i1 %.not.i.i, i64 0, i64 %22
-  %.03.i.i = sub i64 %20, %23
+  %.03.i.i = sub nuw i64 %20, %23
   %24 = load ptr, ptr %18, align 8, !alias.scope !556, !noalias !561, !nonnull !8, !noundef !8
   %25 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %24, i64 %.03.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !563)
@@ -5174,7 +5174,7 @@ default.unreachable19:                            ; preds = %3
   %22 = load i64, ptr %21, align 8, !alias.scope !583, !noalias !588, !noundef !8
   %.not.i.i = icmp ult i64 %20, %22
   %23 = select i1 %.not.i.i, i64 0, i64 %22
-  %.03.i.i = sub i64 %20, %23
+  %.03.i.i = sub nuw i64 %20, %23
   %24 = load ptr, ptr %17, align 8, !alias.scope !583, !noalias !588, !nonnull !8, !noundef !8
   %25 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %24, i64 %.03.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
@@ -5538,7 +5538,7 @@ default.unreachable16:                            ; preds = %3
   %23 = load i64, ptr %22, align 8, !alias.scope !669, !noalias !674, !noundef !8
   %.not.i.i = icmp ult i64 %21, %23
   %24 = select i1 %.not.i.i, i64 0, i64 %23
-  %.03.i.i = sub i64 %21, %24
+  %.03.i.i = sub nuw i64 %21, %24
   %25 = load ptr, ptr %19, align 8, !alias.scope !669, !noalias !674, !nonnull !8, !noundef !8
   %26 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %25, i64 %.03.i.i
   %27 = getelementptr inbounds i8, ptr %9, i64 32

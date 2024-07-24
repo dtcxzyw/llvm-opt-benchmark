@@ -1576,7 +1576,7 @@ ProcessVP8XChunk.exit.i.i:                        ; preds = %679, %676, %673, %6
   br i1 %694, label %695, label %697
 
 695:                                              ; preds = %693
-  %696 = sub i64 %686, %183
+  %696 = sub nuw i64 %686, %183
   store i64 %696, ptr %77, align 8
   br label %ProcessChunk.exit.i
 
@@ -2072,7 +2072,7 @@ GetBits.exit194:                                  ; preds = %89
 
 132:                                              ; preds = %.lr.ph
   %133 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, i32 noundef %.012772, i32 noundef %126)
-  %134 = sub i64 %.012673, %127
+  %134 = sub nuw i64 %.012673, %127
   %135 = getelementptr inbounds i8, ptr %.012871, i64 3
   %136 = add nuw nsw i32 %.012772, 1
   %exitcond.not = icmp eq i32 %136, %106

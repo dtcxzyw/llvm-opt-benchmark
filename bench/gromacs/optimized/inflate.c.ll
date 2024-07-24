@@ -2086,7 +2086,7 @@ default.unreachable2829:                          ; preds = %444
   %.31.lcssa = phi i32 [ %.30.lcssa, %.preheader1247 ], [ %614, %._crit_edge1941.loopexit ]
   %615 = zext nneg i8 %.sroa.1664.0.copyload.lcssa to i64
   %616 = lshr i64 %.31943.lcssa, %615
-  %617 = sub i32 %.31.lcssa, %.lcssa1907
+  %617 = sub nuw i32 %.31.lcssa, %.lcssa1907
   %618 = icmp eq i32 %.lcssa195719601962, 0
   br i1 %618, label %619, label %620
 
@@ -2448,7 +2448,7 @@ default.unreachable2829:                          ; preds = %444
   %.sroa.051.0.copyload61 = load i8, ptr %.lcssa1388, align 2
   %761 = zext nneg i8 %.sroa.1664.0.copyload66.lcssa to i64
   %762 = lshr i64 %.40952.lcssa, %761
-  %763 = sub i32 %.40.lcssa, %.lcssa1375
+  %763 = sub nuw i32 %.40.lcssa, %.lcssa1375
   br label %764
 
 764:                                              ; preds = %._crit_edge1982, %._crit_edge2000
@@ -2554,7 +2554,7 @@ default.unreachable2829:                          ; preds = %444
   store i32 %801, ptr %41, align 4
   %802 = zext nneg i32 %784 to i64
   %803 = lshr i64 %.43955.lcssa, %802
-  %804 = sub i32 %.43.lcssa, %784
+  %804 = sub nuw i32 %.43.lcssa, %784
   %805 = load i32, ptr %56, align 4
   %806 = add i32 %805, %784
   store i32 %806, ptr %56, align 4
@@ -2712,7 +2712,7 @@ default.unreachable2829:                          ; preds = %444
   %.sroa.051.0.copyload63 = load i8, ptr %.lcssa1411, align 2
   %866 = zext nneg i8 %.sroa.1664.0.copyload70.lcssa to i64
   %867 = lshr i64 %.47959.lcssa, %866
-  %868 = sub i32 %.47.lcssa, %.lcssa1398
+  %868 = sub nuw i32 %.47.lcssa, %.lcssa1398
   %869 = load i32, ptr %56, align 4
   %870 = add nsw i32 %869, %.lcssa1398
   br label %871
@@ -2798,7 +2798,7 @@ default.unreachable2829:                          ; preds = %444
   store i32 %902, ptr %59, align 8
   %903 = zext nneg i32 %885 to i64
   %904 = lshr i64 %.50962.lcssa, %903
-  %905 = sub i32 %.50.lcssa, %885
+  %905 = sub nuw i32 %.50.lcssa, %885
   %906 = load i32, ptr %56, align 4
   %907 = add i32 %906, %885
   store i32 %907, ptr %56, align 4
@@ -2828,7 +2828,7 @@ default.unreachable2829:                          ; preds = %444
   br i1 %914, label %915, label %935
 
 915:                                              ; preds = %911
-  %916 = sub i32 %913, %912
+  %916 = sub nuw i32 %913, %912
   %917 = load i32, ptr %60, align 8
   %918 = icmp ugt i32 %916, %917
   br i1 %918, label %919, label %922
@@ -2849,13 +2849,13 @@ default.unreachable2829:                          ; preds = %444
   br i1 %924, label %925, label %929
 
 925:                                              ; preds = %922
-  %926 = sub i32 %916, %923
+  %926 = sub nuw i32 %916, %923
   %927 = load i32, ptr %64, align 4
   %928 = sub i32 %927, %926
   br label %931
 
 929:                                              ; preds = %922
-  %930 = sub i32 %923, %916
+  %930 = sub nuw i32 %923, %916
   br label %931
 
 931:                                              ; preds = %929, %925

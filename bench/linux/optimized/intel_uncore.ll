@@ -8343,7 +8343,7 @@ define internal fastcc i32 @find_fw_domain(ptr nocapture noundef readonly %0, i3
 14:                                               ; preds = %.lr.ph, %.thread
   %15 = phi i32 [ %11, %.lr.ph ], [ %30, %.thread ]
   %16 = phi i32 [ 0, %.lr.ph ], [ %29, %.thread ]
-  %17 = sub i32 %15, %16
+  %17 = sub nuw i32 %15, %16
   %18 = lshr i32 %17, 1
   %19 = add i32 %18, %16
   %20 = zext i32 %19 to i64
@@ -8505,7 +8505,7 @@ define internal fastcc noundef zeroext i1 @is_shadowed(ptr nocapture noundef rea
 .lr.ph:                                           ; preds = %28, %.thread
   %32 = phi i32 [ %47, %.thread ], [ %31, %28 ]
   %33 = phi i32 [ %46, %.thread ], [ 0, %28 ]
-  %34 = sub i32 %32, %33
+  %34 = sub nuw i32 %32, %33
   %35 = lshr i32 %34, 1
   %36 = add i32 %35, %33
   %37 = zext i32 %36 to i64

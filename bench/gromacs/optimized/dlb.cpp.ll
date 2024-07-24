@@ -77,7 +77,7 @@ define void @_Z14set_dlb_limitsP12gmx_domdec_t(ptr nocapture noundef readonly %0
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %7
-  %23 = sub nsw i64 %13, %20
+  %23 = sub nuw nsw i64 %13, %20
   tail call void @_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %23)
   br label %_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE6resizeEm.exit
 

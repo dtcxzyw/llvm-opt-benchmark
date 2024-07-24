@@ -1109,7 +1109,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -1356,7 +1356,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -1607,7 +1607,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -1858,7 +1858,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -2387,7 +2387,7 @@ _ZSt13move_backwardIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4
   br i1 %.not.i.i.i, label %_ZSt4fillIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !29
 
 39:                                               ; preds = %14
-  %40 = sub i64 %2, %18
+  %40 = sub nuw i64 %2, %18
   %.not7.i.i.i.i = icmp eq i64 %40, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
@@ -3722,7 +3722,7 @@ _ZNSt13unordered_mapISt5arrayIhLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -3969,7 +3969,7 @@ _ZNSt13unordered_mapISt5arrayIhLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -4216,7 +4216,7 @@ _ZNSt13unordered_mapISt5arrayIhLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -4463,7 +4463,7 @@ _ZNSt13unordered_mapISt5arrayIhLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -6106,7 +6106,7 @@ _ZNSt13unordered_mapISt5arrayIhLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -6353,7 +6353,7 @@ _ZNSt13unordered_mapISt5arrayIhLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -6600,7 +6600,7 @@ _ZNSt13unordered_mapISt5arrayIhLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -6847,7 +6847,7 @@ _ZNSt13unordered_mapISt5arrayIhLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -7094,7 +7094,7 @@ _ZNSt13unordered_mapISt5arrayItLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -7341,7 +7341,7 @@ _ZNSt13unordered_mapISt5arrayItLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -7588,7 +7588,7 @@ _ZNSt13unordered_mapISt5arrayItLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -7835,7 +7835,7 @@ _ZNSt13unordered_mapISt5arrayItLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -9478,7 +9478,7 @@ _ZNSt13unordered_mapISt5arrayItLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -9725,7 +9725,7 @@ _ZNSt13unordered_mapISt5arrayItLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -9972,7 +9972,7 @@ _ZNSt13unordered_mapISt5arrayItLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -10219,7 +10219,7 @@ _ZNSt13unordered_mapISt5arrayItLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -10466,7 +10466,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -10713,7 +10713,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -10964,7 +10964,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -11211,7 +11211,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %69
-  %81 = sub nsw i64 %70, %78
+  %81 = sub nuw nsw i64 %70, %78
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr %73, i64 noundef %81, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %41
 
@@ -11458,7 +11458,7 @@ _ZNSt13unordered_mapISt5arrayIjLm1EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -11705,7 +11705,7 @@ _ZNSt13unordered_mapISt5arrayIjLm2EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -11956,7 +11956,7 @@ _ZNSt13unordered_mapISt5arrayIjLm3EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = sub nsw i64 %69, %77
+  %80 = sub nuw nsw i64 %69, %77
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %40
 
@@ -12203,7 +12203,7 @@ _ZNSt13unordered_mapISt5arrayIjLm4EEN5draco9IndexTypeIjNS2_29AttributeValueIndex
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %69
-  %81 = sub nsw i64 %70, %78
+  %81 = sub nuw nsw i64 %70, %78
   invoke void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr %73, i64 noundef %81, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5dracoL27kInvalidAttributeValueIndexE)
           to label %._ZN5draco14PointAttribute18SetExplicitMappingEm.exit_crit_edge unwind label %41
 

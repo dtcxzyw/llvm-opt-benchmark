@@ -2938,11 +2938,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitize
   br i1 %57, label %_ZNK2OT13HintingDevice8get_sizeEv.exit.i.i.i.i, label %58
 
 58:                                               ; preds = %41
-  %59 = sub nsw i32 %56, %48
+  %59 = sub nuw nsw i32 %56, %48
   %60 = sub nuw nsw i32 4, %38
   %61 = lshr i32 %59, %60
-  %62 = shl nuw i32 %61, 1
-  %63 = add i32 %62, 8
+  %62 = shl nuw nsw i32 %61, 1
+  %63 = add nuw nsw i32 %62, 8
   br label %_ZNK2OT13HintingDevice8get_sizeEv.exit.i.i.i.i
 
 _ZNK2OT13HintingDevice8get_sizeEv.exit.i.i.i.i:   ; preds = %58, %41, %39

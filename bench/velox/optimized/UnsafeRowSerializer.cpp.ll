@@ -8606,7 +8606,7 @@ _ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EE6res
   br i1 %cmp.i36.i, label %if.then.i43.i, label %if.else.i37.i
 
 if.then.i43.i:                                    ; preds = %_ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EE6resizeEm.exit.i
-  %sub.i44.i = sub i64 %75, %sub.ptr.div.i.i35.i
+  %sub.i44.i = sub nuw i64 %75, %sub.ptr.div.i.i35.i
   invoke void @_ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %valueArray_.i, i64 noundef %sub.i44.i)
           to label %if.then.i43.i._ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EE6resizeEm.exit46.i_crit_edge unwind label %lpad.i170.loopexit.split-lp
 
@@ -9608,7 +9608,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit427.i: ; preds = %if.end8.sin
   br i1 %cmp.i433.i, label %if.then.i440.i, label %if.else.i434.i
 
 if.then.i440.i:                                   ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit427.i
-  %sub.i441.i = sub i64 %225, %sub.ptr.div.i.i432.i
+  %sub.i441.i = sub nuw i64 %225, %sub.ptr.div.i.i432.i
   invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %numElements_.i, i64 noundef %sub.i441.i)
           to label %if.then.i440.i._ZNSt6vectorImSaImEE6resizeEm.exit.i_crit_edge unwind label %lpad.i170.loopexit.split-lp
 
@@ -33521,7 +33521,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 

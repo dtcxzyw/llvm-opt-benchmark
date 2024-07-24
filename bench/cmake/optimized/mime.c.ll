@@ -1904,12 +1904,12 @@ define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %.thread
-  %44 = sub i64 %39, %41
+  %44 = sub nuw i64 %39, %41
   %45 = getelementptr inbounds i8, ptr %38, i64 %41
   br label %readback_bytes.exit
 
 46:                                               ; preds = %.thread
-  %47 = sub i64 %41, %39
+  %47 = sub nuw i64 %41, %39
   %.not.i76 = icmp ult i64 %47, 2
   br i1 %.not.i76, label %48, label %readback_bytes.exit.thread
 
@@ -3499,7 +3499,7 @@ qp_lookahead_eol.exit65:                          ; preds = %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.05283, ptr noundef nonnull align 4 dereferenceable(1) %5, i64 %.149, i1 false)
   %100 = add i64 %.149, %.05184
   %101 = getelementptr inbounds i8, ptr %.05283, i64 %.149
-  %102 = sub i64 %.05382, %.149
+  %102 = sub nuw i64 %.05382, %.149
   %103 = load i64, ptr %6, align 8
   %104 = add i64 %103, %.149
   %105 = add nsw i64 %.149, -1

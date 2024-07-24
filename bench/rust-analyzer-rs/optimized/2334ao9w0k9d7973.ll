@@ -10266,7 +10266,7 @@ define hidden { i32, i8 } @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u
   %9 = xor i16 %17, -1
   store ptr %19, ptr %8, align 8, !alias.scope !2787
   store ptr %18, ptr %2, align 8, !alias.scope !2787
-  %10 = sub i16 -2, %17
+  %10 = sub nuw i16 -2, %17
   %11 = and i16 %10, %9
   store i16 %11, ptr %7, align 8, !alias.scope !2788
   %12 = add i64 %4, -1
@@ -10340,7 +10340,7 @@ define hidden { i32, i32 } @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$
   %9 = xor i16 %16, -1
   store ptr %18, ptr %8, align 8, !alias.scope !2801
   store ptr %17, ptr %2, align 8, !alias.scope !2801
-  %10 = sub i16 -2, %16
+  %10 = sub nuw i16 -2, %16
   %11 = and i16 %10, %9
   store i16 %11, ptr %7, align 8, !alias.scope !2802
   %12 = add i64 %4, -1

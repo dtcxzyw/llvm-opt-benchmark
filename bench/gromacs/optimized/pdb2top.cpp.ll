@@ -5077,7 +5077,7 @@ define void @_Z18get_hackblocks_rtpPSt6vectorI21MoleculePatchDatabaseSaIS0_EEPS_
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %14
-  %41 = sub nsw i64 %31, %38
+  %41 = sub nuw nsw i64 %31, %38
   tail call void @_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %41)
   br label %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE6resizeEm.exit
 

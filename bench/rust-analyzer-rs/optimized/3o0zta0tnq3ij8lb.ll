@@ -150,7 +150,7 @@ define internal noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h22e25703a6da94b5E.exit": ; preds = %3
   %7 = load ptr, ptr %0, align 8, !nonnull !7, !align !12, !noundef !7
   %8 = getelementptr inbounds i8, ptr %7, i64 %2
-  %9 = sub i64 %5, %2
+  %9 = sub nuw i64 %5, %2
   %10 = icmp eq i64 %2, 1
   br i1 %10, label %11, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit"
 
@@ -279,7 +279,7 @@ define internal void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20
   br label %19
 
 19:                                               ; preds = %17, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit.i"
-  %20 = sub i64 %8, %.0.sroa.speculated.i.i
+  %20 = sub nuw i64 %8, %.0.sroa.speculated.i.i
   %21 = getelementptr inbounds i8, ptr %9, i64 %.0.sroa.speculated.i.i
   store ptr %21, ptr %1, align 8, !alias.scope !26, !noalias !29
   store i64 %20, ptr %6, align 8, !alias.scope !26, !noalias !29
@@ -379,7 +379,7 @@ define internal void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20
   br label %11
 
 11:                                               ; preds = %9, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60f8b17dbc8f78e7E.exit"
-  %12 = sub i64 %6, %.0.sroa.speculated.i
+  %12 = sub nuw i64 %6, %.0.sroa.speculated.i
   %13 = getelementptr inbounds i8, ptr %7, i64 %.0.sroa.speculated.i
   store ptr %13, ptr %1, align 8
   store i64 %12, ptr %5, align 8
@@ -405,9 +405,9 @@ define internal noalias noundef ptr @"_ZN3std2io5impls60_$LT$impl$u20$std..io..R
 _ZN4core2io12borrowed_buf14BorrowedCursor6append17h84044dc75767ccdcE.exit: ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !7
-  %12 = sub i64 %5, %7
+  %12 = sub nuw i64 %5, %7
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %12, i64 %11)
-  %13 = sub i64 %11, %.0.sroa.speculated.i
+  %13 = sub nuw i64 %11, %.0.sroa.speculated.i
   %14 = load ptr, ptr %0, align 8, !nonnull !7, !align !12, !noundef !7
   %15 = getelementptr inbounds i8, ptr %14, i64 %.0.sroa.speculated.i
   %16 = load ptr, ptr %1, align 8, !noalias !63, !nonnull !7, !align !12, !noundef !7
@@ -755,7 +755,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i: ; preds = %53, %
   br i1 %64, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hd7ff12415b85250fE.exit", label %.lr.ph.split.split.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hea0d24b938f00e9dE.exit.i": ; preds = %59
-  %67 = sub i64 %61, %17
+  %67 = sub nuw i64 %61, %17
   %68 = getelementptr inbounds i8, ptr %.val, i64 %67
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %15, i64 %17), !alias.scope !118, !noalias !112
   %69 = icmp eq i32 %bcmp.i.i, 0

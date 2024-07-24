@@ -394,7 +394,7 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
   br i1 %35, label %36, label %49
 
 36:                                               ; preds = %28
-  %37 = sub nsw i64 %34, %33
+  %37 = sub nuw nsw i64 %34, %33
   %38 = icmp ult i64 %37, %27
   br i1 %38, label %39, label %42
 
@@ -422,7 +422,7 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
   br i1 %53, label %54, label %65
 
 54:                                               ; preds = %49
-  %55 = sub i64 %51, %52
+  %55 = sub nuw i64 %51, %52
   %56 = icmp ult i64 %55, %27
   br i1 %56, label %57, label %60
 

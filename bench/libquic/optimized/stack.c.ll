@@ -283,7 +283,7 @@ if.then28:                                        ; preds = %if.end25
 if.else:                                          ; preds = %if.end25
   %5 = getelementptr ptr, ptr %4, i64 %where
   %arrayidx33 = getelementptr i8, ptr %5, i64 8
-  %sub = sub i64 %3, %where
+  %sub = sub nuw i64 %3, %where
   %mul37 = shl i64 %sub, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx33, ptr align 8 %5, i64 %mul37, i1 false)
   %6 = load ptr, ptr %data31, align 8
@@ -645,7 +645,7 @@ if.then28.i:                                      ; preds = %if.end25.i.thread, 
 if.else.i:                                        ; preds = %if.end25.i
   %6 = getelementptr ptr, ptr %call.i, i64 %0
   %arrayidx33.i = getelementptr i8, ptr %6, i64 8
-  %sub.i = sub i64 %.pre.i, %0
+  %sub.i = sub nuw i64 %.pre.i, %0
   %mul37.i = shl i64 %sub.i, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx33.i, ptr align 8 %6, i64 %mul37.i, i1 false)
   br label %if.end40.i

@@ -1892,7 +1892,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit241: ; preds = %385
           to label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h2b8930224ab59f8dE.exit" unwind label %446, !noalias !402
 
 441:                                              ; preds = %.noexc250
-  %442 = sub i64 %424, %415
+  %442 = sub nuw i64 %424, %415
   %443 = getelementptr inbounds i8, ptr %17, i64 8
   %444 = load ptr, ptr %443, align 8, !alias.scope !406, !noalias !402, !noundef !4
   %445 = getelementptr inbounds i8, ptr %444, i64 %415

@@ -540,7 +540,7 @@ define internal i32 @lz_encode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %93
-  %98 = sub i32 %94, %95
+  %98 = sub nuw i32 %94, %95
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %97, %91

@@ -214,7 +214,7 @@ define i32 @cli_bcapi_read(ptr nocapture noundef %0, ptr noundef %1, i32 noundef
   br i1 %23, label %fmap_readn.exit.thread, label %24
 
 24:                                               ; preds = %22
-  %25 = sub i64 %19, %16
+  %25 = sub nuw i64 %19, %16
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %25, i64 %17)
   %26 = getelementptr inbounds i8, ptr %5, i64 104
   %27 = load ptr, ptr %26, align 8
@@ -410,7 +410,7 @@ define i32 @cli_bcapi_disasm_x86(ptr nocapture noundef readonly %0, ptr noundef 
   br label %31
 
 15:                                               ; preds = %7
-  %16 = sub i64 %11, %9
+  %16 = sub nuw i64 %11, %9
   %spec.select34 = tail call i64 @llvm.umin.i64(i64 %16, i64 32)
   %17 = getelementptr inbounds i8, ptr %6, i64 104
   %18 = load ptr, ptr %17, align 8
@@ -931,7 +931,7 @@ define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr nou
   br i1 %33, label %fmap_readn.exit.thread, label %34
 
 34:                                               ; preds = %32
-  %35 = sub nsw i64 %19, %29
+  %35 = sub nuw nsw i64 %19, %29
   br label %36
 
 36:                                               ; preds = %34, %.split.us
@@ -947,7 +947,7 @@ define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr nou
   br i1 %41, label %fmap_readn.exit.thread, label %42
 
 42:                                               ; preds = %40
-  %43 = sub i64 %37, %29
+  %43 = sub nuw i64 %37, %29
   %spec.select.i.us = tail call i64 @llvm.umin.i64(i64 %43, i64 %.0.us)
   %44 = load ptr, ptr %25, align 8
   %45 = tail call ptr %44(ptr noundef nonnull %7, i64 noundef %29, i64 noundef %spec.select.i.us, i32 noundef 0) #28
@@ -983,7 +983,7 @@ fmap_readn.exit.us:                               ; preds = %46, %36
   br i1 %57, label %fmap_readn.exit.thread, label %58
 
 58:                                               ; preds = %56
-  %59 = sub nsw i64 %19, %53
+  %59 = sub nuw nsw i64 %19, %53
   br label %60
 
 60:                                               ; preds = %58, %.split.split.us
@@ -999,7 +999,7 @@ fmap_readn.exit.us:                               ; preds = %46, %36
   br i1 %65, label %fmap_readn.exit.thread, label %66
 
 66:                                               ; preds = %64
-  %67 = sub i64 %61, %53
+  %67 = sub nuw i64 %61, %53
   %spec.select.i.us73 = call i64 @llvm.umin.i64(i64 %67, i64 %.0.us71)
   %68 = load ptr, ptr %25, align 8
   %69 = call ptr %68(ptr noundef nonnull %7, i64 noundef %53, i64 noundef %spec.select.i.us73, i32 noundef 0) #28
@@ -1039,7 +1039,7 @@ cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us7
   br i1 %83, label %fmap_readn.exit.thread, label %84
 
 84:                                               ; preds = %82
-  %85 = sub nsw i64 %19, %79
+  %85 = sub nuw nsw i64 %19, %79
   br label %86
 
 86:                                               ; preds = %84, %.split.split
@@ -1055,7 +1055,7 @@ cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us7
   br i1 %91, label %fmap_readn.exit.thread, label %92
 
 92:                                               ; preds = %90
-  %93 = sub i64 %87, %79
+  %93 = sub nuw i64 %87, %79
   %spec.select.i = call i64 @llvm.umin.i64(i64 %93, i64 %.0)
   %94 = load ptr, ptr %25, align 8
   %95 = call ptr %94(ptr noundef nonnull %7, i64 noundef %79, i64 noundef %spec.select.i, i32 noundef 0) #28
@@ -2027,7 +2027,7 @@ get_buffer.exit:                                  ; preds = %7
 26:                                               ; preds = %21
   %27 = add i32 %23, 8192
   %.not23 = icmp ugt i32 %27, %25
-  %28 = sub i32 %25, %23
+  %28 = sub nuw i32 %25, %23
   %spec.select25 = select i1 %.not23, i32 %28, i32 8192
   br label %29
 
@@ -2079,7 +2079,7 @@ get_buffer.exit.i:                                ; preds = %8
 cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %17
   %22 = add i32 %19, 8192
   %.not23.i = icmp ugt i32 %22, %21
-  %23 = sub i32 %21, %19
+  %23 = sub nuw i32 %21, %19
   %spec.select25.i = select i1 %.not23.i, i32 %23, i32 8192
   %24 = add i32 %2, -1
   %or.cond = icmp ult i32 %24, %spec.select25.i
@@ -2504,7 +2504,7 @@ get_buffer.exit.i:                                ; preds = %24
 43:                                               ; preds = %38
   %44 = add i32 %40, 8192
   %.not23.i = icmp ugt i32 %44, %42
-  %45 = sub i32 %42, %40
+  %45 = sub nuw i32 %42, %40
   %spec.select25.i = select i1 %.not23.i, i32 %45, i32 8192
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
@@ -2553,7 +2553,7 @@ get_buffer.exit.i.i:                              ; preds = %51
 cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %60
   %65 = add i32 %62, 8192
   %.not23.i.i = icmp ugt i32 %65, %64
-  %66 = sub i32 %64, %62
+  %66 = sub nuw i32 %64, %62
   %spec.select25.i.i = select i1 %.not23.i.i, i32 %66, i32 8192
   %67 = add i32 %.0.i63, -1
   %or.cond.i = icmp ult i32 %67, %spec.select25.i.i
@@ -2955,7 +2955,7 @@ get_buffer.exit.i:                                ; preds = %get_buffer.exit
 31:                                               ; preds = %26
   %32 = add i32 %28, 8192
   %.not23.i = icmp ugt i32 %32, %30
-  %33 = sub i32 %30, %28
+  %33 = sub nuw i32 %30, %28
   br i1 %.not23.i, label %cli_bcapi_buffer_pipe_read_avail.exit, label %cli_bcapi_buffer_pipe_read_avail.exit.thread76
 
 cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %31, %18
@@ -3026,7 +3026,7 @@ get_buffer.exit.i.i:                              ; preds = %49
 cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %56
   %61 = add i32 %58, 8192
   %.not23.i.i = icmp ugt i32 %61, %60
-  %62 = sub i32 %60, %58
+  %62 = sub nuw i32 %60, %58
   %spec.select25.i.i = select i1 %.not23.i.i, i32 %62, i32 8192
   %63 = add i32 %.0.i5078, -1
   %or.cond.i55 = icmp ult i32 %63, %spec.select25.i.i
@@ -3264,7 +3264,7 @@ get_buffer.exit.i:                                ; preds = %24
 43:                                               ; preds = %38
   %44 = add i32 %40, 8192
   %.not23.i = icmp ugt i32 %44, %42
-  %45 = sub i32 %42, %40
+  %45 = sub nuw i32 %42, %40
   %spec.select25.i = select i1 %.not23.i, i32 %45, i32 8192
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
@@ -3314,7 +3314,7 @@ get_buffer.exit.i.i:                              ; preds = %52
 cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %61
   %66 = add i32 %63, 8192
   %.not23.i.i = icmp ugt i32 %66, %65
-  %67 = sub i32 %65, %63
+  %67 = sub nuw i32 %65, %63
   %spec.select25.i.i = select i1 %.not23.i.i, i32 %67, i32 8192
   %68 = add i32 %.0.i46, -1
   %or.cond.i = icmp ult i32 %68, %spec.select25.i.i
@@ -3787,7 +3787,7 @@ get_buffer.exit.i:                                ; preds = %24
 43:                                               ; preds = %38
   %44 = add i32 %40, 8192
   %.not23.i = icmp ugt i32 %44, %42
-  %45 = sub i32 %42, %40
+  %45 = sub nuw i32 %42, %40
   %spec.select25.i = select i1 %.not23.i, i32 %45, i32 8192
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
@@ -3836,7 +3836,7 @@ get_buffer.exit.i.i:                              ; preds = %51
 cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %60
   %65 = add i32 %62, 8192
   %.not23.i.i = icmp ugt i32 %65, %64
-  %66 = sub i32 %64, %62
+  %66 = sub nuw i32 %64, %62
   %spec.select25.i.i = select i1 %.not23.i.i, i32 %66, i32 8192
   %67 = add i32 %.0.i43, -1
   %or.cond.i = icmp ult i32 %67, %spec.select25.i.i
@@ -4314,7 +4314,7 @@ get_buffer.exit.i:                                ; preds = %24
 43:                                               ; preds = %38
   %44 = add i32 %40, 8192
   %.not23.i = icmp ugt i32 %44, %42
-  %45 = sub i32 %42, %40
+  %45 = sub nuw i32 %42, %40
   %spec.select25.i = select i1 %.not23.i, i32 %45, i32 8192
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
@@ -4361,7 +4361,7 @@ get_buffer.exit.i.i:                              ; preds = %50
 cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %59
   %64 = add i32 %61, 8192
   %.not23.i.i = icmp ugt i32 %64, %63
-  %65 = sub i32 %63, %61
+  %65 = sub nuw i32 %63, %61
   %spec.select25.i.i = select i1 %.not23.i.i, i32 %65, i32 8192
   %66 = add i32 %.0.i32, -1
   %or.cond.i = icmp ult i32 %66, %spec.select25.i.i

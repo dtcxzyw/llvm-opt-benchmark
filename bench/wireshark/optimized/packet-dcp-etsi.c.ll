@@ -412,7 +412,7 @@ define internal i32 @dissect_af(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
-  %24 = sub i32 %16, %13
+  %24 = sub nuw i32 %16, %13
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.118, i32 noundef %24) #3
   br label %25
 

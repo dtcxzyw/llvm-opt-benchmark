@@ -673,7 +673,7 @@ if.then11:                                        ; preds = %land.lhs.true9
   br i1 %cmp12, label %if.end33, label %if.end18.thread
 
 if.end18.thread:                                  ; preds = %if.then11
-  %sub = sub i64 %5, %7
+  %sub = sub nuw i64 %5, %7
   br label %if.then22
 
 if.end18:                                         ; preds = %land.lhs.true9

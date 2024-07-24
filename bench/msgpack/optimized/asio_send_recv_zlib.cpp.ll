@@ -22231,7 +22231,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v28unpacker4nextER
   br i1 %12, label %13, label %_ZN7msgpack2v26parserINS0_8unpackerENS0_19zone_push_finalizerEE4nextEv.exit
 
 13:                                               ; preds = %3
-  %14 = sub i64 %11, %5
+  %14 = sub nuw i64 %11, %5
   %15 = getelementptr inbounds i8, ptr %0, i64 88
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %14, %16

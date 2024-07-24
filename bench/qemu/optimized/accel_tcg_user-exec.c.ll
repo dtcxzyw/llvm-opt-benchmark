@@ -1077,18 +1077,18 @@ do.body:                                          ; preds = %if.end8
   %add22 = add i64 %sub15, %min
   %and23 = and i64 %add22, %not
   %cmp1624 = icmp ugt i64 %and23, %max
-  %sub1925 = sub i64 %max, %and23
+  %sub1925 = sub nuw i64 %max, %and23
   %cmp2026 = icmp ugt i64 %sub, %sub1925
-  %or.cond27 = or i1 %cmp1624, %cmp2026
+  %or.cond27 = select i1 %cmp1624, i1 true, i1 %cmp2026
   br i1 %or.cond27, label %return, label %if.end22
 
 while.body:                                       ; preds = %if.end27
   %add = add i64 %2, %align
   %and = and i64 %add, %not
   %cmp16 = icmp ugt i64 %and, %max
-  %sub19 = sub i64 %max, %and
+  %sub19 = sub nuw i64 %max, %and
   %cmp20 = icmp ugt i64 %sub, %sub19
-  %or.cond = or i1 %cmp16, %cmp20
+  %or.cond = select i1 %cmp16, i1 true, i1 %cmp20
   br i1 %or.cond, label %return, label %if.end22
 
 if.end22:                                         ; preds = %do.body, %while.body

@@ -558,7 +558,7 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
   %46 = add i64 %45, %20
   %47 = inttoptr i64 %46 to ptr
   store ptr %47, ptr @real_mode_header, align 8
-  %48 = sub i64 %23, %14
+  %48 = sub nuw i64 %23, %14
   br label %49
 
 49:                                               ; preds = %44, %39, %35

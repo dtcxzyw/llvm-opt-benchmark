@@ -915,7 +915,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %234, label %235, label %237
 
 235:                                              ; preds = %223
-  %236 = sub nsw i64 %227, %233
+  %236 = sub nuw nsw i64 %227, %233
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %236)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1360,7 +1360,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %376, label %377, label %379
 
 377:                                              ; preds = %368
-  %378 = sub nsw i64 %369, %375
+  %378 = sub nuw nsw i64 %369, %375
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %378)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit214 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1388,7 +1388,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit214:            ; preds = %383, %381, %379, %3
   br i1 %390, label %391, label %393
 
 391:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit214
-  %392 = sub nsw i64 %369, %389
+  %392 = sub nuw nsw i64 %369, %389
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %392)
           to label %.lr.ph236.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1783,7 +1783,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn16ReshapeLayerImpl8finalizeERKNS_11_I
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %22
-  %37 = sub nsw i64 %27, %34
+  %37 = sub nuw nsw i64 %27, %34
   invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %37)
           to label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit unwind label %12
 
@@ -2941,7 +2941,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit188.i: ; preds = %.l
   br i1 %245, label %246, label %248
 
 246:                                              ; preds = %234
-  %247 = sub nsw i64 %237, %244
+  %247 = sub nuw nsw i64 %237, %244
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %100, i64 noundef %247)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 

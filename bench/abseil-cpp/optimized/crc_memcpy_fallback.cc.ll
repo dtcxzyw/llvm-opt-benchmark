@@ -51,7 +51,7 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
-  %sub = sub i64 %length, %offset.0.lcssa
+  %sub = sub nuw i64 %length, %offset.0.lcssa
   %add.ptr12 = getelementptr inbounds i8, ptr %src, i64 %offset.0.lcssa
   %call9.i20 = tail call i32 @_ZN4absl12crc_internal20ExtendCrc32cInternalENS_8crc32c_tESt17basic_string_viewIcSt11char_traitsIcEE(i32 %retval.sroa.0.0.lcssa, i64 %sub, ptr %add.ptr12)
   %add.ptr16 = getelementptr inbounds i8, ptr %dst, i64 %offset.0.lcssa

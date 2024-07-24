@@ -232,8 +232,8 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br i1 %.not215, label %93, label %85
 
 85:                                               ; preds = %84
-  %86 = sub nsw i32 %81, %.0233306
-  %87 = zext i32 %86 to i64
+  %86 = sub nuw nsw i32 %81, %.0233306
+  %87 = zext nneg i32 %86 to i64
   %88 = getelementptr inbounds i16, ptr %.0177232307, i64 %87
   %89 = load i16, ptr %88, align 2
   %90 = trunc i16 %89 to i8

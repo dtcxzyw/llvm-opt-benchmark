@@ -524,7 +524,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds i8, ptr %.06387.i, i64 %82
-  %92 = sub i64 %..059.i, %82
+  %92 = sub nuw i64 %..059.i, %82
   call void @llvm.memset.p0.i64(ptr align 1 %91, i8 0, i64 %92, i1 false)
   br label %93
 

@@ -23410,7 +23410,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_che
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i8, [7 x i8] }, i64 }, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -23432,7 +23432,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_che
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -23469,7 +23469,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h32
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -23502,7 +23502,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h9b
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i8, [7 x i8] }, i64 }, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -29882,7 +29882,7 @@ define hidden void @"_ZN75_$LT$$u5b$T$u5d$$u20$as$u20$alloc..slice..SpecCloneInt
   br i1 %6, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h32964ce85e63de6bE.llvm.3663151438746104753.exit", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9514aa6fe7c9e808E.exit.thread"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9514aa6fe7c9e808E.exit.thread": ; preds = %3
-  %7 = sub i64 %5, %1
+  %7 = sub nuw i64 %5, %1
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !5300, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %9, i64 %1
@@ -29911,7 +29911,7 @@ define hidden void @"_ZN75_$LT$$u5b$T$u5d$$u20$as$u20$alloc..slice..SpecCloneInt
   br i1 %7, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha10530a0adff9ec6E.exit.preheader.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he7e143fef9f88446E.exit.thread"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17he7e143fef9f88446E.exit.thread": ; preds = %3
-  %8 = sub i64 %6, %1
+  %8 = sub nuw i64 %6, %1
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !5303, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i8, [7 x i8] }, i64 }, ptr %10, i64 %1
@@ -71143,7 +71143,7 @@ define hidden void @_ZN13rust_analyzer3lsp15semantic_tokens11diff_tokens17hf3c8c
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hda8bd5be86dbb215E.exit.thread88": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h0b99fbb467b8c5b1E.exit.i.i.i"
   %39 = getelementptr inbounds { i32, i32, i32, i32, i32 }, ptr %1, i64 %.0.sroa.speculated.i.i.i
-  %40 = sub i64 %2, %.0.sroa.speculated.i.i.i
+  %40 = sub nuw i64 %2, %.0.sroa.speculated.i.i.i
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hda8bd5be86dbb215E.exit.thread"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9a8bf4eeadb0814bE.exit": ; preds = %.lr.ph.i.i.i, %16, %22, %28, %"_ZN13rust_analyzer3lsp15semantic_tokens11diff_tokens28_$u7b$$u7b$closure$u7d$$u7d$17h037fbd4177b0d42dE.exit.i.i.i.i"
@@ -71166,7 +71166,7 @@ define hidden void @_ZN13rust_analyzer3lsp15semantic_tokens11diff_tokens17hf3c8c
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hda8bd5be86dbb215E.exit": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9a8bf4eeadb0814bE.exit"
   %46 = getelementptr inbounds { i32, i32, i32, i32, i32 }, ptr %1, i64 %.020.i.i.i
-  %47 = sub i64 %2, %.020.i.i.i
+  %47 = sub nuw i64 %2, %.020.i.i.i
   %.not.i.i27 = icmp ugt i64 %.020.i.i.i, %4
   br i1 %.not.i.i27, label %48, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hda8bd5be86dbb215E.exit.thread"
 
@@ -71189,7 +71189,7 @@ define hidden void @_ZN13rust_analyzer3lsp15semantic_tokens11diff_tokens17hf3c8c
   %54 = phi ptr [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hda8bd5be86dbb215E.exit" ], [ %1, %5 ], [ %39, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hda8bd5be86dbb215E.exit.thread88" ]
   %.1.i.i8184 = phi i64 [ %.020.i.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hda8bd5be86dbb215E.exit" ], [ 0, %5 ], [ %.0.sroa.speculated.i.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hda8bd5be86dbb215E.exit.thread88" ]
   %55 = getelementptr inbounds { i32, i32, i32, i32, i32 }, ptr %3, i64 %.1.i.i8184
-  %56 = sub i64 %4, %.1.i.i8184
+  %56 = sub nuw i64 %4, %.1.i.i8184
   %57 = icmp eq i64 %.1.i.i8184, %4
   br i1 %57, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hda8bd5be86dbb215E.exit39", label %.lr.ph.i.i.i33.preheader
 

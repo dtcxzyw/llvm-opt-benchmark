@@ -129,7 +129,7 @@ define dso_local i64 @pg_prng_uint64_range(ptr nocapture noundef %0, i64 noundef
   br i1 %4, label %5, label %25
 
 5:                                                ; preds = %3
-  %6 = sub i64 %2, %1
+  %6 = sub nuw i64 %2, %1
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %.promoted = load i64, ptr %0, align 8

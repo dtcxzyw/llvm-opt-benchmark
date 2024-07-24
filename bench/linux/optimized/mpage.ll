@@ -73,7 +73,7 @@ define dso_local void @mpage_readahead(ptr nocapture noundef %0, ptr noundef %1)
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   %15 = getelementptr inbounds i8, ptr %3, i64 16
-  %16 = sub i32 %9, %8
+  %16 = sub nuw i32 %9, %8
   store i32 %16, ptr %7, align 8
   %17 = zext i32 %8 to i64
   %18 = load i64, ptr %12, align 8
@@ -88,7 +88,7 @@ define dso_local void @mpage_readahead(ptr nocapture noundef %0, ptr noundef %1)
   unreachable
 
 21:                                               ; preds = %46
-  %22 = sub i32 %50, %49
+  %22 = sub nuw i32 %50, %49
   store i32 %22, ptr %7, align 8
   %23 = zext i32 %49 to i64
   %24 = load i64, ptr %12, align 8
@@ -308,7 +308,7 @@ define internal fastcc ptr @do_mpage_readpage(ptr noundef %0) unnamed_addr #0 al
   br i1 %101, label %102, label %109
 
 102:                                              ; preds = %94
-  %103 = sub i64 %44, %100
+  %103 = sub nuw i64 %44, %100
   %104 = shl i64 %103, %10
   store i64 %104, ptr %45, align 8
   %105 = load ptr, ptr %90, align 8

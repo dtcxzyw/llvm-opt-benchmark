@@ -170,7 +170,7 @@ getendpos.exit:                                   ; preds = %posrelatI.exit, %if
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %getendpos.exit
-  %sub = sub i64 %retval.0.i24, %retval.0.i
+  %sub = sub nuw i64 %retval.0.i24, %retval.0.i
   %cmp4 = icmp ugt i64 %sub, 2147483646
   br i1 %cmp4, label %if.then8, label %for.body.lr.ph
 
@@ -1776,7 +1776,7 @@ getendpos.exit:                                   ; preds = %posrelatI.exit, %if
 if.then:                                          ; preds = %getendpos.exit
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %retval.0.i
   %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  %reass.sub = sub i64 %retval.0.i16, %retval.0.i
+  %reass.sub = sub nuw i64 %retval.0.i16, %retval.0.i
   %add = add i64 %reass.sub, 1
   %call5 = call ptr @lua_pushlstring(ptr noundef %L, ptr noundef nonnull %add.ptr4, i64 noundef %add) #13
   br label %if.end

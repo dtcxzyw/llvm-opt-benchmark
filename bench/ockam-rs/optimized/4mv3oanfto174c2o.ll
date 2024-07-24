@@ -283,7 +283,7 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
 57:                                               ; preds = %51
   %58 = getelementptr inbounds i8, ptr %3, i64 %36
   %59 = getelementptr inbounds i8, ptr %58, i64 %26
-  %60 = sub i64 %52, %26
+  %60 = sub nuw i64 %52, %26
   %61 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %58, ptr %61, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16

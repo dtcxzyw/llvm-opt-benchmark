@@ -463,7 +463,7 @@ invoke.cont37:                                    ; preds = %for.inc.i34.i.i.i, 
   br i1 %cmp.i21, label %if.then.i24, label %if.else.i22
 
 if.then.i24:                                      ; preds = %invoke.cont37
-  %sub.i = sub nsw i64 %conv42, %sub.ptr.div.i20
+  %sub.i = sub nuw nsw i64 %conv42, %sub.ptr.div.i20
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i64 noundef %sub.i)
           to label %return unwind label %lpad.loopexit.split-lp
 

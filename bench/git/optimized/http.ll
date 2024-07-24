@@ -3673,7 +3673,7 @@ if.end5.i:                                        ; preds = %do.body.i.i
   br i1 %cmp.i11.i, label %if.then8.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end5.i
-  %sub.i.i = sub i64 %6, %call.i.i
+  %sub.i.i = sub nuw i64 %6, %call.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %sub.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr readonly %add.ptr.i.i, ptr readonly %str.addr.0.i.i, i64 %call.i.i)
   %tobool.not.i12.i = icmp eq i32 %bcmp.i.i, 0

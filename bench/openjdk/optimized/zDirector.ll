@@ -899,7 +899,7 @@ _ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i: ; preds = %334, %3
   br i1 %352, label %353, label %359
 
 353:                                              ; preds = %349
-  %354 = sub i32 %351, %.sroa.420.0.copyload.i
+  %354 = sub nuw i32 %351, %.sroa.420.0.copyload.i
   %355 = shl i32 %354, 1
   %356 = add i32 %355, %.sroa.420.0.copyload.i
   %357 = load i32, ptr @ZYoungGCThreads, align 4

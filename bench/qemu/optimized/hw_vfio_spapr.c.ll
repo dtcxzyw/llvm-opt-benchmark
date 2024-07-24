@@ -956,7 +956,7 @@ if.end32:                                         ; preds = %int128_get64.exit31
   %20 = ptrtoint ptr %add.ptr1.i to i64
   %vaddr = getelementptr inbounds i8, ptr %reg, i64 8
   store i64 %20, ptr %vaddr, align 8
-  %sub = sub i64 %add29, %0
+  %sub = sub nuw i64 %add29, %0
   %size34 = getelementptr inbounds i8, ptr %reg, i64 16
   store i64 %sub, ptr %size34, align 8
   %fd = getelementptr i8, ptr %listener, i64 -200
@@ -1146,7 +1146,7 @@ if.end32:                                         ; preds = %int128_get64.exit25
   %19 = ptrtoint ptr %add.ptr1.i to i64
   %vaddr = getelementptr inbounds i8, ptr %reg, i64 8
   store i64 %19, ptr %vaddr, align 8
-  %sub = sub i64 %add29, %0
+  %sub = sub nuw i64 %add29, %0
   %size34 = getelementptr inbounds i8, ptr %reg, i64 16
   store i64 %sub, ptr %size34, align 8
   %fd = getelementptr i8, ptr %listener, i64 -200

@@ -1600,7 +1600,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %scevgep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
-  %5 = sub i64 %1, %0
+  %5 = sub nuw i64 %1, %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %5, i1 false), !noalias !156
   %6 = add i64 %5, %.sroa.4.0.copyload
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h9c5da7cb0832ecf2E.llvm.8666068179502612882.exit
@@ -2039,7 +2039,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %scevgep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
-  %5 = sub i64 %1, %0
+  %5 = sub nuw i64 %1, %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %5, i1 false), !noalias !339
   %6 = add i64 %5, %.sroa.4.0.copyload
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h4ce16641b11c2382E.llvm.8666068179502612882.exit
@@ -2361,7 +2361,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = shl i64 %.sroa.4.0.copyload, 3
   %scevgep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 %5
-  %6 = sub i64 %1, %0
+  %6 = sub nuw i64 %1, %0
   %7 = shl i64 %6, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false), !noalias !451
   %8 = add i64 %6, %.sroa.4.0.copyload
@@ -2663,7 +2663,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = phi i64 [ %9, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h973515bf2806fa65E.exit.i" ], [ %.sroa.6.0.copyload, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h973515bf2806fa65E.exit.i.preheader" ]
   %7 = phi ptr [ %8, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h973515bf2806fa65E.exit.i" ], [ %.sroa.0.0.copyload, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h973515bf2806fa65E.exit.i.preheader" ]
   %8 = getelementptr inbounds i8, ptr %7, i64 %.sroa.91.0.copyload
-  %9 = sub i64 %6, %.sroa.91.0.copyload
+  %9 = sub nuw i64 %6, %.sroa.91.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !580)
   %.sroa.02.0.copyload.i.i.i.i = load i32, ptr %7, align 1, !alias.scope !587, !noalias !592
   %10 = getelementptr inbounds i32, ptr %.sroa.8.0.copyload, i64 %5
@@ -35147,7 +35147,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h31af952dc998ed
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %11 = getelementptr inbounds i8, ptr %.promoted12, i64 %5
-  %12 = sub i64 %.promoted, %5
+  %12 = sub nuw i64 %.promoted, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10174)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10177)
   store ptr %11, ptr %0, align 8, !alias.scope !10166
@@ -35160,7 +35160,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h31af952dc998ed
   %14 = phi i64 [ %17, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h973515bf2806fa65E.exit" ], [ %.promoted, %.lr.ph ]
   %15 = phi ptr [ %16, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h973515bf2806fa65E.exit" ], [ %.promoted12, %.lr.ph ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %5
-  %17 = sub i64 %14, %5
+  %17 = sub nuw i64 %14, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10174)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10177)
   %.sroa.02.0.copyload.i.i.i = load i32, ptr %15, align 1, !alias.scope !10179, !noalias !10174
@@ -35265,7 +35265,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h46180f8a88d5d8
   %.promoted = load i64, ptr %7, align 8, !alias.scope !10220
   %8 = shl i64 %.promoted, 3
   %scevgep = getelementptr i8, ptr %6, i64 %8
-  %9 = sub i64 %1, %0
+  %9 = sub nuw i64 %1, %0
   %10 = shl i64 %9, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %10, i1 false), !noalias !10220
   %11 = add i64 %.promoted, %1
@@ -35313,7 +35313,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h4ce16641b11c23
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %.promoted = load i64, ptr %7, align 8, !alias.scope !10246
   %scevgep = getelementptr i8, ptr %6, i64 %.promoted
-  %8 = sub i64 %1, %0
+  %8 = sub nuw i64 %1, %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %8, i1 false), !noalias !10246
   %9 = add i64 %.promoted, %1
   br label %10
@@ -35621,7 +35621,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h9c5da7cb0832ec
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %.promoted = load i64, ptr %7, align 8, !alias.scope !10412
   %scevgep = getelementptr i8, ptr %6, i64 %.promoted
-  %8 = sub i64 %1, %0
+  %8 = sub nuw i64 %1, %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %8, i1 false), !noalias !10412
   %9 = add i64 %.promoted, %1
   br label %10
@@ -47064,7 +47064,7 @@ define internal fastcc void @"_ZN5arroy6writer15Writer$LT$D$GT$18delete_extra_tr
   br label %21
 
 38:                                               ; preds = %30
-  %39 = sub i64 %17, %.sroa.01.0
+  %39 = sub nuw i64 %17, %.sroa.01.0
   %40 = load ptr, ptr %34, align 8, !noalias !12049, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !12049
   store i64 %39, ptr %16, align 8, !alias.scope !12046, !noalias !12051
@@ -48248,7 +48248,7 @@ _ZN4core3cmp9PartialEq2ne17h9f29abc7ad38839fE.llvm.5336188084572713014.exit.i: ;
   unreachable
 
 .split.i:                                         ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4944d00d20d88505E.exit.i"
-  %341 = sub i64 %343, %339
+  %341 = sub nuw i64 %343, %339
   %342 = getelementptr inbounds i8, ptr %344, i64 %339
   %.not.not.i = icmp ult i64 %341, %339
   br i1 %.not.not.i, label %.loopexit45, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4944d00d20d88505E.exit.i"
@@ -52316,7 +52316,7 @@ define internal fastcc void @_ZN5bytes9bytes_mut8BytesMut6freeze17h0cf78d91d2710
           to label %.thread unwind label %50
 
 45:                                               ; preds = %28
-  %46 = sub i64 %30, %21
+  %46 = sub nuw i64 %30, %21
   store i64 %46, ptr %29, align 8, !alias.scope !12548
   %47 = getelementptr inbounds i8, ptr %7, i64 8
   %48 = load ptr, ptr %47, align 8, !alias.scope !12548, !noundef !4
@@ -87959,7 +87959,7 @@ define hidden void @_ZN7memmap211MmapOptions3map17h9fc4c19f3ee51a3cE(ptr dead_on
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = sub i64 %11, %14
+  %17 = sub nuw i64 %11, %14
   br label %23
 
 18:                                               ; preds = %12
@@ -88038,7 +88038,7 @@ define hidden void @_ZN7memmap211MmapOptions3map17hab3be0b40d12dd51E(ptr dead_on
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = sub i64 %11, %14
+  %17 = sub nuw i64 %11, %14
   br label %23
 
 18:                                               ; preds = %12
@@ -88306,7 +88306,7 @@ _ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.llvm.8666068179502612882
   br i1 %59, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit": ; preds = %54
-  %62 = sub i64 %56, %16
+  %62 = sub nuw i64 %56, %16
   %63 = getelementptr inbounds i8, ptr %3, i64 %62
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %63, ptr nonnull readonly %13, i64 %16), !alias.scope !15121
   %64 = icmp eq i32 %bcmp.i, 0

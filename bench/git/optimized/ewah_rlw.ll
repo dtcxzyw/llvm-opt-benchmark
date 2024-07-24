@@ -95,7 +95,7 @@ if.then:                                          ; preds = %while.body
   br label %while.end
 
 if.end:                                           ; preds = %while.body
-  %sub10 = sub i64 %x.addr.032, %conv
+  %sub10 = sub nuw i64 %x.addr.032, %conv
   store i32 0, ptr %running_len, align 4
   %1 = load i32, ptr %literal_words, align 8
   %conv14 = sext i32 %1 to i64
@@ -216,7 +216,7 @@ if.then.i:                                        ; preds = %while.body.i
   br label %rlwit_discard_first_words.exit
 
 if.end.i:                                         ; preds = %while.body.i
-  %sub10.i = sub i64 %x.addr.032.i, %conv.i27
+  %sub10.i = sub nuw i64 %x.addr.032.i, %conv.i27
   store i32 0, ptr %1, align 4
   %7 = load i32, ptr %0, align 8
   %conv14.i = sext i32 %7 to i64

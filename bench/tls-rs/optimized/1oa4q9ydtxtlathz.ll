@@ -6142,7 +6142,7 @@ define internal fastcc void @_ZN6rustls6crypto5tls123prf17he003f0eb50b4c681E(ptr
   %.sroa.034.060 = phi ptr [ %0, %.lr.ph ], [ %42, %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit33" ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.061, i64 %23)
   %42 = getelementptr inbounds i8, ptr %.sroa.034.060, i64 %.0.sroa.speculated.i.i
-  %43 = sub i64 %.sroa.5.061, %.0.sroa.speculated.i.i
+  %43 = sub nuw i64 %.sroa.5.061, %.0.sroa.speculated.i.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   %44 = load i64, ptr %28, align 8, !alias.scope !1375, !noundef !15
@@ -6363,7 +6363,7 @@ define internal fastcc void @_ZN6rustls6crypto5tls1321HkdfExpanderUsingHmac16exp
   %.sroa.0.022 = phi ptr [ %2, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h395a922dac224519E.exit.i.lr.ph" ], [ %29, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17hefc4f80e46ce9b3dE.exit" ]
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.52.023, i64 %13)
   %29 = getelementptr inbounds i8, ptr %.sroa.0.022, i64 %.0.sroa.speculated.i.i.i
-  %30 = sub i64 %.sroa.52.023, %.0.sroa.speculated.i.i.i
+  %30 = sub nuw i64 %.sroa.52.023, %.0.sroa.speculated.i.i.i
   %31 = add i8 %.sroa.10.024, 1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)

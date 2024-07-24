@@ -4719,7 +4719,7 @@ if.then9:                                         ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call10, i8 0, i64 40, i1 false)
   store ptr %call10, ptr %event, align 8, !tbaa !36
   store i8 1, ptr %call10, align 8, !tbaa !263
-  %sub = sub i16 %1, %10
+  %sub = sub nuw i16 %1, %10
   %11 = getelementptr inbounds i8, ptr %call10, i64 8
   store i16 %sub, ptr %11, align 8, !tbaa !13
   %12 = load i8, ptr %damage_effect, align 1, !tbaa !257, !range !250, !noundef !251
@@ -5877,7 +5877,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 _Z4trimSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %1, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %1, %front.0.lcssa.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %0, i64 %front.0.lcssa.i
   %4 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -5983,7 +5983,7 @@ invoke.cont4.i.i:                                 ; preds = %if.end10
   store ptr %7, ptr %agg.result, align 8, !tbaa !4, !alias.scope !278
   %8 = load ptr, ptr %this, align 8, !tbaa !11, !noalias !278
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %5
-  %sub.i.i.i = sub i64 %6, %5
+  %sub.i.i.i = sub nuw i64 %6, %5
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #27, !noalias !278
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !9, !noalias !278

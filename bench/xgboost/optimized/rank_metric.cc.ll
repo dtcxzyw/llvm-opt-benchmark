@@ -39332,7 +39332,7 @@ _ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit29: ; preds = %_ZNK7
   unreachable
 
 _ZNK7xgboost6common4SpanIKjLm18446744073709551615EEixEm.exit31: ; preds = %32
-  %38 = sub i64 %28, %30
+  %38 = sub nuw i64 %28, %30
   %39 = getelementptr inbounds float, ptr %33, i64 %30
   %40 = sub i32 %23, %21
   %41 = zext i32 %40 to i64

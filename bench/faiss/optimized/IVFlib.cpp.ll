@@ -995,7 +995,7 @@ _ZN5faiss6ivflib17extract_index_ivfEPNS_5IndexE.exit: ; preds = %2
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %32
-  %45 = sub i64 %34, %42
+  %45 = sub nuw i64 %34, %42
   invoke void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %45)
           to label %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit unwind label %11
 
@@ -1362,7 +1362,7 @@ define void @_ZN5faiss6ivflib18SlidingIndexWindow4stepEPKNS_5IndexEb(ptr nocaptu
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %94
-  %113 = sub i64 %110, %101
+  %113 = sub nuw i64 %110, %101
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %113)
   %.pre.i = load ptr, ptr %82, align 8
   br label %_ZN5faiss6ivflibL13shift_and_addIlEEvRSt6vectorIT_SaIS3_EEmRKS5_.exit
@@ -2023,7 +2023,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -3438,7 +3438,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %47
-  %63 = sub i64 %51, %60
+  %63 = sub nuw i64 %51, %60
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %63)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %_ZNSt6vectorImSaImEED2Ev.exit51.thread
 

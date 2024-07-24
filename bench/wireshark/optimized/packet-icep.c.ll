@@ -574,7 +574,7 @@ dissect_icep_batch_request.exit:                  ; preds = %90, %97, %79, %83, 
 
 122:                                              ; preds = %105
   %123 = load ptr, ptr %5, align 8
-  %124 = sub i32 %120, %118
+  %124 = sub nuw i32 %120, %118
   %125 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %123, ptr noundef nonnull @ei_icep_reply_data, ptr noundef nonnull @.str.169, i32 noundef %124, i32 noundef %120) #3
   %126 = load ptr, ptr %10, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.170, i32 noundef %124) #3

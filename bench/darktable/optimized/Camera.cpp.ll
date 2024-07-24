@@ -4991,7 +4991,7 @@ define hidden void @_ZN8rawspeed6Camera16parseColorMatrixERKN4pugi8xml_nodeE(ptr
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %45
-  %59 = sub nsw i64 %48, %56
+  %59 = sub nuw nsw i64 %48, %56
   call void @_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr %51, i64 noundef %59, ptr noundef nonnull align 4 dereferenceable(8) %7)
   br label %66
 

@@ -176,7 +176,7 @@ define hidden void @_ZN22SerialBlockOffsetTable6resizeEm(ptr noundef nonnull ali
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %2
-  %11 = sub i64 %6, %8
+  %11 = sub nuw i64 %6, %8
   %12 = tail call noundef i64 @_ZN13ReservedSpace18page_align_size_upEm(i64 noundef %11) #11
   %13 = tail call noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr noundef nonnull align 8 dereferenceable(112) %7, i64 noundef %12, i1 noundef zeroext false) #11
   br i1 %13, label %20, label %14
@@ -186,7 +186,7 @@ define hidden void @_ZN22SerialBlockOffsetTable6resizeEm(ptr noundef nonnull ali
   unreachable
 
 15:                                               ; preds = %2
-  %16 = sub i64 %8, %6
+  %16 = sub nuw i64 %8, %6
   %17 = tail call noundef i64 @_ZN13ReservedSpace20page_align_size_downEm(i64 noundef %16) #11
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -301,8 +301,8 @@ define hidden noundef ptr @_ZNK22SerialBlockOffsetTable30block_start_reaching_in
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %12 = phi i32 [ %17, %.lr.ph ], [ %11, %2 ]
   %.014 = phi ptr [ %16, %.lr.ph ], [ %9, %2 ]
-  %13 = sub nsw i32 %12, %10
-  %14 = shl nsw i32 %13, 2
+  %13 = sub nuw nsw i32 %12, %10
+  %14 = shl nuw nsw i32 %13, 2
   %15 = zext nneg i32 %14 to i64
   %.neg = shl nsw i64 -1, %15
   %16 = getelementptr inbounds i8, ptr %.014, i64 %.neg

@@ -157,7 +157,7 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %7
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 45:                                               ; preds = %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit
-  %46 = sub i64 %28, %37
+  %46 = sub nuw i64 %28, %37
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr %29, i32 %30, i64 noundef %46, i1 noundef zeroext false)
           to label %._ZNSt6vectorIbSaIbEE6resizeEmb.exit_crit_edge unwind label %98
 
@@ -179,7 +179,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %._ZNSt6vectorIbSaIb
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
-  %56 = sub nsw i64 %.pre-phi, %53
+  %56 = sub nuw nsw i64 %.pre-phi, %53
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %56)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %98
 
@@ -214,7 +214,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %71 = sub nsw i64 %.pre-phi22, %68
+  %71 = sub nuw nsw i64 %.pre-phi22, %68
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %71)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit14 unwind label %98
 
@@ -641,7 +641,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting8Detector14classifySm
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %19
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %31)
   br label %_ZN2cv6detail8tracking15online_boosting8Detector24prepareConfidencesMemoryEi.exit
 
@@ -1139,7 +1139,7 @@ _ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERK
   br i1 %322, label %323, label %325
 
 323:                                              ; preds = %312
-  %324 = sub nsw i64 %314, %321
+  %324 = sub nuw nsw i64 %314, %321
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %313, i64 noundef %324)
   br label %_ZN2cv6detail8tracking15online_boosting8Detector23prepareDetectionsMemoryEi.exit
 
@@ -3622,7 +3622,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting8Detector24prepareCon
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = sub nsw i64 %7, %14
+  %17 = sub nuw nsw i64 %7, %14
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %17)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -3665,7 +3665,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting8Detector23prepareDet
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %5
-  %17 = sub nsw i64 %7, %14
+  %17 = sub nuw nsw i64 %7, %14
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %17)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 

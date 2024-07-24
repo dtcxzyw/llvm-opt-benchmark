@@ -395,7 +395,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   br i1 %17, label %18, label %48
 
 18:                                               ; preds = %12
-  %19 = sub i32 %8, %14
+  %19 = sub nuw i32 %8, %14
   %20 = icmp ult i32 %19, %10
   br i1 %20, label %21, label %39
 
@@ -441,12 +441,12 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   br label %57
 
 48:                                               ; preds = %12
-  %49 = sub i32 %14, %8
+  %49 = sub nuw i32 %14, %8
   %50 = icmp ult i32 %16, %49
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %48
-  %52 = sub i32 %16, %49
+  %52 = sub nuw i32 %16, %49
   %53 = urem i32 %52, %10
   br label %57
 
@@ -609,7 +609,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   br i1 %148, label %152, label %149
 
 149:                                              ; preds = %146
-  %150 = sub i32 %87, %147
+  %150 = sub nuw i32 %87, %147
   %151 = urem i32 %150, %80
   br label %155
 
@@ -664,7 +664,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   br i1 %182, label %183, label %194
 
 183:                                              ; preds = %178
-  %184 = sub i32 %179, %181
+  %184 = sub nuw i32 %179, %181
   %185 = zext i8 %176 to i32
   %186 = icmp ult i32 %184, %185
   %187 = getelementptr inbounds i8, ptr %0, i64 428
@@ -683,7 +683,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   br label %200
 
 194:                                              ; preds = %178
-  %195 = sub i32 %181, %179
+  %195 = sub nuw i32 %181, %179
   %196 = shl nuw i32 1, %195
   %197 = getelementptr inbounds i8, ptr %0, i64 428
   %198 = load i32, ptr %197, align 4
@@ -764,7 +764,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %26
-  %31 = sub i32 %28, %12
+  %31 = sub nuw i32 %28, %12
   %32 = urem i32 %31, %14
   br label %36
 
@@ -819,7 +819,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
   br i1 %64, label %84, label %65, !prof !6
 
 65:                                               ; preds = %61
-  %66 = sub i32 %63, %55
+  %66 = sub nuw i32 %63, %55
   %67 = zext i8 %57 to i32
   %68 = icmp ult i32 %66, %67
   br i1 %68, label %73, label %69
@@ -923,7 +923,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @xfrm_replay_check_esn(ptr 
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %39
-  %44 = sub i32 %41, %33
+  %44 = sub nuw i32 %41, %33
   %45 = urem i32 %44, %8
   br label %49
 
@@ -1008,7 +1008,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %26
-  %31 = sub i32 %28, %12
+  %31 = sub nuw i32 %28, %12
   %32 = urem i32 %31, %14
   br label %36
 
@@ -1115,7 +1115,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   br i1 %99, label %119, label %100, !prof !6
 
 100:                                              ; preds = %96
-  %101 = sub i32 %98, %90
+  %101 = sub nuw i32 %98, %90
   %102 = zext i8 %92 to i32
   %103 = icmp ult i32 %101, %102
   br i1 %103, label %108, label %104

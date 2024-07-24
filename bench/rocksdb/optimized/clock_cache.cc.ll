@@ -5823,7 +5823,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %inc = add i64 %idx.0202, 1
   %cmp15.not = icmp ult i64 %inc, %add.i70
   %sub = select i1 %cmp15.not, i64 0, i64 %add.i70
-  %spec.select = sub i64 %inc, %sub
+  %spec.select = sub nuw i64 %inc, %sub
   %arrayidx17 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %5, i64 %spec.select
   %meta.i.i97 = getelementptr inbounds i8, ptr %arrayidx17, i64 40
   %19 = atomicrmw or ptr %meta.i.i97, i64 -9223372036854775808 acq_rel, align 8
@@ -5908,7 +5908,7 @@ for.cond30:                                       ; preds = %for.inc64, %if.then
   %add31 = add i64 %add16.i.i.i, %idx.3
   %cmp32.not = icmp ult i64 %add31, %used_length.0
   %sub34 = select i1 %cmp32.not, i64 0, i64 %used_length.0
-  %spec.select66 = sub i64 %add31, %sub34
+  %spec.select66 = sub nuw i64 %add31, %sub34
   %cmp36 = icmp eq i64 %spec.select66, %start.0
   br i1 %cmp36, label %if.then37, label %if.end56
 
@@ -5916,7 +5916,7 @@ if.then37:                                        ; preds = %for.cond30
   %inc38 = add i64 %start.0, 1
   %cmp39.not = icmp ult i64 %inc38, %used_length.0
   %sub41 = select i1 %cmp39.not, i64 0, i64 %used_length.0
-  %spec.select67 = sub i64 %inc38, %sub41
+  %spec.select67 = sub nuw i64 %inc38, %sub41
   %cmp48.not = icmp ult i64 %i.1, %used_length.0
   br i1 %cmp48.not, label %if.end56, label %if.then49
 
@@ -10930,7 +10930,7 @@ if.then33:                                        ; preds = %do.end
   br i1 %cmp35, label %if.then36, label %if.else
 
 if.then36:                                        ; preds = %if.then33
-  %sub39 = sub i64 %14, %sub
+  %sub39 = sub nuw i64 %14, %sub
   %15 = atomicrmw sub ptr %usage_, i64 %sub39 monotonic, align 8
   br label %if.end63
 
@@ -11527,7 +11527,7 @@ if.then33:                                        ; preds = %do.end
   br i1 %cmp35, label %if.then36, label %if.else
 
 if.then36:                                        ; preds = %if.then33
-  %sub39 = sub i64 %14, %sub
+  %sub39 = sub nuw i64 %14, %sub
   %15 = atomicrmw sub ptr %usage_, i64 %sub39 monotonic, align 8
   br label %if.end63
 

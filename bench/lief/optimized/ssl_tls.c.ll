@@ -2282,7 +2282,7 @@ mbedtls_ssl_get_current_mtu.exit32:               ; preds = %40, %48, %51, %55
   br label %mbedtls_ssl_get_current_mtu.exit.thread
 
 61:                                               ; preds = %59
-  %62 = sub nsw i64 %.0.i29, %57
+  %62 = sub nuw nsw i64 %.0.i29, %57
   %spec.select26 = tail call i64 @llvm.umin.i64(i64 %62, i64 %spec.select)
   %63 = trunc nuw nsw i64 %spec.select26 to i32
   br label %mbedtls_ssl_get_current_mtu.exit.thread

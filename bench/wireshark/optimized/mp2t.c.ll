@@ -321,7 +321,7 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   br i1 %.not31.i, label %176, label %mp2t_bits_per_second.exit.thread
 
 176:                                              ; preds = %156
-  %177 = sub nsw i64 %175, %106
+  %177 = sub nuw nsw i64 %175, %106
   %178 = sub i32 %.377.i, %.05676.i
   %179 = zext i32 %178 to i64
   %180 = mul i64 %179, 40608000000

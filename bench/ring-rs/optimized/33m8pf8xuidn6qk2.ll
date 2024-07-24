@@ -1870,7 +1870,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   %30 = getelementptr inbounds i8, ptr %.val.i, i64 %22
   %31 = load i8, ptr %30, align 1, !alias.scope !177, !noalias !182, !noundef !4
   %32 = icmp sgt i8 %31, -65
-  %33 = sub i64 %.val5.i, %22
+  %33 = sub nuw i64 %.val5.i, %22
   br i1 %32, label %35, label %34
 
 34:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i.i.i", %27

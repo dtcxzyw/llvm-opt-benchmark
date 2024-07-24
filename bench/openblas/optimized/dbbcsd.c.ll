@@ -104,8 +104,8 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %91 = sub nsw i32 %81, %84
   %92 = icmp sgt i32 %87, %91
   %93 = select i1 %90, i1 true, i1 %92
-  %94 = sub nsw i32 %81, %87
-  %95 = icmp sgt i32 %87, %94
+  %94 = sub nuw nsw i32 %81, %87
+  %95 = icmp ugt i32 %87, %94
   %96 = select i1 %93, i1 true, i1 %95
   br i1 %96, label %.sink.split, label %97
 

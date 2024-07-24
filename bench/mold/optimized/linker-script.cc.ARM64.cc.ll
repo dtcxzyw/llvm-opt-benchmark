@@ -792,7 +792,7 @@ if.then.i.i19:                                    ; preds = %if.end10
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit20: ; preds = %if.end10
-  %sub.i14 = sub i64 %input.sroa.0.0238, %add
+  %sub.i14 = sub nuw i64 %input.sroa.0.0238, %add
   br label %while.cond.backedge
 
 if.end13:                                         ; preds = %if.end, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -847,7 +847,7 @@ if.then.i.i67:                                    ; preds = %if.end22
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit68: ; preds = %if.end22
-  %sub.i62 = sub i64 %input.sroa.0.0238, %add24
+  %sub.i62 = sub nuw i64 %input.sroa.0.0238, %add24
   br label %while.cond.backedge
 
 if.then30:                                        ; preds = %if.end13
@@ -960,7 +960,7 @@ if.then.i.i94:                                    ; preds = %_ZNSt6vectorISt17ba
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit95: ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit
-  %sub.i88 = sub i64 %input.sroa.0.0238, %add40
+  %sub.i88 = sub nuw i64 %input.sroa.0.0238, %add40
   br label %while.cond.backedge
 
 for.body.i.i:                                     ; preds = %if.end13, %for.inc.i.i
@@ -1076,7 +1076,7 @@ if.then.i.i156:                                   ; preds = %_ZNSt6vectorISt17ba
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit157: ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit148
-  %sub.i150 = sub i64 %input.sroa.0.0238, %pos46.0
+  %sub.i150 = sub nuw i64 %input.sroa.0.0238, %pos46.0
   br label %while.cond.backedge
 
 nrvo.skipdtor:                                    ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit60, %while.cond.backedge, %if.end.i.i25, %while.body.i.i36, %if.end19.i.i48, %entry
@@ -1438,7 +1438,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit.i: ; preds = %for.b
   br i1 %cmp.i.i, label %if.then.i8.i, label %if.then8.i
 
 if.then.i8.i:                                     ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE5rfindEcm.exit.i
-  %sub.i.i = sub i64 %2, %sub.ptr.sub.i
+  %sub.i.i = sub nuw i64 %2, %sub.ptr.sub.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i
   %call.i.i.i = tail call ptr @memchr(ptr noundef %add.ptr.i.i, i32 noundef 10, i64 noundef %sub.i.i) #16
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
@@ -1462,7 +1462,7 @@ if.then.i.i.i:                                    ; preds = %if.end10.i
 
 _ZN4mold3elfL8get_lineESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit: ; preds = %if.end10.i
   %sub.i = sub nsw i64 %end.0.i, %5
-  %sub.i11.i = sub i64 %2, %5
+  %sub.i11.i = sub nuw i64 %2, %5
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i11.i, i64 %sub.i)
   %add.ptr.i13.i = getelementptr inbounds i8, ptr %1, i64 %5
   %cmp19 = icmp sgt i64 %5, 0
@@ -4521,7 +4521,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit: ; preds = %entry
   %2 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %__pos
-  %sub.i = sub i64 %1, %__pos
+  %sub.i = sub nuw i64 %1, %__pos
   %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %cmp.i6 = icmp ugt i64 %spec.select.i, 15
   br i1 %cmp.i6, label %if.then.i7, label %entry.if.end_crit_edge.i

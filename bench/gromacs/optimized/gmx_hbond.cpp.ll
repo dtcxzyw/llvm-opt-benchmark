@@ -4172,7 +4172,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit406:       ; preds = %942, %945
   br i1 %1026, label %1027, label %1029
 
 1027:                                             ; preds = %1017
-  %1028 = sub nsw i64 %1018, %1025
+  %1028 = sub nuw nsw i64 %1018, %1025
   invoke void @_ZNSt6vectorIS_IS_I16HydrogenGridCellSaIS0_EESaIS2_EESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %127, i64 noundef %1028)
           to label %_ZNSt6vectorIS_IS_I16HydrogenGridCellSaIS0_EESaIS2_EESaIS4_EE6resizeEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
@@ -4238,7 +4238,7 @@ _ZNSt6vectorIS_IS_I16HydrogenGridCellSaIS0_EESaIS2_EESaIS4_EE6resizeEm.exit.i: ;
   br i1 %1055, label %1056, label %1111
 
 1056:                                             ; preds = %.lr.ph.i410
-  %1057 = sub nsw i64 %1047, %1054
+  %1057 = sub nuw nsw i64 %1047, %1054
   %1058 = getelementptr inbounds i8, ptr %1045, i64 16
   %1059 = load ptr, ptr %1058, align 8
   %1060 = ptrtoint ptr %1059 to i64
@@ -4260,7 +4260,7 @@ _ZSt27__uninitialized_default_n_aIP16HydrogenGridCellmS0_ET_S2_T0_RSaIT1_E.exit.
   br label %_ZNSt6vectorI16HydrogenGridCellSaIS0_EE6resizeEm.exit.i
 
 1067:                                             ; preds = %1056
-  %1068 = icmp ult i64 %1064, %1057
+  %1068 = icmp slt i32 %1046, 0
   br i1 %1068, label %1069, label %_ZNKSt6vectorI16HydrogenGridCellSaIS0_EE12_M_check_lenEmPKc.exit.i.i
 
 1069:                                             ; preds = %1067
@@ -9565,7 +9565,7 @@ _ZSt4copyIPfN9__gnu_cxx17__normal_iteratorIS0_St6vectorIfSaIfEEEEET0_T_S8_S7_.ex
   br i1 %3433, label %3434, label %3466
 
 3434:                                             ; preds = %_ZSt4copyIPfN9__gnu_cxx17__normal_iteratorIS0_St6vectorIfSaIfEEEEET0_T_S8_S7_.exit
-  %3435 = sub nsw i64 %3425, %3432
+  %3435 = sub nuw nsw i64 %3425, %3432
   %3436 = getelementptr inbounds i8, ptr %155, i64 192
   %3437 = load ptr, ptr %3436, align 8
   %3438 = ptrtoint ptr %3437 to i64
@@ -10637,7 +10637,7 @@ _ZL7add_accP11t_acceptorsii.exit:                 ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %.loopexit
-  %104 = sub nsw i64 %94, %101
+  %104 = sub nuw nsw i64 %94, %101
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %91, i64 noundef %104)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -14214,7 +14214,7 @@ define internal fastcc void @_ZL13resize_hbdataP16HydrogenBondDatai(ptr noundef 
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = sub nsw i64 %4, %11
+  %14 = sub nuw nsw i64 %4, %11
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %14)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -14244,7 +14244,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %13, %15, %17, %19
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %30 = sub nsw i64 %4, %27
+  %30 = sub nuw nsw i64 %4, %27
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %30)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -14274,7 +14274,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %29, %31, %33, %35
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %46 = sub nsw i64 %4, %43
+  %46 = sub nuw nsw i64 %4, %43
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %46)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
 
@@ -14304,7 +14304,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit14:             ; preds = %45, %47, %49, %51
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
-  %62 = sub nsw i64 %4, %59
+  %62 = sub nuw nsw i64 %4, %59
   tail call void @_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %52, i64 noundef %62)
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE6resizeEm.exit
 
@@ -14334,7 +14334,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE6resizeEm.exit: ; preds = %61, %63, %65, %67
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE6resizeEm.exit
-  %78 = sub nsw i64 %4, %75
+  %78 = sub nuw nsw i64 %4, %75
   tail call void @_ZNSt6vectorISt5arrayIiLm7EESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %68, i64 noundef %78)
   br label %_ZNSt6vectorISt5arrayIiLm7EESaIS1_EE6resizeEm.exit
 
@@ -14370,7 +14370,7 @@ _ZNSt6vectorISt5arrayIiLm7EESaIS1_EE6resizeEm.exit: ; preds = %77, %79, %81, %83
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %87
-  %98 = sub nsw i64 %4, %95
+  %98 = sub nuw nsw i64 %4, %95
   tail call void @_ZNSt6vectorIN3gmx16EnumerationArrayI21HydrogenExchangeGroupiLS2_3EEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %88, i64 noundef %98)
   br label %_ZNSt6vectorIN3gmx16EnumerationArrayI21HydrogenExchangeGroupiLS2_3EEESaIS3_EE6resizeEm.exit
 
@@ -15494,7 +15494,7 @@ define linkonce_odr void @_ZNSt6vectorIS_I16HydrogenGridCellSaIS0_EESaIS2_EE6res
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   tail call void @_ZNSt6vectorIS_I16HydrogenGridCellSaIS0_EESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %12)
   br label %_ZNSt6vectorIS_I16HydrogenGridCellSaIS0_EESaIS2_EE15_M_erase_at_endEPS2_.exit
 

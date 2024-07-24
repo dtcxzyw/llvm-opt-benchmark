@@ -520,7 +520,7 @@ stream_write_bits.exit.i.i:                       ; preds = %217, %rev_precision
   br i1 %233, label %234, label %rev_encode_block_int32_4.exit.i
 
 234:                                              ; preds = %stream_write_bits.exit.i.i
-  %235 = sub i32 %196, %232
+  %235 = sub nuw i32 %196, %232
   %236 = zext i32 %235 to i64
   %237 = load i64, ptr %117, align 8
   %238 = add i64 %237, %236
@@ -918,7 +918,7 @@ fwd_order_int32.exit.i.i48:                       ; preds = %fwd_xform_int32_4.e
   br i1 %424, label %425, label %encode_block_int32_4.exit.i
 
 425:                                              ; preds = %fwd_order_int32.exit.i.i48
-  %426 = sub i32 %421, %423
+  %426 = sub nuw i32 %421, %423
   %427 = zext i32 %426 to i64
   %428 = load i64, ptr %304, align 8
   %429 = add i64 %428, %427

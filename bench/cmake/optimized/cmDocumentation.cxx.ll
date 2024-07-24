@@ -7873,7 +7873,7 @@ _ZSt13move_backwardIP20cmDocumentationEntryS1_ET0_T_S3_S2_.exit: ; preds = %.lr.
 _ZSt7advanceIPK20cmDocumentationEntrymEvRT_T0_.exit: ; preds = %17
   %60 = getelementptr inbounds i8, ptr %2, i64 %19
   %61 = tail call noundef ptr @_ZSt16__do_uninit_copyIPK20cmDocumentationEntryPS0_ET0_T_S5_S4_(ptr noundef %60, ptr noundef %3, ptr noundef %13)
-  %62 = sub nsw i64 %9, %20
+  %62 = sub nuw nsw i64 %9, %20
   %63 = load ptr, ptr %12, align 8
   %64 = getelementptr inbounds %struct.cmDocumentationEntry, ptr %63, i64 %62
   store ptr %64, ptr %12, align 8
@@ -9047,7 +9047,7 @@ _ZSt13move_backwardIP20cmDocumentationEntryS1_ET0_T_S3_S2_.exit: ; preds = %.lr.
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK20cmDocumentationEntrySt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit: ; preds = %17
   %60 = getelementptr inbounds i8, ptr %2, i64 %19
   %61 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPK20cmDocumentationEntrySt6vectorIS2_SaIS2_EEEEPS2_ET0_T_SB_SA_(ptr %60, ptr %3, ptr noundef %13)
-  %62 = sub nsw i64 %9, %20
+  %62 = sub nuw nsw i64 %9, %20
   %63 = load ptr, ptr %12, align 8
   %64 = getelementptr inbounds %struct.cmDocumentationEntry, ptr %63, i64 %62
   store ptr %64, ptr %12, align 8

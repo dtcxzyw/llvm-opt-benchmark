@@ -5035,7 +5035,7 @@ define hidden void @_ZN2cv10xobjdetect9WaldBoost4readERKNS_8FileNodeE(ptr nounde
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %2
-  %33 = sub nsw i64 %23, %30
+  %33 = sub nuw nsw i64 %23, %30
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %33)
   %.pre = load i32, ptr %0, align 8
   %.pre65 = sext i32 %.pre to i64
@@ -5068,7 +5068,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %32, %34, %36, %38
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %49 = sub nsw i64 %.pre-phi, %46
+  %49 = sub nuw nsw i64 %.pre-phi, %46
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %39, i64 noundef %49)
   %.pre62 = load i32, ptr %0, align 8
   %.pre66 = sext i32 %.pre62 to i64
@@ -5101,7 +5101,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit26:             ; preds = %48, %50, %52, %54
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit26
-  %65 = sub nsw i64 %.pre-phi67, %62
+  %65 = sub nuw nsw i64 %.pre-phi67, %62
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %65)
   %.pre63 = load i32, ptr %0, align 8
   %.pre68 = sext i32 %.pre63 to i64
@@ -5134,7 +5134,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %64, %66, %68, %70
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %81 = sub nsw i64 %.pre-phi69, %78
+  %81 = sub nuw nsw i64 %.pre-phi69, %78
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %71, i64 noundef %81)
   %.pre64 = load i32, ptr %0, align 8
   %.pre70 = sext i32 %.pre64 to i64
@@ -5167,7 +5167,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit29:             ; preds = %80, %82, %84, %86
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit29
-  %97 = sub nsw i64 %.pre-phi71, %94
+  %97 = sub nuw nsw i64 %.pre-phi71, %94
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %87, i64 noundef %97)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit31
 

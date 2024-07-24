@@ -220,12 +220,12 @@ define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr nocapture nound
 
 8:                                                ; preds = %6
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %2, i32 noundef 15) #8
-  br label %37
+  br label %36
 
 9:                                                ; preds = %6
   %10 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 216) #8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %37, label %12
+  br i1 %11, label %36, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %10, i64 8
@@ -271,36 +271,34 @@ define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr nocapture nound
   br i1 %.not62, label %._crit_edge54, label %.lr.ph53.preheader
 
 .lr.ph53.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count60 = zext nneg i32 %2 to i64
+  %27 = zext nneg i32 %2 to i64
   br label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
-  %27 = phi i32 [ %3, %.lr.ph53.preheader ], [ %33, %.lr.ph53 ]
+  %28 = phi i32 [ %3, %.lr.ph53.preheader ], [ %32, %.lr.ph53 ]
   %indvars.iv57 = phi i64 [ 1, %.lr.ph53.preheader ], [ %indvars.iv.next58, %.lr.ph53 ]
-  %28 = trunc i64 %indvars.iv57 to i32
-  %29 = sub i32 %2, %28
-  %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %1, i64 %30
-  %32 = load i32, ptr %31, align 4
-  %33 = mul i32 %32, %27
-  %34 = getelementptr inbounds [15 x i32], ptr %26, i64 0, i64 %indvars.iv57
-  store i32 %33, ptr %34, align 4
+  %29 = sub nuw nsw i64 %27, %indvars.iv57
+  %30 = getelementptr inbounds i32, ptr %1, i64 %29
+  %31 = load i32, ptr %30, align 4
+  %32 = mul i32 %31, %28
+  %33 = getelementptr inbounds [15 x i32], ptr %26, i64 0, i64 %indvars.iv57
+  store i32 %32, ptr %33, align 4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
+  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %27
   br i1 %exitcond61.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !8
 
 ._crit_edge54:                                    ; preds = %.lr.ph53, %._crit_edge.thread, %._crit_edge
-  %35 = tail call i32 @_cmsSetInterpolationRoutine(ptr noundef %0, ptr noundef nonnull %10)
-  %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %36, label %37
+  %34 = tail call i32 @_cmsSetInterpolationRoutine(ptr noundef %0, ptr noundef nonnull %10)
+  %.not = icmp eq i32 %34, 0
+  br i1 %.not, label %35, label %36
 
-36:                                               ; preds = %._crit_edge54
+35:                                               ; preds = %._crit_edge54
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.1, i32 noundef %2, i32 noundef %3) #8
   tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %10) #8
-  br label %37
+  br label %36
 
-37:                                               ; preds = %._crit_edge54, %9, %36, %8
-  %.046 = phi ptr [ null, %8 ], [ null, %36 ], [ null, %9 ], [ %10, %._crit_edge54 ]
+36:                                               ; preds = %._crit_edge54, %9, %35, %8
+  %.046 = phi ptr [ null, %8 ], [ null, %35 ], [ null, %9 ], [ %10, %._crit_edge54 ]
   ret ptr %.046
 }
 

@@ -22546,7 +22546,7 @@ while.cond:                                       ; preds = %while.body, %entry
 
 while.body:                                       ; preds = %while.cond
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %begin.0
-  %sub = sub i64 %1, %begin.0
+  %sub = sub nuw i64 %1, %begin.0
   %call2 = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %codepoint)
   %2 = load i32, ptr %codepoint, align 4, !tbaa !107
   %call3 = call noundef i32 @_ZN6duckdb17utf8proc_categoryEi(i32 noundef %2)
@@ -22576,7 +22576,7 @@ invoke.cont4.i.i:                                 ; preds = %for.cond.cleanup
   store ptr %4, ptr %agg.result, align 8, !tbaa !112, !alias.scope !632
   %5 = load ptr, ptr %col_name, align 8, !tbaa !88, !noalias !632
   %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %begin.0
-  %sub.i.i.i = sub i64 %.lcssa, %begin.0
+  %sub.i.i.i = sub nuw i64 %.lcssa, %begin.0
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #24, !noalias !632
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !130, !noalias !632

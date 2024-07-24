@@ -232,7 +232,7 @@ define hidden void @_ZN4ring4aead6chacha3Key17encrypt_less_safe14ChaCha20_ctr321
   unreachable
 
 7:                                                ; preds = %5
-  %8 = sub i64 %3, %4
+  %8 = sub nuw i64 %3, %4
   %9 = getelementptr inbounds i8, ptr %2, i64 %4
   tail call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull %2, ptr noundef nonnull %9, i64 noundef %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %1)
   ret void

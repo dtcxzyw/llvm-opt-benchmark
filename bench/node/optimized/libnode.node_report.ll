@@ -3569,7 +3569,7 @@ land.lhs.true12.i:                                ; preds = %if.end9.i
   br i1 %cmp13.not.i, label %if.end16.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %land.lhs.true12.i
-  %sub15.i = sub i64 %.pre.i232, %369
+  %sub15.i = sub nuw i64 %.pre.i232, %369
   store i64 %sub15.i, ptr %available_memory.i, align 8
   br label %if.end16.i
 

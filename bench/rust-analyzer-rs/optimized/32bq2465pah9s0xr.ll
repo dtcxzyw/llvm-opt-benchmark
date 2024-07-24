@@ -18657,7 +18657,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6insert17h5b3d70a4ab3cc85bE.
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds i8, ptr %15, i64 72
-  %24 = sub i64 %14, %1
+  %24 = sub nuw i64 %14, %1
   %25 = mul i64 %24, 72
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %15, i64 %25, i1 false)
   br label %28

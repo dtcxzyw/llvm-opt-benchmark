@@ -2168,7 +2168,7 @@ push_null_elements.exit69:                        ; preds = %.lr.ph.i67
   br i1 %or.cond153.i, label %136, label %.thread
 
 136:                                              ; preds = %134
-  %137 = sub i32 %.2121.i, %46
+  %137 = sub nuw i32 %.2121.i, %46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   store i32 0, ptr %10, align 8
   %138 = icmp sgt i32 %137, 0

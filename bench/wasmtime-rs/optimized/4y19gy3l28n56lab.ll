@@ -2283,11 +2283,12 @@ define hidden { i64, i64 } @"_ZN47_$LT$u32$u20$as$u20$core..iter..range..Step$GT
   %3 = load i32, ptr %0, align 4, !noundef !10
   %4 = load i32, ptr %1, align 4, !noundef !10
   %.not = icmp ule i32 %3, %4
-  %5 = sub i32 %4, %3
+  %5 = sub nuw i32 %4, %3
   %6 = zext i32 %5 to i64
+  %.sroa.3.0 = select i1 %.not, i64 %6, i64 undef
   %.sroa.0.0 = zext i1 %.not to i64
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %6, 1
+  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.3.0, 1
   ret { i64, i64 } %8
 }
 

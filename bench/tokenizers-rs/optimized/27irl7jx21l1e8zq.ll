@@ -7255,7 +7255,7 @@ define hidden void @_ZN12aho_corasick9automaton12try_find_fwd17h19eb24caf23c86fb
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit87: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit"
-  %73 = sub i64 %24, %67
+  %73 = sub nuw i64 %24, %67
   br i1 %.0, label %88, label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hff3abbb0d563d903E.exit.thread"
 
 "_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hff3abbb0d563d903E.exit.thread": ; preds = %39, %_ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit87, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hff3abbb0d563d903E.exit"
@@ -7498,7 +7498,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit89: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit261"
-  %161 = sub i64 %135, %155
+  %161 = sub nuw i64 %135, %155
   %162 = icmp ugt i64 %161, %24
   br i1 %162, label %131, label %163
 
@@ -7599,7 +7599,7 @@ default.unreachable:                              ; preds = %316, %463, %"_ZN92_
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit83: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit262"
-  %200 = sub i64 %24, %194
+  %200 = sub nuw i64 %24, %194
   %.pre = load ptr, ptr %166, align 8, !alias.scope !1124, !noalias !1157
   br label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hff3abbb0d563d903E.exit176.thread"
 
@@ -7894,7 +7894,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit85: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit282"
-  %315 = sub i64 %289, %309
+  %315 = sub nuw i64 %289, %309
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %_ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit85, %222
@@ -8005,7 +8005,7 @@ _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit85: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit79: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit283"
-  %353 = sub i64 %24, %347
+  %353 = sub nuw i64 %24, %347
   store i64 1, ptr %0, align 8, !alias.scope !1225, !noalias !1262
   %.sroa.723.0..sroa_idx.i39 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %353, ptr %.sroa.723.0..sroa_idx.i39, align 8, !noalias !1262
@@ -8281,7 +8281,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit81: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit295"
-  %462 = sub i64 %440, %456
+  %462 = sub nuw i64 %440, %456
   store i64 1, ptr %0, align 8, !alias.scope !1225, !noalias !1262
   %.sroa.723.0..sroa_idx26.i35 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %462, ptr %.sroa.723.0..sroa_idx26.i35, align 8, !noalias !1262
@@ -8391,7 +8391,7 @@ _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit81: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit75: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit296"
-  %502 = sub i64 %24, %496
+  %502 = sub nuw i64 %24, %496
   br label %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hff3abbb0d563d903E.exit192.thread"
 
 "_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hff3abbb0d563d903E.exit192.thread": ; preds = %475, %_ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit75, %"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hff3abbb0d563d903E.exit192"
@@ -8653,7 +8653,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit77: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit316"
-  %597 = sub i64 %571, %591
+  %597 = sub nuw i64 %571, %591
   br label %566
 
 598:                                              ; preds = %170
@@ -8723,7 +8723,7 @@ _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit77: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit317"
-  %625 = sub i64 %24, %619
+  %625 = sub nuw i64 %24, %619
   store i64 1, ptr %0, align 8, !alias.scope !1423, !noalias !1459
   %.sroa.723.0..sroa_idx.i70 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %625, ptr %.sroa.723.0..sroa_idx.i70, align 8, !noalias !1459
@@ -8956,7 +8956,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit73: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit329"
-  %714 = sub i64 %692, %708
+  %714 = sub nuw i64 %692, %708
   store i64 1, ptr %0, align 8, !alias.scope !1423, !noalias !1459
   %.sroa.723.0..sroa_idx26.i68 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %714, ptr %.sroa.723.0..sroa_idx26.i68, align 8, !noalias !1459
@@ -9140,7 +9140,7 @@ define hidden void @_ZN12aho_corasick9automaton12try_find_fwd17ha006937f52bd8acb
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit87: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit"
-  %93 = sub i64 %18, %87
+  %93 = sub nuw i64 %18, %87
   br i1 %.0, label %107, label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit.thread"
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit.thread": ; preds = %33, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit87, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit"
@@ -9517,7 +9517,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit87: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit89: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit407"
-  %245 = sub i64 %196, %239
+  %245 = sub nuw i64 %196, %239
   %246 = icmp ugt i64 %245, %18
   br i1 %246, label %192, label %247
 
@@ -9680,7 +9680,7 @@ default.unreachable:                              ; preds = %498, %753, %"_ZN89_
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit83: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit409"
-  %316 = sub i64 %18, %310
+  %316 = sub nuw i64 %18, %310
   br label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit231.thread"
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit231.thread": ; preds = %256, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit231", %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit83
@@ -10101,7 +10101,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit83: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit424"
-  %497 = sub i64 %448, %491
+  %497 = sub nuw i64 %448, %491
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85, %337
@@ -10277,7 +10277,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit79: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit426"
-  %570 = sub i64 %18, %564
+  %570 = sub nuw i64 %18, %564
   store i64 1, ptr %0, align 8, !alias.scope !1760, !noalias !1804
   %.sroa.723.0..sroa_idx.i39 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %570, ptr %.sroa.723.0..sroa_idx.i39, align 8, !noalias !1804
@@ -10690,7 +10690,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit79: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit81: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit441"
-  %752 = sub i64 %700, %746
+  %752 = sub nuw i64 %700, %746
   store i64 1, ptr %0, align 8, !alias.scope !1760, !noalias !1804
   %.sroa.723.0..sroa_idx26.i35 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %752, ptr %.sroa.723.0..sroa_idx26.i35, align 8, !noalias !1804
@@ -10862,7 +10862,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit81: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit75: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit443"
-  %824 = sub i64 %18, %818
+  %824 = sub nuw i64 %18, %818
   br label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit247.thread"
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit247.thread": ; preds = %765, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit75, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit247"
@@ -11253,7 +11253,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit75: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit77: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit458"
-  %986 = sub i64 %937, %980
+  %986 = sub nuw i64 %937, %980
   br label %932
 
 987:                                              ; preds = %254
@@ -11385,7 +11385,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit77: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit460"
-  %1046 = sub i64 %18, %1040
+  %1046 = sub nuw i64 %18, %1040
   store i64 1, ptr %0, align 8, !alias.scope !2001, !noalias !2044
   %.sroa.723.0..sroa_idx.i70 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1046, ptr %.sroa.723.0..sroa_idx.i70, align 8, !noalias !2044
@@ -11756,7 +11756,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit: ; preds = %"_ZN8
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit73: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit475"
-  %1208 = sub i64 %1156, %1202
+  %1208 = sub nuw i64 %1156, %1202
   store i64 1, ptr %0, align 8, !alias.scope !2001, !noalias !2044
   %.sroa.723.0..sroa_idx26.i68 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1208, ptr %.sroa.723.0..sroa_idx26.i68, align 8, !noalias !2044
@@ -11899,7 +11899,7 @@ define hidden void @_ZN12aho_corasick9automaton12try_find_fwd17hfcec4f1deca94216
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit87: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit"
-  %71 = sub i64 %18, %65
+  %71 = sub nuw i64 %18, %65
   br i1 %.0, label %87, label %72
 
 72:                                               ; preds = %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit87, %"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h20a6af06e073210dE.exit"
@@ -12079,7 +12079,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit87: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit89: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit217"
-  %135 = sub i64 %111, %129
+  %135 = sub nuw i64 %111, %129
   %136 = icmp ugt i64 %135, %18
   br i1 %136, label %107, label %137
 
@@ -12201,7 +12201,7 @@ default.unreachable:                              ; preds = %242, %372, %319, %1
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit83: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit220"
-  %184 = sub i64 %18, %178
+  %184 = sub nuw i64 %18, %178
   br label %185
 
 185:                                              ; preds = %"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h20a6af06e073210dE.exit116", %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit83
@@ -12424,7 +12424,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit83: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit85: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit224"
-  %272 = sub i64 %248, %266
+  %272 = sub nuw i64 %248, %266
   br label %.outer.outer
 
 273:                                              ; preds = %242
@@ -12537,7 +12537,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit85: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit79: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit227"
-  %318 = sub i64 %18, %312
+  %318 = sub nuw i64 %18, %312
   store i64 1, ptr %0, align 8, !alias.scope !2297, !noalias !2318
   %.sroa.723.0..sroa_idx.i39 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %318, ptr %.sroa.723.0..sroa_idx.i39, align 8, !noalias !2318
@@ -12743,7 +12743,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit79: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit81: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit231"
-  %407 = sub i64 %378, %401
+  %407 = sub nuw i64 %378, %401
   store i64 1, ptr %0, align 8, !alias.scope !2297, !noalias !2318
   %.sroa.723.0..sroa_idx26.i35 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %407, ptr %.sroa.723.0..sroa_idx26.i35, align 8, !noalias !2318
@@ -12861,7 +12861,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit81: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit75: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit234"
-  %452 = sub i64 %18, %446
+  %452 = sub nuw i64 %18, %446
   br label %453
 
 453:                                              ; preds = %_ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit75, %"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h20a6af06e073210dE.exit132"
@@ -13031,7 +13031,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit75: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit77: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit238"
-  %515 = sub i64 %491, %509
+  %515 = sub nuw i64 %491, %509
   br label %487
 
 516:                                              ; preds = %144
@@ -13137,7 +13137,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit77: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit241"
-  %562 = sub i64 %18, %556
+  %562 = sub nuw i64 %18, %556
   store i64 1, ptr %0, align 8, !alias.scope !2470, !noalias !2487
   %.sroa.723.0..sroa_idx.i70 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %562, ptr %.sroa.723.0..sroa_idx.i70, align 8, !noalias !2487
@@ -13272,7 +13272,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit: ; preds = %"_ZN8
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit73: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit245"
-  %615 = sub i64 %586, %609
+  %615 = sub nuw i64 %586, %609
   store i64 1, ptr %0, align 8, !alias.scope !2470, !noalias !2487
   %.sroa.723.0..sroa_idx26.i68 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %615, ptr %.sroa.723.0..sroa_idx26.i68, align 8, !noalias !2487
@@ -13717,7 +13717,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h14a07ae3bb69c1cfE.exit.thre
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit32: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit"
-  %106 = sub i64 %13, %100
+  %106 = sub nuw i64 %13, %100
   store i64 1, ptr %2, align 8, !alias.scope !2596, !noalias !2598
   store i64 %106, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !2598
   %.sroa.48.i.sroa.4.0..sroa.48.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -13908,7 +13908,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h14a07ae3bb69c1cfE.exit.thre
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit34: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit136"
-  %192 = sub i64 %150, %186
+  %192 = sub nuw i64 %150, %186
   store i64 1, ptr %2, align 8, !alias.scope !2596, !noalias !2598
   store i64 %192, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !2598
   %.sroa.416.i.sroa.4.0..sroa.416.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -14212,7 +14212,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit36: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit148"
-  %303 = sub i64 %275, %297
+  %303 = sub nuw i64 %275, %297
   store i64 1, ptr %2, align 8, !alias.scope !2596, !noalias !2598
   store i64 %303, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !2598
   %.sroa.422.i.sroa.4.0..sroa.422.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -14340,7 +14340,7 @@ default.unreachable:                              ; preds = %520
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit149"
-  %354 = sub i64 %13, %348
+  %354 = sub nuw i64 %13, %348
   store i64 1, ptr %2, align 8, !alias.scope !2780, !noalias !2782
   store i64 %354, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !2782
   %.sroa.48.i9.sroa.4.0..sroa.48.0..sroa_idx.i24.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -14530,7 +14530,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h14a07ae3bb69c1cfE.exit.thre
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit28: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit176"
-  %439 = sub i64 %397, %433
+  %439 = sub nuw i64 %397, %433
   store i64 1, ptr %2, align 8, !alias.scope !2780, !noalias !2782
   store i64 %439, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !2782
   %.sroa.416.i7.sroa.4.0..sroa.416.0..sroa_idx.i17.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -14754,7 +14754,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hf3e45a3afb850229E.
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h382334d25664cee9E.exit30: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit188"
-  %519 = sub i64 %497, %513
+  %519 = sub nuw i64 %497, %513
   store i64 1, ptr %2, align 8, !alias.scope !2780, !noalias !2782
   store i64 %519, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !2782
   %.sroa.422.i5.sroa.4.0..sroa.422.0..sroa_idx.i16.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -14993,7 +14993,7 @@ define hidden noundef align 1 ptr @_ZN12aho_corasick9automaton24try_find_overlap
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit32: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit"
-  %95 = sub i64 %11, %89
+  %95 = sub nuw i64 %11, %89
   store i64 1, ptr %2, align 8, !alias.scope !2927, !noalias !2929
   store i64 %95, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !2929
   %.sroa.48.i.sroa.4.0..sroa.48.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -15123,7 +15123,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit32: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit34: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit109"
-  %155 = sub i64 %132, %149
+  %155 = sub nuw i64 %132, %149
   store i64 1, ptr %2, align 8, !alias.scope !2927, !noalias !2929
   store i64 %155, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !2929
   %.sroa.416.i.sroa.4.0..sroa.416.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -15263,7 +15263,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit34: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit36: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit112"
-  %212 = sub i64 %183, %206
+  %212 = sub nuw i64 %183, %206
   store i64 1, ptr %2, align 8, !alias.scope !2927, !noalias !2929
   store i64 %212, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !2929
   %.sroa.422.i.sroa.4.0..sroa.422.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -15418,7 +15418,7 @@ default.unreachable:                              ; preds = %395
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit116"
-  %275 = sub i64 %11, %269
+  %275 = sub nuw i64 %11, %269
   store i64 1, ptr %2, align 8, !alias.scope !3049, !noalias !3051
   store i64 %275, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3051
   %.sroa.48.i9.sroa.4.0..sroa.48.0..sroa_idx.i24.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -15551,7 +15551,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit: ; preds = %"_ZN8
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit28: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit120"
-  %337 = sub i64 %314, %331
+  %337 = sub nuw i64 %314, %331
   store i64 1, ptr %2, align 8, !alias.scope !3049, !noalias !3051
   store i64 %337, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3051
   %.sroa.416.i7.sroa.4.0..sroa.416.0..sroa_idx.i17.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -15695,7 +15695,7 @@ _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit28: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h8f38831a14e71d47E.exit30: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit124"
-  %394 = sub i64 %365, %388
+  %394 = sub nuw i64 %365, %388
   store i64 1, ptr %2, align 8, !alias.scope !3049, !noalias !3051
   store i64 %394, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3051
   %.sroa.422.i5.sroa.4.0..sroa.422.0..sroa_idx.i16.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -16032,7 +16032,7 @@ define hidden noundef align 1 ptr @_ZN12aho_corasick9automaton24try_find_overlap
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit32: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit"
-  %136 = sub i64 %19, %130
+  %136 = sub nuw i64 %19, %130
   store i64 1, ptr %2, align 8, !alias.scope !3170, !noalias !3172
   store i64 %136, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3172
   %.sroa.48.i.sroa.4.0..sroa.48.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -16273,7 +16273,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit32: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit34: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit205"
-  %245 = sub i64 %193, %239
+  %245 = sub nuw i64 %193, %239
   store i64 1, ptr %2, align 8, !alias.scope !3170, !noalias !3172
   store i64 %245, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3172
   %.sroa.416.i.sroa.4.0..sroa.416.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -16736,7 +16736,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit34: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit36: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit216"
-  %427 = sub i64 %375, %421
+  %427 = sub nuw i64 %375, %421
   store i64 1, ptr %2, align 8, !alias.scope !3170, !noalias !3172
   store i64 %427, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3172
   %.sroa.422.i.sroa.4.0..sroa.422.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -16993,7 +16993,7 @@ default.unreachable:                              ; preds = %797
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit219"
-  %533 = sub i64 %19, %527
+  %533 = sub nuw i64 %19, %527
   store i64 1, ptr %2, align 8, !alias.scope !3337, !noalias !3339
   store i64 %533, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3339
   %.sroa.48.i9.sroa.4.0..sroa.48.0..sroa_idx.i24.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -17233,7 +17233,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit: ; preds = %"_ZN8
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit28: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit222"
-  %641 = sub i64 %589, %635
+  %641 = sub nuw i64 %589, %635
   store i64 1, ptr %2, align 8, !alias.scope !3337, !noalias !3339
   store i64 %641, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3339
   %.sroa.416.i7.sroa.4.0..sroa.416.0..sroa_idx.i17.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -17598,7 +17598,7 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit28: ; preds = %"_Z
   unreachable
 
 _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit30: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h178cffc4948123fbE.exit237"
-  %796 = sub i64 %744, %790
+  %796 = sub nuw i64 %744, %790
   store i64 1, ptr %2, align 8, !alias.scope !3337, !noalias !3339
   store i64 %796, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !3339
   %.sroa.422.i5.sroa.4.0..sroa.422.0..sroa_idx.i16.sroa_idx = getelementptr inbounds i8, ptr %2, i64 16

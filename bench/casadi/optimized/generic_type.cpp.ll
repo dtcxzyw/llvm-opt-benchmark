@@ -6611,7 +6611,7 @@ _ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %.lr.ph195
-  %77 = sub nsw i64 %67, %74
+  %77 = sub nuw nsw i64 %67, %74
   invoke void @_ZNSt6vectorIN6casadi11GenericTypeESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef %77)
           to label %_ZNSt6vectorIN6casadi11GenericTypeESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp165
 
@@ -6856,7 +6856,7 @@ _ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %.lr.ph203
-  %172 = sub nsw i64 %162, %169
+  %172 = sub nuw nsw i64 %162, %169
   invoke void @_ZNSt6vectorIN6casadi11GenericTypeESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %154, i64 noundef %172)
           to label %_ZNSt6vectorIN6casadi11GenericTypeESaIS1_EE6resizeEm.exit111 unwind label %.loopexit.split-lp160
 
@@ -7058,7 +7058,7 @@ _ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %.lr.ph212
-  %251 = sub nsw i64 %241, %248
+  %251 = sub nuw nsw i64 %241, %248
   invoke void @_ZNSt6vectorIN6casadi11GenericTypeESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %233, i64 noundef %251)
           to label %_ZNSt6vectorIN6casadi11GenericTypeESaIS1_EE6resizeEm.exit139 unwind label %.loopexit.split-lp
 
@@ -25565,7 +25565,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
-  %94 = sub i64 %84, %91
+  %94 = sub nuw i64 %84, %91
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %94)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre11.i = load ptr, ptr %85, align 8
@@ -25963,7 +25963,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackISt6vecto
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %2
-  %15 = sub i64 %5, %12
+  %15 = sub nuw i64 %5, %12
   call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15)
   %.pre = load ptr, ptr %6, align 8
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
@@ -26019,7 +26019,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %14, %16, %18, %_ZSt
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.lr.ph
-  %35 = sub i64 %25, %32
+  %35 = sub nuw i64 %25, %32
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.010, i64 noundef %35)
   %.pre.i = load ptr, ptr %.sroa.06.010, align 8
   %.pre11.i = load ptr, ptr %26, align 8
@@ -26400,7 +26400,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
-  %94 = sub i64 %84, %91
+  %94 = sub nuw i64 %84, %91
   call void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %94)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre11.i = load ptr, ptr %85, align 8
@@ -26796,7 +26796,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackISt6vecto
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %2
-  %15 = sub i64 %5, %12
+  %15 = sub nuw i64 %5, %12
   call void @_ZNSt6vectorIS_IxSaIxEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15)
   %.pre = load ptr, ptr %6, align 8
   br label %_ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit
@@ -26852,7 +26852,7 @@ _ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit:    ; preds = %14, %16, %18, %_ZSt
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.lr.ph
-  %35 = sub i64 %25, %32
+  %35 = sub nuw i64 %25, %32
   call void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.010, i64 noundef %35)
   %.pre.i = load ptr, ptr %.sroa.06.010, align 8
   %.pre11.i = load ptr, ptr %26, align 8
@@ -27241,7 +27241,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINSt7__cx
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = sub i64 %4, %11
+  %14 = sub nuw i64 %4, %11
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %14)
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
@@ -27639,7 +27639,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackISt6vecto
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = sub i64 %4, %11
+  %14 = sub nuw i64 %4, %11
   call void @_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %14)
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE6resizeEm.exit
@@ -28298,7 +28298,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINS_8Func
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = sub i64 %4, %11
+  %14 = sub nuw i64 %4, %11
   call void @_ZNSt6vectorIN6casadi8FunctionESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %14)
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIN6casadi8FunctionESaIS1_EE6resizeEm.exit
@@ -29183,7 +29183,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINS_11Gen
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = sub i64 %4, %11
+  %14 = sub nuw i64 %4, %11
   call void @_ZNSt6vectorIN6casadi11GenericTypeESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %14)
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIN6casadi11GenericTypeESaIS1_EE6resizeEm.exit
@@ -29482,7 +29482,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackISt6vecto
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = sub i64 %4, %11
+  %14 = sub nuw i64 %4, %11
   call void @_ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %14)
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EESaIS3_EE6resizeEm.exit

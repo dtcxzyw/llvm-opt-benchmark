@@ -3920,7 +3920,7 @@ _Z11do_per_stepll.exit:                           ; preds = %69
   br i1 %.not.i11, label %128, label %126
 
 126:                                              ; preds = %115
-  %127 = sub i64 %122, %125
+  %127 = sub nuw i64 %122, %125
   br label %130
 
 128:                                              ; preds = %115
@@ -4375,7 +4375,7 @@ _ZN3gmx10ImdSession16fillEnergyRecordElb.exit:    ; preds = %_Z15wallcycle_start
   br i1 %.not.i3, label %130, label %128
 
 128:                                              ; preds = %117
-  %129 = sub i64 %124, %127
+  %129 = sub nuw i64 %124, %127
   br label %132
 
 130:                                              ; preds = %117
@@ -4613,7 +4613,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.thread:         ; preds = %96, %77, %_ZNK11gmx
   br i1 %.not.i, label %137, label %135
 
 135:                                              ; preds = %124
-  %136 = sub i64 %131, %134
+  %136 = sub nuw i64 %131, %134
   br label %139
 
 137:                                              ; preds = %124

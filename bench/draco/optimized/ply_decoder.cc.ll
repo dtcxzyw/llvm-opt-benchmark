@@ -1413,7 +1413,7 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.exit
-  %116 = sub i64 %.0.lcssa.i, %113
+  %116 = sub nuw i64 %.0.lcssa.i, %113
   call void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr %108, i64 noundef %116, ptr noundef nonnull align 4 dereferenceable(12) %8)
   br label %122
 
@@ -1576,7 +1576,7 @@ _ZNKSt8functionIFjiEEclEi.exit.i80:               ; preds = %153
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %173
-  %177 = sub nsw i64 %174, %171
+  %177 = sub nuw nsw i64 %174, %171
   invoke void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %164, ptr %166, i64 noundef %177, ptr noundef nonnull align 4 dereferenceable(12) %5)
           to label %.noexc85 unwind label %.loopexit.split-lp.loopexit
 
@@ -1634,7 +1634,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   br i1 %197, label %198, label %200
 
 198:                                              ; preds = %._crit_edge
-  %199 = sub nsw i64 %.sroa.0.0.lcssa, %196
+  %199 = sub nuw nsw i64 %.sroa.0.0.lcssa, %196
   invoke void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %189, ptr %191, i64 noundef %199, ptr noundef nonnull align 4 dereferenceable(12) %4)
           to label %205 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5058,7 +5058,7 @@ _ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm
   br i1 %.not.i.i.i, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %.preheader.i.i.i, !llvm.loop !58
 
 41:                                               ; preds = %14
-  %42 = sub i64 %2, %17
+  %42 = sub nuw i64 %2, %17
   %.not7.i.i.i.i = icmp eq i64 %42, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

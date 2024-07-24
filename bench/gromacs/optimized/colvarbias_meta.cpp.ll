@@ -924,7 +924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit143: ;
   br i1 %153, label %154, label %156
 
 154:                                              ; preds = %134
-  %155 = sub nsw i64 %146, %152
+  %155 = sub nuw nsw i64 %146, %152
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %107, i64 noundef %155)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -16535,7 +16535,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit:                ; preds = %4, %14
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit
-  %35 = sub nsw i64 %23, %32
+  %35 = sub nuw nsw i64 %23, %32
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %35)
   %.pre = load i64, ptr %24, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit

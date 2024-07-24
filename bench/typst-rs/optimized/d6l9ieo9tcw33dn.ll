@@ -1430,7 +1430,7 @@ define internal fastcc { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme.
   %23 = getelementptr inbounds i8, ptr %11, i64 %5
   %24 = load i8, ptr %23, align 1, !alias.scope !13, !noalias !18, !noundef !4
   %25 = icmp sgt i8 %24, -65
-  %26 = sub i64 %13, %5
+  %26 = sub nuw i64 %13, %5
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %20
@@ -2449,7 +2449,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser27format_escaped_str_conte
   %23 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.0.ph
   %24 = load i8, ptr %23, align 1, !alias.scope !188, !noundef !4
   %25 = icmp sgt i8 %24, -65
-  %26 = sub i64 %3, %.sroa.7.0.ph
+  %26 = sub nuw i64 %3, %.sroa.7.0.ph
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %22, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i"
@@ -2698,7 +2698,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser27format_escaped_str_conte
   %23 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.0.ph
   %24 = load i8, ptr %23, align 1, !alias.scope !273, !noundef !4
   %25 = icmp sgt i8 %24, -65
-  %26 = sub i64 %3, %.sroa.7.0.ph
+  %26 = sub nuw i64 %3, %.sroa.7.0.ph
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %22, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i"
@@ -48460,7 +48460,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %24 = getelementptr inbounds i8, ptr %10, i64 %16
   %25 = load i8, ptr %24, align 1, !alias.scope !11458, !noalias !11463, !noundef !4
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %12, %16
+  %27 = sub nuw i64 %12, %16
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %21
@@ -49010,7 +49010,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 
 101:                                              ; preds = %96
   %102 = getelementptr i8, ptr %2, i64 %99
-  %103 = sub nsw i64 %3, %99
+  %103 = sub nuw nsw i64 %3, %99
   %104 = mul nuw nsw i64 %98, %86
   %.not.i.i202 = icmp ugt i64 %104, %103
   br i1 %.not.i.i202, label %105, label %107
@@ -69105,11 +69105,11 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hdbdb547f6859eb46E.exit41: ; preds 
   br i1 %28, label %.lr.ph.preheader, label %.thread
 
 .lr.ph137.preheader:                              ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hdbdb547f6859eb46E.exit41
-  %29 = sub i64 %.024171, %.0.lcssa.i39
+  %29 = sub nuw i64 %.024171, %.0.lcssa.i39
   br label %.lr.ph137
 
 .lr.ph.preheader:                                 ; preds = %27
-  %30 = sub i64 %.0.lcssa.i39, %.024171
+  %30 = sub nuw i64 %.0.lcssa.i39, %.024171
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5typst11foundations6styles10StyleChain3pop17h6542709f40865ddaE.exit
@@ -70377,7 +70377,7 @@ define internal fastcc void @_ZN5typst7realize7process7verdict17h53ca138b7178577
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit.i"
 
 103:                                              ; preds = %101
-  %104 = sub nsw i64 %94, %100
+  %104 = sub nuw nsw i64 %94, %100
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h630f21ea2c9a89d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %98, i64 noundef %104, i64 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h77104e58145e384dE.exit.i" unwind label %.loopexit190.loopexit.loopexit
 
@@ -71353,7 +71353,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hab308c2dc74f3324E.exit.i
   %184 = getelementptr inbounds i8, ptr %.sroa.0.0.i53.i, i64 %.0.i
   %185 = load i8, ptr %184, align 1, !alias.scope !15408, !noalias !15368, !noundef !4
   %186 = icmp sgt i8 %185, -65
-  %187 = sub i64 %.sroa.3.0.i52.i, %.0.i
+  %187 = sub nuw i64 %.sroa.3.0.i52.i, %.0.i
   br i1 %186, label %188, label %.thread191.i
 
 188:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %181, %174
@@ -168058,7 +168058,7 @@ define void @_ZN5typst11foundations3str3Str2at17h9290df452388c673E(ptr noalias n
   %54 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i2367, i64 %.sroa.4.0.ph34.i
   %55 = load i8, ptr %54, align 1, !alias.scope !37382, !noalias !37387, !noundef !4
   %56 = icmp sgt i8 %55, -65
-  %57 = sub i64 %.0.i.i, %.sroa.4.0.ph34.i
+  %57 = sub nuw i64 %.0.i.i, %.sroa.4.0.ph34.i
   br i1 %56, label %59, label %58
 
 58:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %51
@@ -169259,7 +169259,7 @@ define noundef zeroext i1 @_ZN5typst11foundations3str3Str9ends_with17hfd4fb3e913
   %.sroa.0.0.i.i.i = select i1 %28, ptr %5, ptr %34
   %35 = load ptr, ptr %0, align 8, !alias.scope !37564, !nonnull !4
   %.sroa.0.0.i = select i1 %22, ptr %0, ptr %35
-  %36 = sub i64 %.sroa.3.0.i, %.sroa.3.0.i.i.i
+  %36 = sub nuw i64 %.sroa.3.0.i, %.sroa.3.0.i.i.i
   %37 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %36
   %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.0.0.i.i.i, ptr nonnull readonly %37, i64 %.sroa.3.0.i.i.i), !alias.scope !37574
   %38 = icmp eq i32 %bcmp.i.i, 0
@@ -169415,7 +169415,7 @@ common.resume:                                    ; preds = %62, %48, %44
   %79 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.sroa.5.0.copyload
   %80 = load i8, ptr %79, align 1, !alias.scope !37605, !noundef !4
   %81 = icmp sgt i8 %80, -65
-  %82 = sub i64 %.sroa.3.0.i.i, %.sroa.5.0.copyload
+  %82 = sub nuw i64 %.sroa.3.0.i.i, %.sroa.5.0.copyload
   br i1 %81, label %84, label %83
 
 83:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i", %76
@@ -171402,7 +171402,7 @@ _ZN14regex_automata4util4iter8Searcher7advance17he682d14bc60f8bdeE.exit.i.i: ; p
   %236 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 %230
   %237 = load i8, ptr %236, align 1, !alias.scope !37992, !noundef !4
   %238 = icmp sgt i8 %237, -65
-  %239 = sub i64 %.sroa.3.0.i.i.i, %230
+  %239 = sub nuw i64 %.sroa.3.0.i.i.i, %230
   br i1 %238, label %241, label %240
 
 240:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i", %233

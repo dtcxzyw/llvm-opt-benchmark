@@ -939,7 +939,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.i.i.i: ; preds
   br i1 %.old.not.i.i.i, label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.i.i.i, label %85
 
 85:                                               ; preds = %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
-  %86 = sub i64 %78, %.sroa.0.0.copyload.i.i.i
+  %86 = sub nuw i64 %78, %.sroa.0.0.copyload.i.i.i
   %87 = getelementptr inbounds i8, ptr %79, i64 %.sroa.0.0.copyload.i.i.i
   invoke void @_Z16cmTrimWhitespaceB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %18, i64 %86, ptr %87)
           to label %88 unwind label %.loopexit50.i.i.i

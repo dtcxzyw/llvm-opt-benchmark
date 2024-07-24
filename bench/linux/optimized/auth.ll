@@ -817,7 +817,7 @@ define dso_local ptr @rpcauth_lookup_credcache(ptr noundef %0, ptr noundef %1, i
   br i1 %117, label %118, label %123
 
 118:                                              ; preds = %113
-  %119 = sub i64 %115, %116
+  %119 = sub nuw i64 %115, %116
   %120 = call i64 @llvm.umin.i64(i64 %119, i64 100)
   %121 = trunc nuw nsw i64 %120 to i32
   %122 = call fastcc i64 @rpcauth_cache_do_shrink(i32 noundef %121)

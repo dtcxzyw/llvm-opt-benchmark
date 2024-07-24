@@ -115,7 +115,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser27format_escaped_str_conte
   %23 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.0.ph
   %24 = load i8, ptr %23, align 1, !alias.scope !44, !noundef !4
   %25 = icmp sgt i8 %24, -65
-  %26 = sub i64 %3, %.sroa.7.0.ph
+  %26 = sub nuw i64 %3, %.sroa.7.0.ph
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %22, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"

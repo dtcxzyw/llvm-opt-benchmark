@@ -10651,7 +10651,7 @@ _ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GetT
   br i1 %1022, label %1023, label %1025
 
 1023:                                             ; preds = %1012
-  %1024 = sub i64 %1014, %1021
+  %1024 = sub nuw i64 %1014, %1021
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1013, i64 noundef %1024)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

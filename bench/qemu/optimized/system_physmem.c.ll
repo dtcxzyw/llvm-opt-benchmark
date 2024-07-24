@@ -1243,7 +1243,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   %dirty.139 = phi i1 [ false, %while.body13.lr.ph ], [ %16, %while.body13 ]
   %div27 = lshr i64 %page.140, 21
   %rem = and i64 %page.140, 2097151
-  %sub15 = sub nsw i64 %shr, %page.140
+  %sub15 = sub nuw nsw i64 %shr, %page.140
   %sub16 = sub nuw nsw i64 2097152, %rem
   %cond = tail call i64 @llvm.umin.i64(i64 %sub15, i64 %sub16)
   %arrayidx20 = getelementptr [0 x ptr], ptr %blocks19, i64 0, i64 %div27
@@ -1594,7 +1594,7 @@ if.else:                                          ; preds = %while.body14
   unreachable
 
 if.end26:                                         ; preds = %while.body14
-  %sub16 = sub nsw i64 %shr11, %page.143
+  %sub16 = sub nuw nsw i64 %shr11, %page.143
   %rem = and i64 %page.143, 2097088
   %sub17 = sub nuw nsw i64 2097152, %rem
   %cond = tail call i64 @llvm.umin.i64(i64 %sub16, i64 %sub17)

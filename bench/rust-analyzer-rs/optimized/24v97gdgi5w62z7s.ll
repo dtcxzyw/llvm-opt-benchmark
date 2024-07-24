@@ -3119,7 +3119,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h99e82ee27a9be
   %18 = and i64 %17, %5
   %.not = icmp ult i64 %18, %1
   %19 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %18, %19
+  %spec.select = sub nuw i64 %18, %19
   %20 = add nuw nsw i64 %8, %.sroa.0.024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1125)
   %21 = icmp ult i64 %20, %1
@@ -3981,7 +3981,7 @@ _ZN4core5slice4sort12choose_pivot17h8f21d09f611d4b51E.exit: ; preds = %"_ZN4core
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0122154, ptr noundef nonnull align 8 dereferenceable(16) %210, i64 16, i1 false), !alias.scope !1243, !noalias !1241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %210, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i39.i, i64 16, i1 false), !noalias !1241
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i39.i)
-  %211 = sub i64 %.sroa.14.0121144, %206
+  %211 = sub nuw i64 %.sroa.14.0121144, %206
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %206, i64 %211)
   %212 = lshr i64 %.sroa.14.0121144, 3
   %213 = icmp uge i64 %.0.sroa.speculated.i, %212

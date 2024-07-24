@@ -3079,7 +3079,7 @@ if.end28:                                         ; preds = %land.lhs.true.i
   store i64 %conv.i, ptr %size_.i, align 8
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %16, i64 %conv.i
   store ptr %add.ptr.i5.i, ptr %input, align 8
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i63, %conv.i
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i63, %conv.i
   store i64 %sub.i.i, ptr %size_.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   %17 = load i32, ptr %custom_tag, align 4
@@ -3519,7 +3519,7 @@ _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit.thread: ; preds = %land.
 if.then:                                          ; preds = %land.lhs.true.i
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %4, i64 %conv.i
   store ptr %add.ptr.i5.i, ptr %input, align 8
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i, %conv.i
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i, %conv.i
   store i64 %sub.i.i, ptr %size_.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef nonnull %4, i64 noundef %conv.i)
@@ -3843,7 +3843,7 @@ if.then:                                          ; preds = %land.lhs.true.i
   store i64 %conv.i, ptr %size_.i, align 8
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %9, i64 %conv.i
   store ptr %add.ptr.i5.i, ptr %input, align 8
-  %sub.i.i = sub i64 %sub.ptr.sub.i.i, %conv.i
+  %sub.i.i = sub nuw i64 %sub.ptr.sub.i.i, %conv.i
   store i64 %sub.i.i, ptr %size_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %str, i1 noundef zeroext false)
@@ -3904,7 +3904,7 @@ if.then12:                                        ; preds = %land.lhs.true.i33
   store i64 %conv.i37, ptr %size_.i, align 8
   %add.ptr.i5.i41 = getelementptr inbounds i8, ptr %12, i64 %conv.i37
   store ptr %add.ptr.i5.i41, ptr %input, align 8
-  %sub.i.i42 = sub i64 %sub.ptr.sub.i.i36, %conv.i37
+  %sub.i.i42 = sub nuw i64 %sub.ptr.sub.i.i36, %conv.i37
   store i64 %sub.i.i42, ptr %size_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i25)
   invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(16) %str, i1 noundef zeroext false)
@@ -5047,7 +5047,7 @@ if.end255:                                        ; preds = %land.lhs.true.i476
   store i64 %conv.i480, ptr %size_.i467, align 8
   %add.ptr.i5.i484 = getelementptr inbounds i8, ptr %86, i64 %conv.i480
   store ptr %add.ptr.i5.i484, ptr %input, align 8
-  %sub.i.i485 = sub i64 %sub.ptr.sub.i.i479, %conv.i480
+  %sub.i.i485 = sub nuw i64 %sub.ptr.sub.i.i479, %conv.i480
   store i64 %sub.i.i485, ptr %size_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i468)
   store i64 0, ptr %wal_addition256, align 8
@@ -5249,7 +5249,7 @@ if.end295:                                        ; preds = %land.lhs.true.i564
   store i64 %conv.i568, ptr %size_.i555, align 8
   %add.ptr.i5.i572 = getelementptr inbounds i8, ptr %100, i64 %conv.i568
   store ptr %add.ptr.i5.i572, ptr %input, align 8
-  %sub.i.i573 = sub i64 %sub.ptr.sub.i.i567, %conv.i568
+  %sub.i.i573 = sub nuw i64 %sub.ptr.sub.i.i567, %conv.i568
   store i64 %sub.i.i573, ptr %size_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i556)
   store i64 0, ptr %wal_deletion296, align 8
@@ -5353,7 +5353,7 @@ if.then323:                                       ; preds = %land.lhs.true.i619
   store i64 %conv.i623, ptr %size_.i, align 8
   %add.ptr.i5.i627 = getelementptr inbounds i8, ptr %107, i64 %conv.i623
   store ptr %add.ptr.i5.i627, ptr %input, align 8
-  %sub.i.i628 = sub i64 %sub.ptr.sub.i.i622, %conv.i623
+  %sub.i.i628 = sub nuw i64 %sub.ptr.sub.i.i622, %conv.i623
   store i64 %sub.i.i628, ptr %size_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i611)
   store i8 1, ptr %is_column_family_add_, align 1
@@ -5455,7 +5455,7 @@ if.else345:                                       ; preds = %land.lhs.true.i665
   store i64 %conv.i669, ptr %size_.i, align 8
   %add.ptr.i5.i673 = getelementptr inbounds i8, ptr %111, i64 %conv.i669
   store ptr %add.ptr.i5.i673, ptr %input, align 8
-  %sub.i.i674 = sub i64 %sub.ptr.sub.i.i668, %conv.i669
+  %sub.i.i674 = sub nuw i64 %sub.ptr.sub.i.i668, %conv.i669
   store i64 %sub.i.i674, ptr %size_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i657)
   %cmp.i685 = icmp eq i32 %110, 0
@@ -5514,7 +5514,7 @@ if.else362:                                       ; preds = %land.lhs.true.i695
   store i64 %conv.i699, ptr %size_.i, align 8
   %add.ptr.i5.i703 = getelementptr inbounds i8, ptr %114, i64 %conv.i699
   store ptr %add.ptr.i5.i703, ptr %input, align 8
-  %sub.i.i704 = sub i64 %sub.ptr.sub.i.i698, %conv.i699
+  %sub.i.i704 = sub nuw i64 %sub.ptr.sub.i.i698, %conv.i699
   store i64 %sub.i.i704, ptr %size_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i687)
   %cmp365.not = icmp eq i32 %113, 1
@@ -5575,7 +5575,7 @@ lor.lhs.false:                                    ; preds = %call.i.i.noexc731.l
 if.else385:                                       ; preds = %lor.lhs.false
   %add.ptr.i735 = getelementptr inbounds i8, ptr %118, i64 %conv377
   store ptr %add.ptr.i735, ptr %input, align 8
-  %sub.i = sub i64 %sub.ptr.sub.i724, %conv377
+  %sub.i = sub nuw i64 %sub.ptr.sub.i724, %conv377
   store i64 %sub.i, ptr %size_.i.i, align 8
   br label %sw.epilog
 

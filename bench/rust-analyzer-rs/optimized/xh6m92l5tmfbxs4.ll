@@ -1733,9 +1733,9 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h8810d865c93b4dd7E(p
   unreachable
 
 "_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$8read_buf17h0b46225ab14c1095E.exit": ; preds = %14
-  %17 = sub i64 %5, %13
+  %17 = sub nuw i64 %5, %13
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 %11)
-  %18 = sub i64 %11, %.0.sroa.speculated.i.i
+  %18 = sub nuw i64 %11, %.0.sroa.speculated.i.i
   %19 = getelementptr inbounds i8, ptr %12, i64 %.0.sroa.speculated.i.i
   %20 = getelementptr inbounds i8, ptr %8, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %12, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !191, !noalias !195
@@ -3335,7 +3335,7 @@ define void @_ZN14proc_macro_api3msg4flat8FlatTree7new_raw17hc6ad1cb5cb885d82E(p
   %37 = load i64, ptr %17, align 8, !alias.scope !369, !noalias !354, !noundef !4
   %.not.i.i.i = icmp ult i64 %36, %37
   %38 = select i1 %.not.i.i.i, i64 0, i64 %37
-  %.0.i.i.i = sub i64 %36, %38
+  %.0.i.i.i = sub nuw i64 %36, %38
   store i64 %.0.i.i.i, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !368, !noalias !354
   %39 = add i64 %34, -1
   store i64 %39, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !368, !noalias !354

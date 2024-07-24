@@ -2620,7 +2620,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !121
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64
@@ -4396,7 +4396,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !213
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64
@@ -4568,7 +4568,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !228
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64
@@ -5423,7 +5423,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont6
-  %sub.i = sub i64 %2, %sub.ptr.div.i.i
+  %sub.i = sub nuw i64 %2, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorISt3setImSt4lessImESaImEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %grouping_sets, i64 noundef %sub.i)
           to label %invoke.cont9 unwind label %lpad
 
@@ -6253,7 +6253,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !267
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64
@@ -6423,7 +6423,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !282
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64
@@ -8460,7 +8460,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !349
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64
@@ -31948,7 +31948,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !1011
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64
@@ -38350,7 +38350,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = sub nsw i64 %sub.ptr.div.i152, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i152, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN6duckdb6vectorIhLb1EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %aggregate_states, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN6duckdb6vectorIhLb1EEESaIS2_EE6resizeEm.exit
 
@@ -38403,7 +38403,7 @@ _ZNSt6vectorIN6duckdb6vectorIhLb1EEESaIS2_EE6resizeEm.exit: ; preds = %invoke.co
   br i1 %cmp.i163, label %if.then.i168, label %if.else.i164
 
 if.then.i168:                                     ; preds = %_ZNSt6vectorIN6duckdb6vectorIhLb1EEESaIS2_EE6resizeEm.exit
-  %sub.i169 = sub nsw i64 %sub.ptr.div.i157, %sub.ptr.div.i.i162
+  %sub.i169 = sub nuw nsw i64 %sub.ptr.div.i157, %sub.ptr.div.i.i162
   call void @_ZNSt6vectorIPN6duckdb12FunctionDataESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %aggregate_bind_data, ptr %9, i64 noundef %sub.i169, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %.pre = load ptr, ptr %_M_finish.i, align 8, !tbaa !47
   %.pre270 = load ptr, ptr %expressions, align 8, !tbaa !49
@@ -38446,7 +38446,7 @@ _ZNSt6vectorIPN6duckdb12FunctionDataESaIS2_EE6resizeEmRKS2_.exit: ; preds = %inv
   br i1 %cmp.i180, label %if.then.i187, label %if.else.i181
 
 if.then.i187:                                     ; preds = %_ZNSt6vectorIPN6duckdb12FunctionDataESaIS2_EE6resizeEmRKS2_.exit
-  %sub.i188 = sub nsw i64 %sub.ptr.div.i174.pre-phi, %sub.ptr.div.i.i179
+  %sub.i188 = sub nuw nsw i64 %sub.ptr.div.i174.pre-phi, %sub.ptr.div.i.i179
   call void @_ZNSt6vectorIPFvRN6duckdb6VectorERNS0_18AggregateInputDataEmESaIS6_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS6_S8_EEmRKS6_(ptr noundef nonnull align 8 dereferenceable(24) %aggregate_dtors, ptr %13, i64 noundef %sub.i188, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
   %.pre271 = load ptr, ptr %_M_finish.i, align 8, !tbaa !47
   %.pre272 = load ptr, ptr %expressions, align 8, !tbaa !49
@@ -46431,7 +46431,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !1432
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %2 to i64
@@ -46600,7 +46600,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !1449
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64

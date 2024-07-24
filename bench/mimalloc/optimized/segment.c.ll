@@ -1888,7 +1888,7 @@ mi_span_queue_delete.exit.i:                      ; preds = %if.then16.i.i, %if.
 
 if.end.i25.i:                                     ; preds = %mi_span_queue_delete.exit.i
   %add.i.i = add nsw i64 %sub.ptr.div.i.i.i, %spec.store.select52.i
-  %sub.i28.i = sub nsw i64 %conv11.i, %spec.store.select52.i
+  %sub.i28.i = sub nuw nsw i64 %conv11.i, %spec.store.select52.i
   %kind.i.i.i = getelementptr inbounds i8, ptr %4, i64 240
   %11 = load i32, ptr %kind.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %11, 1
@@ -1927,10 +1927,9 @@ mi_span_queue_for.exit.i.i.i:                     ; preds = %if.end3.i.i.i.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %mi_span_queue_for.exit.i.i.i, %lor.lhs.false.i.i.i, %if.end.i25.i
   %cond.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %mi_span_queue_for.exit.i.i.i ], [ null, %lor.lhs.false.i.i.i ], [ null, %if.end.i25.i ]
-  %spec.store.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.i28.i, i64 1)
   %slices.i.i.i = getelementptr inbounds i8, ptr %4, i64 264
   %arrayidx.i.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i.i.i, i64 0, i64 %add.i.i
-  %conv.i.i.i = trunc i64 %spec.store.select.i.i.i to i32
+  %conv.i.i.i = trunc nuw i64 %sub.i28.i to i32
   store i32 %conv.i.i.i, ptr %arrayidx.i.i.i, align 8
   %slice_offset.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   store i32 0, ptr %slice_offset.i.i.i, align 4
@@ -1938,8 +1937,8 @@ cond.end.i.i.i:                                   ; preds = %mi_span_queue_for.e
   br i1 %cmp4.i.i.i, label %if.then6.i.i.i, label %if.end13.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %cond.end.i.i.i
-  %add.i.i.i = add nsw i64 %add.i.i, -1
-  %sub.i.i.i = add i64 %add.i.i.i, %spec.store.select.i.i.i
+  %add.i.i.i = add nsw i64 %sub.i28.i, -1
+  %sub.i.i.i = add nsw i64 %add.i.i.i, %add.i.i
   %arrayidx8.i.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i.i.i, i64 0, i64 %sub.i.i.i
   store i32 0, ptr %arrayidx8.i.i.i, align 8
   %13 = mul i32 %conv.i.i.i, 80

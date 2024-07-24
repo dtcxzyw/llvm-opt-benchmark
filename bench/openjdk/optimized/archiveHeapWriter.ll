@@ -3470,7 +3470,7 @@ _ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10Hea
   br i1 %43, label %59, label %44
 
 44:                                               ; preds = %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit
-  %45 = sub i64 %37, %42
+  %45 = sub nuw i64 %37, %42
   %46 = getelementptr inbounds i8, ptr %0, i64 48
   %47 = load i64, ptr %46, align 8
   %48 = icmp ult i64 %45, %47

@@ -1853,7 +1853,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h785f0624fd0eb9a2E.exit.i.i.i.i.i: 
   %55 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.0.ph.i.i.i.i.i.i
   %56 = load i8, ptr %55, align 1, !alias.scope !320, !noalias !318, !noundef !4
   %57 = icmp sgt i8 %56, -65
-  %58 = sub i64 %2, %.sroa.8.0.ph.i.i.i.i.i.i
+  %58 = sub nuw i64 %2, %.sroa.8.0.ph.i.i.i.i.i.i
   br i1 %57, label %60, label %59
 
 59:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i.i.i.i.i.i", %54

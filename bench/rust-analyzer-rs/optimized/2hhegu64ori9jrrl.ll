@@ -587,7 +587,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %24 = getelementptr inbounds i8, ptr %10, i64 %16
   %25 = load i8, ptr %24, align 1, !alias.scope !101, !noalias !106, !noundef !8
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %12, %16
+  %27 = sub nuw i64 %12, %16
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %21
@@ -872,7 +872,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7d2b48d76a394aa8E.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !113
   %67 = icmp eq i32 %bcmp.i, 0
@@ -1029,7 +1029,7 @@ define internal fastcc void @_ZN10test_utils18try_extract_offset17hc79f1a2791bbc
   %44 = getelementptr inbounds i8, ptr %1, i64 %38
   %45 = load i8, ptr %44, align 1, !alias.scope !135, !noundef !8
   %46 = icmp sgt i8 %45, -65
-  %47 = sub i64 %2, %38
+  %47 = sub nuw i64 %2, %38
   br i1 %46, label %51, label %.invoke
 
 .invoke:                                          ; preds = %41, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i21", %17, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
@@ -1806,7 +1806,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit119: ; preds = %5
   %149 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.sroa.3.0.i
   %150 = load i8, ptr %149, align 1, !alias.scope !263, !noundef !8
   %151 = icmp sgt i8 %150, -65
-  %152 = sub i64 %.sroa.22.0, %.sroa.3.0.i
+  %152 = sub nuw i64 %.sroa.22.0, %.sroa.3.0.i
   br i1 %151, label %153, label %.thread184.invoke
 
 153:                                              ; preds = %139, %146, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i133"
@@ -1879,7 +1879,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit119: ; preds = %5
   br i1 %174, label %.thread, label %.thread184.invoke
 
 .thread:                                          ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i147"
-  %175 = sub i64 %155, %160
+  %175 = sub nuw i64 %155, %160
   br label %194
 
 176:                                              ; preds = %.noexc144, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb785b0e9382da4c8E.exit138.thread"
@@ -2124,7 +2124,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit119: ; preds = %5
   %269 = getelementptr inbounds i8, ptr %156, i64 %263
   %270 = load i8, ptr %269, align 1, !alias.scope !329, !noundef !8
   %271 = icmp sgt i8 %270, -65
-  %272 = sub i64 %155, %263
+  %272 = sub nuw i64 %155, %263
   br i1 %271, label %277, label %.thread208
 
 273:                                              ; preds = %260
@@ -2320,7 +2320,7 @@ define void @_ZN10test_utils10add_cursor17ha0cac3787ce171adE(ptr noalias nocaptu
   %43 = getelementptr inbounds i8, ptr %1, i64 %6
   %44 = load i8, ptr %43, align 1, !alias.scope !361, !noundef !8
   %45 = icmp sgt i8 %44, -65
-  %46 = sub i64 %2, %6
+  %46 = sub nuw i64 %2, %6
   br i1 %45, label %50, label %.invoke
 
 .invoke:                                          ; preds = %40, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i17", %9, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
@@ -2958,7 +2958,7 @@ define void @_ZN10test_utils19extract_annotations17h088257abe04bfcbdE(ptr noalia
   %212 = getelementptr inbounds i8, ptr %.sroa.0.0.i111, i64 %156
   %213 = load i8, ptr %212, align 1, !alias.scope !452, !noalias !432, !noundef !8
   %214 = icmp sgt i8 %213, -65
-  %215 = sub i64 %.sroa.13.0.i, %156
+  %215 = sub nuw i64 %.sroa.13.0.i, %156
   br i1 %214, label %216, label %.thread185.invoke.i
 
 216:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %209, %204

@@ -343,7 +343,7 @@ define internal ptr @alloc_sarray(ptr noundef %0, i32 noundef %1, i32 noundef %2
 23:                                               ; preds = %.lr.ph54, %.loopexit
   %.04053 = phi i32 [ 0, %.lr.ph54 ], [ %.1.lcssa, %.loopexit ]
   %.14252 = phi i32 [ %.041, %.lr.ph54 ], [ %25, %.loopexit ]
-  %24 = sub i32 %3, %.04053
+  %24 = sub nuw i32 %3, %.04053
   %25 = tail call i32 @llvm.umin.i32(i32 %.14252, i32 %24)
   %26 = zext i32 %25 to i64
   %27 = mul nuw i64 %26, %16
@@ -489,7 +489,7 @@ define internal ptr @alloc_barray(ptr noundef %0, i32 noundef %1, i32 noundef %2
 29:                                               ; preds = %.lr.ph51, %.loopexit
   %.04050 = phi i32 [ 0, %.lr.ph51 ], [ %.1.lcssa, %.loopexit ]
   %.14249 = phi i32 [ %.041, %.lr.ph51 ], [ %31, %.loopexit ]
-  %30 = sub i32 %3, %.04050
+  %30 = sub nuw i32 %3, %.04050
   %31 = tail call i32 @llvm.umin.i32(i32 %.14249, i32 %30)
   %32 = zext i32 %31 to i64
   %33 = mul i64 %26, %32
@@ -1003,8 +1003,8 @@ define internal ptr @access_virt_sarray(ptr noundef %0, ptr noundef %1, i32 noun
   %.056.i = phi i64 [ %81, %72 ], [ 0, %.lr.ph.i ]
   %.04655.i = phi i64 [ %78, %72 ], [ %52, %.lr.ph.i ]
   %58 = zext i32 %56 to i64
-  %59 = sub nsw i64 %57, %.056.i
-  %..i = tail call i64 @llvm.smin.i64(i64 %59, i64 %58)
+  %59 = sub nuw nsw i64 %57, %.056.i
+  %..i = tail call i64 @llvm.umin.i64(i64 %59, i64 %58)
   %60 = load i32, ptr %23, align 4
   %61 = zext i32 %60 to i64
   %62 = add nuw nsw i64 %.056.i, %61
@@ -1086,8 +1086,8 @@ do_sarray_io.exit:                                ; preds = %.lr.ph.split.i, %72
   %.056.us.i = phi i64 [ %132, %123 ], [ 0, %.lr.ph.i78 ]
   %.04655.us.i = phi i64 [ %129, %123 ], [ %104, %.lr.ph.i78 ]
   %109 = zext i32 %107 to i64
-  %110 = sub nsw i64 %108, %.056.us.i
-  %..us.i = tail call i64 @llvm.smin.i64(i64 %110, i64 %109)
+  %110 = sub nuw nsw i64 %108, %.056.us.i
+  %..us.i = tail call i64 @llvm.umin.i64(i64 %110, i64 %109)
   %111 = load i32, ptr %23, align 4
   %112 = zext i32 %111 to i64
   %113 = add nuw nsw i64 %.056.us.i, %112
@@ -1307,8 +1307,8 @@ define internal ptr @access_virt_barray(ptr noundef %0, ptr noundef %1, i32 noun
   %.056.i = phi i64 [ %82, %73 ], [ 0, %.lr.ph.i ]
   %.04655.i = phi i64 [ %79, %73 ], [ %53, %.lr.ph.i ]
   %59 = zext i32 %57 to i64
-  %60 = sub nsw i64 %58, %.056.i
-  %..i = tail call i64 @llvm.smin.i64(i64 %60, i64 %59)
+  %60 = sub nuw nsw i64 %58, %.056.i
+  %..i = tail call i64 @llvm.umin.i64(i64 %60, i64 %59)
   %61 = load i32, ptr %23, align 4
   %62 = zext i32 %61 to i64
   %63 = add nuw nsw i64 %.056.i, %62
@@ -1391,8 +1391,8 @@ do_barray_io.exit:                                ; preds = %.lr.ph.split.i, %73
   %.056.us.i = phi i64 [ %134, %125 ], [ 0, %.lr.ph.i78 ]
   %.04655.us.i = phi i64 [ %131, %125 ], [ %106, %.lr.ph.i78 ]
   %111 = zext i32 %109 to i64
-  %112 = sub nsw i64 %110, %.056.us.i
-  %..us.i = tail call i64 @llvm.smin.i64(i64 %112, i64 %111)
+  %112 = sub nuw nsw i64 %110, %.056.us.i
+  %..us.i = tail call i64 @llvm.umin.i64(i64 %112, i64 %111)
   %113 = load i32, ptr %23, align 4
   %114 = zext i32 %113 to i64
   %115 = add nuw nsw i64 %.056.us.i, %114
@@ -1711,10 +1711,10 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 declare i64 @llvm.smax.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #4
+declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #4
+declare i64 @llvm.smin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5

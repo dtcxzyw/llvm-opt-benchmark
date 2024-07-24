@@ -271,7 +271,7 @@ define dso_local ptr @acpi_ev_low_get_gpe_info(i32 noundef %0, ptr noundef reado
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  %10 = sub i32 %0, %7
+  %10 = sub nuw i32 %0, %7
   %11 = getelementptr inbounds i8, ptr %1, i64 60
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i32
@@ -317,7 +317,7 @@ define dso_local ptr @acpi_ev_get_gpe_event_info(ptr noundef %0, i32 noundef %1)
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %9
-  %15 = sub i32 %1, %12
+  %15 = sub nuw i32 %1, %12
   %16 = getelementptr inbounds i8, ptr %7, i64 60
   %17 = load i16, ptr %16, align 4
   %18 = zext i16 %17 to i32
@@ -352,7 +352,7 @@ define dso_local ptr @acpi_ev_get_gpe_event_info(ptr noundef %0, i32 noundef %1)
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %33
-  %39 = sub i32 %1, %36
+  %39 = sub nuw i32 %1, %36
   %40 = getelementptr inbounds i8, ptr %31, i64 60
   %41 = load i16, ptr %40, align 4
   %42 = zext i16 %41 to i32
@@ -518,7 +518,7 @@ define dso_local i32 @acpi_ev_detect_gpe(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %16
-  %22 = sub i32 %2, %19
+  %22 = sub nuw i32 %2, %19
   %23 = getelementptr inbounds i8, ptr %14, i64 60
   %24 = load i16, ptr %23, align 4
   %25 = zext i16 %24 to i32
@@ -552,7 +552,7 @@ define dso_local i32 @acpi_ev_detect_gpe(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %44, label %.thread14, label %45
 
 45:                                               ; preds = %40
-  %46 = sub i32 %2, %43
+  %46 = sub nuw i32 %2, %43
   %47 = getelementptr inbounds i8, ptr %38, i64 60
   %48 = load i16, ptr %47, align 4
   %49 = zext i16 %48 to i32

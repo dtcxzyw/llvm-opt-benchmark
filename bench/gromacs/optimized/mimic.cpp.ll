@@ -1583,7 +1583,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit166: ; preds = %612, %
   br i1 %.not.i169, label %757, label %755
 
 755:                                              ; preds = %.noexc170
-  %756 = sub i64 %751, %754
+  %756 = sub nuw i64 %751, %754
   br label %759
 
 757:                                              ; preds = %.noexc170
@@ -2335,7 +2335,7 @@ _Z11do_per_stepll.exit.thread:                    ; preds = %1152, %_Z11do_per_s
   br i1 %.not.i195, label %1211, label %1209
 
 1209:                                             ; preds = %.noexc198
-  %1210 = sub i64 %1205, %1208
+  %1210 = sub nuw i64 %1205, %1208
   br label %1213
 
 1211:                                             ; preds = %.noexc198

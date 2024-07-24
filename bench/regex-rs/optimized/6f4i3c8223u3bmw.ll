@@ -2953,7 +2953,7 @@ define hidden noalias noundef nonnull ptr @_ZN14regex_automata3nfa8thompson3nfa5
   br label %62
 
 54:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit.i.i"
-  %55 = sub nsw i64 %40, %52
+  %55 = sub nuw nsw i64 %40, %52
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h2477b19eceb958feE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %55, i32 noundef 0)
           to label %62 unwind label %56, !noalias !298
 

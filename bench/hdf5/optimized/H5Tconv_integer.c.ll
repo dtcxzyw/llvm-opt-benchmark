@@ -281,7 +281,7 @@ define range(i32 -1, 1) i32 @H5T__conv_i_i(ptr noundef readonly %0, ptr noundef 
 
 72:                                               ; preds = %71
   %73 = uitofp i64 %68 to double
-  %74 = sub i64 %64, %68
+  %74 = sub nuw i64 %64, %68
   %75 = uitofp i64 %74 to double
   %76 = fdiv double %73, %75
   %77 = tail call double @llvm.ceil.f64(double %76)
@@ -290,7 +290,7 @@ define range(i32 -1, 1) i32 @H5T__conv_i_i(ptr noundef readonly %0, ptr noundef 
 
 79:                                               ; preds = %71
   %80 = uitofp i64 %64 to double
-  %81 = sub i64 %68, %64
+  %81 = sub nuw i64 %68, %64
   %82 = uitofp i64 %81 to double
   %83 = fdiv double %80, %82
   %84 = tail call double @llvm.ceil.f64(double %83)
@@ -1182,7 +1182,7 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f(ptr noundef readonly %0, ptr noundef 
 
 72:                                               ; preds = %71
   %73 = uitofp i64 %68 to double
-  %74 = sub i64 %66, %68
+  %74 = sub nuw i64 %66, %68
   %75 = uitofp i64 %74 to double
   %76 = fdiv double %73, %75
   %77 = tail call double @llvm.ceil.f64(double %76)
@@ -1191,7 +1191,7 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f(ptr noundef readonly %0, ptr noundef 
 
 79:                                               ; preds = %71
   %80 = uitofp i64 %66 to double
-  %81 = sub i64 %68, %66
+  %81 = sub nuw i64 %68, %66
   %82 = uitofp i64 %81 to double
   %83 = fdiv double %80, %82
   %84 = tail call double @llvm.ceil.f64(double %83)
@@ -1459,7 +1459,7 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f(ptr noundef readonly %0, ptr noundef 
   br label %219
 
 216:                                              ; preds = %172
-  %217 = sub i64 %.sroa.25.0.copyload227, %.0351
+  %217 = sub nuw i64 %.sroa.25.0.copyload227, %.0351
   %218 = call i32 @H5T__bit_shift(ptr noundef %96, i64 noundef %217, i64 noundef 0, i64 noundef %.sroa.25.0.copyload227) #10
   br label %219
 

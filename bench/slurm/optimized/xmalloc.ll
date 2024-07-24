@@ -143,7 +143,7 @@ define ptr @slurm_xrecalloc(ptr nocapture noundef %0, i64 noundef %1, i64 nounde
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %24, i64 16
   %30 = getelementptr inbounds i8, ptr %29, i64 %23
-  %31 = sub i64 %17, %23
+  %31 = sub nuw i64 %17, %23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %30, i8 0, i64 %31, i1 false)
   br label %40
 

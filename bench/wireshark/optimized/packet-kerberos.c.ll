@@ -2926,7 +2926,7 @@ define internal i32 @decrypt_krb5_krb_cfx_dce_cb(ptr noundef %0, i32 noundef %1,
   br i1 %16, label %91, label %17
 
 17:                                               ; preds = %14
-  %18 = sub i32 %9, %15
+  %18 = sub nuw i32 %9, %15
   %19 = load ptr, ptr @krb5_ctx, align 8
   %20 = load i32, ptr %11, align 4
   %21 = call i32 @krb5_c_crypto_length(ptr noundef %19, i32 noundef %20, i32 noundef 5, ptr noundef nonnull %5) #16
@@ -2939,7 +2939,7 @@ define internal i32 @decrypt_krb5_krb_cfx_dce_cb(ptr noundef %0, i32 noundef %1,
   br i1 %24, label %91, label %25
 
 25:                                               ; preds = %22
-  %26 = sub i32 %18, %23
+  %26 = sub nuw i32 %18, %23
   %27 = load ptr, ptr @krb5_ctx, align 8
   %28 = load i32, ptr %11, align 4
   %29 = call i32 @krb5_c_block_size(ptr noundef %27, i32 noundef %28, ptr noundef nonnull %6) #16
@@ -2950,9 +2950,9 @@ define internal i32 @decrypt_krb5_krb_cfx_dce_cb(ptr noundef %0, i32 noundef %1,
   %31 = load i64, ptr %6, align 8
   %32 = trunc i64 %31 to i32
   %33 = icmp ult i32 %26, %32
-  %34 = sub i32 %26, %32
+  %34 = sub nuw i32 %26, %32
   %35 = icmp ult i32 %34, 16
-  %or.cond = or i1 %33, %35
+  %or.cond = select i1 %33, i1 true, i1 %35
   br i1 %or.cond, label %91, label %36
 
 36:                                               ; preds = %30

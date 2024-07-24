@@ -2399,7 +2399,7 @@ _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8numb
   br i1 %.not.i32, label %64, label %62
 
 62:                                               ; preds = %._crit_edge
-  %63 = sub i32 %16, %61
+  %63 = sub nuw i32 %16, %61
   store i32 %63, ptr %6, align 4
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EE3popEj.exit
 
@@ -6321,13 +6321,13 @@ _ZN11hb_vector_tIfLb0EE5allocEjb.exit.thread.i.i: ; preds = %_ZN11hb_vector_tIfL
   br i1 %73, label %.thread, label %93
 
 .thread:                                          ; preds = %_ZN11hb_vector_tIfLb0EE5allocEjb.exit.thread.i.i
-  %74 = sub nsw i32 %50, %72
-  %75 = shl nsw i32 %74, 2
+  %74 = sub nuw nsw i32 %50, %72
+  %75 = shl nuw nsw i32 %74, 2
   %76 = getelementptr inbounds i8, ptr %0, i64 4504
   %77 = load ptr, ptr %76, align 8
   %78 = zext nneg i32 %72 to i64
   %79 = getelementptr inbounds float, ptr %77, i64 %78
-  %80 = zext i32 %75 to i64
+  %80 = zext nneg i32 %75 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %79, i8 0, i64 %80, i1 false)
   store i32 %50, ptr %60, align 4
   %81 = load ptr, ptr %6, align 8
@@ -7502,7 +7502,7 @@ _ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE2
   br i1 %.not.i32, label %64, label %62
 
 62:                                               ; preds = %._crit_edge
-  %63 = sub i32 %16, %61
+  %63 = sub nuw i32 %16, %61
   store i32 %63, ptr %6, align 4
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EE3popEj.exit
 

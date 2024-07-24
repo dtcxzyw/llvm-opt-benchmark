@@ -132,7 +132,7 @@ fmap_readn.exit85.thread:                         ; preds = %19, %22, %fmap_read
   br i1 %or.cond146.not, label %35, label %fmap_readn.exit90.thread
 
 35:                                               ; preds = %32
-  %36 = sub i64 %34, %33
+  %36 = sub nuw i64 %34, %33
   %spec.select.i87 = tail call i64 @llvm.umin.i64(i64 %36, i64 2)
   %37 = load ptr, ptr %14, align 8
   %38 = tail call ptr %37(ptr noundef nonnull %10, i64 noundef %33, i64 noundef %spec.select.i87, i32 noundef 0) #5
@@ -169,7 +169,7 @@ fmap_readn.exit90.thread:                         ; preds = %35, %32, %fmap_read
   br i1 %or.cond147.not, label %46, label %fmap_readn.exit95.thread
 
 46:                                               ; preds = %.lr.ph
-  %47 = sub i64 %45, %44
+  %47 = sub nuw i64 %45, %44
   %spec.select.i92 = tail call i64 @llvm.umin.i64(i64 %47, i64 12)
   %48 = load ptr, ptr %14, align 8
   %49 = tail call ptr %48(ptr noundef nonnull %10, i64 noundef %44, i64 noundef %spec.select.i92, i32 noundef 0) #5
@@ -285,7 +285,7 @@ fmap_readn.exit95.thread:                         ; preds = %46, %.lr.ph, %fmap_
   br i1 %or.cond148.not, label %88, label %fmap_readn.exit100.thread
 
 88:                                               ; preds = %._crit_edge
-  %89 = sub i64 %87, %86
+  %89 = sub nuw i64 %87, %86
   %spec.select.i97 = tail call i64 @llvm.umin.i64(i64 %89, i64 4)
   %90 = load ptr, ptr %14, align 8
   %91 = tail call ptr %90(ptr noundef nonnull %10, i64 noundef %86, i64 noundef %spec.select.i97, i32 noundef 0) #5

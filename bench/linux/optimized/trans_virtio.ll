@@ -1803,7 +1803,7 @@ define internal fastcc void @handle_rerror(ptr nocapture noundef %0, i32 noundef
   %34 = getelementptr i8, ptr %33, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %34, i64 %26, i1 false)
   %35 = getelementptr i8, ptr %9, i64 %26
-  %36 = sub i32 %19, %21
+  %36 = sub nuw i32 %19, %21
   br label %37
 
 37:                                               ; preds = %23, %17

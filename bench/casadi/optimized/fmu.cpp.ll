@@ -12215,7 +12215,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %38, %_ZNSt6vectorId
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %102
-  %113 = sub nsw i64 %24, %110
+  %113 = sub nuw nsw i64 %24, %110
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %103, i64 noundef %113)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -12245,7 +12245,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %112, %114, %116, %1
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %129 = sub nsw i64 %24, %126
+  %129 = sub nuw nsw i64 %24, %126
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %119, i64 noundef %129)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit43
 
@@ -17507,7 +17507,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
-  %94 = sub i64 %84, %91
+  %94 = sub nuw i64 %84, %91
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %94)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre11.i = load ptr, ptr %85, align 8
@@ -17796,7 +17796,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
-  %94 = sub i64 %84, %91
+  %94 = sub nuw i64 %84, %91
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %94)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre11.i = load ptr, ptr %85, align 8
@@ -18085,7 +18085,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
-  %94 = sub i64 %84, %91
+  %94 = sub nuw i64 %84, %91
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %94)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre11.i = load ptr, ptr %85, align 8
@@ -19278,7 +19278,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINSt7__cx
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = sub i64 %4, %11
+  %14 = sub nuw i64 %4, %11
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %14)
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
@@ -19489,7 +19489,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorImSaImEES
   br i1 %29, label %30, label %62
 
 30:                                               ; preds = %.noexc6
-  %31 = sub i64 %22, %28
+  %31 = sub nuw i64 %22, %28
   %32 = load ptr, ptr %19, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = sub i64 %33, %25
@@ -20527,7 +20527,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackISt6vecto
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %2
-  %15 = sub i64 %5, %12
+  %15 = sub nuw i64 %5, %12
   call void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15)
   %.pre = load ptr, ptr %6, align 8
   br label %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit
@@ -20583,7 +20583,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit:    ; preds = %14, %16, %18, %_ZSt
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.lr.ph
-  %35 = sub i64 %25, %32
+  %35 = sub nuw i64 %25, %32
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.010, i64 noundef %35)
   %.pre.i = load ptr, ptr %.sroa.06.010, align 8
   %.pre11.i = load ptr, ptr %26, align 8

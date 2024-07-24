@@ -5861,7 +5861,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i: ; preds = %91
 
 95:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i
   %96 = load ptr, ptr %65, align 8, !noalias !703, !nonnull !5, !noundef !5
-  %97 = sub i64 %93, %94
+  %97 = sub nuw i64 %93, %94
   %98 = getelementptr inbounds i8, ptr %92, i64 %97
   %bcmp.i.i19.i.i.i = call i32 @bcmp(ptr nonnull readonly %96, ptr nonnull readonly %98, i64 %94), !alias.scope !722, !noalias !698
   %99 = icmp eq i32 %bcmp.i.i19.i.i.i, 0
@@ -6454,7 +6454,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i: ; preds = %91
 
 95:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i
   %96 = load ptr, ptr %65, align 8, !noalias !804, !nonnull !5, !noundef !5
-  %97 = sub i64 %93, %94
+  %97 = sub nuw i64 %93, %94
   %98 = getelementptr inbounds i8, ptr %92, i64 %97
   %bcmp.i.i19.i.i.i = call i32 @bcmp(ptr nonnull readonly %96, ptr nonnull readonly %98, i64 %94), !alias.scope !823, !noalias !799
   %99 = icmp eq i32 %bcmp.i.i19.i.i.i, 0
@@ -97751,7 +97751,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit60:  ; preds = %57
   %113 = load i64, ptr %25, align 8, !alias.scope !10562, !noalias !10560, !noundef !5
   %.not.i.i = icmp ult i64 %112, %113
   %114 = select i1 %.not.i.i, i64 0, i64 %113
-  %.0.i.i = sub i64 %112, %114
+  %.0.i.i = sub nuw i64 %112, %114
   store i64 %.0.i.i, ptr %110, align 8, !alias.scope !10557, !noalias !10560
   store i64 0, ptr %101, align 8, !alias.scope !10557, !noalias !10560
   %115 = getelementptr inbounds i8, ptr %25, i64 8
@@ -99864,7 +99864,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit145: ; preds = %"_ZN4core3ptr95drop
   %210 = load i64, ptr %24, align 8, !alias.scope !10984, !noalias !10982, !noundef !5
   %.not.i.i = icmp ult i64 %209, %210
   %211 = select i1 %.not.i.i, i64 0, i64 %210
-  %.0.i.i = sub i64 %209, %211
+  %.0.i.i = sub nuw i64 %209, %211
   store i64 %.0.i.i, ptr %207, align 8, !alias.scope !10979, !noalias !10982
   store i64 0, ptr %190, align 8, !alias.scope !10979, !noalias !10982
   %212 = getelementptr inbounds i8, ptr %24, i64 8
@@ -100833,7 +100833,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit153: ; preds = %231
   %260 = load i64, ptr %35, align 8, !alias.scope !11211, !noalias !11209, !noundef !5
   %.not.i.i157 = icmp ult i64 %259, %260
   %261 = select i1 %.not.i.i157, i64 0, i64 %260
-  %.0.i.i158 = sub i64 %259, %261
+  %.0.i.i158 = sub nuw i64 %259, %261
   store i64 %.0.i.i158, ptr %257, align 8, !alias.scope !11206, !noalias !11209
   store i64 0, ptr %240, align 8, !alias.scope !11206, !noalias !11209
   %262 = getelementptr inbounds i8, ptr %35, i64 8
@@ -103359,7 +103359,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit104: ; preds = %114
   %147 = load i64, ptr %18, align 8, !alias.scope !11644, !noalias !11642, !noundef !5
   %.not.i.i = icmp ult i64 %146, %147
   %148 = select i1 %.not.i.i, i64 0, i64 %147
-  %.0.i.i = sub i64 %146, %148
+  %.0.i.i = sub nuw i64 %146, %148
   store i64 %.0.i.i, ptr %144, align 8, !alias.scope !11639, !noalias !11642
   store i64 0, ptr %127, align 8, !alias.scope !11639, !noalias !11642
   %149 = getelementptr inbounds i8, ptr %18, i64 8

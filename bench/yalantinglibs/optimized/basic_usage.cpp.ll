@@ -2289,7 +2289,7 @@ if.then.i523:                                     ; preds = %call2.i521.noexc
   br i1 %cmp3.i524, label %if.then.i331, label %if.else.i525
 
 if.else.i525:                                     ; preds = %if.then.i523
-  %sub5.i = sub i64 %197, %sub.i
+  %sub5.i = sub nuw i64 %197, %sub.i
   %198 = load ptr, ptr %ifs, align 8
   %call.i888 = call i32 @fseek(ptr noundef %198, i64 noundef %sub5.i, i32 noundef 1)
   br label %_ZN11struct_pack14deserialize_toILm0E6personJETkNS_8reader_tE12fread_streamEENS_4errcERT0_RT2_DpRT1_.exit
@@ -3920,7 +3920,7 @@ for.cond:                                         ; preds = %if.end, %for.body
 for.body:                                         ; preds = %for.cond
   %add = add i64 %i.0, 1048576
   %cmp5.not = icmp ult i64 %add, %2
-  %sub = sub i64 %2, %i.0
+  %sub = sub nuw i64 %2, %i.0
   %spec.select = select i1 %cmp5.not, i64 %len.0, i64 %sub
   %add8 = add i64 %spec.select, %i.0
   tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %item, i64 noundef %add8)
@@ -3939,7 +3939,7 @@ if.then13:                                        ; preds = %for.body
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then13
-  %sub.i.i = sub i64 %i.0, %6
+  %sub.i.i = sub nuw i64 %i.0, %6
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %6
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i
@@ -4299,7 +4299,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
 for.body:                                         ; preds = %for.cond
   %add = add i64 %i.0, 1048576
   %cmp15.not = icmp ult i64 %add, %3
-  %sub = sub i64 %3, %i.0
+  %sub = sub nuw i64 %3, %i.0
   %spec.select = select i1 %cmp15.not, i64 %len.0, i64 %sub
   %add18 = add i64 %spec.select, %i.0
   tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %item, i64 noundef %add18)
@@ -4318,7 +4318,7 @@ if.then23:                                        ; preds = %for.body
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then23
-  %sub.i.i = sub i64 %i.0, %7
+  %sub.i.i = sub nuw i64 %i.0, %7
   %sub3.i.i.i.i.i = sub i64 9223372036854775807, %7
   %cmp.i.i.i.i.i = icmp ult i64 %sub3.i.i.i.i.i, %sub.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i

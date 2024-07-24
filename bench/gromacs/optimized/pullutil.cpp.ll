@@ -325,7 +325,7 @@ define void @_Z14pull_calc_comsPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcdN
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %88
-  %107 = sub nsw i64 %97, %104
+  %107 = sub nuw nsw i64 %97, %104
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %89, i64 noundef %107)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -1185,7 +1185,7 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
   br i1 %668, label %669, label %671
 
 669:                                              ; preds = %651
-  %670 = sub nsw i64 %660, %667
+  %670 = sub nuw nsw i64 %660, %667
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %656, i64 noundef %670)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
@@ -1217,7 +1217,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %675, %673, %671, %6
   br i1 %685, label %686, label %688
 
 686:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
-  %687 = sub nsw i64 %660, %684
+  %687 = sub nuw nsw i64 %660, %684
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %677, i64 noundef %687)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
@@ -2443,7 +2443,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -2464,7 +2464,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE6resizeEm(p
   br label %_ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %19, %12
+  %24 = icmp ugt i64 %1, 384307168202282325
   br i1 %24, label %25, label %_ZNKSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23
@@ -3537,7 +3537,7 @@ define void @_Z25allocStatePrevStepPullComP7t_statePK6pull_t(ptr noundef %0, ptr
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
-  %32 = sub nsw i64 %29, %26
+  %32 = sub nuw nsw i64 %29, %26
   call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %21, i64 noundef %32, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZNSt6vectorIdSaIdEE5clearEv.exit
 
@@ -3619,7 +3619,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds double, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

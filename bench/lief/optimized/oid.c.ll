@@ -917,7 +917,7 @@ define hidden i32 @mbedtls_oid_get_numeric_string(ptr nocapture noundef writeonl
   br i1 %.not49, label %16, label %.loopexit
 
 16:                                               ; preds = %14
-  %17 = sub i64 %1, %15
+  %17 = sub nuw i64 %1, %15
   %.pre = load i64, ptr %4, align 8
   %18 = icmp ugt i64 %.pre, 1
   br i1 %18, label %.lr.ph, label %._crit_edge
@@ -958,7 +958,7 @@ define hidden i32 @mbedtls_oid_get_numeric_string(ptr nocapture noundef writeonl
   br i1 %.not52, label %36, label %.loopexit
 
 36:                                               ; preds = %34
-  %37 = sub i64 %.14057, %35
+  %37 = sub nuw i64 %.14057, %35
   %38 = getelementptr inbounds i8, ptr %.159, i64 %35
   %.pre60 = load i64, ptr %4, align 8
   br label %39

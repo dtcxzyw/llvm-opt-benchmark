@@ -2974,7 +2974,7 @@ _ZN2cv4Mat_IfEC2EONS_3MatE.exit:                  ; preds = %226
   br i1 %318, label %319, label %343
 
 319:                                              ; preds = %310
-  %320 = sub nsw i64 %311, %317
+  %320 = sub nuw nsw i64 %311, %317
   %321 = load ptr, ptr %165, align 8
   %322 = ptrtoint ptr %321 to i64
   %323 = sub i64 %322, %314
@@ -3065,7 +3065,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %347, %345, %343, 
   br i1 %354, label %355, label %379
 
 355:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
-  %356 = sub nsw i64 %311, %353
+  %356 = sub nuw nsw i64 %311, %353
   %357 = load ptr, ptr %162, align 8
   %358 = ptrtoint ptr %357 to i64
   %359 = sub i64 %358, %350
@@ -3418,7 +3418,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

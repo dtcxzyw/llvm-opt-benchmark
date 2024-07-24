@@ -169,7 +169,7 @@ define hidden void @"_ZN122_$LT$alloc..collections..vec_deque..into_iter..IntoIt
   %16 = load i64, ptr %0, align 8, !alias.scope !24, !noalias !21, !noundef !10
   %.not.i.i.i = icmp ult i64 %15, %16
   %17 = select i1 %.not.i.i.i, i64 0, i64 %16
-  %.0.i.i.i = sub i64 %15, %17
+  %.0.i.i.i = sub nuw i64 %15, %17
   %18 = sub i64 %16, %.0.i.i.i
   %.not.i.i = icmp ult i64 %18, %12
   %19 = add i64 %.0.i.i.i, %12
@@ -236,7 +236,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h19e49803c510d2dbE.exit: ; pred
   %38 = load i64, ptr %0, align 8, !alias.scope !66, !noalias !61, !noundef !10
   %.not.i.i.i22 = icmp ult i64 %37, %38
   %39 = select i1 %.not.i.i.i22, i64 0, i64 %38
-  %.0.i.i.i23 = sub i64 %37, %39
+  %.0.i.i.i23 = sub nuw i64 %37, %39
   store i64 %.0.i.i.i23, ptr %35, align 8, !noalias !61
   ret void
 
@@ -266,7 +266,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h19e49803c510d2dbE.exit: ; pred
   %44 = load i64, ptr %0, align 8, !alias.scope !74, !noalias !69, !noundef !10
   %.not.i.i.i14 = icmp ult i64 %43, %44
   %45 = select i1 %.not.i.i.i14, i64 0, i64 %44
-  %.0.i.i.i15 = sub i64 %43, %45
+  %.0.i.i.i15 = sub nuw i64 %43, %45
   store i64 %.0.i.i.i15, ptr %41, align 8, !noalias !69
   resume { ptr, i32 } %lpad.phi
 }
@@ -294,7 +294,7 @@ define hidden void @"_ZN122_$LT$alloc..collections..vec_deque..into_iter..IntoIt
   %16 = load i64, ptr %0, align 8, !alias.scope !87, !noalias !84, !noundef !10
   %.not.i.i.i = icmp ult i64 %15, %16
   %17 = select i1 %.not.i.i.i, i64 0, i64 %16
-  %.0.i.i.i = sub i64 %15, %17
+  %.0.i.i.i = sub nuw i64 %15, %17
   %18 = sub i64 %16, %.0.i.i.i
   %.not.i.i = icmp ult i64 %18, %12
   %19 = add i64 %.0.i.i.i, %12
@@ -361,7 +361,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hed3e533bfe3e5667E.exit: ; pred
   %38 = load i64, ptr %0, align 8, !alias.scope !129, !noalias !124, !noundef !10
   %.not.i.i.i22 = icmp ult i64 %37, %38
   %39 = select i1 %.not.i.i.i22, i64 0, i64 %38
-  %.0.i.i.i23 = sub i64 %37, %39
+  %.0.i.i.i23 = sub nuw i64 %37, %39
   store i64 %.0.i.i.i23, ptr %35, align 8, !noalias !124
   ret void
 
@@ -391,7 +391,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hed3e533bfe3e5667E.exit: ; pred
   %44 = load i64, ptr %0, align 8, !alias.scope !137, !noalias !132, !noundef !10
   %.not.i.i.i14 = icmp ult i64 %43, %44
   %45 = select i1 %.not.i.i.i14, i64 0, i64 %44
-  %.0.i.i.i15 = sub i64 %43, %45
+  %.0.i.i.i15 = sub nuw i64 %43, %45
   store i64 %.0.i.i.i15, ptr %41, align 8, !noalias !132
   resume { ptr, i32 } %lpad.phi
 }

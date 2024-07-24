@@ -642,7 +642,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %249, label %250, label %._crit_edge.thread
 
 250:                                              ; preds = %._crit_edge
-  %251 = sub i64 %.151, %245
+  %251 = sub nuw i64 %.151, %245
   %252 = load ptr, ptr %125, align 8
   %253 = ptrtoint ptr %252 to i64
   %254 = sub i64 %253, %242

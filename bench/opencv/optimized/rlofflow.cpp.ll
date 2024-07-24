@@ -3880,7 +3880,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S
   br i1 %323, label %324, label %350
 
 324:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
-  %325 = sub nsw i64 %315, %322
+  %325 = sub nuw nsw i64 %315, %322
   %326 = getelementptr inbounds i8, ptr %18, i64 16
   %327 = load ptr, ptr %326, align 8
   %328 = ptrtoint ptr %327 to i64
@@ -4136,7 +4136,7 @@ _ZNK2cv11_InputArray6getMatEi.exit202:            ; preds = %369, %372
   br i1 %439, label %440, label %465
 
 440:                                              ; preds = %425
-  %441 = sub nsw i64 %431, %438
+  %441 = sub nuw nsw i64 %431, %438
   %442 = getelementptr inbounds i8, ptr %23, i64 16
   %443 = load ptr, ptr %442, align 8
   %444 = ptrtoint ptr %443 to i64
@@ -4235,7 +4235,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit223: ; preds = %469, %467, %46
   br i1 %483, label %484, label %509
 
 484:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit223
-  %485 = sub nsw i64 %475, %482
+  %485 = sub nuw nsw i64 %475, %482
   %486 = getelementptr inbounds i8, ptr %24, i64 16
   %487 = load ptr, ptr %486, align 8
   %488 = ptrtoint ptr %487 to i64

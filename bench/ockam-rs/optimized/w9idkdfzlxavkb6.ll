@@ -202,7 +202,7 @@ define hidden void @_ZN10ockam_core7routing5route5Route6create17h0a6ba080b024e22
   %33 = add i64 %32, %31
   %.not.i.i = icmp ult i64 %33, %30
   %34 = select i1 %.not.i.i, i64 0, i64 %30
-  %.0.i.i = sub i64 %33, %34
+  %.0.i.i = sub nuw i64 %33, %34
   %35 = load ptr, ptr %5, align 8, !alias.scope !30, !noalias !33, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %35, i64 %.0.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !35
@@ -2440,7 +2440,7 @@ common.resume:                                    ; preds = %34, %.body
   %60 = add i64 %59, %58
   %.not.i = icmp ult i64 %60, %57
   %61 = select i1 %.not.i, i64 0, i64 %57
-  %.0.i = sub i64 %60, %61
+  %.0.i = sub nuw i64 %60, %61
   %62 = load ptr, ptr %9, align 8, !alias.scope !733, !noalias !736, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %62, i64 %.0.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)

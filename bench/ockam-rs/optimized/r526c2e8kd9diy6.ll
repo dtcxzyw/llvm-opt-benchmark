@@ -9059,7 +9059,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h404967c0228c9759E(ptr noal
 84:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf6f6b35b0fb185beE.exit.i.i.i.i", %82
   %85 = add i64 %.0.sroa.speculated.i.i4.i.i.i, %76
   store i64 %85, ptr %23, align 8, !alias.scope !1145, !noalias !1150
-  %86 = sub i64 %.sink.i, %.0.sroa.speculated.i.i4.i.i.i
+  %86 = sub nuw i64 %.sink.i, %.0.sroa.speculated.i.i4.i.i.i
   store i64 %86, ptr %22, align 8, !alias.scope !1137, !noalias !1171
   %.not = icmp ugt i64 %78, %76
   %87 = load i64, ptr %7, align 8

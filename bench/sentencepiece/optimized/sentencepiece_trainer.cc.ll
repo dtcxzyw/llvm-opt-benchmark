@@ -7275,7 +7275,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %_
   unreachable
 
 134:                                              ; preds = %130
-  %135 = sub i64 %.sroa.083.0, %132
+  %135 = sub nuw i64 %.sroa.083.0, %132
   %136 = getelementptr inbounds i8, ptr %.sroa.7.0, i64 %132
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -10465,7 +10465,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit: ; preds
 
 19:                                               ; preds = %17
   %20 = sub i64 %.0914.i.i, %.081
-  %21 = sub i64 %1, %.081
+  %21 = sub nuw i64 %1, %.081
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %21, i64 %20)
   %22 = getelementptr inbounds i8, ptr %2, i64 %.081
   %23 = load ptr, ptr %9, align 8
@@ -10590,7 +10590,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread: 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread.thread: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit, %15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread
   %.07996 = phi i64 [ %.079, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread ], [ %.081, %15 ], [ %.081, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit ]
   %61 = phi ptr [ %59, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread ], [ %10, %15 ], [ %10, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit ]
-  %62 = sub i64 %1, %.07996
+  %62 = sub nuw i64 %1, %.07996
   %63 = getelementptr inbounds i8, ptr %2, i64 %.07996
   %64 = getelementptr inbounds i8, ptr %0, i64 8
   %65 = getelementptr inbounds i8, ptr %0, i64 16

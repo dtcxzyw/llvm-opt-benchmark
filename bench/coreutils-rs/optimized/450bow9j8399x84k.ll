@@ -861,7 +861,7 @@ define noundef zeroext i1 @"_ZN75_$LT$uu_split..number..DynamicWidthNumber$u20$a
   %.0145.i = phi i64 [ %.014.i, %.lr.ph.i ], [ %.0141.i, %2 ]
   %.04.i = phi i64 [ %20, %.lr.ph.i ], [ %.val, %2 ]
   %.0153.i = phi i64 [ %21, %.lr.ph.i ], [ 2, %2 ]
-  %20 = sub i64 %.04.i, %.0145.i
+  %20 = sub nuw i64 %.04.i, %.0145.i
   %21 = add i64 %.0153.i, 1
   %.014.i = mul i64 %.0145.i, %15
   %.not.i = icmp ult i64 %20, %.014.i
@@ -877,7 +877,7 @@ define noundef zeroext i1 @"_ZN75_$LT$uu_split..number..DynamicWidthNumber$u20$a
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha5ecee378850edf9E.exit.i"
 
 24:                                               ; preds = %._crit_edge11.i
-  %25 = sub i64 %.015.lcssa.i, %22
+  %25 = sub nuw i64 %.015.lcssa.i, %22
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8a1c75c57634b38cE.llvm.15286421680055538252"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %25, i8 noundef 0)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha5ecee378850edf9E.exitthread-pre-split.i" unwind label %.loopexit.split-lp.i, !noalias !117
 

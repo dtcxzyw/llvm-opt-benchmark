@@ -702,7 +702,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi9LinsolLdl8init_memEPv(ptr nounde
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %4
-  %17 = sub i64 %6, %14
+  %17 = sub nuw i64 %6, %14
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %17)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -734,7 +734,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %35 = sub i64 %25, %32
+  %35 = sub nuw i64 %25, %32
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %35)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit9
 
@@ -764,7 +764,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit9:              ; preds = %34, %36, %38, %40
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit9
-  %51 = sub i64 %6, %48
+  %51 = sub nuw i64 %6, %48
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %51)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit11
 
@@ -2366,7 +2366,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %83
-  %94 = sub i64 %84, %91
+  %94 = sub nuw i64 %84, %91
   call void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %94)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre11.i = load ptr, ptr %85, align 8

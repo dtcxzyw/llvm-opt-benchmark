@@ -3168,7 +3168,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit: ; pre
 
 116:                                              ; preds = %110
   %117 = getelementptr inbounds i8, ptr %112, i64 40
-  %118 = sub i64 %107, %77
+  %118 = sub nuw i64 %107, %77
   %119 = mul i64 %118, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %117, ptr nonnull align 8 %112, i64 %119, i1 false), !noalias !487
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h634fc5f4e11f3800E.exit"
@@ -3432,7 +3432,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit179: ; 
 
 230:                                              ; preds = %224
   %231 = getelementptr inbounds i8, ptr %226, i64 40
-  %232 = sub i64 %221, %194
+  %232 = sub nuw i64 %221, %194
   %233 = mul i64 %232, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %231, ptr nonnull align 8 %226, i64 %233, i1 false), !noalias !520
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h634fc5f4e11f3800E.exit183"
@@ -3846,7 +3846,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
 
 122:                                              ; preds = %116
   %123 = getelementptr inbounds i8, ptr %118, i64 40
-  %124 = sub i64 %113, %83
+  %124 = sub nuw i64 %113, %83
   %125 = mul i64 %124, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %123, ptr nonnull align 8 %118, i64 %125, i1 false), !noalias !564
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h634fc5f4e11f3800E.exit"
@@ -4112,7 +4112,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit179: ; 
 
 236:                                              ; preds = %230
   %237 = getelementptr inbounds i8, ptr %232, i64 40
-  %238 = sub i64 %227, %200
+  %238 = sub nuw i64 %227, %200
   %239 = mul i64 %238, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %237, ptr nonnull align 8 %232, i64 %239, i1 false), !noalias !597
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h634fc5f4e11f3800E.exit183"
@@ -4387,8 +4387,8 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit.thread
 
 _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit: ; preds = %51
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8), !noalias !621
-  %spec.select.i.i.i.i.i = call noundef i64 @llvm.usub.sat.i64(i64 %57, i64 %56)
-  %spec.select.i.i1.i.i.i = call noundef i64 @llvm.usub.sat.i64(i64 %54, i64 %53)
+  %spec.select.i.i.i.i.i = sub nuw i64 %57, %56
+  %spec.select.i.i1.i.i.i = sub nuw i64 %54, %53
   %58 = call noundef i64 @_ZN4core3cmp6min_by17h3588564f469d301fE.llvm.12352545699060731367(i64 noundef %spec.select.i.i.i.i.i, i64 noundef %spec.select.i.i1.i.i.i), !noalias !625
   store i64 %56, ptr %29, align 8, !noalias !621
   store i64 %57, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !621
@@ -4530,7 +4530,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit: ; pre
 
 116:                                              ; preds = %110
   %117 = getelementptr inbounds i8, ptr %112, i64 40
-  %118 = sub i64 %107, %.0378
+  %118 = sub nuw i64 %107, %.0378
   %119 = mul i64 %118, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %117, ptr nonnull align 8 %112, i64 %119, i1 false), !noalias !646
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h634fc5f4e11f3800E.exit"
@@ -4700,8 +4700,8 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit191.thr
 
 _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit191: ; preds = %181
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5), !noalias !664
-  %spec.select.i.i.i.i.i183 = call noundef i64 @llvm.usub.sat.i64(i64 %187, i64 %186)
-  %spec.select.i.i1.i.i.i184 = call noundef i64 @llvm.usub.sat.i64(i64 %184, i64 %183)
+  %spec.select.i.i.i.i.i183 = sub nuw i64 %187, %186
+  %spec.select.i.i1.i.i.i184 = sub nuw i64 %184, %183
   %188 = call noundef i64 @_ZN4core3cmp6min_by17h3588564f469d301fE.llvm.12352545699060731367(i64 noundef %spec.select.i.i.i.i.i183, i64 noundef %spec.select.i.i1.i.i.i184), !noalias !668
   store i64 %186, ptr %26, align 8, !noalias !664
   store i64 %187, ptr %.sroa.4.0..sroa_idx.i185, align 8, !noalias !664
@@ -4807,7 +4807,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit191: ; 
 
 234:                                              ; preds = %228
   %235 = getelementptr inbounds i8, ptr %230, i64 40
-  %236 = sub i64 %225, %.0378
+  %236 = sub nuw i64 %225, %.0378
   %237 = mul i64 %236, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %235, ptr nonnull align 8 %230, i64 %237, i1 false), !noalias !684
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h634fc5f4e11f3800E.exit196"
@@ -5093,8 +5093,8 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit.thread
 
 _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit: ; preds = %57
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10), !noalias !708
-  %spec.select.i.i.i.i.i = call noundef i64 @llvm.usub.sat.i64(i64 %63, i64 %62)
-  %spec.select.i.i1.i.i.i = call noundef i64 @llvm.usub.sat.i64(i64 %60, i64 %59)
+  %spec.select.i.i.i.i.i = sub nuw i64 %63, %62
+  %spec.select.i.i1.i.i.i = sub nuw i64 %60, %59
   %64 = call noundef i64 @_ZN4core3cmp6min_by17h3588564f469d301fE.llvm.12352545699060731367(i64 noundef %spec.select.i.i.i.i.i, i64 noundef %spec.select.i.i1.i.i.i), !noalias !712
   store i64 %62, ptr %35, align 8, !noalias !708
   store i64 %63, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !708
@@ -5236,7 +5236,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit: ; pre
 
 122:                                              ; preds = %116
   %123 = getelementptr inbounds i8, ptr %118, i64 40
-  %124 = sub i64 %113, %.0378
+  %124 = sub nuw i64 %113, %.0378
   %125 = mul i64 %124, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %123, ptr nonnull align 8 %118, i64 %125, i1 false), !noalias !733
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h634fc5f4e11f3800E.exit"
@@ -5408,8 +5408,8 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit191.thr
 
 _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit191: ; preds = %187
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7), !noalias !751
-  %spec.select.i.i.i.i.i183 = call noundef i64 @llvm.usub.sat.i64(i64 %193, i64 %192)
-  %spec.select.i.i1.i.i.i184 = call noundef i64 @llvm.usub.sat.i64(i64 %190, i64 %189)
+  %spec.select.i.i.i.i.i183 = sub nuw i64 %193, %192
+  %spec.select.i.i1.i.i.i184 = sub nuw i64 %190, %189
   %194 = call noundef i64 @_ZN4core3cmp6min_by17h3588564f469d301fE.llvm.12352545699060731367(i64 noundef %spec.select.i.i.i.i.i183, i64 noundef %spec.select.i.i1.i.i.i184), !noalias !755
   store i64 %192, ptr %30, align 8, !noalias !751
   store i64 %193, ptr %.sroa.4.0..sroa_idx.i185, align 8, !noalias !751
@@ -5515,7 +5515,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit191: ; 
 
 240:                                              ; preds = %234
   %241 = getelementptr inbounds i8, ptr %236, i64 40
-  %242 = sub i64 %231, %.0378
+  %242 = sub nuw i64 %231, %.0378
   %243 = mul i64 %242, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %241, ptr nonnull align 8 %236, i64 %243, i1 false), !noalias !771
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h634fc5f4e11f3800E.exit196"
@@ -6400,7 +6400,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !897
   store ptr %18, ptr %3, align 8, !alias.scope !897
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !898
   %13 = add i64 %5, -1
@@ -6473,7 +6473,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   %10 = xor i16 %17, -1
   store ptr %19, ptr %9, align 8, !alias.scope !910
   store ptr %18, ptr %3, align 8, !alias.scope !910
-  %11 = sub i16 -2, %17
+  %11 = sub nuw i16 -2, %17
   %12 = and i16 %11, %10
   store i16 %12, ptr %8, align 8, !alias.scope !911
   %13 = add i64 %5, -1

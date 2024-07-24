@@ -2954,7 +2954,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cipso_v4_skbuff_setattr(ptr noun
 
 96:                                               ; preds = %88
   %97 = getelementptr i8, ptr %93, i64 %94
-  %98 = sub i32 %10, %6
+  %98 = sub nuw i32 %10, %6
   %99 = zext i32 %98 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %97, i8 0, i64 %99, i1 false)
   br label %100

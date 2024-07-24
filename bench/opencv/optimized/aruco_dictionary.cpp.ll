@@ -1437,7 +1437,7 @@ define void @_ZN2cv5aruco10Dictionary19getBitsFromByteListERKNS_3MatEi(ptr dead_
   %48 = getelementptr inbounds i8, ptr %44, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 %indvars.iv
   store i8 1, ptr %49, align 1
-  %50 = sub i8 %.13254, %42
+  %50 = sub nuw i8 %.13254, %42
   br label %53
 
 51:                                               ; preds = %68, %56

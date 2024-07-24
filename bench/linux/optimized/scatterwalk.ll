@@ -187,7 +187,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr nocapture noundef %0, ptr no
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %.preheader
-  %16 = sub i32 %10, %13
+  %16 = sub nuw i32 %10, %13
   %17 = tail call ptr @sg_next(ptr noundef %11) #6
   %18 = icmp eq i32 %16, 0
   br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !6
@@ -435,7 +435,7 @@ define dso_local ptr @scatterwalk_ffwd(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %.preheader
-  %11 = sub i32 %5, %8
+  %11 = sub nuw i32 %5, %8
   %12 = tail call ptr @sg_next(ptr noundef %6) #6
   %13 = icmp eq i32 %11, 0
   br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !6

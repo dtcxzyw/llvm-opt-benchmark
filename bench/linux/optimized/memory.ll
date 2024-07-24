@@ -6053,7 +6053,7 @@ define dso_local i32 @vm_iomap_memory(ptr noundef %0, i64 noundef %1, i64 nounde
   br i1 %15, label %39, label %16
 
 16:                                               ; preds = %7
-  %17 = sub nsw i64 %12, %14
+  %17 = sub nuw nsw i64 %12, %14
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = load i64, ptr %0, align 8

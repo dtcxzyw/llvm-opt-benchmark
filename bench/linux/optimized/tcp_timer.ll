@@ -525,8 +525,8 @@ define dso_local void @tcp_retransmit_timer(ptr noundef %0) local_unnamed_addr #
   %245 = shl i32 2, %238
   %246 = add i32 %245, -1
   %247 = mul i32 %246, %236
-  %248 = sub nsw i32 %221, %238
-  %249 = mul nsw i32 %248, 120000
+  %248 = sub nuw nsw i32 %221, %238
+  %249 = mul nuw nsw i32 %248, 120000
   %250 = add i32 %247, %249
   br label %251
 
@@ -698,8 +698,8 @@ retransmits_timed_out.exit.thread:                ; preds = %218, %261, %320, %3
   %369 = shl i32 2, %362
   %370 = add i32 %369, -1
   %371 = mul i32 %370, %360
-  %372 = sub nsw i32 %345, %362
-  %373 = mul nsw i32 %372, 120000
+  %372 = sub nuw nsw i32 %345, %362
+  %373 = mul nuw nsw i32 %372, 120000
   %374 = add i32 %371, %373
   br label %375
 
@@ -795,8 +795,8 @@ retransmits_timed_out.exit14:                     ; preds = %346, %385, %393
   %437 = shl i32 2, %430
   %438 = add i32 %437, -1
   %439 = mul i32 %438, %428
-  %440 = sub nsw i32 %409, %430
-  %441 = mul nsw i32 %440, 120000
+  %440 = sub nuw nsw i32 %409, %430
+  %441 = mul nuw nsw i32 %440, 120000
   %442 = add i32 %439, %441
   br label %443
 
@@ -1154,8 +1154,8 @@ retransmits_timed_out.exit15:                     ; preds = %463, %455, %.thread
   %682 = shl i32 2, %676
   %683 = add i32 %682, -1
   %684 = mul i32 %683, %674
-  %685 = sub nsw i32 %659, %676
-  %686 = mul nsw i32 %685, 120000
+  %685 = sub nuw nsw i32 %659, %676
+  %686 = mul nuw nsw i32 %685, 120000
   %687 = add i32 %684, %686
   br label %688
 

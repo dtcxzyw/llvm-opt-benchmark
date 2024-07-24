@@ -1247,7 +1247,7 @@ do.body.i:                                        ; preds = %if.end36.i, %do.end
   br i1 %cmp.i174.not, label %if.else.i175, label %if.then.i178
 
 if.then.i178:                                     ; preds = %do.body.i
-  %sub.i179 = sub nsw i64 %conv.i173, %1
+  %sub.i179 = sub nuw nsw i64 %conv.i173, %1
   %cmp9.i.not = icmp ult i64 %sub.i179, %190
   br i1 %cmp9.i.not, label %if.end23.i, label %next_nfa.i
 
@@ -5201,7 +5201,7 @@ if.then5.i1948:                                   ; preds = %if.end.i1936
   br i1 %cmp.i3825, label %if.then.i3830, label %if.else17.i
 
 if.then.i3830:                                    ; preds = %if.then5.i1948
-  %sub.i3833 = sub nsw i64 %conv.i1940, %763
+  %sub.i3833 = sub nuw nsw i64 %conv.i1940, %763
   %cmp4.i3834 = icmp ugt i64 %sub.i3833, 23
   %hbuf.i3844 = getelementptr inbounds i8, ptr %scratch, i64 304
   %765 = load ptr, ptr %hbuf.i3844, align 8

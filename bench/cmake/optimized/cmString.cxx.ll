@@ -685,7 +685,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cm6String5
   br label %33
 
 13:                                               ; preds = %3
-  %14 = sub i64 %6, %1
+  %14 = sub nuw i64 %6, %1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %14, i64 %2)
   %15 = add i64 %.sroa.speculated, %1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
@@ -838,7 +838,7 @@ define dso_local noundef i64 @_ZNK2cm6String4copyEPcmm(ptr nocapture noundef non
   unreachable
 
 _ZSt10__sv_checkmmPKc.exit.i:                     ; preds = %4
-  %9 = sub i64 %6, %3
+  %9 = sub nuw i64 %6, %3
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %2)
   %10 = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %10, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit, label %11

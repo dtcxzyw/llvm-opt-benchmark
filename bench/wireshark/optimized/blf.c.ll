@@ -1563,7 +1563,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_bytes_or_eof(ptr nocapture 
   br i1 %82, label %.loopexit, label %83
 
 83:                                               ; preds = %80
-  %84 = sub i64 %55, %54
+  %84 = sub nuw i64 %55, %54
   %85 = load i32, ptr %12, align 8
   %.not66 = icmp eq i32 %85, 0
   br i1 %.not66, label %94, label %86
@@ -4126,7 +4126,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_pull_logcontainer_into_memory(pt
 31:                                               ; preds = %23
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = sub i64 %25, %18
+  %34 = sub nuw i64 %25, %18
   %35 = icmp ult i64 %33, %34
   br i1 %35, label %36, label %42
 
@@ -4141,7 +4141,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_pull_logcontainer_into_memory(pt
   br label %136
 
 42:                                               ; preds = %31
-  %43 = sub i64 %33, %34
+  %43 = sub nuw i64 %33, %34
   %44 = icmp ugt i64 %43, 4294967295
   br i1 %44, label %45, label %47
 

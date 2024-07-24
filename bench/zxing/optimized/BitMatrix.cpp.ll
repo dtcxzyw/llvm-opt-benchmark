@@ -1267,7 +1267,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowINS_10StrideIterIPKhEEEEvNS_5R
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %2
-  %20 = sub nsw i64 %10, %17
+  %20 = sub nuw nsw i64 %10, %17
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %20)
   %.pre = load ptr, ptr %1, align 8
   %.pre36 = load ptr, ptr %11, align 8
@@ -1361,7 +1361,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %._crit_edge
-  %65 = sub i64 %58, %62
+  %65 = sub nuw i64 %58, %62
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %65)
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit21
 
@@ -1401,7 +1401,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowIPKhEEvNS_5RangeIT_EERSt6vecto
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %3
-  %18 = sub nsw i64 %8, %15
+  %18 = sub nuw nsw i64 %8, %15
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %18)
   %.pre = load ptr, ptr %2, align 8
   %.pre57 = load ptr, ptr %9, align 8
@@ -1531,7 +1531,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %._crit_edge
-  %76 = sub i64 %69, %73
+  %76 = sub nuw i64 %69, %73
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %76)
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit44
 

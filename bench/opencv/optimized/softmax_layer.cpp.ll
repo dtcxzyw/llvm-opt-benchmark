@@ -1055,7 +1055,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %8, %.noexc40
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %35
-  %46 = sub nsw i64 %12, %43
+  %46 = sub nuw nsw i64 %12, %43
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %46)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %99
 
@@ -1119,7 +1119,7 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: 
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit
-  %74 = sub nsw i64 %12, %71
+  %74 = sub nuw nsw i64 %12, %71
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %64, i64 noundef %74)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit26_crit_edge unwind label %99
 

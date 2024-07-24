@@ -2174,7 +2174,7 @@ define internal fastcc i32 @ZDICT_tryMerge(ptr nocapture noundef %0, i64 %1, i32
 
 17:                                               ; preds = %13
   %18 = trunc nuw i64 %indvars.iv to i32
-  %19 = sub i32 %15, %.sroa.0102.sroa.0.0.extract.trunc
+  %19 = sub nuw i32 %15, %.sroa.0102.sroa.0.0.extract.trunc
   %20 = getelementptr inbounds i8, ptr %14, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = add i32 %21, %19

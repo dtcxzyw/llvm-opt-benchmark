@@ -6372,7 +6372,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
   br i1 %190, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i", label %191
 
 191:                                              ; preds = %188
-  %192 = sub i64 %189, %50
+  %192 = sub nuw i64 %189, %50
   %193 = getelementptr inbounds i8, ptr %2, i64 8
   %194 = load ptr, ptr %193, align 8, !alias.scope !1079, !noalias !1019, !nonnull !26, !noundef !26
   %195 = getelementptr inbounds { i8, [15 x i8] }, ptr %194, i64 %50
@@ -6392,7 +6392,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit111
   br i1 %199, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i", label %200
 
 200:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i"
-  %201 = sub i64 %198, %50
+  %201 = sub nuw i64 %198, %50
   %202 = load ptr, ptr %112, align 8, !alias.scope !1085, !noalias !1019, !nonnull !26, !noundef !26
   %203 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %202, i64 %50
   store i64 %50, ptr %108, align 8, !alias.scope !1085, !noalias !1019
@@ -7459,7 +7459,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit108
   br i1 %325, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i", label %326
 
 326:                                              ; preds = %323
-  %327 = sub i64 %324, %173
+  %327 = sub nuw i64 %324, %173
   %328 = getelementptr inbounds i8, ptr %2, i64 8
   %329 = load ptr, ptr %328, align 8, !alias.scope !1257, !noalias !1173, !nonnull !26, !noundef !26
   %330 = getelementptr inbounds { i8, [15 x i8] }, ptr %329, i64 %173
@@ -7479,7 +7479,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit108
   br i1 %334, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i", label %335
 
 335:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i"
-  %336 = sub i64 %333, %173
+  %336 = sub nuw i64 %333, %173
   %337 = load ptr, ptr %237, align 8, !alias.scope !1263, !noalias !1173, !nonnull !26, !noundef !26
   %338 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %337, i64 %173
   store i64 %173, ptr %233, align 8, !alias.scope !1263, !noalias !1173
@@ -8613,7 +8613,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %324, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i.i", label %325
 
 325:                                              ; preds = %322
-  %326 = sub i64 %323, %168
+  %326 = sub nuw i64 %323, %168
   %327 = getelementptr inbounds i8, ptr %0, i64 8
   %328 = load ptr, ptr %327, align 8, !alias.scope !1479, !noalias !1376, !nonnull !26, !noundef !26
   %329 = getelementptr inbounds { i8, [15 x i8] }, ptr %328, i64 %168
@@ -8633,7 +8633,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %333, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i.i.i.i", label %334
 
 334:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i.i"
-  %335 = sub i64 %332, %168
+  %335 = sub nuw i64 %332, %168
   %336 = load ptr, ptr %118, align 8, !alias.scope !1485, !noalias !1376, !nonnull !26, !noundef !26
   %337 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %336, i64 %168
   store i64 %168, ptr %114, align 8, !alias.scope !1485, !noalias !1376
@@ -8851,7 +8851,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %396, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %397
 
 397:                                              ; preds = %394
-  %398 = sub i64 %395, %56
+  %398 = sub nuw i64 %395, %56
   %399 = getelementptr inbounds i8, ptr %0, i64 8
   %400 = load ptr, ptr %399, align 8, !alias.scope !1513, !nonnull !26, !noundef !26
   %401 = getelementptr inbounds { i8, [15 x i8] }, ptr %400, i64 %56
@@ -8871,7 +8871,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %405, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %406
 
 406:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %407 = sub i64 %404, %56
+  %407 = sub nuw i64 %404, %56
   %408 = load ptr, ptr %118, align 8, !alias.scope !1516, !nonnull !26, !noundef !26
   %409 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %408, i64 %56
   store i64 %56, ptr %114, align 8, !alias.scope !1516
@@ -9335,7 +9335,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %120, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %121
 
 121:                                              ; preds = %118
-  %122 = sub i64 %119, %28
+  %122 = sub nuw i64 %119, %28
   %123 = getelementptr inbounds i8, ptr %0, i64 8
   %124 = load ptr, ptr %123, align 8, !alias.scope !1562, !nonnull !26, !noundef !26
   %125 = getelementptr inbounds { i8, [15 x i8] }, ptr %124, i64 %28
@@ -9355,7 +9355,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %129, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %130
 
 130:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %131 = sub i64 %128, %28
+  %131 = sub nuw i64 %128, %28
   %132 = load ptr, ptr %90, align 8, !alias.scope !1565, !nonnull !26, !noundef !26
   %133 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %132, i64 %28
   store i64 %28, ptr %86, align 8, !alias.scope !1565
@@ -10419,7 +10419,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %308, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i", label %309
 
 309:                                              ; preds = %"_ZN11chalk_solve7clauses6dyn_ty25build_dyn_self_ty_clauses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3447ba91e3750c9bE.exit.i.i"
-  %310 = sub i64 %307, %212
+  %310 = sub nuw i64 %307, %212
   %311 = load ptr, ptr %158, align 8, !alias.scope !1758, !noalias !1720, !nonnull !26, !noundef !26
   %312 = getelementptr inbounds { i8, [15 x i8] }, ptr %311, i64 %212
   store i64 %212, ptr %51, align 8, !alias.scope !1758, !noalias !1720
@@ -10438,7 +10438,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %316, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i.i", label %317
 
 317:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i"
-  %318 = sub i64 %315, %212
+  %318 = sub nuw i64 %315, %212
   %319 = load ptr, ptr %113, align 8, !alias.scope !1764, !noalias !1720, !nonnull !26, !noundef !26
   %320 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %319, i64 %212
   store i64 %212, ptr %109, align 8, !alias.scope !1764, !noalias !1720
@@ -10678,7 +10678,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %378, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %379
 
 379:                                              ; preds = %"_ZN11chalk_solve7clauses6dyn_ty25build_dyn_self_ty_clauses28_$u7b$$u7b$closure$u7d$$u7d$17h5c9619818dc59484E.exit"
-  %380 = sub i64 %377, %52
+  %380 = sub nuw i64 %377, %52
   %381 = getelementptr inbounds i8, ptr %0, i64 8
   %382 = load ptr, ptr %381, align 8, !alias.scope !1794, !nonnull !26, !noundef !26
   %383 = getelementptr inbounds { i8, [15 x i8] }, ptr %382, i64 %52
@@ -10698,7 +10698,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %387, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %388
 
 388:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %389 = sub i64 %386, %52
+  %389 = sub nuw i64 %386, %52
   %390 = load ptr, ptr %113, align 8, !alias.scope !1797, !nonnull !26, !noundef !26
   %391 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %390, i64 %52
   store i64 %52, ptr %109, align 8, !alias.scope !1797
@@ -11866,7 +11866,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %339, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %340
 
 340:                                              ; preds = %337
-  %341 = sub i64 %338, %58
+  %341 = sub nuw i64 %338, %58
   %342 = load ptr, ptr %240, align 8, !alias.scope !2064, !nonnull !26, !noundef !26
   %343 = getelementptr inbounds { i8, [15 x i8] }, ptr %342, i64 %58
   store i64 %58, ptr %57, align 8, !alias.scope !2064
@@ -11885,7 +11885,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %347, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %348
 
 348:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %349 = sub i64 %346, %58
+  %349 = sub nuw i64 %346, %58
   %350 = load ptr, ptr %119, align 8, !alias.scope !2067, !nonnull !26, !noundef !26
   %351 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %350, i64 %58
   store i64 %58, ptr %115, align 8, !alias.scope !2067
@@ -14215,7 +14215,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit108
   br i1 %738, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i", label %739
 
 739:                                              ; preds = %736
-  %740 = sub i64 %737, %644
+  %740 = sub nuw i64 %737, %644
   %741 = load ptr, ptr %341, align 8, !alias.scope !2515, !noalias !2476, !nonnull !26, !noundef !26
   %742 = getelementptr inbounds { i8, [15 x i8] }, ptr %741, i64 %644
   store i64 %644, ptr %184, align 8, !alias.scope !2515, !noalias !2476
@@ -14234,7 +14234,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit108
   br i1 %746, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i.i", label %747
 
 747:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i"
-  %748 = sub i64 %745, %644
+  %748 = sub nuw i64 %745, %644
   %749 = load ptr, ptr %247, align 8, !alias.scope !2521, !noalias !2476, !nonnull !26, !noundef !26
   %750 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %749, i64 %644
   store i64 %644, ptr %243, align 8, !alias.scope !2521, !noalias !2476
@@ -15965,7 +15965,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %1129, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %1130
 
 1130:                                             ; preds = %1127
-  %1131 = sub i64 %1128, %185
+  %1131 = sub nuw i64 %1128, %185
   %1132 = load ptr, ptr %341, align 8, !alias.scope !2965, !nonnull !26, !noundef !26
   %1133 = getelementptr inbounds { i8, [15 x i8] }, ptr %1132, i64 %185
   store i64 %185, ptr %184, align 8, !alias.scope !2965
@@ -15984,7 +15984,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %1137, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %1138
 
 1138:                                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %1139 = sub i64 %1136, %185
+  %1139 = sub nuw i64 %1136, %185
   %1140 = load ptr, ptr %247, align 8, !alias.scope !2968, !nonnull !26, !noundef !26
   %1141 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %1140, i64 %185
   store i64 %185, ptr %243, align 8, !alias.scope !2968
@@ -17985,7 +17985,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %620, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %621
 
 621:                                              ; preds = %"_ZN124_$LT$chalk_solve..rust_ir..AdtDatum$LT$I$GT$$u20$as$u20$chalk_solve..clauses..program_clauses..ToProgramClauses$LT$I$GT$$GT$18to_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$17h3d824c261d925382E.exit"
-  %622 = sub i64 %619, %96
+  %622 = sub nuw i64 %619, %96
   %623 = getelementptr inbounds i8, ptr %0, i64 8
   %624 = load ptr, ptr %623, align 8, !alias.scope !3487, !nonnull !26, !noundef !26
   %625 = getelementptr inbounds { i8, [15 x i8] }, ptr %624, i64 %96
@@ -18005,7 +18005,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %629, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %630
 
 630:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %631 = sub i64 %628, %96
+  %631 = sub nuw i64 %628, %96
   %632 = load ptr, ptr %158, align 8, !alias.scope !3490, !nonnull !26, !noundef !26
   %633 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %632, i64 %96
   store i64 %96, ptr %154, align 8, !alias.scope !3490
@@ -18923,7 +18923,7 @@ _ZN11chalk_solve7clauses14builtin_traits17discriminant_kind24add_discriminant_cl
   br i1 %262, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %263
 
 263:                                              ; preds = %260
-  %264 = sub i64 %261, %39
+  %264 = sub nuw i64 %261, %39
   %265 = getelementptr inbounds i8, ptr %0, i64 8
   %266 = load ptr, ptr %265, align 8, !alias.scope !3648, !nonnull !26, !noundef !26
   %267 = getelementptr inbounds { i8, [15 x i8] }, ptr %266, i64 %39
@@ -18943,7 +18943,7 @@ _ZN11chalk_solve7clauses14builtin_traits17discriminant_kind24add_discriminant_cl
   br i1 %271, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %272
 
 272:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %273 = sub i64 %270, %39
+  %273 = sub nuw i64 %270, %39
   %274 = load ptr, ptr %103, align 8, !alias.scope !3651, !nonnull !26, !noundef !26
   %275 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %274, i64 %39
   store i64 %39, ptr %99, align 8, !alias.scope !3651
@@ -20036,7 +20036,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %324, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i.i", label %325
 
 325:                                              ; preds = %322
-  %326 = sub i64 %323, %168
+  %326 = sub nuw i64 %323, %168
   %327 = getelementptr inbounds i8, ptr %0, i64 8
   %328 = load ptr, ptr %327, align 8, !alias.scope !3847, !noalias !3744, !nonnull !26, !noundef !26
   %329 = getelementptr inbounds { i8, [15 x i8] }, ptr %328, i64 %168
@@ -20056,7 +20056,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %333, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i.i.i.i", label %334
 
 334:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i.i"
-  %335 = sub i64 %332, %168
+  %335 = sub nuw i64 %332, %168
   %336 = load ptr, ptr %118, align 8, !alias.scope !3853, !noalias !3744, !nonnull !26, !noundef !26
   %337 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %336, i64 %168
   store i64 %168, ptr %114, align 8, !alias.scope !3853, !noalias !3744
@@ -20274,7 +20274,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %396, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %397
 
 397:                                              ; preds = %394
-  %398 = sub i64 %395, %56
+  %398 = sub nuw i64 %395, %56
   %399 = getelementptr inbounds i8, ptr %0, i64 8
   %400 = load ptr, ptr %399, align 8, !alias.scope !3881, !nonnull !26, !noundef !26
   %401 = getelementptr inbounds { i8, [15 x i8] }, ptr %400, i64 %56
@@ -20294,7 +20294,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %405, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %406
 
 406:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %407 = sub i64 %404, %56
+  %407 = sub nuw i64 %404, %56
   %408 = load ptr, ptr %118, align 8, !alias.scope !3884, !nonnull !26, !noundef !26
   %409 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %408, i64 %56
   store i64 %56, ptr %114, align 8, !alias.scope !3884
@@ -21356,7 +21356,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit102
   br i1 %318, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i", label %319
 
 319:                                              ; preds = %316
-  %320 = sub i64 %317, %150
+  %320 = sub nuw i64 %317, %150
   %321 = getelementptr inbounds i8, ptr %0, i64 8
   %322 = load ptr, ptr %321, align 8, !alias.scope !4051, !noalias !3964, !nonnull !26, !noundef !26
   %323 = getelementptr inbounds { i8, [15 x i8] }, ptr %322, i64 %150
@@ -21376,7 +21376,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit102
   br i1 %327, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i.i.i", label %328
 
 328:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i"
-  %329 = sub i64 %326, %150
+  %329 = sub nuw i64 %326, %150
   %330 = load ptr, ptr %116, align 8, !alias.scope !4057, !noalias !3964, !nonnull !26, !noundef !26
   %331 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %330, i64 %150
   store i64 %150, ptr %112, align 8, !alias.scope !4057, !noalias !3964
@@ -21648,7 +21648,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit102
   br i1 %408, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %409
 
 409:                                              ; preds = %406
-  %410 = sub i64 %407, %54
+  %410 = sub nuw i64 %407, %54
   %411 = getelementptr inbounds i8, ptr %0, i64 8
   %412 = load ptr, ptr %411, align 8, !alias.scope !4110, !nonnull !26, !noundef !26
   %413 = getelementptr inbounds { i8, [15 x i8] }, ptr %412, i64 %54
@@ -21668,7 +21668,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit102
   br i1 %417, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %418
 
 418:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %419 = sub i64 %416, %54
+  %419 = sub nuw i64 %416, %54
   %420 = load ptr, ptr %116, align 8, !alias.scope !4113, !nonnull !26, !noundef !26
   %421 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %420, i64 %54
   store i64 %54, ptr %112, align 8, !alias.scope !4113
@@ -22144,7 +22144,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit105
   br i1 %118, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %119
 
 119:                                              ; preds = %116
-  %120 = sub i64 %117, %27
+  %120 = sub nuw i64 %117, %27
   %121 = getelementptr inbounds i8, ptr %0, i64 8
   %122 = load ptr, ptr %121, align 8, !alias.scope !4163, !nonnull !26, !noundef !26
   %123 = getelementptr inbounds { i8, [15 x i8] }, ptr %122, i64 %27
@@ -22164,7 +22164,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit105
   br i1 %127, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %128
 
 128:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %129 = sub i64 %126, %27
+  %129 = sub nuw i64 %126, %27
   %130 = load ptr, ptr %89, align 8, !alias.scope !4166, !nonnull !26, !noundef !26
   %131 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %130, i64 %27
   store i64 %27, ptr %85, align 8, !alias.scope !4166
@@ -22841,7 +22841,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %180, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %181
 
 181:                                              ; preds = %178
-  %182 = sub i64 %179, %35
+  %182 = sub nuw i64 %179, %35
   %183 = getelementptr inbounds i8, ptr %0, i64 8
   %184 = load ptr, ptr %183, align 8, !alias.scope !4252, !nonnull !26, !noundef !26
   %185 = getelementptr inbounds { i8, [15 x i8] }, ptr %184, i64 %35
@@ -22861,7 +22861,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %189, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %190
 
 190:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %191 = sub i64 %188, %35
+  %191 = sub nuw i64 %188, %35
   %192 = load ptr, ptr %97, align 8, !alias.scope !4255, !nonnull !26, !noundef !26
   %193 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %192, i64 %35
   store i64 %35, ptr %93, align 8, !alias.scope !4255
@@ -23463,7 +23463,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %172, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %173
 
 173:                                              ; preds = %170
-  %174 = sub i64 %171, %34
+  %174 = sub nuw i64 %171, %34
   %175 = getelementptr inbounds i8, ptr %0, i64 8
   %176 = load ptr, ptr %175, align 8, !alias.scope !4344, !nonnull !26, !noundef !26
   %177 = getelementptr inbounds { i8, [15 x i8] }, ptr %176, i64 %34
@@ -23483,7 +23483,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %181, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %182
 
 182:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %183 = sub i64 %180, %34
+  %183 = sub nuw i64 %180, %34
   %184 = load ptr, ptr %95, align 8, !alias.scope !4347, !nonnull !26, !noundef !26
   %185 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %184, i64 %34
   store i64 %34, ptr %91, align 8, !alias.scope !4347
@@ -24662,7 +24662,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %348, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %349
 
 349:                                              ; preds = %346
-  %350 = sub i64 %347, %60
+  %350 = sub nuw i64 %347, %60
   %351 = load ptr, ptr %259, align 8, !alias.scope !4582, !nonnull !26, !noundef !26
   %352 = getelementptr inbounds { i8, [15 x i8] }, ptr %351, i64 %60
   store i64 %60, ptr %59, align 8, !alias.scope !4582
@@ -24681,7 +24681,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %356, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %357
 
 357:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %358 = sub i64 %355, %60
+  %358 = sub nuw i64 %355, %60
   %359 = load ptr, ptr %124, align 8, !alias.scope !4585, !nonnull !26, !noundef !26
   %360 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %359, i64 %60
   store i64 %60, ptr %120, align 8, !alias.scope !4585
@@ -25647,7 +25647,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %263, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %264
 
 264:                                              ; preds = %261
-  %265 = sub i64 %262, %52
+  %265 = sub nuw i64 %262, %52
   %266 = load ptr, ptr %192, align 8, !alias.scope !4758, !nonnull !26, !noundef !26
   %267 = getelementptr inbounds { i8, [15 x i8] }, ptr %266, i64 %52
   store i64 %52, ptr %51, align 8, !alias.scope !4758
@@ -25666,7 +25666,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %271, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %272
 
 272:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %273 = sub i64 %270, %52
+  %273 = sub nuw i64 %270, %52
   %274 = load ptr, ptr %114, align 8, !alias.scope !4761, !nonnull !26, !noundef !26
   %275 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %274, i64 %52
   store i64 %52, ptr %110, align 8, !alias.scope !4761
@@ -26370,7 +26370,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %189, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %190
 
 190:                                              ; preds = %187
-  %191 = sub i64 %188, %35
+  %191 = sub nuw i64 %188, %35
   %192 = getelementptr inbounds i8, ptr %0, i64 8
   %193 = load ptr, ptr %192, align 8, !alias.scope !4852, !nonnull !26, !noundef !26
   %194 = getelementptr inbounds { i8, [15 x i8] }, ptr %193, i64 %35
@@ -26390,7 +26390,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %198, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %199
 
 199:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %200 = sub i64 %197, %35
+  %200 = sub nuw i64 %197, %35
   %201 = load ptr, ptr %97, align 8, !alias.scope !4855, !nonnull !26, !noundef !26
   %202 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %201, i64 %35
   store i64 %35, ptr %93, align 8, !alias.scope !4855
@@ -27032,7 +27032,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit109
   br i1 %182, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %183
 
 183:                                              ; preds = %180
-  %184 = sub i64 %181, %30
+  %184 = sub nuw i64 %181, %30
   %185 = getelementptr inbounds i8, ptr %0, i64 8
   %186 = load ptr, ptr %185, align 8, !alias.scope !4977, !nonnull !26, !noundef !26
   %187 = getelementptr inbounds { i8, [15 x i8] }, ptr %186, i64 %30
@@ -27052,7 +27052,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit109
   br i1 %191, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %192
 
 192:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %193 = sub i64 %190, %30
+  %193 = sub nuw i64 %190, %30
   %194 = load ptr, ptr %91, align 8, !alias.scope !4980, !nonnull !26, !noundef !26
   %195 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %194, i64 %30
   store i64 %30, ptr %87, align 8, !alias.scope !4980
@@ -27535,7 +27535,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %126, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %127
 
 127:                                              ; preds = %124
-  %128 = sub i64 %125, %30
+  %128 = sub nuw i64 %125, %30
   %129 = getelementptr inbounds i8, ptr %0, i64 8
   %130 = load ptr, ptr %129, align 8, !alias.scope !5029, !nonnull !26, !noundef !26
   %131 = getelementptr inbounds { i8, [15 x i8] }, ptr %130, i64 %30
@@ -27555,7 +27555,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %135, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %136
 
 136:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %137 = sub i64 %134, %30
+  %137 = sub nuw i64 %134, %30
   %138 = load ptr, ptr %94, align 8, !alias.scope !5032, !nonnull !26, !noundef !26
   %139 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %138, i64 %30
   store i64 %30, ptr %90, align 8, !alias.scope !5032
@@ -29366,7 +29366,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %505, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i", label %506
 
 506:                                              ; preds = %503
-  %507 = sub i64 %504, %224
+  %507 = sub nuw i64 %504, %224
   %508 = getelementptr inbounds i8, ptr %0, i64 8
   %509 = load ptr, ptr %508, align 8, !alias.scope !5394, !noalias !5160, !nonnull !26, !noundef !26
   %510 = getelementptr inbounds { i8, [15 x i8] }, ptr %509, i64 %224
@@ -29386,7 +29386,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %514, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i.i.i", label %515
 
 515:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i"
-  %516 = sub i64 %513, %224
+  %516 = sub nuw i64 %513, %224
   %517 = load ptr, ptr %147, align 8, !alias.scope !5400, !noalias !5160, !nonnull !26, !noundef !26
   %518 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %517, i64 %224
   store i64 %224, ptr %143, align 8, !alias.scope !5400, !noalias !5160
@@ -29737,7 +29737,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %620, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %621
 
 621:                                              ; preds = %"_ZN11chalk_solve7clauses37push_clauses_for_compatible_normalize28_$u7b$$u7b$closure$u7d$$u7d$17hdd48db122f86dcdcE.exit"
-  %622 = sub i64 %619, %85
+  %622 = sub nuw i64 %619, %85
   %623 = getelementptr inbounds i8, ptr %0, i64 8
   %624 = load ptr, ptr %623, align 8, !alias.scope !5490, !nonnull !26, !noundef !26
   %625 = getelementptr inbounds { i8, [15 x i8] }, ptr %624, i64 %85
@@ -29757,7 +29757,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %629, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %630
 
 630:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %631 = sub i64 %628, %85
+  %631 = sub nuw i64 %628, %85
   %632 = load ptr, ptr %147, align 8, !alias.scope !5493, !nonnull !26, !noundef !26
   %633 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %632, i64 %85
   store i64 %85, ptr %143, align 8, !alias.scope !5493
@@ -31561,7 +31561,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %533, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i", label %534
 
 534:                                              ; preds = %531
-  %535 = sub i64 %532, %355
+  %535 = sub nuw i64 %532, %355
   %536 = load ptr, ptr %279, align 8, !alias.scope !5842, !noalias !5700, !nonnull !26, !noundef !26
   %537 = getelementptr inbounds { i8, [15 x i8] }, ptr %536, i64 %355
   store i64 %355, ptr %123, align 8, !alias.scope !5842, !noalias !5700
@@ -31580,7 +31580,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %541, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i.i", label %542
 
 542:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i"
-  %543 = sub i64 %540, %355
+  %543 = sub nuw i64 %540, %355
   %544 = load ptr, ptr %186, align 8, !alias.scope !5848, !noalias !5700, !nonnull !26, !noundef !26
   %545 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %544, i64 %355
   store i64 %355, ptr %182, align 8, !alias.scope !5848, !noalias !5700
@@ -32284,7 +32284,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %740, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i113.i", label %741
 
 741:                                              ; preds = %"_ZN129_$LT$chalk_solve..rust_ir..OpaqueTyDatum$LT$I$GT$$u20$as$u20$chalk_solve..clauses..program_clauses..ToProgramClauses$LT$I$GT$$GT$18to_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb8daa7a2226bf94bE.exit.i.i"
-  %742 = sub i64 %739, %644
+  %742 = sub nuw i64 %739, %644
   %743 = load ptr, ptr %279, align 8, !alias.scope !5966, !noalias !5929, !nonnull !26, !noundef !26
   %744 = getelementptr inbounds { i8, [15 x i8] }, ptr %743, i64 %644
   store i64 %644, ptr %123, align 8, !alias.scope !5966, !noalias !5929
@@ -32303,7 +32303,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %748, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i118.i", label %749
 
 749:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i113.i"
-  %750 = sub i64 %747, %644
+  %750 = sub nuw i64 %747, %644
   %751 = load ptr, ptr %186, align 8, !alias.scope !5972, !noalias !5929, !nonnull !26, !noundef !26
   %752 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %751, i64 %644
   store i64 %644, ptr %182, align 8, !alias.scope !5972, !noalias !5929
@@ -32572,7 +32572,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %812, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %813
 
 813:                                              ; preds = %810
-  %814 = sub i64 %811, %124
+  %814 = sub nuw i64 %811, %124
   %815 = load ptr, ptr %279, align 8, !alias.scope !6000, !nonnull !26, !noundef !26
   %816 = getelementptr inbounds { i8, [15 x i8] }, ptr %815, i64 %124
   store i64 %124, ptr %123, align 8, !alias.scope !6000
@@ -32591,7 +32591,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %820, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %821
 
 821:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %822 = sub i64 %819, %124
+  %822 = sub nuw i64 %819, %124
   %823 = load ptr, ptr %186, align 8, !alias.scope !6003, !nonnull !26, !noundef !26
   %824 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %823, i64 %124
   store i64 %124, ptr %182, align 8, !alias.scope !6003
@@ -33207,7 +33207,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %161, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %162
 
 162:                                              ; preds = %159
-  %163 = sub i64 %160, %31
+  %163 = sub nuw i64 %160, %31
   %164 = getelementptr inbounds i8, ptr %0, i64 8
   %165 = load ptr, ptr %164, align 8, !alias.scope !6090, !nonnull !26, !noundef !26
   %166 = getelementptr inbounds { i8, [15 x i8] }, ptr %165, i64 %31
@@ -33227,7 +33227,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %170, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %171
 
 171:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %172 = sub i64 %169, %31
+  %172 = sub nuw i64 %169, %31
   %173 = load ptr, ptr %93, align 8, !alias.scope !6093, !nonnull !26, !noundef !26
   %174 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %173, i64 %31
   store i64 %31, ptr %89, align 8, !alias.scope !6093
@@ -34316,7 +34316,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %302, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %303
 
 303:                                              ; preds = %300
-  %304 = sub i64 %301, %56
+  %304 = sub nuw i64 %301, %56
   %305 = load ptr, ptr %196, align 8, !alias.scope !6317, !nonnull !26, !noundef !26
   %306 = getelementptr inbounds { i8, [15 x i8] }, ptr %305, i64 %56
   store i64 %56, ptr %55, align 8, !alias.scope !6317
@@ -34335,7 +34335,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %310, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %311
 
 311:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %312 = sub i64 %309, %56
+  %312 = sub nuw i64 %309, %56
   %313 = load ptr, ptr %117, align 8, !alias.scope !6320, !nonnull !26, !noundef !26
   %314 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %313, i64 %56
   store i64 %56, ptr %113, align 8, !alias.scope !6320
@@ -35371,7 +35371,7 @@ default.unreachable:                              ; preds = %"_ZN8chalk_ir11Ty$L
   br i1 %311, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %312
 
 312:                                              ; preds = %309
-  %313 = sub i64 %310, %36
+  %313 = sub nuw i64 %310, %36
   %314 = getelementptr inbounds i8, ptr %0, i64 8
   %315 = load ptr, ptr %314, align 8, !alias.scope !6525, !nonnull !26, !noundef !26
   %316 = getelementptr inbounds { i8, [15 x i8] }, ptr %315, i64 %36
@@ -35391,7 +35391,7 @@ default.unreachable:                              ; preds = %"_ZN8chalk_ir11Ty$L
   br i1 %320, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %321
 
 321:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %322 = sub i64 %319, %36
+  %322 = sub nuw i64 %319, %36
   %323 = load ptr, ptr %97, align 8, !alias.scope !6528, !nonnull !26, !noundef !26
   %324 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %323, i64 %36
   store i64 %36, ptr %93, align 8, !alias.scope !6528
@@ -36475,7 +36475,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %289, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %290
 
 290:                                              ; preds = %"_ZN11chalk_solve7clauses28push_auto_trait_impls_opaque28_$u7b$$u7b$closure$u7d$$u7d$17h0d61aa197a3522c4E.exit"
-  %291 = sub i64 %288, %60
+  %291 = sub nuw i64 %288, %60
   %292 = load ptr, ptr %210, align 8, !alias.scope !6717, !nonnull !26, !noundef !26
   %293 = getelementptr inbounds { i8, [15 x i8] }, ptr %292, i64 %60
   store i64 %60, ptr %59, align 8, !alias.scope !6717
@@ -36494,7 +36494,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %297, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %298
 
 298:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %299 = sub i64 %296, %60
+  %299 = sub nuw i64 %296, %60
   %300 = load ptr, ptr %122, align 8, !alias.scope !6720, !nonnull !26, !noundef !26
   %301 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %300, i64 %60
   store i64 %60, ptr %118, align 8, !alias.scope !6720
@@ -37568,7 +37568,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %301, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %302
 
 302:                                              ; preds = %299
-  %303 = sub i64 %300, %56
+  %303 = sub nuw i64 %300, %56
   %304 = load ptr, ptr %212, align 8, !alias.scope !6921, !nonnull !26, !noundef !26
   %305 = getelementptr inbounds { i8, [15 x i8] }, ptr %304, i64 %56
   store i64 %56, ptr %55, align 8, !alias.scope !6921
@@ -37587,7 +37587,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %309, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %310
 
 310:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %311 = sub i64 %308, %56
+  %311 = sub nuw i64 %308, %56
   %312 = load ptr, ptr %118, align 8, !alias.scope !6924, !nonnull !26, !noundef !26
   %313 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %312, i64 %56
   store i64 %56, ptr %114, align 8, !alias.scope !6924
@@ -38063,7 +38063,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %126, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %127
 
 127:                                              ; preds = %124
-  %128 = sub i64 %125, %30
+  %128 = sub nuw i64 %125, %30
   %129 = getelementptr inbounds i8, ptr %0, i64 8
   %130 = load ptr, ptr %129, align 8, !alias.scope !6973, !nonnull !26, !noundef !26
   %131 = getelementptr inbounds { i8, [15 x i8] }, ptr %130, i64 %30
@@ -38083,7 +38083,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %135, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %136
 
 136:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %137 = sub i64 %134, %30
+  %137 = sub nuw i64 %134, %30
   %138 = load ptr, ptr %94, align 8, !alias.scope !6976, !nonnull !26, !noundef !26
   %139 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %138, i64 %30
   store i64 %30, ptr %90, align 8, !alias.scope !6976
@@ -38921,7 +38921,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %237, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %238
 
 238:                                              ; preds = %"_ZN126_$LT$chalk_solve..rust_ir..FnDefDatum$LT$I$GT$$u20$as$u20$chalk_solve..clauses..program_clauses..ToProgramClauses$LT$I$GT$$GT$18to_program_clauses28_$u7b$$u7b$closure$u7d$$u7d$17h49849383ed692e73E.exit"
-  %239 = sub i64 %236, %47
+  %239 = sub nuw i64 %236, %47
   %240 = getelementptr inbounds i8, ptr %0, i64 8
   %241 = load ptr, ptr %240, align 8, !alias.scope !7111, !nonnull !26, !noundef !26
   %242 = getelementptr inbounds { i8, [15 x i8] }, ptr %241, i64 %47
@@ -38941,7 +38941,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit106
   br i1 %246, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %247
 
 247:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %248 = sub i64 %245, %47
+  %248 = sub nuw i64 %245, %47
   %249 = load ptr, ptr %109, align 8, !alias.scope !7114, !nonnull !26, !noundef !26
   %250 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %249, i64 %47
   store i64 %47, ptr %105, align 8, !alias.scope !7114
@@ -40346,7 +40346,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %413, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i.i", label %414
 
 414:                                              ; preds = %411
-  %415 = sub i64 %412, %185
+  %415 = sub nuw i64 %412, %185
   %416 = load ptr, ptr %336, align 8, !alias.scope !7377, !noalias !7207, !nonnull !26, !noundef !26
   %417 = getelementptr inbounds { i8, [15 x i8] }, ptr %416, i64 %185
   store i64 %185, ptr %72, align 8, !alias.scope !7377, !noalias !7207
@@ -40365,7 +40365,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %421, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i.i.i.i", label %422
 
 422:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i.i"
-  %423 = sub i64 %420, %185
+  %423 = sub nuw i64 %420, %185
   %424 = load ptr, ptr %135, align 8, !alias.scope !7383, !noalias !7207, !nonnull !26, !noundef !26
   %425 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %424, i64 %185
   store i64 %185, ptr %131, align 8, !alias.scope !7383, !noalias !7207
@@ -40583,7 +40583,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %484, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %485
 
 485:                                              ; preds = %482
-  %486 = sub i64 %483, %73
+  %486 = sub nuw i64 %483, %73
   %487 = load ptr, ptr %336, align 8, !alias.scope !7411, !nonnull !26, !noundef !26
   %488 = getelementptr inbounds { i8, [15 x i8] }, ptr %487, i64 %73
   store i64 %73, ptr %72, align 8, !alias.scope !7411
@@ -40602,7 +40602,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %492, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %493
 
 493:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %494 = sub i64 %491, %73
+  %494 = sub nuw i64 %491, %73
   %495 = load ptr, ptr %135, align 8, !alias.scope !7414, !nonnull !26, !noundef !26
   %496 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %495, i64 %73
   store i64 %73, ptr %131, align 8, !alias.scope !7414
@@ -42082,7 +42082,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %470, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i.i.i.i.i", label %471
 
 471:                                              ; preds = %468
-  %472 = sub i64 %469, %287
+  %472 = sub nuw i64 %469, %287
   %473 = getelementptr inbounds i8, ptr %0, i64 8
   %474 = load ptr, ptr %473, align 8, !alias.scope !7664, !noalias !7573, !nonnull !26, !noundef !26
   %475 = getelementptr inbounds { i8, [15 x i8] }, ptr %474, i64 %287
@@ -42102,7 +42102,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %479, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i.i.i.i.i.i.i", label %480
 
 480:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i.i.i.i.i"
-  %481 = sub i64 %478, %287
+  %481 = sub nuw i64 %478, %287
   %482 = load ptr, ptr %139, align 8, !alias.scope !7670, !noalias !7573, !nonnull !26, !noundef !26
   %483 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %482, i64 %287
   store i64 %287, ptr %135, align 8, !alias.scope !7670, !noalias !7573
@@ -42333,7 +42333,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %545, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i", label %546
 
 546:                                              ; preds = %543
-  %547 = sub i64 %544, %178
+  %547 = sub nuw i64 %544, %178
   %548 = getelementptr inbounds i8, ptr %0, i64 8
   %549 = load ptr, ptr %548, align 8, !alias.scope !7699, !noalias !7497, !nonnull !26, !noundef !26
   %550 = getelementptr inbounds { i8, [15 x i8] }, ptr %549, i64 %178
@@ -42353,7 +42353,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %554, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i.i.i", label %555
 
 555:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i.i"
-  %556 = sub i64 %553, %178
+  %556 = sub nuw i64 %553, %178
   %557 = load ptr, ptr %139, align 8, !alias.scope !7705, !noalias !7497, !nonnull !26, !noundef !26
   %558 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %557, i64 %178
   store i64 %178, ptr %135, align 8, !alias.scope !7705, !noalias !7497
@@ -42632,7 +42632,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %636, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %637
 
 637:                                              ; preds = %634
-  %638 = sub i64 %635, %77
+  %638 = sub nuw i64 %635, %77
   %639 = getelementptr inbounds i8, ptr %0, i64 8
   %640 = load ptr, ptr %639, align 8, !alias.scope !7759, !nonnull !26, !noundef !26
   %641 = getelementptr inbounds { i8, [15 x i8] }, ptr %640, i64 %77
@@ -42652,7 +42652,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %645, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %646
 
 646:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %647 = sub i64 %644, %77
+  %647 = sub nuw i64 %644, %77
   %648 = load ptr, ptr %139, align 8, !alias.scope !7762, !nonnull !26, !noundef !26
   %649 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %648, i64 %77
   store i64 %77, ptr %135, align 8, !alias.scope !7762
@@ -43669,7 +43669,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %273, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit", label %274
 
 274:                                              ; preds = %"_ZN11chalk_solve7clauses39push_auto_trait_impls_coroutine_witness28_$u7b$$u7b$closure$u7d$$u7d$17hd1a9280965fd8d04E.exit"
-  %275 = sub i64 %272, %58
+  %275 = sub nuw i64 %272, %58
   %276 = load ptr, ptr %200, align 8, !alias.scope !7930, !nonnull !26, !noundef !26
   %277 = getelementptr inbounds { i8, [15 x i8] }, ptr %276, i64 %58
   store i64 %58, ptr %57, align 8, !alias.scope !7930
@@ -43688,7 +43688,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %281, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit", label %282
 
 282:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit"
-  %283 = sub i64 %280, %58
+  %283 = sub nuw i64 %280, %58
   %284 = load ptr, ptr %120, align 8, !alias.scope !7933, !nonnull !26, !noundef !26
   %285 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %284, i64 %58
   store i64 %58, ptr %116, align 8, !alias.scope !7933
@@ -57500,7 +57500,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %951, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i", label %952
 
 952:                                              ; preds = %949
-  %953 = sub i64 %950, %662
+  %953 = sub nuw i64 %950, %662
   %954 = load ptr, ptr %327, align 8, !alias.scope !10998, !noalias !10703, !nonnull !26, !noundef !26
   %955 = getelementptr inbounds { i8, [15 x i8] }, ptr %954, i64 %662
   store i64 %662, ptr %320, align 8, !alias.scope !10998, !noalias !10703
@@ -57519,7 +57519,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %959, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i", label %960
 
 960:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i"
-  %961 = sub i64 %958, %662
+  %961 = sub nuw i64 %958, %662
   %962 = load ptr, ptr %226, align 8, !alias.scope !11004, !noalias !10703, !nonnull !26, !noundef !26
   %963 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %962, i64 %662
   store i64 %662, ptr %228, align 8, !alias.scope !11004, !noalias !10703
@@ -58529,7 +58529,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %1234, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i", label %1235
 
 1235:                                             ; preds = %1232
-  %1236 = sub i64 %1233, %1025
+  %1236 = sub nuw i64 %1233, %1025
   %1237 = load ptr, ptr %327, align 8, !alias.scope !11218, !noalias !11056, !nonnull !26, !noundef !26
   %1238 = getelementptr inbounds { i8, [15 x i8] }, ptr %1237, i64 %1025
   store i64 %1025, ptr %320, align 8, !alias.scope !11218, !noalias !11056
@@ -58548,7 +58548,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %1242, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i.i", label %1243
 
 1243:                                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i.i"
-  %1244 = sub i64 %1241, %1025
+  %1244 = sub nuw i64 %1241, %1025
   %1245 = load ptr, ptr %226, align 8, !alias.scope !11224, !noalias !11056, !nonnull !26, !noundef !26
   %1246 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %1245, i64 %1025
   store i64 %1025, ptr %228, align 8, !alias.scope !11224, !noalias !11056
@@ -59216,7 +59216,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %1441, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i298", label %1442
 
 1442:                                             ; preds = %1439
-  %1443 = sub i64 %1440, %1348
+  %1443 = sub nuw i64 %1440, %1348
   %1444 = load ptr, ptr %327, align 8, !alias.scope !11366, !noalias !11328, !nonnull !26, !noundef !26
   %1445 = getelementptr inbounds { i8, [15 x i8] }, ptr %1444, i64 %1348
   store i64 %1348, ptr %320, align 8, !alias.scope !11366, !noalias !11328
@@ -59235,7 +59235,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit107
   br i1 %1449, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc5b47d4fbd3f6040E.exit.i303", label %1450
 
 1450:                                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h835c43f8c02d56ebE.exit.i298"
-  %1451 = sub i64 %1448, %1348
+  %1451 = sub nuw i64 %1448, %1348
   %1452 = load ptr, ptr %226, align 8, !alias.scope !11372, !noalias !11328, !nonnull !26, !noundef !26
   %1453 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %1452, i64 %1348
   store i64 %1348, ptr %228, align 8, !alias.scope !11372, !noalias !11328
@@ -105879,7 +105879,7 @@ _ZN6hir_ty7display12HirFormatter19start_location_link17ha88f0a5570b97b95E.exit12
           to label %1501 unwind label %1153
 
 1447:                                             ; preds = %1441
-  %1448 = sub i64 %.sink4.i.i1301, %1444
+  %1448 = sub nuw i64 %.sink4.i.i1301, %1444
   %.not.i.i1303 = icmp ugt i64 %1430, %1448
   br i1 %.not.i.i1303, label %1449, label %1451
 
@@ -105910,7 +105910,7 @@ _ZN6hir_ty7display12HirFormatter19start_location_link17ha88f0a5570b97b95E.exit12
           to label %1453 unwind label %1420
 
 1453:                                             ; preds = %1451
-  %1454 = sub i64 %1448, %1430
+  %1454 = sub nuw i64 %1448, %1430
   %1455 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %.sink5.i.i1300, i64 %1444
   %1456 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %1455, i64 %1430
   %1457 = invoke { ptr, i64 } @_ZN6hir_ty7display26generic_args_sans_defaults17h1ac8c2496d2e3346E(ptr noalias noundef nonnull align 8 dereferenceable(120) %1, i64 %1452, ptr noalias noundef nonnull readonly align 8 %1456, i64 noundef %1454)

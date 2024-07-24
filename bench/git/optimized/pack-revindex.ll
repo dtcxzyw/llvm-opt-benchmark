@@ -169,7 +169,7 @@ _.exit28:                                         ; preds = %if.then13, %if.end3
   br label %if.then72
 
 if.end17:                                         ; preds = %xsize_t.exit
-  %sub = sub nsw i64 %1, %add
+  %sub = sub nuw nsw i64 %1, %add
   %conv = zext i32 %num_objects to i64
   %mul.i = shl nuw nsw i64 %conv, 2
   %cmp23.not = icmp eq i64 %sub, %mul.i

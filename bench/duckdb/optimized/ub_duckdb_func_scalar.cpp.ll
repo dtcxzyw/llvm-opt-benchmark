@@ -3527,7 +3527,7 @@ if.end12:                                         ; preds = %if.then5
 if.then14:                                        ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp15) #27
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %sub = sub i64 %i.0652, %pos.0651
+  %sub = sub nuw i64 %i.0652, %pos.0651
   store ptr %15, ptr %ref.tmp15, align 8, !tbaa !8, !alias.scope !64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %23, i64 %pos.0651
   %sub.i.i.i = sub i64 %22, %pos.0651
@@ -4576,7 +4576,7 @@ for.end179:                                       ; preds = %for.inc174
 
 invoke.cont4.i.i469:                              ; preds = %for.end179
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp183) #27
-  %sub185 = sub i64 %150, %pos.3
+  %sub185 = sub nuw i64 %150, %pos.3
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %151 = getelementptr inbounds i8, ptr %ref.tmp183, i64 16
   store ptr %151, ptr %ref.tmp183, align 8, !tbaa !8, !alias.scope !76

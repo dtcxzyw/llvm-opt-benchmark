@@ -3843,7 +3843,7 @@ define internal noundef range(i32 0, 17) i32 @rtl8169_start_xmit(ptr noundef %0,
   br i1 %238, label %239, label %253, !prof !7
 
 239:                                              ; preds = %234
-  %240 = sub i32 %235, %237
+  %240 = sub nuw i32 %235, %237
   %241 = tail call i32 @__skb_pad(ptr noundef %0, i32 noundef %240, i1 noundef zeroext false) #19
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %243, label %434

@@ -2564,7 +2564,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -72640,7 +72640,7 @@ do.body7.i.i:                                     ; preds = %if.end9
   unreachable
 
 _ZN4node11Environment12GetNowUint64Ev.exit.i:     ; preds = %if.end9
-  %sub.i.i = sub i64 %call3.i.i, %24
+  %sub.i.i = sub nuw i64 %call3.i.i, %24
   %cmp.i42 = icmp ult i64 %sub.i.i, 4294967296
   %25 = load ptr, ptr %isolate_.i, align 8
   br i1 %cmp.i42, label %if.then.i, label %if.else.i
@@ -72830,7 +72830,7 @@ do.body7.i:                                       ; preds = %entry
   unreachable
 
 _ZN4node11Environment12GetNowUint64Ev.exit:       ; preds = %entry
-  %sub.i = sub i64 %call3.i, %4
+  %sub.i = sub nuw i64 %call3.i, %4
   %cmp = icmp ult i64 %sub.i, 4294967296
   %isolate_.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %isolate_.i, align 8
@@ -72885,7 +72885,7 @@ do.body7:                                         ; preds = %entry
   unreachable
 
 do.end8:                                          ; preds = %entry
-  %sub = sub i64 %call3, %4
+  %sub = sub nuw i64 %call3, %4
   ret i64 %sub
 }
 
@@ -75581,7 +75581,7 @@ if.end:                                           ; preds = %entry
 if.end4:                                          ; preds = %if.end
   %0 = load i64, ptr %rss, align 8
   %cmp5 = icmp ult i64 %call1, %0
-  %sub = sub i64 %call1, %0
+  %sub = sub nuw i64 %call1, %0
   %spec.select = select i1 %cmp5, i64 %call, i64 %sub
   br label %return
 
@@ -76186,7 +76186,7 @@ if.end.i44:                                       ; preds = %_ZN4node5DebugIJmmm
 if.end4.i:                                        ; preds = %if.end.i44
   %11 = load i64, ptr %rss.i, align 8
   %cmp5.i = icmp ult i64 %call1.i, %11
-  %sub.i = sub i64 %call1.i, %11
+  %sub.i = sub nuw i64 %call1.i, %11
   %spec.select.i = select i1 %cmp5.i, i64 %call.i, i64 %sub.i
   br label %_ZN4node32GuessMemoryAvailableToTheProcessEv.exit
 

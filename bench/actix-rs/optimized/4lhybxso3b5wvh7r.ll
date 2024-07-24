@@ -9844,7 +9844,7 @@ define hidden void @"_ZN98_$LT$h2..proto..streams..prioritize..Prioritized$LT$B$
   unreachable
 
 "_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h49d4c34d039d0d73E.exit": ; preds = %10
-  %21 = sub i64 %12, %1
+  %21 = sub nuw i64 %12, %1
   store i64 %21, ptr %11, align 8, !alias.scope !640
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !640, !noundef !5

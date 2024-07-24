@@ -68,7 +68,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %len, %0
+  %sub = sub nuw i64 %len, %0
   %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %for.body
 
@@ -240,7 +240,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bf.clear = and i8 %bf.lshr, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
   call void @DES_cfb64_encrypt(ptr noundef %in.addr.021, ptr noundef %out.addr.024, i64 noundef %chunk.123, ptr noundef nonnull %dks, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %bf.cast) #6
-  %sub = sub i64 %len.addr.022, %chunk.123
+  %sub = sub nuw i64 %len.addr.022, %chunk.123
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.021, i64 %chunk.123
   %add.ptr4 = getelementptr inbounds i8, ptr %out.addr.024, i64 %chunk.123
   %spec.select19 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.123)

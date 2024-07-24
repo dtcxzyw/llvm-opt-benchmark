@@ -2754,7 +2754,7 @@ _ZSt6searchIPKcSt29boyer_moore_horspool_searcherIN9__gnu_cxx17__normal_iteratorI
   %63 = sub i64 %12, %.0127.ph161
   %64 = load i64, ptr %8, align 8
   %65 = icmp ult i64 %64, %.0127.ph161
-  %66 = sub i64 %64, %.0127.ph161
+  %66 = sub nuw i64 %64, %.0127.ph161
   %67 = load ptr, ptr %5, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 %.0127.ph161
   %..i82 = call i64 @llvm.umin.i64(i64 %66, i64 %63)
@@ -4637,7 +4637,7 @@ define linkonce_odr dso_local ptr @_ZNK3fmt3v106detail6concatINS1_9code_unitIcEE
 
 92:                                               ; preds = %90
   %93 = zext i32 %49 to i64
-  %94 = sub nsw i64 %93, %56
+  %94 = sub nuw nsw i64 %93, %56
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit
 
 95:                                               ; preds = %87
@@ -4749,7 +4749,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit: ; preds
 
 150:                                              ; preds = %148
   %151 = zext i32 %120 to i64
-  %152 = sub nsw i64 %151, %127
+  %152 = sub nuw nsw i64 %151, %127
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit411
 
 153:                                              ; preds = %145
@@ -4859,7 +4859,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit411: ; pr
 
 205:                                              ; preds = %203
   %206 = zext i32 %176 to i64
-  %207 = sub nsw i64 %206, %183
+  %207 = sub nuw nsw i64 %206, %183
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit415
 
 208:                                              ; preds = %200
@@ -4970,7 +4970,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit415: ; pr
 
 258:                                              ; preds = %256
   %259 = zext i32 %233 to i64
-  %260 = sub nsw i64 %259, %239
+  %260 = sub nuw nsw i64 %259, %239
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit420
 
 261:                                              ; preds = %253
@@ -5129,7 +5129,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit420: ; pr
 
 339:                                              ; preds = %337
   %340 = zext i32 %295 to i64
-  %341 = sub nsw i64 %340, %303
+  %341 = sub nuw nsw i64 %340, %303
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit433
 
 342:                                              ; preds = %334
@@ -5242,7 +5242,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit433: ; pr
 
 398:                                              ; preds = %396
   %399 = zext i32 %367 to i64
-  %400 = sub nsw i64 %399, %375
+  %400 = sub nuw nsw i64 %399, %375
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit440
 
 401:                                              ; preds = %393
@@ -5353,7 +5353,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit440: ; pr
 
 454:                                              ; preds = %452
   %455 = zext i32 %424 to i64
-  %456 = sub nsw i64 %455, %432
+  %456 = sub nuw nsw i64 %455, %432
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit446
 
 457:                                              ; preds = %449
@@ -5465,7 +5465,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit446: ; pr
 
 506:                                              ; preds = %504
   %507 = zext i32 %481 to i64
-  %508 = sub nsw i64 %507, %487
+  %508 = sub nuw nsw i64 %507, %487
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit454
 
 509:                                              ; preds = %501

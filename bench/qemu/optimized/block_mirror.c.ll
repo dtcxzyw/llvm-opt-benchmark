@@ -1167,7 +1167,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp5.not, label %if.end, label %if.end93
 
 if.end:                                           ; preds = %if.then
-  %sub8 = sub i64 %bytes, %sub4
+  %sub8 = sub nuw i64 %bytes, %sub4
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end, %land.lhs.true, %entry
@@ -1194,7 +1194,7 @@ if.then19:                                        ; preds = %land.lhs.true14
   br i1 %cmp23.not, label %if.end25, label %if.end93
 
 if.end25:                                         ; preds = %if.then19
-  %sub26 = sub i64 %bytes.addr.0, %rem22
+  %sub26 = sub nuw i64 %bytes.addr.0, %rem22
   %.pre78 = add i64 %sub26, %offset.addr.0
   br label %if.end27
 

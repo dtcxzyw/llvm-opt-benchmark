@@ -435,7 +435,7 @@ agxbsizeof.exit.i:                                ; preds = %208
 
 223:                                              ; preds = %221
   %224 = getelementptr inbounds i8, ptr %216, i64 %.fr.i
-  %225 = sub i64 %spec.select33.i, %.fr.i
+  %225 = sub nuw i64 %spec.select33.i, %.fr.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %224, i8 0, i64 %225, i1 false)
   br label %.thread
 
@@ -586,7 +586,7 @@ agxbsizeof.exit.i219:                             ; preds = %264
 
 279:                                              ; preds = %277
   %280 = getelementptr inbounds i8, ptr %272, i64 %.fr.i220
-  %281 = sub i64 %spec.select33.i222, %.fr.i220
+  %281 = sub nuw i64 %spec.select33.i222, %.fr.i220
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %280, i8 0, i64 %281, i1 false)
   br label %.thread246
 
@@ -716,7 +716,7 @@ agxbsizeof.exit.i209:                             ; preds = %312
 
 327:                                              ; preds = %325
   %328 = getelementptr inbounds i8, ptr %320, i64 %.fr.i210
-  %329 = sub i64 %spec.select33.i212, %.fr.i210
+  %329 = sub nuw i64 %spec.select33.i212, %.fr.i210
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %328, i8 0, i64 %329, i1 false)
   br label %.thread249
 
@@ -891,7 +891,7 @@ agxbsizeof.exit.i239:                             ; preds = %390
 
 405:                                              ; preds = %403
   %406 = getelementptr inbounds i8, ptr %398, i64 %.fr.i240
-  %407 = sub i64 %spec.select33.i242, %.fr.i240
+  %407 = sub nuw i64 %spec.select33.i242, %.fr.i240
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %406, i8 0, i64 %407, i1 false)
   br label %.thread252
 
@@ -1021,7 +1021,7 @@ agxbsizeof.exit.i229:                             ; preds = %438
 
 453:                                              ; preds = %451
   %454 = getelementptr inbounds i8, ptr %446, i64 %.fr.i230
-  %455 = sub i64 %spec.select33.i232, %.fr.i230
+  %455 = sub nuw i64 %spec.select33.i232, %.fr.i230
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %454, i8 0, i64 %455, i1 false)
   br label %.thread255
 
@@ -2158,7 +2158,7 @@ agxbsizeof.exit.i421:                             ; preds = %agxbsizeof.exit.i31
 
 412:                                              ; preds = %410
   %413 = getelementptr inbounds i8, ptr %405, i64 %.fr.i
-  %414 = sub i64 %spec.select33.i, %.fr.i
+  %414 = sub nuw i64 %spec.select33.i, %.fr.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %413, i8 0, i64 %414, i1 false)
   br label %.thread456
 
@@ -2345,7 +2345,7 @@ agxbsizeof.exit.i427:                             ; preds = %agxbsizeof.exit.i33
 
 495:                                              ; preds = %493
   %496 = getelementptr inbounds i8, ptr %488, i64 %.fr.i428
-  %497 = sub i64 %spec.select33.i430, %.fr.i428
+  %497 = sub nuw i64 %spec.select33.i430, %.fr.i428
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %496, i8 0, i64 %497, i1 false)
   br label %.thread467
 
@@ -2478,7 +2478,7 @@ agxbsizeof.exit.i437:                             ; preds = %agxbsizeof.exit.i.i
 
 554:                                              ; preds = %552
   %555 = getelementptr inbounds i8, ptr %547, i64 %.fr.i438
-  %556 = sub i64 %spec.select33.i440, %.fr.i438
+  %556 = sub nuw i64 %spec.select33.i440, %.fr.i438
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %555, i8 0, i64 %556, i1 false)
   br label %.thread478
 
@@ -2960,7 +2960,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %agxblen.exit.i
-  %20 = sub nsw i64 %9, %17
+  %20 = sub nuw nsw i64 %9, %17
   call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
@@ -3516,7 +3516,7 @@ agxbsizeof.exit:                                  ; preds = %2
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %13, i64 %.fr
-  %22 = sub i64 %spec.select33, %.fr
+  %22 = sub nuw i64 %spec.select33, %.fr
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %22, i1 false)
   br label %gv_recalloc.exit
 

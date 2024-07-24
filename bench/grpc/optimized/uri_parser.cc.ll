@@ -550,7 +550,7 @@ invoke.cont17:                                    ; preds = %invoke.cont7
   store i64 2, ptr %ref.tmp16, align 8
   store ptr @.str.2, ptr %6, align 8
   %add20 = add nuw i64 %i.034, 1
-  %sub.i = sub i64 %str.coerce0, %add20
+  %sub.i = sub nuw i64 %str.coerce0, %add20
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 2)
   %add.ptr.i13 = getelementptr inbounds i8, ptr %str.coerce1, i64 %add20
   store i64 %.sroa.speculated.i, ptr %ref.tmp18, align 8
@@ -1444,7 +1444,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %64
   %sub.ptr.rhs.cast.i223 = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i224 = sub i64 %sub.ptr.lhs.cast.i222, %sub.ptr.rhs.cast.i223
-  %sub.i.i225 = sub i64 %retval.sroa.0.0.copyload.i.i, %64
+  %sub.i.i225 = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %64
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i225, i64 %sub.ptr.sub.i224)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i, align 8
   store ptr %add.ptr15.i, ptr %query_param.sroa.2.0.call106.sroa_idx, align 8
@@ -1843,7 +1843,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %if
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %3
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr15.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %3
+  %sub.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub.ptr.sub.i.i)
   store i64 %.sroa.speculated.i.i.i, ptr %curr_.i, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
@@ -3964,7 +3964,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %4
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %add.ptr15.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %4
+  %sub.i.i.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i.i, %4
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i)
   store i64 %.sroa.speculated.i.i.i.i, ptr %curr_.i.i, align 8, !alias.scope !69
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -4039,7 +4039,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add.ptr15.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %11
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr15.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.copyload.i.i, %11
+  %sub.i.i = sub nuw i64 %retval.sroa.0.0.copyload.i.i, %11
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub.ptr.sub.i)
   store i64 %.sroa.speculated.i.i, ptr %curr_.i.i, align 8
   %ref.tmp.sroa.2.0.curr_.sroa_idx.i = getelementptr inbounds i8, ptr %it, i64 24

@@ -2159,7 +2159,7 @@ define dso_local ptr @perf_mmap_to_page(ptr nocapture noundef readonly %0, i64 n
   br i1 %13, label %24, label %14
 
 14:                                               ; preds = %12
-  %15 = sub i64 %1, %8
+  %15 = sub nuw i64 %1, %8
   %16 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %9, i64 %15) #13, !srcloc !58
   %17 = and i64 %16, %15
   %18 = load i64, ptr @vmemmap_base, align 8

@@ -859,7 +859,7 @@ define range(i64 0, 4294967296) i64 @mz_adler32(i64 noundef %0, ptr noundef read
   br i1 %12, label %.lr.ph80.preheader, label %._crit_edge
 
 .lr.ph80.preheader:                               ; preds = %.preheader
-  %13 = sub nsw i64 %.089, %11
+  %13 = sub nuw nsw i64 %.089, %11
   br label %.lr.ph80
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -5266,7 +5266,7 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br i1 %1113, label %.lr.ph1964.preheader, label %._crit_edge1965
 
 .lr.ph1964.preheader:                             ; preds = %.preheader
-  %1114 = sub nsw i64 %.01974, %1112
+  %1114 = sub nuw nsw i64 %.01974, %1112
   br label %.lr.ph1964
 
 .lr.ph1955:                                       ; preds = %.lr.ph1955.preheader, %.lr.ph1955
@@ -11158,7 +11158,7 @@ _ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit: ; 
   br i1 %201, label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191, label %202
 
 202:                                              ; preds = %188
-  %203 = sub i32 %.0146216, %200
+  %203 = sub nuw i32 %.0146216, %200
   %204 = zext nneg i32 %200 to i64
   %205 = getelementptr inbounds i8, ptr %.0150214, i64 %204
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11805,7 +11805,7 @@ mz_zip_reader_end.exit:                           ; preds = %24, %4, %5, %8, %66
 define internal noundef i64 @_ZL20mz_zip_mem_read_funcPvyS_m(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #19 {
   %5 = load i64, ptr %0, align 8
   %.not = icmp ugt i64 %5, %1
-  %6 = sub i64 %5, %1
+  %6 = sub nuw i64 %5, %1
   %. = tail call i64 @llvm.umin.i64(i64 %6, i64 %3)
   %7 = select i1 %.not, i64 %., i64 0
   %8 = getelementptr inbounds i8, ptr %0, i64 88

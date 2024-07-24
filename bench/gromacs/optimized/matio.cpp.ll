@@ -3123,7 +3123,7 @@ _ZL11line2stringPPc.exit.i:                       ; preds = %334, %338
   br i1 %382, label %383, label %385
 
 383:                                              ; preds = %373
-  %384 = sub nsw i64 %375, %381
+  %384 = sub nuw nsw i64 %375, %381
   invoke void @_ZNSt6vectorI9t_mappingSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %85, i64 noundef %384)
           to label %_ZNSt6vectorI9t_mappingSaIS0_EE6resizeEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit
 
@@ -4058,7 +4058,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv
   br i1 %752, label %753, label %784
 
 753:                                              ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv.exit.i.i
-  %754 = sub i64 %745, %751
+  %754 = sub nuw i64 %745, %751
   %755 = load ptr, ptr %94, align 8
   %756 = ptrtoint ptr %755 to i64
   %757 = sub i64 %756, %748

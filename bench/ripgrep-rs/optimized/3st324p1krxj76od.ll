@@ -717,7 +717,7 @@ define hidden void @_ZN8grep_cli7pattern20patterns_from_reader17hfc3a2fa92e33206
 88:                                               ; preds = %68
   %89 = add nuw i64 %72, 1
   %90 = getelementptr inbounds i8, ptr %.sroa.019.0.i.i.i, i64 %89
-  %91 = sub i64 %.sroa.5.0.i.i.i, %89
+  %91 = sub nuw i64 %.sroa.5.0.i.i.i, %89
   %92 = add i64 %89, %.2.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !108
   invoke fastcc void @"_ZN4bstr2io10BufReadExt13for_byte_line28_$u7b$$u7b$closure$u7d$$u7d$17hd09d2836e348918aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull %12, ptr noalias noundef nonnull readonly align 1 %.sroa.019.0.i.i.i, i64 noundef %89)

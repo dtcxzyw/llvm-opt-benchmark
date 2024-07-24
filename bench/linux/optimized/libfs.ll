@@ -2547,7 +2547,7 @@ define dso_local i64 @simple_read_from_buffer(ptr noundef %0, i64 noundef %1, pt
   br i1 %11, label %12, label %23
 
 12:                                               ; preds = %8
-  %13 = sub i64 %4, %6
+  %13 = sub nuw i64 %4, %6
   %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 %1)
   %15 = icmp ugt i64 %14, 2147483647
   br i1 %15, label %.thread, label %16, !prof !12
@@ -2588,7 +2588,7 @@ define dso_local i64 @simple_write_to_buffer(ptr noundef %0, i64 noundef %1, ptr
   br i1 %11, label %12, label %23
 
 12:                                               ; preds = %8
-  %13 = sub i64 %1, %6
+  %13 = sub nuw i64 %1, %6
   %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 %4)
   %15 = icmp ugt i64 %14, 2147483647
   br i1 %15, label %.thread, label %16, !prof !12
@@ -2627,7 +2627,7 @@ define dso_local i64 @memory_read_from_buffer(ptr nocapture noundef writeonly %0
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %8
-  %11 = sub i64 %4, %6
+  %11 = sub nuw i64 %4, %6
   %12 = tail call i64 @llvm.umin.i64(i64 %11, i64 %1)
   %13 = getelementptr i8, ptr %3, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %13, i64 %12, i1 false)
@@ -2722,7 +2722,7 @@ define dso_local i64 @simple_transaction_read(ptr nocapture noundef readonly %0,
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %13
-  %18 = sub i64 %10, %11
+  %18 = sub nuw i64 %10, %11
   %19 = tail call i64 @llvm.umin.i64(i64 %18, i64 %2)
   %20 = icmp ugt i64 %19, 2147483647
   br i1 %20, label %.thread, label %21, !prof !12
@@ -2879,7 +2879,7 @@ define dso_local i64 @simple_attr_read(ptr nocapture noundef readonly %0, ptr no
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %44
-  %49 = sub i64 %41, %40
+  %49 = sub nuw i64 %41, %40
   %50 = call i64 @llvm.umin.i64(i64 %49, i64 %2)
   %51 = icmp ugt i64 %50, 2147483647
   br i1 %51, label %.thread6, label %52, !prof !12

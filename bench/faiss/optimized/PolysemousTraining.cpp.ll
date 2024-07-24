@@ -1171,7 +1171,7 @@ _ZN5faiss27ReproduceDistancesObjective18compute_mean_stdevEPKdmPdS3_.exit22: ; p
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %_ZN5faiss27ReproduceDistancesObjective18compute_mean_stdevEPKdmPdS3_.exit22
-  %39 = sub nsw i64 %6, %36
+  %39 = sub nuw nsw i64 %6, %36
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %39)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -1201,7 +1201,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %38, %40, %42, %44
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %55 = sub nsw i64 %6, %52
+  %55 = sub nuw nsw i64 %6, %52
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %45, i64 noundef %55)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit24
 
@@ -1872,7 +1872,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %145, label %146, label %177
 
 146:                                              ; preds = %._crit_edge.i.i
-  %147 = sub nsw i64 %108, %144
+  %147 = sub nuw nsw i64 %108, %144
   %148 = load ptr, ptr %36, align 8
   %149 = ptrtoint ptr %148 to i64
   %150 = sub i64 %149, %141

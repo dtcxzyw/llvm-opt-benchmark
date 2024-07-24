@@ -3884,7 +3884,7 @@ _ZNR5folly8OptionalImE5valueEv.exit:              ; preds = %entry
   br i1 %cmp.not, label %_ZNR5folly8OptionalImE5valueEv.exit9, label %_ZN5folly8OptionalImEaSImEERS1_OT_.exit
 
 _ZN5folly8OptionalImEaSImEERS1_OT_.exit:          ; preds = %_ZNR5folly8OptionalImE5valueEv.exit
-  %sub = sub i64 %1, %len
+  %sub = sub nuw i64 %1, %len
   store i64 %sub, ptr %expectedIngressContentLengthRemaining_, align 8
   br label %return
 

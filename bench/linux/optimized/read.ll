@@ -432,7 +432,7 @@ define internal void @nfs_read_completion(ptr noundef %0) #0 align 16 {
   br i1 %79, label %68, label %.loopexit, !llvm.loop !24
 
 81:                                               ; preds = %35
-  %82 = sub nsw i64 %37, %15
+  %82 = sub nuw nsw i64 %37, %15
   %83 = zext i32 %29 to i64
   %84 = icmp ult i64 %82, %83
   br i1 %84, label %85, label %.loopexit
@@ -1433,7 +1433,7 @@ define dso_local void @nfs_readahead(ptr nocapture noundef %0) local_unnamed_add
   unreachable
 
 77:                                               ; preds = %71
-  %78 = sub i32 %74, %73
+  %78 = sub nuw i32 %74, %73
   store i32 %78, ptr %3, align 8
   %79 = zext i32 %73 to i64
   %80 = load i64, ptr %9, align 8

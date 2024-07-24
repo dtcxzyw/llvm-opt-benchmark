@@ -367,7 +367,7 @@ define hidden { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcf
   %37 = getelementptr inbounds i8, ptr %.val.i.i, i64 %29
   %38 = load i8, ptr %37, align 1, !alias.scope !43, !noalias !48, !noundef !4
   %39 = icmp sgt i8 %38, -65
-  %40 = sub i64 %.val5.i.i, %29
+  %40 = sub nuw i64 %.val5.i.i, %29
   br i1 %39, label %42, label %41
 
 41:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i", %34

@@ -4639,7 +4639,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_che
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %1, i64 %3
-  %7 = sub i64 %2, %3
+  %7 = sub nuw i64 %2, %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -4667,7 +4667,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17h44
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h96f9bf8a428d623cE.llvm.17069743828446960565.exit": ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 %7
-  %11 = sub i64 %2, %7
+  %11 = sub nuw i64 %2, %7
   %12 = lshr i64 %11, 1
   %13 = and i64 %11, 1
   %14 = and i64 %11, -2
@@ -4707,7 +4707,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17h89
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h96f9bf8a428d623cE.llvm.17069743828446960565.exit": ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 %7
-  %11 = sub i64 %2, %7
+  %11 = sub nuw i64 %2, %7
   %12 = lshr i64 %11, 2
   %13 = and i64 %11, 3
   %14 = and i64 %11, -4
@@ -4764,7 +4764,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17hf9
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h96f9bf8a428d623cE.llvm.17069743828446960565.exit": ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 %7
-  %11 = sub i64 %2, %7
+  %11 = sub nuw i64 %2, %7
   %12 = lshr i64 %11, 3
   %13 = and i64 %11, 7
   %14 = and i64 %11, -8
@@ -4813,7 +4813,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h96
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %1, i64 %3
-  %14 = sub i64 %2, %3
+  %14 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -11365,7 +11365,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17069743828446960565.exit
           to label %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17hf50ba0220641d8e4E.exit63" unwind label %101, !noalias !1392
 
 96:                                               ; preds = %.noexc60
-  %97 = sub i64 %79, %70
+  %97 = sub nuw i64 %79, %70
   %98 = getelementptr inbounds i8, ptr %8, i64 8
   %99 = load ptr, ptr %98, align 8, !alias.scope !1396, !noalias !1392, !noundef !12
   %100 = getelementptr inbounds i8, ptr %99, i64 %70

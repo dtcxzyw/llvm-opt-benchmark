@@ -746,7 +746,6 @@ $_ZSt19piecewise_construct = comdat any
 @__PRETTY_FUNCTION__._ZN15ActiveObjectMgrI18ServerActiveObjectED2Ev = private unnamed_addr constant [89 x i8] c"virtual ActiveObjectMgr<ServerActiveObject>::~ActiveObjectMgr() [T = ServerActiveObject]\00", align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.162 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@.str.163 = private unnamed_addr constant [23 x i8] c"vector::_M_fill_insert\00", align 1
 @.str.164 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.165 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @_ZSt19piecewise_construct = linkonce_odr dso_local constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
@@ -2481,7 +2480,7 @@ invoke.cont4.i.i:                                 ; preds = %while.body
   store ptr %0, ptr %entry2, align 8, !tbaa !4, !alias.scope !105
   %8 = load ptr, ptr %times, align 8, !tbaa !11, !noalias !105
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %idx.0305
-  %sub.i.i.i = sub i64 %7, %idx.0305
+  %sub.i.i.i = sub nuw i64 %7, %idx.0305
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #34, !noalias !105
   store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !tbaa !9, !noalias !105
@@ -19661,13 +19660,13 @@ for.body112:                                      ; preds = %invoke.cont103, %in
 
 if.then118:                                       ; preds = %for.body112
   %add121 = add nuw nsw i64 %conv114, 256
-  %sub.i = sub nsw i64 %add121, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %add121, %sub.ptr.div.i
   %33 = load ptr, ptr %_M_end_of_storage.i271, align 8, !tbaa !547
   %sub.ptr.lhs.cast.i273 = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i275 = sub i64 %sub.ptr.lhs.cast.i273, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i276 = ashr exact i64 %sub.ptr.sub.i275, 3
   %cmp3.not.i = icmp ult i64 %sub.ptr.div.i276, %sub.i
-  br i1 %cmp3.not.i, label %if.else42.i, label %if.end.i.i.i.i.i.i
+  br i1 %cmp3.not.i, label %_ZNKSt6vectorIPS_I9ActiveABMSaIS0_EESaIS3_EE12_M_check_lenEmPKc.exit.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then118
   %34 = shl nuw nsw i64 %conv114, 3
@@ -19681,19 +19680,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then118
   %.pre323 = load ptr, ptr %m_aabms, align 8, !tbaa !511
   br label %if.end125
 
-if.else42.i:                                      ; preds = %if.then118
-  %sub.i.i = sub nuw nsw i64 1152921504606846975, %sub.ptr.div.i
-  %cmp.i.i286 = icmp ult i64 %sub.i.i, %sub.i
-  br i1 %cmp.i.i286, label %if.then.i.i, label %_ZNKSt6vectorIPS_I9ActiveABMSaIS0_EESaIS3_EE12_M_check_lenEmPKc.exit.i
-
-if.then.i.i:                                      ; preds = %if.else42.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.163) #33
-          to label %.noexc288 unwind label %lpad123.loopexit.split-lp
-
-.noexc288:                                        ; preds = %if.then.i.i
-  unreachable
-
-_ZNKSt6vectorIPS_I9ActiveABMSaIS0_EESaIS3_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else42.i
+_ZNKSt6vectorIPS_I9ActiveABMSaIS0_EESaIS3_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.then118
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %sub.i)
   %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i
   %mul.i.i.i.i = shl nuw nsw i64 %add.i.i, 3
@@ -19733,11 +19720,6 @@ _ZNSt12_Vector_baseIPSt6vectorI9ActiveABMSaIS1_EESaIS4_EE13_M_deallocateEPS4_m.e
 
 lpad123.loopexit:                                 ; preds = %_ZNKSt6vectorIPS_I9ActiveABMSaIS0_EESaIS3_EE12_M_check_lenEmPKc.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup151
-
-lpad123.loopexit.split-lp:                        ; preds = %if.then.i.i
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup151
 
@@ -19846,8 +19828,8 @@ invoke.cont141:                                   ; preds = %if.else.i253, %_ZNS
   %cmp.i242.not = icmp eq ptr %incdec.ptr.i257, %27
   br i1 %cmp.i242.not, label %for.cond.cleanup111.loopexit, label %for.body112
 
-ehcleanup151:                                     ; preds = %lpad131.loopexit.split-lp, %lpad131.loopexit, %lpad123.loopexit.split-lp, %lpad123.loopexit, %lpad102
-  %.pn.pn = phi { ptr, i32 } [ %29, %lpad102 ], [ %lpad.loopexit, %lpad123.loopexit ], [ %lpad.loopexit.split-lp, %lpad123.loopexit.split-lp ], [ %lpad.loopexit299, %lpad131.loopexit ], [ %lpad.loopexit.split-lp300, %lpad131.loopexit.split-lp ]
+ehcleanup151:                                     ; preds = %lpad131.loopexit.split-lp, %lpad131.loopexit, %lpad123.loopexit, %lpad102
+  %.pn.pn = phi { ptr, i32 } [ %29, %lpad102 ], [ %lpad.loopexit, %lpad123.loopexit ], [ %lpad.loopexit299, %lpad131.loopexit ], [ %lpad.loopexit.split-lp300, %lpad131.loopexit.split-lp ]
   %54 = load ptr, ptr %ids, align 8, !tbaa !57
   %tobool.not.i.i.i258 = icmp eq ptr %54, null
   br i1 %tobool.not.i.i.i258, label %_ZNSt6vectorItSaItEED2Ev.exit260, label %if.then.i.i.i259

@@ -2063,7 +2063,7 @@ count_nondeletable_pages.exit.i:                  ; preds = %.backedge.i.i, %927
   call void @RelationTruncate(ptr noundef %928, i32 noundef %.0.i.i247) #9
   %931 = load ptr, ptr %55, align 8
   call void @UnlockRelation(ptr noundef %931, i32 noundef 8) #9
-  %932 = sub i32 %.041.i, %.0.i.i247
+  %932 = sub nuw i32 %.041.i, %.0.i.i247
   %933 = load i32, ptr %112, align 8
   %934 = add i32 %932, %933
   store i32 %934, ptr %112, align 8

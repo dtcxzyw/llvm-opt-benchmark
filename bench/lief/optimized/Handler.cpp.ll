@@ -1259,7 +1259,7 @@ define noundef i64 @_ZN4LIEF3ELF11DataHandler7Handler9make_holeEmm(ptr noundef n
 
 _ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i:          ; preds = %8
   store i8 0, ptr %4, align 1
-  %16 = sub nsw i64 %6, %14
+  %16 = sub nuw nsw i64 %6, %14
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %10, i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %4)
   %.pre = load ptr, ptr %0, align 8
   br label %18
@@ -1300,7 +1300,7 @@ define noundef i64 @_ZN4LIEF3ELF11DataHandler7Handler7reserveEmm(ptr noundef non
 
 _ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %7
   store i8 0, ptr %4, align 1
-  %15 = sub nsw i64 %5, %13
+  %15 = sub nuw nsw i64 %5, %13
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %9, i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %16
 
@@ -1632,7 +1632,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -2171,7 +2171,7 @@ _ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   br i1 %27, label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = sub i64 %2, %16
+  %29 = sub nuw i64 %2, %16
   %30 = getelementptr inbounds i8, ptr %9, i64 %29
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 %14, i64 %29, i1 false)
   br label %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit

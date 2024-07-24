@@ -387,7 +387,7 @@ define internal i64 @blkdev_write_iter(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %52
-  %56 = sub i64 %41, %53
+  %56 = sub nuw i64 %41, %53
   store i64 %53, ptr %40, align 8
   br label %57
 

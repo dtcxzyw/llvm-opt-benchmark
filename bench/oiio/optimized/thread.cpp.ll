@@ -4173,7 +4173,7 @@ if.else:                                          ; preds = %if.then6
   br i1 %cmp1.i.i, label %if.then2.i.i, label %_ZN3tbb6detail2d112parallel_forIjN18OpenImageIO_v2_6_013function_viewIFvjEEEEEvT_S7_RKT0_.exit
 
 if.then2.i.i:                                     ; preds = %if.else
-  %add.i.i = sub i32 %end, %begin
+  %add.i.i = sub nuw i32 %end, %begin
   store i32 %add.i.i, ptr %range.i.i, align 8
   %my_begin.i.i.i = getelementptr inbounds i8, ptr %range.i.i, i64 4
   store i32 0, ptr %my_begin.i.i.i, align 4
@@ -4673,7 +4673,7 @@ if.else:                                          ; preds = %if.then6
   br i1 %cmp1.i.i, label %if.then2.i.i, label %_ZN3tbb6detail2d112parallel_forImN18OpenImageIO_v2_6_013function_viewIFvmEEEEEvT_S7_RKT0_.exit
 
 if.then2.i.i:                                     ; preds = %if.else
-  %add.i.i = sub i64 %end, %begin
+  %add.i.i = sub nuw i64 %end, %begin
   store i64 %add.i.i, ptr %range.i.i, align 8
   %my_begin.i.i.i = getelementptr inbounds i8, ptr %range.i.i, i64 8
   store i64 0, ptr %my_begin.i.i.i, align 8
@@ -6825,7 +6825,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -6951,7 +6951,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   tail call void @_ZNSt6vectorISt10shared_ptrISt6atomicIbEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub)
   br label %if.end6
 
@@ -12948,7 +12948,7 @@ entry:
 
 if.then2.i.i.i:                                   ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %add.i.i.i = sub i32 %3, %1
+  %add.i.i.i = sub nuw i32 %3, %1
   store i32 %add.i.i.i, ptr %range.i.i.i, align 8
   %my_begin.i.i.i.i = getelementptr inbounds i8, ptr %range.i.i.i, i64 4
   store i32 0, ptr %my_begin.i.i.i.i, align 4
@@ -14507,7 +14507,7 @@ entry:
 
 if.then2.i.i.i:                                   ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %add.i.i.i = sub i64 %3, %1
+  %add.i.i.i = sub nuw i64 %3, %1
   store i64 %add.i.i.i, ptr %range.i.i.i, align 8
   %my_begin.i.i.i.i = getelementptr inbounds i8, ptr %range.i.i.i, i64 8
   store i64 0, ptr %my_begin.i.i.i.i, align 8

@@ -179,7 +179,7 @@ define hidden void @_ZN9xmlStream10write_textEPKcm(ptr nocapture noundef nonnull
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %1, i64 %.02230
-  %16 = sub i64 %.02328, %.02230
+  %16 = sub nuw i64 %.02328, %.02230
   %17 = load ptr, ptr %.pre32, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -209,7 +209,7 @@ define hidden void @_ZN9xmlStream10write_textEPKcm(ptr nocapture noundef nonnull
 27:                                               ; preds = %._crit_edge
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 %.022.lcssa
-  %30 = sub i64 %2, %.022.lcssa
+  %30 = sub nuw i64 %2, %.022.lcssa
   %31 = load ptr, ptr %28, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8

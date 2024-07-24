@@ -5519,7 +5519,7 @@ define hidden void @_ZN5rayon5slice9mergesort7recurse17h9c40f74242c33b9fE(ptr no
   %25 = add i64 %3, -1
   %26 = getelementptr inbounds [0 x { i64, i64 }], ptr %2, i64 0, i64 %25, i32 1
   %27 = load i64, ptr %26, align 8, !noundef !18
-  %28 = sub i64 %3, %22
+  %28 = sub nuw i64 %3, %22
   %.039 = select i1 %4, ptr %0, ptr %1
   %.0 = select i1 %4, ptr %1, ptr %0
   %29 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.039, i64 %21
@@ -6321,7 +6321,7 @@ define hidden void @_ZN5rayon5slice9mergesort9par_merge17hf754745caa098405E(ptr 
 28:                                               ; preds = %.noexc, %.lr.ph11.i
   %.01910.i = phi i64 [ 0, %.lr.ph11.i ], [ %.120.i, %.noexc ]
   %.0219.i = phi i64 [ %1, %.lr.ph11.i ], [ %.122.i, %.noexc ]
-  %29 = sub i64 %.0219.i, %.01910.i
+  %29 = sub nuw i64 %.0219.i, %.01910.i
   %30 = lshr i64 %29, 1
   %31 = add i64 %30, %.01910.i
   %32 = icmp ult i64 %31, %1
@@ -6346,7 +6346,7 @@ define hidden void @_ZN5rayon5slice9mergesort9par_merge17hf754745caa098405E(ptr 
 39:                                               ; preds = %.noexc36, %.lr.ph.i
   %.08.i = phi i64 [ %3, %.lr.ph.i ], [ %.1.i, %.noexc36 ]
   %.0237.i = phi i64 [ 0, %.lr.ph.i ], [ %.124.i, %.noexc36 ]
-  %40 = sub i64 %.08.i, %.0237.i
+  %40 = sub nuw i64 %.08.i, %.0237.i
   %41 = lshr i64 %40, 1
   %42 = add i64 %41, %.0237.i
   %43 = icmp ult i64 %42, %3
@@ -6417,9 +6417,9 @@ define hidden void @_ZN5rayon5slice9mergesort9par_merge17hf754745caa098405E(ptr 
   %.sroa.3.0.i110117 = phi i64 [ %.124.i, %55 ], [ %24, %53 ]
   %.sroa.0.0.i111116 = phi i64 [ %26, %55 ], [ %.120.i, %53 ]
   %58 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %.sroa.0.0.i111116
-  %59 = sub i64 %1, %.sroa.0.0.i111116
+  %59 = sub nuw i64 %1, %.sroa.0.0.i111116
   %60 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %2, i64 %.sroa.3.0.i110117
-  %61 = sub i64 %3, %.sroa.3.0.i110117
+  %61 = sub nuw i64 %3, %.sroa.3.0.i110117
   %62 = getelementptr { { ptr, i64 }, i64 }, ptr %4, i64 %.sroa.0.0.i111116
   %63 = getelementptr { { ptr, i64 }, i64 }, ptr %62, i64 %.sroa.3.0.i110117
   %64 = tail call { i64, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6947187674693c9aE.llvm.12150801376095413471"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.0f60b5efd1178986b4c9998969482724.9.llvm.12150801376095413471)

@@ -3086,7 +3086,7 @@ sw.bb369:                                         ; preds = %if.then367
   br i1 %cmp374, label %if.then376, label %if.else386
 
 if.then376:                                       ; preds = %sw.bb369
-  %sub377 = sub i32 %mul373, %lookahead_length
+  %sub377 = sub nuw i32 %mul373, %lookahead_length
   %469 = load ptr, ptr %fin.i, align 8
   %conv379 = zext i32 %sub377 to i64
   %call380 = call fastcc i32 @fskip_ahead(ptr noundef %469, i64 noundef %conv379)
@@ -3103,7 +3103,7 @@ if.then382:                                       ; preds = %if.then376
 if.else386:                                       ; preds = %sw.bb369
   %idx.ext = zext i32 %mul373 to i64
   %add.ptr = getelementptr inbounds i8, ptr %lookahead, i64 %idx.ext
-  %sub387 = sub i32 %lookahead_length, %mul373
+  %sub387 = sub nuw i32 %lookahead_length, %mul373
   br label %if.end416
 
 sw.bb389:                                         ; preds = %if.then367, %if.then367, %if.then367, %if.then367, %if.then367
@@ -3288,7 +3288,7 @@ while.body500:                                    ; preds = %while.body500.lr.ph
   %495 = load i32, ptr %bytes_per_wide_sample502, align 8
   %mul503 = shl i32 %495, 11
   %conv504 = zext i32 %mul503 to i64
-  %sub505 = sub nsw i64 %infilesize.addr.2411, %total_input_bytes_read.01176
+  %sub505 = sub nuw nsw i64 %infilesize.addr.2411, %total_input_bytes_read.01176
   %cond = call i64 @llvm.umin.i64(i64 %sub505, i64 %conv504)
   %cmp511.not = icmp eq i32 %lookahead_length.addr.31177, 0
   br i1 %cmp511.not, label %if.else538, label %if.then513
@@ -3308,7 +3308,7 @@ if.end523:                                        ; preds = %if.then513
   br i1 %cmp524.not, label %if.else562, label %if.then526
 
 if.then526:                                       ; preds = %if.end523
-  %sub520 = sub nsw i64 %cond, %conv514
+  %sub520 = sub nuw nsw i64 %cond, %conv514
   %add.ptr528 = getelementptr inbounds i8, ptr @ubuffer, i64 %conv514
   %call529 = call i64 @fread(ptr noundef nonnull %add.ptr528, i64 noundef 1, i64 noundef %sub520, ptr noundef %infile)
   %add530 = add i64 %call529, %conv514
@@ -6708,7 +6708,7 @@ if.end13:                                         ; preds = %if.then3, %if.end
   br i1 %cmp14, label %if.then16, label %return
 
 if.then16:                                        ; preds = %if.end13
-  %sub17 = sub i64 %7, %n.0
+  %sub17 = sub nuw i64 %7, %n.0
   %fin = getelementptr inbounds i8, ptr %client_data, i64 8400
   %8 = load ptr, ptr %fin, align 8
   %call = tail call i64 @fread(ptr noundef %buffer.addr.0, i64 noundef 1, i64 noundef %sub17, ptr noundef %8)

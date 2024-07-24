@@ -35392,7 +35392,7 @@ _ZN3url3Url5slice17ha74933a0618d3d0aE.exit:       ; preds = %2, %20, %"_ZN4core3
   %35 = getelementptr inbounds i8, ptr %.val, i64 %29
   %36 = load i8, ptr %35, align 1, !alias.scope !8192, !noalias !8199, !noundef !4
   %37 = icmp sgt i8 %36, -65
-  %38 = sub i64 %.val1, %29
+  %38 = sub nuw i64 %.val1, %29
   br i1 %37, label %_ZN3url3Url5slice17hc7e3416beb6fc935E.exit.i, label %39
 
 39:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %32
@@ -94627,7 +94627,7 @@ define void @_ZN13rust_analyzer7tracing5hprof4Node9aggregate17ha195915d6ed7e646E
 ._crit_edge.thread:                               ; preds = %.split, %._crit_edge
   %.075.lcssa118 = phi i64 [ %.1, %._crit_edge ], [ 0, %.split ]
   %21 = add nuw i64 %.075.lcssa118, 1
-  %22 = sub i64 %8, %21
+  %22 = sub nuw i64 %8, %21
   %23 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, i32, [1 x i32] }, { ptr, i64 }, i32, [1 x i32] }, ptr %11, i64 %21
   store i64 %21, ptr %7, align 8, !alias.scope !23710
   br label %24

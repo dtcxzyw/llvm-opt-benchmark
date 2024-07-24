@@ -6809,7 +6809,7 @@ define hidden void @"_ZN13wasmtime_wasi4host6clocks102_$LT$impl$u20$wasmtime_was
   br i1 %11, label %_ZN4core4time8Duration3new17h2b271a0fd6558ad7E.llvm.10002545943538650143.exit, label %18
 
 _ZN4core4time8Duration3new17h2b271a0fd6558ad7E.llvm.10002545943538650143.exit: ; preds = %3
-  %12 = sub i64 %2, %10
+  %12 = sub nuw i64 %2, %10
   %13 = udiv i64 %12, 1000000000
   %14 = urem i64 %12, 1000000000
   %15 = trunc nuw nsw i64 %14 to i32
@@ -27784,7 +27784,7 @@ _ZN5bytes9bytes_mut8BytesMut8truncate17hdc0cb7f1d4142ccbE.exit.i: ; preds = %168
   br label %common.ret
 
 222:                                              ; preds = %.noexc24.i
-  %223 = sub i64 %187, %178
+  %223 = sub nuw i64 %187, %178
   %224 = getelementptr inbounds i8, ptr %8, i64 8
   %225 = load ptr, ptr %224, align 8, !alias.scope !4250, !noalias !4246, !noundef !5
   %226 = getelementptr inbounds i8, ptr %225, i64 %178

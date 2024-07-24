@@ -341,7 +341,7 @@ define noundef i64 @_ZN5faiss14VectorIOReaderclEPvmm(ptr nocapture noundef nonnu
   br i1 %.not, label %14, label %22
 
 14:                                               ; preds = %4
-  %15 = sub i64 %13, %6
+  %15 = sub nuw i64 %13, %6
   %16 = udiv i64 %15, %2
   %spec.select = tail call i64 @llvm.umin.i64(i64 %16, i64 %3)
   %17 = mul i64 %spec.select, %2
@@ -863,7 +863,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64

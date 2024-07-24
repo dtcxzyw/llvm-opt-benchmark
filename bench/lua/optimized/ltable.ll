@@ -159,7 +159,7 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %findindex.exit
   %i.0.lcssa = phi i32 [ %retval.0.i32, %findindex.exit ], [ %retval.0.i, %for.inc ]
-  %sub = sub i32 %i.0.lcssa, %retval.0.i
+  %sub = sub nuw i32 %i.0.lcssa, %retval.0.i
   %lsizenode = getelementptr inbounds i8, ptr %t, i64 11
   %12 = load i8, ptr %lsizenode, align 1
   %conv14 = zext nneg i8 %12 to i32

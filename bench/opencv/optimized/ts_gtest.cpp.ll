@@ -10206,8 +10206,8 @@ _ZNK7testing8internal13FloatingPointIfE12AlmostEqualsERKS2_.exit: ; preds = %30
   %.not3.i9.i.i = icmp slt i32 %31, 0
   %.0.i10.i.i = select i1 %.not3.i9.i.i, i32 %41, i32 %44
   %.not.i.i = icmp ult i32 %.0.i.i.i, %.0.i10.i.i
-  %45 = sub i32 %.0.i.i.i, %.0.i10.i.i
-  %46 = sub i32 %.0.i10.i.i, %.0.i.i.i
+  %45 = sub nuw i32 %.0.i.i.i, %.0.i10.i.i
+  %46 = sub nuw i32 %.0.i10.i.i, %.0.i.i.i
   %47 = select i1 %.not.i.i, i32 %46, i32 %45
   %48 = icmp ult i32 %47, 5
   br i1 %48, label %49, label %_ZNK7testing8internal13FloatingPointIfE12AlmostEqualsERKS2_.exit.thread
@@ -10773,8 +10773,8 @@ _ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit: ; preds = %30
   %.not3.i9.i.i = icmp slt i64 %31, 0
   %.0.i10.i.i = select i1 %.not3.i9.i.i, i64 %41, i64 %44
   %.not.i.i = icmp ult i64 %.0.i.i.i, %.0.i10.i.i
-  %45 = sub i64 %.0.i.i.i, %.0.i10.i.i
-  %46 = sub i64 %.0.i10.i.i, %.0.i.i.i
+  %45 = sub nuw i64 %.0.i.i.i, %.0.i10.i.i
+  %46 = sub nuw i64 %.0.i10.i.i, %.0.i.i.i
   %47 = select i1 %.not.i.i, i64 %46, i64 %45
   %48 = icmp ult i64 %47, 5
   br i1 %48, label %49, label %_ZNK7testing8internal13FloatingPointIdE12AlmostEqualsERKS2_.exit.thread

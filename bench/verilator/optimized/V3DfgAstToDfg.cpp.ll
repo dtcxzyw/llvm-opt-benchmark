@@ -5250,7 +5250,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEEZNS2_18canonicalizePackedEvEUlRKS3_SA_E_EvT_SC_T0_.exit144
 
 362:                                              ; preds = %_ZNK8FileLine15operatorCompareERKS_.exit
-  %363 = sub i32 %135, %116
+  %363 = sub nuw i32 %135, %116
   %364 = load ptr, ptr @v3Global, align 8
   %365 = getelementptr inbounds i8, ptr %364, i64 160
   %366 = load ptr, ptr %365, align 8
@@ -49479,7 +49479,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPK
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %61
-  %71 = sub nsw i64 %68, %67
+  %71 = sub nuw nsw i64 %68, %67
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %71)
           to label %._ZZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit22_crit_edge unwind label %.loopexit
 

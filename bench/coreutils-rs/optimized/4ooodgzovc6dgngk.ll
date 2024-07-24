@@ -399,7 +399,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   unreachable
 
 23:                                               ; preds = %17
-  %24 = sub i64 %.promoted, %16
+  %24 = sub nuw i64 %.promoted, %16
   store i64 %24, ptr %8, align 8, !alias.scope !58, !noalias !61
   %25 = icmp ugt ptr %15, inttoptr (i64 32 to ptr)
   br i1 %25, label %.noexc, label %40
@@ -559,7 +559,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
 
 25:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %20, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !126, !noalias !130
-  %26 = sub i64 %19, %.0.sroa.speculated.i.i.i.i.i
+  %26 = sub nuw i64 %19, %.0.sroa.speculated.i.i.i.i.i
   %27 = getelementptr inbounds i8, ptr %20, i64 %.0.sroa.speculated.i.i.i.i.i
   store ptr %27, ptr %.val.i, align 8, !alias.scope !119, !noalias !120
   store i64 %26, ptr %10, align 8, !alias.scope !119, !noalias !120
@@ -604,7 +604,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   unreachable
 
 36:                                               ; preds = %.loopexit
-  %37 = sub i64 %.promoted, %.cast10.i
+  %37 = sub nuw i64 %.promoted, %.cast10.i
   store i64 %37, ptr %8, align 8, !alias.scope !87, !noalias !90
   %38 = icmp ugt i64 %.cast10.i, 32
   br i1 %38, label %.noexc, label %53
@@ -900,7 +900,7 @@ _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit.i
 
 90:                                               ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %88, i64 %.0.sroa.speculated.i.i.i.i.i.i.i.i.us, i1 false), !alias.scope !192, !noalias !196
-  %91 = sub i64 %87, %.0.sroa.speculated.i.i.i.i.i.i.i.i.us
+  %91 = sub nuw i64 %87, %.0.sroa.speculated.i.i.i.i.i.i.i.i.us
   %92 = getelementptr inbounds i8, ptr %88, i64 %.0.sroa.speculated.i.i.i.i.i.i.i.i.us
   store ptr %92, ptr %.val.i, align 8, !alias.scope !189, !noalias !190
   store i64 %91, ptr %78, align 8, !alias.scope !189, !noalias !190
@@ -1057,7 +1057,7 @@ default.unreachable:                              ; preds = %146
 
 133:                                              ; preds = %126
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %128, i64 %.0.sroa.speculated.i.i.i.i.i.i.i34.i, i1 false), !alias.scope !255, !noalias !259
-  %134 = sub i64 %127, %.0.sroa.speculated.i.i.i.i.i.i.i34.i
+  %134 = sub nuw i64 %127, %.0.sroa.speculated.i.i.i.i.i.i.i34.i
   %135 = getelementptr inbounds i8, ptr %128, i64 %.0.sroa.speculated.i.i.i.i.i.i.i34.i
   store ptr %135, ptr %.val.i, align 8, !alias.scope !249, !noalias !250
   store i64 %134, ptr %78, align 8, !alias.scope !249, !noalias !250

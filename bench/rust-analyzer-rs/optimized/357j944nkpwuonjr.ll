@@ -56720,7 +56720,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %24 = getelementptr inbounds i8, ptr %10, i64 %16
   %25 = load i8, ptr %24, align 1, !alias.scope !10125, !noalias !10130, !noundef !14
   %26 = icmp sgt i8 %25, -65
-  %27 = sub i64 %12, %16
+  %27 = sub nuw i64 %12, %16
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %21
@@ -65072,7 +65072,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.13207202256514997924.e
 
 _ZN13rust_analyzer11diagnostics8to_proto19is_dummy_macro_file17hee20725735f4b2dfE.exit: ; preds = %.noexc181
   %490 = extractvalue { ptr, i64 } %197, 0
-  %491 = sub i64 %191, %198
+  %491 = sub nuw i64 %191, %198
   %492 = getelementptr inbounds i8, ptr %189, i64 %491
   %bcmp.i.i2.i = call i32 @bcmp(ptr nonnull readonly %490, ptr nonnull readonly %492, i64 %198), !alias.scope !11491
   %493 = icmp eq i32 %bcmp.i.i2.i, 0
@@ -77305,7 +77305,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %143 = getelementptr inbounds i8, ptr %136, i64 %137
   %144 = load i8, ptr %143, align 1, !alias.scope !13491, !noundef !14
   %145 = icmp sgt i8 %144, -65
-  %146 = sub i64 %133, %137
+  %146 = sub nuw i64 %133, %137
   br i1 %145, label %160, label %159
 
 147:                                              ; preds = %128

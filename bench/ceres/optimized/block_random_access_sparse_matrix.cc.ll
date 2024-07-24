@@ -326,7 +326,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %104
-  %115 = sub nsw i64 %80, %112
+  %115 = sub nuw nsw i64 %80, %112
   invoke void @_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %105, i64 noundef %115)
           to label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

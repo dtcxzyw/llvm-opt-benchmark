@@ -18701,7 +18701,7 @@ _ZN7doctest16SubcaseSignatureaSERKS0_.exit.i.i.i.i.i: ; preds = %_ZN7doctest6Str
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
   %91 = getelementptr inbounds i8, ptr %2, i64 %19
   %92 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPN7doctest16SubcaseSignatureESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_(ptr %91, ptr %3, ptr noundef %13)
-  %93 = sub nsw i64 %9, %20
+  %93 = sub nuw nsw i64 %9, %20
   %94 = load ptr, ptr %12, align 8
   %95 = getelementptr inbounds %"struct.doctest::SubcaseSignature", ptr %94, i64 %93
   store ptr %95, ptr %12, align 8

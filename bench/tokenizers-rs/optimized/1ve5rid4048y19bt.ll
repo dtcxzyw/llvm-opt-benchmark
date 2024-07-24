@@ -836,7 +836,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = shl i64 %.sroa.4.0.copyload, 4
   %scevgep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 %5
-  %6 = sub i64 %1, %0
+  %6 = sub nuw i64 %1, %0
   %7 = shl i64 %6, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false), !noalias !210
   %8 = add i64 %6, %.sroa.4.0.copyload
@@ -3195,7 +3195,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.promoted.i = load i64, ptr %7, align 8, !alias.scope !913, !noalias !918
   %8 = shl i64 %.promoted.i, 2
   %scevgep.i = getelementptr i8, ptr %6, i64 %8
-  %9 = sub i64 %1, %0
+  %9 = sub nuw i64 %1, %0
   %10 = shl i64 %9, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i, i8 0, i64 %10, i1 false), !noalias !923
   br label %11
@@ -3389,7 +3389,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = shl i64 %.sroa.4.0.copyload, 2
   %scevgep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 %5
-  %6 = sub i64 %1, %0
+  %6 = sub nuw i64 %1, %0
   %7 = shl i64 %6, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i, i8 0, i64 %7, i1 false), !noalias !998
   %8 = add i64 %6, %.sroa.4.0.copyload
@@ -3416,7 +3416,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.promoted.i = load i64, ptr %7, align 8, !alias.scope !1021, !noalias !1026
   %8 = shl i64 %.promoted.i, 4
   %scevgep.i = getelementptr i8, ptr %6, i64 %8
-  %9 = sub i64 %1, %0
+  %9 = sub nuw i64 %1, %0
   %10 = shl i64 %9, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %10, i1 false), !noalias !1031
   %11 = add i64 %9, %.promoted.i
@@ -9782,7 +9782,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h169ed550512323
   %.promoted = load i64, ptr %7, align 8, !alias.scope !3322
   %8 = shl i64 %.promoted, 4
   %scevgep = getelementptr i8, ptr %6, i64 %8
-  %9 = sub i64 %1, %0
+  %9 = sub nuw i64 %1, %0
   %10 = shl i64 %9, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %10, i1 false), !noalias !3329
   %11 = add i64 %.promoted, %1
@@ -11687,7 +11687,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h73169cf36fcb63
   %.promoted = load i64, ptr %7, align 8, !alias.scope !3828, !noalias !3833
   %8 = shl i64 %.promoted, 4
   %scevgep = getelementptr i8, ptr %6, i64 %8
-  %9 = sub i64 %1, %0
+  %9 = sub nuw i64 %1, %0
   %10 = shl i64 %9, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %10, i1 false), !noalias !3838
   %11 = add i64 %.promoted, %1
@@ -12040,7 +12040,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h9ef393a09b3949
   %.promoted = load i64, ptr %7, align 8, !alias.scope !3973
   %8 = shl i64 %.promoted, 2
   %scevgep = getelementptr i8, ptr %6, i64 %8
-  %9 = sub i64 %1, %0
+  %9 = sub nuw i64 %1, %0
   %10 = shl i64 %9, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %10, i1 false), !noalias !3973
   %11 = add i64 %.promoted, %1
@@ -13475,7 +13475,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hfa860caa226569
   %.promoted = load i64, ptr %7, align 8, !alias.scope !4340, !noalias !4345
   %8 = shl i64 %.promoted, 2
   %scevgep = getelementptr i8, ptr %6, i64 %8
-  %9 = sub i64 %1, %0
+  %9 = sub nuw i64 %1, %0
   %10 = shl i64 %9, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %10, i1 false), !noalias !4350
   %11 = add i64 %.promoted, %1

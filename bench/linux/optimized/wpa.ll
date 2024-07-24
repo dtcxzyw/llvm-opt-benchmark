@@ -47,7 +47,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
 24:                                               ; preds = %21
   %25 = zext i32 %22 to i64
   %26 = getelementptr i8, ptr %5, i64 %25
-  %27 = sub i32 %15, %22
+  %27 = sub nuw i32 %15, %22
   %28 = zext i32 %27 to i64
   %29 = load i32, ptr %3, align 8
   %30 = and i32 %29, 67108864

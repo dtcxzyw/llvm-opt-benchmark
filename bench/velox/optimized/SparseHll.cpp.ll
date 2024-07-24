@@ -616,7 +616,7 @@ while.end74:                                      ; preds = %while.end74.loopexi
   br i1 %cmp.i47, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end74
-  %sub.i = sub nsw i64 %conv76, %sub.ptr.div.i
+  %sub.i = sub nuw nsw i64 %conv76, %sub.ptr.div.i
   invoke void @_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub.i)
           to label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit unwind label %lpad8
 

@@ -6181,11 +6181,11 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc100
-  %indvars.iv157 = phi i64 [ 0, %entry ], [ %indvars.iv.next158, %for.inc100 ]
+  %indvars.iv155 = phi i64 [ 0, %entry ], [ %indvars.iv.next156, %for.inc100 ]
   %max_bus.0147 = phi i8 [ %conv, %entry ], [ %max_bus.2, %for.inc100 ]
   %2 = load ptr, ptr %bus, align 8
   %devices = getelementptr inbounds i8, ptr %2, i64 184
-  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %indvars.iv157
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %indvars.iv155
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %for.inc100, label %for.cond6.preheader
@@ -6282,10 +6282,9 @@ if.end56:                                         ; preds = %if.then54, %if.then
   br i1 %or.cond99.not, label %if.then63, label %if.end77
 
 if.then63:                                        ; preds = %if.end56
-  %reass.sub = sub i64 %17, %call57
-  %add66 = add i64 %reass.sub, 1
+  %sub65 = sub nuw i64 %17, %call57
   %cmp67 = icmp ult i64 %17, 4294967296
-  %cmp70 = icmp ult i64 %add66, 4294967296
+  %cmp70 = icmp ult i64 %sub65, 4294967295
   %or.cond1 = select i1 %cmp67, i1 %cmp70, i1 false
   %call.i108 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %call57, ptr %call.i108, align 8
@@ -6304,24 +6303,23 @@ if.end77:                                         ; preds = %if.then63, %if.end5
   br i1 %or.cond100.not, label %if.then84, label %for.inc100
 
 if.then84:                                        ; preds = %if.end77
-  %reass.sub154 = sub i64 %19, %call78
-  %add87 = add i64 %reass.sub154, 1
+  %sub86 = sub nuw i64 %19, %call78
   %cmp88 = icmp ult i64 %19, 4294967296
-  %cmp91 = icmp ult i64 %add87, 4294967296
+  %cmp91 = icmp ult i64 %sub86, 4294967295
   %or.cond2 = select i1 %cmp88, i1 %cmp91, i1 false
   %call.i112 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %call78, ptr %call.i112, align 8
   %limit3.i113 = getelementptr inbounds i8, ptr %call.i112, i64 8
   store i64 %19, ptr %limit3.i113, align 8
-  %call1.i.call2.i161 = select i1 %or.cond2, ptr %call1.i, ptr %call2.i
-  tail call void @g_ptr_array_add(ptr noundef %call1.i.call2.i161, ptr noundef nonnull %call.i112) #14
+  %call1.i.call2.i159 = select i1 %or.cond2, ptr %call1.i, ptr %call2.i
+  tail call void @g_ptr_array_add(ptr noundef %call1.i.call2.i159, ptr noundef nonnull %call.i112) #14
   br label %for.inc100
 
 for.inc100:                                       ; preds = %if.then84, %for.end, %if.end77, %for.body
   %max_bus.2 = phi i8 [ %spec.select, %if.end77 ], [ %max_bus.0147, %for.end ], [ %max_bus.0147, %for.body ], [ %spec.select, %if.then84 ]
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %exitcond159.not = icmp eq i64 %indvars.iv.next158, 256
-  br i1 %exitcond159.not, label %for.end102, label %for.body, !llvm.loop !23
+  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
+  %exitcond157.not = icmp eq i64 %indvars.iv.next156, 256
+  br i1 %exitcond157.not, label %for.end102, label %for.body, !llvm.loop !23
 
 for.end102:                                       ; preds = %for.inc100
   tail call fastcc void @crs_range_merge(ptr noundef %call.i)
@@ -6425,8 +6423,8 @@ for.body172:                                      ; preds = %for.body172.lr.ph, 
   %41 = load i64, ptr %40, align 8
   %limit178 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load i64, ptr %limit178, align 8
-  %reass.sub155 = sub i64 %42, %41
-  %add182 = add i64 %reass.sub155, 1
+  %reass.sub = sub i64 %42, %41
+  %add182 = add i64 %reass.sub, 1
   %call183 = tail call ptr @aml_qword_memory(i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 0, i32 noundef 1, i64 noundef 0, i64 noundef %41, i64 noundef %42, i64 noundef %mmio64_offset, i64 noundef %add182)
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %call183)
   %43 = load ptr, ptr %mem_64bit_ranges184, align 8

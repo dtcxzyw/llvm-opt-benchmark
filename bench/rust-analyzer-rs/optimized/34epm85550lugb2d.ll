@@ -1734,7 +1734,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %5 = shl i64 %.sroa.4.0.copyload, 3
   %scevgep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 %5
-  %6 = sub i64 %1, %0
+  %6 = sub nuw i64 %1, %0
   %7 = shl i64 %6, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false), !noalias !478
   %8 = add i64 %6, %.sroa.4.0.copyload
@@ -21517,7 +21517,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.10409712727403535664.exit
   %33 = load i64, ptr %29, align 8, !alias.scope !6802, !noundef !9
   %.not.i.i.i = icmp ult i64 %32, %33
   %34 = select i1 %.not.i.i.i, i64 0, i64 %33
-  %.0.i.i.i12 = sub i64 %32, %34
+  %.0.i.i.i12 = sub nuw i64 %32, %34
   store i64 %.0.i.i.i12, ptr %30, align 8, !alias.scope !6799
   %35 = add i64 %26, -1
   store i64 %35, ptr %25, align 8, !alias.scope !6799
@@ -21738,7 +21738,7 @@ define hidden { i64, i64 } @"_ZN12sharded_slab3tid12Registration8register28_$u7b
   %11 = load i64, ptr %7, align 8, !alias.scope !6841, !noundef !9
   %.not.i.i = icmp ult i64 %10, %11
   %12 = select i1 %.not.i.i, i64 0, i64 %11
-  %.0.i.i = sub i64 %10, %12
+  %.0.i.i = sub nuw i64 %10, %12
   store i64 %.0.i.i, ptr %8, align 8, !alias.scope !6838
   %13 = add i64 %4, -1
   store i64 %13, ptr %3, align 8, !alias.scope !6838
@@ -35260,7 +35260,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %5
   br i1 %65, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hf26d071b69f23df7E.exit.i.i", label %.lr.ph.split.split.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i.i": ; preds = %60
-  %68 = sub i64 %62, %20
+  %68 = sub nuw i64 %62, %20
   %69 = getelementptr inbounds i8, ptr %.val.i.i, i64 %68
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %69, ptr nonnull readonly %11, i64 %20), !alias.scope !11618, !noalias !11612
   %70 = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -37491,7 +37491,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17he80f01b033f0af
   %.promoted = load i64, ptr %7, align 8, !alias.scope !12594
   %8 = shl i64 %.promoted, 3
   %scevgep = getelementptr i8, ptr %6, i64 %8
-  %9 = sub i64 %1, %0
+  %9 = sub nuw i64 %1, %0
   %10 = shl i64 %9, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %10, i1 false), !noalias !12594
   %11 = add i64 %.promoted, %1
@@ -67070,7 +67070,7 @@ define hidden void @"_ZN9itertools11lazy_buffer19LazyBuffer$LT$I$GT$7prefill17hc
   ret void
 
 7:                                                ; preds = %2
-  %8 = sub i64 %1, %4
+  %8 = sub nuw i64 %1, %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0ffd050380c684b2E.llvm.2651244455829285093"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %8)
   br label %6

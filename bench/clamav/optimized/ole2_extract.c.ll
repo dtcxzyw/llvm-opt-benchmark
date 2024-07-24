@@ -502,7 +502,7 @@ define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br i1 %22, label %23, label %152
 
 23:                                               ; preds = %19
-  %24 = sub i64 %18, %21
+  %24 = sub nuw i64 %18, %21
   br label %25
 
 25:                                               ; preds = %12, %23
@@ -1468,7 +1468,7 @@ ole2_list_pop.exit.i262:                          ; preds = %145, %ole2_list_pop
 
 157:                                              ; preds = %154
   %158 = load i32, ptr %38, align 8
-  %159 = sub i32 %153, %155
+  %159 = sub nuw i32 %153, %155
   %160 = icmp ugt i32 %158, %159
   br i1 %160, label %161, label %165
 
@@ -5146,7 +5146,7 @@ fmap_readn.exit.thread:                           ; preds = %35, %32, %fmap_read
   br i1 %46, label %fmap_readn.exit75.thread, label %47
 
 47:                                               ; preds = %45
-  %48 = sub i64 %44, %.045
+  %48 = sub nuw i64 %44, %.045
   %spec.select.i72 = call i64 @llvm.umin.i64(i64 %48, i64 8192)
   %49 = load ptr, ptr %36, align 8
   %50 = call ptr %49(ptr noundef nonnull %16, i64 noundef %.045, i64 noundef %spec.select.i72, i32 noundef 0) #21

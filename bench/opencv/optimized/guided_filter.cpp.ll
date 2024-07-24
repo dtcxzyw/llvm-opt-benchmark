@@ -509,7 +509,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl26ComputeCovGuideInv_ParBod
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %3
-  %23 = sub nsw i64 %13, %20
+  %23 = sub nuw nsw i64 %13, %20
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %23)
           to label %_ZN2cv8ximgproc10SymArray2DINS_3MatEE6createEi.exit unwind label %.loopexit.split-lp
 
@@ -1916,7 +1916,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit:    ; preds = %6, %._ZNSt6vectorIP
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit
-  %28 = sub nsw i64 %.pre-phi39, %25
+  %28 = sub nuw nsw i64 %.pre-phi39, %25
   invoke void @_ZNSt6vectorIPN2cv3MatESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %28)
           to label %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit24 unwind label %58
 
@@ -2068,7 +2068,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit:    ; preds = %._crit_edge, %._ZNS
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit
-  %41 = sub nsw i64 %.036.lcssa75, %38
+  %41 = sub nuw nsw i64 %.036.lcssa75, %38
   invoke void @_ZNSt6vectorIPN2cv3MatESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %41)
           to label %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit43 unwind label %80
 
@@ -2552,7 +2552,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl4initERKNS_11_InputArrayEid
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %99
-  %112 = sub nsw i64 %102, %109
+  %112 = sub nuw nsw i64 %102, %109
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %112)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i
 
@@ -2730,7 +2730,7 @@ _ZN2cv8ximgprocL19splitFirstNChannelsINS_3MatEEEvRKNS_11_InputArrayERSt6vectorIT
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %176
-  %188 = sub nsw i64 %178, %185
+  %188 = sub nuw nsw i64 %178, %185
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %175, i64 noundef %188)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
@@ -2777,7 +2777,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %187, %189, %191, %_
   br i1 %207, label %208, label %210
 
 208:                                              ; preds = %196
-  %209 = sub nsw i64 %199, %206
+  %209 = sub nuw nsw i64 %199, %206
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %197, i64 noundef %209)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit39
 
@@ -3288,7 +3288,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl15computeCovGuideERNS0_10Sy
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %2
-  %23 = sub nsw i64 %13, %20
+  %23 = sub nuw nsw i64 %13, %20
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %23)
   br label %_ZN2cv8ximgproc10SymArray2DINS_3MatEE6createEi.exit
 
@@ -3715,7 +3715,7 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i71: ; 
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %99
-  %113 = sub nsw i64 %103, %110
+  %113 = sub nuw nsw i64 %103, %110
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %102, i64 noundef %113)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -4172,7 +4172,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl21computeCovGuideAndSrcERSt
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %4
-  %27 = sub nsw i64 %17, %24
+  %27 = sub nuw nsw i64 %17, %24
   tail call void @_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %27)
   br label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit
 
@@ -4251,7 +4251,7 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %26, %28, %30
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %43
-  %57 = sub nsw i64 %47, %54
+  %57 = sub nuw nsw i64 %47, %54
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %46, i64 noundef %57)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 

@@ -422,7 +422,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
 
 land.rhs.i.i54:                                   ; preds = %if.then17.i.i, %while.body26.i.i
   %skip.139.i.i = phi i64 [ %inc.i.i, %while.body26.i.i ], [ 1, %if.then17.i.i ]
-  %sub22.i.i = sub i64 %sub.i.i, %skip.139.i.i
+  %sub22.i.i = sub nuw i64 %sub.i.i, %skip.139.i.i
   %arrayidx.i33.i.i = getelementptr inbounds i8, ptr %call.i, i64 %sub22.i.i
   %6 = load i8, ptr %arrayidx.i33.i.i, align 1
   %cmp.i34.i.i = icmp eq i8 %6, %0
@@ -529,7 +529,7 @@ if.then17.i.i97:                                  ; preds = %for.cond.i.i92
 
 land.rhs.i.i103:                                  ; preds = %if.then17.i.i97, %while.body26.i.i108
   %skip.139.i.i104 = phi i64 [ %inc.i.i109, %while.body26.i.i108 ], [ 1, %if.then17.i.i97 ]
-  %sub22.i.i105 = sub i64 %sub.i.i73, %skip.139.i.i104
+  %sub22.i.i105 = sub nuw i64 %sub.i.i73, %skip.139.i.i104
   %arrayidx.i33.i.i106 = getelementptr inbounds i8, ptr %call.i55, i64 %sub22.i.i105
   %13 = load i8, ptr %arrayidx.i33.i.i106, align 1
   %cmp.i34.i.i107 = icmp eq i8 %13, %7
@@ -636,7 +636,7 @@ if.then17.i.i174:                                 ; preds = %for.cond.i.i169
 
 land.rhs.i.i180:                                  ; preds = %if.then17.i.i174, %while.body26.i.i185
   %skip.139.i.i181 = phi i64 [ %inc.i.i186, %while.body26.i.i185 ], [ 1, %if.then17.i.i174 ]
-  %sub22.i.i182 = sub i64 %sub.i.i150, %skip.139.i.i181
+  %sub22.i.i182 = sub nuw i64 %sub.i.i150, %skip.139.i.i181
   %arrayidx.i33.i.i183 = getelementptr inbounds i8, ptr %call.i132, i64 %sub22.i.i182
   %20 = load i8, ptr %arrayidx.i33.i.i183, align 1
   %cmp.i34.i.i184 = icmp eq i8 %20, %14

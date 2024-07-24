@@ -383,7 +383,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then6, label %if.end17
 
 if.then6:                                         ; preds = %if.end
-  %sub8 = sub i32 %conv4, %15
+  %sub8 = sub nuw i32 %conv4, %15
   %conv9 = sext i32 %sub8 to i64
   %mul = mul nsw i64 %conv9, 1000000
   %16 = load i64, ptr %expire_time, align 16

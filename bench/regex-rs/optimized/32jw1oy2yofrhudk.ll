@@ -8989,7 +8989,7 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder17add_capture_start
   br i1 %.not, label %.loopexit, label %24
 
 24:                                               ; preds = %19
-  %25 = sub nsw i64 %20, %23
+  %25 = sub nuw nsw i64 %20, %23
   %26 = getelementptr inbounds i8, ptr %9, i64 8
   %27 = getelementptr inbounds i8, ptr %9, i64 16
   %28 = getelementptr inbounds i8, ptr %1, i64 72
@@ -9065,7 +9065,7 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder17add_capture_start
           to label %83 unwind label %.body
 
 52:                                               ; preds = %45
-  %53 = sub nsw i64 %29, %47
+  %53 = sub nuw nsw i64 %29, %47
   %.not97 = icmp eq i64 %47, %29
   br i1 %.not97, label %._crit_edge, label %.lr.ph
 

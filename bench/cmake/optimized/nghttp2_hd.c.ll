@@ -3035,7 +3035,7 @@ define internal fastcc i32 @emit_indname_block(ptr noundef %0, i64 noundef %1, p
   br i1 %10, label %count_encoded_length.exit.thread, label %11
 
 11:                                               ; preds = %4
-  %12 = sub i64 %7, %9
+  %12 = sub nuw i64 %7, %9
   %13 = icmp ugt i64 %12, 127
   br i1 %13, label %.lr.ph.i, label %count_encoded_length.exit.thread
 
@@ -3074,7 +3074,7 @@ count_encoded_length.exit.thread:                 ; preds = %11, %4, %count_enco
   %26 = trunc nuw nsw i32 %8 to i8
   %27 = or i8 %21, %26
   store i8 %27, ptr %5, align 16
-  %28 = sub i64 %7, %9
+  %28 = sub nuw i64 %7, %9
   %.02428.i = getelementptr inbounds i8, ptr %5, i64 1
   %29 = icmp ugt i64 %28, 127
   br i1 %29, label %.lr.ph.i26, label %._crit_edge.i

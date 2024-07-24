@@ -109137,7 +109137,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %25, %24
   br i1 %70, label %71, label %102
 
 71:                                               ; preds = %64
-  %72 = sub nsw i64 %69, %68
+  %72 = sub nuw nsw i64 %69, %68
   %73 = ptrtoint ptr %.sroa.20.1.i to i64
   %74 = sub i64 %73, %65
   %75 = ashr exact i64 %74, 3
@@ -170093,7 +170093,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %20
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   tail call void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %31)
   br label %.sink.split
 
@@ -172413,7 +172413,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit:          ; preds = %8, %10
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %45
-  %55 = sub nsw i64 %52, %51
+  %55 = sub nuw nsw i64 %52, %51
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %55)
           to label %._ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZNK10AstAssignW15isTimingControlEvEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit18_crit_edge unwind label %.loopexit82
 

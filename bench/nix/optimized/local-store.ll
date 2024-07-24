@@ -26333,7 +26333,7 @@ _ZSt11make_uniqueIN3nix8HashSinkEJRNS0_13HashAlgorithmEEENSt8__detail9_MakeUniqI
   %53 = phi i64 [ %86, %83 ], [ %52, %_ZSt11make_uniqueIN3nix8HashSinkEJRNS0_13HashAlgorithmEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
   %.sroa.10.0209 = phi ptr [ %56, %83 ], [ null, %_ZSt11make_uniqueIN3nix8HashSinkEJRNS0_13HashAlgorithmEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
   %.sroa.0165.0208 = phi i64 [ %85, %83 ], [ 0, %_ZSt11make_uniqueIN3nix8HashSinkEJRNS0_13HashAlgorithmEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
-  %54 = sub i64 %53, %.sroa.0165.0208
+  %54 = sub nuw i64 %53, %.sroa.0165.0208
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %54, i64 65536)
   %55 = add i64 %.sroa.speculated, %.sroa.0165.0208
   %56 = tail call ptr @realloc(ptr noundef %.sroa.10.0209, i64 noundef %55) #40
@@ -36259,7 +36259,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %_ZNSt11char_traitsI
   %.082114 = phi i64 [ %.082.ph143, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph ], [ %.082.be, %.backedge ]
   %.083113 = phi i64 [ %.082.ph143, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph ], [ %.083.be, %.backedge ]
   %40 = load ptr, ptr %1, align 8
-  %41 = sub i64 %39, %.082114
+  %41 = sub nuw i64 %39, %.082114
   %42 = getelementptr inbounds i8, ptr %40, i64 %.082114
   %43 = call ptr @memchr(ptr noundef %42, i32 noundef %35, i64 noundef %41) #33
   %.not.i91 = icmp eq ptr %43, null
@@ -37431,7 +37431,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph: ; preds = %_ZNSt11char_traitsI
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph, %37
   %.051 = phi i64 [ %.0.ph56, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph ], [ %38, %37 ]
-  %14 = sub i64 %7, %.051
+  %14 = sub nuw i64 %7, %.051
   %15 = getelementptr inbounds i8, ptr %8, i64 %.051
   %16 = tail call ptr @memchr(ptr noundef %15, i32 noundef %9, i64 noundef %14) #33
   %.not.i = icmp eq ptr %16, null
@@ -39086,7 +39086,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3
-  %13 = sub i64 %1, %10
+  %13 = sub nuw i64 %1, %10
   tail call void @_ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS7_S9_EEmRKS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %5, i64 noundef %13, ptr noundef nonnull align 8 dereferenceable(132) %2)
   br label %_ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE15_M_erase_at_endEPS7_.exit
 
@@ -41009,7 +41009,7 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSERKS6_.exit.i.i.i: ;
   br label %common.resume
 
 80:                                               ; preds = %_ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EE16_Temporary_valueC2IJRKS7_EEEPS9_DpOT_.exit
-  %81 = sub i64 %2, %39
+  %81 = sub nuw i64 %2, %39
   %82 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEEmS7_ET_S9_T0_RKT1_(ptr noundef %35, i64 noundef %81, ptr noundef nonnull align 8 dereferenceable(132) %16)
           to label %_ZSt24__uninitialized_fill_n_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEEmS7_S7_ET_S9_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -43836,7 +43836,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i51: ; 
   br label %.sink.split
 
 73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
-  %74 = sub nsw i64 %3, %2
+  %74 = sub nuw nsw i64 %3, %2
   %75 = icmp ne i8 %6, 0
   %.neg = sext i1 %75 to i64
   %76 = add nsw i64 %74, %.neg
@@ -50915,7 +50915,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit: ; preds = %4
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 %2
-  %gepdiff = sub nsw i64 %7, %2
+  %gepdiff = sub nuw nsw i64 %7, %2
   %12 = icmp ugt i64 %gepdiff, 15
   br i1 %12, label %13, label %._crit_edge.i
 
@@ -52377,7 +52377,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21
   br i1 %130, label %131, label %151
 
 131:                                              ; preds = %127
-  %132 = sub i64 %129, %.pre42
+  %132 = sub nuw i64 %129, %.pre42
   %133 = getelementptr inbounds i8, ptr %100, i64 88
   %134 = load i8, ptr %133, align 8
   %135 = sub i64 9223372036854775807, %.pre42

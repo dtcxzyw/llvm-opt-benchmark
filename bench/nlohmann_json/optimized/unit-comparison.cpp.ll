@@ -15475,7 +15475,7 @@ if.then10:                                        ; preds = %if.then6
   br i1 %cmp.i5, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then10
-  %sub.i = sub i64 %add, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %add, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %sub.i)
   br label %if.end13
 
@@ -24089,20 +24089,20 @@ if.then286:                                       ; preds = %sw.bb284
 if.then300:                                       ; preds = %if.then286
   %mul304 = shl nuw nsw i64 %99, 1
   %cmp.i99.not = icmp eq i64 %99, 0
-  br i1 %cmp.i99.not, label %if.end305, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i
+  br i1 %cmp.i99.not, label %if.end305, label %if.then.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i: ; preds = %if.then300
+if.then.i:                                        ; preds = %if.then300
   %100 = load ptr, ptr %indent_string293, align 8
   %101 = getelementptr inbounds i8, ptr %this, i64 624
   %cmp.i.i.i.i.i = icmp eq ptr %100, %101
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i
+if.then.i.i.i.i.i:                                ; preds = %if.then.i
   %cmp3.i.i.i.i.i = icmp ult i64 %99, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
   %102 = load i64, ptr %101, align 8
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 15, i64 %102
   %cmp.not.i.i.i = icmp ult i64 %cond.i.i.i.i, %mul304
@@ -25154,7 +25154,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__n, %0
+  %sub = sub nuw i64 %__n, %0
   %sub3.i.i.i = sub i64 9223372036854775807, %0
   %cmp.i.i.i = icmp ult i64 %sub3.i.i.i, %sub
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -27023,7 +27023,7 @@ if.then:                                          ; preds = %while.body
   %conv22 = zext nneg i32 %pow10.064 to i64
   %shl26 = shl i64 %conv22, %sh_prom
   %cmp12.i = icmp uge i64 %add19, %sub.i26
-  %sub13.i = sub i64 %sub.i, %add19
+  %sub13.i = sub nuw i64 %sub.i, %add19
   %cmp1.not14.i = icmp ult i64 %sub13.i, %shl26
   %or.cond15.i = or i1 %cmp12.i, %cmp1.not14.i
   br i1 %or.cond15.i, label %return, label %land.rhs.lr.ph.i
@@ -27043,7 +27043,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
   %sub3.i = sub i64 %sub.i26, %rest.addr.016.i
-  %sub5.i = sub i64 %add.i, %sub.i26
+  %sub5.i = sub nuw i64 %add.i, %sub.i26
   %cmp6.i = icmp ugt i64 %sub3.i, %sub5.i
   br i1 %cmp6.i, label %while.body.i, label %return
 
@@ -27089,7 +27089,7 @@ for.end:                                          ; preds = %for.cond
   %sub48 = sub nsw i32 %11, %inc42
   store i32 %sub48, ptr %decimal_exponent, align 4
   %cmp12.i33 = icmp uge i64 %and36, %mul44
-  %sub13.i34 = sub i64 %mul43, %and36
+  %sub13.i34 = sub nuw i64 %mul43, %and36
   %cmp1.not14.i35 = icmp ult i64 %sub13.i34, %shl
   %or.cond15.i36 = or i1 %cmp12.i33, %cmp1.not14.i35
   br i1 %or.cond15.i36, label %return, label %land.rhs.lr.ph.i37
@@ -27109,7 +27109,7 @@ land.rhs.i40:                                     ; preds = %while.body.i48, %la
 
 lor.rhs.i44:                                      ; preds = %land.rhs.i40
   %sub3.i45 = sub i64 %mul44, %rest.addr.016.i41
-  %sub5.i46 = sub i64 %add.i42, %mul44
+  %sub5.i46 = sub nuw i64 %add.i42, %mul44
   %cmp6.i47 = icmp ugt i64 %sub3.i45, %sub5.i46
   br i1 %cmp6.i47, label %while.body.i48, label %return
 

@@ -307,7 +307,7 @@ define noundef zeroext i1 @_ZN2cv16structured_light20GrayCodePattern_Impl8genera
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %2
-  %17 = sub i64 %7, %14
+  %17 = sub nuw i64 %7, %14
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %17)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
@@ -721,7 +721,7 @@ _ZNSt6vectorIS_IS_IN2cv6Point_IiEESaIS2_EESaIS4_EESaIS6_EE6resizeEm.exit: ; pred
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %47
-  %62 = sub nsw i64 %52, %59
+  %62 = sub nuw nsw i64 %52, %59
   invoke void @_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %48, i64 noundef %62)
           to label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE6resizeEm.exit unwind label %.loopexit.split-lp161.loopexit
 
@@ -1471,7 +1471,7 @@ define void @_ZNK2cv16structured_light20GrayCodePattern_Impl18computeShadowMasks
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %4
-  %28 = sub nsw i64 %18, %25
+  %28 = sub nuw nsw i64 %18, %25
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %28)
   %.pre = load ptr, ptr %19, align 8
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit

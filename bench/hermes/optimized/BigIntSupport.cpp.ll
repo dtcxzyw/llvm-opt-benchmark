@@ -4916,7 +4916,7 @@ if.end.i.i:                                       ; preds = %if.then
   %mul.i.i = shl i32 %lhs.coerce1, 3
   %conv.i.i = zext i32 %mul.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr readonly align 8 %lhs.coerce0, i64 %conv.i.i, i1 false), !noalias !50
-  %sub.i.i = sub i32 %cond114, %lhs.coerce1
+  %sub.i.i = sub nuw i32 %cond114, %lhs.coerce1
   %mul5.i.i = shl i32 %sub.i.i, 3
   br i1 %cmp.not.i, label %if.end.i, label %cond.false.i.i.i
 
@@ -4994,7 +4994,7 @@ if.end.i.i37:                                     ; preds = %if.then23
   %mul.i.i38 = shl i32 %rhs.coerce1, 3
   %conv.i.i39 = zext i32 %mul.i.i38 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr readonly align 8 %rhs.coerce0, i64 %conv.i.i39, i1 false), !noalias !53
-  %sub.i.i40 = sub i32 %5, %rhs.coerce1
+  %sub.i.i40 = sub nuw i32 %5, %rhs.coerce1
   %mul5.i.i41 = shl i32 %sub.i.i40, 3
   br i1 %cmp.not.i22, label %if.end.i48, label %cond.false.i.i.i43
 
@@ -5349,7 +5349,7 @@ if.end.i:                                         ; preds = %if.then53
   %mul.i = shl i32 %rhs.8.val, 3
   %conv.i41 = zext i32 %mul.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %storemerge, ptr align 8 %rhs.0.val, i64 %conv.i41, i1 false)
-  %sub.i42 = sub i32 %add.i.i, %rhs.8.val
+  %sub.i42 = sub nuw i32 %add.i.i, %rhs.8.val
   %mul5.i = shl i32 %sub.i42, 3
   br i1 %cmp.not.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i, label %cond.false.i.i
 
@@ -7748,7 +7748,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIPKhmEv
 
 _ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKhmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIPKhmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
+  %sub = sub nuw i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   %add.ptr36 = getelementptr inbounds i8, ptr %2, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %1, %__position.coerce

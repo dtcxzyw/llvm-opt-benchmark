@@ -6262,7 +6262,7 @@ if.else5.i.i:                                     ; preds = %if.then7
   br label %if.end24
 
 if.end13:                                         ; preds = %if.end
-  %sub14 = sub i32 %idx.018, %7
+  %sub14 = sub nuw i32 %idx.018, %7
   %cmp.wide = icmp eq i64 %5, 0
   br i1 %cmp.wide, label %for.end, label %if.end, !llvm.loop !35
 

@@ -888,7 +888,7 @@ if.end81.i:                                       ; preds = %if.end81.sink.split
   br i1 %cmp98.not.i, label %if.end106.i, label %if.then100.i
 
 if.then100.i:                                     ; preds = %if.end81.i
-  %34 = sub nsw i64 %indvars.iv.i, %26
+  %34 = sub nuw nsw i64 %indvars.iv.i, %26
   %arrayidx104.i = getelementptr inbounds [8 x i8], ptr %lenBytes.i, i64 0, i64 %34
   %35 = load i8, ptr %arrayidx104.i, align 1
   %or4.i141.i = select i1 %29, i8 %35, i8 %and8788.i
@@ -4521,10 +4521,10 @@ land.lhs.true.i:                                  ; preds = %if.end30.i
   br i1 %cmp38.i, label %if.then40.i, label %if.end61.i
 
 if.then40.i:                                      ; preds = %land.lhs.true.i
-  %sub.i = sub nsw i32 %conv35.i, %22
+  %sub.i = sub nuw nsw i32 %conv35.i, %22
   %preMasterSecret47.i = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %preMasterSecret47.i, align 8
-  %idx.ext.i = zext i32 %sub.i to i64
+  %idx.ext.i = zext nneg i32 %sub.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %23, i64 %idx.ext.i
   %conv52.i = zext nneg i32 %22 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %23, i64 %conv52.i, i1 false)
@@ -7761,7 +7761,6 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %seenType, i8 0, i64 9, i1 false)
   %conv14 = zext i16 %length to i32
-  %invariant.op = add nsw i32 %conv14, -4
   %cmp15282.not = icmp eq i16 %length, 0
   br i1 %cmp15282.not, label %while.end, label %while.body.lr.ph
 
@@ -7783,7 +7782,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %conv13285 = phi i32 [ 0, %while.body.lr.ph ], [ %conv13, %sw.epilog ]
   %pendingEMS.0284 = phi i8 [ 0, %while.body.lr.ph ], [ %pendingEMS.1, %sw.epilog ]
   %offset.0283 = phi i32 [ 0, %while.body.lr.ph ], [ %add432, %sw.epilog ]
-  %cmp19 = icmp sgt i32 %conv13285, %invariant.op
+  %sub = sub nuw nsw i32 %conv14, %conv13285
+  %cmp19 = icmp ult i32 %sub, 4
   br i1 %cmp19, label %return, label %if.end22
 
 if.end22:                                         ; preds = %while.body

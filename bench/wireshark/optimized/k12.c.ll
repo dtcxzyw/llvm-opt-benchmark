@@ -1141,7 +1141,7 @@ define internal fastcc range(i32 0, 2) i32 @process_packet_data(ptr nocapture no
   %38 = zext i8 %37 to i32
   %.masked = and i32 %35, 7936
   %39 = or disjoint i32 %.masked, %38
-  %40 = sub nsw i32 %3, %27
+  %40 = sub nuw nsw i32 %3, %27
   %41 = icmp ugt i32 %39, %40
   br i1 %41, label %42, label %44
 
@@ -1218,7 +1218,7 @@ define internal fastcc range(i32 0, 2) i32 @process_packet_data(ptr nocapture no
   %100 = zext nneg i32 %27 to i64
   %101 = getelementptr i8, ptr %2, i64 %100
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 1 %101, i64 %95, i1 false)
-  %102 = sub nsw i32 %40, %39
+  %102 = sub nuw nsw i32 %40, %39
   %103 = getelementptr inbounds i8, ptr %4, i64 56
   %104 = zext i32 %102 to i64
   tail call void @ws_buffer_assure_space(ptr noundef nonnull %103, i64 noundef %104) #11

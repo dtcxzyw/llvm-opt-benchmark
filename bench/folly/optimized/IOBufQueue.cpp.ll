@@ -2609,7 +2609,7 @@ invoke.cont:                                      ; preds = %if.end
   %9 = load ptr, ptr %data_.i, align 8, !tbaa !39
   %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %amount.addr.036
   store ptr %add.ptr.i, ptr %data_.i, align 8, !tbaa !39
-  %sub.i = sub i64 %8, %amount.addr.036
+  %sub.i = sub nuw i64 %8, %amount.addr.036
   store i64 %sub.i, ptr %7, align 8, !tbaa !31
   %10 = load i64, ptr %chainLength_17, align 8, !tbaa !32
   %sub = sub i64 %10, %amount.addr.036
@@ -2617,7 +2617,7 @@ invoke.cont:                                      ; preds = %if.end
   br label %if.then.i
 
 if.end9:                                          ; preds = %if.end
-  %sub13 = sub i64 %amount.addr.036, %8
+  %sub13 = sub nuw i64 %amount.addr.036, %8
   %11 = load i64, ptr %chainLength_17, align 8, !tbaa !32
   %sub18 = sub i64 %11, %8
   store i64 %sub18, ptr %chainLength_17, align 8, !tbaa !32
@@ -2801,7 +2801,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp6, label %invoke.cont, label %if.end11
 
 invoke.cont:                                      ; preds = %if.end
-  %sub.i = sub i64 %9, %amount.addr.051
+  %sub.i = sub nuw i64 %9, %amount.addr.051
   store i64 %sub.i, ptr %8, align 8, !tbaa !31
   %10 = load i64, ptr %chainLength_21, align 8, !tbaa !32
   %sub = sub i64 %10, %amount.addr.051
@@ -2809,7 +2809,7 @@ invoke.cont:                                      ; preds = %if.end
   br label %if.then.i
 
 if.end11:                                         ; preds = %if.end
-  %sub16 = sub i64 %amount.addr.051, %9
+  %sub16 = sub nuw i64 %amount.addr.051, %9
   %11 = load i64, ptr %chainLength_21, align 8, !tbaa !32
   %sub22 = sub i64 %11, %9
   store i64 %sub22, ptr %chainLength_21, align 8, !tbaa !32

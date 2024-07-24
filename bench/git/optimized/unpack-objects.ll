@@ -1126,7 +1126,7 @@ while.body50.i.i.preheader.i:                     ; preds = %while.cond47.prehea
 while.body50.i.i.i:                               ; preds = %if.end74.i.i.i, %while.body50.i.i.preheader.i
   %hi.0141.i.i.i = phi i32 [ %hi.1.i.i.i, %if.end74.i.i.i ], [ %160, %while.body50.i.i.preheader.i ]
   %lo.0140.i.i.i = phi i32 [ %lo.1.i.i.i, %if.end74.i.i.i ], [ 0, %while.body50.i.i.preheader.i ]
-  %sub51.i.i.i = sub i32 %hi.0141.i.i.i, %lo.0140.i.i.i
+  %sub51.i.i.i = sub nuw i32 %hi.0141.i.i.i, %lo.0140.i.i.i
   %div43.i.i.i = lshr i32 %sub51.i.i.i, 1
   %add52.i.i.i = add i32 %div43.i.i.i, %lo.0140.i.i.i
   %idxprom53.i.i.i = zext i32 %add52.i.i.i to i64
@@ -1611,7 +1611,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %sub = sub i32 %0, %bytes
+  %sub = sub nuw i32 %0, %bytes
   store i32 %sub, ptr @len, align 4
   %1 = load i32, ptr @offset, align 4
   %add = add i32 %1, %bytes

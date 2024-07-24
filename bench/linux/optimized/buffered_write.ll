@@ -2452,7 +2452,7 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr nocaptur
 
 228:                                              ; preds = %224
   %229 = sub i64 %17, %226
-  %230 = sub i64 %154, %226
+  %230 = sub nuw i64 %154, %226
   %231 = call i64 @llvm.umin.i64(i64 %229, i64 %230)
   %232 = call i64 @llvm.umin.i64(i64 %231, i64 268435456)
   %233 = icmp ult i64 %225, %232

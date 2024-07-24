@@ -5800,7 +5800,7 @@ define weak_odr void @_ZNK7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   %16 = getelementptr inbounds i8, ptr %1, i64 772
   %17 = load i32, ptr %16, align 4
   %18 = icmp ult i32 %15, %17
-  %19 = sub i32 %17, %15
+  %19 = sub nuw i32 %17, %15
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = sub nuw nsw i32 32, %20
   %narrow.i.i.i = select i1 %18, i32 %21, i32 0
@@ -8698,7 +8698,7 @@ define linkonce_odr hidden { i64, float } @_ZNK7mitsuba20DiscreteDistributionIfE
   %6 = getelementptr inbounds i8, ptr %0, i64 60
   %7 = load i32, ptr %6, align 4
   %8 = icmp ult i32 %5, %7
-  %9 = sub i32 %7, %5
+  %9 = sub nuw i32 %7, %5
   %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %11 = sub nuw nsw i32 32, %10
   %narrow.i.i.i = select i1 %8, i32 %11, i32 0
@@ -10094,7 +10094,7 @@ common.resume:                                    ; preds = %200, %.body
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %._crit_edge
-  %134 = sub nsw i64 %127, %131
+  %134 = sub nuw nsw i64 %127, %131
   invoke void @_ZNSt3__16vectorIjNS_9allocatorIjEEE8__appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %134)
           to label %._ZNSt3__16vectorIjNS_9allocatorIjEEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 
@@ -10124,7 +10124,7 @@ _ZNSt3__16vectorIjNS_9allocatorIjEEE6resizeEm.exit: ; preds = %._ZNSt3__16vector
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %_ZNSt3__16vectorIjNS_9allocatorIjEEE6resizeEm.exit
-  %147 = sub nsw i64 %.pre-phi, %144
+  %147 = sub nuw nsw i64 %.pre-phi, %144
   invoke void @_ZNSt3__16vectorIfNS_9allocatorIfEEE8__appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %147)
           to label %_ZNSt3__16vectorIfNS_9allocatorIfEEE6resizeEm.exit unwind label %.loopexit.split-lp
 

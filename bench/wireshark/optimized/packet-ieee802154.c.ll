@@ -9237,7 +9237,7 @@ define internal fastcc void @dissect_ieee802154_common(ptr noundef %0, ptr nound
   br i1 %17, label %47, label %18
 
 18:                                               ; preds = %15
-  %19 = sub i32 %16, %3
+  %19 = sub nuw i32 %16, %3
   %20 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %19) #16
   %21 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %19, i32 noundef %3) #16
   %.not71 = icmp eq i32 %21, 0

@@ -6400,8 +6400,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 86:                                               ; preds = %74
   %87 = add nuw nsw i64 %.sroa.726.0.i, 1
   %88 = getelementptr inbounds { [3 x i64] }, ptr %84, i64 %87
-  %89 = sub nsw i64 %83, %.sroa.726.0.i
-  %90 = mul nsw i64 %89, 24
+  %89 = sub nuw nsw i64 %83, %.sroa.726.0.i
+  %90 = mul nuw nsw i64 %89, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %88, ptr nonnull align 8 %85, i64 %90, i1 false), !alias.scope !1038, !noalias !1041
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   %91 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 272
@@ -7280,8 +7280,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 91:                                               ; preds = %79
   %92 = add nuw nsw i64 %.sroa.726.0.i, 1
   %93 = getelementptr inbounds { [3 x i64] }, ptr %89, i64 %92
-  %94 = sub nsw i64 %88, %.sroa.726.0.i
-  %95 = mul nsw i64 %94, 24
+  %94 = sub nuw nsw i64 %88, %.sroa.726.0.i
+  %95 = mul nuw nsw i64 %94, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %93, ptr nonnull align 8 %90, i64 %95, i1 false), !alias.scope !1205, !noalias !1208
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   %96 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 272
@@ -9245,7 +9245,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !9
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.0.i = sub i64 %13, %15
+  %.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.0.i, ptr %0, align 8
@@ -9257,7 +9257,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9279,7 +9279,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !9
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.0 = sub i64 %5, %7
+  %.0 = sub nuw i64 %5, %7
   ret i64 %.0
 }
 
@@ -9343,7 +9343,7 @@ define hidden { i32, i32 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %9 = load i64, ptr %0, align 8, !alias.scope !1460, !noundef !9
   %.not.i = icmp ult i64 %8, %9
   %10 = select i1 %.not.i, i64 0, i64 %9
-  %.0.i = sub i64 %8, %10
+  %.0.i = sub nuw i64 %8, %10
   store i64 %.0.i, ptr %6, align 8
   %11 = add i64 %3, -1
   store i64 %11, ptr %2, align 8
@@ -9377,7 +9377,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %11 = load i64, ptr %0, align 8, !alias.scope !1463, !noundef !9
   %.not.i = icmp ult i64 %10, %11
   %12 = select i1 %.not.i, i64 0, i64 %11
-  %.0.i = sub i64 %10, %12
+  %.0.i = sub nuw i64 %10, %12
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !9, !noundef !9
   %15 = getelementptr inbounds i32, ptr %14, i64 %.0.i
@@ -9688,7 +9688,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h8cbdcd62d3e8d5fdE(ptr noa
   %.val.i = load ptr, ptr %66, align 8, !alias.scope !1515, !noalias !1518, !nonnull !9, !noundef !9
   %67 = getelementptr inbounds i8, ptr %.sroa.0199.0330, i64 24
   %68 = getelementptr inbounds i8, ptr %.sroa.016.0331, i64 %.val3.i
-  %69 = sub i64 %.sroa.27.0332, %.val3.i
+  %69 = sub nuw i64 %.sroa.27.0332, %.val3.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.0331, ptr nonnull readonly align 1 %.val.i, i64 %.val3.i, i1 false), !alias.scope !1525, !noalias !1529
   %70 = icmp eq ptr %67, %18
   br i1 %70, label %.loopexit, label %.lr.ph333
@@ -9725,7 +9725,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h8cbdcd62d3e8d5fdE(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit102": ; preds = %75
   %79 = getelementptr inbounds i8, ptr %.sroa.016.1326, i64 1
   %80 = getelementptr inbounds i8, ptr %79, i64 %.val3.i81
-  %81 = sub i64 %76, %.val3.i81
+  %81 = sub nuw i64 %76, %.val3.i81
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull readonly align 1 %.val.i80, i64 %.val3.i81, i1 false), !alias.scope !1551, !noalias !1555
   %82 = icmp eq ptr %71, %18
   br i1 %82, label %.loopexit, label %.lr.ph328
@@ -9762,7 +9762,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h8cbdcd62d3e8d5fdE(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit125": ; preds = %87
   %91 = getelementptr inbounds i8, ptr %.sroa.016.2321, i64 2
   %92 = getelementptr inbounds i8, ptr %91, i64 %.val3.i104
-  %93 = sub i64 %88, %.val3.i104
+  %93 = sub nuw i64 %88, %.val3.i104
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull readonly align 1 %.val.i103, i64 %.val3.i104, i1 false), !alias.scope !1577, !noalias !1581
   %94 = icmp eq ptr %83, %18
   br i1 %94, label %.loopexit, label %.lr.ph323
@@ -9798,7 +9798,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h8cbdcd62d3e8d5fdE(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit148": ; preds = %99
   %102 = getelementptr inbounds i8, ptr %.sroa.016.3316, i64 3
   %103 = getelementptr inbounds i8, ptr %102, i64 %.val3.i127
-  %104 = sub i64 %100, %.val3.i127
+  %104 = sub nuw i64 %100, %.val3.i127
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr nonnull readonly align 1 %.val.i126, i64 %.val3.i127, i1 false), !alias.scope !1603, !noalias !1607
   %105 = icmp eq ptr %95, %18
   br i1 %105, label %.loopexit, label %.lr.ph318
@@ -9835,7 +9835,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h8cbdcd62d3e8d5fdE(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit171": ; preds = %110
   %114 = getelementptr inbounds i8, ptr %.sroa.016.4313, i64 4
   %115 = getelementptr inbounds i8, ptr %114, i64 %.val3.i150
-  %116 = sub i64 %111, %.val3.i150
+  %116 = sub nuw i64 %111, %.val3.i150
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr nonnull readonly align 1 %.val.i149, i64 %.val3.i150, i1 false), !alias.scope !1629, !noalias !1633
   %117 = icmp eq ptr %106, %18
   br i1 %117, label %.loopexit, label %.lr.ph
@@ -9858,7 +9858,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h8cbdcd62d3e8d5fdE(ptr noa
   br label %.invoke
 
 122:                                              ; preds = %.lr.ph338
-  %123 = sub i64 %.sroa.27.6337, %4
+  %123 = sub nuw i64 %.sroa.27.6337, %4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.5336, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !alias.scope !1645, !noalias !1649
   %.not.i.i186 = icmp ugt i64 %.val3.i173, %123
   br i1 %.not.i.i186, label %124, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit194"
@@ -9887,7 +9887,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h8cbdcd62d3e8d5fdE(ptr noa
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h76ac7ac38eaee6f5E.exit194": ; preds = %122
   %125 = getelementptr inbounds i8, ptr %.sroa.016.5336, i64 %4
   %126 = getelementptr inbounds i8, ptr %125, i64 %.val3.i173
-  %127 = sub i64 %123, %.val3.i173
+  %127 = sub nuw i64 %123, %.val3.i173
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr nonnull readonly align 1 %.val.i172, i64 %.val3.i173, i1 false), !alias.scope !1655, !noalias !1659
   %128 = icmp eq ptr %118, %18
   br i1 %128, label %.loopexit, label %.lr.ph338

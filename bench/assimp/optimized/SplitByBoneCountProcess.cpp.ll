@@ -242,7 +242,7 @@ _ZNSt6vectorIS_IjSaIjEESaIS1_EE5clearEv.exit:     ; preds = %if.end6, %invoke.co
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIS_IjSaIjEESaIS1_EE5clearEv.exit
-  %sub.i = sub nsw i64 %conv9.pre-phi, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv9.pre-phi, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIS_IjSaIjEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %mSubMeshIndices, i64 noundef %sub.i)
   br label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit
 

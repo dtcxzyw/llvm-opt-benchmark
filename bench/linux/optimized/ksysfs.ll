@@ -460,7 +460,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @setup_data_data_read(ptr
   br i1 %62, label %74, label %63
 
 63:                                               ; preds = %58
-  %64 = sub i64 %61, %4
+  %64 = sub nuw i64 %61, %4
   %65 = call i64 @llvm.umin.i64(i64 %64, i64 %5)
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %74, label %67

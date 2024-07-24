@@ -4991,7 +4991,7 @@ define linkonce_odr dso_local void @_ZN4Luau12StringWriter7advanceERKNS_8Positio
   br i1 %19, label %20, label %37
 
 20:                                               ; preds = %._crit_edge
-  %21 = sub i32 %18, %16
+  %21 = sub nuw i32 %18, %16
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)

@@ -3767,7 +3767,7 @@ _ZN5uu_rm14prompt_descend17haa69399bac078b57E.exit.i: ; preds = %425
   %489 = add i64 %488, %487
   %.not.i.i151.i = icmp ult i64 %489, %486
   %490 = select i1 %.not.i.i151.i, i64 0, i64 %486
-  %.0.i.i152.i = sub i64 %489, %490
+  %.0.i.i152.i = sub nuw i64 %489, %490
   %491 = load ptr, ptr %129, align 8, !alias.scope !1040, !noalias !1043, !nonnull !5, !noundef !5
   %492 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, i64, i64, i32, i8, [3 x i8] }, ptr %491, i64 %.0.i.i152.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %492, ptr noundef nonnull align 8 dereferenceable(48) %55, i64 48, i1 false), !noalias !830
@@ -3783,7 +3783,7 @@ _ZN5uu_rm14prompt_descend17haa69399bac078b57E.exit.i: ; preds = %425
   %498 = add i64 %497, %496
   %.not.i.i.i = icmp ult i64 %498, %495
   %499 = select i1 %.not.i.i.i, i64 0, i64 %495
-  %.0.i.i.i = sub i64 %498, %499
+  %.0.i.i.i = sub nuw i64 %498, %499
   %500 = load ptr, ptr %129, align 8, !alias.scope !1031, !noalias !1034, !nonnull !5, !noundef !5
   %501 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, i64, i64, i32, i8, [3 x i8] }, ptr %500, i64 %.0.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %501, ptr noundef nonnull align 8 dereferenceable(48) %53, i64 48, i1 false), !noalias !830

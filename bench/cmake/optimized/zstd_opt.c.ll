@@ -2204,7 +2204,7 @@ ZSTD_litLengthPrice.exit546:                      ; preds = %441, %445
   br i1 %472, label %473, label %ZSTD_optLdm_skipRawSeqStoreBytes.exit.i
 
 473:                                              ; preds = %471
-  %474 = sub i32 %462, %470
+  %474 = sub nuw i32 %462, %470
   %475 = load i64, ptr %70, align 8
   %476 = trunc i64 %475 to i32
   %477 = add i32 %474, %476
@@ -2233,7 +2233,7 @@ ZSTD_litLengthPrice.exit546:                      ; preds = %441, %445
   br i1 %.not19.i.i, label %487, label %484
 
 484:                                              ; preds = %481
-  %485 = sub i32 %.026.i.i, %483
+  %485 = sub nuw i32 %.026.i.i, %483
   %486 = add nuw i64 %479, 1
   %cond.i.i = icmp eq i32 %485, 0
   br i1 %cond.i.i, label %.loopexit.i.i.loopexit, label %.lr.ph.i.i, !llvm.loop !21
@@ -3712,7 +3712,7 @@ define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr nocaptur
   br i1 %.not19.i, label %38, label %35
 
 35:                                               ; preds = %32
-  %36 = sub i32 %.026.i, %34
+  %36 = sub nuw i32 %.026.i, %34
   %37 = add nuw i64 %30, 1
   store i64 %37, ptr %8, align 8
   %cond.i = icmp eq i32 %36, 0
@@ -3767,7 +3767,7 @@ define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr nocaptur
   br i1 %.not19.i54, label %58, label %55
 
 55:                                               ; preds = %52
-  %56 = sub i32 %.026.i47, %54
+  %56 = sub nuw i32 %.026.i47, %54
   %57 = add nuw i64 %50, 1
   store i64 %57, ptr %8, align 8
   %cond.i55 = icmp eq i32 %56, 0
@@ -3809,7 +3809,7 @@ define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr nocaptur
   br i1 %.not19.i67, label %72, label %69
 
 69:                                               ; preds = %66
-  %70 = sub i32 %.026.i60, %68
+  %70 = sub nuw i32 %.026.i60, %68
   %71 = add nuw i64 %64, 1
   store i64 %71, ptr %8, align 8
   %cond.i68 = icmp eq i32 %70, 0
@@ -4360,7 +4360,7 @@ define internal fastcc void @ZSTD_optLdm_processMatchCandidate(ptr nocapture nou
   br i1 %16, label %17, label %ZSTD_optLdm_skipRawSeqStoreBytes.exit
 
 17:                                               ; preds = %15
-  %18 = sub i32 %3, %14
+  %18 = sub nuw i32 %3, %14
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
@@ -4386,7 +4386,7 @@ define internal fastcc void @ZSTD_optLdm_processMatchCandidate(ptr nocapture nou
   br i1 %.not19.i, label %32, label %29
 
 29:                                               ; preds = %25
-  %30 = sub i32 %.026.i, %28
+  %30 = sub nuw i32 %.026.i, %28
   %31 = add nuw i64 %23, 1
   store i64 %31, ptr %10, align 8
   %cond.i = icmp eq i32 %30, 0

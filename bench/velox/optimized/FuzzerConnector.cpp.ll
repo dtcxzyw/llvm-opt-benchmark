@@ -1090,7 +1090,7 @@ _ZNSt10shared_ptrIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitEED2Ev.
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %sub = sub i64 %3, %2
+  %sub = sub nuw i64 %3, %2
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 %size)
   %add = add i64 %.sroa.speculated, %2
   store i64 %add, ptr %splitOffset_, align 8

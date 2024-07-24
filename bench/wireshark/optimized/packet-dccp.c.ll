@@ -1509,7 +1509,7 @@ proto_item_set_hidden.exit619:                    ; preds = %570, %567, %563, %5
   br i1 %608, label %609, label %619
 
 609:                                              ; preds = %607
-  %610 = sub nsw i32 %95, %.1535
+  %610 = sub nuw nsw i32 %95, %.1535
   %.not592 = icmp eq ptr %50, null
   br i1 %.not592, label %618, label %611
 
@@ -1531,7 +1531,7 @@ proto_item_set_hidden.exit619:                    ; preds = %570, %567, %563, %5
 619:                                              ; preds = %618, %607
   %.1533 = phi ptr [ %.0532, %618 ], [ %37, %607 ]
   %.0531 = phi i32 [ %610, %618 ], [ 0, %607 ]
-  %620 = add nsw i32 %.0531, %.1535
+  %620 = add nuw nsw i32 %.0531, %.1535
   call void @proto_item_set_end(ptr noundef %.1533, ptr noundef %0, i32 noundef %620) #10
   %621 = load i32, ptr @dccp_tap, align 4
   call void @tap_queue_packet(i32 noundef %621, ptr noundef nonnull %1, ptr noundef nonnull %10) #10

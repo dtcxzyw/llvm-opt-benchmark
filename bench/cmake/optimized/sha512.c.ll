@@ -55,7 +55,7 @@ define dso_local void @rhash_sha512_update(ptr nocapture noundef %0, ptr noundef
   %14 = getelementptr inbounds i8, ptr %0, i64 136
   tail call fastcc void @rhash_sha512_process_block(ptr noundef nonnull %14, ptr noundef nonnull %0)
   %15 = getelementptr inbounds i8, ptr %1, i64 %9
-  %16 = sub i64 %2, %9
+  %16 = sub nuw i64 %2, %9
   br label %17
 
 17:                                               ; preds = %13, %3

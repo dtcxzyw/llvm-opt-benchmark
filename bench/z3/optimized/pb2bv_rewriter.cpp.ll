@@ -8186,7 +8186,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIP4exprL
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.us
   %i.0114.us = phi i32 [ %add30.us, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.us ], [ 0, %for.body.lr.ph ]
-  %sub.us = sub i32 %18, %i.0114.us
+  %sub.us = sub nuw i32 %18, %i.0114.us
   %.sroa.speculated.us = call i32 @llvm.umin.i32(i32 %spec.select, i32 %sub.us)
   %19 = load ptr, ptr %in, align 8
   %idx.ext.us = zext i32 %i.0114.us to i64
@@ -8310,7 +8310,7 @@ lpad4.body:                                       ; preds = %lpad4.loopexit, %lp
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont17
   %i.0114 = phi i32 [ %add30, %invoke.cont17 ], [ 0, %for.body.lr.ph ]
-  %sub = sub i32 %18, %i.0114
+  %sub = sub nuw i32 %18, %i.0114
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %spec.select, i32 %sub)
   %29 = load ptr, ptr %in, align 8
   %idx.ext = zext i32 %i.0114 to i64
@@ -8661,7 +8661,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.lr.ph:       ; preds = %while.cond.preheade
 
 for.body:                                         ; preds = %invoke.cont, %for.inc
   %i.0326 = phi i32 [ %add, %for.inc ], [ 0, %invoke.cont ]
-  %sub = sub i32 %n, %i.0326
+  %sub = sub nuw i32 %n, %i.0326
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %sub, i32 2)
   %12 = load ptr, ptr %in, align 8
   %idx.ext = zext i32 %i.0326 to i64
@@ -31513,7 +31513,7 @@ if.then:                                          ; preds = %entry, %for.end
   br label %cleanup
 
 if.end:                                           ; preds = %for.end
-  %sub = sub i32 %add, %k
+  %sub = sub nuw i32 %add, %k
   %12 = load ptr, ptr %Xs, align 8
   %m_t.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 3, ptr %m_t.i, align 8
@@ -31696,7 +31696,7 @@ while.end:                                        ; preds = %for.end.thread, %wh
   br i1 %cmp21, label %if.then22, label %if.end35
 
 if.then22:                                        ; preds = %while.end
-  %sub24 = sub i32 %mul, %k
+  %sub24 = sub nuw i32 %mul, %k
   %22 = load ptr, ptr %Ws, align 8
   %cmp.i49 = icmp eq ptr %22, null
   br i1 %cmp.i49, label %if.then.i58, label %lor.lhs.false.i50

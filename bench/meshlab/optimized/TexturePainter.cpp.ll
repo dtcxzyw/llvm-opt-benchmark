@@ -6915,7 +6915,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %41
-  %46 = sub nsw i64 %43, %39
+  %46 = sub nuw nsw i64 %43, %39
   invoke void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %34, i64 noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge unwind label %.loopexit
 
@@ -7080,7 +7080,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

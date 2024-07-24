@@ -5936,7 +5936,7 @@ h5tools_dump_simple_dset.exit:                    ; preds = %56, %64, %68, %124,
   br i1 %530, label %531, label %535
 
 531:                                              ; preds = %520
-  %532 = sub i64 %525, %529
+  %532 = sub nuw i64 %525, %529
   %533 = load i64, ptr %468, align 8
   %534 = add i64 %532, %533
   store i64 %534, ptr %468, align 8

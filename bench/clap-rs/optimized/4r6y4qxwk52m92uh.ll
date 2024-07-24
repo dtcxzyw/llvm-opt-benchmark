@@ -608,7 +608,7 @@ _ZN8clap_lex3ext8split_at17hf432e678d412a774E.exit.i.i: ; preds = %22
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he9d986bffa271cbbE.exit.i.i": ; preds = %_ZN8clap_lex3ext8split_at17hf432e678d412a774E.exit.i.i
-  %27 = sub i64 %.fca.1.extract, %.sroa.01.0.copyload.i.i
+  %27 = sub nuw i64 %.fca.1.extract, %.sroa.01.0.copyload.i.i
   %28 = getelementptr inbounds i8, ptr %.fca.0.extract, i64 %.sroa.01.0.copyload.i.i
   %29 = getelementptr inbounds i8, ptr %4, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !84, !noalias !72, !nonnull !4, !align !31, !noundef !4
@@ -1084,7 +1084,7 @@ define { ptr, i64 } @_ZN8clap_lex10ShortFlags13next_value_os17hb3f4ea668f9a5a12E
 _ZN8clap_lex3ext8split_at17hf432e678d412a774E.exit: ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit"
   %43 = load ptr, ptr %0, align 8, !nonnull !4, !align !31, !noundef !4
   %44 = getelementptr inbounds i8, ptr %43, i64 %39
-  %45 = sub i64 %41, %39
+  %45 = sub nuw i64 %41, %39
   br label %48
 
 "_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread": ; preds = %1, %20

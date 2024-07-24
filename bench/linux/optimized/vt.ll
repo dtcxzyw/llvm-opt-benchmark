@@ -2476,7 +2476,7 @@ define internal fastcc i32 @vc_do_resize(ptr noundef %0, ptr noundef %1, i32 nou
   %140 = sub i32 %29, %132
   %141 = zext i32 %140 to i64
   %142 = zext i32 %125 to i64
-  %143 = sub i32 %127, %125
+  %143 = sub nuw i32 %127, %125
   %144 = zext i32 %143 to i64
   br i1 %139, label %.split.us, label %.split
 
@@ -2579,7 +2579,7 @@ define internal fastcc i32 @vc_do_resize(ptr noundef %0, ptr noundef %1, i32 nou
   %207 = inttoptr i64 %204 to ptr
   %208 = getelementptr inbounds i8, ptr %1, i64 552
   %209 = load i16, ptr %208, align 8
-  %210 = sub i64 %109, %204
+  %210 = sub nuw i64 %109, %204
   %211 = lshr exact i64 %210, 1
   %212 = and i64 %211, 2147483647
   %213 = tail call { i64, i64 } asm sideeffect "rep\0A\09stosw", "=&{cx},=&{di},{ax},1,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %209, ptr %207, i64 %212) #25, !srcloc !63

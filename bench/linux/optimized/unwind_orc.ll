@@ -479,7 +479,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   br i1 %28, label %29, label %97
 
 29:                                               ; preds = %25
-  %30 = sub i64 %23, ptrtoint (ptr @_stext to i64)
+  %30 = sub nuw i64 %23, ptrtoint (ptr @_stext to i64)
   %31 = lshr i64 %30, 8
   %32 = trunc i64 %31 to i32
   %33 = load i32, ptr @lookup_num_blocks, align 4

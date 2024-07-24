@@ -21578,7 +21578,7 @@ define hidden void @"_ZN9regalloc23ion63_$LT$impl$u20$regalloc2..ion..data_struc
   %384 = load i64, ptr %129, align 8, !alias.scope !3339, !noalias !3293, !noundef !30
   %.not.i.i282.i = icmp ult i64 %383, %384
   %385 = select i1 %.not.i.i282.i, i64 0, i64 %384
-  %.0.i.i283.i = sub i64 %383, %385
+  %.0.i.i283.i = sub nuw i64 %383, %385
   store i64 %.0.i.i283.i, ptr %289, align 8, !alias.scope !3337, !noalias !3293
   %386 = add i64 %381, -1
   store i64 %386, ptr %290, align 8, !alias.scope !3337, !noalias !3293
@@ -22473,7 +22473,7 @@ _ZN9regalloc28indexset8IndexSet14maybe_elem_mut17h41db4d866c1e0842E.exit.i.i: ; 
   %783 = add i64 %782, %781
   %.not.i.i337.i = icmp ult i64 %783, %780
   %784 = select i1 %.not.i.i337.i, i64 0, i64 %780
-  %.0.i.i338.i = sub i64 %783, %784
+  %.0.i.i338.i = sub nuw i64 %783, %784
   %785 = load ptr, ptr %291, align 8, !alias.scope !3555, !noalias !3293, !nonnull !30, !noundef !30
   %786 = getelementptr inbounds i32, ptr %785, i64 %.0.i.i338.i
   store i32 %615, ptr %786, align 4, !noalias !3288
@@ -23907,7 +23907,7 @@ common.resume:                                    ; preds = %2118, %.thread350.i
   %1338 = add i64 %1337, %1336
   %.not.i.i.i = icmp ult i64 %1338, %1335
   %1339 = select i1 %.not.i.i.i, i64 0, i64 %1335
-  %.0.i.i280.i = sub i64 %1338, %1339
+  %.0.i.i280.i = sub nuw i64 %1338, %1339
   %1340 = load ptr, ptr %291, align 8, !alias.scope !3331, !noalias !3293, !nonnull !30, !noundef !30
   %1341 = getelementptr inbounds i32, ptr %1340, i64 %.0.i.i280.i
   store i32 %375, ptr %1341, align 4, !noalias !3288

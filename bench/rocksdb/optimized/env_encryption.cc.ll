@@ -4073,7 +4073,7 @@ if.then24.us:                                     ; preds = %if.end22.us
   br label %if.end34.us
 
 if.end34.us:                                      ; preds = %if.then24.us, %if.end22.us
-  %sub35.us = sub i64 %dataSize.addr.0.us, %.sroa.speculated.us
+  %sub35.us = sub nuw i64 %dataSize.addr.0.us, %.sroa.speculated.us
   %cmp36.not.us = icmp ugt i64 %dataSize.addr.0.us, %sub.us
   br i1 %cmp36.not.us, label %if.end39.us, label %if.then37.us
 
@@ -4189,7 +4189,7 @@ if.then24:                                        ; preds = %if.end22
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end22, %if.then24
-  %sub35 = sub i64 %dataSize.addr.0, %.sroa.speculated
+  %sub35 = sub nuw i64 %dataSize.addr.0, %.sroa.speculated
   %cmp36.not = icmp ugt i64 %dataSize.addr.0, %sub
   br i1 %cmp36.not, label %if.end39, label %if.then37
 

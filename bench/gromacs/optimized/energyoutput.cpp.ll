@@ -1240,7 +1240,7 @@ _ZNK3gmx17MDModulesNotifierIPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_
   br i1 %524, label %525, label %527
 
 525:                                              ; preds = %503
-  %526 = sub nsw i64 %516, %523
+  %526 = sub nuw nsw i64 %516, %523
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %52, i64 noundef %526)
           to label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1535,7 +1535,7 @@ _ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit:          ; preds = %._crit_edge470
   br i1 %665, label %666, label %668
 
 666:                                              ; preds = %655
-  %667 = sub nsw i64 %657, %664
+  %667 = sub nuw nsw i64 %657, %664
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %61, i64 noundef %667)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1978,7 +1978,7 @@ _ZNSt10unique_ptrI18t_mde_delta_h_collSt14default_deleteIS0_EED2Ev.exit: ; preds
   br i1 %879, label %880, label %883
 
 880:                                              ; preds = %867
-  %881 = sub nsw i64 %871, %878
+  %881 = sub nuw nsw i64 %871, %878
   br label %.invoke567
 
 .invoke567:                                       ; preds = %901, %880
@@ -2016,7 +2016,7 @@ _ZNSt10unique_ptrI18t_mde_delta_h_collSt14default_deleteIS0_EED2Ev.exit: ; preds
   br i1 %900, label %901, label %903
 
 901:                                              ; preds = %888
-  %902 = sub nsw i64 %892, %899
+  %902 = sub nuw nsw i64 %892, %899
   br label %.invoke567
 
 903:                                              ; preds = %888
@@ -5889,7 +5889,7 @@ define void @_ZNK3gmx12EnergyOutput17fillEnergyHistoryEP15energyhistory_t(ptr no
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %18
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %31)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -5921,7 +5921,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %30, %32, %34, %36
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %49 = sub nsw i64 %39, %46
+  %49 = sub nuw nsw i64 %39, %46
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %49)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit37
 
@@ -5987,7 +5987,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit37:             ; preds = %48, %50, %52, %54
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %74
-  %87 = sub nsw i64 %77, %84
+  %87 = sub nuw nsw i64 %77, %84
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %75, i64 noundef %87)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit39
 

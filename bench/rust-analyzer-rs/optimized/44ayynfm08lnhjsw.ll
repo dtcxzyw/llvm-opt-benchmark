@@ -49866,11 +49866,11 @@ _ZN4core4iter6traits8iterator8Iterator3nth17hf498136852e54490E.exit.i.i.i: ; pre
           to label %174 unwind label %18
 
 153:                                              ; preds = %147
-  %154 = sub i32 %149, %130
-  %155 = sub i32 %151, %130
+  %154 = sub nuw i32 %149, %130
+  %155 = sub nuw i32 %151, %130
   %156 = zext i32 %154 to i64
   %157 = zext i32 %155 to i64
-  %.not.i.i33 = icmp ugt i32 %154, %155
+  %.not.i.i33 = icmp ugt i32 %149, %151
   br i1 %.not.i.i33, label %173, label %158
 
 158:                                              ; preds = %153

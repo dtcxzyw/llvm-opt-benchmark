@@ -2622,7 +2622,7 @@ sw.bb27:                                          ; preds = %while.body.sw.bb27_
   br i1 %cmp51, label %if.then53, label %do.body59
 
 if.then53:                                        ; preds = %sw.bb27
-  %reass.sub576 = sub i64 %10, %add
+  %reass.sub576 = sub nuw i64 %10, %add
   %add57 = add i64 %reass.sub576, 4
   br label %while.end
 
@@ -3088,7 +3088,7 @@ if.then381:                                       ; preds = %sw.bb356
   %55 = load i32, ptr %blockChecksumFlag386, align 4
   %tobool387.not = icmp eq i32 %55, 0
   %cond388 = select i1 %tobool387.not, i64 0, i64 4
-  %reass.sub = sub i64 %54, %add375
+  %reass.sub = sub nuw i64 %54, %add375
   %add389 = add i64 %reass.sub, 4
   %add390 = add i64 %add389, %cond388
   br label %while.end
@@ -3583,7 +3583,7 @@ sw.bb706:                                         ; preds = %while.body.sw.bb706
   br i1 %cmp735, label %if.then737, label %if.end745
 
 if.then737:                                       ; preds = %sw.bb706
-  %sub740 = sub i64 %121, %add732
+  %sub740 = sub nuw i64 %121, %add732
   br label %while.end
 
 if.end745:                                        ; preds = %if.end701, %sw.bb706

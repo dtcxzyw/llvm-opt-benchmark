@@ -418,7 +418,7 @@ do.body9:                                         ; preds = %do.body
 
 do.end13:                                         ; preds = %do.body
   %6 = load ptr, ptr %this, align 8
-  %sub = sub i64 %5, %4
+  %sub = sub nuw i64 %5, %4
   %add.ptr1.i = getelementptr inbounds i8, ptr %6, i64 %sub
   br label %return
 
@@ -973,7 +973,7 @@ do.body9.i:                                       ; preds = %do.body.i
 
 do.end13.i:                                       ; preds = %do.body.i
   %30 = load ptr, ptr %0, align 8
-  %sub.i = sub i64 %29, %28
+  %sub.i = sub nuw i64 %29, %28
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %30, i64 %sub.i
   br label %_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym.exit
 

@@ -282,7 +282,7 @@ _ZN3gmx19MrcDensityMapHeaderD2Ev.exit:            ; preds = %35, %_ZN3gmx19MrcDe
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %45
-  %55 = sub i64 %44, %52
+  %55 = sub nuw i64 %44, %52
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %55)
           to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 

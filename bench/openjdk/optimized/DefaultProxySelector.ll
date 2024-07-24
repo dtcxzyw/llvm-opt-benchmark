@@ -558,7 +558,7 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br i1 %.not80.i, label %.critedge85.i, label %206
 
 206:                                              ; preds = %.lr.ph.i30
-  %207 = sub i64 %205, %204
+  %207 = sub nuw i64 %205, %204
   %208 = getelementptr inbounds i8, ptr %22, i64 %207
   %209 = call i32 @strcasecmp(ptr noundef nonnull readonly %208, ptr noundef nonnull %.0108.i) #11
   %210 = icmp eq i32 %209, 0

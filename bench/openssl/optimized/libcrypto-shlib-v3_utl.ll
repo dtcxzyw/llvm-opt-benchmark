@@ -2294,7 +2294,7 @@ while.cond.preheader.i:                           ; preds = %entry
 land.rhs.lr.ph.i:                                 ; preds = %while.cond.preheader.i
   %and2.i = and i32 %flags, 16
   %tobool3.not.not.i = icmp eq i32 %and2.i, 0
-  %0 = sub i64 %pattern_len, %subject_len
+  %0 = sub nuw i64 %pattern_len, %subject_len
   %scevgep25.i = getelementptr i8, ptr %pattern, i64 %0
   br i1 %tobool3.not.not.i, label %land.rhs.us.i, label %land.rhs.i
 
@@ -2531,7 +2531,7 @@ while.cond.preheader.i.i:                         ; preds = %if.then5
 land.rhs.lr.ph.i.i:                               ; preds = %while.cond.preheader.i.i
   %and2.i.i = and i32 %flags, 16
   %tobool3.not.not.i.i = icmp eq i32 %and2.i.i, 0
-  %11 = sub i64 %pattern_len, %subject_len
+  %11 = sub nuw i64 %pattern_len, %subject_len
   %scevgep25.i.i = getelementptr i8, ptr %pattern, i64 %11
   br i1 %tobool3.not.not.i.i, label %land.rhs.us.i.i, label %land.rhs.i.i
 
@@ -2792,7 +2792,7 @@ while.cond.preheader.i:                           ; preds = %entry
 land.rhs.lr.ph.i:                                 ; preds = %while.cond.preheader.i
   %and2.i = and i32 %flags, 16
   %tobool3.not.not.i = icmp eq i32 %and2.i, 0
-  %0 = sub i64 %pattern_len, %subject_len
+  %0 = sub nuw i64 %pattern_len, %subject_len
   %scevgep25.i = getelementptr i8, ptr %pattern, i64 %0
   br i1 %tobool3.not.not.i, label %land.rhs.us.i, label %land.rhs.i
 

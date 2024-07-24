@@ -6070,7 +6070,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h0cba308a8264d690E"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5777dfd3e4249c38E.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !1392, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -12030,7 +12030,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2605)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2608)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %41, label %28
 
@@ -12245,7 +12245,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2644)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2647)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %40, label %28
 
@@ -12441,7 +12441,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %21 = zext i8 %20 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2678)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2681)
-  %22 = sub i64 %6, %11
+  %22 = sub nuw i64 %6, %11
   %23 = icmp ult i64 %22, %21
   br i1 %23, label %37, label %24
 
@@ -12674,7 +12674,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %20 = zext i8 %19 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2720)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2723)
-  %21 = sub i64 %5, %10
+  %21 = sub nuw i64 %5, %10
   %22 = icmp ult i64 %21, %20
   br i1 %22, label %58, label %23
 
@@ -12838,7 +12838,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %20 = zext i8 %19 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2755)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2758)
-  %21 = sub i64 %5, %10
+  %21 = sub nuw i64 %5, %10
   %22 = icmp ult i64 %21, %20
   br i1 %22, label %58, label %23
 
@@ -13000,7 +13000,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2790)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2793)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %41, label %28
 
@@ -13200,7 +13200,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %20 = zext i8 %19 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2828)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2831)
-  %21 = sub i64 %5, %10
+  %21 = sub nuw i64 %5, %10
   %22 = icmp ult i64 %21, %20
   br i1 %22, label %54, label %23
 
@@ -13360,7 +13360,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2863)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2866)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %41, label %28
 
@@ -13563,7 +13563,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %23 = zext i16 %22 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2901)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2904)
-  %24 = sub i64 %6, %12
+  %24 = sub nuw i64 %6, %12
   %25 = icmp ult i64 %24, %23
   br i1 %25, label %39, label %26
 
@@ -13766,7 +13766,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %23 = zext i16 %22 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2943)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2946)
-  %24 = sub i64 %6, %12
+  %24 = sub nuw i64 %6, %12
   %25 = icmp ult i64 %24, %23
   br i1 %25, label %39, label %26
 
@@ -14012,7 +14012,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2985)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2988)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %40, label %28
 
@@ -14216,7 +14216,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3018)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3021)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %41, label %28
 
@@ -14431,7 +14431,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3056)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3059)
-  %30 = sub i64 %8, %14
+  %30 = sub nuw i64 %8, %14
   %31 = icmp ult i64 %30, %.0.sroa.speculated.i
   br i1 %31, label %46, label %32
 
@@ -14632,7 +14632,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3089)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3092)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %40, label %28
 
@@ -14847,7 +14847,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3123)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3126)
-  %30 = sub i64 %8, %14
+  %30 = sub nuw i64 %8, %14
   %31 = icmp ult i64 %30, %.0.sroa.speculated.i
   br i1 %31, label %45, label %32
 
@@ -15117,7 +15117,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3187)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3190)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %40, label %28
 
@@ -15324,7 +15324,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3224)
-  %27 = sub i64 %9, %15
+  %27 = sub nuw i64 %9, %15
   %28 = icmp ult i64 %27, %26
   br i1 %28, label %41, label %29
 
@@ -15565,7 +15565,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3265)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3268)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %40, label %28
 
@@ -15760,7 +15760,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %20 = zext i8 %19 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3298)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3301)
-  %21 = sub i64 %5, %10
+  %21 = sub nuw i64 %5, %10
   %22 = icmp ult i64 %21, %20
   br i1 %22, label %54, label %23
 
@@ -15917,7 +15917,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3333)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3336)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %41, label %28
 
@@ -16124,7 +16124,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3371)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3374)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %40, label %28
 
@@ -16326,7 +16326,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3404)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3407)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %40, label %28
 
@@ -16539,7 +16539,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3438)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3441)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %41, label %28
 
@@ -16754,7 +16754,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3476)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3479)
-  %26 = sub i64 %8, %14
+  %26 = sub nuw i64 %8, %14
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %40, label %28
 

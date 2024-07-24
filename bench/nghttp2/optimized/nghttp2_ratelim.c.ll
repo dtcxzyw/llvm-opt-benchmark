@@ -26,7 +26,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp3 = icmp ult i64 %0, %tstamp
-  %sub = sub i64 %tstamp, %0
+  %sub = sub nuw i64 %tstamp, %0
   %d.0 = select i1 %cmp3, i64 %sub, i64 1
   store i64 %tstamp, ptr %tstamp1, align 8
   %rate = getelementptr inbounds i8, ptr %rl, i64 8
@@ -74,7 +74,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %0, %n
+  %sub = sub nuw i64 %0, %n
   store i64 %sub, ptr %val, align 8
   br label %return
 

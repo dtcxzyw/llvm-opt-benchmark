@@ -1140,7 +1140,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %40
   br i1 %47, label %_Z11cmHasSuffixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i
-  %48 = sub i64 %42, %45
+  %48 = sub nuw i64 %42, %45
   %49 = getelementptr inbounds i8, ptr %43, i64 %48
   %bcmp.i = call i32 @bcmp(ptr %49, ptr %46, i64 %45)
   %50 = icmp eq i32 %bcmp.i, 0

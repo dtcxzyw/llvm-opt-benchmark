@@ -553,7 +553,7 @@ define hidden void @_ZN18AbstractDumpWriter9write_rawEPKvm(ptr noundef nonnull a
   %15 = getelementptr inbounds i8, ptr %14, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %.014, i64 %12, i1 false)
   %16 = getelementptr inbounds i8, ptr %.014, i64 %12
-  %17 = sub i64 %.01113, %12
+  %17 = sub nuw i64 %.01113, %12
   %18 = load i64, ptr %5, align 8
   %19 = add i64 %18, %12
   store i64 %19, ptr %5, align 8
@@ -11111,7 +11111,7 @@ define hidden void @_ZN10HeapDumper9dump_heapEb(i1 noundef zeroext %0) local_unn
   br i1 %.not, label %.critedge, label %37
 
 37:                                               ; preds = %32
-  %38 = sub i64 %36, %35
+  %38 = sub nuw i64 %36, %35
   %39 = getelementptr inbounds i8, ptr @_ZZN10HeapDumper9dump_heapEbE9base_path, i64 %38
   %40 = tail call noundef ptr @_ZN2os14file_separatorEv() #19
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %40) #21

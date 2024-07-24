@@ -194,7 +194,7 @@ dump_output.exit:                                 ; preds = %rb_type.exit.i, %rb
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %31, i64 %32
-  %37 = sub i64 %33, %32
+  %37 = sub nuw i64 %33, %32
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 1 %36, i64 %37, i1 false)
   br label %.sink.split.i.i
 
@@ -362,7 +362,7 @@ dump_flush.exit.i.i.thread:                       ; preds = %58, %60, %53
 
 dump_flush.exit.i.i:                              ; preds = %53
   %63 = getelementptr inbounds i8, ptr %54, i64 %55
-  %64 = sub i64 %56, %55
+  %64 = sub nuw i64 %56, %55
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 1 %63, i64 %64, i1 false)
   store i64 %64, ptr %8, align 8
   %65 = add i64 %64, -4093
@@ -411,7 +411,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
 
 85:                                               ; preds = %80
   %86 = getelementptr inbounds i8, ptr %81, i64 %82
-  %87 = sub i64 %83, %82
+  %87 = sub nuw i64 %83, %82
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %81, ptr nonnull align 1 %86, i64 %87, i1 false)
   br label %.sink.split.i.i
 
@@ -514,7 +514,7 @@ rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %3
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %29, i64 %30
-  %35 = sub i64 %31, %30
+  %35 = sub nuw i64 %31, %30
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 1 %34, i64 %35, i1 false)
   br label %.sink.split.i.i
 
@@ -610,7 +610,7 @@ dump_flush.exit.i.i.thread.i:                     ; preds = %26, %23, %18
 
 dump_flush.exit.i.i.i:                            ; preds = %18
   %29 = getelementptr inbounds i8, ptr %19, i64 %20
-  %30 = sub i64 %21, %20
+  %30 = sub nuw i64 %21, %20
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 1 %29, i64 %30, i1 false)
   store i64 %30, ptr %11, align 8
   %31 = add i64 %30, -4092
@@ -669,7 +669,7 @@ dump_flush.exit.i.i19.thread.i:                   ; preds = %56, %53, %48
 
 dump_flush.exit.i.i19.i:                          ; preds = %48
   %59 = getelementptr inbounds i8, ptr %49, i64 %50
-  %60 = sub i64 %51, %50
+  %60 = sub nuw i64 %51, %50
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr nonnull align 1 %59, i64 %60, i1 false)
   store i64 %60, ptr %41, align 8
   %61 = add i64 %60, -4091
@@ -728,7 +728,7 @@ dump_flush.exit.i.i26.thread.i:                   ; preds = %86, %83, %78
 
 dump_flush.exit.i.i26.i:                          ; preds = %78
   %89 = getelementptr inbounds i8, ptr %79, i64 %80
-  %90 = sub i64 %81, %80
+  %90 = sub nuw i64 %81, %80
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %79, ptr nonnull align 1 %89, i64 %90, i1 false)
   store i64 %90, ptr %71, align 8
   %91 = add i64 %90, -4092
@@ -825,7 +825,7 @@ dump_flush.exit.i.i.thread.i.i:                   ; preds = %134, %131, %126
 
 dump_flush.exit.i.i.i.i:                          ; preds = %126
   %137 = getelementptr inbounds i8, ptr %127, i64 %128
-  %138 = sub i64 %129, %128
+  %138 = sub nuw i64 %129, %128
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %127, ptr nonnull align 1 %137, i64 %138, i1 false)
   store i64 %138, ptr %119, align 8
   %139 = add i64 %138, -4070
@@ -880,7 +880,7 @@ dump_flush.exit.i.i7.thread.i.i:                  ; preds = %162, %159, %155
 
 dump_flush.exit.i.i7.i.i:                         ; preds = %155
   %164 = getelementptr inbounds i8, ptr %144, i64 %156
-  %165 = sub i64 %157, %156
+  %165 = sub nuw i64 %157, %156
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %144, ptr nonnull align 1 %164, i64 %165, i1 false)
   store i64 %165, ptr %119, align 8
   %166 = add i64 %165, -4095
@@ -938,7 +938,7 @@ dump_flush.exit.i.i33.thread.i:                   ; preds = %189, %186, %181
 
 dump_flush.exit.i.i33.i:                          ; preds = %181
   %192 = getelementptr inbounds i8, ptr %182, i64 %183
-  %193 = sub i64 %184, %183
+  %193 = sub nuw i64 %184, %183
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %182, ptr nonnull align 1 %192, i64 %193, i1 false)
   store i64 %193, ptr %174, align 8
   %194 = add i64 %193, -4094
@@ -1038,7 +1038,7 @@ dump_flush.exit.i.i.thread:                       ; preds = %240, %241, %235
 
 dump_flush.exit.i.i:                              ; preds = %235
   %244 = getelementptr inbounds i8, ptr %236, i64 %237
-  %245 = sub i64 %238, %237
+  %245 = sub nuw i64 %238, %237
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %236, ptr nonnull align 1 %244, i64 %245, i1 false)
   store i64 %245, ptr %228, align 8
   %246 = add i64 %245, -4085
@@ -1091,7 +1091,7 @@ dump_flush.exit.i.i231.thread:                    ; preds = %265, %267, %261
 
 dump_flush.exit.i.i231:                           ; preds = %261
   %269 = getelementptr inbounds i8, ptr %251, i64 %262
-  %270 = sub i64 %263, %262
+  %270 = sub nuw i64 %263, %262
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %269, i64 %270, i1 false)
   store i64 %270, ptr %228, align 8
   %271 = add i64 %270, -4086
@@ -1150,7 +1150,7 @@ obj_type.exit235:                                 ; preds = %buffer_append.exit2
 
 294:                                              ; preds = %290
   %295 = getelementptr inbounds i8, ptr %251, i64 %291
-  %296 = sub i64 %292, %291
+  %296 = sub nuw i64 %292, %291
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %295, i64 %296, i1 false)
   br label %.sink.split.i.i.i239
 
@@ -1221,7 +1221,7 @@ dump_flush.exit.i.i249.thread:                    ; preds = %320, %322, %316
 
 dump_flush.exit.i.i249:                           ; preds = %316
   %324 = getelementptr inbounds i8, ptr %251, i64 %317
-  %325 = sub i64 %318, %317
+  %325 = sub nuw i64 %318, %317
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %324, i64 %325, i1 false)
   store i64 %325, ptr %228, align 8
   %326 = add i64 %325, -4095
@@ -1274,7 +1274,7 @@ dump_flush.exit.i.i257.thread:                    ; preds = %346, %348, %342
 
 dump_flush.exit.i.i257:                           ; preds = %342
   %350 = getelementptr inbounds i8, ptr %251, i64 %343
-  %351 = sub i64 %344, %343
+  %351 = sub nuw i64 %344, %343
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %350, i64 %351, i1 false)
   store i64 %351, ptr %228, align 8
   %352 = add i64 %351, -4083
@@ -1326,7 +1326,7 @@ dump_flush.exit.i.i265.thread:                    ; preds = %370, %372, %366
 
 dump_flush.exit.i.i265:                           ; preds = %366
   %374 = getelementptr inbounds i8, ptr %251, i64 %367
-  %375 = sub i64 %368, %367
+  %375 = sub nuw i64 %368, %367
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %374, i64 %375, i1 false)
   store i64 %375, ptr %228, align 8
   %376 = add i64 %375, -4082
@@ -1385,7 +1385,7 @@ dump_flush.exit.i.i273.thread:                    ; preds = %398, %400, %394
 
 dump_flush.exit.i.i273:                           ; preds = %394
   %402 = getelementptr inbounds i8, ptr %251, i64 %395
-  %403 = sub i64 %396, %395
+  %403 = sub nuw i64 %396, %395
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %402, i64 %403, i1 false)
   store i64 %403, ptr %228, align 8
   %404 = add i64 %403, -4086
@@ -1446,7 +1446,7 @@ dump_flush.exit.i.i281.thread:                    ; preds = %426, %428, %422
 
 dump_flush.exit.i.i281:                           ; preds = %422
   %430 = getelementptr inbounds i8, ptr %251, i64 %423
-  %431 = sub i64 %424, %423
+  %431 = sub nuw i64 %424, %423
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %430, i64 %431, i1 false)
   store i64 %431, ptr %228, align 8
   %432 = add i64 %431, -4081
@@ -1980,7 +1980,7 @@ dump_flush.exit.i.i328.thread:                    ; preds = %651, %653, %647
 
 dump_flush.exit.i.i328:                           ; preds = %647
   %655 = getelementptr inbounds i8, ptr %251, i64 %648
-  %656 = sub i64 %649, %648
+  %656 = sub nuw i64 %649, %648
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %655, i64 %656, i1 false)
   store i64 %656, ptr %228, align 8
   %657 = add i64 %656, -4095
@@ -2044,7 +2044,7 @@ dump_flush.exit.i.i336.thread:                    ; preds = %680, %682, %676
 
 dump_flush.exit.i.i336:                           ; preds = %676
   %684 = getelementptr inbounds i8, ptr %251, i64 %677
-  %685 = sub i64 %678, %677
+  %685 = sub nuw i64 %678, %677
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %684, i64 %685, i1 false)
   store i64 %685, ptr %228, align 8
   %686 = add i64 %685, -4086
@@ -2091,7 +2091,7 @@ buffer_append.exit338:                            ; preds = %dump_flush.exit.i.i
 
 707:                                              ; preds = %703
   %708 = getelementptr inbounds i8, ptr %251, i64 %704
-  %709 = sub i64 %705, %704
+  %709 = sub nuw i64 %705, %704
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %708, i64 %709, i1 false)
   br label %.sink.split.i.i.i343
 
@@ -2162,7 +2162,7 @@ dump_flush.exit.i.i353.thread:                    ; preds = %733, %735, %729
 
 dump_flush.exit.i.i353:                           ; preds = %729
   %737 = getelementptr inbounds i8, ptr %251, i64 %730
-  %738 = sub i64 %731, %730
+  %738 = sub nuw i64 %731, %730
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %737, i64 %738, i1 false)
   store i64 %738, ptr %228, align 8
   %739 = add i64 %738, -4095
@@ -2222,7 +2222,7 @@ dump_flush.exit.i.i361.thread:                    ; preds = %761, %763, %757
 
 dump_flush.exit.i.i361:                           ; preds = %757
   %765 = getelementptr inbounds i8, ptr %251, i64 %758
-  %766 = sub i64 %759, %758
+  %766 = sub nuw i64 %759, %758
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %765, i64 %766, i1 false)
   store i64 %766, ptr %228, align 8
   %767 = add i64 %766, -4087
@@ -2286,7 +2286,7 @@ dump_flush.exit.i.i369.thread:                    ; preds = %792, %794, %788
 
 dump_flush.exit.i.i369:                           ; preds = %788
   %796 = getelementptr inbounds i8, ptr %251, i64 %789
-  %797 = sub i64 %790, %789
+  %797 = sub nuw i64 %790, %789
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %796, i64 %797, i1 false)
   store i64 %797, ptr %228, align 8
   %798 = add i64 %797, -4085
@@ -2341,7 +2341,7 @@ dump_flush.exit.i.i377.thread:                    ; preds = %817, %819, %813
 
 dump_flush.exit.i.i377:                           ; preds = %813
   %821 = getelementptr inbounds i8, ptr %251, i64 %814
-  %822 = sub i64 %815, %814
+  %822 = sub nuw i64 %815, %814
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %821, i64 %822, i1 false)
   store i64 %822, ptr %228, align 8
   %823 = add i64 %822, -4081
@@ -2403,7 +2403,7 @@ dump_flush.exit.i.i385.thread:                    ; preds = %846, %848, %842
 
 dump_flush.exit.i.i385:                           ; preds = %842
   %850 = getelementptr inbounds i8, ptr %251, i64 %843
-  %851 = sub i64 %844, %843
+  %851 = sub nuw i64 %844, %843
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %850, i64 %851, i1 false)
   store i64 %851, ptr %228, align 8
   %852 = add i64 %851, -4084
@@ -2463,7 +2463,7 @@ dump_flush.exit.i.i393.thread:                    ; preds = %872, %874, %868
 
 dump_flush.exit.i.i393:                           ; preds = %868
   %876 = getelementptr inbounds i8, ptr %251, i64 %869
-  %877 = sub i64 %870, %869
+  %877 = sub nuw i64 %870, %869
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %876, i64 %877, i1 false)
   store i64 %877, ptr %228, align 8
   %878 = add i64 %877, -4085
@@ -2519,7 +2519,7 @@ dump_flush.exit.i.i401.thread:                    ; preds = %898, %900, %894
 
 dump_flush.exit.i.i401:                           ; preds = %894
   %902 = getelementptr inbounds i8, ptr %251, i64 %895
-  %903 = sub i64 %896, %895
+  %903 = sub nuw i64 %896, %895
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %902, i64 %903, i1 false)
   store i64 %903, ptr %228, align 8
   %904 = add i64 %903, -4095
@@ -2570,7 +2570,7 @@ buffer_append.exit403:                            ; preds = %dump_flush.exit.i.i
 
 928:                                              ; preds = %924
   %929 = getelementptr inbounds i8, ptr %251, i64 %925
-  %930 = sub i64 %926, %925
+  %930 = sub nuw i64 %926, %925
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %929, i64 %930, i1 false)
   br label %.sink.split.i.i.i408
 
@@ -2640,7 +2640,7 @@ dump_flush.exit.i.i418.thread:                    ; preds = %953, %955, %949
 
 dump_flush.exit.i.i418:                           ; preds = %949
   %957 = getelementptr inbounds i8, ptr %251, i64 %950
-  %958 = sub i64 %951, %950
+  %958 = sub nuw i64 %951, %950
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %957, i64 %958, i1 false)
   store i64 %958, ptr %228, align 8
   %959 = add i64 %958, -4090
@@ -2693,7 +2693,7 @@ dump_flush.exit.i.i426.thread:                    ; preds = %976, %978, %972
 
 dump_flush.exit.i.i426:                           ; preds = %972
   %980 = getelementptr inbounds i8, ptr %251, i64 %973
-  %981 = sub i64 %974, %973
+  %981 = sub nuw i64 %974, %973
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %980, i64 %981, i1 false)
   store i64 %981, ptr %228, align 8
   %982 = add i64 %981, -4094
@@ -2751,7 +2751,7 @@ dump_flush.exit.i.i434.thread:                    ; preds = %1002, %1004, %998
 
 dump_flush.exit.i.i434:                           ; preds = %998
   %1006 = getelementptr inbounds i8, ptr %251, i64 %999
-  %1007 = sub i64 %1000, %999
+  %1007 = sub nuw i64 %1000, %999
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %1006, i64 %1007, i1 false)
   store i64 %1007, ptr %228, align 8
   %1008 = add i64 %1007, -4095
@@ -2805,7 +2805,7 @@ dump_flush.exit.i.i442.thread:                    ; preds = %1027, %1029, %1023
 
 dump_flush.exit.i.i442:                           ; preds = %1023
   %1031 = getelementptr inbounds i8, ptr %251, i64 %1024
-  %1032 = sub i64 %1025, %1024
+  %1032 = sub nuw i64 %1025, %1024
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr nonnull align 1 %1031, i64 %1032, i1 false)
   store i64 %1032, ptr %228, align 8
   %1033 = add i64 %1032, -4094
@@ -2865,7 +2865,7 @@ define internal fastcc void @buffer_append(ptr noundef %0, ptr nocapture noundef
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %14, i64 %15
-  %20 = sub i64 %16, %15
+  %20 = sub nuw i64 %16, %15
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 1 %19, i64 %20, i1 false)
   br label %.sink.split.i.i
 
@@ -2982,7 +2982,7 @@ define internal fastcc void @dump_append_ref(ptr noundef %0, i64 noundef %1) unn
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %22, i64 %23
-  %28 = sub i64 %24, %23
+  %28 = sub nuw i64 %24, %23
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 1 %27, i64 %28, i1 false)
   br label %.sink.split.i.i.i.i
 
@@ -3071,7 +3071,7 @@ dump_flush.exit.i.thread:                         ; preds = %15, %18, %10
 
 dump_flush.exit.i:                                ; preds = %10
   %21 = getelementptr inbounds i8, ptr %11, i64 %12
-  %22 = sub i64 %13, %12
+  %22 = sub nuw i64 %13, %12
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 1 %21, i64 %22, i1 false)
   store i64 %22, ptr %3, align 8
   %23 = add i64 %22, -4075
@@ -3149,7 +3149,7 @@ dump_flush.exit.i.i.thread:                       ; preds = %20, %23, %15
 
 dump_flush.exit.i.i:                              ; preds = %15
   %26 = getelementptr inbounds i8, ptr %16, i64 %17
-  %27 = sub i64 %18, %17
+  %27 = sub nuw i64 %18, %17
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 1 %26, i64 %27, i1 false)
   store i64 %27, ptr %8, align 8
   %28 = add i64 %27, -4083
@@ -3207,7 +3207,7 @@ dump_flush.exit.i.i17.thread:                     ; preds = %50, %53, %46
 
 dump_flush.exit.i.i17:                            ; preds = %46
   %55 = getelementptr inbounds i8, ptr %33, i64 %47
-  %56 = sub i64 %48, %47
+  %56 = sub nuw i64 %48, %47
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %55, i64 %56, i1 false)
   store i64 %56, ptr %8, align 8
   %57 = add i64 %56, -4094
@@ -3270,7 +3270,7 @@ dump_flush.exit.i.i.thread:                       ; preds = %15, %18, %10
 
 dump_flush.exit.i.i:                              ; preds = %10
   %21 = getelementptr inbounds i8, ptr %11, i64 %12
-  %22 = sub i64 %13, %12
+  %22 = sub nuw i64 %13, %12
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 1 %21, i64 %22, i1 false)
   store i64 %22, ptr %3, align 8
   %23 = add i64 %22, -4083
@@ -3342,7 +3342,7 @@ dump_flush.exit.i.i25.thread:                     ; preds = %53, %56, %49
 
 dump_flush.exit.i.i25:                            ; preds = %49
   %58 = getelementptr inbounds i8, ptr %28, i64 %50
-  %59 = sub i64 %51, %50
+  %59 = sub nuw i64 %51, %50
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %58, i64 %59, i1 false)
   store i64 %59, ptr %3, align 8
   %60 = add i64 %59, -4083
@@ -3480,7 +3480,7 @@ dump_flush.exit.i.i35.thread:                     ; preds = %108, %111, %104
 
 dump_flush.exit.i.i35:                            ; preds = %104
   %113 = getelementptr inbounds i8, ptr %28, i64 %105
-  %114 = sub i64 %106, %105
+  %114 = sub nuw i64 %106, %105
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %113, i64 %114, i1 false)
   store i64 %114, ptr %3, align 8
   %115 = add i64 %114, -4086
@@ -3548,7 +3548,7 @@ dump_flush.exit.i.thread:                         ; preds = %15, %18, %10
 
 dump_flush.exit.i:                                ; preds = %10
   %21 = getelementptr inbounds i8, ptr %11, i64 %12
-  %22 = sub i64 %13, %12
+  %22 = sub nuw i64 %13, %12
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 1 %21, i64 %22, i1 false)
   store i64 %22, ptr %3, align 8
   %23 = add i64 %22, -4075
@@ -3612,7 +3612,7 @@ dump_flush.exit.i.thread:                         ; preds = %15, %18, %10
 
 dump_flush.exit.i:                                ; preds = %10
   %21 = getelementptr inbounds i8, ptr %11, i64 %12
-  %22 = sub i64 %13, %12
+  %22 = sub nuw i64 %13, %12
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 1 %21, i64 %22, i1 false)
   store i64 %22, ptr %3, align 8
   %23 = add i64 %22, -4084
@@ -3677,7 +3677,7 @@ define internal fastcc void @dump_append_g(ptr noundef %0, double noundef %1) un
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %6, i64 %19
-  %24 = sub i64 %20, %19
+  %24 = sub nuw i64 %20, %19
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %6, ptr nonnull align 1 %23, i64 %24, i1 false)
   br label %.sink.split.i.i
 
@@ -3762,7 +3762,7 @@ dump_flush.exit.i.thread:                         ; preds = %15, %18, %10
 
 dump_flush.exit.i:                                ; preds = %10
   %21 = getelementptr inbounds i8, ptr %11, i64 %12
-  %22 = sub i64 %13, %12
+  %22 = sub nuw i64 %13, %12
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 1 %21, i64 %22, i1 false)
   store i64 %22, ptr %3, align 8
   %23 = add i64 %22, -4075
@@ -3867,7 +3867,7 @@ dump_flush.exit.i.i.thread:                       ; preds = %23, %26, %18
 
 dump_flush.exit.i.i:                              ; preds = %18
   %29 = getelementptr inbounds i8, ptr %19, i64 %20
-  %30 = sub i64 %21, %20
+  %30 = sub nuw i64 %21, %20
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 1 %29, i64 %30, i1 false)
   store i64 %30, ptr %10, align 8
   %31 = add i64 %30, -4080
@@ -3921,7 +3921,7 @@ dump_flush.exit.i.i14.thread:                     ; preds = %49, %52, %44
 
 dump_flush.exit.i.i14:                            ; preds = %44
   %55 = getelementptr inbounds i8, ptr %45, i64 %46
-  %56 = sub i64 %47, %46
+  %56 = sub nuw i64 %47, %46
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull align 1 %55, i64 %56, i1 false)
   store i64 %56, ptr %10, align 8
   %57 = add i64 %56, -4094
@@ -3993,7 +3993,7 @@ dump_flush.exit.i.i.thread:                       ; preds = %15, %18, %10
 
 dump_flush.exit.i.i:                              ; preds = %10
   %21 = getelementptr inbounds i8, ptr %11, i64 %12
-  %22 = sub i64 %13, %12
+  %22 = sub nuw i64 %13, %12
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 1 %21, i64 %22, i1 false)
   store i64 %22, ptr %3, align 8
   %23 = add i64 %22, -4095
@@ -4084,7 +4084,7 @@ dump_flush.exit.i.i22.thread:                     ; preds = %55, %57, %51
 
 dump_flush.exit.i.i22:                            ; preds = %51
   %59 = getelementptr inbounds i8, ptr %28, i64 %52
-  %60 = sub i64 %53, %52
+  %60 = sub nuw i64 %53, %52
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %59, i64 %60, i1 false)
   store i64 %60, ptr %3, align 8
   %61 = add i64 %60, -4094
@@ -4133,7 +4133,7 @@ dump_flush.exit.i.i29.thread:                     ; preds = %76, %78, %72
 
 dump_flush.exit.i.i29:                            ; preds = %72
   %80 = getelementptr inbounds i8, ptr %28, i64 %73
-  %81 = sub i64 %74, %73
+  %81 = sub nuw i64 %74, %73
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %80, i64 %81, i1 false)
   store i64 %81, ptr %3, align 8
   %82 = add i64 %81, -4094
@@ -4182,7 +4182,7 @@ dump_flush.exit.i.i36.thread:                     ; preds = %97, %99, %93
 
 dump_flush.exit.i.i36:                            ; preds = %93
   %101 = getelementptr inbounds i8, ptr %28, i64 %94
-  %102 = sub i64 %95, %94
+  %102 = sub nuw i64 %95, %94
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %101, i64 %102, i1 false)
   store i64 %102, ptr %3, align 8
   %103 = add i64 %102, -4090
@@ -4231,7 +4231,7 @@ dump_flush.exit.i.i43.thread:                     ; preds = %118, %120, %114
 
 dump_flush.exit.i.i43:                            ; preds = %114
   %122 = getelementptr inbounds i8, ptr %28, i64 %115
-  %123 = sub i64 %116, %115
+  %123 = sub nuw i64 %116, %115
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %122, i64 %123, i1 false)
   store i64 %123, ptr %3, align 8
   %124 = add i64 %123, -4094
@@ -4280,7 +4280,7 @@ dump_flush.exit.i.i50.thread:                     ; preds = %139, %141, %135
 
 dump_flush.exit.i.i50:                            ; preds = %135
   %143 = getelementptr inbounds i8, ptr %28, i64 %136
-  %144 = sub i64 %137, %136
+  %144 = sub nuw i64 %137, %136
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %143, i64 %144, i1 false)
   store i64 %144, ptr %3, align 8
   %145 = add i64 %144, -4094
@@ -4329,7 +4329,7 @@ dump_flush.exit.i.i57.thread:                     ; preds = %160, %162, %156
 
 dump_flush.exit.i.i57:                            ; preds = %156
   %164 = getelementptr inbounds i8, ptr %28, i64 %157
-  %165 = sub i64 %158, %157
+  %165 = sub nuw i64 %158, %157
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %164, i64 %165, i1 false)
   store i64 %165, ptr %3, align 8
   %166 = add i64 %165, -4094
@@ -4378,7 +4378,7 @@ dump_flush.exit.i.i64.thread:                     ; preds = %181, %183, %177
 
 dump_flush.exit.i.i64:                            ; preds = %177
   %185 = getelementptr inbounds i8, ptr %28, i64 %178
-  %186 = sub i64 %179, %178
+  %186 = sub nuw i64 %179, %178
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %185, i64 %186, i1 false)
   store i64 %186, ptr %3, align 8
   %187 = add i64 %186, -4094
@@ -4427,7 +4427,7 @@ dump_flush.exit.i.i71.thread:                     ; preds = %202, %204, %198
 
 dump_flush.exit.i.i71:                            ; preds = %198
   %206 = getelementptr inbounds i8, ptr %28, i64 %199
-  %207 = sub i64 %200, %199
+  %207 = sub nuw i64 %200, %199
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %206, i64 %207, i1 false)
   store i64 %207, ptr %3, align 8
   %208 = add i64 %207, -4094
@@ -4476,7 +4476,7 @@ dump_flush.exit.i.i78.thread:                     ; preds = %223, %225, %219
 
 dump_flush.exit.i.i78:                            ; preds = %219
   %227 = getelementptr inbounds i8, ptr %28, i64 %220
-  %228 = sub i64 %221, %220
+  %228 = sub nuw i64 %221, %220
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %227, i64 %228, i1 false)
   store i64 %228, ptr %3, align 8
   %229 = add i64 %228, -4090
@@ -4530,7 +4530,7 @@ dump_flush.exit.i.thread.i:                       ; preds = %249, %247, %243
 
 dump_flush.exit.i.i82:                            ; preds = %243
   %251 = getelementptr inbounds i8, ptr %28, i64 %244
-  %252 = sub i64 %245, %244
+  %252 = sub nuw i64 %245, %244
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %251, i64 %252, i1 false)
   store i64 %252, ptr %3, align 8
   %253 = add i64 %252, -4089
@@ -4580,7 +4580,7 @@ dump_flush.exit.i15.thread.i:                     ; preds = %272, %270, %266
 
 dump_flush.exit.i15.i:                            ; preds = %266
   %274 = getelementptr inbounds i8, ptr %28, i64 %267
-  %275 = sub i64 %268, %267
+  %275 = sub nuw i64 %268, %267
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %274, i64 %275, i1 false)
   store i64 %275, ptr %3, align 8
   %276 = add i64 %275, -4095
@@ -4642,7 +4642,7 @@ dump_flush.exit.i.i88.thread:                     ; preds = %297, %300, %293
 
 dump_flush.exit.i.i88:                            ; preds = %293
   %302 = getelementptr inbounds i8, ptr %28, i64 %294
-  %303 = sub i64 %295, %294
+  %303 = sub nuw i64 %295, %294
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %302, i64 %303, i1 false)
   store i64 %303, ptr %3, align 8
   %304 = add i64 %303, -4095
@@ -4750,7 +4750,7 @@ dump_flush.exit.i.i.thread:                       ; preds = %19, %22, %14
 
 dump_flush.exit.i.i:                              ; preds = %14
   %25 = getelementptr inbounds i8, ptr %15, i64 %16
-  %26 = sub i64 %17, %16
+  %26 = sub nuw i64 %17, %16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull align 1 %25, i64 %26, i1 false)
   store i64 %26, ptr %7, align 8
   %27 = add i64 %26, -4093
@@ -4817,7 +4817,7 @@ dump_flush.exit.i.i28.thread:                     ; preds = %52, %55, %47
 
 dump_flush.exit.i.i28:                            ; preds = %47
   %58 = getelementptr inbounds i8, ptr %48, i64 %49
-  %59 = sub i64 %50, %49
+  %59 = sub nuw i64 %50, %49
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 1 %58, i64 %59, i1 false)
   store i64 %59, ptr %39, align 8
   %60 = add i64 %59, -4072
@@ -4864,7 +4864,7 @@ buffer_append.exit30:                             ; preds = %dump_flush.exit.i.i
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds i8, ptr %65, i64 %78
-  %83 = sub i64 %79, %78
+  %83 = sub nuw i64 %79, %78
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %65, ptr nonnull align 1 %82, i64 %83, i1 false)
   br label %.sink.split.i.i.i33
 
@@ -4937,7 +4937,7 @@ dump_flush.exit.i.i43.thread:                     ; preds = %108, %111, %104
 
 dump_flush.exit.i.i43:                            ; preds = %104
   %113 = getelementptr inbounds i8, ptr %65, i64 %105
-  %114 = sub i64 %106, %105
+  %114 = sub nuw i64 %106, %105
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %65, ptr nonnull align 1 %113, i64 %114, i1 false)
   store i64 %114, ptr %39, align 8
   %115 = add i64 %114, -4079
@@ -4990,7 +4990,7 @@ dump_flush.exit.i.i51.thread:                     ; preds = %132, %135, %127
 
 dump_flush.exit.i.i51:                            ; preds = %127
   %138 = getelementptr inbounds i8, ptr %128, i64 %129
-  %139 = sub i64 %130, %129
+  %139 = sub nuw i64 %130, %129
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %128, ptr nonnull align 1 %138, i64 %139, i1 false)
   store i64 %139, ptr %39, align 8
   %140 = add i64 %139, -4094
@@ -5071,7 +5071,7 @@ dump_flush.exit.i.i.thread:                       ; preds = %21, %24, %16
 
 dump_flush.exit.i.i:                              ; preds = %16
   %27 = getelementptr inbounds i8, ptr %17, i64 %18
-  %28 = sub i64 %19, %18
+  %28 = sub nuw i64 %19, %18
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 1 %27, i64 %28, i1 false)
   store i64 %28, ptr %9, align 8
   %29 = add i64 %28, -4085
@@ -5126,7 +5126,7 @@ dump_flush.exit.i.i37.thread:                     ; preds = %49, %52, %45
 
 dump_flush.exit.i.i37:                            ; preds = %45
   %54 = getelementptr inbounds i8, ptr %34, i64 %46
-  %55 = sub i64 %47, %46
+  %55 = sub nuw i64 %47, %46
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %54, i64 %55, i1 false)
   store i64 %55, ptr %9, align 8
   %56 = add i64 %55, -4073
@@ -5185,7 +5185,7 @@ dump_flush.exit.i.i44.thread:                     ; preds = %77, %80, %73
 
 dump_flush.exit.i.i44:                            ; preds = %73
   %82 = getelementptr inbounds i8, ptr %34, i64 %74
-  %83 = sub i64 %75, %74
+  %83 = sub nuw i64 %75, %74
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %82, i64 %83, i1 false)
   store i64 %83, ptr %9, align 8
   %84 = add i64 %83, -4082
@@ -5244,7 +5244,7 @@ dump_flush.exit.i.i51.thread:                     ; preds = %106, %109, %102
 
 dump_flush.exit.i.i51:                            ; preds = %102
   %111 = getelementptr inbounds i8, ptr %34, i64 %103
-  %112 = sub i64 %104, %103
+  %112 = sub nuw i64 %104, %103
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %111, i64 %112, i1 false)
   store i64 %112, ptr %9, align 8
   %113 = add i64 %112, -4086
@@ -5298,7 +5298,7 @@ dump_flush.exit.i.i58.thread:                     ; preds = %132, %135, %128
 
 dump_flush.exit.i.i58:                            ; preds = %128
   %137 = getelementptr inbounds i8, ptr %34, i64 %129
-  %138 = sub i64 %130, %129
+  %138 = sub nuw i64 %130, %129
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %137, i64 %138, i1 false)
   store i64 %138, ptr %9, align 8
   %139 = add i64 %138, -4081
@@ -5359,7 +5359,7 @@ dump_flush.exit.i.i65.thread:                     ; preds = %158, %161, %154
 
 dump_flush.exit.i.i65:                            ; preds = %154
   %163 = getelementptr inbounds i8, ptr %34, i64 %155
-  %164 = sub i64 %156, %155
+  %164 = sub nuw i64 %156, %155
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %163, i64 %164, i1 false)
   store i64 %164, ptr %9, align 8
   %165 = add i64 %164, -4090
@@ -5413,7 +5413,7 @@ dump_flush.exit.i.i72.thread:                     ; preds = %183, %186, %179
 
 dump_flush.exit.i.i72:                            ; preds = %179
   %188 = getelementptr inbounds i8, ptr %34, i64 %180
-  %189 = sub i64 %181, %180
+  %189 = sub nuw i64 %181, %180
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %188, i64 %189, i1 false)
   store i64 %189, ptr %9, align 8
   %190 = add i64 %189, -4090
@@ -5464,7 +5464,7 @@ dump_flush.exit.i.i79.thread:                     ; preds = %207, %210, %203
 
 dump_flush.exit.i.i79:                            ; preds = %203
   %212 = getelementptr inbounds i8, ptr %34, i64 %204
-  %213 = sub i64 %205, %204
+  %213 = sub nuw i64 %205, %204
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %212, i64 %213, i1 false)
   store i64 %213, ptr %9, align 8
   %214 = add i64 %213, -4083
@@ -5522,7 +5522,7 @@ dump_flush.exit.i.i86.thread:                     ; preds = %234, %237, %230
 
 dump_flush.exit.i.i86:                            ; preds = %230
   %239 = getelementptr inbounds i8, ptr %34, i64 %231
-  %240 = sub i64 %232, %231
+  %240 = sub nuw i64 %232, %231
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %239, i64 %240, i1 false)
   store i64 %240, ptr %9, align 8
   %241 = add i64 %240, -4088
@@ -5576,7 +5576,7 @@ dump_flush.exit.i.i93.thread:                     ; preds = %259, %262, %255
 
 dump_flush.exit.i.i93:                            ; preds = %255
   %264 = getelementptr inbounds i8, ptr %34, i64 %256
-  %265 = sub i64 %257, %256
+  %265 = sub nuw i64 %257, %256
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %264, i64 %265, i1 false)
   store i64 %265, ptr %9, align 8
   %266 = add i64 %265, -4086
@@ -5630,7 +5630,7 @@ dump_flush.exit.i.i100.thread:                    ; preds = %284, %287, %280
 
 dump_flush.exit.i.i100:                           ; preds = %280
   %289 = getelementptr inbounds i8, ptr %34, i64 %281
-  %290 = sub i64 %282, %281
+  %290 = sub nuw i64 %282, %281
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %289, i64 %290, i1 false)
   store i64 %290, ptr %9, align 8
   %291 = add i64 %290, -4079
@@ -5689,7 +5689,7 @@ dump_flush.exit.i.i107.thread:                    ; preds = %311, %314, %307
 
 dump_flush.exit.i.i107:                           ; preds = %307
   %316 = getelementptr inbounds i8, ptr %34, i64 %308
-  %317 = sub i64 %309, %308
+  %317 = sub nuw i64 %309, %308
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %316, i64 %317, i1 false)
   store i64 %317, ptr %9, align 8
   %318 = add i64 %317, -4086
@@ -5743,7 +5743,7 @@ dump_flush.exit.i.i114.thread:                    ; preds = %337, %340, %333
 
 dump_flush.exit.i.i114:                           ; preds = %333
   %342 = getelementptr inbounds i8, ptr %34, i64 %334
-  %343 = sub i64 %335, %334
+  %343 = sub nuw i64 %335, %334
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %342, i64 %343, i1 false)
   store i64 %343, ptr %9, align 8
   %344 = add i64 %343, -4084
@@ -5797,7 +5797,7 @@ dump_flush.exit.i.i121.thread:                    ; preds = %363, %366, %359
 
 dump_flush.exit.i.i121:                           ; preds = %359
   %368 = getelementptr inbounds i8, ptr %34, i64 %360
-  %369 = sub i64 %361, %360
+  %369 = sub nuw i64 %361, %360
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %368, i64 %369, i1 false)
   store i64 %369, ptr %9, align 8
   %370 = add i64 %369, -4094

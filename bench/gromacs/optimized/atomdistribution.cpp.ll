@@ -206,7 +206,7 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %70
-  %85 = sub nsw i64 %75, %82
+  %85 = sub nuw nsw i64 %75, %82
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %71, i64 noundef %85)
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %97
 

@@ -1151,7 +1151,7 @@ dissect_continuation_packet.exit167:              ; preds = %64, %65
 160:                                              ; preds = %157
   %161 = getelementptr inbounds i8, ptr %1, i64 332
   store i32 %.0136185, ptr %161, align 4
-  %162 = sub i32 %129, %106
+  %162 = sub nuw i32 %129, %106
   %163 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 %162, ptr %163, align 8
   %164 = tail call i32 @tvb_captured_length(ptr noundef %0) #8

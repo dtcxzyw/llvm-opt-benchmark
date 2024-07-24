@@ -12599,7 +12599,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cgroup_parse_float(ptr nocapture
   %10 = load i64, ptr %5, align 8
   %11 = icmp slt i64 %10, 0
   %12 = select i1 %9, i1 true, i1 %11
-  br i1 %12, label %55, label %13
+  br i1 %12, label %53, label %13
 
 13:                                               ; preds = %3
   %14 = load i32, ptr %7, align 4
@@ -12608,75 +12608,73 @@ define dso_local noundef range(i32 -22, 1) i32 @cgroup_parse_float(ptr nocapture
   %17 = sub i32 %14, %15
   %18 = select i1 %16, i32 %17, i32 0
   %19 = icmp ult i32 %18, %1
-  br i1 %19, label %20, label %30
+  br i1 %19, label %.preheader6, label %28
 
-20:                                               ; preds = %13
-  %21 = sub i32 %1, %18
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.loopexit7, label %.preheader6
+.preheader6:                                      ; preds = %13
+  %20 = sub nuw i32 %1, %18
+  br label %21
 
-.preheader6:                                      ; preds = %20, %.preheader6
-  %23 = phi i64 [ %26, %.preheader6 ], [ 1, %20 ]
-  %24 = phi i32 [ %25, %.preheader6 ], [ %21, %20 ]
-  %25 = add i32 %24, -1
-  %26 = mul i64 %23, 10
-  %27 = icmp eq i32 %25, 0
-  br i1 %27, label %.loopexit7, label %.preheader6, !llvm.loop !315
+21:                                               ; preds = %.preheader6, %21
+  %22 = phi i64 [ %25, %21 ], [ 1, %.preheader6 ]
+  %23 = phi i32 [ %24, %21 ], [ %20, %.preheader6 ]
+  %24 = add i32 %23, -1
+  %25 = mul i64 %22, 10
+  %26 = icmp eq i32 %24, 0
+  br i1 %26, label %.loopexit7, label %21, !llvm.loop !315
 
-.loopexit7:                                       ; preds = %.preheader6, %20
-  %28 = phi i64 [ 1, %20 ], [ %26, %.preheader6 ]
-  %29 = mul i64 %28, %10
-  br label %43
+.loopexit7:                                       ; preds = %21
+  %27 = mul i64 %25, %10
+  br label %41
 
-30:                                               ; preds = %13
-  %31 = sub i32 %18, %1
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.loopexit9, label %.preheader8
+28:                                               ; preds = %13
+  %29 = sub nuw i32 %18, %1
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %.loopexit9, label %.preheader8
 
-.preheader8:                                      ; preds = %30, %.preheader8
-  %33 = phi i64 [ %36, %.preheader8 ], [ 1, %30 ]
-  %34 = phi i32 [ %35, %.preheader8 ], [ %31, %30 ]
-  %35 = add i32 %34, -1
-  %36 = mul i64 %33, 10
-  %37 = icmp eq i32 %35, 0
-  br i1 %37, label %.loopexit9, label %.preheader8, !llvm.loop !315
+.preheader8:                                      ; preds = %28, %.preheader8
+  %31 = phi i64 [ %34, %.preheader8 ], [ 1, %28 ]
+  %32 = phi i32 [ %33, %.preheader8 ], [ %29, %28 ]
+  %33 = add i32 %32, -1
+  %34 = mul i64 %31, 10
+  %35 = icmp eq i32 %33, 0
+  br i1 %35, label %.loopexit9, label %.preheader8, !llvm.loop !315
 
-.loopexit9:                                       ; preds = %.preheader8, %30
-  %38 = phi i64 [ 1, %30 ], [ %36, %.preheader8 ]
-  %39 = lshr i64 %38, 1
-  %40 = add nuw i64 %39, %10
-  %41 = and i64 %38, 4294967295
-  %42 = udiv i64 %40, %41
-  br label %43
+.loopexit9:                                       ; preds = %.preheader8, %28
+  %36 = phi i64 [ 1, %28 ], [ %34, %.preheader8 ]
+  %37 = lshr i64 %36, 1
+  %38 = add nuw i64 %37, %10
+  %39 = and i64 %36, 4294967295
+  %40 = udiv i64 %38, %39
+  br label %41
 
-43:                                               ; preds = %.loopexit9, %.loopexit7
-  %44 = phi i64 [ %42, %.loopexit9 ], [ %29, %.loopexit7 ]
-  %45 = load i64, ptr %4, align 8
-  %46 = icmp eq i32 %1, 0
-  br i1 %46, label %.loopexit, label %.preheader
+41:                                               ; preds = %.loopexit9, %.loopexit7
+  %42 = phi i64 [ %40, %.loopexit9 ], [ %27, %.loopexit7 ]
+  %43 = load i64, ptr %4, align 8
+  %44 = icmp eq i32 %1, 0
+  br i1 %44, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %43, %.preheader
-  %47 = phi i64 [ %50, %.preheader ], [ 1, %43 ]
-  %48 = phi i32 [ %49, %.preheader ], [ %1, %43 ]
-  %49 = add i32 %48, -1
-  %50 = mul i64 %47, 10
-  %51 = icmp eq i32 %49, 0
-  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !315
+.preheader:                                       ; preds = %41, %.preheader
+  %45 = phi i64 [ %48, %.preheader ], [ 1, %41 ]
+  %46 = phi i32 [ %47, %.preheader ], [ %1, %41 ]
+  %47 = add i32 %46, -1
+  %48 = mul i64 %45, 10
+  %49 = icmp eq i32 %47, 0
+  br i1 %49, label %.loopexit, label %.preheader, !llvm.loop !315
 
-.loopexit:                                        ; preds = %.preheader, %43
-  %52 = phi i64 [ 1, %43 ], [ %50, %.preheader ]
-  %53 = mul i64 %52, %45
-  %54 = add i64 %53, %44
-  store i64 %54, ptr %2, align 8
-  br label %55
+.loopexit:                                        ; preds = %.preheader, %41
+  %50 = phi i64 [ 1, %41 ], [ %48, %.preheader ]
+  %51 = mul i64 %50, %43
+  %52 = add i64 %51, %42
+  store i64 %52, ptr %2, align 8
+  br label %53
 
-55:                                               ; preds = %.loopexit, %3
-  %56 = phi i32 [ 0, %.loopexit ], [ -22, %3 ]
+53:                                               ; preds = %.loopexit, %3
+  %54 = phi i32 [ 0, %.loopexit ], [ -22, %3 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
-  ret i32 %56
+  ret i32 %54
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

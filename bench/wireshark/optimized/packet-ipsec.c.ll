@@ -1384,7 +1384,7 @@ check_esp_sequence_info.exit:                     ; preds = %61, %39, %25
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %73
-  %83 = sub i32 %66, %80
+  %83 = sub nuw i32 %66, %80
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.194, i32 noundef %83) #17
   br label %84
 
@@ -1441,12 +1441,12 @@ proto_item_set_generated.exit39.i:                ; preds = %99, %96, %proto_ite
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %107
-  %111 = sub i32 %66, %108
+  %111 = sub nuw i32 %66, %108
   %112 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %78, ptr noundef nonnull @ei_esp_sequence_analysis_wrong_sequence_number, ptr noundef nonnull @.str.196, i32 noundef %65, i32 noundef %111) #17
   br label %show_esp_sequence_info.exit
 
 113:                                              ; preds = %107
-  %114 = sub i32 %108, %66
+  %114 = sub nuw i32 %108, %66
   %115 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %78, ptr noundef nonnull @ei_esp_sequence_analysis_wrong_sequence_number, ptr noundef nonnull @.str.197, i32 noundef %65, i32 noundef %114) #17
   br label %show_esp_sequence_info.exit
 
@@ -2549,7 +2549,7 @@ export_ipsec_pdu.exit491:                         ; preds = %606, %612
   %645 = sub i32 %632, %644
   %646 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %645) #17
   %647 = zext i8 %646 to i32
-  %648 = sub nsw i32 %634, %.0.i
+  %648 = sub nuw nsw i32 %634, %.0.i
   %.not69.i = icmp eq i32 %648, %647
   br i1 %.not69.i, label %.preheader.i, label %.loopexit.i, !llvm.loop !17
 

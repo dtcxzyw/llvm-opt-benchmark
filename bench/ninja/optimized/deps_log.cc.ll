@@ -952,7 +952,7 @@ define dso_local noundef zeroext i1 @_ZN7DepsLog10UpdateDepsEiPNS_4DepsE(ptr nou
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
-  %18 = sub nsw i64 %15, %11
+  %18 = sub nuw nsw i64 %15, %11
   tail call void @_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %18)
   %.pre = load ptr, ptr %4, align 8
   br label %_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit
@@ -1253,7 +1253,7 @@ _ZN7DepsLog4DepsC2Eli.exit:                       ; preds = %84
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %113
-  %118 = sub nsw i64 %115, %111
+  %118 = sub nuw nsw i64 %115, %111
   invoke void @_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %118)
           to label %.noexc unwind label %.loopexit
 

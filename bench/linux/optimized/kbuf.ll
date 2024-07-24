@@ -1443,7 +1443,7 @@ define internal fastcc i32 @io_alloc_pbuf_ring(ptr noundef %0, i32 %.8.val, ptr 
   br i1 %16, label %18, label %.split.us
 
 .split.us:                                        ; preds = %13
-  %17 = sub i64 %15, %4
+  %17 = sub nuw i64 %15, %4
   br label %.split
 
 18:                                               ; preds = %13, %.lr.ph.split.us
@@ -1462,7 +1462,7 @@ define internal fastcc i32 @io_alloc_pbuf_ring(ptr noundef %0, i32 %.8.val, ptr 
   %26 = getelementptr inbounds i8, ptr %21, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = icmp uge i64 %27, %4
-  %29 = sub i64 %27, %4
+  %29 = sub nuw i64 %27, %4
   %30 = icmp ult i64 %29, %.ph
   %or.cond = select i1 %28, i1 %30, i1 false
   br i1 %or.cond, label %.split, label %32

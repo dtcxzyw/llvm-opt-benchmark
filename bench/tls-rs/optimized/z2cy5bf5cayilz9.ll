@@ -4834,7 +4834,7 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit: ; preds = %29
   %34 = load i64, ptr %18, align 8, !alias.scope !907, !noalias !904, !noundef !4
   %.not.i.i.i = icmp ult i64 %33, %34
   %35 = select i1 %.not.i.i.i, i64 0, i64 %34
-  %.0.i.i.i = sub i64 %33, %35
+  %.0.i.i.i = sub nuw i64 %33, %35
   store i64 %.0.i.i.i, ptr %19, align 8, !alias.scope !903, !noalias !904
   %36 = add i64 %30, -1
   store i64 %36, ptr %17, align 8, !alias.scope !903, !noalias !904
@@ -4879,7 +4879,7 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit69: ; preds = %"_Z
   %45 = load i64, ptr %22, align 8, !alias.scope !920, !noalias !917, !noundef !4
   %.not.i.i.i67 = icmp ult i64 %44, %45
   %46 = select i1 %.not.i.i.i67, i64 0, i64 %45
-  %.0.i.i.i68 = sub i64 %44, %46
+  %.0.i.i.i68 = sub nuw i64 %44, %46
   store i64 %.0.i.i.i68, ptr %23, align 8, !alias.scope !916, !noalias !917
   %47 = add i64 %41, -1
   store i64 %47, ptr %21, align 8, !alias.scope !916, !noalias !917
@@ -5330,7 +5330,7 @@ define hidden void @"_ZN6rustls4conn10unbuffered70_$LT$impl$u20$rustls..conn..Un
   %45 = load i64, ptr %19, align 8, !alias.scope !983, !noalias !980, !noundef !4
   %.not.i.i.i.i.i.i = icmp ult i64 %44, %45
   %46 = select i1 %.not.i.i.i.i.i.i, i64 0, i64 %45
-  %.0.i.i.i.i.i.i = sub i64 %44, %46
+  %.0.i.i.i.i.i.i = sub nuw i64 %44, %46
   store i64 %.0.i.i.i.i.i.i, ptr %20, align 8, !alias.scope !979, !noalias !980
   %47 = add i64 %41, -1
   store i64 %47, ptr %18, align 8, !alias.scope !979, !noalias !980
@@ -5353,7 +5353,7 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit: ; preds = %"_ZN4
   %54 = load i64, ptr %23, align 8, !alias.scope !996, !noalias !993, !noundef !4
   %.not.i.i.i = icmp ult i64 %53, %54
   %55 = select i1 %.not.i.i.i, i64 0, i64 %54
-  %.0.i.i.i = sub i64 %53, %55
+  %.0.i.i.i = sub nuw i64 %53, %55
   store i64 %.0.i.i.i, ptr %24, align 8, !alias.scope !992, !noalias !993
   %56 = add i64 %50, -1
   store i64 %56, ptr %22, align 8, !alias.scope !992, !noalias !993
@@ -5411,7 +5411,7 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit71: ; preds = %"_Z
   %70 = load i64, ptr %27, align 8, !alias.scope !1012, !noalias !1009, !noundef !4
   %.not.i.i.i69 = icmp ult i64 %69, %70
   %71 = select i1 %.not.i.i.i69, i64 0, i64 %70
-  %.0.i.i.i70 = sub i64 %69, %71
+  %.0.i.i.i70 = sub nuw i64 %69, %71
   store i64 %.0.i.i.i70, ptr %28, align 8, !alias.scope !1008, !noalias !1009
   %72 = add i64 %66, -1
   store i64 %72, ptr %26, align 8, !alias.scope !1008, !noalias !1009
@@ -8704,7 +8704,7 @@ define hidden void @"_ZN6rustls4conn26ConnectionCore$LT$Data$GT$19process_new_pa
   %52 = sub i64 %51, %50
   %53 = getelementptr inbounds i8, ptr %30, i64 %50
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %53, i64 %52, i1 false), !alias.scope !1564, !noalias !1567
-  %54 = sub i64 %25, %41
+  %54 = sub nuw i64 %25, %41
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.noexc54, %46
@@ -8912,7 +8912,7 @@ _ZN6rustls4msgs8deframer17DeframerVecBuffer7discard17h0ddec35dc1438202E.exit: ; 
   %125 = sub i64 %124, %123
   %126 = getelementptr inbounds i8, ptr %30, i64 %123
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %126, i64 %125, i1 false), !alias.scope !1578, !noalias !1581
-  %127 = sub i64 %25, %41
+  %127 = sub nuw i64 %25, %41
   br label %.sink.split.i63
 
 .sink.split.i63:                                  ; preds = %.noexc65, %119
@@ -9028,7 +9028,7 @@ _ZN6rustls4msgs8deframer17DeframerVecBuffer7discard17h0ddec35dc1438202E.exit: ; 
   %167 = sub i64 %166, %165
   %168 = getelementptr inbounds i8, ptr %30, i64 %165
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %168, i64 %167, i1 false), !alias.scope !1589, !noalias !1592
-  %169 = sub i64 %25, %41
+  %169 = sub nuw i64 %25, %41
   br label %.sink.split.i74
 
 .sink.split.i74:                                  ; preds = %.noexc76, %161
@@ -9320,7 +9320,7 @@ define hidden void @"_ZN6rustls4conn26ConnectionCore$LT$Data$GT$19process_new_pa
   %56 = sub i64 %55, %54
   %57 = getelementptr inbounds i8, ptr %32, i64 %54
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %57, i64 %56, i1 false), !alias.scope !1614, !noalias !1617
-  %58 = sub i64 %27, %45
+  %58 = sub nuw i64 %27, %45
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.noexc51, %50
@@ -9523,7 +9523,7 @@ _ZN6rustls4msgs8deframer17DeframerVecBuffer7discard17h0ddec35dc1438202E.exit: ; 
   %130 = sub i64 %129, %128
   %131 = getelementptr inbounds i8, ptr %32, i64 %128
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %131, i64 %130, i1 false), !alias.scope !1648, !noalias !1651
-  %132 = sub i64 %27, %45
+  %132 = sub nuw i64 %27, %45
   br label %.sink.split.i58
 
 .sink.split.i58:                                  ; preds = %.noexc60, %124
@@ -9636,7 +9636,7 @@ _ZN6rustls4msgs8deframer17DeframerVecBuffer7discard17h0ddec35dc1438202E.exit: ; 
   %172 = sub i64 %171, %170
   %173 = getelementptr inbounds i8, ptr %32, i64 %170
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %173, i64 %172, i1 false), !alias.scope !1669, !noalias !1672
-  %174 = sub i64 %27, %45
+  %174 = sub nuw i64 %27, %45
   br label %.sink.split.i67
 
 .sink.split.i67:                                  ; preds = %.noexc69, %166
@@ -21321,7 +21321,7 @@ _ZN6rustls4msgs8deframer17DeframerVecBuffer6borrow17h811d5fac516b58efE.exit.i: ;
   %65 = sub i64 %64, %63
   %66 = getelementptr inbounds i8, ptr %60, i64 %63
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %66, i64 %65, i1 false), !alias.scope !3479, !noalias !3482
-  %67 = sub i64 %55, %54
+  %67 = sub nuw i64 %55, %54
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %.noexc.i, %57

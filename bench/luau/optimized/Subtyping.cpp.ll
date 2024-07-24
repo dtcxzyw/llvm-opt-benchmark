@@ -35910,7 +35910,7 @@ _ZSt13move_backwardIPN4Luau9TypeErrorES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4Luau9
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau9TypeErrorESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
   %53 = getelementptr inbounds i8, ptr %2, i64 %19
   %54 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN4Luau9TypeErrorESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %53, ptr %3, ptr noundef %13)
-  %55 = sub nsw i64 %9, %20
+  %55 = sub nuw nsw i64 %9, %20
   %56 = load ptr, ptr %12, align 8
   %57 = getelementptr inbounds %"struct.Luau::TypeError", ptr %56, i64 %55
   store ptr %57, ptr %12, align 8

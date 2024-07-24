@@ -198,7 +198,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17hf917337b2b6ee
   %19 = and i64 %18, %6
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
-  %spec.select = sub i64 %19, %20
+  %spec.select = sub nuw i64 %19, %20
   %21 = add nuw nsw i64 %9, %.sroa.02.020
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %22 = icmp ult i64 %21, %1

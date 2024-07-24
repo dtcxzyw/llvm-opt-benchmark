@@ -1256,7 +1256,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i.i.i.i: ; pr
   br i1 %156, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e5c2224201b0165E.exit.i.i.i.i.i.i", label %.lr.ph.split.split.i.i.i.i.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h30d04cb2171eb123E.exit.i.i.i.i.i.i.i": ; preds = %151
-  %157 = sub i64 %153, %.fr9.i.i.i
+  %157 = sub nuw i64 %153, %.fr9.i.i.i
   %158 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i, i64 %157
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %158, ptr nonnull readonly %14, i64 %.fr9.i.i.i), !alias.scope !188, !noalias !126
   %159 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0

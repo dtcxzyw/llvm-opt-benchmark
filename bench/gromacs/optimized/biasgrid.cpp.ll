@@ -2103,7 +2103,7 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE12emplace_backIJRdS5_S5_S5_EEERS1_DpOT_.exit
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %._crit_edge.thread
-  %125 = sub i64 %.035.lcssa195, %122
+  %125 = sub nuw i64 %.035.lcssa195, %122
   invoke void @_ZNSt6vectorIN3gmx9GridPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %125)
           to label %_ZNSt6vectorIN3gmx9GridPointESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

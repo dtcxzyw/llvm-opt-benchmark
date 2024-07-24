@@ -2209,7 +2209,7 @@ if.then6.i:                                       ; preds = %if.end.i554
   br i1 %cmp8.i556, label %if.then9.i, label %if.end12.i
 
 if.then9.i:                                       ; preds = %if.then6.i
-  %sub.i560 = sub i32 %conv276.i, %116
+  %sub.i560 = sub nuw i32 %conv276.i, %116
   %117 = load i64, ptr %posInSequence.i.i, align 8
   %118 = trunc i64 %117 to i32
   %conv.i.i = add i32 %sub.i560, %118
@@ -2238,7 +2238,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp4.not.i.i, label %if.else.i.i566, label %if.then.i.i563
 
 if.then.i.i563:                                   ; preds = %while.body.i.i
-  %sub.i.i564 = sub i32 %currPos.022.i.i, %add3.i.i
+  %sub.i.i564 = sub nuw i32 %currPos.022.i.i, %add3.i.i
   %inc.i.i = add nuw i64 %inc.i.i793, 1
   %cond.i.i565 = icmp eq i32 %sub.i.i564, 0
   br i1 %cond.i.i565, label %if.then18.i.i.loopexit, label %land.rhs.i.i, !llvm.loop !20
@@ -3725,7 +3725,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp4.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %sub.i = sub i32 %currPos.022.i, %add3.i
+  %sub.i = sub nuw i32 %currPos.022.i, %add3.i
   %inc.i = add nuw i64 %4, 1
   store i64 %inc.i, ptr %pos, align 8
   %cond.i = icmp eq i32 %sub.i, 0
@@ -3780,7 +3780,7 @@ while.body.i50:                                   ; preds = %land.rhs.i44
   br i1 %cmp4.not.i57, label %if.else.i62, label %if.then.i58
 
 if.then.i58:                                      ; preds = %while.body.i50
-  %sub.i59 = sub i32 %currPos.022.i45, %add3.i56
+  %sub.i59 = sub nuw i32 %currPos.022.i45, %add3.i56
   %inc.i60 = add nuw i64 %5, 1
   store i64 %inc.i60, ptr %pos, align 8
   %cond.i61 = icmp eq i32 %sub.i59, 0
@@ -3822,7 +3822,7 @@ while.body.i79:                                   ; preds = %land.rhs.i73
   br i1 %cmp4.not.i86, label %if.else.i91, label %if.then.i87
 
 if.then.i87:                                      ; preds = %while.body.i79
-  %sub.i88 = sub i32 %currPos.022.i74, %add3.i85
+  %sub.i88 = sub nuw i32 %currPos.022.i74, %add3.i85
   %inc.i89 = add nuw i64 %6, 1
   store i64 %inc.i89, ptr %pos, align 8
   %cond.i90 = icmp eq i32 %sub.i88, 0
@@ -4375,7 +4375,7 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.then6
-  %sub = sub i32 %currPosInBlock, %2
+  %sub = sub nuw i32 %currPosInBlock, %2
   %posInSequence.i = getelementptr inbounds i8, ptr %optLdm, i64 16
   %3 = load i64, ptr %posInSequence.i, align 8
   %4 = trunc i64 %3 to i32
@@ -4401,7 +4401,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp4.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %sub.i = sub i32 %currPos.022.i, %add3.i
+  %sub.i = sub nuw i32 %currPos.022.i, %add3.i
   %inc.i = add nuw i64 %5, 1
   store i64 %inc.i, ptr %pos, align 8
   %cond.i = icmp eq i32 %sub.i, 0

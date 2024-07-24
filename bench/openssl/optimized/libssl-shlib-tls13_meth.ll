@@ -531,7 +531,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp9, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.end6
-  %sub = sub nsw i64 %conv8, %add
+  %sub = sub nuw nsw i64 %conv8, %add
   %padding14 = getelementptr inbounds i8, ptr %rl, i64 4408
   %3 = load ptr, ptr %padding14, align 8
   %cmp15.not = icmp eq ptr %3, null

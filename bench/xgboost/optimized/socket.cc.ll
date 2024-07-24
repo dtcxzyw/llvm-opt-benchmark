@@ -5934,7 +5934,7 @@ define linkonce_odr void @_ZN7xgboost10collective9TCPSocket7SendAllEPKvmPm(ptr d
   %.01625 = phi ptr [ %28, %27 ], [ %2, %5 ]
   %storemerge24 = phi i64 [ %30, %27 ], [ 0, %5 ]
   %9 = load i32, ptr %1, align 4
-  %10 = sub i64 %3, %storemerge24
+  %10 = sub nuw i64 %3, %storemerge24
   %11 = tail call i64 @send(i32 noundef %9, ptr noundef %.01625, i64 noundef %10, i32 noundef 0)
   %12 = icmp eq i64 %11, -1
   br i1 %12, label %13, label %27
@@ -6066,7 +6066,7 @@ define linkonce_odr void @_ZN7xgboost10collective9TCPSocket7RecvAllEPvmPm(ptr de
   %.01726 = phi ptr [ %28, %27 ], [ %2, %5 ]
   %storemerge25 = phi i64 [ %30, %27 ], [ 0, %5 ]
   %9 = load i32, ptr %1, align 4
-  %10 = sub i64 %3, %storemerge25
+  %10 = sub nuw i64 %3, %storemerge25
   %11 = tail call i64 @recv(i32 noundef %9, ptr noundef %.01726, i64 noundef %10, i32 noundef 256)
   switch i64 %11, label %27 [
     i64 -1, label %12

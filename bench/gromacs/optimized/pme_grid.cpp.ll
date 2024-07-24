@@ -1580,7 +1580,7 @@ _Z18set_grid_alignmentPii.exit._crit_edge:        ; preds = %_Z18set_grid_alignm
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %140
-  %156 = sub nsw i64 %146, %153
+  %156 = sub nuw nsw i64 %146, %153
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %143, i64 noundef %156)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -1948,7 +1948,7 @@ define linkonce_odr void @_ZNSt6vectorI9pmegrid_tSaIS0_EE6resizeEm(ptr noundef n
   br i1 %10, label %11, label %36
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -1970,7 +1970,7 @@ _ZSt27__uninitialized_default_n_aIP9pmegrid_tmS0_ET_S2_T0_RSaIT1_E.exit.i: ; pre
   br label %_ZNSt6vectorI9pmegrid_tSaIS0_EE17_M_default_appendEm.exit
 
 22:                                               ; preds = %11
-  %23 = icmp ult i64 %19, %12
+  %23 = icmp ugt i64 %1, 128102389400760775
   br i1 %23, label %24, label %_ZNKSt6vectorI9pmegrid_tSaIS0_EE12_M_check_lenEmPKc.exit.i
 
 24:                                               ; preds = %22

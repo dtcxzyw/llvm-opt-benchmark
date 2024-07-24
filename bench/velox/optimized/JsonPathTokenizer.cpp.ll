@@ -281,9 +281,9 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit:           ; preds = %if.end
-  %sub = sub i64 %.lcssa5, %0
+  %sub = sub nuw i64 %.lcssa5, %0
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %0
-  %sub.i = sub i64 %sub.ptr.sub.i, %0
+  %sub.i = sub nuw i64 %sub.ptr.sub.i, %0
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #14, !noalias !9
@@ -477,9 +477,9 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit:           ; preds = %if.end
-  %sub = sub i64 %.lcssa5, %0
+  %sub = sub nuw i64 %.lcssa5, %0
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %0
-  %sub.i = sub i64 %sub.ptr.sub.i, %0
+  %sub.i = sub nuw i64 %sub.ptr.sub.i, %0
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #14, !noalias !17

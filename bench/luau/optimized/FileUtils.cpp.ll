@@ -335,7 +335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSISt17basic_string_viewIcS
   unreachable
 
 22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSISt17basic_string_viewIcS2_EEENSt9enable_ifIXsr6__and_ISt14is_convertibleIRKT_S7_ESt6__not_IS9_IPSB_PKS4_EESE_IS9_ISC_PKcEEEE5valueERS4_E4typeESC_.exit
-  %23 = sub i64 %1, %18
+  %23 = sub nuw i64 %1, %18
   %24 = getelementptr inbounds i8, ptr %2, i64 %18
   invoke void @_Z9splitPathSt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %7, i64 %23, ptr nonnull %24)
           to label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEaSEOS5_.exit unwind label %.loopexit.split-lp179
@@ -415,7 +415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSISt17basic_string_viewIcS
   unreachable
 
 46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSISt17basic_string_viewIcS2_EEENSt9enable_ifIXsr6__and_ISt14is_convertibleIRKT_S7_ESt6__not_IS9_IPSB_PKS4_EESE_IS9_ISC_PKcEEEE5valueERS4_E4typeESC_.exit57
-  %47 = sub i64 %3, %42
+  %47 = sub nuw i64 %3, %42
   %48 = getelementptr inbounds i8, ptr %4, i64 %42
   invoke void @_Z9splitPathSt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %9, i64 %47, ptr nonnull %48)
           to label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit unwind label %.loopexit.split-lp179
@@ -765,7 +765,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit: ; preds
 
 15:                                               ; preds = %10
   %16 = sub i64 %.01072, %.073
-  %17 = sub i64 %1, %.073
+  %17 = sub nuw i64 %1, %.073
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %16)
   %18 = getelementptr inbounds i8, ptr %2, i64 %.073
   %19 = load ptr, ptr %9, align 8
@@ -915,7 +915,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; pred
   %.0.lcssa90 = phi i64 [ %45, %._crit_edge ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ 0, %3 ], [ 0, %6 ]
   %61 = phi ptr [ %44, %._crit_edge ], [ null, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ null, %3 ], [ null, %6 ]
   %62 = phi ptr [ %43, %._crit_edge ], [ null, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ null, %3 ], [ null, %6 ]
-  %63 = sub i64 %1, %.0.lcssa90
+  %63 = sub nuw i64 %1, %.0.lcssa90
   %64 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa90
   %65 = getelementptr inbounds i8, ptr %0, i64 8
   %66 = getelementptr inbounds i8, ptr %0, i64 16

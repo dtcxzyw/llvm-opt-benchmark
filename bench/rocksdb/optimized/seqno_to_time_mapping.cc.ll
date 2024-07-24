@@ -703,7 +703,7 @@ entry:
   br i1 %or.cond.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %entry
-  %sub = sub i64 %now, %0
+  %sub = sub nuw i64 %now, %0
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_start.i.i, align 8, !noalias !46
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2137,7 +2137,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = sub i64 %to_time, %from_time
-  %sub3 = sub i64 %to_seqno, %from_seqno
+  %sub3 = sub nuw i64 %to_seqno, %from_seqno
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_last.i = getelementptr inbounds i8, ptr %this, i64 80
   %pairs_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -2238,7 +2238,7 @@ if.else:                                          ; preds = %_ZN7rocksdb18SeqnoT
   br i1 %cmp3, label %if.then4, label %if.end13
 
 if.then4:                                         ; preds = %if.else
-  %sub = sub i64 %add12.i.i, %retval.0.i
+  %sub = sub nuw i64 %add12.i.i, %retval.0.i
   %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !154
   %sub.ptr.rhs.cast.i.i46 = ptrtoint ptr %7 to i64

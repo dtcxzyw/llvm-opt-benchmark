@@ -17073,11 +17073,11 @@ _ZN6syntax3ast8AstToken4text17he876697180afa21aE.llvm.5537595614626420043.exit: 
   unreachable
 
 41:                                               ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$10text_range17hedbb44f8f4081acbE.llvm.5537595614626420043.exit"
-  %42 = sub i32 %14, %.0.i.i
-  %43 = sub i32 %16, %.0.i.i
+  %42 = sub nuw i32 %14, %.0.i.i
+  %43 = sub nuw i32 %16, %.0.i.i
   %44 = zext i32 %42 to i64
   %45 = zext i32 %43 to i64
-  %.not.i.i6 = icmp ugt i32 %42, %43
+  %.not.i.i6 = icmp ugt i32 %14, %16
   br i1 %.not.i.i6, label %61, label %46
 
 46:                                               ; preds = %41
@@ -95306,8 +95306,8 @@ define hidden void @_ZN9text_size5range9TextRange11checked_sub17h3114ec03184b8d3
   br i1 %or.cond, label %10, label %5
 
 5:                                                ; preds = %4
-  %6 = sub i32 %1, %3
-  %7 = sub i32 %2, %3
+  %6 = sub nuw i32 %1, %3
+  %7 = sub nuw i32 %2, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %6, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -96918,8 +96918,8 @@ define hidden void @_ZN7hir_def3hir11format_args5parse17h9e8a53a48a3fb96aE(ptr n
 
 .thread:                                          ; preds = %384
   %385 = trunc nuw i64 %375 to i32
-  %386 = sub i32 %381, %..sroa.5.0.i
-  %387 = sub i32 %385, %..sroa.5.0.i
+  %386 = sub nuw i32 %381, %..sroa.5.0.i
+  %387 = sub nuw i32 %385, %..sroa.5.0.i
   %388 = add nuw i64 %.0331776, 1
   br label %389
 
@@ -96964,8 +96964,8 @@ define hidden void @_ZN7hir_def3hir11format_args5parse17h9e8a53a48a3fb96aE(ptr n
 
 397:                                              ; preds = %394
   %398 = trunc nuw i64 %327 to i32
-  %399 = sub i32 %392, %..sroa.5.0.i
-  %400 = sub i32 %398, %..sroa.5.0.i
+  %399 = sub nuw i32 %392, %..sroa.5.0.i
+  %400 = sub nuw i32 %398, %..sroa.5.0.i
   br label %395
 
 401:                                              ; preds = %395
@@ -97102,8 +97102,8 @@ define hidden void @_ZN7hir_def3hir11format_args5parse17h9e8a53a48a3fb96aE(ptr n
 
 "_ZN7hir_def3hir11format_args5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h84a37eccb8f345afE.exit.i.i": ; preds = %421
   %422 = trunc nuw i64 %.sroa.3304.0.copyload to i32
-  %423 = sub i32 %419, %..sroa.5.0.i
-  %424 = sub i32 %422, %..sroa.5.0.i
+  %423 = sub nuw i32 %419, %..sroa.5.0.i
+  %424 = sub nuw i32 %422, %..sroa.5.0.i
   br label %_ZN4core3ops8function6FnOnce9call_once17he4f6e3b4b4c2e3f5E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17he4f6e3b4b4c2e3f5E.exit: ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6af37a01786a8d3aE.exit459.thread", %"_ZN7hir_def3hir11format_args5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h84a37eccb8f345afE.exit.i.i"
@@ -97204,8 +97204,8 @@ _ZN4core3ops8function6FnOnce9call_once17he4f6e3b4b4c2e3f5E.exit: ; preds = %"_ZN
 
 437:                                              ; preds = %435
   %438 = trunc nuw i64 %.sroa.8299.0.copyload to i32
-  %439 = sub i32 %433, %..sroa.5.0.i
-  %440 = sub i32 %438, %..sroa.5.0.i
+  %439 = sub nuw i32 %433, %..sroa.5.0.i
+  %440 = sub nuw i32 %438, %..sroa.5.0.i
   br label %436
 
 441:                                              ; preds = %436
@@ -97255,8 +97255,8 @@ _ZN4core3ops8function6FnOnce9call_once17he4f6e3b4b4c2e3f5E.exit: ; preds = %"_ZN
 
 "_ZN7hir_def3hir11format_args5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h84a37eccb8f345afE.exit.i.i483": ; preds = %448
   %449 = trunc nuw i64 %.sroa.3314.0.copyload to i32
-  %450 = sub i32 %446, %..sroa.5.0.i
-  %451 = sub i32 %449, %..sroa.5.0.i
+  %450 = sub nuw i32 %446, %..sroa.5.0.i
+  %451 = sub nuw i32 %449, %..sroa.5.0.i
   br label %_ZN4core3ops8function6FnOnce9call_once17he4f6e3b4b4c2e3f5E.exit488
 
 _ZN4core3ops8function6FnOnce9call_once17he4f6e3b4b4c2e3f5E.exit488: ; preds = %430, %"_ZN7hir_def3hir11format_args5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h84a37eccb8f345afE.exit.i.i483"
@@ -97381,8 +97381,8 @@ _ZN4core3ops8function6FnOnce9call_once17he4f6e3b4b4c2e3f5E.exit488: ; preds = %4
 
 478:                                              ; preds = %476
   %479 = trunc nuw i64 %.sroa.7309.0.copyload to i32
-  %480 = sub i32 %474, %..sroa.5.0.i
-  %481 = sub i32 %479, %..sroa.5.0.i
+  %480 = sub nuw i32 %474, %..sroa.5.0.i
+  %481 = sub nuw i32 %479, %..sroa.5.0.i
   br label %477
 
 482:                                              ; preds = %477

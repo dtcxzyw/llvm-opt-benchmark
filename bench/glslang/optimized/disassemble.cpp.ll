@@ -436,7 +436,7 @@ define void @_ZN3spv11SpirvStream8validateEv(ptr noundef nonnull align 8 derefer
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %33
-  %77 = sub nsw i64 %67, %74
+  %77 = sub nuw nsw i64 %67, %74
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %66, i64 noundef %77)
   %.pre = load i32, ptr %65, align 8
   %.pre4 = zext i32 %.pre to i64
@@ -469,7 +469,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %76, %78, %80, %82
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %93 = sub nsw i64 %.pre-phi, %90
+  %93 = sub nuw nsw i64 %.pre-phi, %90
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %83, i64 noundef %93)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 

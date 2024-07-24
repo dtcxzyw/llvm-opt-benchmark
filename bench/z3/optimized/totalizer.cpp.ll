@@ -374,7 +374,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
 
 for.body53:                                       ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit, %for.inc
   %j1.0352 = phi i32 [ 0, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit ], [ %inc, %for.inc ]
-  %sub54 = sub i32 %37, %j1.0352
+  %sub54 = sub nuw i32 %37, %j1.0352
   %38 = load ptr, ptr %m_nodes.i.i39, align 8
   %cmp.i.i.i85 = icmp eq ptr %38, null
   br i1 %cmp.i.i.i85, label %invoke.cont55, label %if.end.i.i.i86

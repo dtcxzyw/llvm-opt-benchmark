@@ -1948,7 +1948,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   unreachable
 
 26:                                               ; preds = %19
-  %27 = sub i64 %20, %18
+  %27 = sub nuw i64 %20, %18
   store i64 %27, ptr %1, align 8, !alias.scope !360, !noalias !350
   %28 = icmp ugt ptr %17, inttoptr (i64 32 to ptr)
   br i1 %28, label %.noexc, label %43
@@ -2592,7 +2592,7 @@ _ZN3url3Url5slice17h9b381af4048ee113E.exit.i:     ; preds = %"_ZN4core3str21_$LT
   %36 = getelementptr inbounds i8, ptr %.val.i, i64 %30
   %37 = load i8, ptr %36, align 1, !alias.scope !445, !noalias !452, !noundef !5
   %38 = icmp sgt i8 %37, -65
-  %39 = sub i64 %.val1.i, %30
+  %39 = sub nuw i64 %.val1.i, %30
   br i1 %38, label %_ZN3url3Url5slice17h2ce1b7d229326636E.exit.i.i, label %40
 
 40:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i", %33
@@ -4131,7 +4131,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !673
   %9 = icmp eq i32 %bcmp.i, 0

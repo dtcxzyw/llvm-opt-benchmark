@@ -24,13 +24,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 $_ZNSt10unique_ptrI13gmx_wallcycleSt14default_deleteIS0_EED2Ev = comdat any
 
-$_ZNSt6vectorI8wallcc_tSaIS0_EE6resizeEm = comdat any
-
 @.str = private unnamed_addr constant [18 x i8] c"GMX_CYCLE_BARRIER\00", align 1
 @.str.1 = private unnamed_addr constant [59 x i8] c"\0AWill call MPI_Barrier before each cycle start/stop call\0A\0A\00", align 1
 @.str.2 = private unnamed_addr constant [14 x i8] c"GMX_CYCLE_ALL\00", align 1
 @.str.3 = private unnamed_addr constant [41 x i8] c"\0AWill time all the code during the run\0A\0A\00", align 1
-@.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @TMPI_DOUBLE = external local_unnamed_addr constant ptr, align 8
 @.str.5 = private unnamed_addr constant [81 x i8] c"--------------------------------------------------------------------------------\00", align 1
 @.str.6 = private unnamed_addr constant [88 x i8] c"WARNING: A total of %f CPU cycles was recorded, so mdrun cannot print a time accounting\00", align 1
@@ -152,7 +149,7 @@ define void @_Z14wallcycle_initP8_IO_FILEiPK9t_commrec(ptr dead_on_unwind noalia
   %5 = invoke noalias noundef nonnull dereferenceable(2304) ptr @_Znwm(i64 noundef 2304) #23
           to label %.noexc unwind label %6
 
-6:                                                ; preds = %4, %39
+6:                                                ; preds = %58, %4
   %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10unique_ptrI13gmx_wallcycleSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
@@ -234,7 +231,7 @@ _ZNSt10unique_ptrI13gmx_wallcycleSt14default_deleteIS0_EED2Ev.exit: ; preds = %1
 34:                                               ; preds = %33, %28, %24, %_ZNSt10unique_ptrI13gmx_wallcycleSt14default_deleteIS0_EED2Ev.exit
   %35 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #24
   %.not13 = icmp eq ptr %35, null
-  br i1 %.not13, label %40, label %36
+  br i1 %.not13, label %_ZNSt6vectorI8wallcc_tSaIS0_EE6resizeEm.exit, label %36
 
 36:                                               ; preds = %34
   %.not14 = icmp eq ptr %1, null
@@ -245,10 +242,89 @@ _ZNSt10unique_ptrI13gmx_wallcycleSt14default_deleteIS0_EED2Ev.exit: ; preds = %1
   br label %39
 
 39:                                               ; preds = %37, %36
-  invoke void @_ZNSt6vectorI8wallcc_tSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 2704)
-          to label %40 unwind label %6
+  %40 = getelementptr inbounds i8, ptr %5, i64 2256
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %15, align 8
+  %43 = ptrtoint ptr %41 to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = sub i64 %43, %44
+  %46 = sdiv exact i64 %45, 24
+  %47 = icmp ult i64 %46, 2704
+  br i1 %47, label %48, label %69
 
-40:                                               ; preds = %39, %34
+48:                                               ; preds = %39
+  %49 = sub nuw nsw i64 2704, %46
+  %50 = getelementptr inbounds i8, ptr %5, i64 2264
+  %51 = load ptr, ptr %50, align 8
+  %52 = ptrtoint ptr %51 to i64
+  %53 = sub i64 %52, %43
+  %54 = sdiv exact i64 %53, 24
+  %55 = sub nuw nsw i64 384307168202282325, %46
+  %56 = icmp ule i64 %54, %55
+  tail call void @llvm.assume(i1 %56)
+  %.not28.i.i = icmp ult i64 %54, %49
+  br i1 %.not28.i.i, label %58, label %_ZSt27__uninitialized_default_n_aIP8wallcc_tmS0_ET_S2_T0_RSaIT1_E.exit.i.i
+
+_ZSt27__uninitialized_default_n_aIP8wallcc_tmS0_ET_S2_T0_RSaIT1_E.exit.i.i: ; preds = %48
+  %57 = sub i64 64896, %45
+  tail call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %57, i1 false)
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %41, i64 %57
+  store ptr %scevgep.i.i.i.i.i, ptr %40, align 8
+  br label %_ZNSt6vectorI8wallcc_tSaIS0_EE6resizeEm.exit
+
+58:                                               ; preds = %48
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %49)
+  %59 = add nuw nsw i64 %.sroa.speculated.i.i.i, %46
+  %60 = mul nuw nsw i64 %59, 24
+  %61 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #23
+          to label %.noexc15 unwind label %6
+
+.noexc15:                                         ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %61, i64 %45
+  %63 = sub i64 64896, %45
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %62, i8 0, i64 %63, i1 false)
+  %.not10.i.i.i.i.i = icmp eq ptr %42, %41
+  br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i.i, label %.lr.ph.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i:                                 ; preds = %.noexc15, %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i ], [ %61, %.noexc15 ]
+  %.0911.i.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i.i ], [ %42, %.noexc15 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i.i, i64 24, i1 false), !alias.scope !8
+  %64 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 24
+  %65 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %64, %41
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+
+_ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc15
+  %.not.i36.i.i = icmp eq ptr %42, null
+  br i1 %.not.i36.i.i, label %_ZNSt12_Vector_baseI8wallcc_tSaIS0_EE13_M_deallocateEPS0_m.exit37.i.i, label %66
+
+66:                                               ; preds = %_ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %42) #25
+  br label %_ZNSt12_Vector_baseI8wallcc_tSaIS0_EE13_M_deallocateEPS0_m.exit37.i.i
+
+_ZNSt12_Vector_baseI8wallcc_tSaIS0_EE13_M_deallocateEPS0_m.exit37.i.i: ; preds = %66, %_ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i.i
+  store ptr %61, ptr %15, align 8
+  %67 = getelementptr inbounds %struct.wallcc_t, ptr %62, i64 %49
+  store ptr %67, ptr %40, align 8
+  %68 = getelementptr inbounds %struct.wallcc_t, ptr %61, i64 %59
+  store ptr %68, ptr %50, align 8
+  br label %_ZNSt6vectorI8wallcc_tSaIS0_EE6resizeEm.exit
+
+69:                                               ; preds = %39
+  %.not17 = icmp eq i64 %45, 64896
+  br i1 %.not17, label %_ZNSt6vectorI8wallcc_tSaIS0_EE6resizeEm.exit, label %70
+
+70:                                               ; preds = %69
+  %71 = getelementptr inbounds i8, ptr %42, i64 64896
+  %.not.i4.i = icmp eq ptr %41, %71
+  br i1 %.not.i4.i, label %_ZNSt6vectorI8wallcc_tSaIS0_EE6resizeEm.exit, label %72
+
+72:                                               ; preds = %70
+  store ptr %71, ptr %40, align 8
+  br label %_ZNSt6vectorI8wallcc_tSaIS0_EE6resizeEm.exit
+
+_ZNSt6vectorI8wallcc_tSaIS0_EE6resizeEm.exit:     ; preds = %72, %70, %69, %_ZNSt12_Vector_baseI8wallcc_tSaIS0_EE13_M_deallocateEPS0_m.exit37.i.i, %_ZSt27__uninitialized_default_n_aIP8wallcc_tmS0_ET_S2_T0_RSaIT1_E.exit.i.i, %34
   ret void
 }
 
@@ -284,102 +360,6 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorI8wallcc_tSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %0, align 8
-  %6 = ptrtoint ptr %4 to i64
-  %7 = ptrtoint ptr %5 to i64
-  %8 = sub i64 %6, %7
-  %9 = sdiv exact i64 %8, 24
-  %10 = icmp ult i64 %9, %1
-  br i1 %10, label %11, label %36
-
-11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = sub i64 %15, %6
-  %17 = sdiv exact i64 %16, 24
-  %18 = icmp ult i64 %9, 384307168202282326
-  tail call void @llvm.assume(i1 %18)
-  %19 = sub nuw nsw i64 384307168202282325, %9
-  %20 = icmp ule i64 %17, %19
-  tail call void @llvm.assume(i1 %20)
-  %.not28.i = icmp ult i64 %17, %12
-  br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIP8wallcc_tmS0_ET_S2_T0_RSaIT1_E.exit.i
-
-_ZSt27__uninitialized_default_n_aIP8wallcc_tmS0_ET_S2_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = mul nuw i64 %12, 24
-  tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %21, i1 false)
-  %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
-  store ptr %scevgep.i.i.i.i, ptr %3, align 8
-  br label %_ZNSt6vectorI8wallcc_tSaIS0_EE17_M_default_appendEm.exit
-
-22:                                               ; preds = %11
-  %23 = icmp ult i64 %19, %12
-  br i1 %23, label %24, label %_ZNKSt6vectorI8wallcc_tSaIS0_EE12_M_check_lenEmPKc.exit.i
-
-24:                                               ; preds = %22
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #26
-  unreachable
-
-_ZNKSt6vectorI8wallcc_tSaIS0_EE12_M_check_lenEmPKc.exit.i: ; preds = %22
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %9, i64 %12)
-  %25 = add nuw nsw i64 %.sroa.speculated.i.i, %9
-  %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 384307168202282325)
-  %27 = mul nuw nsw i64 %26, 24
-  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #23
-  %29 = getelementptr inbounds i8, ptr %28, i64 %8
-  %30 = mul nuw nsw i64 %12, 24
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %30, i1 false)
-  %.not10.i.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not10.i.i.i.i, label %_ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %.lr.ph.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorI8wallcc_tSaIS0_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i ], [ %28, %_ZNKSt6vectorI8wallcc_tSaIS0_EE12_M_check_lenEmPKc.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %5, %_ZNKSt6vectorI8wallcc_tSaIS0_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i64 24, i1 false), !alias.scope !8
-  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
-  %32 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq ptr %31, %4
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
-
-_ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorI8wallcc_tSaIS0_EE12_M_check_lenEmPKc.exit.i
-  %.not.i36.i = icmp eq ptr %5, null
-  br i1 %.not.i36.i, label %_ZNSt12_Vector_baseI8wallcc_tSaIS0_EE13_M_deallocateEPS0_m.exit37.i, label %33
-
-33:                                               ; preds = %_ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #25
-  br label %_ZNSt12_Vector_baseI8wallcc_tSaIS0_EE13_M_deallocateEPS0_m.exit37.i
-
-_ZNSt12_Vector_baseI8wallcc_tSaIS0_EE13_M_deallocateEPS0_m.exit37.i: ; preds = %33, %_ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i
-  store ptr %28, ptr %0, align 8
-  %34 = getelementptr inbounds %struct.wallcc_t, ptr %29, i64 %12
-  store ptr %34, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.wallcc_t, ptr %28, i64 %26
-  store ptr %35, ptr %13, align 8
-  br label %_ZNSt6vectorI8wallcc_tSaIS0_EE17_M_default_appendEm.exit
-
-36:                                               ; preds = %2
-  %37 = icmp ugt i64 %9, %1
-  br i1 %37, label %38, label %_ZNSt6vectorI8wallcc_tSaIS0_EE17_M_default_appendEm.exit
-
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds %struct.wallcc_t, ptr %5, i64 %1
-  %.not.i4 = icmp eq ptr %4, %39
-  br i1 %.not.i4, label %_ZNSt6vectorI8wallcc_tSaIS0_EE17_M_default_appendEm.exit, label %40
-
-40:                                               ; preds = %38
-  store ptr %39, ptr %3, align 8
-  br label %_ZNSt6vectorI8wallcc_tSaIS0_EE17_M_default_appendEm.exit
-
-_ZNSt6vectorI8wallcc_tSaIS0_EE17_M_default_appendEm.exit: ; preds = %40, %38, %_ZNSt12_Vector_baseI8wallcc_tSaIS0_EE13_M_deallocateEPS0_m.exit37.i, %_ZSt27__uninitialized_default_n_aIP8wallcc_tmS0_ET_S2_T0_RSaIT1_E.exit.i, %36
-  ret void
-}
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5

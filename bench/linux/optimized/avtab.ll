@@ -641,7 +641,7 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr nocapture noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %22, i64 %29, i1 false)
   %34 = getelementptr i8, ptr %22, i64 %29
   store ptr %34, ptr %1, align 8
-  %35 = sub i64 %23, %29
+  %35 = sub nuw i64 %23, %29
   store i64 %35, ptr %13, align 8
   %36 = load i32, ptr %9, align 16
   %37 = trunc i32 %36 to i16

@@ -4157,7 +4157,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
   br label %.thread
 
 13:                                               ; preds = %6
-  %14 = sub nsw i64 %9, %11
+  %14 = sub nuw nsw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17had34e05582d9f06cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14, i64 noundef 0)
   br label %.thread
 
@@ -9813,7 +9813,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   %14 = load i64, ptr %1, align 8, !noundef !9
   %.not.i = icmp ult i64 %13, %14
   %15 = select i1 %.not.i, i64 0, i64 %14
-  %.0.i = sub i64 %13, %15
+  %.0.i = sub nuw i64 %13, %15
   %16 = sub i64 %14, %.0.i
   %.not = icmp ult i64 %16, %7
   store i64 %.0.i, ptr %0, align 8
@@ -9825,7 +9825,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
   ret void
 
 20:                                               ; preds = %10
-  %21 = sub i64 %7, %16
+  %21 = sub nuw i64 %7, %16
   store i64 %14, ptr %17, align 8
   store i64 0, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9847,7 +9847,7 @@ define hidden noundef i64 @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   %6 = load i64, ptr %0, align 8, !noundef !9
   %.not = icmp ult i64 %5, %6
   %7 = select i1 %.not, i64 0, i64 %6
-  %.0 = sub i64 %5, %7
+  %.0 = sub nuw i64 %5, %7
   ret i64 %.0
 }
 
@@ -9911,7 +9911,7 @@ define hidden { i32, i32 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %9 = load i64, ptr %0, align 8, !alias.scope !3048, !noundef !9
   %.not.i = icmp ult i64 %8, %9
   %10 = select i1 %.not.i, i64 0, i64 %9
-  %.0.i = sub i64 %8, %10
+  %.0.i = sub nuw i64 %8, %10
   store i64 %.0.i, ptr %6, align 8
   %11 = add i64 %3, -1
   store i64 %11, ptr %2, align 8
@@ -9945,7 +9945,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %11 = load i64, ptr %0, align 8, !alias.scope !3051, !noundef !9
   %.not.i = icmp ult i64 %10, %11
   %12 = select i1 %.not.i, i64 0, i64 %11
-  %.0.i = sub i64 %10, %12
+  %.0.i = sub nuw i64 %10, %12
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !9, !noundef !9
   %15 = getelementptr inbounds i32, ptr %14, i64 %.0.i
@@ -25399,7 +25399,7 @@ define void @_ZN17cranelift_codegen8machinst3abi11FrameLayout31clobbered_callee_
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h47c7979ac8c549abE.exit": ; preds = %2
   %16 = getelementptr inbounds i8, ptr %6, i64 %10
-  %17 = sub i64 %8, %10
+  %17 = sub nuw i64 %8, %10
   store ptr %6, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %10, ptr %18, align 8
@@ -32665,7 +32665,7 @@ define hidden void @_ZN17cranelift_codegen13loop_analysis12LoopAnalysis20discove
 103:                                              ; preds = %.noexc
   %104 = add nuw nsw i64 %100, 1
   %105 = load i32, ptr %38, align 8, !alias.scope !8385, !noundef !9
-  %106 = sub nsw i64 %104, %99
+  %106 = sub nuw nsw i64 %104, %99
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h351416f38e88891dE.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %106, i32 noundef %105)
           to label %.noexc57 unwind label %.loopexit.split-lp.loopexit
 

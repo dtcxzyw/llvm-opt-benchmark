@@ -5741,7 +5741,7 @@ invoke.cont1.i.i.i.i:                             ; preds = %if.then.i.i94
 invoke.cont1.i.i11.i.i:                           ; preds = %invoke.cont1.i.i.i.i, %if.then.i.i94
   %out_start.addr.0.i.i = phi ptr [ %62, %if.then.i.i94 ], [ %add.ptr.i5.i.i.i.i, %invoke.cont1.i.i.i.i ]
   %f.addr.0.i.i.i.i = phi ptr [ %58, %if.then.i.i94 ], [ %add.ptr.i.i.i.i17.i, %invoke.cont1.i.i.i.i ]
-  %sub.i.i = sub i64 %59, %63
+  %sub.i.i = sub nuw i64 %59, %63
   %mul.i.i12.i.i = shl i64 %sub.i.i, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i, ptr align 4 %f.addr.0.i.i.i.i, i64 %mul.i.i12.i.i, i1 false)
   br label %invoke.cont25.i.sink.split
@@ -6492,7 +6492,7 @@ invoke.cont1.i.i.i.i:                             ; preds = %if.then.i.i
 invoke.cont1.i.i11.i.i:                           ; preds = %invoke.cont1.i.i.i.i, %if.then.i.i
   %out_start.addr.0.i.i = phi ptr [ %36, %if.then.i.i ], [ %add.ptr.i5.i.i.i.i, %invoke.cont1.i.i.i.i ]
   %f.addr.0.i.i.i.i = phi ptr [ %32, %if.then.i.i ], [ %add.ptr.i.i.i.i17.i, %invoke.cont1.i.i.i.i ]
-  %sub.i.i = sub i64 %33, %37
+  %sub.i.i = sub nuw i64 %33, %37
   %mul.i.i12.i.i = shl i64 %sub.i.i, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i, ptr align 4 %f.addr.0.i.i.i.i, i64 %mul.i.i12.i.i, i1 false)
   br label %invoke.cont34.sink.split
@@ -15595,7 +15595,7 @@ invoke.cont1.i.i.i.i:                             ; preds = %if.then.i.i194
 invoke.cont1.i.i11.i.i:                           ; preds = %invoke.cont1.i.i.i.i, %if.then.i.i194
   %out_start.addr.0.i.i = phi ptr [ %62, %if.then.i.i194 ], [ %add.ptr.i5.i.i.i.i, %invoke.cont1.i.i.i.i ]
   %f.addr.0.i.i.i.i = phi ptr [ %58, %if.then.i.i194 ], [ %add.ptr.i.i.i.i17.i, %invoke.cont1.i.i.i.i ]
-  %sub.i.i195 = sub i64 %59, %63
+  %sub.i.i195 = sub nuw i64 %59, %63
   %mul.i.i12.i.i = shl i64 %sub.i.i195, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i, ptr align 4 %f.addr.0.i.i.i.i, i64 %mul.i.i12.i.i, i1 false)
   br label %invoke.cont25.i.sink.split
@@ -16031,7 +16031,7 @@ invoke.cont1.i.i.i.i280:                          ; preds = %if.then.i.i278
 invoke.cont1.i.i11.i.i284:                        ; preds = %invoke.cont1.i.i.i.i280, %if.then.i.i278
   %out_start.addr.0.i.i285 = phi ptr [ %105, %if.then.i.i278 ], [ %add.ptr.i5.i.i.i.i283, %invoke.cont1.i.i.i.i280 ]
   %f.addr.0.i.i.i.i286 = phi ptr [ %101, %if.then.i.i278 ], [ %add.ptr.i.i.i.i17.i282, %invoke.cont1.i.i.i.i280 ]
-  %sub.i.i287 = sub i64 %102, %106
+  %sub.i.i287 = sub nuw i64 %102, %106
   %mul.i.i12.i.i288 = shl i64 %sub.i.i287, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i285, ptr align 4 %f.addr.0.i.i.i.i286, i64 %mul.i.i12.i.i288, i1 false)
   br label %invoke.cont25.i161.sink.split
@@ -18335,7 +18335,7 @@ invoke.cont1.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i11.i:                             ; preds = %invoke.cont1.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i5.i.i.i, %invoke.cont1.i.i.i ]
   %f.addr.0.i.i.i = phi ptr [ %first, %if.then.i ], [ %add.ptr.i.i.i.i17, %invoke.cont1.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i, %4
   %mul.i.i12.i = shl i64 %sub.i, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i, ptr align 4 %f.addr.0.i.i.i, i64 %mul.i.i12.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EEvRT_T0_NS0_16allocator_traitsIS6_E9size_typeET1_SB_.exit
@@ -27115,7 +27115,7 @@ invoke.cont1.i.i.i.i:                             ; preds = %if.then.i.i753
 invoke.cont1.i.i11.i.i:                           ; preds = %invoke.cont1.i.i.i.i, %if.then.i.i753
   %out_start.addr.0.i.i = phi ptr [ %32, %if.then.i.i753 ], [ %add.ptr.i5.i.i.i.i, %invoke.cont1.i.i.i.i ]
   %f.addr.0.i.i.i.i = phi ptr [ %28, %if.then.i.i753 ], [ %add.ptr.i.i.i.i17.i, %invoke.cont1.i.i.i.i ]
-  %sub.i.i754 = sub i64 %29, %33
+  %sub.i.i754 = sub nuw i64 %29, %33
   %mul.i.i12.i.i = shl i64 %sub.i.i754, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i, ptr align 4 %f.addr.0.i.i.i.i, i64 %mul.i.i12.i.i, i1 false)
   br label %invoke.cont28.sink.split
@@ -28325,7 +28325,7 @@ invoke.cont1.i.i.i.i1013:                         ; preds = %if.then.i.i1011
 invoke.cont1.i.i11.i.i1017:                       ; preds = %invoke.cont1.i.i.i.i1013, %if.then.i.i1011
   %out_start.addr.0.i.i1018 = phi ptr [ %138, %if.then.i.i1011 ], [ %add.ptr.i5.i.i.i.i1016, %invoke.cont1.i.i.i.i1013 ]
   %f.addr.0.i.i.i.i1019 = phi ptr [ %134, %if.then.i.i1011 ], [ %add.ptr.i.i.i.i17.i1015, %invoke.cont1.i.i.i.i1013 ]
-  %sub.i.i1020 = sub i64 %135, %139
+  %sub.i.i1020 = sub nuw i64 %135, %139
   %mul.i.i12.i.i1021 = shl i64 %sub.i.i1020, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i1018, ptr align 4 %f.addr.0.i.i.i.i1019, i64 %mul.i.i12.i.i1021, i1 false)
   br label %invoke.cont158.sink.split
@@ -31884,7 +31884,7 @@ invoke.cont1.i.i.i.i.i:                           ; preds = %if.then.i.i664.i
 invoke.cont1.i.i11.i.i.i:                         ; preds = %invoke.cont1.i.i.i.i.i, %if.then.i.i664.i
   %out_start.addr.0.i.i.i = phi ptr [ %111, %if.then.i.i664.i ], [ %add.ptr.i5.i.i.i.i.i, %invoke.cont1.i.i.i.i.i ]
   %f.addr.0.i.i.i.i.i = phi ptr [ %107, %if.then.i.i664.i ], [ %add.ptr.i.i.i.i17.i.i, %invoke.cont1.i.i.i.i.i ]
-  %sub.i.i.i = sub i64 %108, %112
+  %sub.i.i.i = sub nuw i64 %108, %112
   %mul.i.i12.i.i.i = shl i64 %sub.i.i.i, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i.i, ptr align 4 %f.addr.0.i.i.i.i.i, i64 %mul.i.i12.i.i.i, i1 false)
   br label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit.i.sink.split.i
@@ -32332,7 +32332,7 @@ invoke.cont1.i.i.i.i731.i:                        ; preds = %if.then.i.i729.i
 invoke.cont1.i.i11.i.i735.i:                      ; preds = %invoke.cont1.i.i.i.i731.i, %if.then.i.i729.i
   %out_start.addr.0.i.i736.i = phi ptr [ %157, %if.then.i.i729.i ], [ %add.ptr.i5.i.i.i.i734.i, %invoke.cont1.i.i.i.i731.i ]
   %f.addr.0.i.i.i.i737.i = phi ptr [ %153, %if.then.i.i729.i ], [ %add.ptr.i.i.i.i17.i733.i, %invoke.cont1.i.i.i.i731.i ]
-  %sub.i.i738.i = sub i64 %154, %158
+  %sub.i.i738.i = sub nuw i64 %154, %158
   %mul.i.i12.i.i739.i = shl i64 %sub.i.i738.i, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i.i736.i, ptr align 4 %f.addr.0.i.i.i.i737.i, i64 %mul.i.i12.i.i739.i, i1 false)
   br label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKNS3_18edge_property_typeERS3_.exit.i399.sink.split.i
@@ -35567,7 +35567,7 @@ invoke.cont3.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i.i:                               ; preds = %invoke.cont3.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i.i.i.i10, %invoke.cont3.i.i.i ]
   %f.sroa.0.0.i.i.i = phi ptr [ %first.coerce, %if.then.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont3.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i.i, %4
   %mul.i.i9.i = shl i64 %sub.i, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %out_start.addr.0.i, ptr align 8 %f.sroa.0.0.i.i.i, i64 %mul.i.i9.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEENS_13move_iteratorIPSB_EESF_EEvRT_T0_NS0_16allocator_traitsISH_E9size_typeET1_SM_.exit
@@ -35788,7 +35788,7 @@ invoke.cont1.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i11.i:                             ; preds = %invoke.cont1.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i5.i.i.i, %invoke.cont1.i.i.i ]
   %f.addr.0.i.i.i = phi ptr [ %first, %if.then.i ], [ %add.ptr.i.i.i.i17, %invoke.cont1.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i, %4
   %mul.i.i12.i = shl i64 %sub.i, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %out_start.addr.0.i, ptr align 8 %f.addr.0.i.i.i, i64 %mul.i.i12.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEPSB_SE_EEvRT_T0_NS0_16allocator_traitsISF_E9size_typeET1_SK_.exit
@@ -35930,7 +35930,7 @@ _ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIN3ue212graph_detail17ve
 
 _ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEEPS9_S9_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEEPS9_S9_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEEmEvRT_T0_.exit
   %3 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEEPS9_S9_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceISt23_Rb_tree_const_iteratorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEEmEvRT_T0_.exit ]
-  %sub = sub i64 %inc.i.i, %sub.ptr.div.i
+  %sub = sub nuw i64 %inc.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr %"class.ue2::graph_detail::vertex_descriptor", ptr %3, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i31 = icmp eq ptr %1, %__position.coerce
@@ -38746,7 +38746,7 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN
 
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS4_SaIS4_EEEEEmEvRT_T0_.exit
   %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS4_SaIS4_EEEEES5_S4_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS4_SaIS4_EEEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
   %add.ptr58 = getelementptr %"class.ue2::CharReach", ptr %2, i64 %sub
   store ptr %add.ptr58, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i34 = icmp eq ptr %1, %__position.coerce
@@ -42642,7 +42642,7 @@ for.body.i.i.i.i.i35:                             ; preds = %_ZSt13move_backward
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %if.then9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
   %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %incdec.ptr.i.i.i, ptr %__last.coerce, ptr noundef %1)
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %12 = load ptr, ptr %_M_finish, align 8
   %add.ptr50 = getelementptr inbounds %"struct.ue2::ue2_literal", ptr %12, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8

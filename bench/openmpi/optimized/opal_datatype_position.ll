@@ -120,7 +120,7 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   %82 = load i64, ptr %17, align 8
   %83 = add i64 %82, %75
   store i64 %83, ptr %17, align 8
-  %84 = sub i64 %.0180, %75
+  %84 = sub nuw i64 %.0180, %75
   %85 = add i64 %60, -1
   br label %.backedge.preheader
 

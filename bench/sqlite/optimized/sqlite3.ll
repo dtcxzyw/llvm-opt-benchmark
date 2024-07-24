@@ -77600,7 +77600,7 @@ getCellInfo.exit:                                 ; preds = %18, %22
 66:                                               ; preds = %64
   %67 = add i32 %2, %1
   %68 = icmp ugt i32 %67, %59
-  %69 = sub nsw i32 %59, %1
+  %69 = sub nuw nsw i32 %59, %1
   %spec.select = select i1 %68, i32 %69, i32 %2
   %70 = zext nneg i32 %1 to i64
   %71 = getelementptr inbounds i8, ptr %49, i64 %70
@@ -77632,7 +77632,7 @@ copyPayload.exit:                                 ; preds = %72, %77, %78
   br label %84
 
 82:                                               ; preds = %64
-  %83 = sub i32 %1, %59
+  %83 = sub nuw i32 %1, %59
   br label %84
 
 84:                                               ; preds = %82, %copyPayload.exit
@@ -77817,7 +77817,7 @@ sqlite3FaultSim.exit.thread:                      ; preds = %130, %sqlite3FaultS
 186:                                              ; preds = %173
   %187 = add i32 %.2186, %.1121185
   %188 = icmp ugt i32 %187, %89
-  %189 = sub i32 %89, %.2186
+  %189 = sub nuw i32 %89, %.2186
   %spec.select157 = select i1 %188, i32 %189, i32 %.1121185
   %190 = icmp eq i32 %.2186, 0
   %or.cond3 = select i1 %163, i1 %190, i1 false
@@ -88673,12 +88673,12 @@ define internal fastcc range(i32 -1, -2147483648) i32 @sqlite3AtoF(ptr noundef r
   br i1 %.not263, label %211, label %208
 
 208:                                              ; preds = %205
-  %209 = sub i64 %.6228.lcssa, %207
+  %209 = sub nuw i64 %.6228.lcssa, %207
   %210 = uitofp i64 %209 to double
   br label %215
 
 211:                                              ; preds = %205
-  %212 = sub i64 %207, %.6228.lcssa
+  %212 = sub nuw i64 %207, %.6228.lcssa
   %213 = uitofp i64 %212 to double
   %214 = fneg double %213
   br label %215
@@ -131044,7 +131044,7 @@ define internal fastcc range(i32 0, 780) i32 @freeSpace(ptr nocapture noundef %0
   %21 = getelementptr inbounds i8, ptr %8, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %108, label %.preheader
+  br i1 %23, label %107, label %.preheader
 
 .preheader:                                       ; preds = %19, %3
   br label %24
@@ -131073,7 +131073,7 @@ define internal fastcc range(i32 0, 780) i32 @freeSpace(ptr nocapture noundef %0
 
 38:                                               ; preds = %36
   tail call void (i32, ptr, ...) @sqlite3_log(i32 noundef 11, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.102, i32 noundef 72311, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 20))
-  br label %166
+  br label %165
 
 .loopexit:                                        ; preds = %24, %36
   %39 = zext i16 %33 to i32
@@ -131087,7 +131087,7 @@ define internal fastcc range(i32 0, 780) i32 @freeSpace(ptr nocapture noundef %0
 
 46:                                               ; preds = %.loopexit
   tail call void (i32, ptr, ...) @sqlite3_log(i32 noundef 11, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.102, i32 noundef 72316, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 20))
-  br label %166
+  br label %165
 
 47:                                               ; preds = %.loopexit
   %.not133 = icmp eq i16 %33, 0
@@ -131104,7 +131104,7 @@ define internal fastcc range(i32 0, 780) i32 @freeSpace(ptr nocapture noundef %0
 
 53:                                               ; preds = %49
   tail call void (i32, ptr, ...) @sqlite3_log(i32 noundef 11, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.102, i32 noundef 72328, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 20))
-  br label %166
+  br label %165
 
 54:                                               ; preds = %49
   %55 = zext i16 %33 to i64
@@ -131123,7 +131123,7 @@ define internal fastcc range(i32 0, 780) i32 @freeSpace(ptr nocapture noundef %0
 
 67:                                               ; preds = %54
   tail call void (i32, ptr, ...) @sqlite3_log(i32 noundef 11, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.102, i32 noundef 72331, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 20))
-  br label %166
+  br label %165
 
 68:                                               ; preds = %54
   %69 = trunc i32 %65 to i16
@@ -131166,10 +131166,10 @@ define internal fastcc range(i32 0, 780) i32 @freeSpace(ptr nocapture noundef %0
 
 94:                                               ; preds = %92
   tail call void (i32, ptr, ...) @sqlite3_log(i32 noundef 11, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.102, i32 noundef 72344, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 20))
-  br label %166
+  br label %165
 
 95:                                               ; preds = %92
-  %96 = sub nsw i32 %4, %90
+  %96 = sub nuw nsw i32 %4, %90
   %97 = trunc i32 %96 to i8
   %98 = add i8 %.0119, %97
   %99 = trunc i32 %.0113 to i16
@@ -131187,115 +131187,115 @@ define internal fastcc range(i32 0, 780) i32 @freeSpace(ptr nocapture noundef %0
 
 105:                                              ; preds = %101
   tail call void (i32, ptr, ...) @sqlite3_log(i32 noundef 11, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.102, i32 noundef 72350, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 20))
-  br label %166
+  br label %165
 
 106:                                              ; preds = %101
-  %107 = sub i8 %103, %.1120
-  store i8 %107, ptr %102, align 1
-  br label %108
+  %narrow = sub nuw i8 %103, %.1120
+  store i8 %narrow, ptr %102, align 1
+  br label %107
 
-108:                                              ; preds = %19, %106
+107:                                              ; preds = %19, %106
   %.1118 = phi i16 [ %.0117, %106 ], [ 0, %19 ]
   %.1116 = phi i16 [ %.0115, %106 ], [ %13, %19 ]
   %.1114 = phi i32 [ %.0113, %106 ], [ %6, %19 ]
   %.2 = phi i16 [ %.1112, %106 ], [ %2, %19 ]
   %.1 = phi i16 [ %.0110, %106 ], [ %1, %19 ]
-  %109 = getelementptr inbounds i8, ptr %15, i64 5
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i32
-  %112 = shl nuw nsw i32 %111, 8
-  %113 = getelementptr inbounds i8, ptr %15, i64 6
-  %114 = load i8, ptr %113, align 1
-  %115 = zext i8 %114 to i32
-  %116 = or disjoint i32 %112, %115
-  %117 = getelementptr inbounds i8, ptr %0, i64 72
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 40
-  %120 = load i16, ptr %119, align 8
-  %121 = and i16 %120, 12
-  %.not136 = icmp eq i16 %121, 0
-  br i1 %.not136, label %126, label %122
+  %108 = getelementptr inbounds i8, ptr %15, i64 5
+  %109 = load i8, ptr %108, align 1
+  %110 = zext i8 %109 to i32
+  %111 = shl nuw nsw i32 %110, 8
+  %112 = getelementptr inbounds i8, ptr %15, i64 6
+  %113 = load i8, ptr %112, align 1
+  %114 = zext i8 %113 to i32
+  %115 = or disjoint i32 %111, %114
+  %116 = getelementptr inbounds i8, ptr %0, i64 72
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 40
+  %119 = load i16, ptr %118, align 8
+  %120 = and i16 %119, 12
+  %.not136 = icmp eq i16 %120, 0
+  br i1 %.not136, label %125, label %121
 
-122:                                              ; preds = %108
-  %123 = zext i16 %.1 to i64
-  %124 = getelementptr inbounds i8, ptr %8, i64 %123
-  %125 = zext i16 %.2 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %124, i8 0, i64 %125, i1 false)
-  br label %126
+121:                                              ; preds = %107
+  %122 = zext i16 %.1 to i64
+  %123 = getelementptr inbounds i8, ptr %8, i64 %122
+  %124 = zext i16 %.2 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %123, i8 0, i64 %124, i1 false)
+  br label %125
 
-126:                                              ; preds = %122, %108
-  %127 = zext i16 %.1 to i32
-  %.not137 = icmp ult i32 %116, %127
-  br i1 %.not137, label %144, label %128
+125:                                              ; preds = %121, %107
+  %126 = zext i16 %.1 to i32
+  %.not137 = icmp ult i32 %115, %126
+  br i1 %.not137, label %143, label %127
 
-128:                                              ; preds = %126
-  %129 = icmp ugt i32 %116, %127
-  br i1 %129, label %130, label %131
+127:                                              ; preds = %125
+  %128 = icmp ugt i32 %115, %126
+  br i1 %128, label %129, label %130
 
-130:                                              ; preds = %128
+129:                                              ; preds = %127
   tail call void (i32, ptr, ...) @sqlite3_log(i32 noundef 11, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.102, i32 noundef 72364, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 20))
-  br label %166
+  br label %165
 
-131:                                              ; preds = %128
-  %132 = zext i16 %.1116 to i32
-  %.not138 = icmp eq i32 %12, %132
-  br i1 %.not138, label %134, label %133
+130:                                              ; preds = %127
+  %131 = zext i16 %.1116 to i32
+  %.not138 = icmp eq i32 %12, %131
+  br i1 %.not138, label %133, label %132
 
-133:                                              ; preds = %131
+132:                                              ; preds = %130
   tail call void (i32, ptr, ...) @sqlite3_log(i32 noundef 11, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.102, i32 noundef 72365, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.38, i64 20))
-  br label %166
+  br label %165
 
-134:                                              ; preds = %131
-  %135 = lshr i16 %.1118, 8
-  %136 = trunc nuw i16 %135 to i8
-  %137 = zext nneg i32 %12 to i64
-  %138 = getelementptr inbounds i8, ptr %8, i64 %137
-  store i8 %136, ptr %138, align 1
-  %139 = trunc i16 %.1118 to i8
-  %140 = getelementptr inbounds i8, ptr %138, i64 1
-  store i8 %139, ptr %140, align 1
-  %141 = lshr i32 %.1114, 8
-  %142 = trunc i32 %141 to i8
-  store i8 %142, ptr %109, align 1
-  %143 = trunc i32 %.1114 to i8
-  store i8 %143, ptr %113, align 1
-  br label %162
+133:                                              ; preds = %130
+  %134 = lshr i16 %.1118, 8
+  %135 = trunc nuw i16 %134 to i8
+  %136 = zext nneg i32 %12 to i64
+  %137 = getelementptr inbounds i8, ptr %8, i64 %136
+  store i8 %135, ptr %137, align 1
+  %138 = trunc i16 %.1118 to i8
+  %139 = getelementptr inbounds i8, ptr %137, i64 1
+  store i8 %138, ptr %139, align 1
+  %140 = lshr i32 %.1114, 8
+  %141 = trunc i32 %140 to i8
+  store i8 %141, ptr %108, align 1
+  %142 = trunc i32 %.1114 to i8
+  store i8 %142, ptr %112, align 1
+  br label %161
 
-144:                                              ; preds = %126
-  %145 = lshr i16 %.1, 8
-  %146 = trunc nuw i16 %145 to i8
-  %147 = zext i16 %.1116 to i64
-  %148 = getelementptr inbounds i8, ptr %8, i64 %147
-  store i8 %146, ptr %148, align 1
-  %149 = trunc i16 %.1 to i8
-  %150 = getelementptr inbounds i8, ptr %148, i64 1
-  store i8 %149, ptr %150, align 1
-  %151 = lshr i16 %.1118, 8
-  %152 = trunc nuw i16 %151 to i8
-  %153 = zext i16 %.1 to i64
-  %154 = getelementptr inbounds i8, ptr %8, i64 %153
-  store i8 %152, ptr %154, align 1
-  %155 = trunc i16 %.1118 to i8
-  %156 = getelementptr inbounds i8, ptr %154, i64 1
-  store i8 %155, ptr %156, align 1
-  %157 = lshr i16 %.2, 8
-  %158 = trunc nuw i16 %157 to i8
-  %159 = getelementptr inbounds i8, ptr %154, i64 2
-  store i8 %158, ptr %159, align 1
-  %160 = trunc i16 %.2 to i8
-  %161 = getelementptr inbounds i8, ptr %154, i64 3
-  store i8 %160, ptr %161, align 1
-  br label %162
+143:                                              ; preds = %125
+  %144 = lshr i16 %.1, 8
+  %145 = trunc nuw i16 %144 to i8
+  %146 = zext i16 %.1116 to i64
+  %147 = getelementptr inbounds i8, ptr %8, i64 %146
+  store i8 %145, ptr %147, align 1
+  %148 = trunc i16 %.1 to i8
+  %149 = getelementptr inbounds i8, ptr %147, i64 1
+  store i8 %148, ptr %149, align 1
+  %150 = lshr i16 %.1118, 8
+  %151 = trunc nuw i16 %150 to i8
+  %152 = zext i16 %.1 to i64
+  %153 = getelementptr inbounds i8, ptr %8, i64 %152
+  store i8 %151, ptr %153, align 1
+  %154 = trunc i16 %.1118 to i8
+  %155 = getelementptr inbounds i8, ptr %153, i64 1
+  store i8 %154, ptr %155, align 1
+  %156 = lshr i16 %.2, 8
+  %157 = trunc nuw i16 %156 to i8
+  %158 = getelementptr inbounds i8, ptr %153, i64 2
+  store i8 %157, ptr %158, align 1
+  %159 = trunc i16 %.2 to i8
+  %160 = getelementptr inbounds i8, ptr %153, i64 3
+  store i8 %159, ptr %160, align 1
+  br label %161
 
-162:                                              ; preds = %144, %134
-  %163 = getelementptr inbounds i8, ptr %0, i64 20
-  %164 = load i32, ptr %163, align 4
-  %165 = add nsw i32 %164, %5
-  store i32 %165, ptr %163, align 4
-  br label %166
+161:                                              ; preds = %143, %133
+  %162 = getelementptr inbounds i8, ptr %0, i64 20
+  %163 = load i32, ptr %162, align 4
+  %164 = add nsw i32 %163, %5
+  store i32 %164, ptr %162, align 4
+  br label %165
 
-166:                                              ; preds = %162, %133, %130, %105, %94, %67, %53, %46, %38
-  %.0 = phi i32 [ 11, %130 ], [ 11, %133 ], [ 0, %162 ], [ 11, %46 ], [ 11, %53 ], [ 11, %67 ], [ 11, %94 ], [ 11, %105 ], [ 11, %38 ]
+165:                                              ; preds = %161, %132, %129, %105, %94, %67, %53, %46, %38
+  %.0 = phi i32 [ 11, %129 ], [ 11, %132 ], [ 0, %161 ], [ 11, %46 ], [ 11, %53 ], [ 11, %67 ], [ 11, %94 ], [ 11, %105 ], [ 11, %38 ]
   ret i32 %.0
 }
 
@@ -335618,7 +335618,7 @@ contextMalloc.exit:                               ; preds = %97
   br i1 %.not118, label %152, label %144
 
 144:                                              ; preds = %141
-  %145 = sub i32 %.298, %143
+  %145 = sub nuw i32 %.298, %143
   %146 = zext i32 %145 to i64
   %147 = getelementptr inbounds i8, ptr %.194, i64 %146
   %148 = getelementptr inbounds ptr, ptr %.089143, i64 %indvars.iv197
@@ -356667,7 +356667,7 @@ computeJD.exit:                                   ; preds = %30, %58, %60, %82, 
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.049
-  %114 = sub i64 %.0, %.049
+  %114 = sub nuw i64 %.0, %.049
   %115 = trunc i64 %114 to i32
   %116 = load i32, ptr %39, align 8
   %117 = add i32 %116, %115
@@ -357481,7 +357481,7 @@ sqlite3_str_append.exit69:                        ; preds = %.lr.ph.i181, %.lr.p
 
 527:                                              ; preds = %525
   %528 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.049
-  %529 = sub i64 %.0, %.049
+  %529 = sub nuw i64 %.0, %.049
   %530 = trunc i64 %529 to i32
   %531 = load i32, ptr %39, align 8
   %532 = add i32 %531, %530
@@ -364150,7 +364150,7 @@ sqlite3_aggregate_context.exit:                   ; preds = %3
   br i1 %44, label %.lr.ph, label %.critedge, !llvm.loop !1385
 
 45:                                               ; preds = %.lr.ph
-  %46 = sub i64 %23, %25
+  %46 = sub nuw i64 %23, %25
   store i64 %46, ptr %22, align 8
   %47 = getelementptr inbounds i8, ptr %21, i64 1
   %48 = add i32 %.062, 1
@@ -365587,7 +365587,7 @@ jsonbArrayCount.exit:                             ; preds = %.lr.ph.i, %296
   br i1 %332, label %.loopexit, label %333
 
 333:                                              ; preds = %331
-  %334 = sub i32 %.0.lcssa.i, %324
+  %334 = sub nuw i32 %.0.lcssa.i, %324
   br label %335
 
 335:                                              ; preds = %333, %jsonbArrayCount.exit
@@ -370490,7 +370490,7 @@ jsonAppendRawNZ.exit254:                          ; preds = %295, %jsonStringExp
 
 306:                                              ; preds = %jsonAppendRawNZ.exit254
   %307 = getelementptr inbounds i8, ptr %.0175336, i64 %291
-  %308 = sub i32 %.0173338, %.0174321
+  %308 = sub nuw i32 %.0173338, %.0174321
   br label %309
 
 309:                                              ; preds = %306, %.critedge

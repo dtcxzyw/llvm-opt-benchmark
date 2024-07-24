@@ -622,7 +622,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %143 = zext i32 %105 to i64
   %144 = getelementptr inbounds i32, ptr %87, i64 %143
   store i32 %141, ptr %144, align 4
-  %145 = sub i32 %78, %.084.us
+  %145 = sub nuw i32 %78, %.084.us
   %146 = mul i32 %145, %97
   %147 = add i32 %.083.us, %82
   %148 = add i32 %146, %147
@@ -648,7 +648,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %165 = zext i32 %159 to i64
   %166 = getelementptr inbounds i32, ptr %87, i64 %165
   store i32 %163, ptr %166, align 4
-  %167 = sub i32 %82, %.083.us
+  %167 = sub nuw i32 %82, %.083.us
   %168 = add i32 %146, %167
   %169 = add i32 %105, 6
   %170 = zext i32 %164 to i64

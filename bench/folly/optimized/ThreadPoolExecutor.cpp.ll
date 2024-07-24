@@ -6614,7 +6614,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
-  %sub = sub i64 %5, %numThreads
+  %sub = sub nuw i64 %5, %numThreads
   %isJoin_.i = getelementptr inbounds i8, ptr %this, i64 384
   store atomic i8 0, ptr %isJoin_.i seq_cst, align 64
   %vtable.i = load ptr, ptr %this, align 64, !tbaa !7

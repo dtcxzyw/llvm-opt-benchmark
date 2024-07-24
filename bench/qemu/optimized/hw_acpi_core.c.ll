@@ -1065,7 +1065,7 @@ trace_acpi_gpe_sts_ioport_readb.exit:             ; preds = %if.then4, %land.lhs
   br label %if.end11
 
 if.else:                                          ; preds = %if.end
-  %sub = sub nsw i32 %addr, %div
+  %sub = sub nuw nsw i32 %addr, %div
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i9)
   %11 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i10 = icmp ne i32 %11, 0

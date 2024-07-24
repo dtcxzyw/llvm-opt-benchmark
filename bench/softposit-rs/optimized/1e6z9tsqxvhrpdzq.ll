@@ -126,8 +126,8 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit259: ; pred
   %57 = icmp sgt i64 %53, -1
   br i1 %57, label %59, label %61
 
-58:                                               ; preds = %11, %94, %4, %195
-  %.0171 = phi i32 [ %.0.i, %195 ], [ -2147483648, %4 ], [ 0, %94 ], [ %spec.select245, %11 ]
+58:                                               ; preds = %11, %94, %4, %194
+  %.0171 = phi i32 [ %.0.i, %194 ], [ -2147483648, %4 ], [ 0, %94 ], [ %spec.select245, %11 ]
   ret i32 %.0171
 
 59:                                               ; preds = %61, %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit259
@@ -198,14 +198,14 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
   %89 = icmp slt i16 %88, 0
   br i1 %89, label %92, label %91
 
-.loopexit:                                        ; preds = %.lr.ph296, %.preheader, %59, %162, %165
-  %.0209 = phi i8 [ %.1210, %162 ], [ %.5214, %165 ], [ %.1175, %59 ], [ %.2211.lcssa, %.preheader ], [ %spec.select242, %.lr.ph296 ]
-  %.0204 = phi i1 [ %.2206, %162 ], [ %.2206, %165 ], [ %19, %59 ], [ %.2206, %.preheader ], [ %.2206, %.lr.ph296 ]
-  %.0192 = phi i8 [ %.4196, %162 ], [ %.4196, %165 ], [ 0, %59 ], [ %.4196, %.preheader ], [ %.4196, %.lr.ph296 ]
-  %.1183 = phi i64 [ 0, %162 ], [ %170, %165 ], [ %.0182, %59 ], [ %.9191.lcssa, %.preheader ], [ %176, %.lr.ph296 ]
-  %.3 = phi i32 [ %.4, %162 ], [ %.7, %165 ], [ %.1177, %59 ], [ %.4, %.preheader ], [ %spec.select243, %.lr.ph296 ]
+.loopexit:                                        ; preds = %.lr.ph306, %.preheader, %59, %161, %164
+  %.0209 = phi i8 [ %.1210279, %161 ], [ %.5214, %164 ], [ %.1175, %59 ], [ %.2211.lcssa, %.preheader ], [ %spec.select242, %.lr.ph306 ]
+  %.0204 = phi i1 [ %.2206280, %161 ], [ %.2206, %164 ], [ %19, %59 ], [ %.2206280, %.preheader ], [ %.2206280, %.lr.ph306 ]
+  %.0192 = phi i8 [ %.4196281, %161 ], [ %.4196, %164 ], [ 0, %59 ], [ %.4196281, %.preheader ], [ %.4196281, %.lr.ph306 ]
+  %.1183 = phi i64 [ 0, %161 ], [ %169, %164 ], [ %.0182, %59 ], [ %.9191.lcssa, %.preheader ], [ %175, %.lr.ph306 ]
+  %.3 = phi i32 [ %.4283, %161 ], [ %.7, %164 ], [ %.1177, %59 ], [ %.4283, %.preheader ], [ %spec.select243, %.lr.ph306 ]
   %90 = icmp slt i8 %.0209, 0
-  br i1 %90, label %187, label %180
+  br i1 %90, label %186, label %179
 
 91:                                               ; preds = %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273
   %.not = icmp eq i16 %88, 0
@@ -213,7 +213,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
 
 92:                                               ; preds = %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273
   %93 = icmp ult i16 %88, -62
-  br i1 %93, label %141, label %135
+  br i1 %93, label %140, label %134
 
 94:                                               ; preds = %91
   %95 = icmp eq i64 %82, %.0182
@@ -223,246 +223,251 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
 
 97:                                               ; preds = %91
   %98 = icmp ugt i16 %88, 62
-  br i1 %98, label %115, label %108
+  br i1 %98, label %114, label %107
 
 99:                                               ; preds = %94
   br i1 %96, label %100, label %102
 
 100:                                              ; preds = %99
   %101 = icmp ult i64 %.0182, %82
-  br i1 %101, label %106, label %104
+  br i1 %101, label %.thread, label %104
 
 102:                                              ; preds = %99
   %103 = add nuw i64 %82, %.0182
-  br label %133
+  br label %132
 
 104:                                              ; preds = %100
-  %105 = sub nsw i64 %.0182, %82
-  br label %133
+  %105 = sub nuw nsw i64 %.0182, %82
+  br label %132
 
-106:                                              ; preds = %100
-  %107 = sub nsw i64 %82, %.0182
-  br label %133
+.thread:                                          ; preds = %100
+  %106 = sub nuw nsw i64 %82, %.0182
+  br label %161
 
-108:                                              ; preds = %97
-  %109 = sub nsw i16 0, %88
-  %110 = and i16 %109, 63
-  %111 = zext nneg i16 %110 to i64
-  %112 = shl i64 %82, %111
-  %113 = icmp eq i64 %112, 0
-  %114 = xor i1 %19, %18
-  br i1 %113, label %117, label %118
+107:                                              ; preds = %97
+  %108 = sub nsw i16 0, %88
+  %109 = and i16 %108, 63
+  %110 = zext nneg i16 %109 to i64
+  %111 = shl i64 %82, %110
+  %112 = icmp eq i64 %111, 0
+  %113 = xor i1 %19, %18
+  br i1 %112, label %116, label %117
 
-115:                                              ; preds = %97
-  %116 = xor i1 %19, %18
-  br i1 %116, label %127, label %123
+114:                                              ; preds = %97
+  %115 = xor i1 %19, %18
+  br i1 %115, label %126, label %122
 
-117:                                              ; preds = %108
-  br i1 %114, label %119, label %123
+116:                                              ; preds = %107
+  br i1 %113, label %118, label %122
 
-118:                                              ; preds = %108
-  br i1 %114, label %129, label %123
+117:                                              ; preds = %107
+  br i1 %113, label %128, label %122
 
-119:                                              ; preds = %117
-  %120 = zext nneg i16 %88 to i64
-  %121 = lshr i64 %82, %120
-  %122 = sub nsw i64 %.0182, %121
-  br label %133
+118:                                              ; preds = %116
+  %119 = zext nneg i16 %88 to i64
+  %120 = lshr i64 %82, %119
+  %121 = sub nsw i64 %.0182, %120
+  br label %132
 
-123:                                              ; preds = %118, %117, %115
-  %.1193 = phi i8 [ 1, %115 ], [ 0, %117 ], [ 1, %118 ]
-  %.0173 = phi i64 [ 0, %115 ], [ %82, %117 ], [ %82, %118 ]
-  %.0172 = phi i16 [ 0, %115 ], [ %88, %117 ], [ %88, %118 ]
-  %124 = zext nneg i16 %.0172 to i64
-  %125 = lshr i64 %.0173, %124
-  %126 = add nuw i64 %125, %.0182
-  br label %133
+122:                                              ; preds = %117, %116, %114
+  %.1193 = phi i8 [ 1, %114 ], [ 0, %116 ], [ 1, %117 ]
+  %.0173 = phi i64 [ 0, %114 ], [ %82, %116 ], [ %82, %117 ]
+  %.0172 = phi i16 [ 0, %114 ], [ %88, %116 ], [ %88, %117 ]
+  %123 = zext nneg i16 %.0172 to i64
+  %124 = lshr i64 %.0173, %123
+  %125 = add nuw i64 %124, %.0182
+  br label %132
 
-127:                                              ; preds = %115, %129
-  %.3185 = phi i64 [ %132, %129 ], [ %.0182, %115 ]
-  %128 = add i64 %.3185, -1
-  br label %133
+126:                                              ; preds = %114, %128
+  %.3185 = phi i64 [ %131, %128 ], [ %.0182, %114 ]
+  %127 = add i64 %.3185, -1
+  br label %132
 
-129:                                              ; preds = %118
-  %130 = zext nneg i16 %88 to i64
-  %131 = lshr i64 %82, %130
-  %132 = sub nsw i64 %.0182, %131
-  br label %127
+128:                                              ; preds = %117
+  %129 = zext nneg i16 %88 to i64
+  %130 = lshr i64 %82, %129
+  %131 = sub nsw i64 %.0182, %130
+  br label %126
 
-133:                                              ; preds = %150, %155, %145, %123, %127, %119, %102, %106, %104
-  %.1210 = phi i8 [ %.1175, %104 ], [ %.1175, %106 ], [ %.1175, %102 ], [ %.1175, %119 ], [ %.1175, %127 ], [ %.1175, %123 ], [ %.110.i264, %145 ], [ %.110.i264, %155 ], [ %.110.i264, %150 ]
-  %.2206 = phi i1 [ %19, %104 ], [ %18, %106 ], [ %19, %102 ], [ %19, %119 ], [ %19, %127 ], [ %19, %123 ], [ %18, %145 ], [ %18, %155 ], [ %19, %150 ]
-  %.4196 = phi i8 [ 0, %104 ], [ 0, %106 ], [ 0, %102 ], [ 0, %119 ], [ 1, %127 ], [ %.1193, %123 ], [ 0, %145 ], [ 1, %155 ], [ %.5197, %150 ]
-  %.5187 = phi i64 [ %105, %104 ], [ %107, %106 ], [ %103, %102 ], [ %122, %119 ], [ %128, %127 ], [ %126, %123 ], [ %149, %145 ], [ %156, %155 ], [ %154, %150 ]
-  %.4 = phi i32 [ %.1177, %104 ], [ %.1177, %106 ], [ %.1177, %102 ], [ %.1177, %119 ], [ %.1177, %127 ], [ %.1177, %123 ], [ %77, %145 ], [ %77, %155 ], [ %77, %150 ]
-  %134 = icmp sgt i64 %.5187, -1
-  br i1 %134, label %162, label %165
+132:                                              ; preds = %149, %154, %144, %122, %126, %118, %102, %104
+  %.1210 = phi i8 [ %.1175, %104 ], [ %.1175, %102 ], [ %.1175, %118 ], [ %.1175, %126 ], [ %.1175, %122 ], [ %.110.i264, %144 ], [ %.110.i264, %154 ], [ %.110.i264, %149 ]
+  %.2206 = phi i1 [ %19, %104 ], [ %19, %102 ], [ %19, %118 ], [ %19, %126 ], [ %19, %122 ], [ %18, %144 ], [ %18, %154 ], [ %19, %149 ]
+  %.4196 = phi i8 [ 0, %104 ], [ 0, %102 ], [ 0, %118 ], [ 1, %126 ], [ %.1193, %122 ], [ 0, %144 ], [ 1, %154 ], [ %.5197, %149 ]
+  %.5187 = phi i64 [ %105, %104 ], [ %103, %102 ], [ %121, %118 ], [ %127, %126 ], [ %125, %122 ], [ %148, %144 ], [ %155, %154 ], [ %153, %149 ]
+  %.4 = phi i32 [ %.1177, %104 ], [ %.1177, %102 ], [ %.1177, %118 ], [ %.1177, %126 ], [ %.1177, %122 ], [ %77, %144 ], [ %77, %154 ], [ %77, %149 ]
+  %133 = icmp sgt i64 %.5187, -1
+  br i1 %133, label %161, label %164
 
-135:                                              ; preds = %92
-  %136 = and i16 %88, 63
-  %137 = zext nneg i16 %136 to i64
-  %138 = shl i64 %.0182, %137
-  %139 = icmp eq i64 %138, 0
-  %140 = xor i1 %19, %18
-  br i1 %139, label %143, label %144
+134:                                              ; preds = %92
+  %135 = and i16 %88, 63
+  %136 = zext nneg i16 %135 to i64
+  %137 = shl i64 %.0182, %136
+  %138 = icmp eq i64 %137, 0
+  %139 = xor i1 %19, %18
+  br i1 %138, label %142, label %143
 
-141:                                              ; preds = %92
-  %142 = xor i1 %19, %18
-  br i1 %142, label %155, label %150
+140:                                              ; preds = %92
+  %141 = xor i1 %19, %18
+  br i1 %141, label %154, label %149
 
-143:                                              ; preds = %135
-  br i1 %140, label %145, label %150
+142:                                              ; preds = %134
+  br i1 %139, label %144, label %149
 
-144:                                              ; preds = %135
-  br i1 %140, label %157, label %150
+143:                                              ; preds = %134
+  br i1 %139, label %156, label %149
 
-145:                                              ; preds = %143
-  %146 = sub nsw i16 0, %88
-  %147 = zext nneg i16 %146 to i64
-  %148 = lshr i64 %.0182, %147
-  %149 = sub nsw i64 %82, %148
-  br label %133
+144:                                              ; preds = %142
+  %145 = sub nsw i16 0, %88
+  %146 = zext nneg i16 %145 to i64
+  %147 = lshr i64 %.0182, %146
+  %148 = sub nsw i64 %82, %147
+  br label %132
 
-150:                                              ; preds = %144, %143, %141
-  %.5197 = phi i8 [ 1, %141 ], [ 0, %143 ], [ 1, %144 ]
-  %.6188 = phi i64 [ 0, %141 ], [ %.0182, %143 ], [ %.0182, %144 ]
-  %.1 = phi i16 [ 0, %141 ], [ %88, %143 ], [ %88, %144 ]
-  %151 = sub nsw i16 0, %.1
-  %152 = zext nneg i16 %151 to i64
-  %153 = lshr i64 %.6188, %152
-  %154 = add i64 %153, %82
-  br label %133
+149:                                              ; preds = %143, %142, %140
+  %.5197 = phi i8 [ 1, %140 ], [ 0, %142 ], [ 1, %143 ]
+  %.6188 = phi i64 [ 0, %140 ], [ %.0182, %142 ], [ %.0182, %143 ]
+  %.1 = phi i16 [ 0, %140 ], [ %88, %142 ], [ %88, %143 ]
+  %150 = sub nsw i16 0, %.1
+  %151 = zext nneg i16 %150 to i64
+  %152 = lshr i64 %.6188, %151
+  %153 = add i64 %152, %82
+  br label %132
 
-155:                                              ; preds = %141, %157
-  %.7189 = phi i64 [ %161, %157 ], [ %82, %141 ]
-  %156 = add nsw i64 %.7189, -1
-  br label %133
+154:                                              ; preds = %140, %156
+  %.7189 = phi i64 [ %160, %156 ], [ %82, %140 ]
+  %155 = add nsw i64 %.7189, -1
+  br label %132
 
-157:                                              ; preds = %144
-  %158 = sub nsw i16 0, %88
-  %159 = zext nneg i16 %158 to i64
-  %160 = lshr i64 %.0182, %159
-  %161 = sub nsw i64 %82, %160
-  br label %155
+156:                                              ; preds = %143
+  %157 = sub nsw i16 0, %88
+  %158 = zext nneg i16 %157 to i64
+  %159 = lshr i64 %.0182, %158
+  %160 = sub nsw i64 %82, %159
+  br label %154
 
-162:                                              ; preds = %133
-  %163 = icmp eq i64 %.5187, 0
-  br i1 %163, label %.loopexit, label %.preheader278
+161:                                              ; preds = %.thread, %132
+  %.4283 = phi i32 [ %.1177, %.thread ], [ %.4, %132 ]
+  %.5187282 = phi i64 [ %106, %.thread ], [ %.5187, %132 ]
+  %.4196281 = phi i8 [ 0, %.thread ], [ %.4196, %132 ]
+  %.2206280 = phi i1 [ %18, %.thread ], [ %.2206, %132 ]
+  %.1210279 = phi i8 [ %.1175, %.thread ], [ %.1210, %132 ]
+  %162 = icmp eq i64 %.5187282, 0
+  br i1 %162, label %.loopexit, label %.preheader288
 
-.preheader278:                                    ; preds = %162
-  %164 = icmp ult i64 %.5187, 576460752303423488
-  br i1 %164, label %.lr.ph, label %.preheader
+.preheader288:                                    ; preds = %161
+  %163 = icmp ult i64 %.5187282, 576460752303423488
+  br i1 %163, label %.lr.ph, label %.preheader
 
-165:                                              ; preds = %133
-  %166 = add nuw nsw i32 %.4, 1
-  %167 = icmp sgt i32 %.4, 2
-  %168 = and i32 %166, 3
-  %169 = zext i1 %167 to i8
-  %.5214 = add i8 %.1210, %169
-  %.7 = select i1 %167, i32 %168, i32 %166
-  %170 = lshr i64 %.5187, 1
+164:                                              ; preds = %132
+  %165 = add nuw nsw i32 %.4, 1
+  %166 = icmp sgt i32 %.4, 2
+  %167 = and i32 %165, 3
+  %168 = zext i1 %166 to i8
+  %.5214 = add i8 %.1210, %168
+  %.7 = select i1 %166, i32 %167, i32 %165
+  %169 = lshr i64 %.5187, 1
   br label %.loopexit
 
-.preheader:                                       ; preds = %.lr.ph, %.preheader278
-  %.2211.lcssa = phi i8 [ %.1210, %.preheader278 ], [ %172, %.lr.ph ]
-  %.9191.lcssa = phi i64 [ %.5187, %.preheader278 ], [ %173, %.lr.ph ]
-  %171 = icmp ult i64 %.9191.lcssa, 4611686018427387904
-  br i1 %171, label %.lr.ph296, label %.loopexit
+.preheader:                                       ; preds = %.lr.ph, %.preheader288
+  %.2211.lcssa = phi i8 [ %.1210279, %.preheader288 ], [ %171, %.lr.ph ]
+  %.9191.lcssa = phi i64 [ %.5187282, %.preheader288 ], [ %172, %.lr.ph ]
+  %170 = icmp ult i64 %.9191.lcssa, 4611686018427387904
+  br i1 %170, label %.lr.ph306, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader278, %.lr.ph
-  %.9191291 = phi i64 [ %173, %.lr.ph ], [ %.5187, %.preheader278 ]
-  %.2211290 = phi i8 [ %172, %.lr.ph ], [ %.1210, %.preheader278 ]
-  %172 = add i8 %.2211290, -1
-  %173 = shl nuw nsw i64 %.9191291, 4
-  %174 = icmp ult i64 %.9191291, 36028797018963968
-  br i1 %174, label %.lr.ph, label %.preheader
+.lr.ph:                                           ; preds = %.preheader288, %.lr.ph
+  %.9191301 = phi i64 [ %172, %.lr.ph ], [ %.5187282, %.preheader288 ]
+  %.2211300 = phi i8 [ %171, %.lr.ph ], [ %.1210279, %.preheader288 ]
+  %171 = add i8 %.2211300, -1
+  %172 = shl nuw nsw i64 %.9191301, 4
+  %173 = icmp ult i64 %.9191301, 36028797018963968
+  br i1 %173, label %.lr.ph, label %.preheader
 
-.lr.ph296:                                        ; preds = %.preheader, %.lr.ph296
-  %.5295 = phi i32 [ %spec.select243, %.lr.ph296 ], [ %.4, %.preheader ]
-  %.10294 = phi i64 [ %176, %.lr.ph296 ], [ %.9191.lcssa, %.preheader ]
-  %.3212293 = phi i8 [ %spec.select242, %.lr.ph296 ], [ %.2211.lcssa, %.preheader ]
-  %175 = add i32 %.5295, -1
-  %176 = shl nuw nsw i64 %.10294, 1
-  %177 = icmp slt i32 %175, 0
-  %.lobit276 = ashr i32 %175, 31
-  %178 = trunc nsw i32 %.lobit276 to i8
-  %spec.select242 = add i8 %.3212293, %178
-  %spec.select243 = select i1 %177, i32 3, i32 %175
-  %179 = icmp ult i64 %.10294, 2305843009213693952
-  br i1 %179, label %.lr.ph296, label %.loopexit
+.lr.ph306:                                        ; preds = %.preheader, %.lr.ph306
+  %.5305 = phi i32 [ %spec.select243, %.lr.ph306 ], [ %.4283, %.preheader ]
+  %.10304 = phi i64 [ %175, %.lr.ph306 ], [ %.9191.lcssa, %.preheader ]
+  %.3212303 = phi i8 [ %spec.select242, %.lr.ph306 ], [ %.2211.lcssa, %.preheader ]
+  %174 = add i32 %.5305, -1
+  %175 = shl nuw nsw i64 %.10304, 1
+  %176 = icmp slt i32 %174, 0
+  %.lobit286 = ashr i32 %174, 31
+  %177 = trunc nsw i32 %.lobit286 to i8
+  %spec.select242 = add i8 %.3212303, %177
+  %spec.select243 = select i1 %176, i32 3, i32 %174
+  %178 = icmp ult i64 %.10304, 2305843009213693952
+  br i1 %178, label %.lr.ph306, label %.loopexit
 
-180:                                              ; preds = %.loopexit
-  %181 = add nuw i8 %.0209, 1
-  %182 = sext i8 %181 to i32
-  %183 = and i32 %182, 31
-  %184 = lshr i32 2147483647, %183
-  %185 = xor i32 %184, 2147483647
-  %186 = icmp ugt i8 %.0209, 29
-  br i1 %186, label %195, label %193
+179:                                              ; preds = %.loopexit
+  %180 = add nuw i8 %.0209, 1
+  %181 = sext i8 %180 to i32
+  %182 = and i32 %181, 31
+  %183 = lshr i32 2147483647, %182
+  %184 = xor i32 %183, 2147483647
+  %185 = icmp ugt i8 %.0209, 29
+  br i1 %185, label %194, label %192
 
-187:                                              ; preds = %.loopexit
-  %188 = sub i8 0, %.0209
-  %189 = sext i8 %188 to i32
-  %190 = and i32 %189, 31
-  %191 = lshr i32 1073741824, %190
-  %192 = icmp ugt i8 %188, 30
-  br i1 %192, label %195, label %193
+186:                                              ; preds = %.loopexit
+  %187 = sub i8 0, %.0209
+  %188 = sext i8 %187 to i32
+  %189 = and i32 %188, 31
+  %190 = lshr i32 1073741824, %189
+  %191 = icmp ugt i8 %187, 30
+  br i1 %191, label %194, label %192
 
-193:                                              ; preds = %187, %180
-  %.0215 = phi i32 [ %191, %187 ], [ %185, %180 ]
-  %.0170 = phi i32 [ %189, %187 ], [ %182, %180 ]
-  %194 = icmp ult i32 %.0170, 29
-  br i1 %194, label %197, label %210
+192:                                              ; preds = %186, %179
+  %.0215 = phi i32 [ %190, %186 ], [ %184, %179 ]
+  %.0170 = phi i32 [ %188, %186 ], [ %181, %179 ]
+  %193 = icmp ult i32 %.0170, 29
+  br i1 %193, label %196, label %209
 
-195:                                              ; preds = %197, %187, %180, %217, %210
-  %.0203 = phi i32 [ %228, %217 ], [ %216, %210 ], [ 2147483647, %180 ], [ 1, %187 ], [ %209, %197 ]
-  %196 = sub i32 0, %.0203
-  %.0.i = select i1 %.0204, i32 %196, i32 %.0203
+194:                                              ; preds = %196, %186, %179, %216, %209
+  %.0203 = phi i32 [ %227, %216 ], [ %215, %209 ], [ 2147483647, %179 ], [ 1, %186 ], [ %208, %196 ]
+  %195 = sub i32 0, %.0203
+  %.0.i = select i1 %.0204, i32 %195, i32 %.0203
   br label %58
 
-197:                                              ; preds = %193
-  %198 = and i64 %.1183, 4611686018427387903
-  %199 = zext nneg i32 %.0170 to i64
-  %200 = shl nuw nsw i64 8589934592, %199
-  %201 = and i64 %200, %198
-  %.not277 = icmp eq i64 %201, 0
-  %202 = sub nuw nsw i32 28, %.0170
-  %203 = shl i32 %.3, %202
-  %204 = add nuw nsw i32 %.0170, 34
-  %205 = zext nneg i32 %204 to i64
-  %206 = lshr i64 %198, %205
-  %207 = trunc nuw nsw i64 %206 to i32
-  %208 = add i32 %203, %.0215
-  %209 = add i32 %208, %207
-  br i1 %.not277, label %195, label %217
+196:                                              ; preds = %192
+  %197 = and i64 %.1183, 4611686018427387903
+  %198 = zext nneg i32 %.0170 to i64
+  %199 = shl nuw nsw i64 8589934592, %198
+  %200 = and i64 %199, %197
+  %.not287 = icmp eq i64 %200, 0
+  %201 = sub nuw nsw i32 28, %.0170
+  %202 = shl i32 %.3, %201
+  %203 = add nuw nsw i32 %.0170, 34
+  %204 = zext nneg i32 %203 to i64
+  %205 = lshr i64 %197, %204
+  %206 = trunc nuw nsw i64 %205 to i32
+  %207 = add i32 %202, %.0215
+  %208 = add i32 %207, %206
+  br i1 %.not287, label %194, label %216
 
-210:                                              ; preds = %193
-  %211 = icmp eq i32 %.0170, 30
-  %212 = trunc i32 %.3 to i8
-  %213 = ashr i32 %.3, 1
-  %.8200 = select i1 %211, i8 %212, i8 %.0192
-  %214 = zext i1 %211 to i8
-  %.0180.in = lshr i8 %212, %214
-  %.8 = select i1 %211, i32 0, i32 %213
-  %215 = trunc i8 %.0180.in to i1
-  %216 = add i32 %.8, %.0215
-  br i1 %215, label %217, label %195
+209:                                              ; preds = %192
+  %210 = icmp eq i32 %.0170, 30
+  %211 = trunc i32 %.3 to i8
+  %212 = ashr i32 %.3, 1
+  %.8200 = select i1 %210, i8 %211, i8 %.0192
+  %213 = zext i1 %210 to i8
+  %.0180.in = lshr i8 %211, %213
+  %.8 = select i1 %210, i32 0, i32 %212
+  %214 = trunc i8 %.0180.in to i1
+  %215 = add i32 %.8, %.0215
+  br i1 %214, label %216, label %194
 
-217:                                              ; preds = %197, %210
-  %218 = phi i32 [ %209, %197 ], [ %216, %210 ]
-  %.11275 = phi i64 [ %198, %197 ], [ %.1183, %210 ]
-  %.9201274 = phi i8 [ %.0192, %197 ], [ %.8200, %210 ]
-  %219 = sub nuw nsw i32 32, %.0170
-  %220 = zext nneg i32 %219 to i64
-  %221 = shl i64 %.11275, %220
-  %222 = icmp eq i64 %221, 0
-  %223 = and i8 %.9201274, 1
-  %224 = and i32 %218, 1
-  %225 = zext nneg i8 %223 to i32
-  %226 = select i1 %222, i32 %225, i32 1
-  %227 = or i32 %226, %224
-  %228 = add i32 %227, %218
-  br label %195
+216:                                              ; preds = %196, %209
+  %217 = phi i32 [ %208, %196 ], [ %215, %209 ]
+  %.11285 = phi i64 [ %197, %196 ], [ %.1183, %209 ]
+  %.9201284 = phi i8 [ %.0192, %196 ], [ %.8200, %209 ]
+  %218 = sub nuw nsw i32 32, %.0170
+  %219 = zext nneg i32 %218 to i64
+  %220 = shl i64 %.11285, %219
+  %221 = icmp eq i64 %220, 0
+  %222 = and i8 %.9201284, 1
+  %223 = and i32 %217, 1
+  %224 = zext nneg i8 %222 to i32
+  %225 = select i1 %221, i32 %224, i32 1
+  %226 = or i32 %225, %223
+  %227 = add i32 %226, %217
+  br label %194
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

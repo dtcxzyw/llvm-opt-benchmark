@@ -131,7 +131,7 @@ define hidden void @_ZN16ObjectStartArray18set_covered_regionE9MemRegion(ptr nou
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
-  %24 = sub i64 %11, %19
+  %24 = sub nuw i64 %11, %19
   %25 = tail call noundef zeroext i1 @_ZN14PSVirtualSpace9expand_byEm(ptr noundef nonnull align 8 dereferenceable(49) %12, i64 noundef %24) #9
   br i1 %25, label %30, label %26
 
@@ -140,7 +140,7 @@ define hidden void @_ZN16ObjectStartArray18set_covered_regionE9MemRegion(ptr nou
   unreachable
 
 27:                                               ; preds = %21
-  %28 = sub i64 %19, %11
+  %28 = sub nuw i64 %19, %11
   %29 = tail call noundef zeroext i1 @_ZN14PSVirtualSpace9shrink_byEm(ptr noundef nonnull align 8 dereferenceable(49) %12, i64 noundef %28) #9
   br label %30
 

@@ -3466,7 +3466,7 @@ lor.lhs.false.i:                                  ; preds = %if.then56
   %div.i9142 = lshr i32 %10, 1
   %cmp3.i = icmp ult i32 %call.i, %div.i9142
   %sub.i = select i1 %cmp3.i, i32 0, i32 %div.i9142
-  %spec.select = sub i32 %call.i, %sub.i
+  %spec.select = sub nuw i32 %call.i, %sub.i
   br label %percpu_arena_choose.exit
 
 percpu_arena_choose.exit:                         ; preds = %lor.lhs.false.i, %if.then56

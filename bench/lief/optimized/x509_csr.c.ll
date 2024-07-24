@@ -399,7 +399,7 @@ define hidden i32 @mbedtls_x509_csr_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not, label %12, label %63
 
 12:                                               ; preds = %10
-  %13 = sub i64 %1, %11
+  %13 = sub nuw i64 %1, %11
   %14 = getelementptr inbounds i8, ptr %0, i64 %11
   %15 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %14, i64 noundef %13, ptr noundef nonnull @.str.6, ptr noundef %2) #9
   %16 = icmp slt i32 %15, 0
@@ -411,7 +411,7 @@ define hidden i32 @mbedtls_x509_csr_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not90, label %19, label %63
 
 19:                                               ; preds = %17
-  %20 = sub i64 %13, %18
+  %20 = sub nuw i64 %13, %18
   %21 = getelementptr inbounds i8, ptr %14, i64 %18
   %22 = getelementptr inbounds i8, ptr %3, i64 80
   %23 = tail call i32 @mbedtls_x509_dn_gets(ptr noundef %21, i64 noundef %20, ptr noundef nonnull %22) #9
@@ -424,7 +424,7 @@ define hidden i32 @mbedtls_x509_csr_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not91, label %27, label %63
 
 27:                                               ; preds = %25
-  %28 = sub i64 %20, %26
+  %28 = sub nuw i64 %20, %26
   %29 = getelementptr inbounds i8, ptr %21, i64 %26
   %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %29, i64 noundef %28, ptr noundef nonnull @.str.7, ptr noundef %2) #9
   %31 = icmp slt i32 %30, 0
@@ -436,7 +436,7 @@ define hidden i32 @mbedtls_x509_csr_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not92, label %34, label %63
 
 34:                                               ; preds = %32
-  %35 = sub i64 %28, %33
+  %35 = sub nuw i64 %28, %33
   %36 = getelementptr inbounds i8, ptr %29, i64 %33
   %37 = getelementptr inbounds i8, ptr %3, i64 160
   %38 = getelementptr inbounds i8, ptr %3, i64 212
@@ -455,7 +455,7 @@ define hidden i32 @mbedtls_x509_csr_info(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not93, label %48, label %63
 
 48:                                               ; preds = %46
-  %49 = sub i64 %35, %47
+  %49 = sub nuw i64 %35, %47
   %50 = getelementptr inbounds i8, ptr %3, i64 144
   %51 = tail call ptr @mbedtls_pk_get_name(ptr noundef nonnull %50) #9
   %52 = call i32 @mbedtls_x509_key_size_helper(ptr noundef nonnull %5, i64 noundef 14, ptr noundef %51) #9

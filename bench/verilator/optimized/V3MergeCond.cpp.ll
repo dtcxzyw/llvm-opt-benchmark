@@ -8093,7 +8093,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %20
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   tail call void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %31)
   br label %.sink.split
 
@@ -9291,7 +9291,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
   br i1 %55, label %56, label %87
 
 56:                                               ; preds = %49
-  %57 = sub nsw i64 %54, %53
+  %57 = sub nuw nsw i64 %54, %53
   %58 = ptrtoint ptr %.sroa.20.1.i to i64
   %59 = sub i64 %58, %50
   %60 = ashr exact i64 %59, 3

@@ -8208,7 +8208,7 @@ if.end:                                           ; preds = %invoke.cont3
   br i1 %cmp.i18, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %result, i64 noundef %sub.i)
           to label %_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE6resizeEm.exit unwind label %lpad2.loopexit.split-lp
 
@@ -8443,7 +8443,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp.i66, label %if.then.i77, label %if.else.i67
 
 if.then.i77:                                      ; preds = %for.end
-  %sub.i78 = sub i64 %result_size.1, %sub.ptr.div.i.i65
+  %sub.i78 = sub nuw i64 %result_size.1, %sub.ptr.div.i.i65
   invoke void @_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %result, i64 noundef %sub.i78)
           to label %invoke.cont36 unwind label %lpad2.loopexit.split-lp
 
@@ -15332,7 +15332,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %nrvo.skipdtor
   %1 = phi i64 [ %0, %while.body.lr.ph ], [ %12, %nrvo.skipdtor ]
   %bytes_written.015 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %nrvo.skipdtor ]
-  %sub = sub i64 %1, %bytes_written.015
+  %sub = sub nuw i64 %1, %bytes_written.015
   %2 = load ptr, ptr %rate_limiter_.i, align 8
   %tobool.not.i = icmp ne ptr %2, null
   %3 = load i32, ptr %io_priority_.i, align 8
@@ -15729,7 +15729,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end11
 
 if.then5:                                         ; preds = %if.end
-  %sub7 = sub i64 %div, %1
+  %sub7 = sub nuw i64 %div, %1
   %mul = mul i64 %1, %0
   %mul9 = mul i64 %sub7, %0
   %vtable = load ptr, ptr %this, align 8

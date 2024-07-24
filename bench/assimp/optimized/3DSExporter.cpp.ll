@@ -3314,7 +3314,7 @@ if.then.i.i107:                                   ; preds = %for.body25
   br i1 %cmp.i548, label %if.then.i549, label %.noexc112
 
 if.then.i549:                                     ; preds = %if.then.i.i107
-  %sub.i550 = sub i64 %add.i.i100, %sub.ptr.sub.i.i.i105
+  %sub.i550 = sub nuw i64 %add.i.i100, %sub.ptr.sub.i.i.i105
   %53 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i = ptrtoint ptr %53 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i8.i, %sub.ptr.lhs.cast.i.i.i103
@@ -3420,7 +3420,7 @@ if.then.i.i121:                                   ; preds = %invoke.cont29
   br i1 %cmp.i560, label %if.then.i567, label %.noexc126
 
 if.then.i567:                                     ; preds = %if.then.i.i121
-  %sub.i568 = sub i64 %add.i.i114, %sub.ptr.sub.i.i.i119
+  %sub.i568 = sub nuw i64 %add.i.i114, %sub.ptr.sub.i.i.i119
   %61 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i570 = ptrtoint ptr %61 to i64
   %sub.ptr.sub.i9.i571 = sub i64 %sub.ptr.lhs.cast.i8.i570, %sub.ptr.lhs.cast.i.i.i117
@@ -3526,7 +3526,7 @@ if.then.i.i136:                                   ; preds = %invoke.cont31
   br i1 %cmp.i612, label %if.then.i619, label %.noexc141
 
 if.then.i619:                                     ; preds = %if.then.i.i136
-  %sub.i620 = sub i64 %add.i.i129, %sub.ptr.sub.i.i.i134
+  %sub.i620 = sub nuw i64 %add.i.i129, %sub.ptr.sub.i.i.i134
   %69 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i622 = ptrtoint ptr %69 to i64
   %sub.ptr.sub.i9.i623 = sub i64 %sub.ptr.lhs.cast.i8.i622, %sub.ptr.lhs.cast.i.i.i132
@@ -3815,7 +3815,7 @@ if.then.i.i208:                                   ; preds = %for.body49
   br i1 %cmp.i664, label %if.then.i671, label %.noexc213
 
 if.then.i671:                                     ; preds = %if.then.i.i208
-  %sub.i672 = sub i64 %add.i.i201, %sub.ptr.sub.i.i.i206
+  %sub.i672 = sub nuw i64 %add.i.i201, %sub.ptr.sub.i.i.i206
   %111 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i674 = ptrtoint ptr %111 to i64
   %sub.ptr.sub.i9.i675 = sub i64 %sub.ptr.lhs.cast.i8.i674, %sub.ptr.lhs.cast.i.i.i204
@@ -3921,7 +3921,7 @@ if.then.i.i223:                                   ; preds = %invoke.cont56
   br i1 %cmp.i716, label %if.then.i723, label %.noexc228
 
 if.then.i723:                                     ; preds = %if.then.i.i223
-  %sub.i724 = sub i64 %add.i.i216, %sub.ptr.sub.i.i.i221
+  %sub.i724 = sub nuw i64 %add.i.i216, %sub.ptr.sub.i.i.i221
   %119 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i726 = ptrtoint ptr %119 to i64
   %sub.ptr.sub.i9.i727 = sub i64 %sub.ptr.lhs.cast.i8.i726, %sub.ptr.lhs.cast.i.i.i219
@@ -4257,7 +4257,7 @@ if.then.i.i303:                                   ; preds = %for.body98
   br i1 %cmp.i768, label %if.then.i775, label %.noexc308
 
 if.then.i775:                                     ; preds = %if.then.i.i303
-  %sub.i776 = sub i64 %add.i.i296, %sub.ptr.sub.i.i.i301
+  %sub.i776 = sub nuw i64 %add.i.i296, %sub.ptr.sub.i.i.i301
   %162 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i778 = ptrtoint ptr %162 to i64
   %sub.ptr.sub.i9.i779 = sub i64 %sub.ptr.lhs.cast.i8.i778, %sub.ptr.lhs.cast.i.i.i299
@@ -4373,7 +4373,7 @@ if.then.i.i317:                                   ; preds = %for.end106
   br i1 %cmp.i820, label %if.then.i827, label %.noexc322
 
 if.then.i827:                                     ; preds = %if.then.i.i317
-  %sub.i828 = sub i64 %add.i.i310, %sub.ptr.sub.i.i.i315
+  %sub.i828 = sub nuw i64 %add.i.i310, %sub.ptr.sub.i.i.i315
   %169 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i830 = ptrtoint ptr %169 to i64
   %sub.ptr.sub.i9.i831 = sub i64 %sub.ptr.lhs.cast.i8.i830, %sub.ptr.lhs.cast.i.i.i313
@@ -4616,7 +4616,7 @@ if.then.i.i383:                                   ; preds = %_ZNK12aiMatrix4x4tI
   br i1 %cmp.i872, label %if.then.i879, label %.noexc388
 
 if.then.i879:                                     ; preds = %if.then.i.i383
-  %sub.i880 = sub i64 %add.i.i376, %sub.ptr.sub.i.i.i381
+  %sub.i880 = sub nuw i64 %add.i.i376, %sub.ptr.sub.i.i.i381
   %199 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i882 = ptrtoint ptr %199 to i64
   %sub.ptr.sub.i9.i883 = sub i64 %sub.ptr.lhs.cast.i8.i882, %sub.ptr.lhs.cast.i.i.i379
@@ -4808,7 +4808,7 @@ if.then.i.i431:                                   ; preds = %_ZNK12aiMatrix4x4tI
   br i1 %cmp.i924, label %if.then.i931, label %.noexc436
 
 if.then.i931:                                     ; preds = %if.then.i.i431
-  %sub.i932 = sub i64 %add.i.i424, %sub.ptr.sub.i.i.i429
+  %sub.i932 = sub nuw i64 %add.i.i424, %sub.ptr.sub.i.i.i429
   %214 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i8.i934 = ptrtoint ptr %214 to i64
   %sub.ptr.sub.i9.i935 = sub i64 %sub.ptr.lhs.cast.i8.i934, %sub.ptr.lhs.cast.i.i.i427
@@ -7936,7 +7936,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64

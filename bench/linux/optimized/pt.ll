@@ -1554,7 +1554,7 @@ define internal fastcc ptr @pt_topa_entry_for_page(ptr noundef readonly %0, i32 
   br label %63
 
 54:                                               ; preds = %42
-  %55 = sub i32 %1, %31
+  %55 = sub nuw i32 %1, %31
   %56 = load i64, ptr %29, align 8
   %57 = trunc i64 %56 to i32
   %58 = lshr i32 %57, 6

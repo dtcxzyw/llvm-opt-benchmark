@@ -3239,7 +3239,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont14
-  %sub.i = sub nsw i64 %conv17, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv17, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN6Assimp3MDL8HalfLife12HL1MDLLoader8TempBoneESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %temp_bones_, i64 noundef %sub.i)
           to label %invoke.cont18 unwind label %lpad9.loopexit.split-lp
 
@@ -4911,7 +4911,7 @@ for.body188:                                      ; preds = %invoke.cont180, %fo
   br i1 %cmp.i270, label %if.then.i277, label %if.else.i271
 
 if.then.i277:                                     ; preds = %for.body188
-  %sub.i278 = sub nsw i64 %conv205, %sub.ptr.div.i.i269
+  %sub.i278 = sub nuw nsw i64 %conv205, %sub.ptr.div.i.i269
   %sub.ptr.lhs.cast.i9.i = ptrtoint ptr %bind_pose_vertices.sroa.13.11998 to i64
   %sub.ptr.sub.i10.i = sub i64 %sub.ptr.lhs.cast.i9.i, %sub.ptr.lhs.cast.i.i266
   %sub.ptr.div.i11.i = sdiv exact i64 %sub.ptr.sub.i10.i, 12
@@ -4930,7 +4930,7 @@ _ZSt27__uninitialized_default_n_aIP10aiVector3tIfEmS1_ET_S3_T0_RSaIT1_E.exit.i.i
   br label %invoke.cont206
 
 if.else.i.i:                                      ; preds = %if.then.i277
-  %cmp.i.i.i279 = icmp ult i64 %sub.i.i, %sub.i278
+  %cmp.i.i.i279 = icmp slt i32 %93, 0
   br i1 %cmp.i.i.i279, label %if.then.i.i.i287, label %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i287:                                 ; preds = %if.else.i.i
@@ -4998,7 +4998,7 @@ invoke.cont206:                                   ; preds = %if.else.i271, %_ZNS
   br i1 %cmp.i296, label %if.then.i303, label %if.else.i297
 
 if.then.i303:                                     ; preds = %invoke.cont206
-  %sub.i304 = sub nsw i64 %conv207, %sub.ptr.div.i.i295
+  %sub.i304 = sub nuw nsw i64 %conv207, %sub.ptr.div.i.i295
   %sub.ptr.lhs.cast.i9.i306 = ptrtoint ptr %bind_pose_normals.sroa.13.11995 to i64
   %sub.ptr.sub.i10.i307 = sub i64 %sub.ptr.lhs.cast.i9.i306, %sub.ptr.lhs.cast.i.i292
   %sub.ptr.div.i11.i308 = sdiv exact i64 %sub.ptr.sub.i10.i307, 12
@@ -5017,7 +5017,7 @@ _ZSt27__uninitialized_default_n_aIP10aiVector3tIfEmS1_ET_S3_T0_RSaIT1_E.exit.i.i
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit339
 
 if.else.i.i315:                                   ; preds = %if.then.i303
-  %cmp.i.i.i316 = icmp ult i64 %sub.i.i310, %sub.i304
+  %cmp.i.i.i316 = icmp slt i32 %97, 0
   br i1 %cmp.i.i.i316, label %if.then.i.i.i335, label %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i317
 
 if.then.i.i.i335:                                 ; preds = %if.else.i.i315
@@ -7397,7 +7397,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EE9push_backERKS1_.exit: ; preds = %if.then.i, %_ZNSt
   br i1 %cmp.i, label %if.then.i22, label %if.else.i20
 
 if.then.i22:                                      ; preds = %_ZNSt6vectorIP6aiNodeSaIS1_EE9push_backERKS1_.exit
-  %sub.i = sub nsw i64 %conv14, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv14, %sub.ptr.div.i.i
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %unique_sequence_groups_names_, i64 noundef %sub.i)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
@@ -7710,7 +7710,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = sub nsw i64 %conv, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %unique_sequence_names_, i64 noundef %sub.i)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 

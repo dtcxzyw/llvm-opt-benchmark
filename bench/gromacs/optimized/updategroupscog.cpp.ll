@@ -1406,7 +1406,7 @@ _ZN3gmx9HashedMapIiE5clearEv.exit.i:              ; preds = %.lr.ph.i.i, %_ZNSt6
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %.critedge.i.i
-  %52 = sub nsw i64 %43, %49
+  %52 = sub nuw nsw i64 %43, %49
   tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %52)
   br label %_ZN3gmx9HashedMapIiE6resizeEi.exit.i
 

@@ -1708,7 +1708,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %scevgep.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 %.sroa.4.0.copyload
-  %5 = sub i64 %1, %0
+  %5 = sub nuw i64 %1, %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %5, i1 false), !noalias !229
   %6 = add i64 %5, %.sroa.4.0.copyload
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h2cb22e1ac1983154E.llvm.14728845296163125433.exit
@@ -23397,7 +23397,7 @@ _ZN5typst11foundations4args4Args6expect17h5d5b5770fa4d5683E.exit26.thread.i: ; p
   br i1 %62, label %90, label %63
 
 63:                                               ; preds = %61
-  %64 = sub i64 %19, %34
+  %64 = sub nuw i64 %19, %34
   %65 = add i64 %64, 1
   %66 = add i64 %19, 1
   %67 = icmp ult i64 %66, %65
@@ -34892,7 +34892,7 @@ _ZN5typst11foundations4args4Args6expect17h5d5b5770fa4d5683E.exit26.thread.i: ; p
   br i1 %62, label %87, label %63
 
 63:                                               ; preds = %61
-  %64 = sub i64 %19, %34
+  %64 = sub nuw i64 %19, %34
   %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %64, i64 %34)
   %65 = icmp eq i64 %.0.sroa.speculated.i.i.i.i, 0
   br i1 %65, label %87, label %.preheader.i.i.i
@@ -40150,7 +40150,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h2cb22e1ac19831
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %.promoted = load i64, ptr %7, align 8, !alias.scope !10658
   %scevgep = getelementptr i8, ptr %6, i64 %.promoted
-  %8 = sub i64 %1, %0
+  %8 = sub nuw i64 %1, %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %8, i1 false), !noalias !10658
   %9 = add i64 %.promoted, %1
   br label %10
@@ -85686,7 +85686,7 @@ default.unreachable:                              ; preds = %711
   %563 = getelementptr inbounds i8, ptr %2, i64 %478
   %564 = load i8, ptr %563, align 1, !alias.scope !21926, !noundef !4
   %565 = icmp sgt i8 %564, -65
-  %566 = sub i64 %3, %478
+  %566 = sub nuw i64 %3, %478
   br i1 %565, label %570, label %.invoke459
 
 .invoke459:                                       ; preds = %560, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i271", %527, %520, %.critedge195, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i"
@@ -91881,7 +91881,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hd0343c8fec674c99E.exit: ; preds = 
   %81 = getelementptr inbounds i8, ptr %71, i64 %70
   %82 = load i8, ptr %81, align 1, !alias.scope !22902, !noalias !22907, !noundef !4
   %83 = icmp sgt i8 %82, -65
-  %84 = sub i64 %72, %70
+  %84 = sub nuw i64 %72, %70
   br i1 %83, label %85, label %.invoke
 
 85:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i.i", %78, %75
@@ -98126,7 +98126,7 @@ _ZN5typst9visualize5shape13ControlPoints3end17hcdfaa80bb9cd8a2eE.exit226.i: ; pr
 
 625:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc40e92ae3a2c7444E.llvm.10579729455205085779.exit.i.i"
   %626 = getelementptr inbounds i8, ptr %620, i64 128
-  %627 = sub i64 %615, %.165.ph418.i
+  %627 = sub nuw i64 %615, %.165.ph418.i
   %628 = shl i64 %627, 7
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %626, ptr nonnull align 8 %620, i64 %628, i1 false), !noalias !23828
   br label %642
@@ -106558,7 +106558,7 @@ define void @_ZN5typst11foundations4calc4perm17h0af0578e2c44d8afE(ptr noalias no
   br i1 %5, label %20, label %6
 
 6:                                                ; preds = %3
-  %7 = sub i64 %1, %2
+  %7 = sub nuw i64 %1, %2
   %8 = add i64 %7, 1
   %9 = add i64 %1, 1
   %10 = icmp ult i64 %9, %8
@@ -106673,7 +106673,7 @@ define void @_ZN5typst11foundations4calc5binom17hdb91a7fcd8c62036E(ptr noalias n
   br i1 %5, label %_ZN5typst11foundations4calc10binom_impl17h316f3749ccbb6b67E.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = sub i64 %1, %2
+  %7 = sub nuw i64 %1, %2
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %2)
   %8 = icmp eq i64 %.0.sroa.speculated.i.i, 0
   br i1 %8, label %_ZN5typst11foundations4calc10binom_impl17h316f3749ccbb6b67E.exit.thread, label %.preheader.i

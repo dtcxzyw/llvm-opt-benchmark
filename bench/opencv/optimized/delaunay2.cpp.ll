@@ -712,7 +712,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %210, %208
   br i1 %251, label %252, label %277
 
 252:                                              ; preds = %235
-  %253 = sub nsw i64 %244, %250
+  %253 = sub nuw nsw i64 %244, %250
   %254 = load ptr, ptr %220, align 8
   %255 = ptrtoint ptr %254 to i64
   %256 = sub i64 %255, %247

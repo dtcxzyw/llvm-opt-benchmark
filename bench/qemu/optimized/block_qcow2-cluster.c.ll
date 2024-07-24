@@ -2593,7 +2593,7 @@ if.else:                                          ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   %add = add i64 %11, %start.0
-  %sub = sub i64 %remaining.0, %11
+  %sub = sub nuw i64 %remaining.0, %11
   %cmp8.not = icmp eq i64 %9, -1
   br i1 %cmp8.not, label %if.end12, label %if.then10
 
@@ -2670,7 +2670,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %or.cond.i, label %if.end20.i, label %for.inc.i
 
 if.end20.i:                                       ; preds = %land.lhs.true.i, %if.end.i
-  %sub24.i = sub i64 %and.i.i, %add
+  %sub24.i = sub nuw i64 %and.i.i, %add
   %cmp26.not.i = icmp ugt i64 %and.i.i, %add
   br i1 %cmp26.not.i, label %for.inc.i, label %land.lhs.true28.i
 
@@ -2746,7 +2746,7 @@ if.else62:                                        ; preds = %if.else58
 
 while.end:                                        ; preds = %if.else44, %if.else30, %if.end12, %if.else30.thread, %if.else58
   %22 = load i32, ptr %bytes, align 4
-  %23 = trunc i64 %sub to i32
+  %23 = trunc nuw i64 %sub to i32
   %conv66 = sub i32 %22, %23
   store i32 %conv66, ptr %bytes, align 4
   %cmp67.not = icmp eq i32 %22, %23
@@ -2846,7 +2846,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %or.cond, label %if.end20, label %for.inc
 
 if.end20:                                         ; preds = %land.lhs.true, %if.end
-  %sub24 = sub i64 %and.i, %guest_offset
+  %sub24 = sub nuw i64 %and.i, %guest_offset
   %cmp26.not = icmp ugt i64 %and.i, %guest_offset
   br i1 %cmp26.not, label %for.inc, label %land.lhs.true28
 

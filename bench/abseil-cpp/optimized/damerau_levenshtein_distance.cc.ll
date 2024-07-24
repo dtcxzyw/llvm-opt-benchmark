@@ -73,7 +73,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp37, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %for.body
-  %sub40 = sub i64 %i.095, %conv36
+  %sub40 = sub nuw i64 %i.095, %conv36
   %sub42 = add i64 %sub40, -1
   %arrayidx.i.i44 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i43, i64 0, i64 %sub42
   store i8 %add, ptr %arrayidx.i.i44, align 1

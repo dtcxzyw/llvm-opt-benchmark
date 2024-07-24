@@ -1497,7 +1497,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds = %.
   br i1 %241, label %242, label %274
 
 242:                                              ; preds = %233
-  %243 = sub nsw i64 %230, %240
+  %243 = sub nuw nsw i64 %230, %240
   %244 = getelementptr inbounds i8, ptr %.sroa.078.0107.i, i64 16
   %245 = load ptr, ptr %244, align 8, !noalias !25
   %246 = ptrtoint ptr %245 to i64
@@ -4030,7 +4030,7 @@ _ZN7xgboost6common7Monitor4InitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %_ZN7xgboost6common7Monitor4InitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %63 = sub nsw i64 %53, %60
+  %63 = sub nuw nsw i64 %53, %60
   invoke void @_ZNSt6vectorIN7xgboost6common14SortedQuantileESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %63)
           to label %._ZNSt6vectorIN7xgboost6common14SortedQuantileESaIS2_EE6resizeEm.exit_crit_edge unwind label %.loopexit.split-lp
 
@@ -4091,7 +4091,7 @@ _ZNSt6vectorIN7xgboost6common14SortedQuantileESaIS2_EE6resizeEm.exit: ; preds = 
   br i1 %92, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i.i, label %98
 
 _ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE6resizeEm.exit.i.i: ; preds = %75
-  %93 = sub nsw i64 %83, %91
+  %93 = sub nuw nsw i64 %83, %91
   invoke void @_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5EntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %84, i64 noundef %93)
           to label %.noexc26 unwind label %.loopexit
 
@@ -9065,7 +9065,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8
@@ -9707,7 +9707,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8
@@ -10291,7 +10291,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8
@@ -11826,7 +11826,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8
@@ -12415,7 +12415,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8
@@ -13004,7 +13004,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8
@@ -15418,7 +15418,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8
@@ -16037,7 +16037,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8
@@ -16658,7 +16658,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8
@@ -18217,7 +18217,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8
@@ -18846,7 +18846,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8
@@ -19477,7 +19477,7 @@ _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit.thread.fold.
   unreachable
 
 _ZNK7xgboost6common4SpanIKmLm18446744073709551615EE7subspanEmm.exit24: ; preds = %.thread
-  %51 = sub i64 %48, %.sroa.speculated.i
+  %51 = sub nuw i64 %48, %.sroa.speculated.i
   %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load i64, ptr %0, align 8
   store i64 %53, ptr %11, align 8

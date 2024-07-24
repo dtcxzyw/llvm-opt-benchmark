@@ -2214,7 +2214,7 @@ define internal range(i32 0, 2) i32 @Range_DecodeBit_7z(ptr nocapture noundef %0
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = sub i32 %8, %6
+  %11 = sub nuw i32 %8, %6
   store i32 %11, ptr %7, align 4
   %12 = sub i32 %4, %6
   br label %13

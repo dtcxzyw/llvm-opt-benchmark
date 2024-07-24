@@ -52,7 +52,7 @@ define range(i32 -1, 1) i32 @php_crc32_stream_bulk_update(ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %3, %php_crc32_bulk_update.exit
   %.017 = phi i64 [ %24, %php_crc32_bulk_update.exit ], [ 0, %3 ]
-  %6 = sub i64 %2, %.017
+  %6 = sub nuw i64 %2, %.017
   %7 = call i64 @llvm.umin.i64(i64 %6, i64 1024)
   %8 = call i64 @_php_stream_read(ptr noundef %1, ptr noundef nonnull %5, i64 noundef %7) #4
   %.not = icmp eq i64 %8, 0

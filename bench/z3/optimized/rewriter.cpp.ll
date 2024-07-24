@@ -3687,7 +3687,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %if.end13
 
 if.else:                                          ; preds = %entry
-  %sub = sub i32 %0, %1
+  %sub = sub nuw i32 %0, %1
   %m_bound = getelementptr inbounds i8, ptr %this, i64 144
   %10 = load i32, ptr %m_bound, align 8
   %cmp4.not = icmp ult i32 %sub, %10

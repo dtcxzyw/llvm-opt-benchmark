@@ -175,7 +175,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sub = sub i32 %3, %newNumSamples
+  %sub = sub nuw i32 %3, %newNumSamples
   %conv = zext i32 %sub to i64
   %_totalNumSamples = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load i64, ptr %_totalNumSamples, align 8

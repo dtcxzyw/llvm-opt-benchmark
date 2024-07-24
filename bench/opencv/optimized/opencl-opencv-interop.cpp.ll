@@ -657,7 +657,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN3App10initOpenCLEv(ptr noundef no
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %9
-  %22 = sub nsw i64 %12, %19
+  %22 = sub nuw nsw i64 %12, %19
   call void @_ZNSt6vectorIP15_cl_platform_idSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %22)
   %.pre = load i32, ptr %3, align 4
   %.pre33 = load ptr, ptr %10, align 8
@@ -3148,7 +3148,7 @@ define linkonce_odr hidden noundef i32 @_ZN6opencl10DeviceInfo11query_paramImEEi
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %21
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %32)
   %.pre = load i64, ptr %5, align 8
   %.pre33 = load ptr, ptr %3, align 8
@@ -3649,7 +3649,7 @@ define linkonce_odr hidden noundef i32 @_ZN6opencl10DeviceInfo11query_paramIlEEi
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %21
-  %32 = sub nsw i64 %22, %29
+  %32 = sub nuw nsw i64 %22, %29
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %32)
   %.pre = load i64, ptr %5, align 8
   %.pre33 = load ptr, ptr %3, align 8

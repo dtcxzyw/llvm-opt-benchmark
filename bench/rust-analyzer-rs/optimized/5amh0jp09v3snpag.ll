@@ -1254,7 +1254,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 85:                                               ; preds = %80
   %86 = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
-  %87 = sub i64 %83, %.093
+  %87 = sub nuw i64 %83, %.093
   %88 = getelementptr inbounds { i32, i16, i16 }, ptr %86, i64 %.093
   invoke void @_ZN4core5slice6rotate10ptr_rotate17h0dbc64fccf577ce9E(i64 noundef %.093, ptr noundef nonnull %88, i64 noundef %87)
           to label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11rotate_left17hf167526aba3be53fE.exit" unwind label %186

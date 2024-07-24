@@ -136,7 +136,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
 
 69:                                               ; preds = %43
   %70 = sub i32 %.0125184, %52
-  %71 = sub i32 %.1123185, %52
+  %71 = sub nuw i32 %.1123185, %52
   %72 = lshr i16 %49, 5
   %73 = sub i16 %49, %72
   store i16 %73, ptr %.0113, align 2

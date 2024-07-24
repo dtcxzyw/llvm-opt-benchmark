@@ -3848,7 +3848,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyINS_8KeyPointEL
   br i1 %15, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.thread, label %17
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.thread: ; preds = %3
-  %16 = sub i64 %.sroa.speculated, %14
+  %16 = sub nuw i64 %.sroa.speculated, %14
   tail call void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %16)
   br label %.lr.ph
 
@@ -4026,7 +4026,7 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecReaderProxyINS_6DMatchELi0
   br i1 %15, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE6resizeEm.exit.thread, label %17
 
 _ZNSt6vectorIN2cv6DMatchESaIS1_EE6resizeEm.exit.thread: ; preds = %3
-  %16 = sub i64 %.sroa.speculated, %14
+  %16 = sub nuw i64 %.sroa.speculated, %14
   tail call void @_ZNSt6vectorIN2cv6DMatchESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %16)
   br label %.lr.ph
 

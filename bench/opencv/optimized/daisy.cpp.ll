@@ -7181,7 +7181,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d10DAISY_Impl10initializeEv(p
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %31
-  %46 = sub nsw i64 %36, %43
+  %46 = sub nuw nsw i64 %36, %43
   tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef %46)
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 

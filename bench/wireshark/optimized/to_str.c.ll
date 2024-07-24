@@ -2654,7 +2654,7 @@ define void @format_nstime_as_iso8601(ptr noundef %0, i64 noundef %1, ptr nounde
   br i1 %or.cond, label %42, label %36
 
 36:                                               ; preds = %34
-  %37 = sub i64 %1, %35
+  %37 = sub nuw i64 %1, %35
   %38 = getelementptr i8, ptr %0, i64 %35
   %39 = getelementptr inbounds i8, ptr %2, i64 8
   %40 = load i32, ptr %39, align 8

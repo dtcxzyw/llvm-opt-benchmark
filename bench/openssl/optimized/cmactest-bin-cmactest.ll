@@ -192,7 +192,7 @@ if.end.thread:                                    ; preds = %while.body
 
 if.end:                                           ; preds = %while.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx9, ptr nonnull align 4 %data, i64 %call1, i1 false)
-  %sub13 = sub i64 %fill_len.073, %call1
+  %sub13 = sub nuw i64 %fill_len.073, %call1
   %add = add i64 %fill_idx.074, %call1
   %cmp3.not = icmp eq i64 %sub13, 0
   br i1 %cmp3.not, label %for.inc, label %while.body, !llvm.loop !5

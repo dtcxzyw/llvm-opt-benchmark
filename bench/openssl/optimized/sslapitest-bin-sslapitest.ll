@@ -10628,7 +10628,7 @@ lor.lhs.false.i.i:                                ; preds = %lor.lhs.false23.i
 if.end.i19.i:                                     ; preds = %lor.lhs.false.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.3.i, i64 1
   %add.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %conv.i.i
-  %sub.i.i6.i.i = sub nsw i64 %sub.i.i.i.i, %conv.i.i
+  %sub.i.i6.i.i = sub nuw nsw i64 %sub.i.i.i.i, %conv.i.i
   br label %PACKET_get_length_prefixed_1.exit.i
 
 PACKET_get_length_prefixed_1.exit.i:              ; preds = %if.end.i19.i, %lor.lhs.false.i.i
@@ -10665,7 +10665,7 @@ lor.lhs.false.i23.i:                              ; preds = %lor.lhs.false29.i
 if.end.i27.i:                                     ; preds = %lor.lhs.false.i23.i
   %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.4.i, i64 2
   %add.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
-  %sub.i.i7.i.i = sub nsw i64 %sub.i.i.i26.i, %or.i.i.i.i
+  %sub.i.i7.i.i = sub nuw nsw i64 %sub.i.i.i26.i, %or.i.i.i.i
   br label %PACKET_get_length_prefixed_2.exit.i
 
 PACKET_get_length_prefixed_2.exit.i:              ; preds = %if.end.i27.i, %lor.lhs.false.i23.i, %lor.lhs.false29.i
@@ -10697,7 +10697,7 @@ lor.lhs.false.i33.i:                              ; preds = %lor.lhs.false35.i
 if.end.i38.i:                                     ; preds = %lor.lhs.false.i33.i
   %add.ptr.i.i.i39.i = getelementptr inbounds i8, ptr %pkt.sroa.0.5.i, i64 1
   %add.ptr.i.i5.i40.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i39.i, i64 %conv.i36.i
-  %sub.i.i6.i41.i = sub nsw i64 %sub.i.i.i35.i, %conv.i36.i
+  %sub.i.i6.i41.i = sub nuw nsw i64 %sub.i.i.i35.i, %conv.i36.i
   br label %PACKET_get_length_prefixed_1.exit44.i
 
 PACKET_get_length_prefixed_1.exit44.i:            ; preds = %if.end.i38.i, %lor.lhs.false.i33.i, %lor.lhs.false35.i, %PACKET_get_length_prefixed_2.exit.thread.i
@@ -10787,7 +10787,7 @@ lor.lhs.false.i68.i:                              ; preds = %lor.lhs.false56.i
 if.end.i77.i:                                     ; preds = %lor.lhs.false.i68.i
   %add.ptr.i2.i.i78.i = getelementptr inbounds i8, ptr %pkt2.sroa.0.4.i, i64 4
   %add.ptr.i.i6.i79.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i78.i, i64 %or.i.i.i74.i
-  %sub.i.i7.i80.i = sub i64 %sub.i.i.i75.i, %or.i.i.i74.i
+  %sub.i.i7.i80.i = sub nuw i64 %sub.i.i.i75.i, %or.i.i.i74.i
   br label %PACKET_get_length_prefixed_2.exit83.i
 
 PACKET_get_length_prefixed_2.exit83.i:            ; preds = %if.end.i77.i, %lor.lhs.false.i68.i, %lor.lhs.false56.i, %PACKET_get_net_2.exit.thread.i
@@ -15841,7 +15841,7 @@ for.body:                                         ; preds = %lor.lhs.false108, %
   %offset.085 = phi i64 [ %add123, %for.inc ], [ 0, %lor.lhs.false108 ]
   %numreads.084 = phi i32 [ %inc, %for.inc ], [ 0, %lor.lhs.false108 ]
   %add.ptr = getelementptr inbounds i8, ptr %call68, i64 %offset.085
-  %sub115 = sub nsw i64 %msglen.1, %offset.085
+  %sub115 = sub nuw nsw i64 %msglen.1, %offset.085
   %call116 = call i32 @SSL_read_ex(ptr noundef %peerb.0, ptr noundef %add.ptr, i64 noundef %sub115, ptr noundef nonnull %readbytes) #23
   %cmp117 = icmp ne i32 %call116, 0
   %conv118 = zext i1 %cmp117 to i32
@@ -15879,7 +15879,7 @@ for.cond142:                                      ; preds = %lor.lhs.false157
 
 for.body145:                                      ; preds = %lor.lhs.false136, %for.cond142
   %offset.186 = phi i64 [ %add163, %for.cond142 ], [ 0, %lor.lhs.false136 ]
-  %sub146 = sub nsw i64 %msglen.1, %offset.186
+  %sub146 = sub nuw nsw i64 %msglen.1, %offset.186
   %spec.select = call i64 @llvm.umin.i64(i64 %sub146, i64 %fragsize.077)
   %add.ptr151 = getelementptr inbounds i8, ptr %msg.076, i64 %offset.186
   %call152 = call i32 @SSL_write_ex(ptr noundef %peerb.0, ptr noundef %add.ptr151, i64 noundef %spec.select, ptr noundef nonnull %written) #23

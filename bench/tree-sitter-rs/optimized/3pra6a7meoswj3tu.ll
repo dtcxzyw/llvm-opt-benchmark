@@ -12317,7 +12317,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit: ; preds = %.lr.ph.
   br i1 %62, label %.loopexit, label %.lr.ph.split.split
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE.exit": ; preds = %57
-  %65 = sub i64 %59, %15
+  %65 = sub nuw i64 %59, %15
   %66 = getelementptr inbounds i8, ptr %3, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %66, ptr nonnull readonly %13, i64 %15), !alias.scope !1642
   %67 = icmp eq i32 %bcmp.i, 0
@@ -12515,7 +12515,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.13013766950239737229.exi
   %43 = add i64 %42, %40
   %.not.i.i = icmp ult i64 %43, %39
   %44 = select i1 %.not.i.i, i64 0, i64 %39
-  %.0.i.i = sub i64 %43, %44
+  %.0.i.i = sub nuw i64 %43, %44
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8, !alias.scope !1660, !noalias !1663, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds { i64, [21 x i64] }, ptr %46, i64 %.0.i.i
@@ -18311,7 +18311,7 @@ default.unreachable:                              ; preds = %671
 
 621:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd024c2b000d2b76eE.llvm.1408760718162522189.exit.i.i.i"
   %622 = getelementptr inbounds i8, ptr %616, i64 240
-  %623 = sub i64 %611, %.044.i.i
+  %623 = sub nuw i64 %611, %.044.i.i
   %624 = mul i64 %623, 240
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %622, ptr nonnull align 8 %616, i64 %624, i1 false), !noalias !2397
   br label %632
@@ -20911,7 +20911,7 @@ _ZN21tree_sitter_highlight11Highlighter9highlight17h92603c22854355c0E.exit: ; pr
 
 714:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd024c2b000d2b76eE.llvm.1408760718162522189.exit.i.i.i.i"
   %715 = getelementptr inbounds i8, ptr %709, i64 240
-  %716 = sub i64 %704, %.044.i.i.i
+  %716 = sub nuw i64 %704, %.044.i.i.i
   %717 = mul i64 %716, 240
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %715, ptr nonnull align 8 %709, i64 %717, i1 false), !noalias !2698
   br label %725
@@ -32540,7 +32540,7 @@ default.unreachable:                              ; preds = %653
 
 603:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd024c2b000d2b76eE.llvm.1408760718162522189.exit.i.i.i"
   %604 = getelementptr inbounds i8, ptr %598, i64 240
-  %605 = sub i64 %593, %.044.i.i
+  %605 = sub nuw i64 %593, %.044.i.i
   %606 = mul i64 %605, 240
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %604, ptr nonnull align 8 %598, i64 %606, i1 false), !noalias !4432
   br label %614

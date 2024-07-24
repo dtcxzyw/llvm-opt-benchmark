@@ -114,7 +114,7 @@ define hidden i64 @"_ZN22cranelift_codegen_meta12unique_table23UniqueSeqTable$LT
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %6
-  %13 = sub i64 %10, %2
+  %13 = sub nuw i64 %10, %2
   store i64 0, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %13, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -205,7 +205,7 @@ define hidden i64 @"_ZN22cranelift_codegen_meta12unique_table23UniqueSeqTable$LT
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %6
-  %13 = sub i64 %10, %2
+  %13 = sub nuw i64 %10, %2
   store i64 0, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %13, ptr %.sroa.2.0..sroa_idx.i, align 8

@@ -272,7 +272,7 @@ if.end44:                                         ; preds = %if.end38
   %14 = call noundef i64 @llvm.bswap.i64(i64 %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i81)
   %cmp45.not = icmp uge i64 %12, %add48.i
-  %sub = sub nsw i64 %add48.i, %12
+  %sub = sub nuw nsw i64 %add48.i, %12
   %cmp47 = icmp ugt i64 %14, %sub
   %or.cond128 = select i1 %cmp45.not, i1 true, i1 %cmp47
   br i1 %or.cond128, label %fail, label %if.end50
@@ -309,7 +309,7 @@ if.end62:                                         ; preds = %if.end56
   %18 = call noundef i64 @llvm.bswap.i64(i64 %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i93)
   %cmp63.not = icmp uge i64 %16, %add48.i
-  %sub66 = sub nsw i64 %add48.i, %16
+  %sub66 = sub nuw nsw i64 %add48.i, %16
   %cmp67 = icmp ugt i64 %18, %sub66
   %or.cond129 = select i1 %cmp63.not, i1 true, i1 %cmp67
   br i1 %or.cond129, label %fail, label %if.end70

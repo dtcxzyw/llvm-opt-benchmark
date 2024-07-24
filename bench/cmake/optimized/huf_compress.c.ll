@@ -32,7 +32,7 @@ define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %20, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
-  %wide.trip.count = zext i32 %19 to i64
+  %21 = zext i32 %19 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %17
@@ -40,167 +40,167 @@ define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not, label %._crit_edge, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 493
+  %22 = getelementptr inbounds i8, ptr %.0.i, i64 493
   %wide.trip.count78 = zext nneg i32 %3 to i64
-  br label %26
+  br label %27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = trunc nuw i64 %indvars.iv to i32
-  %23 = sub i32 %19, %22
-  %24 = trunc i32 %23 to i8
-  %25 = getelementptr inbounds [13 x i8], ptr %18, i64 0, i64 %indvars.iv
-  store i8 %24, ptr %25, align 1
+  %23 = trunc i64 %indvars.iv to i32
+  %24 = sub i32 %19, %23
+  %25 = trunc i32 %24 to i8
+  %26 = getelementptr inbounds [13 x i8], ptr %18, i64 0, i64 %indvars.iv
+  store i8 %25, ptr %26, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %21
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !5
 
-26:                                               ; preds = %.lr.ph69, %26
-  %indvars.iv75 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next76, %26 ]
-  %27 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv75
-  %28 = load i64, ptr %27, align 8
-  %29 = and i64 %28, 255
-  %30 = getelementptr inbounds [13 x i8], ptr %18, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds [255 x i8], ptr %21, i64 0, i64 %indvars.iv75
-  store i8 %31, ptr %32, align 1
+27:                                               ; preds = %.lr.ph69, %27
+  %indvars.iv75 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next76, %27 ]
+  %28 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv75
+  %29 = load i64, ptr %28, align 8
+  %30 = and i64 %29, 255
+  %31 = getelementptr inbounds [13 x i8], ptr %18, i64 0, i64 %30
+  %32 = load i8, ptr %31, align 1
+  %33 = getelementptr inbounds [255 x i8], ptr %22, i64 0, i64 %indvars.iv75
+  store i8 %32, ptr %33, align 1
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge, label %26, !llvm.loop !7
+  br i1 %exitcond79.not, label %._crit_edge, label %27, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %26, %.preheader
-  %33 = icmp eq i64 %1, 0
-  br i1 %33, label %.loopexit, label %34
+._crit_edge:                                      ; preds = %27, %.preheader
+  %34 = icmp eq i64 %1, 0
+  br i1 %34, label %.loopexit, label %35
 
-34:                                               ; preds = %._crit_edge
-  %35 = getelementptr inbounds i8, ptr %0, i64 1
-  %36 = add i64 %1, -1
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 493
-  %38 = zext nneg i32 %3 to i64
+35:                                               ; preds = %._crit_edge
+  %36 = getelementptr inbounds i8, ptr %0, i64 1
+  %37 = add i64 %1, -1
+  %38 = getelementptr inbounds i8, ptr %.0.i, i64 493
+  %39 = zext nneg i32 %3 to i64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 12, ptr %8, align 4
-  %39 = ptrtoint ptr %.0.i to i64
-  %40 = sub i64 0, %39
-  %41 = and i64 %40, 3
-  %42 = getelementptr inbounds i8, ptr %.0.i, i64 %41
-  %.not55.i = icmp eq i64 %41, 0
-  br i1 %.not55.i, label %43, label %HUF_compressWeights.exit.thread
+  %40 = ptrtoint ptr %.0.i to i64
+  %41 = sub i64 0, %40
+  %42 = and i64 %41, 3
+  %43 = getelementptr inbounds i8, ptr %.0.i, i64 %42
+  %.not55.i = icmp eq i64 %42, 0
+  br i1 %.not55.i, label %44, label %HUF_compressWeights.exit.thread
 
-43:                                               ; preds = %34
-  %44 = icmp ult i32 %3, 2
-  br i1 %44, label %.thread, label %45
+44:                                               ; preds = %35
+  %45 = icmp ult i32 %3, 2
+  br i1 %45, label %.thread, label %46
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %42, i64 400
-  %47 = call i32 @HIST_count_simple(ptr noundef nonnull %46, ptr noundef nonnull %8, ptr noundef nonnull %37, i64 noundef %38) #13
-  %48 = icmp eq i32 %47, %3
-  %49 = icmp eq i32 %47, 1
-  %or.cond = or i1 %48, %49
-  br i1 %or.cond, label %.thread, label %50
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds i8, ptr %43, i64 400
+  %48 = call i32 @HIST_count_simple(ptr noundef nonnull %47, ptr noundef nonnull %8, ptr noundef nonnull %38, i64 noundef %39) #13
+  %49 = icmp eq i32 %48, %3
+  %50 = icmp eq i32 %48, 1
+  %or.cond = or i1 %49, %50
+  br i1 %or.cond, label %.thread, label %51
 
-50:                                               ; preds = %45
-  %51 = load i32, ptr %8, align 4
-  %52 = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef %38, i32 noundef %51) #13
-  %53 = getelementptr inbounds i8, ptr %42, i64 452
-  %54 = load i32, ptr %8, align 4
-  %55 = call i64 @FSE_normalizeCount(ptr noundef nonnull %53, i32 noundef %52, ptr noundef nonnull %46, i64 noundef %38, i32 noundef %54, i32 noundef 0) #13
-  %56 = icmp ult i64 %55, -119
-  br i1 %56, label %57, label %HUF_compressWeights.exit.thread
+51:                                               ; preds = %46
+  %52 = load i32, ptr %8, align 4
+  %53 = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef %39, i32 noundef %52) #13
+  %54 = getelementptr inbounds i8, ptr %43, i64 452
+  %55 = load i32, ptr %8, align 4
+  %56 = call i64 @FSE_normalizeCount(ptr noundef nonnull %54, i32 noundef %53, ptr noundef nonnull %47, i64 noundef %39, i32 noundef %55, i32 noundef 0) #13
+  %57 = icmp ult i64 %56, -119
+  br i1 %57, label %58, label %HUF_compressWeights.exit.thread
 
-57:                                               ; preds = %50
-  %58 = ptrtoint ptr %35 to i64
-  %59 = load i32, ptr %8, align 4
-  %60 = call i64 @FSE_writeNCount(ptr noundef nonnull %35, i64 noundef %36, ptr noundef nonnull %53, i32 noundef %59, i32 noundef %52) #13
-  %61 = icmp ult i64 %60, -119
-  br i1 %61, label %62, label %HUF_compressWeights.exit.thread
+58:                                               ; preds = %51
+  %59 = ptrtoint ptr %36 to i64
+  %60 = load i32, ptr %8, align 4
+  %61 = call i64 @FSE_writeNCount(ptr noundef nonnull %36, i64 noundef %37, ptr noundef nonnull %54, i32 noundef %60, i32 noundef %53) #13
+  %62 = icmp ult i64 %61, -119
+  br i1 %62, label %63, label %HUF_compressWeights.exit.thread
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %35, i64 %60
-  %64 = load i32, ptr %8, align 4
-  %65 = getelementptr inbounds i8, ptr %42, i64 236
-  %66 = call i64 @FSE_buildCTable_wksp(ptr noundef %42, ptr noundef nonnull %53, i32 noundef %64, i32 noundef %52, ptr noundef nonnull %65, i64 noundef 164) #13
-  %67 = icmp ult i64 %66, -119
-  br i1 %67, label %68, label %HUF_compressWeights.exit.thread
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds i8, ptr %36, i64 %61
+  %65 = load i32, ptr %8, align 4
+  %66 = getelementptr inbounds i8, ptr %43, i64 236
+  %67 = call i64 @FSE_buildCTable_wksp(ptr noundef %43, ptr noundef nonnull %54, i32 noundef %65, i32 noundef %53, ptr noundef nonnull %66, i64 noundef 164) #13
+  %68 = icmp ult i64 %67, -119
+  br i1 %68, label %69, label %HUF_compressWeights.exit.thread
 
-68:                                               ; preds = %62
-  %gepdiff.i = sub nsw i64 %36, %60
-  %69 = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %63, i64 noundef %gepdiff.i, ptr noundef nonnull %37, i64 noundef %38, ptr noundef %42) #13
-  %70 = icmp ult i64 %69, -119
-  br i1 %70, label %71, label %HUF_compressWeights.exit.thread
+69:                                               ; preds = %63
+  %gepdiff.i = sub nsw i64 %37, %61
+  %70 = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %64, i64 noundef %gepdiff.i, ptr noundef nonnull %38, i64 noundef %39, ptr noundef %43) #13
+  %71 = icmp ult i64 %70, -119
+  br i1 %71, label %72, label %HUF_compressWeights.exit.thread
 
-71:                                               ; preds = %68
-  %72 = icmp eq i64 %69, 0
-  br i1 %72, label %.thread, label %HUF_compressWeights.exit
+72:                                               ; preds = %69
+  %73 = icmp eq i64 %70, 0
+  br i1 %73, label %.thread, label %HUF_compressWeights.exit
 
-HUF_compressWeights.exit.thread:                  ; preds = %34, %50, %57, %62, %68
-  %.0.i56.ph = phi i64 [ %69, %68 ], [ %66, %62 ], [ %60, %57 ], [ %55, %50 ], [ -1, %34 ]
+HUF_compressWeights.exit.thread:                  ; preds = %35, %51, %58, %63, %69
+  %.0.i56.ph = phi i64 [ %70, %69 ], [ %67, %63 ], [ %61, %58 ], [ %56, %51 ], [ -1, %35 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %.loopexit
 
-.thread:                                          ; preds = %71, %45, %43
+.thread:                                          ; preds = %72, %46, %44
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %86
+  br label %87
 
-HUF_compressWeights.exit:                         ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %63, i64 %69
-  %74 = ptrtoint ptr %73 to i64
-  %75 = sub i64 %74, %58
+HUF_compressWeights.exit:                         ; preds = %72
+  %74 = getelementptr inbounds i8, ptr %64, i64 %70
+  %75 = ptrtoint ptr %74 to i64
+  %76 = sub i64 %75, %59
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %76 = icmp ult i64 %75, -119
-  br i1 %76, label %77, label %.loopexit
+  %77 = icmp ult i64 %76, -119
+  br i1 %77, label %78, label %.loopexit
 
-77:                                               ; preds = %HUF_compressWeights.exit
-  %78 = icmp ugt i64 %75, 1
-  %79 = lshr i32 %3, 1
-  %80 = zext nneg i32 %79 to i64
-  %81 = icmp ult i64 %75, %80
-  %82 = and i1 %78, %81
-  br i1 %82, label %83, label %86
+78:                                               ; preds = %HUF_compressWeights.exit
+  %79 = icmp ugt i64 %76, 1
+  %80 = lshr i32 %3, 1
+  %81 = zext nneg i32 %80 to i64
+  %82 = icmp ult i64 %76, %81
+  %83 = and i1 %79, %82
+  br i1 %83, label %84, label %87
 
-83:                                               ; preds = %77
-  %84 = trunc i64 %75 to i8
-  store i8 %84, ptr %0, align 1
-  %85 = add nuw nsw i64 %75, 1
+84:                                               ; preds = %78
+  %85 = trunc i64 %76 to i8
+  store i8 %85, ptr %0, align 1
+  %86 = add nuw nsw i64 %76, 1
   br label %.loopexit
 
-86:                                               ; preds = %.thread, %77
-  %87 = icmp ugt i32 %3, 128
-  br i1 %87, label %.loopexit, label %88
+87:                                               ; preds = %.thread, %78
+  %88 = icmp ugt i32 %3, 128
+  br i1 %88, label %.loopexit, label %89
 
-88:                                               ; preds = %86
-  %89 = add nuw nsw i32 %3, 1
-  %90 = lshr i32 %89, 1
-  %91 = add nuw nsw i32 %90, 1
-  %92 = zext nneg i32 %91 to i64
-  %93 = icmp ugt i64 %92, %1
-  br i1 %93, label %.loopexit, label %94
+89:                                               ; preds = %87
+  %90 = add nuw nsw i32 %3, 1
+  %91 = lshr i32 %90, 1
+  %92 = add nuw nsw i32 %91, 1
+  %93 = zext nneg i32 %92 to i64
+  %94 = icmp ugt i64 %93, %1
+  br i1 %94, label %.loopexit, label %95
 
-94:                                               ; preds = %88
-  %95 = trunc nuw i32 %3 to i8
-  %96 = add nuw i8 %95, 127
-  store i8 %96, ptr %0, align 1
-  %97 = getelementptr inbounds [255 x i8], ptr %37, i64 0, i64 %38
-  store i8 0, ptr %97, align 1
+95:                                               ; preds = %89
+  %96 = trunc nuw i32 %3 to i8
+  %97 = add nuw i8 %96, 127
+  store i8 %97, ptr %0, align 1
+  %98 = getelementptr inbounds [255 x i8], ptr %38, i64 0, i64 %39
+  store i8 0, ptr %98, align 1
   br i1 %.not, label %.loopexit, label %.lr.ph72
 
-.lr.ph72:                                         ; preds = %94, %.lr.ph72
-  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.lr.ph72 ], [ 0, %94 ]
-  %98 = getelementptr inbounds [255 x i8], ptr %37, i64 0, i64 %indvars.iv80
-  %99 = load i8, ptr %98, align 1
-  %100 = shl i8 %99, 4
-  %101 = or disjoint i64 %indvars.iv80, 1
-  %102 = getelementptr inbounds [255 x i8], ptr %37, i64 0, i64 %101
-  %103 = load i8, ptr %102, align 1
-  %104 = add i8 %100, %103
-  %105 = lshr exact i64 %indvars.iv80, 1
-  %gep = getelementptr inbounds i8, ptr %35, i64 %105
-  store i8 %104, ptr %gep, align 1
+.lr.ph72:                                         ; preds = %95, %.lr.ph72
+  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.lr.ph72 ], [ 0, %95 ]
+  %99 = getelementptr inbounds [255 x i8], ptr %38, i64 0, i64 %indvars.iv80
+  %100 = load i8, ptr %99, align 1
+  %101 = shl i8 %100, 4
+  %102 = or disjoint i64 %indvars.iv80, 1
+  %103 = getelementptr inbounds [255 x i8], ptr %38, i64 0, i64 %102
+  %104 = load i8, ptr %103, align 1
+  %105 = add i8 %101, %104
+  %106 = lshr exact i64 %indvars.iv80, 1
+  %gep = getelementptr inbounds i8, ptr %36, i64 %106
+  store i8 %105, ptr %gep, align 1
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 2
-  %106 = icmp ult i64 %indvars.iv.next81, %38
-  br i1 %106, label %.lr.ph72, label %.loopexit, !llvm.loop !8
+  %107 = icmp ult i64 %indvars.iv.next81, %39
+  br i1 %107, label %.lr.ph72, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph72, %94, %HUF_compressWeights.exit.thread, %88, %86, %HUF_compressWeights.exit, %._crit_edge, %15, %7, %83
-  %.0 = phi i64 [ %85, %83 ], [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ %75, %HUF_compressWeights.exit ], [ -1, %86 ], [ -70, %88 ], [ %.0.i56.ph, %HUF_compressWeights.exit.thread ], [ %92, %94 ], [ %92, %.lr.ph72 ]
+.loopexit:                                        ; preds = %.lr.ph72, %95, %HUF_compressWeights.exit.thread, %89, %87, %HUF_compressWeights.exit, %._crit_edge, %15, %7, %84
+  %.0 = phi i64 [ %86, %84 ], [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ %76, %HUF_compressWeights.exit ], [ -1, %87 ], [ -70, %89 ], [ %.0.i56.ph, %HUF_compressWeights.exit.thread ], [ %93, %95 ], [ %93, %.lr.ph72 ]
   ret i64 %.0
 }
 
@@ -672,7 +672,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   br i1 %.not.i30, label %143, label %HUF_setMaxHeight.exit
 
 143:                                              ; preds = %HUF_buildTree.exit
-  %144 = sub nsw i32 %142, %spec.store.select
+  %144 = sub nuw nsw i32 %142, %spec.store.select
   %145 = shl nuw i32 1, %144
   %sext = shl i64 %indvars.iv.i24, 32
   %146 = ashr exact i64 %sext, 32

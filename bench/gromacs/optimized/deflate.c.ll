@@ -927,7 +927,7 @@ read_buf.exit:                                    ; preds = %67, %92
   br i1 %177, label %178, label %186
 
 178:                                              ; preds = %175
-  %179 = sub nsw i64 %176, %160
+  %179 = sub nuw nsw i64 %176, %160
   %180 = sub i64 %161, %160
   %spec.select = tail call i64 @llvm.umin.i64(i64 %179, i64 %180)
   %181 = load ptr, ptr %8, align 8
@@ -1738,7 +1738,7 @@ define range(i32 -5, 2) i32 @deflate(ptr noundef %0, i32 noundef %1) local_unnam
   %341 = load ptr, ptr %326, align 8
   %342 = zext i32 %.0339418 to i64
   %343 = getelementptr inbounds i8, ptr %341, i64 %342
-  %344 = sub i32 %331, %.0339418
+  %344 = sub nuw i32 %331, %.0339418
   %345 = tail call i64 @crc32(i64 noundef %340, ptr noundef %343, i32 noundef %344) #10
   store i64 %345, ptr %325, align 8
   br label %346
@@ -1841,7 +1841,7 @@ flush_pending.exit._crit_edge:                    ; preds = %375, %flush_pending
   %404 = load ptr, ptr %403, align 8
   %405 = zext i32 %.2341 to i64
   %406 = getelementptr inbounds i8, ptr %404, i64 %405
-  %407 = sub i32 %398, %.2341
+  %407 = sub nuw i32 %398, %.2341
   %408 = tail call i64 @crc32(i64 noundef %402, ptr noundef %406, i32 noundef %407) #10
   store i64 %408, ptr %401, align 8
   %.pre427 = load ptr, ptr %311, align 8
@@ -1918,7 +1918,7 @@ thread-pre-split402:                              ; preds = %409
   %443 = load ptr, ptr %429, align 8
   %444 = zext i32 %.0336 to i64
   %445 = getelementptr inbounds i8, ptr %443, i64 %444
-  %446 = sub i32 %433, %.0336
+  %446 = sub nuw i32 %433, %.0336
   %447 = tail call i64 @crc32(i64 noundef %442, ptr noundef %445, i32 noundef %446) #10
   store i64 %447, ptr %428, align 8
   br label %448
@@ -2014,7 +2014,7 @@ flush_pending.exit396._crit_edge:                 ; preds = %flush_pending.exit3
   %500 = load ptr, ptr %429, align 8
   %501 = zext i32 %.2338 to i64
   %502 = getelementptr inbounds i8, ptr %500, i64 %501
-  %503 = sub i32 %496, %.2338
+  %503 = sub nuw i32 %496, %.2338
   %504 = tail call i64 @crc32(i64 noundef %499, ptr noundef %502, i32 noundef %503) #10
   store i64 %504, ptr %428, align 8
   br label %505
@@ -2079,7 +2079,7 @@ flush_pending.exit396._crit_edge:                 ; preds = %flush_pending.exit3
   %532 = load ptr, ptr %518, align 8
   %533 = zext i32 %.0334 to i64
   %534 = getelementptr inbounds i8, ptr %532, i64 %533
-  %535 = sub i32 %522, %.0334
+  %535 = sub nuw i32 %522, %.0334
   %536 = tail call i64 @crc32(i64 noundef %531, ptr noundef %534, i32 noundef %535) #10
   store i64 %536, ptr %517, align 8
   br label %537
@@ -2175,7 +2175,7 @@ flush_pending.exit398._crit_edge:                 ; preds = %flush_pending.exit3
   %589 = load ptr, ptr %518, align 8
   %590 = zext i32 %.2 to i64
   %591 = getelementptr inbounds i8, ptr %589, i64 %590
-  %592 = sub i32 %585, %.2
+  %592 = sub nuw i32 %585, %.2
   %593 = tail call i64 @crc32(i64 noundef %588, ptr noundef %591, i32 noundef %592) #10
   store i64 %593, ptr %517, align 8
   br label %594

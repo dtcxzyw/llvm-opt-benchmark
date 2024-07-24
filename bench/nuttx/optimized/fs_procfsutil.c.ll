@@ -19,7 +19,7 @@ define i64 @procfs_memcpy(ptr nocapture noundef readonly %0, i64 noundef %1, ptr
   br label %16
 
 12:                                               ; preds = %5
-  %13 = sub i64 %1, %7
+  %13 = sub nuw i64 %1, %7
   %14 = getelementptr inbounds i8, ptr %0, i64 %7
   store i32 0, ptr %4, align 4
   %15 = tail call i64 @llvm.umin.i64(i64 %13, i64 %3)
@@ -68,14 +68,15 @@ define void @procfs_sprintf(ptr nocapture noundef writeonly %0, i64 noundef %1, 
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = sub nsw i32 %10, %8
+  %15 = sub nuw nsw i32 %10, %8
   br label %30
 
 16:                                               ; preds = %12
-  %17 = zext nneg i32 %10 to i64
-  %18 = sub nsw i64 %9, %17
-  %. = call i64 @llvm.umin.i64(i64 %18, i64 %1)
-  %19 = getelementptr inbounds i8, ptr %5, i64 %17
+  %narrow = sub nuw nsw i32 %8, %10
+  %17 = zext nneg i32 %narrow to i64
+  %. = call i64 @llvm.umin.i64(i64 %17, i64 %1)
+  %18 = zext nneg i32 %10 to i64
+  %19 = getelementptr inbounds i8, ptr %5, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %19, i64 %., i1 false)
   br label %26
 
@@ -96,7 +97,7 @@ define void @procfs_sprintf(ptr nocapture noundef writeonly %0, i64 noundef %1, 
 26:                                               ; preds = %20, %23, %16
   %27 = phi i32 [ 0, %16 ], [ %.pre, %23 ], [ %10, %20 ]
   %.0 = phi i64 [ %., %16 ], [ %.38, %23 ], [ 0, %20 ]
-  %28 = trunc i64 %.0 to i32
+  %28 = trunc nuw nsw i64 %.0 to i32
   %29 = sub i32 %27, %28
   br label %30
 

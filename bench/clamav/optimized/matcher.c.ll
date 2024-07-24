@@ -2114,13 +2114,13 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 229:                                              ; preds = %226
   %230 = zext nneg i32 %227 to i64
   %231 = getelementptr inbounds i8, ptr %208, i64 %230
-  %232 = sub nsw i32 %205, %227
+  %232 = sub nuw nsw i32 %205, %227
   %233 = load i8, ptr %8, align 1
   %234 = trunc i8 %233 to i1
   br i1 %234, label %235, label %238
 
 235:                                              ; preds = %229
-  %236 = zext i32 %232 to i64
+  %236 = zext nneg i32 %232 to i64
   %237 = call i32 @cl_update_hash(ptr noundef nonnull %24, ptr noundef nonnull %231, i64 noundef %236) #12
   br label %238
 
@@ -2130,7 +2130,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br i1 %240, label %241, label %244
 
 241:                                              ; preds = %238
-  %242 = zext i32 %232 to i64
+  %242 = zext nneg i32 %232 to i64
   %243 = call i32 @cl_update_hash(ptr noundef nonnull %26, ptr noundef nonnull %231, i64 noundef %242) #12
   br label %244
 
@@ -2140,7 +2140,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br i1 %246, label %247, label %250
 
 247:                                              ; preds = %244
-  %248 = zext i32 %232 to i64
+  %248 = zext nneg i32 %232 to i64
   %249 = call i32 @cl_update_hash(ptr noundef nonnull %28, ptr noundef nonnull %231, i64 noundef %248) #12
   br label %250
 

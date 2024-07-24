@@ -2115,7 +2115,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.i
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %40
-  %43 = sub i64 %34, %.sroa.speculated.i33.i
+  %43 = sub nuw i64 %34, %.sroa.speculated.i33.i
   %44 = getelementptr inbounds i8, ptr %33, i64 %.sroa.speculated.i33.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

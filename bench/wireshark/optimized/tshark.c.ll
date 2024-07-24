@@ -5649,7 +5649,7 @@ get_line_buf.exit131.i:                           ; preds = %.sink.split.i129.i,
   br i1 %62, label %.lr.ph.preheader.i.i, label %put_spaces_string.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %get_line_buf.exit131.i
-  %63 = sub nsw i64 %spec.store.select.i, %43
+  %63 = sub nuw nsw i64 %spec.store.select.i, %43
   tail call void @llvm.memset.p0.i64(ptr align 1 %61, i8 32, i64 %63, i1 false)
   %scevgep.i.i = getelementptr i8, ptr %61, i64 %63
   br label %put_spaces_string.exit.i
@@ -5706,7 +5706,7 @@ get_line_buf.exit135.i:                           ; preds = %.sink.split.i133.i,
   br i1 %85, label %.lr.ph.preheader.i137.i, label %put_spaces_string.exit139.i
 
 .lr.ph.preheader.i137.i:                          ; preds = %get_line_buf.exit135.i
-  %86 = sub nsw i64 %spec.store.select1.i, %66
+  %86 = sub nuw nsw i64 %spec.store.select1.i, %66
   tail call void @llvm.memset.p0.i64(ptr align 1 %84, i8 32, i64 %86, i1 false)
   %scevgep.i138.i = getelementptr i8, ptr %84, i64 %86
   br label %put_spaces_string.exit139.i
@@ -5763,7 +5763,7 @@ get_line_buf.exit143.i:                           ; preds = %.sink.split.i141.i,
   br i1 %108, label %.lr.ph.preheader.i145.i, label %put_spaces_string.exit147.i
 
 .lr.ph.preheader.i145.i:                          ; preds = %get_line_buf.exit143.i
-  %109 = sub nsw i64 %spec.store.select2.i, %89
+  %109 = sub nuw nsw i64 %spec.store.select2.i, %89
   tail call void @llvm.memset.p0.i64(ptr align 1 %107, i8 32, i64 %109, i1 false)
   %scevgep.i146.i = getelementptr i8, ptr %107, i64 %109
   br label %put_spaces_string.exit147.i
@@ -5822,7 +5822,7 @@ get_line_buf.exit151.i:                           ; preds = %.sink.split.i149.i,
 
 .lr.ph.preheader.i152.i:                          ; preds = %get_line_buf.exit151.i
   %scevgep.i153.i = getelementptr i8, ptr %130, i64 %112
-  %132 = sub nsw i64 %spec.store.select3.i, %112
+  %132 = sub nuw nsw i64 %spec.store.select3.i, %112
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i153.i, i8 32, i64 %132, i1 false)
   br label %put_string_spaces.exit.i
 

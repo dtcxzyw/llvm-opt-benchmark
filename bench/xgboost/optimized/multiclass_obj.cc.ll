@@ -9490,7 +9490,7 @@ define linkonce_odr void @_ZZN7xgboost3obj20SoftmaxMultiClassObj11GetGradientERK
   unreachable
 
 18:                                               ; preds = %12
-  %19 = sub i64 %13, %10
+  %19 = sub nuw i64 %13, %10
   br label %20
 
 20:                                               ; preds = %18, %14
@@ -10406,7 +10406,7 @@ _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj20SoftmaxMultiClassObj9Tr
   unreachable
 
 23:                                               ; preds = %19
-  %24 = sub i64 %10, %17
+  %24 = sub nuw i64 %10, %17
   br label %25
 
 25:                                               ; preds = %23, %20
@@ -11136,7 +11136,7 @@ define linkonce_odr void @_ZZNK7xgboost3obj20SoftmaxMultiClassObj9TransformEPNS_
   unreachable
 
 16:                                               ; preds = %10
-  %17 = sub i64 %11, %8
+  %17 = sub nuw i64 %11, %8
   br label %18
 
 18:                                               ; preds = %16, %12

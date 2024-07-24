@@ -220,7 +220,7 @@ define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %1, i64 332
   store i32 0, ptr %21, align 4
-  %22 = sub i32 %15, %18
+  %22 = sub nuw i32 %15, %18
   %23 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 %22, ptr %23, align 8
   %24 = tail call i32 @tvb_captured_length(ptr noundef %0) #2

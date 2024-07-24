@@ -1998,7 +1998,7 @@ _addReplyToBuffer.exit:                           ; preds = %if.end20, %if.end.i
 if.then23:                                        ; preds = %_addReplyToBuffer.exit
   %18 = load ptr, ptr %reply.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 %retval.0.i25
-  %sub = sub i64 %len, %retval.0.i25
+  %sub = sub nuw i64 %len, %retval.0.i25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %usable_size.i)
   %tail.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %tail.i, align 8
@@ -7211,7 +7211,7 @@ if.then19:                                        ; preds = %cond.end14
   %9 = load ptr, ptr %conn, align 8
   %buf = getelementptr inbounds i8, ptr %6, i64 40
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %8
-  %sub = sub i64 %7, %8
+  %sub = sub nuw i64 %7, %8
   %10 = load ptr, ptr %9, align 8
   %write.i = getelementptr inbounds i8, ptr %10, i64 128
   %11 = load ptr, ptr %write.i, align 8

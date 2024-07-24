@@ -9645,7 +9645,7 @@ define hidden void @zif_chunk_split(ptr noundef %0, ptr nocapture noundef writeo
   %79 = getelementptr inbounds i8, ptr %74, i64 16
   store i64 %78, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %74, i64 24
-  %reass.sub = sub i64 %49, %41
+  %reass.sub = sub nuw i64 %49, %41
   %81 = getelementptr i8, ptr %47, i64 %reass.sub
   %.ptr234 = getelementptr i8, ptr %81, i64 25
   %82 = icmp ult i64 %reass.sub, 9223372036854775784
@@ -11908,11 +11908,11 @@ define internal fastcc void @php_charmask(ptr noundef readonly %0, i64 noundef %
 
 19:                                               ; preds = %17
   %20 = zext i8 %6 to i64
-  %21 = zext i8 %18 to i64
-  %22 = getelementptr inbounds i8, ptr %2, i64 %20
-  %reass.sub = sub nsw i64 %21, %20
-  %23 = add nsw i64 %reass.sub, 1
-  tail call void @llvm.memset.p0.i64(ptr align 1 %22, i8 1, i64 %23, i1 false)
+  %21 = getelementptr inbounds i8, ptr %2, i64 %20
+  %narrow = sub nuw i8 %18, %6
+  %22 = zext i8 %narrow to i64
+  %23 = add nuw nsw i64 %22, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, i8 1, i64 %23, i1 false)
   br label %46
 
 24:                                               ; preds = %17, %13, %9, %.lr.ph
@@ -14533,7 +14533,7 @@ tailrecurse:                                      ; preds = %48
   %53 = sub i64 %.tr5358, %46
   %54 = getelementptr inbounds i8, ptr %.tr5459, i64 %.139
   %55 = getelementptr inbounds i8, ptr %54, i64 %.134
-  %56 = sub i64 %.tr5560, %49
+  %56 = sub nuw i64 %.tr5560, %49
   %57 = add i64 %.0, %accumulator.tr56
   %58 = getelementptr inbounds i8, ptr %52, i64 %53
   %59 = getelementptr inbounds i8, ptr %55, i64 %56
@@ -19715,7 +19715,7 @@ define hidden void @zif_substr_count(ptr noundef %0, ptr nocapture noundef write
 
 71:                                               ; preds = %64
   %72 = getelementptr inbounds i8, ptr %23, i64 %65
-  %73 = sub i64 %22, %65
+  %73 = sub nuw i64 %22, %65
   br label %74
 
 74:                                               ; preds = %71, %58

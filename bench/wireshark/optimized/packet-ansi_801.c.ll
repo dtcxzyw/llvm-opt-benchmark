@@ -1576,7 +1576,7 @@ define internal void @for_pr_gps_sat_health(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = sub i32 %3, %39
+  %42 = sub nuw i32 %3, %39
   %43 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_801_extraneous_data, ptr noundef %0, i32 noundef %38, i32 noundef %42) #6
   br label %44
 
@@ -1842,7 +1842,7 @@ define internal fastcc void @pr_loc_response(ptr noundef %0, ptr noundef %1, ptr
   br i1 %184, label %185, label %188
 
 185:                                              ; preds = %181
-  %186 = sub i32 %3, %183
+  %186 = sub nuw i32 %3, %183
   %187 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_801_extraneous_data, ptr noundef %0, i32 noundef %182, i32 noundef %186) #6
   br label %188
 

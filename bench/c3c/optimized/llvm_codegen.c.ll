@@ -978,7 +978,7 @@ expand_.exit398:                                  ; preds = %175, %179
   br i1 %267, label %268, label %271
 
 268:                                              ; preds = %247
-  %269 = sub i32 %261, %265
+  %269 = sub nuw i32 %261, %265
   %270 = tail call ptr @llvm_emit_const_padding(ptr noundef nonnull %0, i32 noundef %269) #10
   store ptr %270, ptr %266, align 8
   br label %271

@@ -2088,7 +2088,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call
-  %sub = sub i64 %cSrcSize, %call
+  %sub = sub nuw i64 %cSrcSize, %call
   %call4 = tail call fastcc i64 @HUFv07_decompress1X2_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %DCtx)
   br label %return
 
@@ -2113,7 +2113,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub.i = sub i64 %cSrcSize, %call.i
+  %sub.i = sub nuw i64 %cSrcSize, %call.i
   %call4.i = call fastcc i64 @HUFv07_decompress1X2_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %DTable)
   br label %HUFv07_decompress1X2_DCtx.exit
 
@@ -3085,7 +3085,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call
-  %sub = sub i64 %cSrcSize, %call
+  %sub = sub nuw i64 %cSrcSize, %call
   %call4 = tail call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %dctx)
   br label %return
 
@@ -3110,7 +3110,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub.i = sub i64 %cSrcSize, %call.i
+  %sub.i = sub nuw i64 %cSrcSize, %call.i
   %call4.i = call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %DTable)
   br label %HUFv07_decompress4X2_DCtx.exit
 
@@ -3629,7 +3629,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call
-  %sub = sub i64 %cSrcSize, %call
+  %sub = sub nuw i64 %cSrcSize, %call
   %call4 = tail call fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %DCtx)
   br label %return
 
@@ -3654,7 +3654,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub.i = sub i64 %cSrcSize, %call.i
+  %sub.i = sub nuw i64 %cSrcSize, %call.i
   %call4.i = call fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %DTable)
   br label %HUFv07_decompress1X4_DCtx.exit
 
@@ -4674,7 +4674,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cSrc, i64 %call
-  %sub = sub i64 %cSrcSize, %call
+  %sub = sub nuw i64 %cSrcSize, %call
   %call4 = tail call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %dctx)
   br label %return
 
@@ -4699,7 +4699,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub.i = sub i64 %cSrcSize, %call.i
+  %sub.i = sub nuw i64 %cSrcSize, %call.i
   %call4.i = call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %DTable)
   br label %HUFv07_decompress4X4_DCtx.exit
 
@@ -4897,7 +4897,7 @@ if.end.i:                                         ; preds = %cond.true
 
 if.end3.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub.i = sub i64 %cSrcSize, %call.i
+  %sub.i = sub nuw i64 %cSrcSize, %call.i
   %call4.i = tail call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef %dctx)
   br label %return
 
@@ -4912,7 +4912,7 @@ if.end.i25:                                       ; preds = %cond.false
 
 if.end3.i27:                                      ; preds = %if.end.i25
   %add.ptr.i28 = getelementptr inbounds i8, ptr %cSrc, i64 %call.i22
-  %sub.i29 = sub i64 %cSrcSize, %call.i22
+  %sub.i29 = sub nuw i64 %cSrcSize, %call.i22
   %call4.i30 = tail call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i28, i64 noundef %sub.i29, ptr noundef %dctx)
   br label %return
 
@@ -4967,7 +4967,7 @@ if.end.i:                                         ; preds = %cond.true
 
 if.end3.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub.i = sub i64 %cSrcSize, %call.i
+  %sub.i = sub nuw i64 %cSrcSize, %call.i
   %call4.i = tail call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef %dctx)
   br label %return
 
@@ -4982,7 +4982,7 @@ if.end.i15:                                       ; preds = %cond.false
 
 if.end3.i17:                                      ; preds = %if.end.i15
   %add.ptr.i18 = getelementptr inbounds i8, ptr %cSrc, i64 %call.i12
-  %sub.i19 = sub i64 %cSrcSize, %call.i12
+  %sub.i19 = sub nuw i64 %cSrcSize, %call.i12
   %call4.i20 = tail call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i18, i64 noundef %sub.i19, ptr noundef %dctx)
   br label %return
 
@@ -5052,7 +5052,7 @@ if.end.i:                                         ; preds = %cond.true
 
 if.end3.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cSrc, i64 %call.i
-  %sub.i = sub i64 %cSrcSize, %call.i
+  %sub.i = sub nuw i64 %cSrcSize, %call.i
   %call4.i = tail call fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef %dctx)
   br label %return
 
@@ -5067,7 +5067,7 @@ if.end.i25:                                       ; preds = %cond.false
 
 if.end3.i27:                                      ; preds = %if.end.i25
   %add.ptr.i28 = getelementptr inbounds i8, ptr %cSrc, i64 %call.i22
-  %sub.i29 = sub i64 %cSrcSize, %call.i22
+  %sub.i29 = sub nuw i64 %cSrcSize, %call.i22
   %call4.i30 = tail call fastcc i64 @HUFv07_decompress1X2_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i28, i64 noundef %sub.i29, ptr noundef %dctx)
   br label %return
 
@@ -7879,7 +7879,7 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end10:                                         ; preds = %if.end7
-  %sub = sub i64 %srcSize, %add18.i
+  %sub = sub nuw i64 %srcSize, %add18.i
   %cmp.i3868 = icmp ult i64 %sub, 3
   br i1 %cmp.i3868, label %if.then14, label %if.end.i.preheader
 
@@ -7930,7 +7930,7 @@ if.then22:                                        ; preds = %if.end20
 if.end23:                                         ; preds = %if.end20
   %9 = getelementptr inbounds i8, ptr %ip.071, i64 3
   %add.ptr24 = getelementptr inbounds i8, ptr %9, i64 %retval.0.i.ph61
-  %sub25 = sub i64 %sub1763, %retval.0.i.ph61
+  %sub25 = sub nuw i64 %sub1763, %retval.0.i.ph61
   %inc = add i64 %nbBlocks.069, 1
   %cmp.i38 = icmp ult i64 %sub25, 3
   br i1 %cmp.i38, label %if.then14, label %if.end.i

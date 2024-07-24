@@ -548,7 +548,7 @@ if.end93:                                         ; preds = %PACKET_copy_bytes.e
 PACKET_forward.exit167:                           ; preds = %if.end93
   %add.ptr.i.i164 = getelementptr inbounds i8, ptr %pkt.val138, i64 %pkt.val132
   store ptr %add.ptr.i.i164, ptr %pkt, align 8
-  %sub.i.i165 = sub i64 %pkt.val.i161, %pkt.val132
+  %sub.i.i165 = sub nuw i64 %pkt.val.i161, %pkt.val132
   store i64 %sub.i.i165, ptr %0, align 8
   br label %if.end363
 
@@ -682,7 +682,7 @@ PACKET_forward.exit211:                           ; preds = %if.end172
   %23 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i208 = getelementptr inbounds i8, ptr %23, i64 %pkt.val133
   store ptr %add.ptr.i.i208, ptr %pkt, align 8
-  %sub.i.i209 = sub i64 %pkt.val.i205, %pkt.val133
+  %sub.i.i209 = sub nuw i64 %pkt.val.i205, %pkt.val133
   store i64 %sub.i.i209, ptr %0, align 8
   br label %if.end363
 
@@ -779,7 +779,7 @@ PACKET_forward.exit224:                           ; preds = %if.then263
   %27 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i221 = getelementptr inbounds i8, ptr %27, i64 %pkt.val134
   store ptr %add.ptr.i.i221, ptr %pkt, align 8
-  %sub.i.i222 = sub i64 %pkt.val.i218, %pkt.val134
+  %sub.i.i222 = sub nuw i64 %pkt.val.i218, %pkt.val134
   store i64 %sub.i.i222, ptr %0, align 8
   br label %if.end363
 
@@ -878,7 +878,7 @@ if.else351:                                       ; preds = %if.end347
 PACKET_forward.exit245:                           ; preds = %if.else351
   %add.ptr.i.i242 = getelementptr inbounds i8, ptr %pkt.val142, i64 %sub345.sink
   store ptr %add.ptr.i.i242, ptr %pkt, align 8
-  %sub.i.i243 = sub i64 %pkt.val.i239, %sub345.sink
+  %sub.i.i243 = sub nuw i64 %pkt.val.i239, %sub345.sink
   store i64 %sub.i.i243, ptr %0, align 8
   br label %if.end363
 

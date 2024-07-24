@@ -3132,7 +3132,7 @@ define internal fastcc zeroext i1 @timekeeping_advance(i32 noundef %0) unnamed_a
   br i1 %47, label %144, label %48
 
 48:                                               ; preds = %40
-  %49 = sub i64 %42, %46
+  %49 = sub nuw i64 %42, %46
   %50 = load i64, ptr getelementptr inbounds (i8, ptr @shadow_timekeeper, i64 16), align 8
   %51 = add i64 %50, %46
   store i64 %51, ptr getelementptr inbounds (i8, ptr @shadow_timekeeper, i64 16), align 8

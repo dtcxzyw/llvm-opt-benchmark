@@ -7703,7 +7703,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i196:     ; preds = %_ZNSt6vectorIN2cv6P
   br i1 %679, label %680, label %709
 
 680:                                              ; preds = %667
-  %681 = sub nsw i64 %671, %678
+  %681 = sub nuw nsw i64 %671, %678
   %682 = getelementptr inbounds i8, ptr %62, i64 16
   %683 = load ptr, ptr %682, align 8
   %684 = ptrtoint ptr %683 to i64
@@ -7725,7 +7725,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIN2cv6Point_IfEESaIS3_EEmS5_ET_S7_T0
   br label %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit.i
 
 691:                                              ; preds = %680
-  %692 = icmp ult i64 %688, %681
+  %692 = icmp ugt i64 %671, 384307168202282325
   br i1 %692, label %693, label %_ZNKSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i
 
 693:                                              ; preds = %691
@@ -8127,7 +8127,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %797, %791
   br i1 %824, label %825, label %853
 
 825:                                              ; preds = %816
-  %826 = sub i64 %815, %823
+  %826 = sub nuw i64 %815, %823
   %827 = getelementptr inbounds i8, ptr %67, i64 16
   %828 = load ptr, ptr %827, align 8
   %829 = ptrtoint ptr %828 to i64
@@ -8149,7 +8149,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIN2cv6Point_IfEESaIS3_EEmS5_ET_S7_T0
   br label %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit
 
 836:                                              ; preds = %825
-  %837 = icmp ult i64 %833, %826
+  %837 = icmp ugt i64 %815, 384307168202282325
   br i1 %837, label %.invoke, label %_ZNKSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i431
 
 _ZNKSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i431: ; preds = %836

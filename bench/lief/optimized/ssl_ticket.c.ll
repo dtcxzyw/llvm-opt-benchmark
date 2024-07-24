@@ -312,7 +312,7 @@ define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef %0) unnamed_addr 
   br i1 %.not14, label %17, label %13
 
 13:                                               ; preds = %5
-  %14 = sub i32 %7, %12
+  %14 = sub nuw i32 %7, %12
   %15 = load i32, ptr %3, align 4
   %16 = icmp ult i32 %14, %15
   br i1 %16, label %40, label %17

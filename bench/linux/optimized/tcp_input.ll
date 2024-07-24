@@ -1501,7 +1501,7 @@ define internal fastcc noundef zeroext i1 @tcp_ack_update_rtt(ptr noundef %0, i3
   br i1 %117, label %118, label %122
 
 118:                                              ; preds = %114
-  %119 = sub i32 %116, %107
+  %119 = sub nuw i32 %116, %107
   %120 = lshr i32 %119, 2
   %121 = sub i32 %116, %120
   store i32 %121, ptr %115, align 16

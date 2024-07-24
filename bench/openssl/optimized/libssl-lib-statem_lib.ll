@@ -1386,7 +1386,7 @@ if.end74:                                         ; preds = %if.end69
   %21 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i82 = getelementptr inbounds i8, ptr %21, i64 %conv70
   store ptr %add.ptr.i.i82, ptr %pkt, align 8
-  %sub.i.i83 = sub i64 %pkt.val.i.i79, %conv70
+  %sub.i.i83 = sub nuw i64 %pkt.val.i.i79, %conv70
   store i64 %sub.i.i83, ptr %20, align 8
   %call75 = call fastcc i32 @get_cert_verify_tbs_data(ptr noundef nonnull %s, ptr noundef nonnull %tls13tbs, ptr noundef nonnull %hdata, ptr noundef nonnull %hdatalen)
   %tobool76.not = icmp eq i32 %call75, 0
@@ -2392,7 +2392,7 @@ if.then10:                                        ; preds = %if.then, %lor.lhs.f
 if.end:                                           ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i, i64 1
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
-  %sub.i.i6.i = sub i64 %sub.i.i.i, %conv.i
+  %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   store ptr %add.ptr.i.i5.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i, ptr %tmp.sroa.7.0.pkt.sroa_idx.i, align 8
   %server = getelementptr inbounds i8, ptr %sc, i64 112
@@ -2550,7 +2550,7 @@ if.end70:                                         ; preds = %if.end40, %land.lhs
   store ptr %21, ptr %spki, align 8
   %add.ptr.i.i74 = getelementptr inbounds i8, ptr %21, i64 %spki_len.1116
   store ptr %add.ptr.i.i74, ptr %pkt, align 8
-  %sub.i.i75 = sub nsw i64 %pkt.val.i.i71115, %spki_len.1116
+  %sub.i.i75 = sub nuw nsw i64 %pkt.val.i.i71115, %spki_len.1116
   store i64 %sub.i.i75, ptr %9, align 8
   %22 = load ptr, ptr %0, align 8
   %propq = getelementptr inbounds i8, ptr %0, i64 1096
@@ -5214,7 +5214,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
 PACKET_get_length_prefixed_2.exit:                ; preds = %lor.lhs.false.i
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload.i, i64 2
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
-  %sub.i.i7.i = sub i64 %sub.i.i.i, %or.i.i.i
+  %sub.i.i7.i = sub nuw i64 %sub.i.i.i, %or.i.i.i
   store ptr %add.ptr.i.i6.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i, ptr %tmp.sroa.8.0.pkt.sroa_idx.i, align 8
   br label %while.cond
@@ -5255,7 +5255,7 @@ if.end12:                                         ; preds = %lor.lhs.false
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %cadns.sroa.0.1, i64 2
   store ptr %add.ptr.i2.i, ptr %namebytes, align 8
   %add.ptr.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 %or.i.i
-  %sub.i.i18 = sub i64 %sub.i.i, %or.i.i
+  %sub.i.i18 = sub nuw i64 %sub.i.i, %or.i.i
   %call14 = call ptr @d2i_X509_NAME(ptr noundef null, ptr noundef nonnull %namebytes, i64 noundef %or.i.i) #11
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %if.then17, label %if.end18

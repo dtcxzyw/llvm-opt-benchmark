@@ -3307,12 +3307,12 @@ print_freespace_info.exit.i:                      ; preds = %._crit_edge42.i.i, 
   br i1 %530, label %532, label %535
 
 532:                                              ; preds = %466
-  %533 = sub i64 %529, %525
+  %533 = sub nuw i64 %529, %525
   %534 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %531, ptr noundef nonnull @.str.205, i64 noundef %533) #16
   br label %538
 
 535:                                              ; preds = %466
-  %536 = sub i64 %525, %529
+  %536 = sub nuw i64 %525, %529
   %537 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %531, ptr noundef nonnull @.str.206, i64 noundef %536) #16
   br label %538
 

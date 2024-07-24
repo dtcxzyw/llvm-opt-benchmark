@@ -362,7 +362,7 @@ if.end29.i:                                       ; preds = %if.end21.i
   br i1 %cmp36.i, label %RsaPad_OAEP.exit, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.end29.i
-  %sub32.i = sub i32 %pkcsBlockLen, %inputLen
+  %sub32.i = sub nuw i32 %pkcsBlockLen, %inputLen
   %sub34.i = sub nsw i32 %sub32.i, %mul.i
   %sub35.i = add nsw i32 %sub34.i, -2
   %2 = xor i32 %inputLen, -1

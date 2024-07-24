@@ -4477,7 +4477,7 @@ define hidden void @_ZN12object_store4path4Path5parse17hd52a62bc34171086E(ptr no
   %157 = getelementptr inbounds i8, ptr %.sroa.031.sroa.12.0.copyload, i64 %.sroa.5.1
   %158 = load i8, ptr %157, align 1, !alias.scope !762, !noalias !767, !noundef !8
   %159 = icmp sgt i8 %158, -65
-  %160 = sub i64 %.sroa.031.sroa.13.0.copyload, %.sroa.5.1
+  %160 = sub nuw i64 %.sroa.031.sroa.13.0.copyload, %.sroa.5.1
   br i1 %159, label %162, label %161
 
 161:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %154

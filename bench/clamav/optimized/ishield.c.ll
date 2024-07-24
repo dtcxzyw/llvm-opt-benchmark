@@ -140,7 +140,7 @@ define i32 @cli_scanishield_msi(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   br i1 %or.cond168.not, label %47, label %fmap_readn.exit.thread
 
 47:                                               ; preds = %.lr.ph
-  %48 = sub i64 %46, %.0105202
+  %48 = sub nuw i64 %46, %.0105202
   %spec.select.i = call i64 @llvm.umin.i64(i64 %48, i64 312)
   %49 = load ptr, ptr %9, align 8
   %50 = call ptr %49(ptr noundef nonnull %8, i64 noundef %.0105202, i64 noundef %spec.select.i, i32 noundef 0) #13
@@ -283,7 +283,7 @@ fmap_readn.exit.thread:                           ; preds = %47, %.lr.ph, %fmap_
   br i1 %106, label %fmap_readn.exit163.thread, label %107
 
 107:                                              ; preds = %105
-  %108 = sub i64 %104, %.1211
+  %108 = sub nuw i64 %104, %.1211
   %spec.select.i161 = call i64 @llvm.umin.i64(i64 %108, i64 %102)
   %109 = load ptr, ptr %9, align 8
   %110 = call ptr %109(ptr noundef nonnull %8, i64 noundef %.1211, i64 noundef %spec.select.i161, i32 noundef 0) #13
@@ -597,7 +597,7 @@ define i32 @cli_scanishield(ptr noundef %0, i64 noundef %1, i64 noundef %2) loca
   %50 = ptrtoint ptr %38 to i64
   %51 = ptrtoint ptr %15 to i64
   %52 = sub i64 %50, %51
-  %53 = sub i64 %.0107256, %39
+  %53 = sub nuw i64 %.0107256, %39
   %.not129 = icmp ult i64 %52, %53
   br i1 %.not129, label %54, label %105
 
@@ -1442,7 +1442,7 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
   br label %.thread108
 
 46:                                               ; preds = %42
-  %47 = sub i64 %28, %43
+  %47 = sub nuw i64 %28, %43
   %48 = load ptr, ptr %18, align 8
   %49 = call ptr %48(ptr noundef nonnull %7, i64 noundef %33, i64 noundef %43, i32 noundef 0) #13
   %.not97 = icmp eq ptr %49, null

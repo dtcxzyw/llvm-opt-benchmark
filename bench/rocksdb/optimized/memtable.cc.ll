@@ -11807,7 +11807,7 @@ if.then.i.i:                                      ; preds = %if.end
   %idx.neg.i.i = sub i64 0, %14
   %add.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 %idx.neg.i.i
   store ptr %add.ptr.i.i, ptr %unaligned_alloc_ptr_.i.i, align 16
-  %sub.i.i = sub i64 %15, %14
+  %sub.i.i = sub nuw i64 %15, %14
   store i64 %sub.i.i, ptr %alloc_bytes_remaining_.i.i, align 16
   br label %cleanup75.thread
 
@@ -11951,7 +11951,7 @@ if.then.i.i65:                                    ; preds = %if.then45
   %idx.neg.i.i67 = sub i64 0, %40
   %add.ptr.i.i68 = getelementptr inbounds i8, ptr %42, i64 %idx.neg.i.i67
   store ptr %add.ptr.i.i68, ptr %unaligned_alloc_ptr_.i.i66, align 16
-  %sub.i.i69 = sub i64 %41, %40
+  %sub.i.i69 = sub nuw i64 %41, %40
   store i64 %sub.i.i69, ptr %alloc_bytes_remaining_.i.i63, align 16
   br label %cleanup
 

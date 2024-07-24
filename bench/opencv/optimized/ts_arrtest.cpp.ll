@@ -805,7 +805,7 @@ _ZN6cvtest2TS7get_rngEv.exit.preheader:           ; preds = %29
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %47
-  %59 = sub nsw i64 %.sroa.speculated, %56
+  %59 = sub nuw nsw i64 %.sroa.speculated, %56
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %49, i64 noundef %59)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1137,7 +1137,7 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   br i1 %230, label %231, label %233
 
 231:                                              ; preds = %._crit_edge197
-  %232 = sub nsw i64 %222, %229
+  %232 = sub nuw nsw i64 %222, %229
   invoke void @_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %216, i64 noundef %232)
           to label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1218,7 +1218,7 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %231, %233, %
   br i1 %262, label %263, label %265
 
 263:                                              ; preds = %.lr.ph202
-  %264 = sub nsw i64 %252, %261
+  %264 = sub nuw nsw i64 %252, %261
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %254, i64 noundef %264)
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -1437,7 +1437,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv5Size_IiEESaIS2_EE6resizeEm(pt
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %2
-  %12 = sub i64 %1, %9
+  %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64

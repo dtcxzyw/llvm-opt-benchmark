@@ -241,7 +241,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !52
   %9 = icmp eq i32 %bcmp.i, 0
@@ -921,7 +921,7 @@ _ZN3std4path4Path4join17h84cb66cb90994f4fE.exit:  ; preds = %108
   %180 = load i64, ptr %53, align 8, !alias.scope !180, !noalias !178, !noundef !9
   %.not.i.i = icmp ult i64 %179, %180
   %181 = select i1 %.not.i.i, i64 0, i64 %180
-  %.0.i.i = sub i64 %179, %181
+  %.0.i.i = sub nuw i64 %179, %181
   store i64 %.0.i.i, ptr %143, align 8, !alias.scope !176, !noalias !178
   %182 = add i64 %177, -1
   store i64 %182, ptr %144, align 8, !alias.scope !176, !noalias !178

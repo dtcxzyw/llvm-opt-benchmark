@@ -1298,7 +1298,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit
   br i1 %97, label %98, label %128
 
 98:                                               ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit._crit_edge
-  %99 = sub nsw i64 %96, %74
+  %99 = sub nuw nsw i64 %96, %74
   %100 = ptrtoint ptr %.sroa.59.3 to i64
   %101 = sub i64 %100, %71
   %102 = ashr exact i64 %101, 2
@@ -2905,7 +2905,7 @@ define void @_ZN5ezSAT6assumeEi(ptr noundef nonnull align 8 dereferenceable(284)
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %14
-  %33 = sub nsw i64 %23, %30
+  %33 = sub nuw nsw i64 %23, %30
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %33)
   %.pre = load ptr, ptr %15, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -3522,7 +3522,7 @@ define noundef i32 @_ZN5ezSAT4bindEib(ptr noundef nonnull align 8 dereferenceabl
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %65
-  %84 = sub nsw i64 %74, %81
+  %84 = sub nuw nsw i64 %74, %81
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %66, i64 noundef %84)
   %.pre336 = load ptr, ptr %66, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -3704,7 +3704,7 @@ _ZN5ezSAT10add_clauseEiii.exit75:                 ; preds = %139, %141
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %142
-  %161 = sub nsw i64 %151, %158
+  %161 = sub nuw nsw i64 %151, %158
   tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %143, i64 noundef %161)
   %.pre = load ptr, ptr %143, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit77
@@ -12027,7 +12027,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit106:                 ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %290, label %291, label %293
 
 291:                                              ; preds = %._crit_edge178
-  %292 = sub nsw i64 %284, %289
+  %292 = sub nuw nsw i64 %284, %289
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %292)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %243
 
@@ -12407,7 +12407,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit48:                  ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %._crit_edge
-  %127 = sub nsw i64 %119, %124
+  %127 = sub nuw nsw i64 %119, %124
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %127)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %108
 
@@ -19728,7 +19728,7 @@ _ZSt13move_backwardIPSt6vectorIiSaIiEES3_ET0_T_S5_S4_.exit: ; preds = %_ZNSt6vec
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %17
   %58 = getelementptr inbounds i8, ptr %2, i64 %19
   %59 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEES5_ET0_T_SA_S9_(ptr %58, ptr %3, ptr noundef %13)
-  %60 = sub nsw i64 %9, %20
+  %60 = sub nuw nsw i64 %9, %20
   %61 = load ptr, ptr %12, align 8
   %62 = getelementptr inbounds %"class.std::vector.16", ptr %61, i64 %60
   store ptr %62, ptr %12, align 8
@@ -20190,7 +20190,7 @@ _ZSt13move_backwardIPSt6vectorIiSaIiEES3_ET0_T_S5_S4_.exit: ; preds = %_ZNSt6vec
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIiSaIiEES2_IS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %17
   %58 = getelementptr inbounds i8, ptr %2, i64 %19
   %59 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIiSaIiEES2_IS4_SaIS4_EEEEPS4_ET0_T_SC_SB_(ptr %58, ptr %3, ptr noundef %13)
-  %60 = sub nsw i64 %9, %20
+  %60 = sub nuw nsw i64 %9, %20
   %61 = load ptr, ptr %12, align 8
   %62 = getelementptr inbounds %"class.std::vector.16", ptr %61, i64 %60
   store ptr %62, ptr %12, align 8

@@ -1070,7 +1070,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6casadi10PolynomialpL
   br i1 %18, label %19, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 19:                                               ; preds = %2
-  %20 = sub nsw i64 %17, %10
+  %20 = sub nuw nsw i64 %17, %10
   call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %5, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.pre = load ptr, ptr %1, align 8
   %.pre13 = load ptr, ptr %11, align 8
@@ -1129,7 +1129,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EE
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %.critedge.i
-  %42 = sub i64 %.0.lcssa.i, %34
+  %42 = sub nuw i64 %.0.lcssa.i, %34
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %42)
   br label %_ZN6casadi10Polynomial4trimEv.exit
 
@@ -1181,7 +1181,7 @@ define void @_ZN6casadi10Polynomial4trimEv(ptr noundef nonnull align 8 dereferen
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %.critedge
-  %16 = sub i64 %.0.lcssa, %8
+  %16 = sub nuw i64 %.0.lcssa, %8
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %16)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
@@ -1346,7 +1346,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6casadi10PolynomialmI
   br i1 %18, label %19, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 19:                                               ; preds = %2
-  %20 = sub nsw i64 %17, %10
+  %20 = sub nuw nsw i64 %17, %10
   call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %5, i64 noundef %20, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.pre = load ptr, ptr %0, align 8
   %.pre13 = load ptr, ptr %11, align 8
@@ -1410,7 +1410,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS1_IPKdS5_EE
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %.critedge.i
-  %43 = sub i64 %.0.lcssa.i, %35
+  %43 = sub nuw i64 %.0.lcssa.i, %35
   call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %43)
   br label %_ZN6casadi10Polynomial4trimEv.exit
 
@@ -2133,7 +2133,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds double, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 

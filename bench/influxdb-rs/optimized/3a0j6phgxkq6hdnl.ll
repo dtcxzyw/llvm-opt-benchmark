@@ -3175,7 +3175,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit8.i: ; preds = %239, %"_
 _ZN3csv11byte_record6Bounds6expand17h52ac7e725671a19eE.exit.i.i: ; preds = %256
   %258 = shl nuw i64 %255, 1
   %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umax.i64(i64 %258, i64 4)
-  %259 = sub i64 %.0.sroa.speculated.i.i.i.i, %255
+  %259 = sub nuw i64 %.0.sroa.speculated.i.i.i.i, %255
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4b71390bd1d426e0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %231, i64 noundef %259, i64 noundef 0)
           to label %.noexc155 unwind label %.loopexit.split-lp.loopexit
 
@@ -3205,7 +3205,7 @@ _ZN3csv11byte_record6Bounds6expand17h52ac7e725671a19eE.exit.i.i: ; preds = %256
 _ZN3csv11byte_record10ByteRecord13expand_fields17h5a8b01154a42d1a0E.exit.i: ; preds = %264
   %267 = shl nuw i64 %265, 1
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umax.i64(i64 %267, i64 4)
-  %268 = sub i64 %.0.sroa.speculated.i.i.i, %265
+  %268 = sub nuw i64 %.0.sroa.speculated.i.i.i, %265
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hd6c2fd0504990355E.llvm.14496618814205752201"(ptr noalias noundef nonnull align 8 dereferenceable(24) %247, i64 noundef %268, i8 noundef 0)
           to label %.noexc158 unwind label %.loopexit
 

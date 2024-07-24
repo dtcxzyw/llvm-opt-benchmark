@@ -837,7 +837,7 @@ define internal noundef range(i32 0, 2) i32 @do_header() #1 section ".init.text"
   store ptr %48, ptr @victim, align 8
   %49 = add i64 %43, %17
   store i64 %49, ptr @this_header, align 8
-  %50 = sub i64 %44, %43
+  %50 = sub nuw i64 %44, %43
   store i64 %50, ptr @byte_count, align 8
   br label %53
 

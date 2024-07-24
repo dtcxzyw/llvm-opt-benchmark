@@ -1099,7 +1099,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2E
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %._crit_edge240
-  %152 = sub i64 %.pre278, %149
+  %152 = sub nuw i64 %.pre278, %149
   invoke void @_ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %152)
           to label %_ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1490,7 +1490,7 @@ _ZNSt8_Rb_treeIN10SubCircuit5Graph6BitRefES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_
   br i1 %318, label %319, label %321
 
 319:                                              ; preds = %._crit_edge249
-  %320 = sub i64 %310, %317
+  %320 = sub nuw i64 %310, %317
   invoke void @_ZNSt6vectorIN10SubCircuit5Graph4NodeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %320)
           to label %_ZNSt6vectorIN10SubCircuit5Graph4NodeESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4092,7 +4092,7 @@ define linkonce_odr void @_ZN10SubCircuit12SolverWorker5solveERSt6vectorINS_6Sol
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 121:                                              ; preds = %92
-  %122 = sub i64 %101, %112
+  %122 = sub nuw i64 %101, %112
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %93, ptr %103, i32 %105, i64 noundef %122, i1 noundef zeroext false)
           to label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -6701,7 +6701,7 @@ _ZNSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE5clearEv.exit: ; preds 
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %_ZNSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE5clearEv.exit
-  %42 = sub nsw i64 %35, %39
+  %42 = sub nuw nsw i64 %35, %39
   invoke void @_ZNSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %42)
           to label %_ZNSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -14689,7 +14689,7 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE5clearEv.exit: ; preds = %._crit_ed
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE5clearEv.exit
-  %91 = sub nsw i64 %84, %88
+  %91 = sub nuw nsw i64 %84, %88
   invoke void @_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %91)
           to label %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE6resizeEm.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -32844,7 +32844,7 @@ define linkonce_odr void @_ZN10SubCircuit12SolverWorker14solveForMiningERSt6vect
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
 
 48:                                               ; preds = %19
-  %49 = sub i64 %28, %39
+  %49 = sub nuw i64 %28, %39
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr %30, i32 %32, i64 noundef %49, i1 noundef zeroext false)
           to label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit unwind label %66
 
@@ -36374,7 +36374,7 @@ _ZSt13move_backwardIPN10SubCircuit5Graph7PortBitES3_ET0_T_S5_S4_.exit: ; preds =
   br i1 %.not.i.i.i, label %_ZSt4fillIPN10SubCircuit5Graph7PortBitES2_EvT_S4_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !283
 
 35:                                               ; preds = %14
-  %36 = sub i64 %2, %18
+  %36 = sub nuw i64 %2, %18
   %.not7.i.i.i.i = icmp eq i64 %36, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 

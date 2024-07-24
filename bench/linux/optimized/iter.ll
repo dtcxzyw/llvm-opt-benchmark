@@ -187,7 +187,7 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
 105:                                              ; preds = %95
   %106 = add i64 %100, %76
   store i64 %106, ptr %99, align 8
-  %107 = sub i64 %98, %76
+  %107 = sub nuw i64 %98, %76
   store i64 %107, ptr %97, align 8
   %108 = icmp eq i64 %98, %76
   br i1 %108, label %.thread, label %.thread10

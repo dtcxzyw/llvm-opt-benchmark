@@ -195,7 +195,7 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i
   br i1 %cmp.not.i.i, label %return, label %_ZNK6google8protobuf8internal11AnyMetadata10InternalIsESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZNK6google8protobuf8internal11AnyMetadata10InternalIsESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %lor.rhs.i.i
-  %sub.i.i = sub i64 %4, %type_name.coerce0
+  %sub.i.i = sub nuw i64 %4, %type_name.coerce0
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %5, i64 %sub.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %add.ptr.i1.i, ptr readonly %type_name.coerce1, i64 %type_name.coerce0)
   %cmp9.i.i = icmp eq i32 %bcmp.i.i, 0
@@ -251,7 +251,7 @@ lor.rhs.i:                                        ; preds = %land.rhs
   br i1 %cmp.not.i, label %land.end, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %sub.i = sub i64 %4, %type_name.coerce0
+  %sub.i = sub nuw i64 %4, %type_name.coerce0
   %add.ptr.i1 = getelementptr inbounds i8, ptr %5, i64 %sub.i
   %bcmp.i = tail call i32 @bcmp(ptr %add.ptr.i1, ptr %type_name.coerce1, i64 %type_name.coerce0)
   %cmp9.i = icmp eq i32 %bcmp.i, 0
@@ -325,7 +325,7 @@ lpad:                                             ; preds = %if.then3
   br label %eh.resume
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end, %invoke.cont
-  %sub.i = sub i64 %type_url.coerce0, %__size.1.i.i
+  %sub.i = sub nuw i64 %type_url.coerce0, %__size.1.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %type_url.coerce1, i64 %__size.1.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i12)

@@ -3748,7 +3748,7 @@ while.end:                                        ; preds = %land.rhs.2, %land.r
 
 for.body20.lr.ph:                                 ; preds = %while.end
   %children = getelementptr inbounds i8, ptr %add.ptr9.i.i.i, i64 8
-  %17 = sub nsw i64 %conv, %child_pos.0.lcssa
+  %17 = sub nuw nsw i64 %conv, %child_pos.0.lcssa
   %xtraiter = and i64 %17, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   %.pre = add nsw i64 %conv, -1
@@ -3938,7 +3938,7 @@ while.end:                                        ; preds = %land.rhs, %while.co
 
 for.body20.lr.ph:                                 ; preds = %while.end
   %children = getelementptr inbounds i8, ptr %add.ptr9.i.i.i, i64 24
-  %15 = sub nsw i64 %conv, %child_pos.0.lcssa
+  %15 = sub nuw nsw i64 %conv, %child_pos.0.lcssa
   %xtraiter = and i64 %15, 1
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   %.pre = add nsw i64 %conv, -1
@@ -35727,7 +35727,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !263
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64

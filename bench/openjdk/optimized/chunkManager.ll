@@ -836,12 +836,12 @@ define internal fastcc void @_ZN9metaspaceL21print_word_size_deltaEP12outputStre
 
 6:                                                ; preds = %5
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.24) #10
-  %7 = sub i64 %1, %2
+  %7 = sub nuw i64 %1, %2
   br label %10
 
 8:                                                ; preds = %5
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25) #10
-  %9 = sub i64 %2, %1
+  %9 = sub nuw i64 %2, %1
   br label %10
 
 10:                                               ; preds = %8, %6

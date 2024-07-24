@@ -420,7 +420,7 @@ define void @_ZN3gmx8internal27BasicAverageHistogramModule11dataStartedEPNS_20Ab
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %2
-  %16 = sub nsw i64 %6, %13
+  %16 = sub nuw nsw i64 %6, %13
   tail call void @_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %16)
   br label %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit
 
@@ -930,7 +930,7 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit: ; preds = %22, %40, %53
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %72
-  %84 = sub nsw i64 %74, %81
+  %84 = sub nuw nsw i64 %74, %81
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %63, i64 noundef %84)
   br label %_ZN3gmx26AnalysisDataFrameLocalDataIlE15setDataSetCountEi.exit
 
@@ -1587,7 +1587,7 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit: ; preds = %22, %40, %53
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %72
-  %84 = sub nsw i64 %74, %81
+  %84 = sub nuw nsw i64 %74, %81
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %63, i64 noundef %84)
   br label %_ZN3gmx26AnalysisDataFrameLocalDataIdE15setDataSetCountEi.exit
 
@@ -2140,7 +2140,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule11dataStartedEPNS_20AbstractAn
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %2
-  %18 = sub nsw i64 %8, %15
+  %18 = sub nuw nsw i64 %8, %15
   tail call void @_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %18)
   br label %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit
 
@@ -4696,7 +4696,7 @@ _ZSt11partial_sumIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %_ZSt11partial_sumIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
-  %31 = sub nsw i64 %24, %28
+  %31 = sub nuw nsw i64 %24, %28
   tail call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %31)
   %.pre14 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
@@ -4752,7 +4752,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %30, %32, %34, %_ZSt
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %.lr.ph
-  %54 = sub nsw i64 %44, %51
+  %54 = sub nuw nsw i64 %44, %51
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07.012, i64 noundef %54)
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
@@ -5431,7 +5431,7 @@ _ZSt11partial_sumIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %_ZSt11partial_sumIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
-  %31 = sub nsw i64 %24, %28
+  %31 = sub nuw nsw i64 %24, %28
   tail call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %31)
   %.pre14 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
@@ -5487,7 +5487,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %30, %32, %34, %_ZSt
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %.lr.ph
-  %54 = sub nsw i64 %44, %51
+  %54 = sub nuw nsw i64 %44, %51
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07.012, i64 noundef %54)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 

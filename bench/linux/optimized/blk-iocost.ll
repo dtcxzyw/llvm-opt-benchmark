@@ -6531,7 +6531,7 @@ define internal fastcc void @ioc_refresh_params_disk(ptr noundef %0, i1 noundef 
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %158
-  %163 = sub i64 %160, %156
+  %163 = sub nuw i64 %160, %156
   store i64 %163, ptr %143, align 8
   br label %164
 
@@ -6546,7 +6546,7 @@ define internal fastcc void @ioc_refresh_params_disk(ptr noundef %0, i1 noundef 
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %166
-  %171 = sub i64 %168, %156
+  %171 = sub nuw i64 %168, %156
   store i64 %171, ptr %144, align 8
   br label %172
 
@@ -6592,7 +6592,7 @@ define internal fastcc void @ioc_refresh_params_disk(ptr noundef %0, i1 noundef 
   br i1 %198, label %199, label %201
 
 199:                                              ; preds = %195
-  %200 = sub i64 %197, %193
+  %200 = sub nuw i64 %197, %193
   store i64 %200, ptr %180, align 8
   br label %201
 
@@ -6607,7 +6607,7 @@ define internal fastcc void @ioc_refresh_params_disk(ptr noundef %0, i1 noundef 
   br i1 %206, label %207, label %209
 
 207:                                              ; preds = %203
-  %208 = sub i64 %205, %193
+  %208 = sub nuw i64 %205, %193
   store i64 %208, ptr %181, align 8
   br label %209
 
@@ -8201,7 +8201,7 @@ define internal void @ioc_rqos_done(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %46, label %47, label %55
 
 47:                                               ; preds = %40
-  %48 = sub i64 %24, %41
+  %48 = sub nuw i64 %24, %41
   %49 = getelementptr inbounds i8, ptr %0, i64 48
   %50 = getelementptr [6 x i32], ptr %49, i64 0, i64 %20
   %51 = load i32, ptr %50, align 4

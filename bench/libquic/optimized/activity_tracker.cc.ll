@@ -564,7 +564,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN4base
   br i1 %cmp.i30, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
-  %sub.i = sub nsw i64 %conv10, %sub.ptr.div.i.i29
+  %sub.i = sub nuw nsw i64 %conv10, %sub.ptr.div.i.i29
   call void @_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %activity_stack, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE6resizeEm.exit
 

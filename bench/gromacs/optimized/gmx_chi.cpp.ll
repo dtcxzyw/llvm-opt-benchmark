@@ -1309,7 +1309,7 @@ _ZL13gmx_snew_implI9t_pdbinfoEvPKcS2_iRPT_m.exit: ; preds = %314
   br i1 %466, label %467, label %485
 
 467:                                              ; preds = %.split.us.i
-  %468 = sub nsw i64 %464, %465
+  %468 = sub nuw nsw i64 %464, %465
   %469 = icmp ult i64 %465, 2305843009213693952
   call void @llvm.assume(i1 %469)
   %470 = xor i64 %465, 2305843009213693951

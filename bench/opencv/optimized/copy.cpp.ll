@@ -2399,7 +2399,7 @@ _ZN2cvL16can_apply_memsetERKNS_3MatERKNS_7Scalar_IdEERi.exit.thread: ; preds = %
 
 .lr.ph:                                           ; preds = %85, %103
   %.03366 = phi i64 [ %106, %103 ], [ 0, %85 ]
-  %92 = sub i64 %27, %.03366
+  %92 = sub nuw i64 %27, %.03366
   %93 = call i64 @llvm.umin.i64(i64 %91, i64 %92)
   %94 = icmp ult i64 %93, 97
   br i1 %94, label %103, label %95

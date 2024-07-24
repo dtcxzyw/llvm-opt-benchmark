@@ -864,7 +864,7 @@ define internal fastcc i64 @__e820__range_update(ptr nocapture noundef %0, i64 n
 
 39:                                               ; preds = %37
   tail call fastcc void @__e820__range_add(ptr noundef %0, i64 noundef %1, i64 noundef %10, i32 noundef %4) #15
-  %40 = sub i64 %31, %11
+  %40 = sub nuw i64 %31, %11
   %41 = load i32, ptr %24, align 1
   tail call fastcc void @__e820__range_add(ptr noundef %0, i64 noundef %11, i64 noundef %40, i32 noundef %41) #15
   %42 = load i64, ptr %23, align 1
@@ -880,7 +880,7 @@ define internal fastcc i64 @__e820__range_update(ptr nocapture noundef %0, i64 n
   br i1 %48, label %49, label %57
 
 49:                                               ; preds = %45
-  %50 = sub i64 %47, %46
+  %50 = sub nuw i64 %47, %46
   tail call fastcc void @__e820__range_add(ptr noundef %0, i64 noundef %46, i64 noundef %50, i32 noundef %4) #15
   %51 = add i64 %50, %22
   %52 = load i64, ptr %29, align 1
@@ -962,7 +962,7 @@ define dso_local i64 @e820__range_remove(i64 noundef %0, i64 noundef %1, i32 nou
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %36
-  %39 = sub i64 %30, %7
+  %39 = sub nuw i64 %30, %7
   %40 = getelementptr inbounds i8, ptr %21, i64 16
   %41 = load i32, ptr %40, align 1
   tail call fastcc void @__e820__range_add(ptr noundef %16, i64 noundef %7, i64 noundef %39, i32 noundef %41) #15
@@ -979,7 +979,7 @@ define dso_local i64 @e820__range_remove(i64 noundef %0, i64 noundef %1, i32 nou
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %45
-  %50 = sub i64 %47, %46
+  %50 = sub nuw i64 %47, %46
   %51 = add i64 %50, %18
   %52 = sub i64 %29, %50
   store i64 %52, ptr %28, align 1
@@ -1084,7 +1084,7 @@ define internal fastcc range(i32 0, 2) i32 @e820_search_gap(ptr nocapture nounde
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %9
-  %22 = sub nsw i64 %13, %19
+  %22 = sub nuw nsw i64 %13, %19
   %23 = load i64, ptr %1, align 8
   %24 = icmp ult i64 %22, %23
   br i1 %24, label %26, label %25

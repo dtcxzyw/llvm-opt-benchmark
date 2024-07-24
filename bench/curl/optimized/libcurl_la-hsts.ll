@@ -381,7 +381,7 @@ if.then20.us:                                     ; preds = %if.end15.us
   br i1 %cmp22.us, label %if.then24.us, label %if.end39.us
 
 if.then24.us:                                     ; preds = %if.then20.us
-  %sub25.us = sub nsw i64 %spec.select, %call21.us
+  %sub25.us = sub nuw nsw i64 %spec.select, %call21.us
   %12 = getelementptr i8, ptr %buffer, i64 %sub25.us
   %arrayidx27.us = getelementptr i8, ptr %12, i64 -1
   %13 = load i8, ptr %arrayidx27.us, align 1

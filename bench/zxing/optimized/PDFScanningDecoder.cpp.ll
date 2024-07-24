@@ -3548,7 +3548,7 @@ _ZNSt6vectorIS_IN5ZXing6Pdf41712BarcodeValueESaIS2_EESaIS4_EE17_S_check_init_len
   br i1 %371, label %372, label %374
 
 372:                                              ; preds = %.lr.ph.i.i
-  %373 = sub nsw i64 %363, %370
+  %373 = sub nuw nsw i64 %363, %370
   invoke void @_ZNSt6vectorIN5ZXing6Pdf41712BarcodeValueESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.036.047.i.i, i64 noundef %373)
           to label %_ZNSt6vectorIN5ZXing6Pdf41712BarcodeValueESaIS2_EE6resizeEm.exit.i.i unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !26
 

@@ -53,7 +53,7 @@ define dso_local void @MD5Update(ptr nocapture noundef %0, ptr nocapture noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %26, i1 false)
   tail call void @MD5Transform(ptr noundef nonnull %0, ptr noundef nonnull %18)
   %27 = getelementptr inbounds i8, ptr %1, i64 %26
-  %28 = sub i32 %2, %21
+  %28 = sub nuw i32 %2, %21
   br label %29
 
 29:                                               ; preds = %25, %._crit_edge46

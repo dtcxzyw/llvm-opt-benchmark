@@ -758,7 +758,7 @@ define dso_local noundef zeroext i1 @_ZNK12CVQualifiers13stricter_thanERKS_(ptr 
 
 .lr.ph:                                           ; preds = %.preheader, %78
   %.02957 = phi i64 [ %79, %78 ], [ 0, %.preheader ]
-  %52 = sub i64 %15, %.02957
+  %52 = sub nuw i64 %15, %.02957
   %53 = icmp ugt i64 %52, 2
   %54 = sdiv i64 %.02957, 64
   br i1 %53, label %55, label %.lr.ph._crit_edge
@@ -832,7 +832,7 @@ define dso_local noundef zeroext i1 @_ZNK12CVQualifiers13stricter_thanERKS_(ptr 
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %115
   %.158 = phi i64 [ %116, %115 ], [ 0, %.lr.ph60.preheader ]
-  %89 = sub i64 %15, %.158
+  %89 = sub nuw i64 %15, %.158
   %90 = icmp ugt i64 %89, 2
   %91 = sdiv i64 %.158, 64
   br i1 %90, label %92, label %.lr.ph60._crit_edge
@@ -2768,7 +2768,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %22, %23
   %38 = load i64, ptr %storemerge.i.i.i.i.i, align 8
   %39 = and i64 %38, %37
   %40 = icmp ne i64 %39, 0
-  %41 = sub i64 %19, %.037
+  %41 = sub nuw i64 %19, %.037
   %42 = icmp ult i64 %41, 3
   %or.cond.not = and i1 %42, %40
   br i1 %or.cond.not, label %60, label %43
@@ -2982,7 +2982,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %24, %26
   %42 = load i64, ptr %storemerge.i.i.i.i.i, align 8
   %43 = and i64 %42, %41
   %44 = icmp ne i64 %43, 0
-  %45 = sub i64 %19, %.045
+  %45 = sub nuw i64 %19, %.045
   %46 = icmp ugt i64 %45, 2
   %or.cond = or i1 %46, %44
   br i1 %or.cond, label %47, label %67

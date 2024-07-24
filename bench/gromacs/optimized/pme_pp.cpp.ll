@@ -394,7 +394,7 @@ define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_co
 
 232:                                              ; preds = %217
   %233 = getelementptr inbounds i8, ptr %220, i64 352
-  %234 = sub nsw i64 %222, %230
+  %234 = sub nuw nsw i64 %222, %230
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %233, i64 noundef %234)
   %.pre11 = load i32, ptr %17, align 4
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit
@@ -835,7 +835,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %16
   br i1 %.not.i, label %65, label %63
 
 63:                                               ; preds = %53
-  %64 = sub i64 %60, %62
+  %64 = sub nuw i64 %60, %62
   br label %67
 
 65:                                               ; preds = %53
@@ -974,7 +974,7 @@ define void @_Z17gmx_pme_receive_fPN3gmx12PmePpCommGpuEPK9t_commrecPNS_15ForceWi
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %10
-  %31 = sub nsw i64 %20, %28
+  %31 = sub nuw nsw i64 %20, %28
   tail call void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %31)
   %.pre = load ptr, ptr %21, align 8
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit

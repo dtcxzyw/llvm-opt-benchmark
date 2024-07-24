@@ -11104,7 +11104,7 @@ if.end17:                                         ; preds = %lor.lhs.false
   br i1 %cmp22, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.end17
-  %retval.sroa.0.0.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %2)
+  %retval.sroa.0.0.i = sub nuw i64 %3, %2
   %div = udiv i64 %retval.sroa.0.0.i, 1000
   store i64 %div, ptr %rtt, align 8
   br label %return
@@ -15599,7 +15599,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2) %cipher, ptr noundef nonnull align 1 dereferenceable(2) %1, i64 %cond, i1 false)
   %add.ptr.i.i.us = getelementptr inbounds i8, ptr %1, i64 %cond
   store ptr %add.ptr.i.i.us, ptr %cipher_suites, align 8
-  %sub.i.i.us = sub i64 %pkt.val.i.i38.us, %cond
+  %sub.i.i.us = sub nuw i64 %pkt.val.i.i38.us, %cond
   store i64 %sub.i.i.us, ptr %0, align 8
   %call38.us = call ptr @ssl_get_cipher_by_char(ptr noundef %s, ptr noundef nonnull %cond37, i32 noundef 1) #24
   %cmp39.not.us = icmp eq ptr %call38.us, null
@@ -15651,7 +15651,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2) %cipher, ptr noundef nonnull align 1 dereferenceable(2) %3, i64 %cond, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %cond
   store ptr %add.ptr.i.i, ptr %cipher_suites, align 8
-  %sub.i.i = sub i64 %pkt.val.i.i38, %cond
+  %sub.i.i = sub nuw i64 %pkt.val.i.i38, %cond
   store i64 %sub.i.i, ptr %0, align 8
   %4 = load i8, ptr %cipher, align 1
   %cmp30.not = icmp eq i8 %4, 0
@@ -17905,9 +17905,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #20
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

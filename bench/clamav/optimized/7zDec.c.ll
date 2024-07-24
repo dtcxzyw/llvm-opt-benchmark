@@ -388,7 +388,7 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
   br i1 %.not150213.i, label %SzFolder_Decode2.exit, label %.lr.ph.preheader.i.i
 
 .thread307.i:                                     ; preds = %204
-  %210 = sub i64 %5, %193
+  %210 = sub nuw i64 %5, %193
   %211 = getelementptr inbounds i8, ptr %4, i64 %210
   br i1 %.not150213.i, label %SzFolder_Decode2.exit, label %GetSum.exit.i
 

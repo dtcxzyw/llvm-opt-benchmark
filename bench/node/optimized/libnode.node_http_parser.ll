@@ -4173,12 +4173,12 @@ if.else:                                          ; preds = %_ZNK2v820FunctionCa
   %cmp89.not = icmp ne i64 %spec.select77, 0
   %cmp91 = icmp ugt i64 %call88, %spec.select77
   %or.cond47 = select i1 %cmp89.not, i1 %cmp91, i1 false
-  %sub = sub i64 %call88, %spec.select77
+  %sub = sub nuw i64 %call88, %spec.select77
   %cond = select i1 %or.cond47, i64 %sub, i64 0
   %cmp92.not = icmp ne i64 %spec.select, 0
   %cmp94 = icmp ugt i64 %call88, %spec.select
   %or.cond48 = select i1 %cmp92.not, i1 %cmp94, i1 false
-  %sub96 = sub i64 %call88, %spec.select
+  %sub96 = sub nuw i64 %call88, %spec.select
   %cond99 = select i1 %or.cond48, i64 %sub96, i64 0
   %cmp100 = icmp eq i64 %cond, 0
   %cmp102 = icmp eq i64 %cond99, 0
@@ -5556,7 +5556,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64

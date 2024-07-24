@@ -4726,11 +4726,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT17CaretValueFormat38saniti
   br i1 %56, label %_ZNK2OT13HintingDevice8get_sizeEv.exit.i.i.i.i, label %57
 
 57:                                               ; preds = %40
-  %58 = sub nsw i32 %55, %47
+  %58 = sub nuw nsw i32 %55, %47
   %59 = sub nuw nsw i32 4, %37
   %60 = lshr i32 %58, %59
-  %61 = shl nuw i32 %60, 1
-  %62 = add i32 %61, 8
+  %61 = shl nuw nsw i32 %60, 1
+  %62 = add nuw nsw i32 %61, 8
   br label %_ZNK2OT13HintingDevice8get_sizeEv.exit.i.i.i.i
 
 _ZNK2OT13HintingDevice8get_sizeEv.exit.i.i.i.i:   ; preds = %57, %40, %38
@@ -5540,7 +5540,7 @@ _ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4E
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i
-  %25 = sub i32 %5, %22
+  %25 = sub nuw i32 %5, %22
   %26 = mul i32 %25, 24
   %.not.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i, label %34, label %27

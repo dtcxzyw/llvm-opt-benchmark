@@ -3640,11 +3640,11 @@ default.unreachable:                              ; preds = %.thread308.i
   unreachable
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hea0a4af5c6c44349E.exit.i.i": ; preds = %319
-  %329 = sub i64 %321, %.0127267.i
+  %329 = sub nuw i64 %321, %.0127267.i
   br label %_ZN9uu_expand12next_tabstop17h98e46899a1efeb36E.exit.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h030f7728250fd8ebE.exit.i.i": ; preds = %303
-  %330 = sub i64 %305, %.0127267.i
+  %330 = sub nuw i64 %305, %.0127267.i
   br label %_ZN9uu_expand12next_tabstop17h98e46899a1efeb36E.exit.i
 
 331:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h663356fd3417492cE.exit.i.i"
@@ -3658,7 +3658,7 @@ default.unreachable:                              ; preds = %.thread308.i
   br label %_ZN9uu_expand12next_tabstop17h98e46899a1efeb36E.exit.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hc5e48b5117591ef0E.exit.i.i": ; preds = %310
-  %337 = sub i64 %312, %.0127267.i
+  %337 = sub nuw i64 %312, %.0127267.i
   br label %_ZN9uu_expand12next_tabstop17h98e46899a1efeb36E.exit.i
 
 338:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h663356fd3417492cE.exit28.i.i"

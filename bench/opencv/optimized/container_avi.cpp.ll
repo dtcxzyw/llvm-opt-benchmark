@@ -2159,7 +2159,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -2394,7 +2394,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -3013,7 +3013,7 @@ define hidden void @_ZN2cv9BitStream8patchIntEjm(ptr noundef nonnull align 8 der
   br i1 %.not, label %56, label %13
 
 13:                                               ; preds = %3
-  %14 = sub i64 %2, %12
+  %14 = sub nuw i64 %2, %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %15 = uitofp i64 %14 to double
@@ -7223,7 +7223,7 @@ _ZNK2cv9BitStream6getPosEv.exit:                  ; preds = %15
   br label %common.resume
 
 54:                                               ; preds = %43
-  %55 = sub i64 %44, %46
+  %55 = sub nuw i64 %44, %46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %56 = icmp ugt i64 %55, 4294967295

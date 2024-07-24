@@ -699,7 +699,7 @@ land.rhs:                                         ; preds = %entry
 if.end.i.i:                                       ; preds = %land.rhs
   %2 = load ptr, ptr %x, align 8
   %3 = load ptr, ptr %this, align 8
-  %sub = sub i64 %0, %1
+  %sub = sub nuw i64 %0, %1
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %sub
   %bcmp = tail call i32 @bcmp(ptr %add.ptr, ptr %2, i64 %1)
   %4 = icmp eq i32 %bcmp, 0
@@ -789,7 +789,7 @@ if.end.i.i:                                       ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %pos
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %0
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
-  %gepdiff.i.i = sub nsw i64 %0, %pos
+  %gepdiff.i.i = sub nuw nsw i64 %0, %pos
   %shr.i.i.i.i.i = ashr i64 %gepdiff.i.i, 2
   %cmp48.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i, 0
   br i1 %cmp48.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %for.end.i.i.i.i.i
@@ -906,7 +906,7 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %pos
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %0
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %gepdiff.i = sub nsw i64 %0, %pos
+  %gepdiff.i = sub nuw nsw i64 %0, %pos
   %shr.i.i.i.i = ashr i64 %gepdiff.i, 2
   %cmp48.i.i.i.i = icmp sgt i64 %shr.i.i.i.i, 0
   br i1 %cmp48.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %for.end.i.i.i.i
@@ -1265,7 +1265,7 @@ if.end.i.i:                                       ; preds = %if.then5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %pos
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %0
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
-  %gepdiff.i.i = sub nsw i64 %0, %pos
+  %gepdiff.i.i = sub nuw nsw i64 %0, %pos
   %shr.i.i.i.i.i = ashr i64 %gepdiff.i.i, 2
   %cmp48.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i, 0
   br i1 %cmp48.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %for.end.i.i.i.i.i
@@ -1421,7 +1421,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %pos
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %0
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %gepdiff.i.i.i = sub nsw i64 %0, %pos
+  %gepdiff.i.i.i = sub nuw nsw i64 %0, %pos
   %shr.i.i.i.i.i.i = ashr i64 %gepdiff.i.i.i, 2
   %cmp48.i.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i.i, 0
   br i1 %cmp48.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i
@@ -2690,7 +2690,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %sub = sub i64 %0, %1
+  %sub = sub nuw i64 %0, %1
   %add.ptr = getelementptr inbounds i16, ptr %2, i64 %sub
   %3 = load ptr, ptr %x, align 8
   %call.i.i = tail call noundef i32 @_ZN4base9c16memcmpEPKtS1_m(ptr noundef %add.ptr, ptr noundef %3, i64 noundef %1)

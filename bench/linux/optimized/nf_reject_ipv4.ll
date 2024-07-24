@@ -95,7 +95,7 @@ define dso_local ptr @nf_reject_skb_v4_tcp_reset(ptr noundef %0, ptr noundef %1,
   br i1 %45, label %nf_reject_iphdr_validate.exit, label %nf_reject_iphdr_validate.exit.thread2, !prof !5
 
 nf_reject_iphdr_validate.exit:                    ; preds = %42
-  %46 = sub nsw i32 %40, %44
+  %46 = sub nuw nsw i32 %40, %44
   %47 = tail call ptr @__pskb_pull_tail(ptr noundef %1, i32 noundef %46) #6
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %nf_reject_iphdr_validate.exit.thread, label %nf_reject_iphdr_validate.exit.thread2
@@ -481,7 +481,7 @@ define dso_local ptr @nf_reject_skb_v4_unreach(ptr noundef %0, ptr noundef %1, p
   br i1 %46, label %nf_reject_iphdr_validate.exit, label %nf_reject_iphdr_validate.exit.thread5, !prof !5
 
 nf_reject_iphdr_validate.exit:                    ; preds = %43
-  %47 = sub nsw i32 %41, %45
+  %47 = sub nuw nsw i32 %41, %45
   %48 = tail call ptr @__pskb_pull_tail(ptr noundef %1, i32 noundef %47) #6
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %nf_reject_iphdr_validate.exit.thread, label %nf_reject_iphdr_validate.exit.nf_reject_iphdr_validate.exit.thread5_crit_edge
@@ -511,7 +511,7 @@ nf_reject_iphdr_validate.exit.thread5:            ; preds = %nf_reject_iphdr_val
   br i1 %60, label %61, label %65, !prof !5
 
 61:                                               ; preds = %55
-  %62 = sub nsw i32 %57, %59
+  %62 = sub nuw nsw i32 %57, %59
   %63 = tail call ptr @__pskb_pull_tail(ptr noundef %1, i32 noundef %62) #6
   %64 = icmp eq ptr %63, null
   br i1 %64, label %nf_reject_iphdr_validate.exit.thread, label %._crit_edge

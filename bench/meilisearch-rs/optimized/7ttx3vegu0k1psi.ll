@@ -3618,7 +3618,7 @@ define hidden void @_ZN16meilisearch_auth5store12try_split_at17hd9f1ebdd67650497
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 %3
-  %8 = sub i64 %2, %3
+  %8 = sub nuw i64 %2, %3
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16

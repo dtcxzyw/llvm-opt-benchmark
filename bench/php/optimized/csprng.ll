@@ -29,7 +29,7 @@ define range(i32 -1, 1) i32 @php_random_bytes(ptr noundef %0, i64 noundef %1, i1
 
 .lr.ph.split.us:                                  ; preds = %.outer, %.lr.ph.lr.ph
   %.032.ph66 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %15, %.outer ]
-  %6 = sub i64 %1, %.032.ph66
+  %6 = sub nuw i64 %1, %.032.ph66
   %7 = getelementptr inbounds i8, ptr %0, i64 %.032.ph66
   store i32 0, ptr %5, align 4
   %8 = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %7, i64 noundef %6, i32 noundef 0) #8
@@ -139,7 +139,7 @@ define range(i32 -1, 1) i32 @php_random_bytes(ptr noundef %0, i64 noundef %1, i1
   %.168 = phi i64 [ 0, %49 ], [ %51, %50 ]
   store i32 0, ptr %5, align 4
   %54 = getelementptr inbounds i8, ptr %0, i64 %.168
-  %55 = sub i64 %1, %.168
+  %55 = sub nuw i64 %1, %.168
   %56 = tail call i64 @read(i32 noundef %.031, ptr noundef %54, i64 noundef %55) #8
   %57 = icmp slt i64 %56, 1
   br i1 %57, label %58, label %50

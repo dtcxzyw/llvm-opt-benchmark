@@ -7690,7 +7690,7 @@ lor.lhs.false1:                                   ; preds = %entry
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false1
-  %sub = sub i64 %0, %conv
+  %sub = sub nuw i64 %0, %conv
   store i64 %sub, ptr %allocated, align 8
   %memory = getelementptr inbounds i8, ptr %s, i64 64
   %1 = load ptr, ptr %memory, align 8
@@ -7743,7 +7743,7 @@ lor.lhs.false1.i:                                 ; preds = %if.end5
   br i1 %cmp2.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false1.i
-  %sub.i = sub i64 %2, %conv.i
+  %sub.i = sub nuw i64 %2, %conv.i
   store i64 %sub.i, ptr %allocated, align 8
   %conv10.i = trunc i64 %sub.i to i32
   %call.i = call i32 @nk_utf_len(ptr noundef %1, i32 noundef %conv10.i)
@@ -7788,7 +7788,7 @@ if.then16:                                        ; preds = %if.end
   %1 = load ptr, ptr %memory, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %conv
   %add.ptr23 = getelementptr inbounds i8, ptr %1, i64 %conv5
-  %sub = sub i64 %0, %conv5
+  %sub = sub nuw i64 %0, %conv5
   %call = tail call fastcc ptr @nk_memcopy(ptr noundef %add.ptr, ptr noundef %add.ptr23, i64 noundef %sub)
   %conv28 = sext i32 %len to i64
   %2 = load i64, ptr %allocated, align 8
@@ -7806,7 +7806,7 @@ lor.lhs.false1.i:                                 ; preds = %if.else
   br i1 %cmp2.i, label %if.end32, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false1.i
-  %sub.i = sub i64 %0, %conv.i
+  %sub.i = sub nuw i64 %0, %conv.i
   store i64 %sub.i, ptr %allocated, align 8
   %memory.i = getelementptr inbounds i8, ptr %s, i64 64
   %3 = load ptr, ptr %memory.i, align 8
@@ -7898,7 +7898,7 @@ if.end.i:                                         ; preds = %lor.lhs.false4.i
 if.then16.i:                                      ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %conv.i
   %add.ptr23.i = getelementptr inbounds i8, ptr %1, i64 %conv5.i
-  %sub.i = sub i64 %2, %conv5.i
+  %sub.i = sub nuw i64 %2, %conv5.i
   %call.i = call fastcc ptr @nk_memcopy(ptr noundef %add.ptr.i, ptr noundef %add.ptr23.i, i64 noundef %sub.i)
   %sext31 = shl i64 %sub.ptr.sub41, 32
   %conv28.i = ashr exact i64 %sext31, 32
@@ -7918,7 +7918,7 @@ lor.lhs.false1.i.i:                               ; preds = %if.else.i
   br i1 %cmp2.i.i, label %if.end32.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false1.i.i
-  %sub.i.i = sub i64 %2, %conv.i.i
+  %sub.i.i = sub nuw i64 %2, %conv.i.i
   store i64 %sub.i.i, ptr %allocated.i, align 8
   %conv10.i.i = trunc i64 %sub.i.i to i32
   %call.i.i = call i32 @nk_utf_len(ptr noundef %1, i32 noundef %conv10.i.i)

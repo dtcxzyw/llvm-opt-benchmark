@@ -11492,7 +11492,7 @@ if.end3.i:                                        ; preds = %if.then
   %cmp7.i = icmp ule i64 %8, %spec.select.i
   %conv8.i = zext i1 %cmp7.i to i64
   %sub11.i = select i1 %cmp7.i, i64 %8, i64 0
-  %a0.1.i = sub i64 %spec.select.i, %sub11.i
+  %a0.1.i = sub nuw i64 %spec.select.i, %sub11.i
   %sub13.i = select i1 %cmp4.i, i32 -64, i32 %6
   %cmp1457.i = icmp sgt i32 %sub13.i, 0
   br i1 %cmp1457.i, label %while.body.lr.ph.i, label %while.end.i

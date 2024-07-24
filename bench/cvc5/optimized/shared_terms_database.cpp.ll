@@ -3477,7 +3477,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
-  %sub.i = sub nsw i64 %conv19, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %conv19, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %d_addedSharedTerms, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE6resizeEm.exit
 

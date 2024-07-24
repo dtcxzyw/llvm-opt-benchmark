@@ -68,7 +68,7 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
 20:                                               ; preds = %14
   tail call fastcc void @rhash_sha3_process_block(ptr noundef nonnull %0, ptr noundef nonnull %16, i64 noundef %9)
   %21 = getelementptr inbounds i8, ptr %1, i64 %15
-  %22 = sub i64 %2, %15
+  %22 = sub nuw i64 %2, %15
   br label %23
 
 23:                                               ; preds = %20, %10

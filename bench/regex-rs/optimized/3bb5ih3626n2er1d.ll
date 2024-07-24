@@ -7010,7 +7010,7 @@ default.unreachable742:                           ; preds = %513, %_ZN14regex_au
   br i1 %49, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hf38957d2dff7d9feE.exit.i.i", label %51
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hf38957d2dff7d9feE.exit.i.i": ; preds = %._crit_edge.i.i
-  %50 = sub nsw i64 %.0.i18.i.i, %44
+  %50 = sub nuw nsw i64 %.0.i18.i.i, %44
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h3ecf40c3651ec8aeE.llvm.3371294817895845771"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %50, i64 noundef 0), !noalias !1438
   br label %51
 

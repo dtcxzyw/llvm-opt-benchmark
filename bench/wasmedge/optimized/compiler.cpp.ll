@@ -1817,7 +1817,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %_ZNSt11c
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %184
-  %187 = sub i64 %.sroa.076.0145, %185
+  %187 = sub nuw i64 %.sroa.076.0145, %185
   %188 = getelementptr inbounds i8, ptr %.sroa.8.0146, i64 %185
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
 
@@ -21405,7 +21405,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 .critedge.thread.i63.us:                          ; preds = %.lr.ph, %.critedge.thread.i63.us
   %.053254.us = phi i64 [ %113, %.critedge.thread.i63.us ], [ 0, %.lr.ph ]
   %106 = phi ptr [ %109, %.critedge.thread.i63.us ], [ %.promoted, %.lr.ph ]
-  %107 = sub i64 %79, %.053254.us
+  %107 = sub nuw i64 %79, %.053254.us
   %108 = icmp ne ptr %103, %106
   tail call void @llvm.assume(i1 %108)
   %109 = getelementptr inbounds i8, ptr %106, i64 -8
@@ -21421,7 +21421,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 .critedge.i61:                                    ; preds = %.lr.ph, %.critedge.i61
   %.053254 = phi i64 [ %125, %.critedge.i61 ], [ 0, %.lr.ph ]
   %114 = phi ptr [ %121, %.critedge.i61 ], [ %.promoted, %.lr.ph ]
-  %115 = sub i64 %79, %.053254
+  %115 = sub nuw i64 %79, %.053254
   %116 = ptrtoint ptr %114 to i64
   %117 = sub i64 %116, %104
   %118 = ashr exact i64 %117, 3
@@ -22311,7 +22311,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 .critedge.thread.i51.us:                          ; preds = %.lr.ph, %.critedge.thread.i51.us
   %.042166.us = phi i64 [ %104, %.critedge.thread.i51.us ], [ 0, %.lr.ph ]
   %97 = phi ptr [ %100, %.critedge.thread.i51.us ], [ %.promoted, %.lr.ph ]
-  %98 = sub i64 %68, %.042166.us
+  %98 = sub nuw i64 %68, %.042166.us
   %99 = icmp ne ptr %94, %97
   tail call void @llvm.assume(i1 %99)
   %100 = getelementptr inbounds i8, ptr %97, i64 -8
@@ -22327,7 +22327,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 .critedge.i49:                                    ; preds = %.lr.ph, %.critedge.i49
   %.042166 = phi i64 [ %116, %.critedge.i49 ], [ 0, %.lr.ph ]
   %105 = phi ptr [ %112, %.critedge.i49 ], [ %.promoted, %.lr.ph ]
-  %106 = sub i64 %68, %.042166
+  %106 = sub nuw i64 %68, %.042166
   %107 = ptrtoint ptr %105 to i64
   %108 = sub i64 %107, %95
   %109 = ashr exact i64 %108, 3
@@ -22981,7 +22981,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 .critedge.thread.i59.us:                          ; preds = %.lr.ph, %.critedge.thread.i59.us
   %.049271.us = phi i64 [ %197, %.critedge.thread.i59.us ], [ 0, %.lr.ph ]
   %190 = phi ptr [ %193, %.critedge.thread.i59.us ], [ %.promoted, %.lr.ph ]
-  %191 = sub i64 %163, %.049271.us
+  %191 = sub nuw i64 %163, %.049271.us
   %192 = icmp ne ptr %187, %190
   call void @llvm.assume(i1 %192)
   %193 = getelementptr inbounds i8, ptr %190, i64 -8
@@ -22997,7 +22997,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 .critedge.i57:                                    ; preds = %.lr.ph, %.critedge.i57
   %.049271 = phi i64 [ %209, %.critedge.i57 ], [ 0, %.lr.ph ]
   %198 = phi ptr [ %205, %.critedge.i57 ], [ %.promoted, %.lr.ph ]
-  %199 = sub i64 %163, %.049271
+  %199 = sub nuw i64 %163, %.049271
   %200 = ptrtoint ptr %198 to i64
   %201 = sub i64 %200, %188
   %202 = ashr exact i64 %201, 3
@@ -23827,7 +23827,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 .critedge.thread.i47.us:                          ; preds = %.lr.ph, %.critedge.thread.i47.us
   %.038183.us = phi i64 [ %188, %.critedge.thread.i47.us ], [ 0, %.lr.ph ]
   %181 = phi ptr [ %184, %.critedge.thread.i47.us ], [ %.promoted, %.lr.ph ]
-  %182 = sub i64 %152, %.038183.us
+  %182 = sub nuw i64 %152, %.038183.us
   %183 = icmp ne ptr %178, %181
   call void @llvm.assume(i1 %183)
   %184 = getelementptr inbounds i8, ptr %181, i64 -8
@@ -23843,7 +23843,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 .critedge.i45:                                    ; preds = %.lr.ph, %.critedge.i45
   %.038183 = phi i64 [ %200, %.critedge.i45 ], [ 0, %.lr.ph ]
   %189 = phi ptr [ %196, %.critedge.i45 ], [ %.promoted, %.lr.ph ]
-  %190 = sub i64 %152, %.038183
+  %190 = sub nuw i64 %152, %.038183
   %191 = ptrtoint ptr %189 to i64
   %192 = sub i64 %191, %179
   %193 = ashr exact i64 %192, 3
@@ -38002,7 +38002,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 121:                                              ; preds = %119
   %122 = zext i32 %43 to i64
-  %123 = sub nsw i64 %122, %116
+  %123 = sub nuw nsw i64 %122, %116
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 124:                                              ; preds = %113
@@ -38226,7 +38226,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 231:                                              ; preds = %229
   %232 = zext i32 %151 to i64
-  %233 = sub nsw i64 %232, %226
+  %233 = sub nuw nsw i64 %232, %226
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit180
 
 234:                                              ; preds = %223
@@ -38447,7 +38447,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 337:                                              ; preds = %335
   %338 = zext i32 %259 to i64
-  %339 = sub nsw i64 %338, %332
+  %339 = sub nuw nsw i64 %338, %332
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit204
 
 340:                                              ; preds = %329
@@ -38673,7 +38673,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 
 442:                                              ; preds = %440
   %443 = zext i32 %366 to i64
-  %444 = sub nsw i64 %443, %437
+  %444 = sub nuw nsw i64 %443, %437
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit232
 
 445:                                              ; preds = %434
@@ -54414,7 +54414,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 120:                                              ; preds = %118
   %121 = zext i32 %44 to i64
-  %122 = sub nsw i64 %121, %115
+  %122 = sub nuw nsw i64 %121, %115
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 123:                                              ; preds = %112
@@ -54644,7 +54644,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 226:                                              ; preds = %224
   %227 = zext i32 %148 to i64
-  %228 = sub nsw i64 %227, %221
+  %228 = sub nuw nsw i64 %227, %221
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit178
 
 229:                                              ; preds = %218
@@ -54871,7 +54871,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 333:                                              ; preds = %331
   %334 = zext i32 %254 to i64
-  %335 = sub nsw i64 %334, %328
+  %335 = sub nuw nsw i64 %334, %328
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit205
 
 336:                                              ; preds = %325
@@ -55097,7 +55097,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 
 435:                                              ; preds = %433
   %436 = zext i32 %358 to i64
-  %437 = sub nsw i64 %436, %430
+  %437 = sub nuw nsw i64 %436, %430
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit236
 
 438:                                              ; preds = %427
@@ -57128,7 +57128,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 126:                                              ; preds = %124
   %127 = zext i32 %48 to i64
-  %128 = sub nsw i64 %127, %121
+  %128 = sub nuw nsw i64 %127, %121
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit
 
 129:                                              ; preds = %118
@@ -57359,7 +57359,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 236:                                              ; preds = %234
   %237 = zext i32 %155 to i64
-  %238 = sub nsw i64 %237, %231
+  %238 = sub nuw nsw i64 %237, %231
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit193
 
 239:                                              ; preds = %228
@@ -57587,7 +57587,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 343:                                              ; preds = %341
   %344 = zext i32 %264 to i64
-  %345 = sub nsw i64 %344, %338
+  %345 = sub nuw nsw i64 %344, %338
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit224
 
 346:                                              ; preds = %335
@@ -57813,7 +57813,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 
 445:                                              ; preds = %443
   %446 = zext i32 %368 to i64
-  %447 = sub nsw i64 %446, %440
+  %447 = sub nuw nsw i64 %446, %440
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit259
 
 448:                                              ; preds = %437

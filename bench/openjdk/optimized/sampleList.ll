@@ -426,7 +426,7 @@ define hidden void @_ZN10SampleList14populate_cacheEv(ptr nocapture noundef nonn
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
-  %7 = sub i64 %5, %3
+  %7 = sub nuw i64 %5, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -628,7 +628,7 @@ _ZN19JfrDoublyLinkedListI12ObjectSampleE7prependEPS0_.exit: ; preds = %36, %39
   br i1 %50, label %.lr.ph.i, label %_ZN10SampleList14populate_cacheEv.exit
 
 .lr.ph.i:                                         ; preds = %47
-  %51 = sub i64 %46, %49
+  %51 = sub nuw i64 %46, %49
   %52 = getelementptr inbounds i8, ptr %0, i64 64
   %53 = getelementptr inbounds i8, ptr %0, i64 56
   %54 = getelementptr inbounds i8, ptr %0, i64 8

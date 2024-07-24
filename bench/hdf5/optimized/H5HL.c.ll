@@ -539,7 +539,7 @@ H5HL__dirty.exit:                                 ; preds = %18
   br i1 %38, label %39, label %52
 
 39:                                               ; preds = %.lr.ph
-  %40 = sub i64 %37, %32
+  %40 = sub nuw i64 %37, %32
   %41 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
   %42 = zext i8 %41 to i64
   %43 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6

@@ -23320,7 +23320,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2d6998f9b
   br i1 %or.cond, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcbff7df8ee8e92fdE.exit", label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17ha42fef3be4ecb9b1E.exit"
 
 "_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17ha42fef3be4ecb9b1E.exit": ; preds = %2
-  %4 = sub i8 %.sroa.4.0.extract.trunc, %.sroa.3.0.extract.trunc
+  %4 = sub nuw i8 %.sroa.4.0.extract.trunc, %.sroa.3.0.extract.trunc
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !6112, !noundef !11
@@ -23990,7 +23990,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc33800e55
   %13 = load ptr, ptr %12, align 8, !nonnull !11, !noundef !11
   %14 = shl i64 %10, 4
   %scevgep.i.i.i = getelementptr i8, ptr %13, i64 %14
-  %15 = sub i64 %2, %1
+  %15 = sub nuw i64 %2, %1
   %16 = shl i64 %15, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %16, i1 false), !noalias !6447
   %17 = add i64 %10, %15
@@ -24112,7 +24112,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd2012a432
   %13 = load ptr, ptr %12, align 8, !nonnull !11, !noundef !11
   %14 = shl i64 %10, 2
   %scevgep.i.i.i = getelementptr i8, ptr %13, i64 %14
-  %15 = sub i64 %2, %1
+  %15 = sub nuw i64 %2, %1
   %16 = shl i64 %15, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i.i, i8 0, i64 %16, i1 false), !noalias !6526
   %17 = add i64 %10, %15
@@ -30094,7 +30094,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h0933da02f8ce5326E"
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %11, i64 32
-  %17 = sub i64 %5, %1
+  %17 = sub nuw i64 %5, %1
   %18 = shl i64 %17, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %11, i64 %18, i1 false)
   br label %20
@@ -30141,7 +30141,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hc2bf61f8e0095810E"
 
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6c426793899e7094E.llvm.4432219087322099438.exit"
   %18 = getelementptr inbounds i8, ptr %11, i64 32
-  %19 = sub i64 %5, %1
+  %19 = sub nuw i64 %5, %1
   %20 = shl i64 %19, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 8 %11, i64 %20, i1 false)
   br label %23
@@ -30203,7 +30203,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hb251c64bf375f8dcE"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hdc2520379da3ccdfE.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !8840, !noundef !11
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -34206,7 +34206,7 @@ _ZN4core5slice6memchr12memchr_naive17h89d8dd2667be9f97E.exit.i.i: ; preds = %51,
   br i1 %61, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1b2dcc903122a3c4E.exit.thread.i", label %.lr.ph.split.split.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit.i.i": ; preds = %56
-  %64 = sub i64 %58, %18
+  %64 = sub nuw i64 %58, %18
   %65 = getelementptr inbounds i8, ptr %.val.i, i64 %64
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %65, ptr nonnull readonly %15, i64 %18), !alias.scope !9636, !noalias !9630
   %66 = icmp eq i32 %bcmp.i.i.i, 0
@@ -34925,7 +34925,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   br i1 %or.cond.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcbff7df8ee8e92fdE.exit.i", label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17ha42fef3be4ecb9b1E.exit.i"
 
 "_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17ha42fef3be4ecb9b1E.exit.i": ; preds = %2
-  %4 = sub i8 %.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
+  %4 = sub nuw i8 %.sroa.4.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !9973, !noundef !11
@@ -35350,7 +35350,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %13 = load ptr, ptr %12, align 8, !alias.scope !10176, !nonnull !11, !noundef !11
   %14 = shl i64 %10, 4
   %scevgep.i.i.i.i = getelementptr i8, ptr %13, i64 %14
-  %15 = sub i64 %2, %1
+  %15 = sub nuw i64 %2, %1
   %16 = shl i64 %15, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i.i, i8 0, i64 %16, i1 false), !noalias !10182
   %17 = add i64 %10, %15
@@ -35554,7 +35554,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %13 = load ptr, ptr %12, align 8, !alias.scope !10318, !nonnull !11, !noundef !11
   %14 = shl i64 %10, 2
   %scevgep.i.i.i.i = getelementptr i8, ptr %13, i64 %14
-  %15 = sub i64 %2, %1
+  %15 = sub nuw i64 %2, %1
   %16 = shl i64 %15, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i.i.i, i8 0, i64 %16, i1 false), !noalias !10324
   %17 = add i64 %10, %15

@@ -2772,7 +2772,7 @@ if.end7:                                          ; preds = %land.lhs.true.i
   store ptr %3, ptr %key, align 8
   %ref.tmp.sroa.2.0.result.sroa_idx.i = getelementptr inbounds i8, ptr %dump_unit, i64 24
   store i64 %conv.i, ptr %ref.tmp.sroa.2.0.result.sroa_idx.i, align 8
-  %sub.i.i11 = sub i64 %sub.ptr.sub.i.i, %conv.i
+  %sub.i.i11 = sub nuw i64 %sub.ptr.sub.i.i, %conv.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   %cmp.i16 = icmp ugt i64 %sub.i.i11, 3
   br i1 %cmp.i16, label %if.end12, label %if.then9

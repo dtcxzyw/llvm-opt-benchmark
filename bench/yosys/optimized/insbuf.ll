@@ -1255,7 +1255,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i647:           ; preds = %410
   br i1 %461, label %462, label %489
 
 462:                                              ; preds = %.noexc657
-  %463 = sub nsw i64 %454, %460
+  %463 = sub nuw nsw i64 %454, %460
   %464 = load ptr, ptr %189, align 8
   %465 = ptrtoint ptr %464 to i64
   %466 = sub i64 %465, %457
@@ -1685,7 +1685,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i660:           ; preds = %625
   br i1 %672, label %673, label %700
 
 673:                                              ; preds = %.noexc672
-  %674 = sub nsw i64 %665, %671
+  %674 = sub nuw nsw i64 %665, %671
   %675 = load ptr, ptr %189, align 8
   %676 = ptrtoint ptr %675 to i64
   %677 = sub i64 %676, %668
@@ -2206,7 +2206,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i692:           ; preds = %858
   br i1 %905, label %906, label %933
 
 906:                                              ; preds = %.noexc704
-  %907 = sub nsw i64 %898, %904
+  %907 = sub nuw nsw i64 %898, %904
   %908 = load ptr, ptr %189, align 8
   %909 = ptrtoint ptr %908 to i64
   %910 = sub i64 %909, %901
@@ -2628,7 +2628,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i676:           ; preds = %1066
   br i1 %1113, label %1114, label %1141
 
 1114:                                             ; preds = %.noexc688
-  %1115 = sub nsw i64 %1106, %1112
+  %1115 = sub nuw nsw i64 %1106, %1112
   %1116 = load ptr, ptr %189, align 8
   %1117 = ptrtoint ptr %1116 to i64
   %1118 = sub i64 %1117, %1109
@@ -3325,7 +3325,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %1355
   br i1 %1403, label %1404, label %1431
 
 1404:                                             ; preds = %.noexc522
-  %1405 = sub nsw i64 %1396, %1402
+  %1405 = sub nuw nsw i64 %1396, %1402
   %1406 = load ptr, ptr %213, align 8
   %1407 = ptrtoint ptr %1406 to i64
   %1408 = sub i64 %1407, %1399
@@ -3686,7 +3686,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i715:           ; preds = %1533, %_ZNSt6vector
   br i1 %1568, label %1569, label %1597
 
 1569:                                             ; preds = %.noexc726
-  %1570 = sub nsw i64 %1561, %1567
+  %1570 = sub nuw nsw i64 %1561, %1567
   %1571 = load ptr, ptr %213, align 8
   %1572 = ptrtoint ptr %1571 to i64
   %1573 = sub i64 %1572, %1564
@@ -4556,7 +4556,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i549:           ; preds = %1842
   br i1 %1890, label %1891, label %1893
 
 1891:                                             ; preds = %.noexc560
-  %1892 = sub nsw i64 %1883, %1889
+  %1892 = sub nuw nsw i64 %1883, %1889
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr %1884, i64 noundef %1892, ptr noundef nonnull align 4 dereferenceable(4) %20)
           to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i550 unwind label %.loopexit.split-lp1230.loopexit
 
@@ -5148,7 +5148,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1036:          ; preds = %2102
   br i1 %2150, label %2151, label %2179
 
 2151:                                             ; preds = %.noexc1049
-  %2152 = sub nsw i64 %2143, %2149
+  %2152 = sub nuw nsw i64 %2143, %2149
   %2153 = load ptr, ptr %189, align 8
   %2154 = ptrtoint ptr %2153 to i64
   %2155 = sub i64 %2154, %2146
@@ -6603,7 +6603,7 @@ _ZNK5Yosys5RTLIL7SigSpecixEi.exit:                ; preds = %_ZNK5Yosys5RTLIL7Si
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %_ZNK5Yosys5RTLIL7SigSpecixEi.exit
-  %48 = sub nsw i64 %39, %45
+  %48 = sub nuw nsw i64 %39, %45
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %40, i64 noundef %48, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %.pre.i = load ptr, ptr %12, align 8
   br label %_ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEclERKS3_.exit.i
@@ -6693,7 +6693,7 @@ _ZNK5Yosys5RTLIL7SigSpecixEi.exit20:              ; preds = %_ZNK5Yosys5RTLIL7Si
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %_ZNK5Yosys5RTLIL7SigSpecixEi.exit20
-  %90 = sub nsw i64 %81, %87
+  %90 = sub nuw nsw i64 %81, %87
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %82, i64 noundef %90, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %.pre.i30 = load ptr, ptr %12, align 8
   br label %_ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEclERKS3_.exit.i21
@@ -8020,7 +8020,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  %27 = sub nsw i64 %18, %24
+  %27 = sub nuw nsw i64 %18, %24
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %19, i64 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
@@ -8254,7 +8254,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = sub i64 %2, %18
+  %34 = sub nuw i64 %2, %18
   %35 = getelementptr inbounds i32, ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -9306,7 +9306,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  %27 = sub nsw i64 %18, %24
+  %27 = sub nuw nsw i64 %18, %24
   call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %19, i64 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 

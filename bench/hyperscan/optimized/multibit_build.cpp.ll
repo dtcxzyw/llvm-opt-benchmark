@@ -1318,7 +1318,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.not.i, label %if.end.i, label %_ZL14get_flat_masksjjj.exit
 
 if.end.i:                                         ; preds = %for.end
-  %sub.i240 = sub i32 %end, %base.0.lcssa
+  %sub.i240 = sub nuw i32 %end, %base.0.lcssa
   %cmp1.i = icmp ult i32 %sub.i240, 64
   %sh_prom.i278 = zext nneg i32 %sub.i240 to i64
   %notmask344 = shl nsw i64 -1, %sh_prom.i278
@@ -1328,7 +1328,7 @@ if.end.i:                                         ; preds = %for.end
   br i1 %cmp2.not.i, label %_ZL14get_flat_masksjjj.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %sub4.i = sub i32 %begin, %base.0.lcssa
+  %sub4.i = sub nuw i32 %begin, %base.0.lcssa
   %cmp5.i = icmp ult i32 %sub4.i, 64
   %sh_prom.i276 = zext nneg i32 %sub4.i to i64
   %notmask345 = shl nsw i64 -1, %sh_prom.i276

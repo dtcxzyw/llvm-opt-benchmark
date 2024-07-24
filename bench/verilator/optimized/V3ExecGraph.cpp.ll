@@ -7366,7 +7366,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %12, %.loopexit.i.i
   br i1 %32, label %33, label %64
 
 33:                                               ; preds = %26
-  %34 = sub nsw i64 %31, %30
+  %34 = sub nuw nsw i64 %31, %30
   %35 = ptrtoint ptr %.sroa.20.1.i to i64
   %36 = sub i64 %35, %27
   %37 = ashr exact i64 %36, 3
@@ -10571,7 +10571,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %20
-  %31 = sub nsw i64 %21, %28
+  %31 = sub nuw nsw i64 %21, %28
   tail call void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %31)
   br label %.sink.split
 

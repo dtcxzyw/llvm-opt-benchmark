@@ -1921,7 +1921,7 @@ define dso_local i64 @page_address_in_vma(ptr noundef %0, ptr nocapture noundef 
 
 68:                                               ; preds = %63
   %69 = load i64, ptr %1, align 8
-  %70 = sub i64 %55, %66
+  %70 = sub nuw i64 %55, %66
   %71 = shl i64 %70, 12
   %72 = add i64 %69, %71
   %73 = icmp ult i64 %72, %69
@@ -2323,7 +2323,7 @@ define internal zeroext i1 @folio_referenced_one(ptr noundef %0, ptr noundef %1,
   br i1 %114, label %174, label %115
 
 115:                                              ; preds = %110
-  %116 = sub i64 %113, %111
+  %116 = sub nuw i64 %113, %111
   %117 = lshr i64 %116, 12
   %118 = load i64, ptr %22, align 16
   %119 = getelementptr inbounds i8, ptr %1, i64 128
@@ -2661,7 +2661,7 @@ define dso_local i32 @pfn_mkclean_range(i64 noundef %0, i64 noundef %1, i64 noun
 
 21:                                               ; preds = %17
   %22 = load i64, ptr %3, align 8
-  %23 = sub i64 %2, %19
+  %23 = sub nuw i64 %2, %19
   %24 = shl i64 %23, 12
   %25 = add i64 %22, %24
   %26 = icmp ult i64 %25, %22
@@ -5413,7 +5413,7 @@ define internal fastcc void @rmap_walk_anon(ptr noundef %0, ptr noundef %1, i1 n
 
 69:                                               ; preds = %64
   %70 = load i64, ptr %56, align 8
-  %71 = sub i64 %57, %67
+  %71 = sub nuw i64 %57, %67
   %72 = shl i64 %71, 12
   %73 = add i64 %70, %72
   %74 = icmp ult i64 %73, %70
@@ -5566,7 +5566,7 @@ define internal fastcc void @rmap_walk_file(ptr noundef %0, ptr nocapture nounde
 
 54:                                               ; preds = %49
   %55 = load i64, ptr %41, align 8
-  %56 = sub i64 %42, %52
+  %56 = sub nuw i64 %42, %52
   %57 = shl i64 %56, 12
   %58 = add i64 %55, %57
   %59 = icmp ult i64 %58, %55

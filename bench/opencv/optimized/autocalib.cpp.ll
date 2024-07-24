@@ -322,7 +322,7 @@ define void @_ZN2cv6detail13estimateFocalERKSt6vectorINS0_13ImageFeaturesESaIS2_
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %3
-  %26 = sub nsw i64 %16, %23
+  %26 = sub nuw nsw i64 %16, %23
   tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %26)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 

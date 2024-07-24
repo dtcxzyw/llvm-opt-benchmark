@@ -42491,7 +42491,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIPKhmEv
 
 _ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKhmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIPKhmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
+  %sub = sub nuw i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   %add.ptr36 = getelementptr inbounds i8, ptr %2, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i44 = icmp eq ptr %1, %__position.coerce
@@ -53312,7 +53312,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gn
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_hET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
+  %sub = sub nuw i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
   %add.ptr50 = getelementptr inbounds i8, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i35 = icmp eq ptr %1, %__position.coerce
@@ -67387,7 +67387,7 @@ if.then:                                          ; preds = %while.body
   %conv22 = zext nneg i32 %pow10.064 to i64
   %shl26 = shl i64 %conv22, %sh_prom
   %cmp12.i = icmp uge i64 %add19, %sub.i26
-  %sub13.i = sub i64 %sub.i, %add19
+  %sub13.i = sub nuw i64 %sub.i, %add19
   %cmp1.not14.i = icmp ult i64 %sub13.i, %shl26
   %or.cond15.i = or i1 %cmp12.i, %cmp1.not14.i
   br i1 %or.cond15.i, label %return, label %land.rhs.lr.ph.i
@@ -67407,7 +67407,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
   %sub3.i = sub i64 %sub.i26, %rest.addr.016.i
-  %sub5.i = sub i64 %add.i, %sub.i26
+  %sub5.i = sub nuw i64 %add.i, %sub.i26
   %cmp6.i = icmp ugt i64 %sub3.i, %sub5.i
   br i1 %cmp6.i, label %while.body.i, label %return
 
@@ -67453,7 +67453,7 @@ for.end:                                          ; preds = %for.cond
   %sub48 = sub nsw i32 %11, %inc42
   store i32 %sub48, ptr %decimal_exponent, align 4
   %cmp12.i33 = icmp uge i64 %and36, %mul44
-  %sub13.i34 = sub i64 %mul43, %and36
+  %sub13.i34 = sub nuw i64 %mul43, %and36
   %cmp1.not14.i35 = icmp ult i64 %sub13.i34, %shl
   %or.cond15.i36 = or i1 %cmp12.i33, %cmp1.not14.i35
   br i1 %or.cond15.i36, label %return, label %land.rhs.lr.ph.i37
@@ -67473,7 +67473,7 @@ land.rhs.i40:                                     ; preds = %while.body.i48, %la
 
 lor.rhs.i44:                                      ; preds = %land.rhs.i40
   %sub3.i45 = sub i64 %mul44, %rest.addr.016.i41
-  %sub5.i46 = sub i64 %add.i42, %mul44
+  %sub5.i46 = sub nuw i64 %add.i42, %mul44
   %cmp6.i47 = icmp ugt i64 %sub3.i45, %sub5.i46
   br i1 %cmp6.i47, label %while.body.i48, label %return
 
@@ -93256,7 +93256,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceISt13mo
 
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEES3_hET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %2 = phi ptr [ %1, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
-  %sub = sub i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i
+  %sub = sub nuw i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i
   %add.ptr58 = getelementptr inbounds i8, ptr %2, i64 %sub
   store ptr %add.ptr58, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i35 = icmp eq ptr %1, %__position.coerce
@@ -124736,7 +124736,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.sub.i
+  %sub = sub nuw i64 %__n, %sub.ptr.sub.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i8, ptr %1, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 %2, i64 %sub, i1 false)
   br label %invoke.cont27

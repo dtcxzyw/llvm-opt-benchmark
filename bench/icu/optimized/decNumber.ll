@@ -484,13 +484,13 @@ if.then67:                                        ; preds = %do.body
   %cmp69.not = icmp uge i32 %u.0286, %mul68
   %11 = select i1 %cmp69.not, i8 56, i8 48
   %sub71 = select i1 %cmp69.not, i32 %mul68, i32 0
-  %u.1 = sub i32 %u.0286, %sub71
+  %u.1 = sub nuw i32 %u.0286, %sub71
   %div76259 = lshr exact i32 %mul68, 1
   %cmp77.not = icmp uge i32 %u.1, %div76259
   %add81 = or disjoint i8 %11, 4
   %12 = select i1 %cmp77.not, i8 %add81, i8 %11
   %sub79 = select i1 %cmp77.not, i32 %div76259, i32 0
-  %u.2 = sub i32 %u.1, %sub79
+  %u.2 = sub nuw nsw i32 %u.1, %sub79
   %13 = or i1 %cmp69.not, %cmp77.not
   br i1 %13, label %14, label %15
 
@@ -508,11 +508,11 @@ if.end85:                                         ; preds = %15, %do.body
   %pow.0 = phi i32 [ %div84260, %15 ], [ %mul65, %do.body ]
   %cmp86.not = icmp uge i32 %u.3, %pow.0
   %sub88 = select i1 %cmp86.not, i32 %pow.0, i32 0
-  %u.4 = sub i32 %u.3, %sub88
+  %u.4 = sub nuw i32 %u.3, %sub88
   %div93261 = lshr i32 %pow.0, 1
   %cmp94.not = icmp uge i32 %u.4, %div93261
   %sub96 = select i1 %cmp94.not, i32 %div93261, i32 0
-  %u.5 = sub i32 %u.4, %sub96
+  %u.5 = sub nuw nsw i32 %u.4, %sub96
   %17 = or i1 %cmp86.not, %cmp94.not
   br i1 %17, label %18, label %20
 
@@ -657,13 +657,13 @@ if.then175:                                       ; preds = %do.body170
   %cmp177.not = icmp uge i32 %u.7, %mul176
   %28 = select i1 %cmp177.not, i8 56, i8 48
   %sub179 = select i1 %cmp177.not, i32 %mul176, i32 0
-  %u.8 = sub i32 %u.7, %sub179
+  %u.8 = sub nuw i32 %u.7, %sub179
   %div184250 = lshr exact i32 %mul176, 1
   %cmp185.not = icmp uge i32 %u.8, %div184250
   %add189 = or disjoint i8 %28, 4
   %29 = select i1 %cmp185.not, i8 %add189, i8 %28
   %sub187 = select i1 %cmp185.not, i32 %div184250, i32 0
-  %u.9 = sub i32 %u.8, %sub187
+  %u.9 = sub nuw nsw i32 %u.8, %sub187
   %30 = or i1 %cmp177.not, %cmp185.not
   br i1 %30, label %31, label %32
 
@@ -681,11 +681,11 @@ if.end193:                                        ; preds = %32, %do.body170
   %pow.1 = phi i32 [ %div192251, %32 ], [ %mul173, %do.body170 ]
   %cmp194.not = icmp uge i32 %u.10, %pow.1
   %sub196 = select i1 %cmp194.not, i32 %pow.1, i32 0
-  %u.11 = sub i32 %u.10, %sub196
+  %u.11 = sub nuw i32 %u.10, %sub196
   %div201252 = lshr i32 %pow.1, 1
   %cmp202.not = icmp uge i32 %u.11, %div201252
   %sub204 = select i1 %cmp202.not, i32 %div201252, i32 0
-  %u.12 = sub i32 %u.11, %sub204
+  %u.12 = sub nuw nsw i32 %u.11, %sub204
   %34 = or i1 %cmp194.not, %cmp202.not
   br i1 %34, label %35, label %37
 
@@ -766,13 +766,13 @@ if.then235:                                       ; preds = %do.body230
   %cmp237.not = icmp uge i32 %u.14, %mul236
   %44 = select i1 %cmp237.not, i8 56, i8 48
   %sub239 = select i1 %cmp237.not, i32 %mul236, i32 0
-  %u.15 = sub i32 %u.14, %sub239
+  %u.15 = sub nuw i32 %u.14, %sub239
   %div244253 = lshr exact i32 %mul236, 1
   %cmp245.not = icmp uge i32 %u.15, %div244253
   %add249 = or disjoint i8 %44, 4
   %45 = select i1 %cmp245.not, i8 %add249, i8 %44
   %sub247 = select i1 %cmp245.not, i32 %div244253, i32 0
-  %u.16 = sub i32 %u.15, %sub247
+  %u.16 = sub nuw nsw i32 %u.15, %sub247
   %46 = or i1 %cmp237.not, %cmp245.not
   br i1 %46, label %47, label %48
 
@@ -790,11 +790,11 @@ if.end253:                                        ; preds = %48, %do.body230
   %pow.2 = phi i32 [ %div252254, %48 ], [ %mul233, %do.body230 ]
   %cmp254.not = icmp uge i32 %u.17, %pow.2
   %sub256 = select i1 %cmp254.not, i32 %pow.2, i32 0
-  %u.18 = sub i32 %u.17, %sub256
+  %u.18 = sub nuw i32 %u.17, %sub256
   %div261255 = lshr i32 %pow.2, 1
   %cmp262.not = icmp uge i32 %u.18, %div261255
   %sub264 = select i1 %cmp262.not, i32 %div261255, i32 0
-  %u.19 = sub i32 %u.18, %sub264
+  %u.19 = sub nuw nsw i32 %u.18, %sub264
   %50 = or i1 %cmp254.not, %cmp262.not
   br i1 %50, label %51, label %53
 
@@ -867,13 +867,13 @@ if.then308:                                       ; preds = %do.body303
   %cmp310.not = icmp uge i32 %u.21, %mul309
   %60 = select i1 %cmp310.not, i8 56, i8 48
   %sub312 = select i1 %cmp310.not, i32 %mul309, i32 0
-  %u.22 = sub i32 %u.21, %sub312
+  %u.22 = sub nuw i32 %u.21, %sub312
   %div317247 = lshr exact i32 %mul309, 1
   %cmp318.not = icmp uge i32 %u.22, %div317247
   %add322 = or disjoint i8 %60, 4
   %61 = select i1 %cmp318.not, i8 %add322, i8 %60
   %sub320 = select i1 %cmp318.not, i32 %div317247, i32 0
-  %u.23 = sub i32 %u.22, %sub320
+  %u.23 = sub nuw nsw i32 %u.22, %sub320
   %62 = or i1 %cmp310.not, %cmp318.not
   br i1 %62, label %63, label %64
 
@@ -891,11 +891,11 @@ if.end326:                                        ; preds = %64, %do.body303
   %pow.3 = phi i32 [ %div325248, %64 ], [ %mul306, %do.body303 ]
   %cmp327.not = icmp uge i32 %u.24, %pow.3
   %sub329 = select i1 %cmp327.not, i32 %pow.3, i32 0
-  %u.25 = sub i32 %u.24, %sub329
+  %u.25 = sub nuw i32 %u.24, %sub329
   %div334249 = lshr i32 %pow.3, 1
   %cmp335.not = icmp uge i32 %u.25, %div334249
   %sub337 = select i1 %cmp335.not, i32 %div334249, i32 0
-  %u.26 = sub i32 %u.25, %sub337
+  %u.26 = sub nuw nsw i32 %u.25, %sub337
   %66 = or i1 %cmp327.not, %cmp335.not
   br i1 %66, label %67, label %69
 
@@ -952,13 +952,13 @@ if.then365:                                       ; preds = %do.body360
   %cmp367.not = icmp uge i32 %u.28281, %mul366
   %71 = select i1 %cmp367.not, i8 56, i8 48
   %sub369 = select i1 %cmp367.not, i32 %mul366, i32 0
-  %u.29 = sub i32 %u.28281, %sub369
+  %u.29 = sub nuw i32 %u.28281, %sub369
   %div374256 = lshr exact i32 %mul366, 1
   %cmp375.not = icmp uge i32 %u.29, %div374256
   %add379 = or disjoint i8 %71, 4
   %72 = select i1 %cmp375.not, i8 %add379, i8 %71
   %sub377 = select i1 %cmp375.not, i32 %div374256, i32 0
-  %u.30 = sub i32 %u.29, %sub377
+  %u.30 = sub nuw i32 %u.29, %sub377
   %73 = or i1 %cmp367.not, %cmp375.not
   br i1 %73, label %74, label %75
 
@@ -978,13 +978,13 @@ if.end383:                                        ; preds = %75, %do.body360
   %add388 = add nuw nsw i8 %76, 2
   %77 = select i1 %cmp384.not, i8 %add388, i8 %76
   %sub386 = select i1 %cmp384.not, i32 %pow.4, i32 0
-  %u.32 = sub i32 %u.31, %sub386
+  %u.32 = sub nuw i32 %u.31, %sub386
   %div391258 = lshr i32 %pow.4, 1
   %cmp392.not = icmp uge i32 %u.32, %div391258
   %add396 = zext i1 %cmp392.not to i8
   %78 = add nuw nsw i8 %77, %add396
   %sub394 = select i1 %cmp392.not, i32 %div391258, i32 0
-  %u.33 = sub i32 %u.32, %sub394
+  %u.33 = sub nuw i32 %u.32, %sub394
   %79 = or i1 %cmp384.not, %cmp392.not
   br i1 %79, label %80, label %81
 

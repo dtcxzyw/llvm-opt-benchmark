@@ -52,7 +52,7 @@ define internal i32 @meminstream_gets(ptr nocapture noundef %0, ptr nocapture no
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %3
-  %10 = sub i64 %7, %5
+  %10 = sub nuw i64 %7, %5
   %11 = sext i32 %2 to i64
   %12 = icmp ult i64 %10, %11
   %13 = trunc i64 %10 to i32

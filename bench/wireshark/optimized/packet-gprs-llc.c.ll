@@ -843,7 +843,7 @@ crc_calc.exit:                                    ; preds = %.lr.ph.i, %178
   br i1 %273, label %274, label %.loopexit
 
 274:                                              ; preds = %272
-  %275 = sub i32 %.0529, %.2
+  %275 = sub nuw i32 %.0529, %.2
   %276 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.2, i32 noundef %275) #3
   %277 = load ptr, ptr @llcgprs_subdissector_table, align 8
   %278 = tail call i32 @dissector_try_uint(ptr noundef %277, i32 noundef %26, ptr noundef %276, ptr noundef %1, ptr noundef %2) #3

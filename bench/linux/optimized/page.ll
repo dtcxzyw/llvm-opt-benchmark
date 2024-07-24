@@ -673,7 +673,7 @@ define internal i64 @kpagecount_read(ptr nocapture readnone %0, ptr noundef %1, 
   br i1 %16, label %17, label %200
 
 17:                                               ; preds = %10
-  %18 = sub i64 %15, %5
+  %18 = sub nuw i64 %15, %5
   %19 = tail call i64 @llvm.umin.i64(i64 %18, i64 %2)
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %.loopexit, label %.preheader
@@ -1012,7 +1012,7 @@ define internal i64 @kpageflags_read(ptr nocapture readnone %0, ptr noundef %1, 
   br i1 %16, label %17, label %117
 
 17:                                               ; preds = %10
-  %18 = sub i64 %15, %5
+  %18 = sub nuw i64 %15, %5
   %19 = tail call i64 @llvm.umin.i64(i64 %18, i64 %2)
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %.loopexit, label %.preheader

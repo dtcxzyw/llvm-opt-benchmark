@@ -968,7 +968,7 @@ while.body.i:                                     ; preds = %if.end4.i, %while.c
   %20 = load atomic i64, ptr %incdec.ptr.i monotonic, align 8
   %add.i25 = add i64 %found.099.i, 64
   %cmp12.not.i = icmp ugt i64 %add.i25, %count
-  %sub13.i = sub i64 %count, %found.099.i
+  %sub13.i = sub nuw i64 %count, %found.099.i
   %cond.i = select i1 %cmp12.not.i, i64 %sub13.i, i64 64
   %cmp.i66.i = icmp ugt i64 %cond.i, 63
   br i1 %cmp.i66.i, label %mi_bitmap_mask_.exit.i29, label %if.end.i67.i

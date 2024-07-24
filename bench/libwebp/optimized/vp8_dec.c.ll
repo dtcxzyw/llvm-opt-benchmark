@@ -860,7 +860,7 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef %0, ptr 
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %1, i64 %10
-  %14 = sub i64 %2, %10
+  %14 = sub nuw i64 %2, %10
   %.not53 = icmp eq i32 %6, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 

@@ -7604,7 +7604,7 @@ define void @"_ZN67_$LT$wasmtime_cache..Sha256Hasher$u20$as$u20$core..hash..Hash
   br i1 %17, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf531ed15dcdc3ca5E.exit41.i.i.i", label %24
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf531ed15dcdc3ca5E.exit.i.i.i": ; preds = %11
-  %18 = sub i64 %2, %9
+  %18 = sub nuw i64 %2, %9
   %19 = getelementptr inbounds i8, ptr %1, i64 %9
   %20 = getelementptr inbounds i8, ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %1, i64 %9, i1 false), !alias.scope !1887, !noalias !1891

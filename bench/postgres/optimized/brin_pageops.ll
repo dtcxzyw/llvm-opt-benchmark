@@ -204,7 +204,7 @@ BufferGetPage.exit:                               ; preds = %33, %39
 brin_can_do_samepage_update.exit:                 ; preds = %99, %105
   %.0.i.i.i = phi ptr [ %104, %99 ], [ %110, %105 ]
   %111 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i.i) #5
-  %112 = sub nsw i64 %9, %7
+  %112 = sub nuw nsw i64 %9, %7
   %.not136 = icmp ult i64 %111, %112
   br i1 %.not136, label %152, label %brin_can_do_samepage_update.exit.thread
 
@@ -876,7 +876,7 @@ define dso_local zeroext i1 @brin_can_do_samepage_update(i32 noundef %0, i64 nou
 BufferGetPage.exit:                               ; preds = %6, %12
   %.0.i.i = phi ptr [ %11, %6 ], [ %17, %12 ]
   %18 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i) #5
-  %19 = sub i64 %2, %1
+  %19 = sub nuw i64 %2, %1
   %20 = icmp uge i64 %18, %19
   br label %21
 

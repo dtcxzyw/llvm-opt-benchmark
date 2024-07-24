@@ -2084,7 +2084,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLISt17basic_string_viewIcS
   unreachable
 
 46:                                               ; preds = %42
-  %47 = sub i64 %.sroa.0120.0, %.020.i.i
+  %47 = sub nuw i64 %.sroa.0120.0, %.020.i.i
   %48 = getelementptr inbounds i8, ptr %.sroa.11.0, i64 %.020.i.i
   %49 = icmp ugt i64 %47, 2
   br i1 %49, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, label %.loopexit143.thread
@@ -2093,7 +2093,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %46, %_Z18cmHasLit
   %.052175 = phi i64 [ %63, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ], [ 2, %46 ]
   %.060174 = phi i64 [ %.161, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ], [ 1, %46 ]
   %50 = getelementptr inbounds i8, ptr %48, i64 %.052175
-  %51 = sub i64 %47, %.052175
+  %51 = sub nuw i64 %47, %.052175
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %51, i64 2)
   %bcmp.i.i82 = call i32 @bcmp(ptr %50, ptr nonnull @.str.12, i64 %.sroa.speculated.i.i.i.i)
   %52 = icmp eq i32 %bcmp.i.i82, 0
@@ -2145,7 +2145,7 @@ _Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
   br label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99.thread
 
 69:                                               ; preds = %.loopexit143
-  %70 = sub i64 %47, %.2
+  %70 = sub nuw i64 %47, %.2
   %71 = getelementptr inbounds i8, ptr %48, i64 %.2
   %72 = trunc nuw i8 %.0 to i1
   %73 = select i1 %72, ptr %6, ptr %7
@@ -5556,7 +5556,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %56 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
-  %57 = sub nsw i64 %9, %20
+  %57 = sub nuw nsw i64 %9, %20
   %58 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %56, i64 %57
   store ptr %58, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %13, %1

@@ -62,7 +62,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %sub = sub i64 %2, %offset.addr.030
+  %sub = sub nuw i64 %2, %offset.addr.030
   %sub6 = sub i64 %bytes, %done.029
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %sub6)
   %3 = load ptr, ptr %arrayidx, align 8
@@ -73,7 +73,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %sub14 = sub i64 %offset.addr.030, %2
+  %sub14 = sub nuw i64 %offset.addr.030, %2
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else
@@ -131,7 +131,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %sub = sub i64 %2, %offset.addr.030
+  %sub = sub nuw i64 %2, %offset.addr.030
   %sub6 = sub i64 %bytes, %done.029
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %sub6)
   %add.ptr = getelementptr i8, ptr %buf, i64 %done.029
@@ -142,7 +142,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %sub14 = sub i64 %offset.addr.030, %2
+  %sub14 = sub nuw i64 %offset.addr.030, %2
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else
@@ -195,7 +195,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %sub = sub i64 %3, %offset.addr.029
+  %sub = sub nuw i64 %3, %offset.addr.029
   %sub6 = sub i64 %bytes, %done.028
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %sub6)
   %4 = load ptr, ptr %arrayidx, align 8
@@ -205,7 +205,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %sub13 = sub i64 %offset.addr.029, %3
+  %sub13 = sub nuw i64 %offset.addr.029, %3
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else
@@ -293,11 +293,11 @@ for.body.i:                                       ; preds = %land.rhs.i
   br i1 %cmp3.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %sub.i = sub i64 %offset.addr.034.i, %1
+  %sub.i = sub nuw i64 %offset.addr.034.i, %1
   br label %for.inc.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %sub10.i = sub i64 %1, %offset.addr.034.i
+  %sub10.i = sub nuw i64 %1, %offset.addr.034.i
   %cond.i = tail call i64 @llvm.umin.i64(i64 %bytes.addr.033.i, i64 %sub10.i)
   %2 = load ptr, ptr %arrayidx.i, align 8
   %add.ptr.i = getelementptr i8, ptr %2, i64 %offset.addr.034.i
@@ -359,7 +359,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   br i1 %cmp6.not, label %if.end14, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %sub = sub i64 %offset.addr.1104, %3
+  %sub = sub nuw i64 %offset.addr.1104, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %indvars.iv.next135 = add i32 %indvars.iv134, -1
@@ -372,7 +372,7 @@ if.else:                                          ; preds = %for.cond.preheader,
 if.end14:                                         ; preds = %land.rhs
   %4 = trunc nuw i64 %indvars.iv to i32
   %add.ptr = getelementptr %struct.iovec, ptr %iov.0116, i64 %indvars.iv
-  %sub15 = sub i32 %iov_cnt.addr.0115, %4
+  %sub15 = sub nuw i32 %iov_cnt.addr.0115, %4
   %tobool.not = icmp eq i64 %offset.addr.1104, 0
   br i1 %tobool.not, label %if.end22, label %if.then16
 
@@ -402,7 +402,7 @@ land.rhs26:                                       ; preds = %land.rhs26.preheade
   br i1 %cmp30.not, label %for.end40, label %for.body33
 
 for.body33:                                       ; preds = %land.rhs26
-  %sub37 = sub i64 %tail.0107, %6
+  %sub37 = sub nuw i64 %tail.0107, %6
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count137
   br i1 %exitcond138.not, label %for.end40.thread, label %land.rhs26, !llvm.loop !12
@@ -598,11 +598,11 @@ for.body:                                         ; preds = %land.rhs
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %sub = sub i64 %offset.addr.034, %2
+  %sub = sub nuw i64 %offset.addr.034, %2
   br label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %sub10 = sub i64 %2, %offset.addr.034
+  %sub10 = sub nuw i64 %2, %offset.addr.034
   %cond = tail call i64 @llvm.umin.i64(i64 %bytes.addr.033, i64 %sub10)
   %3 = load ptr, ptr %arrayidx, align 8
   %add.ptr = getelementptr i8, ptr %3, i64 %offset.addr.034
@@ -677,49 +677,31 @@ for.body.preheader.i.i:                           ; preds = %for.end
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %offset.addr.030.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %offset.addr.1.i.i, %for.inc.i.i ]
   %done.029.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %done.1.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv.i.i
   %iov_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %2 = load i64, ptr %iov_len.i.i, align 8
-  %cmp2.i.i = icmp ult i64 %offset.addr.030.i.i, %2
-  br i1 %cmp2.i.i, label %if.then.i.i, label %if.else.i.i
+  %cmp2.i.i.not = icmp eq i64 %2, 0
+  br i1 %cmp2.i.i.not, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %sub.i.i = sub i64 %2, %offset.addr.030.i.i
   %sub6.i.i = sub i64 %cond, %done.029.i.i
-  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub6.i.i)
+  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %sub6.i.i)
   %add.ptr.i.i = getelementptr i8, ptr %call, i64 %done.029.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 8
-  %add.ptr10.i.i = getelementptr i8, ptr %3, i64 %offset.addr.030.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %add.ptr10.i.i, i64 %cond.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %3, i64 %cond.i.i, i1 false)
   %add.i.i = add i64 %cond.i.i, %done.029.i.i
   br label %for.inc.i.i
 
-if.else.i.i:                                      ; preds = %for.body.i.i
-  %sub14.i.i = sub i64 %offset.addr.030.i.i, %2
-  br label %for.inc.i.i
-
-for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then.i.i
-  %done.1.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ %done.029.i.i, %if.else.i.i ]
-  %offset.addr.1.i.i = phi i64 [ 0, %if.then.i.i ], [ %sub14.i.i, %if.else.i.i ]
+for.inc.i.i:                                      ; preds = %for.body.i.i, %if.then.i.i
+  %done.1.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ %done.029.i.i, %for.body.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %tobool.not.i.i = icmp ne i64 %offset.addr.1.i.i, 0
   %cmp.i.i = icmp ult i64 %done.1.i.i, %cond
-  %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.i.i
   %cmp1.i.i = icmp ult i64 %indvars.iv.next.i.i, %1
-  %or.cond22.i.i = select i1 %or.cond.i.i, i1 %cmp1.i.i, i1 false
-  br i1 %or.cond22.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !7
+  %or.cond22.i.i = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
+  br i1 %or.cond22.i.i, label %for.body.i.i, label %iov_to_buf.exit, !llvm.loop !7
 
-for.end.i.i:                                      ; preds = %for.inc.i.i
-  %cmp15.i.i = icmp eq i64 %offset.addr.1.i.i, 0
-  br i1 %cmp15.i.i, label %iov_to_buf.exit, label %if.else17.i.i
-
-if.else17.i.i:                                    ; preds = %for.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__PRETTY_FUNCTION__.iov_to_buf_full) #17
-  unreachable
-
-iov_to_buf.exit:                                  ; preds = %for.end, %for.end.i.i
+iov_to_buf.exit:                                  ; preds = %for.inc.i.i, %for.end
   tail call void @qemu_hexdump(ptr noundef %fp, ptr noundef %prefix, ptr noundef %call, i64 noundef %cond) #19
   tail call void @g_free(ptr noundef %call) #19
   ret void
@@ -869,7 +851,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp5, label %if.then6, label %if.else14
 
 if.then6:                                         ; preds = %for.body
-  %sub = sub i64 %2, %soffset.addr.027
+  %sub = sub nuw i64 %2, %soffset.addr.027
   %sub10 = sub i64 %sbytes, %done.025
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %sub10)
   %3 = load ptr, ptr %arrayidx, align 8
@@ -919,7 +901,7 @@ qemu_iovec_add.exit:                              ; preds = %if.end.i, %if.then3
   br label %for.inc
 
 if.else14:                                        ; preds = %for.body
-  %sub18 = sub i64 %soffset.addr.027, %2
+  %sub18 = sub nuw i64 %soffset.addr.027, %2
   br label %for.inc
 
 for.inc:                                          ; preds = %qemu_iovec_add.exit, %if.else14
@@ -983,7 +965,7 @@ land.rhs.i:                                       ; preds = %if.end, %while.body
   br i1 %cmp1.not.i, label %iov_skip_offset.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %sub.i = sub i64 %offset.addr.08.i, %2
+  %sub.i = sub nuw i64 %offset.addr.08.i, %2
   %incdec.ptr.i = getelementptr i8, ptr %iov.addr.09.i, i64 16
   %cmp.not.i = icmp eq i64 %sub.i, 0
   br i1 %cmp.not.i, label %iov_skip_offset.exit, label %land.rhs.i, !llvm.loop !18
@@ -1005,7 +987,7 @@ land.rhs.i16:                                     ; preds = %iov_skip_offset.exi
   br i1 %cmp1.not.i20, label %if.then5, label %while.body.i21
 
 while.body.i21:                                   ; preds = %land.rhs.i16
-  %sub.i22 = sub i64 %offset.addr.08.i18, %3
+  %sub.i22 = sub nuw i64 %offset.addr.08.i18, %3
   %incdec.ptr.i23 = getelementptr i8, ptr %iov.addr.09.i17, i64 16
   %cmp.not.i24 = icmp eq i64 %sub.i22, 0
   br i1 %cmp.not.i24, label %iov_skip_offset.exit27.thread, label %land.rhs.i16, !llvm.loop !18
@@ -1027,7 +1009,7 @@ if.else8:                                         ; preds = %if.then5
   unreachable
 
 if.end9:                                          ; preds = %if.then5
-  %sub = sub i64 %4, %offset.addr.08.i18
+  %sub = sub nuw i64 %4, %offset.addr.08.i18
   store i64 %sub, ptr %tail, align 8
   %incdec.ptr = getelementptr i8, ptr %iov.addr.09.i17, i64 16
   br label %if.end11
@@ -1070,7 +1052,7 @@ land.rhs.i.i:                                     ; preds = %if.end.i, %while.bo
   br i1 %cmp1.not.i.i, label %iov_skip_offset.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %sub.i.i = sub i64 %offset.addr.08.i.i, %2
+  %sub.i.i = sub nuw i64 %offset.addr.08.i.i, %2
   %incdec.ptr.i.i = getelementptr i8, ptr %iov.addr.09.i.i, i64 16
   %cmp.not.i.i = icmp eq i64 %sub.i.i, 0
   br i1 %cmp.not.i.i, label %iov_skip_offset.exit.i, label %land.rhs.i.i, !llvm.loop !18
@@ -1091,7 +1073,7 @@ land.rhs.i16.i:                                   ; preds = %iov_skip_offset.exi
   br i1 %cmp1.not.i20.i, label %if.end9.i, label %while.body.i21.i
 
 while.body.i21.i:                                 ; preds = %land.rhs.i16.i
-  %sub.i22.i = sub i64 %offset.addr.08.i18.i, %3
+  %sub.i22.i = sub nuw i64 %offset.addr.08.i18.i, %3
   %incdec.ptr.i23.i = getelementptr i8, ptr %iov.addr.09.i17.i, i64 16
   %cmp.not.i24.i = icmp eq i64 %sub.i22.i, 0
   br i1 %cmp.not.i24.i, label %qemu_iovec_slice.exit, label %land.rhs.i16.i, !llvm.loop !18
@@ -1137,7 +1119,7 @@ land.rhs.i:                                       ; preds = %if.end, %while.body
   br i1 %cmp1.not.i, label %iov_skip_offset.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %sub.i = sub i64 %offset.addr.08.i, %2
+  %sub.i = sub nuw i64 %offset.addr.08.i, %2
   %incdec.ptr.i = getelementptr i8, ptr %iov.addr.09.i, i64 16
   %cmp.not.i = icmp eq i64 %sub.i, 0
   br i1 %cmp.not.i, label %iov_skip_offset.exit, label %land.rhs.i, !llvm.loop !18
@@ -1185,7 +1167,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %sub = sub i64 %0, %len
+  %sub = sub nuw i64 %0, %len
   %cmp2.not = icmp ult i64 %sub, %offset
   br i1 %cmp2.not, label %if.else4, label %if.end5
 
@@ -1216,7 +1198,7 @@ land.rhs.i.i:                                     ; preds = %if.end.i, %while.bo
   br i1 %cmp1.not.i.i, label %iov_skip_offset.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %sub.i.i = sub i64 %offset.addr.08.i.i, %2
+  %sub.i.i = sub nuw i64 %offset.addr.08.i.i, %2
   %incdec.ptr.i.i = getelementptr i8, ptr %iov.addr.09.i.i, i64 16
   %cmp.not.i.i = icmp eq i64 %sub.i.i, 0
   br i1 %cmp.not.i.i, label %iov_skip_offset.exit.i, label %land.rhs.i.i, !llvm.loop !18
@@ -1237,7 +1219,7 @@ land.rhs.i16.i:                                   ; preds = %iov_skip_offset.exi
   br i1 %cmp1.not.i20.i, label %if.end9.i, label %while.body.i21.i
 
 while.body.i21.i:                                 ; preds = %land.rhs.i16.i
-  %sub.i22.i = sub i64 %offset.addr.08.i18.i, %3
+  %sub.i22.i = sub nuw i64 %offset.addr.08.i18.i, %3
   %incdec.ptr.i23.i = getelementptr i8, ptr %iov.addr.09.i17.i, i64 16
   %cmp.not.i24.i = icmp eq i64 %sub.i22.i, 0
   br i1 %cmp.not.i24.i, label %qemu_iovec_slice.exit, label %land.rhs.i16.i, !llvm.loop !18
@@ -1353,7 +1335,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp2.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %sub.i.i = sub i64 %4, %offset.addr.030.i.i
+  %sub.i.i = sub nuw i64 %4, %offset.addr.030.i.i
   %sub6.i.i = sub i64 %bytes, %done.029.i.i
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub6.i.i)
   %add.ptr.i.i = getelementptr i8, ptr %buf, i64 %done.029.i.i
@@ -1364,7 +1346,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %sub14.i.i = sub i64 %offset.addr.030.i.i, %4
+  %sub14.i.i = sub nuw i64 %offset.addr.030.i.i, %4
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then.i.i
@@ -1419,7 +1401,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp2.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %sub.i.i = sub i64 %4, %offset.addr.030.i.i
+  %sub.i.i = sub nuw i64 %4, %offset.addr.030.i.i
   %sub6.i.i = sub i64 %bytes, %done.029.i.i
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub6.i.i)
   %5 = load ptr, ptr %arrayidx.i.i, align 8
@@ -1430,7 +1412,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %sub14.i.i = sub i64 %offset.addr.030.i.i, %4
+  %sub14.i.i = sub nuw i64 %offset.addr.030.i.i, %4
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then.i.i
@@ -1486,7 +1468,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp2.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %sub.i = sub i64 %5, %offset.addr.029.i
+  %sub.i = sub nuw i64 %5, %offset.addr.029.i
   %sub6.i = sub i64 %bytes, %done.028.i
   %cond.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub6.i)
   %6 = load ptr, ptr %arrayidx.i, align 8
@@ -1496,7 +1478,7 @@ if.then.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %sub13.i = sub i64 %offset.addr.029.i, %5
+  %sub13.i = sub nuw i64 %offset.addr.029.i, %5
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then.i
@@ -1851,7 +1833,7 @@ if.end6:                                          ; preds = %if.then4, %if.then2
   br label %for.end
 
 if.end8:                                          ; preds = %for.body
-  %sub10 = sub i64 %bytes.addr.028, %2
+  %sub10 = sub nuw i64 %bytes.addr.028, %2
   %add12 = add i64 %2, %total.029
   %sub13 = add i32 %1, -1
   store i32 %sub13, ptr %iov_cnt, align 4
@@ -1889,13 +1871,13 @@ if.then2.i:                                       ; preds = %for.body.i
   %3 = load ptr, ptr %cur.030.i, align 8
   %add.ptr.i = getelementptr i8, ptr %3, i64 %bytes.addr.028.i
   store ptr %add.ptr.i, ptr %cur.030.i, align 8
-  %sub.i = sub i64 %2, %bytes.addr.028.i
+  %sub.i = sub nuw i64 %2, %bytes.addr.028.i
   store i64 %sub.i, ptr %iov_len.i.le, align 8
   %add.i = add i64 %bytes.addr.028.i, %total.029.i
   br label %iov_discard_front_undoable.exit
 
 if.end8.i:                                        ; preds = %for.body.i
-  %sub10.i = sub i64 %bytes.addr.028.i, %2
+  %sub10.i = sub nuw i64 %bytes.addr.028.i, %2
   %add12.i = add i64 %2, %total.029.i
   %sub13.i = add i32 %1, -1
   store i32 %sub13.i, ptr %iov_cnt, align 4
@@ -1960,7 +1942,7 @@ if.end9:                                          ; preds = %if.then7, %if.then5
   br label %return
 
 if.end12:                                         ; preds = %while.body
-  %sub14 = sub i64 %bytes.addr.025, %2
+  %sub14 = sub nuw i64 %bytes.addr.025, %2
   %add16 = add i64 %2, %total.026
   %incdec.ptr = getelementptr i8, ptr %cur.027, i64 -16
   %sub17 = add i32 %1, -1
@@ -1998,13 +1980,13 @@ while.body.i:                                     ; preds = %if.end12.i, %while.
 
 if.then5.i:                                       ; preds = %while.body.i
   %iov_len.i.le = getelementptr inbounds i8, ptr %cur.027.i, i64 8
-  %sub11.i = sub i64 %2, %bytes.addr.025.i
+  %sub11.i = sub nuw i64 %2, %bytes.addr.025.i
   store i64 %sub11.i, ptr %iov_len.i.le, align 8
   %add.i = add i64 %bytes.addr.025.i, %total.026.i
   br label %iov_discard_back_undoable.exit
 
 if.end12.i:                                       ; preds = %while.body.i
-  %sub14.i = sub i64 %bytes.addr.025.i, %2
+  %sub14.i = sub nuw i64 %bytes.addr.025.i, %2
   %add16.i = add i64 %2, %total.026.i
   %incdec.ptr.i = getelementptr i8, ptr %cur.027.i, i64 -16
   %sub17.i = add i32 %1, -1
@@ -2054,13 +2036,13 @@ while.body.i.i:                                   ; preds = %if.end12.i.i, %whil
 
 if.then5.i.i:                                     ; preds = %while.body.i.i
   %iov_len.i.i.le = getelementptr inbounds i8, ptr %cur.027.i.i, i64 8
-  %sub11.i.i = sub i64 %3, %bytes.addr.025.i.i
+  %sub11.i.i = sub nuw i64 %3, %bytes.addr.025.i.i
   store i64 %sub11.i.i, ptr %iov_len.i.i.le, align 8
   %add.i.i = add i64 %bytes.addr.025.i.i, %total.026.i.i
   br label %iov_discard_back.exit
 
 if.end12.i.i:                                     ; preds = %while.body.i.i
-  %sub14.i.i = sub i64 %bytes.addr.025.i.i, %3
+  %sub14.i.i = sub nuw i64 %bytes.addr.025.i.i, %3
   %add16.i.i = add i64 %3, %total.026.i.i
   %incdec.ptr.i.i = getelementptr i8, ptr %cur.027.i.i, i64 -16
   %sub17.i.i = add i32 %niov.0, -1

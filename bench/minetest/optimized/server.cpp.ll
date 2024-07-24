@@ -43044,7 +43044,7 @@ land.lhs.true.i:                                  ; preds = %_ZNSt11char_traitsI
   br i1 %cmp.i.i7.i, label %if.end, label %if.end.i.i8.i
 
 if.end.i.i8.i:                                    ; preds = %land.lhs.true.i
-  %sub.i.i11.i = sub i64 %call14.val111, %.fr
+  %sub.i.i11.i = sub nuw i64 %call14.val111, %.fr
   %add.ptr.i.i.i.i12.i = getelementptr inbounds i8, ptr %call14.val, i64 %sub.i.i11.i
   %bcmp.i.i13.i = call i32 @bcmp(ptr %add.ptr.i.i.i.i12.i, ptr %5, i64 %.fr)
   %cmp.i.i.i.i14.i = icmp eq i32 %bcmp.i.i13.i, 0
@@ -48554,7 +48554,7 @@ if.then.i.i.i:                                    ; preds = %while.end12.i
 
 _Z4trimSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %while.end12.i
   %sub13.i = sub i64 %back.0.lcssa.i, %front.0.lcssa.i
-  %sub.i.i = sub i64 %1, %front.0.lcssa.i
+  %sub.i.i = sub nuw i64 %1, %front.0.lcssa.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %sub13.i)
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %0, i64 %front.0.lcssa.i
   %4 = getelementptr inbounds i8, ptr %agg.result, i64 16

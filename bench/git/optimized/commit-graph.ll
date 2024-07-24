@@ -2808,7 +2808,7 @@ while.end.i:                                      ; preds = %while.body.i, %comm
   %rawsz.i = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load i64, ptr %rawsz.i, align 8
   %add.i = add i64 %12, 16
-  %sub.i = sub i32 %5, %.lcssa.i
+  %sub.i = sub nuw i32 %5, %.lcssa.i
   %conv.i = zext i32 %sub.i to i64
   %tobool.not.i.i = icmp eq i64 %add.i, 0
   br i1 %tobool.not.i.i, label %load_tree_for_commit.exit, label %land.lhs.true.i.i

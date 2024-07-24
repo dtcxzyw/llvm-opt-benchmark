@@ -78,7 +78,7 @@ define hidden { ptr, i64 } @"_ZN113_$LT$alloc..string..String$u20$as$u20$core..o
   %13 = getelementptr inbounds i8, ptr %5, i64 %1
   %14 = load i8, ptr %13, align 1, !alias.scope !5, !noundef !4
   %15 = icmp sgt i8 %14, -65
-  %16 = sub i64 %7, %1
+  %16 = sub nuw i64 %7, %1
   br i1 %15, label %18, label %17
 
 17:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %10
@@ -771,7 +771,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %19 = getelementptr inbounds i8, ptr %11, i64 %9
   %20 = load i8, ptr %19, align 1, !alias.scope !82, !noalias !87, !noundef !4
   %21 = icmp sgt i8 %20, -65
-  %22 = sub i64 %13, %9
+  %22 = sub nuw i64 %13, %9
   br i1 %21, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17h71d899931f0e43cbE.llvm.2379230569744416459.exit.i", label %23
 
 23:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %16
@@ -925,7 +925,7 @@ define hidden { ptr, i64 } @"_ZN4core3str6traits112_$LT$impl$u20$core..slice..in
   %9 = getelementptr inbounds i8, ptr %1, i64 %0
   %10 = load i8, ptr %9, align 1, !alias.scope !120, !noundef !4
   %11 = icmp sgt i8 %10, -65
-  %12 = sub i64 %2, %0
+  %12 = sub nuw i64 %2, %0
   br i1 %11, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %15
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread": ; preds = %3, %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit"
@@ -1659,7 +1659,7 @@ define hidden void @"_ZN6uu_fmt9parasplit9ParaWords12create_words28_$u7b$$u7b$cl
   %19 = getelementptr inbounds i8, ptr %11, i64 %9
   %20 = load i8, ptr %19, align 1, !alias.scope !193, !noalias !198, !noundef !4
   %21 = icmp sgt i8 %20, -65
-  %22 = sub i64 %13, %9
+  %22 = sub nuw i64 %13, %9
   br i1 %21, label %"_ZN113_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFrom$LT$usize$GT$$GT$$GT$5index17h71d899931f0e43cbE.llvm.2379230569744416459.exit", label %23
 
 23:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %16

@@ -265,7 +265,7 @@ define internal void @post_process_prepass(ptr noundef %0, ptr noundef %1, ptr n
 
 37:                                               ; preds = %26
   %38 = getelementptr inbounds i8, ptr %9, i64 40
-  %39 = sub i32 %35, %28
+  %39 = sub nuw i32 %35, %28
   %40 = getelementptr inbounds i8, ptr %0, i64 624
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8

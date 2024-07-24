@@ -1259,7 +1259,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %84, %87
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %153
-  %163 = sub nsw i64 %136, %160
+  %163 = sub nuw nsw i64 %136, %160
   invoke void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %163)
           to label %._ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit_crit_edge unwind label %42
 

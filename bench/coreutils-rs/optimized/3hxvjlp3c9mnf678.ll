@@ -395,7 +395,7 @@ define hidden { ptr, i64 } @"_ZN4core3str6traits112_$LT$impl$u20$core..slice..in
   %9 = getelementptr inbounds i8, ptr %1, i64 %0
   %10 = load i8, ptr %9, align 1, !alias.scope !52, !noundef !16
   %11 = icmp sgt i8 %10, -65
-  %12 = sub i64 %2, %0
+  %12 = sub nuw i64 %2, %0
   br i1 %11, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.thread", label %15
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.thread": ; preds = %3, %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit"
@@ -1034,7 +1034,7 @@ _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit: ; preds = %64
   %91 = getelementptr inbounds i8, ptr %81, i64 %85
   %92 = load i8, ptr %91, align 1, !alias.scope !162, !noundef !16
   %93 = icmp sgt i8 %92, -65
-  %94 = sub i64 %83, %85
+  %94 = sub nuw i64 %83, %85
   br i1 %93, label %96, label %95
 
 _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.thread32: ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit.i", %_ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit
@@ -1344,7 +1344,7 @@ define hidden { i64, float } @_ZN6uu_fmt9linebreak16compute_demerits17hd10ee69a0
   br i1 %.not, label %19, label %"_ZN4core3num21_$LT$impl$u20$i64$GT$3pow17h46f3f76ba4990e7aE.llvm.6876384978452292205.exit"
 
 19:                                               ; preds = %18
-  %20 = sub i64 %1, %2
+  %20 = sub nuw i64 %1, %2
   %21 = uitofp i64 %20 to float
   %22 = add i64 %1, -1
   %23 = uitofp i64 %22 to float
@@ -1497,7 +1497,7 @@ define hidden void @_ZN6uu_fmt9linebreak14slice_if_fresh17he2750172105604aaE(ptr
   %17 = getelementptr inbounds i8, ptr %2, i64 %4
   %18 = load i8, ptr %17, align 1, !alias.scope !229, !noundef !16
   %19 = icmp sgt i8 %18, -65
-  %20 = sub i64 %3, %4
+  %20 = sub nuw i64 %3, %4
   br i1 %19, label %25, label %24
 
 21:                                               ; preds = %25, %10

@@ -398,7 +398,7 @@ do.end39.i:                                       ; preds = %if.then37.i, %land.
   br i1 %cmp.not.i.i, label %if.end.i107.i, label %lor.lhs.false.i
 
 if.end.i107.i:                                    ; preds = %do.end39.i
-  %sub.i.i = sub i64 %call2.i.i, %37
+  %sub.i.i = sub nuw i64 %call2.i.i, %37
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i104.i, i64 %37
   %38 = load ptr, ptr %next, align 8
   %39 = load ptr, ptr %38, align 8

@@ -114,7 +114,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %12 = icmp ne ptr %.sroa.0.0, null
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.0.sroa.speculated.i.i.i
-  %14 = sub i64 %11, %.0.sroa.speculated.i.i.i
+  %14 = sub nuw i64 %11, %.0.sroa.speculated.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i), !noalias !11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !15
   %15 = invoke { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hbf0ab67a98bee2e5E"(i64 noundef %.0.sroa.speculated.i.i.i, i1 noundef zeroext false)
@@ -1681,7 +1681,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h90df8d76cf595c
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %14, i64 %15)
   %16 = load ptr, ptr %0, align 8, !alias.scope !392, !nonnull !4, !align !336, !noundef !4
   %17 = getelementptr inbounds i8, ptr %16, i64 %.0.sroa.speculated.i.i
-  %18 = sub i64 %14, %.0.sroa.speculated.i.i
+  %18 = sub nuw i64 %14, %.0.sroa.speculated.i.i
   store ptr %17, ptr %0, align 8, !alias.scope !392
   store i64 %18, ptr %4, align 8, !alias.scope !392
   tail call void @llvm.experimental.noalias.scope.decl(metadata !395)
@@ -3446,7 +3446,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$10fill_bytes17h95be2fef704090
   %.sroa.058.067 = phi ptr [ %1, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2e1df9a069d68a9E.exit.lr.ph" ], [ %18, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit" ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.068, i64 32)
   %18 = getelementptr inbounds i8, ptr %.sroa.058.067, i64 %.0.sroa.speculated.i.i
-  %19 = sub i64 %.sroa.5.068, %.0.sroa.speculated.i.i
+  %19 = sub nuw i64 %.sroa.5.068, %.0.sroa.speculated.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !903)
   call void @llvm.experimental.noalias.scope.decl(metadata !906)
   call void @llvm.experimental.noalias.scope.decl(metadata !909)
@@ -3817,7 +3817,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
 
 74:                                               ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit28"
   %75 = getelementptr inbounds i8, ptr %1, i64 %68
-  %76 = sub i64 %2, %68
+  %76 = sub nuw i64 %2, %68
   %77 = getelementptr inbounds i8, ptr %32, i64 %66
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull readonly align 1 %1, i64 %68, i1 false), !alias.scope !1245, !noalias !1249
   %78 = load i64, ptr %34, align 8, !alias.scope !1251, !noalias !1256, !noundef !4
@@ -3884,7 +3884,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit43.i.i.i37": ; preds = %95
   %104 = getelementptr inbounds i8, ptr %3, i64 %93
-  %105 = sub i64 %4, %93
+  %105 = sub nuw i64 %4, %93
   %106 = getelementptr inbounds i8, ptr %32, i64 %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %106, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %93, i1 false), !alias.scope !1300, !noalias !1304
   %107 = load i64, ptr %34, align 8, !alias.scope !1306, !noalias !1311, !noundef !4
@@ -3941,7 +3941,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit43.i.i.i45": ; preds = %117
   %126 = getelementptr inbounds i8, ptr %5, i64 %115
-  %127 = sub i64 %6, %115
+  %127 = sub nuw i64 %6, %115
   %128 = getelementptr inbounds i8, ptr %32, i64 %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %128, ptr noundef nonnull readonly align 1 dereferenceable(1) %5, i64 %115, i1 false), !alias.scope !1355, !noalias !1359
   %129 = load i64, ptr %34, align 8, !alias.scope !1361, !noalias !1366, !noundef !4

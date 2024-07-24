@@ -909,7 +909,7 @@ if.then8:                                         ; preds = %while.end
   %and9 = and i64 %4, %notmask
   %shr10 = lshr i64 %and9, %rem
   store i64 %shr10, ptr %dst.addr.0.lcssa, align 8
-  %sub12 = sub nsw i64 %nbits.addr.0.lcssa, %sub2
+  %sub12 = sub nuw nsw i64 %nbits.addr.0.lcssa, %sub2
   %notmask36 = shl nsw i64 -1, %sub12
   %sub14 = xor i64 %notmask36, -1
   %arrayidx15 = getelementptr i8, ptr %src.addr.0.lcssa, i64 8
@@ -1005,7 +1005,7 @@ if.then12:                                        ; preds = %while.end
   %shl14 = shl i64 %7, %rem
   %or15 = or i64 %6, %shl14
   store i64 %or15, ptr %dst.addr.0.lcssa, align 8
-  %sub17 = sub nsw i64 %nbits.addr.0.lcssa, %sub
+  %sub17 = sub nuw nsw i64 %nbits.addr.0.lcssa, %sub
   %notmask40 = shl nsw i64 -1, %sub17
   %sub19 = xor i64 %notmask40, -1
   %shl21 = shl i64 %sub19, %sub

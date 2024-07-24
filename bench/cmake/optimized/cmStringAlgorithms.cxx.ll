@@ -317,7 +317,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread: 
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread.thread: ; preds = %.split.us, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread
   %.0.i.i35394261 = phi i64 [ %.0710.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread ], [ 0, %.split.us ]
-  %30 = sub i64 %1, %.0.i.i35394261
+  %30 = sub nuw i64 %1, %.0.i.i35394261
   %31 = getelementptr inbounds i8, ptr %2, i64 %.0.i.i35394261
   store i64 %30, ptr %6, align 8
   %32 = getelementptr inbounds i8, ptr %6, i64 8
@@ -342,7 +342,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit.thread.t
 
 35:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit
   %36 = sub i64 %.0914.i.i, %.0710.i.i
-  %37 = sub i64 %1, %.0710.i.i
+  %37 = sub nuw i64 %1, %.0710.i.i
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %37, i64 %36)
   store i64 %.sroa.speculated.i, ptr %7, align 8
   store ptr %17, ptr %9, align 8

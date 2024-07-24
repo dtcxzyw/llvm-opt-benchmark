@@ -937,7 +937,7 @@ define dso_local noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef %
   br i1 %9, label %10, label %43
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1009,7 +1009,7 @@ define dso_local void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef %0, ptr
   br i1 %10, label %11, label %44
 
 11:                                               ; preds = %3
-  %12 = sub i64 %2, %9
+  %12 = sub nuw i64 %2, %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1097,7 +1097,7 @@ define dso_local void @_Z13luaL_addvalueP11luaL_Strbuf(ptr noundef %0) local_unn
   br i1 %14, label %15, label %47
 
 15:                                               ; preds = %6
-  %16 = sub i64 %13, %12
+  %16 = sub nuw i64 %13, %12
   %17 = load ptr, ptr %3, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8

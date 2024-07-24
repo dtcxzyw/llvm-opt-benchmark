@@ -1788,7 +1788,7 @@ _ZL28set_dd_cell_sizes_dlb_changeP12gmx_domdec_tPK11gmx_ddbox_tbbl.exit.i: ; pre
   br i1 %.not.i31.i, label %587, label %585
 
 585:                                              ; preds = %574
-  %586 = sub i64 %581, %584
+  %586 = sub nuw i64 %581, %584
   br label %589
 
 587:                                              ; preds = %574
@@ -1996,7 +1996,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %_ZL32rel
   br i1 %712, label %713, label %715
 
 713:                                              ; preds = %708
-  %714 = sub nsw i64 %711, %.pre-phi80
+  %714 = sub nuw nsw i64 %711, %.pre-phi80
   tail call void @_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %686, i64 noundef %714)
   br label %_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE6resizeEm.exit
 

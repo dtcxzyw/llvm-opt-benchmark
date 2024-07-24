@@ -4053,7 +4053,7 @@ define range(i32 -1, 1) i32 @slurm_job_cpus_allocated_str_on_node_id(ptr noundef
   %28 = mul i32 %19, %23
   %29 = mul i32 %28, %26
   %30 = add i32 %29, %.04765
-  %31 = sub i32 %.066, %19
+  %31 = sub nuw i32 %.066, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %.loopexit59, label %17, !llvm.loop !23

@@ -8914,7 +8914,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6
   br i1 %6, label %7, label %24
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = sub i64 9223372036854775807, %5
   %10 = icmp ult i64 %9, %8
   br i1 %10, label %11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -10287,7 +10287,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
   %53 = zext nneg i32 %.07381 to i64
   %54 = shl i64 %53, %15
   %55 = icmp uge i64 %49, %13
-  %56 = sub i64 %9, %49
+  %56 = sub nuw i64 %9, %49
   %.not21.i = icmp ult i64 %56, %54
   %or.cond22.i = or i1 %55, %.not21.i
   br i1 %or.cond22.i, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit, label %.lr.ph.i
@@ -10307,7 +10307,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
 
 62:                                               ; preds = %59
   %63 = sub i64 %13, %.023.i
-  %64 = sub i64 %60, %13
+  %64 = sub nuw i64 %60, %13
   %65 = icmp ugt i64 %63, %64
   br i1 %65, label %.critedge2.i, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit
 
@@ -10353,7 +10353,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
   %87 = sub nsw i32 %86, %82
   store i32 %87, ptr %2, align 4
   %88 = icmp uge i64 %75, %84
-  %89 = sub i64 %83, %75
+  %89 = sub nuw i64 %83, %75
   %.not21.i55 = icmp ult i64 %89, %16
   %or.cond22.i56 = or i1 %88, %.not21.i55
   br i1 %or.cond22.i56, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit, label %.lr.ph.i57
@@ -10373,7 +10373,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
 
 95:                                               ; preds = %92
   %96 = sub i64 %84, %.023.i60
-  %97 = sub i64 %93, %84
+  %97 = sub nuw i64 %93, %84
   %98 = icmp ugt i64 %96, %97
   br i1 %98, label %.critedge2.i61, label %_ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit
 

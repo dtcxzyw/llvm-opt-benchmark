@@ -3221,7 +3221,7 @@ define linkonce_odr hidden { i64, float } @_ZNK7mitsuba20DiscreteDistributionIfE
   %6 = getelementptr inbounds i8, ptr %0, i64 60
   %7 = load i32, ptr %6, align 4
   %8 = icmp ult i32 %5, %7
-  %9 = sub i32 %7, %5
+  %9 = sub nuw i32 %7, %5
   %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %11 = sub nuw nsw i32 32, %10
   %narrow.i.i.i = select i1 %8, i32 %11, i32 0

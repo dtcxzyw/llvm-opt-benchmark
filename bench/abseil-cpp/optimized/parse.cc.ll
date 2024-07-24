@@ -1922,7 +1922,7 @@ if.then.i.i.i32.i.i:                              ; preds = %_ZSt11find_if_notIP
   unreachable
 
 invoke.cont23.i.i.i:                              ; preds = %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i
-  %sub.i.i.i.i = sub i64 %63, %sub.ptr.sub.i.i21.i
+  %sub.i.i.i.i = sub nuw i64 %63, %sub.ptr.sub.i.i21.i
   %add.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %64, i64 %sub.ptr.sub.i.i21.i
   store i64 %sub.i.i.i.i, ptr %stripped.i.i.i, align 8
   store ptr %add.ptr.i4.i.i.i, ptr %22, align 8
@@ -2787,7 +2787,7 @@ if.then.i.i.i153.cont:                            ; preds = %if.then.i.i.i153.in
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.then5.i
-  %sub.i.i154 = sub i64 %arg.sroa.0.023.i, %add.i
+  %sub.i.i154 = sub nuw i64 %arg.sroa.0.023.i, %add.i
   %add.ptr.i.i155 = getelementptr inbounds i8, ptr %arg.sroa.7.024.i, i64 %add.i
   %cmp.i11.i = icmp eq i64 %sub.i.i154, 0
   br label %invoke.cont108
@@ -5847,7 +5847,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %8 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
-  %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i44 = icmp eq ptr %1, %__position.coerce

@@ -2112,7 +2112,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %934 = zext nneg i32 %27 to i64
   %935 = shl nuw nsw i64 %934, 3
   %936 = add nuw nsw i64 %935, 32
-  %937 = sub nsw i32 %28, %26
+  %937 = sub nuw nsw i32 %28, %26
   %938 = getelementptr i8, ptr %681, i64 %933
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %938, i8 0, i64 32, i1 false), !tbaa !63
   %939 = icmp eq i32 %937, 1
