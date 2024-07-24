@@ -32202,7 +32202,7 @@ if.else.i:                                        ; preds = %entry
 
 _ZN6duckdb8string_tC2EPKcj.exit:                  ; preds = %if.else.i, %if.end.i, %if.then.i
   %string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.agg.tmp.sroa.2.0.copyload = phi ptr [ null, %if.then.i ], [ %string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre, %if.end.i ], [ %value, %if.else.i ]
-  %string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.agg.tmp.sroa.0.0.copyload = load i64, ptr %string_val.sroa.0, align 8, !tbaa.struct !185
+  %string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.agg.tmp.sroa.0.0.copyload = load i64, ptr %string_val.sroa.0, align 8
   %call1 = tail call noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_9hugeint_tEEEbT_RT0_b(i64 %string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.string_val.sroa.0.0.agg.tmp.sroa.0.0.copyload, ptr %string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.agg.tmp.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %result, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %string_val.sroa.0)
   ret i1 %call1
@@ -35057,7 +35057,7 @@ if.else.i:                                        ; preds = %if.end50
 
 invoke.cont:                                      ; preds = %if.else.i, %if.end.i, %if.then.i
   %nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.agg.tmp.sroa.2.0.copyload = phi ptr [ %add.ptr, %if.else.i ], [ %nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre, %if.end.i ], [ null, %if.then.i ]
-  %nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.agg.tmp.sroa.0.0.copyload = load i64, ptr %nr_string.sroa.0, align 8, !tbaa.struct !185
+  %nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.agg.tmp.sroa.0.0.copyload = load i64, ptr %nr_string.sroa.0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i) #38
   %call.i512 = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tElEEbT_RT0_b(i64 %nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.nr_string.sroa.0.0.agg.tmp.sroa.0.0.copyload, ptr %nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.agg.tmp.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %result.i, i1 noundef zeroext false)
           to label %call.i.noexc unwind label %lpad
