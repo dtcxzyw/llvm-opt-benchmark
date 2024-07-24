@@ -1636,22 +1636,22 @@ Vec_WrdFill.exit:                                 ; preds = %41, %Vec_WrdGrow.ex
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i64, ptr %.val23, i64 %58
   %60 = and i32 %56, 1
-  %.not = icmp eq i32 %60, 0
-  %61 = select i1 %.not, i64 2, i64 1
-  %62 = and i32 %56, 62
-  %63 = zext nneg i32 %62 to i64
-  %64 = shl nuw i64 %61, %63
-  %65 = ashr i32 %56, 6
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i64, ptr %59, i64 %66
-  %68 = load i64, ptr %67, align 8
-  %69 = or i64 %64, %68
-  store i64 %69, ptr %67, align 8
+  %61 = sub nuw nsw i32 2, %60
+  %62 = zext nneg i32 %61 to i64
+  %63 = and i32 %56, 62
+  %64 = zext nneg i32 %63 to i64
+  %65 = shl nuw i64 %62, %64
+  %66 = ashr i32 %56, 6
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i64, ptr %59, i64 %67
+  %69 = load i64, ptr %68, align 8
+  %70 = or i64 %65, %69
+  store i64 %70, ptr %68, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %50, align 4
-  %70 = sext i32 %.val to i64
-  %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %54, label %.critedge2.loopexit, !llvm.loop !28
+  %71 = sext i32 %.val to i64
+  %72 = icmp slt i64 %indvars.iv.next, %71
+  br i1 %72, label %54, label %.critedge2.loopexit, !llvm.loop !28
 
 .critedge2.loopexit:                              ; preds = %54
   %.val26.pre = load i32, ptr %3, align 4
@@ -1660,9 +1660,9 @@ Vec_WrdFill.exit:                                 ; preds = %41, %Vec_WrdGrow.ex
 .critedge2:                                       ; preds = %.critedge2.loopexit, %48
   %.val26 = phi i32 [ %.val26.pre, %.critedge2.loopexit ], [ %.val2644, %48 ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %72 = sext i32 %.val26 to i64
-  %73 = icmp slt i64 %indvars.iv.next42, %72
-  br i1 %73, label %48, label %.critedge, !llvm.loop !29
+  %73 = sext i32 %.val26 to i64
+  %74 = icmp slt i64 %indvars.iv.next42, %73
+  br i1 %74, label %48, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %.critedge2, %Vec_WrdFill.exit
   ret void

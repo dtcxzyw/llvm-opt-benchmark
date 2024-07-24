@@ -48615,12 +48615,11 @@ define internal fastcc void @dissect_he_capabilities(ptr noundef %0, ptr noundef
 
 85:                                               ; preds = %41
   %86 = and i32 %50, 4
-  %.not189 = icmp eq i32 %86, 0
-  %spec.select = select i1 %.not189, i32 4, i32 8
+  %spec.select = add nuw nsw i32 %86, 4
   %87 = and i32 %50, 8
   %.not190 = icmp eq i32 %87, 0
-  %88 = lshr exact i32 %87, 1
-  %.1181 = add nuw nsw i32 %spec.select, %88
+  %88 = or disjoint i32 %86, 8
+  %.1181 = select i1 %.not190, i32 %spec.select, i32 %88
   %89 = load i32, ptr @ett_he_mcs_and_nss_set, align 4
   %90 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %82, i32 noundef %.1181, i32 noundef %89, ptr noundef null, ptr noundef nonnull @.str.9750) #22
   %91 = load i32, ptr @ett_he_rx_tx_he_mcs_map_lte_80, align 4
@@ -48634,6 +48633,7 @@ define internal fastcc void @dissect_he_capabilities(ptr noundef %0, ptr noundef
   br i1 %98, label %.loopexit.sink.split, label %99
 
 99:                                               ; preds = %85
+  %.not189 = icmp eq i32 %86, 0
   %100 = load i32, ptr @hf_ieee80211_he_tx_he_mcs_map_lte_80, align 4
   %101 = load i32, ptr @ett_he_tx_mcs_map_lte_80, align 4
   %102 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %92, ptr noundef %0, i32 noundef %96, i32 noundef %100, i32 noundef %101, ptr noundef nonnull @he_mcs_map_80_tx_headers, i32 noundef -2147483648, i32 noundef 1) #22

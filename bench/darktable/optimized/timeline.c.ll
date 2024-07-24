@@ -3075,7 +3075,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
   %14 = or i32 %13, %11
   %15 = and i32 %14, %12
   %16 = icmp eq i32 %15, 4
-  br i1 %16, label %17, label %116
+  br i1 %16, label %17, label %113
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds i8, ptr %9, i64 128
@@ -3109,7 +3109,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
   %36 = phi i32 [ %19, %17 ], [ %28, %25 ], [ %34, %29 ]
   %37 = load i32, ptr %18, align 8, !tbaa !26
   %38 = icmp eq i32 %36, %37
-  br i1 %38, label %115, label %39
+  br i1 %38, label %112, label %39
 
 39:                                               ; preds = %35
   call void @dt_conf_set_int(ptr noundef nonnull @.str.1, i32 noundef %36) #17
@@ -3219,65 +3219,63 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %40, ptr noundef nonnull align 4 dereferenceable(28) %5, i64 28, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #17
   store i32 %36, ptr %18, align 8, !tbaa !26
-  %106 = and i32 %36, 1
-  %107 = icmp eq i32 %106, 0
-  %108 = select i1 %107, i32 2, i32 1
-  %109 = add nsw i32 %108, %36
-  %110 = getelementptr inbounds i8, ptr %9, i64 132
-  store i32 %109, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %9, i64 96
-  %112 = load ptr, ptr %111, align 8, !tbaa !33
-  call void @cairo_surface_destroy(ptr noundef %112) #17
-  store ptr null, ptr %111, align 8, !tbaa !33
-  %113 = getelementptr inbounds i8, ptr %9, i64 88
-  %114 = load ptr, ptr %113, align 8, !tbaa !42
-  call void @gtk_widget_queue_draw(ptr noundef %114) #17
-  br label %115
+  %reass.sub = and i32 %36, -2
+  %106 = add i32 %reass.sub, 2
+  %107 = getelementptr inbounds i8, ptr %9, i64 132
+  store i32 %106, ptr %107, align 4
+  %108 = getelementptr inbounds i8, ptr %9, i64 96
+  %109 = load ptr, ptr %108, align 8, !tbaa !33
+  call void @cairo_surface_destroy(ptr noundef %109) #17
+  store ptr null, ptr %108, align 8, !tbaa !33
+  %110 = getelementptr inbounds i8, ptr %9, i64 88
+  %111 = load ptr, ptr %110, align 8, !tbaa !42
+  call void @gtk_widget_queue_draw(ptr noundef %111) #17
+  br label %112
 
-115:                                              ; preds = %105, %35
+112:                                              ; preds = %105, %35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  br label %137
+  br label %134
 
-116:                                              ; preds = %3
+113:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  %117 = call i32 @dt_gui_get_scroll_unit_delta(ptr noundef nonnull %1, ptr noundef nonnull %6) #17
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %136, label %119
+  %114 = call i32 @dt_gui_get_scroll_unit_delta(ptr noundef nonnull %1, ptr noundef nonnull %6) #17
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %133, label %116
 
-119:                                              ; preds = %116
-  %120 = load i32, ptr %6, align 4, !tbaa !25
-  %121 = load i32, ptr %10, align 8, !tbaa !102
-  %122 = call i32 @gtk_accelerator_get_default_mod_mask() #17
-  %123 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !25
-  %124 = or i32 %123, %121
-  %125 = and i32 %124, %122
-  %126 = icmp eq i32 %125, 1
-  %127 = zext i1 %126 to i32
-  %128 = shl nsw i32 %120, %127
-  %129 = getelementptr inbounds i8, ptr %9, i64 56
-  %130 = getelementptr inbounds i8, ptr %9, i64 128
-  %131 = load i32, ptr %130, align 8, !tbaa !26
-  call fastcc void @_time_add(ptr noundef nonnull %129, i32 noundef %128, i32 noundef %131)
+116:                                              ; preds = %113
+  %117 = load i32, ptr %6, align 4, !tbaa !25
+  %118 = load i32, ptr %10, align 8, !tbaa !102
+  %119 = call i32 @gtk_accelerator_get_default_mod_mask() #17
+  %120 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !25
+  %121 = or i32 %120, %118
+  %122 = and i32 %121, %119
+  %123 = icmp eq i32 %122, 1
+  %124 = zext i1 %123 to i32
+  %125 = shl nsw i32 %117, %124
+  %126 = getelementptr inbounds i8, ptr %9, i64 56
+  %127 = getelementptr inbounds i8, ptr %9, i64 128
+  %128 = load i32, ptr %127, align 8, !tbaa !26
+  call fastcc void @_time_add(ptr noundef nonnull %126, i32 noundef %125, i32 noundef %128)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #17
-  call fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias nonnull writable align 4 %7, ptr noundef nonnull byval(%struct.dt_datetime_t) align 8 %129, ptr noundef %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %129, ptr noundef nonnull align 4 dereferenceable(28) %7, i64 28, i1 false), !tbaa.struct !32
+  call fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias nonnull writable align 4 %7, ptr noundef nonnull byval(%struct.dt_datetime_t) align 8 %126, ptr noundef %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %126, ptr noundef nonnull align 4 dereferenceable(28) %7, i64 28, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #17
-  %132 = getelementptr inbounds i8, ptr %9, i64 96
-  %133 = load ptr, ptr %132, align 8, !tbaa !33
-  call void @cairo_surface_destroy(ptr noundef %133) #17
-  store ptr null, ptr %132, align 8, !tbaa !33
-  %134 = getelementptr inbounds i8, ptr %9, i64 88
-  %135 = load ptr, ptr %134, align 8, !tbaa !42
-  call void @gtk_widget_queue_draw(ptr noundef %135) #17
-  br label %136
+  %129 = getelementptr inbounds i8, ptr %9, i64 96
+  %130 = load ptr, ptr %129, align 8, !tbaa !33
+  call void @cairo_surface_destroy(ptr noundef %130) #17
+  store ptr null, ptr %129, align 8, !tbaa !33
+  %131 = getelementptr inbounds i8, ptr %9, i64 88
+  %132 = load ptr, ptr %131, align 8, !tbaa !42
+  call void @gtk_widget_queue_draw(ptr noundef %132) #17
+  br label %133
 
-136:                                              ; preds = %119, %116
+133:                                              ; preds = %116, %113
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  br label %137
+  br label %134
 
-137:                                              ; preds = %136, %115
-  %138 = phi i32 [ 1, %115 ], [ 0, %136 ]
-  ret i32 %138
+134:                                              ; preds = %133, %112
+  %135 = phi i32 [ 1, %112 ], [ 0, %133 ]
+  ret i32 %135
 }
 
 ; Function Attrs: nounwind uwtable

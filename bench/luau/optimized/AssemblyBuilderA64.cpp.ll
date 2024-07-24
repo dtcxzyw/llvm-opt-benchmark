@@ -3675,53 +3675,52 @@ _ZN4Luau7CodeGen3A64L10getFmovImmEd.exit:         ; preds = %6
   %14 = or disjoint i32 %10, %13
   %15 = shl nuw nsw i32 %10, 8
   %16 = and i32 %12, 64
-  %.not13.i = icmp eq i32 %16, 0
-  %17 = select i1 %.not13.i, i32 16384, i32 16320
-  %18 = or disjoint i32 %17, %15
-  %19 = and i32 %12, 63
-  %20 = or disjoint i32 %18, %19
-  %21 = icmp eq i32 %20, %12
-  %22 = select i1 %21, i32 %14, i32 -1
-  %23 = and i8 %1, 7
-  %24 = icmp eq i8 %23, 4
-  br i1 %24, label %.thread, label %.thread23
+  %17 = and i32 %12, 63
+  %reass.sub = sub nsw i32 %17, %16
+  %18 = add nsw i32 %reass.sub, 16384
+  %19 = add nuw nsw i32 %18, %15
+  %20 = icmp eq i32 %19, %12
+  %21 = select i1 %20, i32 %14, i32 -1
+  %22 = and i8 %1, 7
+  %23 = icmp eq i8 %22, 4
+  br i1 %23, label %.thread, label %.thread23
 
 _ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread26: ; preds = %3
-  %25 = and i8 %1, 7
-  %26 = icmp eq i8 %25, 4
-  br i1 %26, label %29, label %32
+  %24 = and i8 %1, 7
+  %25 = icmp eq i8 %24, 4
+  br i1 %25, label %28, label %31
 
 _ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread:  ; preds = %6
-  %27 = and i8 %1, 7
-  %28 = icmp eq i8 %27, 4
-  br i1 %28, label %.thread, label %.thread23
+  %26 = and i8 %1, 7
+  %27 = icmp eq i8 %26, 4
+  br i1 %27, label %.thread, label %.thread23
 
-29:                                               ; preds = %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread26
+28:                                               ; preds = %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread26
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1_11RegisterA64Edj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.49, i8 %1, double noundef %2, i32 noundef 24643360)
-  br label %38
+  br label %37
 
 .thread:                                          ; preds = %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit, %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread
-  %.0.i2022 = phi i32 [ -1, %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread ], [ %22, %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit ]
-  %30 = shl nsw i32 %.0.i2022, 8
-  %31 = or i32 %30, 15925376
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1_11RegisterA64Edj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.48, i8 %1, double noundef %2, i32 noundef %31)
-  br label %38
+  %.0.i2022 = phi i32 [ -1, %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread ], [ %21, %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit ]
+  %29 = shl nsw i32 %.0.i2022, 8
+  %30 = or i32 %29, 15925376
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1_11RegisterA64Edj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.48, i8 %1, double noundef %2, i32 noundef %30)
+  br label %37
 
-32:                                               ; preds = %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread26
+31:                                               ; preds = %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread26
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1_11RegisterA64Edj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.50, i8 %1, double noundef %2, i32 noundef 41418784)
-  br label %38
+  br label %37
 
 .thread23:                                        ; preds = %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit, %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread
-  %.0.i1925 = phi i32 [ -1, %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread ], [ %22, %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit ]
-  %33 = shl nsw i32 %.0.i1925, 6
-  %34 = and i32 %33, -41420800
-  %35 = and i32 %.0.i1925, 31
-  %36 = or disjoint i32 %35, %34
-  %37 = or disjoint i32 %36, 41420704
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1_11RegisterA64Edj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.51, i8 %1, double noundef %2, i32 noundef %37)
-  br label %38
+  %.0.i1925 = phi i32 [ -1, %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread ], [ %21, %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit ]
+  %32 = shl nsw i32 %.0.i1925, 6
+  %33 = and i32 %32, -41420800
+  %34 = and i32 %.0.i1925, 31
+  %35 = or disjoint i32 %34, %33
+  %36 = or disjoint i32 %35, 41420704
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1_11RegisterA64Edj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.51, i8 %1, double noundef %2, i32 noundef %36)
+  br label %37
 
-38:                                               ; preds = %32, %.thread23, %29, %.thread
+37:                                               ; preds = %31, %.thread23, %28, %.thread
   ret void
 }
 
@@ -5080,16 +5079,17 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415i
 6:                                                ; preds = %4
   %7 = lshr exact i64 %2, 48
   %8 = trunc nuw nsw i64 %7 to i32
-  %9 = and i32 %8, 64
-  %.not13.i = icmp eq i32 %9, 0
-  %10 = select i1 %.not13.i, i32 16384, i32 16320
-  %11 = and i32 %8, 32831
-  %12 = or disjoint i32 %11, %10
-  %13 = icmp eq i32 %12, %8
+  %9 = and i32 %8, 32768
+  %10 = and i32 %8, 64
+  %reass.sub = sub nsw i32 %9, %10
+  %11 = add nsw i32 %reass.sub, 16384
+  %12 = and i32 %8, 63
+  %13 = or disjoint i32 %11, %12
+  %14 = icmp eq i32 %13, %8
   br label %_ZN4Luau7CodeGen3A64L10getFmovImmEd.exit
 
 _ZN4Luau7CodeGen3A64L10getFmovImmEd.exit:         ; preds = %1, %4, %6
-  %.0.i = phi i1 [ %13, %6 ], [ true, %1 ], [ false, %4 ]
+  %.0.i = phi i1 [ %14, %6 ], [ true, %1 ], [ false, %4 ]
   ret i1 %.0.i
 }
 

@@ -4445,7 +4445,7 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, 
   %94 = getelementptr [31 x i64], ptr %9, i64 0, i64 %indvars.iv
   %95 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef %93, i32 noundef 11, ptr noundef %94, i32 noundef 0) #8
   %96 = icmp eq i32 %91, 0
-  %.1.v = select i1 %96, i32 1, i32 2
+  %.1.v = add nuw nsw i32 %91, 1
   %.1 = add i32 %.1.v, %.0234
   %97 = load i32, ptr @hf_fp_pdus_in_block, align 4
   %98 = shl i32 %.1, 3
@@ -4898,9 +4898,9 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   %wide.trip.count = zext nneg i8 %56 to i64
   br label %84
 
-84:                                               ; preds = %.lr.ph, %108
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %108 ]
-  %.0230 = phi i32 [ 6, %.lr.ph ], [ %.3, %108 ]
+84:                                               ; preds = %.lr.ph, %107
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
+  %.0230 = phi i32 [ 6, %.lr.ph ], [ %.3, %107 ]
   %85 = load i32, ptr @hf_fp_hsdsch_pdu_block_header, align 4
   %86 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef %.0230, i32 noundef 0, ptr noundef nonnull @.str.499, ptr noundef nonnull @.str.570) #8
   %87 = load i32, ptr @ett_fp_hsdsch_pdu_block_header, align 4
@@ -4913,26 +4913,26 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   %94 = or disjoint i32 %90, %93
   %95 = getelementptr [31 x i64], ptr %9, i64 0, i64 %indvars.iv
   %96 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %94, i32 noundef 11, ptr noundef %95, i32 noundef 0) #8
-  %97 = icmp eq i32 %92, 0
-  %.1.v = select i1 %97, i32 1, i32 2
+  %.1.v = add nuw nsw i32 %92, 1
   %.1 = add i32 %.1.v, %.0230
-  %98 = load i32, ptr @hf_fp_pdus_in_block, align 4
-  %99 = shl i32 %.1, 3
-  %100 = or disjoint i32 %99, %93
-  %101 = xor i32 %100, 4
-  %102 = getelementptr [31 x i64], ptr %10, i64 0, i64 %indvars.iv
-  %103 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %88, i32 noundef %98, ptr noundef %0, i32 noundef %101, i32 noundef 4, ptr noundef %102, i32 noundef 0) #8
-  %104 = load i64, ptr %102, align 8
-  %105 = icmp ugt i64 %104, 64
-  br i1 %105, label %106, label %108
+  %97 = load i32, ptr @hf_fp_pdus_in_block, align 4
+  %98 = shl i32 %.1, 3
+  %99 = or disjoint i32 %98, %93
+  %100 = xor i32 %99, 4
+  %101 = getelementptr [31 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %102 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %88, i32 noundef %97, ptr noundef %0, i32 noundef %100, i32 noundef 4, ptr noundef %101, i32 noundef 0) #8
+  %103 = load i64, ptr %101, align 8
+  %104 = icmp ugt i64 %103, 64
+  br i1 %104, label %105, label %107
 
-106:                                              ; preds = %84
-  %107 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %103, ptr noundef nonnull @ei_fp_invalid_frame_count, ptr noundef nonnull @.str.562, i32 noundef 64) #8
+105:                                              ; preds = %84
+  %106 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %102, ptr noundef nonnull @ei_fp_invalid_frame_count, ptr noundef nonnull @.str.562, i32 noundef 64) #8
   br label %212
 
-108:                                              ; preds = %84
-  %109 = add i32 %.1, 1
-  %.2 = select i1 %97, i32 %109, i32 %.1
+107:                                              ; preds = %84
+  %108 = add i32 %.1, 1
+  %109 = icmp eq i32 %92, 0
+  %.2 = select i1 %109, i32 %108, i32 %.1
   %110 = load i32, ptr @hf_fp_lchid, align 4
   %111 = shl i32 %.2, 3
   %112 = or disjoint i32 %111, %93
@@ -4940,12 +4940,12 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   %114 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %88, i32 noundef %110, ptr noundef %0, i32 noundef %112, i32 noundef 4, ptr noundef %113, i32 noundef 0) #8
   %115 = icmp eq i64 %indvars.iv, %83
   %116 = add i32 %.1, 2
-  %117 = select i1 %97, i1 %115, i1 false
-  %.3 = select i1 %117, i32 %116, i32 %109
+  %117 = select i1 %109, i1 %115, i1 false
+  %.3 = select i1 %117, i32 %116, i32 %108
   %118 = load i64, ptr %113, align 8
   %119 = trunc i64 %118 to i32
   %120 = and i32 %119, 65535
-  %121 = load i64, ptr %102, align 8
+  %121 = load i64, ptr %101, align 8
   %122 = trunc i64 %121 to i32
   %123 = and i32 %122, 65535
   %124 = load i64, ptr %95, align 8
@@ -4953,7 +4953,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   %126 = and i32 %125, 65535
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.571, i32 noundef %120, i32 noundef %123, i32 noundef %126) #8
   %127 = icmp slt i64 %indvars.iv, %82
-  %or.cond = select i1 %97, i1 %127, i1 false
+  %or.cond = select i1 %109, i1 %127, i1 false
   %reass.sub = sub i32 %.3, %.0230
   %128 = zext i1 %or.cond to i32
   %.sink = add i32 %reass.sub, %128
@@ -4962,8 +4962,8 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %84, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %108, %71
-  %.0.lcssa = phi i32 [ 6, %71 ], [ %.3, %108 ]
+._crit_edge:                                      ; preds = %107, %71
+  %.0.lcssa = phi i32 [ 6, %71 ], [ %.3, %107 ]
   br i1 %.0203, label %133, label %129
 
 129:                                              ; preds = %._crit_edge
@@ -5123,7 +5123,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   call fastcc void @dissect_spare_extension_and_crc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 1, i32 noundef %.9, i32 noundef %.0.lcssa)
   br label %212
 
-212:                                              ; preds = %21, %23, %211, %164, %106
+212:                                              ; preds = %21, %23, %211, %164, %105
   ret void
 }
 

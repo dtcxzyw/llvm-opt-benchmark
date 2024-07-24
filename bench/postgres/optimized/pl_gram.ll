@@ -286,7 +286,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse() local_unnamed_addr #0 {
   %55 = getelementptr i8, ptr %54, i64 -4
   %56 = getelementptr i16, ptr %35, i64 %spec.store.select
   %.not969 = icmp ugt ptr %56, %50
-  br i1 %.not969, label %57, label %.loopexit1062
+  br i1 %.not969, label %57, label %.loopexit1063
 
 57:                                               ; preds = %49, %20
   %.2902 = phi ptr [ %55, %49 ], [ %.1901, %20 ]
@@ -297,7 +297,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse() local_unnamed_addr #0 {
   %.1882 = phi ptr [ %35, %49 ], [ %.0881, %20 ]
   %.1880 = phi i64 [ %spec.store.select, %49 ], [ %.0879, %20 ]
   %58 = icmp eq i32 %.1, 3
-  br i1 %58, label %.loopexit1062, label %59
+  br i1 %58, label %.loopexit1063, label %59
 
 59:                                               ; preds = %57
   %60 = sext i32 %.1 to i64
@@ -333,7 +333,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse() local_unnamed_addr #0 {
 76:                                               ; preds = %74
   store i32 257, ptr @plpgsql_yychar, align 4
   %77 = load i32, ptr @plpgsql_yylloc, align 4
-  br label %.preheader1891
+  br label %.preheader1892
 
 78:                                               ; preds = %74
   %79 = icmp ult i32 %71, 386
@@ -577,16 +577,16 @@ sub_0:                                            ; preds = %108
   %123 = load i8, ptr %122, align 1
   %124 = zext i8 %123 to i32
   %125 = add nsw i32 %124, -111
-  %.not1288 = icmp eq i32 %125, 0
-  br i1 %.not1288, label %sub_1, label %.tail
+  %.not1289 = icmp eq i32 %125, 0
+  br i1 %.not1289, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %126 = getelementptr inbounds i8, ptr %122, i64 1
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i32
   %129 = add nsw i32 %128, -110
-  %.not1289 = icmp eq i32 %129, 0
-  br i1 %.not1289, label %sub_2, label %.tail
+  %.not1290 = icmp eq i32 %129, 0
+  br i1 %.not1290, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %130 = getelementptr inbounds i8, ptr %122, i64 2
@@ -921,41 +921,41 @@ list_length.exit:                                 ; preds = %297, %307
   %321 = load ptr, ptr %305, align 8
   %322 = getelementptr inbounds i8, ptr %321, i64 4
   %.not1019 = icmp eq ptr %321, null
-  br i1 %.not1019, label %._crit_edge1278, label %.lr.ph1277
+  br i1 %.not1019, label %._crit_edge1279, label %.lr.ph1278
 
-.lr.ph1277:                                       ; preds = %list_length.exit
+.lr.ph1278:                                       ; preds = %list_length.exit
   %323 = getelementptr inbounds i8, ptr %321, i64 16
   %324 = load i32, ptr %322, align 4
   %325 = icmp sgt i32 %324, 0
-  br i1 %325, label %.lr.ph1282, label %._crit_edge1278
+  br i1 %325, label %.lr.ph1283, label %._crit_edge1279
 
-.lr.ph1282:                                       ; preds = %.lr.ph1277, %.lr.ph1282
-  %indvars.iv1478 = phi i64 [ %indvars.iv.next1479, %.lr.ph1282 ], [ 0, %.lr.ph1277 ]
+.lr.ph1283:                                       ; preds = %.lr.ph1278, %.lr.ph1283
+  %indvars.iv1479 = phi i64 [ %indvars.iv.next1480, %.lr.ph1283 ], [ 0, %.lr.ph1278 ]
   %326 = load ptr, ptr %323, align 8
-  %327 = getelementptr %union.ListCell, ptr %326, i64 %indvars.iv1478
+  %327 = getelementptr %union.ListCell, ptr %326, i64 %indvars.iv1479
   %328 = load ptr, ptr %327, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 8
   %330 = load ptr, ptr %329, align 8
   %331 = load ptr, ptr %315, align 8
-  %332 = getelementptr ptr, ptr %331, i64 %indvars.iv1478
+  %332 = getelementptr ptr, ptr %331, i64 %indvars.iv1479
   store ptr %330, ptr %332, align 8
   %333 = getelementptr inbounds i8, ptr %328, i64 4
   %334 = load i32, ptr %333, align 4
   %335 = load ptr, ptr %320, align 8
-  %336 = getelementptr i32, ptr %335, i64 %indvars.iv1478
+  %336 = getelementptr i32, ptr %335, i64 %indvars.iv1479
   store i32 %334, ptr %336, align 4
-  %indvars.iv.next1479 = add nuw nsw i64 %indvars.iv1478, 1
+  %indvars.iv.next1480 = add nuw nsw i64 %indvars.iv1479, 1
   %337 = load i32, ptr %322, align 4
   %338 = sext i32 %337 to i64
-  %339 = icmp slt i64 %indvars.iv.next1479, %338
-  br i1 %339, label %.lr.ph1282, label %._crit_edge1278.loopexit
+  %339 = icmp slt i64 %indvars.iv.next1480, %338
+  br i1 %339, label %.lr.ph1283, label %._crit_edge1279.loopexit
 
-._crit_edge1278.loopexit:                         ; preds = %.lr.ph1282
-  %.pre1485 = load ptr, ptr %305, align 8
-  br label %._crit_edge1278
+._crit_edge1279.loopexit:                         ; preds = %.lr.ph1283
+  %.pre1486 = load ptr, ptr %305, align 8
+  br label %._crit_edge1279
 
-._crit_edge1278:                                  ; preds = %._crit_edge1278.loopexit, %.lr.ph1277, %list_length.exit
-  %340 = phi ptr [ %.pre1485, %._crit_edge1278.loopexit ], [ %321, %.lr.ph1277 ], [ null, %list_length.exit ]
+._crit_edge1279:                                  ; preds = %._crit_edge1279.loopexit, %.lr.ph1278, %list_length.exit
+  %340 = phi ptr [ %.pre1486, %._crit_edge1279.loopexit ], [ %321, %.lr.ph1278 ], [ null, %list_length.exit ]
   call void @list_free(ptr noundef %340) #12
   call void @plpgsql_adddatum(ptr noundef nonnull %298) #12
   store ptr %298, ptr %4, align 8
@@ -1031,18 +1031,18 @@ list_length.exit:                                 ; preds = %297, %307
 
 382:                                              ; preds = %108
   %383 = load ptr, ptr %.2893, align 8
-  %.not.i1037 = icmp eq ptr %383, null
-  br i1 %.not.i1037, label %.thread1048, label %list_length.exit1038
+  %.not.i1038 = icmp eq ptr %383, null
+  br i1 %.not.i1038, label %.thread1049, label %list_length.exit1039
 
-list_length.exit1038:                             ; preds = %382
+list_length.exit1039:                             ; preds = %382
   %384 = getelementptr inbounds i8, ptr %383, i64 4
   %385 = load i32, ptr %384, align 4
-  switch i32 %385, label %.thread1048 [
+  switch i32 %385, label %.thread1049 [
     i32 2, label %386
     i32 3, label %398
   ]
 
-386:                                              ; preds = %list_length.exit1038
+386:                                              ; preds = %list_length.exit1039
   %387 = call ptr @plpgsql_ns_top() #12
   %388 = load ptr, ptr %.2893, align 8
   %389 = getelementptr i8, ptr %388, i64 16
@@ -1057,19 +1057,19 @@ list_length.exit1038:                             ; preds = %382
   %397 = call ptr @plpgsql_ns_lookup(ptr noundef %387, i1 noundef zeroext false, ptr noundef %392, ptr noundef %396, ptr noundef null, ptr noundef null) #12
   br label %414
 
-398:                                              ; preds = %list_length.exit1038
+398:                                              ; preds = %list_length.exit1039
   %399 = call ptr @plpgsql_ns_top() #12
   %400 = load ptr, ptr %.2893, align 8
   %401 = getelementptr i8, ptr %400, i64 16
-  %.val1034 = load ptr, ptr %401, align 8
-  %402 = load ptr, ptr %.val1034, align 8
+  %.val1035 = load ptr, ptr %401, align 8
+  %402 = load ptr, ptr %.val1035, align 8
   %403 = getelementptr inbounds i8, ptr %402, i64 8
   %404 = load ptr, ptr %403, align 8
-  %405 = getelementptr i8, ptr %.val1034, i64 8
+  %405 = getelementptr i8, ptr %.val1035, i64 8
   %406 = load ptr, ptr %405, align 8
   %407 = getelementptr inbounds i8, ptr %406, i64 8
   %408 = load ptr, ptr %407, align 8
-  %409 = getelementptr i8, ptr %.val1034, i64 16
+  %409 = getelementptr i8, ptr %.val1035, i64 16
   %410 = load ptr, ptr %409, align 8
   %411 = getelementptr inbounds i8, ptr %410, i64 8
   %412 = load ptr, ptr %411, align 8
@@ -1079,9 +1079,9 @@ list_length.exit1038:                             ; preds = %382
 414:                                              ; preds = %398, %386
   %.0916 = phi ptr [ %397, %386 ], [ %413, %398 ]
   %415 = icmp eq ptr %.0916, null
-  br i1 %415, label %.thread1048, label %423
+  br i1 %415, label %.thread1049, label %423
 
-.thread1048:                                      ; preds = %list_length.exit1038, %382, %414
+.thread1049:                                      ; preds = %list_length.exit1039, %382, %414
   %416 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   call void @llvm.assume(i1 %416)
   %417 = call i32 @errcode(i32 noundef 67137668) #12
@@ -1140,8 +1140,7 @@ list_length.exit1038:                             ; preds = %382
   %447 = getelementptr inbounds i8, ptr %446, i64 496
   %448 = load i32, ptr %447, align 8
   %449 = and i32 %448, 2
-  %.not1016.not = icmp eq i32 %449, 0
-  %450 = select i1 %.not1016.not, i32 19, i32 21
+  %450 = add nuw nsw i32 %449, 19
   %451 = call zeroext i1 @errstart(i32 noundef %450, ptr noundef nonnull @.str.2) #12
   br i1 %451, label %452, label %1771
 
@@ -1198,8 +1197,7 @@ list_length.exit1038:                             ; preds = %382
   %482 = getelementptr inbounds i8, ptr %481, i64 496
   %483 = load i32, ptr %482, align 8
   %484 = and i32 %483, 2
-  %.not1009.not = icmp eq i32 %484, 0
-  %485 = select i1 %.not1009.not, i32 19, i32 21
+  %485 = add nuw nsw i32 %484, 19
   %486 = call zeroext i1 @errstart(i32 noundef %485, ptr noundef nonnull @.str.2) #12
   br i1 %486, label %487, label %1771
 
@@ -1503,33 +1501,33 @@ list_length.exit1038:                             ; preds = %382
   %630 = getelementptr inbounds i8, ptr %.2893, i64 8
   %631 = load ptr, ptr %630, align 8
   %.not1004 = icmp eq ptr %631, null
-  br i1 %.not1004, label %632, label %list_length.exit1042.thread1050
+  br i1 %.not1004, label %632, label %list_length.exit1043.thread1051
 
 632:                                              ; preds = %629
   %633 = getelementptr inbounds i8, ptr %.2893, i64 24
   %634 = load ptr, ptr %633, align 8
-  %.not.i1041 = icmp eq ptr %634, null
-  br i1 %.not.i1041, label %list_length.exit1042.thread, label %list_length.exit1042
+  %.not.i1042 = icmp eq ptr %634, null
+  br i1 %.not.i1042, label %list_length.exit1043.thread, label %list_length.exit1043
 
-list_length.exit1042:                             ; preds = %632
+list_length.exit1043:                             ; preds = %632
   %635 = getelementptr inbounds i8, ptr %634, i64 4
   %636 = load i32, ptr %635, align 4
   %switch.tableidx = add i32 %636, -1
   %637 = icmp ult i32 %switch.tableidx, 3
-  br i1 %637, label %switch.lookup, label %list_length.exit1042.thread
+  br i1 %637, label %switch.lookup, label %list_length.exit1043.thread
 
-list_length.exit1042.thread:                      ; preds = %list_length.exit1042, %632
+list_length.exit1043.thread:                      ; preds = %list_length.exit1043, %632
   %638 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   call void @llvm.assume(i1 %638)
   %639 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #12
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 970, ptr noundef nonnull @__func__.plpgsql_yyparse) #12
   unreachable
 
-switch.lookup:                                    ; preds = %list_length.exit1042
+switch.lookup:                                    ; preds = %list_length.exit1043
   %switch.offset = add nuw nsw i32 %636, 2
-  br label %list_length.exit1042.thread1050
+  br label %list_length.exit1043.thread1051
 
-list_length.exit1042.thread1050:                  ; preds = %switch.lookup, %629
+list_length.exit1043.thread1051:                  ; preds = %switch.lookup, %629
   %.0917 = phi i32 [ 3, %629 ], [ %switch.offset, %switch.lookup ]
   %640 = load ptr, ptr %.2893, align 8
   %641 = load i32, ptr %.2902, align 4
@@ -1584,23 +1582,23 @@ list_length.exit1042.thread1050:                  ; preds = %switch.lookup, %629
   %674 = getelementptr inbounds i8, ptr %658, i64 16
   store ptr %673, ptr %674, align 8
   %.not1002 = icmp eq ptr %673, null
-  br i1 %.not1002, label %._crit_edge, label %.lr.ph1263
+  br i1 %.not1002, label %._crit_edge, label %.lr.ph1264
 
-.lr.ph1263:                                       ; preds = %657
+.lr.ph1264:                                       ; preds = %657
   %675 = getelementptr inbounds i8, ptr %673, i64 4
   %676 = load i32, ptr %675, align 4
   %677 = trunc i8 %669 to i1
   %678 = icmp sgt i32 %676, 0
-  br i1 %678, label %.lr.ph1274, label %._crit_edge
+  br i1 %678, label %.lr.ph1275, label %._crit_edge
 
-.lr.ph1274:                                       ; preds = %.lr.ph1263
+.lr.ph1275:                                       ; preds = %.lr.ph1264
   %679 = getelementptr inbounds i8, ptr %673, i64 16
   %680 = load ptr, ptr %679, align 8
   %wide.trip.count = zext nneg i32 %676 to i64
   br label %681
 
-681:                                              ; preds = %.lr.ph1274, %706
-  %indvars.iv = phi i64 [ 0, %.lr.ph1274 ], [ %indvars.iv.next, %706 ]
+681:                                              ; preds = %.lr.ph1275, %706
+  %indvars.iv = phi i64 [ 0, %.lr.ph1275 ], [ %indvars.iv.next, %706 ]
   %682 = getelementptr %union.ListCell, ptr %680, i64 %indvars.iv
   %683 = load ptr, ptr %682, align 8
   %684 = load i32, ptr %683, align 4
@@ -1621,9 +1619,9 @@ list_length.exit1042.thread1050:                  ; preds = %switch.lookup, %629
   ]
 
 685:                                              ; preds = %681, %681
-  br i1 %677, label %.split1270, label %706
+  br i1 %677, label %.split1271, label %706
 
-.split1270:                                       ; preds = %685
+.split1271:                                       ; preds = %685
   %686 = getelementptr i8, ptr %.2902, i64 -16
   %687 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   call void @llvm.assume(i1 %687)
@@ -1637,9 +1635,9 @@ list_length.exit1042.thread1050:                  ; preds = %switch.lookup, %629
   unreachable
 
 694:                                              ; preds = %681, %681, %681, %681, %681, %681, %681, %681, %681, %681
-  br i1 %677, label %706, label %.split1266
+  br i1 %677, label %706, label %.split1267
 
-.split1266:                                       ; preds = %694
+.split1267:                                       ; preds = %694
   %695 = getelementptr i8, ptr %.2902, i64 -16
   %696 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   call void @llvm.assume(i1 %696)
@@ -1665,7 +1663,7 @@ list_length.exit1042.thread1050:                  ; preds = %switch.lookup, %629
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %681
 
-._crit_edge:                                      ; preds = %706, %.lr.ph1263, %657
+._crit_edge:                                      ; preds = %706, %.lr.ph1264, %657
   store ptr %658, ptr %4, align 8
   br label %1771
 
@@ -2166,22 +2164,22 @@ list_length.exit1042.thread1050:                  ; preds = %switch.lookup, %629
   store ptr %936, ptr %970, align 8
   %971 = load i32, ptr %7, align 4
   %972 = icmp eq i32 %971, 381
-  br i1 %972, label %.preheader1063, label %.loopexit1064
+  br i1 %972, label %.preheader1064, label %.loopexit1065
 
-.preheader1063:                                   ; preds = %969
+.preheader1064:                                   ; preds = %969
   %973 = getelementptr inbounds i8, ptr %937, i64 48
   br label %974
 
-974:                                              ; preds = %.preheader1063, %974
+974:                                              ; preds = %.preheader1064, %974
   %975 = call fastcc ptr @read_sql_construct(i32 noundef 44, i32 noundef 336, i32 noundef 0, ptr noundef nonnull @.str.36, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %7)
   %976 = load ptr, ptr %973, align 8
   %977 = call ptr @lappend(ptr noundef %976, ptr noundef %975) #12
   store ptr %977, ptr %973, align 8
   %978 = load i32, ptr %7, align 4
   %979 = icmp eq i32 %978, 44
-  br i1 %979, label %974, label %.loopexit1064, !llvm.loop !4
+  br i1 %979, label %974, label %.loopexit1065, !llvm.loop !4
 
-.loopexit1064:                                    ; preds = %974, %969
+.loopexit1065:                                    ; preds = %974, %969
   store ptr %937, ptr %4, align 8
   br label %1771
 
@@ -2266,7 +2264,7 @@ list_length.exit1042.thread1050:                  ; preds = %switch.lookup, %629
 
 1030:                                             ; preds = %932, %984, %980
   %1031 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %933, i32 noundef 363, ptr noundef nonnull @.str.39)
-  br i1 %1031, label %1032, label %.thread1055
+  br i1 %1031, label %1032, label %.thread1056
 
 1032:                                             ; preds = %1030
   %1033 = call fastcc ptr @read_sql_construct(i32 noundef 269, i32 noundef 336, i32 noundef 0, ptr noundef nonnull @.str.40, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %8, ptr noundef nonnull %6)
@@ -2274,15 +2272,15 @@ list_length.exit1042.thread1050:                  ; preds = %switch.lookup, %629
   %1035 = icmp eq i32 %1034, 269
   br i1 %1035, label %1039, label %1081
 
-.thread1055:                                      ; preds = %1030
+.thread1056:                                      ; preds = %1030
   call void @plpgsql_push_back_token(i32 noundef %933) #12
   %1036 = call fastcc ptr @read_sql_construct(i32 noundef 269, i32 noundef 336, i32 noundef 0, ptr noundef nonnull @.str.40, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %8, ptr noundef nonnull %6)
   %1037 = load i32, ptr %6, align 4
   %1038 = icmp eq i32 %1037, 269
   br i1 %1038, label %1039, label %1086
 
-1039:                                             ; preds = %.thread1055, %1032
-  %1040 = phi ptr [ %1036, %.thread1055 ], [ %1033, %1032 ]
+1039:                                             ; preds = %.thread1056, %1032
+  %1040 = phi ptr [ %1036, %.thread1056 ], [ %1033, %1032 ]
   %1041 = getelementptr inbounds i8, ptr %1040, i64 8
   store i32 2, ptr %1041, align 8
   %1042 = load ptr, ptr %1040, align 8
@@ -2360,7 +2358,7 @@ list_length.exit1042.thread1050:                  ; preds = %switch.lookup, %629
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1548, ptr noundef nonnull @__func__.plpgsql_yyparse) #12
   unreachable
 
-1086:                                             ; preds = %.thread1055
+1086:                                             ; preds = %.thread1056
   %1087 = load ptr, ptr %1036, align 8
   %1088 = getelementptr inbounds i8, ptr %1036, i64 8
   %1089 = load i32, ptr %1088, align 8
@@ -2427,8 +2425,8 @@ list_length.exit1042.thread1050:                  ; preds = %switch.lookup, %629
 1125:                                             ; preds = %108
   %1126 = getelementptr inbounds i8, ptr %.2893, i64 8
   %1127 = load ptr, ptr %1126, align 8
-  %.not.i1043 = icmp eq ptr %1127, null
-  br i1 %.not.i1043, label %1128, label %NameOfDatum.exit
+  %.not.i1044 = icmp eq ptr %1127, null
+  br i1 %.not.i1044, label %1128, label %NameOfDatum.exit
 
 1128:                                             ; preds = %1125
   %1129 = getelementptr inbounds i8, ptr %.2893, i64 24
@@ -2444,9 +2442,9 @@ NameOfDatum.exit:                                 ; preds = %1125, %1128
   store i32 %1133, ptr %15, align 8
   %1134 = load ptr, ptr %.2893, align 8
   %1135 = load i32, ptr %1134, align 4
-  %.off1031 = add i32 %1135, -1
-  %switch1032 = icmp ult i32 %.off1031, 2
-  br i1 %switch1032, label %1136, label %1138
+  %.off1032 = add i32 %1135, -1
+  %switch1033 = icmp ult i32 %.off1032, 2
+  br i1 %switch1033, label %1136, label %1138
 
 1136:                                             ; preds = %NameOfDatum.exit
   store ptr null, ptr %16, align 8
@@ -2545,13 +2543,13 @@ NameOfDatum.exit:                                 ; preds = %1125, %1128
   unreachable
 
 1190:                                             ; preds = %1180, %1156
-  %.sink1696 = phi ptr [ %1179, %1156 ], [ %1182, %1180 ]
-  %.sink1692 = phi ptr [ %1178, %1156 ], [ %1181, %1180 ]
-  %1191 = getelementptr inbounds i8, ptr %.sink1696, i64 4
+  %.sink1697 = phi ptr [ %1179, %1156 ], [ %1182, %1180 ]
+  %.sink1693 = phi ptr [ %1178, %1156 ], [ %1181, %1180 ]
+  %1191 = getelementptr inbounds i8, ptr %.sink1697, i64 4
   %1192 = load i32, ptr %1191, align 4
   %1193 = getelementptr inbounds i8, ptr %1157, i64 24
   store i32 %1192, ptr %1193, align 8
-  %1194 = load ptr, ptr %.sink1692, align 8
+  %1194 = load ptr, ptr %.sink1693, align 8
   %1195 = getelementptr i8, ptr %.2902, i64 -20
   %1196 = load i32, ptr %1195, align 4
   call fastcc void @check_assignable(ptr noundef %1194, i32 noundef %1196)
@@ -2811,7 +2809,7 @@ thread-pre-split:                                 ; preds = %1322, %1308, %1316,
   switch i32 %1326, label %1336 [
     i32 0, label %1327
     i32 261, label %1328
-    i32 381, label %thread-pre-split1058.thread
+    i32 381, label %thread-pre-split1059.thread
   ]
 
 1327:                                             ; preds = %thread-pre-split
@@ -2825,8 +2823,8 @@ thread-pre-split:                                 ; preds = %1322, %1308, %1316,
   store i32 %1330, ptr %9, align 4
   switch i32 %1330, label %1331 [
     i32 44, label %.lr.ph
-    i32 59, label %thread-pre-split1058
-    i32 381, label %thread-pre-split1058
+    i32 59, label %thread-pre-split1059
+    i32 381, label %thread-pre-split1059
   ]
 
 1331:                                             ; preds = %1328
@@ -2838,9 +2836,9 @@ thread-pre-split:                                 ; preds = %1322, %1308, %1316,
   %1333 = load ptr, ptr %1298, align 8
   %1334 = call ptr @lappend(ptr noundef %1333, ptr noundef %1332) #12
   store ptr %1334, ptr %1298, align 8
-  %.pr1057 = load i32, ptr %9, align 4
-  %1335 = icmp eq i32 %.pr1057, 44
-  br i1 %1335, label %.lr.ph, label %thread-pre-split1058, !llvm.loop !6
+  %.pr1058 = load i32, ptr %9, align 4
+  %1335 = icmp eq i32 %.pr1058, 44
+  br i1 %1335, label %.lr.ph, label %thread-pre-split1059, !llvm.loop !6
 
 1336:                                             ; preds = %thread-pre-split
   %1337 = call fastcc zeroext i1 @tok_is_keyword(i32 noundef %1326, i32 noundef 371, ptr noundef nonnull @.str.59)
@@ -2909,25 +2907,25 @@ thread-pre-split:                                 ; preds = %1322, %1308, %1316,
   %1362 = call i32 @plpgsql_yylex() #12
   store i32 %1362, ptr %9, align 4
   switch i32 %1362, label %1363 [
-    i32 381, label %thread-pre-split1058
-    i32 59, label %thread-pre-split1058
+    i32 381, label %thread-pre-split1059
+    i32 59, label %thread-pre-split1059
   ]
 
 1363:                                             ; preds = %1361
   call void @plpgsql_yyerror(ptr noundef nonnull @.str.57) #15
   unreachable
 
-thread-pre-split1058:                             ; preds = %.lr.ph, %1328, %1328, %1361, %1361
-  %1364 = phi i32 [ %1362, %1361 ], [ %1362, %1361 ], [ %1330, %1328 ], [ %1330, %1328 ], [ %.pr1057, %.lr.ph ]
+thread-pre-split1059:                             ; preds = %.lr.ph, %1328, %1328, %1361, %1361
+  %1364 = phi i32 [ %1362, %1361 ], [ %1362, %1361 ], [ %1330, %1328 ], [ %1330, %1328 ], [ %.pr1058, %.lr.ph ]
   %1365 = icmp eq i32 %1364, 381
-  br i1 %1365, label %thread-pre-split1058.thread, label %1367
+  br i1 %1365, label %thread-pre-split1059.thread, label %1367
 
-thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %thread-pre-split1058
+thread-pre-split1059.thread:                      ; preds = %thread-pre-split, %thread-pre-split1059
   %1366 = call fastcc ptr @read_raise_options()
   store ptr %1366, ptr %1299, align 8
   br label %1367
 
-1367:                                             ; preds = %1285, %thread-pre-split1058, %thread-pre-split1058.thread
+1367:                                             ; preds = %1285, %thread-pre-split1059, %thread-pre-split1059.thread
   call fastcc void @check_raise_parameters(ptr noundef nonnull %1286)
   store ptr %1286, ptr %4, align 8
   br label %1771
@@ -2958,9 +2956,9 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
   br label %1384
 
 1384:                                             ; preds = %1368, %1382
-  %.sink1483 = phi ptr [ %1383, %1382 ], [ null, %1368 ]
+  %.sink1484 = phi ptr [ %1383, %1382 ], [ null, %1368 ]
   %1385 = getelementptr inbounds i8, ptr %1369, i64 24
-  store ptr %.sink1483, ptr %1385, align 8
+  store ptr %.sink1484, ptr %1385, align 8
   store ptr %1369, ptr %4, align 8
   br label %1771
 
@@ -3160,9 +3158,9 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
   br i1 %1476, label %.sink.split, label %1480
 
 .sink.split:                                      ; preds = %1475, %1472
-  %.sink1699 = phi i32 [ 4, %1472 ], [ 2, %1475 ]
+  %.sink1700 = phi i32 [ 4, %1472 ], [ 2, %1475 ]
   %1477 = load i32, ptr %1464, align 8
-  %1478 = or i32 %1477, %.sink1699
+  %1478 = or i32 %1477, %.sink1700
   store i32 %1478, ptr %1464, align 8
   %1479 = call i32 @plpgsql_yylex() #12
   br label %1480
@@ -3187,38 +3185,38 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
   store ptr %1486, ptr %1487, align 8
   %1488 = load i32, ptr %12, align 4
   %1489 = icmp eq i32 %1488, 381
-  br i1 %1489, label %.preheader1066, label %.loopexit1067
+  br i1 %1489, label %.preheader1067, label %.loopexit1068
 
-.preheader1066:                                   ; preds = %1485
+.preheader1067:                                   ; preds = %1485
   %1490 = getelementptr inbounds i8, ptr %1450, i64 48
   br label %1491
 
-1491:                                             ; preds = %.preheader1066, %1491
+1491:                                             ; preds = %.preheader1067, %1491
   %1492 = call fastcc ptr @read_sql_construct(i32 noundef 44, i32 noundef 59, i32 noundef 0, ptr noundef nonnull @.str.62, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %12)
   %1493 = load ptr, ptr %1490, align 8
   %1494 = call ptr @lappend(ptr noundef %1493, ptr noundef %1492) #12
   store ptr %1494, ptr %1490, align 8
   %1495 = load i32, ptr %12, align 4
   %1496 = icmp eq i32 %1495, 44
-  br i1 %1496, label %1491, label %.loopexit1067, !llvm.loop !8
+  br i1 %1496, label %1491, label %.loopexit1068, !llvm.loop !8
 
 1497:                                             ; preds = %1482
   call void @plpgsql_push_back_token(i32 noundef %1483) #12
   %1498 = call fastcc ptr @read_sql_stmt()
-  br label %.loopexit1067.sink.split
+  br label %.loopexit1068.sink.split
 
 1499:                                             ; preds = %1449
   %1500 = call fastcc ptr @read_cursor_args(ptr noundef nonnull %1465, i32 noundef 59)
-  br label %.loopexit1067.sink.split
+  br label %.loopexit1068.sink.split
 
-.loopexit1067.sink.split:                         ; preds = %1499, %1497
-  %.sink1702 = phi i64 [ 32, %1497 ], [ 24, %1499 ]
-  %.sink1700 = phi ptr [ %1498, %1497 ], [ %1500, %1499 ]
-  %1501 = getelementptr inbounds i8, ptr %1450, i64 %.sink1702
-  store ptr %.sink1700, ptr %1501, align 8
-  br label %.loopexit1067
+.loopexit1068.sink.split:                         ; preds = %1499, %1497
+  %.sink1703 = phi i64 [ 32, %1497 ], [ 24, %1499 ]
+  %.sink1701 = phi ptr [ %1498, %1497 ], [ %1500, %1499 ]
+  %1501 = getelementptr inbounds i8, ptr %1450, i64 %.sink1703
+  store ptr %.sink1701, ptr %1501, align 8
+  br label %.loopexit1068
 
-.loopexit1067:                                    ; preds = %1491, %.loopexit1067.sink.split, %1485
+.loopexit1068:                                    ; preds = %1491, %.loopexit1068.sink.split, %1485
   store ptr %1450, ptr %4, align 8
   br label %1771
 
@@ -3701,7 +3699,7 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
   store ptr %1767, ptr %4, align 8
   br label %1771
 
-1771:                                             ; preds = %480, %487, %445, %452, %108, %1690, %1702, %1274, %1282, %1279, %1146, %1136, %1141, %1138, %.loopexit1064, %1063, %1123, %1022, %864, %865, %729, %735, %741, %747, %753, %759, %765, %762, %756, %750, %744, %738, %732, %524, %525, %472, %476, %437, %441, %230, %135, %141, %1770, %1762, %1760, %1758, %1757, %1755, %1754, %1750, %1749, %1745, %1744, %1742, %1740, %1738, %1685, %1681, %1665, %1662, %1657, %1652, %1631, %1630, %1625, %1597, %1596, %1595, %1579, %1563, %1562, %1546, %1544, %1531, %1518, %.loopexit1067, %1448, %1413, %1406, %1399, %1396, %1393, %1386, %1384, %1367, %1267, %1266, %1265, %1203, %1202, %1190, %912, %888, %867, %861, %851, %848, %843, %842, %828, %826, %825, %812, %811, %788, %780, %718, %715, %710, %709, %708, %707, %._crit_edge, %list_length.exit1042.thread1050, %614, %599, %576, %574, %572, %570, %568, %566, %564, %562, %560, %558, %556, %554, %552, %550, %548, %546, %544, %542, %540, %538, %536, %534, %532, %530, %527, %518, %516, %515, %514, %513, %510, %504, %499, %498, %495, %494, %493, %423, %381, %368, %349, %344, %341, %._crit_edge1278, %296, %294, %293, %292, %291, %285, %267, %259, %200, %196, %193, %191, %162, %159, %157, %154, %151, %148, %121, %118
+1771:                                             ; preds = %480, %487, %445, %452, %108, %1690, %1702, %1274, %1282, %1279, %1146, %1136, %1141, %1138, %.loopexit1065, %1063, %1123, %1022, %864, %865, %729, %735, %741, %747, %753, %759, %765, %762, %756, %750, %744, %738, %732, %524, %525, %472, %476, %437, %441, %230, %135, %141, %1770, %1762, %1760, %1758, %1757, %1755, %1754, %1750, %1749, %1745, %1744, %1742, %1740, %1738, %1685, %1681, %1665, %1662, %1657, %1652, %1631, %1630, %1625, %1597, %1596, %1595, %1579, %1563, %1562, %1546, %1544, %1531, %1518, %.loopexit1068, %1448, %1413, %1406, %1399, %1396, %1393, %1386, %1384, %1367, %1267, %1266, %1265, %1203, %1202, %1190, %912, %888, %867, %861, %851, %848, %843, %842, %828, %826, %825, %812, %811, %788, %780, %718, %715, %710, %709, %708, %707, %._crit_edge, %list_length.exit1043.thread1051, %614, %599, %576, %574, %572, %570, %568, %566, %564, %562, %560, %558, %556, %554, %552, %550, %548, %546, %544, %542, %540, %538, %536, %534, %532, %530, %527, %518, %516, %515, %514, %513, %510, %504, %499, %498, %495, %494, %493, %423, %381, %368, %349, %344, %341, %._crit_edge1279, %296, %294, %293, %292, %291, %285, %267, %259, %200, %196, %193, %191, %162, %159, %157, %154, %151, %148, %121, %118
   %1772 = getelementptr %union.YYSTYPE, ptr %.2893, i64 %115
   %1773 = getelementptr i16, ptr %.2887, i64 %115
   %1774 = getelementptr i8, ptr %1772, i64 32
@@ -3756,7 +3754,7 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
 1801:                                             ; preds = %1796
   %1802 = load i32, ptr @plpgsql_yylloc, align 4
   %1803 = icmp eq i32 %.1877, 3
-  br i1 %1803, label %1804, label %.preheader1891
+  br i1 %1803, label %1804, label %.preheader1892
 
 1804:                                             ; preds = %1801
   %1805 = icmp slt i32 %1797, 1
@@ -3764,22 +3762,22 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
 
 1806:                                             ; preds = %1804
   %1807 = icmp eq i32 %1797, 0
-  br i1 %1807, label %.loopexit1062, label %.preheader1891
+  br i1 %1807, label %.loopexit1063, label %.preheader1892
 
 1808:                                             ; preds = %1804
   store i32 -2, ptr @plpgsql_yychar, align 4
-  br label %.preheader1891
+  br label %.preheader1892
 
-.preheader1891:                                   ; preds = %1801, %1806, %1808, %76
+.preheader1892:                                   ; preds = %1801, %1806, %1808, %76
   %.sroa.0442.1.ph = phi i32 [ %77, %76 ], [ %1802, %1808 ], [ %1802, %1806 ], [ %1802, %1801 ]
   br label %1809
 
-1809:                                             ; preds = %.preheader1891, %1824
-  %1810 = phi i16 [ %.pre1487, %1824 ], [ %62, %.preheader1891 ]
-  %.sroa.0442.1 = phi i32 [ %1825, %1824 ], [ %.sroa.0442.1.ph, %.preheader1891 ]
-  %.3903 = phi ptr [ %1828, %1824 ], [ %.2902, %.preheader1891 ]
-  %.3894 = phi ptr [ %1826, %1824 ], [ %.2893, %.preheader1891 ]
-  %.3888 = phi ptr [ %1827, %1824 ], [ %.2887, %.preheader1891 ]
+1809:                                             ; preds = %.preheader1892, %1824
+  %1810 = phi i16 [ %.pre1488, %1824 ], [ %62, %.preheader1892 ]
+  %.sroa.0442.1 = phi i32 [ %1825, %1824 ], [ %.sroa.0442.1.ph, %.preheader1892 ]
+  %.3903 = phi ptr [ %1828, %1824 ], [ %.2902, %.preheader1892 ]
+  %.3894 = phi ptr [ %1826, %1824 ], [ %.2893, %.preheader1892 ]
+  %.3888 = phi ptr [ %1827, %1824 ], [ %.2887, %.preheader1892 ]
   %1811 = icmp sgt i16 %1810, -2
   br i1 %1811, label %1812, label %1822
 
@@ -3799,7 +3797,7 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
 
 1822:                                             ; preds = %1812, %1818, %1809
   %1823 = icmp eq ptr %.3888, %.1882
-  br i1 %1823, label %.loopexit1062, label %1824
+  br i1 %1823, label %.loopexit1063, label %1824
 
 1824:                                             ; preds = %1822
   %1825 = load i32, ptr %.3903, align 4
@@ -3808,8 +3806,8 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
   %1828 = getelementptr i8, ptr %.3903, i64 -4
   %1829 = load i16, ptr %1827, align 2
   %.phi.trans.insert = sext i16 %1829 to i64
-  %.phi.trans.insert1486 = getelementptr [334 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
-  %.pre1487 = load i16, ptr %.phi.trans.insert1486, align 2
+  %.phi.trans.insert1487 = getelementptr [334 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.pre1488 = load i16, ptr %.phi.trans.insert1487, align 2
   br label %1809
 
 1830:                                             ; preds = %1818
@@ -3824,17 +3822,17 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
   call void @plpgsql_yyerror(ptr noundef nonnull @.str.76) #15
   unreachable
 
-.loopexit1062:                                    ; preds = %49, %1806, %57, %1822
+.loopexit1063:                                    ; preds = %49, %1806, %57, %1822
   %.0908 = phi i32 [ 1, %1822 ], [ 1, %49 ], [ 1, %1806 ], [ 0, %57 ]
   %.3 = phi ptr [ %.1882, %1822 ], [ %35, %49 ], [ %.1882, %1806 ], [ %.1882, %57 ]
   %.not1026 = icmp eq ptr %.3, %1
   br i1 %.not1026, label %1836, label %1835
 
-1835:                                             ; preds = %.loopexit1062
+1835:                                             ; preds = %.loopexit1063
   call void @pfree(ptr noundef %.3) #12
   br label %1836
 
-1836:                                             ; preds = %1835, %.loopexit1062
+1836:                                             ; preds = %1835, %.loopexit1063
   ret i32 %.0908
 }
 

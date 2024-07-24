@@ -1719,8 +1719,7 @@ define void @Abc_NtkDressPrintEquivs(ptr nocapture noundef readonly %0) local_un
   %16 = load i32, ptr %15, align 4
   %17 = ashr i32 %16, 2
   %18 = and i32 %16, 2
-  %.not = icmp eq i32 %18, 0
-  %19 = select i1 %.not, i32 43, i32 45
+  %19 = add nuw nsw i32 %18, 43
   %20 = and i32 %16, 1
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %17, i32 noundef %19, i32 noundef %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
