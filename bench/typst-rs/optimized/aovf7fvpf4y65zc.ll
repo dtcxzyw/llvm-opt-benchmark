@@ -5028,27 +5028,28 @@ define hidden void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %6 = getelementptr i8, ptr %.val, i64 -8
   %.val.i.i = load i64, ptr %6, align 8, !noundef !4
-  %7 = icmp ult i64 %.val.i.i, 1152921504606846976
-  %8 = shl i64 %.val.i.i, 4
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %not..i.i = xor i1 %10, true
-  %11 = extractvalue { i64, i1 } %9, 0
-  %.sroa.01.0.i = and i1 %7, %not..i.i
-  %12 = icmp ult i64 %11, 9223372036854775799
-  %or.cond.i.i = and i1 %.sroa.01.0.i, %12
-  br i1 %or.cond.i.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289bedffb069a9fE.exit", label %13
+  %7 = icmp ugt i64 %.val.i.i, 1152921504606846975
+  br i1 %7, label %.thread.i, label %8
 
-13:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h8896b0871e03b815E.exit"
+8:                                                ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h8896b0871e03b815E.exit"
+  %9 = shl nuw i64 %.val.i.i, 4
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 16)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = icmp ugt i64 %.val.i.i, 576460752303423486
+  %or.cond.i.not.i = or i1 %12, %11
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289bedffb069a9fE.exit"
+
+.thread.i:                                        ; preds = %8, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h8896b0871e03b815E.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #25
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289bedffb069a9fE.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h8896b0871e03b815E.exit"
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289bedffb069a9fE.exit": ; preds = %8
+  %13 = extractvalue { i64, i1 } %10, 0
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %4, ptr %14, align 8
   store i64 8, ptr %3, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %11, ptr %15, align 8
+  store i64 %13, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1590)

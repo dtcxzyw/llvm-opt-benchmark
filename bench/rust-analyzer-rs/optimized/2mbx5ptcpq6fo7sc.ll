@@ -19858,6 +19858,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   store i64 -1, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 -1, ptr %25, align 8
   br label %14
 }
 
@@ -19910,6 +19912,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   store i64 -1, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 -1, ptr %25, align 8
   br label %14
 }
 
@@ -63035,6 +63039,8 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   store i64 -1, ptr %0, align 8, !alias.scope !22562, !noalias !22565
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %24, align 8, !alias.scope !22562, !noalias !22565
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 -1, ptr %25, align 8, !alias.scope !22562, !noalias !22565
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd1d0e498c667b684E.llvm.13094975786070861856.exit"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd1d0e498c667b684E.llvm.13094975786070861856.exit": ; preds = %12, %14, %15, %23
@@ -63090,6 +63096,8 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   store i64 -1, ptr %0, align 8, !alias.scope !22575, !noalias !22578
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %24, align 8, !alias.scope !22575, !noalias !22578
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 -1, ptr %25, align 8, !alias.scope !22575, !noalias !22578
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdd8a155165994b1bE.llvm.13094975786070861856.exit"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdd8a155165994b1bE.llvm.13094975786070861856.exit": ; preds = %12, %14, %15, %23

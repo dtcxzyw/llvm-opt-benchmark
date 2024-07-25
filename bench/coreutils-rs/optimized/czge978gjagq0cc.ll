@@ -833,10 +833,10 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %22 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %21)
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hddbbb97a46778821E.llvm.16954148956069160696.exit"
 
-"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hddbbb97a46778821E.llvm.16954148956069160696.exit": ; preds = %12, %10, %8, %29, %25, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17haf25624b2fd8ed90E.exit13"
-  %.0.sroa.speculated.i.sink.i9.sink = phi i64 [ %.0.sroa.speculated.i.sink.i9, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17haf25624b2fd8ed90E.exit13" ], [ %.0.sroa.speculated.i.i, %29 ], [ 0, %25 ], [ 0, %8 ], [ 0, %10 ], [ 0, %12 ]
-  %spec.select.sink = phi i64 [ %spec.select, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17haf25624b2fd8ed90E.exit13" ], [ 1, %29 ], [ 1, %25 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ]
-  %.sink = phi i64 [ %63, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17haf25624b2fd8ed90E.exit13" ], [ %.sroa.5.0.i, %29 ], [ 0, %25 ], [ 0, %8 ], [ 0, %10 ], [ %22, %12 ]
+"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hddbbb97a46778821E.llvm.16954148956069160696.exit": ; preds = %12, %10, %8, %29, %25, %61
+  %.0.sroa.speculated.i.sink.i9.sink = phi i64 [ %.0.sroa.speculated.i.sink.i9, %61 ], [ %.0.sroa.speculated.i.i, %29 ], [ 0, %25 ], [ 0, %8 ], [ 0, %10 ], [ 0, %12 ]
+  %spec.select.sink = phi i64 [ %spec.select, %61 ], [ 1, %29 ], [ 1, %25 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ]
+  %.sink = phi i64 [ %64, %61 ], [ %.sroa.5.0.i, %29 ], [ 0, %25 ], [ 0, %8 ], [ 0, %10 ], [ %22, %12 ]
   store i64 %.0.sroa.speculated.i.sink.i9.sink, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %spec.select.sink, ptr %23, align 8
@@ -885,7 +885,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.0.sroa.speculated.i.sink.i9 = phi i64 [ %.0.sroa.speculated.i.i7, %42 ], [ 0, %37 ]
   %.sroa.5.0.sink.i10 = phi i64 [ %.sroa.5.0.i8, %42 ], [ 0, %37 ]
   %50 = trunc nuw i8 %6 to i1
-  br i1 %50, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17haf25624b2fd8ed90E.exit13", label %51
+  br i1 %50, label %61, label %51
 
 51:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hddbbb97a46778821E.llvm.16954148956069160696.exit11"
   %52 = getelementptr inbounds i8, ptr %1, i64 32
@@ -897,14 +897,14 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %58 = getelementptr inbounds i8, ptr %1, i64 40
   %59 = load i64, ptr %58, align 8, !alias.scope !355, !noalias !356, !noundef !9
   %60 = tail call i64 @llvm.usub.sat.i64(i64 %57, i64 %59)
-  br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17haf25624b2fd8ed90E.exit13"
+  br label %61
 
-"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17haf25624b2fd8ed90E.exit13": ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hddbbb97a46778821E.llvm.16954148956069160696.exit11", %51
+61:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hddbbb97a46778821E.llvm.16954148956069160696.exit11", %51
   %.sink.i12 = phi i64 [ %60, %51 ], [ 0, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hddbbb97a46778821E.llvm.16954148956069160696.exit11" ]
-  %61 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.5.0.sink.i10, i64 %.sink.i12)
-  %62 = extractvalue { i64, i1 } %61, 1
-  %63 = extractvalue { i64, i1 } %61, 0
-  %not. = xor i1 %62, true
+  %62 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.5.0.sink.i10, i64 %.sink.i12)
+  %63 = extractvalue { i64, i1 } %62, 1
+  %64 = extractvalue { i64, i1 } %62, 0
+  %not. = xor i1 %63, true
   %spec.select = zext i1 %not. to i64
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hddbbb97a46778821E.llvm.16954148956069160696.exit"
 }

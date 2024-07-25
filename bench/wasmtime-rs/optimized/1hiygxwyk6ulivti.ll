@@ -3070,29 +3070,29 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %7 = load i64, ptr %1, align 8, !range !639, !alias.scope !640, !noalias !643, !noundef !11
-  switch i64 %7, label %18 [
-    i64 3, label %8
+  switch i64 %7, label %8 [
+    i64 3, label %9
     i64 2, label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9ae9b086e0ae967aE.exit"
   ]
 
-8:                                                ; preds = %18, %2
-  %.0.i = phi i64 [ 1, %18 ], [ 0, %2 ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
-  %10 = load ptr, ptr %9, align 8, !alias.scope !645, !noalias !648, !nonnull !11, !noundef !11
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
-  %12 = load ptr, ptr %11, align 8, !alias.scope !645, !noalias !648, !nonnull !11, !noundef !11
-  %13 = ptrtoint ptr %10 to i64
-  %14 = ptrtoint ptr %12 to i64
-  %15 = sub nuw i64 %13, %14
-  %16 = udiv exact i64 %15, 40
-  %17 = add nuw nsw i64 %16, %.0.i
+8:                                                ; preds = %2
+  br label %9
+
+9:                                                ; preds = %8, %2
+  %.0.i = phi i64 [ 1, %8 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %11 = load ptr, ptr %10, align 8, !alias.scope !645, !noalias !648, !nonnull !11, !noundef !11
+  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = load ptr, ptr %12, align 8, !alias.scope !645, !noalias !648, !nonnull !11, !noundef !11
+  %14 = ptrtoint ptr %11 to i64
+  %15 = ptrtoint ptr %13 to i64
+  %16 = sub nuw i64 %14, %15
+  %17 = udiv exact i64 %16, 40
+  %18 = add nuw nsw i64 %17, %.0.i
   br label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9ae9b086e0ae967aE.exit"
 
-18:                                               ; preds = %2
-  br label %8
-
-"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9ae9b086e0ae967aE.exit": ; preds = %2, %8
-  %.sink9.i = phi i64 [ %17, %8 ], [ 0, %2 ]
+"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9ae9b086e0ae967aE.exit": ; preds = %2, %9
+  %.sink9.i = phi i64 [ %18, %9 ], [ 0, %2 ]
   %19 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hce58ecabe0394cf2E"(i64 noundef %.sink9.i, i1 noundef zeroext false)
           to label %20 unwind label %68
 

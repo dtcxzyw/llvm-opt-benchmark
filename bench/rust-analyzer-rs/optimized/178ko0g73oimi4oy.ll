@@ -676,37 +676,37 @@ define hidden void @"_ZN115_$LT$itertools..intersperse..IntersperseWith$LT$I$C$E
   br label %_ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.3421199298475542611.exit
 
 _ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.3421199298475542611.exit: ; preds = %2, %5
-  %.sink14 = phi i64 [ %14, %5 ], [ 0, %2 ]
+  %.sroa.5.0.copyload = phi i64 [ %14, %5 ], [ 0, %2 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink14, ptr %0, align 8, !alias.scope !229, !noalias !232
+  store i64 %.sroa.5.0.copyload, ptr %0, align 8, !alias.scope !229, !noalias !232
   store i64 1, ptr %15, align 8, !alias.scope !229, !noalias !232
-  store i64 %.sink14, ptr %16, align 8, !alias.scope !229, !noalias !232
+  store i64 %.sroa.5.0.copyload, ptr %16, align 8, !alias.scope !229, !noalias !232
   %17 = getelementptr inbounds i8, ptr %1, i64 112
   %18 = load i8, ptr %17, align 8, !range !235, !noundef !7
-  switch i8 %18, label %23 [
+  switch i8 %18, label %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit [
     i8 6, label %19
     i8 5, label %22
   ]
 
 19:                                               ; preds = %_ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.3421199298475542611.exit
-  %20 = tail call i64 @llvm.usub.sat.i64(i64 %.sink14, i64 1)
-  %21 = tail call i64 @llvm.usub.sat.i64(i64 %.sink14, i64 1)
+  %20 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.5.0.copyload, i64 1)
+  %21 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.5.0.copyload, i64 1)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %19, %23
-  %.sink15 = phi i64 [ %25, %23 ], [ %20, %19 ]
-  %.sink = phi i64 [ %24, %23 ], [ %21, %19 ]
-  store i64 %.sink15, ptr %0, align 8
+.sink.split:                                      ; preds = %19, %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit
+  %.sink16 = phi i64 [ %24, %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit ], [ %20, %19 ]
+  %.sink = phi i64 [ %23, %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit ], [ %21, %19 ]
+  store i64 %.sink16, ptr %0, align 8
   store i64 %.sink, ptr %16, align 8
   br label %22
 
 22:                                               ; preds = %.sink.split, %_ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.3421199298475542611.exit
   ret void
 
-23:                                               ; preds = %_ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.3421199298475542611.exit
-  %24 = or disjoint i64 %.sink14, 1
-  %25 = or disjoint i64 %.sink14, 1
+_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit: ; preds = %_ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.3421199298475542611.exit
+  %23 = or disjoint i64 %.sroa.5.0.copyload, 1
+  %24 = or disjoint i64 %.sroa.5.0.copyload, 1
   br label %.sink.split
 }
 
@@ -722,17 +722,17 @@ _ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.3421199298475542611.exit:
   %8 = ptrtoint ptr %3 to i64
   %9 = sub nuw i64 %7, %8
   %10 = lshr exact i64 %9, 6
-  %.sink14 = select i1 %4, i64 0, i64 %10
+  %.sroa.5.0.copyload = select i1 %4, i64 0, i64 %10
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = shl nuw nsw i64 %.sink14, 1
-  %14 = shl nuw nsw i64 %.sink14, 1
+  %13 = shl nuw nsw i64 %.sroa.5.0.copyload, 1
+  %14 = shl nuw nsw i64 %.sroa.5.0.copyload, 1
   store i64 %14, ptr %0, align 8, !alias.scope !236, !noalias !239
   store i64 1, ptr %11, align 8, !alias.scope !236, !noalias !239
   store i64 %13, ptr %12, align 8, !alias.scope !236, !noalias !239
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load i8, ptr %15, align 8, !range !242, !noundef !7
-  switch i8 %16, label %21 [
+  switch i8 %16, label %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit [
     i8 5, label %17
     i8 4, label %20
   ]
@@ -742,19 +742,19 @@ _ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.3421199298475542611.exit:
   %19 = tail call i64 @llvm.usub.sat.i64(i64 %13, i64 1)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %17, %21
-  %.sink15 = phi i64 [ %23, %21 ], [ %18, %17 ]
-  %.sink = phi i64 [ %22, %21 ], [ %19, %17 ]
-  store i64 %.sink15, ptr %0, align 8
+.sink.split:                                      ; preds = %17, %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit
+  %.sink16 = phi i64 [ %22, %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit ], [ %18, %17 ]
+  %.sink = phi i64 [ %21, %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit ], [ %19, %17 ]
+  store i64 %.sink16, ptr %0, align 8
   store i64 %.sink, ptr %12, align 8
   br label %20
 
 20:                                               ; preds = %.sink.split, %_ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.3421199298475542611.exit
   ret void
 
-21:                                               ; preds = %_ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.3421199298475542611.exit
-  %22 = or disjoint i64 %13, 1
-  %23 = or disjoint i64 %14, 1
+_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit: ; preds = %_ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.3421199298475542611.exit
+  %21 = or disjoint i64 %13, 1
+  %22 = or disjoint i64 %14, 1
   br label %.sink.split
 }
 
@@ -25748,21 +25748,27 @@ define hidden void @_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !range !280, !noundef !7
   %trunc = trunc nuw i64 %6 to i1
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 %2)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %not. = xor i1 %10, true
-  %narrow = select i1 %trunc, i1 %not., i1 false
-  %.sroa.0.0 = zext i1 %narrow to i64
-  %.sroa.6.0 = select i1 %trunc, i64 %11, i64 undef
-  %12 = tail call i64 @llvm.uadd.sat.i64(i64 %4, i64 %2)
-  store i64 %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.6.0, ptr %14, align 8
+  br i1 %trunc, label %7, label %13
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %2)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = extractvalue { i64, i1 } %10, 0
+  %not. = xor i1 %11, true
+  %spec.select = zext i1 %not. to i64
+  br label %13
+
+13:                                               ; preds = %7, %3
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ %spec.select, %7 ]
+  %.sroa.6.0 = phi i64 [ undef, %3 ], [ %12, %7 ]
+  %14 = tail call i64 @llvm.uadd.sat.i64(i64 %4, i64 %2)
+  store i64 %14, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.0.0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.6.0, ptr %16, align 8
   ret void
 }
 

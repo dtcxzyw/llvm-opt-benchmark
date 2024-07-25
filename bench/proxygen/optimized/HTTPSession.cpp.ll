@@ -14260,8 +14260,8 @@ common.resume:                                    ; preds = %ehcleanup, %ehclean
 
 if.then4.i.i:                                     ; preds = %if.then
   %4 = load ptr, ptr %errorMsg, align 8, !alias.scope !96
-  %data_.i6.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load ptr, ptr %data_.i6.i.i, align 8
+  %data_.i7.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load ptr, ptr %data_.i7.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %call17, i64 %call.i.i.i, i1 false)
   br label %invoke.cont19
 

@@ -9943,10 +9943,10 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %124 = getelementptr inbounds i8, ptr %5, i64 80
   %.val.i.i19.i.i.i.i.i.i = load ptr, ptr %124, align 8, !alias.scope !3155, !noalias !3160
   %.not.i.i20.i.i.i.i.i.i = icmp ne ptr %.val.i.i19.i.i.i.i.i.i, null
-  %.sroa.064.0.not.i.i21.not.i.i.i.i.i.i = select i1 %trunc46.i.i18.i.i.i.i.i.i, i1 %.not.i.i20.i.i.i.i.i.i, i1 false
+  %.sroa.064.0.not.i.i21.i.i.i.i.i.i = select i1 %trunc46.i.i18.i.i.i.i.i.i, i1 %.not.i.i20.i.i.i.i.i.i, i1 false
   %125 = add nuw nsw i64 %.sroa.7.0.i.i14.i.i.i.i.i.i, %.sink19.i9.i.i.i.i.i.i
   %126 = add nuw nsw i64 %125, %.sroa.8.0.i.i17.i.i.i.i.i.i
-  %.sroa.6.0.i.i.i.i.i.i = select i1 %.sroa.064.0.not.i.i21.not.i.i.i.i.i.i, i64 undef, i64 %126
+  %.sroa.6.0.i.i.i.i.i.i = select i1 %.sroa.064.0.not.i.i21.i.i.i.i.i.i, i64 undef, i64 %126
   br label %"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7cf34fe6d066e4a8E.exit.i"
 
 "_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7cf34fe6d066e4a8E.exit.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hb36d0a499da32763E.exit.i.i.i.i.i.i.i.i", %25, %26, %32, %38, %15, %"_ZN4core6option15Option$LT$T$GT$6map_or17hb36d0a499da32763E.exit55.i.i16.i.i.i.i.i.i"

@@ -2996,17 +2996,17 @@ define hidden void @"_ZN106_$LT$itertools..with_position..WithPosition$LT$I$GT$$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   %3 = load i64, ptr %1, align 8, !range !207, !alias.scope !205, !noalias !202, !noundef !11
-  switch i64 %3, label %16 [
+  switch i64 %3, label %15 [
     i64 -9223372036854775805, label %4
     i64 -9223372036854775806, label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h89b4b97ee12e03c5E.llvm.3470423371997672202.exit"
   ]
 
-4:                                                ; preds = %16, %2
-  %.0.i = phi i64 [ 1, %16 ], [ 0, %2 ]
+4:                                                ; preds = %15, %2
+  %.0.i = phi i64 [ 1, %15 ], [ 0, %2 ]
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8, !alias.scope !208, !noalias !211, !noundef !11
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5fa87120e352cebE.exit.i", label %8
+  br i1 %7, label %16, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 40
@@ -3017,23 +3017,23 @@ define hidden void @"_ZN106_$LT$itertools..with_position..WithPosition$LT$I$GT$$
   %12 = ptrtoint ptr %.val.i.i to i64
   %13 = sub nuw i64 %11, %12
   %14 = udiv exact i64 %13, 24
-  br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5fa87120e352cebE.exit.i"
+  br label %16
 
-"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5fa87120e352cebE.exit.i": ; preds = %8, %4
-  %.sink2.i.i = phi i64 [ %14, %8 ], [ 0, %4 ]
-  %15 = add nuw nsw i64 %.sink2.i.i, %.0.i
-  br label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h89b4b97ee12e03c5E.llvm.3470423371997672202.exit"
-
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   br label %4
 
-"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h89b4b97ee12e03c5E.llvm.3470423371997672202.exit": ; preds = %2, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5fa87120e352cebE.exit.i"
-  %.sink9.i = phi i64 [ %15, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5fa87120e352cebE.exit.i" ], [ 0, %2 ]
+16:                                               ; preds = %8, %4
+  %.sink2.i.i = phi i64 [ %14, %8 ], [ 0, %4 ]
+  %17 = add nuw nsw i64 %.sink2.i.i, %.0.i
+  br label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h89b4b97ee12e03c5E.llvm.3470423371997672202.exit"
+
+"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h89b4b97ee12e03c5E.llvm.3470423371997672202.exit": ; preds = %2, %16
+  %.sink9.i = phi i64 [ %17, %16 ], [ 0, %2 ]
   store i64 %.sink9.i, ptr %0, align 8, !alias.scope !202, !noalias !205
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 1, ptr %17, align 8, !alias.scope !202, !noalias !205
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink9.i, ptr %18, align 8, !alias.scope !202, !noalias !205
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 1, ptr %18, align 8, !alias.scope !202, !noalias !205
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink9.i, ptr %19, align 8, !alias.scope !202, !noalias !205
   ret void
 }
 
@@ -3045,17 +3045,17 @@ define hidden noundef nonnull ptr @"_ZN106_$LT$rowan..api..SyntaxToken$LT$L$GT$$
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h89b4b97ee12e03c5E.llvm.3470423371997672202"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !207, !noundef !11
-  switch i64 %3, label %16 [
+  switch i64 %3, label %15 [
     i64 -9223372036854775805, label %4
-    i64 -9223372036854775806, label %17
+    i64 -9223372036854775806, label %16
   ]
 
-4:                                                ; preds = %2, %16
-  %.0 = phi i64 [ 1, %16 ], [ 0, %2 ]
+4:                                                ; preds = %2, %15
+  %.0 = phi i64 [ 1, %15 ], [ 0, %2 ]
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8, !alias.scope !218, !noalias !221, !noundef !11
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5fa87120e352cebE.exit", label %8
+  br i1 %7, label %19, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 40
@@ -3066,24 +3066,24 @@ define hidden void @"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT
   %12 = ptrtoint ptr %.val.i to i64
   %13 = sub nuw i64 %11, %12
   %14 = udiv exact i64 %13, 24
-  br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5fa87120e352cebE.exit"
+  br label %19
 
-"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5fa87120e352cebE.exit": ; preds = %4, %8
-  %.sink2.i = phi i64 [ %14, %8 ], [ 0, %4 ]
-  %15 = add nuw nsw i64 %.sink2.i, %.0
-  br label %17
-
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   br label %4
 
-17:                                               ; preds = %2, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5fa87120e352cebE.exit"
-  %.sink9 = phi i64 [ %15, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5fa87120e352cebE.exit" ], [ 0, %2 ]
+16:                                               ; preds = %2, %19
+  %.sink9 = phi i64 [ %20, %19 ], [ 0, %2 ]
   store i64 %.sink9, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink9, ptr %19, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink9, ptr %18, align 8
   ret void
+
+19:                                               ; preds = %4, %8
+  %.sink2.i = phi i64 [ %14, %8 ], [ 0, %4 ]
+  %20 = add nuw nsw i64 %.sink2.i, %.0
+  br label %16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

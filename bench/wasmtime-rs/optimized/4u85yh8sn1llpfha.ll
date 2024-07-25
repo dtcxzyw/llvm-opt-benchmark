@@ -2508,10 +2508,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit: ; preds
   %23 = tail call i64 @llvm.usub.sat.i64(i64 %.0.sroa.speculated.i.i, i64 8)
   %24 = and i64 %23, 4294967288
   %.not = icmp ult i64 %24, %3
-  br i1 %.not, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31, label %31
+  br i1 %.not, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$24checked_next_multiple_of17h4c8d55592f422462E.exit.thread"
 
-25:                                               ; preds = %31, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit
-  %.sink = phi i32 [ 0, %31 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit ]
+25:                                               ; preds = %"_ZN4core3num21_$LT$impl$u20$u32$GT$24checked_next_multiple_of17h4c8d55592f422462E.exit.thread", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit
+  %.sink = phi i32 [ 0, %"_ZN4core3num21_$LT$impl$u20$u32$GT$24checked_next_multiple_of17h4c8d55592f422462E.exit.thread" ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit ]
   store i32 %.sink, ptr %0, align 8
   ret void
 
@@ -2548,12 +2548,12 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16389591707760502172.exit31: ; pre
   store ptr %29, ptr %30, align 8
   br label %25
 
-31:                                               ; preds = %22
-  %32 = trunc nuw i64 %3 to i32
-  %.biased = add i32 %32, 7
-  %.sroa.5.1.i = and i32 %.biased, -8
-  %33 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.5.1.i, ptr %33, align 4
+"_ZN4core3num21_$LT$impl$u20$u32$GT$24checked_next_multiple_of17h4c8d55592f422462E.exit.thread": ; preds = %22
+  %31 = trunc nuw i64 %3 to i32
+  %.biased = add i32 %31, 7
+  %.sroa.5.1.i44 = and i32 %.biased, -8
+  %32 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sroa.5.1.i44, ptr %32, align 4
   br label %25
 }
 
@@ -4011,59 +4011,63 @@ define hidden void @_ZN16wasmtime_runtime6memory10MmapMemory3new17heaf0bbb1cba0c
   %23 = getelementptr inbounds i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !4
   %.not = icmp ult i64 %21, %24
-  br i1 %.not, label %35, label %36
+  br i1 %.not, label %28, label %29
 
-25:                                               ; preds = %6, %39
-  %.079 = phi i64 [ %40, %39 ], [ %2, %6 ]
-  %.0 = phi i64 [ 0, %39 ], [ %21, %6 ]
-  %.sroa.4.0 = phi i64 [ %.0.sroa.speculated.i, %39 ], [ %4, %6 ]
-  %.sroa.0.0 = phi i64 [ 1, %39 ], [ %3, %6 ]
+25:                                               ; preds = %6, %32
+  %.079 = phi i64 [ %33, %32 ], [ %2, %6 ]
+  %.0 = phi i64 [ 0, %32 ], [ %21, %6 ]
+  %.sroa.4.0 = phi i64 [ %.0.sroa.speculated.i, %32 ], [ %4, %6 ]
+  %.sroa.0.0 = phi i64 [ 1, %32 ], [ %3, %6 ]
   %26 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %.079)
-  %27 = extractvalue { i64, i1 } %26, 0
-  %28 = extractvalue { i64, i1 } %26, 1
-  %29 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %27, i64 %.0)
-  %30 = extractvalue { i64, i1 } %29, 1
-  %31 = extractvalue { i64, i1 } %29, 0
-  %.sroa.022.0.demorgan = or i1 %28, %30
-  %32 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %31, i64 %15)
-  %33 = extractvalue { i64, i1 } %32, 1
-  %34 = or i1 %.sroa.022.0.demorgan, %33
-  br i1 %34, label %47, label %41
+  %27 = extractvalue { i64, i1 } %26, 1
+  br i1 %27, label %.thread, label %34
 
-35:                                               ; preds = %22
+28:                                               ; preds = %22
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.ec0cd622983d658554797d545ae27a8b.75, i64 noundef 46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ec0cd622983d658554797d545ae27a8b.76) #36
   unreachable
 
-36:                                               ; preds = %22
-  %37 = icmp ugt i64 %21, 281474976710655
-  br i1 %37, label %38, label %39
+29:                                               ; preds = %22
+  %30 = icmp ugt i64 %21, 281474976710655
+  br i1 %30, label %31, label %32
 
-38:                                               ; preds = %36
+31:                                               ; preds = %29
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ec0cd622983d658554797d545ae27a8b.77) #36
   unreachable
 
-39:                                               ; preds = %36
-  %40 = shl nuw i64 %21, 16
+32:                                               ; preds = %29
+  %33 = shl nuw i64 %21, 16
   %switch93 = icmp eq i64 %3, 0
   %. = select i1 %switch93, i64 -1, i64 %4
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 %.)
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 %.)
   br label %25
 
-41:                                               ; preds = %25
-  %42 = extractvalue { i64, i1 } %32, 0
+34:                                               ; preds = %25
+  %35 = extractvalue { i64, i1 } %26, 0
+  %36 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %35, i64 %.0)
+  %37 = extractvalue { i64, i1 } %36, 1
+  br i1 %37, label %.thread, label %38
+
+38:                                               ; preds = %34
+  %39 = extractvalue { i64, i1 } %36, 0
+  %40 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %39, i64 %15)
+  %41 = extractvalue { i64, i1 } %40, 1
+  br i1 %41, label %.thread, label %42
+
+42:                                               ; preds = %38
+  %43 = extractvalue { i64, i1 } %40, 0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  call void @_ZN16wasmtime_runtime4mmap4Mmap19accessible_reserved17h45c7d5a54d41c197E(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %11, i64 noundef 0, i64 noundef %42)
-  %43 = load ptr, ptr %11, align 8, !noundef !4
-  %44 = icmp eq ptr %43, null
-  %45 = getelementptr inbounds i8, ptr %11, i64 8
-  %46 = load ptr, ptr %45, align 8
+  call void @_ZN16wasmtime_runtime4mmap4Mmap19accessible_reserved17h45c7d5a54d41c197E(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %11, i64 noundef 0, i64 noundef %43)
+  %44 = load ptr, ptr %11, align 8, !noundef !4
+  %45 = icmp eq ptr %44, null
+  %46 = getelementptr inbounds i8, ptr %11, i64 8
+  %47 = load ptr, ptr %46, align 8
   %.sroa.564.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
   %.sroa.564.0.copyload = load i64, ptr %.sroa.564.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  br i1 %44, label %52, label %51
+  br i1 %45, label %52, label %51
 
-47:                                               ; preds = %25
+.thread:                                          ; preds = %38, %34, %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !571
   store ptr %13, ptr %8, align 8, !noalias !571
@@ -4089,18 +4093,18 @@ define hidden void @_ZN16wasmtime_runtime6memory10MmapMemory3new17heaf0bbb1cba0c
   store i64 2, ptr %0, align 8
   br label %83
 
-51:                                               ; preds = %41
-  store ptr %43, ptr %12, align 8
+51:                                               ; preds = %42
+  store ptr %44, ptr %12, align 8
   %.sroa.436.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %46, ptr %.sroa.436.0..sroa_idx, align 8
+  store ptr %47, ptr %.sroa.436.0..sroa_idx, align 8
   %.sroa.537.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
   store i64 %.sroa.564.0.copyload, ptr %.sroa.537.0..sroa_idx, align 8
   %.not91 = icmp eq i64 %2, 0
   br i1 %.not91, label %56, label %54
 
-52:                                               ; preds = %41
+52:                                               ; preds = %42
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %46, ptr %53, align 8
+  store ptr %47, ptr %53, align 8
   store i64 2, ptr %0, align 8
   br label %88
 
@@ -4199,7 +4203,7 @@ define hidden void @_ZN16wasmtime_runtime6memory10MmapMemory3new17heaf0bbb1cba0c
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br label %65
 
-83:                                               ; preds = %47, %88, %65
+83:                                               ; preds = %.thread, %88, %65
   ret void
 
 84:                                               ; preds = %80

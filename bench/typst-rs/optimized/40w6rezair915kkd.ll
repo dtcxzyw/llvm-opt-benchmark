@@ -37147,50 +37147,54 @@ define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h4e1358884a59c
 5:                                                ; preds = %2
   %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 24)
   %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %.sroa.01.0.demorgan.i = or i1 %7, %10
-  %12 = icmp ugt i64 %11, 9223372036854775798
-  %or.cond.i.not.i = or i1 %12, %.sroa.01.0.demorgan.i
-  br i1 %or.cond.i.not.i, label %13, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17heaa5521262dde29fE.exit"
+  br i1 %7, label %.thread.i, label %8
 
-13:                                               ; preds = %5
+8:                                                ; preds = %5
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 16)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = icmp ugt i64 %9, 9223372036854775782
+  %or.cond.i.not.i = or i1 %12, %11
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17heaa5521262dde29fE.exit"
+
+.thread.i:                                        ; preds = %8, %5
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17heaa5521262dde29fE.exit": ; preds = %5
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17heaa5521262dde29fE.exit": ; preds = %8
+  %13 = extractvalue { i64, i1 } %10, 0
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %.val, inttoptr (i64 16 to ptr)
   br i1 %.not, label %14, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h1a2b03dec725bb42E.exit"
 
 14:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17heaa5521262dde29fE.exit"
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #80
+  %16 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %13, i64 noundef 8) #80
   br label %28
 
 "_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h1a2b03dec725bb42E.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17heaa5521262dde29fE.exit"
-  %17 = getelementptr i8, ptr %.val, i64 -8
-  %.val.i.i = load i64, ptr %17, align 8, !noundef !4
-  %18 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 24)
-  %19 = extractvalue { i64, i1 } %18, 1
-  %20 = extractvalue { i64, i1 } %18, 0
-  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 16)
-  %22 = extractvalue { i64, i1 } %21, 1
-  %23 = extractvalue { i64, i1 } %21, 0
-  %.sroa.01.0.demorgan.i35 = or i1 %19, %22
-  %24 = icmp ugt i64 %23, 9223372036854775798
-  %or.cond.i.not.i36 = or i1 %24, %.sroa.01.0.demorgan.i35
-  br i1 %or.cond.i.not.i36, label %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17heaa5521262dde29fE.exit40"
+  %17 = getelementptr inbounds i8, ptr %.val, i64 -16
+  %18 = getelementptr i8, ptr %.val, i64 -8
+  %.val.i.i = load i64, ptr %18, align 8, !noundef !4
+  %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 24)
+  %20 = extractvalue { i64, i1 } %19, 1
+  br i1 %20, label %.thread.i36, label %21
 
-25:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h1a2b03dec725bb42E.exit"
+21:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h1a2b03dec725bb42E.exit"
+  %22 = extractvalue { i64, i1 } %19, 0
+  %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %22, i64 16)
+  %24 = extractvalue { i64, i1 } %23, 1
+  %25 = icmp ugt i64 %22, 9223372036854775782
+  %or.cond.i.not.i35 = or i1 %25, %24
+  br i1 %or.cond.i.not.i35, label %.thread.i36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17heaa5521262dde29fE.exit40"
+
+.thread.i36:                                      ; preds = %21, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h1a2b03dec725bb42E.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17heaa5521262dde29fE.exit40": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h1a2b03dec725bb42E.exit"
-  %26 = getelementptr inbounds i8, ptr %.val, i64 -16
-  %27 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %26, i64 noundef %23, i64 noundef 8, i64 noundef %11) #80
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17heaa5521262dde29fE.exit40": ; preds = %21
+  %26 = extractvalue { i64, i1 } %23, 0
+  %27 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %17, i64 noundef %26, i64 noundef 8, i64 noundef %13) #80
   br label %28
 
 28:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17heaa5521262dde29fE.exit40", %14
@@ -37199,7 +37203,7 @@ define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h4e1358884a59c
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %28
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %11) #77
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %13) #77
   unreachable
 
 31:                                               ; preds = %28
@@ -37223,50 +37227,54 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h64b1cd8e1f6bd709E"(ptr
 5:                                                ; preds = %2
   %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 24)
   %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %.sroa.01.0.demorgan.i = or i1 %7, %10
-  %12 = icmp ugt i64 %11, 9223372036854775798
-  %or.cond.i.not.i = or i1 %12, %.sroa.01.0.demorgan.i
-  br i1 %or.cond.i.not.i, label %13, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hd656f124425960beE.exit"
+  br i1 %7, label %.thread.i, label %8
 
-13:                                               ; preds = %5
+8:                                                ; preds = %5
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 16)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = icmp ugt i64 %9, 9223372036854775782
+  %or.cond.i.not.i = or i1 %12, %11
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hd656f124425960beE.exit"
+
+.thread.i:                                        ; preds = %8, %5
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hd656f124425960beE.exit": ; preds = %5
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hd656f124425960beE.exit": ; preds = %8
+  %13 = extractvalue { i64, i1 } %10, 0
   %14 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %14, inttoptr (i64 16 to ptr)
   br i1 %.not, label %15, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h30d5cf9eb7b91bfbE.llvm.4930786928582598558.exit"
 
 15:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hd656f124425960beE.exit"
   %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %17 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #80
+  %17 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %13, i64 noundef 8) #80
   br label %29
 
 "_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h30d5cf9eb7b91bfbE.llvm.4930786928582598558.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hd656f124425960beE.exit"
-  %18 = getelementptr i8, ptr %14, i64 -8
-  %.val.i.i = load i64, ptr %18, align 8, !noalias !12468, !noundef !4
-  %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 24)
-  %20 = extractvalue { i64, i1 } %19, 1
-  %21 = extractvalue { i64, i1 } %19, 0
-  %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %21, i64 16)
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
-  %.sroa.01.0.demorgan.i34 = or i1 %20, %23
-  %25 = icmp ugt i64 %24, 9223372036854775798
-  %or.cond.i.not.i35 = or i1 %25, %.sroa.01.0.demorgan.i34
-  br i1 %or.cond.i.not.i35, label %26, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hd656f124425960beE.exit39"
+  %18 = getelementptr inbounds i8, ptr %14, i64 -16
+  %19 = getelementptr i8, ptr %14, i64 -8
+  %.val.i.i = load i64, ptr %19, align 8, !noalias !12468, !noundef !4
+  %20 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 24)
+  %21 = extractvalue { i64, i1 } %20, 1
+  br i1 %21, label %.thread.i35, label %22
 
-26:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h30d5cf9eb7b91bfbE.llvm.4930786928582598558.exit"
+22:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h30d5cf9eb7b91bfbE.llvm.4930786928582598558.exit"
+  %23 = extractvalue { i64, i1 } %20, 0
+  %24 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 16)
+  %25 = extractvalue { i64, i1 } %24, 1
+  %26 = icmp ugt i64 %23, 9223372036854775782
+  %or.cond.i.not.i34 = or i1 %26, %25
+  br i1 %or.cond.i.not.i34, label %.thread.i35, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hd656f124425960beE.exit39"
+
+.thread.i35:                                      ; preds = %22, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h30d5cf9eb7b91bfbE.llvm.4930786928582598558.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hd656f124425960beE.exit39": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h30d5cf9eb7b91bfbE.llvm.4930786928582598558.exit"
-  %27 = getelementptr inbounds i8, ptr %14, i64 -16
-  %28 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %27, i64 noundef %24, i64 noundef 8, i64 noundef %11) #80
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hd656f124425960beE.exit39": ; preds = %22
+  %27 = extractvalue { i64, i1 } %24, 0
+  %28 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %18, i64 noundef %27, i64 noundef 8, i64 noundef %13) #80
   br label %29
 
 29:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hd656f124425960beE.exit39", %15
@@ -37275,7 +37283,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h64b1cd8e1f6bd709E"(ptr
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %29
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %11) #77
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %13) #77
   unreachable
 
 32:                                               ; preds = %29
@@ -37299,50 +37307,54 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h76c397d2d4b018e5E.llvm
 5:                                                ; preds = %2
   %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 24)
   %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %.sroa.01.0.demorgan.i = or i1 %7, %10
-  %12 = icmp ugt i64 %11, 9223372036854775798
-  %or.cond.i.not.i = or i1 %12, %.sroa.01.0.demorgan.i
-  br i1 %or.cond.i.not.i, label %13, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h06cf6f4e6716c2e1E.exit"
+  br i1 %7, label %.thread.i, label %8
 
-13:                                               ; preds = %5
+8:                                                ; preds = %5
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 16)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = icmp ugt i64 %9, 9223372036854775782
+  %or.cond.i.not.i = or i1 %12, %11
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h06cf6f4e6716c2e1E.exit"
+
+.thread.i:                                        ; preds = %8, %5
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h06cf6f4e6716c2e1E.exit": ; preds = %5
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h06cf6f4e6716c2e1E.exit": ; preds = %8
+  %13 = extractvalue { i64, i1 } %10, 0
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %.val, inttoptr (i64 16 to ptr)
   br i1 %.not, label %14, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h69fc354de89f7e88E.exit"
 
 14:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h06cf6f4e6716c2e1E.exit"
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #80
+  %16 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %13, i64 noundef 8) #80
   br label %28
 
 "_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h69fc354de89f7e88E.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h06cf6f4e6716c2e1E.exit"
-  %17 = getelementptr i8, ptr %.val, i64 -8
-  %.val.i.i = load i64, ptr %17, align 8, !noundef !4
-  %18 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 24)
-  %19 = extractvalue { i64, i1 } %18, 1
-  %20 = extractvalue { i64, i1 } %18, 0
-  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 16)
-  %22 = extractvalue { i64, i1 } %21, 1
-  %23 = extractvalue { i64, i1 } %21, 0
-  %.sroa.01.0.demorgan.i35 = or i1 %19, %22
-  %24 = icmp ugt i64 %23, 9223372036854775798
-  %or.cond.i.not.i36 = or i1 %24, %.sroa.01.0.demorgan.i35
-  br i1 %or.cond.i.not.i36, label %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h06cf6f4e6716c2e1E.exit40"
+  %17 = getelementptr inbounds i8, ptr %.val, i64 -16
+  %18 = getelementptr i8, ptr %.val, i64 -8
+  %.val.i.i = load i64, ptr %18, align 8, !noundef !4
+  %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 24)
+  %20 = extractvalue { i64, i1 } %19, 1
+  br i1 %20, label %.thread.i36, label %21
 
-25:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h69fc354de89f7e88E.exit"
+21:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h69fc354de89f7e88E.exit"
+  %22 = extractvalue { i64, i1 } %19, 0
+  %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %22, i64 16)
+  %24 = extractvalue { i64, i1 } %23, 1
+  %25 = icmp ugt i64 %22, 9223372036854775782
+  %or.cond.i.not.i35 = or i1 %25, %24
+  br i1 %or.cond.i.not.i35, label %.thread.i36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h06cf6f4e6716c2e1E.exit40"
+
+.thread.i36:                                      ; preds = %21, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h69fc354de89f7e88E.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h06cf6f4e6716c2e1E.exit40": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h69fc354de89f7e88E.exit"
-  %26 = getelementptr inbounds i8, ptr %.val, i64 -16
-  %27 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %26, i64 noundef %23, i64 noundef 8, i64 noundef %11) #80
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h06cf6f4e6716c2e1E.exit40": ; preds = %21
+  %26 = extractvalue { i64, i1 } %23, 0
+  %27 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %17, i64 noundef %26, i64 noundef 8, i64 noundef %13) #80
   br label %28
 
 28:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h06cf6f4e6716c2e1E.exit40", %14
@@ -37351,7 +37363,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h76c397d2d4b018e5E.llvm
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %28
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %11) #77
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %13) #77
   unreachable
 
 31:                                               ; preds = %28
@@ -37373,61 +37385,63 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h7ea6f34f619ce264E.llvm
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ult i64 %1, 4611686018427387904
-  %7 = shl i64 %1, 2
-  %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 16)
-  %9 = extractvalue { i64, i1 } %8, 1
-  %not..i.i = xor i1 %9, true
-  %10 = extractvalue { i64, i1 } %8, 0
-  %.sroa.01.0.i = and i1 %6, %not..i.i
-  %11 = icmp ult i64 %10, 9223372036854775799
-  %or.cond.i.i = and i1 %.sroa.01.0.i, %11
-  br i1 %or.cond.i.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit", label %12
+  %6 = icmp ugt i64 %1, 4611686018427387903
+  br i1 %6, label %.thread.i, label %7
 
-12:                                               ; preds = %5
+7:                                                ; preds = %5
+  %8 = shl nuw i64 %1, 2
+  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
+  %10 = extractvalue { i64, i1 } %9, 1
+  %11 = icmp ugt i64 %1, 2305843009213693945
+  %or.cond.i.not.i = or i1 %11, %10
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit"
+
+.thread.i:                                        ; preds = %7, %5
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit": ; preds = %5
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit": ; preds = %7
+  %12 = extractvalue { i64, i1 } %9, 0
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %.val, inttoptr (i64 16 to ptr)
   br i1 %.not, label %13, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17heda6adf07045f700E.exit"
 
 13:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit"
   %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %15 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %10, i64 noundef 8) #80
+  %15 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %12, i64 noundef 8) #80
   br label %26
 
 "_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17heda6adf07045f700E.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit"
-  %16 = getelementptr i8, ptr %.val, i64 -8
-  %.val.i.i = load i64, ptr %16, align 8, !noundef !4
-  %17 = icmp ult i64 %.val.i.i, 4611686018427387904
-  %18 = shl i64 %.val.i.i, 2
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 16)
-  %20 = extractvalue { i64, i1 } %19, 1
-  %not..i.i35 = xor i1 %20, true
-  %21 = extractvalue { i64, i1 } %19, 0
-  %.sroa.01.0.i36 = and i1 %17, %not..i.i35
-  %22 = icmp ult i64 %21, 9223372036854775799
-  %or.cond.i.i37 = and i1 %.sroa.01.0.i36, %22
-  br i1 %or.cond.i.i37, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit42", label %23
+  %16 = getelementptr inbounds i8, ptr %.val, i64 -16
+  %17 = getelementptr i8, ptr %.val, i64 -8
+  %.val.i.i = load i64, ptr %17, align 8, !noundef !4
+  %18 = icmp ugt i64 %.val.i.i, 4611686018427387903
+  br i1 %18, label %.thread.i36, label %19
 
-23:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17heda6adf07045f700E.exit"
+19:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17heda6adf07045f700E.exit"
+  %20 = shl nuw i64 %.val.i.i, 2
+  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 16)
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = icmp ugt i64 %.val.i.i, 2305843009213693945
+  %or.cond.i.not.i35 = or i1 %23, %22
+  br i1 %or.cond.i.not.i35, label %.thread.i36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit40"
+
+.thread.i36:                                      ; preds = %19, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17heda6adf07045f700E.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit42": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17heda6adf07045f700E.exit"
-  %24 = getelementptr inbounds i8, ptr %.val, i64 -16
-  %25 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %24, i64 noundef %21, i64 noundef 8, i64 noundef %10) #80
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit40": ; preds = %19
+  %24 = extractvalue { i64, i1 } %21, 0
+  %25 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %16, i64 noundef %24, i64 noundef 8, i64 noundef %12) #80
   br label %26
 
-26:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit42", %13
-  %.0 = phi ptr [ %25, %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit42" ], [ %15, %13 ]
+26:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit40", %13
+  %.0 = phi ptr [ %25, %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit40" ], [ %15, %13 ]
   %27 = icmp eq ptr %.0, null
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %10) #77
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %12) #77
   unreachable
 
 29:                                               ; preds = %26
@@ -37451,50 +37465,54 @@ define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h8b6c323fb56cb
 5:                                                ; preds = %2
   %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 48)
   %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %.sroa.01.0.demorgan.i = or i1 %7, %10
-  %12 = icmp ugt i64 %11, 9223372036854775798
-  %or.cond.i.not.i = or i1 %12, %.sroa.01.0.demorgan.i
-  br i1 %or.cond.i.not.i, label %13, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h03b67e3061284bc1E.exit"
+  br i1 %7, label %.thread.i, label %8
 
-13:                                               ; preds = %5
+8:                                                ; preds = %5
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 16)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = icmp ugt i64 %9, 9223372036854775782
+  %or.cond.i.not.i = or i1 %12, %11
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h03b67e3061284bc1E.exit"
+
+.thread.i:                                        ; preds = %8, %5
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h03b67e3061284bc1E.exit": ; preds = %5
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h03b67e3061284bc1E.exit": ; preds = %8
+  %13 = extractvalue { i64, i1 } %10, 0
   %14 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %14, inttoptr (i64 16 to ptr)
   br i1 %.not, label %15, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h86e17715a2a696b7E.llvm.4930786928582598558.exit"
 
 15:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h03b67e3061284bc1E.exit"
   %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %17 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #80
+  %17 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %13, i64 noundef 8) #80
   br label %29
 
 "_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h86e17715a2a696b7E.llvm.4930786928582598558.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h03b67e3061284bc1E.exit"
-  %18 = getelementptr i8, ptr %14, i64 -8
-  %.val.i.i = load i64, ptr %18, align 8, !noalias !12471, !noundef !4
-  %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 48)
-  %20 = extractvalue { i64, i1 } %19, 1
-  %21 = extractvalue { i64, i1 } %19, 0
-  %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %21, i64 16)
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
-  %.sroa.01.0.demorgan.i34 = or i1 %20, %23
-  %25 = icmp ugt i64 %24, 9223372036854775798
-  %or.cond.i.not.i35 = or i1 %25, %.sroa.01.0.demorgan.i34
-  br i1 %or.cond.i.not.i35, label %26, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h03b67e3061284bc1E.exit39"
+  %18 = getelementptr inbounds i8, ptr %14, i64 -16
+  %19 = getelementptr i8, ptr %14, i64 -8
+  %.val.i.i = load i64, ptr %19, align 8, !noalias !12471, !noundef !4
+  %20 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 48)
+  %21 = extractvalue { i64, i1 } %20, 1
+  br i1 %21, label %.thread.i35, label %22
 
-26:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h86e17715a2a696b7E.llvm.4930786928582598558.exit"
+22:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h86e17715a2a696b7E.llvm.4930786928582598558.exit"
+  %23 = extractvalue { i64, i1 } %20, 0
+  %24 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 16)
+  %25 = extractvalue { i64, i1 } %24, 1
+  %26 = icmp ugt i64 %23, 9223372036854775782
+  %or.cond.i.not.i34 = or i1 %26, %25
+  br i1 %or.cond.i.not.i34, label %.thread.i35, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h03b67e3061284bc1E.exit39"
+
+.thread.i35:                                      ; preds = %22, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h86e17715a2a696b7E.llvm.4930786928582598558.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h03b67e3061284bc1E.exit39": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h86e17715a2a696b7E.llvm.4930786928582598558.exit"
-  %27 = getelementptr inbounds i8, ptr %14, i64 -16
-  %28 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %27, i64 noundef %24, i64 noundef 8, i64 noundef %11) #80
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h03b67e3061284bc1E.exit39": ; preds = %22
+  %27 = extractvalue { i64, i1 } %24, 0
+  %28 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %18, i64 noundef %27, i64 noundef 8, i64 noundef %13) #80
   br label %29
 
 29:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h03b67e3061284bc1E.exit39", %15
@@ -37503,7 +37521,7 @@ define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h8b6c323fb56cb
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %29
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %11) #77
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %13) #77
   unreachable
 
 32:                                               ; preds = %29
@@ -37663,50 +37681,54 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17hc6f2dfdca714abb6E"(ptr
 5:                                                ; preds = %2
   %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 72)
   %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %.sroa.01.0.demorgan.i = or i1 %7, %10
-  %12 = icmp ugt i64 %11, 9223372036854775798
-  %or.cond.i.not.i = or i1 %12, %.sroa.01.0.demorgan.i
-  br i1 %or.cond.i.not.i, label %13, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h73699967a25b6084E.exit"
+  br i1 %7, label %.thread.i, label %8
 
-13:                                               ; preds = %5
+8:                                                ; preds = %5
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 16)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = icmp ugt i64 %9, 9223372036854775782
+  %or.cond.i.not.i = or i1 %12, %11
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h73699967a25b6084E.exit"
+
+.thread.i:                                        ; preds = %8, %5
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h73699967a25b6084E.exit": ; preds = %5
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h73699967a25b6084E.exit": ; preds = %8
+  %13 = extractvalue { i64, i1 } %10, 0
   %14 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %14, inttoptr (i64 16 to ptr)
   br i1 %.not, label %15, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4df552cc3bcae952E.llvm.4930786928582598558.exit"
 
 15:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h73699967a25b6084E.exit"
   %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %17 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #80
+  %17 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %13, i64 noundef 8) #80
   br label %29
 
 "_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4df552cc3bcae952E.llvm.4930786928582598558.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h73699967a25b6084E.exit"
-  %18 = getelementptr i8, ptr %14, i64 -8
-  %.val.i.i = load i64, ptr %18, align 8, !noalias !12477, !noundef !4
-  %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 72)
-  %20 = extractvalue { i64, i1 } %19, 1
-  %21 = extractvalue { i64, i1 } %19, 0
-  %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %21, i64 16)
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
-  %.sroa.01.0.demorgan.i34 = or i1 %20, %23
-  %25 = icmp ugt i64 %24, 9223372036854775798
-  %or.cond.i.not.i35 = or i1 %25, %.sroa.01.0.demorgan.i34
-  br i1 %or.cond.i.not.i35, label %26, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h73699967a25b6084E.exit39"
+  %18 = getelementptr inbounds i8, ptr %14, i64 -16
+  %19 = getelementptr i8, ptr %14, i64 -8
+  %.val.i.i = load i64, ptr %19, align 8, !noalias !12477, !noundef !4
+  %20 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 72)
+  %21 = extractvalue { i64, i1 } %20, 1
+  br i1 %21, label %.thread.i35, label %22
 
-26:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4df552cc3bcae952E.llvm.4930786928582598558.exit"
+22:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4df552cc3bcae952E.llvm.4930786928582598558.exit"
+  %23 = extractvalue { i64, i1 } %20, 0
+  %24 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 16)
+  %25 = extractvalue { i64, i1 } %24, 1
+  %26 = icmp ugt i64 %23, 9223372036854775782
+  %or.cond.i.not.i34 = or i1 %26, %25
+  br i1 %or.cond.i.not.i34, label %.thread.i35, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h73699967a25b6084E.exit39"
+
+.thread.i35:                                      ; preds = %22, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4df552cc3bcae952E.llvm.4930786928582598558.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h73699967a25b6084E.exit39": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4df552cc3bcae952E.llvm.4930786928582598558.exit"
-  %27 = getelementptr inbounds i8, ptr %14, i64 -16
-  %28 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %27, i64 noundef %24, i64 noundef 8, i64 noundef %11) #80
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h73699967a25b6084E.exit39": ; preds = %22
+  %27 = extractvalue { i64, i1 } %24, 0
+  %28 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %18, i64 noundef %27, i64 noundef 8, i64 noundef %13) #80
   br label %29
 
 29:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h73699967a25b6084E.exit39", %15
@@ -37715,7 +37737,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17hc6f2dfdca714abb6E"(ptr
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %29
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %11) #77
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %13) #77
   unreachable
 
 32:                                               ; preds = %29
@@ -37807,50 +37829,54 @@ define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17he9db7763a6898
 5:                                                ; preds = %2
   %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 40)
   %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %.sroa.01.0.demorgan.i = or i1 %7, %10
-  %12 = icmp ugt i64 %11, 9223372036854775798
-  %or.cond.i.not.i = or i1 %12, %.sroa.01.0.demorgan.i
-  br i1 %or.cond.i.not.i, label %13, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289fe6d37c4c49bE.exit"
+  br i1 %7, label %.thread.i, label %8
 
-13:                                               ; preds = %5
+8:                                                ; preds = %5
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 16)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = icmp ugt i64 %9, 9223372036854775782
+  %or.cond.i.not.i = or i1 %12, %11
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289fe6d37c4c49bE.exit"
+
+.thread.i:                                        ; preds = %8, %5
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289fe6d37c4c49bE.exit": ; preds = %5
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289fe6d37c4c49bE.exit": ; preds = %8
+  %13 = extractvalue { i64, i1 } %10, 0
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %.val, inttoptr (i64 16 to ptr)
   br i1 %.not, label %14, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h9bd3e360547a7e81E.exit"
 
 14:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289fe6d37c4c49bE.exit"
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %11, i64 noundef 8) #80
+  %16 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %13, i64 noundef 8) #80
   br label %28
 
 "_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h9bd3e360547a7e81E.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289fe6d37c4c49bE.exit"
-  %17 = getelementptr i8, ptr %.val, i64 -8
-  %.val.i.i = load i64, ptr %17, align 8, !noundef !4
-  %18 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 40)
-  %19 = extractvalue { i64, i1 } %18, 1
-  %20 = extractvalue { i64, i1 } %18, 0
-  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 16)
-  %22 = extractvalue { i64, i1 } %21, 1
-  %23 = extractvalue { i64, i1 } %21, 0
-  %.sroa.01.0.demorgan.i35 = or i1 %19, %22
-  %24 = icmp ugt i64 %23, 9223372036854775798
-  %or.cond.i.not.i36 = or i1 %24, %.sroa.01.0.demorgan.i35
-  br i1 %or.cond.i.not.i36, label %25, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289fe6d37c4c49bE.exit40"
+  %17 = getelementptr inbounds i8, ptr %.val, i64 -16
+  %18 = getelementptr i8, ptr %.val, i64 -8
+  %.val.i.i = load i64, ptr %18, align 8, !noundef !4
+  %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 40)
+  %20 = extractvalue { i64, i1 } %19, 1
+  br i1 %20, label %.thread.i36, label %21
 
-25:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h9bd3e360547a7e81E.exit"
+21:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h9bd3e360547a7e81E.exit"
+  %22 = extractvalue { i64, i1 } %19, 0
+  %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %22, i64 16)
+  %24 = extractvalue { i64, i1 } %23, 1
+  %25 = icmp ugt i64 %22, 9223372036854775782
+  %or.cond.i.not.i35 = or i1 %25, %24
+  br i1 %or.cond.i.not.i35, label %.thread.i36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289fe6d37c4c49bE.exit40"
+
+.thread.i36:                                      ; preds = %21, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h9bd3e360547a7e81E.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289fe6d37c4c49bE.exit40": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h9bd3e360547a7e81E.exit"
-  %26 = getelementptr inbounds i8, ptr %.val, i64 -16
-  %27 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %26, i64 noundef %23, i64 noundef 8, i64 noundef %11) #80
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289fe6d37c4c49bE.exit40": ; preds = %21
+  %26 = extractvalue { i64, i1 } %23, 0
+  %27 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %17, i64 noundef %26, i64 noundef 8, i64 noundef %13) #80
   br label %28
 
 28:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289fe6d37c4c49bE.exit40", %14
@@ -37859,7 +37885,7 @@ define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17he9db7763a6898
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %28
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %11) #77
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %13) #77
   unreachable
 
 31:                                               ; preds = %28
@@ -37881,61 +37907,63 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17hf6a9642cc850289cE.llvm
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ult i64 %1, 1152921504606846976
-  %7 = shl i64 %1, 4
-  %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 16)
-  %9 = extractvalue { i64, i1 } %8, 1
-  %not..i.i = xor i1 %9, true
-  %10 = extractvalue { i64, i1 } %8, 0
-  %.sroa.01.0.i = and i1 %6, %not..i.i
-  %11 = icmp ult i64 %10, 9223372036854775799
-  %or.cond.i.i = and i1 %.sroa.01.0.i, %11
-  br i1 %or.cond.i.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit", label %12
+  %6 = icmp ugt i64 %1, 1152921504606846975
+  br i1 %6, label %.thread.i, label %7
 
-12:                                               ; preds = %5
+7:                                                ; preds = %5
+  %8 = shl nuw i64 %1, 4
+  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
+  %10 = extractvalue { i64, i1 } %9, 1
+  %11 = icmp ugt i64 %1, 576460752303423486
+  %or.cond.i.not.i = or i1 %11, %10
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit"
+
+.thread.i:                                        ; preds = %7, %5
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit": ; preds = %5
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit": ; preds = %7
+  %12 = extractvalue { i64, i1 } %9, 0
   %13 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %13, inttoptr (i64 16 to ptr)
   br i1 %.not, label %14, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h5f908d60758dab18E.llvm.4930786928582598558.exit"
 
 14:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit"
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %10, i64 noundef 8) #80
+  %16 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %12, i64 noundef 8) #80
   br label %27
 
 "_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h5f908d60758dab18E.llvm.4930786928582598558.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit"
-  %17 = getelementptr i8, ptr %13, i64 -8
-  %.val.i.i = load i64, ptr %17, align 8, !noalias !12483, !noundef !4
-  %18 = icmp ult i64 %.val.i.i, 1152921504606846976
-  %19 = shl i64 %.val.i.i, 4
-  %20 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 16)
-  %21 = extractvalue { i64, i1 } %20, 1
-  %not..i.i34 = xor i1 %21, true
-  %22 = extractvalue { i64, i1 } %20, 0
-  %.sroa.01.0.i35 = and i1 %18, %not..i.i34
-  %23 = icmp ult i64 %22, 9223372036854775799
-  %or.cond.i.i36 = and i1 %.sroa.01.0.i35, %23
-  br i1 %or.cond.i.i36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit41", label %24
+  %17 = getelementptr inbounds i8, ptr %13, i64 -16
+  %18 = getelementptr i8, ptr %13, i64 -8
+  %.val.i.i = load i64, ptr %18, align 8, !noalias !12483, !noundef !4
+  %19 = icmp ugt i64 %.val.i.i, 1152921504606846975
+  br i1 %19, label %.thread.i35, label %20
 
-24:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h5f908d60758dab18E.llvm.4930786928582598558.exit"
+20:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h5f908d60758dab18E.llvm.4930786928582598558.exit"
+  %21 = shl nuw i64 %.val.i.i, 4
+  %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %21, i64 16)
+  %23 = extractvalue { i64, i1 } %22, 1
+  %24 = icmp ugt i64 %.val.i.i, 576460752303423486
+  %or.cond.i.not.i34 = or i1 %24, %23
+  br i1 %or.cond.i.not.i34, label %.thread.i35, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit39"
+
+.thread.i35:                                      ; preds = %20, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h5f908d60758dab18E.llvm.4930786928582598558.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #77
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit41": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h5f908d60758dab18E.llvm.4930786928582598558.exit"
-  %25 = getelementptr inbounds i8, ptr %13, i64 -16
-  %26 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %25, i64 noundef %22, i64 noundef 8, i64 noundef %10) #80
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit39": ; preds = %20
+  %25 = extractvalue { i64, i1 } %22, 0
+  %26 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %17, i64 noundef %25, i64 noundef 8, i64 noundef %12) #80
   br label %27
 
-27:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit41", %14
-  %.0 = phi ptr [ %26, %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit41" ], [ %16, %14 ]
+27:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit39", %14
+  %.0 = phi ptr [ %26, %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit39" ], [ %16, %14 ]
   %28 = icmp eq ptr %.0, null
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %27
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %10) #77
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef %12) #77
   unreachable
 
 30:                                               ; preds = %27

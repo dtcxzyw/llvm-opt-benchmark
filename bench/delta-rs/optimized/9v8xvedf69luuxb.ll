@@ -2959,7 +2959,7 @@ define hidden void @"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !noundef !21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %35, label %7
+  br i1 %.not, label %30, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -2993,31 +2993,37 @@ define hidden void @"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St
   %28 = icmp ne i64 %14, 0
   %29 = icmp ne i64 %24, 0
   %or.cond = and i1 %28, %29
-  %30 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %26)
-  %31 = extractvalue { i64, i1 } %30, 1
-  %32 = extractvalue { i64, i1 } %30, 0
-  %not. = xor i1 %31, true
-  %narrow = select i1 %or.cond, i1 %not., i1 false
-  %.sroa.04.0 = zext i1 %narrow to i64
-  %.sroa.4.0 = select i1 %or.cond, i64 %32, i64 undef
-  store i64 %27, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.04.0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0, ptr %34, align 8
-  br label %41
+  br i1 %or.cond, label %36, label %40
 
-35:                                               ; preds = %2
+30:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
-  %36 = load ptr, ptr %1, align 8, !alias.scope !295, !noalias !298, !nonnull !21, !align !182, !noundef !21
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8, !alias.scope !295, !noalias !298, !nonnull !21, !align !249, !noundef !21
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
-  %40 = load ptr, ptr %39, align 8, !invariant.load !21, !noalias !300, !nonnull !21
-  tail call void %40(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %36), !noalias !292
-  br label %41
+  %31 = load ptr, ptr %1, align 8, !alias.scope !295, !noalias !298, !nonnull !21, !align !182, !noundef !21
+  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = load ptr, ptr %32, align 8, !alias.scope !295, !noalias !298, !nonnull !21, !align !249, !noundef !21
+  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %35 = load ptr, ptr %34, align 8, !invariant.load !21, !noalias !300, !nonnull !21
+  tail call void %35(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %31), !noalias !292
+  br label %43
 
-41:                                               ; preds = %7, %35
+36:                                               ; preds = %7
+  %37 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %26)
+  %38 = extractvalue { i64, i1 } %37, 1
+  %39 = extractvalue { i64, i1 } %37, 0
+  %not. = xor i1 %38, true
+  %spec.select = zext i1 %not. to i64
+  br label %40
+
+40:                                               ; preds = %36, %7
+  %.sroa.04.0 = phi i64 [ 0, %7 ], [ %spec.select, %36 ]
+  %.sroa.4.0 = phi i64 [ undef, %7 ], [ %39, %36 ]
+  store i64 %27, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.04.0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.4.0, ptr %42, align 8
+  br label %43
+
+43:                                               ; preds = %40, %30
   ret void
 }
 

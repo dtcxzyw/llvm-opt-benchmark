@@ -1088,14 +1088,14 @@ _ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit: ; preds = %2
   %22 = extractvalue { i64, i1 } %21, 1
   %23 = extractvalue { i64, i1 } %21, 0
   %not..i.i.i.i.i = xor i1 %22, true
-  %.sroa.0.0.i.i.i.i.i = zext i1 %not..i.i.i.i.i to i64
+  %spec.select.i.i.i.i.i = zext i1 %not..i.i.i.i.i to i64
   %24 = call i64 @llvm.uadd.sat.i64(i64 %20, i64 1)
   %25 = load ptr, ptr %5, align 8, !noalias !159, !nonnull !8, !noundef !8
   %26 = load ptr, ptr %11, align 8, !noalias !159, !noundef !8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !179
   store i64 %24, ptr %3, align 8, !noalias !183
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %.sroa.0.0.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !183
+  store i64 %spec.select.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !183
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %23, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !183
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !179
@@ -1126,22 +1126,23 @@ _ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit: ; preds = %2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h25af84860df103e6E.llvm.10712026466629435290"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(144) %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
-  %5 = load i64, ptr %4, align 8, !alias.scope !185, !noalias !190, !noundef !8
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
-  %7 = load i64, ptr %6, align 8, !alias.scope !185, !noalias !190, !noundef !8
-  %8 = sub i64 %5, %7
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 1)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %not..i = xor i1 %10, true
-  %.sroa.0.0.i = zext i1 %not..i to i64
-  %12 = tail call i64 @llvm.uadd.sat.i64(i64 %8, i64 1)
-  store i64 %12, ptr %0, align 8, !alias.scope !193, !noalias !196
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.i, ptr %13, align 8, !alias.scope !193, !noalias !196
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %11, ptr %14, align 8, !alias.scope !193, !noalias !196
+_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.10712026466629435290.exit:
+  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = load i64, ptr %3, align 8, !alias.scope !185, !noalias !190, !noundef !8
+  %5 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = load i64, ptr %5, align 8, !alias.scope !185, !noalias !190, !noundef !8
+  %7 = sub i64 %4, %6
+  %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 1)
+  %9 = extractvalue { i64, i1 } %8, 1
+  %10 = extractvalue { i64, i1 } %8, 0
+  %not..i = xor i1 %9, true
+  %spec.select.i = zext i1 %not..i to i64
+  %11 = tail call i64 @llvm.uadd.sat.i64(i64 %7, i64 1)
+  store i64 %11, ptr %0, align 8, !alias.scope !193, !noalias !196
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %spec.select.i, ptr %12, align 8, !alias.scope !193, !noalias !196
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %10, ptr %13, align 8, !alias.scope !193, !noalias !196
   ret void
 }
 
@@ -1746,11 +1747,11 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %10 = extractvalue { i64, i1 } %9, 1
   %11 = extractvalue { i64, i1 } %9, 0
   %not..i.i = xor i1 %10, true
-  %.sroa.0.0.i.i = zext i1 %not..i.i to i64
+  %spec.select.i.i = zext i1 %not..i.i to i64
   %12 = tail call i64 @llvm.uadd.sat.i64(i64 %8, i64 1)
   store i64 %12, ptr %0, align 8, !alias.scope !389, !noalias !392
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.i.i, ptr %13, align 8, !alias.scope !389, !noalias !392
+  store i64 %spec.select.i.i, ptr %13, align 8, !alias.scope !389, !noalias !392
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %11, ptr %14, align 8, !alias.scope !389, !noalias !392
   ret void
@@ -15830,21 +15831,27 @@ define hidden void @_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !range !110, !noundef !8
   %trunc = trunc nuw i64 %6 to i1
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 %2)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %not. = xor i1 %10, true
-  %narrow = select i1 %trunc, i1 %not., i1 false
-  %.sroa.0.0 = zext i1 %narrow to i64
-  %.sroa.6.0 = select i1 %trunc, i64 %11, i64 undef
-  %12 = tail call i64 @llvm.uadd.sat.i64(i64 %4, i64 %2)
-  store i64 %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.6.0, ptr %14, align 8
+  br i1 %trunc, label %7, label %13
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %2)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = extractvalue { i64, i1 } %10, 0
+  %not. = xor i1 %11, true
+  %spec.select = zext i1 %not. to i64
+  br label %13
+
+13:                                               ; preds = %7, %3
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ %spec.select, %7 ]
+  %.sroa.6.0 = phi i64 [ undef, %3 ], [ %12, %7 ]
+  %14 = tail call i64 @llvm.uadd.sat.i64(i64 %4, i64 %2)
+  store i64 %14, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.0.0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.6.0, ptr %16, align 8
   ret void
 }
 

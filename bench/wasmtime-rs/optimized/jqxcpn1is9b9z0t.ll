@@ -594,7 +594,7 @@ define internal void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$
   %11 = ptrtoint ptr %.val8.i.i.i to i64
   %12 = sub nuw i64 %10, %11
   %13 = udiv exact i64 %12, 40
-  %spec.select4 = select i1 %.not, i64 %13, i64 undef
+  %spec.select4 = select i1 %.not, i64 %13, i64 -1
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb2a5b38b68f4495aE.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb2a5b38b68f4495aE.exit": ; preds = %2, %7

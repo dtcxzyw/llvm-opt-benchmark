@@ -5398,7 +5398,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit: ; preds = %._crit_
   br i1 %.not.i19, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us
-  %.01659.us = phi i64 [ %105, %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us ], [ 1, %.lr.ph ]
+  %.01659.us = phi i64 [ %107, %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us ], [ 1, %.lr.ph ]
   %35 = getelementptr inbounds i64, ptr %1, i64 %.01659.us
   %36 = load i64, ptr %35, align 8
   %.not18.us = icmp eq i64 %36, 0
@@ -5490,9 +5490,9 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us: ; pred
   %.not.i30.us = icmp eq i16 %59, 0
   br i1 %.not.i30.us, label %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us, label %.lr.ph.i31.us
 
-.lr.ph.i31.us:                                    ; preds = %74, %.lr.ph.i31.us
-  %.03248.i.us = phi i64 [ %87, %.lr.ph.i31.us ], [ 0, %74 ]
-  %.03347.i.us = phi i1 [ %86, %.lr.ph.i31.us ], [ false, %74 ]
+.lr.ph.i31.us:                                    ; preds = %74, %87
+  %.03248.i.us = phi i64 [ %89, %87 ], [ 0, %74 ]
+  %.03347.i.us = phi i1 [ %88, %87 ], [ false, %74 ]
   %75 = add i64 %.03248.i.us, %.01659.us
   %76 = getelementptr inbounds [62 x i64], ptr %0, i64 0, i64 %75
   %77 = load i64, ptr %76, align 8
@@ -5501,68 +5501,74 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us: ; pred
   %80 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %77, i64 %79)
   %81 = extractvalue { i64, i1 } %80, 1
   %82 = extractvalue { i64, i1 } %80, 0
-  %83 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %82, i64 1)
-  %84 = extractvalue { i64, i1 } %83, 1
-  %85 = extractvalue { i64, i1 } %83, 0
-  %.035.i.us = select i1 %.03347.i.us, i1 %84, i1 false
-  %.031.i.us = select i1 %.03347.i.us, i64 %85, i64 %82
+  br i1 %.03347.i.us, label %83, label %87
+
+83:                                               ; preds = %.lr.ph.i31.us
+  %84 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %82, i64 1)
+  %85 = extractvalue { i64, i1 } %84, 1
+  %86 = extractvalue { i64, i1 } %84, 0
+  br label %87
+
+87:                                               ; preds = %83, %.lr.ph.i31.us
+  %.035.i.us = phi i1 [ %85, %83 ], [ false, %.lr.ph.i31.us ]
+  %.031.i.us = phi i64 [ %86, %83 ], [ %82, %.lr.ph.i31.us ]
   store i64 %.031.i.us, ptr %76, align 8
-  %86 = or i1 %81, %.035.i.us
-  %87 = add nuw nsw i64 %.03248.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %87, %60
+  %88 = or i1 %81, %.035.i.us
+  %89 = add nuw nsw i64 %.03248.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %89, %60
   br i1 %exitcond.not.i.us, label %._crit_edge.i32.us, label %.lr.ph.i31.us, !llvm.loop !63
 
-._crit_edge.i32.us:                               ; preds = %.lr.ph.i31.us
-  br i1 %86, label %88, label %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us
+._crit_edge.i32.us:                               ; preds = %87
+  br i1 %88, label %90, label %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us
 
-88:                                               ; preds = %._crit_edge.i32.us
-  %89 = add i64 %.01659.us, %60
-  br label %90
+90:                                               ; preds = %._crit_edge.i32.us
+  %91 = add i64 %.01659.us, %60
+  br label %92
 
-90:                                               ; preds = %98, %88
-  %.01825.i.i.us = phi i64 [ %89, %88 ], [ %104, %98 ]
-  %91 = load i16, ptr %6, align 8
-  %92 = zext i16 %91 to i64
-  %93 = icmp ult i64 %.01825.i.i.us, %92
-  br i1 %93, label %98, label %.critedge.i.i.us
+92:                                               ; preds = %100, %90
+  %.01825.i.i.us = phi i64 [ %91, %90 ], [ %106, %100 ]
+  %93 = load i16, ptr %6, align 8
+  %94 = zext i16 %93 to i64
+  %95 = icmp ult i64 %.01825.i.i.us, %94
+  br i1 %95, label %100, label %.critedge.i.i.us
 
-.critedge.i.i.us:                                 ; preds = %90
-  %94 = icmp ult i16 %91, 62
-  br i1 %94, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit
+.critedge.i.i.us:                                 ; preds = %92
+  %96 = icmp ult i16 %93, 62
+  br i1 %96, label %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit
 
 _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us: ; preds = %.critedge.i.i.us
-  %95 = getelementptr inbounds [62 x i64], ptr %0, i64 0, i64 %92
-  store i64 1, ptr %95, align 8
-  %96 = load i16, ptr %6, align 8
-  %97 = add i16 %96, 1
-  store i16 %97, ptr %6, align 8
+  %97 = getelementptr inbounds [62 x i64], ptr %0, i64 0, i64 %94
+  store i64 1, ptr %97, align 8
+  %98 = load i16, ptr %6, align 8
+  %99 = add i16 %98, 1
+  store i16 %99, ptr %6, align 8
   br label %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us
 
-98:                                               ; preds = %90
-  %99 = getelementptr inbounds [62 x i64], ptr %0, i64 0, i64 %.01825.i.i.us
-  %100 = load i64, ptr %99, align 8
-  %101 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %100, i64 1)
-  %102 = extractvalue { i64, i1 } %101, 1
-  %103 = extractvalue { i64, i1 } %101, 0
-  store i64 %103, ptr %99, align 8
-  %104 = add nuw nsw i64 %.01825.i.i.us, 1
-  br i1 %102, label %90, label %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us, !llvm.loop !50
+100:                                              ; preds = %92
+  %101 = getelementptr inbounds [62 x i64], ptr %0, i64 0, i64 %.01825.i.i.us
+  %102 = load i64, ptr %101, align 8
+  %103 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %102, i64 1)
+  %104 = extractvalue { i64, i1 } %103, 1
+  %105 = extractvalue { i64, i1 } %103, 0
+  store i64 %105, ptr %101, align 8
+  %106 = add nuw nsw i64 %.01825.i.i.us, 1
+  br i1 %104, label %92, label %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us, !llvm.loop !50
 
-_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us: ; preds = %98, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us, %._crit_edge.i32.us, %74, %.lr.ph.split.us
-  %105 = add nuw i64 %.01659.us, 1
-  %exitcond73.not = icmp eq i64 %105, %umax72
+_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us: ; preds = %100, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us, %._crit_edge.i32.us, %74, %.lr.ph.split.us
+  %107 = add nuw i64 %.01659.us, 1
+  %exitcond73.not = icmp eq i64 %107, %umax72
   br i1 %exitcond73.not, label %.loopexit.loopexit, label %.lr.ph.split.us, !llvm.loop !64
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread
-  %.01659 = phi i64 [ %108, %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread ], [ 1, %.lr.ph ]
-  %106 = getelementptr inbounds i64, ptr %1, i64 %.01659
-  %107 = load i64, ptr %106, align 8
-  %.not18 = icmp eq i64 %107, 0
+  %.01659 = phi i64 [ %110, %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread ], [ 1, %.lr.ph ]
+  %108 = getelementptr inbounds i64, ptr %1, i64 %.01659
+  %109 = load i64, ptr %108, align 8
+  %.not18 = icmp eq i64 %109, 0
   br i1 %.not18, label %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit
 
 _ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread: ; preds = %.lr.ph.split
-  %108 = add nuw i64 %.01659, 1
-  %exitcond.not = icmp eq i64 %108, %umax72
+  %110 = add nuw i64 %.01659, 1
+  %exitcond.not = icmp eq i64 %110, %umax72
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !64
 
 .loopexit.loopexit:                               ; preds = %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us
@@ -5574,23 +5580,23 @@ _ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.t
   %.not1.i = icmp eq i16 %.promoted.i, 0
   br i1 %.not1.i, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit, label %.lr.ph.i33
 
-.lr.ph.i33:                                       ; preds = %.loopexit, %115
-  %109 = phi i16 [ %116, %115 ], [ %.promoted.i, %.loopexit ]
-  %110 = zext i16 %109 to i64
-  %111 = add nsw i64 %110, -1
-  %112 = getelementptr inbounds [62 x i64], ptr %0, i64 0, i64 %111
-  %113 = load i64, ptr %112, align 8
-  %114 = icmp eq i64 %113, 0
-  br i1 %114, label %115, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit
+.lr.ph.i33:                                       ; preds = %.loopexit, %117
+  %111 = phi i16 [ %118, %117 ], [ %.promoted.i, %.loopexit ]
+  %112 = zext i16 %111 to i64
+  %113 = add nsw i64 %112, -1
+  %114 = getelementptr inbounds [62 x i64], ptr %0, i64 0, i64 %113
+  %115 = load i64, ptr %114, align 8
+  %116 = icmp eq i64 %115, 0
+  br i1 %116, label %117, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit
 
-115:                                              ; preds = %.lr.ph.i33
-  %116 = add i16 %109, -1
-  store i16 %116, ptr %6, align 8
-  %.not.i34 = icmp eq i16 %116, 0
+117:                                              ; preds = %.lr.ph.i33
+  %118 = add i16 %111, -1
+  store i16 %118, ptr %6, align 8
+  %.not.i34 = icmp eq i16 %118, 0
   br i1 %.not.i34, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit, label %.lr.ph.i33, !llvm.loop !65
 
-_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit: ; preds = %.lr.ph.split, %.critedge.i.i.us, %66, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us, %115, %.lr.ph.i33, %.loopexit, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit
-  %.0 = phi i1 [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit ], [ true, %.loopexit ], [ true, %.lr.ph.i33 ], [ true, %115 ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us ], [ false, %66 ], [ false, %.critedge.i.i.us ], [ false, %.lr.ph.split ]
+_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit: ; preds = %.lr.ph.split, %.critedge.i.i.us, %66, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us, %117, %.lr.ph.i33, %.loopexit, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit
+  %.0 = phi i1 [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit ], [ true, %.loopexit ], [ true, %.lr.ph.i33 ], [ true, %117 ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us ], [ false, %66 ], [ false, %.critedge.i.i.us ], [ false, %.lr.ph.split ]
   ret i1 %.0
 }
 

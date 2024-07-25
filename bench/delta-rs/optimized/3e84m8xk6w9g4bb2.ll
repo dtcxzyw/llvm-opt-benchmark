@@ -1874,17 +1874,17 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.0.i = phi i64 [ %18, %16 ], [ 0, %2 ]
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
+  %21 = add i64 %20, %.0.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !340)
-  %21 = getelementptr inbounds i8, ptr %1, i64 88
-  %22 = load i8, ptr %21, align 8, !range !10, !alias.scope !340, !noalias !343, !noundef !4
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit"
+  %22 = getelementptr inbounds i8, ptr %1, i64 88
+  %23 = load i8, ptr %22, align 8, !range !10, !alias.scope !340, !noalias !343, !noundef !4
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit"
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit.thread": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h5ceeb460feb66465E.exit"
-  %24 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %37
+  br label %32
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h5ceeb460feb66465E.exit"
   %25 = getelementptr inbounds i8, ptr %1, i64 64
@@ -1902,27 +1902,29 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.phi.trans.insert6 = getelementptr inbounds i8, ptr %3, i64 16
   %.pre7 = load i64, ptr %.phi.trans.insert6, align 8
   %31 = trunc nuw i64 %.pre5 to i1
-  %32 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %33 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.pre7, i64 %32)
-  %34 = extractvalue { i64, i1 } %33, 1
-  %35 = extractvalue { i64, i1 } %33, 0
-  %not. = xor i1 %34, true
-  %narrow = select i1 %31, i1 %not., i1 false
-  %36 = zext i1 %narrow to i64
-  br label %37
+  br i1 %31, label %32, label %38
 
-37:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit.thread"
-  %narrow.sink = phi i64 [ %36, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit" ], [ 1, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit.thread" ]
-  %38 = phi i64 [ %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit.thread" ]
-  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit" ], [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit.thread" ]
-  %40 = phi i64 [ %35, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit.thread" ]
-  %41 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %38)
-  store i64 %41, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %narrow.sink, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %40, ptr %43, align 8
+32:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit.thread", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit"
+  %33 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit.thread" ], [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit" ]
+  %34 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit.thread" ], [ %.pre7, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit" ]
+  %35 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %34, i64 %21)
+  %36 = extractvalue { i64, i1 } %35, 1
+  %37 = extractvalue { i64, i1 } %35, 0
+  %not. = xor i1 %36, true
+  %spec.select = zext i1 %not. to i64
+  br label %38
+
+38:                                               ; preds = %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit"
+  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit" ], [ %33, %32 ]
+  %.sroa.01.0 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit" ], [ %spec.select, %32 ]
+  %.sroa.42.0 = phi i64 [ undef, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hcecfc9e978db6f18E.exit" ], [ %37, %32 ]
+  %40 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %21)
+  store i64 %40, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.01.0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.42.0, ptr %42, align 8
   ret void
 }
 
@@ -1959,17 +1961,17 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.0.i = phi i64 [ %18, %16 ], [ 0, %2 ]
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
+  %21 = add i64 %20, %.0.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !360)
-  %21 = getelementptr inbounds i8, ptr %1, i64 88
-  %22 = load i8, ptr %21, align 8, !range !10, !alias.scope !360, !noalias !363, !noundef !4
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit"
+  %22 = getelementptr inbounds i8, ptr %1, i64 88
+  %23 = load i8, ptr %22, align 8, !range !10, !alias.scope !360, !noalias !363, !noundef !4
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit"
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit.thread": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h1219018445ac99faE.exit"
-  %24 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %37
+  br label %32
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h1219018445ac99faE.exit"
   %25 = getelementptr inbounds i8, ptr %1, i64 64
@@ -1987,27 +1989,29 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.phi.trans.insert6 = getelementptr inbounds i8, ptr %3, i64 16
   %.pre7 = load i64, ptr %.phi.trans.insert6, align 8
   %31 = trunc nuw i64 %.pre5 to i1
-  %32 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %33 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.pre7, i64 %32)
-  %34 = extractvalue { i64, i1 } %33, 1
-  %35 = extractvalue { i64, i1 } %33, 0
-  %not. = xor i1 %34, true
-  %narrow = select i1 %31, i1 %not., i1 false
-  %36 = zext i1 %narrow to i64
-  br label %37
+  br i1 %31, label %32, label %38
 
-37:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit.thread"
-  %narrow.sink = phi i64 [ %36, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit" ], [ 1, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit.thread" ]
-  %38 = phi i64 [ %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit.thread" ]
-  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit" ], [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit.thread" ]
-  %40 = phi i64 [ %35, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit.thread" ]
-  %41 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %38)
-  store i64 %41, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %narrow.sink, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %40, ptr %43, align 8
+32:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit.thread", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit"
+  %33 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit.thread" ], [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit" ]
+  %34 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit.thread" ], [ %.pre7, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit" ]
+  %35 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %34, i64 %21)
+  %36 = extractvalue { i64, i1 } %35, 1
+  %37 = extractvalue { i64, i1 } %35, 0
+  %not. = xor i1 %36, true
+  %spec.select = zext i1 %not. to i64
+  br label %38
+
+38:                                               ; preds = %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit"
+  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit" ], [ %33, %32 ]
+  %.sroa.01.0 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit" ], [ %spec.select, %32 ]
+  %.sroa.42.0 = phi i64 [ undef, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h50d5502a97f8806eE.exit" ], [ %37, %32 ]
+  %40 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %21)
+  store i64 %40, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.01.0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.42.0, ptr %42, align 8
   ret void
 }
 
@@ -2044,17 +2048,17 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.0.i = phi i64 [ %18, %16 ], [ 0, %2 ]
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
+  %21 = add i64 %20, %.0.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !379)
-  %21 = getelementptr inbounds i8, ptr %1, i64 88
-  %22 = load i8, ptr %21, align 8, !range !10, !alias.scope !379, !noalias !382, !noundef !4
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit"
+  %22 = getelementptr inbounds i8, ptr %1, i64 88
+  %23 = load i8, ptr %22, align 8, !range !10, !alias.scope !379, !noalias !382, !noundef !4
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit"
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit.thread": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hfa0cb914be740db7E.exit"
-  %24 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %37
+  br label %32
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hfa0cb914be740db7E.exit"
   %25 = getelementptr inbounds i8, ptr %1, i64 64
@@ -2072,27 +2076,29 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.phi.trans.insert6 = getelementptr inbounds i8, ptr %3, i64 16
   %.pre7 = load i64, ptr %.phi.trans.insert6, align 8
   %31 = trunc nuw i64 %.pre5 to i1
-  %32 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %33 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.pre7, i64 %32)
-  %34 = extractvalue { i64, i1 } %33, 1
-  %35 = extractvalue { i64, i1 } %33, 0
-  %not. = xor i1 %34, true
-  %narrow = select i1 %31, i1 %not., i1 false
-  %36 = zext i1 %narrow to i64
-  br label %37
+  br i1 %31, label %32, label %38
 
-37:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit.thread"
-  %narrow.sink = phi i64 [ %36, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit" ], [ 1, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit.thread" ]
-  %38 = phi i64 [ %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit.thread" ]
-  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit" ], [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit.thread" ]
-  %40 = phi i64 [ %35, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit.thread" ]
-  %41 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %38)
-  store i64 %41, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %narrow.sink, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %40, ptr %43, align 8
+32:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit.thread", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit"
+  %33 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit.thread" ], [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit" ]
+  %34 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit.thread" ], [ %.pre7, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit" ]
+  %35 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %34, i64 %21)
+  %36 = extractvalue { i64, i1 } %35, 1
+  %37 = extractvalue { i64, i1 } %35, 0
+  %not. = xor i1 %36, true
+  %spec.select = zext i1 %not. to i64
+  br label %38
+
+38:                                               ; preds = %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit"
+  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit" ], [ %33, %32 ]
+  %.sroa.01.0 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit" ], [ %spec.select, %32 ]
+  %.sroa.42.0 = phi i64 [ undef, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17he4d7e2924405578dE.exit" ], [ %37, %32 ]
+  %40 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %21)
+  store i64 %40, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.01.0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.42.0, ptr %42, align 8
   ret void
 }
 
@@ -2129,17 +2135,17 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.0.i = phi i64 [ %18, %16 ], [ 0, %2 ]
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
+  %21 = add i64 %20, %.0.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
-  %21 = getelementptr inbounds i8, ptr %1, i64 88
-  %22 = load i8, ptr %21, align 8, !range !10, !alias.scope !398, !noalias !401, !noundef !4
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit"
+  %22 = getelementptr inbounds i8, ptr %1, i64 88
+  %23 = load i8, ptr %22, align 8, !range !10, !alias.scope !398, !noalias !401, !noundef !4
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit"
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit.thread": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hc1fa9ad336b54c4dE.exit"
-  %24 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %37
+  br label %32
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hc1fa9ad336b54c4dE.exit"
   %25 = getelementptr inbounds i8, ptr %1, i64 64
@@ -2157,27 +2163,29 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.phi.trans.insert6 = getelementptr inbounds i8, ptr %3, i64 16
   %.pre7 = load i64, ptr %.phi.trans.insert6, align 8
   %31 = trunc nuw i64 %.pre5 to i1
-  %32 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %33 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.pre7, i64 %32)
-  %34 = extractvalue { i64, i1 } %33, 1
-  %35 = extractvalue { i64, i1 } %33, 0
-  %not. = xor i1 %34, true
-  %narrow = select i1 %31, i1 %not., i1 false
-  %36 = zext i1 %narrow to i64
-  br label %37
+  br i1 %31, label %32, label %38
 
-37:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit.thread"
-  %narrow.sink = phi i64 [ %36, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit" ], [ 1, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit.thread" ]
-  %38 = phi i64 [ %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit.thread" ]
-  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit" ], [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit.thread" ]
-  %40 = phi i64 [ %35, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit.thread" ]
-  %41 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %38)
-  store i64 %41, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %narrow.sink, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %40, ptr %43, align 8
+32:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit.thread", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit"
+  %33 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit.thread" ], [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit" ]
+  %34 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit.thread" ], [ %.pre7, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit" ]
+  %35 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %34, i64 %21)
+  %36 = extractvalue { i64, i1 } %35, 1
+  %37 = extractvalue { i64, i1 } %35, 0
+  %not. = xor i1 %36, true
+  %spec.select = zext i1 %not. to i64
+  br label %38
+
+38:                                               ; preds = %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit"
+  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit" ], [ %33, %32 ]
+  %.sroa.01.0 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit" ], [ %spec.select, %32 ]
+  %.sroa.42.0 = phi i64 [ undef, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h6631a96e3bef7245E.exit" ], [ %37, %32 ]
+  %40 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %21)
+  store i64 %40, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.01.0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.42.0, ptr %42, align 8
   ret void
 }
 
@@ -2214,17 +2222,17 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.0.i = phi i64 [ %18, %16 ], [ 0, %2 ]
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
+  %21 = add i64 %20, %.0.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !417)
-  %21 = getelementptr inbounds i8, ptr %1, i64 88
-  %22 = load i8, ptr %21, align 8, !range !10, !alias.scope !417, !noalias !420, !noundef !4
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit"
+  %22 = getelementptr inbounds i8, ptr %1, i64 88
+  %23 = load i8, ptr %22, align 8, !range !10, !alias.scope !417, !noalias !420, !noundef !4
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit"
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit.thread": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h1c2faa96dc0c4e8cE.exit"
-  %24 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %37
+  br label %32
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h1c2faa96dc0c4e8cE.exit"
   %25 = getelementptr inbounds i8, ptr %1, i64 64
@@ -2242,27 +2250,29 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.phi.trans.insert6 = getelementptr inbounds i8, ptr %3, i64 16
   %.pre7 = load i64, ptr %.phi.trans.insert6, align 8
   %31 = trunc nuw i64 %.pre5 to i1
-  %32 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %33 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.pre7, i64 %32)
-  %34 = extractvalue { i64, i1 } %33, 1
-  %35 = extractvalue { i64, i1 } %33, 0
-  %not. = xor i1 %34, true
-  %narrow = select i1 %31, i1 %not., i1 false
-  %36 = zext i1 %narrow to i64
-  br label %37
+  br i1 %31, label %32, label %38
 
-37:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit.thread"
-  %narrow.sink = phi i64 [ %36, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit" ], [ 1, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit.thread" ]
-  %38 = phi i64 [ %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit.thread" ]
-  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit" ], [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit.thread" ]
-  %40 = phi i64 [ %35, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit.thread" ]
-  %41 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %38)
-  store i64 %41, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %narrow.sink, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %40, ptr %43, align 8
+32:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit.thread", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit"
+  %33 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit.thread" ], [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit" ]
+  %34 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit.thread" ], [ %.pre7, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit" ]
+  %35 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %34, i64 %21)
+  %36 = extractvalue { i64, i1 } %35, 1
+  %37 = extractvalue { i64, i1 } %35, 0
+  %not. = xor i1 %36, true
+  %spec.select = zext i1 %not. to i64
+  br label %38
+
+38:                                               ; preds = %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit"
+  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit" ], [ %33, %32 ]
+  %.sroa.01.0 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit" ], [ %spec.select, %32 ]
+  %.sroa.42.0 = phi i64 [ undef, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h73149d1dff172decE.exit" ], [ %37, %32 ]
+  %40 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %21)
+  store i64 %40, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.01.0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.42.0, ptr %42, align 8
   ret void
 }
 
@@ -2299,17 +2309,17 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.0.i = phi i64 [ %18, %16 ], [ 0, %2 ]
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
+  %21 = add i64 %20, %.0.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
-  %21 = getelementptr inbounds i8, ptr %1, i64 88
-  %22 = load i8, ptr %21, align 8, !range !10, !alias.scope !436, !noalias !439, !noundef !4
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit"
+  %22 = getelementptr inbounds i8, ptr %1, i64 88
+  %23 = load i8, ptr %22, align 8, !range !10, !alias.scope !436, !noalias !439, !noundef !4
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit.thread", label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit"
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit.thread": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h475ece3f2477ae9bE.exit"
-  %24 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %37
+  br label %32
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit": ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h475ece3f2477ae9bE.exit"
   %25 = getelementptr inbounds i8, ptr %1, i64 64
@@ -2327,27 +2337,29 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.phi.trans.insert6 = getelementptr inbounds i8, ptr %3, i64 16
   %.pre7 = load i64, ptr %.phi.trans.insert6, align 8
   %31 = trunc nuw i64 %.pre5 to i1
-  %32 = add i64 %20, %.0.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %33 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.pre7, i64 %32)
-  %34 = extractvalue { i64, i1 } %33, 1
-  %35 = extractvalue { i64, i1 } %33, 0
-  %not. = xor i1 %34, true
-  %narrow = select i1 %31, i1 %not., i1 false
-  %36 = zext i1 %narrow to i64
-  br label %37
+  br i1 %31, label %32, label %38
 
-37:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit.thread"
-  %narrow.sink = phi i64 [ %36, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit" ], [ 1, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit.thread" ]
-  %38 = phi i64 [ %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit.thread" ]
-  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit" ], [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit.thread" ]
-  %40 = phi i64 [ %35, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit" ], [ %24, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit.thread" ]
-  %41 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %38)
-  store i64 %41, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %narrow.sink, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %40, ptr %43, align 8
+32:                                               ; preds = %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit.thread", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit"
+  %33 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit.thread" ], [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit" ]
+  %34 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit.thread" ], [ %.pre7, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit" ]
+  %35 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %34, i64 %21)
+  %36 = extractvalue { i64, i1 } %35, 1
+  %37 = extractvalue { i64, i1 } %35, 0
+  %not. = xor i1 %36, true
+  %spec.select = zext i1 %not. to i64
+  br label %38
+
+38:                                               ; preds = %32, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit"
+  %39 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit" ], [ %33, %32 ]
+  %.sroa.01.0 = phi i64 [ 0, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit" ], [ %spec.select, %32 ]
+  %.sroa.42.0 = phi i64 [ undef, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17h84473a4220eef91cE.exit" ], [ %37, %32 ]
+  %40 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %21)
+  store i64 %40, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.01.0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.42.0, ptr %42, align 8
   ret void
 }
 

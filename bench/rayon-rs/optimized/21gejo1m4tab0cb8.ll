@@ -14,27 +14,32 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
   %6 = sub i128 %4, %2
   %.0.i.i.i = select i1 %5, i128 %6, i128 0
   %7 = icmp ult i128 %.0.i.i.i, 18446744073709551616
-  %8 = trunc nuw i128 %.0.i.i.i to i64
-  %.sroa.5.0.i.i = select i1 %7, i64 %8, i64 undef
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.5.0.i.i, i64 1)
-  %10 = extractvalue { i64, i1 } %9, 0
-  %11 = extractvalue { i64, i1 } %9, 1
-  %not. = xor i1 %11, true
-  %.sroa.5.1 = select i1 %7, i64 %10, i64 undef
-  %narrow = select i1 %7, i1 %not., i1 false
-  %.sroa.0.1 = zext i1 %narrow to i64
-  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.5.1, 1
-  ret { i64, i64 } %13
+  br i1 %7, label %8, label %13
+
+8:                                                ; preds = %1
+  %9 = trunc nuw i128 %.0.i.i.i to i64
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 1)
+  %11 = extractvalue { i64, i1 } %10, 0
+  %12 = extractvalue { i64, i1 } %10, 1
+  %not. = xor i1 %12, true
+  %.11 = zext i1 %not. to i64
+  br label %13
+
+13:                                               ; preds = %1, %8
+  %.sroa.5.1 = phi i64 [ %11, %8 ], [ undef, %1 ]
+  %.sroa.0.1 = phi i64 [ %.11, %8 ], [ 0, %1 ]
+  %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %15 = insertvalue { i64, i64 } %14, i64 %.sroa.5.1, 1
+  ret { i64, i64 } %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h1c852c2983687527E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i64, ptr %0, align 8, !alias.scope !12, !noalias !21, !noundef !11
-  %4 = load i64, ptr %2, align 8, !alias.scope !12, !noalias !21, !noundef !11
-  %5 = icmp slt i64 %3, %4
-  %6 = sub i64 %4, %3
+  %2 = load i64, ptr %0, align 8, !alias.scope !12, !noalias !21, !noundef !11
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !alias.scope !12, !noalias !21, !noundef !11
+  %5 = icmp slt i64 %2, %4
+  %6 = sub i64 %4, %2
   %spec.select.i.i.i.i = select i1 %5, i64 %6, i64 0
   %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i, i64 1)
   %8 = extractvalue { i64, i1 } %7, 0
@@ -49,9 +54,9 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h2fa276c8dea6a897E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i64, ptr %0, align 8, !alias.scope !23, !noalias !32, !noundef !11
-  %4 = load i64, ptr %2, align 8, !alias.scope !23, !noalias !32, !noundef !11
-  %spec.select.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %4, i64 %3)
+  %3 = load i64, ptr %2, align 8, !alias.scope !23, !noalias !32, !noundef !11
+  %4 = load i64, ptr %0, align 8, !alias.scope !23, !noalias !32, !noundef !11
+  %spec.select.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %3, i64 %4)
   %5 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i, i64 1)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -76,12 +81,12 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h56c9bc8eef099c83E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
-  %3 = load i8, ptr %0, align 1, !alias.scope !45, !noalias !54, !noundef !11
-  %4 = load i8, ptr %2, align 1, !alias.scope !45, !noalias !54, !noundef !11
-  %5 = icmp slt i8 %3, %4
+  %2 = load i8, ptr %0, align 1, !alias.scope !45, !noalias !54, !noundef !11
+  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = load i8, ptr %3, align 1, !alias.scope !45, !noalias !54, !noundef !11
+  %5 = icmp slt i8 %2, %4
   %6 = sext i8 %4 to i64
-  %7 = sext i8 %3 to i64
+  %7 = sext i8 %2 to i64
   %8 = sub nsw i64 %6, %7
   %.sink4.i.i.i.i = select i1 %5, i64 %8, i64 0
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sink4.i.i.i.i, i64 1)
@@ -108,11 +113,11 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h5bad32325a6127cfE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
-  %2 = load i64, ptr %0, align 8, !alias.scope !67, !noundef !11
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !alias.scope !67, !noundef !11
-  %5 = icmp sgt i64 %4, %2
-  %6 = sub i64 %4, %2
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = load i64, ptr %2, align 8, !alias.scope !67, !noundef !11
+  %4 = load i64, ptr %0, align 8, !alias.scope !67, !noundef !11
+  %5 = icmp sgt i64 %3, %4
+  %6 = sub i64 %3, %4
   %.0.i.i.i = select i1 %5, i64 %6, i64 0
   %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i, i64 1)
   %8 = extractvalue { i64, i1 } %7, 0
@@ -126,12 +131,12 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h73c946ef50029576E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2
-  %3 = load i16, ptr %0, align 2, !alias.scope !74, !noalias !83, !noundef !11
-  %4 = load i16, ptr %2, align 2, !alias.scope !74, !noalias !83, !noundef !11
-  %5 = icmp slt i16 %3, %4
+  %2 = load i16, ptr %0, align 2, !alias.scope !74, !noalias !83, !noundef !11
+  %3 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = load i16, ptr %3, align 2, !alias.scope !74, !noalias !83, !noundef !11
+  %5 = icmp slt i16 %2, %4
   %6 = sext i16 %4 to i64
-  %7 = sext i16 %3 to i64
+  %7 = sext i16 %2 to i64
   %8 = sub nsw i64 %6, %7
   %.sink4.i.i.i.i = select i1 %5, i64 %8, i64 0
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sink4.i.i.i.i, i64 1)
@@ -151,18 +156,23 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
   %4 = load i128, ptr %3, align 8, !alias.scope !85, !noundef !11
   %.0.i.i.i = tail call noundef i128 @llvm.usub.sat.i128(i128 %4, i128 %2)
   %5 = icmp ult i128 %.0.i.i.i, 18446744073709551616
-  %6 = trunc nuw i128 %.0.i.i.i to i64
-  %.sroa.5.0.i.i = select i1 %5, i64 %6, i64 undef
-  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.5.0.i.i, i64 1)
-  %8 = extractvalue { i64, i1 } %7, 0
-  %9 = extractvalue { i64, i1 } %7, 1
-  %not. = xor i1 %9, true
-  %.sroa.5.1 = select i1 %5, i64 %8, i64 undef
-  %narrow = select i1 %5, i1 %not., i1 false
-  %.sroa.0.1 = zext i1 %narrow to i64
-  %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %11 = insertvalue { i64, i64 } %10, i64 %.sroa.5.1, 1
-  ret { i64, i64 } %11
+  br i1 %5, label %6, label %11
+
+6:                                                ; preds = %1
+  %7 = trunc nuw i128 %.0.i.i.i to i64
+  %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 1)
+  %9 = extractvalue { i64, i1 } %8, 0
+  %10 = extractvalue { i64, i1 } %8, 1
+  %not. = xor i1 %10, true
+  %.11 = zext i1 %not. to i64
+  br label %11
+
+11:                                               ; preds = %1, %6
+  %.sroa.5.1 = phi i64 [ %9, %6 ], [ undef, %1 ]
+  %.sroa.0.1 = phi i64 [ %.11, %6 ], [ 0, %1 ]
+  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.5.1, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -179,10 +189,10 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17hf23de2eb299b56cdE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
-  %2 = load i64, ptr %0, align 8, !alias.scope !103, !noundef !11
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !alias.scope !103, !noundef !11
-  %.0.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %4, i64 %2)
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = load i64, ptr %2, align 8, !alias.scope !103, !noundef !11
+  %4 = load i64, ptr %0, align 8, !alias.scope !103, !noundef !11
+  %.0.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %3, i64 %4)
   %5 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i, i64 1)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -195,12 +205,12 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17hff0bf18e37e343f8E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
-  %3 = load i32, ptr %0, align 4, !alias.scope !110, !noalias !119, !noundef !11
-  %4 = load i32, ptr %2, align 4, !alias.scope !110, !noalias !119, !noundef !11
-  %5 = icmp slt i32 %3, %4
+  %2 = load i32, ptr %0, align 4, !alias.scope !110, !noalias !119, !noundef !11
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = load i32, ptr %3, align 4, !alias.scope !110, !noalias !119, !noundef !11
+  %5 = icmp slt i32 %2, %4
   %6 = sext i32 %4 to i64
-  %7 = sext i32 %3 to i64
+  %7 = sext i32 %2 to i64
   %8 = sub nsw i64 %6, %7
   %.sink4.i.i.i.i = select i1 %5, i64 %8, i64 0
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sink4.i.i.i.i, i64 1)

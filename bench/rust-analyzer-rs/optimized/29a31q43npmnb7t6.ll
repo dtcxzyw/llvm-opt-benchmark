@@ -5033,9 +5033,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br label %37
 
 37:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i34", %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit", %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit", %9
-  %.sink47 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i34" ], [ 8, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit" ], [ 8, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit" ], [ 16, %9 ]
+  %.sink49 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i34" ], [ 8, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit" ], [ 8, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit" ], [ 16, %9 ]
   %.sroa.6.0.sink = phi i64 [ %.sroa.6.0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i34" ], [ %.sink.i.i17, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit" ], [ %.sink.i.i, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit" ], [ 0, %9 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 %.sink47
+  %38 = getelementptr inbounds i8, ptr %0, i64 %.sink49
   store i64 %.sroa.6.0.sink, ptr %38, align 8
   ret void
 
@@ -5131,9 +5131,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %trunc.i.i24 = trunc nuw i64 %4 to i1
   %82 = getelementptr inbounds i8, ptr %1, i64 96
   %.val.i.i25 = load ptr, ptr %82, align 8, !alias.scope !2300, !noalias !2305
-  %.not.i.i26 = icmp eq ptr %.val.i.i25, null
-  %not.trunc.i.i24 = xor i1 %trunc.i.i24, true
-  %.sroa.057.0.not.i.i27 = select i1 %not.trunc.i.i24, i1 true, i1 %.not.i.i26
+  %.not.i.i26 = icmp ne ptr %.val.i.i25, null
+  %.sroa.057.0.not.i.i27.not = select i1 %trunc.i.i24, i1 %.not.i.i26, i1 false
   %83 = getelementptr inbounds i8, ptr %1, i64 8
   %84 = getelementptr inbounds i8, ptr %1, i64 56
   %85 = load ptr, ptr %84, align 8, !alias.scope !2326, !noalias !2331, !noundef !11
@@ -5175,9 +5174,11 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %106 = icmp eq i64 %.val.i.i36, 0
   %or.cond.i.i37 = select i1 %104, i1 true, i1 %106
   %107 = add nuw nsw i64 %102, %81
-  %or.cond = and i1 %.sroa.057.0.not.i.i27, %or.cond.i.i37
-  %.sroa.04.0 = zext i1 %or.cond to i64
-  %.sroa.6.0 = select i1 %or.cond, i64 %107, i64 undef
+  %not..sroa.057.0.not.i.i27.not = xor i1 %.sroa.057.0.not.i.i27.not, true
+  %spec.select48 = select i1 %.sroa.057.0.not.i.i27.not, i64 undef, i64 %107
+  %narrow = select i1 %or.cond.i.i37, i1 %not..sroa.057.0.not.i.i27.not, i1 false
+  %.sroa.04.0 = zext i1 %narrow to i64
+  %.sroa.6.0 = select i1 %or.cond.i.i37, i64 %spec.select48, i64 undef
   store i64 %107, ptr %0, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.04.0, ptr %108, align 8

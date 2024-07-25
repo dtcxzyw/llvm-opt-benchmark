@@ -3744,9 +3744,9 @@ if.end7.i.us:                                     ; preds = %if.end7.sink.split.
   %cmp936.not.i.us = icmp eq i16 %16, 0
   br i1 %cmp936.not.i.us, label %for.inc.us, label %for.body.i52.us
 
-for.body.i52.us:                                  ; preds = %if.end7.i.us, %for.body.i52.us
-  %index.038.i.us = phi i64 [ %inc.i54.us, %for.body.i52.us ], [ 0, %if.end7.i.us ]
-  %carry.037.i.us = phi i1 [ %or18.i.us, %for.body.i52.us ], [ false, %if.end7.i.us ]
+for.body.i52.us:                                  ; preds = %if.end7.i.us, %if.end16.i.us
+  %index.038.i.us = phi i64 [ %inc.i54.us, %if.end16.i.us ], [ 0, %if.end7.i.us ]
+  %carry.037.i.us = phi i1 [ %or18.i.us, %if.end16.i.us ], [ false, %if.end7.i.us ]
   %add10.i.us = add i64 %index.038.i.us, %index.080.us
   %arrayidx.i.i53.us = getelementptr inbounds [62 x i64], ptr %x, i64 0, i64 %add10.i.us
   %20 = load i64, ptr %arrayidx.i.i53.us, align 8
@@ -3755,18 +3755,24 @@ for.body.i52.us:                                  ; preds = %if.end7.i.us, %for.
   %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 %21)
   %23 = extractvalue { i64, i1 } %22, 1
   %24 = extractvalue { i64, i1 } %22, 0
+  br i1 %carry.037.i.us, label %if.then14.i.us, label %if.end16.i.us
+
+if.then14.i.us:                                   ; preds = %for.body.i52.us
   %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %24, i64 1)
   %26 = extractvalue { i64, i1 } %25, 1
   %27 = extractvalue { i64, i1 } %25, 0
-  %c2.0.i.us = select i1 %carry.037.i.us, i1 %26, i1 false
-  %xi.0.i.us = select i1 %carry.037.i.us, i64 %27, i64 %24
+  br label %if.end16.i.us
+
+if.end16.i.us:                                    ; preds = %if.then14.i.us, %for.body.i52.us
+  %c2.0.i.us = phi i1 [ %26, %if.then14.i.us ], [ false, %for.body.i52.us ]
+  %xi.0.i.us = phi i64 [ %27, %if.then14.i.us ], [ %24, %for.body.i52.us ]
   store i64 %xi.0.i.us, ptr %arrayidx.i.i53.us, align 8
   %or18.i.us = or i1 %23, %c2.0.i.us
   %inc.i54.us = add nuw nsw i64 %index.038.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %inc.i54.us, %conv.i47.us
   br i1 %exitcond.not.i.us, label %for.end.i55.us, label %for.body.i52.us, !llvm.loop !48
 
-for.end.i55.us:                                   ; preds = %for.body.i52.us
+for.end.i55.us:                                   ; preds = %if.end16.i.us
   br i1 %or18.i.us, label %if.then24.i.us, label %for.inc.us
 
 if.then24.i.us:                                   ; preds = %for.end.i55.us

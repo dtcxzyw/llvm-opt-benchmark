@@ -1284,11 +1284,11 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %189 = getelementptr inbounds i8, ptr %1, i64 80
   %.val.i.i19 = load ptr, ptr %189, align 8, !alias.scope !385, !noalias !390
   %.not.i.i20 = icmp ne ptr %.val.i.i19, null
-  %.sroa.064.0.not.i.i21.not = select i1 %trunc46.i.i18, i1 %.not.i.i20, i1 false
+  %.sroa.064.0.not.i.i21 = select i1 %trunc46.i.i18, i1 %.not.i.i20, i1 false
   %190 = add nuw nsw i64 %188, %.sink19.i9
-  %not..sroa.064.0.not.i.i21.not = xor i1 %.sroa.064.0.not.i.i21.not, true
-  %.sroa.04.0 = zext i1 %not..sroa.064.0.not.i.i21.not to i64
-  %.sroa.6.0 = select i1 %.sroa.064.0.not.i.i21.not, i64 undef, i64 %190
+  %not..sroa.064.0.not.i.i21 = xor i1 %.sroa.064.0.not.i.i21, true
+  %.sroa.04.0 = zext i1 %not..sroa.064.0.not.i.i21 to i64
+  %.sroa.6.0 = select i1 %.sroa.064.0.not.i.i21, i64 undef, i64 %190
   store i64 %190, ptr %0, align 8
   %191 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.04.0, ptr %191, align 8

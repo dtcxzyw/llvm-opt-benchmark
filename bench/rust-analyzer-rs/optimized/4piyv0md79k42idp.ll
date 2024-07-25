@@ -1624,7 +1624,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %10 = getelementptr inbounds i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8, !noalias !4, !noundef !4
   %12 = icmp eq ptr %11, null
-  br i1 %7, label %21, label %84
+  br i1 %7, label %21, label %85
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %1, i64 64
@@ -1635,13 +1635,13 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %18 = lshr exact i64 %17, 5
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit"
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit": ; preds = %8, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i", %50, %44, %38, %37, %30, %22, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit22", %13
-  %.sink28 = phi i64 [ %152, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit22" ], [ %18, %13 ], [ %83, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i" ], [ %35, %30 ], [ %56, %50 ], [ %49, %44 ], [ %43, %38 ], [ 0, %37 ], [ 0, %22 ], [ 0, %8 ]
-  store i64 %.sink28, ptr %0, align 8
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit": ; preds = %8, %78, %50, %44, %38, %37, %30, %22, %149, %13
+  %.sink27 = phi i64 [ %155, %149 ], [ %18, %13 ], [ %84, %78 ], [ %35, %30 ], [ %56, %50 ], [ %49, %44 ], [ %43, %38 ], [ 0, %37 ], [ 0, %22 ], [ 0, %8 ]
+  store i64 %.sink27, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink28, ptr %20, align 8
+  store i64 %.sink27, ptr %20, align 8
   ret void
 
 21:                                               ; preds = %9
@@ -1706,7 +1706,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br i1 %26, label %58, label %59
 
 58:                                               ; preds = %57
-  br i1 %29, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i", label %65
+  br i1 %29, label %78, label %65
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1715,7 +1715,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %62 = ptrtoint ptr %25 to i64
   %63 = sub nuw i64 %61, %62
   %64 = udiv exact i64 %63, 48
-  br i1 %29, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i", label %71
+  br i1 %29, label %78, label %71
 
 65:                                               ; preds = %58
   %66 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1724,7 +1724,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %68 = ptrtoint ptr %28 to i64
   %69 = sub nuw i64 %67, %68
   %70 = lshr exact i64 %69, 5
-  br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i"
+  br label %78
 
 71:                                               ; preds = %59
   %72 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1734,131 +1734,131 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %75 = sub nuw i64 %73, %74
   %76 = lshr exact i64 %75, 5
   %77 = add nuw nsw i64 %76, %64
-  br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i"
+  br label %78
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i": ; preds = %71, %65, %59, %58
+78:                                               ; preds = %71, %65, %59, %58
   %.sink19.i12.i = phi i64 [ %77, %71 ], [ %70, %65 ], [ %64, %59 ], [ 0, %58 ]
-  %78 = getelementptr inbounds i8, ptr %1, i64 48
-  %.val9.i = load ptr, ptr %78, align 8, !alias.scope !390, !noalias !393, !nonnull !4, !noundef !4
-  %79 = ptrtoint ptr %.val9.i to i64
-  %80 = ptrtoint ptr %11 to i64
-  %81 = sub nuw i64 %79, %80
-  %82 = lshr exact i64 %81, 5
-  %83 = add nuw nsw i64 %82, %.sink19.i12.i
+  %79 = getelementptr inbounds i8, ptr %1, i64 48
+  %.val9.i = load ptr, ptr %79, align 8, !alias.scope !390, !noalias !393, !nonnull !4, !noundef !4
+  %80 = ptrtoint ptr %.val9.i to i64
+  %81 = ptrtoint ptr %11 to i64
+  %82 = sub nuw i64 %80, %81
+  %83 = lshr exact i64 %82, 5
+  %84 = add nuw nsw i64 %83, %.sink19.i12.i
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit"
 
-84:                                               ; preds = %9
-  br i1 %trunc.i, label %86, label %85
+85:                                               ; preds = %9
+  br i1 %trunc.i, label %87, label %86
 
-85:                                               ; preds = %84
-  br i1 %12, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit22", label %93
+86:                                               ; preds = %85
+  br i1 %12, label %149, label %94
 
-86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
-  %88 = load ptr, ptr %87, align 8, !alias.scope !405, !noalias !408, !noundef !4
-  %89 = icmp eq ptr %88, null
-  %90 = getelementptr inbounds i8, ptr %1, i64 24
-  %91 = load ptr, ptr %90, align 8, !alias.scope !405, !noalias !408, !noundef !4
-  %92 = icmp eq ptr %91, null
-  br i1 %12, label %99, label %120
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds i8, ptr %1, i64 8
+  %89 = load ptr, ptr %88, align 8, !alias.scope !405, !noalias !408, !noundef !4
+  %90 = icmp eq ptr %89, null
+  %91 = getelementptr inbounds i8, ptr %1, i64 24
+  %92 = load ptr, ptr %91, align 8, !alias.scope !405, !noalias !408, !noundef !4
+  %93 = icmp eq ptr %92, null
+  br i1 %12, label %100, label %121
 
-93:                                               ; preds = %85
-  %94 = getelementptr inbounds i8, ptr %1, i64 48
-  %.val7.i11 = load ptr, ptr %94, align 8, !alias.scope !405, !noalias !408, !nonnull !4, !noundef !4
-  %95 = ptrtoint ptr %.val7.i11 to i64
-  %96 = ptrtoint ptr %11 to i64
-  %97 = sub nuw i64 %95, %96
-  %98 = lshr exact i64 %97, 5
-  br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit22"
+94:                                               ; preds = %86
+  %95 = getelementptr inbounds i8, ptr %1, i64 48
+  %.val7.i11 = load ptr, ptr %95, align 8, !alias.scope !405, !noalias !408, !nonnull !4, !noundef !4
+  %96 = ptrtoint ptr %.val7.i11 to i64
+  %97 = ptrtoint ptr %11 to i64
+  %98 = sub nuw i64 %96, %97
+  %99 = lshr exact i64 %98, 5
+  br label %149
 
-99:                                               ; preds = %86
-  br i1 %89, label %100, label %101
+100:                                              ; preds = %87
+  br i1 %90, label %101, label %102
 
-100:                                              ; preds = %99
-  br i1 %92, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit22", label %107
+101:                                              ; preds = %100
+  br i1 %93, label %149, label %108
 
-101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %1, i64 16
-  %.val13.i.i19 = load ptr, ptr %102, align 8, !alias.scope !410, !noalias !413, !nonnull !4, !noundef !4
-  %103 = ptrtoint ptr %.val13.i.i19 to i64
-  %104 = ptrtoint ptr %88 to i64
-  %105 = sub nuw i64 %103, %104
-  %106 = udiv exact i64 %105, 48
-  br i1 %92, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit22", label %113
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds i8, ptr %1, i64 16
+  %.val13.i.i18 = load ptr, ptr %103, align 8, !alias.scope !410, !noalias !413, !nonnull !4, !noundef !4
+  %104 = ptrtoint ptr %.val13.i.i18 to i64
+  %105 = ptrtoint ptr %89 to i64
+  %106 = sub nuw i64 %104, %105
+  %107 = udiv exact i64 %106, 48
+  br i1 %93, label %149, label %114
 
-107:                                              ; preds = %100
-  %108 = getelementptr inbounds i8, ptr %1, i64 32
-  %.val7.i.i21 = load ptr, ptr %108, align 8, !alias.scope !410, !noalias !413, !nonnull !4, !noundef !4
-  %109 = ptrtoint ptr %.val7.i.i21 to i64
-  %110 = ptrtoint ptr %91 to i64
-  %111 = sub nuw i64 %109, %110
-  %112 = lshr exact i64 %111, 5
-  br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit22"
+108:                                              ; preds = %101
+  %109 = getelementptr inbounds i8, ptr %1, i64 32
+  %.val7.i.i20 = load ptr, ptr %109, align 8, !alias.scope !410, !noalias !413, !nonnull !4, !noundef !4
+  %110 = ptrtoint ptr %.val7.i.i20 to i64
+  %111 = ptrtoint ptr %92 to i64
+  %112 = sub nuw i64 %110, %111
+  %113 = lshr exact i64 %112, 5
+  br label %149
 
-113:                                              ; preds = %101
-  %114 = getelementptr inbounds i8, ptr %1, i64 32
-  %.val9.i.i20 = load ptr, ptr %114, align 8, !alias.scope !410, !noalias !413, !nonnull !4, !noundef !4
-  %115 = ptrtoint ptr %.val9.i.i20 to i64
-  %116 = ptrtoint ptr %91 to i64
-  %117 = sub nuw i64 %115, %116
-  %118 = lshr exact i64 %117, 5
-  %119 = add nuw nsw i64 %118, %106
-  br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit22"
+114:                                              ; preds = %102
+  %115 = getelementptr inbounds i8, ptr %1, i64 32
+  %.val9.i.i19 = load ptr, ptr %115, align 8, !alias.scope !410, !noalias !413, !nonnull !4, !noundef !4
+  %116 = ptrtoint ptr %.val9.i.i19 to i64
+  %117 = ptrtoint ptr %92 to i64
+  %118 = sub nuw i64 %116, %117
+  %119 = lshr exact i64 %118, 5
+  %120 = add nuw nsw i64 %119, %107
+  br label %149
 
-120:                                              ; preds = %86
-  br i1 %89, label %121, label %122
+121:                                              ; preds = %87
+  br i1 %90, label %122, label %123
 
-121:                                              ; preds = %120
-  br i1 %92, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i15", label %128
+122:                                              ; preds = %121
+  br i1 %93, label %142, label %129
 
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %1, i64 16
-  %.val13.i10.i13 = load ptr, ptr %123, align 8, !alias.scope !415, !noalias !418, !nonnull !4, !noundef !4
-  %124 = ptrtoint ptr %.val13.i10.i13 to i64
-  %125 = ptrtoint ptr %88 to i64
-  %126 = sub nuw i64 %124, %125
-  %127 = udiv exact i64 %126, 48
-  br i1 %92, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i15", label %134
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds i8, ptr %1, i64 16
+  %.val13.i10.i13 = load ptr, ptr %124, align 8, !alias.scope !415, !noalias !418, !nonnull !4, !noundef !4
+  %125 = ptrtoint ptr %.val13.i10.i13 to i64
+  %126 = ptrtoint ptr %89 to i64
+  %127 = sub nuw i64 %125, %126
+  %128 = udiv exact i64 %127, 48
+  br i1 %93, label %142, label %135
 
-128:                                              ; preds = %121
-  %129 = getelementptr inbounds i8, ptr %1, i64 32
-  %.val7.i13.i18 = load ptr, ptr %129, align 8, !alias.scope !415, !noalias !418, !nonnull !4, !noundef !4
-  %130 = ptrtoint ptr %.val7.i13.i18 to i64
-  %131 = ptrtoint ptr %91 to i64
-  %132 = sub nuw i64 %130, %131
-  %133 = lshr exact i64 %132, 5
-  br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i15"
+129:                                              ; preds = %122
+  %130 = getelementptr inbounds i8, ptr %1, i64 32
+  %.val7.i13.i17 = load ptr, ptr %130, align 8, !alias.scope !415, !noalias !418, !nonnull !4, !noundef !4
+  %131 = ptrtoint ptr %.val7.i13.i17 to i64
+  %132 = ptrtoint ptr %92 to i64
+  %133 = sub nuw i64 %131, %132
+  %134 = lshr exact i64 %133, 5
+  br label %142
 
-134:                                              ; preds = %122
-  %135 = getelementptr inbounds i8, ptr %1, i64 32
-  %.val9.i11.i14 = load ptr, ptr %135, align 8, !alias.scope !415, !noalias !418, !nonnull !4, !noundef !4
-  %136 = ptrtoint ptr %.val9.i11.i14 to i64
-  %137 = ptrtoint ptr %91 to i64
-  %138 = sub nuw i64 %136, %137
-  %139 = lshr exact i64 %138, 5
-  %140 = add nuw nsw i64 %139, %127
-  br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i15"
+135:                                              ; preds = %123
+  %136 = getelementptr inbounds i8, ptr %1, i64 32
+  %.val9.i11.i14 = load ptr, ptr %136, align 8, !alias.scope !415, !noalias !418, !nonnull !4, !noundef !4
+  %137 = ptrtoint ptr %.val9.i11.i14 to i64
+  %138 = ptrtoint ptr %92 to i64
+  %139 = sub nuw i64 %137, %138
+  %140 = lshr exact i64 %139, 5
+  %141 = add nuw nsw i64 %140, %128
+  br label %142
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i15": ; preds = %134, %128, %122, %121
-  %.sink19.i12.i16 = phi i64 [ %140, %134 ], [ %133, %128 ], [ %127, %122 ], [ 0, %121 ]
-  %141 = getelementptr inbounds i8, ptr %1, i64 48
-  %.val9.i17 = load ptr, ptr %141, align 8, !alias.scope !405, !noalias !408, !nonnull !4, !noundef !4
-  %142 = ptrtoint ptr %.val9.i17 to i64
-  %143 = ptrtoint ptr %11 to i64
-  %144 = sub nuw i64 %142, %143
-  %145 = lshr exact i64 %144, 5
-  %146 = add nuw nsw i64 %145, %.sink19.i12.i16
-  br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit22"
+142:                                              ; preds = %135, %129, %123, %122
+  %.sink19.i12.i15 = phi i64 [ %141, %135 ], [ %134, %129 ], [ %128, %123 ], [ 0, %122 ]
+  %143 = getelementptr inbounds i8, ptr %1, i64 48
+  %.val9.i16 = load ptr, ptr %143, align 8, !alias.scope !405, !noalias !408, !nonnull !4, !noundef !4
+  %144 = ptrtoint ptr %.val9.i16 to i64
+  %145 = ptrtoint ptr %11 to i64
+  %146 = sub nuw i64 %144, %145
+  %147 = lshr exact i64 %146, 5
+  %148 = add nuw nsw i64 %147, %.sink19.i12.i15
+  br label %149
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit22": ; preds = %85, %93, %100, %101, %107, %113, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i15"
-  %.sink20.i12 = phi i64 [ %146, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h59e1e97a321c8d16E.exit14.i15" ], [ %98, %93 ], [ %119, %113 ], [ %112, %107 ], [ %106, %101 ], [ 0, %100 ], [ 0, %85 ]
-  %147 = getelementptr inbounds i8, ptr %1, i64 64
-  %.val9 = load ptr, ptr %147, align 8, !nonnull !4, !noundef !4
-  %148 = ptrtoint ptr %.val9 to i64
-  %149 = ptrtoint ptr %6 to i64
-  %150 = sub nuw i64 %148, %149
-  %151 = lshr exact i64 %150, 5
-  %152 = add nuw nsw i64 %151, %.sink20.i12
+149:                                              ; preds = %86, %94, %101, %102, %108, %114, %142
+  %.sink20.i12 = phi i64 [ %148, %142 ], [ %99, %94 ], [ %120, %114 ], [ %113, %108 ], [ %107, %102 ], [ 0, %101 ], [ 0, %86 ]
+  %150 = getelementptr inbounds i8, ptr %1, i64 64
+  %.val9 = load ptr, ptr %150, align 8, !nonnull !4, !noundef !4
+  %151 = ptrtoint ptr %.val9 to i64
+  %152 = ptrtoint ptr %6 to i64
+  %153 = sub nuw i64 %151, %152
+  %154 = lshr exact i64 %153, 5
+  %155 = add nuw nsw i64 %154, %.sink20.i12
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcad3ca7ebf5be532E.exit"
 }
 

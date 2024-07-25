@@ -4380,70 +4380,70 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN108_$LT$core.
 define hidden void @"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc66eef015bb2b617E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8, !range !350, !noundef !4
   %trunc = trunc nuw i64 %3 to i1
-  br i1 %trunc, label %4, label %8
+  br i1 %trunc, label %4, label %11
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !4
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
+  br i1 %7, label %8, label %11
 
-8:                                                ; preds = %4, %2
-  %.0 = phi i64 [ 0, %2 ], [ 1, %4 ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
-  %.val = load i64, ptr %9, align 8, !noundef !4
-  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.val, i64 %.0)
-  %11 = extractvalue { i64, i1 } %10, 1
-  %12 = extractvalue { i64, i1 } %10, 0
-  %not. = xor i1 %11, true
-  %spec.select = zext i1 %not. to i64
-  br label %13
-
-13:                                               ; preds = %4, %8
-  %.0.sink = phi i64 [ %.0, %8 ], [ 0, %4 ]
-  %spec.select.sink = phi i64 [ %spec.select, %8 ], [ 1, %4 ]
-  %.sink = phi i64 [ %12, %8 ], [ 0, %4 ]
+8:                                                ; preds = %4, %11
+  %.0.sink = phi i64 [ %.0, %11 ], [ 0, %4 ]
+  %spec.select.sink = phi i64 [ %spec.select, %11 ], [ 1, %4 ]
+  %.sink = phi i64 [ %15, %11 ], [ 0, %4 ]
   store i64 %.0.sink, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %spec.select.sink, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink, ptr %15, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %spec.select.sink, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %10, align 8
   ret void
+
+11:                                               ; preds = %4, %2
+  %.0 = phi i64 [ 0, %2 ], [ 1, %4 ]
+  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %.val = load i64, ptr %12, align 8, !noundef !4
+  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.val, i64 %.0)
+  %14 = extractvalue { i64, i1 } %13, 1
+  %15 = extractvalue { i64, i1 } %13, 0
+  %not. = xor i1 %14, true
+  %spec.select = zext i1 %not. to i64
+  br label %8
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf12e15a564acff44E.llvm.240573438051967091"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8, !range !350, !noundef !4
   %trunc = trunc nuw i64 %3 to i1
-  br i1 %trunc, label %4, label %8
+  br i1 %trunc, label %4, label %11
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !4
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %13, label %8
+  br i1 %7, label %8, label %11
 
-8:                                                ; preds = %4, %2
-  %.0 = phi i64 [ 0, %2 ], [ 1, %4 ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
-  %.val = load i64, ptr %9, align 8, !noundef !4
-  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.val, i64 %.0)
-  %11 = extractvalue { i64, i1 } %10, 1
-  %12 = extractvalue { i64, i1 } %10, 0
-  %not. = xor i1 %11, true
-  %spec.select = zext i1 %not. to i64
-  br label %13
-
-13:                                               ; preds = %4, %8
-  %.0.sink = phi i64 [ %.0, %8 ], [ 0, %4 ]
-  %spec.select.sink = phi i64 [ %spec.select, %8 ], [ 1, %4 ]
-  %.sink = phi i64 [ %12, %8 ], [ 0, %4 ]
+8:                                                ; preds = %4, %11
+  %.0.sink = phi i64 [ %.0, %11 ], [ 0, %4 ]
+  %spec.select.sink = phi i64 [ %spec.select, %11 ], [ 1, %4 ]
+  %.sink = phi i64 [ %15, %11 ], [ 0, %4 ]
   store i64 %.0.sink, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %spec.select.sink, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink, ptr %15, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %spec.select.sink, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %10, align 8
   ret void
+
+11:                                               ; preds = %4, %2
+  %.0 = phi i64 [ 0, %2 ], [ 1, %4 ]
+  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %.val = load i64, ptr %12, align 8, !noundef !4
+  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.val, i64 %.0)
+  %14 = extractvalue { i64, i1 } %13, 1
+  %15 = extractvalue { i64, i1 } %13, 0
+  %not. = xor i1 %14, true
+  %spec.select = zext i1 %not. to i64
+  br label %8
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

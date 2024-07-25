@@ -105,7 +105,7 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
   tail call void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he35a67ccbef0976fE"(ptr sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nonnull align 8 %1)
   br label %16
 
-16:                                               ; preds = %18, %17, %15, %12
+16:                                               ; preds = %36, %17, %15, %12
   ret void
 
 17:                                               ; preds = %11
@@ -127,20 +127,26 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
   %28 = icmp ne i64 %21, 0
   %29 = icmp ne i64 %26, 0
   %or.cond = and i1 %28, %29
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
-  %31 = load i64, ptr %30, align 8
-  %32 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 %31)
-  %33 = extractvalue { i64, i1 } %32, 1
-  %34 = extractvalue { i64, i1 } %32, 0
-  %not. = xor i1 %33, true
-  %narrow = select i1 %or.cond, i1 %not., i1 false
-  %.sroa.04.0 = zext i1 %narrow to i64
-  %.sroa.4.0 = select i1 %or.cond, i64 %34, i64 undef
+  br i1 %or.cond, label %30, label %36
+
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 %32)
+  %34 = extractvalue { i64, i1 } %33, 1
+  %35 = extractvalue { i64, i1 } %33, 0
+  %not. = xor i1 %34, true
+  %spec.select = zext i1 %not. to i64
+  br label %36
+
+36:                                               ; preds = %30, %18
+  %.sroa.04.0 = phi i64 [ 0, %18 ], [ %spec.select, %30 ]
+  %.sroa.4.0 = phi i64 [ undef, %18 ], [ %35, %30 ]
   store i64 %27, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.04.0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.04.0, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.4.0, ptr %38, align 8
   br label %16
 }
 

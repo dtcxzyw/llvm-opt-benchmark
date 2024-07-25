@@ -1170,27 +1170,27 @@ define hidden void @_ZN9itertools9Itertools4join17h9b1db231be249187E(ptr noalias
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !229
   %23 = load i64, ptr %1, align 8, !range !6, !alias.scope !226, !noalias !231, !noundef !5
-  %.sroa.5.0.i = xor i64 %23, 1
   %24 = getelementptr inbounds i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8, !range !4, !alias.scope !226, !noalias !231, !noundef !5
   %26 = icmp ne i64 %25, 3
   %27 = zext i1 %26 to i64
+  %not.trunc.i = xor i64 %23, 1
   store i64 %27, ptr %10, align 8, !alias.scope !232, !noalias !235
   %28 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %.sroa.5.0.i, ptr %28, align 8, !alias.scope !232, !noalias !235
+  store i64 %not.trunc.i, ptr %28, align 8, !alias.scope !232, !noalias !235
   %29 = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %27, ptr %29, align 8, !alias.scope !232, !noalias !235
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !229
   %30 = getelementptr inbounds i8, ptr %1, i64 32
   %31 = load i64, ptr %30, align 8, !range !6, !alias.scope !226, !noalias !231, !noundef !5
-  %.sroa.510.0.i = xor i64 %31, 1
   %32 = getelementptr inbounds i8, ptr %1, i64 48
   %33 = load i64, ptr %32, align 8, !range !4, !alias.scope !226, !noalias !231, !noundef !5
   %34 = icmp ne i64 %33, 3
   %35 = zext i1 %34 to i64
+  %not.trunc1.i = xor i64 %31, 1
   store i64 %35, ptr %9, align 8, !alias.scope !237, !noalias !240
   %36 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %.sroa.510.0.i, ptr %36, align 8, !alias.scope !237, !noalias !240
+  store i64 %not.trunc1.i, ptr %36, align 8, !alias.scope !237, !noalias !240
   %37 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %35, ptr %37, align 8, !alias.scope !237, !noalias !240
   invoke void @_ZN9itertools9size_hint3add17h2833b58e1ac6e2d3E.llvm.11597251190037153436(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9)

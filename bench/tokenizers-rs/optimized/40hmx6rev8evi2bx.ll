@@ -1692,26 +1692,27 @@ define hidden void @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy$LT$I$C
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy$LT$I$C$F$C$C$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6c57037a6d9d2b1bE"(ptr noalias nocapture noundef writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
-  %4 = load ptr, ptr %3, align 8, !alias.scope !370, !noalias !373, !nonnull !7, !noundef !7
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
-  %6 = load ptr, ptr %5, align 8, !alias.scope !370, !noalias !373, !nonnull !7, !noundef !7
-  %7 = ptrtoint ptr %4 to i64
-  %8 = ptrtoint ptr %6 to i64
-  %9 = sub nuw i64 %7, %8
-  %10 = udiv exact i64 %9, 24
-  %11 = load i64, ptr %1, align 8, !range !312, !noundef !7
-  %or.cond = icmp sgt i64 %11, -9223372036854775807
-  %12 = zext i1 %or.cond to i64
-  %13 = add nuw nsw i64 %10, %12
-  %14 = or i64 %10, %12
-  %15 = icmp ne i64 %14, 0
-  %16 = zext i1 %15 to i64
-  store i64 %16, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %13, ptr %18, align 8
+_ZN9itertools9size_hint10add_scalar17h71d423f4a17081c9E.llvm.13080012565599917794.exit:
+  %2 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = load ptr, ptr %2, align 8, !alias.scope !370, !noalias !373, !nonnull !7, !noundef !7
+  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = load ptr, ptr %4, align 8, !alias.scope !370, !noalias !373, !nonnull !7, !noundef !7
+  %6 = ptrtoint ptr %3 to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = sub nuw i64 %6, %7
+  %9 = udiv exact i64 %8, 24
+  %10 = load i64, ptr %1, align 8, !range !312, !noundef !7
+  %or.cond = icmp sgt i64 %10, -9223372036854775807
+  %11 = zext i1 %or.cond to i64
+  %12 = add nuw nsw i64 %9, %11
+  %13 = or i64 %9, %11
+  %14 = icmp ne i64 %13, 0
+  %15 = zext i1 %14 to i64
+  store i64 %15, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %12, ptr %17, align 8
   ret void
 }
 
@@ -21147,21 +21148,27 @@ define hidden void @_ZN9itertools9size_hint10add_scalar17h71d423f4a17081c9E.llvm
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !range !529, !noundef !7
   %trunc = trunc nuw i64 %6 to i1
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 %2)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %not. = xor i1 %10, true
-  %narrow = select i1 %trunc, i1 %not., i1 false
-  %.sroa.0.0 = zext i1 %narrow to i64
-  %.sroa.6.0 = select i1 %trunc, i64 %11, i64 undef
-  %12 = tail call i64 @llvm.uadd.sat.i64(i64 %4, i64 %2)
-  store i64 %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.6.0, ptr %14, align 8
+  br i1 %trunc, label %7, label %13
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %2)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = extractvalue { i64, i1 } %10, 0
+  %not. = xor i1 %11, true
+  %spec.select = zext i1 %not. to i64
+  br label %13
+
+13:                                               ; preds = %7, %3
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ %spec.select, %7 ]
+  %.sroa.6.0 = phi i64 [ undef, %3 ], [ %12, %7 ]
+  %14 = tail call i64 @llvm.uadd.sat.i64(i64 %4, i64 %2)
+  store i64 %14, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.0.0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.6.0, ptr %16, align 8
   ret void
 }
 

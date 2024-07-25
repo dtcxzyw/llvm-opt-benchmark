@@ -9172,39 +9172,40 @@ define hidden void @_ZN3std2io19default_read_to_end17h8cf6d699bd61fa84E(ptr noal
 
 13:                                               ; preds = %5
   %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %.thread, label %16
+  %15 = extractvalue { i64, i1 } %14, 0
+  %16 = extractvalue { i64, i1 } %14, 1
+  br i1 %16, label %.thread, label %17
 
-16:                                               ; preds = %13
-  %17 = extractvalue { i64, i1 } %14, 0
-  %18 = and i64 %17, 8191
-  %19 = icmp ne i64 %18, 0
-  %20 = sub nuw nsw i64 8192, %18
-  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %20)
-  %22 = extractvalue { i64, i1 } %21, 1
-  %23 = extractvalue { i64, i1 } %21, 0
-  %.sroa.5.1.i.i = select i1 %19, i64 %23, i64 %17
-  %narrow.i.i.not = select i1 %19, i1 %22, i1 false
-  %cond.fr = freeze i1 %narrow.i.i.not
-  br i1 %cond.fr, label %.thread, label %24
+17:                                               ; preds = %13
+  %18 = and i64 %15, 8191
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %.thread100, label %20
 
-.thread:                                          ; preds = %13, %5, %16
-  br label %24
+20:                                               ; preds = %17
+  %21 = sub nuw nsw i64 8192, %18
+  %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %21)
+  %.fr = freeze { i64, i1 } %22
+  %23 = extractvalue { i64, i1 } %.fr, 1
+  %24 = extractvalue { i64, i1 } %.fr, 0
+  br i1 %23, label %.thread, label %.thread100
 
-24:                                               ; preds = %16, %.thread
-  %25 = phi i64 [ 8192, %.thread ], [ %.sroa.5.1.i.i, %16 ]
+.thread:                                          ; preds = %13, %5, %20
+  br label %.thread100
+
+.thread100:                                       ; preds = %17, %20, %.thread
+  %25 = phi i64 [ 8192, %.thread ], [ %24, %20 ], [ %15, %17 ]
   %.not = icmp ne i64 %3, 1
   %26 = icmp eq i64 %4, 0
   %or.cond66 = select i1 %.not, i1 true, i1 %26
   br i1 %or.cond66, label %27, label %30
 
-27:                                               ; preds = %24
+27:                                               ; preds = %.thread100
   %28 = sub i64 %12, %11
   %29 = icmp ult i64 %28, 32
   br i1 %29, label %38, label %30
 
-30:                                               ; preds = %24, %56, %27
-  %31 = phi i64 [ %11, %24 ], [ %62, %56 ], [ %11, %27 ]
+30:                                               ; preds = %.thread100, %56, %27
+  %31 = phi i64 [ %11, %.thread100 ], [ %62, %56 ], [ %11, %27 ]
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = getelementptr inbounds i8, ptr %2, i64 8
   %34 = getelementptr inbounds i8, ptr %9, i64 8
@@ -9298,9 +9299,9 @@ define hidden void @_ZN3std2io19default_read_to_end17h8cf6d699bd61fa84E(ptr noal
   %or.cond2 = and i1 %68, %69
   br i1 %or.cond2, label %74, label %70
 
-70:                                               ; preds = %._crit_edge123, %65
-  %71 = phi i64 [ %.pre, %._crit_edge123 ], [ %67, %65 ]
-  %72 = phi i64 [ %95, %._crit_edge123 ], [ %66, %65 ]
+70:                                               ; preds = %._crit_edge127, %65
+  %71 = phi i64 [ %.pre, %._crit_edge127 ], [ %67, %65 ]
+  %72 = phi i64 [ %95, %._crit_edge127 ], [ %66, %65 ]
   %73 = icmp eq i64 %72, %71
   br i1 %73, label %100, label %105
 
@@ -9352,8 +9353,8 @@ define hidden void @_ZN3std2io19default_read_to_end17h8cf6d699bd61fa84E(ptr noal
   store i64 %88, ptr %78, align 8, !alias.scope !1549, !noalias !1557
   %89 = sub nuw i64 %75, %.0.sroa.speculated.i.i4.i.i.i.i77
   store i64 %89, ptr %32, align 8, !alias.scope !1543, !noalias !1544
-  %.not125.not = icmp ugt i64 %.sroa.5.0.i.i.i.i.i.i.i.i.i74, %79
-  br i1 %.not125.not, label %.noexc5.i80, label %90
+  %.not129.not = icmp ugt i64 %.sroa.5.0.i.i.i.i.i.i.i.i.i74, %79
+  br i1 %.not129.not, label %.noexc5.i80, label %90
 
 .noexc5.i80:                                      ; preds = %87
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hbf91a5c39232730fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %12, i64 noundef %.0.sroa.speculated.i.i4.i.i.i.i77), !noalias !1576
@@ -9371,9 +9372,9 @@ define hidden void @_ZN3std2io19default_read_to_end17h8cf6d699bd61fa84E(ptr noal
   store i64 %95, ptr %10, align 8, !alias.scope !1577, !noalias !1582
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %96 = icmp eq i64 %.0.sroa.speculated.i.i4.i.i.sink.i7.i79, 0
-  br i1 %96, label %97, label %._crit_edge123
+  br i1 %96, label %97, label %._crit_edge127
 
-._crit_edge123:                                   ; preds = %90
+._crit_edge127:                                   ; preds = %90
   %.pre = load i64, ptr %2, align 8
   br label %70
 
@@ -9395,12 +9396,12 @@ define hidden void @_ZN3std2io19default_read_to_end17h8cf6d699bd61fa84E(ptr noal
   %.pre9.i = sub i64 %.pre.i, %71
   %104 = icmp ugt i64 %.pre9.i, 31
   call void @llvm.assume(i1 %104)
-  %.pre124 = load i64, ptr %10, align 8, !alias.scope !1584
+  %.pre128 = load i64, ptr %10, align 8, !alias.scope !1584
   br label %105
 
 105:                                              ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread", %70
   %106 = phi i64 [ %.pre.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread" ], [ %71, %70 ]
-  %107 = phi i64 [ %.pre124, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread" ], [ %72, %70 ]
+  %107 = phi i64 [ %.pre128, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread" ], [ %72, %70 ]
   %108 = load ptr, ptr %33, align 8, !alias.scope !1584, !nonnull !4, !noundef !4
   %109 = getelementptr inbounds i8, ptr %108, i64 %107
   %110 = sub i64 %106, %107
@@ -9558,43 +9559,44 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
 
 11:                                               ; preds = %5
   %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %.thread, label %14
+  %13 = extractvalue { i64, i1 } %12, 0
+  %14 = extractvalue { i64, i1 } %12, 1
+  br i1 %14, label %.thread, label %15
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = and i64 %15, 8191
-  %17 = icmp ne i64 %16, 0
-  %18 = sub nuw nsw i64 8192, %16
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %18)
-  %20 = extractvalue { i64, i1 } %19, 1
-  %21 = extractvalue { i64, i1 } %19, 0
-  %.sroa.5.1.i.i = select i1 %17, i64 %21, i64 %15
-  %narrow.i.i.not = select i1 %17, i1 %20, i1 false
-  %cond.fr = freeze i1 %narrow.i.i.not
-  br i1 %cond.fr, label %.thread, label %22
+15:                                               ; preds = %11
+  %16 = and i64 %13, 8191
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %.thread93, label %18
 
-.thread:                                          ; preds = %11, %5, %14
-  br label %22
+18:                                               ; preds = %15
+  %19 = sub nuw nsw i64 8192, %16
+  %20 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %19)
+  %.fr = freeze { i64, i1 } %20
+  %21 = extractvalue { i64, i1 } %.fr, 1
+  %22 = extractvalue { i64, i1 } %.fr, 0
+  br i1 %21, label %.thread, label %.thread93
 
-22:                                               ; preds = %14, %.thread
-  %23 = phi i64 [ 8192, %.thread ], [ %.sroa.5.1.i.i, %14 ]
+.thread:                                          ; preds = %11, %5, %18
+  br label %.thread93
+
+.thread93:                                        ; preds = %15, %18, %.thread
+  %23 = phi i64 [ 8192, %.thread ], [ %22, %18 ], [ %13, %15 ]
   %.not = icmp ne i64 %3, 1
   %24 = icmp eq i64 %4, 0
   %or.cond66 = select i1 %.not, i1 true, i1 %24
   %25 = sub i64 %10, %9
   %26 = icmp ult i64 %25, 32
-  %or.cond114 = and i1 %or.cond66, %26
-  br i1 %or.cond114, label %31, label %27
+  %or.cond119 = and i1 %or.cond66, %26
+  br i1 %or.cond119, label %31, label %27
 
-27:                                               ; preds = %._crit_edge149, %22
-  %.pre = phi i64 [ %.pre.pre, %._crit_edge149 ], [ %9, %22 ]
+27:                                               ; preds = %._crit_edge153, %.thread93
+  %.pre = phi i64 [ %.pre.pre, %._crit_edge153 ], [ %9, %.thread93 ]
   %28 = getelementptr inbounds i8, ptr %6, i64 8
   %29 = getelementptr inbounds i8, ptr %2, i64 8
   %30 = getelementptr inbounds i8, ptr %1, i64 8
   br label %.outer
 
-31:                                               ; preds = %22
+31:                                               ; preds = %.thread93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hc556e2e6603a8629E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %32 = load i64, ptr %7, align 8, !range !26, !noundef !4
@@ -9606,9 +9608,9 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
 
 35:                                               ; preds = %31
   %36 = icmp eq ptr %34, null
-  br i1 %36, label %39, label %._crit_edge149
+  br i1 %36, label %39, label %._crit_edge153
 
-._crit_edge149:                                   ; preds = %35
+._crit_edge153:                                   ; preds = %35
   %.pre.pre = load i64, ptr %8, align 8
   br label %27
 
@@ -9632,8 +9634,8 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
   br i1 %or.cond2, label %50, label %46
 
 46:                                               ; preds = %._crit_edge, %41
-  %47 = phi i64 [ %.pre146, %._crit_edge ], [ %43, %41 ]
-  %48 = phi i64 [ %.pre145, %._crit_edge ], [ %42, %41 ]
+  %47 = phi i64 [ %.pre150, %._crit_edge ], [ %43, %41 ]
+  %48 = phi i64 [ %.pre149, %._crit_edge ], [ %42, %41 ]
   %49 = icmp eq i64 %48, %47
   br i1 %49, label %60, label %67
 
@@ -9648,11 +9650,11 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
 
 53:                                               ; preds = %50
   %54 = icmp eq ptr %52, null
-  %.pre145 = load i64, ptr %8, align 8
+  %.pre149 = load i64, ptr %8, align 8
   br i1 %54, label %57, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %53
-  %.pre146 = load i64, ptr %2, align 8
+  %.pre150 = load i64, ptr %2, align 8
   br label %46
 
 55:                                               ; preds = %50
@@ -9661,7 +9663,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
   br label %158
 
 57:                                               ; preds = %53
-  %58 = sub i64 %.pre145, %9
+  %58 = sub i64 %.pre149, %9
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %58, ptr %59, align 8
   br label %158
@@ -9677,7 +9679,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
   %.pre9.i = sub i64 %.pre.i, %47
   %64 = icmp ugt i64 %.pre9.i, 31
   tail call void @llvm.assume(i1 %64)
-  %.pre147 = load i64, ptr %8, align 8
+  %.pre151 = load i64, ptr %8, align 8
   br label %67
 
 65:                                               ; preds = %60
@@ -9687,7 +9689,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
 
 67:                                               ; preds = %46, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread"
   %68 = phi i64 [ %47, %46 ], [ %.pre.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread" ]
-  %69 = phi i64 [ %48, %46 ], [ %.pre147, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread" ]
+  %69 = phi i64 [ %48, %46 ], [ %.pre151, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread" ]
   %70 = load ptr, ptr %29, align 8, !alias.scope !1601, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds i8, ptr %70, i64 %69
   %72 = sub i64 %68, %69
@@ -9695,7 +9697,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1604)
   %73 = load i64, ptr %30, align 8, !alias.scope !1604, !noalias !1607, !noundef !4
   %74 = icmp eq i64 %73, 0
-  br i1 %74, label %.thread105, label %75
+  br i1 %74, label %.thread110, label %75
 
 75:                                               ; preds = %67
   %.not.i = icmp ugt i64 %73, %.0.sroa.speculated.i
@@ -9742,7 +9744,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
   %91 = getelementptr inbounds i8, ptr %87, i64 1
   store ptr %91, ptr %.val30.i, align 8, !alias.scope !1639, !noalias !1640
   store i64 %90, ptr %85, align 8, !alias.scope !1639, !noalias !1640
-  br label %.thread101
+  br label %.thread106
 
 92:                                               ; preds = %109, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h442b2f541e518cf4E.exit.i.i.i.i"
   %93 = getelementptr inbounds i8, ptr %.val30.i, i64 16
@@ -9779,7 +9781,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
 "_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$4read17h06e7fa7506ed3b58E.exit.i.i.i.i.i.i": ; preds = %101, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h205f938a744d1e18E.exit.i.i.i.i.i.i.i.i.i"
   %103 = add i64 %.0.sroa.speculated.i.i4.i.i.i.i.i.i.i.i, %95
   store i64 %103, ptr %94, align 8, !alias.scope !1648, !noalias !1656
-  br label %.thread101
+  br label %.thread106
 
 104:                                              ; preds = %84
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull readonly align 1 %87, i64 %.0.sroa.speculated.i.i.i.i.i.i.i.i, i1 false), !alias.scope !1675, !noalias !1679
@@ -9790,7 +9792,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
   %107 = icmp ne i64 %.0.sroa.speculated.i.i.i.i.i.i.i.i, 0
   %108 = icmp eq i64 %.0.sroa.speculated.i, 0
   %or.cond.i.i.i.i.i.i = or i1 %108, %107
-  br i1 %or.cond.i.i.i.i.i.i, label %.thread101, label %109
+  br i1 %or.cond.i.i.i.i.i.i, label %.thread106, label %109
 
 109:                                              ; preds = %104
   store i8 1, ptr %81, align 8, !alias.scope !1630, !noalias !1631
@@ -9881,7 +9883,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
   store i8 1, ptr %115, align 8, !alias.scope !1705, !noalias !1706
   br label %123
 
-.thread101:                                       ; preds = %.thread.i.i.i.i.i.i, %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$4read17h06e7fa7506ed3b58E.exit.i.i.i.i.i.i", %104
+.thread106:                                       ; preds = %.thread.i.i.i.i.i.i, %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$4read17h06e7fa7506ed3b58E.exit.i.i.i.i.i.i", %104
   %.0.sroa.speculated.i.i.sink.i.i.i.i.i.i = phi i64 [ %.0.sroa.speculated.i.i4.i.i.i.i.i.i.i.i, %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$4read17h06e7fa7506ed3b58E.exit.i.i.i.i.i.i" ], [ %.0.sroa.speculated.i.i.i.i.i.i.i.i, %104 ], [ 1, %.thread.i.i.i.i.i.i ]
   %.0.sroa.speculated.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 %.0.sroa.speculated.i.i.sink.i.i.i.i.i.i)
   br label %144
@@ -9901,46 +9903,46 @@ define hidden void @_ZN3std2io19default_read_to_end17h95c7edaae1d5b217E.llvm.169
   %.0.sroa.speculated.i51.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i50.i, i64 %73)
   br label %144
 
-144:                                              ; preds = %143, %.thread101
-  %.sroa.17.2100 = phi i64 [ %.0.sroa.speculated.i51.i, %143 ], [ %.0.sroa.speculated.i.i.i.i.i, %.thread101 ]
-  %.sroa.10.299 = phi i64 [ %.0.sroa.speculated.i.i.sink.i.i.i.i.i4568.i, %143 ], [ %.0.sroa.speculated.i.i.sink.i.i.i.i.i.i, %.thread101 ]
-  %storemerge130 = sub i64 %73, %.sroa.10.299
-  store i64 %storemerge130, ptr %30, align 8, !alias.scope !1604, !noalias !1607
-  %145 = icmp ugt i64 %.sroa.17.2100, %.0.sroa.speculated.i
+144:                                              ; preds = %143, %.thread106
+  %.sroa.17.2105 = phi i64 [ %.0.sroa.speculated.i51.i, %143 ], [ %.0.sroa.speculated.i.i.i.i.i, %.thread106 ]
+  %.sroa.10.2104 = phi i64 [ %.0.sroa.speculated.i.i.sink.i.i.i.i.i4568.i, %143 ], [ %.0.sroa.speculated.i.i.sink.i.i.i.i.i.i, %.thread106 ]
+  %storemerge134 = sub i64 %73, %.sroa.10.2104
+  store i64 %storemerge134, ptr %30, align 8, !alias.scope !1604, !noalias !1607
+  %145 = icmp ugt i64 %.sroa.17.2105, %.0.sroa.speculated.i
   br i1 %145, label %.loopexit, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hed933eca5a43e96fE.exit"
 
-.thread105:                                       ; preds = %67
+.thread110:                                       ; preds = %67
   %146 = icmp ugt i64 %.052, %.0.sroa.speculated.i
   br i1 %146, label %.loopexit, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hed933eca5a43e96fE.exit.thread"
 
-.loopexit:                                        ; preds = %144, %.thread105
-  %.sroa.17.2100109 = phi i64 [ %.052, %.thread105 ], [ %.sroa.17.2100, %144 ]
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %.sroa.17.2100109, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43c633cc9d0c07b847282a0596e0d119.116) #77, !noalias !1756
+.loopexit:                                        ; preds = %144, %.thread110
+  %.sroa.17.2105114 = phi i64 [ %.052, %.thread110 ], [ %.sroa.17.2105, %144 ]
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %.sroa.17.2105114, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43c633cc9d0c07b847282a0596e0d119.116) #77, !noalias !1756
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hed933eca5a43e96fE.exit": ; preds = %144
-  %147 = icmp eq i64 %.sroa.10.299, 0
-  %.pre148 = load i64, ptr %8, align 8
+  %147 = icmp eq i64 %.sroa.10.2104, 0
+  %.pre152 = load i64, ptr %8, align 8
   br i1 %147, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hed933eca5a43e96fE.exit.thread", label %151
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hed933eca5a43e96fE.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hed933eca5a43e96fE.exit", %.thread105
-  %148 = phi i64 [ %69, %.thread105 ], [ %.pre148, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hed933eca5a43e96fE.exit" ]
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hed933eca5a43e96fE.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hed933eca5a43e96fE.exit", %.thread110
+  %148 = phi i64 [ %69, %.thread110 ], [ %.pre152, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hed933eca5a43e96fE.exit" ]
   %149 = sub i64 %148, %9
   %150 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %149, ptr %150, align 8
   br label %158
 
 151:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hed933eca5a43e96fE.exit"
-  %152 = sub nuw i64 %.sroa.17.2100, %.sroa.10.299
-  %153 = add i64 %.pre148, %.sroa.10.299
+  %152 = sub nuw i64 %.sroa.17.2105, %.sroa.10.2104
+  %153 = add i64 %.pre152, %.sroa.10.2104
   store i64 %153, ptr %8, align 8
   br i1 %.not, label %.outer.backedge, label %41
 
 .outer.backedge:                                  ; preds = %151
-  %154 = icmp eq i64 %.sroa.17.2100, %.0.sroa.speculated.i
+  %154 = icmp eq i64 %.sroa.17.2105, %.0.sroa.speculated.i
   %spec.select = select i1 %154, i64 %.1.ph, i64 -1
   %155 = icmp uge i64 %.0.sroa.speculated.i, %spec.select
-  %156 = icmp eq i64 %.sroa.10.299, %.0.sroa.speculated.i
+  %156 = icmp eq i64 %.sroa.10.2104, %.0.sroa.speculated.i
   %or.cond = and i1 %156, %155
   %157 = shl nuw i64 %spec.select, 1
   %.inv.i = icmp sgt i64 %spec.select, -1
@@ -9972,45 +9974,46 @@ define hidden void @_ZN3std2io19default_read_to_end17hbac60c7a100741b5E.llvm.169
 
 11:                                               ; preds = %5
   %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1024)
-  %13 = extractvalue { i64, i1 } %12, 1
-  br i1 %13, label %.thread, label %14
+  %13 = extractvalue { i64, i1 } %12, 0
+  %14 = extractvalue { i64, i1 } %12, 1
+  br i1 %14, label %.thread, label %15
 
-14:                                               ; preds = %11
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = and i64 %15, 8191
-  %17 = icmp ne i64 %16, 0
-  %18 = sub nuw nsw i64 8192, %16
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %18)
-  %20 = extractvalue { i64, i1 } %19, 1
-  %21 = extractvalue { i64, i1 } %19, 0
-  %.sroa.5.1.i.i = select i1 %17, i64 %21, i64 %15
-  %narrow.i.i.not = select i1 %17, i1 %20, i1 false
-  %cond.fr = freeze i1 %narrow.i.i.not
-  br i1 %cond.fr, label %.thread, label %22
+15:                                               ; preds = %11
+  %16 = and i64 %13, 8191
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %.thread105, label %18
 
-.thread:                                          ; preds = %11, %5, %14
-  br label %22
+18:                                               ; preds = %15
+  %19 = sub nuw nsw i64 8192, %16
+  %20 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %19)
+  %.fr = freeze { i64, i1 } %20
+  %21 = extractvalue { i64, i1 } %.fr, 1
+  %22 = extractvalue { i64, i1 } %.fr, 0
+  br i1 %21, label %.thread, label %.thread105
 
-22:                                               ; preds = %14, %.thread
-  %23 = phi i64 [ 8192, %.thread ], [ %.sroa.5.1.i.i, %14 ]
+.thread:                                          ; preds = %11, %5, %18
+  br label %.thread105
+
+.thread105:                                       ; preds = %15, %18, %.thread
+  %23 = phi i64 [ 8192, %.thread ], [ %22, %18 ], [ %13, %15 ]
   %.not = icmp ne i64 %3, 1
   %24 = icmp eq i64 %4, 0
   %or.cond66 = select i1 %.not, i1 true, i1 %24
-  br i1 %or.cond66, label %25, label %._crit_edge
+  br i1 %or.cond66, label %25, label %.thread105._crit_edge
 
-._crit_edge:                                      ; preds = %22
+.thread105._crit_edge:                            ; preds = %.thread105
   %.pre = load ptr, ptr %1, align 8
   br label %28
 
-25:                                               ; preds = %22
+25:                                               ; preds = %.thread105
   %26 = sub i64 %10, %9
   %27 = icmp ult i64 %26, 32
-  %.pre115 = load ptr, ptr %1, align 8
+  %.pre119 = load ptr, ptr %1, align 8
   br i1 %27, label %33, label %28
 
-28:                                               ; preds = %._crit_edge, %45, %25
-  %29 = phi i64 [ %9, %._crit_edge ], [ %51, %45 ], [ %9, %25 ]
-  %30 = phi ptr [ %.pre, %._crit_edge ], [ %.pre115, %45 ], [ %.pre115, %25 ]
+28:                                               ; preds = %.thread105._crit_edge, %45, %25
+  %29 = phi i64 [ %9, %.thread105._crit_edge ], [ %51, %45 ], [ %9, %25 ]
+  %30 = phi ptr [ %.pre, %.thread105._crit_edge ], [ %.pre119, %45 ], [ %.pre119, %25 ]
   %31 = getelementptr inbounds i8, ptr %1, i64 8
   %32 = getelementptr inbounds i8, ptr %2, i64 8
   %.promoted = load i64, ptr %31, align 8, !noalias !4
@@ -10025,7 +10028,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hbac60c7a100741b5E.llvm.169
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1769)
   %34 = getelementptr inbounds i8, ptr %1, i64 8
   %35 = load i64, ptr %34, align 8, !alias.scope !1771, !noalias !1772, !noundef !4
-  %36 = load ptr, ptr %.pre115, align 8, !noalias !1774, !nonnull !4, !noundef !4
+  %36 = load ptr, ptr %.pre119, align 8, !noalias !1774, !nonnull !4, !noundef !4
   %.sroa.0.0.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 40
   %.sroa.0.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i.i.i.i.i, align 8, !noalias !1774, !nonnull !4, !noundef !4
   %.sroa.5.0.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 48
@@ -10068,8 +10071,8 @@ define hidden void @_ZN3std2io19default_read_to_end17hbac60c7a100741b5E.llvm.169
   %51 = add i64 %50, %.0.sroa.speculated.i.i4.i.i
   store i64 %51, ptr %8, align 8, !alias.scope !1792, !noalias !1797
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %.not109 = icmp ugt i64 %.sroa.5.0.i.i.i.i.i.i.i, %35
-  br i1 %.not109, label %28, label %52
+  %.not113 = icmp ugt i64 %.sroa.5.0.i.i.i.i.i.i.i, %35
+  br i1 %.not113, label %28, label %52
 
 52:                                               ; preds = %45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -10077,7 +10080,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hbac60c7a100741b5E.llvm.169
 
 53:                                               ; preds = %.outer, %106
   %54 = phi i64 [ %108, %106 ], [ %.ph, %.outer ]
-  %55 = phi i64 [ %98, %106 ], [ %.ph125, %.outer ]
+  %55 = phi i64 [ %98, %106 ], [ %.ph128, %.outer ]
   %.052 = phi i64 [ %107, %106 ], [ %.052.ph, %.outer ]
   %56 = load i64, ptr %2, align 8, !noundef !4
   %57 = icmp eq i64 %54, %56
@@ -10085,10 +10088,10 @@ define hidden void @_ZN3std2io19default_read_to_end17hbac60c7a100741b5E.llvm.169
   %or.cond2 = and i1 %57, %58
   br i1 %or.cond2, label %64, label %59
 
-59:                                               ; preds = %._crit_edge116, %53
-  %60 = phi i64 [ %.pre117, %._crit_edge116 ], [ %56, %53 ]
-  %61 = phi i64 [ %78, %._crit_edge116 ], [ %54, %53 ]
-  %62 = phi i64 [ %72, %._crit_edge116 ], [ %55, %53 ]
+59:                                               ; preds = %._crit_edge, %53
+  %60 = phi i64 [ %.pre120, %._crit_edge ], [ %56, %53 ]
+  %61 = phi i64 [ %78, %._crit_edge ], [ %54, %53 ]
+  %62 = phi i64 [ %72, %._crit_edge ], [ %55, %53 ]
   %63 = icmp eq i64 %61, %60
   br i1 %63, label %82, label %89
 
@@ -10124,8 +10127,8 @@ define hidden void @_ZN3std2io19default_read_to_end17hbac60c7a100741b5E.llvm.169
 71:                                               ; preds = %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h205f938a744d1e18E.exit.i.i.i76"
   %72 = add i64 %.0.sroa.speculated.i.i4.i.i75, %55
   store i64 %72, ptr %31, align 8, !alias.scope !1829, !noalias !1830
-  %.not119.not = icmp ugt i64 %.sroa.5.0.i.i.i.i.i.i.i73, %55
-  br i1 %.not119.not, label %.noexc5.i77, label %73
+  %.not122.not = icmp ugt i64 %.sroa.5.0.i.i.i.i.i.i.i73, %55
+  br i1 %.not122.not, label %.noexc5.i77, label %73
 
 .noexc5.i77:                                      ; preds = %71
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hbf91a5c39232730fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %10, i64 noundef %.0.sroa.speculated.i.i4.i.i75), !noalias !1831
@@ -10141,11 +10144,11 @@ define hidden void @_ZN3std2io19default_read_to_end17hbac60c7a100741b5E.llvm.169
   %78 = add i64 %77, %.0.sroa.speculated.i.i4.i.i75
   store i64 %78, ptr %8, align 8, !alias.scope !1832, !noalias !1837
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %.not110 = icmp ugt i64 %.sroa.5.0.i.i.i.i.i.i.i73, %55
-  br i1 %.not110, label %._crit_edge116, label %79
+  %.not114 = icmp ugt i64 %.sroa.5.0.i.i.i.i.i.i.i73, %55
+  br i1 %.not114, label %._crit_edge, label %79
 
-._crit_edge116:                                   ; preds = %73
-  %.pre117 = load i64, ptr %2, align 8
+._crit_edge:                                      ; preds = %73
+  %.pre120 = load i64, ptr %2, align 8
   br label %59
 
 79:                                               ; preds = %73
@@ -10166,7 +10169,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hbac60c7a100741b5E.llvm.169
   %.pre9.i = sub i64 %.pre.i, %60
   %86 = icmp ugt i64 %.pre9.i, 31
   tail call void @llvm.assume(i1 %86)
-  %.pre118 = load i64, ptr %8, align 8, !alias.scope !1839
+  %.pre121 = load i64, ptr %8, align 8, !alias.scope !1839
   br label %89
 
 87:                                               ; preds = %82
@@ -10177,7 +10180,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hbac60c7a100741b5E.llvm.169
 
 89:                                               ; preds = %59, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread"
   %90 = phi i64 [ %60, %59 ], [ %.pre.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread" ]
-  %91 = phi i64 [ %61, %59 ], [ %.pre118, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread" ]
+  %91 = phi i64 [ %61, %59 ], [ %.pre121, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h185eec1dac92f4c4E.exit.thread" ]
   %92 = load ptr, ptr %32, align 8, !alias.scope !1839, !nonnull !4, !noundef !4
   %93 = sub i64 %90, %91
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %93, i64 %.1.ph)
@@ -10235,7 +10238,7 @@ define hidden void @_ZN3std2io19default_read_to_end17hbac60c7a100741b5E.llvm.169
 
 .outer:                                           ; preds = %.outer.backedge, %28
   %.ph = phi i64 [ %29, %28 ], [ %108, %.outer.backedge ]
-  %.ph125 = phi i64 [ %.promoted, %28 ], [ %98, %.outer.backedge ]
+  %.ph128 = phi i64 [ %.promoted, %28 ], [ %98, %.outer.backedge ]
   %.052.ph = phi i64 [ 0, %28 ], [ %107, %.outer.backedge ]
   %.1.ph = phi i64 [ %23, %28 ], [ %.1.ph.be, %.outer.backedge ]
   br label %53

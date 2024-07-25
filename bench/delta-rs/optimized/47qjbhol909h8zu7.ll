@@ -1803,7 +1803,7 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !alias.scope !419, !noalias !416, !noundef !12
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %35, label %7
+  br i1 %.not.i, label %30, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !421
@@ -1837,31 +1837,37 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   %28 = icmp ne i64 %14, 0
   %29 = icmp ne i64 %24, 0
   %or.cond.i = and i1 %28, %29
-  %30 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %26)
-  %31 = extractvalue { i64, i1 } %30, 1
-  %32 = extractvalue { i64, i1 } %30, 0
-  %not..i = xor i1 %31, true
-  %narrow.i = select i1 %or.cond.i, i1 %not..i, i1 false
-  %.sroa.04.0.i = zext i1 %narrow.i to i64
-  %.sroa.4.0.i = select i1 %or.cond.i, i64 %32, i64 undef
-  store i64 %27, ptr %0, align 8, !alias.scope !416, !noalias !419
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.04.0.i, ptr %33, align 8, !alias.scope !416, !noalias !419
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.i, ptr %34, align 8, !alias.scope !416, !noalias !419
-  br label %"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St1$C$St2$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hec73a472024ab318E.exit"
+  br i1 %or.cond.i, label %36, label %40
 
-35:                                               ; preds = %2
+30:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !443)
-  %36 = load ptr, ptr %1, align 8, !alias.scope !446, !noalias !449, !nonnull !12, !align !58, !noundef !12
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8, !alias.scope !446, !noalias !449, !nonnull !12, !align !59, !noundef !12
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
-  %40 = load ptr, ptr %39, align 8, !invariant.load !12, !noalias !451, !nonnull !12
-  tail call void %40(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %36), !noalias !452
+  %31 = load ptr, ptr %1, align 8, !alias.scope !446, !noalias !449, !nonnull !12, !align !58, !noundef !12
+  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = load ptr, ptr %32, align 8, !alias.scope !446, !noalias !449, !nonnull !12, !align !59, !noundef !12
+  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %35 = load ptr, ptr %34, align 8, !invariant.load !12, !noalias !451, !nonnull !12
+  tail call void %35(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %31), !noalias !452
   br label %"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St1$C$St2$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hec73a472024ab318E.exit"
 
-"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St1$C$St2$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hec73a472024ab318E.exit": ; preds = %7, %35
+36:                                               ; preds = %7
+  %37 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %26)
+  %38 = extractvalue { i64, i1 } %37, 1
+  %39 = extractvalue { i64, i1 } %37, 0
+  %not..i = xor i1 %38, true
+  %spec.select.i = zext i1 %not..i to i64
+  br label %40
+
+40:                                               ; preds = %36, %7
+  %.sroa.04.0.i = phi i64 [ 0, %7 ], [ %spec.select.i, %36 ]
+  %.sroa.4.0.i = phi i64 [ undef, %7 ], [ %39, %36 ]
+  store i64 %27, ptr %0, align 8, !alias.scope !416, !noalias !419
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.04.0.i, ptr %41, align 8, !alias.scope !416, !noalias !419
+  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.4.0.i, ptr %42, align 8, !alias.scope !416, !noalias !419
+  br label %"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St1$C$St2$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hec73a472024ab318E.exit"
+
+"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St1$C$St2$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hec73a472024ab318E.exit": ; preds = %30, %40
   ret void
 }
 

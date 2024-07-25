@@ -16928,27 +16928,28 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..V
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !6285
   %51 = getelementptr i8, ptr %.val, i64 -8
   %.val.i.i.i.i.i = load i64, ptr %51, align 8, !noalias !6285, !noundef !4
-  %52 = icmp ult i64 %.val.i.i.i.i.i, 4611686018427387904
-  %53 = shl i64 %.val.i.i.i.i.i, 2
-  %54 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %53, i64 16)
-  %55 = extractvalue { i64, i1 } %54, 1
-  %not..i.i.i.i.i = xor i1 %55, true
-  %56 = extractvalue { i64, i1 } %54, 0
-  %.sroa.01.0.i.i.i.i = and i1 %52, %not..i.i.i.i.i
-  %57 = icmp ult i64 %56, 9223372036854775799
-  %or.cond.i.i.i.i.i = and i1 %.sroa.01.0.i.i.i.i, %57
-  br i1 %or.cond.i.i.i.i.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h144beebfc24f7117E.exit.i.i.i", label %58
+  %52 = icmp ugt i64 %.val.i.i.i.i.i, 4611686018427387903
+  br i1 %52, label %.thread.i.i.i.i, label %53
 
-58:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h723292f904015b42E.exit.i.i.i"
+53:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h723292f904015b42E.exit.i.i.i"
+  %54 = shl nuw i64 %.val.i.i.i.i.i, 2
+  %55 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %54, i64 16)
+  %56 = extractvalue { i64, i1 } %55, 1
+  %57 = icmp ugt i64 %.val.i.i.i.i.i, 2305843009213693945
+  %or.cond.i.not.i.i.i.i = or i1 %57, %56
+  br i1 %or.cond.i.not.i.i.i.i, label %.thread.i.i.i.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h144beebfc24f7117E.exit.i.i.i"
+
+.thread.i.i.i.i:                                  ; preds = %53, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h723292f904015b42E.exit.i.i.i"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #24, !noalias !6285
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h144beebfc24f7117E.exit.i.i.i": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h723292f904015b42E.exit.i.i.i"
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h144beebfc24f7117E.exit.i.i.i": ; preds = %53
+  %58 = extractvalue { i64, i1 } %55, 0
   %59 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %49, ptr %59, align 8, !noalias !6285
   store i64 8, ptr %5, align 8, !noalias !6285
   %60 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %56, ptr %60, align 8, !noalias !6285
+  store i64 %58, ptr %60, align 8, !noalias !6285
   call void @"_ZN124_$LT$$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dealloc$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbb838cbcb20fa67eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5), !noalias !6285
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !6285
   br label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..value..Dynamic$GT$17hd75910c25cc21603E.exit"
@@ -29484,25 +29485,27 @@ define hidden void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..
   %.val.i.i = load i64, ptr %5, align 8, !noundef !4
   %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 24)
   %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %.sroa.01.0.demorgan.i = or i1 %7, %10
-  %12 = icmp ugt i64 %11, 9223372036854775798
-  %or.cond.i.not.i = or i1 %12, %.sroa.01.0.demorgan.i
-  br i1 %or.cond.i.not.i, label %13, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3d85cd455030593bE.exit"
+  br i1 %7, label %.thread.i, label %8
 
-13:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h81cd073294aa2eb5E.exit"
+8:                                                ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h81cd073294aa2eb5E.exit"
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 16)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = icmp ugt i64 %9, 9223372036854775782
+  %or.cond.i.not.i = or i1 %12, %11
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3d85cd455030593bE.exit"
+
+.thread.i:                                        ; preds = %8, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h81cd073294aa2eb5E.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #24
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3d85cd455030593bE.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h81cd073294aa2eb5E.exit"
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3d85cd455030593bE.exit": ; preds = %8
+  %13 = extractvalue { i64, i1 } %10, 0
   %14 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %3, ptr %14, align 8
   store i64 8, ptr %2, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %11, ptr %15, align 8
+  store i64 %13, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = icmp eq i64 %17, 0
@@ -29740,27 +29743,28 @@ define hidden void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %6 = getelementptr i8, ptr %.val, i64 -8
   %.val.i.i = load i64, ptr %6, align 8, !noundef !4
-  %7 = icmp ult i64 %.val.i.i, 1152921504606846976
-  %8 = shl i64 %.val.i.i, 4
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %not..i.i = xor i1 %10, true
-  %11 = extractvalue { i64, i1 } %9, 0
-  %.sroa.01.0.i = and i1 %7, %not..i.i
-  %12 = icmp ult i64 %11, 9223372036854775799
-  %or.cond.i.i = and i1 %.sroa.01.0.i, %12
-  br i1 %or.cond.i.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h7290db9b6985298dE.exit", label %13
+  %7 = icmp ugt i64 %.val.i.i, 1152921504606846975
+  br i1 %7, label %.thread.i, label %8
 
-13:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17he2aef11059afb355E.exit"
+8:                                                ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17he2aef11059afb355E.exit"
+  %9 = shl nuw i64 %.val.i.i, 4
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 16)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = icmp ugt i64 %.val.i.i, 576460752303423486
+  %or.cond.i.not.i = or i1 %12, %11
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h7290db9b6985298dE.exit"
+
+.thread.i:                                        ; preds = %8, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17he2aef11059afb355E.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #24
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h7290db9b6985298dE.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17he2aef11059afb355E.exit"
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h7290db9b6985298dE.exit": ; preds = %8
+  %13 = extractvalue { i64, i1 } %10, 0
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %4, ptr %14, align 8
   store i64 8, ptr %3, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %11, ptr %15, align 8
+  store i64 %13, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10124)
@@ -30145,25 +30149,27 @@ define hidden void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..
   %.val.i.i = load i64, ptr %5, align 8, !noundef !4
   %6 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.val.i.i, i64 72)
   %7 = extractvalue { i64, i1 } %6, 1
-  %8 = extractvalue { i64, i1 } %6, 0
-  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %.sroa.01.0.demorgan.i = or i1 %7, %10
-  %12 = icmp ugt i64 %11, 9223372036854775798
-  %or.cond.i.not.i = or i1 %12, %.sroa.01.0.demorgan.i
-  br i1 %or.cond.i.not.i, label %13, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h6b70bcc565ea9441E.exit"
+  br i1 %7, label %.thread.i, label %8
 
-13:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17hca7f520c03e9661aE.exit"
+8:                                                ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17hca7f520c03e9661aE.exit"
+  %9 = extractvalue { i64, i1 } %6, 0
+  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 16)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = icmp ugt i64 %9, 9223372036854775782
+  %or.cond.i.not.i = or i1 %12, %11
+  br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h6b70bcc565ea9441E.exit"
+
+.thread.i:                                        ; preds = %8, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17hca7f520c03e9661aE.exit"
   tail call void @_ZN4ecow3vec17capacity_overflow17h71252bc93516d9d1E() #24
   unreachable
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h6b70bcc565ea9441E.exit": ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17hca7f520c03e9661aE.exit"
+"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h6b70bcc565ea9441E.exit": ; preds = %8
+  %13 = extractvalue { i64, i1 } %10, 0
   %14 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %3, ptr %14, align 8
   store i64 8, ptr %2, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %11, ptr %15, align 8
+  store i64 %13, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
   br label %18

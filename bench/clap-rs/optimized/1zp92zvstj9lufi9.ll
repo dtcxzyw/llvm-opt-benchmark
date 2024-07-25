@@ -6182,10 +6182,10 @@ common.resume:                                    ; preds = %138, %.body, %37
           cleanup
   br label %138
 
-63:                                               ; preds = %44, %46, %.noexc7, %.noexc8
-  %.sroa.33.0.i.i26 = phi i64 [ %.sroa.33.0.i.i, %.noexc8 ], [ %.sroa.33.0.i.i, %.noexc7 ], [ %.sroa.33.0.i.i2731, %46 ], [ %.sroa.33.0.i.i, %44 ]
-  %.sroa.02.0.i.i24 = phi ptr [ %.sroa.02.0.i.i, %.noexc8 ], [ %.sroa.02.0.i.i, %.noexc7 ], [ %.sroa.02.0.i.i2532, %46 ], [ %.sroa.02.0.i.i, %44 ]
-  %.sink.i = phi i64 [ %60, %.noexc8 ], [ 0, %.noexc7 ], [ %52, %46 ], [ 0, %44 ]
+63:                                               ; preds = %.noexc8, %44, %46, %.noexc7
+  %.sroa.33.0.i.i26 = phi i64 [ %.sroa.33.0.i.i, %.noexc7 ], [ %.sroa.33.0.i.i2731, %46 ], [ %.sroa.33.0.i.i, %44 ], [ %.sroa.33.0.i.i, %.noexc8 ]
+  %.sroa.02.0.i.i24 = phi ptr [ %.sroa.02.0.i.i, %.noexc7 ], [ %.sroa.02.0.i.i2532, %46 ], [ %.sroa.02.0.i.i, %44 ], [ %.sroa.02.0.i.i, %.noexc8 ]
+  %.sink.i = phi i64 [ 0, %.noexc7 ], [ %52, %46 ], [ 0, %44 ], [ %60, %.noexc8 ]
   %64 = tail call i64 @llvm.umax.i64(i64 %.sink.i, i64 3)
   %.0.sroa.speculated.i = add nuw nsw i64 %64, 1
   %65 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h3ab97a64aea5dc85E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
@@ -6332,7 +6332,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hcdabae1f0e350ec3E.exit.i.i.i: 
   br label %91
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hea090ef57fddedaeE.exit.i.i": ; preds = %.noexc7.i.i, %.noexc6.i.i, %104, %102
-  %.sink.i.i.i = phi i64 [ %114, %.noexc7.i.i ], [ 0, %.noexc6.i.i ], [ %108, %104 ], [ 0, %102 ]
+  %.sink.i.i.i = phi i64 [ 0, %.noexc6.i.i ], [ %108, %104 ], [ 0, %102 ], [ %114, %.noexc7.i.i ]
   %121 = load i64, ptr %.sroa.63.0..sroa_idx, align 8, !alias.scope !1834, !noalias !1792, !noundef !28
   %122 = load i64, ptr %10, align 8, !alias.scope !1834, !noalias !1792, !noundef !28
   %123 = sub i64 %122, %121
