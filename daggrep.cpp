@@ -202,9 +202,10 @@ bool matchValue(Value *V1, Value *V2, DenseMap<Value *, Value *> &Map) {
       std::swap(CF1, CF2);
     auto CF2V = *CF2;
     bool LosesInfo = false;
-    if (CF2V.convert(V2->getType()->getFltSemantics(),
-                     APFloat::rmNearestTiesToEven, &LosesInfo))
-      return CF2V == *CF1;
+    auto Res = CF2V.convert(CF1->getSemantics(), APFloat::rmNearestTiesToEven,
+                            &LosesInfo);
+    (void)Res;
+    return CF2V == *CF1;
   }
   auto &Ref = Map[V2];
   if (Ref)
@@ -227,26 +228,26 @@ static bool matchInst(Instruction &I1, Instruction &I2,
     return false;
   unsigned Skip = 0;
   if (auto *II1 = dyn_cast<IntrinsicInst>(&I1)) {
-    if (auto *II2 = dyn_cast<IntrinsicInst>(&I2)) {
-      if (II1->getIntrinsicID() != II2->getIntrinsicID())
+    auto *II2 = dyn_cast<IntrinsicInst>(&I2);
+    if (!II2)
+      return false;
+    if (II1->getIntrinsicID() != II2->getIntrinsicID())
+      return false;
+    if (II1->hasRetAttr(Attribute::NoUndef) &&
+        !II2->hasRetAttr(Attribute::NoUndef))
+      return false;
+    switch (II1->getIntrinsicID()) {
+    case Intrinsic::ctlz:
+    case Intrinsic::cttz:
+    case Intrinsic::abs:
+      if (match(II2->getArgOperand(1), m_AllOnes()) &&
+          !match(II1->getArgOperand(1), m_AllOnes()))
         return false;
-      if (II1->hasRetAttr(Attribute::NoUndef) &&
-          !II2->hasRetAttr(Attribute::NoUndef))
-        return false;
-      switch (II1->getIntrinsicID()) {
-      case Intrinsic::ctlz:
-      case Intrinsic::cttz:
-      case Intrinsic::abs:
-        if (match(II2->getArgOperand(1), m_AllOnes()) &&
-            !match(II1->getArgOperand(1), m_AllOnes()))
-          return false;
-        Skip = 1;
-        break;
-      default:
-        break;
-      }
+      Skip = 1;
+      break;
+    default:
+      break;
     }
-    return false;
   }
 
   if (auto *NNI1 = dyn_cast<PossiblyNonNegInst>(&I1)) {
@@ -310,6 +311,7 @@ static bool matchInst(Instruction &I1, Instruction &I2,
   } else {
     if (auto *II1 = dyn_cast<IntrinsicInst>(&I1)) {
       auto *II2 = cast<IntrinsicInst>(&I2);
+      errs() << *II1 << ' ' << *II2 << '\n';
       for (uint32_t I = 0; I < II1->arg_size() - Skip; ++I) {
         if (!matchValue(II1->getArgOperand(I), II2->getArgOperand(I), Map))
           return false;
