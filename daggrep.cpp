@@ -311,7 +311,7 @@ static bool matchInst(Instruction &I1, Instruction &I2,
     if (auto *II1 = dyn_cast<IntrinsicInst>(&I1)) {
       auto *II2 = cast<IntrinsicInst>(&I2);
       for (uint32_t I = 0; I < II1->arg_size() - Skip; ++I) {
-        if (!matchValue(II1->getArgOperand(I), II1->getArgOperand(1), Map))
+        if (!matchValue(II1->getArgOperand(I), II2->getArgOperand(I), Map))
           return false;
       }
     } else {
