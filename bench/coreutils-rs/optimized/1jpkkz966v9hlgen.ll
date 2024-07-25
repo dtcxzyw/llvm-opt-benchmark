@@ -104,17 +104,24 @@ define void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$co
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %8 = load i64, ptr %1, align 8, !noundef !3
-  %.not = icmp eq i64 %7, 0
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = load i64, ptr %9, align 8
-  %11 = call i64 @llvm.usub.sat.i64(i64 %10, i64 %8)
-  %.sroa.3.0 = select i1 %.not, i64 undef, i64 %11
-  %12 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %8)
-  store i64 %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0, ptr %14, align 8
+  %9 = icmp eq i64 %7, 0
+  br i1 %9, label %14, label %10
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = call i64 @llvm.usub.sat.i64(i64 %12, i64 %8)
+  br label %14
+
+14:                                               ; preds = %2, %10
+  %.sroa.01.0 = phi i64 [ 1, %10 ], [ 0, %2 ]
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ undef, %2 ]
+  %15 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %8)
+  store i64 %15, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.01.0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.3.0, ptr %17, align 8
   ret void
 }
 
@@ -127,17 +134,24 @@ define void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$co
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %8 = load i64, ptr %1, align 8, !noundef !3
-  %.not = icmp eq i64 %7, 0
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = load i64, ptr %9, align 8
-  %11 = call i64 @llvm.usub.sat.i64(i64 %10, i64 %8)
-  %.sroa.3.0 = select i1 %.not, i64 undef, i64 %11
-  %12 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %8)
-  store i64 %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0, ptr %14, align 8
+  %9 = icmp eq i64 %7, 0
+  br i1 %9, label %14, label %10
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = call i64 @llvm.usub.sat.i64(i64 %12, i64 %8)
+  br label %14
+
+14:                                               ; preds = %2, %10
+  %.sroa.01.0 = phi i64 [ 1, %10 ], [ 0, %2 ]
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ undef, %2 ]
+  %15 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %8)
+  store i64 %15, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.01.0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.3.0, ptr %17, align 8
   ret void
 }
 
@@ -150,17 +164,24 @@ define void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$co
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %8 = load i64, ptr %1, align 8, !noundef !3
-  %.not = icmp eq i64 %7, 0
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = load i64, ptr %9, align 8
-  %11 = call i64 @llvm.usub.sat.i64(i64 %10, i64 %8)
-  %.sroa.3.0 = select i1 %.not, i64 undef, i64 %11
-  %12 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %8)
-  store i64 %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0, ptr %14, align 8
+  %9 = icmp eq i64 %7, 0
+  br i1 %9, label %14, label %10
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = call i64 @llvm.usub.sat.i64(i64 %12, i64 %8)
+  br label %14
+
+14:                                               ; preds = %2, %10
+  %.sroa.01.0 = phi i64 [ 1, %10 ], [ 0, %2 ]
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ undef, %2 ]
+  %15 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %8)
+  store i64 %15, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.01.0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.3.0, ptr %17, align 8
   ret void
 }
 
@@ -173,17 +194,24 @@ define void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$co
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %8 = load i64, ptr %1, align 8, !noundef !3
-  %.not = icmp eq i64 %7, 0
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = load i64, ptr %9, align 8
-  %11 = call i64 @llvm.usub.sat.i64(i64 %10, i64 %8)
-  %.sroa.3.0 = select i1 %.not, i64 undef, i64 %11
-  %12 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %8)
-  store i64 %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.3.0, ptr %14, align 8
+  %9 = icmp eq i64 %7, 0
+  br i1 %9, label %14, label %10
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = call i64 @llvm.usub.sat.i64(i64 %12, i64 %8)
+  br label %14
+
+14:                                               ; preds = %2, %10
+  %.sroa.01.0 = phi i64 [ 1, %10 ], [ 0, %2 ]
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ undef, %2 ]
+  %15 = call i64 @llvm.usub.sat.i64(i64 %5, i64 %8)
+  store i64 %15, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.01.0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.3.0, ptr %17, align 8
   ret void
 }
 

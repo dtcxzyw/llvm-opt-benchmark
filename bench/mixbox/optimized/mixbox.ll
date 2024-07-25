@@ -4528,19 +4528,21 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit124.i.i: ; preds = %426, %393
 
 .preheader.split.preheader.i:                     ; preds = %.preheader.i
   %480 = mul nuw nsw i64 %indvars.iv80.i, 3
-  %gep105.i = getelementptr i8, ptr getelementptr (i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 -3), i64 %480
+  %481 = add nuw nsw i64 %480, 4294967293
+  %482 = and i64 %481, 4294967295
+  %483 = getelementptr inbounds i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 %482
   %invariant.gep.i = getelementptr inbounds i8, ptr @_ZZL10mixbox_lutvE12decompressed, i64 %480
   br label %.preheader.split.i
 
 .preheader.split.i:                               ; preds = %.preheader.split.i, %.preheader.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.split.preheader.i ], [ %indvars.iv.next.i, %.preheader.split.i ]
-  %481 = getelementptr i8, ptr %gep105.i, i64 %indvars.iv.i
-  %482 = load i8, ptr %481, align 1
+  %484 = getelementptr inbounds i8, ptr %483, i64 %indvars.iv.i
+  %485 = load i8, ptr %484, align 1
   %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %483 = load i8, ptr %gep.i, align 1
-  %484 = add i8 %482, -127
-  %485 = add i8 %484, %483
-  store i8 %485, ptr %gep.i, align 1
+  %486 = load i8, ptr %gep.i, align 1
+  %487 = add i8 %485, -127
+  %488 = add i8 %487, %486
+  store i8 %488, ptr %gep.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !17

@@ -88629,18 +88629,18 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %90 = mul nuw nsw i32 %4, 6
   %91 = mul nuw nsw i32 %4, 7
   %92 = zext nneg i32 %86 to i64
-  %93 = sext i32 %87 to i64
+  %93 = zext nneg i32 %87 to i64
   %94 = zext nneg i32 %88 to i64
-  %95 = sext i32 %89 to i64
-  %96 = sext i32 %90 to i64
-  %97 = sext i32 %91 to i64
+  %95 = zext nneg i32 %89 to i64
+  %96 = zext nneg i32 %90 to i64
+  %97 = zext nneg i32 %91 to i64
   %invariant.gep = getelementptr float, ptr %3, i64 %.pre-phi
   %invariant.gep328 = getelementptr inbounds float, ptr %3, i64 %92
-  %invariant.gep330 = getelementptr float, ptr %3, i64 %93
+  %invariant.gep330 = getelementptr inbounds float, ptr %3, i64 %93
   %invariant.gep332 = getelementptr inbounds float, ptr %3, i64 %94
-  %invariant.gep334 = getelementptr float, ptr %3, i64 %95
-  %invariant.gep336 = getelementptr float, ptr %3, i64 %96
-  %invariant.gep338 = getelementptr float, ptr %3, i64 %97
+  %invariant.gep334 = getelementptr inbounds float, ptr %3, i64 %95
+  %invariant.gep336 = getelementptr inbounds float, ptr %3, i64 %96
+  %invariant.gep338 = getelementptr inbounds float, ptr %3, i64 %97
   br label %154
 
 .lr.ph:                                           ; preds = %.lr.ph.ph, %.lr.ph
@@ -88719,11 +88719,11 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %155 = getelementptr inbounds float, ptr %3, i64 %indvars.iv287
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv287
   %gep329 = getelementptr inbounds float, ptr %invariant.gep328, i64 %indvars.iv287
-  %gep331 = getelementptr float, ptr %invariant.gep330, i64 %indvars.iv287
+  %gep331 = getelementptr inbounds float, ptr %invariant.gep330, i64 %indvars.iv287
   %gep333 = getelementptr inbounds float, ptr %invariant.gep332, i64 %indvars.iv287
-  %gep335 = getelementptr float, ptr %invariant.gep334, i64 %indvars.iv287
-  %gep337 = getelementptr float, ptr %invariant.gep336, i64 %indvars.iv287
-  %gep339 = getelementptr float, ptr %invariant.gep338, i64 %indvars.iv287
+  %gep335 = getelementptr inbounds float, ptr %invariant.gep334, i64 %indvars.iv287
+  %gep337 = getelementptr inbounds float, ptr %invariant.gep336, i64 %indvars.iv287
+  %gep339 = getelementptr inbounds float, ptr %invariant.gep338, i64 %indvars.iv287
   %156 = load float, ptr %155, align 4
   %157 = load float, ptr %gep, align 4
   %158 = load float, ptr %gep329, align 4

@@ -21001,7 +21001,7 @@ _ZN3qoi6encode11encode_impl17h5f07d67f35b6e2ecE.exit.i.i.i: ; preds = %._crit_ed
 
 280:                                              ; preds = %_ZN3qoi6encode11encode_impl17h5f07d67f35b6e2ecE.exit.i.i.i, %_ZN3qoi6encode11encode_impl17h2b8f21547249bc63E.exit.i.i.i
   %.sroa.659.0.i.i.i = phi i64 [ %179, %_ZN3qoi6encode11encode_impl17h2b8f21547249bc63E.exit.i.i.i ], [ %277, %_ZN3qoi6encode11encode_impl17h5f07d67f35b6e2ecE.exit.i.i.i ]
-  %281 = add nsw i64 %.sroa.659.0.i.i.i, 14
+  %281 = add nuw nsw i64 %.sroa.659.0.i.i.i, 14
   %282 = load i64, ptr %83, align 8, !alias.scope !5480, !noalias !5256, !noundef !24
   %spec.select166 = tail call i64 @llvm.umin.i64(i64 %282, i64 %281)
   %.sroa.1080.8.copyload = trunc i64 %spec.select166 to i32

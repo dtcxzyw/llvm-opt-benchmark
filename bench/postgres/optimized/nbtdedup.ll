@@ -1639,7 +1639,7 @@ define dso_local void @_bt_update_posting(ptr nocapture noundef %0) local_unname
   %14 = or disjoint i32 %12, %13
   %15 = icmp sgt i32 %9, 1
   %16 = mul nuw nsw i32 %9, 6
-  %17 = add nsw i32 %16, 7
+  %17 = add nuw nsw i32 %16, 7
   %18 = add i32 %17, %14
   %19 = and i32 %18, -8
   %.040 = select i1 %15, i32 %19, i32 %14

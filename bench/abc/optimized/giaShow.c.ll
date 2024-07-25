@@ -2783,9 +2783,9 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %Gia_ObjIsXor.exit.t
   br label %.critedge10
 
 .critedge10:                                      ; preds = %.critedge10.loopexit, %.lr.ph663.preheader
-  %.val486665.pre = phi i1 [ true, %.lr.ph663.preheader ], [ %310, %.critedge10.loopexit ]
+  %.val486665 = phi i1 [ true, %.lr.ph663.preheader ], [ %310, %.critedge10.loopexit ]
   %311 = phi ptr [ %298, %.lr.ph663.preheader ], [ %306, %.critedge10.loopexit ]
-  br i1 %.val486665.pre, label %.lr.ph668.preheader, label %.critedge12
+  br i1 %.val486665, label %.lr.ph668.preheader, label %.critedge12
 
 .lr.ph668.preheader:                              ; preds = %.critedge10
   %.val524.pre = load ptr, ptr %48, align 8

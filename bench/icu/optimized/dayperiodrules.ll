@@ -1964,7 +1964,7 @@ if.end33.i.i:                                     ; preds = %_ZNK6icu_7513Unicod
   %mul.i.i = mul nuw nsw i32 %sub18.i.i, 10
   %sub28.i.i = add nsw i32 %mul.i.i, -48
   %add34.i.i = add nsw i32 %sub28.i.i, %conv27.i.i
-  %cmp35.i.i = icmp sgt i32 %add34.i.i, 24
+  %cmp35.i.i = icmp ugt i32 %add34.i.i, 24
   br i1 %cmp35.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i, label %if.end8.i
 
 _ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i: ; preds = %if.end33.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit81.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit67.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i, %lor.lhs.false5.i.i, %_ZNK6icu_7513UnicodeStringixEi.exit.i.i, %if.end.i.i
@@ -2143,7 +2143,7 @@ if.end33.i.i118:                                  ; preds = %_ZNK6icu_7513Unicod
   %mul.i.i120 = mul nuw nsw i32 %sub18.i.i104, 10
   %sub28.i.i121 = add nsw i32 %mul.i.i120, -48
   %add34.i.i122 = add nsw i32 %sub28.i.i121, %conv27.i.i119
-  %cmp35.i.i123 = icmp sgt i32 %add34.i.i122, 24
+  %cmp35.i.i123 = icmp ugt i32 %add34.i.i122, 24
   br i1 %cmp35.i.i123, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i87, label %if.end8.i108
 
 _ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i87: ; preds = %if.end33.i.i118, %_ZNK6icu_7513UnicodeStringixEi.exit81.i.i115, %_ZNK6icu_7513UnicodeStringixEi.exit67.i.i102, %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i99, %lor.lhs.false5.i.i96, %_ZNK6icu_7513UnicodeStringixEi.exit.i.i88, %if.end.i.i77

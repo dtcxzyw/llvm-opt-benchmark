@@ -90,153 +90,79 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   %60 = add i64 %0, -32
   %61 = and i64 %53, -32
   %62 = sub i64 %60, %61
-  br i1 %50, label %.split14.us, label %.split14
+  br label %63
 
-.split14.us:                                      ; preds = %49
-  %63 = icmp sgt i64 %62, 7
-  %64 = tail call i64 @llvm.usub.sat.i64(i64 %62, i64 15)
-  %65 = add nuw i64 %64, 7
-  %66 = shl i64 %65, 2
-  %67 = and i64 %66, -32
-  %68 = add i64 %67, 32
-  br i1 %63, label %.split14.us.split.us, label %.split14.us.split
+63:                                               ; preds = %90, %49
+  %64 = phi ptr [ %58, %49 ], [ %93, %90 ]
+  %65 = phi ptr [ %8, %49 ], [ %67, %90 ]
+  %66 = phi i64 [ %1, %49 ], [ %91, %90 ]
+  %67 = getelementptr float, ptr %65, i64 %9
+  br i1 %50, label %68, label %69
 
-.split14.us.split.us:                             ; preds = %.split14.us
-  %69 = add nsw i64 %62, -8
-  %70 = and i64 %65, -8
-  %71 = sub i64 %69, %70
-  %72 = icmp sgt i64 %71, 0
-  %73 = shl nuw i64 %71, 2
-  br i1 %72, label %.split14.us.split.us.split.us, label %.split14.us.split.us.split
+68:                                               ; preds = %63
+  tail call void @llvm.memset.p0.i64(ptr align 1 %65, i8 0, i64 %56, i1 false), !tbaa !12
+  br label %69
 
-.split14.us.split.us.split.us:                    ; preds = %.split14.us.split.us, %.split14.us.split.us.split.us
-  %74 = phi ptr [ %82, %.split14.us.split.us.split.us ], [ %58, %.split14.us.split.us ]
-  %75 = phi ptr [ %77, %.split14.us.split.us.split.us ], [ %8, %.split14.us.split.us ]
-  %76 = phi i64 [ %80, %.split14.us.split.us.split.us ], [ %1, %.split14.us.split.us ]
-  %77 = getelementptr float, ptr %75, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %75, i8 0, i64 %56, i1 false), !tbaa !12
-  tail call void @llvm.memset.p0.i64(ptr align 1 %74, i8 0, i64 %68, i1 false), !tbaa !12
-  %78 = getelementptr i8, ptr %74, i64 32
-  %79 = getelementptr i8, ptr %78, i64 %67
-  tail call void @llvm.memset.p0.i64(ptr align 4 %79, i8 0, i64 %73, i1 false), !tbaa !3
-  %80 = add nsw i64 %76, -1
-  %81 = icmp sgt i64 %76, 1
-  %82 = getelementptr i8, ptr %74, i64 %59
-  br i1 %81, label %.split14.us.split.us.split.us, label %.loopexit, !llvm.loop !13
+69:                                               ; preds = %68, %63
+  %70 = phi ptr [ %65, %63 ], [ %64, %68 ]
+  %71 = phi i64 [ %0, %63 ], [ %62, %68 ]
+  %72 = icmp sgt i64 %71, 7
+  br i1 %72, label %73, label %84
 
-.split14.us.split.us.split:                       ; preds = %.split14.us.split.us, %.split14.us.split.us.split
-  %83 = phi ptr [ %89, %.split14.us.split.us.split ], [ %58, %.split14.us.split.us ]
-  %84 = phi ptr [ %86, %.split14.us.split.us.split ], [ %8, %.split14.us.split.us ]
-  %85 = phi i64 [ %87, %.split14.us.split.us.split ], [ %1, %.split14.us.split.us ]
-  %86 = getelementptr float, ptr %84, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %84, i8 0, i64 %56, i1 false), !tbaa !12
-  tail call void @llvm.memset.p0.i64(ptr align 1 %83, i8 0, i64 %68, i1 false), !tbaa !12
-  %87 = add nsw i64 %85, -1
-  %88 = icmp sgt i64 %85, 1
-  %89 = getelementptr i8, ptr %83, i64 %59
-  br i1 %88, label %.split14.us.split.us.split, label %.loopexit, !llvm.loop !13
+73:                                               ; preds = %69
+  %74 = tail call i64 @llvm.usub.sat.i64(i64 %71, i64 15)
+  %75 = add nuw nsw i64 %74, 7
+  %76 = shl i64 %75, 2
+  %77 = and i64 %76, -32
+  %78 = add i64 %77, 32
+  tail call void @llvm.memset.p0.i64(ptr align 1 %70, i8 0, i64 %78, i1 false), !tbaa !12
+  %79 = and i64 %75, 9223372036854775800
+  %80 = getelementptr i8, ptr %70, i64 32
+  %81 = getelementptr i8, ptr %80, i64 %77
+  %82 = add nsw i64 %71, -8
+  %83 = sub nsw i64 %82, %79
+  br label %84
 
-.split14.us.split:                                ; preds = %.split14.us
-  %90 = icmp sgt i64 %62, 0
-  %91 = shl nuw i64 %62, 2
-  br i1 %90, label %.split14.us.split.split.us, label %.split14.us.split.split
+84:                                               ; preds = %73, %69
+  %85 = phi ptr [ %70, %69 ], [ %81, %73 ]
+  %86 = phi i64 [ %71, %69 ], [ %83, %73 ]
+  %87 = icmp sgt i64 %86, 0
+  br i1 %87, label %88, label %90
 
-.split14.us.split.split.us:                       ; preds = %.split14.us.split, %.split14.us.split.split.us
-  %92 = phi ptr [ %98, %.split14.us.split.split.us ], [ %58, %.split14.us.split ]
-  %93 = phi ptr [ %95, %.split14.us.split.split.us ], [ %8, %.split14.us.split ]
-  %94 = phi i64 [ %96, %.split14.us.split.split.us ], [ %1, %.split14.us.split ]
-  %95 = getelementptr float, ptr %93, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %93, i8 0, i64 %56, i1 false), !tbaa !12
-  tail call void @llvm.memset.p0.i64(ptr align 4 %92, i8 0, i64 %91, i1 false), !tbaa !3
-  %96 = add nsw i64 %94, -1
-  %97 = icmp sgt i64 %94, 1
-  %98 = getelementptr i8, ptr %92, i64 %59
-  br i1 %97, label %.split14.us.split.split.us, label %.loopexit, !llvm.loop !13
+88:                                               ; preds = %84
+  %89 = shl nuw i64 %86, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %85, i8 0, i64 %89, i1 false), !tbaa !3
+  br label %90
 
-.split14.us.split.split:                          ; preds = %.split14.us.split, %.split14.us.split.split
-  %99 = phi ptr [ %101, %.split14.us.split.split ], [ %8, %.split14.us.split ]
-  %100 = phi i64 [ %102, %.split14.us.split.split ], [ %1, %.split14.us.split ]
-  %101 = getelementptr float, ptr %99, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %99, i8 0, i64 %56, i1 false), !tbaa !12
-  %102 = add nsw i64 %100, -1
-  %103 = icmp sgt i64 %100, 1
-  br i1 %103, label %.split14.us.split.split, label %.loopexit, !llvm.loop !13
-
-.split14:                                         ; preds = %49
-  %104 = icmp sgt i64 %0, 7
-  %105 = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 15)
-  %106 = add nuw i64 %105, 7
-  %107 = shl i64 %106, 2
-  %108 = and i64 %107, -32
-  %109 = add i64 %108, 32
-  br i1 %104, label %.split14.split.us, label %.split14.split
-
-.split14.split.us:                                ; preds = %.split14
-  %110 = add nsw i64 %0, -8
-  %111 = and i64 %106, -8
-  %112 = sub i64 %110, %111
-  %113 = icmp sgt i64 %112, 0
-  %114 = shl nuw i64 %112, 2
-  br i1 %113, label %.split14.split.us.split.us, label %.split14.split.us.split
-
-.split14.split.us.split.us:                       ; preds = %.split14.split.us, %.split14.split.us.split.us
-  %115 = phi ptr [ %117, %.split14.split.us.split.us ], [ %8, %.split14.split.us ]
-  %116 = phi i64 [ %120, %.split14.split.us.split.us ], [ %1, %.split14.split.us ]
-  %117 = getelementptr float, ptr %115, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %115, i8 0, i64 %109, i1 false), !tbaa !12
-  %118 = getelementptr i8, ptr %115, i64 32
-  %119 = getelementptr i8, ptr %118, i64 %108
-  tail call void @llvm.memset.p0.i64(ptr align 4 %119, i8 0, i64 %114, i1 false), !tbaa !3
-  %120 = add nsw i64 %116, -1
-  %121 = icmp sgt i64 %116, 1
-  br i1 %121, label %.split14.split.us.split.us, label %.loopexit, !llvm.loop !13
-
-.split14.split.us.split:                          ; preds = %.split14.split.us, %.split14.split.us.split
-  %122 = phi ptr [ %124, %.split14.split.us.split ], [ %8, %.split14.split.us ]
-  %123 = phi i64 [ %125, %.split14.split.us.split ], [ %1, %.split14.split.us ]
-  %124 = getelementptr float, ptr %122, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %122, i8 0, i64 %109, i1 false), !tbaa !12
-  %125 = add nsw i64 %123, -1
-  %126 = icmp sgt i64 %123, 1
-  br i1 %126, label %.split14.split.us.split, label %.loopexit, !llvm.loop !13
-
-.split14.split:                                   ; preds = %.split14
-  %127 = icmp sgt i64 %0, 0
-  %128 = shl nuw i64 %0, 2
-  br i1 %127, label %.split14.split.split.us, label %.loopexit
-
-.split14.split.split.us:                          ; preds = %.split14.split, %.split14.split.split.us
-  %129 = phi ptr [ %131, %.split14.split.split.us ], [ %8, %.split14.split ]
-  %130 = phi i64 [ %132, %.split14.split.split.us ], [ %1, %.split14.split ]
-  %131 = getelementptr float, ptr %129, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr align 4 %129, i8 0, i64 %128, i1 false), !tbaa !3
-  %132 = add nsw i64 %130, -1
-  %133 = icmp sgt i64 %130, 1
-  br i1 %133, label %.split14.split.split.us, label %.loopexit, !llvm.loop !13
+90:                                               ; preds = %88, %84
+  %91 = add nsw i64 %66, -1
+  %92 = icmp sgt i64 %66, 1
+  %93 = getelementptr i8, ptr %64, i64 %59
+  br i1 %92, label %63, label %.loopexit, !llvm.loop !13
 
 .preheader:                                       ; preds = %.split, %.loopexit10
-  %134 = phi ptr [ %144, %.loopexit10 ], [ %8, %.split ]
-  %135 = phi i64 [ %145, %.loopexit10 ], [ %1, %.split ]
-  br label %136
+  %94 = phi ptr [ %104, %.loopexit10 ], [ %8, %.split ]
+  %95 = phi i64 [ %105, %.loopexit10 ], [ %1, %.split ]
+  br label %96
 
-136:                                              ; preds = %.preheader, %136
-  %137 = phi ptr [ %141, %136 ], [ %134, %.preheader ]
-  %138 = phi i64 [ %142, %136 ], [ %25, %.preheader ]
-  %139 = load float, ptr %137, align 4, !tbaa !3
-  %140 = fmul float %139, %3
-  store float %140, ptr %137, align 4, !tbaa !3
-  %141 = getelementptr inbounds i8, ptr %137, i64 4
-  %142 = add nsw i64 %138, -1
-  %143 = icmp sgt i64 %138, 1
-  br i1 %143, label %136, label %.loopexit10, !llvm.loop !10
+96:                                               ; preds = %.preheader, %96
+  %97 = phi ptr [ %101, %96 ], [ %94, %.preheader ]
+  %98 = phi i64 [ %102, %96 ], [ %25, %.preheader ]
+  %99 = load float, ptr %97, align 4, !tbaa !3
+  %100 = fmul float %99, %3
+  store float %100, ptr %97, align 4, !tbaa !3
+  %101 = getelementptr inbounds i8, ptr %97, i64 4
+  %102 = add nsw i64 %98, -1
+  %103 = icmp sgt i64 %98, 1
+  br i1 %103, label %96, label %.loopexit10, !llvm.loop !10
 
-.loopexit10:                                      ; preds = %136
-  %144 = getelementptr inbounds float, ptr %134, i64 %9
-  %145 = add nsw i64 %135, -1
-  %146 = icmp sgt i64 %135, 1
-  br i1 %146, label %.preheader, label %.loopexit, !llvm.loop !11
+.loopexit10:                                      ; preds = %96
+  %104 = getelementptr inbounds float, ptr %94, i64 %9
+  %105 = add nsw i64 %95, -1
+  %106 = icmp sgt i64 %95, 1
+  br i1 %106, label %.preheader, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.loopexit10, %.loopexit10.us, %.split14.split.split.us, %.split14.split.us.split, %.split14.split.us.split.us, %.split14.us.split.split, %.split14.us.split.split.us, %.split14.us.split.us.split, %.split14.us.split.us.split.us, %.split14.split, %.split, %17, %14
+.loopexit:                                        ; preds = %.loopexit10, %.loopexit10.us, %90, %.split, %17, %14
   ret i32 0
 }
 

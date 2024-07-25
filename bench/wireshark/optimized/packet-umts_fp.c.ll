@@ -8013,8 +8013,8 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_hsdsch_type_2(ptr no
 
 59:                                               ; preds = %54
   %60 = add nsw i32 %57, -25
-  %61 = sdiv i32 %60, 10
-  %62 = add nsw i32 %61, 2
+  %61 = udiv i32 %60, 10
+  %62 = add nuw nsw i32 %61, 2
   br label %63
 
 63:                                               ; preds = %59, %58

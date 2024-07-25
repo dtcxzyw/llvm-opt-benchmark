@@ -779,8 +779,8 @@ tens:                                             ; preds = %if.then20, %if.else
   %shr = lshr i32 %mul, 11
   %mul32.neg = mul nsw i32 %shr, -10
   %sub33 = add nsw i32 %mul32.neg, %c.0
-  %11 = trunc i32 %shr to i8
-  %conv35 = add i8 %11, 48
+  %11 = trunc nuw nsw i32 %shr to i8
+  %conv35 = add nuw nsw i8 %11, 48
   %incdec.ptr36 = getelementptr inbounds i8, ptr %w.0, i64 1
   store i8 %conv35, ptr %w.0, align 1
   br label %if.end38

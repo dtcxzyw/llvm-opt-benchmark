@@ -12151,7 +12151,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %nDigits.0139 = phi i32 [ %inc, %while.body ], [ 1, %while.cond.preheader ]
   %mul = mul nuw nsw i32 %nLimit.0140, 10
   %inc = add nuw nsw i32 %nDigits.0139, 1
-  %cmp8.not = icmp sgt i32 %mul, %conv
+  %cmp8.not = icmp ugt i32 %mul, %conv
   br i1 %cmp8.not, label %while.end.loopexit, label %while.body, !llvm.loop !224
 
 while.end.loopexit:                               ; preds = %while.body
@@ -12605,7 +12605,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %nDigits.0131 = phi i32 [ %inc, %while.body ], [ 1, %while.cond.preheader ]
   %mul = mul nuw nsw i32 %nLimit.0132, 10
   %inc = add nuw nsw i32 %nDigits.0131, 1
-  %cmp8.not = icmp sgt i32 %mul, %conv
+  %cmp8.not = icmp ugt i32 %mul, %conv
   br i1 %cmp8.not, label %while.end.loopexit, label %while.body, !llvm.loop !230
 
 while.end.loopexit:                               ; preds = %while.body
@@ -13013,7 +13013,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %nDigits.0129 = phi i32 [ %inc, %while.body ], [ 1, %while.cond.preheader ]
   %mul = mul nuw nsw i32 %nLimit.0130, 10
   %inc = add nuw nsw i32 %nDigits.0129, 1
-  %cmp8.not = icmp sgt i32 %mul, %conv
+  %cmp8.not = icmp ugt i32 %mul, %conv
   br i1 %cmp8.not, label %while.end.loopexit, label %while.body, !llvm.loop !236
 
 while.end.loopexit:                               ; preds = %while.body

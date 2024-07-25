@@ -99518,16 +99518,23 @@ if.end16:                                         ; preds = %_ZN11hb_vector_tI15
   %arrayZ.i = getelementptr inbounds i8, ptr %points, i64 8
   %20 = load ptr, ptr %arrayZ.i, align 8
   %tobool.i.not = icmp eq i32 %8, 0
+  br i1 %tobool.i.not, label %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit, label %if.end.i38
+
+if.end.i38:                                       ; preds = %if.end16
   %storemerge.i = tail call i32 @llvm.usub.sat.i32(i32 %cond.i89, i32 %8)
   %idx.ext.i40 = zext i32 %8 to i64
   %add.ptr.i41 = getelementptr inbounds %struct.contour_point_t, ptr %20, i64 %idx.ext.i40
-  %retval.sroa.3.0.i.in = select i1 %tobool.i.not, i32 %cond.i89, i32 %storemerge.i
+  br label %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit
+
+_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit: ; preds = %if.end16, %if.end.i38
+  %retval.sroa.3.0.i.in = phi i32 [ %storemerge.i, %if.end.i38 ], [ %cond.i89, %if.end16 ]
+  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i41, %if.end.i38 ], [ %20, %if.end16 ]
   br i1 %phantom_only, label %return, label %if.end.i42
 
-if.end.i42:                                       ; preds = %if.end16
+if.end.i42:                                       ; preds = %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit
   %mul = mul nuw nsw i32 %add, 12
   %conv.i43 = zext nneg i32 %mul to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i41, i8 0, i64 %conv.i43, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i, i8 0, i64 %conv.i43, i1 false)
   %cmp82 = icmp sgt i16 %add.i.i, 0
   br i1 %cmp82, label %for.body, label %for.end
 
@@ -99550,7 +99557,7 @@ if.then.i.i:                                      ; preds = %for.body
 
 if.end.i.i49:                                     ; preds = %for.body
   %idxprom.i.i = zext nneg i32 %add.i.i48 to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.contour_point_t, ptr %add.ptr.i41, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds %struct.contour_point_t, ptr %retval.sroa.0.0.i, i64 %idxprom.i.i
   br label %_ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit
 
 _ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit: ; preds = %if.then.i.i, %if.end.i.i49
@@ -99600,7 +99607,7 @@ if.end.i58:                                       ; preds = %for.body.i
   %28 = load i8, ptr %27, align 1
   %inc.i = add nuw i32 %i.020.i, 1
   %idxprom.i = zext i32 %i.020.i to i64
-  %flag2.i = getelementptr inbounds %struct.contour_point_t, ptr %add.ptr.i41, i64 %idxprom.i, i32 2
+  %flag2.i = getelementptr inbounds %struct.contour_point_t, ptr %retval.sroa.0.0.i, i64 %idxprom.i, i32 2
   store i8 %28, ptr %flag2.i, align 4
   %29 = and i8 %28, 8
   %tobool.not.i59 = icmp eq i8 %29, 0
@@ -99626,7 +99633,7 @@ for.body14.preheader.i:                           ; preds = %if.end8.i
 
 for.body14.i:                                     ; preds = %for.body14.i, %for.body14.preheader.i
   %indvars.iv.i = phi i64 [ %31, %for.body14.preheader.i ], [ %indvars.iv.next.i, %for.body14.i ]
-  %flag18.i = getelementptr inbounds %struct.contour_point_t, ptr %add.ptr.i41, i64 %indvars.iv.i, i32 2
+  %flag18.i = getelementptr inbounds %struct.contour_point_t, ptr %retval.sroa.0.0.i, i64 %indvars.iv.i, i32 2
   store i8 %28, ptr %flag18.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
@@ -99640,15 +99647,15 @@ if.end20.i:                                       ; preds = %for.body14.i, %if.e
   br i1 %cmp.not.i61, label %for.body.i, label %land.lhs.true, !llvm.loop !811
 
 land.lhs.true:                                    ; preds = %if.end20.i, %if.end48
-  %call51 = call noundef zeroext i1 @_ZN2OT9glyf_impl11SimpleGlyph11read_pointsERPKNS_7IntTypeIhLj1EEE10hb_array_tI15contour_point_tES5_MS8_fNS1_19simple_glyph_flag_tESB_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr %add.ptr.i41, i64 %points_.sroa.6.8.insert.ext66, ptr noundef nonnull %add.ptr, i64 0, i32 noundef 2, i32 noundef 16)
+  %call51 = call noundef zeroext i1 @_ZN2OT9glyf_impl11SimpleGlyph11read_pointsERPKNS_7IntTypeIhLj1EEE10hb_array_tI15contour_point_tES5_MS8_fNS1_19simple_glyph_flag_tESB_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr %retval.sroa.0.0.i, i64 %points_.sroa.6.8.insert.ext66, ptr noundef nonnull %add.ptr, i64 0, i32 noundef 2, i32 noundef 16)
   br i1 %call51, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %call53 = call noundef zeroext i1 @_ZN2OT9glyf_impl11SimpleGlyph11read_pointsERPKNS_7IntTypeIhLj1EEE10hb_array_tI15contour_point_tES5_MS8_fNS1_19simple_glyph_flag_tESB_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr %add.ptr.i41, i64 %points_.sroa.6.8.insert.ext66, ptr noundef nonnull %add.ptr, i64 4, i32 noundef 4, i32 noundef 32)
+  %call53 = call noundef zeroext i1 @_ZN2OT9glyf_impl11SimpleGlyph11read_pointsERPKNS_7IntTypeIhLj1EEE10hb_array_tI15contour_point_tES5_MS8_fNS1_19simple_glyph_flag_tESB_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr %retval.sroa.0.0.i, i64 %points_.sroa.6.8.insert.ext66, ptr noundef nonnull %add.ptr, i64 4, i32 noundef 4, i32 noundef 32)
   br label %return
 
-return:                                           ; preds = %if.then4.i, %for.body.i, %if.end, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i, %entry, %land.lhs.true.i, %if.end16, %land.lhs.true, %land.rhs, %if.end41, %for.end
-  %retval.0 = phi i1 [ false, %for.end ], [ false, %if.end41 ], [ false, %land.lhs.true ], [ %call53, %land.rhs ], [ true, %if.end16 ], [ false, %land.lhs.true.i ], [ false, %entry ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit ], [ false, %if.end ], [ false, %for.body.i ], [ false, %if.then4.i ]
+return:                                           ; preds = %if.then4.i, %for.body.i, %if.end, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i, %entry, %land.lhs.true.i, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit, %land.lhs.true, %land.rhs, %if.end41, %for.end
+  %retval.0 = phi i1 [ false, %for.end ], [ false, %if.end41 ], [ false, %land.lhs.true ], [ %call53, %land.rhs ], [ true, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit ], [ false, %land.lhs.true.i ], [ false, %entry ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit ], [ false, %if.end ], [ false, %for.body.i ], [ false, %if.then4.i ]
   ret i1 %retval.0
 }
 

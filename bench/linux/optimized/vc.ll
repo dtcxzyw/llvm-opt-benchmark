@@ -269,7 +269,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
   store i32 0, ptr %13, align 4, !annotation !8
   %130 = mul nuw nsw i32 %129, 12
-  %131 = add i32 %119, %130
+  %131 = add nuw i32 %119, %130
   %132 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %131, ptr noundef nonnull %13) #4
   %133 = load i32, ptr %13, align 4
   %134 = lshr i32 %133, 20
@@ -356,7 +356,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef %1
   br i1 %186, label %309, label %187
 
 187:                                              ; preds = %183
-  %188 = add i32 %120, %130
+  %188 = add nuw i32 %120, %130
   br i1 %3, label %189, label %191
 
 189:                                              ; preds = %187
@@ -381,9 +381,9 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef %1
 201:                                              ; preds = %191
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4, !annotation !8
-  %202 = add i32 %130, %1
-  %203 = add i32 %202, 20
-  %204 = add i32 %202, 26
+  %202 = add nuw i32 %130, %1
+  %203 = add nuw i32 %202, 20
+  %204 = add nuw i32 %202, 26
   %205 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %203, ptr noundef nonnull %9) #4
   %206 = load i32, ptr %9, align 4
   %207 = or i32 %206, 65536
@@ -429,7 +429,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef %1
   br i1 %226, label %227, label %305
 
 227:                                              ; preds = %220
-  %228 = add i32 %124, %130
+  %228 = add nuw i32 %124, %130
   %229 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %188, ptr noundef nonnull %5) #4
   %230 = load i32, ptr %5, align 4
   %231 = and i32 %230, 117440512

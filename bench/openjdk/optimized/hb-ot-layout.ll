@@ -67899,7 +67899,7 @@ _ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit: ; preds = %24, %.lr.ph.i.i.
   %63 = getelementptr inbounds i8, ptr %62, i64 192
   %64 = load ptr, ptr %63, align 8
   %.not73 = icmp eq ptr %64, null
-  br i1 %.not73, label %232, label %65
+  br i1 %.not73, label %199, label %65
 
 65:                                               ; preds = %_ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit
   %66 = getelementptr inbounds i8, ptr %1, i64 144
@@ -67908,7 +67908,7 @@ _ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit: ; preds = %24, %.lr.ph.i.i.
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, -1
   %71 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %62, ptr noundef %67, ptr noundef nonnull @.str.34, i32 noundef %70)
-  br label %232
+  br label %199
 
 72:                                               ; preds = %2
   br i1 %.not74, label %81, label %73
@@ -67931,7 +67931,7 @@ _ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit: ; preds = %24, %.lr.ph.i.i.
   %84 = getelementptr inbounds i8, ptr %83, i64 192
   %85 = load ptr, ptr %84, align 8
   %.not71 = icmp eq ptr %85, null
-  br i1 %.not71, label %232, label %86
+  br i1 %.not71, label %199, label %86
 
 86:                                               ; preds = %81
   %87 = tail call noundef i32 @_ZN11hb_buffer_t11sync_so_farEv(ptr noundef nonnull align 8 dereferenceable(220) %83)
@@ -67941,7 +67941,7 @@ _ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit: ; preds = %24, %.lr.ph.i.i.
   %91 = getelementptr inbounds i8, ptr %88, i64 84
   %92 = load i32, ptr %91, align 4
   %93 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %88, ptr noundef %90, ptr noundef nonnull @.str.36, i32 noundef %92)
-  br label %232
+  br label %199
 
 94:                                               ; preds = %2
   br i1 %.not74, label %103, label %95
@@ -67954,11 +67954,11 @@ _ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit: ; preds = %24, %.lr.ph.i.i.
   %100 = getelementptr inbounds i8, ptr %97, i64 84
   %101 = load i32, ptr %100, align 4
   %102 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %97, ptr noundef %99, ptr noundef nonnull @.str.37, i32 noundef %101)
-  %.pre93 = load ptr, ptr %11, align 8
+  %.pre87 = load ptr, ptr %11, align 8
   br label %103
 
 103:                                              ; preds = %95, %94
-  %104 = phi ptr [ %.pre93, %95 ], [ %12, %94 ]
+  %104 = phi ptr [ %.pre87, %95 ], [ %12, %94 ]
   %105 = getelementptr inbounds i8, ptr %104, i64 104
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %104, i64 84
@@ -67978,206 +67978,155 @@ _ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit: ; preds = %24, %.lr.ph.i.i.
   %.val61 = load i8, ptr %115, align 2
   %.not = icmp ult i8 %.val61, 32
   %116 = getelementptr inbounds i8, ptr %0, i64 2
-  %wide.trip.count91 = zext nneg i32 %10 to i64
-  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
+  %wide.trip.count = zext nneg i32 %10 to i64
+  br label %117
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit.us
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit.us ], [ 0, %.lr.ph ]
-  %117 = load ptr, ptr %11, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 104
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %117, i64 84
-  %121 = load i32, ptr %120, align 4
-  %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %119, i64 %122
-  %124 = trunc i64 %indvars.iv88 to i8
-  %125 = and i8 %124, 15
-  %126 = getelementptr inbounds i8, ptr %123, i64 14
-  store i8 %125, ptr %126, align 2
-  %127 = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %116, i64 0, i64 %indvars.iv88
-  %128 = load i8, ptr %127, align 1
-  %129 = zext i8 %128 to i32
-  %130 = shl nuw nsw i32 %129, 8
-  %131 = getelementptr inbounds i8, ptr %127, i64 1
-  %132 = load i8, ptr %131, align 1
-  %133 = zext i8 %132 to i32
-  %134 = or disjoint i32 %130, %133
-  tail call void @_ZN2OT21hb_ot_apply_context_t16_set_glyph_classEjjbb(ptr noundef nonnull align 8 dereferenceable(340) %1, i32 noundef %134, i32 noundef %114, i1 noundef zeroext false, i1 noundef zeroext true)
-  %135 = load ptr, ptr %11, align 8
-  %136 = tail call noundef zeroext i1 @_ZN11hb_buffer_t13make_room_forEjj(ptr noundef nonnull align 8 dereferenceable(220) %135, i32 noundef 0, i32 noundef 1)
-  br i1 %136, label %137, label %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit.us
+117:                                              ; preds = %.lr.ph, %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit ]
+  br i1 %.not, label %118, label %129
 
-137:                                              ; preds = %.lr.ph.split.us
-  %138 = getelementptr inbounds i8, ptr %135, i64 84
-  %139 = load i32, ptr %138, align 4
-  %140 = getelementptr inbounds i8, ptr %135, i64 88
-  %141 = load i32, ptr %140, align 8
-  %142 = icmp ult i32 %139, %141
-  br i1 %142, label %150, label %143
+118:                                              ; preds = %117
+  %119 = load ptr, ptr %11, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 104
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %119, i64 84
+  %123 = load i32, ptr %122, align 4
+  %124 = zext i32 %123 to i64
+  %125 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %121, i64 %124
+  %126 = trunc i64 %indvars.iv to i8
+  %127 = and i8 %126, 15
+  %128 = getelementptr inbounds i8, ptr %125, i64 14
+  store i8 %127, ptr %128, align 2
+  br label %129
 
-143:                                              ; preds = %137
-  %144 = getelementptr inbounds i8, ptr %135, i64 112
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %135, i64 92
-  %147 = load i32, ptr %146, align 4
-  %narrow.i.i.i.i62.us = tail call i32 @llvm.usub.sat.i32(i32 %147, i32 1)
-  %148 = zext i32 %narrow.i.i.i.i62.us to i64
-  %149 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %145, i64 %148
-  br label %.lr.ph.i.i.i63.us
+129:                                              ; preds = %118, %117
+  %130 = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %116, i64 0, i64 %indvars.iv
+  %131 = load i8, ptr %130, align 1
+  %132 = zext i8 %131 to i32
+  %133 = shl nuw nsw i32 %132, 8
+  %134 = getelementptr inbounds i8, ptr %130, i64 1
+  %135 = load i8, ptr %134, align 1
+  %136 = zext i8 %135 to i32
+  %137 = or disjoint i32 %133, %136
+  tail call void @_ZN2OT21hb_ot_apply_context_t16_set_glyph_classEjjbb(ptr noundef nonnull align 8 dereferenceable(340) %1, i32 noundef %137, i32 noundef %114, i1 noundef zeroext false, i1 noundef zeroext true)
+  %138 = load ptr, ptr %11, align 8
+  %139 = tail call noundef zeroext i1 @_ZN11hb_buffer_t13make_room_forEjj(ptr noundef nonnull align 8 dereferenceable(220) %138, i32 noundef 0, i32 noundef 1)
+  br i1 %139, label %140, label %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit
 
-150:                                              ; preds = %137
-  %151 = getelementptr inbounds i8, ptr %135, i64 104
-  %152 = load ptr, ptr %151, align 8
-  %153 = zext i32 %139 to i64
-  %154 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %152, i64 %153
-  %.phi.trans.insert.i.i.i64.us = getelementptr inbounds i8, ptr %135, i64 112
-  %.pre.i.i.i65.us = load ptr, ptr %.phi.trans.insert.i.i.i64.us, align 8
-  %.phi.trans.insert21.i.i.i66.us = getelementptr inbounds i8, ptr %135, i64 92
-  %.pre22.i.i.i67.us = load i32, ptr %.phi.trans.insert21.i.i.i66.us, align 4
-  br label %.lr.ph.i.i.i63.us
+140:                                              ; preds = %129
+  %141 = getelementptr inbounds i8, ptr %138, i64 84
+  %142 = load i32, ptr %141, align 4
+  %143 = getelementptr inbounds i8, ptr %138, i64 88
+  %144 = load i32, ptr %143, align 8
+  %145 = icmp ult i32 %142, %144
+  br i1 %145, label %146, label %151
 
-.lr.ph.i.i.i63.us:                                ; preds = %150, %143
-  %155 = phi i32 [ %.pre22.i.i.i67.us, %150 ], [ %147, %143 ]
-  %156 = phi ptr [ %.pre.i.i.i65.us, %150 ], [ %145, %143 ]
-  %157 = phi ptr [ %154, %150 ], [ %149, %143 ]
-  %158 = zext i32 %155 to i64
-  %159 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %156, i64 %158
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %159, ptr noundef nonnull align 4 dereferenceable(20) %157, i64 20, i1 false)
-  store i32 %134, ptr %159, align 4
-  %160 = getelementptr inbounds i8, ptr %135, i64 92
-  %161 = load i32, ptr %160, align 4
-  %162 = add i32 %161, 1
-  store i32 %162, ptr %160, align 4
-  br label %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit.us
-
-_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit.us: ; preds = %.lr.ph.i.i.i63.us, %.lr.ph.split.us
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
-  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !386
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit ], [ 0, %.lr.ph ]
-  %163 = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %116, i64 0, i64 %indvars.iv
-  %164 = load i8, ptr %163, align 1
-  %165 = zext i8 %164 to i32
-  %166 = shl nuw nsw i32 %165, 8
-  %167 = getelementptr inbounds i8, ptr %163, i64 1
-  %168 = load i8, ptr %167, align 1
-  %169 = zext i8 %168 to i32
-  %170 = or disjoint i32 %166, %169
-  tail call void @_ZN2OT21hb_ot_apply_context_t16_set_glyph_classEjjbb(ptr noundef nonnull align 8 dereferenceable(340) %1, i32 noundef %170, i32 noundef %114, i1 noundef zeroext false, i1 noundef zeroext true)
-  %171 = load ptr, ptr %11, align 8
-  %172 = tail call noundef zeroext i1 @_ZN11hb_buffer_t13make_room_forEjj(ptr noundef nonnull align 8 dereferenceable(220) %171, i32 noundef 0, i32 noundef 1)
-  br i1 %172, label %173, label %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit
-
-173:                                              ; preds = %.lr.ph.split
-  %174 = getelementptr inbounds i8, ptr %171, i64 84
-  %175 = load i32, ptr %174, align 4
-  %176 = getelementptr inbounds i8, ptr %171, i64 88
-  %177 = load i32, ptr %176, align 8
-  %178 = icmp ult i32 %175, %177
-  br i1 %178, label %179, label %184
-
-179:                                              ; preds = %173
-  %180 = getelementptr inbounds i8, ptr %171, i64 104
-  %181 = load ptr, ptr %180, align 8
-  %182 = zext i32 %175 to i64
-  %183 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %181, i64 %182
-  %.phi.trans.insert.i.i.i64 = getelementptr inbounds i8, ptr %171, i64 112
+146:                                              ; preds = %140
+  %147 = getelementptr inbounds i8, ptr %138, i64 104
+  %148 = load ptr, ptr %147, align 8
+  %149 = zext i32 %142 to i64
+  %150 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %148, i64 %149
+  %.phi.trans.insert.i.i.i64 = getelementptr inbounds i8, ptr %138, i64 112
   %.pre.i.i.i65 = load ptr, ptr %.phi.trans.insert.i.i.i64, align 8
-  %.phi.trans.insert21.i.i.i66 = getelementptr inbounds i8, ptr %171, i64 92
+  %.phi.trans.insert21.i.i.i66 = getelementptr inbounds i8, ptr %138, i64 92
   %.pre22.i.i.i67 = load i32, ptr %.phi.trans.insert21.i.i.i66, align 4
   br label %.lr.ph.i.i.i63
 
-184:                                              ; preds = %173
-  %185 = getelementptr inbounds i8, ptr %171, i64 112
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %171, i64 92
-  %188 = load i32, ptr %187, align 4
-  %narrow.i.i.i.i62 = tail call i32 @llvm.usub.sat.i32(i32 %188, i32 1)
-  %189 = zext i32 %narrow.i.i.i.i62 to i64
-  %190 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %186, i64 %189
+151:                                              ; preds = %140
+  %152 = getelementptr inbounds i8, ptr %138, i64 112
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds i8, ptr %138, i64 92
+  %155 = load i32, ptr %154, align 4
+  %narrow.i.i.i.i62 = tail call i32 @llvm.usub.sat.i32(i32 %155, i32 1)
+  %156 = zext i32 %narrow.i.i.i.i62 to i64
+  %157 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %153, i64 %156
   br label %.lr.ph.i.i.i63
 
-.lr.ph.i.i.i63:                                   ; preds = %184, %179
-  %191 = phi i32 [ %.pre22.i.i.i67, %179 ], [ %188, %184 ]
-  %192 = phi ptr [ %.pre.i.i.i65, %179 ], [ %186, %184 ]
-  %193 = phi ptr [ %183, %179 ], [ %190, %184 ]
-  %194 = zext i32 %191 to i64
-  %195 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %192, i64 %194
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %195, ptr noundef nonnull align 4 dereferenceable(20) %193, i64 20, i1 false)
-  store i32 %170, ptr %195, align 4
-  %196 = getelementptr inbounds i8, ptr %171, i64 92
-  %197 = load i32, ptr %196, align 4
-  %198 = add i32 %197, 1
-  store i32 %198, ptr %196, align 4
+.lr.ph.i.i.i63:                                   ; preds = %151, %146
+  %158 = phi i32 [ %.pre22.i.i.i67, %146 ], [ %155, %151 ]
+  %159 = phi ptr [ %.pre.i.i.i65, %146 ], [ %153, %151 ]
+  %160 = phi ptr [ %150, %146 ], [ %157, %151 ]
+  %161 = zext i32 %158 to i64
+  %162 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %159, i64 %161
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %162, ptr noundef nonnull align 4 dereferenceable(20) %160, i64 20, i1 false)
+  store i32 %137, ptr %162, align 4
+  %163 = getelementptr inbounds i8, ptr %138, i64 92
+  %164 = load i32, ptr %163, align 4
+  %165 = add i32 %164, 1
+  store i32 %165, ptr %163, align 4
   br label %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit
 
-_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit: ; preds = %.lr.ph.split, %.lr.ph.i.i.i63
+_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit: ; preds = %129, %.lr.ph.i.i.i63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count91
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !386
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %117, !llvm.loop !386
 
-._crit_edge:                                      ; preds = %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit, %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit.us, %103
-  %199 = load ptr, ptr %11, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 84
-  %201 = load i32, ptr %200, align 4
-  %202 = add i32 %201, 1
-  store i32 %202, ptr %200, align 4
-  %203 = load ptr, ptr %11, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 192
-  %205 = load ptr, ptr %204, align 8
-  %.not76 = icmp eq ptr %205, null
-  br i1 %.not76, label %232, label %206
+._crit_edge.loopexit:                             ; preds = %_ZN2OT21hb_ot_apply_context_t26output_glyph_for_componentEjj.exit
+  %.pre88 = load ptr, ptr %11, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre88, i64 84
+  %.pre89 = load i32, ptr %.phi.trans.insert, align 4
+  br label %._crit_edge
 
-206:                                              ; preds = %._crit_edge
-  %207 = tail call noundef i32 @_ZN11hb_buffer_t11sync_so_farEv(ptr noundef nonnull align 8 dereferenceable(220) %203)
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %103
+  %166 = phi i32 [ %.pre89, %._crit_edge.loopexit ], [ %108, %103 ]
+  %167 = phi ptr [ %.pre88, %._crit_edge.loopexit ], [ %104, %103 ]
+  %168 = getelementptr inbounds i8, ptr %167, i64 84
+  %169 = add i32 %166, 1
+  store i32 %169, ptr %168, align 4
+  %170 = load ptr, ptr %11, align 8
+  %171 = getelementptr inbounds i8, ptr %170, i64 192
+  %172 = load ptr, ptr %171, align 8
+  %.not76 = icmp eq ptr %172, null
+  br i1 %.not76, label %199, label %173
+
+173:                                              ; preds = %._crit_edge
+  %174 = tail call noundef i32 @_ZN11hb_buffer_t11sync_so_farEv(ptr noundef nonnull align 8 dereferenceable(220) %170)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %3, i8 0, i64 1024, i1 false)
-  %208 = load ptr, ptr %11, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 84
-  %210 = load i32, ptr %209, align 4
-  %211 = sub i32 %210, %10
-  %212 = icmp ult i32 %211, %210
-  br i1 %212, label %.lr.ph82, label %._crit_edge83
+  %175 = load ptr, ptr %11, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 84
+  %177 = load i32, ptr %176, align 4
+  %178 = sub i32 %177, %10
+  %179 = icmp ult i32 %178, %177
+  br i1 %179, label %.lr.ph82, label %._crit_edge83
 
-.lr.ph82:                                         ; preds = %206
-  %213 = ptrtoint ptr %3 to i64
-  %.neg = add i64 %213, 1024
-  br label %214
+.lr.ph82:                                         ; preds = %173
+  %180 = ptrtoint ptr %3 to i64
+  %.neg = add i64 %180, 1024
+  br label %181
 
-214:                                              ; preds = %.lr.ph82, %218
-  %.080 = phi i32 [ %211, %.lr.ph82 ], [ %224, %218 ]
-  %.05779 = phi ptr [ %3, %.lr.ph82 ], [ %223, %218 ]
-  %215 = icmp ult ptr %3, %.05779
-  br i1 %215, label %216, label %218
+181:                                              ; preds = %.lr.ph82, %185
+  %.080 = phi i32 [ %178, %.lr.ph82 ], [ %191, %185 ]
+  %.05779 = phi ptr [ %3, %.lr.ph82 ], [ %190, %185 ]
+  %182 = icmp ult ptr %3, %.05779
+  br i1 %182, label %183, label %185
 
-216:                                              ; preds = %214
-  %217 = getelementptr inbounds i8, ptr %.05779, i64 1
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds i8, ptr %.05779, i64 1
   store i8 44, ptr %.05779, align 1
-  br label %218
+  br label %185
 
-218:                                              ; preds = %216, %214
-  %.1 = phi ptr [ %217, %216 ], [ %.05779, %214 ]
-  %219 = ptrtoint ptr %.1 to i64
-  %220 = sub i64 %.neg, %219
-  %221 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1, i64 noundef %220, ptr noundef nonnull @.str.38, i32 noundef %.080) #24
-  %222 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #29
-  %223 = getelementptr inbounds i8, ptr %.1, i64 %222
-  %224 = add nuw i32 %.080, 1
-  %225 = load ptr, ptr %11, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 84
-  %227 = load i32, ptr %226, align 4
-  %228 = icmp ult i32 %224, %227
-  br i1 %228, label %214, label %._crit_edge83, !llvm.loop !387
+185:                                              ; preds = %183, %181
+  %.1 = phi ptr [ %184, %183 ], [ %.05779, %181 ]
+  %186 = ptrtoint ptr %.1 to i64
+  %187 = sub i64 %.neg, %186
+  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1, i64 noundef %187, ptr noundef nonnull @.str.38, i32 noundef %.080) #24
+  %189 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #29
+  %190 = getelementptr inbounds i8, ptr %.1, i64 %189
+  %191 = add nuw i32 %.080, 1
+  %192 = load ptr, ptr %11, align 8
+  %193 = getelementptr inbounds i8, ptr %192, i64 84
+  %194 = load i32, ptr %193, align 4
+  %195 = icmp ult i32 %191, %194
+  br i1 %195, label %181, label %._crit_edge83, !llvm.loop !387
 
-._crit_edge83:                                    ; preds = %218, %206
-  %.lcssa = phi ptr [ %208, %206 ], [ %225, %218 ]
-  %229 = getelementptr inbounds i8, ptr %1, i64 144
-  %230 = load ptr, ptr %229, align 8
-  %231 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %.lcssa, ptr noundef %230, ptr noundef nonnull @.str.39, ptr noundef nonnull %3)
-  br label %232
+._crit_edge83:                                    ; preds = %185, %173
+  %.lcssa = phi ptr [ %175, %173 ], [ %192, %185 ]
+  %196 = getelementptr inbounds i8, ptr %1, i64 144
+  %197 = load ptr, ptr %196, align 8
+  %198 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %.lcssa, ptr noundef %197, ptr noundef nonnull @.str.39, ptr noundef nonnull %3)
+  br label %199
 
-232:                                              ; preds = %._crit_edge, %._crit_edge83, %81, %86, %_ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit, %65
+199:                                              ; preds = %._crit_edge, %._crit_edge83, %81, %86, %_ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit, %65
   ret i1 true
 }
 

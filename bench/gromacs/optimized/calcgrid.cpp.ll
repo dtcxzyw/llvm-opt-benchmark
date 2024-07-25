@@ -178,7 +178,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef %0, 
 .preheader107:                                    ; preds = %62, %.preheader107
   %.079 = phi i32 [ %76, %.preheader107 ], [ 1, %62 ]
   %74 = mul nuw nsw i32 %.079, 84
-  %75 = icmp slt i32 %74, %.sroa.speculated92
+  %75 = icmp ult i32 %74, %.sroa.speculated92
   %76 = shl nsw i32 %.079, 1
   br i1 %75, label %.preheader107, label %.preheader106, !llvm.loop !9
 

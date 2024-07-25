@@ -298,7 +298,7 @@ if.else:                                          ; preds = %if.end5
 while.body:                                       ; preds = %if.else, %while.body
   %new_l1_size.074 = phi i64 [ %div72, %while.body ], [ %spec.store.select, %if.else ]
   %mul = mul nuw nsw i64 %new_l1_size.074, 3
-  %sub = add nsw i64 %mul, 1
+  %sub = add nuw nsw i64 %mul, 1
   %div72 = lshr i64 %sub, 1
   %cmp13 = icmp ult i64 %div72, %min_size
   br i1 %cmp13, label %while.body, label %if.end15, !llvm.loop !7

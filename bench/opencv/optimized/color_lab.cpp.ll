@@ -5064,14 +5064,14 @@ _ZN2cvL14allocSingletonIsEEPT_m.exit.i:           ; preds = %743
   %775 = getelementptr inbounds i16, ptr %744, i64 %771
   store i16 %774, ptr %775, align 2
   %776 = add nuw nsw i32 %770, 1
-  %777 = sext i32 %776 to i64
+  %777 = zext nneg i32 %776 to i64
   %778 = getelementptr inbounds i16, ptr %546, i64 %777
   %779 = load i16, ptr %778, align 2
   %780 = add nuw nsw i64 %771, 8
   %781 = getelementptr inbounds i16, ptr %744, i64 %780
   store i16 %779, ptr %781, align 2
   %782 = add nuw nsw i32 %770, 2
-  %783 = sext i32 %782 to i64
+  %783 = zext nneg i32 %782 to i64
   %784 = getelementptr inbounds i16, ptr %546, i64 %783
   %785 = load i16, ptr %784, align 2
   %786 = add nuw nsw i64 %771, 16

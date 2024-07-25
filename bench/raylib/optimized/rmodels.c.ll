@@ -33982,7 +33982,7 @@ LoadVOX.exit:                                     ; preds = %1845, %1849, %Vox_F
   %2028 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.2, i64 %2026, i32 1
   store i32 %.1435.lcssa.i, ptr %2028, align 4
   %2029 = mul i32 %.1435.lcssa.i, 9
-  %2030 = sext i32 %2029 to i64
+  %2030 = zext nneg i32 %2029 to i64
   %2031 = call noalias ptr @calloc(i64 noundef %2030, i64 noundef 4) #56
   %2032 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.2, i64 %2026, i32 2
   store ptr %2031, ptr %2032, align 8
@@ -34027,7 +34027,7 @@ LoadVOX.exit:                                     ; preds = %1845, %1849, %Vox_F
   %2056 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.2, i64 %2026, i32 12
   store ptr %2055, ptr %2056, align 8
   %2057 = mul i32 %.1435.lcssa.i, 9
-  %2058 = sext i32 %2057 to i64
+  %2058 = zext nneg i32 %2057 to i64
   %2059 = call noalias ptr @calloc(i64 noundef %2058, i64 noundef 4) #56
   %2060 = getelementptr inbounds %struct.Mesh, ptr %.sroa.14.2, i64 %2026, i32 9
   store ptr %2059, ptr %2060, align 8

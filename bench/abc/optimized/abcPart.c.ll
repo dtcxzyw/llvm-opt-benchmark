@@ -2556,7 +2556,7 @@ Abc_NtkSuppCharCommon.exit.us.us:                 ; preds = %19
 
 46:                                               ; preds = %39, %35
   %.031.us.us = phi i32 [ %45, %39 ], [ 1, %35 ]
-  %47 = sdiv i32 %37, %.031.us.us
+  %47 = udiv i32 %37, %.031.us.us
   %48 = icmp slt i32 %.02947.us.us, %47
   %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %.02947.us.us, i32 %47)
   %49 = trunc nuw nsw i64 %indvars.iv62 to i32
@@ -2625,7 +2625,7 @@ Abc_NtkSuppCharCommon.exit.us:                    ; preds = %54
 
 80:                                               ; preds = %73, %68
   %.031.us = phi i32 [ %79, %73 ], [ 1, %68 ]
-  %81 = sdiv i32 %70, %.031.us
+  %81 = udiv i32 %70, %.031.us
   %82 = icmp slt i32 %.02947.us, %81
   %spec.select.us = tail call i32 @llvm.smax.i32(i32 %.02947.us, i32 %81)
   %83 = trunc nuw nsw i64 %indvars.iv to i32

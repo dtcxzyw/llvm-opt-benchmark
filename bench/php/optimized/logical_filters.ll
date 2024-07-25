@@ -2013,7 +2013,7 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_ipv6(ptr nounde
   %31 = mul nuw nsw i32 %.031.i, 10
   %32 = zext nneg i8 %29 to i32
   %33 = add nuw nsw i32 %31, %32
-  %34 = icmp sgt i32 %33, 255
+  %34 = icmp ugt i32 %33, 255
   %35 = add nuw nsw i32 %.030.i, 1
   %36 = icmp ugt i32 %.030.i, 2
   %or.cond44.i = select i1 %34, i1 true, i1 %36
@@ -2566,7 +2566,7 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   %57 = mul nuw nsw i32 %.031.i, 10
   %58 = zext nneg i8 %55 to i32
   %59 = add nuw nsw i32 %57, %58
-  %60 = icmp sgt i32 %59, 255
+  %60 = icmp ugt i32 %59, 255
   %61 = add nuw nsw i32 %.030.i, 1
   %62 = icmp ugt i32 %.030.i, 2
   %or.cond44.i = select i1 %60, i1 true, i1 %62
