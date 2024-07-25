@@ -29596,7 +29596,7 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb35
 
 _ZN6duckdb8string_tC2EPKc.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i.i, %if.end.i.i.i.i ], [ %78, %if.else.i.i.i.i ]
-  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8
   %call.i5.i = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEbEEbT_RT0_b(i64 %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i, ptr noundef nonnull align 1 dereferenceable(1) %result_value.i215, i1 noundef zeroext false)
           to label %invoke.cont1.i221 unwind label %lpad.i219
 
@@ -30082,7 +30082,7 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb35
 
 _ZN6duckdb8string_tC2EPKc.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i.i, %if.end.i.i.i.i ], [ %78, %if.else.i.i.i.i ]
-  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8
   %call.i5.i = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEaEEbT_RT0_b(i64 %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i, ptr noundef nonnull align 1 dereferenceable(1) %result_value.i203, i1 noundef zeroext false)
           to label %invoke.cont1.i209 unwind label %lpad.i207
 
@@ -30565,7 +30565,7 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb35
 
 _ZN6duckdb8string_tC2EPKc.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i.i, %if.end.i.i.i.i ], [ %78, %if.else.i.i.i.i ]
-  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8
   %call.i5.i = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEsEEbT_RT0_b(i64 %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i, ptr noundef nonnull align 2 dereferenceable(2) %result_value.i203, i1 noundef zeroext false)
           to label %invoke.cont1.i209 unwind label %lpad.i207
 
@@ -31048,7 +31048,7 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb35
 
 _ZN6duckdb8string_tC2EPKc.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i.i, %if.end.i.i.i.i ], [ %78, %if.else.i.i.i.i ]
-  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8
   %call.i5.i = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEiEEbT_RT0_b(i64 %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i, ptr noundef nonnull align 4 dereferenceable(4) %result_value.i203, i1 noundef zeroext false)
           to label %invoke.cont1.i209 unwind label %lpad.i207
 
@@ -31531,7 +31531,7 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb35
 
 _ZN6duckdb8string_tC2EPKc.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i.i, %if.end.i.i.i.i ], [ %78, %if.else.i.i.i.i ]
-  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8
   %call.i5.i = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tElEEbT_RT0_b(i64 %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(8) %result_value.i203, i1 noundef zeroext false)
           to label %invoke.cont1.i209 unwind label %lpad.i207
 
@@ -32491,7 +32491,7 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb35
 
 _ZN6duckdb8string_tC2EPKc.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i.i, %if.end.i.i.i.i ], [ %78, %if.else.i.i.i.i ]
-  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8
   %call.i5.i = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEhEEbT_RT0_b(i64 %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i, ptr noundef nonnull align 1 dereferenceable(1) %result_value.i203, i1 noundef zeroext false)
           to label %invoke.cont1.i209 unwind label %lpad.i207
 
@@ -32974,7 +32974,7 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb35
 
 _ZN6duckdb8string_tC2EPKc.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i.i, %if.end.i.i.i.i ], [ %78, %if.else.i.i.i.i ]
-  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8
   %call.i5.i = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEtEEbT_RT0_b(i64 %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i, ptr noundef nonnull align 2 dereferenceable(2) %result_value.i203, i1 noundef zeroext false)
           to label %invoke.cont1.i209 unwind label %lpad.i207
 
@@ -33457,7 +33457,7 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb35
 
 _ZN6duckdb8string_tC2EPKc.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i.i, %if.end.i.i.i.i ], [ %78, %if.else.i.i.i.i ]
-  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8
   %call.i5.i = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEjEEbT_RT0_b(i64 %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i, ptr noundef nonnull align 4 dereferenceable(4) %result_value.i203, i1 noundef zeroext false)
           to label %invoke.cont1.i209 unwind label %lpad.i207
 
@@ -33940,7 +33940,7 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb35
 
 _ZN6duckdb8string_tC2EPKc.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i.i, %if.end.i.i.i.i ], [ %78, %if.else.i.i.i.i ]
-  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8
   %call.i5.i = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEmEEbT_RT0_b(i64 %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(8) %result_value.i203, i1 noundef zeroext false)
           to label %invoke.cont1.i209 unwind label %lpad.i207
 
@@ -34449,7 +34449,7 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb35
 
 _ZN6duckdb8string_tC2EPKc.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i.i, %if.end.i.i.i.i ], [ %78, %if.else.i.i.i.i ]
-  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8
   %call.i5.i = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEfEEbT_RT0_b(i64 %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i, ptr noundef nonnull align 4 dereferenceable(4) %result_value.i203, i1 noundef zeroext false)
           to label %invoke.cont1.i209 unwind label %lpad.i207
 
@@ -34960,7 +34960,7 @@ if.else.i.i.i.i:                                  ; preds = %sw.bb35
 
 _ZN6duckdb8string_tC2EPKc.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i.i, %if.end.i.i.i.i ], [ %78, %if.else.i.i.i.i ]
-  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %input.sroa.0.i.i, align 8
   %call.i5.i = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEdEEbT_RT0_b(i64 %input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(8) %result_value.i203, i1 noundef zeroext false)
           to label %invoke.cont1.i209 unwind label %lpad.i207
 
@@ -48496,7 +48496,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont
 
 _ZN6duckdb8string_tC2EPKc.exit.i:                 ; preds = %if.else.i.i.i, %if.end.i.i.i, %if.then.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i = phi ptr [ null, %if.then.i.i.i ], [ %input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i, %if.end.i.i.i ], [ %2, %if.else.i.i.i ]
-  %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %input.sroa.0.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %input.sroa.0.i, align 8
   %call.i11 = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_9hugeint_tEEEbT_RT0_b(i64 %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %result_value, i1 noundef zeroext false)
           to label %invoke.cont1 unwind label %lpad
 
@@ -52677,7 +52677,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont
 
 _ZN6duckdb8string_tC2EPKc.exit.i:                 ; preds = %if.else.i.i.i, %if.end.i.i.i, %if.then.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i = phi ptr [ null, %if.then.i.i.i ], [ %input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i, %if.end.i.i.i ], [ %2, %if.else.i.i.i ]
-  %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %input.sroa.0.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %input.sroa.0.i, align 8
   %call.i13 = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_6date_tEEEbT_RT0_b(i64 %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i, ptr noundef nonnull align 4 dereferenceable(4) %result_value, i1 noundef zeroext false)
           to label %invoke.cont1 unwind label %lpad
 
@@ -54389,7 +54389,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont
 
 _ZN6duckdb8string_tC2EPKc.exit.i:                 ; preds = %if.else.i.i.i, %if.end.i.i.i, %if.then.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i = phi ptr [ null, %if.then.i.i.i ], [ %input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i, %if.end.i.i.i ], [ %2, %if.else.i.i.i ]
-  %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %input.sroa.0.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %input.sroa.0.i, align 8
   %call.i13 = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_7dtime_tEEEbT_RT0_b(i64 %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %result_value, i1 noundef zeroext false)
           to label %invoke.cont1 unwind label %lpad
 
@@ -56099,7 +56099,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont
 
 _ZN6duckdb8string_tC2EPKc.exit.i:                 ; preds = %if.else.i.i.i, %if.end.i.i.i, %if.then.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i = phi ptr [ null, %if.then.i.i.i ], [ %input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i, %if.end.i.i.i ], [ %2, %if.else.i.i.i ]
-  %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %input.sroa.0.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %input.sroa.0.i, align 8
   %call.i13 = invoke noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_11timestamp_tEEEbT_RT0_b(i64 %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %result_value, i1 noundef zeroext false)
           to label %invoke.cont1 unwind label %lpad
 
@@ -59585,7 +59585,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont
 
 _ZN6duckdb8string_tC2EPKc.exit.i:                 ; preds = %if.else.i.i.i, %if.end.i.i.i, %if.then.i.i.i
   %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i = phi ptr [ null, %if.then.i.i.i ], [ %input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.i.8.input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i, %if.end.i.i.i ], [ %2, %if.else.i.i.i ]
-  %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %input.sroa.0.i, align 8, !tbaa.struct !174
+  %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %input.sroa.0.i, align 8
   %call.i11 = invoke noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationINS_8string_tE13duckdb_stringEEbT_RT0_(i64 %input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.i.0.input.sroa.0.0.input.sroa.0.0.input.sroa.0.0.agg.tmp.sroa.0.0.copyload.i, ptr %input.sroa.0.8.input.sroa.0.8.input.sroa.0.8.agg.tmp.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %result_value)
           to label %invoke.cont1 unwind label %lpad
 

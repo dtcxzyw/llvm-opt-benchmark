@@ -2249,14 +2249,14 @@ if.end.i.i:                                       ; preds = %if.then.i.i170
 
 cond.true:                                        ; preds = %if.end.i.i, %if.then.i.i170
   %str.sroa.0.8.str.sroa.0.8.str.sroa.0.8.ref.tmp101.sroa.6.0.copyload = phi ptr [ %str.sroa.0.8.str.sroa.0.8.str.sroa.0.8.str.sroa.0.8.str.sroa.0.8.str.sroa.0.8.str.sroa.0.8.str.sroa.0.8.ref.tmp101.sroa.6.0.copyload.pre, %if.end.i.i ], [ null, %if.then.i.i170 ]
-  %str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.ref.tmp101.sroa.0.0.copyload = load i64, ptr %str.sroa.0, align 8, !tbaa.struct !87
+  %str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.ref.tmp101.sroa.0.0.copyload = load i64, ptr %str.sroa.0, align 8
   br label %invoke.cont109
 
 cond.false:                                       ; preds = %invoke.cont98
   %45 = load i32, ptr %43, align 1
   store i32 %45, ptr %str.sroa.0.4.inlined.i.i.sroa_idx20, align 4
   store ptr %43, ptr %str.sroa.0.8.ptr.i.i.sroa_idx22, align 8, !tbaa !59
-  %str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.agg.tmp105.sroa.0.0.copyload = load i64, ptr %str.sroa.0, align 8, !tbaa.struct !87
+  %str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.agg.tmp105.sroa.0.0.copyload = load i64, ptr %str.sroa.0, align 8
   %call107 = invoke { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorENS_8string_tE(ptr noundef nonnull align 8 dereferenceable(104) %varchar_vector, i64 %str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.agg.tmp105.sroa.0.0.copyload, ptr nonnull %43)
           to label %invoke.cont106 unwind label %lpad102
 
@@ -2268,9 +2268,9 @@ invoke.cont106:                                   ; preds = %cond.false
 invoke.cont109:                                   ; preds = %invoke.cont106, %cond.true
   %ref.tmp101.sroa.6.0 = phi ptr [ %str.sroa.0.8.str.sroa.0.8.str.sroa.0.8.ref.tmp101.sroa.6.0.copyload, %cond.true ], [ %47, %invoke.cont106 ]
   %ref.tmp101.sroa.0.0 = phi i64 [ %str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.str.sroa.0.0.ref.tmp101.sroa.0.0.copyload, %cond.true ], [ %46, %invoke.cont106 ]
-  %48 = load ptr, ptr %data.i.i.i, align 8, !tbaa !88
+  %48 = load ptr, ptr %data.i.i.i, align 8, !tbaa !87
   %arrayidx = getelementptr inbounds %"struct.duckdb::string_t", ptr %48, i64 %i.0231
-  store i64 %ref.tmp101.sroa.0.0, ptr %arrayidx, align 8, !tbaa.struct !87
+  store i64 %ref.tmp101.sroa.0.0, ptr %arrayidx, align 8, !tbaa.struct !96
   %ref.tmp101.sroa.6.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %ref.tmp101.sroa.6.0, ptr %ref.tmp101.sroa.6.0.arrayidx.sroa_idx, align 8, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %str.sroa.0)
@@ -2630,7 +2630,7 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb11UnionVector7GetTagsERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %result)
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %call2, i8 noundef zeroext 2)
   %data.i.i = getelementptr inbounds i8, ptr %call2, i64 32
-  %0 = load ptr, ptr %data.i.i, align 8, !tbaa !88
+  %0 = load ptr, ptr %data.i.i, align 8, !tbaa !87
   store i8 0, ptr %0, align 1, !tbaa !59
   %call4 = tail call noundef zeroext i1 @_ZNK6duckdb9DataChunk11AllConstantEv(ptr noundef nonnull align 8 dereferenceable(64) %args)
   br i1 %call4, label %if.then, label %if.end
@@ -6963,16 +6963,16 @@ attributes #23 = { builtin nounwind }
 !84 = !{!85, !5, i64 8}
 !85 = !{!"_ZTSNSt12_Vector_baseIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
 !86 = !{!85, !5, i64 0}
-!87 = !{i64 0, i64 16, !59}
-!88 = !{!89, !5, i64 32}
-!89 = !{!"_ZTSN6duckdb6VectorE", !90, i64 0, !47, i64 8, !5, i64 32, !91, i64 40, !95, i64 72, !95, i64 88}
-!90 = !{!"_ZTSN6duckdb10VectorTypeE", !6, i64 0}
-!91 = !{!"_ZTSN6duckdb12ValidityMaskE", !92, i64 0}
-!92 = !{!"_ZTSN6duckdb21TemplatedValidityMaskImEE", !5, i64 0, !93, i64 8, !34, i64 24}
-!93 = !{!"_ZTSSt10shared_ptrIN6duckdb21TemplatedValidityDataImEEE", !94, i64 0}
-!94 = !{!"_ZTSSt12__shared_ptrIN6duckdb21TemplatedValidityDataImEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0, !52, i64 8}
-!95 = !{!"_ZTSSt10shared_ptrIN6duckdb12VectorBufferEE", !96, i64 0}
-!96 = !{!"_ZTSSt12__shared_ptrIN6duckdb12VectorBufferELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0, !52, i64 8}
+!87 = !{!88, !5, i64 32}
+!88 = !{!"_ZTSN6duckdb6VectorE", !89, i64 0, !47, i64 8, !5, i64 32, !90, i64 40, !94, i64 72, !94, i64 88}
+!89 = !{!"_ZTSN6duckdb10VectorTypeE", !6, i64 0}
+!90 = !{!"_ZTSN6duckdb12ValidityMaskE", !91, i64 0}
+!91 = !{!"_ZTSN6duckdb21TemplatedValidityMaskImEE", !5, i64 0, !92, i64 8, !34, i64 24}
+!92 = !{!"_ZTSSt10shared_ptrIN6duckdb21TemplatedValidityDataImEEE", !93, i64 0}
+!93 = !{!"_ZTSSt12__shared_ptrIN6duckdb21TemplatedValidityDataImEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0, !52, i64 8}
+!94 = !{!"_ZTSSt10shared_ptrIN6duckdb12VectorBufferEE", !95, i64 0}
+!95 = !{!"_ZTSSt12__shared_ptrIN6duckdb12VectorBufferELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0, !52, i64 8}
+!96 = !{i64 0, i64 16, !59}
 !97 = distinct !{!97, !16}
 !98 = !{!99, !103, i64 169}
 !99 = !{!"_ZTSN6duckdb18BaseScalarFunctionE", !100, i64 0, !47, i64 144, !102, i64 168, !103, i64 169}

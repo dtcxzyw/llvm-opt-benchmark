@@ -2150,19 +2150,19 @@ _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertex
   %agg.tmp3659.sroa.12.0.add.ptr.i25.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i25.i, i64 16
   store <2 x float> %2, ptr %agg.tmp3659.sroa.12.0.add.ptr.i25.i.sroa_idx, align 4
   %agg.tmp3659.sroa.24.0.add.ptr.i25.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i25.i, i64 24
-  store i32 %agg.tmp3659.sroa.24.0.copyload, ptr %agg.tmp3659.sroa.24.0.add.ptr.i25.i.sroa_idx, align 4, !tbaa.struct !71
+  store i32 %agg.tmp3659.sroa.24.0.copyload, ptr %agg.tmp3659.sroa.24.0.add.ptr.i25.i.sroa_idx, align 4
   %agg.tmp3659.sroa.28.0.add.ptr.i25.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i25.i, i64 28
   store <4 x float> %3, ptr %agg.tmp3659.sroa.28.0.add.ptr.i25.i.sroa_idx, align 4
   %agg.tmp3659.sroa.36.0.add.ptr.i25.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i25.i, i64 44
   store <4 x float> %4, ptr %agg.tmp3659.sroa.36.0.add.ptr.i25.i.sroa_idx, align 4
   %agg.tmp3659.sroa.52.0.add.ptr.i25.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i25.i, i64 60
-  store i32 %agg.tmp3659.sroa.52.0.copyload, ptr %agg.tmp3659.sroa.52.0.add.ptr.i25.i.sroa_idx, align 4, !tbaa.struct !72
+  store i32 %agg.tmp3659.sroa.52.0.copyload, ptr %agg.tmp3659.sroa.52.0.add.ptr.i25.i.sroa_idx, align 4
   %agg.tmp3659.sroa.56.0.add.ptr.i25.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i25.i, i64 64
   store <4 x float> %5, ptr %agg.tmp3659.sroa.56.0.add.ptr.i25.i.sroa_idx, align 4
   %agg.tmp3659.sroa.64.0.add.ptr.i25.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i25.i, i64 80
   store <4 x float> %6, ptr %agg.tmp3659.sroa.64.0.add.ptr.i25.i.sroa_idx, align 4
   %agg.tmp3659.sroa.80.0.add.ptr.i25.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i25.i, i64 96
-  store i32 %agg.tmp3659.sroa.80.0.copyload, ptr %agg.tmp3659.sroa.80.0.add.ptr.i25.i.sroa_idx, align 4, !tbaa.struct !73
+  store i32 %agg.tmp3659.sroa.80.0.copyload, ptr %agg.tmp3659.sroa.80.0.add.ptr.i25.i.sroa_idx, align 4
   %agg.tmp3659.sroa.84.0.add.ptr.i25.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i25.i, i64 100
   store <2 x float> %7, ptr %agg.tmp3659.sroa.84.0.add.ptr.i25.i.sroa_idx, align 4
   ret void
@@ -3122,7 +3122,7 @@ if.end.i.i.i.i.i.2.i.i:                           ; preds = %_ZNK3irr4core8vecto
 
 while.body7:                                      ; preds = %_ZNK3irr5video9S3DVertexltERKS1_.exit, %land.rhs.i, %land.lhs.true16.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i, %land.lhs.true.i49.i, %land.lhs.true.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i, %land.lhs.true.i.i, %for.inc.i.i.i.i.i.1.i.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit221, %land.rhs.i175, %land.lhs.true16.i197, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i213, %land.lhs.true.i49.i207, %land.lhs.true.i201, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i217, %land.lhs.true.i.i137, %for.inc.i.i.i.i.i.i.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit397, %land.rhs.i351, %land.lhs.true16.i373, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i389, %land.lhs.true.i49.i383, %land.lhs.true.i377, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i393, %land.lhs.true.i.i313, %while.cond3
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 108
-  br label %while.cond3, !llvm.loop !74
+  br label %while.cond3, !llvm.loop !71
 
 while.end:                                        ; preds = %_ZNK3irr5video9S3DVertexltERKS1_.exit133, %land.rhs.i87, %land.lhs.true16.i109, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i125, %land.lhs.true.i49.i119, %land.lhs.true.i113, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i129, %if.end.i.i.i.i.i.1.i.i.thread, %if.end.i.i.i.i.i.1.i.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit309, %land.rhs.i263, %land.lhs.true16.i285, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i301, %land.lhs.true.i49.i295, %land.lhs.true.i289, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i305, %if.end.i.i.i.i.i.i.i.thread, %if.end.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.thread129, %if.end.i.i.i.i.i.1.i.i.thread133, %if.end.i.i.i.i.i.2.i.i
   %92 = phi float [ %.pre, %if.end.i.i.i.i.i.2.i.i ], [ %0, %if.end.i.i.i.i.i.1.i.i.thread133 ], [ %0, %if.end.i.i.i.i.i.i.i.thread129 ], [ %0, %if.end.i.i.i.i.i.i.i ], [ %0, %if.end.i.i.i.i.i.i.i.thread ], [ %0, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i305 ], [ %0, %land.lhs.true.i289 ], [ %0, %land.lhs.true.i49.i295 ], [ %0, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i301 ], [ %0, %land.lhs.true16.i285 ], [ %0, %land.rhs.i263 ], [ %0, %_ZNK3irr5video9S3DVertexltERKS1_.exit309 ], [ %0, %if.end.i.i.i.i.i.1.i.i ], [ %0, %if.end.i.i.i.i.i.1.i.i.thread ], [ %0, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i129 ], [ %0, %land.lhs.true.i113 ], [ %0, %land.lhs.true.i49.i119 ], [ %0, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i125 ], [ %0, %land.lhs.true16.i109 ], [ %0, %land.rhs.i87 ], [ %0, %_ZNK3irr5video9S3DVertexltERKS1_.exit133 ]
@@ -3613,7 +3613,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit485:         ; preds = %lor.rhs.i.i443
   br i1 %cmp7.i107.i448, label %while.cond10.backedge, label %if.end.i.i.i.i.i.2.i.i40
 
 while.cond10.backedge:                            ; preds = %_ZNK3irr5video9S3DVertexltERKS1_.exit485, %land.rhs.i439, %land.lhs.true16.i461, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i477, %land.lhs.true.i49.i471, %land.lhs.true.i465, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i481, %land.lhs.true.i.i401, %for.inc.i.i.i.i.i.1.i.i36, %_ZNK3irr5video9S3DVertexltERKS1_.exit661, %land.rhs.i615, %land.lhs.true16.i637, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i653, %land.lhs.true.i49.i647, %land.lhs.true.i641, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i657, %land.lhs.true.i.i577, %for.inc.i.i.i.i.i.i.i30, %_ZNK3irr5video9S3DVertexltERKS1_.exit837, %land.rhs.i791, %land.lhs.true16.i813, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i829, %land.lhs.true.i49.i823, %land.lhs.true.i817, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i833, %land.lhs.true.i.i753, %while.cond10
-  br label %while.cond10, !llvm.loop !75
+  br label %while.cond10, !llvm.loop !72
 
 if.end.i.i.i.i.i.2.i.i40:                         ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i457, %land.lhs.true11.i53.i475, %_ZNK3irr5video9S3DVertexltERKS1_.exit485, %lor.rhs.i.i443, %land.lhs.true26.i435, %lor.lhs.false.i47.i469, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i411, %land.lhs.true11.i.i405, %lor.lhs.false.i.i399
   %__first2.addr.029.i.i.i.i.i.ptr.2.i.i37.le = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -36
@@ -3648,7 +3648,7 @@ if.end:                                           ; preds = %while.end18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
   %incdec.ptr.i45 = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 108
-  br label %while.body, !llvm.loop !76
+  br label %while.body, !llvm.loop !73
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -3720,7 +3720,7 @@ if.else:                                          ; preds = %if.end.i.i.i.i.i.2.
 for.inc:                                          ; preds = %if.else, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit
   %__i.sroa.0.0 = getelementptr inbounds i8, ptr %__i.sroa.0.040, i64 108
   %cmp.i28.not = icmp eq ptr %__i.sroa.0.0, %__last.coerce
-  br i1 %cmp.i28.not, label %for.end, label %for.body, !llvm.loop !77
+  br i1 %cmp.i28.not, label %for.end, label %for.body, !llvm.loop !74
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %entry
   ret void
@@ -3733,19 +3733,19 @@ entry:
   %__val.sroa.12.0.__last.coerce.sroa_idx = getelementptr inbounds i8, ptr %__last.coerce, i64 16
   %1 = load <2 x float>, ptr %__val.sroa.12.0.__last.coerce.sroa_idx, align 4
   %__val.sroa.24.0.__last.coerce.sroa_idx = getelementptr inbounds i8, ptr %__last.coerce, i64 24
-  %__val.sroa.24.0.copyload = load i32, ptr %__val.sroa.24.0.__last.coerce.sroa_idx, align 4, !tbaa.struct !71
+  %__val.sroa.24.0.copyload = load i32, ptr %__val.sroa.24.0.__last.coerce.sroa_idx, align 4
   %__val.sroa.28.0.__last.coerce.sroa_idx = getelementptr inbounds i8, ptr %__last.coerce, i64 28
   %2 = load <4 x float>, ptr %__val.sroa.28.0.__last.coerce.sroa_idx, align 4
   %__val.sroa.36.0.__last.coerce.sroa_idx = getelementptr inbounds i8, ptr %__last.coerce, i64 44
   %3 = load <4 x float>, ptr %__val.sroa.36.0.__last.coerce.sroa_idx, align 4
   %__val.sroa.52.0.__last.coerce.sroa_idx = getelementptr inbounds i8, ptr %__last.coerce, i64 60
-  %__val.sroa.52.0.copyload = load i32, ptr %__val.sroa.52.0.__last.coerce.sroa_idx, align 4, !tbaa.struct !72
+  %__val.sroa.52.0.copyload = load i32, ptr %__val.sroa.52.0.__last.coerce.sroa_idx, align 4
   %__val.sroa.56.0.__last.coerce.sroa_idx = getelementptr inbounds i8, ptr %__last.coerce, i64 64
   %4 = load <4 x float>, ptr %__val.sroa.56.0.__last.coerce.sroa_idx, align 4
   %__val.sroa.64.0.__last.coerce.sroa_idx = getelementptr inbounds i8, ptr %__last.coerce, i64 80
   %5 = load <4 x float>, ptr %__val.sroa.64.0.__last.coerce.sroa_idx, align 4
   %__val.sroa.80.0.__last.coerce.sroa_idx = getelementptr inbounds i8, ptr %__last.coerce, i64 96
-  %__val.sroa.80.0.copyload = load i32, ptr %__val.sroa.80.0.__last.coerce.sroa_idx, align 4, !tbaa.struct !73
+  %__val.sroa.80.0.copyload = load i32, ptr %__val.sroa.80.0.__last.coerce.sroa_idx, align 4
   %__val.sroa.84.0.__last.coerce.sroa_idx = getelementptr inbounds i8, ptr %__last.coerce, i64 100
   %6 = load <2 x float>, ptr %__val.sroa.84.0.__last.coerce.sroa_idx, align 4
   %7 = extractelement <4 x float> %0, i64 0
@@ -4219,26 +4219,26 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit264:         ; preds = %lor.rhs.i.i246
 
 while.body:                                       ; preds = %land.lhs.true.i214, %land.lhs.true.i49.i220, %for.inc.i.i.i.i.i.1.i.i, %land.lhs.true.i.i202, %land.rhs.i242, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i208, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i260, %land.lhs.true16.i256, %land.lhs.true.i82, %land.lhs.true.i49.i88, %for.inc.i.i.i.i.i.i.i, %land.lhs.true.i.i70, %land.rhs.i110, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i76, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i128, %land.lhs.true16.i124, %land.lhs.true.i, %land.lhs.true.i49.i, %while.cond, %land.lhs.true.i.i, %land.rhs.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i, %land.lhs.true16.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit264, %_ZNK3irr5video9S3DVertexltERKS1_.exit132, %_ZNK3irr5video9S3DVertexltERKS1_.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %__last.sroa.0.0, ptr noundef nonnull align 4 dereferenceable(108) %__next.sroa.0.0, i64 108, i1 false), !tbaa.struct !30
-  br label %while.cond, !llvm.loop !78
+  br label %while.cond, !llvm.loop !75
 
 while.end:                                        ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i252, %if.end.i.i.i.i.i.1.i.i.thread, %if.end.i.i.i.i.i.i.i.thread, %_ZNK3irr5video9S3DVertexltERKS1_.exit264, %land.lhs.true26.i238, %lor.rhs.i.i246, %lor.lhs.false.i.i200, %land.lhs.true11.i.i206, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i212, %lor.lhs.false.i47.i218, %land.lhs.true11.i53.i224, %land.lhs.true.i148, %land.lhs.true.i49.i154, %if.end.i.i.i.i.i.1.i.i, %land.lhs.true.i.i136, %land.rhs.i176, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i142, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i194, %land.lhs.true16.i190, %land.lhs.true.i16, %land.lhs.true.i49.i22, %if.end.i.i.i.i.i.i.i, %land.lhs.true.i.i4, %land.rhs.i44, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i10, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i62, %land.lhs.true16.i58, %_ZNK3irr5video9S3DVertexltERKS1_.exit198, %_ZNK3irr5video9S3DVertexltERKS1_.exit66
   store <4 x float> %0, ptr %__last.sroa.0.0, align 4
   %__val.sroa.12.0.__last.sroa.0.0.sroa_idx = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 16
   store <2 x float> %1, ptr %__val.sroa.12.0.__last.sroa.0.0.sroa_idx, align 4
   %__val.sroa.24.0.__last.sroa.0.0.sroa_idx = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 24
-  store i32 %__val.sroa.24.0.copyload, ptr %__val.sroa.24.0.__last.sroa.0.0.sroa_idx, align 4, !tbaa.struct !71
+  store i32 %__val.sroa.24.0.copyload, ptr %__val.sroa.24.0.__last.sroa.0.0.sroa_idx, align 4
   %__val.sroa.28.0.__last.sroa.0.0.sroa_idx = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 28
   store <4 x float> %2, ptr %__val.sroa.28.0.__last.sroa.0.0.sroa_idx, align 4
   %__val.sroa.36.0.__last.sroa.0.0.sroa_idx = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 44
   store <4 x float> %3, ptr %__val.sroa.36.0.__last.sroa.0.0.sroa_idx, align 4
   %__val.sroa.52.0.__last.sroa.0.0.sroa_idx = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 60
-  store i32 %__val.sroa.52.0.copyload, ptr %__val.sroa.52.0.__last.sroa.0.0.sroa_idx, align 4, !tbaa.struct !72
+  store i32 %__val.sroa.52.0.copyload, ptr %__val.sroa.52.0.__last.sroa.0.0.sroa_idx, align 4
   %__val.sroa.56.0.__last.sroa.0.0.sroa_idx = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 64
   store <4 x float> %4, ptr %__val.sroa.56.0.__last.sroa.0.0.sroa_idx, align 4
   %__val.sroa.64.0.__last.sroa.0.0.sroa_idx = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 80
   store <4 x float> %5, ptr %__val.sroa.64.0.__last.sroa.0.0.sroa_idx, align 4
   %__val.sroa.80.0.__last.sroa.0.0.sroa_idx = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 96
-  store i32 %__val.sroa.80.0.copyload, ptr %__val.sroa.80.0.__last.sroa.0.0.sroa_idx, align 4, !tbaa.struct !73
+  store i32 %__val.sroa.80.0.copyload, ptr %__val.sroa.80.0.__last.sroa.0.0.sroa_idx, align 4
   %__val.sroa.84.0.__last.sroa.0.0.sroa_idx = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 100
   store <2 x float> %6, ptr %__val.sroa.84.0.__last.sroa.0.0.sroa_idx, align 4
   ret void
@@ -4256,13 +4256,13 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.08 = phi ptr [ %__x.addr.0.val, %while.body ], [ %__x, %entry ]
   %0 = getelementptr i8, ptr %__x.addr.08, i64 24
-  %__x.addr.0.val6 = load ptr, ptr %0, align 8, !tbaa !79
+  %__x.addr.0.val6 = load ptr, ptr %0, align 8, !tbaa !76
   tail call fastcc void @_ZNSt8_Rb_treeISt5arrayIN3irr5video9S3DVertexELm3EESt4pairIKS4_Z14checkMeshEqualRKSt6vectorIS3_SaIS3_EERKS7_ItSaItEERKS7_IS0_IS3_Lm4EESaISG_EEE7QuadRefESt10_Select1stISM_ESt4lessIS4_ESaISM_EE8_M_eraseEPSt13_Rb_tree_nodeISM_E(ptr noundef %__x.addr.0.val6)
   %1 = getelementptr i8, ptr %__x.addr.08, i64 16
-  %__x.addr.0.val = load ptr, ptr %1, align 8, !tbaa !80
+  %__x.addr.0.val = load ptr, ptr %1, align 8, !tbaa !77
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.08) #16
   %cmp.not = icmp eq ptr %__x.addr.0.val, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !81
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !78
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -4589,14 +4589,11 @@ attributes #19 = { nounwind willreturn memory(read) }
 !68 = distinct !{!68, !17}
 !69 = distinct !{!69, !17}
 !70 = distinct !{!70, !17}
-!71 = !{i64 0, i64 84, !31}
-!72 = !{i64 0, i64 48, !31}
-!73 = !{i64 0, i64 12, !31}
+!71 = distinct !{!71, !17}
+!72 = distinct !{!72, !17}
+!73 = distinct !{!73, !17}
 !74 = distinct !{!74, !17}
 !75 = distinct !{!75, !17}
-!76 = distinct !{!76, !17}
-!77 = distinct !{!77, !17}
+!76 = !{!40, !6, i64 24}
+!77 = !{!40, !6, i64 16}
 !78 = distinct !{!78, !17}
-!79 = !{!40, !6, i64 24}
-!80 = !{!40, !6, i64 16}
-!81 = distinct !{!81, !17}

@@ -55784,7 +55784,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont26
 
 _ZN6duckdb8string_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %if.else.i.i.i, %if.end.i.i.i, %if.then.i.i.i
   %value.sroa.0.8.value.sroa.0.8.value.sroa.0.8.agg.tmp.sroa.2.0.copyload.i = phi ptr [ null, %if.then.i.i.i ], [ %value.sroa.0.i.8.value.sroa.0.i.8.value.sroa.0.i.8.value.sroa.0.i.8.value.sroa.0.i.8.value.sroa.0.i.8.value.sroa.0.i.8.value.sroa.0.8.value.sroa.0.8.value.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre.i, %if.end.i.i.i ], [ %17, %if.else.i.i.i ]
-  %value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.0.value.sroa.0.0.value.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %value.sroa.0.i, align 8, !tbaa.struct !30, !noalias !1035
+  %value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.0.value.sroa.0.0.value.sroa.0.0.agg.tmp.sroa.0.0.copyload.i = load i64, ptr %value.sroa.0.i, align 8, !noalias !1035
   invoke void @_ZN6duckdb5Value11CreateValueINS_8string_tEEES0_T_(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %bucket_value, i64 %value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.i.0.value.sroa.0.0.value.sroa.0.0.value.sroa.0.0.agg.tmp.sroa.0.0.copyload.i, ptr %value.sroa.0.8.value.sroa.0.8.value.sroa.0.8.agg.tmp.sroa.2.0.copyload.i)
           to label %invoke.cont28 unwind label %lpad27
 

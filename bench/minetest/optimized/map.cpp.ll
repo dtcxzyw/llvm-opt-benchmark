@@ -7246,7 +7246,7 @@ if.end:                                           ; preds = %init.end
   %retval.i.4.retval.i.4.retval.i.4.retval.i.4.retval.i.4.retval.i.4.retval.i.4.retval.i.sroa_idx = getelementptr inbounds i8, ptr %retval.i, i64 4
   store i16 %pos_relative.sroa.6.0.extract.trunc, ptr %retval.i.4.retval.i.4.retval.i.4.retval.i.4.retval.i.4.retval.i.4.retval.i.4.retval.i.sroa_idx, align 4, !tbaa !52
   %retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.6.retval.6.MaxEdge.i.sroa_idx = getelementptr inbounds i8, ptr %retval.i, i64 6
-  store i48 %retval.sroa.0.0.insert.insert.i21.i, ptr %retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.6.retval.6.MaxEdge.i.sroa_idx, align 2, !tbaa.struct !97
+  store i48 %retval.sroa.0.0.insert.insert.i21.i, ptr %retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.i.6.retval.6.retval.6.MaxEdge.i.sroa_idx, align 2
   %retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i = load i64, ptr %retval.i, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %retval.i)
   %pos_camera.sroa.0.0.extract.trunc.i = trunc i48 %cam_pos_nodes.coerce to i16
