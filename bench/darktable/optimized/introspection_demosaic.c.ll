@@ -16908,10 +16908,10 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %1275 = mul nuw nsw i32 %1262, 112
   %1276 = add nsw i32 %1275, -113
   %1277 = add nsw i32 %1276, %1272
-  %1278 = sdiv i32 %1277, 2
+  %1278 = lshr i32 %1277, 1
   %1279 = lshr exact i32 %1261, 1
   %1280 = zext nneg i32 %1279 to i64
-  %1281 = sext i32 %1278 to i64
+  %1281 = zext nneg i32 %1278 to i64
   %1282 = add i32 %1271, %1260
   %1283 = lshr i32 %1282, 1
   %1284 = zext nneg i32 %1283 to i64
@@ -16955,7 +16955,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
 
 1306:                                             ; preds = %1290
   %1307 = and i64 %1288, 4294967288
-  %1308 = add nsw i64 %1307, %1281
+  %1308 = add nuw nsw i64 %1307, %1281
   %1309 = trunc nuw i64 %1307 to i32
   %1310 = shl i32 %1309, 1
   br label %1311
@@ -17018,7 +17018,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %1358 = add nuw nsw i64 %1350, 1
   %1359 = getelementptr inbounds float, ptr %36, i64 %1358
   %1360 = load float, ptr %1359, align 4, !tbaa !24
-  %1361 = add nsw i64 %1351, 1
+  %1361 = add nuw nsw i64 %1351, 1
   %1362 = getelementptr inbounds float, ptr %38, i64 %1361
   %1363 = load float, ptr %1362, align 4, !tbaa !24
   %1364 = getelementptr inbounds float, ptr %38, i64 %1352
@@ -17062,7 +17062,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %1396 = mul nuw nsw i32 %1387, 112
   %1397 = add nsw i32 %1396, -113
   %1398 = add nsw i32 %1397, %1393
-  %1399 = sdiv i32 %1398, 2
+  %1399 = lshr i32 %1398, 1
   %1400 = or disjoint i32 %1392, %1389
   %1401 = shl nuw nsw i32 %1400, 1
   %1402 = lshr i32 %5, %1401
@@ -17074,7 +17074,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %1408 = add i32 %1392, %1385
   %1409 = lshr i32 %1408, 1
   %1410 = zext nneg i32 %1409 to i64
-  %1411 = sext i32 %1399 to i64
+  %1411 = zext nneg i32 %1399 to i64
   %1412 = lshr exact i32 %1386, 1
   %1413 = zext nneg i32 %1412 to i64
   br label %1418
@@ -17095,7 +17095,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %1424 = getelementptr inbounds float, ptr %32, i64 %1419
   %1425 = load float, ptr %1424, align 4, !tbaa !24
   %1426 = getelementptr inbounds float, ptr %32, i64 %1420
-  %1427 = add nsw i64 %1420, 1
+  %1427 = add nuw nsw i64 %1420, 1
   %1428 = load <2 x float>, ptr %1426, align 4, !tbaa !24
   %1429 = getelementptr inbounds float, ptr %32, i64 %1421
   %1430 = add nuw nsw i64 %1421, 1
@@ -18000,7 +18000,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %155 = add nuw nsw i32 %146, 4
   %156 = or disjoint i32 %146, %100
   %157 = sext i32 %156 to i64
-  %158 = sext i32 %149 to i64
+  %158 = zext nneg i32 %149 to i64
   %159 = mul nuw nsw i64 %153, 544
   %160 = add nuw nsw i64 %159, 544
   %161 = add nuw nsw i64 %159, 1636

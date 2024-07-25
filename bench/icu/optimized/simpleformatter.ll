@@ -253,17 +253,15 @@ land.lhs.true75:                                  ; preds = %while.cond
 while.body:                                       ; preds = %land.lhs.true75
   %conv79 = zext nneg i16 %29 to i32
   %mul = mul nuw nsw i32 %argNumber.0, 10
-  %sub84 = add i32 %mul, -48
+  %sub84 = add nsw i32 %mul, -48
   %add85 = add i32 %sub84, %conv79
-  %cmp86 = icmp sgt i32 %add85, 255
+  %cmp86 = icmp ugt i32 %add85, 255
   br i1 %cmp86, label %if.then94, label %while.cond, !llvm.loop !6
 
 if.end89:                                         ; preds = %land.lhs.true75
   %31 = trunc nsw i64 %indvars.iv.next116 to i32
-  %cmp90 = icmp slt i32 %argNumber.0, 0
-  %cmp93 = icmp ne i16 %29, 125
-  %or.cond4 = or i1 %cmp90, %cmp93
-  br i1 %or.cond4, label %if.then94, label %if.end96
+  %cmp93.not = icmp eq i16 %29, 125
+  br i1 %cmp93.not, label %if.end96, label %if.then94
 
 if.then94:                                        ; preds = %if.else60, %land.lhs.true62, %if.end89, %while.cond, %while.body
   store i32 1, ptr %errorCode, align 4
