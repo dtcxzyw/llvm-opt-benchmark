@@ -1205,49 +1205,37 @@ invoke.cont150:                                   ; preds = %_ZN6BufferIhEC2Ej.e
   %90 = mul nsw i64 %sub11.i.i587, 5
   %narrow = add nuw nsw i16 %86, 5
   %add.i.i589 = zext nneg i16 %narrow to i64
-  %add21.i.i594 = add nsw i64 %90, %add.i.i589
-  %idxprom.i595 = and i64 %add21.i.i594, 4294967295
-  %arrayidx.i596 = getelementptr inbounds i8, ptr %call.i519, i64 %idxprom.i595
+  %91 = getelementptr i8, ptr %call.i519, i64 %90
+  %arrayidx.i596 = getelementptr i8, ptr %91, i64 %add.i.i589
   store i8 1, ptr %arrayidx.i596, align 1, !tbaa !12
   %narrow39 = add nuw nsw i16 %86, 6
   %add.i.i589.1 = zext nneg i16 %narrow39 to i64
-  %add21.i.i594.1 = add nsw i64 %90, %add.i.i589.1
-  %idxprom.i595.1 = and i64 %add21.i.i594.1, 4294967295
-  %arrayidx.i596.1 = getelementptr inbounds i8, ptr %call.i519, i64 %idxprom.i595.1
+  %arrayidx.i596.1 = getelementptr i8, ptr %91, i64 %add.i.i589.1
   store i8 1, ptr %arrayidx.i596.1, align 1, !tbaa !12
   %sub11.i.i587.1870 = or disjoint i64 %mul.i.i582, %conv7.i.i584.1869
-  %91 = mul nsw i64 %sub11.i.i587.1870, 5
-  %add21.i.i594.1873 = add nsw i64 %91, %add.i.i589
-  %idxprom.i595.1874 = and i64 %add21.i.i594.1873, 4294967295
-  %arrayidx.i596.1875 = getelementptr inbounds i8, ptr %call.i519, i64 %idxprom.i595.1874
+  %92 = mul nuw nsw i64 %sub11.i.i587.1870, 5
+  %93 = getelementptr i8, ptr %call.i519, i64 %92
+  %arrayidx.i596.1875 = getelementptr i8, ptr %93, i64 %add.i.i589
   store i8 1, ptr %arrayidx.i596.1875, align 1, !tbaa !12
-  %add21.i.i594.1.1 = add nsw i64 %91, %add.i.i589.1
-  %idxprom.i595.1.1 = and i64 %add21.i.i594.1.1, 4294967295
-  %arrayidx.i596.1.1 = getelementptr inbounds i8, ptr %call.i519, i64 %idxprom.i595.1.1
+  %arrayidx.i596.1.1 = getelementptr i8, ptr %93, i64 %add.i.i589.1
   store i8 1, ptr %arrayidx.i596.1.1, align 1, !tbaa !12
   %add13.i.1 = add nsw i16 %89, -1
   %conv.i.i575.1 = sext i16 %add13.i.1 to i64
   %sub.i.i578.1 = shl nsw i64 %conv.i.i575.1, 2
   %mul.i.i582.1 = add nsw i64 %sub.i.i578.1, 8
   %sub11.i.i587.1880 = add nsw i64 %mul.i.i582.1, %conv7.i.i584
-  %92 = mul nsw i64 %sub11.i.i587.1880, 5
-  %add21.i.i594.1883 = add nsw i64 %92, %add.i.i589
-  %idxprom.i595.1884 = and i64 %add21.i.i594.1883, 4294967295
-  %arrayidx.i596.1885 = getelementptr inbounds i8, ptr %call.i519, i64 %idxprom.i595.1884
+  %94 = mul nuw nsw i64 %sub11.i.i587.1880, 5
+  %95 = getelementptr i8, ptr %call.i519, i64 %94
+  %arrayidx.i596.1885 = getelementptr i8, ptr %95, i64 %add.i.i589
   store i8 1, ptr %arrayidx.i596.1885, align 1, !tbaa !12
-  %add21.i.i594.1.1891 = add nsw i64 %92, %add.i.i589.1
-  %idxprom.i595.1.1892 = and i64 %add21.i.i594.1.1891, 4294967295
-  %arrayidx.i596.1.1893 = getelementptr inbounds i8, ptr %call.i519, i64 %idxprom.i595.1.1892
+  %arrayidx.i596.1.1893 = getelementptr i8, ptr %95, i64 %add.i.i589.1
   store i8 1, ptr %arrayidx.i596.1.1893, align 1, !tbaa !12
   %sub11.i.i587.1870.1 = or disjoint i64 %mul.i.i582.1, %conv7.i.i584.1869
-  %93 = mul nsw i64 %sub11.i.i587.1870.1, 5
-  %add21.i.i594.1873.1 = add nsw i64 %93, %add.i.i589
-  %idxprom.i595.1874.1 = and i64 %add21.i.i594.1873.1, 4294967295
-  %arrayidx.i596.1875.1 = getelementptr inbounds i8, ptr %call.i519, i64 %idxprom.i595.1874.1
+  %96 = mul nuw nsw i64 %sub11.i.i587.1870.1, 5
+  %97 = getelementptr i8, ptr %call.i519, i64 %96
+  %arrayidx.i596.1875.1 = getelementptr i8, ptr %97, i64 %add.i.i589
   store i8 1, ptr %arrayidx.i596.1875.1, align 1, !tbaa !12
-  %add21.i.i594.1.1.1 = add nsw i64 %93, %add.i.i589.1
-  %idxprom.i595.1.1.1 = and i64 %add21.i.i594.1.1.1, 4294967295
-  %arrayidx.i596.1.1.1 = getelementptr inbounds i8, ptr %call.i519, i64 %idxprom.i595.1.1.1
+  %arrayidx.i596.1.1.1 = getelementptr i8, ptr %97, i64 %add.i.i589.1
   store i8 1, ptr %arrayidx.i596.1.1.1, align 1, !tbaa !12
   %inc201 = add nuw nsw i32 %iii.0844, 1
   %exitcond.not = icmp eq i32 %inc201, 7
@@ -1257,8 +1245,8 @@ for.cond218.preheader:                            ; preds = %for.cond.cleanup224
   %pr.sroa.0.1 = phi i32 [ %add.i.i26, %for.cond207.preheader ], [ %pr.sroa.0.7, %for.cond.cleanup224 ]
   %indvars.iv907 = phi i32 [ -2, %for.cond207.preheader ], [ %indvars.iv.next908, %for.cond.cleanup224 ]
   %indvars.iv895 = phi i64 [ 0, %for.cond207.preheader ], [ %indvars.iv.next896, %for.cond.cleanup224 ]
-  %94 = trunc i32 %indvars.iv907 to i16
-  %add13.i628 = add i16 %94, %p1.sroa.14.0.extract.trunc
+  %98 = trunc i32 %indvars.iv907 to i16
+  %add13.i628 = add i16 %98, %p1.sroa.14.0.extract.trunc
   %conv.i.i639 = sext i16 %add13.i628 to i32
   br label %invoke.cont242
 
@@ -1281,69 +1269,69 @@ invoke.cont242:                                   ; preds = %if.end300.4, %for.c
   %retval.sroa.2.0.insert.shift.i632 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i631, 16
   %retval.sroa.0.0.insert.insert.i635 = or disjoint i48 %retval.sroa.2.0.insert.shift.i632, %retval.sroa.0.0.insert.ext.i634
   %p.sroa.0.0.extract.trunc.i636 = trunc nuw i48 %retval.sroa.0.0.insert.insert.i635 to i32
-  %95 = load i16, ptr %Z25.i, align 4, !tbaa !57
-  %conv2.i.i641 = sext i16 %95 to i32
+  %99 = load i16, ptr %Z25.i, align 4, !tbaa !57
+  %conv2.i.i641 = sext i16 %99 to i32
   %sub.i.i642 = sub nsw i32 %conv.i.i639, %conv2.i.i641
-  %96 = load i16, ptr %Y.i.i, align 2, !tbaa !58
-  %conv3.i.i645 = sext i16 %96 to i32
+  %100 = load i16, ptr %Y.i.i, align 2, !tbaa !58
+  %conv3.i.i645 = sext i16 %100 to i32
   %mul.i.i646 = mul nsw i32 %sub.i.i642, %conv3.i.i645
-  %97 = load i16, ptr %m_cache_extent.i.i, align 4, !tbaa !59
-  %conv5.i.i647 = sext i16 %97 to i32
+  %101 = load i16, ptr %m_cache_extent.i.i, align 4, !tbaa !59
+  %conv5.i.i647 = sext i16 %101 to i32
   %conv7.i.i648 = ashr i32 %p.sroa.0.0.extract.trunc.i636, 16
-  %98 = load i16, ptr %Y12.i, align 2, !tbaa !56
-  %conv10.i.i650 = sext i16 %98 to i32
+  %102 = load i16, ptr %Y12.i, align 2, !tbaa !56
+  %conv10.i.i650 = sext i16 %102 to i32
   %sub11.i.i651 = sub i32 %mul.i.i646, %conv10.i.i650
   %mul622.i.i652 = add i32 %sub11.i.i651, %conv7.i.i648
   %add.i.i653 = mul i32 %mul622.i.i652, %conv5.i.i647
   %sext.i654 = shl i32 %p.sroa.0.0.extract.trunc.i636, 16
   %conv16.i.i655 = ashr exact i32 %sext.i654, 16
-  %99 = load i16, ptr %m_area, align 8, !tbaa !53
-  %conv19.i.i656 = sext i16 %99 to i32
+  %103 = load i16, ptr %m_area, align 8, !tbaa !53
+  %conv19.i.i656 = sext i16 %103 to i32
   %sub20.i.i657 = sub nsw i32 %conv16.i.i655, %conv19.i.i656
   %add21.i.i658 = add nsw i32 %sub20.i.i657, %add.i.i653
   %cmp.not.i679 = icmp slt i32 %conv16.i.i655, %conv19.i.i656
-  %100 = load i16, ptr %MaxEdge.i523, align 2
-  %conv7.i681 = sext i16 %100 to i32
+  %104 = load i16, ptr %MaxEdge.i523, align 2
+  %conv7.i681 = sext i16 %104 to i32
   %cmp8.not.i682 = icmp sgt i32 %conv16.i.i655, %conv7.i681
   %or.cond.i683 = select i1 %cmp.not.i679, i1 true, i1 %cmp8.not.i682
   br i1 %or.cond.i683, label %if.end300, label %land.lhs.true9.i684
 
 land.lhs.true9.i684:                              ; preds = %invoke.cont242
   %cmp14.not.i688 = icmp slt i32 %conv7.i.i648, %conv10.i.i650
-  %101 = load i16, ptr %Y19.i, align 8
-  %conv20.i690 = sext i16 %101 to i32
+  %105 = load i16, ptr %Y19.i, align 8
+  %conv20.i690 = sext i16 %105 to i32
   %cmp21.not.i691 = icmp sgt i32 %conv7.i.i648, %conv20.i690
   %or.cond39.i692 = select i1 %cmp14.not.i688, i1 true, i1 %cmp21.not.i691
   br i1 %or.cond39.i692, label %if.end300, label %land.lhs.true22.i693
 
 land.lhs.true22.i693:                             ; preds = %land.lhs.true9.i684
-  %cmp27.not.i699 = icmp sge i16 %add13.i628, %95
-  %102 = load i16, ptr %Z31.i, align 2
-  %cmp33.i703 = icmp sle i16 %add13.i628, %102
+  %cmp27.not.i699 = icmp sge i16 %add13.i628, %99
+  %106 = load i16, ptr %Z31.i, align 2
+  %cmp33.i703 = icmp sle i16 %add13.i628, %106
   %or.cond834 = select i1 %cmp27.not.i699, i1 %cmp33.i703, i1 false
   br i1 %or.cond834, label %land.lhs.true, label %if.end300
 
 land.lhs.true:                                    ; preds = %land.lhs.true22.i693
-  %103 = load ptr, ptr %m_data, align 8, !tbaa !60
+  %107 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom266 = zext i32 %add21.i.i658 to i64
-  %arrayidx267 = getelementptr inbounds %struct.MapNode, ptr %103, i64 %idxprom266
-  %104 = load i16, ptr %arrayidx267, align 4, !tbaa !68
-  %105 = and i16 %104, -2
-  %switch = icmp eq i16 %105, 126
+  %arrayidx267 = getelementptr inbounds %struct.MapNode, ptr %107, i64 %idxprom266
+  %108 = load i16, ptr %arrayidx267, align 4, !tbaa !68
+  %109 = and i16 %108, -2
+  %switch = icmp eq i16 %109, 126
   br i1 %switch, label %if.then277, label %if.end300
 
 if.then277:                                       ; preds = %land.lhs.true
   %arrayidx.i706 = getelementptr inbounds i8, ptr %call.i519, i64 %indvars.iv897
-  %106 = load i8, ptr %arrayidx.i706, align 1, !tbaa !12
-  %cmp281 = icmp eq i8 %106, 1
+  %110 = load i8, ptr %arrayidx.i706, align 1, !tbaa !12
+  %cmp281 = icmp eq i8 %110, 1
   br i1 %cmp281, label %invoke.cont284, label %if.end300
 
 invoke.cont284:                                   ; preds = %if.then277
   %mul.i.i707 = mul i32 %pr.sroa.0.2, 1103515245
   %add.i.i708 = add i32 %mul.i.i707, 12345
   %div.i.i709 = sdiv i32 %add.i.i708, 65536
-  %107 = trunc nsw i32 %div.i.i709 to i16
-  %rem.lhs.trunc.i710 = and i16 %107, 32767
+  %111 = trunc nsw i32 %div.i.i709 to i16
+  %rem.lhs.trunc.i710 = and i16 %111, 32767
   %rem49.i711 = urem i16 %rem.lhs.trunc.i710, 100
   %cmp286 = icmp ult i16 %rem49.i711, 10
   %or.cond = and i1 %cmp286, %is_apple_tree
@@ -1371,44 +1359,44 @@ if.end300:                                        ; preds = %invoke.cont284, %if
 
 land.lhs.true9.i684.1:                            ; preds = %if.end300
   %conv10.i685.1 = ashr i32 %p.sroa.0.0.extract.trunc.i675.1, 16
-  %108 = load i16, ptr %Y12.i, align 2, !tbaa !56
-  %conv13.i687.1 = sext i16 %108 to i32
+  %112 = load i16, ptr %Y12.i, align 2, !tbaa !56
+  %conv13.i687.1 = sext i16 %112 to i32
   %cmp14.not.i688.1 = icmp slt i32 %conv10.i685.1, %conv13.i687.1
-  %109 = load i16, ptr %Y19.i, align 8
-  %conv20.i690.1 = sext i16 %109 to i32
+  %113 = load i16, ptr %Y19.i, align 8
+  %conv20.i690.1 = sext i16 %113 to i32
   %cmp21.not.i691.1 = icmp sgt i32 %conv10.i685.1, %conv20.i690.1
   %or.cond39.i692.1 = select i1 %cmp14.not.i688.1, i1 true, i1 %cmp21.not.i691.1
   br i1 %or.cond39.i692.1, label %if.end300.1, label %land.lhs.true22.i693.1
 
 land.lhs.true22.i693.1:                           ; preds = %land.lhs.true9.i684.1
-  %110 = load i16, ptr %Z25.i, align 4, !tbaa !57
-  %cmp27.not.i699.1 = icmp sge i16 %add13.i628, %110
-  %111 = load i16, ptr %Z31.i, align 2
-  %cmp33.i703.1 = icmp sle i16 %add13.i628, %111
+  %114 = load i16, ptr %Z25.i, align 4, !tbaa !57
+  %cmp27.not.i699.1 = icmp sge i16 %add13.i628, %114
+  %115 = load i16, ptr %Z31.i, align 2
+  %cmp33.i703.1 = icmp sle i16 %add13.i628, %115
   %or.cond834.1 = select i1 %cmp27.not.i699.1, i1 %cmp33.i703.1, i1 false
   br i1 %or.cond834.1, label %land.lhs.true.1, label %if.end300.1
 
 land.lhs.true.1:                                  ; preds = %land.lhs.true22.i693.1
-  %112 = load ptr, ptr %m_data, align 8, !tbaa !60
+  %116 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom266.1 = zext i32 %inc301 to i64
-  %arrayidx267.1 = getelementptr inbounds %struct.MapNode, ptr %112, i64 %idxprom266.1
-  %113 = load i16, ptr %arrayidx267.1, align 4, !tbaa !68
-  %114 = and i16 %113, -2
-  %switch.1 = icmp eq i16 %114, 126
+  %arrayidx267.1 = getelementptr inbounds %struct.MapNode, ptr %116, i64 %idxprom266.1
+  %117 = load i16, ptr %arrayidx267.1, align 4, !tbaa !68
+  %118 = and i16 %117, -2
+  %switch.1 = icmp eq i16 %118, 126
   br i1 %switch.1, label %if.then277.1, label %if.end300.1
 
 if.then277.1:                                     ; preds = %land.lhs.true.1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv897
-  %115 = load i8, ptr %gep, align 1, !tbaa !12
-  %cmp281.1 = icmp eq i8 %115, 1
+  %119 = load i8, ptr %gep, align 1, !tbaa !12
+  %cmp281.1 = icmp eq i8 %119, 1
   br i1 %cmp281.1, label %invoke.cont284.1, label %if.end300.1
 
 invoke.cont284.1:                                 ; preds = %if.then277.1
   %mul.i.i707.1 = mul i32 %pr.sroa.0.3, 1103515245
   %add.i.i708.1 = add i32 %mul.i.i707.1, 12345
   %div.i.i709.1 = sdiv i32 %add.i.i708.1, 65536
-  %116 = trunc nsw i32 %div.i.i709.1 to i16
-  %rem.lhs.trunc.i710.1 = and i16 %116, 32767
+  %120 = trunc nsw i32 %div.i.i709.1 to i16
+  %rem.lhs.trunc.i710.1 = and i16 %120, 32767
   %rem49.i711.1 = urem i16 %rem.lhs.trunc.i710.1, 100
   %cmp286.1 = icmp ult i16 %rem49.i711.1, 10
   %or.cond.1 = and i1 %cmp286.1, %is_apple_tree
@@ -1436,44 +1424,44 @@ if.end300.1:                                      ; preds = %invoke.cont284.1, %
 
 land.lhs.true9.i684.2:                            ; preds = %if.end300.1
   %conv10.i685.2 = ashr i32 %p.sroa.0.0.extract.trunc.i675.2, 16
-  %117 = load i16, ptr %Y12.i, align 2, !tbaa !56
-  %conv13.i687.2 = sext i16 %117 to i32
+  %121 = load i16, ptr %Y12.i, align 2, !tbaa !56
+  %conv13.i687.2 = sext i16 %121 to i32
   %cmp14.not.i688.2 = icmp slt i32 %conv10.i685.2, %conv13.i687.2
-  %118 = load i16, ptr %Y19.i, align 8
-  %conv20.i690.2 = sext i16 %118 to i32
+  %122 = load i16, ptr %Y19.i, align 8
+  %conv20.i690.2 = sext i16 %122 to i32
   %cmp21.not.i691.2 = icmp sgt i32 %conv10.i685.2, %conv20.i690.2
   %or.cond39.i692.2 = select i1 %cmp14.not.i688.2, i1 true, i1 %cmp21.not.i691.2
   br i1 %or.cond39.i692.2, label %if.end300.2, label %land.lhs.true22.i693.2
 
 land.lhs.true22.i693.2:                           ; preds = %land.lhs.true9.i684.2
-  %119 = load i16, ptr %Z25.i, align 4, !tbaa !57
-  %cmp27.not.i699.2 = icmp sge i16 %add13.i628, %119
-  %120 = load i16, ptr %Z31.i, align 2
-  %cmp33.i703.2 = icmp sle i16 %add13.i628, %120
+  %123 = load i16, ptr %Z25.i, align 4, !tbaa !57
+  %cmp27.not.i699.2 = icmp sge i16 %add13.i628, %123
+  %124 = load i16, ptr %Z31.i, align 2
+  %cmp33.i703.2 = icmp sle i16 %add13.i628, %124
   %or.cond834.2 = select i1 %cmp27.not.i699.2, i1 %cmp33.i703.2, i1 false
   br i1 %or.cond834.2, label %land.lhs.true.2, label %if.end300.2
 
 land.lhs.true.2:                                  ; preds = %land.lhs.true22.i693.2
-  %121 = load ptr, ptr %m_data, align 8, !tbaa !60
+  %125 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom266.2 = zext i32 %inc301.1 to i64
-  %arrayidx267.2 = getelementptr inbounds %struct.MapNode, ptr %121, i64 %idxprom266.2
-  %122 = load i16, ptr %arrayidx267.2, align 4, !tbaa !68
-  %123 = and i16 %122, -2
-  %switch.2 = icmp eq i16 %123, 126
+  %arrayidx267.2 = getelementptr inbounds %struct.MapNode, ptr %125, i64 %idxprom266.2
+  %126 = load i16, ptr %arrayidx267.2, align 4, !tbaa !68
+  %127 = and i16 %126, -2
+  %switch.2 = icmp eq i16 %127, 126
   br i1 %switch.2, label %if.then277.2, label %if.end300.2
 
 if.then277.2:                                     ; preds = %land.lhs.true.2
   %gep912 = getelementptr i8, ptr %invariant.gep911, i64 %indvars.iv897
-  %124 = load i8, ptr %gep912, align 1, !tbaa !12
-  %cmp281.2 = icmp eq i8 %124, 1
+  %128 = load i8, ptr %gep912, align 1, !tbaa !12
+  %cmp281.2 = icmp eq i8 %128, 1
   br i1 %cmp281.2, label %invoke.cont284.2, label %if.end300.2
 
 invoke.cont284.2:                                 ; preds = %if.then277.2
   %mul.i.i707.2 = mul i32 %pr.sroa.0.4, 1103515245
   %add.i.i708.2 = add i32 %mul.i.i707.2, 12345
   %div.i.i709.2 = sdiv i32 %add.i.i708.2, 65536
-  %125 = trunc nsw i32 %div.i.i709.2 to i16
-  %rem.lhs.trunc.i710.2 = and i16 %125, 32767
+  %129 = trunc nsw i32 %div.i.i709.2 to i16
+  %rem.lhs.trunc.i710.2 = and i16 %129, 32767
   %rem49.i711.2 = urem i16 %rem.lhs.trunc.i710.2, 100
   %cmp286.2 = icmp ult i16 %rem49.i711.2, 10
   %or.cond.2 = and i1 %cmp286.2, %is_apple_tree
@@ -1501,44 +1489,44 @@ if.end300.2:                                      ; preds = %invoke.cont284.2, %
 
 land.lhs.true9.i684.3:                            ; preds = %if.end300.2
   %conv10.i685.3 = ashr i32 %p.sroa.0.0.extract.trunc.i675.3, 16
-  %126 = load i16, ptr %Y12.i, align 2, !tbaa !56
-  %conv13.i687.3 = sext i16 %126 to i32
+  %130 = load i16, ptr %Y12.i, align 2, !tbaa !56
+  %conv13.i687.3 = sext i16 %130 to i32
   %cmp14.not.i688.3 = icmp slt i32 %conv10.i685.3, %conv13.i687.3
-  %127 = load i16, ptr %Y19.i, align 8
-  %conv20.i690.3 = sext i16 %127 to i32
+  %131 = load i16, ptr %Y19.i, align 8
+  %conv20.i690.3 = sext i16 %131 to i32
   %cmp21.not.i691.3 = icmp sgt i32 %conv10.i685.3, %conv20.i690.3
   %or.cond39.i692.3 = select i1 %cmp14.not.i688.3, i1 true, i1 %cmp21.not.i691.3
   br i1 %or.cond39.i692.3, label %if.end300.3, label %land.lhs.true22.i693.3
 
 land.lhs.true22.i693.3:                           ; preds = %land.lhs.true9.i684.3
-  %128 = load i16, ptr %Z25.i, align 4, !tbaa !57
-  %cmp27.not.i699.3 = icmp sge i16 %add13.i628, %128
-  %129 = load i16, ptr %Z31.i, align 2
-  %cmp33.i703.3 = icmp sle i16 %add13.i628, %129
+  %132 = load i16, ptr %Z25.i, align 4, !tbaa !57
+  %cmp27.not.i699.3 = icmp sge i16 %add13.i628, %132
+  %133 = load i16, ptr %Z31.i, align 2
+  %cmp33.i703.3 = icmp sle i16 %add13.i628, %133
   %or.cond834.3 = select i1 %cmp27.not.i699.3, i1 %cmp33.i703.3, i1 false
   br i1 %or.cond834.3, label %land.lhs.true.3, label %if.end300.3
 
 land.lhs.true.3:                                  ; preds = %land.lhs.true22.i693.3
-  %130 = load ptr, ptr %m_data, align 8, !tbaa !60
+  %134 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom266.3 = zext i32 %inc301.2 to i64
-  %arrayidx267.3 = getelementptr inbounds %struct.MapNode, ptr %130, i64 %idxprom266.3
-  %131 = load i16, ptr %arrayidx267.3, align 4, !tbaa !68
-  %132 = and i16 %131, -2
-  %switch.3 = icmp eq i16 %132, 126
+  %arrayidx267.3 = getelementptr inbounds %struct.MapNode, ptr %134, i64 %idxprom266.3
+  %135 = load i16, ptr %arrayidx267.3, align 4, !tbaa !68
+  %136 = and i16 %135, -2
+  %switch.3 = icmp eq i16 %136, 126
   br i1 %switch.3, label %if.then277.3, label %if.end300.3
 
 if.then277.3:                                     ; preds = %land.lhs.true.3
   %gep914 = getelementptr i8, ptr %invariant.gep913, i64 %indvars.iv897
-  %133 = load i8, ptr %gep914, align 1, !tbaa !12
-  %cmp281.3 = icmp eq i8 %133, 1
+  %137 = load i8, ptr %gep914, align 1, !tbaa !12
+  %cmp281.3 = icmp eq i8 %137, 1
   br i1 %cmp281.3, label %invoke.cont284.3, label %if.end300.3
 
 invoke.cont284.3:                                 ; preds = %if.then277.3
   %mul.i.i707.3 = mul i32 %pr.sroa.0.5, 1103515245
   %add.i.i708.3 = add i32 %mul.i.i707.3, 12345
   %div.i.i709.3 = sdiv i32 %add.i.i708.3, 65536
-  %134 = trunc nsw i32 %div.i.i709.3 to i16
-  %rem.lhs.trunc.i710.3 = and i16 %134, 32767
+  %138 = trunc nsw i32 %div.i.i709.3 to i16
+  %rem.lhs.trunc.i710.3 = and i16 %138, 32767
   %rem49.i711.3 = urem i16 %rem.lhs.trunc.i710.3, 100
   %cmp286.3 = icmp ult i16 %rem49.i711.3, 10
   %or.cond.3 = and i1 %cmp286.3, %is_apple_tree
@@ -1566,44 +1554,44 @@ if.end300.3:                                      ; preds = %invoke.cont284.3, %
 
 land.lhs.true9.i684.4:                            ; preds = %if.end300.3
   %conv10.i685.4 = ashr i32 %p.sroa.0.0.extract.trunc.i675.4, 16
-  %135 = load i16, ptr %Y12.i, align 2, !tbaa !56
-  %conv13.i687.4 = sext i16 %135 to i32
+  %139 = load i16, ptr %Y12.i, align 2, !tbaa !56
+  %conv13.i687.4 = sext i16 %139 to i32
   %cmp14.not.i688.4 = icmp slt i32 %conv10.i685.4, %conv13.i687.4
-  %136 = load i16, ptr %Y19.i, align 8
-  %conv20.i690.4 = sext i16 %136 to i32
+  %140 = load i16, ptr %Y19.i, align 8
+  %conv20.i690.4 = sext i16 %140 to i32
   %cmp21.not.i691.4 = icmp sgt i32 %conv10.i685.4, %conv20.i690.4
   %or.cond39.i692.4 = select i1 %cmp14.not.i688.4, i1 true, i1 %cmp21.not.i691.4
   br i1 %or.cond39.i692.4, label %if.end300.4, label %land.lhs.true22.i693.4
 
 land.lhs.true22.i693.4:                           ; preds = %land.lhs.true9.i684.4
-  %137 = load i16, ptr %Z25.i, align 4, !tbaa !57
-  %cmp27.not.i699.4 = icmp sge i16 %add13.i628, %137
-  %138 = load i16, ptr %Z31.i, align 2
-  %cmp33.i703.4 = icmp sle i16 %add13.i628, %138
+  %141 = load i16, ptr %Z25.i, align 4, !tbaa !57
+  %cmp27.not.i699.4 = icmp sge i16 %add13.i628, %141
+  %142 = load i16, ptr %Z31.i, align 2
+  %cmp33.i703.4 = icmp sle i16 %add13.i628, %142
   %or.cond834.4 = select i1 %cmp27.not.i699.4, i1 %cmp33.i703.4, i1 false
   br i1 %or.cond834.4, label %land.lhs.true.4, label %if.end300.4
 
 land.lhs.true.4:                                  ; preds = %land.lhs.true22.i693.4
-  %139 = load ptr, ptr %m_data, align 8, !tbaa !60
+  %143 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom266.4 = zext i32 %inc301.3 to i64
-  %arrayidx267.4 = getelementptr inbounds %struct.MapNode, ptr %139, i64 %idxprom266.4
-  %140 = load i16, ptr %arrayidx267.4, align 4, !tbaa !68
-  %141 = and i16 %140, -2
-  %switch.4 = icmp eq i16 %141, 126
+  %arrayidx267.4 = getelementptr inbounds %struct.MapNode, ptr %143, i64 %idxprom266.4
+  %144 = load i16, ptr %arrayidx267.4, align 4, !tbaa !68
+  %145 = and i16 %144, -2
+  %switch.4 = icmp eq i16 %145, 126
   br i1 %switch.4, label %if.then277.4, label %if.end300.4
 
 if.then277.4:                                     ; preds = %land.lhs.true.4
   %gep916 = getelementptr i8, ptr %invariant.gep915, i64 %indvars.iv897
-  %142 = load i8, ptr %gep916, align 1, !tbaa !12
-  %cmp281.4 = icmp eq i8 %142, 1
+  %146 = load i8, ptr %gep916, align 1, !tbaa !12
+  %cmp281.4 = icmp eq i8 %146, 1
   br i1 %cmp281.4, label %invoke.cont284.4, label %if.end300.4
 
 invoke.cont284.4:                                 ; preds = %if.then277.4
   %mul.i.i707.4 = mul i32 %pr.sroa.0.6, 1103515245
   %add.i.i708.4 = add i32 %mul.i.i707.4, 12345
   %div.i.i709.4 = sdiv i32 %add.i.i708.4, 65536
-  %143 = trunc nsw i32 %div.i.i709.4 to i16
-  %rem.lhs.trunc.i710.4 = and i16 %143, 32767
+  %147 = trunc nsw i32 %div.i.i709.4 to i16
+  %rem.lhs.trunc.i710.4 = and i16 %147, 32767
   %rem49.i711.4 = urem i16 %rem.lhs.trunc.i710.4, 100
   %cmp286.4 = icmp ult i16 %rem49.i711.4, 10
   %or.cond.4 = and i1 %cmp286.4, %is_apple_tree

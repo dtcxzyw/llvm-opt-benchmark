@@ -16405,7 +16405,7 @@ define internal range(i32 0, 152) i32 @tt_size_reset_height(ptr nocapture nounde
   %25 = add nsw i64 %23, 32768
   %26 = add nsw i64 %25, %24
   %27 = shl nsw i64 %26, 16
-  %28 = add i64 %27, 137438953472
+  %28 = add nsw i64 %27, 137438953472
   %sext19 = ashr i64 %28, 32
   %29 = and i64 %sext19, -64
   %30 = getelementptr inbounds i8, ptr %0, i64 120
@@ -16418,7 +16418,7 @@ define internal range(i32 0, 152) i32 @tt_size_reset_height(ptr nocapture nounde
   %36 = add nsw i64 %34, 32768
   %37 = add nsw i64 %36, %35
   %38 = shl nsw i64 %37, 16
-  %39 = add i64 %38, 137438953472
+  %39 = add nsw i64 %38, 137438953472
   %sext20 = ashr i64 %39, 32
   %40 = and i64 %sext20, -64
   %41 = getelementptr inbounds i8, ptr %0, i64 128
@@ -16431,7 +16431,7 @@ define internal range(i32 0, 152) i32 @tt_size_reset_height(ptr nocapture nounde
   %47 = add nsw i64 %45, 32768
   %48 = add nsw i64 %47, %46
   %49 = shl nsw i64 %48, 16
-  %50 = add i64 %49, 137438953472
+  %50 = add nsw i64 %49, 137438953472
   %sext21 = ashr i64 %50, 32
   %51 = and i64 %sext21, -64
   %52 = getelementptr inbounds i8, ptr %0, i64 136
@@ -21021,7 +21021,7 @@ define internal fastcc range(i32 0, 152) i32 @tt_size_reset(ptr noundef %0) unna
   %25 = add nsw i64 %23, 32768
   %26 = add nsw i64 %25, %24
   %27 = shl nsw i64 %26, 16
-  %28 = add i64 %27, 137438953472
+  %28 = add nsw i64 %27, 137438953472
   %sext19.i = ashr i64 %28, 32
   %29 = and i64 %sext19.i, -64
   %30 = getelementptr inbounds i8, ptr %0, i64 120
@@ -21034,7 +21034,7 @@ define internal fastcc range(i32 0, 152) i32 @tt_size_reset(ptr noundef %0) unna
   %36 = add nsw i64 %34, 32768
   %37 = add nsw i64 %36, %35
   %38 = shl nsw i64 %37, 16
-  %39 = add i64 %38, 137438953472
+  %39 = add nsw i64 %38, 137438953472
   %sext20.i = ashr i64 %39, 32
   %40 = and i64 %sext20.i, -64
   %41 = getelementptr inbounds i8, ptr %0, i64 128
@@ -21047,7 +21047,7 @@ define internal fastcc range(i32 0, 152) i32 @tt_size_reset(ptr noundef %0) unna
   %47 = add nsw i64 %45, 32768
   %48 = add nsw i64 %47, %46
   %49 = shl nsw i64 %48, 16
-  %50 = add i64 %49, 137438953472
+  %50 = add nsw i64 %49, 137438953472
   %sext21.i = ashr i64 %50, 32
   %51 = and i64 %sext21.i, -64
   %52 = getelementptr inbounds i8, ptr %0, i64 136
@@ -21089,7 +21089,7 @@ define internal fastcc range(i32 0, 152) i32 @tt_size_reset(ptr noundef %0) unna
   %78 = add nsw i64 %76, 32768
   %79 = add nsw i64 %78, %77
   %80 = shl nsw i64 %79, 16
-  %81 = add i64 %80, 137438953472
+  %81 = add nsw i64 %80, 137438953472
   %sext46 = ashr i64 %81, 32
   %82 = and i64 %sext46, -64
   %83 = getelementptr inbounds i8, ptr %0, i64 144

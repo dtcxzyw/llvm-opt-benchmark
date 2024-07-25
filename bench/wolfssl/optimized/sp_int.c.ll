@@ -7066,7 +7066,11 @@ while.body20.preheader.i.i:                       ; preds = %if.else.i115.i
 if.then11.i.i:                                    ; preds = %if.else.i115.i
   %add.i.i = add nuw nsw i32 %mul.i116.i, 64
   %cmp1327.i.i = icmp sgt i64 %36, -1
-  br i1 %cmp1327.i.i, label %while.body14.i.i, label %sp_count_bits.exit.i
+  br i1 %cmp1327.i.i, label %while.body14.i.i, label %sp_count_bits.exit.thread259.i
+
+sp_count_bits.exit.thread259.i:                   ; preds = %if.then11.i.i
+  %sub114261.i = or disjoint i32 %mul.i116.i, 62
+  br label %land.lhs.true.i118.lr.ph.i
 
 while.body14.i.i:                                 ; preds = %if.then11.i.i, %while.body14.i.i
   %d.029.i.i = phi i64 [ %shl.i.i, %while.body14.i.i ], [ %36, %if.then11.i.i ]
@@ -7076,15 +7080,20 @@ while.body14.i.i:                                 ; preds = %if.then11.i.i, %whi
   %cmp13.i.i = icmp sgt i64 %shl.i.i, -1
   br i1 %cmp13.i.i, label %while.body14.i.i, label %sp_count_bits.exit.i, !llvm.loop !13
 
-sp_count_bits.exit.i:                             ; preds = %while.body14.i.i, %if.then11.i.i, %while.body20.preheader.i.i
-  %n.4.i.i = phi i32 [ %add.i.i, %if.then11.i.i ], [ %39, %while.body20.preheader.i.i ], [ %dec15.i.i, %while.body14.i.i ]
+sp_count_bits.exit.i:                             ; preds = %while.body14.i.i, %while.body20.preheader.i.i
+  %n.4.i.i = phi i32 [ %39, %while.body20.preheader.i.i ], [ %dec15.i.i, %while.body14.i.i ]
   %sub114.i = add nsw i32 %n.4.i.i, -2
   %cmp116211.i = icmp sgt i32 %n.4.i.i, 1
-  br i1 %cmp116211.i, label %land.lhs.true.i118.i, label %for.end126.i
+  br i1 %cmp116211.i, label %land.lhs.true.i118.lr.ph.i, label %for.end126.i
 
-land.lhs.true.i118.i:                             ; preds = %sp_count_bits.exit.i, %for.inc124.i
-  %j.0213.i = phi i32 [ %inc125.i, %for.inc124.i ], [ 1, %sp_count_bits.exit.i ]
-  %i.1212.i = phi i32 [ %dec.i, %for.inc124.i ], [ %sub114.i, %sp_count_bits.exit.i ]
+land.lhs.true.i118.lr.ph.i:                       ; preds = %sp_count_bits.exit.i, %sp_count_bits.exit.thread259.i
+  %sub114264.i = phi i32 [ %sub114261.i, %sp_count_bits.exit.thread259.i ], [ %sub114.i, %sp_count_bits.exit.i ]
+  %n.4.i263.i = phi i32 [ %add.i.i, %sp_count_bits.exit.thread259.i ], [ %n.4.i.i, %sp_count_bits.exit.i ]
+  br label %land.lhs.true.i118.i
+
+land.lhs.true.i118.i:                             ; preds = %for.inc124.i, %land.lhs.true.i118.lr.ph.i
+  %j.0213.i = phi i32 [ 1, %land.lhs.true.i118.lr.ph.i ], [ %inc125.i, %for.inc124.i ]
+  %i.1212.i = phi i32 [ %sub114264.i, %land.lhs.true.i118.lr.ph.i ], [ %dec.i, %for.inc124.i ]
   %shr.i.i = lshr i32 %i.1212.i, 6
   %cmp1.i.i = icmp ult i32 %shr.i.i, %ii.0.in.lcssa.i178.i
   br i1 %cmp1.i.i, label %sp_is_bit_set.exit.i, label %for.end126.loopexit.i
@@ -7105,12 +7114,12 @@ sp_is_bit_set.exit.i:                             ; preds = %land.lhs.true.i118.
 for.inc124.i:                                     ; preds = %sp_is_bit_set.exit.i
   %dec.i = add nsw i32 %i.1212.i, -1
   %inc125.i = add nuw nsw i32 %j.0213.i, 1
-  %exitcond244.not.i = icmp eq i32 %inc125.i, %n.4.i.i
+  %exitcond244.not.i = icmp eq i32 %inc125.i, %n.4.i263.i
   br i1 %exitcond244.not.i, label %for.end126.loopexit.i, label %land.lhs.true.i118.i, !llvm.loop !68
 
 for.end126.loopexit.i:                            ; preds = %for.inc124.i, %sp_is_bit_set.exit.i, %land.lhs.true.i118.i
   %i.1.lcssa.ph.i = phi i32 [ -1, %for.inc124.i ], [ %i.1212.i, %sp_is_bit_set.exit.i ], [ %i.1212.i, %land.lhs.true.i118.i ]
-  %j.0.lcssa.ph.i = phi i32 [ %n.4.i.i, %for.inc124.i ], [ %j.0213.i, %sp_is_bit_set.exit.i ], [ %j.0213.i, %land.lhs.true.i118.i ]
+  %j.0.lcssa.ph.i = phi i32 [ %n.4.i263.i, %for.inc124.i ], [ %j.0213.i, %sp_is_bit_set.exit.i ], [ %j.0213.i, %land.lhs.true.i118.i ]
   %43 = add nsw i32 %j.0.lcssa.ph.i, -1
   %44 = sext i32 %43 to i64
   %arrayidx129.i.phi.trans.insert = getelementptr inbounds [10 x ptr], ptr %pre.i, i64 0, i64 %44

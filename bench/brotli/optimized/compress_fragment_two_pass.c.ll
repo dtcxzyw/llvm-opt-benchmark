@@ -273,8 +273,8 @@ if.then11.i184.i:                                 ; preds = %if.else8.i.i
   %shl19.i.neg.i = shl nsw i32 -1, %xor.i.i.i
   %sub20.i.i = add nsw i32 %shl19.i.neg.i, %sub13.i.i
   %shl21.i.i = shl nsw i32 %sub20.i.i, 8
-  %reass.sub5947 = sub i32 %shl21.i.i, %8
-  %or22.i.i = add i32 %reass.sub5947, 41
+  %reass.sub5947 = sub nsw i32 %shl21.i.i, %8
+  %or22.i.i = add nsw i32 %reass.sub5947, 41
   br label %EmitInsertLen.exit.i
 
 if.else23.i.i:                                    ; preds = %if.else8.i.i
@@ -700,8 +700,8 @@ if.then11.i235.i:                                 ; preds = %if.else8.i212.i
   %shl19.i241.neg.i = shl nsw i32 -1, %xor.i.i239.i
   %sub20.i242.i = add nsw i32 %shl19.i241.neg.i, %sub13.i236.i
   %shl21.i243.i = shl nsw i32 %sub20.i242.i, 8
-  %reass.sub5950 = sub i32 %shl21.i243.i, %35
-  %or22.i244.i = add i32 %reass.sub5950, 41
+  %reass.sub5950 = sub nsw i32 %shl21.i243.i, %35
+  %or22.i244.i = add nsw i32 %reass.sub5950, 41
   br label %EmitInsertLen.exit260.i
 
 if.else23.i214.i:                                 ; preds = %if.else8.i212.i
@@ -1115,8 +1115,8 @@ if.then11.i184.i596:                              ; preds = %if.else8.i.i340
   %shl19.i.neg.i599 = shl nsw i32 -1, %xor.i.i.i598
   %sub20.i.i600 = add nsw i32 %shl19.i.neg.i599, %sub13.i.i597
   %shl21.i.i601 = shl nsw i32 %sub20.i.i600, 8
-  %reass.sub5943 = sub i32 %shl21.i.i601, %63
-  %or22.i.i603 = add i32 %reass.sub5943, 41
+  %reass.sub5943 = sub nsw i32 %shl21.i.i601, %63
+  %or22.i.i603 = add nsw i32 %reass.sub5943, 41
   br label %EmitInsertLen.exit.i349
 
 if.else23.i.i342:                                 ; preds = %if.else8.i.i340
@@ -1542,8 +1542,8 @@ if.then11.i235.i233:                              ; preds = %if.else8.i212.i214
   %shl19.i241.neg.i236 = shl nsw i32 -1, %xor.i.i239.i235
   %sub20.i242.i237 = add nsw i32 %shl19.i241.neg.i236, %sub13.i236.i234
   %shl21.i243.i238 = shl nsw i32 %sub20.i242.i237, 8
-  %reass.sub5946 = sub i32 %shl21.i243.i238, %90
-  %or22.i244.i240 = add i32 %reass.sub5946, 41
+  %reass.sub5946 = sub nsw i32 %shl21.i243.i238, %90
+  %or22.i244.i240 = add nsw i32 %reass.sub5946, 41
   br label %EmitInsertLen.exit260.i223
 
 if.else23.i214.i216:                              ; preds = %if.else8.i212.i214
@@ -1957,8 +1957,8 @@ if.then11.i184.i1178:                             ; preds = %if.else8.i.i922
   %shl19.i.neg.i1181 = shl nsw i32 -1, %xor.i.i.i1180
   %sub20.i.i1182 = add nsw i32 %shl19.i.neg.i1181, %sub13.i.i1179
   %shl21.i.i1183 = shl nsw i32 %sub20.i.i1182, 8
-  %reass.sub5939 = sub i32 %shl21.i.i1183, %118
-  %or22.i.i1185 = add i32 %reass.sub5939, 41
+  %reass.sub5939 = sub nsw i32 %shl21.i.i1183, %118
+  %or22.i.i1185 = add nsw i32 %reass.sub5939, 41
   br label %EmitInsertLen.exit.i931
 
 if.else23.i.i924:                                 ; preds = %if.else8.i.i922
@@ -2384,8 +2384,8 @@ if.then11.i235.i815:                              ; preds = %if.else8.i212.i796
   %shl19.i241.neg.i818 = shl nsw i32 -1, %xor.i.i239.i817
   %sub20.i242.i819 = add nsw i32 %shl19.i241.neg.i818, %sub13.i236.i816
   %shl21.i243.i820 = shl nsw i32 %sub20.i242.i819, 8
-  %reass.sub5942 = sub i32 %shl21.i243.i820, %145
-  %or22.i244.i822 = add i32 %reass.sub5942, 41
+  %reass.sub5942 = sub nsw i32 %shl21.i243.i820, %145
+  %or22.i244.i822 = add nsw i32 %reass.sub5942, 41
   br label %EmitInsertLen.exit260.i805
 
 if.else23.i214.i798:                              ; preds = %if.else8.i212.i796
@@ -2799,8 +2799,8 @@ if.then11.i184.i1760:                             ; preds = %if.else8.i.i1504
   %shl19.i.neg.i1763 = shl nsw i32 -1, %xor.i.i.i1762
   %sub20.i.i1764 = add nsw i32 %shl19.i.neg.i1763, %sub13.i.i1761
   %shl21.i.i1765 = shl nsw i32 %sub20.i.i1764, 8
-  %reass.sub5935 = sub i32 %shl21.i.i1765, %173
-  %or22.i.i1767 = add i32 %reass.sub5935, 41
+  %reass.sub5935 = sub nsw i32 %shl21.i.i1765, %173
+  %or22.i.i1767 = add nsw i32 %reass.sub5935, 41
   br label %EmitInsertLen.exit.i1513
 
 if.else23.i.i1506:                                ; preds = %if.else8.i.i1504
@@ -3226,8 +3226,8 @@ if.then11.i235.i1397:                             ; preds = %if.else8.i212.i1378
   %shl19.i241.neg.i1400 = shl nsw i32 -1, %xor.i.i239.i1399
   %sub20.i242.i1401 = add nsw i32 %shl19.i241.neg.i1400, %sub13.i236.i1398
   %shl21.i243.i1402 = shl nsw i32 %sub20.i242.i1401, 8
-  %reass.sub5938 = sub i32 %shl21.i243.i1402, %200
-  %or22.i244.i1404 = add i32 %reass.sub5938, 41
+  %reass.sub5938 = sub nsw i32 %shl21.i243.i1402, %200
+  %or22.i244.i1404 = add nsw i32 %reass.sub5938, 41
   br label %EmitInsertLen.exit260.i1387
 
 if.else23.i214.i1380:                             ; preds = %if.else8.i212.i1378
@@ -3641,8 +3641,8 @@ if.then11.i184.i2342:                             ; preds = %if.else8.i.i2086
   %shl19.i.neg.i2345 = shl nsw i32 -1, %xor.i.i.i2344
   %sub20.i.i2346 = add nsw i32 %shl19.i.neg.i2345, %sub13.i.i2343
   %shl21.i.i2347 = shl nsw i32 %sub20.i.i2346, 8
-  %reass.sub5931 = sub i32 %shl21.i.i2347, %228
-  %or22.i.i2349 = add i32 %reass.sub5931, 41
+  %reass.sub5931 = sub nsw i32 %shl21.i.i2347, %228
+  %or22.i.i2349 = add nsw i32 %reass.sub5931, 41
   br label %EmitInsertLen.exit.i2095
 
 if.else23.i.i2088:                                ; preds = %if.else8.i.i2086
@@ -4068,8 +4068,8 @@ if.then11.i235.i1979:                             ; preds = %if.else8.i212.i1960
   %shl19.i241.neg.i1982 = shl nsw i32 -1, %xor.i.i239.i1981
   %sub20.i242.i1983 = add nsw i32 %shl19.i241.neg.i1982, %sub13.i236.i1980
   %shl21.i243.i1984 = shl nsw i32 %sub20.i242.i1983, 8
-  %reass.sub5934 = sub i32 %shl21.i243.i1984, %255
-  %or22.i244.i1986 = add i32 %reass.sub5934, 41
+  %reass.sub5934 = sub nsw i32 %shl21.i243.i1984, %255
+  %or22.i244.i1986 = add nsw i32 %reass.sub5934, 41
   br label %EmitInsertLen.exit260.i1969
 
 if.else23.i214.i1962:                             ; preds = %if.else8.i212.i1960
@@ -4483,8 +4483,8 @@ if.then11.i184.i2924:                             ; preds = %if.else8.i.i2668
   %shl19.i.neg.i2927 = shl nsw i32 -1, %xor.i.i.i2926
   %sub20.i.i2928 = add nsw i32 %shl19.i.neg.i2927, %sub13.i.i2925
   %shl21.i.i2929 = shl nsw i32 %sub20.i.i2928, 8
-  %reass.sub5927 = sub i32 %shl21.i.i2929, %283
-  %or22.i.i2931 = add i32 %reass.sub5927, 41
+  %reass.sub5927 = sub nsw i32 %shl21.i.i2929, %283
+  %or22.i.i2931 = add nsw i32 %reass.sub5927, 41
   br label %EmitInsertLen.exit.i2677
 
 if.else23.i.i2670:                                ; preds = %if.else8.i.i2668
@@ -4910,8 +4910,8 @@ if.then11.i235.i2561:                             ; preds = %if.else8.i212.i2542
   %shl19.i241.neg.i2564 = shl nsw i32 -1, %xor.i.i239.i2563
   %sub20.i242.i2565 = add nsw i32 %shl19.i241.neg.i2564, %sub13.i236.i2562
   %shl21.i243.i2566 = shl nsw i32 %sub20.i242.i2565, 8
-  %reass.sub5930 = sub i32 %shl21.i243.i2566, %310
-  %or22.i244.i2568 = add i32 %reass.sub5930, 41
+  %reass.sub5930 = sub nsw i32 %shl21.i243.i2566, %310
+  %or22.i244.i2568 = add nsw i32 %reass.sub5930, 41
   br label %EmitInsertLen.exit260.i2551
 
 if.else23.i214.i2544:                             ; preds = %if.else8.i212.i2542
@@ -5325,8 +5325,8 @@ if.then11.i184.i3506:                             ; preds = %if.else8.i.i3250
   %shl19.i.neg.i3509 = shl nsw i32 -1, %xor.i.i.i3508
   %sub20.i.i3510 = add nsw i32 %shl19.i.neg.i3509, %sub13.i.i3507
   %shl21.i.i3511 = shl nsw i32 %sub20.i.i3510, 8
-  %reass.sub5923 = sub i32 %shl21.i.i3511, %338
-  %or22.i.i3513 = add i32 %reass.sub5923, 41
+  %reass.sub5923 = sub nsw i32 %shl21.i.i3511, %338
+  %or22.i.i3513 = add nsw i32 %reass.sub5923, 41
   br label %EmitInsertLen.exit.i3259
 
 if.else23.i.i3252:                                ; preds = %if.else8.i.i3250
@@ -5752,8 +5752,8 @@ if.then11.i235.i3143:                             ; preds = %if.else8.i212.i3124
   %shl19.i241.neg.i3146 = shl nsw i32 -1, %xor.i.i239.i3145
   %sub20.i242.i3147 = add nsw i32 %shl19.i241.neg.i3146, %sub13.i236.i3144
   %shl21.i243.i3148 = shl nsw i32 %sub20.i242.i3147, 8
-  %reass.sub5926 = sub i32 %shl21.i243.i3148, %365
-  %or22.i244.i3150 = add i32 %reass.sub5926, 41
+  %reass.sub5926 = sub nsw i32 %shl21.i243.i3148, %365
+  %or22.i244.i3150 = add nsw i32 %reass.sub5926, 41
   br label %EmitInsertLen.exit260.i3133
 
 if.else23.i214.i3126:                             ; preds = %if.else8.i212.i3124
@@ -6167,8 +6167,8 @@ if.then11.i184.i4088:                             ; preds = %if.else8.i.i3832
   %shl19.i.neg.i4091 = shl nsw i32 -1, %xor.i.i.i4090
   %sub20.i.i4092 = add nsw i32 %shl19.i.neg.i4091, %sub13.i.i4089
   %shl21.i.i4093 = shl nsw i32 %sub20.i.i4092, 8
-  %reass.sub5919 = sub i32 %shl21.i.i4093, %393
-  %or22.i.i4095 = add i32 %reass.sub5919, 41
+  %reass.sub5919 = sub nsw i32 %shl21.i.i4093, %393
+  %or22.i.i4095 = add nsw i32 %reass.sub5919, 41
   br label %EmitInsertLen.exit.i3841
 
 if.else23.i.i3834:                                ; preds = %if.else8.i.i3832
@@ -6594,8 +6594,8 @@ if.then11.i235.i3725:                             ; preds = %if.else8.i212.i3706
   %shl19.i241.neg.i3728 = shl nsw i32 -1, %xor.i.i239.i3727
   %sub20.i242.i3729 = add nsw i32 %shl19.i241.neg.i3728, %sub13.i236.i3726
   %shl21.i243.i3730 = shl nsw i32 %sub20.i242.i3729, 8
-  %reass.sub5922 = sub i32 %shl21.i243.i3730, %420
-  %or22.i244.i3732 = add i32 %reass.sub5922, 41
+  %reass.sub5922 = sub nsw i32 %shl21.i243.i3730, %420
+  %or22.i244.i3732 = add nsw i32 %reass.sub5922, 41
   br label %EmitInsertLen.exit260.i3715
 
 if.else23.i214.i3708:                             ; preds = %if.else8.i212.i3706
@@ -7070,8 +7070,8 @@ if.then11.i184.i4593:                             ; preds = %if.else8.i.i4399
   %shl19.i.neg.i4596 = shl nsw i32 -1, %xor.i.i.i4595
   %sub20.i.i4597 = add nsw i32 %shl19.i.neg.i4596, %sub13.i.i4594
   %shl21.i.i4598 = shl nsw i32 %sub20.i.i4597, 8
-  %reass.sub5915 = sub i32 %shl21.i.i4598, %462
-  %or22.i.i4599 = add i32 %reass.sub5915, 41
+  %reass.sub5915 = sub nsw i32 %shl21.i.i4598, %462
+  %or22.i.i4599 = add nsw i32 %reass.sub5915, 41
   br label %EmitInsertLen.exit.i4408
 
 if.else23.i.i4401:                                ; preds = %if.else8.i.i4399
@@ -7552,8 +7552,8 @@ if.then11.i235.i4304:                             ; preds = %if.else8.i212.i4285
   %shl19.i241.neg.i4307 = shl nsw i32 -1, %xor.i.i239.i4306
   %sub20.i242.i4308 = add nsw i32 %shl19.i241.neg.i4307, %sub13.i236.i4305
   %shl21.i243.i4309 = shl nsw i32 %sub20.i242.i4308, 8
-  %reass.sub5918 = sub i32 %shl21.i243.i4309, %493
-  %or22.i244.i4310 = add i32 %reass.sub5918, 41
+  %reass.sub5918 = sub nsw i32 %shl21.i243.i4309, %493
+  %or22.i244.i4310 = add nsw i32 %reass.sub5918, 41
   br label %EmitInsertLen.exit260.i4294
 
 if.else23.i214.i4287:                             ; preds = %if.else8.i212.i4285
@@ -8028,8 +8028,8 @@ if.then11.i184.i5175:                             ; preds = %if.else8.i.i4885
   %shl19.i.neg.i5178 = shl nsw i32 -1, %xor.i.i.i5177
   %sub20.i.i5179 = add nsw i32 %shl19.i.neg.i5178, %sub13.i.i5176
   %shl21.i.i5180 = shl nsw i32 %sub20.i.i5179, 8
-  %reass.sub = sub i32 %shl21.i.i5180, %535
-  %or22.i.i5182 = add i32 %reass.sub, 41
+  %reass.sub = sub nsw i32 %shl21.i.i5180, %535
+  %or22.i.i5182 = add nsw i32 %reass.sub, 41
   br label %EmitInsertLen.exit.i4894
 
 if.else23.i.i4887:                                ; preds = %if.else8.i.i4885
@@ -8510,8 +8510,8 @@ if.then11.i235.i4776:                             ; preds = %if.else8.i212.i4757
   %shl19.i241.neg.i4779 = shl nsw i32 -1, %xor.i.i239.i4778
   %sub20.i242.i4780 = add nsw i32 %shl19.i241.neg.i4779, %sub13.i236.i4777
   %shl21.i243.i4781 = shl nsw i32 %sub20.i242.i4780, 8
-  %reass.sub5914 = sub i32 %shl21.i243.i4781, %566
-  %or22.i244.i4783 = add i32 %reass.sub5914, 41
+  %reass.sub5914 = sub nsw i32 %shl21.i243.i4781, %566
+  %or22.i244.i4783 = add nsw i32 %reass.sub5914, 41
   br label %EmitInsertLen.exit260.i4766
 
 if.else23.i214.i4759:                             ; preds = %if.else8.i212.i4757

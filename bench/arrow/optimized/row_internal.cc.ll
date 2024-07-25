@@ -1446,7 +1446,7 @@ if.end:                                           ; preds = %entry
 while.cond:                                       ; preds = %while.cond, %if.end
   %rows_capacity_new.0 = phi i64 [ %.sroa.speculated, %if.end ], [ %mul7, %while.cond ]
   %cmp6 = icmp slt i64 %rows_capacity_new.0, %add
-  %mul7 = shl nsw i64 %rows_capacity_new.0, 1
+  %mul7 = shl nuw nsw i64 %rows_capacity_new.0, 1
   br i1 %cmp6, label %while.cond, label %_ZN5arrow6StatusD2Ev.exit, !llvm.loop !36
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %while.cond
@@ -1535,8 +1535,8 @@ _ZN5arrow6StatusD2Ev.exit188:                     ; preds = %do.end20
   %fixed_length.i = getelementptr inbounds i8, ptr %this, i64 12
   %26 = load i32, ptr %fixed_length.i, align 4
   %conv.i150 = zext i32 %26 to i64
-  %mul.i151 = mul nsw i64 %rows_capacity_new.0, %conv.i150
-  %add.i152 = add nsw i64 %mul.i151, 64
+  %mul.i151 = mul nuw nsw i64 %rows_capacity_new.0, %conv.i150
+  %add.i152 = add nuw nsw i64 %mul.i151, 64
   %vtable73 = load ptr, ptr %25, align 8
   %vfn74 = getelementptr inbounds i8, ptr %vtable73, i64 24
   %27 = load ptr, ptr %vfn74, align 8
@@ -1570,7 +1570,7 @@ do.end95:                                         ; preds = %_ZN5arrow6StatusD2E
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr101, i8 0, i64 %sub105, i1 false)
   %37 = load i32, ptr %fixed_length.i, align 4
   %conv.i245 = zext i32 %37 to i64
-  %mul.i246 = mul nsw i64 %rows_capacity_new.0, %conv.i245
+  %mul.i246 = mul nuw nsw i64 %rows_capacity_new.0, %conv.i245
   %bytes_capacity_ = getelementptr inbounds i8, ptr %this, i64 192
   store i64 %mul.i246, ptr %bytes_capacity_, align 8
   br label %if.end108
@@ -1684,13 +1684,13 @@ if.end:                                           ; preds = %lor.lhs.false
 while.cond:                                       ; preds = %while.cond, %if.end
   %bytes_capacity_new.0 = phi i64 [ %.sroa.speculated, %if.end ], [ %mul7, %while.cond ]
   %cmp6 = icmp slt i64 %bytes_capacity_new.0, %add
-  %mul7 = shl nsw i64 %bytes_capacity_new.0, 1
+  %mul7 = shl nuw nsw i64 %bytes_capacity_new.0, 1
   br i1 %cmp6, label %while.cond, label %_ZN5arrow6StatusD2Ev.exit, !llvm.loop !46
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %while.cond
   %rows_ = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load ptr, ptr %rows_, align 8
-  %add.i = add nsw i64 %bytes_capacity_new.0, 64
+  %add.i = add nuw nsw i64 %bytes_capacity_new.0, 64
   %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %6 = load ptr, ptr %vfn, align 8

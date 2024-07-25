@@ -55,37 +55,36 @@ tuplehash_compute_size.exit:                      ; preds = %3
   %23 = tail call ptr @MemoryContextAllocExtended(ptr noundef %0, i64 noundef %18, i32 noundef 5) #14
   %24 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %23, ptr %24, align 8
-  %25 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %25)
-  %27 = icmp ult i64 %26, 2
-  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
-  %29 = sub nuw nsw i64 64, %28
-  %30 = shl nuw i64 1, %29
-  %.0.i.i.i = select i1 %27, i64 %25, i64 %30
-  %31 = mul i64 %.0.i.i.i, 24
-  %32 = icmp ugt i64 %31, 9223372036854775806
-  br i1 %32, label %33, label %tuplehash_update_parameters.exit
+  %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i)
+  %26 = icmp ult i64 %25, 2
+  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i, i1 true)
+  %28 = sub nuw nsw i64 64, %27
+  %29 = shl nuw i64 1, %28
+  %.0.i.i.i = select i1 %26, i64 %.0.i.i, i64 %29
+  %30 = mul i64 %.0.i.i.i, 24
+  %31 = icmp ugt i64 %30, 9223372036854775806
+  br i1 %31, label %32, label %tuplehash_update_parameters.exit
 
-33:                                               ; preds = %tuplehash_compute_size.exit
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
+32:                                               ; preds = %tuplehash_compute_size.exit
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %33)
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.tuplehash_compute_size) #14
   unreachable
 
 tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_size.exit
   store i64 %.0.i.i.i, ptr %4, align 8
-  %36 = trunc i64 %.0.i.i.i to i32
-  %37 = add i32 %36, -1
-  %38 = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 %37, ptr %38, align 4
-  %39 = icmp eq i64 %.0.i.i.i, 4294967296
-  %40 = uitofp i64 %.0.i.i.i to double
-  %41 = fmul double %40, 9.000000e-01
-  %42 = fptoui double %41 to i32
-  %.sink.i = select i1 %39, i32 -85899346, i32 %42
-  %43 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 %.sink.i, ptr %43, align 8
+  %35 = trunc i64 %.0.i.i.i to i32
+  %36 = add i32 %35, -1
+  %37 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %36, ptr %37, align 4
+  %38 = icmp eq i64 %.0.i.i.i, 4294967296
+  %39 = uitofp i64 %.0.i.i.i to double
+  %40 = fmul double %39, 9.000000e-01
+  %41 = fptoui double %40 to i32
+  %.sink.i = select i1 %38, i32 -85899346, i32 %41
+  %42 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %.sink.i, ptr %42, align 8
   ret ptr %4
 }
 
@@ -145,108 +144,107 @@ tuplehash_compute_size.exit:                      ; preds = %2
   %.val = load ptr, ptr %17, align 8
   %18 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val, i64 noundef %12, i32 noundef 5) #14
   store ptr %18, ptr %4, align 8
-  %19 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
-  %21 = icmp ult i64 %20, 2
-  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
-  %23 = sub nuw nsw i64 64, %22
-  %24 = shl nuw i64 1, %23
-  %.0.i.i.i = select i1 %21, i64 %19, i64 %24
-  %25 = mul i64 %.0.i.i.i, 24
-  %26 = icmp ugt i64 %25, 9223372036854775806
-  br i1 %26, label %27, label %tuplehash_update_parameters.exit
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i)
+  %20 = icmp ult i64 %19, 2
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i, i1 true)
+  %22 = sub nuw nsw i64 64, %21
+  %23 = shl nuw i64 1, %22
+  %.0.i.i.i = select i1 %20, i64 %.0.i.i, i64 %23
+  %24 = mul i64 %.0.i.i.i, 24
+  %25 = icmp ugt i64 %24, 9223372036854775806
+  br i1 %25, label %26, label %tuplehash_update_parameters.exit
 
-27:                                               ; preds = %tuplehash_compute_size.exit
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
+26:                                               ; preds = %tuplehash_compute_size.exit
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %27)
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.tuplehash_compute_size) #14
   unreachable
 
 tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_size.exit
   store i64 %.0.i.i.i, ptr %0, align 8
-  %30 = trunc i64 %.0.i.i.i to i32
-  %31 = add i32 %30, -1
-  %32 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %31, ptr %32, align 4
-  %33 = icmp eq i64 %.0.i.i.i, 4294967296
-  %34 = uitofp i64 %.0.i.i.i to double
-  %35 = fmul double %34, 9.000000e-01
-  %36 = fptoui double %35 to i32
-  %.sink.i = select i1 %33, i32 -85899346, i32 %36
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %.sink.i, ptr %37, align 8
+  %29 = trunc i64 %.0.i.i.i to i32
+  %30 = add i32 %29, -1
+  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %30, ptr %31, align 4
+  %32 = icmp eq i64 %.0.i.i.i, 4294967296
+  %33 = uitofp i64 %.0.i.i.i to double
+  %34 = fmul double %33, 9.000000e-01
+  %35 = fptoui double %34 to i32
+  %.sink.i = select i1 %32, i32 -85899346, i32 %35
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %.sink.i, ptr %36, align 8
   %.not68 = icmp eq i64 %3, 0
   br i1 %.not68, label %._crit_edge67, label %.lr.ph
 
-.lr.ph:                                           ; preds = %tuplehash_update_parameters.exit, %46
-  %38 = phi i64 [ %48, %46 ], [ 0, %tuplehash_update_parameters.exit ]
-  %.058 = phi i32 [ %47, %46 ], [ 0, %tuplehash_update_parameters.exit ]
-  %39 = getelementptr %struct.TupleHashEntryData, ptr %5, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
-  %41 = load i32, ptr %40, align 8
-  %.not = icmp eq i32 %41, 1
-  br i1 %.not, label %42, label %.lr.ph66.preheader
+.lr.ph:                                           ; preds = %tuplehash_update_parameters.exit, %45
+  %37 = phi i64 [ %47, %45 ], [ 0, %tuplehash_update_parameters.exit ]
+  %.058 = phi i32 [ %46, %45 ], [ 0, %tuplehash_update_parameters.exit ]
+  %38 = getelementptr %struct.TupleHashEntryData, ptr %5, i64 %37
+  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = load i32, ptr %39, align 8
+  %.not = icmp eq i32 %40, 1
+  br i1 %.not, label %41, label %.lr.ph66.preheader
 
-42:                                               ; preds = %.lr.ph
-  %43 = getelementptr i8, ptr %39, i64 20
-  %.val53 = load i32, ptr %43, align 4
-  %44 = and i32 %.val53, %31
-  %45 = icmp eq i32 %44, %.058
-  br i1 %45, label %.lr.ph66.preheader, label %46
+41:                                               ; preds = %.lr.ph
+  %42 = getelementptr i8, ptr %38, i64 20
+  %.val53 = load i32, ptr %42, align 4
+  %43 = and i32 %.val53, %30
+  %44 = icmp eq i32 %43, %.058
+  br i1 %44, label %.lr.ph66.preheader, label %45
 
-46:                                               ; preds = %42
-  %47 = add i32 %.058, 1
-  %48 = zext i32 %47 to i64
-  %49 = icmp ugt i64 %3, %48
-  br i1 %49, label %.lr.ph, label %.lr.ph66.preheader, !llvm.loop !5
+45:                                               ; preds = %41
+  %46 = add i32 %.058, 1
+  %47 = zext i32 %46 to i64
+  %48 = icmp ugt i64 %3, %47
+  br i1 %48, label %.lr.ph, label %.lr.ph66.preheader, !llvm.loop !5
 
-.lr.ph66.preheader:                               ; preds = %46, %.lr.ph, %42
-  %.04963.ph = phi i32 [ %.058, %42 ], [ %.058, %.lr.ph ], [ 0, %46 ]
+.lr.ph66.preheader:                               ; preds = %45, %.lr.ph, %41
+  %.04963.ph = phi i32 [ %.058, %41 ], [ %.058, %.lr.ph ], [ 0, %45 ]
   br label %.lr.ph66
 
-.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %65
-  %.164 = phi i32 [ %68, %65 ], [ 0, %.lr.ph66.preheader ]
-  %.04963 = phi i32 [ %spec.store.select, %65 ], [ %.04963.ph, %.lr.ph66.preheader ]
-  %50 = zext i32 %.04963 to i64
-  %51 = getelementptr %struct.TupleHashEntryData, ptr %5, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, 1
-  br i1 %54, label %55, label %65
+.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %64
+  %.164 = phi i32 [ %67, %64 ], [ 0, %.lr.ph66.preheader ]
+  %.04963 = phi i32 [ %spec.store.select, %64 ], [ %.04963.ph, %.lr.ph66.preheader ]
+  %49 = zext i32 %.04963 to i64
+  %50 = getelementptr %struct.TupleHashEntryData, ptr %5, i64 %49
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp eq i32 %52, 1
+  br i1 %53, label %54, label %64
 
-55:                                               ; preds = %.lr.ph66
-  %56 = getelementptr i8, ptr %51, i64 20
-  %.val54 = load i32, ptr %56, align 4
-  %.val56 = load i32, ptr %32, align 4
-  br label %57
+54:                                               ; preds = %.lr.ph66
+  %55 = getelementptr i8, ptr %50, i64 20
+  %.val54 = load i32, ptr %55, align 4
+  %.val56 = load i32, ptr %31, align 4
+  br label %56
 
-57:                                               ; preds = %57, %55
-  %.val54.pn = phi i32 [ %.val54, %55 ], [ %63, %57 ]
+56:                                               ; preds = %56, %54
+  %.val54.pn = phi i32 [ %.val54, %54 ], [ %62, %56 ]
   %.047 = and i32 %.val54.pn, %.val56
-  %58 = zext i32 %.047 to i64
-  %59 = getelementptr %struct.TupleHashEntryData, ptr %18, i64 %58
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %61, 0
-  %63 = add i32 %.047, 1
-  br i1 %62, label %64, label %57
+  %57 = zext i32 %.047 to i64
+  %58 = getelementptr %struct.TupleHashEntryData, ptr %18, i64 %57
+  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp eq i32 %60, 0
+  %62 = add i32 %.047, 1
+  br i1 %61, label %63, label %56
 
-64:                                               ; preds = %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
-  br label %65
+63:                                               ; preds = %56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false)
+  br label %64
 
-65:                                               ; preds = %64, %.lr.ph66
-  %66 = add i32 %.04963, 1
-  %67 = zext i32 %66 to i64
-  %.not52 = icmp ugt i64 %3, %67
-  %spec.store.select = select i1 %.not52, i32 %66, i32 0
-  %68 = add i32 %.164, 1
-  %69 = zext i32 %68 to i64
-  %70 = icmp ugt i64 %3, %69
-  br i1 %70, label %.lr.ph66, label %._crit_edge67, !llvm.loop !7
+64:                                               ; preds = %63, %.lr.ph66
+  %65 = add i32 %.04963, 1
+  %66 = zext i32 %65 to i64
+  %.not52 = icmp ugt i64 %3, %66
+  %spec.store.select = select i1 %.not52, i32 %65, i32 0
+  %67 = add i32 %.164, 1
+  %68 = zext i32 %67 to i64
+  %69 = icmp ugt i64 %3, %68
+  br i1 %69, label %.lr.ph66, label %._crit_edge67, !llvm.loop !7
 
-._crit_edge67:                                    ; preds = %65, %tuplehash_update_parameters.exit
+._crit_edge67:                                    ; preds = %64, %tuplehash_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #14
   ret void
 }

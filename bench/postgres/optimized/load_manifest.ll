@@ -50,35 +50,34 @@ manifest_files_compute_size.exit:                 ; preds = %2
   %19 = tail call ptr @pg_malloc0(i64 noundef %16) #17
   %20 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %19, ptr %20, align 8
-  %21 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21)
-  %23 = icmp ult i64 %22, 2
-  %24 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %21, i1 true)
-  %25 = sub nuw nsw i64 64, %24
-  %26 = shl nuw i64 1, %25
-  %.0.i.i.i = select i1 %23, i64 %21, i64 %26
-  %27 = mul i64 %.0.i.i.i, 40
-  %28 = icmp ugt i64 %27, 9223372036854775806
-  br i1 %28, label %29, label %manifest_files_update_parameters.exit
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i)
+  %22 = icmp ult i64 %21, 2
+  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i, i1 true)
+  %24 = sub nuw nsw i64 64, %23
+  %25 = shl nuw i64 1, %24
+  %.0.i.i.i = select i1 %22, i64 %.0.i.i, i64 %25
+  %26 = mul i64 %.0.i.i.i, 40
+  %27 = icmp ugt i64 %26, 9223372036854775806
+  br i1 %27, label %28, label %manifest_files_update_parameters.exit
 
-29:                                               ; preds = %manifest_files_compute_size.exit
+28:                                               ; preds = %manifest_files_compute_size.exit
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.7) #17
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
 manifest_files_update_parameters.exit:            ; preds = %manifest_files_compute_size.exit
   store i64 %.0.i.i.i, ptr %3, align 8
-  %30 = trunc i64 %.0.i.i.i to i32
-  %31 = add i32 %30, -1
-  %32 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 %31, ptr %32, align 4
-  %33 = icmp eq i64 %.0.i.i.i, 4294967296
-  %34 = uitofp i64 %.0.i.i.i to double
-  %35 = fmul double %34, 9.000000e-01
-  %36 = fptoui double %35 to i32
-  %.sink.i = select i1 %33, i32 -85899346, i32 %36
-  %37 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %.sink.i, ptr %37, align 8
+  %29 = trunc i64 %.0.i.i.i to i32
+  %30 = add i32 %29, -1
+  %31 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 %30, ptr %31, align 4
+  %32 = icmp eq i64 %.0.i.i.i, 4294967296
+  %33 = uitofp i64 %.0.i.i.i to double
+  %34 = fmul double %33, 9.000000e-01
+  %35 = fptoui double %34 to i32
+  %.sink.i = select i1 %32, i32 -85899346, i32 %35
+  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 %.sink.i, ptr %36, align 8
   ret ptr %3
 }
 
@@ -134,110 +133,109 @@ define dso_local void @manifest_files_grow(ptr nocapture noundef %0, i64 noundef
 manifest_files_compute_size.exit:                 ; preds = %2
   %15 = tail call ptr @pg_malloc0(i64 noundef %12) #17
   store ptr %15, ptr %4, align 8
-  %16 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
-  %18 = icmp ult i64 %17, 2
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
-  %20 = sub nuw nsw i64 64, %19
-  %21 = shl nuw i64 1, %20
-  %.0.i.i.i = select i1 %18, i64 %16, i64 %21
-  %22 = mul i64 %.0.i.i.i, 40
-  %23 = icmp ugt i64 %22, 9223372036854775806
-  br i1 %23, label %24, label %manifest_files_update_parameters.exit
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i)
+  %17 = icmp ult i64 %16, 2
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i, i1 true)
+  %19 = sub nuw nsw i64 64, %18
+  %20 = shl nuw i64 1, %19
+  %.0.i.i.i = select i1 %17, i64 %.0.i.i, i64 %20
+  %21 = mul i64 %.0.i.i.i, 40
+  %22 = icmp ugt i64 %21, 9223372036854775806
+  br i1 %22, label %23, label %manifest_files_update_parameters.exit
 
-24:                                               ; preds = %manifest_files_compute_size.exit
+23:                                               ; preds = %manifest_files_compute_size.exit
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.7) #17
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
 manifest_files_update_parameters.exit:            ; preds = %manifest_files_compute_size.exit
   store i64 %.0.i.i.i, ptr %0, align 8
-  %25 = trunc i64 %.0.i.i.i to i32
-  %26 = add i32 %25, -1
-  %27 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %26, ptr %27, align 4
-  %28 = icmp eq i64 %.0.i.i.i, 4294967296
-  %29 = uitofp i64 %.0.i.i.i to double
-  %30 = fmul double %29, 9.000000e-01
-  %31 = fptoui double %30 to i32
-  %.sink.i = select i1 %28, i32 -85899346, i32 %31
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %.sink.i, ptr %32, align 8
+  %24 = trunc i64 %.0.i.i.i to i32
+  %25 = add i32 %24, -1
+  %26 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %25, ptr %26, align 4
+  %27 = icmp eq i64 %.0.i.i.i, 4294967296
+  %28 = uitofp i64 %.0.i.i.i to double
+  %29 = fmul double %28, 9.000000e-01
+  %30 = fptoui double %29 to i32
+  %.sink.i = select i1 %27, i32 -85899346, i32 %30
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %.sink.i, ptr %31, align 8
   %.not67 = icmp eq i64 %3, 0
   br i1 %.not67, label %._crit_edge66, label %.lr.ph
 
-.lr.ph:                                           ; preds = %manifest_files_update_parameters.exit, %43
-  %33 = phi i64 [ %45, %43 ], [ 0, %manifest_files_update_parameters.exit ]
-  %.057 = phi i32 [ %44, %43 ], [ 0, %manifest_files_update_parameters.exit ]
-  %34 = getelementptr %struct.manifest_file, ptr %5, i64 %33
-  %35 = load i32, ptr %34, align 8
-  %.not = icmp eq i32 %35, 1
-  br i1 %.not, label %36, label %.lr.ph65.preheader
+.lr.ph:                                           ; preds = %manifest_files_update_parameters.exit, %42
+  %32 = phi i64 [ %44, %42 ], [ 0, %manifest_files_update_parameters.exit ]
+  %.057 = phi i32 [ %43, %42 ], [ 0, %manifest_files_update_parameters.exit ]
+  %33 = getelementptr %struct.manifest_file, ptr %5, i64 %32
+  %34 = load i32, ptr %33, align 8
+  %.not = icmp eq i32 %34, 1
+  br i1 %.not, label %35, label %.lr.ph65.preheader
 
-36:                                               ; preds = %.lr.ph
-  %37 = getelementptr i8, ptr %34, i64 8
-  %.val = load ptr, ptr %37, align 8
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
-  %39 = trunc i64 %38 to i32
-  %40 = tail call i32 @hash_bytes(ptr noundef %.val, i32 noundef %39) #17
-  %.val54 = load i32, ptr %27, align 4
-  %41 = and i32 %.val54, %40
-  %42 = icmp eq i32 %41, %.057
-  br i1 %42, label %.lr.ph65.preheader, label %43
+35:                                               ; preds = %.lr.ph
+  %36 = getelementptr i8, ptr %33, i64 8
+  %.val = load ptr, ptr %36, align 8
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
+  %38 = trunc i64 %37 to i32
+  %39 = tail call i32 @hash_bytes(ptr noundef %.val, i32 noundef %38) #17
+  %.val54 = load i32, ptr %26, align 4
+  %40 = and i32 %.val54, %39
+  %41 = icmp eq i32 %40, %.057
+  br i1 %41, label %.lr.ph65.preheader, label %42
 
-43:                                               ; preds = %36
-  %44 = add i32 %.057, 1
-  %45 = zext i32 %44 to i64
-  %46 = icmp ugt i64 %3, %45
-  br i1 %46, label %.lr.ph, label %.lr.ph65.preheader, !llvm.loop !5
+42:                                               ; preds = %35
+  %43 = add i32 %.057, 1
+  %44 = zext i32 %43 to i64
+  %45 = icmp ugt i64 %3, %44
+  br i1 %45, label %.lr.ph, label %.lr.ph65.preheader, !llvm.loop !5
 
-.lr.ph65.preheader:                               ; preds = %43, %.lr.ph, %36
-  %.04962.ph = phi i32 [ %.057, %36 ], [ %.057, %.lr.ph ], [ 0, %43 ]
+.lr.ph65.preheader:                               ; preds = %42, %.lr.ph, %35
+  %.04962.ph = phi i32 [ %.057, %35 ], [ %.057, %.lr.ph ], [ 0, %42 ]
   br label %.lr.ph65
 
-.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %63
-  %.163 = phi i32 [ %66, %63 ], [ 0, %.lr.ph65.preheader ]
-  %.04962 = phi i32 [ %spec.store.select, %63 ], [ %.04962.ph, %.lr.ph65.preheader ]
-  %47 = zext i32 %.04962 to i64
-  %48 = getelementptr %struct.manifest_file, ptr %5, i64 %47
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %49, 1
-  br i1 %50, label %51, label %63
+.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %62
+  %.163 = phi i32 [ %65, %62 ], [ 0, %.lr.ph65.preheader ]
+  %.04962 = phi i32 [ %spec.store.select, %62 ], [ %.04962.ph, %.lr.ph65.preheader ]
+  %46 = zext i32 %.04962 to i64
+  %47 = getelementptr %struct.manifest_file, ptr %5, i64 %46
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp eq i32 %48, 1
+  br i1 %49, label %50, label %62
 
-51:                                               ; preds = %.lr.ph65
-  %52 = getelementptr i8, ptr %48, i64 8
-  %.val53 = load ptr, ptr %52, align 8
-  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val53) #19
-  %54 = trunc i64 %53 to i32
-  %55 = tail call i32 @hash_bytes(ptr noundef %.val53, i32 noundef %54) #17
-  %.val55 = load i32, ptr %27, align 4
-  br label %56
+50:                                               ; preds = %.lr.ph65
+  %51 = getelementptr i8, ptr %47, i64 8
+  %.val53 = load ptr, ptr %51, align 8
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val53) #19
+  %53 = trunc i64 %52 to i32
+  %54 = tail call i32 @hash_bytes(ptr noundef %.val53, i32 noundef %53) #17
+  %.val55 = load i32, ptr %26, align 4
+  br label %55
 
-56:                                               ; preds = %56, %51
-  %.pn = phi i32 [ %55, %51 ], [ %61, %56 ]
+55:                                               ; preds = %55, %50
+  %.pn = phi i32 [ %54, %50 ], [ %60, %55 ]
   %.047 = and i32 %.pn, %.val55
-  %57 = zext i32 %.047 to i64
-  %58 = getelementptr %struct.manifest_file, ptr %15, i64 %57
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = add i32 %.047, 1
-  br i1 %60, label %62, label %56
+  %56 = zext i32 %.047 to i64
+  %57 = getelementptr %struct.manifest_file, ptr %15, i64 %56
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  %60 = add i32 %.047, 1
+  br i1 %59, label %61, label %55
 
-62:                                               ; preds = %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 8 dereferenceable(40) %48, i64 40, i1 false)
-  br label %63
+61:                                               ; preds = %55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %47, i64 40, i1 false)
+  br label %62
 
-63:                                               ; preds = %62, %.lr.ph65
-  %64 = add i32 %.04962, 1
-  %65 = zext i32 %64 to i64
-  %.not52 = icmp ugt i64 %3, %65
-  %spec.store.select = select i1 %.not52, i32 %64, i32 0
-  %66 = add i32 %.163, 1
-  %67 = zext i32 %66 to i64
-  %68 = icmp ugt i64 %3, %67
-  br i1 %68, label %.lr.ph65, label %._crit_edge66, !llvm.loop !7
+62:                                               ; preds = %61, %.lr.ph65
+  %63 = add i32 %.04962, 1
+  %64 = zext i32 %63 to i64
+  %.not52 = icmp ugt i64 %3, %64
+  %spec.store.select = select i1 %.not52, i32 %63, i32 0
+  %65 = add i32 %.163, 1
+  %66 = zext i32 %65 to i64
+  %67 = icmp ugt i64 %3, %66
+  br i1 %67, label %.lr.ph65, label %._crit_edge66, !llvm.loop !7
 
-._crit_edge66:                                    ; preds = %63, %manifest_files_update_parameters.exit
+._crit_edge66:                                    ; preds = %62, %manifest_files_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #17
   ret void
 }

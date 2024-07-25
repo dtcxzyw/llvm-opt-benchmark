@@ -207,9 +207,9 @@ define internal fastcc noundef ptr @blockreftable_insert(ptr nocapture noundef %
 
 15:                                               ; preds = %.backedge.i, %4
   %16 = phi i32 [ 0, %.backedge.i ], [ %.pre173.i, %4 ]
-  %17 = phi i32 [ %125, %.backedge.i ], [ %.pre.i, %4 ]
+  %17 = phi i32 [ %124, %.backedge.i ], [ %.pre.i, %4 ]
   %.not.i = icmp ult i32 %17, %16
-  br i1 %.not.i, label %89, label %18
+  br i1 %.not.i, label %88, label %18
 
 18:                                               ; preds = %15
   %19 = load i64, ptr %0, align 8
@@ -248,249 +248,248 @@ blockreftable_compute_size.exit.i.i:              ; preds = %24
   %.val.i.i = load ptr, ptr %13, align 8
   %38 = call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i, i64 noundef %33, i32 noundef 5) #13
   store ptr %38, ptr %12, align 8
-  %39 = call i64 @llvm.umax.i64(i64 %.0.i.i.i.i, i64 2)
-  %40 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %39)
-  %41 = icmp ult i64 %40, 2
-  %42 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %39, i1 true)
-  %43 = sub nuw nsw i64 64, %42
-  %44 = shl nuw i64 1, %43
-  %.0.i.i.i.i.i = select i1 %41, i64 %39, i64 %44
-  %45 = mul i64 %.0.i.i.i.i.i, 56
-  %46 = icmp ugt i64 %45, 9223372036854775806
-  br i1 %46, label %47, label %blockreftable_update_parameters.exit.i.i
+  %39 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i.i.i)
+  %40 = icmp ult i64 %39, 2
+  %41 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i, i1 true)
+  %42 = sub nuw nsw i64 64, %41
+  %43 = shl nuw i64 1, %42
+  %.0.i.i.i.i.i = select i1 %40, i64 %.0.i.i.i.i, i64 %43
+  %44 = mul i64 %.0.i.i.i.i.i, 56
+  %45 = icmp ugt i64 %44, 9223372036854775806
+  br i1 %45, label %46, label %blockreftable_update_parameters.exit.i.i
 
-47:                                               ; preds = %blockreftable_compute_size.exit.i.i
-  %48 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %48)
-  %49 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #13
+46:                                               ; preds = %blockreftable_compute_size.exit.i.i
+  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %47)
+  %48 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #13
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 327, ptr noundef nonnull @__func__.blockreftable_compute_size) #13
   unreachable
 
 blockreftable_update_parameters.exit.i.i:         ; preds = %blockreftable_compute_size.exit.i.i
   store i64 %.0.i.i.i.i.i, ptr %0, align 8
-  %50 = trunc i64 %.0.i.i.i.i.i to i32
-  %51 = add i32 %50, -1
-  store i32 %51, ptr %14, align 4
-  %52 = icmp eq i64 %.0.i.i.i.i.i, 4294967296
-  %53 = uitofp i64 %.0.i.i.i.i.i to double
-  %54 = fmul double %53, 9.000000e-01
-  %55 = fptoui double %54 to i32
-  %.sink.i.i.i = select i1 %52, i32 -85899346, i32 %55
+  %49 = trunc i64 %.0.i.i.i.i.i to i32
+  %50 = add i32 %49, -1
+  store i32 %50, ptr %14, align 4
+  %51 = icmp eq i64 %.0.i.i.i.i.i, 4294967296
+  %52 = uitofp i64 %.0.i.i.i.i.i to double
+  %53 = fmul double %52, 9.000000e-01
+  %54 = fptoui double %53 to i32
+  %.sink.i.i.i = select i1 %51, i32 -85899346, i32 %54
   store i32 %.sink.i.i.i, ptr %11, align 8
   %.not66.i.i = icmp eq i64 %19, 0
   br i1 %.not66.i.i, label %blockreftable_grow.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %blockreftable_update_parameters.exit.i.i, %64
-  %56 = phi i64 [ %66, %64 ], [ 0, %blockreftable_update_parameters.exit.i.i ]
-  %.056.i.i = phi i32 [ %65, %64 ], [ 0, %blockreftable_update_parameters.exit.i.i ]
-  %57 = getelementptr %struct.BlockRefTableEntry, ptr %26, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 20
-  %59 = load i8, ptr %58, align 4
-  %.not.i.i = icmp eq i8 %59, 1
-  br i1 %.not.i.i, label %60, label %.lr.ph64.i.i.preheader
+.lr.ph.i.i:                                       ; preds = %blockreftable_update_parameters.exit.i.i, %63
+  %55 = phi i64 [ %65, %63 ], [ 0, %blockreftable_update_parameters.exit.i.i ]
+  %.056.i.i = phi i32 [ %64, %63 ], [ 0, %blockreftable_update_parameters.exit.i.i ]
+  %56 = getelementptr %struct.BlockRefTableEntry, ptr %26, i64 %55
+  %57 = getelementptr inbounds i8, ptr %56, i64 20
+  %58 = load i8, ptr %57, align 4
+  %.not.i.i = icmp eq i8 %58, 1
+  br i1 %.not.i.i, label %59, label %.lr.ph64.i.i.preheader
 
-60:                                               ; preds = %.lr.ph.i.i
-  %61 = call i32 @hash_bytes(ptr noundef %57, i32 noundef 16) #13
+59:                                               ; preds = %.lr.ph.i.i
+  %60 = call i32 @hash_bytes(ptr noundef %56, i32 noundef 16) #13
   %.val53.i.i = load i32, ptr %14, align 4
-  %62 = and i32 %.val53.i.i, %61
-  %63 = icmp eq i32 %62, %.056.i.i
-  br i1 %63, label %.lr.ph64.i.i.preheader, label %64
+  %61 = and i32 %.val53.i.i, %60
+  %62 = icmp eq i32 %61, %.056.i.i
+  br i1 %62, label %.lr.ph64.i.i.preheader, label %63
 
-64:                                               ; preds = %60
-  %65 = add i32 %.056.i.i, 1
-  %66 = zext i32 %65 to i64
-  %67 = icmp ugt i64 %19, %66
-  br i1 %67, label %.lr.ph.i.i, label %.lr.ph64.i.i.preheader, !llvm.loop !9
+63:                                               ; preds = %59
+  %64 = add i32 %.056.i.i, 1
+  %65 = zext i32 %64 to i64
+  %66 = icmp ugt i64 %19, %65
+  br i1 %66, label %.lr.ph.i.i, label %.lr.ph64.i.i.preheader, !llvm.loop !9
 
-.lr.ph64.i.i.preheader:                           ; preds = %64, %60, %.lr.ph.i.i
-  %.04961.i.i.ph = phi i32 [ %.056.i.i, %.lr.ph.i.i ], [ %.056.i.i, %60 ], [ 0, %64 ]
+.lr.ph64.i.i.preheader:                           ; preds = %63, %59, %.lr.ph.i.i
+  %.04961.i.i.ph = phi i32 [ %.056.i.i, %.lr.ph.i.i ], [ %.056.i.i, %59 ], [ 0, %63 ]
   br label %.lr.ph64.i.i
 
-.lr.ph64.i.i:                                     ; preds = %.lr.ph64.i.i.preheader, %83
-  %.162.i.i = phi i32 [ %86, %83 ], [ 0, %.lr.ph64.i.i.preheader ]
-  %.04961.i.i = phi i32 [ %spec.store.select.i.i, %83 ], [ %.04961.i.i.ph, %.lr.ph64.i.i.preheader ]
-  %68 = zext i32 %.04961.i.i to i64
-  %69 = getelementptr %struct.BlockRefTableEntry, ptr %26, i64 %68
-  %70 = getelementptr inbounds i8, ptr %69, i64 20
-  %71 = load i8, ptr %70, align 4
-  %72 = icmp eq i8 %71, 1
-  br i1 %72, label %73, label %83
+.lr.ph64.i.i:                                     ; preds = %.lr.ph64.i.i.preheader, %82
+  %.162.i.i = phi i32 [ %85, %82 ], [ 0, %.lr.ph64.i.i.preheader ]
+  %.04961.i.i = phi i32 [ %spec.store.select.i.i, %82 ], [ %.04961.i.i.ph, %.lr.ph64.i.i.preheader ]
+  %67 = zext i32 %.04961.i.i to i64
+  %68 = getelementptr %struct.BlockRefTableEntry, ptr %26, i64 %67
+  %69 = getelementptr inbounds i8, ptr %68, i64 20
+  %70 = load i8, ptr %69, align 4
+  %71 = icmp eq i8 %70, 1
+  br i1 %71, label %72, label %82
 
-73:                                               ; preds = %.lr.ph64.i.i
-  %74 = call i32 @hash_bytes(ptr noundef %69, i32 noundef 16) #13
+72:                                               ; preds = %.lr.ph64.i.i
+  %73 = call i32 @hash_bytes(ptr noundef %68, i32 noundef 16) #13
   %.val54.i.i = load i32, ptr %14, align 4
-  br label %75
+  br label %74
 
-75:                                               ; preds = %75, %73
-  %.pn.i.i = phi i32 [ %74, %73 ], [ %81, %75 ]
+74:                                               ; preds = %74, %72
+  %.pn.i.i = phi i32 [ %73, %72 ], [ %80, %74 ]
   %.047.i.i = and i32 %.pn.i.i, %.val54.i.i
-  %76 = zext i32 %.047.i.i to i64
-  %77 = getelementptr %struct.BlockRefTableEntry, ptr %38, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 20
-  %79 = load i8, ptr %78, align 4
-  %80 = icmp eq i8 %79, 0
-  %81 = add i32 %.047.i.i, 1
-  br i1 %80, label %82, label %75
+  %75 = zext i32 %.047.i.i to i64
+  %76 = getelementptr %struct.BlockRefTableEntry, ptr %38, i64 %75
+  %77 = getelementptr inbounds i8, ptr %76, i64 20
+  %78 = load i8, ptr %77, align 4
+  %79 = icmp eq i8 %78, 0
+  %80 = add i32 %.047.i.i, 1
+  br i1 %79, label %81, label %74
 
-82:                                               ; preds = %75
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(56) %69, i64 56, i1 false)
-  br label %83
+81:                                               ; preds = %74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %76, ptr noundef nonnull align 8 dereferenceable(56) %68, i64 56, i1 false)
+  br label %82
 
-83:                                               ; preds = %82, %.lr.ph64.i.i
-  %84 = add i32 %.04961.i.i, 1
-  %85 = zext i32 %84 to i64
-  %.not52.i.i = icmp ugt i64 %19, %85
-  %spec.store.select.i.i = select i1 %.not52.i.i, i32 %84, i32 0
-  %86 = add i32 %.162.i.i, 1
-  %87 = zext i32 %86 to i64
-  %88 = icmp ugt i64 %19, %87
-  br i1 %88, label %.lr.ph64.i.i, label %blockreftable_grow.exit.i, !llvm.loop !10
+82:                                               ; preds = %81, %.lr.ph64.i.i
+  %83 = add i32 %.04961.i.i, 1
+  %84 = zext i32 %83 to i64
+  %.not52.i.i = icmp ugt i64 %19, %84
+  %spec.store.select.i.i = select i1 %.not52.i.i, i32 %83, i32 0
+  %85 = add i32 %.162.i.i, 1
+  %86 = zext i32 %85 to i64
+  %87 = icmp ugt i64 %19, %86
+  br i1 %87, label %.lr.ph64.i.i, label %blockreftable_grow.exit.i, !llvm.loop !10
 
-blockreftable_grow.exit.i:                        ; preds = %83, %blockreftable_update_parameters.exit.i.i
+blockreftable_grow.exit.i:                        ; preds = %82, %blockreftable_update_parameters.exit.i.i
   call void @pfree(ptr noundef %26) #13
-  br label %89
+  br label %88
 
-89:                                               ; preds = %blockreftable_grow.exit.i, %15
-  %90 = load ptr, ptr %12, align 8
+88:                                               ; preds = %blockreftable_grow.exit.i, %15
+  %89 = load ptr, ptr %12, align 8
   %.val.i = load i32, ptr %14, align 4
-  %91 = and i32 %.val.i, %8
-  %92 = zext i32 %91 to i64
-  %93 = getelementptr %struct.BlockRefTableEntry, ptr %90, i64 %92
-  %94 = getelementptr inbounds i8, ptr %93, i64 20
-  %95 = load i8, ptr %94, align 4
-  %96 = icmp eq i8 %95, 0
-  br i1 %96, label %._crit_edge.i, label %.lr.ph.i
+  %90 = and i32 %.val.i, %8
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr %struct.BlockRefTableEntry, ptr %89, i64 %91
+  %93 = getelementptr inbounds i8, ptr %92, i64 20
+  %94 = load i8, ptr %93, align 4
+  %95 = icmp eq i8 %94, 0
+  br i1 %95, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %89, %148
-  %.lcssa109.i = phi ptr [ %150, %148 ], [ %93, %89 ]
-  %97 = getelementptr inbounds i8, ptr %.lcssa109.i, i64 20
+._crit_edge.i:                                    ; preds = %88, %147
+  %.lcssa109.i = phi ptr [ %149, %147 ], [ %92, %88 ]
+  %96 = getelementptr inbounds i8, ptr %.lcssa109.i, i64 20
   br label %.sink.split.i
 
-.lr.ph.i:                                         ; preds = %89, %148
-  %98 = phi ptr [ %150, %148 ], [ %93, %89 ]
-  %.066111.i = phi i32 [ %109, %148 ], [ %91, %89 ]
-  %.071110.i = phi i32 [ %139, %148 ], [ 0, %89 ]
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %98, ptr noundef nonnull dereferenceable(16) %5, i64 16)
-  %99 = icmp eq i32 %bcmp.i, 0
-  br i1 %99, label %blockreftable_insert_hash_internal.exit, label %100
+.lr.ph.i:                                         ; preds = %88, %147
+  %97 = phi ptr [ %149, %147 ], [ %92, %88 ]
+  %.066111.i = phi i32 [ %108, %147 ], [ %90, %88 ]
+  %.071110.i = phi i32 [ %138, %147 ], [ 0, %88 ]
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %97, ptr noundef nonnull dereferenceable(16) %5, i64 16)
+  %98 = icmp eq i32 %bcmp.i, 0
+  br i1 %98, label %blockreftable_insert_hash_internal.exit, label %99
 
-100:                                              ; preds = %.lr.ph.i
-  %101 = call i32 @hash_bytes(ptr noundef %98, i32 noundef 16) #13
+99:                                               ; preds = %.lr.ph.i
+  %100 = call i32 @hash_bytes(ptr noundef %97, i32 noundef 16) #13
   %.val73.i = load i32, ptr %14, align 4
-  %102 = and i32 %.val73.i, %101
-  %.not.i77.i = icmp ugt i32 %102, %.066111.i
-  br i1 %.not.i77.i, label %103, label %blockreftable_distance.exit.i
+  %101 = and i32 %.val73.i, %100
+  %.not.i77.i = icmp ugt i32 %101, %.066111.i
+  br i1 %.not.i77.i, label %102, label %blockreftable_distance.exit.i
 
-103:                                              ; preds = %100
-  %104 = load i64, ptr %0, align 8
-  %105 = trunc i64 %104 to i32
-  %106 = add i32 %.066111.i, %105
+102:                                              ; preds = %99
+  %103 = load i64, ptr %0, align 8
+  %104 = trunc i64 %103 to i32
+  %105 = add i32 %.066111.i, %104
   br label %blockreftable_distance.exit.i
 
-blockreftable_distance.exit.i:                    ; preds = %103, %100
-  %.pn.i78.i = phi i32 [ %106, %103 ], [ %.066111.i, %100 ]
-  %.0.i.i = sub i32 %.pn.i78.i, %102
-  %107 = icmp ugt i32 %.071110.i, %.0.i.i
-  %108 = add i32 %.066111.i, 1
-  %109 = and i32 %.val73.i, %108
-  br i1 %107, label %.preheader79.i, label %138
+blockreftable_distance.exit.i:                    ; preds = %102, %99
+  %.pn.i78.i = phi i32 [ %105, %102 ], [ %.066111.i, %99 ]
+  %.0.i.i = sub i32 %.pn.i78.i, %101
+  %106 = icmp ugt i32 %.071110.i, %.0.i.i
+  %107 = add i32 %.066111.i, 1
+  %108 = and i32 %.val73.i, %107
+  br i1 %106, label %.preheader79.i, label %137
 
 .preheader79.i:                                   ; preds = %blockreftable_distance.exit.i
-  %110 = zext i32 %109 to i64
-  %111 = getelementptr %struct.BlockRefTableEntry, ptr %90, i64 %110
-  %112 = getelementptr inbounds i8, ptr %111, i64 20
-  %113 = load i8, ptr %112, align 4
-  %114 = icmp eq i8 %113, 0
-  br i1 %114, label %.preheader.i, label %.lr.ph119.i
+  %109 = zext i32 %108 to i64
+  %110 = getelementptr %struct.BlockRefTableEntry, ptr %89, i64 %109
+  %111 = getelementptr inbounds i8, ptr %110, i64 20
+  %112 = load i8, ptr %111, align 4
+  %113 = icmp eq i8 %112, 0
+  br i1 %113, label %.preheader.i, label %.lr.ph119.i
 
-.preheader.i:                                     ; preds = %.preheader79.i, %126
-  %.lcssa94.i = phi i32 [ %128, %126 ], [ %109, %.preheader79.i ]
-  %.lcssa92.i = phi ptr [ %130, %126 ], [ %111, %.preheader79.i ]
-  %.lcssa82.lcssa.i = getelementptr inbounds i8, ptr %98, i64 20
+.preheader.i:                                     ; preds = %.preheader79.i, %125
+  %.lcssa94.i = phi i32 [ %127, %125 ], [ %108, %.preheader79.i ]
+  %.lcssa92.i = phi ptr [ %129, %125 ], [ %110, %.preheader79.i ]
+  %.lcssa82.lcssa.i = getelementptr inbounds i8, ptr %97, i64 20
   %.not72137.i = icmp eq i32 %.lcssa94.i, %.066111.i
   br i1 %.not72137.i, label %.sink.split.i, label %.lr.ph140.i
 
-.lr.ph119.i:                                      ; preds = %.preheader79.i, %126
-  %115 = phi i32 [ %128, %126 ], [ %109, %.preheader79.i ]
-  %.067118.i = phi i32 [ %116, %126 ], [ 0, %.preheader79.i ]
-  %116 = add i32 %.067118.i, 1
-  %117 = icmp sgt i32 %116, 150
-  br i1 %117, label %118, label %126
+.lr.ph119.i:                                      ; preds = %.preheader79.i, %125
+  %114 = phi i32 [ %127, %125 ], [ %108, %.preheader79.i ]
+  %.067118.i = phi i32 [ %115, %125 ], [ 0, %.preheader79.i ]
+  %115 = add i32 %.067118.i, 1
+  %116 = icmp sgt i32 %115, 150
+  br i1 %116, label %117, label %125
 
-118:                                              ; preds = %.lr.ph119.i
-  %119 = load i32, ptr %10, align 8
-  %120 = uitofp i32 %119 to double
-  %121 = load i64, ptr %0, align 8
-  %122 = uitofp i64 %121 to double
-  %123 = fdiv double %120, %122
-  %124 = fcmp ult double %123, 1.000000e-01
-  br i1 %124, label %126, label %.backedge.i
+117:                                              ; preds = %.lr.ph119.i
+  %118 = load i32, ptr %10, align 8
+  %119 = uitofp i32 %118 to double
+  %120 = load i64, ptr %0, align 8
+  %121 = uitofp i64 %120 to double
+  %122 = fdiv double %119, %121
+  %123 = fcmp ult double %122, 1.000000e-01
+  br i1 %123, label %125, label %.backedge.i
 
-.backedge.i:                                      ; preds = %141, %118
-  %125 = phi i32 [ %119, %118 ], [ %142, %141 ]
+.backedge.i:                                      ; preds = %140, %117
+  %124 = phi i32 [ %118, %117 ], [ %141, %140 ]
   store i32 0, ptr %11, align 8
   br label %15
 
-126:                                              ; preds = %118, %.lr.ph119.i
-  %127 = add i32 %115, 1
-  %128 = and i32 %127, %.val73.i
-  %129 = zext i32 %128 to i64
-  %130 = getelementptr %struct.BlockRefTableEntry, ptr %90, i64 %129
-  %131 = getelementptr inbounds i8, ptr %130, i64 20
-  %132 = load i8, ptr %131, align 4
-  %133 = icmp eq i8 %132, 0
-  br i1 %133, label %.preheader.i, label %.lr.ph119.i
+125:                                              ; preds = %117, %.lr.ph119.i
+  %126 = add i32 %114, 1
+  %127 = and i32 %126, %.val73.i
+  %128 = zext i32 %127 to i64
+  %129 = getelementptr %struct.BlockRefTableEntry, ptr %89, i64 %128
+  %130 = getelementptr inbounds i8, ptr %129, i64 20
+  %131 = load i8, ptr %130, align 4
+  %132 = icmp eq i8 %131, 0
+  br i1 %132, label %.preheader.i, label %.lr.ph119.i
 
 .lr.ph140.i:                                      ; preds = %.preheader.i, %.lr.ph140.i
-  %.068139.i = phi i32 [ %135, %.lr.ph140.i ], [ %.lcssa94.i, %.preheader.i ]
-  %.070138.i = phi ptr [ %137, %.lr.ph140.i ], [ %.lcssa92.i, %.preheader.i ]
+  %.068139.i = phi i32 [ %134, %.lr.ph140.i ], [ %.lcssa94.i, %.preheader.i ]
+  %.070138.i = phi ptr [ %136, %.lr.ph140.i ], [ %.lcssa92.i, %.preheader.i ]
   %.val76.i = load i32, ptr %14, align 4
-  %134 = add i32 %.068139.i, -1
-  %135 = and i32 %.val76.i, %134
-  %136 = zext i32 %135 to i64
-  %137 = getelementptr %struct.BlockRefTableEntry, ptr %90, i64 %136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.070138.i, ptr noundef nonnull align 8 dereferenceable(56) %137, i64 56, i1 false)
-  %.not72.i = icmp eq i32 %135, %.066111.i
+  %133 = add i32 %.068139.i, -1
+  %134 = and i32 %.val76.i, %133
+  %135 = zext i32 %134 to i64
+  %136 = getelementptr %struct.BlockRefTableEntry, ptr %89, i64 %135
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.070138.i, ptr noundef nonnull align 8 dereferenceable(56) %136, i64 56, i1 false)
+  %.not72.i = icmp eq i32 %134, %.066111.i
   br i1 %.not72.i, label %.sink.split.i, label %.lr.ph140.i, !llvm.loop !11
 
-138:                                              ; preds = %blockreftable_distance.exit.i
-  %139 = add i32 %.071110.i, 1
-  %140 = icmp ugt i32 %139, 25
-  br i1 %140, label %141, label %148
+137:                                              ; preds = %blockreftable_distance.exit.i
+  %138 = add i32 %.071110.i, 1
+  %139 = icmp ugt i32 %138, 25
+  br i1 %139, label %140, label %147
 
-141:                                              ; preds = %138
-  %142 = load i32, ptr %10, align 8
-  %143 = uitofp i32 %142 to double
-  %144 = load i64, ptr %0, align 8
-  %145 = uitofp i64 %144 to double
-  %146 = fdiv double %143, %145
-  %147 = fcmp ult double %146, 1.000000e-01
-  br i1 %147, label %148, label %.backedge.i
+140:                                              ; preds = %137
+  %141 = load i32, ptr %10, align 8
+  %142 = uitofp i32 %141 to double
+  %143 = load i64, ptr %0, align 8
+  %144 = uitofp i64 %143 to double
+  %145 = fdiv double %142, %144
+  %146 = fcmp ult double %145, 1.000000e-01
+  br i1 %146, label %147, label %.backedge.i
 
-148:                                              ; preds = %141, %138
-  %149 = zext i32 %109 to i64
-  %150 = getelementptr %struct.BlockRefTableEntry, ptr %90, i64 %149
-  %151 = getelementptr inbounds i8, ptr %150, i64 20
-  %152 = load i8, ptr %151, align 4
-  %153 = icmp eq i8 %152, 0
-  br i1 %153, label %._crit_edge.i, label %.lr.ph.i
+147:                                              ; preds = %140, %137
+  %148 = zext i32 %108 to i64
+  %149 = getelementptr %struct.BlockRefTableEntry, ptr %89, i64 %148
+  %150 = getelementptr inbounds i8, ptr %149, i64 20
+  %151 = load i8, ptr %150, align 4
+  %152 = icmp eq i8 %151, 0
+  br i1 %152, label %._crit_edge.i, label %.lr.ph.i
 
 .sink.split.i:                                    ; preds = %.lr.ph140.i, %.preheader.i, %._crit_edge.i
-  %.lcssa184188.sink.i = phi ptr [ %.lcssa109.i, %._crit_edge.i ], [ %98, %.preheader.i ], [ %98, %.lr.ph140.i ]
-  %.lcssa82.lcssa.sink.i = phi ptr [ %97, %._crit_edge.i ], [ %.lcssa82.lcssa.i, %.preheader.i ], [ %.lcssa82.lcssa.i, %.lr.ph140.i ]
-  %154 = load i32, ptr %10, align 8
-  %155 = add i32 %154, 1
-  store i32 %155, ptr %10, align 8
+  %.lcssa184188.sink.i = phi ptr [ %.lcssa109.i, %._crit_edge.i ], [ %97, %.preheader.i ], [ %97, %.lr.ph140.i ]
+  %.lcssa82.lcssa.sink.i = phi ptr [ %96, %._crit_edge.i ], [ %.lcssa82.lcssa.i, %.preheader.i ], [ %.lcssa82.lcssa.i, %.lr.ph140.i ]
+  %153 = load i32, ptr %10, align 8
+  %154 = add i32 %153, 1
+  store i32 %154, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa184188.sink.i, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   store i8 1, ptr %.lcssa82.lcssa.sink.i, align 4
   br label %blockreftable_insert_hash_internal.exit
 
 blockreftable_insert_hash_internal.exit:          ; preds = %.lr.ph.i, %.sink.split.i
   %.sink.i = phi i8 [ 0, %.sink.split.i ], [ 1, %.lr.ph.i ]
-  %156 = phi ptr [ %.lcssa184188.sink.i, %.sink.split.i ], [ %98, %.lr.ph.i ]
+  %155 = phi ptr [ %.lcssa184188.sink.i, %.sink.split.i ], [ %97, %.lr.ph.i ]
   store i8 %.sink.i, ptr %3, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  ret ptr %156
+  ret ptr %155
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

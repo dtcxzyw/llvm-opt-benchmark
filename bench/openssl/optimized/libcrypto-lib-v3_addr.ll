@@ -1201,9 +1201,9 @@ for.cond:                                         ; preds = %entry, %if.end11
   br i1 %cmp2, label %for.body, label %for.cond16.preheader
 
 for.cond16.preheader:                             ; preds = %for.cond
-  %call1881 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %addr) #15
-  %cmp1982 = icmp sgt i32 %call1881, 0
-  br i1 %cmp1982, label %for.body20, label %return
+  %call1884 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %addr) #15
+  %cmp1985 = icmp sgt i32 %call1884, 0
+  br i1 %cmp1985, label %for.body20, label %return
 
 for.body:                                         ; preds = %for.cond
   %call4 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %addr, i32 noundef %i.0) #15
@@ -1237,8 +1237,8 @@ if.end11:                                         ; preds = %lor.lhs.false
   br i1 %cmp13, label %return, label %for.cond, !llvm.loop !12
 
 for.body20:                                       ; preds = %for.cond16.preheader, %for.inc152
-  %i.183 = phi i32 [ %inc153, %for.inc152 ], [ 0, %for.cond16.preheader ]
-  %call22 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %addr, i32 noundef %i.183) #15
+  %i.186 = phi i32 [ %inc153, %for.inc152 ], [ 0, %for.cond16.preheader ]
+  %call22 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %addr, i32 noundef %i.186) #15
   %cmp.i = icmp eq ptr %call22, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
@@ -1270,11 +1270,11 @@ X509v3_addr_get_afi.exit:                         ; preds = %lor.lhs.false5.i
   %switch.selectcmp.i = icmp eq i32 %or.i.fr, 2
   %spec.select = select i1 %switch.selectcmp.i, i32 16, i32 0
   %switch.selectcmp1.i = icmp eq i32 %or.i.fr, 1
-  %spec.select69 = select i1 %switch.selectcmp1.i, i32 4, i32 %spec.select
+  %spec.select72 = select i1 %switch.selectcmp1.i, i32 4, i32 %spec.select
   br label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %X509v3_addr_get_afi.exit, %lor.lhs.false.i, %lor.lhs.false2.i, %lor.lhs.false5.i
-  %10 = phi i32 [ 0, %lor.lhs.false5.i ], [ 0, %lor.lhs.false2.i ], [ 0, %lor.lhs.false.i ], [ %spec.select69, %X509v3_addr_get_afi.exit ]
+  %10 = phi i32 [ 0, %lor.lhs.false5.i ], [ 0, %lor.lhs.false2.i ], [ 0, %lor.lhs.false.i ], [ %spec.select72, %X509v3_addr_get_afi.exit ]
   %ipAddressChoice = getelementptr inbounds i8, ptr %call22, i64 8
   %11 = load ptr, ptr %ipAddressChoice, align 8
   %cmp27 = icmp eq ptr %11, null
@@ -1301,9 +1301,9 @@ if.end35:                                         ; preds = %sw.epilog
   br i1 %cmp39, label %return, label %for.cond42.preheader
 
 for.cond42.preheader:                             ; preds = %if.end35
-  %call4477 = call i32 @OPENSSL_sk_num(ptr noundef %14) #15
-  %cmp4679 = icmp sgt i32 %call4477, 1
-  br i1 %cmp4679, label %for.body47.lr.ph, label %for.end117
+  %call4480 = call i32 @OPENSSL_sk_num(ptr noundef %14) #15
+  %cmp4682 = icmp sgt i32 %call4480, 1
+  br i1 %cmp4682, label %for.body47.lr.ph, label %for.end117
 
 for.body47.lr.ph:                                 ; preds = %for.cond42.preheader
   %conv = zext nneg i32 %10 to i64
@@ -1311,9 +1311,9 @@ for.body47.lr.ph:                                 ; preds = %for.cond42.preheade
   br label %for.body47
 
 for.body47:                                       ; preds = %for.body47.lr.ph, %for.inc115
-  %j.080 = phi i32 [ 0, %for.body47.lr.ph ], [ %add53, %for.inc115 ]
-  %call50 = call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %j.080) #15
-  %add53 = add nuw nsw i32 %j.080, 1
+  %j.083 = phi i32 [ 0, %for.body47.lr.ph ], [ %add53, %for.inc115 ]
+  %call50 = call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %j.083) #15
+  %add53 = add nuw nsw i32 %j.083, 1
   %call54 = call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %add53) #15
   %call56 = call fastcc i32 @extract_min_max(ptr noundef %call50, ptr noundef nonnull %a_min, ptr noundef nonnull %a_max, i32 noundef %10)
   %tobool57.not = icmp eq i32 %call56, 0
@@ -1424,11 +1424,7 @@ for.end23.i:                                      ; preds = %for.cond6.i, %for.e
 
 if.end.i50:                                       ; preds = %for.end23.i
   %cmp26.not.i = icmp slt i32 %i.0.lcssa.i, %j.0.in.lcssa.i
-  br i1 %cmp26.not.i, label %if.end29.i, label %if.then28.i
-
-if.then28.i:                                      ; preds = %if.end.i50
-  %mul.i = shl nsw i32 %i.0.lcssa.i, 3
-  br label %range_should_be_prefix.exit
+  br i1 %cmp26.not.i, label %if.end29.i, label %return
 
 if.end29.i:                                       ; preds = %if.end.i50
   %idxprom30.i = zext nneg i32 %i.0.lcssa.i to i64
@@ -1439,52 +1435,25 @@ if.end29.i:                                       ; preds = %if.end.i50
   %xor28.i = xor i8 %24, %23
   switch i8 %xor28.i, label %for.inc115 [
     i8 1, label %sw.epilog.i
-    i8 3, label %sw.bb38.i
-    i8 7, label %sw.bb39.i
-    i8 15, label %sw.bb40.i
-    i8 31, label %sw.bb41.i
-    i8 63, label %sw.bb42.i
-    i8 127, label %sw.bb43.i
+    i8 3, label %sw.epilog.i
+    i8 7, label %sw.epilog.i
+    i8 15, label %sw.epilog.i
+    i8 31, label %sw.epilog.i
+    i8 63, label %sw.epilog.i
+    i8 127, label %sw.epilog.i
   ]
 
-sw.bb38.i:                                        ; preds = %if.end29.i
-  br label %sw.epilog.i
-
-sw.bb39.i:                                        ; preds = %if.end29.i
-  br label %sw.epilog.i
-
-sw.bb40.i:                                        ; preds = %if.end29.i
-  br label %sw.epilog.i
-
-sw.bb41.i:                                        ; preds = %if.end29.i
-  br label %sw.epilog.i
-
-sw.bb42.i:                                        ; preds = %if.end29.i
-  br label %sw.epilog.i
-
-sw.bb43.i:                                        ; preds = %if.end29.i
-  br label %sw.epilog.i
-
-sw.epilog.i:                                      ; preds = %sw.bb43.i, %sw.bb42.i, %sw.bb41.i, %sw.bb40.i, %sw.bb39.i, %sw.bb38.i, %if.end29.i
-  %j.1.i = phi i32 [ 1, %sw.bb43.i ], [ 2, %sw.bb42.i ], [ 3, %sw.bb41.i ], [ 4, %sw.bb40.i ], [ 5, %sw.bb39.i ], [ 6, %sw.bb38.i ], [ 7, %if.end29.i ]
+sw.epilog.i:                                      ; preds = %if.end29.i, %if.end29.i, %if.end29.i, %if.end29.i, %if.end29.i, %if.end29.i, %if.end29.i
   %and29.i = and i8 %xor28.i, %23
   %cmp48.not.i = icmp eq i8 %and29.i, 0
   %and5430.i = and i8 %xor28.i, %24
   %cmp56.not.i = icmp eq i8 %and5430.i, %xor28.i
   %or.cond.i52 = and i1 %cmp48.not.i, %cmp56.not.i
-  br i1 %or.cond.i52, label %if.else.i, label %for.inc115
+  %cmp111 = icmp sgt i32 %i.0.lcssa.i, -1
+  %or.cond = select i1 %or.cond.i52, i1 %cmp111, i1 false
+  br i1 %or.cond, label %return, label %for.inc115
 
-if.else.i:                                        ; preds = %sw.epilog.i
-  %mul59.i = shl nsw i32 %i.0.lcssa.i, 3
-  %add.i = or disjoint i32 %j.1.i, %mul59.i
-  br label %range_should_be_prefix.exit
-
-range_should_be_prefix.exit:                      ; preds = %if.then28.i, %if.else.i
-  %retval.0.i51 = phi i32 [ %mul.i, %if.then28.i ], [ %add.i, %if.else.i ]
-  %cmp111 = icmp sgt i32 %retval.0.i51, -1
-  br i1 %cmp111, label %return, label %for.inc115
-
-for.inc115:                                       ; preds = %sw.epilog.i, %if.end29.i, %for.end23.i, %if.end104, %range_should_be_prefix.exit
+for.inc115:                                       ; preds = %sw.epilog.i, %if.end29.i, %for.end23.i, %if.end104
   %call44 = call i32 @OPENSSL_sk_num(ptr noundef %14) #15
   %sub45 = add nsw i32 %call44, -1
   %cmp46 = icmp slt i32 %add53, %sub45
@@ -1519,13 +1488,13 @@ lor.lhs.false143:                                 ; preds = %if.end136
   br i1 %cmp147, label %return, label %for.inc152
 
 for.inc152:                                       ; preds = %for.end117, %land.lhs.true126, %lor.lhs.false143, %if.end29
-  %inc153 = add nuw nsw i32 %i.183, 1
+  %inc153 = add nuw nsw i32 %i.186, 1
   %call18 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %addr) #15
   %cmp19 = icmp slt i32 %inc153, %call18
   br i1 %cmp19, label %for.body20, label %return, !llvm.loop !15
 
-return:                                           ; preds = %if.end11, %for.body, %lor.lhs.false, %lor.lhs.false26, %if.end29, %sw.epilog, %if.end35, %if.then130, %lor.lhs.false143, %if.end136, %for.inc152, %for.body20, %range_should_be_prefix.exit, %for.end96, %if.end64, %lor.lhs.false70, %lor.lhs.false77, %for.body47, %lor.lhs.false58, %for.cond16.preheader, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %for.cond16.preheader ], [ 0, %lor.lhs.false58 ], [ 0, %for.body47 ], [ 0, %lor.lhs.false77 ], [ 0, %lor.lhs.false70 ], [ 0, %if.end64 ], [ 0, %for.end96 ], [ 0, %range_should_be_prefix.exit ], [ 0, %lor.lhs.false26 ], [ 0, %if.end29 ], [ 0, %sw.epilog ], [ 0, %if.end35 ], [ 0, %if.then130 ], [ 0, %lor.lhs.false143 ], [ 0, %if.end136 ], [ 1, %for.inc152 ], [ 0, %for.body20 ], [ 0, %lor.lhs.false ], [ 0, %for.body ], [ 0, %if.end11 ]
+return:                                           ; preds = %if.end11, %for.body, %lor.lhs.false, %lor.lhs.false26, %if.end29, %sw.epilog, %if.end35, %if.then130, %lor.lhs.false143, %if.end136, %for.inc152, %for.body20, %sw.epilog.i, %if.end.i50, %for.end96, %if.end64, %lor.lhs.false70, %lor.lhs.false77, %for.body47, %lor.lhs.false58, %for.cond16.preheader, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %for.cond16.preheader ], [ 0, %lor.lhs.false58 ], [ 0, %for.body47 ], [ 0, %lor.lhs.false77 ], [ 0, %lor.lhs.false70 ], [ 0, %if.end64 ], [ 0, %for.end96 ], [ 0, %if.end.i50 ], [ 0, %sw.epilog.i ], [ 0, %lor.lhs.false26 ], [ 0, %if.end29 ], [ 0, %sw.epilog ], [ 0, %if.end35 ], [ 0, %if.then130 ], [ 0, %lor.lhs.false143 ], [ 0, %if.end136 ], [ 1, %for.inc152 ], [ 0, %for.body20 ], [ 0, %lor.lhs.false ], [ 0, %for.body ], [ 0, %if.end11 ]
   ret i32 %retval.0
 }
 

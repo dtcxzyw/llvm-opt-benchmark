@@ -6362,7 +6362,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 if.end5.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i
   %and.i.i40.i.i.i.i.i = and i32 %126, -2139095041
   %add7.i.i.i.i.i.i.i = shl nsw i32 %add.i.i39.i.i.i.i.i, 23
-  %shl.i.i.i.i.i.i.i = add i32 %add7.i.i.i.i.i.i.i, 1065353216
+  %shl.i.i.i.i.i.i.i = add nsw i32 %add7.i.i.i.i.i.i.i, 1065353216
   %or.i.i.i.i.i.i.i = or i32 %shl.i.i.i.i.i.i.i, %and.i.i40.i.i.i.i.i
   %127 = bitcast i32 %or.i.i.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i.i.i.i
@@ -6472,7 +6472,7 @@ if.end.i.i96.i.i.i.i.i:                           ; preds = %for.body.i86.i.i.i.
 if.end5.i.i98.i.i.i.i.i:                          ; preds = %if.end.i.i96.i.i.i.i.i
   %and.i.i99.i.i.i.i.i = and i32 %139, -2139095041
   %add7.i.i100.i.i.i.i.i = shl nsw i32 %add.i.i94.i.i.i.i.i, 23
-  %shl.i.i101.i.i.i.i.i = add i32 %add7.i.i100.i.i.i.i.i, 1065353216
+  %shl.i.i101.i.i.i.i.i = add nsw i32 %add7.i.i100.i.i.i.i.i, 1065353216
   %or.i.i102.i.i.i.i.i = or i32 %shl.i.i101.i.i.i.i.i, %and.i.i99.i.i.i.i.i
   %140 = bitcast i32 %or.i.i102.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i103.i.i.i.i.i
@@ -6594,7 +6594,7 @@ if.end.i.i184.i.i.i.i.i:                          ; preds = %for.body.i174.i.i.i
 if.end5.i.i186.i.i.i.i.i:                         ; preds = %if.end.i.i184.i.i.i.i.i
   %and.i.i187.i.i.i.i.i = and i32 %156, -2139095041
   %add7.i.i188.i.i.i.i.i = shl nsw i32 %add.i.i182.i.i.i.i.i, 23
-  %shl.i.i189.i.i.i.i.i = add i32 %add7.i.i188.i.i.i.i.i, 1065353216
+  %shl.i.i189.i.i.i.i.i = add nsw i32 %add7.i.i188.i.i.i.i.i, 1065353216
   %or.i.i190.i.i.i.i.i = or i32 %shl.i.i189.i.i.i.i.i, %and.i.i187.i.i.i.i.i
   %157 = bitcast i32 %or.i.i190.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i191.i.i.i.i.i
@@ -6795,7 +6795,7 @@ if.end.i.i.i.i106.i.i.i:                          ; preds = %for.body.i.i.i99.i.
 if.end5.i.i.i.i108.i.i.i:                         ; preds = %if.end.i.i.i.i106.i.i.i
   %and.i.i39.i.i.i.i.i = and i32 %178, -2139095041
   %add7.i.i.i.i109.i.i.i = shl nsw i32 %add.i.i38.i.i.i.i.i, 23
-  %shl.i.i.i.i110.i.i.i = add i32 %add7.i.i.i.i109.i.i.i, 1065353216
+  %shl.i.i.i.i110.i.i.i = add nsw i32 %add7.i.i.i.i109.i.i.i, 1065353216
   %or.i.i.i.i111.i.i.i = or i32 %shl.i.i.i.i110.i.i.i, %and.i.i39.i.i.i.i.i
   %179 = bitcast i32 %or.i.i.i.i111.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i112.i.i.i
@@ -6922,7 +6922,7 @@ if.end.i.i95.i.i.i.i.i:                           ; preds = %for.body.i85.i.i.i.
 if.end5.i.i97.i.i.i.i.i:                          ; preds = %if.end.i.i95.i.i.i.i.i
   %and.i.i98.i.i.i.i.i = and i32 %195, -2139095041
   %add7.i.i99.i.i.i.i.i = shl nsw i32 %add.i.i93.i.i.i.i.i, 23
-  %shl.i.i100.i.i.i.i.i = add i32 %add7.i.i99.i.i.i.i.i, 1065353216
+  %shl.i.i100.i.i.i.i.i = add nsw i32 %add7.i.i99.i.i.i.i.i, 1065353216
   %or.i.i101.i.i.i.i.i = or i32 %shl.i.i100.i.i.i.i.i, %and.i.i98.i.i.i.i.i
   %196 = bitcast i32 %or.i.i101.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i.i.i.i
@@ -7052,7 +7052,7 @@ if.end.i.i183.i.i.i.i.i:                          ; preds = %for.body.i173.i.i.i
 if.end5.i.i185.i.i.i.i.i:                         ; preds = %if.end.i.i183.i.i.i.i.i
   %and.i.i186.i.i.i.i.i = and i32 %214, -2139095041
   %add7.i.i187.i.i.i.i.i = shl nsw i32 %add.i.i181.i.i.i.i.i, 23
-  %shl.i.i188.i.i.i.i.i = add i32 %add7.i.i187.i.i.i.i.i, 1065353216
+  %shl.i.i188.i.i.i.i.i = add nsw i32 %add7.i.i187.i.i.i.i.i, 1065353216
   %or.i.i189.i.i.i.i.i = or i32 %shl.i.i188.i.i.i.i.i, %and.i.i186.i.i.i.i.i
   %215 = bitcast i32 %or.i.i189.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i.i.i.i
@@ -7263,7 +7263,7 @@ if.end.i.i.i.i379.i.i.i:                          ; preds = %for.body.i.i.i369.i
 if.end5.i.i.i.i381.i.i.i:                         ; preds = %if.end.i.i.i.i379.i.i.i
   %and.i.i39.i.i382.i.i.i = and i32 %237, -2139095041
   %add7.i.i.i.i383.i.i.i = shl nsw i32 %add.i.i38.i.i377.i.i.i, 23
-  %shl.i.i.i.i384.i.i.i = add i32 %add7.i.i.i.i383.i.i.i, 1065353216
+  %shl.i.i.i.i384.i.i.i = add nsw i32 %add7.i.i.i.i383.i.i.i, 1065353216
   %or.i.i.i.i385.i.i.i = or i32 %shl.i.i.i.i384.i.i.i, %and.i.i39.i.i382.i.i.i
   %238 = bitcast i32 %or.i.i.i.i385.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i386.i.i.i
@@ -7386,7 +7386,7 @@ if.end.i.i95.i.i308.i.i.i:                        ; preds = %for.body.i85.i.i298
 if.end5.i.i97.i.i310.i.i.i:                       ; preds = %if.end.i.i95.i.i308.i.i.i
   %and.i.i98.i.i311.i.i.i = and i32 %254, -2139095041
   %add7.i.i99.i.i312.i.i.i = shl nsw i32 %add.i.i93.i.i306.i.i.i, 23
-  %shl.i.i100.i.i313.i.i.i = add i32 %add7.i.i99.i.i312.i.i.i, 1065353216
+  %shl.i.i100.i.i313.i.i.i = add nsw i32 %add7.i.i99.i.i312.i.i.i, 1065353216
   %or.i.i101.i.i314.i.i.i = or i32 %shl.i.i100.i.i313.i.i.i, %and.i.i98.i.i311.i.i.i
   %255 = bitcast i32 %or.i.i101.i.i314.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i315.i.i.i
@@ -7516,7 +7516,7 @@ if.end.i.i183.i.i264.i.i.i:                       ; preds = %for.body.i173.i.i25
 if.end5.i.i185.i.i266.i.i.i:                      ; preds = %if.end.i.i183.i.i264.i.i.i
   %and.i.i186.i.i267.i.i.i = and i32 %273, -2139095041
   %add7.i.i187.i.i268.i.i.i = shl nsw i32 %add.i.i181.i.i262.i.i.i, 23
-  %shl.i.i188.i.i269.i.i.i = add i32 %add7.i.i187.i.i268.i.i.i, 1065353216
+  %shl.i.i188.i.i269.i.i.i = add nsw i32 %add7.i.i187.i.i268.i.i.i, 1065353216
   %or.i.i189.i.i270.i.i.i = or i32 %shl.i.i188.i.i269.i.i.i, %and.i.i186.i.i267.i.i.i
   %274 = bitcast i32 %or.i.i189.i.i270.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i271.i.i.i
@@ -7721,7 +7721,7 @@ if.end.i.i.i.i658.i.i.i:                          ; preds = %for.body.i.i.i648.i
 if.end5.i.i.i.i660.i.i.i:                         ; preds = %if.end.i.i.i.i658.i.i.i
   %and.i.i40.i.i661.i.i.i = and i32 %293, -2139095041
   %add7.i.i.i.i662.i.i.i = shl nsw i32 %add.i.i39.i.i656.i.i.i, 23
-  %shl.i.i.i.i663.i.i.i = add i32 %add7.i.i.i.i662.i.i.i, 1065353216
+  %shl.i.i.i.i663.i.i.i = add nsw i32 %add7.i.i.i.i662.i.i.i, 1065353216
   %or.i.i.i.i664.i.i.i = or i32 %shl.i.i.i.i663.i.i.i, %and.i.i40.i.i661.i.i.i
   %294 = bitcast i32 %or.i.i.i.i664.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i665.i.i.i
@@ -7831,7 +7831,7 @@ if.end.i.i96.i.i588.i.i.i:                        ; preds = %for.body.i86.i.i578
 if.end5.i.i98.i.i590.i.i.i:                       ; preds = %if.end.i.i96.i.i588.i.i.i
   %and.i.i99.i.i591.i.i.i = and i32 %306, -2139095041
   %add7.i.i100.i.i592.i.i.i = shl nsw i32 %add.i.i94.i.i586.i.i.i, 23
-  %shl.i.i101.i.i593.i.i.i = add i32 %add7.i.i100.i.i592.i.i.i, 1065353216
+  %shl.i.i101.i.i593.i.i.i = add nsw i32 %add7.i.i100.i.i592.i.i.i, 1065353216
   %or.i.i102.i.i594.i.i.i = or i32 %shl.i.i101.i.i593.i.i.i, %and.i.i99.i.i591.i.i.i
   %307 = bitcast i32 %or.i.i102.i.i594.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i103.i.i595.i.i.i
@@ -7953,7 +7953,7 @@ if.end.i.i184.i.i535.i.i.i:                       ; preds = %for.body.i174.i.i52
 if.end5.i.i186.i.i537.i.i.i:                      ; preds = %if.end.i.i184.i.i535.i.i.i
   %and.i.i187.i.i538.i.i.i = and i32 %323, -2139095041
   %add7.i.i188.i.i539.i.i.i = shl nsw i32 %add.i.i182.i.i533.i.i.i, 23
-  %shl.i.i189.i.i540.i.i.i = add i32 %add7.i.i188.i.i539.i.i.i, 1065353216
+  %shl.i.i189.i.i540.i.i.i = add nsw i32 %add7.i.i188.i.i539.i.i.i, 1065353216
   %or.i.i190.i.i541.i.i.i = or i32 %shl.i.i189.i.i540.i.i.i, %and.i.i187.i.i538.i.i.i
   %324 = bitcast i32 %or.i.i190.i.i541.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i191.i.i542.i.i.i
@@ -8154,7 +8154,7 @@ if.end.i.i.i.i938.i.i.i:                          ; preds = %for.body.i.i.i928.i
 if.end5.i.i.i.i940.i.i.i:                         ; preds = %if.end.i.i.i.i938.i.i.i
   %and.i.i39.i.i941.i.i.i = and i32 %345, -2139095041
   %add7.i.i.i.i942.i.i.i = shl nsw i32 %add.i.i38.i.i936.i.i.i, 23
-  %shl.i.i.i.i943.i.i.i = add i32 %add7.i.i.i.i942.i.i.i, 1065353216
+  %shl.i.i.i.i943.i.i.i = add nsw i32 %add7.i.i.i.i942.i.i.i, 1065353216
   %or.i.i.i.i944.i.i.i = or i32 %shl.i.i.i.i943.i.i.i, %and.i.i39.i.i941.i.i.i
   %346 = bitcast i32 %or.i.i.i.i944.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i945.i.i.i
@@ -8277,7 +8277,7 @@ if.end.i.i95.i.i867.i.i.i:                        ; preds = %for.body.i85.i.i857
 if.end5.i.i97.i.i869.i.i.i:                       ; preds = %if.end.i.i95.i.i867.i.i.i
   %and.i.i98.i.i870.i.i.i = and i32 %362, -2139095041
   %add7.i.i99.i.i871.i.i.i = shl nsw i32 %add.i.i93.i.i865.i.i.i, 23
-  %shl.i.i100.i.i872.i.i.i = add i32 %add7.i.i99.i.i871.i.i.i, 1065353216
+  %shl.i.i100.i.i872.i.i.i = add nsw i32 %add7.i.i99.i.i871.i.i.i, 1065353216
   %or.i.i101.i.i873.i.i.i = or i32 %shl.i.i100.i.i872.i.i.i, %and.i.i98.i.i870.i.i.i
   %363 = bitcast i32 %or.i.i101.i.i873.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i874.i.i.i
@@ -8407,7 +8407,7 @@ if.end.i.i183.i.i823.i.i.i:                       ; preds = %for.body.i173.i.i81
 if.end5.i.i185.i.i825.i.i.i:                      ; preds = %if.end.i.i183.i.i823.i.i.i
   %and.i.i186.i.i826.i.i.i = and i32 %381, -2139095041
   %add7.i.i187.i.i827.i.i.i = shl nsw i32 %add.i.i181.i.i821.i.i.i, 23
-  %shl.i.i188.i.i828.i.i.i = add i32 %add7.i.i187.i.i827.i.i.i, 1065353216
+  %shl.i.i188.i.i828.i.i.i = add nsw i32 %add7.i.i187.i.i827.i.i.i, 1065353216
   %or.i.i189.i.i829.i.i.i = or i32 %shl.i.i188.i.i828.i.i.i, %and.i.i186.i.i826.i.i.i
   %382 = bitcast i32 %or.i.i189.i.i829.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i830.i.i.i
@@ -15659,7 +15659,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 if.end5.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i
   %and.i.i40.i.i.i.i.i = and i32 %73, -2139095041
   %add7.i.i.i.i.i.i.i = shl nsw i32 %add.i.i39.i.i.i.i.i, 23
-  %shl.i.i.i.i.i.i.i = add i32 %add7.i.i.i.i.i.i.i, 1065353216
+  %shl.i.i.i.i.i.i.i = add nsw i32 %add7.i.i.i.i.i.i.i, 1065353216
   %or.i.i.i.i.i.i.i = or i32 %shl.i.i.i.i.i.i.i, %and.i.i40.i.i.i.i.i
   %74 = bitcast i32 %or.i.i.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i.i.i.i
@@ -15771,7 +15771,7 @@ if.end.i.i96.i.i.i.i.i:                           ; preds = %for.body.i86.i.i.i.
 if.end5.i.i98.i.i.i.i.i:                          ; preds = %if.end.i.i96.i.i.i.i.i
   %and.i.i99.i.i.i.i.i = and i32 %88, -2139095041
   %add7.i.i100.i.i.i.i.i = shl nsw i32 %add.i.i94.i.i.i.i.i, 23
-  %shl.i.i101.i.i.i.i.i = add i32 %add7.i.i100.i.i.i.i.i, 1065353216
+  %shl.i.i101.i.i.i.i.i = add nsw i32 %add7.i.i100.i.i.i.i.i, 1065353216
   %or.i.i102.i.i.i.i.i = or i32 %shl.i.i101.i.i.i.i.i, %and.i.i99.i.i.i.i.i
   %89 = bitcast i32 %or.i.i102.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i103.i.i.i.i.i
@@ -15891,7 +15891,7 @@ if.end.i.i184.i.i.i.i.i:                          ; preds = %for.body.i174.i.i.i
 if.end5.i.i186.i.i.i.i.i:                         ; preds = %if.end.i.i184.i.i.i.i.i
   %and.i.i187.i.i.i.i.i = and i32 %105, -2139095041
   %add7.i.i188.i.i.i.i.i = shl nsw i32 %add.i.i182.i.i.i.i.i, 23
-  %shl.i.i189.i.i.i.i.i = add i32 %add7.i.i188.i.i.i.i.i, 1065353216
+  %shl.i.i189.i.i.i.i.i = add nsw i32 %add7.i.i188.i.i.i.i.i, 1065353216
   %or.i.i190.i.i.i.i.i = or i32 %shl.i.i189.i.i.i.i.i, %and.i.i187.i.i.i.i.i
   %106 = bitcast i32 %or.i.i190.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i191.i.i.i.i.i
@@ -16074,7 +16074,7 @@ if.end.i.i.i.i128.i.i.i:                          ; preds = %for.body.i.i.i121.i
 if.end5.i.i.i.i130.i.i.i:                         ; preds = %if.end.i.i.i.i128.i.i.i
   %and.i.i39.i.i.i.i.i = and i32 %127, -2139095041
   %add7.i.i.i.i131.i.i.i = shl nsw i32 %add.i.i38.i.i.i.i.i, 23
-  %shl.i.i.i.i132.i.i.i = add i32 %add7.i.i.i.i131.i.i.i, 1065353216
+  %shl.i.i.i.i132.i.i.i = add nsw i32 %add7.i.i.i.i131.i.i.i, 1065353216
   %or.i.i.i.i133.i.i.i = or i32 %shl.i.i.i.i132.i.i.i, %and.i.i39.i.i.i.i.i
   %128 = bitcast i32 %or.i.i.i.i133.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i134.i.i.i
@@ -16199,7 +16199,7 @@ if.end.i.i95.i.i.i.i.i:                           ; preds = %for.body.i85.i.i.i.
 if.end5.i.i97.i.i.i.i.i:                          ; preds = %if.end.i.i95.i.i.i.i.i
   %and.i.i98.i.i.i.i.i = and i32 %146, -2139095041
   %add7.i.i99.i.i.i.i.i = shl nsw i32 %add.i.i93.i.i.i.i.i, 23
-  %shl.i.i100.i.i.i.i.i = add i32 %add7.i.i99.i.i.i.i.i, 1065353216
+  %shl.i.i100.i.i.i.i.i = add nsw i32 %add7.i.i99.i.i.i.i.i, 1065353216
   %or.i.i101.i.i.i.i.i = or i32 %shl.i.i100.i.i.i.i.i, %and.i.i98.i.i.i.i.i
   %147 = bitcast i32 %or.i.i101.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i.i.i.i
@@ -16326,7 +16326,7 @@ if.end.i.i183.i.i.i.i.i:                          ; preds = %for.body.i173.i.i.i
 if.end5.i.i185.i.i.i.i.i:                         ; preds = %if.end.i.i183.i.i.i.i.i
   %and.i.i186.i.i.i.i.i = and i32 %165, -2139095041
   %add7.i.i187.i.i.i.i.i = shl nsw i32 %add.i.i181.i.i.i.i.i, 23
-  %shl.i.i188.i.i.i.i.i = add i32 %add7.i.i187.i.i.i.i.i, 1065353216
+  %shl.i.i188.i.i.i.i.i = add nsw i32 %add7.i.i187.i.i.i.i.i, 1065353216
   %or.i.i189.i.i.i.i.i = or i32 %shl.i.i188.i.i.i.i.i, %and.i.i186.i.i.i.i.i
   %166 = bitcast i32 %or.i.i189.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i.i.i.i
@@ -16541,7 +16541,7 @@ if.end.i.i.i.i400.i.i.i:                          ; preds = %for.body.i.i.i390.i
 if.end5.i.i.i.i402.i.i.i:                         ; preds = %if.end.i.i.i.i400.i.i.i
   %and.i.i39.i.i403.i.i.i = and i32 %189, -2139095041
   %add7.i.i.i.i404.i.i.i = shl nsw i32 %add.i.i38.i.i398.i.i.i, 23
-  %shl.i.i.i.i405.i.i.i = add i32 %add7.i.i.i.i404.i.i.i, 1065353216
+  %shl.i.i.i.i405.i.i.i = add nsw i32 %add7.i.i.i.i404.i.i.i, 1065353216
   %or.i.i.i.i406.i.i.i = or i32 %shl.i.i.i.i405.i.i.i, %and.i.i39.i.i403.i.i.i
   %190 = bitcast i32 %or.i.i.i.i406.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i407.i.i.i
@@ -16666,7 +16666,7 @@ if.end.i.i95.i.i329.i.i.i:                        ; preds = %for.body.i85.i.i319
 if.end5.i.i97.i.i331.i.i.i:                       ; preds = %if.end.i.i95.i.i329.i.i.i
   %and.i.i98.i.i332.i.i.i = and i32 %208, -2139095041
   %add7.i.i99.i.i333.i.i.i = shl nsw i32 %add.i.i93.i.i327.i.i.i, 23
-  %shl.i.i100.i.i334.i.i.i = add i32 %add7.i.i99.i.i333.i.i.i, 1065353216
+  %shl.i.i100.i.i334.i.i.i = add nsw i32 %add7.i.i99.i.i333.i.i.i, 1065353216
   %or.i.i101.i.i335.i.i.i = or i32 %shl.i.i100.i.i334.i.i.i, %and.i.i98.i.i332.i.i.i
   %209 = bitcast i32 %or.i.i101.i.i335.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i336.i.i.i
@@ -16955,7 +16955,7 @@ if.end.i.i183.i.i285.i.i.i:                       ; preds = %for.body.i173.i.i27
 if.end5.i.i185.i.i287.i.i.i:                      ; preds = %if.end.i.i183.i.i285.i.i.i
   %and.i.i186.i.i288.i.i.i = and i32 %248, -2139095041
   %add7.i.i187.i.i289.i.i.i = shl nsw i32 %add.i.i181.i.i283.i.i.i, 23
-  %shl.i.i188.i.i290.i.i.i = add i32 %add7.i.i187.i.i289.i.i.i, 1065353216
+  %shl.i.i188.i.i290.i.i.i = add nsw i32 %add7.i.i187.i.i289.i.i.i, 1065353216
   %or.i.i189.i.i291.i.i.i = or i32 %shl.i.i188.i.i290.i.i.i, %and.i.i186.i.i288.i.i.i
   %249 = bitcast i32 %or.i.i189.i.i291.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i292.i.i.i
@@ -17149,7 +17149,7 @@ if.end.i.i.i.i677.i.i.i:                          ; preds = %for.body.i.i.i667.i
 if.end5.i.i.i.i679.i.i.i:                         ; preds = %if.end.i.i.i.i677.i.i.i
   %and.i.i40.i.i680.i.i.i = and i32 %268, -2139095041
   %add7.i.i.i.i681.i.i.i = shl nsw i32 %add.i.i39.i.i675.i.i.i, 23
-  %shl.i.i.i.i682.i.i.i = add i32 %add7.i.i.i.i681.i.i.i, 1065353216
+  %shl.i.i.i.i682.i.i.i = add nsw i32 %add7.i.i.i.i681.i.i.i, 1065353216
   %or.i.i.i.i683.i.i.i = or i32 %shl.i.i.i.i682.i.i.i, %and.i.i40.i.i680.i.i.i
   %269 = bitcast i32 %or.i.i.i.i683.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i684.i.i.i
@@ -17261,7 +17261,7 @@ if.end.i.i96.i.i607.i.i.i:                        ; preds = %for.body.i86.i.i597
 if.end5.i.i98.i.i609.i.i.i:                       ; preds = %if.end.i.i96.i.i607.i.i.i
   %and.i.i99.i.i610.i.i.i = and i32 %283, -2139095041
   %add7.i.i100.i.i611.i.i.i = shl nsw i32 %add.i.i94.i.i605.i.i.i, 23
-  %shl.i.i101.i.i612.i.i.i = add i32 %add7.i.i100.i.i611.i.i.i, 1065353216
+  %shl.i.i101.i.i612.i.i.i = add nsw i32 %add7.i.i100.i.i611.i.i.i, 1065353216
   %or.i.i102.i.i613.i.i.i = or i32 %shl.i.i101.i.i612.i.i.i, %and.i.i99.i.i610.i.i.i
   %284 = bitcast i32 %or.i.i102.i.i613.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i103.i.i614.i.i.i
@@ -17381,7 +17381,7 @@ if.end.i.i184.i.i554.i.i.i:                       ; preds = %for.body.i174.i.i54
 if.end5.i.i186.i.i556.i.i.i:                      ; preds = %if.end.i.i184.i.i554.i.i.i
   %and.i.i187.i.i557.i.i.i = and i32 %300, -2139095041
   %add7.i.i188.i.i558.i.i.i = shl nsw i32 %add.i.i182.i.i552.i.i.i, 23
-  %shl.i.i189.i.i559.i.i.i = add i32 %add7.i.i188.i.i558.i.i.i, 1065353216
+  %shl.i.i189.i.i559.i.i.i = add nsw i32 %add7.i.i188.i.i558.i.i.i, 1065353216
   %or.i.i190.i.i560.i.i.i = or i32 %shl.i.i189.i.i559.i.i.i, %and.i.i187.i.i557.i.i.i
   %301 = bitcast i32 %or.i.i190.i.i560.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i191.i.i561.i.i.i
@@ -17564,7 +17564,7 @@ if.end.i.i.i.i954.i.i.i:                          ; preds = %for.body.i.i.i944.i
 if.end5.i.i.i.i956.i.i.i:                         ; preds = %if.end.i.i.i.i954.i.i.i
   %and.i.i39.i.i957.i.i.i = and i32 %322, -2139095041
   %add7.i.i.i.i958.i.i.i = shl nsw i32 %add.i.i38.i.i952.i.i.i, 23
-  %shl.i.i.i.i959.i.i.i = add i32 %add7.i.i.i.i958.i.i.i, 1065353216
+  %shl.i.i.i.i959.i.i.i = add nsw i32 %add7.i.i.i.i958.i.i.i, 1065353216
   %or.i.i.i.i960.i.i.i = or i32 %shl.i.i.i.i959.i.i.i, %and.i.i39.i.i957.i.i.i
   %323 = bitcast i32 %or.i.i.i.i960.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i961.i.i.i
@@ -17689,7 +17689,7 @@ if.end.i.i95.i.i883.i.i.i:                        ; preds = %for.body.i85.i.i873
 if.end5.i.i97.i.i885.i.i.i:                       ; preds = %if.end.i.i95.i.i883.i.i.i
   %and.i.i98.i.i886.i.i.i = and i32 %341, -2139095041
   %add7.i.i99.i.i887.i.i.i = shl nsw i32 %add.i.i93.i.i881.i.i.i, 23
-  %shl.i.i100.i.i888.i.i.i = add i32 %add7.i.i99.i.i887.i.i.i, 1065353216
+  %shl.i.i100.i.i888.i.i.i = add nsw i32 %add7.i.i99.i.i887.i.i.i, 1065353216
   %or.i.i101.i.i889.i.i.i = or i32 %shl.i.i100.i.i888.i.i.i, %and.i.i98.i.i886.i.i.i
   %342 = bitcast i32 %or.i.i101.i.i889.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i890.i.i.i
@@ -17816,7 +17816,7 @@ if.end.i.i183.i.i839.i.i.i:                       ; preds = %for.body.i173.i.i82
 if.end5.i.i185.i.i841.i.i.i:                      ; preds = %if.end.i.i183.i.i839.i.i.i
   %and.i.i186.i.i842.i.i.i = and i32 %360, -2139095041
   %add7.i.i187.i.i843.i.i.i = shl nsw i32 %add.i.i181.i.i837.i.i.i, 23
-  %shl.i.i188.i.i844.i.i.i = add i32 %add7.i.i187.i.i843.i.i.i, 1065353216
+  %shl.i.i188.i.i844.i.i.i = add nsw i32 %add7.i.i187.i.i843.i.i.i, 1065353216
   %or.i.i189.i.i845.i.i.i = or i32 %shl.i.i188.i.i844.i.i.i, %and.i.i186.i.i842.i.i.i
   %361 = bitcast i32 %or.i.i189.i.i845.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i846.i.i.i
@@ -19182,7 +19182,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 if.end5.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i
   %and.i.i40.i.i.i.i.i = and i32 %96, -2139095041
   %add7.i.i.i.i.i.i.i = shl nsw i32 %add.i.i39.i.i.i.i.i, 23
-  %shl.i.i.i.i.i.i.i = add i32 %add7.i.i.i.i.i.i.i, 1065353216
+  %shl.i.i.i.i.i.i.i = add nsw i32 %add7.i.i.i.i.i.i.i, 1065353216
   %or.i.i.i.i.i.i.i = or i32 %shl.i.i.i.i.i.i.i, %and.i.i40.i.i.i.i.i
   %97 = bitcast i32 %or.i.i.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i.i.i.i
@@ -19294,7 +19294,7 @@ if.end.i.i96.i.i.i.i.i:                           ; preds = %for.body.i86.i.i.i.
 if.end5.i.i98.i.i.i.i.i:                          ; preds = %if.end.i.i96.i.i.i.i.i
   %and.i.i99.i.i.i.i.i = and i32 %111, -2139095041
   %add7.i.i100.i.i.i.i.i = shl nsw i32 %add.i.i94.i.i.i.i.i, 23
-  %shl.i.i101.i.i.i.i.i = add i32 %add7.i.i100.i.i.i.i.i, 1065353216
+  %shl.i.i101.i.i.i.i.i = add nsw i32 %add7.i.i100.i.i.i.i.i, 1065353216
   %or.i.i102.i.i.i.i.i = or i32 %shl.i.i101.i.i.i.i.i, %and.i.i99.i.i.i.i.i
   %112 = bitcast i32 %or.i.i102.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i103.i.i.i.i.i
@@ -19416,7 +19416,7 @@ if.end.i.i184.i.i.i.i.i:                          ; preds = %for.body.i174.i.i.i
 if.end5.i.i186.i.i.i.i.i:                         ; preds = %if.end.i.i184.i.i.i.i.i
   %and.i.i187.i.i.i.i.i = and i32 %128, -2139095041
   %add7.i.i188.i.i.i.i.i = shl nsw i32 %add.i.i182.i.i.i.i.i, 23
-  %shl.i.i189.i.i.i.i.i = add i32 %add7.i.i188.i.i.i.i.i, 1065353216
+  %shl.i.i189.i.i.i.i.i = add nsw i32 %add7.i.i188.i.i.i.i.i, 1065353216
   %or.i.i190.i.i.i.i.i = or i32 %shl.i.i189.i.i.i.i.i, %and.i.i187.i.i.i.i.i
   %129 = bitcast i32 %or.i.i190.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i191.i.i.i.i.i
@@ -19629,7 +19629,7 @@ if.end.i.i.i.i128.i.i.i:                          ; preds = %for.body.i.i.i121.i
 if.end5.i.i.i.i130.i.i.i:                         ; preds = %if.end.i.i.i.i128.i.i.i
   %and.i.i39.i.i.i.i.i = and i32 %150, -2139095041
   %add7.i.i.i.i131.i.i.i = shl nsw i32 %add.i.i38.i.i.i.i.i, 23
-  %shl.i.i.i.i132.i.i.i = add i32 %add7.i.i.i.i131.i.i.i, 1065353216
+  %shl.i.i.i.i132.i.i.i = add nsw i32 %add7.i.i.i.i131.i.i.i, 1065353216
   %or.i.i.i.i133.i.i.i = or i32 %shl.i.i.i.i132.i.i.i, %and.i.i39.i.i.i.i.i
   %151 = bitcast i32 %or.i.i.i.i133.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i134.i.i.i
@@ -19754,7 +19754,7 @@ if.end.i.i95.i.i.i.i.i:                           ; preds = %for.body.i85.i.i.i.
 if.end5.i.i97.i.i.i.i.i:                          ; preds = %if.end.i.i95.i.i.i.i.i
   %and.i.i98.i.i.i.i.i = and i32 %169, -2139095041
   %add7.i.i99.i.i.i.i.i = shl nsw i32 %add.i.i93.i.i.i.i.i, 23
-  %shl.i.i100.i.i.i.i.i = add i32 %add7.i.i99.i.i.i.i.i, 1065353216
+  %shl.i.i100.i.i.i.i.i = add nsw i32 %add7.i.i99.i.i.i.i.i, 1065353216
   %or.i.i101.i.i.i.i.i = or i32 %shl.i.i100.i.i.i.i.i, %and.i.i98.i.i.i.i.i
   %170 = bitcast i32 %or.i.i101.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i.i.i.i
@@ -19884,7 +19884,7 @@ if.end.i.i183.i.i.i.i.i:                          ; preds = %for.body.i173.i.i.i
 if.end5.i.i185.i.i.i.i.i:                         ; preds = %if.end.i.i183.i.i.i.i.i
   %and.i.i186.i.i.i.i.i = and i32 %188, -2139095041
   %add7.i.i187.i.i.i.i.i = shl nsw i32 %add.i.i181.i.i.i.i.i, 23
-  %shl.i.i188.i.i.i.i.i = add i32 %add7.i.i187.i.i.i.i.i, 1065353216
+  %shl.i.i188.i.i.i.i.i = add nsw i32 %add7.i.i187.i.i.i.i.i, 1065353216
   %or.i.i189.i.i.i.i.i = or i32 %shl.i.i188.i.i.i.i.i, %and.i.i186.i.i.i.i.i
   %189 = bitcast i32 %or.i.i189.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i.i.i.i
@@ -20125,7 +20125,7 @@ if.end.i.i.i.i400.i.i.i:                          ; preds = %for.body.i.i.i390.i
 if.end5.i.i.i.i402.i.i.i:                         ; preds = %if.end.i.i.i.i400.i.i.i
   %and.i.i39.i.i403.i.i.i = and i32 %212, -2139095041
   %add7.i.i.i.i404.i.i.i = shl nsw i32 %add.i.i38.i.i398.i.i.i, 23
-  %shl.i.i.i.i405.i.i.i = add i32 %add7.i.i.i.i404.i.i.i, 1065353216
+  %shl.i.i.i.i405.i.i.i = add nsw i32 %add7.i.i.i.i404.i.i.i, 1065353216
   %or.i.i.i.i406.i.i.i = or i32 %shl.i.i.i.i405.i.i.i, %and.i.i39.i.i403.i.i.i
   %213 = bitcast i32 %or.i.i.i.i406.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i407.i.i.i
@@ -20250,7 +20250,7 @@ if.end.i.i95.i.i329.i.i.i:                        ; preds = %for.body.i85.i.i319
 if.end5.i.i97.i.i331.i.i.i:                       ; preds = %if.end.i.i95.i.i329.i.i.i
   %and.i.i98.i.i332.i.i.i = and i32 %231, -2139095041
   %add7.i.i99.i.i333.i.i.i = shl nsw i32 %add.i.i93.i.i327.i.i.i, 23
-  %shl.i.i100.i.i334.i.i.i = add i32 %add7.i.i99.i.i333.i.i.i, 1065353216
+  %shl.i.i100.i.i334.i.i.i = add nsw i32 %add7.i.i99.i.i333.i.i.i, 1065353216
   %or.i.i101.i.i335.i.i.i = or i32 %shl.i.i100.i.i334.i.i.i, %and.i.i98.i.i332.i.i.i
   %232 = bitcast i32 %or.i.i101.i.i335.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i336.i.i.i
@@ -20542,7 +20542,7 @@ if.end.i.i183.i.i285.i.i.i:                       ; preds = %for.body.i173.i.i27
 if.end5.i.i185.i.i287.i.i.i:                      ; preds = %if.end.i.i183.i.i285.i.i.i
   %and.i.i186.i.i288.i.i.i = and i32 %271, -2139095041
   %add7.i.i187.i.i289.i.i.i = shl nsw i32 %add.i.i181.i.i283.i.i.i, 23
-  %shl.i.i188.i.i290.i.i.i = add i32 %add7.i.i187.i.i289.i.i.i, 1065353216
+  %shl.i.i188.i.i290.i.i.i = add nsw i32 %add7.i.i187.i.i289.i.i.i, 1065353216
   %or.i.i189.i.i291.i.i.i = or i32 %shl.i.i188.i.i290.i.i.i, %and.i.i186.i.i288.i.i.i
   %272 = bitcast i32 %or.i.i189.i.i291.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i292.i.i.i
@@ -20758,7 +20758,7 @@ if.end.i.i.i.i677.i.i.i:                          ; preds = %for.body.i.i.i667.i
 if.end5.i.i.i.i679.i.i.i:                         ; preds = %if.end.i.i.i.i677.i.i.i
   %and.i.i40.i.i680.i.i.i = and i32 %291, -2139095041
   %add7.i.i.i.i681.i.i.i = shl nsw i32 %add.i.i39.i.i675.i.i.i, 23
-  %shl.i.i.i.i682.i.i.i = add i32 %add7.i.i.i.i681.i.i.i, 1065353216
+  %shl.i.i.i.i682.i.i.i = add nsw i32 %add7.i.i.i.i681.i.i.i, 1065353216
   %or.i.i.i.i683.i.i.i = or i32 %shl.i.i.i.i682.i.i.i, %and.i.i40.i.i680.i.i.i
   %292 = bitcast i32 %or.i.i.i.i683.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i684.i.i.i
@@ -20870,7 +20870,7 @@ if.end.i.i96.i.i607.i.i.i:                        ; preds = %for.body.i86.i.i597
 if.end5.i.i98.i.i609.i.i.i:                       ; preds = %if.end.i.i96.i.i607.i.i.i
   %and.i.i99.i.i610.i.i.i = and i32 %306, -2139095041
   %add7.i.i100.i.i611.i.i.i = shl nsw i32 %add.i.i94.i.i605.i.i.i, 23
-  %shl.i.i101.i.i612.i.i.i = add i32 %add7.i.i100.i.i611.i.i.i, 1065353216
+  %shl.i.i101.i.i612.i.i.i = add nsw i32 %add7.i.i100.i.i611.i.i.i, 1065353216
   %or.i.i102.i.i613.i.i.i = or i32 %shl.i.i101.i.i612.i.i.i, %and.i.i99.i.i610.i.i.i
   %307 = bitcast i32 %or.i.i102.i.i613.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i103.i.i614.i.i.i
@@ -20992,7 +20992,7 @@ if.end.i.i184.i.i554.i.i.i:                       ; preds = %for.body.i174.i.i54
 if.end5.i.i186.i.i556.i.i.i:                      ; preds = %if.end.i.i184.i.i554.i.i.i
   %and.i.i187.i.i557.i.i.i = and i32 %323, -2139095041
   %add7.i.i188.i.i558.i.i.i = shl nsw i32 %add.i.i182.i.i552.i.i.i, 23
-  %shl.i.i189.i.i559.i.i.i = add i32 %add7.i.i188.i.i558.i.i.i, 1065353216
+  %shl.i.i189.i.i559.i.i.i = add nsw i32 %add7.i.i188.i.i558.i.i.i, 1065353216
   %or.i.i190.i.i560.i.i.i = or i32 %shl.i.i189.i.i559.i.i.i, %and.i.i187.i.i557.i.i.i
   %324 = bitcast i32 %or.i.i190.i.i560.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i191.i.i561.i.i.i
@@ -21205,7 +21205,7 @@ if.end.i.i.i.i954.i.i.i:                          ; preds = %for.body.i.i.i944.i
 if.end5.i.i.i.i956.i.i.i:                         ; preds = %if.end.i.i.i.i954.i.i.i
   %and.i.i39.i.i957.i.i.i = and i32 %345, -2139095041
   %add7.i.i.i.i958.i.i.i = shl nsw i32 %add.i.i38.i.i952.i.i.i, 23
-  %shl.i.i.i.i959.i.i.i = add i32 %add7.i.i.i.i958.i.i.i, 1065353216
+  %shl.i.i.i.i959.i.i.i = add nsw i32 %add7.i.i.i.i958.i.i.i, 1065353216
   %or.i.i.i.i960.i.i.i = or i32 %shl.i.i.i.i959.i.i.i, %and.i.i39.i.i957.i.i.i
   %346 = bitcast i32 %or.i.i.i.i960.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i961.i.i.i
@@ -21330,7 +21330,7 @@ if.end.i.i95.i.i883.i.i.i:                        ; preds = %for.body.i85.i.i873
 if.end5.i.i97.i.i885.i.i.i:                       ; preds = %if.end.i.i95.i.i883.i.i.i
   %and.i.i98.i.i886.i.i.i = and i32 %364, -2139095041
   %add7.i.i99.i.i887.i.i.i = shl nsw i32 %add.i.i93.i.i881.i.i.i, 23
-  %shl.i.i100.i.i888.i.i.i = add i32 %add7.i.i99.i.i887.i.i.i, 1065353216
+  %shl.i.i100.i.i888.i.i.i = add nsw i32 %add7.i.i99.i.i887.i.i.i, 1065353216
   %or.i.i101.i.i889.i.i.i = or i32 %shl.i.i100.i.i888.i.i.i, %and.i.i98.i.i886.i.i.i
   %365 = bitcast i32 %or.i.i101.i.i889.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i890.i.i.i
@@ -21460,7 +21460,7 @@ if.end.i.i183.i.i839.i.i.i:                       ; preds = %for.body.i173.i.i82
 if.end5.i.i185.i.i841.i.i.i:                      ; preds = %if.end.i.i183.i.i839.i.i.i
   %and.i.i186.i.i842.i.i.i = and i32 %383, -2139095041
   %add7.i.i187.i.i843.i.i.i = shl nsw i32 %add.i.i181.i.i837.i.i.i, 23
-  %shl.i.i188.i.i844.i.i.i = add i32 %add7.i.i187.i.i843.i.i.i, 1065353216
+  %shl.i.i188.i.i844.i.i.i = add nsw i32 %add7.i.i187.i.i843.i.i.i, 1065353216
   %or.i.i189.i.i845.i.i.i = or i32 %shl.i.i188.i.i844.i.i.i, %and.i.i186.i.i842.i.i.i
   %384 = bitcast i32 %or.i.i189.i.i845.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i846.i.i.i
@@ -24741,7 +24741,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 if.end5.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i
   %and.i.i40.i.i.i.i.i = and i32 %196, -2139095041
   %add7.i.i.i.i.i.i.i = shl nsw i32 %add.i.i39.i.i.i.i.i, 23
-  %shl.i.i.i.i.i.i.i = add i32 %add7.i.i.i.i.i.i.i, 1065353216
+  %shl.i.i.i.i.i.i.i = add nsw i32 %add7.i.i.i.i.i.i.i, 1065353216
   %or.i.i.i.i.i.i.i = or i32 %shl.i.i.i.i.i.i.i, %and.i.i40.i.i.i.i.i
   %197 = bitcast i32 %or.i.i.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i.i.i.i
@@ -24853,7 +24853,7 @@ if.end.i.i96.i.i.i.i.i:                           ; preds = %for.body.i86.i.i.i.
 if.end5.i.i98.i.i.i.i.i:                          ; preds = %if.end.i.i96.i.i.i.i.i
   %and.i.i99.i.i.i.i.i = and i32 %211, -2139095041
   %add7.i.i100.i.i.i.i.i = shl nsw i32 %add.i.i94.i.i.i.i.i, 23
-  %shl.i.i101.i.i.i.i.i = add i32 %add7.i.i100.i.i.i.i.i, 1065353216
+  %shl.i.i101.i.i.i.i.i = add nsw i32 %add7.i.i100.i.i.i.i.i, 1065353216
   %or.i.i102.i.i.i.i.i = or i32 %shl.i.i101.i.i.i.i.i, %and.i.i99.i.i.i.i.i
   %212 = bitcast i32 %or.i.i102.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i103.i.i.i.i.i
@@ -24975,7 +24975,7 @@ if.end.i.i184.i.i.i.i.i:                          ; preds = %for.body.i174.i.i.i
 if.end5.i.i186.i.i.i.i.i:                         ; preds = %if.end.i.i184.i.i.i.i.i
   %and.i.i187.i.i.i.i.i = and i32 %228, -2139095041
   %add7.i.i188.i.i.i.i.i = shl nsw i32 %add.i.i182.i.i.i.i.i, 23
-  %shl.i.i189.i.i.i.i.i = add i32 %add7.i.i188.i.i.i.i.i, 1065353216
+  %shl.i.i189.i.i.i.i.i = add nsw i32 %add7.i.i188.i.i.i.i.i, 1065353216
   %or.i.i190.i.i.i.i.i = or i32 %shl.i.i189.i.i.i.i.i, %and.i.i187.i.i.i.i.i
   %229 = bitcast i32 %or.i.i190.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i191.i.i.i.i.i
@@ -25176,7 +25176,7 @@ if.end.i.i.i.i128.i.i.i:                          ; preds = %for.body.i.i.i121.i
 if.end5.i.i.i.i130.i.i.i:                         ; preds = %if.end.i.i.i.i128.i.i.i
   %and.i.i39.i.i.i.i.i = and i32 %250, -2139095041
   %add7.i.i.i.i131.i.i.i = shl nsw i32 %add.i.i38.i.i.i.i.i, 23
-  %shl.i.i.i.i132.i.i.i = add i32 %add7.i.i.i.i131.i.i.i, 1065353216
+  %shl.i.i.i.i132.i.i.i = add nsw i32 %add7.i.i.i.i131.i.i.i, 1065353216
   %or.i.i.i.i133.i.i.i = or i32 %shl.i.i.i.i132.i.i.i, %and.i.i39.i.i.i.i.i
   %251 = bitcast i32 %or.i.i.i.i133.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i134.i.i.i
@@ -25305,7 +25305,7 @@ if.end.i.i95.i.i.i.i.i:                           ; preds = %for.body.i85.i.i.i.
 if.end5.i.i97.i.i.i.i.i:                          ; preds = %if.end.i.i95.i.i.i.i.i
   %and.i.i98.i.i.i.i.i = and i32 %269, -2139095041
   %add7.i.i99.i.i.i.i.i = shl nsw i32 %add.i.i93.i.i.i.i.i, 23
-  %shl.i.i100.i.i.i.i.i = add i32 %add7.i.i99.i.i.i.i.i, 1065353216
+  %shl.i.i100.i.i.i.i.i = add nsw i32 %add7.i.i99.i.i.i.i.i, 1065353216
   %or.i.i101.i.i.i.i.i = or i32 %shl.i.i100.i.i.i.i.i, %and.i.i98.i.i.i.i.i
   %270 = bitcast i32 %or.i.i101.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i.i.i.i
@@ -25435,7 +25435,7 @@ if.end.i.i183.i.i.i.i.i:                          ; preds = %for.body.i173.i.i.i
 if.end5.i.i185.i.i.i.i.i:                         ; preds = %if.end.i.i183.i.i.i.i.i
   %and.i.i186.i.i.i.i.i = and i32 %288, -2139095041
   %add7.i.i187.i.i.i.i.i = shl nsw i32 %add.i.i181.i.i.i.i.i, 23
-  %shl.i.i188.i.i.i.i.i = add i32 %add7.i.i187.i.i.i.i.i, 1065353216
+  %shl.i.i188.i.i.i.i.i = add nsw i32 %add7.i.i187.i.i.i.i.i, 1065353216
   %or.i.i189.i.i.i.i.i = or i32 %shl.i.i188.i.i.i.i.i, %and.i.i186.i.i.i.i.i
   %289 = bitcast i32 %or.i.i189.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i.i.i.i
@@ -25646,7 +25646,7 @@ if.end.i.i.i.i400.i.i.i:                          ; preds = %for.body.i.i.i390.i
 if.end5.i.i.i.i402.i.i.i:                         ; preds = %if.end.i.i.i.i400.i.i.i
   %and.i.i39.i.i403.i.i.i = and i32 %311, -2139095041
   %add7.i.i.i.i404.i.i.i = shl nsw i32 %add.i.i38.i.i398.i.i.i, 23
-  %shl.i.i.i.i405.i.i.i = add i32 %add7.i.i.i.i404.i.i.i, 1065353216
+  %shl.i.i.i.i405.i.i.i = add nsw i32 %add7.i.i.i.i404.i.i.i, 1065353216
   %or.i.i.i.i406.i.i.i = or i32 %shl.i.i.i.i405.i.i.i, %and.i.i39.i.i403.i.i.i
   %312 = bitcast i32 %or.i.i.i.i406.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i407.i.i.i
@@ -25771,7 +25771,7 @@ if.end.i.i95.i.i329.i.i.i:                        ; preds = %for.body.i85.i.i319
 if.end5.i.i97.i.i331.i.i.i:                       ; preds = %if.end.i.i95.i.i329.i.i.i
   %and.i.i98.i.i332.i.i.i = and i32 %330, -2139095041
   %add7.i.i99.i.i333.i.i.i = shl nsw i32 %add.i.i93.i.i327.i.i.i, 23
-  %shl.i.i100.i.i334.i.i.i = add i32 %add7.i.i99.i.i333.i.i.i, 1065353216
+  %shl.i.i100.i.i334.i.i.i = add nsw i32 %add7.i.i99.i.i333.i.i.i, 1065353216
   %or.i.i101.i.i335.i.i.i = or i32 %shl.i.i100.i.i334.i.i.i, %and.i.i98.i.i332.i.i.i
   %331 = bitcast i32 %or.i.i101.i.i335.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i336.i.i.i
@@ -25901,7 +25901,7 @@ if.end.i.i183.i.i285.i.i.i:                       ; preds = %for.body.i173.i.i27
 if.end5.i.i185.i.i287.i.i.i:                      ; preds = %if.end.i.i183.i.i285.i.i.i
   %and.i.i186.i.i288.i.i.i = and i32 %349, -2139095041
   %add7.i.i187.i.i289.i.i.i = shl nsw i32 %add.i.i181.i.i283.i.i.i, 23
-  %shl.i.i188.i.i290.i.i.i = add i32 %add7.i.i187.i.i289.i.i.i, 1065353216
+  %shl.i.i188.i.i290.i.i.i = add nsw i32 %add7.i.i187.i.i289.i.i.i, 1065353216
   %or.i.i189.i.i291.i.i.i = or i32 %shl.i.i188.i.i290.i.i.i, %and.i.i186.i.i288.i.i.i
   %350 = bitcast i32 %or.i.i189.i.i291.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i292.i.i.i
@@ -26106,7 +26106,7 @@ if.end.i.i.i.i677.i.i.i:                          ; preds = %for.body.i.i.i667.i
 if.end5.i.i.i.i679.i.i.i:                         ; preds = %if.end.i.i.i.i677.i.i.i
   %and.i.i40.i.i680.i.i.i = and i32 %369, -2139095041
   %add7.i.i.i.i681.i.i.i = shl nsw i32 %add.i.i39.i.i675.i.i.i, 23
-  %shl.i.i.i.i682.i.i.i = add i32 %add7.i.i.i.i681.i.i.i, 1065353216
+  %shl.i.i.i.i682.i.i.i = add nsw i32 %add7.i.i.i.i681.i.i.i, 1065353216
   %or.i.i.i.i683.i.i.i = or i32 %shl.i.i.i.i682.i.i.i, %and.i.i40.i.i680.i.i.i
   %370 = bitcast i32 %or.i.i.i.i683.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i684.i.i.i
@@ -26218,7 +26218,7 @@ if.end.i.i96.i.i607.i.i.i:                        ; preds = %for.body.i86.i.i597
 if.end5.i.i98.i.i609.i.i.i:                       ; preds = %if.end.i.i96.i.i607.i.i.i
   %and.i.i99.i.i610.i.i.i = and i32 %384, -2139095041
   %add7.i.i100.i.i611.i.i.i = shl nsw i32 %add.i.i94.i.i605.i.i.i, 23
-  %shl.i.i101.i.i612.i.i.i = add i32 %add7.i.i100.i.i611.i.i.i, 1065353216
+  %shl.i.i101.i.i612.i.i.i = add nsw i32 %add7.i.i100.i.i611.i.i.i, 1065353216
   %or.i.i102.i.i613.i.i.i = or i32 %shl.i.i101.i.i612.i.i.i, %and.i.i99.i.i610.i.i.i
   %385 = bitcast i32 %or.i.i102.i.i613.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i103.i.i614.i.i.i
@@ -26340,7 +26340,7 @@ if.end.i.i184.i.i554.i.i.i:                       ; preds = %for.body.i174.i.i54
 if.end5.i.i186.i.i556.i.i.i:                      ; preds = %if.end.i.i184.i.i554.i.i.i
   %and.i.i187.i.i557.i.i.i = and i32 %401, -2139095041
   %add7.i.i188.i.i558.i.i.i = shl nsw i32 %add.i.i182.i.i552.i.i.i, 23
-  %shl.i.i189.i.i559.i.i.i = add i32 %add7.i.i188.i.i558.i.i.i, 1065353216
+  %shl.i.i189.i.i559.i.i.i = add nsw i32 %add7.i.i188.i.i558.i.i.i, 1065353216
   %or.i.i190.i.i560.i.i.i = or i32 %shl.i.i189.i.i559.i.i.i, %and.i.i187.i.i557.i.i.i
   %402 = bitcast i32 %or.i.i190.i.i560.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i191.i.i561.i.i.i
@@ -26541,7 +26541,7 @@ if.end.i.i.i.i954.i.i.i:                          ; preds = %for.body.i.i.i944.i
 if.end5.i.i.i.i956.i.i.i:                         ; preds = %if.end.i.i.i.i954.i.i.i
   %and.i.i39.i.i957.i.i.i = and i32 %423, -2139095041
   %add7.i.i.i.i958.i.i.i = shl nsw i32 %add.i.i38.i.i952.i.i.i, 23
-  %shl.i.i.i.i959.i.i.i = add i32 %add7.i.i.i.i958.i.i.i, 1065353216
+  %shl.i.i.i.i959.i.i.i = add nsw i32 %add7.i.i.i.i958.i.i.i, 1065353216
   %or.i.i.i.i960.i.i.i = or i32 %shl.i.i.i.i959.i.i.i, %and.i.i39.i.i957.i.i.i
   %424 = bitcast i32 %or.i.i.i.i960.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i961.i.i.i
@@ -26666,7 +26666,7 @@ if.end.i.i95.i.i883.i.i.i:                        ; preds = %for.body.i85.i.i873
 if.end5.i.i97.i.i885.i.i.i:                       ; preds = %if.end.i.i95.i.i883.i.i.i
   %and.i.i98.i.i886.i.i.i = and i32 %442, -2139095041
   %add7.i.i99.i.i887.i.i.i = shl nsw i32 %add.i.i93.i.i881.i.i.i, 23
-  %shl.i.i100.i.i888.i.i.i = add i32 %add7.i.i99.i.i887.i.i.i, 1065353216
+  %shl.i.i100.i.i888.i.i.i = add nsw i32 %add7.i.i99.i.i887.i.i.i, 1065353216
   %or.i.i101.i.i889.i.i.i = or i32 %shl.i.i100.i.i888.i.i.i, %and.i.i98.i.i886.i.i.i
   %443 = bitcast i32 %or.i.i101.i.i889.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i890.i.i.i
@@ -26796,7 +26796,7 @@ if.end.i.i183.i.i839.i.i.i:                       ; preds = %for.body.i173.i.i82
 if.end5.i.i185.i.i841.i.i.i:                      ; preds = %if.end.i.i183.i.i839.i.i.i
   %and.i.i186.i.i842.i.i.i = and i32 %461, -2139095041
   %add7.i.i187.i.i843.i.i.i = shl nsw i32 %add.i.i181.i.i837.i.i.i, 23
-  %shl.i.i188.i.i844.i.i.i = add i32 %add7.i.i187.i.i843.i.i.i, 1065353216
+  %shl.i.i188.i.i844.i.i.i = add nsw i32 %add7.i.i187.i.i843.i.i.i, 1065353216
   %or.i.i189.i.i845.i.i.i = or i32 %shl.i.i188.i.i844.i.i.i, %and.i.i186.i.i842.i.i.i
   %462 = bitcast i32 %or.i.i189.i.i845.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i846.i.i.i
@@ -29431,7 +29431,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 if.end5.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i
   %and.i.i40.i.i.i.i.i = and i32 %70, -2139095041
   %add7.i.i.i.i.i.i.i = shl nsw i32 %add.i.i39.i.i.i.i.i, 23
-  %shl.i.i.i.i.i.i.i = add i32 %add7.i.i.i.i.i.i.i, 1065353216
+  %shl.i.i.i.i.i.i.i = add nsw i32 %add7.i.i.i.i.i.i.i, 1065353216
   %or.i.i.i.i.i.i.i = or i32 %shl.i.i.i.i.i.i.i, %and.i.i40.i.i.i.i.i
   %71 = bitcast i32 %or.i.i.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i.i.i.i
@@ -29541,7 +29541,7 @@ if.end.i.i96.i.i.i.i.i:                           ; preds = %for.body.i86.i.i.i.
 if.end5.i.i98.i.i.i.i.i:                          ; preds = %if.end.i.i96.i.i.i.i.i
   %and.i.i99.i.i.i.i.i = and i32 %83, -2139095041
   %add7.i.i100.i.i.i.i.i = shl nsw i32 %add.i.i94.i.i.i.i.i, 23
-  %shl.i.i101.i.i.i.i.i = add i32 %add7.i.i100.i.i.i.i.i, 1065353216
+  %shl.i.i101.i.i.i.i.i = add nsw i32 %add7.i.i100.i.i.i.i.i, 1065353216
   %or.i.i102.i.i.i.i.i = or i32 %shl.i.i101.i.i.i.i.i, %and.i.i99.i.i.i.i.i
   %84 = bitcast i32 %or.i.i102.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i103.i.i.i.i.i
@@ -29663,7 +29663,7 @@ if.end.i.i184.i.i.i.i.i:                          ; preds = %for.body.i174.i.i.i
 if.end5.i.i186.i.i.i.i.i:                         ; preds = %if.end.i.i184.i.i.i.i.i
   %and.i.i187.i.i.i.i.i = and i32 %100, -2139095041
   %add7.i.i188.i.i.i.i.i = shl nsw i32 %add.i.i182.i.i.i.i.i, 23
-  %shl.i.i189.i.i.i.i.i = add i32 %add7.i.i188.i.i.i.i.i, 1065353216
+  %shl.i.i189.i.i.i.i.i = add nsw i32 %add7.i.i188.i.i.i.i.i, 1065353216
   %or.i.i190.i.i.i.i.i = or i32 %shl.i.i189.i.i.i.i.i, %and.i.i187.i.i.i.i.i
   %101 = bitcast i32 %or.i.i190.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i191.i.i.i.i.i
@@ -29873,7 +29873,7 @@ if.end.i.i.i.i128.i.i.i:                          ; preds = %for.body.i.i.i121.i
 if.end5.i.i.i.i130.i.i.i:                         ; preds = %if.end.i.i.i.i128.i.i.i
   %and.i.i39.i.i.i.i.i = and i32 %122, -2139095041
   %add7.i.i.i.i131.i.i.i = shl nsw i32 %add.i.i38.i.i.i.i.i, 23
-  %shl.i.i.i.i132.i.i.i = add i32 %add7.i.i.i.i131.i.i.i, 1065353216
+  %shl.i.i.i.i132.i.i.i = add nsw i32 %add7.i.i.i.i131.i.i.i, 1065353216
   %or.i.i.i.i133.i.i.i = or i32 %shl.i.i.i.i132.i.i.i, %and.i.i39.i.i.i.i.i
   %123 = bitcast i32 %or.i.i.i.i133.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i134.i.i.i
@@ -30000,7 +30000,7 @@ if.end.i.i95.i.i.i.i.i:                           ; preds = %for.body.i85.i.i.i.
 if.end5.i.i97.i.i.i.i.i:                          ; preds = %if.end.i.i95.i.i.i.i.i
   %and.i.i98.i.i.i.i.i = and i32 %139, -2139095041
   %add7.i.i99.i.i.i.i.i = shl nsw i32 %add.i.i93.i.i.i.i.i, 23
-  %shl.i.i100.i.i.i.i.i = add i32 %add7.i.i99.i.i.i.i.i, 1065353216
+  %shl.i.i100.i.i.i.i.i = add nsw i32 %add7.i.i99.i.i.i.i.i, 1065353216
   %or.i.i101.i.i.i.i.i = or i32 %shl.i.i100.i.i.i.i.i, %and.i.i98.i.i.i.i.i
   %140 = bitcast i32 %or.i.i101.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i.i.i.i
@@ -30130,7 +30130,7 @@ if.end.i.i183.i.i.i.i.i:                          ; preds = %for.body.i173.i.i.i
 if.end5.i.i185.i.i.i.i.i:                         ; preds = %if.end.i.i183.i.i.i.i.i
   %and.i.i186.i.i.i.i.i = and i32 %158, -2139095041
   %add7.i.i187.i.i.i.i.i = shl nsw i32 %add.i.i181.i.i.i.i.i, 23
-  %shl.i.i188.i.i.i.i.i = add i32 %add7.i.i187.i.i.i.i.i, 1065353216
+  %shl.i.i188.i.i.i.i.i = add nsw i32 %add7.i.i187.i.i.i.i.i, 1065353216
   %or.i.i189.i.i.i.i.i = or i32 %shl.i.i188.i.i.i.i.i, %and.i.i186.i.i.i.i.i
   %159 = bitcast i32 %or.i.i189.i.i.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i.i.i.i
@@ -30351,7 +30351,7 @@ if.end.i.i.i.i400.i.i.i:                          ; preds = %for.body.i.i.i390.i
 if.end5.i.i.i.i402.i.i.i:                         ; preds = %if.end.i.i.i.i400.i.i.i
   %and.i.i39.i.i403.i.i.i = and i32 %181, -2139095041
   %add7.i.i.i.i404.i.i.i = shl nsw i32 %add.i.i38.i.i398.i.i.i, 23
-  %shl.i.i.i.i405.i.i.i = add i32 %add7.i.i.i.i404.i.i.i, 1065353216
+  %shl.i.i.i.i405.i.i.i = add nsw i32 %add7.i.i.i.i404.i.i.i, 1065353216
   %or.i.i.i.i406.i.i.i = or i32 %shl.i.i.i.i405.i.i.i, %and.i.i39.i.i403.i.i.i
   %182 = bitcast i32 %or.i.i.i.i406.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i407.i.i.i
@@ -30474,7 +30474,7 @@ if.end.i.i95.i.i329.i.i.i:                        ; preds = %for.body.i85.i.i319
 if.end5.i.i97.i.i331.i.i.i:                       ; preds = %if.end.i.i95.i.i329.i.i.i
   %and.i.i98.i.i332.i.i.i = and i32 %198, -2139095041
   %add7.i.i99.i.i333.i.i.i = shl nsw i32 %add.i.i93.i.i327.i.i.i, 23
-  %shl.i.i100.i.i334.i.i.i = add i32 %add7.i.i99.i.i333.i.i.i, 1065353216
+  %shl.i.i100.i.i334.i.i.i = add nsw i32 %add7.i.i99.i.i333.i.i.i, 1065353216
   %or.i.i101.i.i335.i.i.i = or i32 %shl.i.i100.i.i334.i.i.i, %and.i.i98.i.i332.i.i.i
   %199 = bitcast i32 %or.i.i101.i.i335.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i336.i.i.i
@@ -30604,7 +30604,7 @@ if.end.i.i183.i.i285.i.i.i:                       ; preds = %for.body.i173.i.i27
 if.end5.i.i185.i.i287.i.i.i:                      ; preds = %if.end.i.i183.i.i285.i.i.i
   %and.i.i186.i.i288.i.i.i = and i32 %217, -2139095041
   %add7.i.i187.i.i289.i.i.i = shl nsw i32 %add.i.i181.i.i283.i.i.i, 23
-  %shl.i.i188.i.i290.i.i.i = add i32 %add7.i.i187.i.i289.i.i.i, 1065353216
+  %shl.i.i188.i.i290.i.i.i = add nsw i32 %add7.i.i187.i.i289.i.i.i, 1065353216
   %or.i.i189.i.i291.i.i.i = or i32 %shl.i.i188.i.i290.i.i.i, %and.i.i186.i.i288.i.i.i
   %218 = bitcast i32 %or.i.i189.i.i291.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i292.i.i.i
@@ -30819,7 +30819,7 @@ if.end.i.i.i.i677.i.i.i:                          ; preds = %for.body.i.i.i667.i
 if.end5.i.i.i.i679.i.i.i:                         ; preds = %if.end.i.i.i.i677.i.i.i
   %and.i.i40.i.i680.i.i.i = and i32 %237, -2139095041
   %add7.i.i.i.i681.i.i.i = shl nsw i32 %add.i.i39.i.i675.i.i.i, 23
-  %shl.i.i.i.i682.i.i.i = add i32 %add7.i.i.i.i681.i.i.i, 1065353216
+  %shl.i.i.i.i682.i.i.i = add nsw i32 %add7.i.i.i.i681.i.i.i, 1065353216
   %or.i.i.i.i683.i.i.i = or i32 %shl.i.i.i.i682.i.i.i, %and.i.i40.i.i680.i.i.i
   %238 = bitcast i32 %or.i.i.i.i683.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i684.i.i.i
@@ -30929,7 +30929,7 @@ if.end.i.i96.i.i607.i.i.i:                        ; preds = %for.body.i86.i.i597
 if.end5.i.i98.i.i609.i.i.i:                       ; preds = %if.end.i.i96.i.i607.i.i.i
   %and.i.i99.i.i610.i.i.i = and i32 %250, -2139095041
   %add7.i.i100.i.i611.i.i.i = shl nsw i32 %add.i.i94.i.i605.i.i.i, 23
-  %shl.i.i101.i.i612.i.i.i = add i32 %add7.i.i100.i.i611.i.i.i, 1065353216
+  %shl.i.i101.i.i612.i.i.i = add nsw i32 %add7.i.i100.i.i611.i.i.i, 1065353216
   %or.i.i102.i.i613.i.i.i = or i32 %shl.i.i101.i.i612.i.i.i, %and.i.i99.i.i610.i.i.i
   %251 = bitcast i32 %or.i.i102.i.i613.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i103.i.i614.i.i.i
@@ -31051,7 +31051,7 @@ if.end.i.i184.i.i554.i.i.i:                       ; preds = %for.body.i174.i.i54
 if.end5.i.i186.i.i556.i.i.i:                      ; preds = %if.end.i.i184.i.i554.i.i.i
   %and.i.i187.i.i557.i.i.i = and i32 %267, -2139095041
   %add7.i.i188.i.i558.i.i.i = shl nsw i32 %add.i.i182.i.i552.i.i.i, 23
-  %shl.i.i189.i.i559.i.i.i = add i32 %add7.i.i188.i.i558.i.i.i, 1065353216
+  %shl.i.i189.i.i559.i.i.i = add nsw i32 %add7.i.i188.i.i558.i.i.i, 1065353216
   %or.i.i190.i.i560.i.i.i = or i32 %shl.i.i189.i.i559.i.i.i, %and.i.i187.i.i557.i.i.i
   %268 = bitcast i32 %or.i.i190.i.i560.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i191.i.i561.i.i.i
@@ -31261,7 +31261,7 @@ if.end.i.i.i.i954.i.i.i:                          ; preds = %for.body.i.i.i944.i
 if.end5.i.i.i.i956.i.i.i:                         ; preds = %if.end.i.i.i.i954.i.i.i
   %and.i.i39.i.i957.i.i.i = and i32 %289, -2139095041
   %add7.i.i.i.i958.i.i.i = shl nsw i32 %add.i.i38.i.i952.i.i.i, 23
-  %shl.i.i.i.i959.i.i.i = add i32 %add7.i.i.i.i958.i.i.i, 1065353216
+  %shl.i.i.i.i959.i.i.i = add nsw i32 %add7.i.i.i.i958.i.i.i, 1065353216
   %or.i.i.i.i960.i.i.i = or i32 %shl.i.i.i.i959.i.i.i, %and.i.i39.i.i957.i.i.i
   %290 = bitcast i32 %or.i.i.i.i960.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i961.i.i.i
@@ -31384,7 +31384,7 @@ if.end.i.i95.i.i883.i.i.i:                        ; preds = %for.body.i85.i.i873
 if.end5.i.i97.i.i885.i.i.i:                       ; preds = %if.end.i.i95.i.i883.i.i.i
   %and.i.i98.i.i886.i.i.i = and i32 %306, -2139095041
   %add7.i.i99.i.i887.i.i.i = shl nsw i32 %add.i.i93.i.i881.i.i.i, 23
-  %shl.i.i100.i.i888.i.i.i = add i32 %add7.i.i99.i.i887.i.i.i, 1065353216
+  %shl.i.i100.i.i888.i.i.i = add nsw i32 %add7.i.i99.i.i887.i.i.i, 1065353216
   %or.i.i101.i.i889.i.i.i = or i32 %shl.i.i100.i.i888.i.i.i, %and.i.i98.i.i886.i.i.i
   %307 = bitcast i32 %or.i.i101.i.i889.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i102.i.i890.i.i.i
@@ -31514,7 +31514,7 @@ if.end.i.i183.i.i839.i.i.i:                       ; preds = %for.body.i173.i.i82
 if.end5.i.i185.i.i841.i.i.i:                      ; preds = %if.end.i.i183.i.i839.i.i.i
   %and.i.i186.i.i842.i.i.i = and i32 %325, -2139095041
   %add7.i.i187.i.i843.i.i.i = shl nsw i32 %add.i.i181.i.i837.i.i.i, 23
-  %shl.i.i188.i.i844.i.i.i = add i32 %add7.i.i187.i.i843.i.i.i, 1065353216
+  %shl.i.i188.i.i844.i.i.i = add nsw i32 %add7.i.i187.i.i843.i.i.i, 1065353216
   %or.i.i189.i.i845.i.i.i = or i32 %shl.i.i188.i.i844.i.i.i, %and.i.i186.i.i842.i.i.i
   %326 = bitcast i32 %or.i.i189.i.i845.i.i.i to float
   br label %_ZN4pbrt7FastExpEf.exit.i190.i.i846.i.i.i
@@ -62679,7 +62679,7 @@ if.end.i.i.us:                                    ; preds = %for.body.us
 if.end5.i.i.us:                                   ; preds = %if.end.i.i.us
   %and.i.i.us = and i32 %7, -2139095041
   %add7.i.i.us = shl nsw i32 %add.i.i.us, 23
-  %shl.i.i.us = add i32 %add7.i.i.us, 1065353216
+  %shl.i.i.us = add nsw i32 %add7.i.i.us, 1065353216
   %or.i.i.us = or i32 %shl.i.i.us, %and.i.i.us
   %8 = bitcast i32 %or.i.i.us to float
   %9 = fadd float %8, -1.000000e+00
@@ -74125,7 +74125,7 @@ if.end.i.i.i:                                     ; preds = %if.then28
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %and.i.i.i = and i32 %31, -2139095041
   %add7.i.i.i = shl nsw i32 %add.i.i.i, 23
-  %shl.i.i.i = add i32 %add7.i.i.i, 1065353216
+  %shl.i.i.i = add nsw i32 %add7.i.i.i, 1065353216
   %or.i.i.i = or i32 %shl.i.i.i, %and.i.i.i
   %32 = bitcast i32 %or.i.i.i to float
   %33 = fadd float %32, -1.000000e+00
@@ -80001,7 +80001,7 @@ if.end.i.i.i:                                     ; preds = %if.end8
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %and.i.i.i = and i32 %26, -2139095041
   %add7.i.i.i = shl nsw i32 %add.i.i.i, 23
-  %shl.i.i.i = add i32 %add7.i.i.i, 1065353216
+  %shl.i.i.i = add nsw i32 %add7.i.i.i, 1065353216
   %or.i.i.i = or i32 %shl.i.i.i, %and.i.i.i
   %27 = bitcast i32 %or.i.i.i to float
   %28 = fadd float %27, -1.000000e+00

@@ -190,7 +190,7 @@ define hidden noundef ptr @_ZN19SamplePriorityQueue3popEv(ptr nocapture noundef 
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %92, label %5
+  br i1 %4, label %87, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
@@ -221,8 +221,8 @@ define hidden noundef ptr @_ZN19SamplePriorityQueue3popEv(ptr nocapture noundef 
   store ptr null, ptr %25, align 8
   br label %26
 
-26:                                               ; preds = %70, %5
-  %.0.i = phi i32 [ 0, %5 ], [ %.019.i, %70 ]
+26:                                               ; preds = %select.unfold.i, %5
+  %.0.i = phi i32 [ 0, %5 ], [ %.019.i, %select.unfold.i ]
   %27 = shl nuw nsw i32 %.0.i, 1
   %28 = add nuw nsw i32 %27, 2
   %29 = load i32, ptr %2, align 8
@@ -253,6 +253,9 @@ define hidden noundef ptr @_ZN19SamplePriorityQueue3popEv(ptr nocapture noundef 
   %50 = load i64, ptr %49, align 8
   %51 = icmp ult i64 %50, %37
   %..i = select i1 %51, i32 %45, i32 %28
+  %.pre = zext nneg i32 %..i to i64
+  %.phi.trans.insert = getelementptr inbounds ptr, ptr %32, i64 %.pre
+  %.pre6 = load ptr, ptr %.phi.trans.insert, align 8
   br label %select.unfold.i
 
 52:                                               ; preds = %31, %26
@@ -275,45 +278,40 @@ define hidden noundef ptr @_ZN19SamplePriorityQueue3popEv(ptr nocapture noundef 
   %67 = icmp ult i64 %61, %66
   br i1 %67, label %select.unfold.i, label %_ZN19SamplePriorityQueue8moveDownEi.exit
 
-select.unfold.i:                                  ; preds = %55, %44
-  %68 = phi ptr [ %32, %44 ], [ %56, %55 ]
+select.unfold.i:                                  ; preds = %44, %55
+  %68 = phi ptr [ %40, %44 ], [ %64, %55 ]
+  %69 = phi ptr [ %.pre6, %44 ], [ %59, %55 ]
+  %.pre-phi5 = phi i64 [ %.pre, %44 ], [ %57, %55 ]
+  %.pre-phi = phi i64 [ %38, %44 ], [ %62, %55 ]
+  %70 = phi ptr [ %32, %44 ], [ %56, %55 ]
   %.019.i = phi i32 [ %..i, %44 ], [ %53, %55 ]
-  %69 = icmp sgt i32 %.019.i, -1
-  br i1 %69, label %70, label %_ZN19SamplePriorityQueue8moveDownEi.exit
-
-70:                                               ; preds = %select.unfold.i
-  %71 = zext nneg i32 %.0.i to i64
-  %72 = getelementptr inbounds ptr, ptr %68, i64 %71
-  %73 = load ptr, ptr %72, align 8
-  %74 = zext nneg i32 %.019.i to i64
-  %75 = getelementptr inbounds ptr, ptr %68, i64 %74
+  %71 = getelementptr inbounds ptr, ptr %70, i64 %.pre-phi
+  store ptr %69, ptr %71, align 8
+  %72 = load ptr, ptr %0, align 8
+  %73 = getelementptr inbounds ptr, ptr %72, i64 %.pre-phi5
+  store ptr %68, ptr %73, align 8
+  %74 = load ptr, ptr %0, align 8
+  %75 = getelementptr inbounds ptr, ptr %74, i64 %.pre-phi
   %76 = load ptr, ptr %75, align 8
-  store ptr %76, ptr %72, align 8
-  %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds ptr, ptr %77, i64 %74
-  store ptr %73, ptr %78, align 8
-  %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds ptr, ptr %79, i64 %71
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 112
-  store i32 %.0.i, ptr %82, align 8
-  %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds ptr, ptr %83, i64 %74
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 112
-  store i32 %.019.i, ptr %86, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 112
+  store i32 %.0.i, ptr %77, align 8
+  %78 = load ptr, ptr %0, align 8
+  %79 = getelementptr inbounds ptr, ptr %78, i64 %.pre-phi5
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 112
+  store i32 %.019.i, ptr %81, align 8
   br label %26, !llvm.loop !8
 
-_ZN19SamplePriorityQueue8moveDownEi.exit:         ; preds = %52, %55, %select.unfold.i
-  %87 = getelementptr inbounds i8, ptr %7, i64 88
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 24
-  %90 = load i64, ptr %89, align 8
-  %91 = sub i64 %90, %88
-  store i64 %91, ptr %89, align 8
-  br label %92
+_ZN19SamplePriorityQueue8moveDownEi.exit:         ; preds = %52, %55
+  %82 = getelementptr inbounds i8, ptr %7, i64 88
+  %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %85 = load i64, ptr %84, align 8
+  %86 = sub i64 %85, %83
+  store i64 %86, ptr %84, align 8
+  br label %87
 
-92:                                               ; preds = %1, %_ZN19SamplePriorityQueue8moveDownEi.exit
+87:                                               ; preds = %1, %_ZN19SamplePriorityQueue8moveDownEi.exit
   %.0 = phi ptr [ %7, %_ZN19SamplePriorityQueue8moveDownEi.exit ], [ null, %1 ]
   ret ptr %.0
 }

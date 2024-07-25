@@ -234,10 +234,6 @@ define i32 @Gia_Truth5ToGia(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %.preheader._crit_edge
 
-.preheader._crit_edge:                            ; preds = %.preheader
-  %.pre = shl nuw nsw i32 1, %7
-  br label %split
-
 11:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -249,11 +245,11 @@ define i32 @Gia_Truth5ToGia(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %17 = xor i32 %13, %3
   %18 = and i32 %16, %17
   %.not33 = icmp eq i32 %18, 0
-  br i1 %.not33, label %.preheader, label %split, !llvm.loop !4
+  br i1 %.not33, label %.preheader, label %.preheader._crit_edge, !llvm.loop !4
 
-split:                                            ; preds = %11, %.preheader._crit_edge
-  %.pre-phi = phi i32 [ %.pre, %.preheader._crit_edge ], [ %12, %11 ]
-  %.030.lcssa = phi i32 [ %7, %.preheader._crit_edge ], [ %indvars, %11 ]
+.preheader._crit_edge:                            ; preds = %11, %.preheader
+  %.pre-phi = phi i32 [ -1, %.preheader ], [ %12, %11 ]
+  %.030.lcssa = phi i32 [ %7, %.preheader ], [ %indvars, %11 ]
   %19 = sext i32 %.030.lcssa to i64
   %20 = getelementptr inbounds [6 x i32], ptr @s_Truths5Neg, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4
@@ -272,11 +268,11 @@ split:                                            ; preds = %11, %.preheader._cr
   %33 = load i32, ptr %32, align 4
   br i1 %.not32, label %36, label %34
 
-34:                                               ; preds = %split
+34:                                               ; preds = %.preheader._crit_edge
   %35 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %33, i32 noundef %31, i32 noundef %25) #21
   br label %44
 
-36:                                               ; preds = %split
+36:                                               ; preds = %.preheader._crit_edge
   %37 = xor i32 %33, 1
   %38 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %37, i32 noundef %25)
   %39 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %33, i32 noundef %31)
@@ -315,11 +311,6 @@ define i32 @Gia_Truth6ToGia(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %.preheader._crit_edge
 
-.preheader._crit_edge:                            ; preds = %.preheader
-  %.pre = shl nuw nsw i32 1, %7
-  %.pre35 = zext nneg i32 %.pre to i64
-  br label %split
-
 11:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -332,11 +323,11 @@ define i32 @Gia_Truth6ToGia(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 
   %18 = xor i64 %14, %3
   %19 = and i64 %17, %18
   %.not33 = icmp eq i64 %19, 0
-  br i1 %.not33, label %.preheader, label %split, !llvm.loop !6
+  br i1 %.not33, label %.preheader, label %.preheader._crit_edge, !llvm.loop !6
 
-split:                                            ; preds = %11, %.preheader._crit_edge
-  %.pre-phi36 = phi i64 [ %.pre35, %.preheader._crit_edge ], [ %13, %11 ]
-  %.030.lcssa = phi i32 [ %7, %.preheader._crit_edge ], [ %indvars, %11 ]
+.preheader._crit_edge:                            ; preds = %11, %.preheader
+  %.pre-phi36 = phi i64 [ 4294967295, %.preheader ], [ %13, %11 ]
+  %.030.lcssa = phi i32 [ %7, %.preheader ], [ %indvars, %11 ]
   %20 = sext i32 %.030.lcssa to i64
   %21 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8
@@ -355,11 +346,11 @@ split:                                            ; preds = %11, %.preheader._cr
   %34 = load i32, ptr %33, align 4
   br i1 %.not32, label %37, label %35
 
-35:                                               ; preds = %split
+35:                                               ; preds = %.preheader._crit_edge
   %36 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %34, i32 noundef %32, i32 noundef %26) #21
   br label %45
 
-37:                                               ; preds = %split
+37:                                               ; preds = %.preheader._crit_edge
   %38 = xor i32 %34, 1
   %39 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %38, i32 noundef %26)
   %40 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %34, i32 noundef %32)

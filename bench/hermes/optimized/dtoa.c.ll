@@ -1213,23 +1213,22 @@ if.else.i393.i:                                   ; preds = %for.cond489.i
 land.lhs.true9.i.i:                               ; preds = %land.lhs.true.i.i
   %shl22.i.i = shl nuw nsw i32 1, %109
   %sub23.i.i = add nsw i32 %shl22.i.i, -1
-  %conv24.i.i = sext i32 %sub23.i.i to i64
-  %mul25.i.i = shl nsw i64 %conv24.i.i, 2
-  %sub526.i.i = add nsw i64 %mul25.i.i, 39
+  %conv24.i.i = zext nneg i32 %sub23.i.i to i64
+  %mul25.i.i = shl nuw nsw i64 %conv24.i.i, 2
+  %sub526.i.i = add nuw nsw i64 %mul25.i.i, 39
   %div21.i.i = lshr i64 %sub526.i.i, 3
   %112 = load ptr, ptr %pmem_next.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %112 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %conv10.i.i = and i64 %div21.i.i, 4294967295
-  %add11.i.i = add nsw i64 %sub.ptr.div.i.i, %conv10.i.i
+  %add11.i.i = add nsw i64 %sub.ptr.div.i.i, %div21.i.i
   %113 = load i32, ptr %dalloc, align 8
   %conv12.i.i = sext i32 %113 to i64
   %cmp13.not.i.i = icmp sgt i64 %add11.i.i, %conv12.i.i
   br i1 %cmp13.not.i.i, label %if.else18.i.i, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %land.lhs.true9.i.i
-  %add.ptr.i403.i = getelementptr inbounds double, ptr %112, i64 %conv10.i.i
+  %add.ptr.i403.i = getelementptr inbounds double, ptr %112, i64 %div21.i.i
   store ptr %add.ptr.i403.i, ptr %pmem_next.i, align 8
   br label %if.end.i397.i
 
@@ -4121,9 +4120,9 @@ if.else.i527:                                     ; preds = %if.then505
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %shl22.i = shl nuw nsw i32 1, %104
   %sub23.i = add nsw i32 %shl22.i, -1
-  %conv24.i = sext i32 %sub23.i to i64
-  %mul25.i = shl nsw i64 %conv24.i, 2
-  %sub526.i = add nsw i64 %mul25.i, 39
+  %conv24.i = zext nneg i32 %sub23.i to i64
+  %mul25.i = shl nuw nsw i64 %conv24.i, 2
+  %sub526.i = add nuw nsw i64 %mul25.i, 39
   %div21.i = lshr i64 %sub526.i, 3
   %pmem_next.i = getelementptr inbounds i8, ptr %dalloc, i64 8
   %107 = load ptr, ptr %pmem_next.i, align 8
@@ -4132,15 +4131,14 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %private_mem.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %conv10.i = and i64 %div21.i, 4294967295
-  %add11.i = add nsw i64 %sub.ptr.div.i, %conv10.i
+  %add11.i = add nsw i64 %sub.ptr.div.i, %div21.i
   %108 = load i32, ptr %dalloc, align 8
   %conv12.i = sext i32 %108 to i64
   %cmp13.not.i = icmp sgt i64 %add11.i, %conv12.i
   br i1 %cmp13.not.i, label %if.else18.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %land.lhs.true9.i
-  %add.ptr.i538 = getelementptr inbounds double, ptr %107, i64 %conv10.i
+  %add.ptr.i538 = getelementptr inbounds double, ptr %107, i64 %div21.i
   store ptr %add.ptr.i538, ptr %pmem_next.i, align 8
   br label %if.end.i531
 
@@ -5161,9 +5159,9 @@ if.else.i:                                        ; preds = %entry
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %shl22.i = shl nuw nsw i32 1, %k.0
   %sub23.i = add nsw i32 %shl22.i, -1
-  %conv24.i = sext i32 %sub23.i to i64
-  %mul25.i = shl nsw i64 %conv24.i, 2
-  %sub526.i = add nsw i64 %mul25.i, 39
+  %conv24.i = zext nneg i32 %sub23.i to i64
+  %mul25.i = shl nuw nsw i64 %conv24.i, 2
+  %sub526.i = add nuw nsw i64 %mul25.i, 39
   %div21.i = lshr i64 %sub526.i, 3
   %pmem_next.i = getelementptr inbounds i8, ptr %dalloc, i64 8
   %8 = load ptr, ptr %pmem_next.i, align 8
@@ -5172,15 +5170,14 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %private_mem.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %conv10.i = and i64 %div21.i, 4294967295
-  %add11.i = add nsw i64 %sub.ptr.div.i, %conv10.i
+  %add11.i = add nsw i64 %sub.ptr.div.i, %div21.i
   %9 = load i32, ptr %dalloc, align 8
   %conv12.i = sext i32 %9 to i64
   %cmp13.not.i = icmp sgt i64 %add11.i, %conv12.i
   br i1 %cmp13.not.i, label %if.else18.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %land.lhs.true9.i
-  %add.ptr.i = getelementptr inbounds double, ptr %8, i64 %conv10.i
+  %add.ptr.i = getelementptr inbounds double, ptr %8, i64 %div21.i
   store ptr %add.ptr.i, ptr %pmem_next.i, align 8
   br label %if.end.i
 
@@ -5358,9 +5355,9 @@ if.else.i:                                        ; preds = %for.end
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %shl22.i = shl nuw nsw i32 1, %k1.0.lcssa
   %sub23.i = add nsw i32 %shl22.i, -1
-  %conv24.i = sext i32 %sub23.i to i64
-  %mul25.i = shl nsw i64 %conv24.i, 2
-  %sub526.i = add nsw i64 %mul25.i, 39
+  %conv24.i = zext nneg i32 %sub23.i to i64
+  %mul25.i = shl nuw nsw i64 %conv24.i, 2
+  %sub526.i = add nuw nsw i64 %mul25.i, 39
   %div21.i = lshr i64 %sub526.i, 3
   %pmem_next.i = getelementptr inbounds i8, ptr %dalloc, i64 8
   %5 = load ptr, ptr %pmem_next.i, align 8
@@ -5369,15 +5366,14 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %private_mem.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %conv10.i = and i64 %div21.i, 4294967295
-  %add11.i = add nsw i64 %sub.ptr.div.i, %conv10.i
+  %add11.i = add nsw i64 %sub.ptr.div.i, %div21.i
   %6 = load i32, ptr %dalloc, align 8
   %conv12.i = sext i32 %6 to i64
   %cmp13.not.i = icmp sgt i64 %add11.i, %conv12.i
   br i1 %cmp13.not.i, label %if.else18.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %land.lhs.true9.i
-  %add.ptr.i = getelementptr inbounds double, ptr %5, i64 %conv10.i
+  %add.ptr.i = getelementptr inbounds double, ptr %5, i64 %div21.i
   store ptr %add.ptr.i, ptr %pmem_next.i, align 8
   br label %if.end.i
 
@@ -5562,9 +5558,9 @@ if.else.i:                                        ; preds = %if.then9
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %shl22.i = shl nuw nsw i32 1, %add10
   %sub23.i = add nsw i32 %shl22.i, -1
-  %conv24.i = sext i32 %sub23.i to i64
-  %mul25.i = shl nsw i64 %conv24.i, 2
-  %sub526.i = add nsw i64 %mul25.i, 39
+  %conv24.i = zext nneg i32 %sub23.i to i64
+  %mul25.i = shl nuw nsw i64 %conv24.i, 2
+  %sub526.i = add nuw nsw i64 %mul25.i, 39
   %div21.i = lshr i64 %sub526.i, 3
   %pmem_next.i = getelementptr inbounds i8, ptr %dalloc, i64 8
   %6 = load ptr, ptr %pmem_next.i, align 8
@@ -5573,15 +5569,14 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %private_mem.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %conv10.i = and i64 %div21.i, 4294967295
-  %add11.i = add nsw i64 %sub.ptr.div.i, %conv10.i
+  %add11.i = add nsw i64 %sub.ptr.div.i, %div21.i
   %7 = load i32, ptr %dalloc, align 8
   %conv12.i = sext i32 %7 to i64
   %cmp13.not.i = icmp sgt i64 %add11.i, %conv12.i
   br i1 %cmp13.not.i, label %if.else18.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %land.lhs.true9.i
-  %add.ptr.i = getelementptr inbounds double, ptr %6, i64 %conv10.i
+  %add.ptr.i = getelementptr inbounds double, ptr %6, i64 %div21.i
   store ptr %add.ptr.i, ptr %pmem_next.i, align 8
   br label %if.end.i
 
@@ -5969,9 +5964,9 @@ if.else.i:                                        ; preds = %if.end
 land.lhs.true9.i48:                               ; preds = %land.lhs.true.i
   %shl22.i = shl nuw nsw i32 1, %8
   %sub23.i = add nsw i32 %shl22.i, -1
-  %conv24.i = sext i32 %sub23.i to i64
-  %mul25.i = shl nsw i64 %conv24.i, 2
-  %sub526.i = add nsw i64 %mul25.i, 39
+  %conv24.i = zext nneg i32 %sub23.i to i64
+  %mul25.i = shl nuw nsw i64 %conv24.i, 2
+  %sub526.i = add nuw nsw i64 %mul25.i, 39
   %div21.i = lshr i64 %sub526.i, 3
   %pmem_next.i49 = getelementptr inbounds i8, ptr %dalloc, i64 8
   %11 = load ptr, ptr %pmem_next.i49, align 8
@@ -5980,15 +5975,14 @@ land.lhs.true9.i48:                               ; preds = %land.lhs.true.i
   %sub.ptr.rhs.cast.i52 = ptrtoint ptr %private_mem.i50 to i64
   %sub.ptr.sub.i53 = sub i64 %sub.ptr.lhs.cast.i51, %sub.ptr.rhs.cast.i52
   %sub.ptr.div.i54 = ashr exact i64 %sub.ptr.sub.i53, 3
-  %conv10.i = and i64 %div21.i, 4294967295
-  %add11.i55 = add nsw i64 %sub.ptr.div.i54, %conv10.i
+  %add11.i55 = add nsw i64 %sub.ptr.div.i54, %div21.i
   %12 = load i32, ptr %dalloc, align 8
   %conv12.i56 = sext i32 %12 to i64
   %cmp13.not.i57 = icmp sgt i64 %add11.i55, %conv12.i56
   br i1 %cmp13.not.i57, label %if.else18.i35, label %if.then15.i58
 
 if.then15.i58:                                    ; preds = %land.lhs.true9.i48
-  %add.ptr.i59 = getelementptr inbounds double, ptr %11, i64 %conv10.i
+  %add.ptr.i59 = getelementptr inbounds double, ptr %11, i64 %div21.i
   store ptr %add.ptr.i59, ptr %pmem_next.i49, align 8
   br label %if.end.i38
 
@@ -7437,9 +7431,9 @@ if.else.i508:                                     ; preds = %if.then499
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %shl22.i = shl nuw nsw i32 1, %104
   %sub23.i = add nsw i32 %shl22.i, -1
-  %conv24.i = sext i32 %sub23.i to i64
-  %mul25.i = shl nsw i64 %conv24.i, 2
-  %sub526.i = add nsw i64 %mul25.i, 39
+  %conv24.i = zext nneg i32 %sub23.i to i64
+  %mul25.i = shl nuw nsw i64 %conv24.i, 2
+  %sub526.i = add nuw nsw i64 %mul25.i, 39
   %div21.i = lshr i64 %sub526.i, 3
   %pmem_next.i = getelementptr inbounds i8, ptr %dalloc, i64 8
   %107 = load ptr, ptr %pmem_next.i, align 8
@@ -7448,15 +7442,14 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %private_mem.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %conv10.i = and i64 %div21.i, 4294967295
-  %add11.i = add nsw i64 %sub.ptr.div.i, %conv10.i
+  %add11.i = add nsw i64 %sub.ptr.div.i, %div21.i
   %108 = load i32, ptr %dalloc, align 8
   %conv12.i = sext i32 %108 to i64
   %cmp13.not.i = icmp sgt i64 %add11.i, %conv12.i
   br i1 %cmp13.not.i, label %if.else18.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %land.lhs.true9.i
-  %add.ptr.i519 = getelementptr inbounds double, ptr %107, i64 %conv10.i
+  %add.ptr.i519 = getelementptr inbounds double, ptr %107, i64 %div21.i
   store ptr %add.ptr.i519, ptr %pmem_next.i, align 8
   br label %if.end.i512
 
