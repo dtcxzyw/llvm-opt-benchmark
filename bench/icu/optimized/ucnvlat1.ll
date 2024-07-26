@@ -1090,85 +1090,83 @@ do.body:                                          ; preds = %do.cond, %if.then14
   %target.0 = phi ptr [ %4, %if.then14 ], [ %incdec.ptr100, %do.cond ]
   %source.0 = phi ptr [ %2, %if.then14 ], [ %incdec.ptr99, %do.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %source.0, i64 1
-  %incdec.ptr15 = getelementptr inbounds i8, ptr %target.0, i64 1
-  %incdec.ptr16 = getelementptr inbounds i8, ptr %source.0, i64 2
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %target.0, i64 2
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %source.0, i64 3
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %target.0, i64 3
-  %incdec.ptr27 = getelementptr inbounds i8, ptr %source.0, i64 4
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %target.0, i64 4
-  %incdec.ptr33 = getelementptr inbounds i8, ptr %source.0, i64 5
-  %incdec.ptr34 = getelementptr inbounds i8, ptr %target.0, i64 5
-  %incdec.ptr39 = getelementptr inbounds i8, ptr %source.0, i64 6
-  %incdec.ptr40 = getelementptr inbounds i8, ptr %target.0, i64 6
-  %incdec.ptr45 = getelementptr inbounds i8, ptr %source.0, i64 7
-  %incdec.ptr46 = getelementptr inbounds i8, ptr %target.0, i64 7
-  %incdec.ptr51 = getelementptr inbounds i8, ptr %source.0, i64 8
-  %incdec.ptr52 = getelementptr inbounds i8, ptr %target.0, i64 8
-  %incdec.ptr57 = getelementptr inbounds i8, ptr %source.0, i64 9
-  %incdec.ptr58 = getelementptr inbounds i8, ptr %target.0, i64 9
-  %incdec.ptr63 = getelementptr inbounds i8, ptr %source.0, i64 10
-  %incdec.ptr64 = getelementptr inbounds i8, ptr %target.0, i64 10
-  %incdec.ptr69 = getelementptr inbounds i8, ptr %source.0, i64 11
-  %incdec.ptr70 = getelementptr inbounds i8, ptr %target.0, i64 11
-  %incdec.ptr75 = getelementptr inbounds i8, ptr %source.0, i64 12
-  %incdec.ptr76 = getelementptr inbounds i8, ptr %target.0, i64 12
-  %incdec.ptr81 = getelementptr inbounds i8, ptr %source.0, i64 13
-  %incdec.ptr82 = getelementptr inbounds i8, ptr %target.0, i64 13
-  %incdec.ptr87 = getelementptr inbounds i8, ptr %source.0, i64 14
-  %incdec.ptr88 = getelementptr inbounds i8, ptr %target.0, i64 14
-  %incdec.ptr93 = getelementptr inbounds i8, ptr %source.0, i64 15
-  %incdec.ptr94 = getelementptr inbounds i8, ptr %target.0, i64 15
   %6 = load i8, ptr %source.0, align 1
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %target.0, i64 1
   store i8 %6, ptr %target.0, align 1
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %source.0, i64 2
   %7 = load i8, ptr %incdec.ptr, align 1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %target.0, i64 2
   store i8 %7, ptr %incdec.ptr15, align 1
+  %or75 = or i8 %7, %6
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %source.0, i64 3
   %8 = load i8, ptr %incdec.ptr16, align 1
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %target.0, i64 3
   store i8 %8, ptr %incdec.ptr17, align 1
+  %or2576 = or i8 %or75, %8
+  %incdec.ptr27 = getelementptr inbounds i8, ptr %source.0, i64 4
   %9 = load i8, ptr %incdec.ptr21, align 1
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %target.0, i64 4
   store i8 %9, ptr %incdec.ptr22, align 1
+  %or3177 = or i8 %or2576, %9
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %source.0, i64 5
   %10 = load i8, ptr %incdec.ptr27, align 1
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %target.0, i64 5
   store i8 %10, ptr %incdec.ptr28, align 1
+  %or3778 = or i8 %or3177, %10
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %source.0, i64 6
   %11 = load i8, ptr %incdec.ptr33, align 1
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %target.0, i64 6
   store i8 %11, ptr %incdec.ptr34, align 1
+  %or4379 = or i8 %or3778, %11
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %source.0, i64 7
   %12 = load i8, ptr %incdec.ptr39, align 1
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %target.0, i64 7
   store i8 %12, ptr %incdec.ptr40, align 1
+  %or4980 = or i8 %or4379, %12
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %source.0, i64 8
   %13 = load i8, ptr %incdec.ptr45, align 1
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %target.0, i64 8
   store i8 %13, ptr %incdec.ptr46, align 1
+  %or5581 = or i8 %or4980, %13
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %source.0, i64 9
   %14 = load i8, ptr %incdec.ptr51, align 1
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %target.0, i64 9
   store i8 %14, ptr %incdec.ptr52, align 1
+  %or6182 = or i8 %or5581, %14
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %source.0, i64 10
   %15 = load i8, ptr %incdec.ptr57, align 1
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %target.0, i64 10
   store i8 %15, ptr %incdec.ptr58, align 1
+  %or6783 = or i8 %or6182, %15
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %source.0, i64 11
   %16 = load i8, ptr %incdec.ptr63, align 1
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %target.0, i64 11
   store i8 %16, ptr %incdec.ptr64, align 1
+  %or7384 = or i8 %or6783, %16
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %source.0, i64 12
   %17 = load i8, ptr %incdec.ptr69, align 1
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %target.0, i64 12
   store i8 %17, ptr %incdec.ptr70, align 1
+  %or7985 = or i8 %or7384, %17
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %source.0, i64 13
   %18 = load i8, ptr %incdec.ptr75, align 1
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %target.0, i64 13
   store i8 %18, ptr %incdec.ptr76, align 1
+  %or8586 = or i8 %or7985, %18
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %source.0, i64 14
   %19 = load i8, ptr %incdec.ptr81, align 1
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %target.0, i64 14
   store i8 %19, ptr %incdec.ptr82, align 1
+  %or9187 = or i8 %or8586, %19
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %source.0, i64 15
   %20 = load i8, ptr %incdec.ptr87, align 1
+  %incdec.ptr94 = getelementptr inbounds i8, ptr %target.0, i64 15
   store i8 %20, ptr %incdec.ptr88, align 1
+  %or9788 = or i8 %or9187, %20
   %21 = load i8, ptr %incdec.ptr93, align 1
   store i8 %21, ptr %incdec.ptr94, align 1
-  %22 = insertelement <16 x i8> poison, i8 %6, i64 0
-  %23 = insertelement <16 x i8> %22, i8 %7, i64 1
-  %24 = insertelement <16 x i8> %23, i8 %8, i64 2
-  %25 = insertelement <16 x i8> %24, i8 %9, i64 3
-  %26 = insertelement <16 x i8> %25, i8 %10, i64 4
-  %27 = insertelement <16 x i8> %26, i8 %11, i64 5
-  %28 = insertelement <16 x i8> %27, i8 %12, i64 6
-  %29 = insertelement <16 x i8> %28, i8 %13, i64 7
-  %30 = insertelement <16 x i8> %29, i8 %14, i64 8
-  %31 = insertelement <16 x i8> %30, i8 %15, i64 9
-  %32 = insertelement <16 x i8> %31, i8 %16, i64 10
-  %33 = insertelement <16 x i8> %32, i8 %17, i64 11
-  %34 = insertelement <16 x i8> %33, i8 %18, i64 12
-  %35 = insertelement <16 x i8> %34, i8 %19, i64 13
-  %36 = insertelement <16 x i8> %35, i8 %20, i64 14
-  %37 = insertelement <16 x i8> %36, i8 %21, i64 15
-  %38 = tail call i8 @llvm.vector.reduce.or.v16i8(<16 x i8> %37)
-  %cmp106 = icmp slt i8 %38, 0
+  %or10389 = or i8 %or9788, %21
+  %cmp106 = icmp slt i8 %or10389, 0
   br i1 %cmp106, label %do.end, label %do.cond
 
 do.cond:                                          ; preds = %do.body
@@ -1198,14 +1196,14 @@ land.rhs:                                         ; preds = %if.end112, %while.b
   %source.397 = phi ptr [ %incdec.ptr116, %while.body ], [ %source.2, %if.end112 ]
   %target.396 = phi ptr [ %incdec.ptr117, %while.body ], [ %target.2, %if.end112 ]
   %targetCapacity.295 = phi i32 [ %dec118, %while.body ], [ %targetCapacity.1, %if.end112 ]
-  %39 = load i8, ptr %source.397, align 1
-  %cmp115 = icmp sgt i8 %39, -1
+  %22 = load i8, ptr %source.397, align 1
+  %cmp115 = icmp sgt i8 %22, -1
   br i1 %cmp115, label %while.body, label %if.end127.sink.split
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr116 = getelementptr inbounds i8, ptr %source.397, i64 1
   %incdec.ptr117 = getelementptr inbounds i8, ptr %target.396, i64 1
-  store i8 %39, ptr %target.396, align 1
+  store i8 %22, ptr %target.396, align 1
   %dec118 = add nsw i32 %targetCapacity.295, -1
   %cmp113 = icmp sgt i32 %targetCapacity.295, 1
   br i1 %cmp113, label %land.rhs, label %if.else, !llvm.loop !19
@@ -1217,8 +1215,8 @@ if.else:                                          ; preds = %while.body, %if.end
   br i1 %cmp122, label %land.lhs.true, label %if.end127
 
 land.lhs.true:                                    ; preds = %if.else
-  %40 = load ptr, ptr %targetLimit, align 8
-  %cmp124.not = icmp ult ptr %target.3.lcssa, %40
+  %23 = load ptr, ptr %targetLimit, align 8
+  %cmp124.not = icmp ult ptr %target.3.lcssa, %23
   br i1 %cmp124.not, label %if.end127, label %if.end127.sink.split
 
 if.end127.sink.split:                             ; preds = %land.rhs, %land.lhs.true
@@ -1244,9 +1242,6 @@ declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.vector.reduce.or.v16i16(<16 x i16>) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.vector.reduce.or.v16i8(<16 x i8>) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

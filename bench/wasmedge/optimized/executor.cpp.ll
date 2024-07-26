@@ -3581,24 +3581,28 @@ _ZNSt6futureIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_
   store i64 %131, ptr %130, align 8
   store ptr null, ptr %35, align 8
   %132 = getelementptr inbounds i8, ptr %12, i64 40
-  %133 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %133, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %12, i64 56
-  %135 = getelementptr inbounds i8, ptr %6, i64 16
+  %133 = load ptr, ptr %6, align 8
+  store ptr %133, ptr %132, align 8
+  %134 = getelementptr inbounds i8, ptr %12, i64 48
+  %135 = getelementptr inbounds i8, ptr %6, i64 8
   %136 = load ptr, ptr %135, align 8
+  store ptr %136, ptr %134, align 8
+  %137 = getelementptr inbounds i8, ptr %12, i64 56
+  %138 = getelementptr inbounds i8, ptr %6, i64 16
+  %139 = load ptr, ptr %138, align 8
+  store ptr %139, ptr %137, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %137 = getelementptr inbounds i8, ptr %12, i64 64
-  %138 = load ptr, ptr %5, align 8
-  %139 = getelementptr inbounds i8, ptr %5, i64 8
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %12, i64 80
-  %142 = getelementptr inbounds i8, ptr %5, i64 16
-  %143 = load ptr, ptr %142, align 8
-  %144 = insertelement <4 x ptr> poison, ptr %136, i64 0
-  %145 = insertelement <4 x ptr> %144, ptr %138, i64 1
-  %146 = insertelement <4 x ptr> %145, ptr %140, i64 2
-  %147 = insertelement <4 x ptr> %146, ptr %143, i64 3
-  store <4 x ptr> %147, ptr %134, align 8
+  %140 = getelementptr inbounds i8, ptr %12, i64 64
+  %141 = load ptr, ptr %5, align 8
+  store ptr %141, ptr %140, align 8
+  %142 = getelementptr inbounds i8, ptr %12, i64 72
+  %143 = getelementptr inbounds i8, ptr %5, i64 8
+  %144 = load ptr, ptr %143, align 8
+  store ptr %144, ptr %142, align 8
+  %145 = getelementptr inbounds i8, ptr %12, i64 80
+  %146 = getelementptr inbounds i8, ptr %5, i64 16
+  %147 = load ptr, ptr %146, align 8
+  store ptr %147, ptr %145, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %148 = getelementptr inbounds i8, ptr %12, i64 88
   %149 = load ptr, ptr %4, align 8
@@ -3627,16 +3631,19 @@ _ZNSt6futureIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_
   store i64 %131, ptr %156, align 8
   store ptr null, ptr %130, align 8
   %157 = getelementptr inbounds i8, ptr %151, i64 48
+  store ptr %133, ptr %157, align 8
+  %158 = getelementptr inbounds i8, ptr %151, i64 56
+  store ptr %136, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %151, i64 64
+  store ptr %139, ptr %159, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, i8 0, i64 24, i1 false)
-  %158 = shufflevector <2 x ptr> %133, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %159 = insertelement <4 x ptr> %158, ptr %136, i64 2
-  %160 = insertelement <4 x ptr> %159, ptr %138, i64 3
-  store <4 x ptr> %160, ptr %157, align 8
+  %160 = getelementptr inbounds i8, ptr %151, i64 72
+  store ptr %141, ptr %160, align 8
   %161 = getelementptr inbounds i8, ptr %151, i64 80
-  store ptr %140, ptr %161, align 8
+  store ptr %144, ptr %161, align 8
   %162 = getelementptr inbounds i8, ptr %151, i64 88
-  store ptr %143, ptr %162, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, i8 0, i64 24, i1 false)
+  store ptr %147, ptr %162, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
   %163 = getelementptr inbounds i8, ptr %151, i64 96
   store i64 %152, ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %151, i64 104
@@ -3685,12 +3692,12 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %176
   %178 = load i64, ptr %11, align 8
   store i64 %178, ptr %13, align 8
   store i64 0, ptr %11, align 8
-  %179 = load ptr, ptr %137, align 8
+  %179 = load ptr, ptr %140, align 8
   %.not.i.i.i.i.i.i.i.i.i39 = icmp eq ptr %179, null
   br i1 %.not.i.i.i.i.i.i.i.i.i39, label %_ZNSt10_Head_baseILm2ESt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEESaISF_EELb0EED2Ev.exit.i.i.i.i.i, label %180
 
 180:                                              ; preds = %_ZNSt6threadD2Ev.exit
-  %181 = load ptr, ptr %141, align 8
+  %181 = load ptr, ptr %145, align 8
   %182 = ptrtoint ptr %181 to i64
   %183 = ptrtoint ptr %179 to i64
   %184 = sub i64 %182, %183
@@ -3703,7 +3710,7 @@ _ZNSt10_Head_baseILm2ESt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZZN8WasmEdge5AsyncIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEENS_7ValTypeEESaISK_EENS_7ErrCodeEEEEC1INS_8Executor8ExecutorEJPKNS_7Runtime8Instance16FunctionInstanceENS1_4spanIKSI_Lm18446744073709551615EEENSY_IKSJ_Lm18446744073709551615EEEEJRSX_S3_ISI_SaISI_EES3_ISJ_SaISJ_EEEEEMT_FSO_DpT0_ERS18_DpOT1_ENUlvE0_D2Ev.exit, label %186
 
 186:                                              ; preds = %_ZNSt10_Head_baseILm2ESt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEESaISF_EELb0EED2Ev.exit.i.i.i.i.i
-  %187 = load ptr, ptr %134, align 8
+  %187 = load ptr, ptr %137, align 8
   %188 = ptrtoint ptr %187 to i64
   %189 = ptrtoint ptr %185 to i64
   %190 = sub i64 %188, %189

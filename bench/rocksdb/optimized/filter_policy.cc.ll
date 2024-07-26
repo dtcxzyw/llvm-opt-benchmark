@@ -7876,46 +7876,43 @@ if.end:                                           ; preds = %entry
   %_M_start.i = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !33
   %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  %2 = load <2 x ptr>, ptr %_M_last4.i.i, align 8, !noalias !33
+  %2 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !33
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %3 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !33
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 168
-  %3 = load ptr, ptr %_M_finish.i, align 8, !noalias !102
-  %cmp.i.i.not14 = icmp eq ptr %1, %3
-  %4 = extractelement <2 x ptr> %2, i64 1
-  br i1 %cmp.i.i.not14, label %for.end, label %for.body.preheader
+  %4 = load ptr, ptr %_M_finish.i, align 8, !noalias !102
+  %cmp.i.i.not14 = icmp eq ptr %1, %4
+  br i1 %cmp.i.i.not14, label %for.end, label %for.body
 
-for.body.preheader:                               ; preds = %if.end
-  %5 = extractelement <2 x ptr> %2, i64 0
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit
-  %actual_hash_entries_xor_checksum.018 = phi i64 [ %xor, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit ], [ 0, %for.body.preheader ]
-  %__begin2.sroa.11.017 = phi ptr [ %__begin2.sroa.11.1, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit ], [ %4, %for.body.preheader ]
-  %__begin2.sroa.8.016 = phi ptr [ %__begin2.sroa.8.1, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit ], [ %5, %for.body.preheader ]
-  %__begin2.sroa.0.015 = phi ptr [ %__begin2.sroa.0.1, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit ], [ %1, %for.body.preheader ]
-  %6 = load i64, ptr %__begin2.sroa.0.015, align 8
-  %xor = xor i64 %6, %actual_hash_entries_xor_checksum.018
+for.body:                                         ; preds = %if.end, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit
+  %actual_hash_entries_xor_checksum.018 = phi i64 [ %xor, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit ], [ 0, %if.end ]
+  %__begin2.sroa.11.017 = phi ptr [ %__begin2.sroa.11.1, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit ], [ %3, %if.end ]
+  %__begin2.sroa.8.016 = phi ptr [ %__begin2.sroa.8.1, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit ], [ %2, %if.end ]
+  %__begin2.sroa.0.015 = phi ptr [ %__begin2.sroa.0.1, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit ], [ %1, %if.end ]
+  %5 = load i64, ptr %__begin2.sroa.0.015, align 8
+  %xor = xor i64 %5, %actual_hash_entries_xor_checksum.018
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 8
   %cmp.i = icmp eq ptr %incdec.ptr.i, %__begin2.sroa.8.016
   br i1 %cmp.i, label %if.then.i, label %_ZNSt15_Deque_iteratorImRmPmEppEv.exit
 
 if.then.i:                                        ; preds = %for.body
   %add.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.11.017, i64 8
-  %7 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 512
+  %6 = load ptr, ptr %add.ptr.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 512
   br label %_ZNSt15_Deque_iteratorImRmPmEppEv.exit
 
 _ZNSt15_Deque_iteratorImRmPmEppEv.exit:           ; preds = %for.body, %if.then.i
-  %__begin2.sroa.0.1 = phi ptr [ %7, %if.then.i ], [ %incdec.ptr.i, %for.body ]
+  %__begin2.sroa.0.1 = phi ptr [ %6, %if.then.i ], [ %incdec.ptr.i, %for.body ]
   %__begin2.sroa.8.1 = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %__begin2.sroa.8.016, %for.body ]
   %__begin2.sroa.11.1 = phi ptr [ %add.ptr.i, %if.then.i ], [ %__begin2.sroa.11.017, %for.body ]
-  %cmp.i.i.not = icmp eq ptr %__begin2.sroa.0.1, %3
+  %cmp.i.i.not = icmp eq ptr %__begin2.sroa.0.1, %4
   br i1 %cmp.i.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZNSt15_Deque_iteratorImRmPmEppEv.exit, %if.end
   %actual_hash_entries_xor_checksum.0.lcssa = phi i64 [ 0, %if.end ], [ %xor, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit ]
   %xor_checksum = getelementptr inbounds i8, ptr %this, i64 280
-  %8 = load i64, ptr %xor_checksum, align 8
-  %cmp = icmp eq i64 %actual_hash_entries_xor_checksum.0.lcssa, %8
+  %7 = load i64, ptr %xor_checksum, align 8
+  %cmp = icmp eq i64 %actual_hash_entries_xor_checksum.0.lcssa, %7
   br i1 %cmp, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %for.end
@@ -7926,40 +7923,41 @@ if.then5:                                         ; preds = %for.end
 
 if.else:                                          ; preds = %for.end
   %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  %9 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !108
+  %8 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !108
   %_M_node5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  %10 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8
-  %cmp3.i.i.i.i.i = icmp ult ptr %4, %10
+  %9 = load ptr, ptr %_M_node5.i.i.i.i.i.i, align 8
+  %cmp3.i.i.i.i.i = icmp ult ptr %3, %9
   br i1 %cmp3.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt5dequeImSaImEE5clearEv.exit.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.else, %for.body.i.i.i.i.i
-  %__n.04.i.pn.i.i.i.i = phi ptr [ %__n.04.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %if.else ]
+  %__n.04.i.pn.i.i.i.i = phi ptr [ %__n.04.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %if.else ]
   %__n.04.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i.i, i64 8
-  %11 = load ptr, ptr %__n.04.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %11) #31
-  %cmp.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i, %10
+  %10 = load ptr, ptr %__n.04.i.i.i.i.i, align 8
+  tail call void @_ZdlPv(ptr noundef %10) #31
+  %cmp.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i, %9
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt5dequeImSaImEE5clearEv.exit.i.i, !llvm.loop !66
 
 _ZNSt5dequeImSaImEE5clearEv.exit.i.i:             ; preds = %for.body.i.i.i.i.i, %if.else
-  %12 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %13 = insertelement <4 x ptr> %12, ptr %9, i64 1
-  %14 = shufflevector <2 x ptr> %2, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %15 = shufflevector <4 x ptr> %13, <4 x ptr> %14, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x ptr> %15, ptr %_M_finish.i, align 8
+  store ptr %1, ptr %_M_finish.i, align 8
+  %agg.tmp.sroa.2.0._M_finish.i.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  store ptr %8, ptr %agg.tmp.sroa.2.0._M_finish.i.i.sroa_idx.i.i.i, align 8
+  %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
+  store ptr %2, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i.i.i, align 8
+  store ptr %3, ptr %_M_node5.i.i.i.i.i.i, align 8
   %cache_res_bucket_handles.i.i = getelementptr inbounds i8, ptr %this, i64 200
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %_M_start.i.i1.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %16 = load <4 x ptr>, ptr %_M_start.i.i1.i.i, align 8, !noalias !111
-  store <4 x ptr> %16, ptr %agg.tmp.i.i.i, align 8, !alias.scope !111
+  %11 = load <4 x ptr>, ptr %_M_start.i.i1.i.i, align 8, !noalias !111
+  store <4 x ptr> %11, ptr %agg.tmp.i.i.i, align 8, !alias.scope !111
   invoke void @_ZNSt5dequeISt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS3_EESaIS6_EE15_M_erase_at_endESt15_Deque_iteratorIS6_RS6_PS6_E(ptr noundef nonnull align 8 dereferenceable(80) %cache_res_bucket_handles.i.i, ptr noundef nonnull %agg.tmp.i.i.i)
           to label %_ZN7rocksdb12_GLOBAL__N_122XXPH3FilterBitsBuilder12ResetEntriesEv.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZNSt5dequeImSaImEE5clearEv.exit.i.i
-  %17 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #33
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #33
   unreachable
 
 _ZN7rocksdb12_GLOBAL__N_122XXPH3FilterBitsBuilder12ResetEntriesEv.exit: ; preds = %_ZNSt5dequeImSaImEE5clearEv.exit.i.i

@@ -731,53 +731,48 @@ define hidden void @_ZNK4nori4Mesh14getBoundingBoxEj(ptr dead_on_unwind noalias 
   %16 = load i64, ptr %15, align 8, !noalias !7
   %17 = mul nsw i64 %16, %13
   %18 = getelementptr inbounds float, ptr %14, i64 %17
-  %19 = load float, ptr %18, align 4
-  %20 = getelementptr i8, ptr %18, i64 4
-  %.sroa.329.0..sroa_idx30 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr i8, ptr %11, i64 4
-  %22 = load i32, ptr %21, align 4
-  %23 = zext i32 %22 to i64
-  %24 = mul nsw i64 %16, %23
-  %25 = getelementptr inbounds float, ptr %14, i64 %24
-  %26 = load float, ptr %25, align 4
-  %27 = getelementptr i8, ptr %25, i64 4
-  %28 = getelementptr i8, ptr %11, i64 8
-  %29 = load i32, ptr %28, align 4
-  %30 = zext i32 %29 to i64
-  %31 = mul nsw i64 %16, %30
-  %32 = getelementptr inbounds float, ptr %14, i64 %31
-  %33 = load float, ptr %32, align 4
-  %34 = getelementptr i8, ptr %32, i64 4
-  %35 = insertelement <4 x float> poison, float %26, i64 0
-  %36 = insertelement <4 x float> poison, float %19, i64 0
-  %37 = insertelement <4 x float> poison, float %33, i64 0
-  %38 = load <2 x float>, ptr %20, align 4
-  %39 = load <2 x float>, ptr %27, align 4
-  %40 = fcmp olt <2 x float> %38, %39
-  %41 = select <2 x i1> %40, <2 x float> %39, <2 x float> %38
-  %42 = load <2 x float>, ptr %34, align 4
-  %43 = shufflevector <2 x float> %39, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %44 = shufflevector <4 x float> %35, <4 x float> %43, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %45 = insertelement <4 x float> %44, float %19, i64 3
-  %46 = shufflevector <2 x float> %38, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %47 = shufflevector <4 x float> %36, <4 x float> %46, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %48 = insertelement <4 x float> %47, float %26, i64 3
-  %49 = fcmp olt <4 x float> %45, %48
-  %50 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %51 = shufflevector <4 x float> %47, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %52 = select <4 x i1> %49, <4 x float> %50, <4 x float> %51
-  %53 = insertelement <4 x float> %52, float %33, i64 0
-  %54 = shufflevector <2 x float> %42, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %55 = shufflevector <4 x float> %53, <4 x float> %54, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %56 = shufflevector <4 x float> %52, <4 x float> %55, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  %57 = fcmp olt <4 x float> %55, %56
-  %58 = shufflevector <4 x float> %37, <4 x float> %54, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %59 = shufflevector <4 x float> %58, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %60 = select <4 x i1> %57, <4 x float> %59, <4 x float> %52
-  store <4 x float> %60, ptr %0, align 4
-  %61 = fcmp olt <2 x float> %41, %42
-  %62 = select <2 x i1> %61, <2 x float> %42, <2 x float> %41
-  store <2 x float> %62, ptr %.sroa.329.0..sroa_idx30, align 4
+  %19 = getelementptr i8, ptr %18, i64 8
+  %20 = load float, ptr %19, align 4
+  %.sroa.432.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.432.0..sroa_idx33 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr i8, ptr %11, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = zext i32 %23 to i64
+  %25 = mul nsw i64 %16, %24
+  %26 = getelementptr inbounds float, ptr %14, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 8
+  %28 = load float, ptr %27, align 4
+  %29 = fcmp olt float %28, %20
+  %30 = select i1 %29, float %28, float %20
+  %31 = fcmp olt float %20, %28
+  %32 = select i1 %31, float %28, float %20
+  %33 = getelementptr i8, ptr %11, i64 8
+  %34 = load i32, ptr %33, align 4
+  %35 = zext i32 %34 to i64
+  %36 = mul nsw i64 %16, %35
+  %37 = getelementptr inbounds float, ptr %14, i64 %36
+  %38 = getelementptr i8, ptr %37, i64 8
+  %39 = load float, ptr %38, align 4
+  %40 = load <2 x float>, ptr %18, align 4
+  %41 = load <2 x float>, ptr %26, align 4
+  %42 = fcmp olt <2 x float> %41, %40
+  %43 = select <2 x i1> %42, <2 x float> %41, <2 x float> %40
+  %44 = load <2 x float>, ptr %37, align 4
+  %45 = fcmp olt <2 x float> %44, %43
+  %46 = select <2 x i1> %45, <2 x float> %44, <2 x float> %43
+  store <2 x float> %46, ptr %0, align 4
+  %47 = fcmp olt float %39, %30
+  %48 = select i1 %47, float %39, float %30
+  store float %48, ptr %.sroa.432.0..sroa_idx, align 4
+  %49 = fcmp olt <2 x float> %40, %41
+  %50 = select <2 x i1> %49, <2 x float> %41, <2 x float> %40
+  %51 = fcmp olt <2 x float> %50, %44
+  %52 = select <2 x i1> %51, <2 x float> %44, <2 x float> %50
+  store <2 x float> %52, ptr %21, align 4
+  %53 = fcmp olt float %32, %39
+  %54 = select i1 %53, float %39, float %32
+  store float %54, ptr %.sroa.432.0..sroa_idx33, align 4
   ret void
 }
 

@@ -5508,43 +5508,50 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %z.065 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %add.ptr76, %while.body ]
   %arrayidx4 = getelementptr inbounds i8, ptr %z.065, i64 -32
-  %arrayidx11 = getelementptr inbounds i8, ptr %z.065, i64 -12
+  %arrayidx5 = getelementptr inbounds i8, ptr %z.065, i64 -4
+  %arrayidx6 = getelementptr inbounds i8, ptr %z.065, i64 -36
+  %arrayidx9 = getelementptr inbounds i8, ptr %z.065, i64 -40
   %arrayidx12 = getelementptr inbounds i8, ptr %z.065, i64 -44
-  %1 = load <4 x float>, ptr %arrayidx11, align 4
-  %2 = load <4 x float>, ptr %arrayidx12, align 4
-  %3 = fsub <4 x float> %1, %2
-  %4 = fadd <4 x float> %1, %2
-  store <4 x float> %4, ptr %arrayidx11, align 4
-  %5 = extractelement <4 x float> %3, i64 0
-  %6 = extractelement <4 x float> %3, i64 1
-  %add32 = fadd float %6, %5
-  %sub35 = fsub float %5, %6
-  %7 = insertelement <4 x float> %1, float %0, i64 0
-  %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 3>
-  %9 = insertelement <4 x float> poison, float %sub35, i64 0
-  %10 = insertelement <4 x float> %9, float %add32, i64 1
-  %11 = shufflevector <4 x float> %10, <4 x float> %2, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %12 = fmul <4 x float> %8, %11
-  %13 = fsub <4 x float> %8, %11
-  %14 = shufflevector <4 x float> %12, <4 x float> %13, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x float> %14, ptr %arrayidx12, align 4
+  %1 = load <2 x float>, ptr %arrayidx5, align 4
+  %2 = load <2 x float>, ptr %arrayidx6, align 4
+  %3 = fadd <2 x float> %1, %2
+  store <2 x float> %3, ptr %arrayidx5, align 4
   %arrayidx39 = getelementptr inbounds i8, ptr %z.065, i64 -48
+  %arrayidx41 = getelementptr inbounds i8, ptr %z.065, i64 -20
   %arrayidx42 = getelementptr inbounds i8, ptr %z.065, i64 -52
   %arrayidx45 = getelementptr inbounds i8, ptr %z.065, i64 -56
   %arrayidx47 = getelementptr inbounds i8, ptr %z.065, i64 -28
+  %4 = load <2 x float>, ptr %arrayidx47, align 4
   %arrayidx48 = getelementptr inbounds i8, ptr %z.065, i64 -60
-  %15 = load <4 x float>, ptr %arrayidx47, align 4
-  %16 = load <4 x float>, ptr %arrayidx48, align 4
+  %5 = load <2 x float>, ptr %arrayidx48, align 4
+  %6 = fsub <2 x float> %4, %5
+  %sub46 = extractelement <2 x float> %6, i64 1
+  %7 = fsub <2 x float> %4, %5
+  %sub49 = extractelement <2 x float> %7, i64 0
+  %8 = load <4 x float>, ptr %arrayidx41, align 4
+  %9 = load <4 x float>, ptr %arrayidx42, align 4
+  %10 = fsub <4 x float> %8, %9
+  %sub10 = extractelement <4 x float> %10, i64 3
+  %11 = fsub <4 x float> %8, %9
+  %sub13 = extractelement <4 x float> %11, i64 2
+  %add32 = fadd float %sub10, %sub13
+  %mul33 = fmul float %0, %add32
+  store float %mul33, ptr %arrayidx9, align 4
+  %sub35 = fsub float %sub13, %sub10
+  %mul36 = fmul float %0, %sub35
+  store float %mul36, ptr %arrayidx12, align 4
+  %12 = fsub <4 x float> %8, %9
+  %sub40 = extractelement <4 x float> %12, i64 1
+  %13 = fsub <4 x float> %8, %9
+  %sub43 = extractelement <4 x float> %13, i64 0
+  %14 = fadd <4 x float> %8, %9
+  store <4 x float> %14, ptr %arrayidx41, align 4
+  %15 = shufflevector <2 x float> %1, <2 x float> %4, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %16 = shufflevector <2 x float> %2, <2 x float> %5, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %17 = fsub <4 x float> %15, %16
-  %sub40 = extractelement <4 x float> %17, i64 3
-  %18 = fsub <4 x float> %15, %16
-  %sub43 = extractelement <4 x float> %18, i64 2
-  %19 = fsub <4 x float> %15, %16
-  %sub46 = extractelement <4 x float> %19, i64 1
-  %20 = fsub <4 x float> %15, %16
-  %sub49 = extractelement <4 x float> %20, i64 0
-  %21 = fadd <4 x float> %15, %16
-  store <4 x float> %21, ptr %arrayidx47, align 4
+  %18 = fadd <4 x float> %15, %16
+  %19 = shufflevector <4 x float> %17, <4 x float> %18, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  store <4 x float> %19, ptr %arrayidx6, align 4
   store float %sub43, ptr %arrayidx39, align 4
   %fneg = fneg float %sub40
   store float %fneg, ptr %arrayidx42, align 4

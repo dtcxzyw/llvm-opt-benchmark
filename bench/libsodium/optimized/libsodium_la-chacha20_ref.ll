@@ -156,34 +156,31 @@ entry:
   %arrayidx18 = getelementptr i8, ptr %ctx, i64 36
   %3 = load i32, ptr %arrayidx18, align 4
   %arrayidx20 = getelementptr i8, ptr %ctx, i64 40
-  %4 = load <2 x i32>, ptr %arrayidx20, align 4
+  %4 = load i32, ptr %arrayidx20, align 4
+  %arrayidx22 = getelementptr i8, ptr %ctx, i64 44
+  %5 = load i32, ptr %arrayidx22, align 4
   %arrayidx24 = getelementptr i8, ptr %ctx, i64 48
-  %5 = load i32, ptr %arrayidx24, align 4
+  %6 = load i32, ptr %arrayidx24, align 4
   %arrayidx26 = getelementptr i8, ptr %ctx, i64 52
-  %6 = load i32, ptr %arrayidx26, align 4
+  %7 = load i32, ptr %arrayidx26, align 4
   %arrayidx28 = getelementptr i8, ptr %ctx, i64 56
-  %7 = load i32, ptr %arrayidx28, align 4
+  %8 = load i32, ptr %arrayidx28, align 4
   %arrayidx30 = getelementptr i8, ptr %ctx, i64 60
-  %8 = load i32, ptr %arrayidx30, align 4
-  %9 = extractelement <4 x i32> %1, i64 0
-  %10 = extractelement <4 x i32> %1, i64 1
-  %11 = extractelement <4 x i32> %1, i64 2
-  %12 = extractelement <4 x i32> %1, i64 3
-  %13 = extractelement <4 x i32> %2, i64 0
-  %14 = extractelement <4 x i32> %2, i64 1
-  %15 = extractelement <4 x i32> %2, i64 2
-  %16 = extractelement <4 x i32> %2, i64 3
-  %17 = insertelement <4 x i32> poison, i32 %3, i64 0
-  %18 = shufflevector <2 x i32> %4, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %19 = shufflevector <4 x i32> %17, <4 x i32> %18, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %20 = extractelement <2 x i32> %4, i64 0
-  %21 = extractelement <2 x i32> %4, i64 1
+  %9 = load i32, ptr %arrayidx30, align 4
+  %10 = extractelement <4 x i32> %1, i64 0
+  %11 = extractelement <4 x i32> %1, i64 1
+  %12 = extractelement <4 x i32> %1, i64 2
+  %13 = extractelement <4 x i32> %1, i64 3
+  %14 = extractelement <4 x i32> %2, i64 0
+  %15 = extractelement <4 x i32> %2, i64 1
+  %16 = extractelement <4 x i32> %2, i64 2
+  %17 = extractelement <4 x i32> %2, i64 3
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end296, %entry
-  %bytes.addr.0 = phi i64 [ %bytes, %entry ], [ %45, %if.end296 ]
-  %j12.0 = phi i32 [ %5, %entry ], [ %add250, %if.end296 ]
-  %j13.0 = phi i32 [ %6, %entry ], [ %spec.select, %if.end296 ]
+  %bytes.addr.0 = phi i64 [ %bytes, %entry ], [ %33, %if.end296 ]
+  %j12.0 = phi i32 [ %6, %entry ], [ %add250, %if.end296 ]
+  %j13.0 = phi i32 [ %7, %entry ], [ %spec.select, %if.end296 ]
   %c.addr.0 = phi ptr [ %c, %entry ], [ %add.ptr298, %if.end296 ]
   %m.addr.0 = phi ptr [ %m, %entry ], [ %add.ptr299, %if.end296 ]
   %ctarget.0 = phi ptr [ null, %entry ], [ %ctarget.1, %if.end296 ]
@@ -199,9 +196,9 @@ for.body:                                         ; preds = %if.then31, %for.bod
   %conv344 = phi i64 [ %conv, %for.body ], [ 0, %if.then31 ]
   %i.0343 = phi i32 [ %inc, %for.body ], [ 0, %if.then31 ]
   %arrayidx35 = getelementptr i8, ptr %m.addr.0, i64 %conv344
-  %22 = load i8, ptr %arrayidx35, align 1
+  %18 = load i8, ptr %arrayidx35, align 1
   %arrayidx37 = getelementptr [64 x i8], ptr %tmp, i64 0, i64 %conv344
-  store i8 %22, ptr %arrayidx37, align 1
+  store i8 %18, ptr %arrayidx37, align 1
   %inc = add i32 %i.0343, 1
   %conv = zext i32 %inc to i64
   %cmp33 = icmp ugt i64 %bytes.addr.0, %conv
@@ -216,21 +213,21 @@ if.end40:                                         ; preds = %for.body, %if.then3
 for.body44:                                       ; preds = %if.end40, %for.body44
   %i.1361 = phi i32 [ 20, %if.end40 ], [ %sub, %for.body44 ]
   %x0.0360 = phi i32 [ %0, %if.end40 ], [ %add113, %for.body44 ]
-  %x1.0359 = phi i32 [ %9, %if.end40 ], [ %add129, %for.body44 ]
-  %x2.0358 = phi i32 [ %10, %if.end40 ], [ %add145, %for.body44 ]
-  %x3.0357 = phi i32 [ %11, %if.end40 ], [ %add161, %for.body44 ]
-  %x4.0356 = phi i32 [ %12, %if.end40 ], [ %or.i341, %for.body44 ]
-  %x5.0355 = phi i32 [ %13, %if.end40 ], [ %or.i305, %for.body44 ]
-  %x6.0354 = phi i32 [ %14, %if.end40 ], [ %or.i317, %for.body44 ]
-  %x7.0353 = phi i32 [ %15, %if.end40 ], [ %or.i329, %for.body44 ]
-  %x8.0352 = phi i32 [ %16, %if.end40 ], [ %add149, %for.body44 ]
+  %x1.0359 = phi i32 [ %10, %if.end40 ], [ %add129, %for.body44 ]
+  %x2.0358 = phi i32 [ %11, %if.end40 ], [ %add145, %for.body44 ]
+  %x3.0357 = phi i32 [ %12, %if.end40 ], [ %add161, %for.body44 ]
+  %x4.0356 = phi i32 [ %13, %if.end40 ], [ %or.i341, %for.body44 ]
+  %x5.0355 = phi i32 [ %14, %if.end40 ], [ %or.i305, %for.body44 ]
+  %x6.0354 = phi i32 [ %15, %if.end40 ], [ %or.i317, %for.body44 ]
+  %x7.0353 = phi i32 [ %16, %if.end40 ], [ %or.i329, %for.body44 ]
+  %x8.0352 = phi i32 [ %17, %if.end40 ], [ %add149, %for.body44 ]
   %x9.0351 = phi i32 [ %3, %if.end40 ], [ %add165, %for.body44 ]
-  %x10.0350 = phi i32 [ %20, %if.end40 ], [ %add117, %for.body44 ]
-  %x15.0349 = phi i32 [ %8, %if.end40 ], [ %or.i302, %for.body44 ]
-  %x14.0348 = phi i32 [ %7, %if.end40 ], [ %or.i338, %for.body44 ]
+  %x10.0350 = phi i32 [ %4, %if.end40 ], [ %add117, %for.body44 ]
+  %x15.0349 = phi i32 [ %9, %if.end40 ], [ %or.i302, %for.body44 ]
+  %x14.0348 = phi i32 [ %8, %if.end40 ], [ %or.i338, %for.body44 ]
   %x13.0347 = phi i32 [ %j13.0, %if.end40 ], [ %or.i326, %for.body44 ]
   %x12.0346 = phi i32 [ %j12.0, %if.end40 ], [ %or.i314, %for.body44 ]
-  %x11.0345 = phi i32 [ %21, %if.end40 ], [ %add133, %for.body44 ]
+  %x11.0345 = phi i32 [ %5, %if.end40 ], [ %add133, %for.body44 ]
   %add = add i32 %x0.0360, %x4.0356
   %xor = xor i32 %add, %x12.0346
   %or.i = tail call i32 @llvm.fshl.i32(i32 %xor, i32 %xor, i32 16)
@@ -333,30 +330,39 @@ for.body44:                                       ; preds = %if.end40, %for.body
 
 for.end170:                                       ; preds = %for.body44
   %add171 = add i32 %add113, %0
-  %23 = insertelement <4 x i32> poison, i32 %add129, i64 0
-  %24 = insertelement <4 x i32> %23, i32 %add145, i64 1
-  %25 = insertelement <4 x i32> %24, i32 %add161, i64 2
-  %26 = insertelement <4 x i32> %25, i32 %or.i341, i64 3
-  %27 = add <4 x i32> %26, %1
-  %28 = insertelement <4 x i32> poison, i32 %or.i305, i64 0
-  %29 = insertelement <4 x i32> %28, i32 %or.i317, i64 1
-  %30 = insertelement <4 x i32> %29, i32 %or.i329, i64 2
-  %31 = insertelement <4 x i32> %30, i32 %add149, i64 3
-  %32 = add <4 x i32> %31, %2
-  %33 = insertelement <4 x i32> poison, i32 %add165, i64 0
-  %34 = insertelement <4 x i32> %33, i32 %add117, i64 1
-  %35 = insertelement <4 x i32> %34, i32 %add133, i64 2
-  %36 = insertelement <4 x i32> %35, i32 %or.i314, i64 3
-  %37 = insertelement <4 x i32> %19, i32 %j12.0, i64 3
-  %38 = add <4 x i32> %36, %37
+  %19 = insertelement <4 x i32> poison, i32 %add129, i64 0
+  %20 = insertelement <4 x i32> %19, i32 %add145, i64 1
+  %21 = insertelement <4 x i32> %20, i32 %add161, i64 2
+  %22 = insertelement <4 x i32> %21, i32 %or.i341, i64 3
+  %23 = add <4 x i32> %22, %1
+  %24 = insertelement <4 x i32> poison, i32 %or.i305, i64 0
+  %25 = insertelement <4 x i32> %24, i32 %or.i317, i64 1
+  %26 = insertelement <4 x i32> %25, i32 %or.i329, i64 2
+  %27 = insertelement <4 x i32> %26, i32 %add149, i64 3
+  %28 = add <4 x i32> %27, %2
+  %add189 = add i32 %add165, %3
+  %add191 = add i32 %add117, %4
+  %add193 = add i32 %add133, %5
+  %add195 = add i32 %or.i314, %j12.0
   %add197 = add i32 %or.i326, %j13.0
-  %add199 = add i32 %or.i338, %7
-  %add201 = add i32 %or.i302, %8
+  %add199 = add i32 %or.i338, %8
+  %add201 = add i32 %or.i302, %9
   %m.addr.1.val = load i32, ptr %m.addr.1, align 1
   %xor204 = xor i32 %m.addr.1.val, %add171
   %add.ptr205 = getelementptr i8, ptr %m.addr.1, i64 4
   %add.ptr217 = getelementptr i8, ptr %m.addr.1, i64 20
   %add.ptr229 = getelementptr i8, ptr %m.addr.1, i64 36
+  %add.ptr229.val = load i32, ptr %add.ptr229, align 1
+  %xor231 = xor i32 %add.ptr229.val, %add189
+  %add.ptr232 = getelementptr i8, ptr %m.addr.1, i64 40
+  %add.ptr232.val = load i32, ptr %add.ptr232, align 1
+  %xor234 = xor i32 %add.ptr232.val, %add191
+  %add.ptr235 = getelementptr i8, ptr %m.addr.1, i64 44
+  %add.ptr235.val = load i32, ptr %add.ptr235, align 1
+  %xor237 = xor i32 %add.ptr235.val, %add193
+  %add.ptr238 = getelementptr i8, ptr %m.addr.1, i64 48
+  %add.ptr238.val = load i32, ptr %add.ptr238, align 1
+  %xor240 = xor i32 %add.ptr238.val, %add195
   %add.ptr241 = getelementptr i8, ptr %m.addr.1, i64 52
   %add.ptr241.val = load i32, ptr %add.ptr241, align 1
   %xor243 = xor i32 %add.ptr241.val, %add197
@@ -371,18 +377,22 @@ for.end170:                                       ; preds = %for.body44
   %add254 = zext i1 %tobool252.not to i32
   %spec.select = add i32 %j13.0, %add254
   %add.ptr258 = getelementptr i8, ptr %c.addr.1, i64 4
-  %39 = load <4 x i32>, ptr %add.ptr205, align 1
-  %40 = xor <4 x i32> %39, %27
+  %29 = load <4 x i32>, ptr %add.ptr205, align 1
+  %30 = xor <4 x i32> %29, %23
   %add.ptr262 = getelementptr i8, ptr %c.addr.1, i64 20
-  %41 = load <4 x i32>, ptr %add.ptr217, align 1
-  %42 = xor <4 x i32> %41, %32
-  %add.ptr266 = getelementptr i8, ptr %c.addr.1, i64 36
-  %43 = load <4 x i32>, ptr %add.ptr229, align 1
-  %44 = xor <4 x i32> %43, %38
+  %31 = load <4 x i32>, ptr %add.ptr217, align 1
+  %32 = xor <4 x i32> %31, %28
   store i32 %xor204, ptr %c.addr.1, align 1
-  store <4 x i32> %40, ptr %add.ptr258, align 1
-  store <4 x i32> %42, ptr %add.ptr262, align 1
-  store <4 x i32> %44, ptr %add.ptr266, align 1
+  store <4 x i32> %30, ptr %add.ptr258, align 1
+  store <4 x i32> %32, ptr %add.ptr262, align 1
+  %add.ptr266 = getelementptr i8, ptr %c.addr.1, i64 36
+  store i32 %xor231, ptr %add.ptr266, align 1
+  %add.ptr267 = getelementptr i8, ptr %c.addr.1, i64 40
+  store i32 %xor234, ptr %add.ptr267, align 1
+  %add.ptr268 = getelementptr i8, ptr %c.addr.1, i64 44
+  store i32 %xor237, ptr %add.ptr268, align 1
+  %add.ptr269 = getelementptr i8, ptr %c.addr.1, i64 48
+  store i32 %xor240, ptr %add.ptr269, align 1
   %add.ptr270 = getelementptr i8, ptr %c.addr.1, i64 52
   store i32 %xor243, ptr %add.ptr270, align 1
   %add.ptr271 = getelementptr i8, ptr %c.addr.1, i64 56
@@ -390,19 +400,19 @@ for.end170:                                       ; preds = %for.body44
   %add.ptr272 = getelementptr i8, ptr %c.addr.1, i64 60
   store i32 %xor249, ptr %add.ptr272, align 1
   %cmp273 = icmp ult i64 %bytes.addr.0, 65
-  %45 = add i64 %bytes.addr.0, -64
+  %33 = add i64 %bytes.addr.0, -64
   br i1 %cmp273, label %if.then275, label %if.end296
 
 if.then275:                                       ; preds = %for.end170
-  %or.cond = icmp ult i64 %45, -63
+  %or.cond = icmp ult i64 %33, -63
   br i1 %or.cond, label %if.end291, label %for.body283
 
 for.body283:                                      ; preds = %if.then275, %for.body283
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body283 ], [ 0, %if.then275 ]
   %arrayidx285 = getelementptr i8, ptr %c.addr.1, i64 %indvars.iv
-  %46 = load i8, ptr %arrayidx285, align 1
+  %34 = load i8, ptr %arrayidx285, align 1
   %arrayidx287 = getelementptr i8, ptr %ctarget.1, i64 %indvars.iv
-  store i8 %46, ptr %arrayidx287, align 1
+  store i8 %34, ptr %arrayidx287, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp281 = icmp ult i64 %indvars.iv.next, %bytes.addr.0
   br i1 %cmp281, label %for.body283, label %if.end291, !llvm.loop !8

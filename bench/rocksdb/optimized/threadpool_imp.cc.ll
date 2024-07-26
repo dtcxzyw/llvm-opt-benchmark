@@ -3344,10 +3344,10 @@ _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EppEv.exit:
   %5 = load ptr, ptr %_M_start.i, align 8
   %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %_M_last4.i.i, align 8
   %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load <2 x ptr>, ptr %_M_last4.i.i, align 8
+  %7 = load ptr, ptr %_M_node5.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
-  %7 = extractelement <2 x ptr> %6, i64 1
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
@@ -3359,8 +3359,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EppEv.exit:
   %sub.ptr.rhs.cast4.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub5.i = sub i64 %sub.ptr.lhs.cast3.i, %sub.ptr.rhs.cast4.i
   %sub.ptr.div6.i = sdiv exact i64 %sub.ptr.sub5.i, 72
-  %8 = extractelement <2 x ptr> %6, i64 0
-  %sub.ptr.lhs.cast8.i = ptrtoint ptr %8 to i64
+  %sub.ptr.lhs.cast8.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast9.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub10.i = sub i64 %sub.ptr.lhs.cast8.i, %sub.ptr.rhs.cast9.i
   %sub.ptr.div11.i = sdiv exact i64 %sub.ptr.sub10.i, 72
@@ -3368,19 +3367,19 @@ _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EppEv.exit:
   %add12.i = add nsw i64 %add.i, %mul.i
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %_M_node.i.i9 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load ptr, ptr %_M_node.i.i9, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
+  %8 = load ptr, ptr %_M_node.i.i9, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %tobool.i.i = icmp ne ptr %9, null
+  %tobool.i.i = icmp ne ptr %8, null
   %conv.neg.i.i = sext i1 %tobool.i.i to i64
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 7
-  %10 = load <2 x ptr>, ptr %_M_finish.i, align 8
-  %11 = extractelement <2 x ptr> %10, i64 0
-  %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %11 to i64
-  %12 = extractelement <2 x ptr> %10, i64 1
-  %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %12 to i64
+  %9 = load ptr, ptr %_M_finish.i, align 8
+  %_M_first.i.i10 = getelementptr inbounds i8, ptr %this, i64 56
+  %10 = load ptr, ptr %_M_first.i.i10, align 8
+  %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 72
   %add.i.i = add nsw i64 %sub.ptr.div6.i.i, %sub.ptr.div11.i
@@ -3394,16 +3393,18 @@ if.then:                                          ; preds = %_ZNSt15_Deque_itera
   br i1 %cmp.i.i.not, label %if.end, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  %13 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !44
+  %11 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !44
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !50
-  %14 = insertelement <4 x ptr> poison, ptr %5, i64 0
-  %15 = insertelement <4 x ptr> %14, ptr %13, i64 1
-  %16 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %17 = shufflevector <4 x ptr> %15, <4 x ptr> %16, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x ptr> %17, ptr %agg.tmp.i.i.i, align 8, !noalias !53
+  store ptr %5, ptr %agg.tmp.i.i.i, align 8, !noalias !53
+  %_M_first.i.i25.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  store ptr %11, ptr %_M_first.i.i25.i.i, align 8, !noalias !53
+  %_M_last.i.i27.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
+  store ptr %6, ptr %_M_last.i.i27.i.i, align 8, !noalias !53
+  %_M_node.i.i29.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
+  store ptr %7, ptr %_M_node.i.i29.i.i, align 8, !noalias !53
   store ptr %0, ptr %agg.tmp1.i.i.i, align 8, !noalias !53
   %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
   store ptr %1, ptr %_M_first.i1.i.i.i, align 8, !noalias !53
@@ -3430,12 +3431,12 @@ if.end:                                           ; preds = %if.then6, %if.then
   br label %if.end17
 
 if.else:                                          ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EppEv.exit
-  %cmp.i.i48.not = icmp eq ptr %__next.sroa.0.0, %11
+  %cmp.i.i48.not = icmp eq ptr %__next.sroa.0.0, %9
   br i1 %cmp.i.i48.not, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %if.else
   %_M_last4.i.i45 = getelementptr inbounds i8, ptr %this, i64 64
-  %18 = load ptr, ptr %_M_last4.i.i45, align 8, !noalias !56
+  %12 = load ptr, ptr %_M_last4.i.i45, align 8, !noalias !56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i71), !noalias !59
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i68), !noalias !62
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i69), !noalias !62
@@ -3447,10 +3448,13 @@ if.then11:                                        ; preds = %if.else
   store ptr %__next.sroa.11.0, ptr %_M_last.i.i27.i.i82, align 8, !noalias !65
   %_M_node.i.i29.i.i83 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i68, i64 24
   store ptr %__next.sroa.16.0, ptr %_M_node.i.i29.i.i83, align 8, !noalias !65
-  %19 = shufflevector <2 x ptr> %10, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %20 = insertelement <4 x ptr> %19, ptr %18, i64 2
-  %21 = insertelement <4 x ptr> %20, ptr %9, i64 3
-  store <4 x ptr> %21, ptr %agg.tmp1.i.i.i69, align 8, !noalias !65
+  store ptr %9, ptr %agg.tmp1.i.i.i69, align 8, !noalias !65
+  %_M_first.i1.i.i.i84 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i69, i64 8
+  store ptr %10, ptr %_M_first.i1.i.i.i84, align 8, !noalias !65
+  %_M_last.i3.i.i.i85 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i69, i64 16
+  store ptr %12, ptr %_M_last.i3.i.i.i85, align 8, !noalias !65
+  %_M_node.i5.i.i.i86 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i69, i64 24
+  store ptr %8, ptr %_M_node.i5.i.i.i86, align 8, !noalias !65
   store ptr %0, ptr %agg.tmp2.i.i.i70, align 8, !noalias !65
   %_M_first.i7.i.i.i87 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i70, i64 8
   store ptr %1, ptr %_M_first.i7.i.i.i87, align 8, !noalias !65
@@ -3470,18 +3474,18 @@ if.end16:                                         ; preds = %if.then11, %if.else
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end16, %if.end
-  %22 = load ptr, ptr %_M_start.i, align 8, !noalias !68
-  %23 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !68
+  %13 = load ptr, ptr %_M_start.i, align 8, !noalias !68
+  %14 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !68
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %_M_first.i.i103 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_last.i.i105 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %24 = load <2 x ptr>, ptr %_M_first3.i.i, align 8, !noalias !68
-  store <2 x ptr> %24, ptr %_M_first.i.i103, align 8, !alias.scope !71
+  %15 = load <2 x ptr>, ptr %_M_first3.i.i, align 8, !noalias !68
+  store <2 x ptr> %15, ptr %_M_first.i.i103, align 8, !alias.scope !71
   %_M_node.i.i107 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %23, ptr %_M_node.i.i107, align 8, !alias.scope !71
-  %sub.ptr.lhs.cast.i.i109 = ptrtoint ptr %22 to i64
-  %25 = extractelement <2 x ptr> %24, i64 0
-  %sub.ptr.rhs.cast.i.i110 = ptrtoint ptr %25 to i64
+  store ptr %14, ptr %_M_node.i.i107, align 8, !alias.scope !71
+  %sub.ptr.lhs.cast.i.i109 = ptrtoint ptr %13 to i64
+  %16 = extractelement <2 x ptr> %15, i64 0
+  %sub.ptr.rhs.cast.i.i110 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i111 = sub i64 %sub.ptr.lhs.cast.i.i109, %sub.ptr.rhs.cast.i.i110
   %sub.ptr.div.i.i112 = sdiv exact i64 %sub.ptr.sub.i.i111, 72
   %add.i.i113 = add nsw i64 %sub.ptr.div.i.i112, %add12.i
@@ -3493,7 +3497,7 @@ land.lhs.true.i.i:                                ; preds = %if.end17
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i115 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %22, i64 %add12.i
+  %add.ptr.i.i115 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %13, i64 %add12.i
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_El.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -3508,15 +3512,15 @@ cond.false.i.i:                                   ; preds = %if.end17
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div9.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
-  %add.ptr11.i.i = getelementptr inbounds ptr, ptr %23, i64 %cond.i.i
+  %add.ptr11.i.i = getelementptr inbounds ptr, ptr %14, i64 %cond.i.i
   store ptr %add.ptr11.i.i, ptr %_M_node.i.i107, align 8, !alias.scope !71
-  %26 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !71
-  store ptr %26, ptr %_M_first.i.i103, align 8, !alias.scope !71
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 504
+  %17 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !71
+  store ptr %17, ptr %_M_first.i.i103, align 8, !alias.scope !71
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 504
   store ptr %add.ptr.i.i.i, ptr %_M_last.i.i105, align 8, !alias.scope !71
   %.idx.i.i = mul i64 %cond.i.i, -504
-  %27 = getelementptr i8, ptr %26, i64 %.idx.i.i
-  %add.ptr15.i.i = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %27, i64 %add.i.i113
+  %18 = getelementptr i8, ptr %17, i64 %.idx.i.i
+  %add.ptr15.i.i = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %18, i64 %add.i.i113
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_El.exit: ; preds = %if.then.i.i, %cond.end.i.i

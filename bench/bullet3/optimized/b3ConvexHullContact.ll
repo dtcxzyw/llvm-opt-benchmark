@@ -426,9 +426,8 @@ if.end28:                                         ; preds = %if.end18, %if.end18
   %bvhInfo.sroa.0.sroa.7.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %arrayidx32, i64 24
   %bvhInfo.sroa.0.sroa.7.0.copyload = load float, ptr %bvhInfo.sroa.0.sroa.7.0.arrayidx32.sroa_idx, align 8
   %bvhInfo.sroa.0.sroa.9.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %arrayidx32, i64 32
-  %bvhInfo.sroa.0.sroa.9.0.copyload = load float, ptr %bvhInfo.sroa.0.sroa.9.0.arrayidx32.sroa_idx, align 16
-  %bvhInfo.sroa.0.sroa.10.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %arrayidx32, i64 36
-  %9 = load <2 x float>, ptr %bvhInfo.sroa.0.sroa.10.0.arrayidx32.sroa_idx, align 4
+  %bvhInfo.sroa.0.sroa.11.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %arrayidx32, i64 40
+  %bvhInfo.sroa.0.sroa.11.0.copyload = load float, ptr %bvhInfo.sroa.0.sroa.11.0.arrayidx32.sroa_idx, align 8
   %bvhInfo.sroa.4.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %arrayidx32, i64 52
   %bvhInfo.sroa.4.0.copyload = load i32, ptr %bvhInfo.sroa.4.0.arrayidx32.sroa_idx, align 4
   %bvhInfo.sroa.5.0.arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %arrayidx32, i64 56
@@ -456,6 +455,11 @@ if.end28:                                         ; preds = %if.end18, %if.end18
   %cmp.i7.i.i27.i = fcmp olt float %bvhInfo.sroa.0.sroa.7.0.copyload, %retval.sroa.6.8.vec.extract.i26.i
   %retval.sroa.6.8.vec.insert.i28.i = insertelement <2 x float> poison, float %bvhInfo.sroa.0.sroa.7.0.copyload, i64 0
   %retval.sroa.6.0.i29.i = select i1 %cmp.i7.i.i27.i, <2 x float> %retval.sroa.6.8.vec.insert.i28.i, <2 x float> %retval.sroa.6.1.i.i
+  %clampedPoint.sroa.5.8.vec.extract.i = extractelement <2 x float> %retval.sroa.6.0.i29.i, i64 0
+  %sub7.i.i = fsub float %clampedPoint.sroa.5.8.vec.extract.i, %bvhInfo.sroa.0.sroa.3.0.copyload
+  %mul7.i.i = fmul float %bvhInfo.sroa.0.sroa.11.0.copyload, %sub7.i.i
+  %conv38.i = fptoui float %mul7.i.i to i16
+  %9 = and i16 %conv38.i, -2
   %10 = getelementptr inbounds i8, ptr %arrayidx38, i64 16
   %retval.sroa.0.0.copyload.i.i44 = load <2 x float>, ptr %10, align 16
   %retval.sroa.6.0.a.sroa_idx.i.i45 = getelementptr inbounds i8, ptr %arrayidx38, i64 24
@@ -472,14 +476,18 @@ if.end28:                                         ; preds = %if.end18, %if.end18
   %retval.sroa.6.8.vec.extract.i26.i76 = extractelement <2 x float> %retval.sroa.6.1.i.i65, i64 0
   %cmp.i7.i.i27.i77 = fcmp olt float %bvhInfo.sroa.0.sroa.7.0.copyload, %retval.sroa.6.8.vec.extract.i26.i76
   %retval.sroa.6.0.i29.i79 = select i1 %cmp.i7.i.i27.i77, <2 x float> %retval.sroa.6.8.vec.insert.i28.i, <2 x float> %retval.sroa.6.1.i.i65
+  %clampedPoint.sroa.5.8.vec.extract.i84 = extractelement <2 x float> %retval.sroa.6.0.i29.i79, i64 0
+  %sub7.i.i85 = fsub float %clampedPoint.sroa.5.8.vec.extract.i84, %bvhInfo.sroa.0.sroa.3.0.copyload
+  %mul7.i.i90 = fmul float %bvhInfo.sroa.0.sroa.11.0.copyload, %sub7.i.i85
   %11 = load <2 x float>, ptr %arrayidx32, align 16
-  %12 = extractelement <2 x float> %11, i64 0
-  %cmp.i.i.i.i = fcmp olt float %retval.sroa.0.0.vec.extract.i.i, %12
+  %12 = load <2 x float>, ptr %bvhInfo.sroa.0.sroa.9.0.arrayidx32.sroa_idx, align 16
+  %13 = extractelement <2 x float> %11, i64 0
+  %cmp.i.i.i.i = fcmp olt float %retval.sroa.0.0.vec.extract.i.i, %13
   %sel = select i1 %cmp.i.i.i.i, <2 x float> %11, <2 x float> %retval.sroa.0.0.copyload.i.i
   %retval.sroa.0.0.i.i = shufflevector <2 x float> %sel, <2 x float> %retval.sroa.0.0.copyload.i.i, <2 x i32> <i32 0, i32 3>
   %retval.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i, i64 1
-  %13 = extractelement <2 x float> %11, i64 1
-  %cmp.i4.i.i.i = fcmp olt float %retval.sroa.0.4.vec.extract.i.i, %13
+  %14 = extractelement <2 x float> %11, i64 1
+  %cmp.i4.i.i.i = fcmp olt float %retval.sroa.0.4.vec.extract.i.i, %14
   %sel178 = select i1 %cmp.i4.i.i.i, <2 x float> %11, <2 x float> %retval.sroa.0.0.i.i
   %retval.sroa.0.1.i.i = shufflevector <2 x float> %retval.sroa.0.0.i.i, <2 x float> %sel178, <2 x i32> <i32 0, i32 3>
   %retval.sroa.0.0.vec.extract.i16.i = extractelement <2 x float> %sel, i64 0
@@ -490,16 +498,15 @@ if.end28:                                         ; preds = %if.end18, %if.end18
   %cmp.i4.i.i22.i = fcmp olt float %bvhInfo.sroa.0.sroa.6.0.copyload, %retval.sroa.0.4.vec.extract.i21.i
   %retval.sroa.0.4.vec.insert.i23.i = insertelement <2 x float> %retval.sroa.0.0.i19.i, float %bvhInfo.sroa.0.sroa.6.0.copyload, i64 1
   %retval.sroa.0.1.i24.i = select i1 %cmp.i4.i.i22.i, <2 x float> %retval.sroa.0.4.vec.insert.i23.i, <2 x float> %retval.sroa.0.0.i19.i
-  %14 = fsub <2 x float> %retval.sroa.0.1.i24.i, %11
-  %sub.i.i = extractelement <2 x float> %14, i64 0
-  %mul.i.i = fmul float %bvhInfo.sroa.0.sroa.9.0.copyload, %sub.i.i
-  %conv27.i = fptoui float %mul.i.i to i16
-  %15 = and i16 %conv27.i, -2
-  %cmp.i.i.i.i48 = fcmp olt float %retval.sroa.0.0.vec.extract.i.i47, %12
+  %15 = fsub <2 x float> %retval.sroa.0.1.i24.i, %11
+  %16 = fmul <2 x float> %12, %15
+  %17 = fptoui <2 x float> %16 to <2 x i16>
+  %18 = and <2 x i16> %17, <i16 -2, i16 -2>
+  %cmp.i.i.i.i48 = fcmp olt float %retval.sroa.0.0.vec.extract.i.i47, %13
   %sel179 = select i1 %cmp.i.i.i.i48, <2 x float> %11, <2 x float> %retval.sroa.0.0.copyload.i.i44
   %retval.sroa.0.0.i.i50 = shufflevector <2 x float> %sel179, <2 x float> %retval.sroa.0.0.copyload.i.i44, <2 x i32> <i32 0, i32 3>
   %retval.sroa.0.4.vec.extract.i.i52 = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i44, i64 1
-  %cmp.i4.i.i.i53 = fcmp olt float %retval.sroa.0.4.vec.extract.i.i52, %13
+  %cmp.i4.i.i.i53 = fcmp olt float %retval.sroa.0.4.vec.extract.i.i52, %14
   %sel180 = select i1 %cmp.i4.i.i.i53, <2 x float> %11, <2 x float> %retval.sroa.0.0.i.i50
   %retval.sroa.0.1.i.i55 = shufflevector <2 x float> %retval.sroa.0.0.i.i50, <2 x float> %sel180, <2 x i32> <i32 0, i32 3>
   %retval.sroa.0.0.vec.extract.i16.i66 = extractelement <2 x float> %sel179, i64 0
@@ -510,33 +517,14 @@ if.end28:                                         ; preds = %if.end18, %if.end18
   %cmp.i4.i.i22.i72 = fcmp olt float %bvhInfo.sroa.0.sroa.6.0.copyload, %retval.sroa.0.4.vec.extract.i21.i71
   %retval.sroa.0.4.vec.insert.i23.i73 = insertelement <2 x float> %retval.sroa.0.0.i19.i69, float %bvhInfo.sroa.0.sroa.6.0.copyload, i64 1
   %retval.sroa.0.1.i24.i74 = select i1 %cmp.i4.i.i22.i72, <2 x float> %retval.sroa.0.4.vec.insert.i23.i73, <2 x float> %retval.sroa.0.0.i19.i69
-  %16 = fsub <2 x float> %retval.sroa.0.1.i24.i74, %11
-  %clampedPoint.sroa.5.8.vec.extract.i84 = extractelement <2 x float> %retval.sroa.6.0.i29.i79, i64 0
-  %sub7.i.i85 = fsub float %clampedPoint.sroa.5.8.vec.extract.i84, %bvhInfo.sroa.0.sroa.3.0.copyload
-  %17 = extractelement <2 x float> %9, i64 1
-  %mul7.i.i90 = fmul float %17, %sub7.i.i85
-  %18 = shufflevector <2 x float> %retval.sroa.0.1.i24.i, <2 x float> %retval.sroa.6.0.i29.i, <4 x i32> <i32 1, i32 2, i32 poison, i32 poison>
-  %19 = shufflevector <2 x float> %16, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %20 = shufflevector <4 x float> %18, <4 x float> %19, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %21 = shufflevector <2 x float> %11, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %22 = insertelement <4 x float> %21, float %bvhInfo.sroa.0.sroa.3.0.copyload, i64 1
-  %23 = insertelement <4 x float> %22, float %bvhInfo.sroa.0.sroa.9.0.copyload, i64 2
-  %24 = shufflevector <2 x float> %9, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %25 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  %26 = fsub <4 x float> %20, %25
-  %27 = fmul <4 x float> %20, %25
-  %28 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %29 = shufflevector <4 x float> %24, <4 x float> <float poison, float poison, float 1.000000e+00, float 1.000000e+00>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %30 = fmul <4 x float> %29, %28
-  %31 = fadd <4 x float> %29, %28
-  %32 = shufflevector <4 x float> %30, <4 x float> %31, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %33 = fptoui <4 x float> %32 to <4 x i16>
-  %34 = and <4 x i16> %33, <i16 -2, i16 -2, i16 poison, i16 poison>
-  %35 = or <4 x i16> %33, <i16 poison, i16 poison, i16 1, i16 1>
-  %36 = shufflevector <4 x i16> %34, <4 x i16> %35, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %19 = fsub <2 x float> %retval.sroa.0.1.i24.i74, %11
+  %20 = fmul <2 x float> %12, %19
+  %21 = fadd <2 x float> %20, <float 1.000000e+00, float 1.000000e+00>
+  %22 = fptoui <2 x float> %21 to <2 x i16>
+  %23 = or <2 x i16> %22, <i16 1, i16 1>
   %add20.i = fadd float %mul7.i.i90, 1.000000e+00
   %conv21.i = fptoui float %add20.i to i16
-  %37 = or i16 %conv21.i, 1
+  %24 = or i16 %conv21.i, 1
   %cmp42161 = icmp sgt i32 %bvhInfo.sroa.4.0.copyload, 0
   br i1 %cmp42161, label %for.body.lr.ph, label %for.end113
 
@@ -546,24 +534,24 @@ for.body.lr.ph:                                   ; preds = %if.end28
   %retval.sroa.2.0.insert.shift.i117 = shl nuw i64 %retval.sroa.2.0.insert.ext.i116, 32
   %retval.sroa.0.0.insert.ext.i118 = zext i32 %0 to i64
   %retval.sroa.0.0.insert.insert.i119 = or disjoint i64 %retval.sroa.2.0.insert.shift.i117, %retval.sroa.0.0.insert.ext.i118
-  %38 = getelementptr inbounds i8, ptr %arrayidx20, i64 12
+  %25 = getelementptr inbounds i8, ptr %arrayidx20, i64 12
   br i1 %cmp67, label %for.body.us.preheader, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
   %wide.trip.count = zext nneg i32 %bvhInfo.sroa.4.0.copyload to i64
-  %39 = extractelement <4 x i16> %34, i64 0
-  %40 = extractelement <4 x i16> %34, i64 1
-  %41 = extractelement <4 x i16> %35, i64 2
-  %42 = extractelement <4 x i16> %35, i64 3
+  %26 = extractelement <2 x i16> %23, i64 0
+  %27 = extractelement <2 x i16> %23, i64 1
+  %28 = extractelement <2 x i16> %18, i64 0
+  %29 = extractelement <2 x i16> %18, i64 1
   br label %for.body
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %43 = sext i32 %maxNumConcavePairsCapacity to i64
+  %30 = sext i32 %maxNumConcavePairsCapacity to i64
   %wide.trip.count174 = zext nneg i32 %bvhInfo.sroa.4.0.copyload to i64
-  %44 = extractelement <4 x i16> %34, i64 0
-  %45 = extractelement <4 x i16> %34, i64 1
-  %46 = extractelement <4 x i16> %35, i64 2
-  %47 = extractelement <4 x i16> %35, i64 3
+  %31 = extractelement <2 x i16> %23, i64 0
+  %32 = extractelement <2 x i16> %23, i64 1
+  %33 = extractelement <2 x i16> %18, i64 0
+  %34 = extractelement <2 x i16> %18, i64 1
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc111.us
@@ -573,30 +561,29 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %subtree.sroa.2.0.arrayidx44.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx44.us, i64 2
   %subtree.sroa.2.0.copyload.us = load i16, ptr %subtree.sroa.2.0.arrayidx44.sroa_idx.us, align 2
   %subtree.sroa.4.0.arrayidx44.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx44.us, i64 6
-  %subtree.sroa.4.0.copyload.us = load i16, ptr %subtree.sroa.4.0.arrayidx44.sroa_idx.us, align 2
-  %subtree.sroa.5.0.arrayidx44.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx44.us, i64 8
-  %subtree.sroa.5.0.copyload.us = load i16, ptr %subtree.sroa.5.0.arrayidx44.sroa_idx.us, align 4
   %subtree.sroa.6.0.arrayidx44.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx44.us, i64 10
   %subtree.sroa.6.0.copyload.us = load i16, ptr %subtree.sroa.6.0.arrayidx44.sroa_idx.us, align 2
   %subtree.sroa.7.0.arrayidx44.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx44.us, i64 12
   %subtree.sroa.7.0.copyload.us = load i32, ptr %subtree.sroa.7.0.arrayidx44.sroa_idx.us, align 4
   %subtree.sroa.8.0.arrayidx44.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx44.us, i64 16
   %subtree.sroa.8.0.copyload.us = load i32, ptr %subtree.sroa.8.0.arrayidx44.sroa_idx.us, align 4
-  %cmp.i.us = icmp ugt i16 %15, %subtree.sroa.4.0.copyload.us
-  %cmp7.i.us = icmp ult i16 %46, %subtree.sroa.0.0.copyload.us
-  %or.cond.us = select i1 %cmp.i.us, i1 true, i1 %cmp7.i.us
-  %cmp14.i.us = icmp ugt i16 %44, %subtree.sroa.5.0.copyload.us
-  %or.cond150.us = select i1 %or.cond.us, i1 true, i1 %cmp14.i.us
-  %cmp21.i.us = icmp ult i16 %47, %subtree.sroa.2.0.copyload.us
+  %cmp7.i.us = icmp ult i16 %31, %subtree.sroa.0.0.copyload.us
+  %35 = load <2 x i16>, ptr %subtree.sroa.4.0.arrayidx44.sroa_idx.us, align 2
+  %36 = icmp ugt <2 x i16> %18, %35
+  %37 = extractelement <2 x i1> %36, i64 0
+  %or.cond.us = select i1 %37, i1 true, i1 %cmp7.i.us
+  %38 = extractelement <2 x i1> %36, i64 1
+  %or.cond150.us = select i1 %or.cond.us, i1 true, i1 %38
+  %cmp21.i.us = icmp ult i16 %32, %subtree.sroa.2.0.copyload.us
   %or.cond151.us = select i1 %or.cond150.us, i1 true, i1 %cmp21.i.us
-  %cmp28.i.us = icmp ugt i16 %45, %subtree.sroa.6.0.copyload.us
+  %cmp28.i.us = icmp ugt i16 %9, %subtree.sroa.6.0.copyload.us
   %or.cond152.us = select i1 %or.cond151.us, i1 true, i1 %cmp28.i.us
   br i1 %or.cond152.us, label %for.inc111.us, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit.us
 
 _Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit.us: ; preds = %for.body.us
   %subtree.sroa.3.0.arrayidx44.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx44.us, i64 4
   %subtree.sroa.3.0.copyload.us = load i16, ptr %subtree.sroa.3.0.arrayidx44.sroa_idx.us, align 4
-  %cmp35.i.not.us = icmp ult i16 %37, %subtree.sroa.3.0.copyload.us
+  %cmp35.i.not.us = icmp ult i16 %24, %subtree.sroa.3.0.copyload.us
   br i1 %cmp35.i.not.us, label %for.inc111.us, label %if.then50.us
 
 if.then50.us:                                     ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit.us
@@ -613,28 +600,31 @@ while.body.us.us:                                 ; preds = %if.then50.us, %if.e
   %curIndex.0160.us.us = phi i32 [ %curIndex.1.us.us, %if.end109.us.us ], [ %subtree.sroa.7.0.copyload.us, %if.then50.us ]
   %idxprom53.us.us = sext i32 %curIndex.0160.us.us to i64
   %arrayidx54.us.us = getelementptr inbounds %struct.b3QuantizedBvhNodeData, ptr %arrayidx36, i64 %idxprom53.us.us
-  %48 = load <2 x i16>, ptr %arrayidx54.us.us, align 4
   %rootNode.sroa.4.0.arrayidx54.sroa_idx.us.us = getelementptr inbounds i8, ptr %arrayidx54.us.us, i64 6
   %rootNode.sroa.4.0.copyload.us.us = load i16, ptr %rootNode.sroa.4.0.arrayidx54.sroa_idx.us.us, align 2
   %rootNode.sroa.5.0.arrayidx54.sroa_idx.us.us = getelementptr inbounds i8, ptr %arrayidx54.us.us, i64 8
-  %49 = load <2 x i16>, ptr %rootNode.sroa.5.0.arrayidx54.sroa_idx.us.us, align 4
+  %rootNode.sroa.5.0.copyload.us.us = load i16, ptr %rootNode.sroa.5.0.arrayidx54.sroa_idx.us.us, align 4
+  %rootNode.sroa.6.0.arrayidx54.sroa_idx.us.us = getelementptr inbounds i8, ptr %arrayidx54.us.us, i64 10
+  %rootNode.sroa.6.0.copyload.us.us = load i16, ptr %rootNode.sroa.6.0.arrayidx54.sroa_idx.us.us, align 2
   %rootNode.sroa.7.0.arrayidx54.sroa_idx.us.us = getelementptr inbounds i8, ptr %arrayidx54.us.us, i64 12
   %rootNode.sroa.7.0.copyload.us.us = load i32, ptr %rootNode.sroa.7.0.arrayidx54.sroa_idx.us.us, align 4
-  %cmp.i91.us.us = icmp ugt i16 %15, %rootNode.sroa.4.0.copyload.us.us
-  %50 = shufflevector <2 x i16> %49, <2 x i16> %48, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %51 = icmp ugt <4 x i16> %36, %50
-  %52 = icmp ult <4 x i16> %36, %50
-  %53 = shufflevector <4 x i1> %51, <4 x i1> %52, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %54 = freeze <4 x i1> %53
-  %55 = bitcast <4 x i1> %54 to i4
-  %56 = icmp ne i4 %55, 0
-  %op.rdx = or i1 %cmp.i91.us.us, %56
-  br i1 %op.rdx, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread.us.us, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.us.us
+  %cmp.i91.us.us = icmp ugt i16 %33, %rootNode.sroa.4.0.copyload.us.us
+  %cmp14.i97.us.us = icmp ugt i16 %34, %rootNode.sroa.5.0.copyload.us.us
+  %39 = load <2 x i16>, ptr %arrayidx54.us.us, align 4
+  %40 = icmp ult <2 x i16> %23, %39
+  %41 = extractelement <2 x i1> %40, i64 0
+  %or.cond153.us.us = select i1 %cmp.i91.us.us, i1 true, i1 %41
+  %or.cond154.us.us = select i1 %or.cond153.us.us, i1 true, i1 %cmp14.i97.us.us
+  %42 = extractelement <2 x i1> %40, i64 1
+  %or.cond155.us.us = select i1 %or.cond154.us.us, i1 true, i1 %42
+  %cmp28.i105.us.us = icmp ugt i16 %9, %rootNode.sroa.6.0.copyload.us.us
+  %or.cond156.us.us = select i1 %or.cond155.us.us, i1 true, i1 %cmp28.i105.us.us
+  br i1 %or.cond156.us.us, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread.us.us, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.us.us
 
 _Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.us.us: ; preds = %while.body.us.us
   %rootNode.sroa.3.0.arrayidx54.sroa_idx.us.us = getelementptr inbounds i8, ptr %arrayidx54.us.us, i64 4
   %rootNode.sroa.3.0.copyload.us.us = load i16, ptr %rootNode.sroa.3.0.arrayidx54.sroa_idx.us.us, align 4
-  %cmp35.i109.not.us.us = icmp ult i16 %37, %rootNode.sroa.3.0.copyload.us.us
+  %cmp35.i109.not.us.us = icmp ult i16 %24, %rootNode.sroa.3.0.copyload.us.us
   %cmp.i113.us.us = icmp sgt i32 %rootNode.sroa.7.0.copyload.us.us, -1
   br i1 %cmp35.i109.not.us.us, label %if.else101.us.us, label %if.then63.us.us
 
@@ -642,11 +632,11 @@ if.then63.us.us:                                  ; preds = %_Z43b3TestQuantized
   br i1 %cmp.i113.us.us, label %if.then65.us.us, label %if.end99.us.us
 
 if.then65.us.us:                                  ; preds = %if.then63.us.us
-  %57 = load i32, ptr %arrayidx20, align 4
-  %58 = load volatile i32, ptr %numConcavePairsOut, align 4
-  %add.i115.us.us = add nsw i32 %58, %57
+  %43 = load i32, ptr %arrayidx20, align 4
+  %44 = load volatile i32, ptr %numConcavePairsOut, align 4
+  %add.i115.us.us = add nsw i32 %44, %43
   store volatile i32 %add.i115.us.us, ptr %numConcavePairsOut, align 4
-  %cmp73157.us.us = icmp sgt i32 %57, 0
+  %cmp73157.us.us = icmp sgt i32 %43, 0
   br i1 %cmp73157.us.us, label %for.body74.lr.ph.us.us, label %if.end99.us.us
 
 if.end99.us.us:                                   ; preds = %for.inc.us.us, %if.then65.us.us, %if.then63.us.us
@@ -655,18 +645,18 @@ if.end99.us.us:                                   ; preds = %for.inc.us.us, %if.
 
 for.body74.us.us:                                 ; preds = %for.body74.lr.ph.us.us, %for.inc.us.us
   %indvars.iv165 = phi i64 [ 0, %for.body74.lr.ph.us.us ], [ %indvars.iv.next166, %for.inc.us.us ]
-  %59 = add nsw i64 %indvars.iv165, %62
-  %cmp76.us.us = icmp slt i64 %59, %43
+  %45 = add nsw i64 %indvars.iv165, %48
+  %cmp76.us.us = icmp slt i64 %45, %30
   br i1 %cmp76.us.us, label %if.then77.us.us, label %for.inc.us.us
 
 if.then77.us.us:                                  ; preds = %for.body74.us.us
-  %60 = load i32, ptr %38, align 4
-  %61 = trunc nuw nsw i64 %indvars.iv165 to i32
-  %add80.us.us = add nsw i32 %60, %61
+  %46 = load i32, ptr %25, align 4
+  %47 = trunc nuw nsw i64 %indvars.iv165 to i32
+  %add80.us.us = add nsw i32 %46, %47
   %retval.sroa.5.8.insert.ext.i.us.us = zext i32 %add80.us.us to i64
   %retval.sroa.5.8.insert.shift.i.us.us = shl nuw i64 %retval.sroa.5.8.insert.ext.i.us.us, 32
   %retval.sroa.3.8.insert.insert.i.us.us = or disjoint i64 %retval.sroa.5.8.insert.shift.i.us.us, %retval.sroa.3.8.insert.ext.i.us.us
-  %arrayidx85.us.us = getelementptr inbounds %struct.b3Int4, ptr %concavePairsOut, i64 %59
+  %arrayidx85.us.us = getelementptr inbounds %struct.b3Int4, ptr %concavePairsOut, i64 %45
   store i64 %retval.sroa.0.0.insert.insert.i119, ptr %arrayidx85.us.us, align 16
   %newPair.sroa.2.0.arrayidx85.sroa_idx.us.us = getelementptr inbounds i8, ptr %arrayidx85.us.us, i64 8
   store i64 %retval.sroa.3.8.insert.insert.i.us.us, ptr %newPair.sroa.2.0.arrayidx85.sroa_idx.us.us, align 8
@@ -700,8 +690,8 @@ if.end109.us.us:                                  ; preds = %if.then103.us.us, %
 for.body74.lr.ph.us.us:                           ; preds = %if.then65.us.us
   %and2.i.us.us = and i32 %rootNode.sroa.7.0.copyload.us.us, 2097151
   %retval.sroa.3.8.insert.ext.i.us.us = zext nneg i32 %and2.i.us.us to i64
-  %62 = sext i32 %58 to i64
-  %wide.trip.count169 = zext nneg i32 %57 to i64
+  %48 = sext i32 %44 to i64
+  %wide.trip.count169 = zext nneg i32 %43 to i64
   br label %for.body74.us.us
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc111
@@ -720,21 +710,21 @@ for.body:                                         ; preds = %for.body.preheader,
   %subtree.sroa.7.0.copyload = load i32, ptr %subtree.sroa.7.0.arrayidx44.sroa_idx, align 4
   %subtree.sroa.8.0.arrayidx44.sroa_idx = getelementptr inbounds i8, ptr %arrayidx44, i64 16
   %subtree.sroa.8.0.copyload = load i32, ptr %subtree.sroa.8.0.arrayidx44.sroa_idx, align 4
-  %cmp.i = icmp ugt i16 %15, %subtree.sroa.4.0.copyload
-  %cmp7.i = icmp ult i16 %41, %subtree.sroa.0.0.copyload
+  %cmp.i = icmp ugt i16 %28, %subtree.sroa.4.0.copyload
+  %cmp7.i = icmp ult i16 %26, %subtree.sroa.0.0.copyload
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp7.i
-  %cmp14.i = icmp ugt i16 %39, %subtree.sroa.5.0.copyload
+  %cmp14.i = icmp ugt i16 %29, %subtree.sroa.5.0.copyload
   %or.cond150 = select i1 %or.cond, i1 true, i1 %cmp14.i
-  %cmp21.i = icmp ult i16 %42, %subtree.sroa.2.0.copyload
+  %cmp21.i = icmp ult i16 %27, %subtree.sroa.2.0.copyload
   %or.cond151 = select i1 %or.cond150, i1 true, i1 %cmp21.i
-  %cmp28.i = icmp ugt i16 %40, %subtree.sroa.6.0.copyload
+  %cmp28.i = icmp ugt i16 %9, %subtree.sroa.6.0.copyload
   %or.cond152 = select i1 %or.cond151, i1 true, i1 %cmp28.i
   br i1 %or.cond152, label %for.inc111, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit
 
 _Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit: ; preds = %for.body
   %subtree.sroa.3.0.arrayidx44.sroa_idx = getelementptr inbounds i8, ptr %arrayidx44, i64 4
   %subtree.sroa.3.0.copyload = load i16, ptr %subtree.sroa.3.0.arrayidx44.sroa_idx, align 4
-  %cmp35.i.not = icmp ult i16 %37, %subtree.sroa.3.0.copyload
+  %cmp35.i.not = icmp ult i16 %24, %subtree.sroa.3.0.copyload
   br i1 %cmp35.i.not, label %for.inc111, label %if.then50
 
 if.then50:                                        ; preds = %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit
@@ -757,14 +747,14 @@ while.body:                                       ; preds = %if.then50, %if.end1
   %rootNode.sroa.6.0.copyload = load i16, ptr %rootNode.sroa.6.0.arrayidx54.sroa_idx, align 2
   %rootNode.sroa.7.0.arrayidx54.sroa_idx = getelementptr inbounds i8, ptr %arrayidx54, i64 12
   %rootNode.sroa.7.0.copyload = load i32, ptr %rootNode.sroa.7.0.arrayidx54.sroa_idx, align 4
-  %cmp.i91 = icmp ugt i16 %15, %rootNode.sroa.4.0.copyload
-  %cmp7.i93 = icmp ult i16 %41, %rootNode.sroa.0.0.copyload
+  %cmp.i91 = icmp ugt i16 %28, %rootNode.sroa.4.0.copyload
+  %cmp7.i93 = icmp ult i16 %26, %rootNode.sroa.0.0.copyload
   %or.cond153 = select i1 %cmp.i91, i1 true, i1 %cmp7.i93
-  %cmp14.i97 = icmp ugt i16 %39, %rootNode.sroa.5.0.copyload
+  %cmp14.i97 = icmp ugt i16 %29, %rootNode.sroa.5.0.copyload
   %or.cond154 = select i1 %or.cond153, i1 true, i1 %cmp14.i97
-  %cmp21.i101 = icmp ult i16 %42, %rootNode.sroa.2.0.copyload
+  %cmp21.i101 = icmp ult i16 %27, %rootNode.sroa.2.0.copyload
   %or.cond155 = select i1 %or.cond154, i1 true, i1 %cmp21.i101
-  %cmp28.i105 = icmp ugt i16 %40, %rootNode.sroa.6.0.copyload
+  %cmp28.i105 = icmp ugt i16 %9, %rootNode.sroa.6.0.copyload
   %or.cond156 = select i1 %or.cond155, i1 true, i1 %cmp28.i105
   br i1 %or.cond156, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread, label %_Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112
 
@@ -775,7 +765,7 @@ _Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112.thread: ; pr
 _Z43b3TestQuantizedAabbAgainstQuantizedAabbSlowPKtS0_S0_S0_.exit112: ; preds = %while.body
   %rootNode.sroa.3.0.arrayidx54.sroa_idx = getelementptr inbounds i8, ptr %arrayidx54, i64 4
   %rootNode.sroa.3.0.copyload = load i16, ptr %rootNode.sroa.3.0.arrayidx54.sroa_idx, align 4
-  %cmp35.i109.not = icmp ult i16 %37, %rootNode.sroa.3.0.copyload
+  %cmp35.i109.not = icmp ult i16 %24, %rootNode.sroa.3.0.copyload
   %cmp.i113 = icmp sgt i32 %rootNode.sroa.7.0.copyload, -1
   br i1 %cmp35.i109.not, label %if.else101, label %if.then63
 
@@ -783,16 +773,16 @@ if.then63:                                        ; preds = %_Z43b3TestQuantized
   br i1 %cmp.i113, label %if.then65, label %if.end99
 
 if.then65:                                        ; preds = %if.then63
-  %63 = load volatile i32, ptr %numConcavePairsOut, align 4
-  %inc88 = add nsw i32 %63, 1
+  %49 = load volatile i32, ptr %numConcavePairsOut, align 4
+  %inc88 = add nsw i32 %49, 1
   store volatile i32 %inc88, ptr %numConcavePairsOut, align 4
-  %cmp89 = icmp slt i32 %63, %maxNumConcavePairsCapacity
+  %cmp89 = icmp slt i32 %49, %maxNumConcavePairsCapacity
   br i1 %cmp89, label %if.then90, label %if.end99
 
 if.then90:                                        ; preds = %if.then65
   %and2.i = and i32 %rootNode.sroa.7.0.copyload, 2097151
   %retval.sroa.3.8.insert.ext.i121 = zext nneg i32 %and2.i to i64
-  %idxprom95 = sext i32 %63 to i64
+  %idxprom95 = sext i32 %49 to i64
   %arrayidx96 = getelementptr inbounds %struct.b3Int4, ptr %concavePairsOut, i64 %idxprom95
   store i64 %retval.sroa.0.0.insert.insert.i119, ptr %arrayidx96, align 16
   %newPair91.sroa.2.0.arrayidx96.sroa_idx = getelementptr inbounds i8, ptr %arrayidx96, i64 8

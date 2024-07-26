@@ -1413,14 +1413,14 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @Abc_CexPermute(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
-  %5 = load <2 x i32>, ptr %3, align 4
-  %6 = load i32, ptr %4, align 4
-  %7 = add nsw i32 %6, 1
-  %8 = extractelement <2 x i32> %5, i64 1
-  %9 = mul nsw i32 %7, %8
-  %10 = extractelement <2 x i32> %5, i64 0
-  %11 = add nsw i32 %9, %10
+  %4 = load i32, ptr %3, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = load i32, ptr %5, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = add nsw i32 %8, 1
+  %10 = mul nsw i32 %9, %6
+  %11 = add nsw i32 %10, %4
   %12 = ashr i32 %11, 5
   %13 = and i32 %11, 31
   %14 = icmp ne i32 %13, 0
@@ -1430,64 +1430,66 @@ define noalias noundef ptr @Abc_CexPermute(ptr nocapture noundef readonly %0, pt
   %18 = shl nsw i64 %17, 2
   %19 = add nsw i64 %18, 20
   %calloc.i = tail call ptr @calloc(i64 1, i64 %19)
-  %20 = getelementptr inbounds i8, ptr %calloc.i, i64 16
-  store i32 %11, ptr %20, align 4
-  %21 = load i32, ptr %0, align 4
-  %22 = insertelement <4 x i32> poison, i32 %21, i64 0
-  %23 = insertelement <4 x i32> %22, i32 %6, i64 1
-  %24 = shufflevector <2 x i32> %5, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %25 = shufflevector <4 x i32> %23, <4 x i32> %24, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x i32> %25, ptr %calloc.i, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp slt i32 %10, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  %20 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  store i32 %4, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %calloc.i, i64 12
+  store i32 %6, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  store i32 %11, ptr %22, align 4
+  %23 = load i32, ptr %0, align 4
+  store i32 %23, ptr %calloc.i, align 4
+  %24 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  store i32 %8, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp slt i32 %4, %26
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
-  %30 = getelementptr i8, ptr %1, i64 8
-  %31 = getelementptr inbounds i8, ptr %calloc.i, i64 20
-  br label %32
+  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = getelementptr i8, ptr %1, i64 8
+  %30 = getelementptr inbounds i8, ptr %calloc.i, i64 20
+  br label %31
 
-32:                                               ; preds = %.lr.ph, %56
-  %.024 = phi i32 [ %10, %.lr.ph ], [ %57, %56 ]
-  %33 = ashr i32 %.024, 5
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %29, i64 %34
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %.024, 31
-  %38 = shl nuw i32 1, %37
-  %39 = and i32 %36, %38
-  %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %56, label %40
+31:                                               ; preds = %.lr.ph, %55
+  %.024 = phi i32 [ %4, %.lr.ph ], [ %56, %55 ]
+  %32 = ashr i32 %.024, 5
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i32, ptr %28, i64 %33
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %.024, 31
+  %37 = shl nuw i32 1, %36
+  %38 = and i32 %35, %37
+  %.not = icmp eq i32 %38, 0
+  br i1 %.not, label %55, label %39
 
-40:                                               ; preds = %32
-  %41 = sub nsw i32 %.024, %10
-  %.fr = freeze i32 %41
-  %42 = srem i32 %.fr, %8
-  %.val = load ptr, ptr %30, align 8
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %.val, i64 %43
-  %45 = load i32, ptr %44, align 4
-  %46 = add i32 %.fr, %10
-  %47 = sub i32 %46, %42
-  %48 = add nsw i32 %47, %45
-  %49 = and i32 %48, 31
-  %50 = shl nuw i32 1, %49
-  %51 = ashr i32 %48, 5
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %31, i64 %52
-  %54 = load i32, ptr %53, align 4
-  %55 = or i32 %50, %54
-  store i32 %55, ptr %53, align 4
-  br label %56
+39:                                               ; preds = %31
+  %40 = sub nsw i32 %.024, %4
+  %.fr = freeze i32 %40
+  %41 = srem i32 %.fr, %6
+  %.val = load ptr, ptr %29, align 8
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i32, ptr %.val, i64 %42
+  %44 = load i32, ptr %43, align 4
+  %45 = add i32 %.fr, %4
+  %46 = sub i32 %45, %41
+  %47 = add nsw i32 %46, %44
+  %48 = and i32 %47, 31
+  %49 = shl nuw i32 1, %48
+  %50 = ashr i32 %47, 5
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i32, ptr %30, i64 %51
+  %53 = load i32, ptr %52, align 4
+  %54 = or i32 %49, %53
+  store i32 %54, ptr %52, align 4
+  br label %55
 
-56:                                               ; preds = %32, %40
-  %57 = add nsw i32 %.024, 1
-  %exitcond.not = icmp eq i32 %57, %27
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !30
+55:                                               ; preds = %31, %39
+  %56 = add nsw i32 %.024, 1
+  %exitcond.not = icmp eq i32 %56, %26
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %56, %2
+._crit_edge:                                      ; preds = %55, %2
   ret ptr %calloc.i
 }
 

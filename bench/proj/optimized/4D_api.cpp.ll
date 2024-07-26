@@ -470,7 +470,7 @@ define double @proj_roundtrip(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   %10 = alloca %union.PJ_COORD, align 16
   %11 = alloca %union.PJ_COORD, align 8
   %12 = alloca %union.PJ_COORD, align 16
-  %13 = alloca %union.PJ_COORD, align 16
+  %13 = alloca %union.PJ_COORD, align 8
   %14 = alloca %union.PJ_COORD, align 16
   %15 = icmp eq ptr %0, null
   br i1 %15, label %proj_lpz_dist.exit, label %16
@@ -531,100 +531,98 @@ define double @proj_roundtrip(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   %.sroa.01.sroa.9.0..sroa_idx76 = getelementptr inbounds i8, ptr %14, i64 16
   store <2 x double> %35, ptr %.sroa.01.sroa.9.0..sroa_idx76, align 16
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %13, ptr noundef nonnull %0, i32 noundef %.pre, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %14)
-  %36 = load <2 x double>, ptr %13, align 16
+  %.sroa.01.sroa.0.0.copyload59 = load double, ptr %13, align 8
+  %.sroa.01.sroa.8.0..sroa_idx68 = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.01.sroa.8.0.copyload69 = load double, ptr %.sroa.01.sroa.8.0..sroa_idx68, align 8
   %.sroa.01.sroa.9.0..sroa_idx78 = getelementptr inbounds i8, ptr %13, i64 16
-  %.sroa.01.sroa.9.0.copyload79 = load double, ptr %.sroa.01.sroa.9.0..sroa_idx78, align 16
-  %37 = fcmp uno <4 x double> %.fr, zeroinitializer
-  %38 = bitcast <4 x i1> %37 to i4
-  %.not118 = icmp eq i4 %38, 0
+  %.sroa.01.sroa.9.0.copyload79 = load double, ptr %.sroa.01.sroa.9.0..sroa_idx78, align 8
+  %36 = fcmp uno <4 x double> %.fr, zeroinitializer
+  %37 = bitcast <4 x i1> %36 to i4
+  %.not118 = icmp eq i4 %37, 0
   br i1 %.not118, label %_ZL17coord_is_all_nans8PJ_COORD.exit.thread, label %_ZL14coord_has_nans8PJ_COORD.exit.thread
 
 _ZL14coord_has_nans8PJ_COORD.exit.thread:         ; preds = %._crit_edge
   %.sroa.01.sroa.10.0..sroa_idx88 = getelementptr inbounds i8, ptr %13, i64 24
   %.sroa.01.sroa.10.0.copyload89 = load double, ptr %.sroa.01.sroa.10.0..sroa_idx88, align 8
-  %39 = shufflevector <2 x double> %36, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %40 = insertelement <4 x double> %39, double %.sroa.01.sroa.9.0.copyload79, i64 2
-  %41 = insertelement <4 x double> %40, double %.sroa.01.sroa.10.0.copyload89, i64 3
-  %.fr119 = freeze <4 x double> %41
-  %42 = fcmp ord <4 x double> %.fr119, zeroinitializer
-  %43 = bitcast <4 x i1> %42 to i4
-  %44 = icmp eq i4 %43, 0
-  br i1 %44, label %proj_lpz_dist.exit, label %_ZL17coord_is_all_nans8PJ_COORD.exit.thread
+  %38 = fcmp uno double %.sroa.01.sroa.0.0.copyload59, 0.000000e+00
+  %39 = fcmp uno double %.sroa.01.sroa.8.0.copyload69, 0.000000e+00
+  %or.cond.i25 = select i1 %38, i1 %39, i1 false
+  %40 = fcmp uno double %.sroa.01.sroa.9.0.copyload79, 0.000000e+00
+  %or.cond5.i26 = select i1 %or.cond.i25, i1 %40, i1 false
+  %41 = fcmp uno double %.sroa.01.sroa.10.0.copyload89, 0.000000e+00
+  %or.cond105 = select i1 %or.cond5.i26, i1 %41, i1 false
+  br i1 %or.cond105, label %proj_lpz_dist.exit, label %_ZL17coord_is_all_nans8PJ_COORD.exit.thread
 
 _ZL17coord_is_all_nans8PJ_COORD.exit.thread:      ; preds = %._crit_edge, %_ZL14coord_has_nans8PJ_COORD.exit.thread
-  %45 = icmp eq i32 %1, 1
-  br i1 %45, label %46, label %48
+  %42 = icmp eq i32 %1, 1
+  br i1 %42, label %43, label %45
 
-46:                                               ; preds = %_ZL17coord_is_all_nans8PJ_COORD.exit.thread
-  %47 = call noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef nonnull %0)
+43:                                               ; preds = %_ZL17coord_is_all_nans8PJ_COORD.exit.thread
+  %44 = call noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef nonnull %0)
   br label %proj_angular_input.exit
 
-48:                                               ; preds = %_ZL17coord_is_all_nans8PJ_COORD.exit.thread
-  %49 = call noundef i32 @_Z8pj_rightP8PJconsts(ptr noundef nonnull %0)
+45:                                               ; preds = %_ZL17coord_is_all_nans8PJ_COORD.exit.thread
+  %46 = call noundef i32 @_Z8pj_rightP8PJconsts(ptr noundef nonnull %0)
   br label %proj_angular_input.exit
 
-proj_angular_input.exit:                          ; preds = %46, %48
-  %.0.in.in.i = phi i32 [ %47, %46 ], [ %49, %48 ]
+proj_angular_input.exit:                          ; preds = %43, %45
+  %.0.in.in.i = phi i32 [ %44, %43 ], [ %46, %45 ]
   %.0.in.i.not = icmp eq i32 %.0.in.in.i, 4
-  br i1 %.0.in.i.not, label %50, label %73
+  br i1 %.0.in.i.not, label %47, label %68
 
-50:                                               ; preds = %proj_angular_input.exit
-  %51 = extractelement <4 x double> %.fr, i64 0
-  %52 = fcmp oeq double %51, 0x7FF0000000000000
-  %53 = extractelement <2 x double> %36, i64 0
-  %54 = fcmp oeq double %53, 0x7FF0000000000000
-  %or.cond.i27 = select i1 %52, i1 true, i1 %54
-  br i1 %or.cond.i27, label %proj_lpz_dist.exit, label %55
+47:                                               ; preds = %proj_angular_input.exit
+  %48 = extractelement <4 x double> %.fr, i64 0
+  %49 = fcmp oeq double %48, 0x7FF0000000000000
+  %50 = fcmp oeq double %.sroa.01.sroa.0.0.copyload59, 0x7FF0000000000000
+  %or.cond.i27 = select i1 %49, i1 true, i1 %50
+  br i1 %or.cond.i27, label %proj_lpz_dist.exit, label %51
 
-55:                                               ; preds = %50
+51:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %56 = getelementptr inbounds i8, ptr %0, i64 80
-  %57 = load ptr, ptr %56, align 8
-  %.not.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i, label %proj_lp_dist.exit.i, label %58
+  %52 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = load ptr, ptr %52, align 8
+  %.not.i.i = icmp eq ptr %53, null
+  br i1 %.not.i.i, label %proj_lp_dist.exit.i, label %54
 
-58:                                               ; preds = %55
-  %59 = extractelement <4 x double> %.fr, i64 1
-  %60 = fmul double %59, 1.800000e+02
+54:                                               ; preds = %51
+  %55 = extractelement <4 x double> %.fr, i64 1
+  %56 = fmul double %55, 1.800000e+02
+  %57 = fdiv double %56, 0x400921FB54442D18
+  %58 = fmul double %48, 1.800000e+02
+  %59 = fdiv double %58, 0x400921FB54442D18
+  %60 = fmul double %.sroa.01.sroa.8.0.copyload69, 1.800000e+02
   %61 = fdiv double %60, 0x400921FB54442D18
-  %62 = fmul double %51, 1.800000e+02
+  %62 = fmul double %.sroa.01.sroa.0.0.copyload59, 1.800000e+02
   %63 = fdiv double %62, 0x400921FB54442D18
-  %64 = extractelement <2 x double> %36, i64 1
-  %65 = fmul double %64, 1.800000e+02
-  %66 = fdiv double %65, 0x400921FB54442D18
-  %67 = fmul double %53, 1.800000e+02
-  %68 = fdiv double %67, 0x400921FB54442D18
-  call void @geod_inverse(ptr noundef nonnull %57, double noundef %61, double noundef %63, double noundef %66, double noundef %68, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %69 = load double, ptr %5, align 8
+  call void @geod_inverse(ptr noundef nonnull %53, double noundef %57, double noundef %59, double noundef %61, double noundef %63, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %64 = load double, ptr %5, align 8
   br label %proj_lp_dist.exit.i
 
-proj_lp_dist.exit.i:                              ; preds = %58, %55
-  %.0.i.i = phi double [ %69, %58 ], [ 0x7FF0000000000000, %55 ]
+proj_lp_dist.exit.i:                              ; preds = %54, %51
+  %.0.i.i = phi double [ %64, %54 ], [ 0x7FF0000000000000, %51 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %70 = extractelement <4 x double> %.fr, i64 2
-  %71 = fsub double %70, %.sroa.01.sroa.9.0.copyload79
-  %72 = call double @hypot(double noundef %.0.i.i, double noundef %71) #33
+  %65 = extractelement <4 x double> %.fr, i64 2
+  %66 = fsub double %65, %.sroa.01.sroa.9.0.copyload79
+  %67 = call double @hypot(double noundef %.0.i.i, double noundef %66) #33
   br label %proj_lpz_dist.exit
 
-73:                                               ; preds = %proj_angular_input.exit
-  %74 = extractelement <2 x double> %36, i64 0
-  %75 = extractelement <4 x double> %.fr, i64 0
-  %76 = fsub double %75, %74
-  %77 = extractelement <2 x double> %36, i64 1
-  %78 = extractelement <4 x double> %.fr, i64 1
-  %79 = fsub double %78, %77
-  %80 = call double @hypot(double noundef %76, double noundef %79) #33
-  %81 = extractelement <4 x double> %.fr, i64 2
-  %82 = fsub double %81, %.sroa.01.sroa.9.0.copyload79
-  %83 = call double @hypot(double noundef %80, double noundef %82) #33
+68:                                               ; preds = %proj_angular_input.exit
+  %69 = extractelement <4 x double> %.fr, i64 0
+  %70 = fsub double %69, %.sroa.01.sroa.0.0.copyload59
+  %71 = extractelement <4 x double> %.fr, i64 1
+  %72 = fsub double %71, %.sroa.01.sroa.8.0.copyload69
+  %73 = call double @hypot(double noundef %70, double noundef %72) #33
+  %74 = extractelement <4 x double> %.fr, i64 2
+  %75 = fsub double %74, %.sroa.01.sroa.9.0.copyload79
+  %76 = call double @hypot(double noundef %73, double noundef %75) #33
   br label %proj_lpz_dist.exit
 
-proj_lpz_dist.exit:                               ; preds = %_ZL14coord_has_nans8PJ_COORD.exit.thread, %proj_lp_dist.exit.i, %50, %4, %73, %18
-  %.022 = phi double [ 0x7FF0000000000000, %18 ], [ %83, %73 ], [ 0x7FF0000000000000, %4 ], [ %72, %proj_lp_dist.exit.i ], [ 0x7FF0000000000000, %50 ], [ 0.000000e+00, %_ZL14coord_has_nans8PJ_COORD.exit.thread ]
+proj_lpz_dist.exit:                               ; preds = %_ZL14coord_has_nans8PJ_COORD.exit.thread, %proj_lp_dist.exit.i, %47, %4, %68, %18
+  %.022 = phi double [ 0x7FF0000000000000, %18 ], [ %76, %68 ], [ 0x7FF0000000000000, %4 ], [ %67, %proj_lp_dist.exit.i ], [ 0x7FF0000000000000, %47 ], [ 0.000000e+00, %_ZL14coord_has_nans8PJ_COORD.exit.thread ]
   ret double %.022
 }
 

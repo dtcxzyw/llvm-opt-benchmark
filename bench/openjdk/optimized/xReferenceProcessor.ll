@@ -1523,30 +1523,32 @@ _ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit15: ; preds =
   %49 = getelementptr inbounds i8, ptr %2, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %3, i64 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 16
-  %53 = getelementptr inbounds i8, ptr %3, i64 16
-  %54 = getelementptr inbounds i8, ptr %2, i64 24
-  %55 = getelementptr inbounds i8, ptr %3, i64 24
-  %56 = getelementptr inbounds i8, ptr %2, i64 32
-  %57 = getelementptr inbounds i8, ptr %3, i64 32
-  %58 = load i64, ptr %51, align 8
-  tail call void @_ZN15XStatReferences8set_softEmmm(i64 noundef %50, i64 noundef %58, i64 noundef %48) #12
-  %59 = load i64, ptr %52, align 16
-  %60 = load i64, ptr %53, align 16
-  tail call void @_ZN15XStatReferences8set_weakEmmm(i64 noundef %59, i64 noundef %60, i64 noundef %47) #12
-  %61 = load i64, ptr %54, align 8
-  %62 = load i64, ptr %55, align 8
-  tail call void @_ZN15XStatReferences9set_finalEmmm(i64 noundef %61, i64 noundef %62, i64 noundef %46) #12
-  %63 = load i64, ptr %56, align 16
-  %64 = load i64, ptr %57, align 16
-  tail call void @_ZN15XStatReferences11set_phantomEmmm(i64 noundef %63, i64 noundef %64, i64 noundef %45) #12
-  %65 = insertelement <4 x i64> poison, i64 %58, i64 0
-  %66 = insertelement <4 x i64> %65, i64 %60, i64 1
-  %67 = insertelement <4 x i64> %66, i64 %62, i64 2
-  %68 = insertelement <4 x i64> %67, i64 %64, i64 3
-  store <4 x i64> %68, ptr %5, align 8
-  %69 = load ptr, ptr @_ZN7XTracer7_tracerE, align 8
-  call void @_ZNK8GCTracer25report_gc_reference_statsERK23ReferenceProcessorStats(ptr noundef nonnull align 8 dereferenceable(80) %69, ptr noundef nonnull align 8 dereferenceable(32) %5) #12
+  %52 = load i64, ptr %51, align 8
+  tail call void @_ZN15XStatReferences8set_softEmmm(i64 noundef %50, i64 noundef %52, i64 noundef %48) #12
+  %53 = getelementptr inbounds i8, ptr %2, i64 16
+  %54 = load i64, ptr %53, align 16
+  %55 = getelementptr inbounds i8, ptr %3, i64 16
+  %56 = load i64, ptr %55, align 16
+  tail call void @_ZN15XStatReferences8set_weakEmmm(i64 noundef %54, i64 noundef %56, i64 noundef %47) #12
+  %57 = getelementptr inbounds i8, ptr %2, i64 24
+  %58 = load i64, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %3, i64 24
+  %60 = load i64, ptr %59, align 8
+  tail call void @_ZN15XStatReferences9set_finalEmmm(i64 noundef %58, i64 noundef %60, i64 noundef %46) #12
+  %61 = getelementptr inbounds i8, ptr %2, i64 32
+  %62 = load i64, ptr %61, align 16
+  %63 = getelementptr inbounds i8, ptr %3, i64 32
+  %64 = load i64, ptr %63, align 16
+  tail call void @_ZN15XStatReferences11set_phantomEmmm(i64 noundef %62, i64 noundef %64, i64 noundef %45) #12
+  store i64 %52, ptr %5, align 8
+  %65 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %56, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %60, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 %64, ptr %67, align 8
+  %68 = load ptr, ptr @_ZN7XTracer7_tracerE, align 8
+  call void @_ZNK8GCTracer25report_gc_reference_statsERK23ReferenceProcessorStats(ptr noundef nonnull align 8 dereferenceable(80) %68, ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   ret void
 }
 

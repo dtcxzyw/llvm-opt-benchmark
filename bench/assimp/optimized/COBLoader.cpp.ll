@@ -3788,30 +3788,29 @@ if.end.i259:                                      ; preds = %if.then250
 
 _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit266: ; preds = %if.then250, %if.end.i259
   %color = getelementptr inbounds i8, ptr %root, i64 212
-  %113 = load float, ptr %color, align 4
-  %g.i267 = getelementptr inbounds i8, ptr %root, i64 216
-  %g3.i268 = getelementptr inbounds i8, ptr %call251, i64 1096
-  %114 = load <2 x float>, ptr %g.i267, align 8
-  %115 = shufflevector <2 x float> %114, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %116 = insertelement <4 x float> %115, float %113, i64 2
-  %117 = shufflevector <4 x float> %116, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  store <4 x float> %117, ptr %g3.i268, align 4
+  %mColorSpecular = getelementptr inbounds i8, ptr %call251, i64 1092
+  %b.i269 = getelementptr inbounds i8, ptr %root, i64 220
+  %113 = load float, ptr %b.i269, align 4
+  %b4.i270 = getelementptr inbounds i8, ptr %call251, i64 1100
+  store float %113, ptr %b4.i270, align 4
+  %mColorAmbient = getelementptr inbounds i8, ptr %call251, i64 1104
   %b4.i274 = getelementptr inbounds i8, ptr %call251, i64 1112
-  %118 = extractelement <2 x float> %114, i64 1
-  store float %118, ptr %b4.i274, align 4
+  store float %113, ptr %b4.i274, align 4
   %mColorDiffuse = getelementptr inbounds i8, ptr %call251, i64 1080
-  %119 = insertelement <4 x float> poison, float %113, i64 0
-  %120 = shufflevector <4 x float> %119, <4 x float> %115, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %121 = shufflevector <4 x float> %120, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  store <4 x float> %121, ptr %mColorDiffuse, align 4
+  %114 = load <2 x float>, ptr %color, align 4
+  store <2 x float> %114, ptr %mColorSpecular, align 4
+  store <2 x float> %114, ptr %mColorAmbient, align 4
+  store <2 x float> %114, ptr %mColorDiffuse, align 4
+  %b4.i278 = getelementptr inbounds i8, ptr %call251, i64 1088
+  store float %113, ptr %b4.i278, align 4
   %angle = getelementptr inbounds i8, ptr %root, i64 224
-  %122 = load <2 x float>, ptr %angle, align 8
-  %123 = fmul <2 x float> %122, <float 0x3F91DF46A0000000, float 0x3F91DF46A0000000>
-  %124 = shufflevector <2 x float> %123, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %124, ptr %mAngleInnerCone.i, align 4
+  %115 = load <2 x float>, ptr %angle, align 8
+  %116 = fmul <2 x float> %115, <float 0x3F91DF46A0000000, float 0x3F91DF46A0000000>
+  %117 = shufflevector <2 x float> %116, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %117, ptr %mAngleInnerCone.i, align 4
   %ltype = getelementptr inbounds i8, ptr %root, i64 232
-  %125 = load i32, ptr %ltype, align 8
-  %cmp261 = icmp eq i32 %125, 0
+  %118 = load i32, ptr %ltype, align 8
+  %cmp261 = icmp eq i32 %118, 0
   %cond262 = select i1 %cmp261, i32 3, i32 1
   store i32 %cond262, ptr %mType.i, align 4
   br label %if.end275
@@ -3830,13 +3829,13 @@ if.then266:                                       ; preds = %_ZN8aiString3SetERK
   %mAspect.i = getelementptr inbounds i8, ptr %call267, i64 1076
   store <2 x float> zeroinitializer, ptr %mAspect.i, align 4
   %mCameras = getelementptr inbounds i8, ptr %fill, i64 104
-  %126 = load ptr, ptr %mCameras, align 8
+  %119 = load ptr, ptr %mCameras, align 8
   %mNumCameras = getelementptr inbounds i8, ptr %fill, i64 96
-  %127 = load i32, ptr %mNumCameras, align 8
-  %inc268 = add i32 %127, 1
+  %120 = load i32, ptr %mNumCameras, align 8
+  %inc268 = add i32 %120, 1
   store i32 %inc268, ptr %mNumCameras, align 8
-  %idxprom269 = zext i32 %127 to i64
-  %arrayidx270 = getelementptr inbounds ptr, ptr %126, i64 %idxprom269
+  %idxprom269 = zext i32 %120 to i64
+  %arrayidx270 = getelementptr inbounds ptr, ptr %119, i64 %idxprom269
   store ptr %call267, ptr %arrayidx270, align 8
   %call.i280 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #22
   %cmp.i281 = icmp ugt i64 %call.i280, 1023
@@ -3847,8 +3846,8 @@ if.end.i282:                                      ; preds = %if.then266
   %conv.i284 = trunc i64 %call2.i283 to i32
   store i32 %conv.i284, ptr %call267, align 4
   %call3.i286 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #22
-  %128 = load i32, ptr %call267, align 4
-  %conv5.i287 = zext i32 %128 to i64
+  %121 = load i32, ptr %call267, align 4
+  %conv5.i287 = zext i32 %121 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i279, ptr align 1 %call3.i286, i64 %conv5.i287, i1 false)
   %arrayidx.i288 = getelementptr inbounds [1024 x i8], ptr %data.i.i279, i64 0, i64 %conv5.i287
   store i8 0, ptr %arrayidx.i288, align 1
@@ -3856,14 +3855,14 @@ if.end.i282:                                      ; preds = %if.then266
 
 if.end275:                                        ; preds = %for.inc244, %if.then5, %if.end.i282, %if.then266, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit266, %if.then, %land.lhs.true
   %mNumMeshes276 = getelementptr inbounds i8, ptr %call, i64 1120
-  %129 = load i32, ptr %mNumMeshes276, align 8
-  %tobool277.not = icmp eq i32 %129, 0
+  %122 = load i32, ptr %mNumMeshes276, align 8
+  %tobool277.not = icmp eq i32 %122, 0
   br i1 %tobool277.not, label %if.end295, label %for.body286.lr.ph
 
 for.body286.lr.ph:                                ; preds = %if.end275
-  %conv280 = zext i32 %129 to i64
-  %130 = shl nuw nsw i64 %conv280, 2
-  %call281 = call noalias noundef nonnull ptr @_Znam(i64 noundef %130) #24
+  %conv280 = zext i32 %122 to i64
+  %123 = shl nuw nsw i64 %conv280, 2
+  %call281 = call noalias noundef nonnull ptr @_Znam(i64 noundef %123) #24
   %mMeshes282 = getelementptr inbounds i8, ptr %call, i64 1128
   store ptr %call281, ptr %mMeshes282, align 8
   %mNumMeshes287 = getelementptr inbounds i8, ptr %fill, i64 16
@@ -3871,58 +3870,58 @@ for.body286.lr.ph:                                ; preds = %if.end275
 
 for.body286:                                      ; preds = %for.body286.lr.ph, %for.body286
   %indvars.iv = phi i64 [ 0, %for.body286.lr.ph ], [ %indvars.iv.next, %for.body286 ]
-  %131 = load i32, ptr %mNumMeshes287, align 8
-  %132 = trunc nuw i64 %indvars.iv to i32
-  %133 = xor i32 %132, -1
-  %sub288 = add i32 %131, %133
-  %134 = load ptr, ptr %mMeshes282, align 8
-  %arrayidx291 = getelementptr inbounds i32, ptr %134, i64 %indvars.iv
+  %124 = load i32, ptr %mNumMeshes287, align 8
+  %125 = trunc nuw i64 %indvars.iv to i32
+  %126 = xor i32 %125, -1
+  %sub288 = add i32 %124, %126
+  %127 = load ptr, ptr %mMeshes282, align 8
+  %arrayidx291 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv
   store i32 %sub288, ptr %arrayidx291, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %135 = load i32, ptr %mNumMeshes276, align 8
-  %136 = zext i32 %135 to i64
-  %cmp285 = icmp ult i64 %indvars.iv.next, %136
+  %128 = load i32, ptr %mNumMeshes276, align 8
+  %129 = zext i32 %128 to i64
+  %cmp285 = icmp ult i64 %indvars.iv.next, %129
   br i1 %cmp285, label %for.body286, label %if.end295, !llvm.loop !36
 
 if.end295:                                        ; preds = %for.body286, %if.end275
   %_M_finish.i290 = getelementptr inbounds i8, ptr %root, i64 80
   %_M_start.i291 = getelementptr inbounds i8, ptr %root, i64 48
   %_M_node.i.i292 = getelementptr inbounds i8, ptr %root, i64 104
-  %137 = load ptr, ptr %_M_node.i.i292, align 8
+  %130 = load ptr, ptr %_M_node.i.i292, align 8
   %_M_node1.i.i293 = getelementptr inbounds i8, ptr %root, i64 72
-  %138 = load ptr, ptr %_M_node1.i.i293, align 8
-  %sub.ptr.lhs.cast.i.i294 = ptrtoint ptr %137 to i64
-  %sub.ptr.rhs.cast.i.i295 = ptrtoint ptr %138 to i64
+  %131 = load ptr, ptr %_M_node1.i.i293, align 8
+  %sub.ptr.lhs.cast.i.i294 = ptrtoint ptr %130 to i64
+  %sub.ptr.rhs.cast.i.i295 = ptrtoint ptr %131 to i64
   %sub.ptr.sub.i.i296 = sub i64 %sub.ptr.lhs.cast.i.i294, %sub.ptr.rhs.cast.i.i295
   %sub.ptr.div.i.i297 = ashr exact i64 %sub.ptr.sub.i.i296, 3
-  %tobool.i.i298 = icmp ne ptr %137, null
+  %tobool.i.i298 = icmp ne ptr %130, null
   %conv.neg.i.i299 = sext i1 %tobool.i.i298 to i64
   %sub.i.i300 = add nsw i64 %sub.ptr.div.i.i297, %conv.neg.i.i299
   %mul.i.i301 = shl nsw i64 %sub.i.i300, 6
-  %139 = load ptr, ptr %_M_finish.i290, align 8
+  %132 = load ptr, ptr %_M_finish.i290, align 8
   %_M_first.i.i302 = getelementptr inbounds i8, ptr %root, i64 88
-  %140 = load ptr, ptr %_M_first.i.i302, align 8
-  %sub.ptr.lhs.cast3.i.i303 = ptrtoint ptr %139 to i64
-  %sub.ptr.rhs.cast4.i.i304 = ptrtoint ptr %140 to i64
+  %133 = load ptr, ptr %_M_first.i.i302, align 8
+  %sub.ptr.lhs.cast3.i.i303 = ptrtoint ptr %132 to i64
+  %sub.ptr.rhs.cast4.i.i304 = ptrtoint ptr %133 to i64
   %sub.ptr.sub5.i.i305 = sub i64 %sub.ptr.lhs.cast3.i.i303, %sub.ptr.rhs.cast4.i.i304
   %sub.ptr.div6.i.i306 = ashr exact i64 %sub.ptr.sub5.i.i305, 3
   %add.i.i307 = add nsw i64 %mul.i.i301, %sub.ptr.div6.i.i306
   %_M_last.i.i308 = getelementptr inbounds i8, ptr %root, i64 64
-  %141 = load ptr, ptr %_M_last.i.i308, align 8
-  %142 = load ptr, ptr %_M_start.i291, align 8
-  %sub.ptr.lhs.cast8.i.i309 = ptrtoint ptr %141 to i64
-  %sub.ptr.rhs.cast9.i.i310 = ptrtoint ptr %142 to i64
+  %134 = load ptr, ptr %_M_last.i.i308, align 8
+  %135 = load ptr, ptr %_M_start.i291, align 8
+  %sub.ptr.lhs.cast8.i.i309 = ptrtoint ptr %134 to i64
+  %sub.ptr.rhs.cast9.i.i310 = ptrtoint ptr %135 to i64
   %sub.ptr.sub10.i.i311 = sub i64 %sub.ptr.lhs.cast8.i.i309, %sub.ptr.rhs.cast9.i.i310
   %sub.ptr.div11.i.i312 = ashr exact i64 %sub.ptr.sub10.i.i311, 3
   %add12.i.i313 = add nsw i64 %add.i.i307, %sub.ptr.div11.i.i312
-  %143 = icmp ugt i64 %add12.i.i313, 2305843009213693951
-  %144 = shl i64 %add12.i.i313, 3
-  %145 = select i1 %143, i64 -1, i64 %144
-  %call297 = call noalias noundef nonnull ptr @_Znam(i64 noundef %145) #24
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call297, i8 0, i64 %145, i1 false)
+  %136 = icmp ugt i64 %add12.i.i313, 2305843009213693951
+  %137 = shl i64 %add12.i.i313, 3
+  %138 = select i1 %136, i64 -1, i64 %137
+  %call297 = call noalias noundef nonnull ptr @_Znam(i64 noundef %138) #24
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call297, i8 0, i64 %138, i1 false)
   %mChildren = getelementptr inbounds i8, ptr %call, i64 1112
   store ptr %call297, ptr %mChildren, align 8
-  %cmp.i.i328.not372 = icmp eq ptr %142, %139
+  %cmp.i.i328.not372 = icmp eq ptr %135, %132
   br i1 %cmp.i.i328.not372, label %for.end311, label %for.body301.lr.ph
 
 for.body301.lr.ph:                                ; preds = %if.end295
@@ -3930,17 +3929,17 @@ for.body301.lr.ph:                                ; preds = %if.end295
   br label %for.body301
 
 for.body301:                                      ; preds = %for.body301.lr.ph, %_ZNSt15_Deque_iteratorIPKN6Assimp3COB4NodeERS4_PS4_EppEv.exit
-  %__begin1.sroa.0.0375 = phi ptr [ %142, %for.body301.lr.ph ], [ %__begin1.sroa.0.1, %_ZNSt15_Deque_iteratorIPKN6Assimp3COB4NodeERS4_PS4_EppEv.exit ]
-  %__begin1.sroa.8.0374 = phi ptr [ %141, %for.body301.lr.ph ], [ %__begin1.sroa.8.1, %_ZNSt15_Deque_iteratorIPKN6Assimp3COB4NodeERS4_PS4_EppEv.exit ]
-  %__begin1.sroa.11.0373 = phi ptr [ %138, %for.body301.lr.ph ], [ %__begin1.sroa.11.1, %_ZNSt15_Deque_iteratorIPKN6Assimp3COB4NodeERS4_PS4_EppEv.exit ]
-  %146 = load ptr, ptr %__begin1.sroa.0.0375, align 8
-  %call304 = call noundef ptr @_ZN6Assimp11COBImporter10BuildNodesERKNS_3COB4NodeERKNS1_5SceneEP7aiScene(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(212) %146, ptr noundef nonnull align 8 dereferenceable(160) %scin, ptr noundef %fill)
-  %147 = load ptr, ptr %mChildren, align 8
-  %148 = load i32, ptr %mNumChildren, align 8
-  %inc306 = add i32 %148, 1
+  %__begin1.sroa.0.0375 = phi ptr [ %135, %for.body301.lr.ph ], [ %__begin1.sroa.0.1, %_ZNSt15_Deque_iteratorIPKN6Assimp3COB4NodeERS4_PS4_EppEv.exit ]
+  %__begin1.sroa.8.0374 = phi ptr [ %134, %for.body301.lr.ph ], [ %__begin1.sroa.8.1, %_ZNSt15_Deque_iteratorIPKN6Assimp3COB4NodeERS4_PS4_EppEv.exit ]
+  %__begin1.sroa.11.0373 = phi ptr [ %131, %for.body301.lr.ph ], [ %__begin1.sroa.11.1, %_ZNSt15_Deque_iteratorIPKN6Assimp3COB4NodeERS4_PS4_EppEv.exit ]
+  %139 = load ptr, ptr %__begin1.sroa.0.0375, align 8
+  %call304 = call noundef ptr @_ZN6Assimp11COBImporter10BuildNodesERKNS_3COB4NodeERKNS1_5SceneEP7aiScene(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(212) %139, ptr noundef nonnull align 8 dereferenceable(160) %scin, ptr noundef %fill)
+  %140 = load ptr, ptr %mChildren, align 8
+  %141 = load i32, ptr %mNumChildren, align 8
+  %inc306 = add i32 %141, 1
   store i32 %inc306, ptr %mNumChildren, align 8
-  %idxprom307 = zext i32 %148 to i64
-  %arrayidx308 = getelementptr inbounds ptr, ptr %147, i64 %idxprom307
+  %idxprom307 = zext i32 %141 to i64
+  %arrayidx308 = getelementptr inbounds ptr, ptr %140, i64 %idxprom307
   store ptr %call304, ptr %arrayidx308, align 8
   %mParent = getelementptr inbounds i8, ptr %call304, i64 1096
   store ptr %call, ptr %mParent, align 8
@@ -3950,15 +3949,15 @@ for.body301:                                      ; preds = %for.body301.lr.ph, 
 
 if.then.i333:                                     ; preds = %for.body301
   %add.ptr.i335 = getelementptr inbounds i8, ptr %__begin1.sroa.11.0373, i64 8
-  %149 = load ptr, ptr %add.ptr.i335, align 8
-  %add.ptr.i.i337 = getelementptr inbounds i8, ptr %149, i64 512
+  %142 = load ptr, ptr %add.ptr.i335, align 8
+  %add.ptr.i.i337 = getelementptr inbounds i8, ptr %142, i64 512
   br label %_ZNSt15_Deque_iteratorIPKN6Assimp3COB4NodeERS4_PS4_EppEv.exit
 
 _ZNSt15_Deque_iteratorIPKN6Assimp3COB4NodeERS4_PS4_EppEv.exit: ; preds = %for.body301, %if.then.i333
   %__begin1.sroa.11.1 = phi ptr [ %add.ptr.i335, %if.then.i333 ], [ %__begin1.sroa.11.0373, %for.body301 ]
   %__begin1.sroa.8.1 = phi ptr [ %add.ptr.i.i337, %if.then.i333 ], [ %__begin1.sroa.8.0374, %for.body301 ]
-  %__begin1.sroa.0.1 = phi ptr [ %149, %if.then.i333 ], [ %incdec.ptr.i329, %for.body301 ]
-  %cmp.i.i328.not = icmp eq ptr %__begin1.sroa.0.1, %139
+  %__begin1.sroa.0.1 = phi ptr [ %142, %if.then.i333 ], [ %incdec.ptr.i329, %for.body301 ]
+  %cmp.i.i328.not = icmp eq ptr %__begin1.sroa.0.1, %132
   br i1 %cmp.i.i328.not, label %for.end311, label %for.body301
 
 for.end311:                                       ; preds = %_ZNSt15_Deque_iteratorIPKN6Assimp3COB4NodeERS4_PS4_EppEv.exit, %if.end295

@@ -7381,10 +7381,17 @@ if.else6:                                         ; preds = %if.else
   %sub.ptr.sub5.i = sub i64 %sub.ptr.lhs.cast3.i, %sub.ptr.rhs.cast4.i
   %sub.ptr.div6.i = ashr exact i64 %sub.ptr.sub5.i, 5
   %add.i = add nsw i64 %mul.i, %sub.ptr.div6.i
+  %_M_last.i22 = getelementptr inbounds i8, ptr %__first, i64 16
+  %14 = load ptr, ptr %_M_last.i22, align 8
+  %sub.ptr.lhs.cast8.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast9.i = ptrtoint ptr %0 to i64
-  %14 = load <2 x ptr>, ptr %_M_last4.i.i, align 8
-  %15 = extractelement <2 x ptr> %14, i64 1
-  %sub.ptr.rhs.cast.i33 = ptrtoint ptr %15 to i64
+  %sub.ptr.sub10.i = sub i64 %sub.ptr.lhs.cast8.i, %sub.ptr.rhs.cast9.i
+  %sub.ptr.div11.i = ashr exact i64 %sub.ptr.sub10.i, 5
+  %add12.i = add nsw i64 %add.i, %sub.ptr.div11.i
+  %sub.i.i174 = sub i64 0, %add12.i
+  %15 = load ptr, ptr %_M_last4.i.i, align 8
+  %16 = load ptr, ptr %_M_node5.i.i, align 8
+  %sub.ptr.rhs.cast.i33 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i34 = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.rhs.cast.i33
   %sub.ptr.div.i35 = ashr exact i64 %sub.ptr.sub.i34, 3
   %tobool.i36 = icmp ne ptr %12, null
@@ -7392,19 +7399,11 @@ if.else6:                                         ; preds = %if.else
   %sub.i38 = add nsw i64 %sub.ptr.div.i35, %conv.neg.i37
   %mul.i39 = shl nsw i64 %sub.i38, 4
   %_M_first.i40 = getelementptr inbounds i8, ptr %__first, i64 8
-  %16 = load <2 x ptr>, ptr %_M_first.i40, align 8
-  %17 = extractelement <2 x ptr> %16, i64 1
-  %sub.ptr.lhs.cast8.i = ptrtoint ptr %17 to i64
-  %sub.ptr.sub10.i = sub i64 %sub.ptr.lhs.cast8.i, %sub.ptr.rhs.cast9.i
-  %sub.ptr.div11.i = ashr exact i64 %sub.ptr.sub10.i, 5
-  %add12.i = add nsw i64 %add.i, %sub.ptr.div11.i
-  %sub.i.i174 = sub i64 0, %add12.i
-  %18 = extractelement <2 x ptr> %16, i64 0
-  %sub.ptr.rhs.cast4.i42 = ptrtoint ptr %18 to i64
+  %17 = load ptr, ptr %_M_first.i40, align 8
+  %sub.ptr.rhs.cast4.i42 = ptrtoint ptr %17 to i64
   %sub.ptr.sub5.i43 = sub i64 %sub.ptr.rhs.cast9.i, %sub.ptr.rhs.cast4.i42
   %sub.ptr.div6.i44 = ashr exact i64 %sub.ptr.sub5.i43, 5
-  %19 = extractelement <2 x ptr> %14, i64 0
-  %sub.ptr.lhs.cast8.i47 = ptrtoint ptr %19 to i64
+  %sub.ptr.lhs.cast8.i47 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast9.i48 = ptrtoint ptr %4 to i64
   %sub.ptr.sub10.i49 = sub i64 %sub.ptr.lhs.cast8.i47, %sub.ptr.rhs.cast9.i48
   %sub.ptr.div11.i50 = ashr exact i64 %sub.ptr.sub10.i49, 5
@@ -7412,18 +7411,18 @@ if.else6:                                         ; preds = %if.else
   %add12.i51 = add i64 %add.i45, %mul.i39
   %_M_finish.i52 = getelementptr inbounds i8, ptr %this, i64 48
   %_M_node.i.i54 = getelementptr inbounds i8, ptr %this, i64 72
-  %20 = load ptr, ptr %_M_node.i.i54, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %20 to i64
+  %18 = load ptr, ptr %_M_node.i.i54, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i33
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %tobool.i.i = icmp ne ptr %20, null
+  %tobool.i.i = icmp ne ptr %18, null
   %conv.neg.i.i = sext i1 %tobool.i.i to i64
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 4
   %_M_first.i.i55 = getelementptr inbounds i8, ptr %this, i64 56
-  %21 = load ptr, ptr %_M_first.i.i55, align 8
+  %19 = load ptr, ptr %_M_first.i.i55, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 5
   %add.i.i = sub i64 %sub.ptr.div11.i50, %add12.i
@@ -7437,28 +7436,32 @@ if.then11:                                        ; preds = %if.else6
   br i1 %cmp.i5, label %if.end, label %if.then14
 
 if.then14:                                        ; preds = %if.then11
-  %22 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !247
+  %20 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !247
   %_M_last4.i80 = getelementptr inbounds i8, ptr %__last, i64 16
-  %23 = load ptr, ptr %_M_last4.i80, align 8
+  %21 = load ptr, ptr %_M_last4.i80, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !250
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !253
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !253
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !253
-  %24 = insertelement <4 x ptr> poison, ptr %4, i64 0
-  %25 = insertelement <4 x ptr> %24, ptr %22, i64 1
-  %26 = shufflevector <2 x ptr> %14, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %27 = shufflevector <4 x ptr> %25, <4 x ptr> %26, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x ptr> %27, ptr %agg.tmp.i.i.i, align 8, !noalias !256
+  store ptr %4, ptr %agg.tmp.i.i.i, align 8, !noalias !256
+  %_M_first.i.i25.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  store ptr %20, ptr %_M_first.i.i25.i.i, align 8, !noalias !256
+  %_M_last.i.i27.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
+  store ptr %15, ptr %_M_last.i.i27.i.i, align 8, !noalias !256
+  %_M_node.i.i29.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
+  store ptr %16, ptr %_M_node.i.i29.i.i, align 8, !noalias !256
   store ptr %0, ptr %agg.tmp1.i.i.i, align 8, !noalias !256
   %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
-  store <2 x ptr> %16, ptr %_M_first.i1.i.i.i, align 8, !noalias !256
+  store ptr %17, ptr %_M_first.i1.i.i.i, align 8, !noalias !256
+  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
+  store ptr %14, ptr %_M_last.i3.i.i.i, align 8, !noalias !256
   %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
   store ptr %12, ptr %_M_node.i5.i.i.i, align 8, !noalias !256
   store ptr %1, ptr %agg.tmp2.i.i.i, align 8, !noalias !256
   %_M_first.i7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
   store ptr %13, ptr %_M_first.i7.i.i.i, align 8, !noalias !256
   %_M_last.i9.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
-  store ptr %23, ptr %_M_last.i9.i.i.i, align 8, !noalias !256
+  store ptr %21, ptr %_M_last.i9.i.i.i, align 8, !noalias !256
   %_M_node.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %11, ptr %_M_node.i11.i.i.i, align 8, !noalias !256
   call void @_ZSt24__copy_move_backward_ditILb1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_St15_Deque_iteratorIS5_S6_S7_EET3_S8_IT0_T1_T2_ESE_SA_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i), !noalias !253
@@ -7474,18 +7477,18 @@ if.then14:                                        ; preds = %if.then11
 
 if.end:                                           ; preds = %if.then14, %if.then11
   %sub.ptr.lhs.cast.i.i99.pre-phi = phi i64 [ %.pre222, %if.then14 ], [ %sub.ptr.rhs.cast9.i48, %if.then11 ]
-  %28 = phi ptr [ %.pre214, %if.then14 ], [ %15, %if.then11 ]
-  %29 = phi ptr [ %.pre213, %if.then14 ], [ %19, %if.then11 ]
-  %30 = phi ptr [ %.pre212, %if.then14 ], [ %4, %if.then11 ]
-  %31 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !259
+  %22 = phi ptr [ %.pre214, %if.then14 ], [ %16, %if.then11 ]
+  %23 = phi ptr [ %.pre213, %if.then14 ], [ %15, %if.then11 ]
+  %24 = phi ptr [ %.pre212, %if.then14 ], [ %4, %if.then11 ]
+  %25 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !259
   call void @llvm.experimental.noalias.scope.decl(metadata !262)
   %_M_first.i.i93 = getelementptr inbounds i8, ptr %agg.tmp17, i64 8
-  store ptr %31, ptr %_M_first.i.i93, align 8, !alias.scope !262
+  store ptr %25, ptr %_M_first.i.i93, align 8, !alias.scope !262
   %_M_last.i.i95 = getelementptr inbounds i8, ptr %agg.tmp17, i64 16
-  store ptr %29, ptr %_M_last.i.i95, align 8, !alias.scope !262
+  store ptr %23, ptr %_M_last.i.i95, align 8, !alias.scope !262
   %_M_node.i.i97 = getelementptr inbounds i8, ptr %agg.tmp17, i64 24
-  store ptr %28, ptr %_M_node.i.i97, align 8, !alias.scope !262
-  %sub.ptr.rhs.cast.i.i100 = ptrtoint ptr %31 to i64
+  store ptr %22, ptr %_M_node.i.i97, align 8, !alias.scope !262
+  %sub.ptr.rhs.cast.i.i100 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i101 = sub i64 %sub.ptr.lhs.cast.i.i99.pre-phi, %sub.ptr.rhs.cast.i.i100
   %sub.ptr.div.i.i102 = ashr exact i64 %sub.ptr.sub.i.i101, 5
   %add.i.i103 = add nsw i64 %sub.ptr.div.i.i102, %add12.i
@@ -7497,7 +7500,7 @@ land.lhs.true.i.i:                                ; preds = %if.end
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %30, i64 %add12.i
+  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %24, i64 %add12.i
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -7510,15 +7513,15 @@ cond.false.i.i:                                   ; preds = %if.end
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
-  %add.ptr11.i.i = getelementptr inbounds ptr, ptr %28, i64 %cond.i.i
+  %add.ptr11.i.i = getelementptr inbounds ptr, ptr %22, i64 %cond.i.i
   store ptr %add.ptr11.i.i, ptr %_M_node.i.i97, align 8, !alias.scope !262
-  %32 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !262
-  store ptr %32, ptr %_M_first.i.i93, align 8, !alias.scope !262
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %32, i64 512
+  %26 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !262
+  store ptr %26, ptr %_M_first.i.i93, align 8, !alias.scope !262
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 512
   store ptr %add.ptr.i.i.i, ptr %_M_last.i.i95, align 8, !alias.scope !262
   %mul.i.i105 = shl nsw i64 %cond.i.i, 4
   %sub14.i.i = sub nsw i64 %add.i.i103, %mul.i.i105
-  %add.ptr15.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %32, i64 %sub14.i.i
+  %add.ptr15.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %26, i64 %sub14.i.i
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
 _ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit: ; preds = %if.then.i.i, %cond.end.i.i
@@ -7534,8 +7537,8 @@ if.else19:                                        ; preds = %if.else6
 
 if.then22:                                        ; preds = %if.else19
   %_M_last4.i117 = getelementptr inbounds i8, ptr %__last, i64 16
-  %33 = load ptr, ptr %_M_last4.i117, align 8
-  %34 = load ptr, ptr %_M_last4.i.i110, align 8, !noalias !265
+  %27 = load ptr, ptr %_M_last4.i117, align 8
+  %28 = load ptr, ptr %_M_last4.i.i110, align 8, !noalias !265
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i136), !noalias !268
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i133), !noalias !271
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i134), !noalias !271
@@ -7544,21 +7547,23 @@ if.then22:                                        ; preds = %if.else19
   %_M_first.i.i25.i.i146 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i133, i64 8
   store ptr %13, ptr %_M_first.i.i25.i.i146, align 8, !noalias !274
   %_M_last.i.i27.i.i147 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i133, i64 16
-  store ptr %33, ptr %_M_last.i.i27.i.i147, align 8, !noalias !274
+  store ptr %27, ptr %_M_last.i.i27.i.i147, align 8, !noalias !274
   %_M_node.i.i29.i.i148 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i133, i64 24
   store ptr %11, ptr %_M_node.i.i29.i.i148, align 8, !noalias !274
   store ptr %5, ptr %agg.tmp1.i.i.i134, align 8, !noalias !274
   %_M_first.i1.i.i.i149 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i134, i64 8
-  store ptr %21, ptr %_M_first.i1.i.i.i149, align 8, !noalias !274
+  store ptr %19, ptr %_M_first.i1.i.i.i149, align 8, !noalias !274
   %_M_last.i3.i.i.i150 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i134, i64 16
-  store ptr %34, ptr %_M_last.i3.i.i.i150, align 8, !noalias !274
+  store ptr %28, ptr %_M_last.i3.i.i.i150, align 8, !noalias !274
   %_M_node.i5.i.i.i151 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i134, i64 24
-  store ptr %20, ptr %_M_node.i5.i.i.i151, align 8, !noalias !274
-  %35 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %36 = shufflevector <2 x ptr> %16, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %37 = shufflevector <4 x ptr> %35, <4 x ptr> %36, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %38 = insertelement <4 x ptr> %37, ptr %12, i64 3
-  store <4 x ptr> %38, ptr %agg.tmp2.i.i.i135, align 8, !noalias !274
+  store ptr %18, ptr %_M_node.i5.i.i.i151, align 8, !noalias !274
+  store ptr %0, ptr %agg.tmp2.i.i.i135, align 8, !noalias !274
+  %_M_first.i7.i.i.i152 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i135, i64 8
+  store ptr %17, ptr %_M_first.i7.i.i.i152, align 8, !noalias !274
+  %_M_last.i9.i.i.i153 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i135, i64 16
+  store ptr %14, ptr %_M_last.i9.i.i.i153, align 8, !noalias !274
+  %_M_node.i11.i.i.i154 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i135, i64 24
+  store ptr %12, ptr %_M_node.i11.i.i.i154, align 8, !noalias !274
   call void @_ZSt15__copy_move_ditILb1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_St15_Deque_iteratorIS5_S6_S7_EET3_S8_IT0_T1_T2_ESE_SA_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i136, ptr noundef nonnull %agg.tmp.i.i.i133, ptr noundef nonnull %agg.tmp1.i.i.i134, ptr noundef nonnull %agg.tmp2.i.i.i135), !noalias !271
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i133), !noalias !271
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i134), !noalias !271
@@ -7575,17 +7580,17 @@ if.then22:                                        ; preds = %if.else19
 
 if.end27:                                         ; preds = %if.then22, %if.else19
   %sub.ptr.div.i.i.i.pre-phi = phi i64 [ %.pre221, %if.then22 ], [ %sub.ptr.div6.i.i, %if.else19 ]
-  %39 = phi ptr [ %.pre217, %if.then22 ], [ %20, %if.else19 ]
-  %40 = phi ptr [ %.pre216, %if.then22 ], [ %21, %if.else19 ]
-  %41 = phi ptr [ %.pre215, %if.then22 ], [ %5, %if.else19 ]
-  %42 = load ptr, ptr %_M_last4.i.i110, align 8, !noalias !277
+  %29 = phi ptr [ %.pre217, %if.then22 ], [ %18, %if.else19 ]
+  %30 = phi ptr [ %.pre216, %if.then22 ], [ %19, %if.else19 ]
+  %31 = phi ptr [ %.pre215, %if.then22 ], [ %5, %if.else19 ]
+  %32 = load ptr, ptr %_M_last4.i.i110, align 8, !noalias !277
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
   %_M_first.i.i168 = getelementptr inbounds i8, ptr %agg.tmp28, i64 8
-  store ptr %40, ptr %_M_first.i.i168, align 8, !alias.scope !280
+  store ptr %30, ptr %_M_first.i.i168, align 8, !alias.scope !280
   %_M_last.i.i170 = getelementptr inbounds i8, ptr %agg.tmp28, i64 16
-  store ptr %42, ptr %_M_last.i.i170, align 8, !alias.scope !280
+  store ptr %32, ptr %_M_last.i.i170, align 8, !alias.scope !280
   %_M_node.i.i172 = getelementptr inbounds i8, ptr %agg.tmp28, i64 24
-  store ptr %39, ptr %_M_node.i.i172, align 8, !alias.scope !280
+  store ptr %29, ptr %_M_node.i.i172, align 8, !alias.scope !280
   %add.i.i.i = sub i64 %sub.ptr.div.i.i.i.pre-phi, %add12.i
   %cmp.i.i.i = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
@@ -7595,7 +7600,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.end27
   br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %cond.true.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  %add.ptr.i.i.i175 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %41, i64 %sub.i.i174
+  %add.ptr.i.i.i175 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %31, i64 %sub.i.i174
   br label %_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
 cond.true.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
@@ -7608,15 +7613,15 @@ cond.false.i.i.i:                                 ; preds = %if.end27
 
 cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
-  %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %39, i64 %cond.i.i.i
+  %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %29, i64 %cond.i.i.i
   store ptr %add.ptr11.i.i.i, ptr %_M_node.i.i172, align 8, !alias.scope !280
-  %43 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !280
-  store ptr %43, ptr %_M_first.i.i168, align 8, !alias.scope !280
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 512
+  %33 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !280
+  store ptr %33, ptr %_M_first.i.i168, align 8, !alias.scope !280
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 512
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i170, align 8, !alias.scope !280
   %mul.i.i.i = shl nsw i64 %cond.i.i.i, 4
   %sub14.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
-  %add.ptr15.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %43, i64 %sub14.i.i.i
+  %add.ptr15.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %33, i64 %sub14.i.i.i
   br label %_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
 _ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit: ; preds = %if.then.i.i.i, %cond.end.i.i.i
@@ -7626,18 +7631,18 @@ _ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %if.end30
 
 if.end30:                                         ; preds = %_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit, %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
-  %44 = load ptr, ptr %_M_start.i, align 8, !noalias !283
-  %45 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !283
+  %34 = load ptr, ptr %_M_start.i, align 8, !noalias !283
+  %35 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !283
   call void @llvm.experimental.noalias.scope.decl(metadata !286)
   %_M_first.i.i183 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_last.i.i185 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %46 = load <2 x ptr>, ptr %_M_first3.i.i, align 8, !noalias !283
-  store <2 x ptr> %46, ptr %_M_first.i.i183, align 8, !alias.scope !286
+  %36 = load <2 x ptr>, ptr %_M_first3.i.i, align 8, !noalias !283
+  store <2 x ptr> %36, ptr %_M_first.i.i183, align 8, !alias.scope !286
   %_M_node.i.i187 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %45, ptr %_M_node.i.i187, align 8, !alias.scope !286
-  %sub.ptr.lhs.cast.i.i189 = ptrtoint ptr %44 to i64
-  %47 = extractelement <2 x ptr> %46, i64 0
-  %sub.ptr.rhs.cast.i.i190 = ptrtoint ptr %47 to i64
+  store ptr %35, ptr %_M_node.i.i187, align 8, !alias.scope !286
+  %sub.ptr.lhs.cast.i.i189 = ptrtoint ptr %34 to i64
+  %37 = extractelement <2 x ptr> %36, i64 0
+  %sub.ptr.rhs.cast.i.i190 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i191 = sub i64 %sub.ptr.lhs.cast.i.i189, %sub.ptr.rhs.cast.i.i190
   %sub.ptr.div.i.i192 = ashr exact i64 %sub.ptr.sub.i.i191, 5
   %add.i.i193 = add nsw i64 %sub.ptr.div.i.i192, %add12.i51
@@ -7649,7 +7654,7 @@ land.lhs.true.i.i205:                             ; preds = %if.end30
   br i1 %cmp2.i.i206, label %if.then.i.i209, label %cond.true.i.i207
 
 if.then.i.i209:                                   ; preds = %land.lhs.true.i.i205
-  %add.ptr.i.i210 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %44, i64 %add12.i51
+  %add.ptr.i.i210 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %34, i64 %add12.i51
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit211
 
 cond.true.i.i207:                                 ; preds = %land.lhs.true.i.i205
@@ -7662,15 +7667,15 @@ cond.false.i.i195:                                ; preds = %if.end30
 
 cond.end.i.i197:                                  ; preds = %cond.false.i.i195, %cond.true.i.i207
   %cond.i.i198 = phi i64 [ %div911.i.i208, %cond.true.i.i207 ], [ %sub10.i.i196, %cond.false.i.i195 ]
-  %add.ptr11.i.i199 = getelementptr inbounds ptr, ptr %45, i64 %cond.i.i198
+  %add.ptr11.i.i199 = getelementptr inbounds ptr, ptr %35, i64 %cond.i.i198
   store ptr %add.ptr11.i.i199, ptr %_M_node.i.i187, align 8, !alias.scope !286
-  %48 = load ptr, ptr %add.ptr11.i.i199, align 8, !noalias !286
-  store ptr %48, ptr %_M_first.i.i183, align 8, !alias.scope !286
-  %add.ptr.i.i.i200 = getelementptr inbounds i8, ptr %48, i64 512
+  %38 = load ptr, ptr %add.ptr11.i.i199, align 8, !noalias !286
+  store ptr %38, ptr %_M_first.i.i183, align 8, !alias.scope !286
+  %add.ptr.i.i.i200 = getelementptr inbounds i8, ptr %38, i64 512
   store ptr %add.ptr.i.i.i200, ptr %_M_last.i.i185, align 8, !alias.scope !286
   %mul.i.i201 = shl nsw i64 %cond.i.i198, 4
   %sub14.i.i202 = sub nsw i64 %add.i.i193, %mul.i.i201
-  %add.ptr15.i.i203 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %48, i64 %sub14.i.i202
+  %add.ptr15.i.i203 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %38, i64 %sub14.i.i202
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit211
 
 _ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit211: ; preds = %if.then.i.i209, %cond.end.i.i197

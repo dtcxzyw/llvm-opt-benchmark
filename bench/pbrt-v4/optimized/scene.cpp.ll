@@ -9427,22 +9427,29 @@ if.then29:                                        ; preds = %if.end24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %entity, i64 32, i1 false)
   %shapes.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   %shapes3.i = getelementptr inbounds i8, ptr %15, i64 80
+  %16 = load ptr, ptr %shapes3.i, align 8
+  store ptr %16, ptr %shapes.i, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
+  %_M_finish3.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 88
+  %17 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 96
+  %18 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %shapes3.i, i8 0, i64 24, i1 false)
   %animatedShapes.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   %animatedShapes4.i = getelementptr inbounds i8, ptr %15, i64 104
-  %16 = load <2 x ptr>, ptr %shapes3.i, align 8
-  store <2 x ptr> %16, ptr %shapes.i, align 8
+  %19 = load ptr, ptr %animatedShapes4.i, align 8
+  store ptr %19, ptr %animatedShapes.i, align 8
+  %_M_finish.i.i.i.i3.i = getelementptr inbounds i8, ptr %agg.tmp, i64 64
+  %_M_finish3.i.i.i.i4.i = getelementptr inbounds i8, ptr %15, i64 112
+  %20 = load ptr, ptr %_M_finish3.i.i.i.i4.i, align 8
+  store ptr %20, ptr %_M_finish.i.i.i.i3.i, align 8
+  %_M_end_of_storage.i.i.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp, i64 72
   %_M_end_of_storage4.i.i.i.i6.i = getelementptr inbounds i8, ptr %15, i64 120
-  %17 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %shapes3.i, i8 0, i64 24, i1 false)
-  %18 = load <2 x ptr>, ptr %animatedShapes4.i, align 8
-  %19 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i, align 8
-  %20 = insertelement <4 x ptr> poison, ptr %17, i64 0
-  %21 = shufflevector <2 x ptr> %18, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %22 = shufflevector <4 x ptr> %20, <4 x ptr> %21, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %23 = insertelement <4 x ptr> %22, ptr %19, i64 3
-  store <4 x ptr> %23, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %21 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i, align 8
+  store ptr %21, ptr %_M_end_of_storage.i.i.i.i5.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %animatedShapes4.i, i8 0, i64 24, i1 false)
   %call.i12 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
           to label %call.i.noexc unwind label %lpad
@@ -9450,16 +9457,18 @@ if.then29:                                        ; preds = %if.end24
 call.i.noexc:                                     ; preds = %if.then29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i12, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i64 32, i1 false)
   %shapes.i.i = getelementptr inbounds i8, ptr %call.i12, i64 32
+  store ptr %16, ptr %shapes.i.i, align 8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i12, i64 40
+  store ptr %17, ptr %_M_finish.i.i.i.i.i.i, align 8
+  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i12, i64 48
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %shapes.i, i8 0, i64 24, i1 false)
-  %24 = shufflevector <2 x ptr> %16, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %25 = insertelement <4 x ptr> %24, ptr %17, i64 2
-  %26 = shufflevector <4 x ptr> %25, <4 x ptr> %21, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  store <4 x ptr> %26, ptr %shapes.i.i, align 8
+  %animatedShapes.i.i = getelementptr inbounds i8, ptr %call.i12, i64 56
+  store ptr %19, ptr %animatedShapes.i.i, align 8
   %_M_finish.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i12, i64 64
-  %27 = extractelement <2 x ptr> %18, i64 1
-  store ptr %27, ptr %_M_finish.i.i.i.i3.i.i, align 8
+  store ptr %20, ptr %_M_finish.i.i.i.i3.i.i, align 8
   %_M_end_of_storage.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call.i12, i64 72
-  store ptr %19, ptr %_M_end_of_storage.i.i.i.i5.i.i, align 8
+  store ptr %21, ptr %_M_end_of_storage.i.i.i.i5.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %animatedShapes.i, i8 0, i64 24, i1 false)
   %instanceDefinitionMutex.i = getelementptr inbounds i8, ptr %14, i64 1440
   %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %instanceDefinitionMutex.i) #27
@@ -9479,7 +9488,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %call.i.noexc
           to label %_ZNSt6vectorIN4pbrt16ShapeSceneEntityESaIS1_EED2Ev.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %28 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i3.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %instanceDefinitionMutex.i) #27
   br label %lpad.body
@@ -9500,12 +9509,12 @@ delete.notnull:                                   ; preds = %_ZNSt6vectorIN4pbrt
   br label %if.end32
 
 lpad:                                             ; preds = %if.then.i.i.i, %if.then29
-  %29 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %29, %lpad ], [ %28, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %lpad ], [ %22, %lpad.i ]
   call void @_ZNSt6vectorIN4pbrt24AnimatedShapeSceneEntityESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %animatedShapes.i) #27
   call void @_ZNSt6vectorIN4pbrt16ShapeSceneEntityESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %shapes.i) #27
   br label %common.resume
@@ -11002,21 +11011,26 @@ if.then29:                                        ; preds = %delete.notnull
   %53 = load ptr, ptr %scene30, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31, ptr noundef nonnull align 8 dereferenceable(32) %entity, i64 32, i1 false)
   %shapes.i101 = getelementptr inbounds i8, ptr %agg.tmp31, i64 32
+  %54 = load ptr, ptr %shapes20, align 8
+  store ptr %54, ptr %shapes.i101, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp31, i64 40
+  %55 = load ptr, ptr %_M_finish.i.i.i, align 8
+  store ptr %55, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp31, i64 48
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 96
-  %animatedShapes.i = getelementptr inbounds i8, ptr %agg.tmp31, i64 56
-  %54 = load <2 x ptr>, ptr %shapes20, align 8
-  store <2 x ptr> %54, ptr %shapes.i101, align 8
-  %_M_end_of_storage4.i.i.i.i6.i = getelementptr inbounds i8, ptr %19, i64 120
-  %55 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
+  %56 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
+  store ptr %56, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %shapes20, i8 0, i64 24, i1 false)
-  %56 = load <2 x ptr>, ptr %animatedShapes, align 8
-  %57 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i, align 8
-  %58 = insertelement <4 x ptr> poison, ptr %55, i64 0
-  %59 = shufflevector <2 x ptr> %56, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %60 = shufflevector <4 x ptr> %58, <4 x ptr> %59, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %61 = insertelement <4 x ptr> %60, ptr %57, i64 3
-  store <4 x ptr> %61, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %animatedShapes.i = getelementptr inbounds i8, ptr %agg.tmp31, i64 56
+  %57 = load ptr, ptr %animatedShapes, align 8
+  store ptr %57, ptr %animatedShapes.i, align 8
+  %_M_finish.i.i.i.i3.i = getelementptr inbounds i8, ptr %agg.tmp31, i64 64
+  %58 = load ptr, ptr %_M_finish.i.i.i57, align 8
+  store ptr %58, ptr %_M_finish.i.i.i.i3.i, align 8
+  %_M_end_of_storage.i.i.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp31, i64 72
+  %_M_end_of_storage4.i.i.i.i6.i = getelementptr inbounds i8, ptr %19, i64 120
+  %59 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i, align 8
+  store ptr %59, ptr %_M_end_of_storage.i.i.i.i5.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %animatedShapes, i8 0, i64 24, i1 false)
   %call.i110 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
           to label %call.i.noexc unwind label %lpad33
@@ -11024,16 +11038,18 @@ if.then29:                                        ; preds = %delete.notnull
 call.i.noexc:                                     ; preds = %if.then29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i110, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31, i64 32, i1 false)
   %shapes.i.i102 = getelementptr inbounds i8, ptr %call.i110, i64 32
+  store ptr %54, ptr %shapes.i.i102, align 8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i110, i64 40
+  store ptr %55, ptr %_M_finish.i.i.i.i.i.i, align 8
+  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i110, i64 48
+  store ptr %56, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %shapes.i101, i8 0, i64 24, i1 false)
-  %62 = shufflevector <2 x ptr> %54, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %63 = insertelement <4 x ptr> %62, ptr %55, i64 2
-  %64 = shufflevector <4 x ptr> %63, <4 x ptr> %59, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  store <4 x ptr> %64, ptr %shapes.i.i102, align 8
+  %animatedShapes.i.i103 = getelementptr inbounds i8, ptr %call.i110, i64 56
+  store ptr %57, ptr %animatedShapes.i.i103, align 8
   %_M_finish.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i110, i64 64
-  %65 = extractelement <2 x ptr> %56, i64 1
-  store ptr %65, ptr %_M_finish.i.i.i.i3.i.i, align 8
+  store ptr %58, ptr %_M_finish.i.i.i.i3.i.i, align 8
   %_M_end_of_storage.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %call.i110, i64 72
-  store ptr %57, ptr %_M_end_of_storage.i.i.i.i5.i.i, align 8
+  store ptr %59, ptr %_M_end_of_storage.i.i.i.i5.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %animatedShapes.i, i8 0, i64 24, i1 false)
   %instanceDefinitionMutex.i = getelementptr inbounds i8, ptr %53, i64 1440
   %call1.i.i.i.i104 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %instanceDefinitionMutex.i) #27
@@ -11053,7 +11069,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %call.i.noexc
           to label %invoke.cont.i unwind label %lpad.i107
 
 lpad.i107:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %66 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i3.i108 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %instanceDefinitionMutex.i) #27
   br label %lpad33.body
@@ -11079,12 +11095,12 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.else.i59, %if.el
   br label %ehcleanup
 
 lpad33:                                           ; preds = %if.then.i.i.i106, %if.then29
-  %67 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %lpad33.body
 
 lpad33.body:                                      ; preds = %lpad.i107, %lpad33
-  %eh.lpad-body = phi { ptr, i32 } [ %67, %lpad33 ], [ %66, %lpad.i107 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %lpad33 ], [ %60, %lpad.i107 ]
   call void @_ZNSt6vectorIN4pbrt24AnimatedShapeSceneEntityESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %animatedShapes.i) #27
   call void @_ZNSt6vectorIN4pbrt16ShapeSceneEntityESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %shapes.i101) #27
   br label %ehcleanup

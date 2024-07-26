@@ -76036,7 +76036,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define linkonce_odr void @_ZSt10_ConstructIN8facebook5velox4core14LocalMergeNodeEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10shared_ptrIKNS2_20FieldAccessTypedExprEESaISE_EESA_INS2_9SortOrderESaISH_EESA_ISB_IKNS2_8PlanNodeEESaISM_EEEEvPT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3, ptr noundef nonnull align 8 dereferenceable(24) %__args5) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector.8", align 8
-  %agg.tmp8 = alloca %"class.std::vector.3", align 16
+  %agg.tmp8 = alloca %"class.std::vector.3", align 8
   %0 = load ptr, ptr %__args1, align 8
   store ptr %0, ptr %agg.tmp, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -76048,12 +76048,16 @@ entry:
   %_M_end_of_storage4.i.i.i.i4 = getelementptr inbounds i8, ptr %__args3, i64 16
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args3, i8 0, i64 24, i1 false)
-  %4 = load <2 x ptr>, ptr %__args5, align 8
-  store <2 x ptr> %4, ptr %agg.tmp8, align 16
+  %4 = load ptr, ptr %__args5, align 8
+  store ptr %4, ptr %agg.tmp8, align 8
+  %_M_finish.i.i.i.i5 = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
+  %_M_finish3.i.i.i.i6 = getelementptr inbounds i8, ptr %__args5, i64 8
+  %5 = load ptr, ptr %_M_finish3.i.i.i.i6, align 8
+  store ptr %5, ptr %_M_finish.i.i.i.i5, align 8
   %_M_end_of_storage.i.i.i.i7 = getelementptr inbounds i8, ptr %agg.tmp8, i64 16
   %_M_end_of_storage4.i.i.i.i8 = getelementptr inbounds i8, ptr %__args5, i64 16
-  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i8, align 8
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i7, align 16
+  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i8, align 8
+  store ptr %6, ptr %_M_end_of_storage.i.i.i.i7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args5, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4core8PlanNodeE, i64 16), ptr %__p, align 8
   %id_.i.i = getelementptr inbounds i8, ptr %__p, i64 8
@@ -76063,32 +76067,35 @@ entry:
 _ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESaIS6_EED2Ev.exit: ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4core14LocalMergeNodeE, i64 16), ptr %__p, align 8
   %sources_.i = getelementptr inbounds i8, ptr %__p, i64 40
-  %6 = shufflevector <2 x ptr> %4, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %7 = insertelement <4 x ptr> %6, ptr %5, i64 2
-  %8 = insertelement <4 x ptr> %7, ptr %0, i64 3
-  store <4 x ptr> %8, ptr %sources_.i, align 8
+  store ptr %4, ptr %sources_.i, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 48
+  store ptr %5, ptr %_M_finish.i.i.i.i.i, align 8
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 56
+  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %sortingKeys_.i = getelementptr inbounds i8, ptr %__p, i64 64
+  store ptr %0, ptr %sortingKeys_.i, align 8
   %_M_finish.i.i.i.i1.i = getelementptr inbounds i8, ptr %__p, i64 72
-  %9 = shufflevector <2 x ptr> %1, <2 x ptr> %2, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x ptr> %9, ptr %_M_finish.i.i.i.i1.i, align 8
+  %7 = shufflevector <2 x ptr> %1, <2 x ptr> %2, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x ptr> %7, ptr %_M_finish.i.i.i.i1.i, align 8
   %_M_end_of_storage.i.i.i.i7.i = getelementptr inbounds i8, ptr %__p, i64 104
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i7.i, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core8PlanNodeEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp8) #30
-  %11 = extractelement <2 x ptr> %2, i64 0
-  %tobool.not.i.i.i55 = icmp eq ptr %11, null
+  %9 = extractelement <2 x ptr> %2, i64 0
+  %tobool.not.i.i.i55 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i55, label %_ZNSt6vectorIN8facebook5velox4core9SortOrderESaIS3_EED2Ev.exit57, label %if.then.i.i.i56
 
 if.then.i.i.i56:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %11) #32
+  call void @_ZdlPv(ptr noundef nonnull %9) #32
   br label %_ZNSt6vectorIN8facebook5velox4core9SortOrderESaIS3_EED2Ev.exit57
 
 _ZNSt6vectorIN8facebook5velox4core9SortOrderESaIS3_EED2Ev.exit57: ; preds = %lpad, %if.then.i.i.i56
   call void @_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #30
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: mustprogress uwtable

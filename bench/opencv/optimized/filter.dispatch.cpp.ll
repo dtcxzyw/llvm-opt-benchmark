@@ -2529,34 +2529,39 @@ define hidden noundef i32 @_ZN2cv12cpu_baseline19FilterEngine__startERNS_12Filte
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load i64, ptr %1, align 4
   store i64 %13, ptr %12, align 8
-  %14 = load <2 x i32>, ptr %3, align 4
-  %15 = load <2 x i32>, ptr %2, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = load i32, ptr %3, align 4
+  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = load i32, ptr %2, align 4
+  %18 = getelementptr inbounds i8, ptr %2, i64 4
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %14, ptr %20, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 %16, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 %17, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 60
-  %17 = shufflevector <2 x i32> %14, <2 x i32> %15, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i32> %17, ptr %16, align 8
-  %18 = extractelement <2 x i32> %14, i64 0
-  %19 = trunc i64 %13 to i32
-  %20 = extractelement <2 x i32> %15, i64 0
-  %21 = shufflevector <2 x i32> %14, <2 x i32> %15, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %.fr = freeze <4 x i32> %21
-  %22 = icmp slt <4 x i32> %.fr, zeroinitializer
-  %23 = add nuw nsw i32 %20, %18
-  %.not = icmp sgt i32 %23, %19
-  %24 = bitcast <4 x i1> %22 to i4
-  %25 = icmp ne i4 %24, 0
-  %op.rdx = select i1 %25, i1 true, i1 %.not
-  br i1 %op.rdx, label %32, label %26
+  store i32 %19, ptr %.sroa.4.0..sroa_idx, align 4
+  %21 = icmp slt i32 %14, 0
+  %22 = trunc i64 %13 to i32
+  %23 = icmp slt i32 %16, 0
+  %or.cond339.not349 = select i1 %21, i1 true, i1 %23
+  %24 = icmp slt i32 %17, 0
+  %or.cond340.not346 = select i1 %or.cond339.not349, i1 true, i1 %24
+  %25 = icmp slt i32 %19, 0
+  %or.cond341.not344 = select i1 %or.cond340.not346, i1 true, i1 %25
+  %26 = add nuw nsw i32 %17, %14
+  %.not = icmp sgt i32 %26, %22
+  %or.cond342 = select i1 %or.cond341.not344, i1 true, i1 %.not
+  br i1 %or.cond342, label %32, label %27
 
-26:                                               ; preds = %4
-  %27 = lshr i64 %13, 32
-  %28 = trunc nuw i64 %27 to i32
-  %29 = add nuw nsw <2 x i32> %15, %14
-  %30 = extractelement <2 x i32> %29, i64 1
+27:                                               ; preds = %4
+  %28 = lshr i64 %13, 32
+  %29 = trunc nuw i64 %28 to i32
+  %30 = add nuw nsw i32 %19, %16
   %31 = getelementptr inbounds i8, ptr %0, i64 44
-  %.not199 = icmp sgt i32 %30, %28
+  %.not199 = icmp sgt i32 %30, %29
   br i1 %.not199, label %32, label %40
 
 .loopexit268.split:                               ; preds = %.lr.ph290.split
@@ -2574,7 +2579,7 @@ define hidden noundef i32 @_ZN2cv12cpu_baseline19FilterEngine__startERNS_12Filte
           cleanup
   br label %.loopexit268
 
-32:                                               ; preds = %26, %4
+32:                                               ; preds = %27, %4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %33 unwind label %35
@@ -2602,7 +2607,7 @@ define hidden noundef i32 @_ZN2cv12cpu_baseline19FilterEngine__startERNS_12Filte
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
   br label %.loopexit268
 
-40:                                               ; preds = %26
+40:                                               ; preds = %27
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = lshr i32 %42, 3
@@ -2645,7 +2650,7 @@ define hidden noundef i32 @_ZN2cv12cpu_baseline19FilterEngine__startERNS_12Filte
   %.sroa.speculated256 = call i32 @llvm.smax.i32(i32 %70, i32 %77)
   %78 = getelementptr inbounds i8, ptr %0, i64 36
   %79 = load i32, ptr %78, align 4
-  %80 = icmp slt i32 %79, %20
+  %80 = icmp slt i32 %79, %17
   br i1 %80, label %._crit_edge311, label %81
 
 ._crit_edge311:                                   ; preds = %40
@@ -2711,7 +2716,7 @@ define hidden noundef i32 @_ZN2cv12cpu_baseline19FilterEngine__startERNS_12Filte
 
 _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit:            ; preds = %._ZNSt6vectorIPhSaIS0_EE6resizeEm.exit_crit_edge, %105, %103, %101
   %.pre-phi332 = phi i32 [ %.pre331, %._ZNSt6vectorIPhSaIS0_EE6resizeEm.exit_crit_edge ], [ %45, %105 ], [ %45, %103 ], [ %45, %101 ]
-  %106 = phi i32 [ %.pre315, %._ZNSt6vectorIPhSaIS0_EE6resizeEm.exit_crit_edge ], [ %20, %105 ], [ %20, %103 ], [ %20, %101 ]
+  %106 = phi i32 [ %.pre315, %._ZNSt6vectorIPhSaIS0_EE6resizeEm.exit_crit_edge ], [ %17, %105 ], [ %17, %103 ], [ %17, %101 ]
   %107 = phi i32 [ %.pre314, %._ZNSt6vectorIPhSaIS0_EE6resizeEm.exit_crit_edge ], [ %79, %105 ], [ %79, %103 ], [ %79, %101 ]
   %108 = call i32 @llvm.smax.i32(i32 %107, i32 %106)
   store i32 %108, ptr %78, align 4
@@ -2889,14 +2894,14 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit:            ; preds = %._ZNSt6vectorIPhSaI
 
 ._crit_edge318:                                   ; preds = %183
   %.pre319 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.pre320 = load i32, ptr %16, align 8
+  %.pre320 = load i32, ptr %20, align 8
   %.pre321 = load i32, ptr %12, align 8
   br label %205
 
 205:                                              ; preds = %._crit_edge318, %81
-  %206 = phi i32 [ %.pre321, %._crit_edge318 ], [ %19, %81 ]
-  %.val264 = phi i32 [ %.pre320, %._crit_edge318 ], [ %18, %81 ]
-  %207 = phi i32 [ %.pre319, %._crit_edge318 ], [ %20, %81 ]
+  %206 = phi i32 [ %.pre321, %._crit_edge318 ], [ %22, %81 ]
+  %.val264 = phi i32 [ %.pre320, %._crit_edge318 ], [ %14, %81 ]
+  %207 = phi i32 [ %.pre319, %._crit_edge318 ], [ %17, %81 ]
   %208 = getelementptr inbounds i8, ptr %0, i64 256
   %209 = load ptr, ptr %208, align 8
   %.not.i215 = icmp eq ptr %209, null

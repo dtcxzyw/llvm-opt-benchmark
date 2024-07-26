@@ -9288,129 +9288,131 @@ invoke.cont165:                                   ; preds = %invoke.cont135
   %166 = load i64, ptr %total_blob_bytes_.i.i, align 8
   store i64 %166, ptr %ref.tmp149, align 8
   %garbage_blob_count_.i = getelementptr inbounds i8, ptr %162, i64 72
-  %167 = load <2 x i64>, ptr %garbage_blob_count_.i, align 8
-  %168 = extractelement <2 x i64> %167, i64 0
-  store i64 %168, ptr %ref.tmp153, align 8
-  %169 = extractelement <2 x i64> %167, i64 1
-  store i64 %169, ptr %ref.tmp157, align 8
-  %170 = load ptr, ptr %162, align 8
-  %checksum_method_.i.i = getelementptr inbounds i8, ptr %170, i64 24
-  %checksum_value_.i.i = getelementptr inbounds i8, ptr %170, i64 56
-  %171 = load ptr, ptr %_M_finish.i.i62, align 8
-  %172 = load ptr, ptr %_M_end_of_storage.i212, align 8
-  %cmp.not.i213 = icmp eq ptr %171, %172
+  %167 = load i64, ptr %garbage_blob_count_.i, align 8
+  store i64 %167, ptr %ref.tmp153, align 8
+  %garbage_blob_bytes_.i = getelementptr inbounds i8, ptr %162, i64 80
+  %168 = load i64, ptr %garbage_blob_bytes_.i, align 8
+  store i64 %168, ptr %ref.tmp157, align 8
+  %169 = load ptr, ptr %162, align 8
+  %checksum_method_.i.i = getelementptr inbounds i8, ptr %169, i64 24
+  %checksum_value_.i.i = getelementptr inbounds i8, ptr %169, i64 56
+  %170 = load ptr, ptr %_M_finish.i.i62, align 8
+  %171 = load ptr, ptr %_M_end_of_storage.i212, align 8
+  %cmp.not.i213 = icmp eq ptr %170, %171
   br i1 %cmp.not.i213, label %if.else.i217, label %if.then.i214
 
 if.then.i214:                                     ; preds = %invoke.cont165
-  %173 = load i64, ptr %ref.tmp123, align 8
-  store i64 %173, ptr %171, align 8
-  %blob_file_name.i.i = getelementptr inbounds i8, ptr %171, i64 8
+  %172 = load i64, ptr %ref.tmp123, align 8
+  store i64 %172, ptr %170, align 8
+  %blob_file_name.i.i = getelementptr inbounds i8, ptr %170, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %blob_file_name.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp126)
           to label %.noexc223 unwind label %lpad142
 
 .noexc223:                                        ; preds = %if.then.i214
-  %blob_file_path.i.i = getelementptr inbounds i8, ptr %171, i64 40
+  %blob_file_path.i.i = getelementptr inbounds i8, ptr %170, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %blob_file_path.i.i, ptr noundef nonnull align 8 dereferenceable(32) %159)
           to label %invoke.cont.i.i222 unwind label %lpad.i.i
 
 invoke.cont.i.i222:                               ; preds = %.noexc223
-  %blob_file_size.i.i = getelementptr inbounds i8, ptr %171, i64 72
+  %blob_file_size.i.i = getelementptr inbounds i8, ptr %170, i64 72
   store i64 %call2.i210, ptr %blob_file_size.i.i, align 8
-  %total_blob_count.i.i = getelementptr inbounds i8, ptr %171, i64 80
-  %174 = insertelement <4 x i64> poison, i64 %164, i64 0
-  %175 = insertelement <4 x i64> %174, i64 %166, i64 1
-  %176 = shufflevector <2 x i64> %167, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %177 = shufflevector <4 x i64> %175, <4 x i64> %176, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x i64> %177, ptr %total_blob_count.i.i, align 8
-  %checksum_method.i.i = getelementptr inbounds i8, ptr %171, i64 112
+  %total_blob_count.i.i = getelementptr inbounds i8, ptr %170, i64 80
+  store i64 %164, ptr %total_blob_count.i.i, align 8
+  %total_blob_bytes.i.i = getelementptr inbounds i8, ptr %170, i64 88
+  store i64 %166, ptr %total_blob_bytes.i.i, align 8
+  %garbage_blob_count.i.i = getelementptr inbounds i8, ptr %170, i64 96
+  store i64 %167, ptr %garbage_blob_count.i.i, align 8
+  %garbage_blob_bytes.i.i = getelementptr inbounds i8, ptr %170, i64 104
+  store i64 %168, ptr %garbage_blob_bytes.i.i, align 8
+  %checksum_method.i.i = getelementptr inbounds i8, ptr %170, i64 112
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %checksum_method.i.i, ptr noundef nonnull align 8 dereferenceable(32) %checksum_method_.i.i)
           to label %invoke.cont3.i.i unwind label %lpad2.i.i
 
 invoke.cont3.i.i:                                 ; preds = %invoke.cont.i.i222
-  %checksum_value.i.i = getelementptr inbounds i8, ptr %171, i64 144
+  %checksum_value.i.i = getelementptr inbounds i8, ptr %170, i64 144
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %checksum_value.i.i, ptr noundef nonnull align 8 dereferenceable(32) %checksum_value_.i.i)
           to label %.noexc219 unwind label %lpad4.i.i
 
 lpad.i.i:                                         ; preds = %.noexc223
-  %178 = landingpad { ptr, i32 }
+  %173 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup6.i.i
 
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i222
-  %179 = landingpad { ptr, i32 }
+  %174 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
 
 lpad4.i.i:                                        ; preds = %invoke.cont3.i.i
-  %180 = landingpad { ptr, i32 }
+  %175 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %checksum_method.i.i) #35
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad2.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %180, %lpad4.i.i ], [ %179, %lpad2.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %175, %lpad4.i.i ], [ %174, %lpad2.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %blob_file_path.i.i) #35
   br label %ehcleanup6.i.i
 
 ehcleanup6.i.i:                                   ; preds = %ehcleanup.i.i, %lpad.i.i
-  %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup.i.i ], [ %178, %lpad.i.i ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup.i.i ], [ %173, %lpad.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %blob_file_name.i.i) #35
   br label %lpad142.body
 
 .noexc219:                                        ; preds = %invoke.cont3.i.i
-  %181 = load ptr, ptr %_M_finish.i.i62, align 8
-  %incdec.ptr.i215 = getelementptr inbounds i8, ptr %181, i64 176
+  %176 = load ptr, ptr %_M_finish.i.i62, align 8
+  %incdec.ptr.i215 = getelementptr inbounds i8, ptr %176, i64 176
   store ptr %incdec.ptr.i215, ptr %_M_finish.i.i62, align 8
   br label %invoke.cont167
 
 if.else.i217:                                     ; preds = %invoke.cont165
-  invoke void @_ZNSt6vectorIN7rocksdb12BlobMetaDataESaIS1_EE17_M_realloc_insertIJmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSA_mmmmmSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %blob_files, ptr %171, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp123, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp126, ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp140, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp145, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp149, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp153, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp157, ptr noundef nonnull align 8 dereferenceable(32) %checksum_method_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %checksum_value_.i.i)
+  invoke void @_ZNSt6vectorIN7rocksdb12BlobMetaDataESaIS1_EE17_M_realloc_insertIJmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSA_mmmmmSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %blob_files, ptr %170, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp123, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp126, ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp140, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp145, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp149, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp153, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp157, ptr noundef nonnull align 8 dereferenceable(32) %checksum_method_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %checksum_value_.i.i)
           to label %invoke.cont167 unwind label %lpad142
 
 invoke.cont167:                                   ; preds = %if.else.i217, %.noexc219
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp126) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp127) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp128) #35
-  %182 = load i64, ptr %blob_file_count, align 8
-  %inc173 = add i64 %182, 1
+  %177 = load i64, ptr %blob_file_count, align 8
+  %inc173 = add i64 %177, 1
   store i64 %inc173, ptr %blob_file_count, align 8
-  %183 = load ptr, ptr %__begin1.sroa.0.0243, align 8
-  %184 = load ptr, ptr %183, align 8
-  %call2.i = call noundef i64 @_ZNK7rocksdb22SharedBlobFileMetaData15GetBlobFileSizeEv(ptr noundef nonnull align 8 dereferenceable(88) %184)
-  %185 = load i64, ptr %blob_file_size, align 8
-  %add177 = add i64 %185, %call2.i
+  %178 = load ptr, ptr %__begin1.sroa.0.0243, align 8
+  %179 = load ptr, ptr %178, align 8
+  %call2.i = call noundef i64 @_ZNK7rocksdb22SharedBlobFileMetaData15GetBlobFileSizeEv(ptr noundef nonnull align 8 dereferenceable(88) %179)
+  %180 = load i64, ptr %blob_file_size, align 8
+  %add177 = add i64 %180, %call2.i
   store i64 %add177, ptr %blob_file_size, align 8
   %incdec.ptr.i221 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0243, i64 16
   %cmp.i202.not = icmp eq ptr %incdec.ptr.i221, %151
   br i1 %cmp.i202.not, label %for.end180, label %for.body120
 
 lpad129:                                          ; preds = %call.i.noexc, %for.body120
-  %186 = landingpad { ptr, i32 }
+  %181 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup171
 
 lpad132:                                          ; preds = %invoke.cont133
-  %187 = landingpad { ptr, i32 }
+  %182 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup170
 
 lpad142:                                          ; preds = %if.then.i214, %if.else.i217, %invoke.cont135
-  %188 = landingpad { ptr, i32 }
+  %183 = landingpad { ptr, i32 }
           cleanup
   br label %lpad142.body
 
 lpad142.body:                                     ; preds = %ehcleanup6.i.i, %lpad142
-  %eh.lpad-body224 = phi { ptr, i32 } [ %188, %lpad142 ], [ %.pn.pn.i.i, %ehcleanup6.i.i ]
+  %eh.lpad-body224 = phi { ptr, i32 } [ %183, %lpad142 ], [ %.pn.pn.i.i, %ehcleanup6.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp126) #35
   br label %ehcleanup170
 
 ehcleanup170:                                     ; preds = %lpad142.body, %lpad132
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body224, %lpad142.body ], [ %187, %lpad132 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body224, %lpad142.body ], [ %182, %lpad132 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp127) #35
   br label %ehcleanup171
 
 ehcleanup171:                                     ; preds = %lpad129, %lpad.i205, %ehcleanup170
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup170 ], [ %186, %lpad129 ], [ %155, %lpad.i205 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup170 ], [ %181, %lpad129 ], [ %155, %lpad.i205 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp128) #35
   br label %eh.resume
 

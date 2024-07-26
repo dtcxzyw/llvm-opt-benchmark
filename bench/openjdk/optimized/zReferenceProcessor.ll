@@ -1887,31 +1887,33 @@ _ZN19ZValueConstIteratorI17ZPerWorkerStorageA5_mE4nextEPPA5_Km.exit15: ; preds =
   %44 = getelementptr inbounds i8, ptr %2, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %3, i64 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
-  %48 = getelementptr inbounds i8, ptr %3, i64 16
-  %49 = getelementptr inbounds i8, ptr %2, i64 24
-  %50 = getelementptr inbounds i8, ptr %3, i64 24
-  %51 = getelementptr inbounds i8, ptr %2, i64 32
-  %52 = getelementptr inbounds i8, ptr %3, i64 32
-  %53 = load i64, ptr %46, align 8
-  tail call void @_ZN15ZStatReferences8set_softEmmm(i64 noundef %45, i64 noundef %53, i64 noundef %43) #11
-  %54 = load i64, ptr %47, align 16
-  %55 = load i64, ptr %48, align 16
-  tail call void @_ZN15ZStatReferences8set_weakEmmm(i64 noundef %54, i64 noundef %55, i64 noundef %42) #11
-  %56 = load i64, ptr %49, align 8
-  %57 = load i64, ptr %50, align 8
-  tail call void @_ZN15ZStatReferences9set_finalEmmm(i64 noundef %56, i64 noundef %57, i64 noundef %41) #11
-  %58 = load i64, ptr %51, align 16
-  %59 = load i64, ptr %52, align 16
-  tail call void @_ZN15ZStatReferences11set_phantomEmmm(i64 noundef %58, i64 noundef %59, i64 noundef %40) #11
-  %60 = insertelement <4 x i64> poison, i64 %53, i64 0
-  %61 = insertelement <4 x i64> %60, i64 %55, i64 1
-  %62 = insertelement <4 x i64> %61, i64 %57, i64 2
-  %63 = insertelement <4 x i64> %62, i64 %59, i64 3
-  store <4 x i64> %63, ptr %5, align 8
-  %64 = tail call noundef ptr @_ZN7ZDriver5majorEv() #11
-  %65 = tail call noundef ptr @_ZN12ZDriverMajor10jfr_tracerEv(ptr noundef nonnull align 8 dereferenceable(1264) %64) #11
-  call void @_ZNK8GCTracer25report_gc_reference_statsERK23ReferenceProcessorStats(ptr noundef nonnull align 8 dereferenceable(80) %65, ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  %47 = load i64, ptr %46, align 8
+  tail call void @_ZN15ZStatReferences8set_softEmmm(i64 noundef %45, i64 noundef %47, i64 noundef %43) #11
+  %48 = getelementptr inbounds i8, ptr %2, i64 16
+  %49 = load i64, ptr %48, align 16
+  %50 = getelementptr inbounds i8, ptr %3, i64 16
+  %51 = load i64, ptr %50, align 16
+  tail call void @_ZN15ZStatReferences8set_weakEmmm(i64 noundef %49, i64 noundef %51, i64 noundef %42) #11
+  %52 = getelementptr inbounds i8, ptr %2, i64 24
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %3, i64 24
+  %55 = load i64, ptr %54, align 8
+  tail call void @_ZN15ZStatReferences9set_finalEmmm(i64 noundef %53, i64 noundef %55, i64 noundef %41) #11
+  %56 = getelementptr inbounds i8, ptr %2, i64 32
+  %57 = load i64, ptr %56, align 16
+  %58 = getelementptr inbounds i8, ptr %3, i64 32
+  %59 = load i64, ptr %58, align 16
+  tail call void @_ZN15ZStatReferences11set_phantomEmmm(i64 noundef %57, i64 noundef %59, i64 noundef %40) #11
+  store i64 %47, ptr %5, align 8
+  %60 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %51, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %55, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 %59, ptr %62, align 8
+  %63 = tail call noundef ptr @_ZN7ZDriver5majorEv() #11
+  %64 = tail call noundef ptr @_ZN12ZDriverMajor10jfr_tracerEv(ptr noundef nonnull align 8 dereferenceable(1264) %63) #11
+  call void @_ZNK8GCTracer25report_gc_reference_statsERK23ReferenceProcessorStats(ptr noundef nonnull align 8 dereferenceable(80) %64, ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   ret void
 }
 

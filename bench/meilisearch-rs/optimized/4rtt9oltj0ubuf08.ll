@@ -1080,7 +1080,10 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   unreachable
 
 "_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h3e438a85cd2ca22bE.llvm.8265446259410684974.exit": ; preds = %3
+  %.sroa.717.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.717.0.copyload = load ptr, ptr %.sroa.717.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.616.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.616.0.copyload = load ptr, ptr %.sroa.616.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load ptr, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.013.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
@@ -1094,17 +1097,21 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %.sroa.616.0.copyload, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %.sroa.717.0.copyload, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %.sroa.013.0.copyload, ptr %9, align 8
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %5, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %6, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = load <2 x ptr>, ptr %.sroa.616.0..sroa_idx, align 8
-  %10 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %11 = insertelement <4 x ptr> %10, ptr %8, i64 2
-  %12 = insertelement <4 x ptr> %11, ptr %.sroa.013.0.copyload, i64 3
-  store <4 x ptr> %12, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  store <2 x ptr> %9, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
+  store ptr %.sroa.616.0.copyload, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
+  %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %.sroa.717.0.copyload, ptr %.sroa.01.sroa.7.0..sroa_idx, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %8, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
@@ -1149,7 +1156,10 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   unreachable
 
 "_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h643f251a44928419E.llvm.8265446259410684974.exit": ; preds = %3
+  %.sroa.717.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.717.0.copyload = load ptr, ptr %.sroa.717.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.616.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.616.0.copyload = load ptr, ptr %.sroa.616.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load ptr, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.013.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
@@ -1163,17 +1173,21 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %.sroa.616.0.copyload, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %.sroa.717.0.copyload, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %.sroa.013.0.copyload, ptr %9, align 8
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %5, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %6, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = load <2 x ptr>, ptr %.sroa.616.0..sroa_idx, align 8
-  %10 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %11 = insertelement <4 x ptr> %10, ptr %8, i64 2
-  %12 = insertelement <4 x ptr> %11, ptr %.sroa.013.0.copyload, i64 3
-  store <4 x ptr> %12, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  store <2 x ptr> %9, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
+  store ptr %.sroa.616.0.copyload, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
+  %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %.sroa.717.0.copyload, ptr %.sroa.01.sroa.7.0..sroa_idx, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %8, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
@@ -1191,7 +1205,10 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   unreachable
 
 "_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h3e438a85cd2ca22bE.llvm.8265446259410684974.exit": ; preds = %3
+  %.sroa.717.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.717.0.copyload = load ptr, ptr %.sroa.717.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.616.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.616.0.copyload = load ptr, ptr %.sroa.616.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load ptr, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.013.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
@@ -1205,17 +1222,21 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %.sroa.616.0.copyload, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %.sroa.717.0.copyload, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %.sroa.013.0.copyload, ptr %9, align 8
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %5, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %6, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = load <2 x ptr>, ptr %.sroa.616.0..sroa_idx, align 8
-  %10 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %11 = insertelement <4 x ptr> %10, ptr %8, i64 2
-  %12 = insertelement <4 x ptr> %11, ptr %.sroa.013.0.copyload, i64 3
-  store <4 x ptr> %12, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  store <2 x ptr> %9, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
+  store ptr %.sroa.616.0.copyload, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
+  %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %.sroa.717.0.copyload, ptr %.sroa.01.sroa.7.0..sroa_idx, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %8, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
@@ -1233,7 +1254,10 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   unreachable
 
 "_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h643f251a44928419E.llvm.8265446259410684974.exit": ; preds = %3
+  %.sroa.717.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.717.0.copyload = load ptr, ptr %.sroa.717.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.616.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.616.0.copyload = load ptr, ptr %.sroa.616.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load ptr, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.013.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
@@ -1247,17 +1271,21 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %.sroa.616.0.copyload, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %.sroa.717.0.copyload, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %.sroa.013.0.copyload, ptr %9, align 8
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %5, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %6, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = load <2 x ptr>, ptr %.sroa.616.0..sroa_idx, align 8
-  %10 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %11 = insertelement <4 x ptr> %10, ptr %8, i64 2
-  %12 = insertelement <4 x ptr> %11, ptr %.sroa.013.0.copyload, i64 3
-  store <4 x ptr> %12, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  store <2 x ptr> %9, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
+  store ptr %.sroa.616.0.copyload, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
+  %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %.sroa.717.0.copyload, ptr %.sroa.01.sroa.7.0..sroa_idx, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %8, ptr %.sroa.42.0..sroa_idx, align 8
   ret void

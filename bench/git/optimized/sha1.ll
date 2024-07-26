@@ -1394,9 +1394,7 @@ entry:
   store i32 -1, ptr %ubc_dv_mask, align 4
   %ihv = getelementptr inbounds i8, ptr %ctx, i64 8
   %ihv1 = getelementptr inbounds i8, ptr %ctx, i64 120
-  %arrayidx3 = getelementptr inbounds i8, ptr %ctx, i64 12
-  %arrayidx7 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %arrayidx11 = getelementptr inbounds i8, ptr %ctx, i64 20
+  %arrayidx5 = getelementptr inbounds i8, ptr %ctx, i64 124
   %0 = load <4 x i32>, ptr %ihv, align 8
   store <4 x i32> %0, ptr %ihv1, align 8
   %arrayidx16 = getelementptr inbounds i8, ptr %ctx, i64 24
@@ -3167,58 +3165,47 @@ sha1_recompression_step.exit:                     ; preds = %sw.bb.i, %sw.bb1.i
   %add1101.i178.i = add i32 %add1100.i177.i, %xor1099.i174.sink.i
   %add1103.i179.i = add i32 %add1101.i178.i, %or1097.i172.sink.i
   %add1104.i180.i = add i32 %add1103.i179.i, %or877.i.sink.i
-  %add1109.i181.i = add i32 %add1104.i180.i, %.sink.i
-  %586 = load i32, ptr %arrayidx904.i.i, align 4
-  %add1112.i182.i = add i32 %586, %add1091.i170.sink.i
-  %587 = load <2 x i32>, ptr %arrayidx905.i.i, align 4
-  %588 = extractelement <2 x i32> %587, i64 0
-  %add1115.i184.i = add i32 %588, %or1107.i176.sink.i
-  %589 = extractelement <2 x i32> %587, i64 1
-  %add1118.i186.i = add i32 %589, %or1094.i171.sink.i
-  %590 = load i32, ptr %arrayidx907.i45.i, align 4
-  %add1121.i188.i = add i32 %590, %or1081.i162.sink.i
-  %591 = load i32, ptr %ihv, align 8
-  %592 = load i32, ptr %arrayidx3, align 4
-  %593 = load i32, ptr %arrayidx7, align 8
-  %594 = load i32, ptr %arrayidx11, align 4
-  %595 = load i32, ptr %arrayidx16, align 8
-  %596 = icmp eq i32 %add1109.i181.i, %591
-  %597 = icmp eq i32 %add1112.i182.i, %592
-  %598 = and i1 %596, %597
-  %599 = icmp eq i32 %add1115.i184.i, %593
-  %600 = and i1 %598, %599
-  %601 = icmp eq i32 %add1118.i186.i, %594
-  %602 = and i1 %600, %601
-  %603 = icmp eq i32 %add1121.i188.i, %595
-  %cmp85 = and i1 %602, %603
-  br i1 %cmp85, label %if.then117, label %lor.lhs.false
+  %586 = load <4 x i32>, ptr %arrayidx904.i.i, align 4
+  %587 = extractelement <4 x i32> %586, i64 3
+  %add1121.i188.i = add i32 %587, %or1081.i162.sink.i
+  %588 = load i32, ptr %arrayidx16, align 8
+  %589 = insertelement <4 x i32> %586, i32 %add1104.i180.i, i64 3
+  %590 = insertelement <4 x i32> poison, i32 %add1091.i170.sink.i, i64 0
+  %591 = insertelement <4 x i32> %590, i32 %or1107.i176.sink.i, i64 1
+  %592 = insertelement <4 x i32> %591, i32 %or1094.i171.sink.i, i64 2
+  %593 = insertelement <4 x i32> %592, i32 %.sink.i, i64 3
+  %594 = add <4 x i32> %589, %593
+  %595 = shufflevector <4 x i32> %594, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  %596 = load <4 x i32>, ptr %ihv, align 8
+  %597 = icmp eq i32 %add1121.i188.i, %588
+  %598 = icmp ne <4 x i32> %595, %596
+  %599 = bitcast <4 x i1> %598 to i4
+  %600 = icmp eq i4 %599, 0
+  %op.rdx464 = and i1 %600, %597
+  br i1 %op.rdx464, label %if.then117, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sha1_recompression_step.exit
-  %604 = load i32, ptr %reduced_round_coll, align 4
-  %tobool86.not = icmp eq i32 %604, 0
+  %601 = load i32, ptr %reduced_round_coll, align 4
+  %tobool86.not = icmp eq i32 %601, 0
   br i1 %tobool86.not, label %for.inc131, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %605 = load i32, ptr %ihv250, align 4
-  %606 = load i32, ptr %arrayidx18, align 8
-  %607 = load <4 x i32>, ptr %ihv1, align 8
-  %608 = insertelement <4 x i32> poison, i32 %605, i64 0
-  %609 = insertelement <4 x i32> %608, i32 %586, i64 1
-  %610 = shufflevector <2 x i32> %587, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %611 = shufflevector <4 x i32> %609, <4 x i32> %610, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %612 = icmp eq i32 %606, %590
-  %613 = icmp ne <4 x i32> %607, %611
-  %614 = bitcast <4 x i1> %613 to i4
-  %615 = icmp eq i4 %614, 0
-  %op.rdx = and i1 %615, %612
+  %602 = load i32, ptr %ihv1, align 8
+  %603 = load i32, ptr %ihv250, align 4
+  %604 = icmp eq i32 %602, %603
+  %605 = load <4 x i32>, ptr %arrayidx5, align 4
+  %606 = icmp ne <4 x i32> %605, %586
+  %607 = bitcast <4 x i1> %606 to i4
+  %608 = icmp eq i4 %607, 0
+  %op.rdx = and i1 %608, %604
   br i1 %op.rdx, label %if.then117, label %for.inc131
 
 if.then117:                                       ; preds = %land.lhs.true, %sha1_recompression_step.exit
   %found_collision = getelementptr inbounds i8, ptr %ctx, i64 92
   store i32 1, ptr %found_collision, align 4
   %safe_hash = getelementptr inbounds i8, ptr %ctx, i64 96
-  %616 = load i32, ptr %safe_hash, align 8
-  %tobool118.not = icmp eq i32 %616, 0
+  %609 = load i32, ptr %safe_hash, align 8
+  %tobool118.not = icmp eq i32 %609, 0
   br i1 %tobool118.not, label %if.end135, label %if.then119
 
 if.then119:                                       ; preds = %if.then117
@@ -3230,8 +3217,8 @@ for.inc131:                                       ; preds = %for.body, %land.lhs
   %inc132 = add i32 %i.0460, 1
   %idxprom = zext i32 %inc132 to i64
   %arrayidx29 = getelementptr inbounds [0 x %struct.dv_info_t], ptr @sha1_dvs, i64 0, i64 %idxprom
-  %617 = load i32, ptr %arrayidx29, align 4
-  %cmp30.not = icmp eq i32 %617, 0
+  %610 = load i32, ptr %arrayidx29, align 4
+  %cmp30.not = icmp eq i32 %610, 0
   br i1 %cmp30.not, label %if.end135, label %for.body, !llvm.loop !8
 
 if.end135:                                        ; preds = %for.inc131, %for.cond.preheader, %if.end, %if.then117, %if.then119, %entry

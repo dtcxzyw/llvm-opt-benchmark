@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ZDICT_trainFromBuffer_fastCover(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%struct.ZDICT_fastCover_params_t) align 8 %5) local_unnamed_addr #0 {
   %7 = alloca %struct.FASTCOVER_ctx_t, align 8
-  %8 = alloca %struct.ZDICT_cover_params_t, align 16
+  %8 = alloca %struct.ZDICT_cover_params_t, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 48
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr @g_displayLevel, align 4
@@ -59,166 +59,167 @@ define dso_local i64 @ZDICT_trainFromBuffer_fastCover(ptr noundef %0, i64 nounde
   %17 = tail call i32 @llvm.umax.i32(i32 %16, i32 1)
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 24, i1 false)
-  %19 = load <2 x i32>, ptr %5, align 8
+  %.sroa.0.0.copyload31 = load i32, ptr %5, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.532.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
-  %20 = load <4 x i32>, ptr %.sroa.532.0..sroa_idx, align 4
   %.sroa.834.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 36
   %.sroa.834.0.copyload = load i32, ptr %.sroa.834.0..sroa_idx, align 4
-  %21 = shufflevector <2 x i32> %19, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %22 = shufflevector <4 x i32> %21, <4 x i32> %20, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x i32> %22, ptr %8, align 16
-  %23 = getelementptr inbounds i8, ptr %8, i64 16
-  store double 1.000000e+00, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %8, i64 32
-  %25 = getelementptr inbounds i8, ptr %5, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %24, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false)
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
-  store i32 %.sroa.834.0.copyload, ptr %26, align 8
-  %27 = icmp eq <2 x i32> %19, zeroinitializer
-  %28 = extractelement <2 x i1> %27, i64 0
-  %29 = extractelement <2 x i1> %27, i64 1
-  %or.cond.i = select i1 %29, i1 true, i1 %28
-  br i1 %or.cond.i, label %FASTCOVER_checkParameters.exit.thread, label %30
+  store i32 %.sroa.0.0.copyload31, ptr %8, align 8
+  %19 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %.sroa.4.0.copyload, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = load <2 x i32>, ptr %.sroa.532.0..sroa_idx, align 4
+  store <2 x i32> %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %8, i64 16
+  store double 1.000000e+00, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %8, i64 32
+  %24 = getelementptr inbounds i8, ptr %5, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
+  %25 = getelementptr inbounds i8, ptr %8, i64 24
+  store i32 %.sroa.834.0.copyload, ptr %25, align 8
+  %26 = icmp eq i32 %.sroa.4.0.copyload, 0
+  %27 = icmp eq i32 %.sroa.0.0.copyload31, 0
+  %or.cond.i = select i1 %26, i1 true, i1 %27
+  br i1 %or.cond.i, label %FASTCOVER_checkParameters.exit.thread, label %28
 
-30:                                               ; preds = %6
-  %31 = extractelement <2 x i32> %19, i64 1
-  switch i32 %31, label %FASTCOVER_checkParameters.exit.thread [
-    i32 8, label %32
-    i32 6, label %32
+28:                                               ; preds = %6
+  switch i32 %.sroa.4.0.copyload, label %FASTCOVER_checkParameters.exit.thread [
+    i32 8, label %29
+    i32 6, label %29
   ]
 
-32:                                               ; preds = %30, %30
-  %33 = extractelement <2 x i32> %19, i64 0
-  %34 = zext i32 %33 to i64
-  %35 = icmp ugt i64 %34, %1
-  %36 = icmp ugt i32 %31, %33
-  %or.cond20.i = or i1 %36, %35
-  %37 = add i32 %14, -32
-  %or.cond7.i = icmp ult i32 %37, -31
+29:                                               ; preds = %28, %28
+  %30 = zext i32 %.sroa.0.0.copyload31 to i64
+  %31 = icmp ugt i64 %30, %1
+  %32 = icmp ugt i32 %.sroa.4.0.copyload, %.sroa.0.0.copyload31
+  %or.cond20.i = or i1 %32, %31
+  %33 = add i32 %14, -32
+  %or.cond7.i = icmp ult i32 %33, -31
   %or.cond21.i = or i1 %or.cond7.i, %or.cond20.i
   %or.cond12.i = icmp ugt i32 %16, 10
   %or.cond37 = select i1 %or.cond21.i, i1 true, i1 %or.cond12.i
-  br i1 %or.cond37, label %FASTCOVER_checkParameters.exit.thread, label %44
+  br i1 %or.cond37, label %FASTCOVER_checkParameters.exit.thread, label %40
 
-FASTCOVER_checkParameters.exit.thread:            ; preds = %32, %30, %6
-  %38 = icmp sgt i32 %10, 0
-  br i1 %38, label %39, label %116
+FASTCOVER_checkParameters.exit.thread:            ; preds = %29, %28, %6
+  %34 = icmp sgt i32 %10, 0
+  br i1 %34, label %35, label %112
 
-39:                                               ; preds = %FASTCOVER_checkParameters.exit.thread
-  %40 = load ptr, ptr @stderr, align 8
-  %41 = tail call i64 @fwrite(ptr nonnull @.str, i64 31, i64 1, ptr %40) #11
-  %42 = load ptr, ptr @stderr, align 8
-  %43 = tail call i32 @fflush(ptr noundef %42)
-  br label %116
+35:                                               ; preds = %FASTCOVER_checkParameters.exit.thread
+  %36 = load ptr, ptr @stderr, align 8
+  %37 = tail call i64 @fwrite(ptr nonnull @.str, i64 31, i64 1, ptr %36) #11
+  %38 = load ptr, ptr @stderr, align 8
+  %39 = tail call i32 @fflush(ptr noundef %38)
+  br label %112
 
-44:                                               ; preds = %32
-  %45 = icmp eq i32 %4, 0
-  br i1 %45, label %46, label %53
+40:                                               ; preds = %29
+  %41 = icmp eq i32 %4, 0
+  br i1 %41, label %42, label %49
 
-46:                                               ; preds = %44
-  %47 = icmp sgt i32 %10, 0
-  br i1 %47, label %48, label %116
+42:                                               ; preds = %40
+  %43 = icmp sgt i32 %10, 0
+  br i1 %43, label %44, label %112
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr @stderr, align 8
-  %50 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 44, i64 1, ptr %49) #11
-  %51 = load ptr, ptr @stderr, align 8
-  %52 = tail call i32 @fflush(ptr noundef %51)
-  br label %116
+44:                                               ; preds = %42
+  %45 = load ptr, ptr @stderr, align 8
+  %46 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 44, i64 1, ptr %45) #11
+  %47 = load ptr, ptr @stderr, align 8
+  %48 = tail call i32 @fflush(ptr noundef %47)
+  br label %112
 
-53:                                               ; preds = %44
-  %54 = icmp ult i64 %1, 256
-  br i1 %54, label %55, label %62
+49:                                               ; preds = %40
+  %50 = icmp ult i64 %1, 256
+  br i1 %50, label %51, label %58
 
-55:                                               ; preds = %53
-  %56 = icmp sgt i32 %10, 0
-  br i1 %56, label %57, label %116
+51:                                               ; preds = %49
+  %52 = icmp sgt i32 %10, 0
+  br i1 %52, label %53, label %112
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr @stderr, align 8
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.2, i32 noundef 256) #12
-  %60 = load ptr, ptr @stderr, align 8
-  %61 = tail call i32 @fflush(ptr noundef %60)
-  br label %116
+53:                                               ; preds = %51
+  %54 = load ptr, ptr @stderr, align 8
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.2, i32 noundef 256) #12
+  %56 = load ptr, ptr @stderr, align 8
+  %57 = tail call i32 @fflush(ptr noundef %56)
+  br label %112
 
-62:                                               ; preds = %53
-  %63 = zext nneg i32 %17 to i64
-  %64 = getelementptr inbounds [11 x %struct.FASTCOVER_accel_t], ptr @FASTCOVER_defaultAccelParameters, i64 0, i64 %63
-  %.sroa.0.0.copyload = load i64, ptr %64, align 8
-  %65 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %31, double noundef 1.000000e+00, i32 noundef %14, i64 %.sroa.0.0.copyload)
-  %66 = icmp ult i64 %65, -119
-  br i1 %66, label %75, label %67
+58:                                               ; preds = %49
+  %59 = zext nneg i32 %17 to i64
+  %60 = getelementptr inbounds [11 x %struct.FASTCOVER_accel_t], ptr @FASTCOVER_defaultAccelParameters, i64 0, i64 %59
+  %.sroa.0.0.copyload = load i64, ptr %60, align 8
+  %61 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.sroa.4.0.copyload, double noundef 1.000000e+00, i32 noundef %14, i64 %.sroa.0.0.copyload)
+  %62 = icmp ult i64 %61, -119
+  br i1 %62, label %71, label %63
 
-67:                                               ; preds = %62
-  %68 = load i32, ptr @g_displayLevel, align 4
-  %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %70, label %116
+63:                                               ; preds = %58
+  %64 = load i32, ptr @g_displayLevel, align 4
+  %65 = icmp sgt i32 %64, 0
+  br i1 %65, label %66, label %112
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr @stderr, align 8
-  %72 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 29, i64 1, ptr %71) #11
-  %73 = load ptr, ptr @stderr, align 8
-  %74 = tail call i32 @fflush(ptr noundef %73)
-  br label %116
+66:                                               ; preds = %63
+  %67 = load ptr, ptr @stderr, align 8
+  %68 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 29, i64 1, ptr %67) #11
+  %69 = load ptr, ptr @stderr, align 8
+  %70 = tail call i32 @fflush(ptr noundef %69)
+  br label %112
 
-75:                                               ; preds = %62
-  %76 = getelementptr inbounds i8, ptr %7, i64 48
-  %77 = load i64, ptr %76, align 8
-  %78 = load i32, ptr @g_displayLevel, align 4
-  tail call void @COVER_warnOnSmallCorpus(i64 noundef %1, i64 noundef %77, i32 noundef %78) #13
-  %79 = load i32, ptr @g_displayLevel, align 4
-  %80 = icmp sgt i32 %79, 1
-  br i1 %80, label %81, label %86
+71:                                               ; preds = %58
+  %72 = getelementptr inbounds i8, ptr %7, i64 48
+  %73 = load i64, ptr %72, align 8
+  %74 = load i32, ptr @g_displayLevel, align 4
+  tail call void @COVER_warnOnSmallCorpus(i64 noundef %1, i64 noundef %73, i32 noundef %74) #13
+  %75 = load i32, ptr @g_displayLevel, align 4
+  %76 = icmp sgt i32 %75, 1
+  br i1 %76, label %77, label %82
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr @stderr, align 8
-  %83 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 20, i64 1, ptr %82) #11
-  %84 = load ptr, ptr @stderr, align 8
-  %85 = tail call i32 @fflush(ptr noundef %84)
-  br label %86
+77:                                               ; preds = %71
+  %78 = load ptr, ptr @stderr, align 8
+  %79 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 20, i64 1, ptr %78) #11
+  %80 = load ptr, ptr @stderr, align 8
+  %81 = tail call i32 @fflush(ptr noundef %80)
+  br label %82
 
-86:                                               ; preds = %81, %75
-  %87 = zext nneg i32 %14 to i64
-  %88 = shl nuw nsw i64 1, %87
-  %89 = tail call noalias ptr @calloc(i64 noundef %88, i64 noundef 2) #14
-  %90 = getelementptr inbounds i8, ptr %7, i64 56
-  %91 = load ptr, ptr %90, align 8
-  %92 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %7, ptr noundef %91, ptr noundef %0, i64 noundef %1, i32 %33, i32 %31, ptr noundef %89)
-  %93 = getelementptr inbounds i8, ptr %7, i64 32
-  %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %7, i64 72
-  %96 = load i32, ptr %95, align 8
-  %97 = zext i32 %96 to i64
-  %98 = mul i64 %94, %97
-  %99 = udiv i64 %98, 100
-  %100 = trunc i64 %99 to i32
-  %101 = getelementptr inbounds i8, ptr %0, i64 %92
-  %102 = sub i64 %1, %92
-  %103 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef %0, i64 noundef %1, ptr noundef %101, i64 noundef %102, ptr noundef %2, ptr noundef %3, i32 noundef %100, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %24) #13
-  %104 = icmp ult i64 %103, -119
-  %105 = load i32, ptr @g_displayLevel, align 4
-  %106 = icmp sgt i32 %105, 1
-  %or.cond = select i1 %104, i1 %106, i1 false
-  br i1 %or.cond, label %107, label %113
+82:                                               ; preds = %77, %71
+  %83 = zext nneg i32 %14 to i64
+  %84 = shl nuw nsw i64 1, %83
+  %85 = tail call noalias ptr @calloc(i64 noundef %84, i64 noundef 2) #14
+  %86 = getelementptr inbounds i8, ptr %7, i64 56
+  %87 = load ptr, ptr %86, align 8
+  %88 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %7, ptr noundef %87, ptr noundef %0, i64 noundef %1, i32 %.sroa.0.0.copyload31, i32 %.sroa.4.0.copyload, ptr noundef %85)
+  %89 = getelementptr inbounds i8, ptr %7, i64 32
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %7, i64 72
+  %92 = load i32, ptr %91, align 8
+  %93 = zext i32 %92 to i64
+  %94 = mul i64 %90, %93
+  %95 = udiv i64 %94, 100
+  %96 = trunc i64 %95 to i32
+  %97 = getelementptr inbounds i8, ptr %0, i64 %88
+  %98 = sub i64 %1, %88
+  %99 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef %0, i64 noundef %1, ptr noundef %97, i64 noundef %98, ptr noundef %2, ptr noundef %3, i32 noundef %96, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %23) #13
+  %100 = icmp ult i64 %99, -119
+  %101 = load i32, ptr @g_displayLevel, align 4
+  %102 = icmp sgt i32 %101, 1
+  %or.cond = select i1 %100, i1 %102, i1 false
+  br i1 %or.cond, label %103, label %109
 
-107:                                              ; preds = %86
-  %108 = load ptr, ptr @stderr, align 8
-  %109 = trunc i64 %103 to i32
-  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.5, i32 noundef %109) #12
-  %111 = load ptr, ptr @stderr, align 8
-  %112 = tail call i32 @fflush(ptr noundef %111)
-  br label %113
+103:                                              ; preds = %82
+  %104 = load ptr, ptr @stderr, align 8
+  %105 = trunc i64 %99 to i32
+  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.5, i32 noundef %105) #12
+  %107 = load ptr, ptr @stderr, align 8
+  %108 = tail call i32 @fflush(ptr noundef %107)
+  br label %109
 
-113:                                              ; preds = %107, %86
-  tail call void @free(ptr noundef %91) #13
-  %114 = getelementptr inbounds i8, ptr %7, i64 8
-  %115 = load ptr, ptr %114, align 8
-  tail call void @free(ptr noundef %115) #13
-  tail call void @free(ptr noundef %89) #13
-  br label %116
+109:                                              ; preds = %103, %82
+  tail call void @free(ptr noundef %87) #13
+  %110 = getelementptr inbounds i8, ptr %7, i64 8
+  %111 = load ptr, ptr %110, align 8
+  tail call void @free(ptr noundef %111) #13
+  tail call void @free(ptr noundef %85) #13
+  br label %112
 
-116:                                              ; preds = %67, %70, %55, %57, %46, %48, %FASTCOVER_checkParameters.exit.thread, %39, %113
-  %.0 = phi i64 [ %103, %113 ], [ -42, %39 ], [ -42, %FASTCOVER_checkParameters.exit.thread ], [ -72, %48 ], [ -72, %46 ], [ -70, %57 ], [ -70, %55 ], [ %65, %70 ], [ %65, %67 ]
+112:                                              ; preds = %63, %66, %51, %53, %42, %44, %FASTCOVER_checkParameters.exit.thread, %35, %109
+  %.0 = phi i64 [ %99, %109 ], [ -42, %35 ], [ -42, %FASTCOVER_checkParameters.exit.thread ], [ -72, %44 ], [ -72, %42 ], [ -70, %53 ], [ -70, %51 ], [ %61, %66 ], [ %61, %63 ]
   ret i64 %.0
 }
 

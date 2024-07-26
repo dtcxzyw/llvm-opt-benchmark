@@ -43819,62 +43819,67 @@ _ZNSt15_Deque_iteratorIPN7rocksdb6DBImpl21ManualCompactionStateERS3_PS3_EppEv.ex
   %5 = load ptr, ptr %_M_start.i, align 8
   %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %_M_last4.i.i, align 8
   %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load <2 x ptr>, ptr %_M_last4.i.i, align 8
-  %7 = extractelement <2 x ptr> %6, i64 1
+  %7 = load ptr, ptr %_M_node5.i.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
+  %tobool.i = icmp ne ptr %3, null
+  %conv.neg.i = sext i1 %tobool.i to i64
+  %sub.i = add nsw i64 %sub.ptr.div.i, %conv.neg.i
+  %mul.i = shl nsw i64 %sub.i, 6
   %sub.ptr.lhs.cast3.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast4.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub5.i = sub i64 %sub.ptr.lhs.cast3.i, %sub.ptr.rhs.cast4.i
   %sub.ptr.div6.i = ashr exact i64 %sub.ptr.sub5.i, 3
+  %sub.ptr.lhs.cast8.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast9.i = ptrtoint ptr %5 to i64
+  %sub.ptr.sub10.i = sub i64 %sub.ptr.lhs.cast8.i, %sub.ptr.rhs.cast9.i
+  %sub.ptr.div11.i = ashr exact i64 %sub.ptr.sub10.i, 3
+  %add.i = add nsw i64 %sub.ptr.div11.i, %sub.ptr.div6.i
+  %add12.i = add i64 %add.i, %mul.i
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %_M_node.i.i9 = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load ptr, ptr %_M_node.i.i9, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
+  %tobool.i.i = icmp ne ptr %8, null
+  %conv.neg.i.i = sext i1 %tobool.i.i to i64
+  %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
+  %mul.i.i = shl nsw i64 %sub.i.i, 6
+  %9 = load ptr, ptr %_M_finish.i, align 8
   %_M_first.i.i10 = getelementptr inbounds i8, ptr %this, i64 56
-  %9 = load <2 x ptr>, ptr %_M_finish.i, align 8
-  %10 = insertelement <2 x ptr> poison, ptr %3, i64 0
-  %11 = insertelement <2 x ptr> %10, ptr %8, i64 1
-  %12 = ptrtoint <2 x ptr> %11 to <2 x i64>
-  %13 = insertelement <2 x i64> poison, i64 %sub.ptr.rhs.cast.i, i64 0
-  %14 = shufflevector <2 x i64> %13, <2 x i64> poison, <2 x i32> zeroinitializer
-  %15 = sub <2 x i64> %12, %14
-  %16 = ashr exact <2 x i64> %15, <i64 3, i64 3>
-  %17 = icmp ne <2 x ptr> %11, zeroinitializer
-  %18 = sext <2 x i1> %17 to <2 x i64>
-  %19 = add nsw <2 x i64> %16, %18
-  %20 = shl nsw <2 x i64> %19, <i64 6, i64 6>
-  %21 = shufflevector <2 x ptr> %6, <2 x ptr> %9, <2 x i32> <i32 0, i32 2>
-  %22 = ptrtoint <2 x ptr> %21 to <2 x i64>
-  %23 = insertelement <2 x ptr> %9, ptr %5, i64 0
-  %24 = ptrtoint <2 x ptr> %23 to <2 x i64>
-  %25 = sub <2 x i64> %22, %24
-  %26 = ashr exact <2 x i64> %25, <i64 3, i64 3>
-  %27 = shufflevector <2 x i64> %26, <2 x i64> poison, <2 x i32> <i32 poison, i32 0>
-  %28 = insertelement <2 x i64> %27, i64 %sub.ptr.div6.i, i64 0
-  %29 = add nsw <2 x i64> %26, %28
-  %30 = add <2 x i64> %29, %20
-  %31 = extractelement <2 x i64> %30, i64 1
-  %shr = lshr i64 %31, 1
-  %32 = extractelement <2 x i64> %30, i64 0
-  %cmp = icmp ult i64 %32, %shr
+  %10 = load ptr, ptr %_M_first.i.i10, align 8
+  %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
+  %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
+  %add.i.i = add nsw i64 %sub.ptr.div6.i.i, %sub.ptr.div11.i
+  %add12.i.i = add i64 %add.i.i, %mul.i.i
+  %shr = lshr i64 %add12.i.i, 1
+  %cmp = icmp ult i64 %add12.i, %shr
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNSt15_Deque_iteratorIPN7rocksdb6DBImpl21ManualCompactionStateERS3_PS3_EppEv.exit
   %cmp.i.i.not = icmp eq ptr %0, %5
-  %33 = extractelement <2 x ptr> %6, i64 0
   br i1 %cmp.i.i.not, label %if.end, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  %34 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !482
+  %11 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !482
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !485
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !488
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !488
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !488
-  %35 = insertelement <4 x ptr> poison, ptr %5, i64 0
-  %36 = insertelement <4 x ptr> %35, ptr %34, i64 1
-  %37 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %38 = shufflevector <4 x ptr> %36, <4 x ptr> %37, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x ptr> %38, ptr %agg.tmp.i.i.i, align 8, !noalias !491
+  store ptr %5, ptr %agg.tmp.i.i.i, align 8, !noalias !491
+  %_M_first.i.i25.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  store ptr %11, ptr %_M_first.i.i25.i.i, align 8, !noalias !491
+  %_M_last.i.i27.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
+  store ptr %6, ptr %_M_last.i.i27.i.i, align 8, !noalias !491
+  %_M_node.i.i29.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
+  store ptr %7, ptr %_M_node.i.i29.i.i, align 8, !noalias !491
   store ptr %0, ptr %agg.tmp1.i.i.i, align 8, !noalias !491
   %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
   store ptr %1, ptr %_M_first.i1.i.i.i, align 8, !noalias !491
@@ -43899,43 +43904,41 @@ if.then6:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then6, %if.then
-  %39 = phi ptr [ %.pre146, %if.then6 ], [ %33, %if.then ]
-  %40 = phi ptr [ %.pre145, %if.then6 ], [ %5, %if.then ]
-  %add.ptr.i43 = getelementptr inbounds i8, ptr %39, i64 -8
-  %cmp.not.i = icmp eq ptr %40, %add.ptr.i43
+  %12 = phi ptr [ %.pre146, %if.then6 ], [ %6, %if.then ]
+  %13 = phi ptr [ %.pre145, %if.then6 ], [ %5, %if.then ]
+  %add.ptr.i43 = getelementptr inbounds i8, ptr %12, i64 -8
+  %cmp.not.i = icmp eq ptr %13, %add.ptr.i43
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i44
 
 if.then.i44:                                      ; preds = %if.end
-  %incdec.ptr.i45 = getelementptr inbounds i8, ptr %40, i64 8
+  %incdec.ptr.i45 = getelementptr inbounds i8, ptr %13, i64 8
   br label %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE9pop_frontEv.exit
 
 if.else.i:                                        ; preds = %if.end
-  %41 = load ptr, ptr %_M_first3.i.i, align 8
-  call void @_ZdlPv(ptr noundef %41) #25
-  %42 = load ptr, ptr %_M_node5.i.i, align 8
-  %add.ptr.i.i48 = getelementptr inbounds i8, ptr %42, i64 8
+  %14 = load ptr, ptr %_M_first3.i.i, align 8
+  call void @_ZdlPv(ptr noundef %14) #25
+  %15 = load ptr, ptr %_M_node5.i.i, align 8
+  %add.ptr.i.i48 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %add.ptr.i.i48, ptr %_M_node5.i.i, align 8
-  %43 = load ptr, ptr %add.ptr.i.i48, align 8
-  store ptr %43, ptr %_M_first3.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %43, i64 512
+  %16 = load ptr, ptr %add.ptr.i.i48, align 8
+  store ptr %16, ptr %_M_first3.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %16, i64 512
   store ptr %add.ptr.i.i.i, ptr %_M_last4.i.i, align 8
   br label %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE9pop_frontEv.exit
 
 _ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE9pop_frontEv.exit: ; preds = %if.then.i44, %if.else.i
-  %44 = phi ptr [ %39, %if.then.i44 ], [ %add.ptr.i.i.i, %if.else.i ]
-  %storemerge.i = phi ptr [ %incdec.ptr.i45, %if.then.i44 ], [ %43, %if.else.i ]
+  %17 = phi ptr [ %12, %if.then.i44 ], [ %add.ptr.i.i.i, %if.else.i ]
+  %storemerge.i = phi ptr [ %incdec.ptr.i45, %if.then.i44 ], [ %16, %if.else.i ]
   store ptr %storemerge.i, ptr %_M_start.i, align 8
   br label %if.end17
 
 if.else:                                          ; preds = %_ZNSt15_Deque_iteratorIPN7rocksdb6DBImpl21ManualCompactionStateERS3_PS3_EppEv.exit
   %_M_last4.i.i53 = getelementptr inbounds i8, ptr %this, i64 64
-  %45 = extractelement <2 x ptr> %9, i64 0
-  %cmp.i.i56.not = icmp eq ptr %__next.sroa.0.0, %45
-  %46 = extractelement <2 x ptr> %9, i64 1
+  %cmp.i.i56.not = icmp eq ptr %__next.sroa.0.0, %9
   br i1 %cmp.i.i56.not, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %if.else
-  %47 = load ptr, ptr %_M_last4.i.i53, align 8, !noalias !494
+  %18 = load ptr, ptr %_M_last4.i.i53, align 8, !noalias !494
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i79), !noalias !497
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i76), !noalias !500
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i77), !noalias !500
@@ -43947,10 +43950,13 @@ if.then11:                                        ; preds = %if.else
   store ptr %__next.sroa.11.0, ptr %_M_last.i.i27.i.i90, align 8, !noalias !503
   %_M_node.i.i29.i.i91 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i76, i64 24
   store ptr %__next.sroa.16.0, ptr %_M_node.i.i29.i.i91, align 8, !noalias !503
-  %48 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %49 = insertelement <4 x ptr> %48, ptr %47, i64 2
-  %50 = insertelement <4 x ptr> %49, ptr %8, i64 3
-  store <4 x ptr> %50, ptr %agg.tmp1.i.i.i77, align 8, !noalias !503
+  store ptr %9, ptr %agg.tmp1.i.i.i77, align 8, !noalias !503
+  %_M_first.i1.i.i.i92 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i77, i64 8
+  store ptr %10, ptr %_M_first.i1.i.i.i92, align 8, !noalias !503
+  %_M_last.i3.i.i.i93 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i77, i64 16
+  store ptr %18, ptr %_M_last.i3.i.i.i93, align 8, !noalias !503
+  %_M_node.i5.i.i.i94 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i77, i64 24
+  store ptr %8, ptr %_M_node.i5.i.i.i94, align 8, !noalias !503
   store ptr %0, ptr %agg.tmp2.i.i.i78, align 8, !noalias !503
   %_M_first.i7.i.i.i95 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i78, i64 8
   store ptr %1, ptr %_M_first.i7.i.i.i95, align 8, !noalias !503
@@ -43968,25 +43974,25 @@ if.then11:                                        ; preds = %if.else
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then11, %if.else
-  %51 = phi ptr [ %.pre144, %if.then11 ], [ %46, %if.else ]
-  %52 = phi ptr [ %.pre, %if.then11 ], [ %45, %if.else ]
-  %cmp.not.i106 = icmp eq ptr %52, %51
+  %19 = phi ptr [ %.pre144, %if.then11 ], [ %10, %if.else ]
+  %20 = phi ptr [ %.pre, %if.then11 ], [ %9, %if.else ]
+  %cmp.not.i106 = icmp eq ptr %20, %19
   br i1 %cmp.not.i106, label %if.else.i110, label %if.then.i107
 
 if.then.i107:                                     ; preds = %if.end16
-  %incdec.ptr.i108 = getelementptr inbounds i8, ptr %52, i64 -8
+  %incdec.ptr.i108 = getelementptr inbounds i8, ptr %20, i64 -8
   br label %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE8pop_backEv.exit
 
 if.else.i110:                                     ; preds = %if.end16
-  call void @_ZdlPv(ptr noundef %51) #25
-  %53 = load ptr, ptr %_M_node.i.i9, align 8
-  %add.ptr.i.i112 = getelementptr inbounds i8, ptr %53, i64 -8
+  call void @_ZdlPv(ptr noundef %19) #25
+  %21 = load ptr, ptr %_M_node.i.i9, align 8
+  %add.ptr.i.i112 = getelementptr inbounds i8, ptr %21, i64 -8
   store ptr %add.ptr.i.i112, ptr %_M_node.i.i9, align 8
-  %54 = load ptr, ptr %add.ptr.i.i112, align 8
-  store ptr %54, ptr %_M_first.i.i10, align 8
-  %add.ptr.i.i.i113 = getelementptr inbounds i8, ptr %54, i64 512
+  %22 = load ptr, ptr %add.ptr.i.i112, align 8
+  store ptr %22, ptr %_M_first.i.i10, align 8
+  %add.ptr.i.i.i113 = getelementptr inbounds i8, ptr %22, i64 512
   store ptr %add.ptr.i.i.i113, ptr %_M_last4.i.i53, align 8
-  %add.ptr8.i.i = getelementptr inbounds i8, ptr %54, i64 504
+  %add.ptr8.i.i = getelementptr inbounds i8, ptr %22, i64 504
   br label %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE8pop_backEv.exit
 
 _ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE8pop_backEv.exit: ; preds = %if.then.i107, %if.else.i110
@@ -43997,22 +44003,22 @@ _ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE8pop_backEv.exit: ;
   br label %if.end17
 
 if.end17:                                         ; preds = %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE8pop_backEv.exit, %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE9pop_frontEv.exit
-  %55 = phi ptr [ %.pre148, %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE8pop_backEv.exit ], [ %44, %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE9pop_frontEv.exit ]
-  %56 = phi ptr [ %.pre147, %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE8pop_backEv.exit ], [ %storemerge.i, %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE9pop_frontEv.exit ]
-  %57 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !506
-  %58 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !506
+  %23 = phi ptr [ %.pre148, %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE8pop_backEv.exit ], [ %17, %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE9pop_frontEv.exit ]
+  %24 = phi ptr [ %.pre147, %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE8pop_backEv.exit ], [ %storemerge.i, %_ZNSt5dequeIPN7rocksdb6DBImpl21ManualCompactionStateESaIS3_EE9pop_frontEv.exit ]
+  %25 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !506
+  %26 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !506
   call void @llvm.experimental.noalias.scope.decl(metadata !509)
   %_M_first.i.i121 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %57, ptr %_M_first.i.i121, align 8, !alias.scope !509
+  store ptr %25, ptr %_M_first.i.i121, align 8, !alias.scope !509
   %_M_last.i.i123 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %55, ptr %_M_last.i.i123, align 8, !alias.scope !509
+  store ptr %23, ptr %_M_last.i.i123, align 8, !alias.scope !509
   %_M_node.i.i125 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %58, ptr %_M_node.i.i125, align 8, !alias.scope !509
-  %sub.ptr.lhs.cast.i.i127 = ptrtoint ptr %56 to i64
-  %sub.ptr.rhs.cast.i.i128 = ptrtoint ptr %57 to i64
+  store ptr %26, ptr %_M_node.i.i125, align 8, !alias.scope !509
+  %sub.ptr.lhs.cast.i.i127 = ptrtoint ptr %24 to i64
+  %sub.ptr.rhs.cast.i.i128 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i129 = sub i64 %sub.ptr.lhs.cast.i.i127, %sub.ptr.rhs.cast.i.i128
   %sub.ptr.div.i.i130 = ashr exact i64 %sub.ptr.sub.i.i129, 3
-  %add.i.i131 = add nsw i64 %sub.ptr.div.i.i130, %32
+  %add.i.i131 = add nsw i64 %sub.ptr.div.i.i130, %add12.i
   %cmp.i.i132 = icmp sgt i64 %add.i.i131, -1
   br i1 %cmp.i.i132, label %land.lhs.true.i.i, label %cond.false.i.i
 
@@ -44021,7 +44027,7 @@ land.lhs.true.i.i:                                ; preds = %if.end17
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i135 = getelementptr inbounds ptr, ptr %56, i64 %32
+  %add.ptr.i.i135 = getelementptr inbounds ptr, ptr %24, i64 %add12.i
   br label %_ZStplRKSt15_Deque_iteratorIPN7rocksdb6DBImpl21ManualCompactionStateERS3_PS3_El.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -44034,15 +44040,15 @@ cond.false.i.i:                                   ; preds = %if.end17
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
-  %add.ptr11.i.i = getelementptr inbounds ptr, ptr %58, i64 %cond.i.i
+  %add.ptr11.i.i = getelementptr inbounds ptr, ptr %26, i64 %cond.i.i
   store ptr %add.ptr11.i.i, ptr %_M_node.i.i125, align 8, !alias.scope !509
-  %59 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !509
-  store ptr %59, ptr %_M_first.i.i121, align 8, !alias.scope !509
-  %add.ptr.i.i.i133 = getelementptr inbounds i8, ptr %59, i64 512
+  %27 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !509
+  store ptr %27, ptr %_M_first.i.i121, align 8, !alias.scope !509
+  %add.ptr.i.i.i133 = getelementptr inbounds i8, ptr %27, i64 512
   store ptr %add.ptr.i.i.i133, ptr %_M_last.i.i123, align 8, !alias.scope !509
   %mul.i.i134 = shl nsw i64 %cond.i.i, 6
   %sub14.i.i = sub nsw i64 %add.i.i131, %mul.i.i134
-  %add.ptr15.i.i = getelementptr inbounds ptr, ptr %59, i64 %sub14.i.i
+  %add.ptr15.i.i = getelementptr inbounds ptr, ptr %27, i64 %sub14.i.i
   br label %_ZStplRKSt15_Deque_iteratorIPN7rocksdb6DBImpl21ManualCompactionStateERS3_PS3_El.exit
 
 _ZStplRKSt15_Deque_iteratorIPN7rocksdb6DBImpl21ManualCompactionStateERS3_PS3_El.exit: ; preds = %if.then.i.i, %cond.end.i.i

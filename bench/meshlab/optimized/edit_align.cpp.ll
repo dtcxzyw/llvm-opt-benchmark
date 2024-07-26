@@ -24003,20 +24003,20 @@ _ZNSt6vectorIiSaIiEED2Ev.exit78:                  ; preds = %_ZNSt6vectorIN3vcg8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg13GridStaticObjINS_13OccupancyGridI6CMeshOfE11MeshCounterEfE6CreateIfEEvRKNS_4Box3IT_EEiRKS4_b(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(256) %3, i1 noundef zeroext %4) local_unnamed_addr #15 comdat align 2 {
   %6 = alloca %"class.vcg::Point3.45", align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
-  %12 = getelementptr inbounds i8, ptr %1, i64 12
-  %13 = load float, ptr %1, align 4
-  store float %13, ptr %0, align 8
-  %14 = load float, ptr %7, align 4
-  store float %14, ptr %8, align 4
-  %15 = load float, ptr %9, align 4
-  store float %15, ptr %10, align 8
-  %16 = load float, ptr %12, align 4
-  store float %16, ptr %11, align 4
+  %7 = load float, ptr %1, align 4
+  store float %7, ptr %0, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = load float, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %9, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = load float, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store float %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = load float, ptr %15, align 4
+  store float %16, ptr %14, align 4
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load float, ptr %17, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 16
@@ -24025,12 +24025,12 @@ define linkonce_odr void @_ZN3vcg13GridStaticObjINS_13OccupancyGridI6CMeshOfE11M
   %21 = load float, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 20
   store float %21, ptr %22, align 4
-  br i1 %4, label %23, label %48
+  br i1 %4, label %23, label %39
 
 23:                                               ; preds = %5
-  %24 = fsub float %13, %16
-  %25 = fsub float %14, %18
-  %26 = fsub float %15, %21
+  %24 = fsub float %7, %16
+  %25 = fsub float %9, %18
+  %26 = fsub float %12, %21
   %27 = fmul float %25, %25
   %28 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %27)
   %29 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %28)
@@ -24038,103 +24038,97 @@ define linkonce_odr void @_ZN3vcg13GridStaticObjINS_13OccupancyGridI6CMeshOfE11M
   %30 = fpext float %sqrt.i.i.i to double
   %31 = fmul double %30, 1.000000e-02
   %32 = fptrunc double %31 to float
-  %33 = insertelement <4 x float> poison, float %13, i64 0
-  %34 = insertelement <4 x float> %33, float %14, i64 1
-  %35 = insertelement <4 x float> %34, float %15, i64 2
-  %36 = insertelement <4 x float> %35, float %16, i64 3
-  %37 = insertelement <4 x float> poison, float %32, i64 0
-  %38 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> zeroinitializer
-  %39 = fsub <4 x float> %36, %38
-  %40 = fadd <4 x float> %36, %38
-  %41 = shufflevector <4 x float> %39, <4 x float> %40, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
-  store <4 x float> %41, ptr %0, align 8
-  %42 = fadd float %18, %32
-  store float %42, ptr %19, align 8
-  %43 = fadd float %21, %32
-  store float %43, ptr %22, align 4
-  %44 = extractelement <4 x float> %39, i64 0
-  %45 = extractelement <4 x float> %39, i64 1
-  %46 = extractelement <4 x float> %39, i64 2
-  %47 = extractelement <4 x float> %40, i64 3
-  br label %48
+  %33 = fsub float %7, %32
+  store float %33, ptr %0, align 8
+  %34 = fsub float %9, %32
+  store float %34, ptr %10, align 4
+  %35 = fsub float %12, %32
+  store float %35, ptr %13, align 8
+  %36 = fadd float %16, %32
+  store float %36, ptr %14, align 4
+  %37 = fadd float %18, %32
+  store float %37, ptr %19, align 8
+  %38 = fadd float %21, %32
+  store float %38, ptr %22, align 4
+  br label %39
 
-48:                                               ; preds = %23, %5
-  %49 = phi float [ %46, %23 ], [ %15, %5 ]
-  %50 = phi float [ %43, %23 ], [ %21, %5 ]
-  %51 = phi float [ %45, %23 ], [ %14, %5 ]
-  %52 = phi float [ %42, %23 ], [ %18, %5 ]
-  %53 = phi float [ %44, %23 ], [ %13, %5 ]
-  %54 = phi float [ %47, %23 ], [ %16, %5 ]
-  %55 = fsub float %54, %53
-  %56 = fsub float %52, %51
-  %57 = fsub float %50, %49
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %55, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %56, i64 1
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %58, align 8
+39:                                               ; preds = %23, %5
+  %40 = phi float [ %35, %23 ], [ %12, %5 ]
+  %41 = phi float [ %38, %23 ], [ %21, %5 ]
+  %42 = phi float [ %34, %23 ], [ %9, %5 ]
+  %43 = phi float [ %37, %23 ], [ %18, %5 ]
+  %44 = phi float [ %33, %23 ], [ %7, %5 ]
+  %45 = phi float [ %36, %23 ], [ %16, %5 ]
+  %46 = fsub float %45, %44
+  %47 = fsub float %43, %42
+  %48 = fsub float %41, %40
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %46, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %47, i64 1
+  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %49, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store float %57, ptr %.sroa.22.0..sroa_idx, align 8
-  %59 = sext i32 %2 to i64
-  call void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 noundef %59, ptr noundef nonnull align 4 dereferenceable(12) %58, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  %60 = getelementptr inbounds i8, ptr %0, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %60, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
-  %61 = getelementptr inbounds i8, ptr %0, i64 48
-  %62 = load <2 x float>, ptr %58, align 8
-  %63 = load <2 x i32>, ptr %60, align 4
-  %64 = sitofp <2 x i32> %63 to <2 x float>
-  %65 = fdiv <2 x float> %62, %64
-  store <2 x float> %65, ptr %61, align 8
-  %66 = load float, ptr %.sroa.22.0..sroa_idx, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 44
-  %68 = load i32, ptr %67, align 4
-  %69 = sitofp i32 %68 to float
-  %70 = fdiv float %66, %69
-  %71 = getelementptr inbounds i8, ptr %0, i64 56
-  store float %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 64
-  %73 = load ptr, ptr %72, align 8
-  %.not.i = icmp eq ptr %73, null
-  %74 = extractelement <2 x i32> %63, i64 0
-  %75 = extractelement <2 x i32> %63, i64 1
-  br i1 %.not.i, label %78, label %76
+  store float %48, ptr %.sroa.22.0..sroa_idx, align 8
+  %50 = sext i32 %2 to i64
+  call void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 noundef %50, ptr noundef nonnull align 4 dereferenceable(12) %49, ptr noundef nonnull align 4 dereferenceable(12) %6)
+  %51 = getelementptr inbounds i8, ptr %0, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
+  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %53 = load <2 x float>, ptr %49, align 8
+  %54 = load <2 x i32>, ptr %51, align 4
+  %55 = sitofp <2 x i32> %54 to <2 x float>
+  %56 = fdiv <2 x float> %53, %55
+  store <2 x float> %56, ptr %52, align 8
+  %57 = load float, ptr %.sroa.22.0..sroa_idx, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 44
+  %59 = load i32, ptr %58, align 4
+  %60 = sitofp i32 %59 to float
+  %61 = fdiv float %57, %60
+  %62 = getelementptr inbounds i8, ptr %0, i64 56
+  store float %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 64
+  %64 = load ptr, ptr %63, align 8
+  %.not.i = icmp eq ptr %64, null
+  %65 = extractelement <2 x i32> %54, i64 0
+  %66 = extractelement <2 x i32> %54, i64 1
+  br i1 %.not.i, label %69, label %67
 
-76:                                               ; preds = %48
-  %77 = getelementptr inbounds i8, ptr %0, i64 40
-  call void @_ZdaPv(ptr noundef nonnull %73) #32
-  %.pre.i = load i32, ptr %60, align 4
-  %.pre5.i = load i32, ptr %77, align 8
-  %.pre6.i = load i32, ptr %67, align 4
-  br label %78
+67:                                               ; preds = %39
+  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  call void @_ZdaPv(ptr noundef nonnull %64) #32
+  %.pre.i = load i32, ptr %51, align 4
+  %.pre5.i = load i32, ptr %68, align 8
+  %.pre6.i = load i32, ptr %58, align 4
+  br label %69
 
-78:                                               ; preds = %76, %48
-  %79 = phi i32 [ %.pre6.i, %76 ], [ %68, %48 ]
-  %80 = phi i32 [ %.pre5.i, %76 ], [ %75, %48 ]
-  %81 = phi i32 [ %.pre.i, %76 ], [ %74, %48 ]
-  %82 = mul i32 %80, %79
-  %83 = mul i32 %82, %81
-  %84 = sext i32 %83 to i64
-  %85 = icmp slt i32 %83, 0
-  %86 = shl nsw i64 %84, 8
-  %87 = select i1 %85, i64 -1, i64 %86
-  %88 = call noalias noundef nonnull ptr @_Znam(i64 noundef %87) #35
-  %89 = icmp eq i32 %83, 0
-  br i1 %89, label %.loopexit.thread.i, label %.lr.ph.i.i.i.preheader.i
+69:                                               ; preds = %67, %39
+  %70 = phi i32 [ %.pre6.i, %67 ], [ %59, %39 ]
+  %71 = phi i32 [ %.pre5.i, %67 ], [ %66, %39 ]
+  %72 = phi i32 [ %.pre.i, %67 ], [ %65, %39 ]
+  %73 = mul i32 %71, %70
+  %74 = mul i32 %73, %72
+  %75 = sext i32 %74 to i64
+  %76 = icmp slt i32 %74, 0
+  %77 = shl nsw i64 %75, 8
+  %78 = select i1 %76, i64 -1, i64 %77
+  %79 = call noalias noundef nonnull ptr @_Znam(i64 noundef %78) #35
+  %80 = icmp eq i32 %74, 0
+  br i1 %80, label %.loopexit.thread.i, label %.lr.ph.i.i.i.preheader.i
 
-.loopexit.thread.i:                               ; preds = %78
-  store ptr %88, ptr %72, align 8
+.loopexit.thread.i:                               ; preds = %69
+  store ptr %79, ptr %63, align 8
   br label %_ZN3vcg13GridStaticObjINS_13OccupancyGridI6CMeshOfE11MeshCounterEfE6CreateERKNS_6Point3IiEERKS4_.exit
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %78
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %88, i8 0, i64 %86, i1 false)
-  store ptr %88, ptr %72, align 8
-  %90 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::MeshCounter", ptr %88, i64 %84
+.lr.ph.i.i.i.preheader.i:                         ; preds = %69
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %79, i8 0, i64 %77, i1 false)
+  store ptr %79, ptr %63, align 8
+  %81 = getelementptr inbounds %"class.vcg::OccupancyGrid<CMeshO, float>::MeshCounter", ptr %79, i64 %75
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.preheader.i
-  %.06.i.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i.i ], [ %88, %.lr.ph.i.i.i.preheader.i ]
+  %.06.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i ], [ %79, %.lr.ph.i.i.i.preheader.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %.06.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(256) %3, i64 256, i1 false)
-  %91 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 256
-  %.not.i.i.i.i = icmp eq ptr %91, %90
+  %82 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 256
+  %.not.i.i.i.i = icmp eq ptr %82, %81
   br i1 %.not.i.i.i.i, label %_ZN3vcg13GridStaticObjINS_13OccupancyGridI6CMeshOfE11MeshCounterEfE6CreateERKNS_6Point3IiEERKS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !570
 
 _ZN3vcg13GridStaticObjINS_13OccupancyGridI6CMeshOfE11MeshCounterEfE6CreateERKNS_6Point3IiEERKS4_.exit: ; preds = %.lr.ph.i.i.i.i, %.loopexit.thread.i

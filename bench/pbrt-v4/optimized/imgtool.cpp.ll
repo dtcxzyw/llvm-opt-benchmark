@@ -62135,60 +62135,69 @@ invoke.cont65:                                    ; preds = %invoke.cont65.loope
   store i64 %15, ptr %channelNames.i, align 8
   %ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 32
   %nAlloc.i.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 40
+  %nStored.i.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 48
+  %nStored3.i.i = getelementptr inbounds i8, ptr %newItem, i64 40
+  %16 = load i64, ptr %nStored3.i.i, align 8
+  store i64 %16, ptr %nStored.i.i, align 8
   %nAlloc5.i.i = getelementptr inbounds i8, ptr %newItem, i64 32
+  %17 = load i64, ptr %nAlloc5.i.i, align 8
+  store i64 %17, ptr %nAlloc.i.i, align 8
   %ptr7.i.i = getelementptr inbounds i8, ptr %newItem, i64 24
-  %16 = load ptr, ptr %ptr7.i.i, align 8
-  store ptr %16, ptr %ptr.i.i, align 8
-  %encoding4.i = getelementptr inbounds i8, ptr %newItem, i64 48
-  %17 = load <2 x i64>, ptr %nAlloc5.i.i, align 8
+  %18 = load ptr, ptr %ptr7.i.i, align 8
+  store ptr %18, ptr %ptr.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr7.i.i, i8 0, i64 24, i1 false)
-  %18 = load <2 x i64>, ptr %encoding4.i, align 8
-  %19 = shufflevector <2 x i64> %17, <2 x i64> %18, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i64> %19, ptr %nAlloc.i.i, align 8
+  %encoding.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 56
+  %encoding4.i = getelementptr inbounds i8, ptr %newItem, i64 48
+  %19 = load i64, ptr %encoding4.i, align 8
+  store i64 %19, ptr %encoding.i, align 8
+  %p8.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 64
+  %p85.i = getelementptr inbounds i8, ptr %newItem, i64 56
+  %20 = load i64, ptr %p85.i, align 8
+  store i64 %20, ptr %p8.i, align 8
   %ptr.i6.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 72
   %nAlloc.i7.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 80
   %nStored.i8.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 88
   %nStored3.i9.i = getelementptr inbounds i8, ptr %newItem, i64 80
   store i64 0, ptr %ptr.i6.i, align 8
-  %20 = load i64, ptr %nStored3.i9.i, align 8
-  store i64 %20, ptr %nStored.i8.i, align 8
+  %21 = load i64, ptr %nStored3.i9.i, align 8
+  store i64 %21, ptr %nStored.i8.i, align 8
   %nAlloc5.i10.i = getelementptr inbounds i8, ptr %newItem, i64 72
-  %21 = load i64, ptr %nAlloc5.i10.i, align 8
-  store i64 %21, ptr %nAlloc.i7.i, align 8
+  %22 = load i64, ptr %nAlloc5.i10.i, align 8
+  store i64 %22, ptr %nAlloc.i7.i, align 8
   %ptr7.i11.i = getelementptr inbounds i8, ptr %newItem, i64 64
-  %22 = load ptr, ptr %ptr7.i11.i, align 8
+  %23 = load ptr, ptr %ptr7.i11.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr7.i11.i, i8 0, i64 24, i1 false)
   %p16.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 96
   %p167.i = getelementptr inbounds i8, ptr %newItem, i64 88
-  %23 = load i64, ptr %p167.i, align 8
-  store i64 %23, ptr %p16.i, align 8
+  %24 = load i64, ptr %p167.i, align 8
+  store i64 %24, ptr %p16.i, align 8
   %ptr.i12.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 104
   %nAlloc.i13.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 112
   %nStored.i14.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 120
   %nStored3.i15.i = getelementptr inbounds i8, ptr %newItem, i64 112
   store i64 0, ptr %ptr.i12.i, align 8
-  %24 = load i64, ptr %nStored3.i15.i, align 8
-  store i64 %24, ptr %nStored.i14.i, align 8
+  %25 = load i64, ptr %nStored3.i15.i, align 8
+  store i64 %25, ptr %nStored.i14.i, align 8
   %nAlloc5.i16.i = getelementptr inbounds i8, ptr %newItem, i64 104
-  %25 = load i64, ptr %nAlloc5.i16.i, align 8
-  store i64 %25, ptr %nAlloc.i13.i, align 8
+  %26 = load i64, ptr %nAlloc5.i16.i, align 8
+  store i64 %26, ptr %nAlloc.i13.i, align 8
   %ptr7.i17.i = getelementptr inbounds i8, ptr %newItem, i64 96
-  %26 = load ptr, ptr %ptr7.i17.i, align 8
+  %27 = load ptr, ptr %ptr7.i17.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr7.i17.i, i8 0, i64 24, i1 false)
   %p32.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 128
   %p3210.i = getelementptr inbounds i8, ptr %newItem, i64 120
-  %27 = load i64, ptr %p3210.i, align 8
-  store i64 %27, ptr %p32.i, align 8
+  %28 = load i64, ptr %p3210.i, align 8
+  store i64 %28, ptr %p32.i, align 8
   %ptr.i18.i = getelementptr inbounds i8, ptr %ref.tmp62, i64 136
   %nAlloc5.i22.i = getelementptr inbounds i8, ptr %newItem, i64 136
-  %28 = load <2 x i64>, ptr %nAlloc5.i22.i, align 8
+  %29 = load <2 x i64>, ptr %nAlloc5.i22.i, align 8
   %ptr7.i23.i = getelementptr inbounds i8, ptr %newItem, i64 128
-  %29 = load ptr, ptr %ptr7.i23.i, align 8
+  %30 = load ptr, ptr %ptr7.i23.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr7.i23.i, i8 0, i64 24, i1 false)
   %add.ptr.i52 = getelementptr inbounds %"class.pstd::optional.217", ptr %9, i64 %conv67.pre-phi
   %set.i.i53 = getelementptr inbounds i8, ptr %add.ptr.i52, i64 160
-  %30 = load i8, ptr %set.i.i53, align 8
-  %tobool.i.i54 = trunc i8 %30 to i1
+  %31 = load i8, ptr %set.i.i53, align 8
+  %tobool.i.i54 = trunc i8 %31 to i1
   br i1 %tobool.i.i54, label %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS1_5ImageEE5EntryEE5valueEv.exit.i.i, label %invoke.cont70
 
 _ZN4pstd8optionalIN4pbrt11ThreadLocalINS1_5ImageEE5EntryEE5valueEv.exit.i.i: ; preds = %invoke.cont65
@@ -62206,48 +62215,44 @@ invoke.cont70:                                    ; preds = %_ZN4pstd8optionalIN
   %ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 32
   %nAlloc.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 40
   %nStored.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 48
-  %31 = extractelement <2 x i64> %17, i64 1
-  store i64 %31, ptr %nStored.i.i.i.i, align 8
-  %32 = extractelement <2 x i64> %17, i64 0
-  store i64 %32, ptr %nAlloc.i.i.i.i, align 8
-  store ptr %16, ptr %ptr.i.i.i.i, align 8
+  store i64 %16, ptr %nStored.i.i.i.i, align 8
+  store i64 %17, ptr %nAlloc.i.i.i.i, align 8
+  store ptr %18, ptr %ptr.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i, i8 0, i64 24, i1 false)
   %encoding.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 56
-  %33 = extractelement <2 x i64> %18, i64 0
-  store i64 %33, ptr %encoding.i.i.i, align 8
+  store i64 %19, ptr %encoding.i.i.i, align 8
   %p8.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 64
-  %34 = extractelement <2 x i64> %18, i64 1
-  store i64 %34, ptr %p8.i.i.i, align 8
+  store i64 %20, ptr %p8.i.i.i, align 8
   %ptr.i6.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 72
   %nAlloc.i7.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 80
   %nStored.i8.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 88
-  store i64 %20, ptr %nStored.i8.i.i.i, align 8
-  store i64 %21, ptr %nAlloc.i7.i.i.i, align 8
-  store ptr %22, ptr %ptr.i6.i.i.i, align 8
+  store i64 %21, ptr %nStored.i8.i.i.i, align 8
+  store i64 %22, ptr %nAlloc.i7.i.i.i, align 8
+  store ptr %23, ptr %ptr.i6.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i6.i, i8 0, i64 24, i1 false)
   %p16.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 96
-  store i64 %23, ptr %p16.i.i.i, align 8
+  store i64 %24, ptr %p16.i.i.i, align 8
   %ptr.i12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 104
   %nAlloc.i13.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 112
   %nStored.i14.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 120
-  store i64 %24, ptr %nStored.i14.i.i.i, align 8
-  store i64 %25, ptr %nAlloc.i13.i.i.i, align 8
-  store ptr %26, ptr %ptr.i12.i.i.i, align 8
+  store i64 %25, ptr %nStored.i14.i.i.i, align 8
+  store i64 %26, ptr %nAlloc.i13.i.i.i, align 8
+  store ptr %27, ptr %ptr.i12.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i12.i, i8 0, i64 24, i1 false)
   %p32.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 128
-  store i64 %27, ptr %p32.i.i.i, align 8
+  store i64 %28, ptr %p32.i.i.i, align 8
   %ptr.i18.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 136
   %nAlloc.i19.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i52, i64 144
-  store <2 x i64> %28, ptr %nAlloc.i19.i.i.i, align 8
-  store ptr %29, ptr %ptr.i18.i.i.i, align 8
+  store <2 x i64> %29, ptr %nAlloc.i19.i.i.i, align 8
+  store ptr %30, ptr %ptr.i18.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i18.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %set.i.i53, align 8
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %value64) #32
-  %35 = load ptr, ptr %hashTable, align 8
-  %add.ptr.i55 = getelementptr inbounds %"class.pstd::optional.217", ptr %35, i64 %conv67.pre-phi
+  %32 = load ptr, ptr %hashTable, align 8
+  %add.ptr.i55 = getelementptr inbounds %"class.pstd::optional.217", ptr %32, i64 %conv67.pre-phi
   %set.i.i56 = getelementptr inbounds i8, ptr %add.ptr.i55, i64 160
-  %36 = load i8, ptr %set.i.i56, align 8
-  %tobool.i.i57 = trunc i8 %36 to i1
+  %33 = load i8, ptr %set.i.i56, align 8
+  %tobool.i.i57 = trunc i8 %33 to i1
   br i1 %tobool.i.i57, label %invoke.cont80, label %land.rhs.i.i58
 
 land.rhs.i.i58:                                   ; preds = %invoke.cont70
@@ -62275,8 +62280,8 @@ if.then89:                                        ; preds = %if.end82
 
 if.end95:                                         ; preds = %if.then89, %if.end82
   %hash.4 = phi i32 [ %rem9372, %if.then89 ], [ %add83, %if.end82 ]
-  %37 = trunc nuw i64 %indvars.iv.next to i32
-  store i32 %37, ptr %va, align 4
+  %34 = trunc nuw i64 %indvars.iv.next to i32
+  store i32 %34, ptr %va, align 4
   store i64 %sub.ptr.div.i23, ptr %vb, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %sub.ptr.div.i23
   br i1 %exitcond.not, label %if.then, label %do.end, !llvm.loop !320

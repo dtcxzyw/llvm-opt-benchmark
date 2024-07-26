@@ -1825,25 +1825,32 @@ define hidden void @"_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$a
 
 "_ZN103_$LT$rayon..iter..map..MapConsumer$LT$C$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h2fd87457f2aff622E.llvm.14223331465801898566.exit": ; preds = %3
   %.sroa.68.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.68.0.copyload = load ptr, ptr %.sroa.68.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.46.0.copyload = load ptr, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.05.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %5 = sub nuw i64 %.sroa.57.0.copyload, %2
+  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !162, !noundef !4
   store ptr %.sroa.05.0.copyload, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.46.0.copyload, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %.sroa.68.0.copyload, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %.sroa.05.0.copyload, ptr %8, align 8
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %.sroa.46.0.copyload, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %5, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
-  %6 = load <2 x ptr>, ptr %.sroa.68.0..sroa_idx, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %8 = insertelement <4 x ptr> %7, ptr %.sroa.05.0.copyload, i64 2
-  %9 = insertelement <4 x ptr> %8, ptr %.sroa.46.0.copyload, i64 3
-  store <4 x ptr> %9, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  store <2 x ptr> %6, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
+  store ptr %.sroa.68.0.copyload, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %7, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
 }
 

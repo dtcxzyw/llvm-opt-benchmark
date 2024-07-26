@@ -2773,62 +2773,71 @@ switch.lookup:                                    ; preds = %invoke.cont88
   store i64 %40, ptr %channelNames.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 40
   %nAlloc.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 48
+  %nStored.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 56
+  %nStored3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 40
+  %41 = load i64, ptr %nStored3.i.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %41, ptr %nStored.i.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %nAlloc5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 32
+  %42 = load i64, ptr %nAlloc5.i.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %42, ptr %nAlloc.i.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %ptr7.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 24
-  %41 = load ptr, ptr %ptr7.i.i.i.i.i.i.i.i, align 8, !noalias !93
-  store ptr %41, ptr %ptr.i.i.i.i.i.i.i.i, align 8, !alias.scope !93
-  %encoding4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 48
-  %42 = load <2 x i64>, ptr %nAlloc5.i.i.i.i.i.i.i.i, align 8, !noalias !93
+  %43 = load ptr, ptr %ptr7.i.i.i.i.i.i.i.i, align 8, !noalias !93
+  store ptr %43, ptr %ptr.i.i.i.i.i.i.i.i, align 8, !alias.scope !93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr7.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !93
-  %43 = load <2 x i64>, ptr %encoding4.i.i.i.i.i.i.i, align 8, !noalias !93
-  %44 = shufflevector <2 x i64> %42, <2 x i64> %43, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i64> %44, ptr %nAlloc.i.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %encoding.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 64
+  %encoding4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 48
+  %44 = load i64, ptr %encoding4.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %44, ptr %encoding.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %p8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 72
+  %p85.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 56
+  %45 = load i64, ptr %p85.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %45, ptr %p8.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %ptr.i6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 80
   %nAlloc.i7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 88
   %nStored.i8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 96
   %nStored3.i9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 80
-  %45 = load i64, ptr %nStored3.i9.i.i.i.i.i.i.i, align 8, !noalias !93
-  store i64 %45, ptr %nStored.i8.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %46 = load i64, ptr %nStored3.i9.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %46, ptr %nStored.i8.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %nAlloc5.i10.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 72
-  %46 = load i64, ptr %nAlloc5.i10.i.i.i.i.i.i.i, align 8, !noalias !93
-  store i64 %46, ptr %nAlloc.i7.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %47 = load i64, ptr %nAlloc5.i10.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %47, ptr %nAlloc.i7.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %ptr7.i11.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 64
-  %47 = load ptr, ptr %ptr7.i11.i.i.i.i.i.i.i, align 8, !noalias !93
-  store ptr %47, ptr %ptr.i6.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %48 = load ptr, ptr %ptr7.i11.i.i.i.i.i.i.i, align 8, !noalias !93
+  store ptr %48, ptr %ptr.i6.i.i.i.i.i.i.i, align 8, !alias.scope !93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr7.i11.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !93
   %p16.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 104
   %p167.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 88
-  %48 = load i64, ptr %p167.i.i.i.i.i.i.i, align 8, !noalias !93
-  store i64 %48, ptr %p16.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %49 = load i64, ptr %p167.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %49, ptr %p16.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %ptr.i12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 112
   %nAlloc.i13.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 120
   %nStored.i14.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 128
   %nStored3.i15.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 112
-  %49 = load i64, ptr %nStored3.i15.i.i.i.i.i.i.i, align 8, !noalias !93
-  store i64 %49, ptr %nStored.i14.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %50 = load i64, ptr %nStored3.i15.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %50, ptr %nStored.i14.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %nAlloc5.i16.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 104
-  %50 = load i64, ptr %nAlloc5.i16.i.i.i.i.i.i.i, align 8, !noalias !93
-  store i64 %50, ptr %nAlloc.i13.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %51 = load i64, ptr %nAlloc5.i16.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %51, ptr %nAlloc.i13.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %ptr7.i17.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 96
-  %51 = load ptr, ptr %ptr7.i17.i.i.i.i.i.i.i, align 8, !noalias !93
-  store ptr %51, ptr %ptr.i12.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %52 = load ptr, ptr %ptr7.i17.i.i.i.i.i.i.i, align 8, !noalias !93
+  store ptr %52, ptr %ptr.i12.i.i.i.i.i.i.i, align 8, !alias.scope !93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr7.i17.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !93
   %p32.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 136
   %p3210.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 120
-  %52 = load i64, ptr %p3210.i.i.i.i.i.i.i, align 8, !noalias !93
-  store i64 %52, ptr %p32.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %53 = load i64, ptr %p3210.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %53, ptr %p32.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %ptr.i18.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 144
   %nAlloc.i19.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 152
   %nStored.i20.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 160
   %nStored3.i21.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 144
-  %53 = load i64, ptr %nStored3.i21.i.i.i.i.i.i.i, align 8, !noalias !93
-  store i64 %53, ptr %nStored.i20.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %54 = load i64, ptr %nStored3.i21.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %54, ptr %nStored.i20.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %nAlloc5.i22.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 136
-  %54 = load i64, ptr %nAlloc5.i22.i.i.i.i.i.i.i, align 8, !noalias !93
-  store i64 %54, ptr %nAlloc.i19.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %55 = load i64, ptr %nAlloc5.i22.i.i.i.i.i.i.i, align 8, !noalias !93
+  store i64 %55, ptr %nAlloc.i19.i.i.i.i.i.i.i, align 8, !alias.scope !93
   %ptr7.i23.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 128
-  %55 = load ptr, ptr %ptr7.i23.i.i.i.i.i.i.i, align 8, !noalias !93
-  store ptr %55, ptr %ptr.i18.i.i.i.i.i.i.i, align 8, !alias.scope !93
+  %56 = load ptr, ptr %ptr7.i23.i.i.i.i.i.i.i, align 8, !noalias !93
+  store ptr %56, ptr %ptr.i18.i.i.i.i.i.i.i, align 8, !alias.scope !93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr7.i23.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !93
   %call.i31 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #23
           to label %invoke.cont.i unwind label %lpad.i32
@@ -2840,40 +2849,45 @@ invoke.cont.i:                                    ; preds = %switch.lookup
 _ZNSt8functionIFivEED2Ev.exit.i:                  ; preds = %invoke.cont.i
   %_M_bound_args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 8
   store i32 %frameNumber.val, ptr %_M_bound_args.i.i.i.i.i, align 4
-  %56 = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %56, ptr noundef nonnull align 8 dereferenceable(12) %image, i64 12, i1 false)
+  %57 = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %57, ptr noundef nonnull align 8 dereferenceable(12) %image, i64 12, i1 false)
   %channelNames.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 32
   store i64 %40, ptr %channelNames.i.i.i.i.i.i.i.i.i, align 8
   %ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 40
   %nAlloc.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 48
-  store ptr %41, ptr %ptr.i.i.i.i.i.i.i.i.i.i, align 8
+  %nStored.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 56
+  store i64 %41, ptr %nStored.i.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %42, ptr %nAlloc.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %43, ptr %ptr.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %57 = shufflevector <2 x i64> %42, <2 x i64> %43, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i64> %57, ptr %nAlloc.i.i.i.i.i.i.i.i.i.i, align 8
+  %encoding.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 64
+  store i64 %44, ptr %encoding.i.i.i.i.i.i.i.i.i, align 8
+  %p8.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 72
+  store i64 %45, ptr %p8.i.i.i.i.i.i.i.i.i, align 8
   %ptr.i6.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 80
   %nAlloc.i7.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 88
   %nStored.i8.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 96
-  store i64 %45, ptr %nStored.i8.i.i.i.i.i.i.i.i.i, align 8
-  store i64 %46, ptr %nAlloc.i7.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %47, ptr %ptr.i6.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %46, ptr %nStored.i8.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %47, ptr %nAlloc.i7.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %48, ptr %ptr.i6.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i6.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %p16.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 104
-  store i64 %48, ptr %p16.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %49, ptr %p16.i.i.i.i.i.i.i.i.i, align 8
   %ptr.i12.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 112
   %nAlloc.i13.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 120
   %nStored.i14.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 128
-  store i64 %49, ptr %nStored.i14.i.i.i.i.i.i.i.i.i, align 8
-  store i64 %50, ptr %nAlloc.i13.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %51, ptr %ptr.i12.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %50, ptr %nStored.i14.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %51, ptr %nAlloc.i13.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %52, ptr %ptr.i12.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i12.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %p32.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 136
-  store i64 %52, ptr %p32.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %53, ptr %p32.i.i.i.i.i.i.i.i.i, align 8
   %ptr.i18.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 144
   %nAlloc.i19.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 152
   %nStored.i20.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i4.i, i64 160
-  store i64 %53, ptr %nStored.i20.i.i.i.i.i.i.i.i.i, align 8
-  store i64 %54, ptr %nAlloc.i19.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %55, ptr %ptr.i18.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %54, ptr %nStored.i20.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %55, ptr %nAlloc.i19.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %56, ptr %ptr.i18.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i18.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %activeWorkers.i.i.i = getelementptr inbounds i8, ptr %call.i31, i64 8
   store i32 0, ptr %activeWorkers.i.i.i, align 8

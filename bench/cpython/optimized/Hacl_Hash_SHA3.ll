@@ -345,16 +345,19 @@ entry:
   %arrayidx96 = getelementptr i8, ptr %s, i64 152
   %arrayidx99 = getelementptr i8, ptr %s, i64 192
   %.pre = load i64, ptr %s, align 8
+  %.pre501 = load i64, ptr %arrayidx3, align 8
   %.pre502 = load i64, ptr %arrayidx6, align 8
   %.pre503 = load i64, ptr %arrayidx9, align 8
   %.pre504 = load i64, ptr %arrayidx12, align 8
+  %.pre505 = load i64, ptr %arrayidx24, align 8
   %.pre506 = load i64, ptr %arrayidx27, align 8
   %.pre507 = load i64, ptr %arrayidx30, align 8
   %.pre508 = load i64, ptr %arrayidx33, align 8
+  %.pre509 = load i64, ptr %arrayidx46, align 8
   %.pre510 = load i64, ptr %arrayidx49, align 8
   %.pre511 = load i64, ptr %arrayidx52, align 8
   %.pre512 = load i64, ptr %arrayidx55, align 8
-  %0 = load <4 x i64>, ptr %arrayidx3, align 8
+  %.pre513 = load i64, ptr %arrayidx68, align 8
   %.pre514 = load i64, ptr %arrayidx71, align 8
   %.pre515 = load i64, ptr %arrayidx74, align 8
   %.pre516 = load i64, ptr %arrayidx77, align 8
@@ -365,82 +368,81 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %do.body459
-  %1 = phi i64 [ %.pre520, %entry ], [ %xor937, %do.body459 ]
-  %2 = phi i64 [ %.pre519, %entry ], [ %xor836, %do.body459 ]
-  %3 = phi i64 [ %.pre518, %entry ], [ %xor735, %do.body459 ]
-  %4 = phi i64 [ %.pre517, %entry ], [ %xor634, %do.body459 ]
-  %5 = phi i64 [ %.pre516, %entry ], [ %xor921, %do.body459 ]
-  %6 = phi i64 [ %.pre515, %entry ], [ %xor820, %do.body459 ]
-  %7 = phi i64 [ %.pre514, %entry ], [ %xor719, %do.body459 ]
+  %0 = phi i64 [ %.pre520, %entry ], [ %xor937, %do.body459 ]
+  %1 = phi i64 [ %.pre519, %entry ], [ %xor836, %do.body459 ]
+  %2 = phi i64 [ %.pre518, %entry ], [ %xor735, %do.body459 ]
+  %3 = phi i64 [ %.pre517, %entry ], [ %xor634, %do.body459 ]
+  %4 = phi i64 [ %.pre516, %entry ], [ %xor921, %do.body459 ]
+  %5 = phi i64 [ %.pre515, %entry ], [ %xor820, %do.body459 ]
+  %6 = phi i64 [ %.pre514, %entry ], [ %xor719, %do.body459 ]
+  %7 = phi i64 [ %.pre513, %entry ], [ %xor618, %do.body459 ]
   %8 = phi i64 [ %.pre512, %entry ], [ %xor905, %do.body459 ]
   %9 = phi i64 [ %.pre511, %entry ], [ %xor804, %do.body459 ]
   %10 = phi i64 [ %.pre510, %entry ], [ %xor703, %do.body459 ]
-  %11 = phi i64 [ %.pre508, %entry ], [ %xor889, %do.body459 ]
-  %12 = phi i64 [ %.pre507, %entry ], [ %xor788, %do.body459 ]
-  %13 = phi i64 [ %.pre506, %entry ], [ %xor687, %do.body459 ]
-  %14 = phi i64 [ %.pre504, %entry ], [ %xor873, %do.body459 ]
-  %15 = phi i64 [ %.pre503, %entry ], [ %xor772, %do.body459 ]
-  %16 = phi i64 [ %.pre502, %entry ], [ %xor671, %do.body459 ]
-  %17 = phi i64 [ %.pre, %entry ], [ %xor963, %do.body459 ]
+  %11 = phi i64 [ %.pre509, %entry ], [ %xor602, %do.body459 ]
+  %12 = phi i64 [ %.pre508, %entry ], [ %xor889, %do.body459 ]
+  %13 = phi i64 [ %.pre507, %entry ], [ %xor788, %do.body459 ]
+  %14 = phi i64 [ %.pre506, %entry ], [ %xor687, %do.body459 ]
+  %15 = phi i64 [ %.pre505, %entry ], [ %xor586, %do.body459 ]
+  %16 = phi i64 [ %.pre504, %entry ], [ %xor873, %do.body459 ]
+  %17 = phi i64 [ %.pre503, %entry ], [ %xor772, %do.body459 ]
+  %18 = phi i64 [ %.pre502, %entry ], [ %xor671, %do.body459 ]
+  %19 = phi i64 [ %.pre501, %entry ], [ %xor570, %do.body459 ]
+  %20 = phi i64 [ %.pre, %entry ], [ %xor963, %do.body459 ]
   %indvars.iv497 = phi i64 [ 0, %entry ], [ %indvars.iv.next498, %do.body459 ]
-  %18 = phi <4 x i64> [ %0, %entry ], [ %49, %do.body459 ]
-  %19 = extractelement <4 x i64> %18, i64 0
-  %xor = xor i64 %19, %17
-  %xor13 = xor i64 %xor, %16
-  %xor14 = xor i64 %xor13, %15
-  %xor15 = xor i64 %xor14, %14
-  %20 = load i64, ptr %arrayidx21, align 8
-  %21 = extractelement <4 x i64> %18, i64 1
-  %xor34 = xor i64 %21, %20
-  %xor35 = xor i64 %xor34, %13
-  %xor36 = xor i64 %xor35, %12
-  %xor37 = xor i64 %xor36, %11
+  %xor = xor i64 %19, %20
+  %xor13 = xor i64 %xor, %18
+  %xor14 = xor i64 %xor13, %17
+  %xor15 = xor i64 %xor14, %16
+  %21 = load i64, ptr %arrayidx21, align 8
+  %xor34 = xor i64 %15, %21
+  %xor35 = xor i64 %xor34, %14
+  %xor36 = xor i64 %xor35, %13
+  %xor37 = xor i64 %xor36, %12
   %22 = load i64, ptr %arrayidx43, align 8
-  %23 = extractelement <4 x i64> %18, i64 2
-  %xor56 = xor i64 %23, %22
+  %xor56 = xor i64 %11, %22
   %xor57 = xor i64 %xor56, %10
   %xor58 = xor i64 %xor57, %9
   %xor59 = xor i64 %xor58, %8
-  %24 = load i64, ptr %arrayidx65, align 8
-  %25 = extractelement <4 x i64> %18, i64 3
-  %xor78 = xor i64 %25, %24
-  %xor79 = xor i64 %xor78, %7
-  %xor80 = xor i64 %xor79, %6
-  %xor81 = xor i64 %xor80, %5
-  %26 = load i64, ptr %arrayidx87, align 8
-  %xor100 = xor i64 %4, %26
-  %xor101 = xor i64 %xor100, %3
-  %xor102 = xor i64 %xor101, %2
-  %xor103 = xor i64 %xor102, %1
+  %23 = load i64, ptr %arrayidx65, align 8
+  %xor78 = xor i64 %7, %23
+  %xor79 = xor i64 %xor78, %6
+  %xor80 = xor i64 %xor79, %5
+  %xor81 = xor i64 %xor80, %4
+  %24 = load i64, ptr %arrayidx87, align 8
+  %xor100 = xor i64 %3, %24
+  %xor101 = xor i64 %xor100, %2
+  %xor102 = xor i64 %xor101, %1
+  %xor103 = xor i64 %xor102, %0
   %or = tail call i64 @llvm.fshl.i64(i64 %xor37, i64 %xor37, i64 1)
   %xor115 = xor i64 %xor103, %or
-  %xor121 = xor i64 %xor115, %17
+  %xor121 = xor i64 %xor115, %20
   store i64 %xor121, ptr %s, align 8
   %xor131 = xor i64 %xor115, %19
   store i64 %xor131, ptr %arrayidx3, align 8
-  %xor141 = xor i64 %xor115, %16
+  %xor141 = xor i64 %xor115, %18
   store i64 %xor141, ptr %arrayidx6, align 8
-  %xor151 = xor i64 %xor115, %15
+  %xor151 = xor i64 %xor115, %17
   store i64 %xor151, ptr %arrayidx9, align 8
-  %xor161 = xor i64 %xor115, %14
+  %xor161 = xor i64 %xor115, %16
   store i64 %xor161, ptr %arrayidx12, align 8
   %or181 = tail call i64 @llvm.fshl.i64(i64 %xor59, i64 %xor59, i64 1)
   %xor182 = xor i64 %or181, %xor15
-  %xor189 = xor i64 %xor182, %20
+  %xor189 = xor i64 %xor182, %21
   store i64 %xor189, ptr %arrayidx21, align 8
-  %xor199 = xor i64 %xor182, %21
+  %xor199 = xor i64 %xor182, %15
   store i64 %xor199, ptr %arrayidx24, align 8
-  %xor209 = xor i64 %xor182, %13
+  %xor209 = xor i64 %xor182, %14
   store i64 %xor209, ptr %arrayidx27, align 8
-  %xor219 = xor i64 %xor182, %12
+  %xor219 = xor i64 %xor182, %13
   store i64 %xor219, ptr %arrayidx30, align 8
-  %xor229 = xor i64 %xor182, %11
+  %xor229 = xor i64 %xor182, %12
   store i64 %xor229, ptr %arrayidx33, align 8
   %or249 = tail call i64 @llvm.fshl.i64(i64 %xor81, i64 %xor81, i64 1)
   %xor250 = xor i64 %or249, %xor37
   %xor257 = xor i64 %xor250, %22
   store i64 %xor257, ptr %arrayidx43, align 8
-  %xor267 = xor i64 %xor250, %23
+  %xor267 = xor i64 %xor250, %11
   store i64 %xor267, ptr %arrayidx46, align 8
   %xor277 = xor i64 %xor250, %10
   store i64 %xor277, ptr %arrayidx49, align 8
@@ -450,43 +452,43 @@ for.body:                                         ; preds = %entry, %do.body459
   store i64 %xor297, ptr %arrayidx55, align 8
   %or317 = tail call i64 @llvm.fshl.i64(i64 %xor103, i64 %xor103, i64 1)
   %xor318 = xor i64 %or317, %xor59
-  %xor325 = xor i64 %xor318, %24
+  %xor325 = xor i64 %xor318, %23
   store i64 %xor325, ptr %arrayidx65, align 8
-  %xor335 = xor i64 %xor318, %25
+  %xor335 = xor i64 %xor318, %7
   store i64 %xor335, ptr %arrayidx68, align 8
-  %xor345 = xor i64 %xor318, %7
+  %xor345 = xor i64 %xor318, %6
   store i64 %xor345, ptr %arrayidx71, align 8
-  %xor355 = xor i64 %xor318, %6
+  %xor355 = xor i64 %xor318, %5
   store i64 %xor355, ptr %arrayidx74, align 8
-  %xor365 = xor i64 %xor318, %5
+  %xor365 = xor i64 %xor318, %4
   store i64 %xor365, ptr %arrayidx77, align 8
   %or385 = tail call i64 @llvm.fshl.i64(i64 %xor15, i64 %xor15, i64 1)
   %xor386 = xor i64 %xor81, %or385
-  %xor393 = xor i64 %xor386, %26
+  %xor393 = xor i64 %xor386, %24
   store i64 %xor393, ptr %arrayidx87, align 8
-  %xor403 = xor i64 %xor386, %4
+  %xor403 = xor i64 %xor386, %3
   store i64 %xor403, ptr %arrayidx90, align 8
-  %xor413 = xor i64 %xor386, %3
+  %xor413 = xor i64 %xor386, %2
   store i64 %xor413, ptr %arrayidx93, align 8
-  %xor423 = xor i64 %xor386, %2
+  %xor423 = xor i64 %xor386, %1
   store i64 %xor423, ptr %arrayidx96, align 8
-  %xor433 = xor i64 %1, %xor386
+  %xor433 = xor i64 %0, %xor386
   store i64 %xor433, ptr %arrayidx99, align 8
   br label %for.body446
 
 for.body446:                                      ; preds = %for.body, %for.body446
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body446 ]
-  %current.0494 = phi i64 [ %xor189, %for.body ], [ %29, %for.body446 ]
+  %current.0494 = phi i64 [ %xor189, %for.body ], [ %27, %for.body446 ]
   %arrayidx448 = getelementptr [24 x i32], ptr @keccak_piln, i64 0, i64 %indvars.iv
-  %27 = load i32, ptr %arrayidx448, align 4
+  %25 = load i32, ptr %arrayidx448, align 4
   %arrayidx450 = getelementptr [24 x i32], ptr @keccak_rotc, i64 0, i64 %indvars.iv
-  %28 = load i32, ptr %arrayidx450, align 4
-  %idxprom451 = zext i32 %27 to i64
+  %26 = load i32, ptr %arrayidx450, align 4
+  %idxprom451 = zext i32 %25 to i64
   %arrayidx452 = getelementptr i64, ptr %s, i64 %idxprom451
-  %29 = load i64, ptr %arrayidx452, align 8
-  %sh_prom = zext nneg i32 %28 to i64
+  %27 = load i64, ptr %arrayidx452, align 8
+  %sh_prom = zext nneg i32 %26 to i64
   %shl453 = shl i64 %current.0494, %sh_prom
-  %sub = sub i32 64, %28
+  %sub = sub i32 64, %26
   %sh_prom454 = zext nneg i32 %sub to i64
   %shr455 = lshr i64 %current.0494, %sh_prom454
   %or456 = or i64 %shr455, %shl453
@@ -496,115 +498,124 @@ for.body446:                                      ; preds = %for.body, %for.body
   br i1 %exitcond.not, label %do.body459, label %for.body446, !llvm.loop !7
 
 do.body459:                                       ; preds = %for.body446
-  %30 = load i64, ptr %s, align 8
-  %31 = load <4 x i64>, ptr %arrayidx21, align 8
-  %32 = extractelement <4 x i64> %31, i64 0
-  %not = xor i64 %32, -1
-  %33 = extractelement <4 x i64> %31, i64 1
-  %and = and i64 %33, %not
-  %34 = shufflevector <4 x i64> %31, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
-  %35 = insertelement <4 x i64> %34, i64 %30, i64 3
-  %36 = xor <4 x i64> %35, <i64 -1, i64 -1, i64 -1, i64 -1>
-  %37 = shufflevector <4 x i64> %31, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 0>
-  %38 = insertelement <4 x i64> %37, i64 %30, i64 2
-  %39 = and <4 x i64> %38, %36
-  %40 = xor <4 x i64> %31, %39
-  store <4 x i64> %40, ptr %arrayidx21, align 8
-  %41 = load i64, ptr %arrayidx3, align 8
-  %not628 = xor i64 %41, -1
-  %42 = load <4 x i64>, ptr %arrayidx24, align 8
-  %43 = xor <4 x i64> %42, <i64 -1, i64 -1, i64 -1, i64 -1>
-  %44 = shufflevector <4 x i64> %42, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
-  %45 = insertelement <4 x i64> %44, i64 %41, i64 3
-  %46 = and <4 x i64> %45, %43
-  %47 = insertelement <4 x i64> poison, i64 %41, i64 0
-  %48 = shufflevector <4 x i64> %47, <4 x i64> %42, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %49 = xor <4 x i64> %46, %48
-  %50 = extractelement <4 x i64> %42, i64 0
-  %and633 = and i64 %50, %not628
-  %51 = extractelement <4 x i64> %42, i64 3
-  %xor634 = xor i64 %51, %and633
-  store <4 x i64> %49, ptr %arrayidx3, align 8
+  %28 = load i64, ptr %s, align 8
+  %29 = load <4 x i64>, ptr %arrayidx21, align 8
+  %30 = extractelement <4 x i64> %29, i64 0
+  %not = xor i64 %30, -1
+  %31 = extractelement <4 x i64> %29, i64 1
+  %and = and i64 %31, %not
+  %32 = shufflevector <4 x i64> %29, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
+  %33 = insertelement <4 x i64> %32, i64 %28, i64 3
+  %34 = xor <4 x i64> %33, <i64 -1, i64 -1, i64 -1, i64 -1>
+  %35 = shufflevector <4 x i64> %29, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 0>
+  %36 = insertelement <4 x i64> %35, i64 %28, i64 2
+  %37 = and <4 x i64> %36, %34
+  %38 = xor <4 x i64> %29, %37
+  store <4 x i64> %38, ptr %arrayidx21, align 8
+  %39 = load i64, ptr %arrayidx3, align 8
+  %40 = load i64, ptr %arrayidx24, align 8
+  %not564 = xor i64 %40, -1
+  %41 = load i64, ptr %arrayidx46, align 8
+  %and569 = and i64 %41, %not564
+  %xor570 = xor i64 %and569, %39
+  %not580 = xor i64 %41, -1
+  %42 = load i64, ptr %arrayidx68, align 8
+  %and585 = and i64 %42, %not580
+  %xor586 = xor i64 %and585, %40
+  %not596 = xor i64 %42, -1
+  %43 = load i64, ptr %arrayidx90, align 8
+  %and601 = and i64 %43, %not596
+  %xor602 = xor i64 %and601, %41
+  %not612 = xor i64 %43, -1
+  %and617 = and i64 %39, %not612
+  %xor618 = xor i64 %and617, %42
+  %not628 = xor i64 %39, -1
+  %and633 = and i64 %40, %not628
+  %xor634 = xor i64 %43, %and633
+  store i64 %xor570, ptr %arrayidx3, align 8
+  store i64 %xor586, ptr %arrayidx24, align 8
+  store i64 %xor602, ptr %arrayidx46, align 8
+  store i64 %xor618, ptr %arrayidx68, align 8
   store i64 %xor634, ptr %arrayidx90, align 8
-  %52 = load i64, ptr %arrayidx6, align 8
-  %53 = load i64, ptr %arrayidx27, align 8
-  %not665 = xor i64 %53, -1
-  %54 = load i64, ptr %arrayidx49, align 8
-  %and670 = and i64 %54, %not665
-  %xor671 = xor i64 %and670, %52
-  %not681 = xor i64 %54, -1
-  %55 = load i64, ptr %arrayidx71, align 8
-  %and686 = and i64 %55, %not681
-  %xor687 = xor i64 %and686, %53
-  %not697 = xor i64 %55, -1
-  %56 = load i64, ptr %arrayidx93, align 8
-  %and702 = and i64 %56, %not697
-  %xor703 = xor i64 %and702, %54
-  %not713 = xor i64 %56, -1
-  %and718 = and i64 %52, %not713
-  %xor719 = xor i64 %and718, %55
-  %not729 = xor i64 %52, -1
-  %and734 = and i64 %53, %not729
-  %xor735 = xor i64 %56, %and734
+  %44 = load i64, ptr %arrayidx6, align 8
+  %45 = load i64, ptr %arrayidx27, align 8
+  %not665 = xor i64 %45, -1
+  %46 = load i64, ptr %arrayidx49, align 8
+  %and670 = and i64 %46, %not665
+  %xor671 = xor i64 %and670, %44
+  %not681 = xor i64 %46, -1
+  %47 = load i64, ptr %arrayidx71, align 8
+  %and686 = and i64 %47, %not681
+  %xor687 = xor i64 %and686, %45
+  %not697 = xor i64 %47, -1
+  %48 = load i64, ptr %arrayidx93, align 8
+  %and702 = and i64 %48, %not697
+  %xor703 = xor i64 %and702, %46
+  %not713 = xor i64 %48, -1
+  %and718 = and i64 %44, %not713
+  %xor719 = xor i64 %and718, %47
+  %not729 = xor i64 %44, -1
+  %and734 = and i64 %45, %not729
+  %xor735 = xor i64 %48, %and734
   store i64 %xor671, ptr %arrayidx6, align 8
   store i64 %xor687, ptr %arrayidx27, align 8
   store i64 %xor703, ptr %arrayidx49, align 8
   store i64 %xor719, ptr %arrayidx71, align 8
   store i64 %xor735, ptr %arrayidx93, align 8
-  %57 = load i64, ptr %arrayidx9, align 8
-  %58 = load i64, ptr %arrayidx30, align 8
-  %not766 = xor i64 %58, -1
-  %59 = load i64, ptr %arrayidx52, align 8
-  %and771 = and i64 %59, %not766
-  %xor772 = xor i64 %and771, %57
-  %not782 = xor i64 %59, -1
-  %60 = load i64, ptr %arrayidx74, align 8
-  %and787 = and i64 %60, %not782
-  %xor788 = xor i64 %and787, %58
-  %not798 = xor i64 %60, -1
-  %61 = load i64, ptr %arrayidx96, align 8
-  %and803 = and i64 %61, %not798
-  %xor804 = xor i64 %and803, %59
-  %not814 = xor i64 %61, -1
-  %and819 = and i64 %57, %not814
-  %xor820 = xor i64 %and819, %60
-  %not830 = xor i64 %57, -1
-  %and835 = and i64 %58, %not830
-  %xor836 = xor i64 %61, %and835
+  %49 = load i64, ptr %arrayidx9, align 8
+  %50 = load i64, ptr %arrayidx30, align 8
+  %not766 = xor i64 %50, -1
+  %51 = load i64, ptr %arrayidx52, align 8
+  %and771 = and i64 %51, %not766
+  %xor772 = xor i64 %and771, %49
+  %not782 = xor i64 %51, -1
+  %52 = load i64, ptr %arrayidx74, align 8
+  %and787 = and i64 %52, %not782
+  %xor788 = xor i64 %and787, %50
+  %not798 = xor i64 %52, -1
+  %53 = load i64, ptr %arrayidx96, align 8
+  %and803 = and i64 %53, %not798
+  %xor804 = xor i64 %and803, %51
+  %not814 = xor i64 %53, -1
+  %and819 = and i64 %49, %not814
+  %xor820 = xor i64 %and819, %52
+  %not830 = xor i64 %49, -1
+  %and835 = and i64 %50, %not830
+  %xor836 = xor i64 %53, %and835
   store i64 %xor772, ptr %arrayidx9, align 8
   store i64 %xor788, ptr %arrayidx30, align 8
   store i64 %xor804, ptr %arrayidx52, align 8
   store i64 %xor820, ptr %arrayidx74, align 8
   store i64 %xor836, ptr %arrayidx96, align 8
-  %62 = load i64, ptr %arrayidx12, align 8
-  %63 = load i64, ptr %arrayidx33, align 8
-  %not867 = xor i64 %63, -1
-  %64 = load i64, ptr %arrayidx55, align 8
-  %and872 = and i64 %64, %not867
-  %xor873 = xor i64 %and872, %62
-  %not883 = xor i64 %64, -1
-  %65 = load i64, ptr %arrayidx77, align 8
-  %and888 = and i64 %65, %not883
-  %xor889 = xor i64 %and888, %63
-  %not899 = xor i64 %65, -1
-  %66 = load i64, ptr %arrayidx99, align 8
-  %and904 = and i64 %66, %not899
-  %xor905 = xor i64 %and904, %64
-  %not915 = xor i64 %66, -1
-  %and920 = and i64 %62, %not915
-  %xor921 = xor i64 %and920, %65
-  %not931 = xor i64 %62, -1
-  %and936 = and i64 %63, %not931
-  %xor937 = xor i64 %66, %and936
+  %54 = load i64, ptr %arrayidx12, align 8
+  %55 = load i64, ptr %arrayidx33, align 8
+  %not867 = xor i64 %55, -1
+  %56 = load i64, ptr %arrayidx55, align 8
+  %and872 = and i64 %56, %not867
+  %xor873 = xor i64 %and872, %54
+  %not883 = xor i64 %56, -1
+  %57 = load i64, ptr %arrayidx77, align 8
+  %and888 = and i64 %57, %not883
+  %xor889 = xor i64 %and888, %55
+  %not899 = xor i64 %57, -1
+  %58 = load i64, ptr %arrayidx99, align 8
+  %and904 = and i64 %58, %not899
+  %xor905 = xor i64 %and904, %56
+  %not915 = xor i64 %58, -1
+  %and920 = and i64 %54, %not915
+  %xor921 = xor i64 %and920, %57
+  %not931 = xor i64 %54, -1
+  %and936 = and i64 %55, %not931
+  %xor937 = xor i64 %58, %and936
   store i64 %xor873, ptr %arrayidx12, align 8
   store i64 %xor889, ptr %arrayidx33, align 8
   store i64 %xor905, ptr %arrayidx55, align 8
   store i64 %xor921, ptr %arrayidx77, align 8
   store i64 %xor937, ptr %arrayidx99, align 8
   %arrayidx961 = getelementptr [24 x i64], ptr @keccak_rndc, i64 0, i64 %indvars.iv497
-  %67 = load i64, ptr %arrayidx961, align 8
-  %68 = xor i64 %and, %67
-  %xor963 = xor i64 %68, %30
+  %59 = load i64, ptr %arrayidx961, align 8
+  %60 = xor i64 %and, %59
+  %xor963 = xor i64 %60, %28
   store i64 %xor963, ptr %s, align 8
   %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 1
   %exitcond500.not = icmp eq i64 %indvars.iv.next498, 24
